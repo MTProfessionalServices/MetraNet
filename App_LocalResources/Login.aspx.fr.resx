@@ -121,13 +121,13 @@
         <value>Détails</value>
     </data>
     <data name="lblMessageResource1.Text" xml:space="preserve">
-        <value>Votre mot de passe expiré</value>
+    <value>Votre mot de passe a expiré</value>
     </data>
     <data name="lblPleaseChangeResource1.Text" xml:space="preserve">
         <value>Modifiez votre mot de passe</value>
     </data>
     <data name="Login1Resource1.FailureText" xml:space="preserve">
-        <value>Votre tentative d’ouverture de session a échoué. Réessayez.</value>
+    <value>Votre tentative de connexion a échoué. Faites une nouvelle tentative.</value>
     </data>
     <data name="Login1Resource1.LoginButtonText" xml:space="preserve">
         <value>Ouvrir une session</value>
@@ -148,19 +148,19 @@
         <value>Le nom d’utilisateur est obligatoire.</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet | Connexion</value>
+    <value>MetraNet | Ouvrir une session</value>
     </data>
     <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
         <value>Confirmer le mot de passe</value>
     </data>
     <data name="tbConfirmPasswordResource1.LabelWidth" xml:space="preserve">
-        <value>140</value>
+    <value>120</value>
     </data>
     <data name="tbNewPasswordResource1.Label" xml:space="preserve">
         <value>Nouveau mot de passe</value>
     </data>
     <data name="tbNewPasswordResource1.LabelWidth" xml:space="preserve">
-        <value>140</value>
+    <value>120</value>
     </data>
     <data name="tbNewPasswordResource1.XType" xml:space="preserve">
         <value>CompteurMotDePasse</value>
@@ -169,13 +169,13 @@
         <value>Ancien mot de passe</value>
     </data>
     <data name="tbOldPasswordResource1.LabelWidth" xml:space="preserve">
-        <value>140</value>
+    <value>120</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
         <value>Nom d’utilisateur</value>
     </data>
     <data name="tbUserNameResource1.LabelWidth" xml:space="preserve">
-        <value>140</value>
+    <value>120</value>
     </data>
     <data name="NEW_PASSWORD_TEXT" xml:space="preserve">
         <value>{fr} New Password</value>

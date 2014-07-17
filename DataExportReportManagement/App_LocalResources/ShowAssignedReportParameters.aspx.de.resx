@@ -120,11 +120,20 @@
   <data name="lblShowAssignedReportParametersTitleResource1.Text" xml:space="preserve">
     <value>Zugewiesene Berichtsparameter</value>
   </data>
+  <data name="lblShowAssignedReportParametersTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Zugewiesene Berichtsparameter</value>
   </data>
   <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
     <value>Beschreibung</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
     <value>Parameter-ID</value>

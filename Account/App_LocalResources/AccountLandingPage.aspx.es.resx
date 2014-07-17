@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,73 +118,73 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNT_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[es] Amount</value>
+    <value>[ES]Amount</value>
   </data>
   <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[es] Date</value>
+    <value>[ES]Date</value>
   </data>
   <data name="IDENTIFIER_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[es] Identifier</value>
+    <value>[ES]Identifier</value>
   </data>
   <data name="lblAccount360Title.Text" xml:space="preserve">
-    <value>[es] Account 360</value>
+    <value>[ES]Account 360</value>
   </data>
   <data name="TYPE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[es] Type</value>
+    <value>[ES]Type</value>
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
-    <value>[es] Billing Activity</value>
+    <value>[ES]Billing Activity</value>
   </data>  
   <data name="billingSummaryPanel.Text" xml:space="preserve">
-    <value>[es] Invoices and Payments</value>
+    <value>[ES]Invoices and Payments</value>
   </data>     
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
-    <value>[es] This account does not currently have any invoices or payments.</value>
+    <value>[ES]This account does not currently have any invoices or payments.</value>
   </data>
   <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
-    <value>[es] This account currently does not have any subscriptions.</value>
+    <value>[ES]This account currently does not have any subscriptions.</value>
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
-    <value>[es] Subscriptions</value>
+    <value>[ES]Subscriptions</value>
   </data>   
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
-    <value>[es] End</value>
+    <value>[ES]End</value>
   </data>
   <data name="SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT" xml:space="preserve">
-    <value>[es] Subscription</value>
+    <value>[ES]Subscription</value>
   </data>
   <data name="SUBSCRIPTION_START_HEADER_TEXT" xml:space="preserve">
-    <value>[es] Start</value>
+    <value>[ES]Start</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value />
+    <value>[ES]</value>
   </data>  
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
-    <value>[es] Add Subscription</value>
+    <value>[ES]Add Subscription</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>[es] Create a new subscription to a Product Offering</value>
+    <value>[ES]Create a new subscription to a Product Offering</value>
   </data>    
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
-    <value>[es] Join Group Subscription</value>
+    <value>[ES]Join Group Subscription</value>
   </data>  
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>[es] Add this account as a member of an existing Group Subscription</value>
+    <value>[ES]Add this account as a member of an existing Group Subscription</value>
   </data>      
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>[es] Subscription</value>
+    <value>[ES]Subscription</value>
   </data>      
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>[es] Group Subscription</value>
+    <value>[ES]Group Subscription</value>
   </data>          
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
-    <value>[es] Invoice</value>
+    <value>[ES]Invoice</value>
   </data>      
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
-    <value>[es] Payment</value>
+    <value>[ES]Payment</value>
   </data>            
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>[es] No Transactions Found for the Current Interval</value>
+    <value>[ES]No Transactions Found for the Current Interval</value>
   </data>   
   <data name="lblNowCast.Text" xml:space="preserve">
     <value>[ES] NowCast</value>

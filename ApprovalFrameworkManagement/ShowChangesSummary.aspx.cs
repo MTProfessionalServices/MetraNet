@@ -39,18 +39,18 @@ public partial class ApprovalFrameworkManagement_ShowChangesSummary : MTPage
       strShowChangeState = Request.QueryString["showchangestate"];
       Session["strChangeState"] = strShowChangeState;
 
-      lblShowChangesSummaryTitle.Text = "All Changes";
+      lblShowChangesSummaryTitle.Text = Convert.ToString(GetLocalResourceObject("TEXT_APPROVAL_ALL_CHANGES"));
       ChangesSummary.Title = "All Changes Summary";
 
       if (strShowChangeState == "PENDING")
       {
-        lblShowChangesSummaryTitle.Text = "Pending Changes";
+        lblShowChangesSummaryTitle.Text = Convert.ToString(GetLocalResourceObject("TEXT_APPROVAL_PENDING_CHANGES"));
         ChangesSummary.Title = "Pending Changes Summary";
       }
 
       if (strShowChangeState == "FAILED")
       {
-        lblShowChangesSummaryTitle.Text = "Failed Changes";
+        lblShowChangesSummaryTitle.Text = Convert.ToString(GetLocalResourceObject("TEXT_APPROVAL_FAILED_CHANGES"));
         ChangesSummary.Title = "Failed Changes Summary";
       }
     }

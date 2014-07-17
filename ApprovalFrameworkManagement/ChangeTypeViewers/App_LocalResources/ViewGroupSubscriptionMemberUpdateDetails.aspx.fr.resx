@@ -127,10 +127,10 @@
     <value>Date de fin</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUBID" xml:space="preserve">
-    <value>ID de l'abonnement groupé</value>
+    <value>ID d'abonnement groupé</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_MEMBERID" xml:space="preserve">
-    <value>ID du membre</value>
+    <value>ID de membre</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_PROPERTYNAME" xml:space="preserve">
     <value>Nom de la propriété</value>
@@ -145,9 +145,9 @@
     <value>Ancienne date de fin</value>
   </data>
   <data name="TEXT_APPROVAL_GROUP_SUBSCRIPTION_CHANGE_DETAILS" xml:space="preserve">
-    <value>Membres de l'abonnement groupé mis à jour</value>
+    <value>Membres de l’abonnement groupé</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
-    <value>[FR] Member Name</value>
-  </data>   
+    <value>[FR]Member Name</value>
+  </data>
 </root>

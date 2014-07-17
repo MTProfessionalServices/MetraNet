@@ -126,9 +126,6 @@
     <data name="lblPleaseChangeResource1.Text" xml:space="preserve">
         <value>Please change your password</value>
     </data>
-    <data name="lblSelectLanguageText" xml:space="preserve">
-        <value>Select Language:</value>
-    </data>
     <data name="Login1Resource1.FailureText" xml:space="preserve">
         <value>Your login attempt was not successful. Please try again.</value>
     </data>

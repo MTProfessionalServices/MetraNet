@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -120,6 +120,9 @@
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>口座の内訳</value>
   </data>
+  <data name="TEXT_ACCOUNT_QUOTING_LIST" xml:space="preserve">
+    <value>[JA]Quotes</value>
+  </data>
   <data name="TEXT_ACCOUNT_STATE" xml:space="preserve">
     <value>お客様の登録状況</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
     <value>アカウントと Web サービスの追加</value>
   </data>
+  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+    <value>[JA]Add child Account</value>
+  </data>
   <data name="TEXT_ADD_CSR" xml:space="preserve">
     <value>CSR の追加</value>
   </data>
@@ -146,6 +152,9 @@
   </data>
   <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
     <value>新しい報告書パラメータの追加</value>
+  </data>
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>[JA]Add Partition</value>
   </data>
   <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
     <value>調整取引</value>
@@ -159,6 +168,12 @@
   <data name="TEXT_ADVANCED_OPTIONS" xml:space="preserve">
     <value>詳細オプション</value>
   </data>
+  <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
+    <value>[JA]Agreement Templates</value>
+  </data>
+  <data name="TEXT_AGREEMENTS" xml:space="preserve">
+    <value>[JA]Agreements</value>
+  </data>
   <data name="TEXT_ALL_FILES" xml:space="preserve">
     <value>すべてのジョブ</value>
   </data>
@@ -166,10 +181,16 @@
     <value>すべての期間</value>
   </data>
   <data name="TEXT_ANALYTICS" xml:space="preserve">
-    <value>[ja]Analytics</value>
+    <value>[JA]Analytics</value>
   </data>
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>アプリケーション監査ログ</value>
+  </data>
+  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
+    <value>[JA]Approvals</value>
+  </data>
+  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+    <value>[JA]Assign Bill Messages</value>
   </data>
   <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
     <value>報告書パラメータの割り当て</value>
@@ -258,6 +279,9 @@
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>新しい報告書インスタンスの追加</value>
   </data>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>[JA]Create Quote</value>
+  </data>
   <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
     <value>送金の作成</value>
   </data>
@@ -334,16 +358,31 @@
     <value>すべてのエンティティの一覧表示</value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-    <value>[JA]</value>
+    <value>[JA]Machine Roles</value>
   </data>
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>支払い</value>
+  </data>
+  <data name="TEXT_MANAGE" xml:space="preserve">
+    <value>[JA]Manage</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNTS" xml:space="preserve">
     <value>アカウントの管理</value>
   </data>
   <data name="TEXT_MANAGE_ADJUSTMENTS" xml:space="preserve">
     <value>調整の管理</value>
+  </data>
+  <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
+    <value>[JA]Manage Agreement Templates</value>
+  </data>
+  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
+    <value>[JA]Decision Types</value>
+  </data>
+  <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
+    <value>[JA]Manage BillSoft Exemptions</value>
+  </data>
+  <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
+    <value>[JA]Manage BillSoft Overrides</value>
   </data>
   <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
     <value>カレンダーの管理</value>
@@ -441,6 +480,9 @@
   <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
     <value>支払方法</value>
   </data>
+  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
+    <value>[JA]Payment Transactions</value>
+  </data>
   <data name="TEXT_PAYMENTS" xml:space="preserve">
     <value>支払状況</value>
   </data>
@@ -458,6 +500,15 @@
   </data>
   <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
     <value>アドホック報告書をキューに入れる</value>
+  </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>[JA]Manage Quotes</value>
+  </data>
+  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <value>[JA]View All Quotes</value>
+  </data>
+  <data name="TEXT_REFRESH" xml:space="preserve">
+    <value>[JA]Refresh</value>
   </data>
   <data name="TEXT_REJECTED_FILES" xml:space="preserve">
     <value>拒否されたファイル</value>
@@ -495,14 +546,23 @@
   <data name="TEXT_SECURITY" xml:space="preserve">
     <value>セキュリティ</value>
   </data>
+  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
+    <value>[JA]Self Care Portal</value>
+  </data>
   <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
     <value>電子メールの送信</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>[JA]Shared Properties</value>
   </data>
   <data name="TEXT_SHARED_RATES" xml:space="preserve">
     <value>共通料金</value>
   </data>
   <data name="TEXT_SHOW_A_REPORT_INSTANCE_DETAILS" xml:space="preserve">
     <value>報告書インスタンスの詳細の表示</value>
+  </data>
+  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
+    <value>[JA]View All Changes</value>
   </data>
   <data name="TEXT_SHOW_ALL_REPORT_PARAMETERS" xml:space="preserve">
     <value>すべての報告書パラメータの表示</value>
@@ -512,6 +572,15 @@
   </data>
   <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
     <value>データ エクスポート キュー</value>
+  </data>
+  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
+    <value>[JA]View Failed Changes</value>
+  </data>
+  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
+    <value>[JA]View Item History</value>
+  </data>
+  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
+    <value>[JA]View Pending Changes</value>
   </data>
   <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
     <value>ログ エントリの追加</value>
@@ -558,9 +627,6 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>既存の報告書定義の更新</value>
   </data>
-  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{JA}Usage Calculation Decision Details</value>
-  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>利用サーバーのメンテナンス</value>
   </data>
@@ -579,61 +645,37 @@
   <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
     <value>オンライン請求書の表示</value>
   </data>
-  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>[JA]Approvals</value>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>[JA]Usage Calculation Decision Details</value>
   </data>
-  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>View Item History</value>
+  <data name="TEXT_ADD_TENANT" xml:space="preserve">
+    <value>[JA]Add Partition</value>
   </data>
-  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Failed Changes</value>
-  </data>
-  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>[JA]</value>
-  </data>
-  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>[JA]</value>
-  </data>
-  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-    <value>[ja]Add child Account</value>
-  </data>
-  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[ja]Bill Messages</value>
-  </data>
-  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>[ja]Finance Dashboard</value>
-  </data>
-  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>[ja]Manage Bill Messages</value>
-  </data>
-  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>[ja]Operations Dashboard</value>
-  </data>
-  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>[ja]Product Dashboard</value>
-  </data>
-   <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[ja] Reports</value>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>[JA]Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
     <value>[JA]Usage Processing</value>
-  </data> 
-  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>[JA]Add Partition</value>
-  </data>
-  <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>[JA]Manage Quotes</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
     <value>[JA]Account</value>
   </data>
-  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>{JA}Create Quote</value>
-  </data>    
-  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>{JA}View All Quotes</value>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[JA]Bill Messages</value>
   </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>{JA}Shared Properties</value>
-  </data>   
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>[JA]Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>[JA]Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>[JA]Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>[JA]Product Dashboard</value>
+  </data>
+  <data name="TEXT_SEARCH" xml:space="preserve">
+    <value>[JA]Search</value>
+  </data>
 </root>

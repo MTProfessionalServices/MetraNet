@@ -19,9 +19,7 @@ public partial class Help : System.Web.UI.Page
   public string URL = @"https://doc.metratech.com/MetraNet/MetraNet_8.0/Application_Help/MetraCare";
   protected void Page_Load(object sender, EventArgs e)
   {
-    var pageName = Request["PageName"];
-    if (string.IsNullOrEmpty(pageName)) pageName = "VersionInfo.asp";
-    
+    var pageName = Request["PageName"];    
     var lang = Thread.CurrentThread.CurrentCulture.ToString();
     var redirectUrl = MindTouchSso.GetRedirectUrl(MindTouchSso.DefaultUser, lang, pageName);
     Logger.LogDebug("redirect URL for page {0} is {1}", pageName, redirectUrl);

@@ -97,7 +97,8 @@ public class MTController : Controller
     {
       if (Request.ServerVariables["SCRIPT_NAME"].Contains("AjaxServices")) return;
 
-      HelpPage = String.Format("/MetraNet/Help.aspx?PageName={0}", Path.GetFileName(Request.ServerVariables["SCRIPT_NAME"]));
+      // Setup help URL - currently it should have empty page name
+      HelpPage = "/MetraNet/Help.aspx?PageName="; //String.Format("/MetraNet/Help.aspx?PageName={0}", Path.GetFileName(Request.ServerVariables["SCRIPT_NAME"]));
       Logger.LogDebug(string.Format("HelpPage: {0}", HelpPage));
     }
     catch (Exception exp)

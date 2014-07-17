@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LblAccountNameResource.Label" xml:space="preserve">
-    <value>[FR] Account</value>
+    <value>Compte</value>
   </data>
   <data name="LblPoNameResource.Label" xml:space="preserve">
-    <value>[FR] Product Offering</value>
+    <value>Offre produit</value>
   </data>
   <data name="SubChangeBasicEndDateResource.Label" xml:space="preserve">
-    <value>[FR] End Date</value>
+    <value>Date de fin</value>
   </data>
   <data name="SubChangeBasicNextEndResource.Label" xml:space="preserve">
-    <value>[FR] Next end of payer's billing period after this date</value>
+    <value>Prochaine fin de période de facturation du payeur après cette date</value>
   </data>
   <data name="SubChangeBasicNextStartResource.Label" xml:space="preserve">
-    <value>[FR] Next start of payer's billing period after this date</value>
+    <value>Prochain début de période de facturation du payeur après cette date</value>
   </data>
   <data name="SubChangeBasicStartDateResource.Label" xml:space="preserve">
-    <value>[FR] Start Date</value>
+    <value>Date de début</value>
   </data>
   <data name="SUB_PROPS_SECTION_NAME" xml:space="preserve">
-    <value>[FR] Subscription Properties</value>
+    <value>Propriétés de l’abonnement</value>
   </data>
   <data name="UDRC_SECTION_NAME" xml:space="preserve">
-    <value>[FR] Product Offering Recurring Charge Metrics</value>
+    <value>Mesure des frais récurrents d'offre produit</value>
   </data>
   <data name="UDRC_NAME" xml:space="preserve">
-    <value>[FR] Metric Name</value>
+    <value>Nom de la mesure</value>
   </data>
   <data name="NO_END_DATE" xml:space="preserve">
-    <value>[FR] No End Date</value>
+    <value>Absence de date de fin</value>
   </data>
   <data name="NOT_SET" xml:space="preserve">
-    <value>[FR] not set</value>
+    <value>non défini</value>
   </data>
   <data name="SET" xml:space="preserve">
-    <value>[FR] set</value>
+    <value>défini</value>
   </data>
 </root>

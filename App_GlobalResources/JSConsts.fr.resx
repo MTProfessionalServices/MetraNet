@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>d/m/Y</value>
+    <value>j/m/A</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y</value>
+    <value>n/j/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y G:i:s|j/n/Y</value>
+    <value>n/j/Y g:i:s A|n/j/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
     <value>n/j/Y g:i:s A</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>n/j/Y g:i:s A</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
-    <value>,</value>
+    <value>.</value>
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Copier</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>dd/mm/YYYY</value>
+    <value>jj/mm/AAAA</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Échec</value>
@@ -175,7 +175,7 @@
     <value>Succès</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[FR]Account</value>
+    <value>Account</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Détails</value>
@@ -217,16 +217,16 @@
     <value>Ajouter une valeur</value>
   </data>
   <data name="TEXT_ADDING_UDRC" xml:space="preserve">
-    <value>Ajout d’une valeur UDRC…</value>
+    <value>Ajout d’une valeur UDRC...</value>
   </data>
   <data name="TEXT_ADJ_APPROVE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible approuvera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors approuvés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape irréversible approuvera tous les ajustements correspondant à vos critères de filtrage. En l'absence de filtres, tous les ajustements du système seront approuvés.</value>
   </data>
   <data name="TEXT_ADJ_DELETE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible supprimera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors supprimés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape irréversible supprimera tous les ajustements correspondant à vos critères de filtrage. En l'absence de filtres, tous les ajustements du système seront supprimés.</value>
   </data>
   <data name="TEXT_ADJ_DENIED" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible refusera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors refusés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape irréversible refusera tous les ajustements correspondant à vos critères de filtrage. En l'absence de filtres, tous les ajustements du système seront refusés.</value>
   </data>
   <data name="TEXT_ADVANCED_FIND" xml:space="preserve">
     <value>Recherche avancée</value>
@@ -262,19 +262,19 @@
     <value>Renvoyez cette modification approuvée pour tenter à nouveau de l’appliquer au système.</value>
   </data>
   <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
-    <value>Commentaire :</value>
+    <value>Commentaire:</value>
   </data>
   <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
     <value>Erreur de mise à jour de l’ID de modification</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
-    <value>Cette modification a été appliquée au système. Aucune action supplémentaire n’est requise.</value>
+    <value>Ce changement a été appliqué au système. Aucune autre action n'est à exécuter.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
     <value>Cette modification a été approuvée. Elle est en attente d’application au système.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
-    <value>Cette modification a été ignorée. Aucune action supplémentaire n’est possible.</value>
+    <value>Ce changement a été annulé. Aucune autre action ne peut être exécutée.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
     <value>Cette modification a été approuvée mais son application au système a échoué.</value>
@@ -349,22 +349,22 @@
     <value>Colonne</value>
   </data>
   <data name="TEXT_COLUMN_CONFIG_PROMPT" xml:space="preserve">
-    <value>Sélectionnez toutes les colonnes visibles. Réorganisez les données par glisser-déposer.</value>
+    <value>Sélectionnez toutes les colonnes visibles. Utilisez l'opération de glisser-déposer pour effectuer une réorganisation</value>
   </data>
   <data name="TEXT_CONFIGURE_COLUMNS" xml:space="preserve">
     <value>Configurer les colonnes</value>
   </data>
   <data name="TEXT_CONFIGURE_FILTERS" xml:space="preserve">
-    <value>Configure des filtres</value>
+    <value>Configurer des filtres</value>
   </data>
   <data name="TEXT_CONFIRM_APPROVE_NS_CONTINUE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible approuvera tous les frais non standard correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les frais non standard dans le système seront alors approuvés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape est irréversible. Si vous continuez, tous les frais non standard correspondant à vos critères de filtrage seront approuvés. En l'absence de filtres, tous les frais non standard du système seront approuvés.</value>
   </data>
   <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir continuer ?</value>
   </data>
   <data name="TEXT_CONFIRM_DENY_NS_CONTINUE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible refusera tous les frais non standard correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les frais non standard dans le système seront alors refusés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape est irréversible. Si vous continuez, tous les frais non standard correspondant à vos critères de filtrage seront refusés. En l'absence de filtres, tous les frais non standard du système seront refusés.</value>
   </data>
   <data name="TEXT_CORP_COMPANY_NAME" xml:space="preserve">
     <value>Nom de l’entreprise</value>
@@ -397,28 +397,28 @@
     <value>Supprimer</value>
   </data>
   <data name="TEXT_BILL_MESSAGE" xml:space="preserve">
-    <value>[FR]Bill Message {0} has {1} accounts associated with it.</value>
+    <value>Le message relatif à la facture {0} possède {1} compte associé.</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[FR]Bulk Update</value>
+    <value>Mise à jour en vrac</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir supprimer cette note du compte ?</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer {0}?</value>
+    <value>Êtes-vous sûr de vouloir supprimer {0} ?</value>
   </data>
   <data name="TEXT_DELETE_SEARCH_CONFIRM" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer cette recherche enregistrée ?</value>
+    <value>Êtes-vous sûr de vouloir supprimer cette recherche enregistrée ?</value>
   </data>
   <data name="TEXT_DELETE_SELECTED_ROWS" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir supprimer les lignes sélectionnées ?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_MESSAGE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer le modèle {0}?</value>
+    <value>Êtes-vous sûr de vouloir supprimer le modèle {0} ?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
-    <value>’Êtes-vous sûr de vouloir supprimer {0} du modèle ?</value>
+    <value>’Êtes-vous sûr de vouloir supprimer {0} de ce modèle ?</value>
   </data>
   <data name="TEXT_DELETED" xml:space="preserve">
     <value>Supprimé</value>
@@ -508,7 +508,7 @@
     <value>Rédigez la note.</value>
   </data>
   <data name="TEXT_ERROR_INVALID_VALUE" xml:space="preserve">
-    <value>Valeur incorrecte !</value>
+    <value>Valeur incorrecte !</value>
   </data>
   <data name="TEXT_ERROR_LOADING_ACCOUNT" xml:space="preserve">
     <value>Erreur lors du chargement des données du compte.</value>
@@ -532,7 +532,7 @@
     <value>Impossible d’enregistrer la recherche.</value>
   </data>
   <data name="TEXT_ERROR_SELECT" xml:space="preserve">
-    <value>Effectuez une sélection</value>
+    <value>Effectuez une sélection.</value>
   </data>
   <data name="TEXT_ERROR_UNKNOWN" xml:space="preserve">
     <value>Un problème est survenu lors de l’exécution </value>
@@ -541,55 +541,55 @@
     <value>Exporter</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>[FR]Export All Filtered Records</value>
+    <value>Exporter tous les enregistrements filtrés</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>[FR]Bulk Update All Filtered Records</value>
+    <value>Effectuer une mise à jour en vrac de tous les enregistrements filtrés</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>[FR]Export Selected Records</value>
+    <value>Exporter les enregistrements sélectionnés</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>[FR]Bulk Update Selected Records</value>
+    <value>Effectuer une mise à jour en vrac des enregistrements sélectionnés</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Exporter la page active seulement</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>[FR]Bulk Update Current Page Only</value>
+    <value>Effectuer une mise à jour en vrac de la page en cours uniquement</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Exporter les résultats de la recherche</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>[FR]Bulk Update Search Results</value>
+    <value>Résultats de la recherche de mise à jour en vrac</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>[FR]Nothing will be updated</value>
+    <value>Rien ne sera mis à jour</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>[FR]There are no selected BMEs for bulk update</value>
+    <value>Il n'y a aucun BME sélectionné pour effectuer une mise à jour en vrac</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>[FR]Too many records to update</value>
+    <value>Trop grand nombre d'enregistrements à mettre à jour</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>[FR]You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>Vous allez mettre à jour les éléments NUMBER_TO_UPDATE. Sélectionnez un nombre moins important d'éléments pour respecter la limitation (fixée à {0} éléments)</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>[FR]There are no properties for bulk update</value>
+    <value>Il n'y a pas de propriétés pour la mise à jour en vrac</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>[FR]Attention. Your changes will be permanent</value>
+    <value>Attention ! Vos modifications seront permanentes</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>[FR]Are you sure that you want to make these changes?</value>
+    <value>Voulez-vous vraiment appliquer ces modifications ?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>[FR]No properties are going to be updated</value>
+    <value>Aucune propriété ne sera mise à jour</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>[FR]Properties that are going to be updated</value>
+    <value>Propriétés qui seront mises à jour</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Informations externes</value>
@@ -598,13 +598,13 @@
     <value>Échec du chargement de la page.</value>
   </data>
   <data name="TEXT_FILTER_CONFIG_PROMPT" xml:space="preserve">
-    <value>Sélectionnez tous les filtres visibles. Réorganisez les données par glisser-déposer.</value>
+    <value>Sélectionnez tous les filtres visibles. Utilisez l'opération de glisser-déposer pour effectuer une réorganisation</value>
   </data>
   <data name="TEXT_FIND_ACCOUNT" xml:space="preserve">
     <value>Rechercher le compte</value>
   </data>
   <data name="TEXT_FIND_AN_ACCOUNT" xml:space="preserve">
-    <value>Rechercher un compte…</value>
+    <value>Rechercher un compte...</value>
   </data>
   <data name="TEXT_FUTURE" xml:space="preserve">
     <value>Futur</value>
@@ -631,7 +631,7 @@
     <value>Mettre en surbrillance</value>
   </data>
   <data name="TEXT_HISTORY_TOOLTIP" xml:space="preserve">
-    <value>Nombre de comptes :  {0} &amp;lt;br/&amp;gt;Nombre de comptes terminés : {1} &amp;lt;br/&amp;gt;Nombre d’erreurs de compte : {2} &amp;lt;br/&amp;gt;Nombre d’abonnements : {3} &amp;lt;br/&amp;gt;Nombre d’abonnements terminés :  {4}&amp;lt;br/&amp;gt; Nombre d’erreurs d’abonnement : {5}</value>
+    <value>Nombre de comptes :  {0} &lt;br/&gt;Nombre de comptes terminés : {1} &lt;br/&gt;Nombre d'erreurs de compte : {2} &lt;br/&gt;Nombre d'abonnements : {3} &lt;br/&gt;Nombre d'abonnements terminés :  {4}&lt;br/&gt; Nombre d'erreurs d'abonnement : {5}</value>
   </data>
   <data name="TEXT_INFO" xml:space="preserve">
     <value>Infos</value>
@@ -664,22 +664,22 @@
     <value>Charger la recherche enregistrée</value>
   </data>
   <data name="TEXT_LOADING" xml:space="preserve">
-    <value>Chargement en cours…</value>
+    <value>Chargement en cours...</value>
   </data>
   <data name="TEXT_LOGOUT" xml:space="preserve">
     <value>Déconnexion</value>
   </data>
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir vous déconnecter ?</value>
+    <value>Êtes-vous sûr de vouloir vous déconnecter ?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
+    <value>n/j/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Gérer le compte</value>
   </data>
   <data name="TEXT_MAX" xml:space="preserve">
-    <value>Max. :</value>
+    <value>Max. :</value>
   </data>
   <data name="TEXT_MEMBERS" xml:space="preserve">
     <value>Modifier les membres du groupe</value>
@@ -688,7 +688,7 @@
     <value>Menu</value>
   </data>
   <data name="TEXT_MESSAGES" xml:space="preserve">
-    <value>[FR]Messages</value>
+    <value>Messages</value>
   </data>
   <data name="TEXT_METRACARE_LOGIN" xml:space="preserve">
     <value>Ouverture d’une session MetraCare</value>
@@ -697,7 +697,7 @@
     <value>Ouverture d’une session MetraNet</value>
   </data>
   <data name="TEXT_MIN" xml:space="preserve">
-    <value>Min. :</value>
+    <value>Min. :</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nom</value>
@@ -751,7 +751,7 @@
     <value>Propriétés</value>
   </data>
   <data name="TEXT_RATES" xml:space="preserve">
-    <value>Prix </value>
+    <value>Prix  </value>
   </data>
   <data name="TEXT_RECENT_ACCOUNTS" xml:space="preserve">
     <value>Comptes récents</value>
@@ -793,7 +793,7 @@
     <value>Êtes-vous sûr de vouloir supprimer la/les relations sélectionnées ?</value>
   </data>
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
-    <value>[FR]Are you sure you want to remove this relationship?</value>
+    <value>Êtes-vous sûr de vouloir supprimer cette relation ?</value>
   </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Renvoi des transactions qui ont échoué en cours...</value>
@@ -814,7 +814,7 @@
     <value>Chercher un nom</value>
   </data>
   <data name="TEXT_SEARCHING" xml:space="preserve">
-    <value>Recherche en cours…</value>
+    <value>Recherche en cours...</value>
   </data>
   <data name="TEXT_SELECT_ACCOUNT" xml:space="preserve">
     <value>Sélectionner un compte</value>
@@ -826,7 +826,7 @@
     <value>Sélectionnez les ajustements à traiter.</value>
   </data>
   <data name="TEXT_SELECT_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
-    <value>Sélectionnez les membres à ajouter</value>
+    <value>Sélectionnez les membres à supprimer</value>
   </data>
   <data name="TEXT_SELECT_NS_ERROR" xml:space="preserve">
     <value>Sélectionnez les frais non standard à traiter.</value>
@@ -838,7 +838,7 @@
     <value>Connexion à l’auto-gestion</value>
   </data>
   <data name="TEXT_SESSION_TIMEOUT_TEXT" xml:space="preserve">
-    <value>Votre session a expiré.  Ouvrez-la à nouveau.</value>
+    <value>Votre session est arrivée à expiration. Veuillez vous reconnecter.</value>
   </data>
   <data name="TEXT_SESSION_TIMEOUT_TITLE" xml:space="preserve">
     <value>La session a expiré</value>
@@ -847,7 +847,7 @@
     <value>Paramètres</value>
   </data>
   <data name="TEXT_SETUP_CHARGE_ACCOUNT" xml:space="preserve">
-    <value>Configurez le compte de frais avant d’ajouter les valeurs UDRC</value>
+    <value>Configurez le compte de frais avant d’ajouter les valeurs UDRC</value>
   </data>
   <data name="TEXT_SHIP_TO" xml:space="preserve">
     <value>Destinataire</value>
@@ -862,7 +862,7 @@
     <value>Date de début</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>Statut</value>
+    <value>État</value>
   </data>
   <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
     <value>Abonnements</value>
@@ -883,13 +883,13 @@
     <value>À</value>
   </data>
   <data name="TEXT_TOO_MANY_ROWS" xml:space="preserve">
-    <value>Toutes les lignes n’ont pas été retournées, car les résultats sont trop nombreux.  Modifiez votre recherche pour afficher davantage de résultats.</value>
+    <value>Toutes les lignes n'ont pas été renvoyées car les résultats sont trop volumineux. Modifiez vos critères de recherche pour afficher davantage de résultats.</value>
   </data>
   <data name="TEXT_TOPNOTE" xml:space="preserve">
     <value>NoteSupérieure</value>
   </data>
   <data name="TEXT_TRANSACTION_OPEN" xml:space="preserve">
-    <value>Ouvert</value>
+    <value>Ouvrir</value>
   </data>
   <data name="TEXT_UDRC_VALUES" xml:space="preserve">
     <value>Valeurs UDRC</value>
@@ -907,7 +907,7 @@
     <value>Mettre à jour</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Cette page comporte des erreurs de validation. Renseignez les champs obligatoires.</value>
+    <value>Cette page comporte des erreurs de validation. Veuillez renseigner les zones obligatoires.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Valeur</value>
@@ -931,7 +931,7 @@
     <value>ACH</value>
   </data>
   <data name="TEXT_WILL_LOSE_CHANGES" xml:space="preserve">
-    <value>[FR]You will lose the changes you have made.</value>
+    <value>Les modifications effectuées seront perdues.</value>
   </data>
   <data name="TEXT_WRITE_OFF" xml:space="preserve">
     <value>Ajouter la sortie du bilan d’un solde minime</value>
@@ -940,7 +940,7 @@
     <value>Oui</value>
   </data>
   <data name="THOUSAND_SEPARATOR" xml:space="preserve">
-    <value>.</value>
+    <value>,</value>
   </data>
   <data name="TITLE_DELETE_ACCOUNT_NOTE" xml:space="preserve">
     <value>Supprimer la note du compte</value>
@@ -952,343 +952,343 @@
     <value>Relations pour :</value>
   </data>
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
-    <value>[FR]Remove Relationship</value>
+    <value>Créer une relation</value>
   </data>
   <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
-    <value>[FR]Activate/Deactivate</value>
+    <value>Activer/Désactiver</value>
   </data>
   <data name="TEXT_CLONE" xml:space="preserve">
-    <value>[FR]Clone</value>
+    <value>Clone</value>
   </data>
   <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
-    <value>[FR]View</value>
+    <value>Afficher</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>[FR]A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.&lt;br/&gt;For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. [FR]</value>
+    <value>Une &lt;i&gt;Décision&lt;/i&gt;  est utilisée pour analyser les enregistrements d'utilisation (facturation) et éventuellement pour modifier les frais en fonction des résultats de l'analyse. L'utilisation de décisions est nécessaire lorsqu'il est impossible de déterminer le montant à l'examen d'un enregistrement isolé. &lt;br/&gt; Par exemple, vous pouvez affecter un prix spécial si le nombre de minutes d'utilisation du téléphone au cours du mois est &gt; 1000.  Vous ne pouvez déterminer le prix à utiliser qu'après avoir ajouté tous les enregistrements d'utilisation.  Si le nombre de minutes est &gt; 1000, le prix est modifié pour chaque enregistrement et un nouveau montant est calculé. </value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>[FR]A Decision Type must be associated with a Parameter Table, which provides a way to customize key values of the Decision Type.  For example, you may want the 'number of free minutes' to be editable rather than a fixed value.  Before a Decision Type is configured, its associated Parameter Table must be created using the Integrated Configuration Environment (ICE).</value>
+    <value>Un type de décision doit être associé à une table de paramètres, qui permet de personnaliser les valeurs clés du type de décision. Par exemple, vous pouvez configurer la possibilité de modifier le nombre de minutes gratuites plutôt que d'utiliser une valeur fixe.  &lt;br/&gt;&lt;br/&gt;Avant de pouvoir configurer un type de décision, sa table de paramètres associée doit être créée à l'aide de l'environnement ICE (Integrated Configuration Environment).&lt;br/&gt;&lt;br/&gt;REMARQUE : une fois que vous avez cliqué sur Suivant, vous ne pouvez plus choisir une autre table de paramètres pour ce type de décision.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[FR]For example, maybe one account(a parent) is billed for activity on children accounts, and you want to find the total of all charges (parent and children).&lt;br/&gt;&lt;br/&gt;In addition to pulling other accounts in, you may want to ignore the Decision Type for some accounts.  For example, you might want the Decision Type to apply only to accounts that receive paperless bills.</value>
+    <value>Exemple : un compte (parent) est facturé selon l'activité de comptes enfant. Vous voulez obtenir le montant total des frais (parent et enfant).&lt;br/&gt;&lt;br/&gt;Vous voulez également ignorer le type de décision pour certains comptes. Par exemple, vous voulez que le type de décision s'applique uniquement aux comptes qui reçoivent des factures papier.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>[FR]For details on how you can create a new Account Group, see the documentation or contact your MetraTech representative.</value>
+    <value>Pour plus d'informations sur la méthode de création d'un nouveau groupe de comptes, consultez la documentation ou contactez votre représentant MetraTech.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[FR]By default, when working on a Decision Type for a given time span (interval- or calendar-based), AMP forms the usage by considering &lt;i&gt;all&lt;/i&gt; the Product View records belonging to an account for that time span.  You may instead want to ignore certain records.  For example, maybe the Decision Type should only analyze usage of \"toll telephone call minutes\".</value>
+    <value>Par défaut, lorsque vous utilisez un type de décision pour une période donnée (basée sur un intervalle ou sur un calendrier), AMP représente l'utilisation en tenant compte de &lt;i&gt;tous&lt;/i&gt; les enregistrements de vue produit associés à un compte, pour ladite période. Si vous voulez ignorer certains enregistrements (le type de décision analysant uniquement l'utilisation des \"minutes d'appel téléphonique\", par exemple).</value>
   </data>
   <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
-    <value>[FR]Operation succeeded.  The grid will be resorted.</value>
+    <value>L'opération a abouti. La grille va être triée de nouveau.</value>
   </data>
   <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
-    <value>[FR]Error activating/deactivating the Decision Type:</value>
+    <value>Une erreur s'est produite pendant l'activation/la désactivation du type de décision : </value>
   </data>
   <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>[FR]Custom Account Group</value>
+    <value>Groupe de comptes personnalisés</value>
   </data>
   <data name="TITLE_AMPWIZARD_MORE_INFO" xml:space="preserve">
-    <value>[FR]More Information</value>
+    <value>Plus d'informations</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>[FR]Help:  Parameter Table</value>
+    <value>Aide:Tableau des paramètres</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>[FR]For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
+    <value>Exemple : si le type de décision est \"Utiliser un prix spécial si le nombre de minutes d'utilisation est supérieur à 500\", ce paramètre peut inclure \"500\" et le \"prix spécial\" à appliquer.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>[FR]Help:  Aggregation Method</value>
+    <value>Aide : méthode d'agrégation</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>[FR]Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+    <value>Les décisions sont utilisées lorsqu'un montant monétaire ne peut pas être calculé à l'examen d'un seul enregistrement. De nombreux enregistrements d'utilisation doivent dans ce cas être examinés, et le total doit correspondre au nombre d'événements, d'unités d'utilisation ou au montant facturé. Le total (ou agrégat) est ensuite utilisé pour déterminer le montant à facturer.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>[FR]Suppose you have two Decisions that want to consider the same usage record and the Decisions are configured to consume the usage records.  Which Decision is processed first?  This is determined by the Decisions' priority levels.  The lower the Numeric Priority Level, the earlier the Decision is executed.  Decisions with the same priority level are executed in a nondeterministic order.  On this page, you can change the priority level of the Decision Type you are configuring now.</value>
+    <value>Exemple : deux décisions concernent le même enregistrement d'utilisation. Ces deux décisions sont configurées de façon à prendre en compte les enregistrements d'utilisation. &lt;br/&gt;&lt;br/&gt;Les niveaux de priorité des décisions déterminent l'ordre dans lequel les décisions doivent être traitées. Un chiffre peu élevé de niveau de priorité signifie un traitement antérieur à un chiffre de niveau de priorité plus élevé. Les décisions qui possèdent le même niveau de priorité sont traitées selon un ordre indéterminé. Dans la page de priorité des décisions, vous pouvez spécifier le niveau de priorité du type de décision que vous configurez.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>[FR]For example, suppose you have one Decision Type that totals \"minutes\" and \"all minutes &lt; 1000 are free\".  And you have a second Decision Type that totals \"minutes\", but we only want to count minutes that were not part of the 1000.  We want the second Decision Type to consider only minutes that were not consumed by the first Decision Type; therefore, the Decision Domain for both Decision Types should be set to 'Ratable'.</value>
+    <value>Exemple : un type de décision totalise les \"minutes\" et \"toutes les minutes &lt; 1000 sont gratuites\".  Un deuxième type de décision totalise les \"minutes\", mais vous souhaitez compter uniquement les minutes qui n'entrent pas dans ce nombre de 1000.  Vous voulez que le deuxième type de décision prenne uniquement en compte les minutes consommées par le premier type de décision. Pour cela, définissez le domaine de décision 'Ratable' (facturable) pour les deux types de décision.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>[FR]Help:  Decision Priority</value>
+    <value>Aide : Priorité des décisions</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>[FR]Help:  Decision Domain</value>
+    <value>Aide : Domaine de décision</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[FR]You need to select an Amount Chain Group so that the Decision Type knows what to count and how to recalculate related values.  A sample Amount Chain might have four related fields in a Product View:  \"the number of minutes used\", \"the rate per minute\", \"the charge amount\", and \"the tax on the charge amount\".</value>
+    <value>Sélectionnez un groupe de chaîne de montants à utiliser par le type de décision pour le comptage et le calcul des valeurs relatives.  &lt;br/&gt;&lt;br/&gt;Exemple : une chaîne de montant possède quatre zones associées dans une vue produit :  \"nombre de minutes utilisées\", \"prix par minute\", \"montant des frais\" et \"taxe sur le montant de frais\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value>[FR]The name cannot contain single or double quote characters.</value>
+    <value>Le nom ne peut pas contenir d'apostrophes ou de guillemets.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>[FR]- If the charge/credit is applied proportionally, the following fraction of the chagre/credit value is applied:&lt;br /&gt;  (the total - range start) / (range end - range start)&lt;br /&gt;- If the charge/credit is applied inversely proportionally, the following fraction of the chagre/credit value is applied:&lt;br /&gt;  (range end - the total) / (range end - range start)&lt;br /&gt;- If the charge/credit is applied as an aggregate multiplier, the amount of the chagre/credit is computed as:&lt;br /&gt;  (charge or credit value) * (aggregated value for the Decision)&lt;br /&gt;where the aggregated value can be money, units of usage, or events.&lt;br /&gt;- Otherwise, the entire charge/credit value is applied.</value>
+    <value>- Si le débit/crédit est appliqué de façon proportionnelle, la fraction suivante de la valeur de débit/crédit s'applique :&lt;br /&gt;  (total - début de plage) / (fin de plage - début de plage)&lt;br /&gt;- Si le débit/crédit s'applique de façon inversement proportionnelle, la fraction suivante du débit/crédit s'applique :&lt;br /&gt;  (fin de plage - total) / (fin de plage - début de plage)&lt;br /&gt;- Si le débit/crédit s'applique sous forme de multiplicateur agrégé, le montant du débit/crédit est calculé comme suit :&lt;br /&gt;  (valeur de débit ou de crédit) * (valeur agrégée à utiliser pour la décision),&lt;br /&gt;où la valeur agrégée peut représenter un montant, des unités d'utilisation ou des événements.&lt;br /&gt;- Sinon, la valeur totale de débit/crédit est appliquée.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>[FR]Help: How should the Charge/Credit be applied?</value>
+    <value>Aide : Comment le débit/crédit doit-il être appliqué ?</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
-    <value>[FR]For example, you are aggregating by amount and you want something special to happen every $1000.</value>
+    <value>Par exemple, vous effectuez une agrégation par montant, et vous voulez que quelque chose de spécifique se produise tous les 1000 $.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
-    <value>[FR]For example, you may want to apply a special rate if 'total minutes are between 500 and 1000' or if 'the number of tolls is greater than 5'.</value>
+    <value>Exemple : vous appliquez un tarif spécial si 'le nombre total de minutes est compris entre 500 et 1000' ou si le 'nombre total d'appels gratuits est supérieur à 5'.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>[FR]The proration factor to apply to the range is determined by comparing a Decision Type instance's intended start and end dates with its actual start and end dates.  If a Decision is intended to include 30 days of usage but in actuality only covers 15 days (e.g., the subscription starts or ends mid-period), the proration factor would be 15/30, or 0.5.  If the end of range is 500 prior to proration, it becomes 250 after applying the proration factor.&lt;br/&gt;&lt;br/&gt;Prorating on activation and termination independently allows the user control of whether each will serve to reduce the proration factor.  If a Decision starts 15 days into the cycle but proration on activation is NOT chosen, those 15 days will NOT serve to reduce the proration factor.</value>
+    <value>Le facteur de prorata à appliquer à la plage est déterminé par la comparaison entre les dates de début et de fin prévues d'une instance de type de décision, avec les dates réelles de début et de fin pour cette instance.  &lt;b/&gt;&lt;b/&gt;Exemple : si une décision doit inclure 30 jours d'utilisation, mais que l'utilisation réelle couvre uniquement 15 jours (c'est-à-dire que l'abonnement commence ou se termine au milieu de la période), le facteur de prorata utilisé est de 15/30, soit 0,5.  Si la fin de la plage intervient au niveau de 500 avant l'application du prorata, il se transforme en 250 après l'application du facteur de prorata.&lt;br/&gt;&lt;br/&gt;L'application de prorata lors de l'activation et de la fin de façon indépendante à l'utilisateur de contrôler si l'activation ou la fin diminue le facteur de prorata.  Exemple : Si une décision commence à 15 jours du cycle, mais que l'application du prorata à l'activation n'est pas sélectionnée, ces 15 jours ne réduisent pas le facteur de prorata.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
-    <value>[FR]Help: Restart Range</value>
+    <value>Aide : plage de début</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
-    <value>[FR]Activation Results</value>
+    <value>Résultats d'activation</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
-    <value>[FR]Error Check Results</value>
+    <value>Erreur dans les résultats</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
-    <value>[FR]The Decision Settings have already described how to calculate the generated charge amount. Now you need to select the Amount Chain Group, which specifies: (a) the field in the Product View in which the generated charge amount should be stored and (b) any other fields that need to be recalculated.</value>
+    <value>Les paramètres de décision ont déjà spécifié le mode de calcul du montant de frais généré. Sélectionnez maintenant le groupe de chaînes de montant, qui spécifie : (a) la zone de la vue produit dans laquelle le montant de frais généré doit être stocké et (b) toute autre zone devant être recalculée.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
-    <value>[FR]The Product View's table in the MetraNet database holds values associated with the new Charge/Credit.</value>
+    <value>La table de la vue produit figurant dans la base de données MetraNet contient les valeurs associées au nouveau débit/crédit.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[FR]Help: Amount Chain Group</value>
+    <value>Aide : Groupe de chaînes de montant</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>[FR]Help:  Incremental vs. Bulk</value>
+    <value>Aide : Individuellement ou de façon groupée</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>[FR]&lt;i&gt;Incremental&lt;/i&gt; means that the Decision should take a record, add it to the total, and then if the total is within the range, perform an action.  &lt;i&gt;Bulk&lt;/i&gt; means that the Decision should total &lt;u&gt;ALL&lt;/u&gt; the records, and then if the total falls within the range, apply the action to &lt;u&gt;ALL&lt;/u&gt; the records.</value>
+    <value>&lt;i&gt;Agir dans chaque enregistrement individuellement&lt;/i&gt; signifie que la décision utilise un enregistrement, l'ajoute au total, et si ce total figure dans la plage, réalise une action spécifique.  &lt;i&gt;Agir sur tous les enregistrements&lt;/i&gt; signifie que la décision totalise &lt;u&gt;TOUS&lt;/u&gt; les enregistrements ; si ce total entre dans la plage, elle applique l'action spécifique à &lt;u&gt;TOUS&lt;/u&gt; les enregistrements.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>[FR]Help:  New Unit Rate</value>
+    <value>Aide : Nouveau prix unitaire</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>[FR]This new rate is applied by setting the \"amount\" associated with the Decision Type to the new rate multiplied by the usage.  Any fields that are derived from \"amount\" are then recalculated.&lt;br/&gt;&lt;i&gt;Example:  Once the range is met, the charge amount is 0.50 per minute.&lt;/i&gt;</value>
+    <value>Ce nouveau prix s'applique via la définition du \"montant\" associé au type de décision au nouveau prix multiplié par l'utilisation. Toute zone dérivée de la zone \"montant\" est ensuite recalculée.&lt;br/&gt;&lt;i&gt;Exemple : une fois la plage atteinte, le montant de frais s'élève à 0,50 par minute.&lt;/i&gt;</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>[FR]Help:  New Event Rate</value>
+    <value>Aide : Nouveau prix d'événement</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>[FR]This new rate is applied by setting the \"amount\" associated with the Decision Type to this new value.  Any fields that are derived from \"amount\" are then recalculated.&lt;br/&gt;&lt;i&gt;Example:  Once the range is met, \"the toll cost is $0.75\" or \"the call costs $1, regardless of the number of minutes\".&lt;/i&gt;</value>
+    <value>Ce nouveau prix s'applique via la définition de la zone \"montant\" associée au type de décision en spécifiant la nouvelle valeur. Toutes les zones dérivées de la zone \"montant\" sont ensuite recalculées.&lt;br/&gt;Exemple :  une fois la plage atteinte, \"le coût de l'appel est 0,75 $\" ou \"l'appel coûte 1 $, quel que soit le nombre de minutes\".</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>[FR]Help:  Discount</value>
+    <value>Aide : Remise</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>[FR]This discount is applied to the \"amount\" associated with the Decision Type.  Any fields that are derived from \"amount\" are then recalculated.&lt;br/&gt;&lt;br/&gt;The discount might only be applied to a portion of the amount if your Decision Type aggregates usage.  For example, suppose your range start is \"500 minutes\" and the total is currently \"400 minutes\".  The Decision processes a record with \"300 minutes\".  \"100 minutes\" fall outside the range and \"200 minutes\" fall inside the range.  If the discount is 5%, then \"amount\" is decreased by 0.05 x (200/300).</value>
+    <value>Cette remise s'applique au \"montant\" associé au type de décision.  Toute zone dérivée de la zone \"montant\" est ensuite recalculée.&lt;br/&gt;&lt;br/&gt;La remise peut s'appliquer uniquement à une partie du montant si votre type de décision inclut l'agrégation de l'utilisation. &lt;br/&gt;&lt;br/&gt;Exemple : le début de la plage est \"500 minutes\" et le total actuel est égal à \"400 minutes\".  La décision traite un enregistrement comportant \"300 minutes\".  \"100 minutes\" est hors de la plage et \"200 minutes\" est dans la plage.  Si la remise est de 5 %, le \"montant\" est réduit de 0,05 x (200/300).</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>[FR]Help:  Generated Charge</value>
+    <value>Aide : Frais générés</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>[FR]Choose this option to have the Decision Type generate a new Charge or Credit.  You will define the Charge/Credit on the next set of screens.</value>
+    <value>Choisissez cette option pour que le type de décision crée un nouveau débit ou crédit. Vous définirez le débit/crédit dans le prochain ensemble d'écrans.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>[FR]Help:  Generated Charges/Credits Grid</value>
+    <value>Aide : Grille de débits/crédits générés</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>[FR]Each Generated Charge/Credit in the grid is associated with a Product View and specifies how to set the fields in the Product View and in t_acc_usage.</value>
+    <value>Chaque débit/crédit créé figurant dans la grille est associé à une vue produit et spécifie la définition des zones dans la vue produit et dans t_acc_usage.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>[FR]For example, maybe the billing cycle is monthly, but you want to give a special rate if \"more than 1000 minutes are used in three months\". This is known as the Decision Cycle.</value>
+    <value>Exemple : un cycle de facturation est mensuel, mais vous souhaitez appliquer un prix spécial si \"plus de 1000 minutes d'utilisation sont enregistrées en trois mois\". Cela porte le nom de cycle de décision.</value>
   </data>
   <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>[FR]Add Miscellaneous Attribute</value>
+    <value>Ajouter un attribut divers</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>[FR]Edit Miscellaneous Attribute</value>
+    <value>Modifier un attribut divers</value>
   </data>
   <data name="TEXT_EDIT_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>[FR]Edit Miscellaneous Attribute</value>
+    <value>Modifier un attribut divers</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>[FR]There are three types of work that a directive can do as part of generating a charge or credit:&lt;br/&gt;- Table Inclusion - Join to a database table or view.  All fields from the selected row in the included table or view will be added as fields to the object in memory.&lt;br/&gt;- Field Population - Populate a field of the object in memory by evaluating an expression or by assigning a default value.&lt;br/&gt;- Procedure Execution - Execute an MVM procedure.  This provides a mechanism for doing anything that cannot be accomplished through table inclusion and field population.</value>
+    <value>Dans le cadre de la création d'un débit ou d'un crédit, une directive peut exécuter les types de tâches suivants :&lt;br/&gt;- Inclusion de table - Association à une table de base de données ou à une vue. Toutes les zones de la ligne sélectionnée au sein de la table ou de la vue seront ajoutées à l'objet en mémoire (en tant que zones).&lt;br/&gt;- Renseignement de zones - Permet de renseigner une zone de l'objet en mémoire grâce à l'évaluation d'une expression ou à l'affectation d'une valeur par défaut.&lt;br/&gt;- Exécution de procédure - Permet d'exécuter une procédure MVM. L'exécution de procédure permet d'utiliser un mécanisme d'exécution des tâches qui ne peuvent pas être réalisées via l'inclusion de tables et le renseignement des zones.</value>
   </data>
   <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
-    <value>Error Message:&lt;br/&gt;[ErrorMessage]</value>
+    <value>Message d'erreur :&lt;br/&gt;[ErrorMessage]</value>
   </data>
   <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
-    <value>No error message to report.</value>
+    <value>Aucun message d'erreur à signaler.</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>Previous</value>
+    <value>Précédent</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>[FR]This table shows what fields in the product view and t_acc_usage have Field Population directives defined for them. It's designed to help you see what fields still need to be set.</value>
+    <value>Cette table illustre les zones de la vue produit et de t_acc_usage dont les directives de renseignement des zones ont été définies. Utilisez cette table pour déterminer les zones à définir.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
-    <value>[FR]Description of different types of steps: database table inclusion, field population, procedure execution</value>
+    <value>Description des différents types d'étapes : inclusion de table de base de données, renseignement des zones, exécution de procédures</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>[FR]Help: Product View and t_acc_usage fields</value>
+    <value>Aide : vue produit et zones t_acc_usage</value>
   </data>
   <data name="TEXT_DELETE_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>[FR]Delete Miscellaneous Attribute</value>
+    <value>Supprimer un attribut divers</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>[FR]Delete Miscellaneous Attribute</value>
+    <value>Supprimer un attribut divers</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
-    <value>[FR]ERROR!</value>
+    <value>ERREUR !</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[FR]You can even create Usage Qualifications that reference other previously defined Usage Qualifications. For example, you may want the usage record to also meet other previously defined conditions.</value>
+    <value>Vous pouvez créer des qualifications d'utilisation faisant référence à d'autres qualifications d'utilisation définies précédemment. Par exemple, un enregistrement d'utilisation peut également correspondre à des conditions définies précédemment.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
-    <value>[FR]In the filter, you can check for specific values of product view fields and t_acc_usage fields, or you can check if other Usage Qualifications (that you've already built) are satisfied. You can use parentheses and the keywords \"and\", \"or\", \"==\", \"!=\", and \"!\". Use the &lt;u&gt;Insert&lt;/u&gt; buttons to insert snippets of the filter at the cursor.&lt;br/&gt;&lt;br/&gt;In the filter, \"OBJECT\" refers to the usage record and \"GROUP\" refers to another usage qualification group.</value>
+    <value>Dans le filtre, vous pouvez vérifier des valeurs spécifiques des zones de la vue produit ou de t_acc_usage, ou vous pouvez vérifier si d'autres qualifications d'utilisation (que vous avez déjà créées) sont respectées. Vous pouvez utiliser des parenthèses et les mots clés \"et\", \"ou\", \"==\", \"!=\" et \"!\". Utilisez les boutons &lt;u&gt;Insérer&lt;/u&gt; pour insérer des éléments du filtre au niveau du curseur.&lt;br/&gt;&lt;br/&gt;Dans le filtre, \"OBJET\" fait référence à l'enregistrement d'utilisation et \"GROUPE\" fait référence à un autre groupe de qualifications d'utilisation.</value>
   </data>
   <data name="TITLE_AMPWIZARD_FILTER_HELP" xml:space="preserve">
-    <value>[FR]Help: Filter</value>
+    <value>Aide:Filtre</value>
   </data>
   <data name="TITLE_AMPWIZARD_CLONE_DECISION" xml:space="preserve">
-    <value>[FR]Clone Decision Type</value>
+    <value>Type de décision clone</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>[FR]Delete Directive</value>
+    <value>Supprimer la directive</value>
   </data>
   <data name="TEXT_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>[FR]Are you sure you want to delete this directive?</value>
+    <value>Êtes-vous sûr de vouloir supprimer cette directive ?</value>
   </data>
   <data name="TEXT_DELETE_BS_EXEMPTION" xml:space="preserve">
-    <value>[FR]Are you sure you want to delete this BillSoft Exemption?</value>
+    <value>Êtes-vous sûr de vouloir supprimer cette exemption BillSoft ?</value>
   </data>
   <data name="TEXT_DELETE_BS_OVERRIDE" xml:space="preserve">
-    <value>[FR]Are you sure you want to delete this BillSoft Override?</value>
+    <value>Êtes-vous sûr de vouloir supprimer ce remplacement BillSoft ?</value>
   </data>
   <data name="TITLE_AMPWIZARD_ADD_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[FR]Add New Account Group</value>
+    <value>Ajouter un nouveau groupe de comptes</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[FR]Delete</value>
+    <value>Supprimer</value>
   </data>
   <data name="TEXT_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[FR]Edit</value>
+    <value>Modifier</value>
   </data>
   <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[FR]View</value>
+    <value>Afficher</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>[FR]Delete Account Qualification</value>
+    <value>Supprimer la qualification de compte</value>
   </data>
   <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>[FR]Are you sure you want to delete this Account Qualification?</value>
+    <value>Êtes-vous sûr de vouloir supprimer cette qualification de compte ?</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>[FR]Help:  Condition for Execution</value>
+    <value>Aide:Condition d'exécution</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>[FR]The Condition for Execution is a freeform MVM expression that is evaluated when the directive is about to be executed.  If the expression evaluates to 1, execution of the directive goes forth; if it evaluates to something other than 1, the directive is NOT executed.  This field applies to Table Inclusion, Field Population, and Procedure Execution.</value>
+    <value>La condition d'exécution est une expression MVM libre, évaluée au moment où une directive est sur le point d'être exécutée. Si l'expression est évaluée à 1, la directive est exécutée. Si l'évaluation de l'expression fait ressortir une autre valeur que 1, la directive n'est PAS exécutée.  Cette zone s'applique à l'inclusion de tables, au renseignement de zones et à l'exécution de procédures.</value>
   </data>
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
-    <value>La date de début ne peut être après la date de fin</value>
+    <value>La date de début ne peut pas être antérieure à la date de fin</value>
   </data>
   <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>[FR]Hard Closed</value>
+    <value>Clôture (matérielle)</value>
   </data>
   <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
-    <value>[FR]Open</value>
+    <value>Ouvrir</value>
   </data>
   <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>[FR]Soft Closed</value>
+    <value>Clôture (logicielle)</value>
   </data>
   <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
-    <value>[FR]Unknown</value>
+    <value>Inconnu</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]Passwords do not match.</value>
+    <value>Les mots de passe ne correspondent pas.</value>
   </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]Enter a valid phone number. Format: 555-555-5555</value>
+    <value>Entrez un numéro de téléphone valide. Format : 555-555-5555</value>
   </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]Credit card format is invalid</value>
+    <value>Le format de la carte de crédit est incorrect.</value>
   </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]CV Number is invalid</value>
+    <value>Le numéro CV est incorrect</value>
   </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]SSN format: xxx-xx-xxxx</value>
+    <value>Format SSN : xxx-xx-xxxx</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]Only numeric digits are allowed</value>
+    <value>Seules les valeurs numériques sont autorisées</value>
   </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]Zipcode is invalid</value>
+    <value>Le code postal est incorrect</value>
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR]Middle initial is invalid</value>
+    <value>Le milieu initial est incorrecte</value>
   </data>
   <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
-    <value>Account Activity</value>
+    <value>Activité du compte</value>
   </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>[FR]Retry</value>
+    <value>Réessayer</value>
   </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>[FR]Resubmitted Request</value>
+    <value>Demande renvoyée</value>
   </data>
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
-    <value>[FR]Please select product offerings to be added</value>
+    <value>Sélectionnez les offres de produits à ajouter</value>
   </data>
   <data name="TEXT_CONVERT" xml:space="preserve">
-    <value>[FR]Convert</value>
+    <value>Convertir</value>
   </data>
   <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
-    <value>[FR]Are you sure that you want to convert quote to subscriptions?</value>
+    <value>Voulez-vous vraiment convertir le bon de commande en abonnements ?</value>
   </data>
   <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
-    <value>[FR]This account pays for itself</value>
+    <value>Ce compte règle pour lui-même</value>
   </data>
   <data name="ACCOUNT_PAYEE_TEXT" xml:space="preserve">
-    <value>[FR]This account is paid for by</value>
+    <value>Ce compte est réglé par</value>
   </data>
   <data name="ACCOUNT_STATUS_LABEL_TEXT" xml:space="preserve">
-    <value>[FR]Account Status</value>
+    <value>État du compte</value>
   </data>
   <data name="ACCOUNT_STATUS_TEXT" xml:space="preserve">
-    <value>[FR]Status</value>
+    <value>État</value>
   </data>
   <data name="ACCOUNT_BALANCE_AS_OF_TEXT" xml:space="preserve">
-    <value>[FR] as of</value>
+    <value>au</value>
   </data>
   <data name="ACCOUNT_BALANCE_TEXT" xml:space="preserve">
-    <value>[FR]Balance</value>
+    <value>Solde</value>
   </data>
   <data name="ACCOUNT_EDIT_INFO_TEXT" xml:space="preserve">
-    <value>[FR]Change</value>
+    <value>Modification</value>
   </data>
   <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
-    <value>[FR]Ltv</value>
+    <value>Ltv</value>
   </data>
   <data name="ACCOUNT_MRR_TEXT" xml:space="preserve">
-    <value>[FR]MRR</value>
+    <value>MRR</value>
   </data>
   <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
-    <value>[FR]MRR</value>
+    <value>MRR</value>
   </data>
   <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
-    <value>[FR]Invoice</value>
+    <value>Facture</value>
   </data>
   <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
-    <value>[FR]Failed Transactions</value>
+    <value>Échec de transactions</value>
   </data>
   <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </data>
   <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
-    <value>[FR]Name</value>
+    <value>Nom</value>
   </data>
   <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
-    <value>[FR]N/A</value>
+    <value>N/A</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>[FR]Account Type</value>
+    <value>[FR]Account Type TEST</value>
   </data>
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
-    <value>[FR] The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
+    <value>[FR]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
     <value>[FR] Refresh</value>

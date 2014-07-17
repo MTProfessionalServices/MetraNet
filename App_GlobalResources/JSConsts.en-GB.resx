@@ -498,7 +498,7 @@
     <value>Error deleting account note</value>
   </data>
   <data name="TEXT_ERROR_DELETING_SEARCH" xml:space="preserve">
-    <value>Unable to add credit card to this account</value>
+    <value>Unable to delete saved search.</value>
   </data>
   <data name="TEXT_ERROR_HIGHLIGHTING_ACCOUNT_NOTE" xml:space="preserve">
     <value>Error highlighting account note</value>
@@ -528,10 +528,10 @@
     <value>Cannot create multiple one-one relationships</value>
   </data>
   <data name="TEXT_ERROR_RECEIVING_DATA" xml:space="preserve">
-    <value>There are no available Product Offerings for subscription.</value>
+    <value>There was a problem retrieving data.</value>
   </data>
   <data name="TEXT_ERROR_SAVING_SEARCH" xml:space="preserve">
-    <value>Unable to retrieve the list of credit cards</value>
+    <value>Unable to save search.</value>
   </data>
   <data name="TEXT_ERROR_SELECT" xml:space="preserve">
     <value>Please make a selection.</value>
@@ -735,7 +735,7 @@
     <value>[en-GB]Other</value>
   </data>
   <data name="TEXT_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
-    <value>The miscellaneous adjustment was processed successfully.</value>
+    <value>The passwords do not match</value>
   </data>
   <data name="TEXT_PAST" xml:space="preserve">
     <value>Past</value>
@@ -747,7 +747,7 @@
     <value>Please fix the errors noted.</value>
   </data>
   <data name="TEXT_POPULATE_FIRST" xml:space="preserve">
-    <value>You do not have access to view these details.</value>
+    <value>You must first populate the remittance details.</value>
   </data>
   <data name="TEXT_PROPERTIES" xml:space="preserve">
     <value>Properties</value>
@@ -792,7 +792,7 @@
     <value>[en-GB]Please select accounts to be removed from the list</value>
   </data>
   <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-    <value>Are you sure you want to remove the selected relationship?</value>
+    <value>Are you sure you want to remove the selected relationship(s)?</value>
   </data>
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Are you sure you want to remove this relationship?</value>
@@ -972,19 +972,19 @@
     <value>A Decision Type must be associated with a Parameter Table, which provides a way to customize key values of the Decision Type.  For example, you may want the 'number of free minutes' to be editable rather than a fixed value.  Before a Decision Type is configured, its associated Parameter Table must be created using the Integrated Configuration Environment (ICE).</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
-    <value>For example, maybe one account(a parent) is billed for activity on children accounts, and you want to find the total of all charges (parent and children).&lt;br/&gt;&lt;br/&gt;In addition to pulling other accounts in, you may want to ignore the Decision Type for some accounts.  For example, you might want the Decision Type to apply only to accounts that receive paperless bills.</value>
+    <value>Example: One account (a parent) is billed for activity on child accounts. You want to find the total of all charges (parent and children).&lt;br/&gt;&lt;br/&gt;In addition to pulling in other accounts, you  want to ignore the Decision Type for some accounts.  For example, you want the Decision Type to apply only to accounts that receive paperless bills.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>For details on how you can create a new Account Group, see the documentation or contact your MetraTech representative.</value>
+    <value>For more information about how to create a new Account Group, see the documentation or contact your MetraTech representative.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>By default, when working on a Decision Type for a given time span (interval- or calendar-based), AMP forms the usage by considering &lt;i&gt;all&lt;/i&gt; the Product View records belonging to an account for that time span.  You may instead want to ignore certain records.  For example, maybe the Decision Type should only analyze usage of \"toll telephone call minutes\".</value>
+    <value>By default, when working on a Decision Type for a given time span (interval- or calendar-based), AMP forms the usage by considering &lt;i&gt;all&lt;/i&gt; the Product View records that belong to an account for that time span.  You might want to ignore certain records, such as in a Decision Type that analyzes only the usage of \"toll telephone call minutes\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
     <value>Operation succeeded.  The grid will be resorted.</value>
   </data>
   <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
-    <value>Error activating/deactivating the Decision Type: </value>
+    <value>Error occured when activating/deactivating the Decision Type: </value>
   </data>
   <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
     <value>Custom Account Group</value>
@@ -996,19 +996,19 @@
     <value>Help:  Parameter Table</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
+    <value>Example: If the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\", the settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
     <value>Help:  Aggregation Method</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total made of the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+    <value>Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Suppose you have two Decisions that want to consider the same usage record and the Decisions are configured to consume the usage records.  Which Decision is processed first?  This is determined by the Decisions' priority levels.  The lower the Numeric Priority Level, the earlier the Decision is executed.  Decisions with the same priority level are executed in a nondeterministic order.  On this page, you can change the priority level of the Decision Type you are configuring now.</value>
+    <value>Example: There are two decisions that consider the same usage record. Both decisions are configured to consume the usage records. &lt;br/&gt;&lt;br/&gt;The decisions' priority levels determine the order in which to process the decisions. A lower numeric priority level is processed earlier than a higher priority level. Decisions that have the same priority level are processed in nondeterministic order. On the Decision Priority page you can specify the priority level of the decision type you are now configuring.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>For example, suppose you have one Decision Type that totals \"minutes\" and \"all minutes &lt; 1000 are free\".  And you have a second Decision Type that totals \"minutes\", but we only want to count minutes that were not part of the 1000.  We want the second Decision Type to consider only minutes that were not consumed by the first Decision Type; therefore, the Decision Domain for both Decision Types should be set to 'Ratable'.</value>
+    <value>Example: One Decision Type totals \"minutes\" and \"all minutes &lt; 1000 are free\".  A second Decision Type totals \"minutes\", but you want to count only the minutes that are not part of the 1000.  You want the second Decision Type to consider only those minutes that were not consumed by the first Decision Type. To accomplish this, set the Decision Domain for both Decision Types to 'Ratable'.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Help:  Decision Priority</value>
@@ -1017,7 +1017,7 @@
     <value>Help:  Decision Domain</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>You need to select an Amount Chain Group so that the Decision Type knows what to count and how to recalculate related values.  A sample Amount Chain might have four related fields in a Product View:  \"the number of minutes used\", \"the rate per minute\", \"the charge amount\", and \"the tax on the charge amount\".</value>
+    <value>Select an Amount Chain Group so that the Decision Type knows what to count and how to recalculate related values.  &lt;br/&gt;&lt;br/&gt;Example: A certain Amount Chain has four related fields in a Product View:  \"the number of minutes used\", \"the rate per minute\", \"the charge amount\", and \"the tax on the charge amount\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
     <value>The name cannot contain single or double quote characters.</value>
@@ -1104,7 +1104,7 @@
     <value>Edit Miscellaneous Attribute</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>There are three types of work that a directive can do as part of generating a charge or credit:&lt;br/&gt;- Table Inclusion - Join to a database table or view.  All fields from the selected row in the included table or view will be added as fields to the object in memory.&lt;br/&gt;- Field Population - Populate a field of the object in memory by evaluating an expression or by assigning a default value.&lt;br/&gt;- Procedure Execution - Execute an MVM procedure.  This provides a mechanism for doing anything that cannot be accomplished through table inclusion and field population.</value>
+    <value>As part of generating a charge or credit, a directive can do the following types of work:&lt;br/&gt;- Table Inclusion - Join to a database table or view.  All fields from the selected row in the included table or view will be added as fields to the object in memory.&lt;br/&gt;- Field Population - Populate a field of the object in memory by evaluating an expression or by assigning a default value.&lt;br/&gt;- Procedure Execution - Execute an MVM procedure. Procedure execution provides a mechanism for doing anything that cannot be accomplished through table inclusion and field population.</value>
   </data>
   <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
     <value>Error Message:&lt;br/&gt;[ErrorMessage]</value>

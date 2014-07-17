@@ -118,81 +118,81 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Product Offerings</value>
+    <value>[IT]Product Offerings</value>
   </data>
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>Product Offerings List</value>
+    <value>[IT]Product Offerings List</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>No records found.</value>
+    <value>[IT]No records found.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
+    <value>[IT]MetraNet</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Actions</value>
+    <value>[IT]Actions</value>
   </data>
   <data name="TEXT_AVAILABLE_ENDDATE" xml:space="preserve">
-    <value>Available End Date</value>
+    <value>[IT]Available End Date</value>
   </data>
   <data name="TEXT_AVAILABLE_STARTDATE" xml:space="preserve">
-    <value>Available Start Date</value>
+    <value>[IT]Available Start Date</value>
   </data>
   <data name="TEXT_CopyPO" xml:space="preserve">
-    <value>Copy Product Offering</value>
+    <value>[IT]Copy Product Offering</value>
   </data>
   <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
-    <value>Create Product Offering</value>
+    <value>[IT]Create Product Offering</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>Currency</value>
+    <value>[IT]Currency</value>
   </data>
   <data name="TEXT_DeletePO" xml:space="preserve">
-    <value>Delete Product Offering</value>
+    <value>[IT]Delete Product Offering</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
+    <value>[IT]Description</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>Display Name</value>
+    <value>[IT]Display Name</value>
   </data>
   <data name="TEXT_EditPO" xml:space="preserve">
-    <value>Edit Product Offering</value>
+    <value>[IT]Edit Product Offering</value>
   </data>
   <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
-    <value>Effective End Date</value>
+    <value>[IT]Effective End Date</value>
   </data>
   <data name="TEXT_EFFECTIVE_STARTDATE" xml:space="preserve">
-    <value>Effective Start Date</value>
+    <value>[IT]Effective Start Date</value>
   </data>
   <data name="TEXT_EXTERNALINFORMATIONURL" xml:space="preserve">
-    <value>External Information URL</value>
+    <value>[IT]External Information URL</value>
   </data>
   <data name="TEXT_GLCODE" xml:space="preserve">
-    <value>GL Code</value>
+    <value>[IT]GL Code</value>
   </data>
   <data name="TEXT_HidePO" xml:space="preserve">
-    <value>Hide Product Offering</value>
+    <value>[IT]Hide Product Offering</value>
   </data>
   <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
-    <value>Internal Information URL</value>
+    <value>[IT]Internal Information URL</value>
   </data>
   <data name="TEXT_ISHIDDEN" xml:space="preserve">
-    <value>Hidden</value>
+    <value>[IT]Hidden</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>[IT]Name</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>Partition Id</value>
+    <value>[IT]Partition Id</value>
   </data>
   <data name="TEXT_UnhidePO" xml:space="preserve">
-    <value>Unhide Product Offering</value>
+    <value>[IT]Unhide Product Offering</value>
   </data>
   <data name="TEXT_ViewPO" xml:space="preserve">
-    <value>View Product Offering</value>
+    <value>[IT]View Product Offering</value>
   </data>
   <data name="TEXT_MASTER" xml:space="preserve">
-    <value>Master Product Offerings</value>
+    <value>[IT]Master Product Offerings</value>
   </data>
 </root>

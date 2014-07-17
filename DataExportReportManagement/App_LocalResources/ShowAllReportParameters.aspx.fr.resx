@@ -120,8 +120,17 @@
   <data name="lblShowAllReportParametersTitleResource1.Text" xml:space="preserve">
     <value>Sélectionner les paramètres du rapport</value>
   </data>
+  <data name="lblShowAllReportParametersTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Sélectionner les paramètres du rapport</value>
+  </data>
+  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Gérer les paramètres du rapport</value>

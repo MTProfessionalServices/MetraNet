@@ -130,7 +130,7 @@
     <value>Add Group Subscription</value>
   </data>
   <data name="AddIconClass" xml:space="preserve">
-    <value>Add</value>
+    <value>add</value>
   </data>
   <data name="AddToolTip" xml:space="preserve">
     <value>Add Group Subscription</value>
@@ -160,7 +160,7 @@
     <value>Join Group Subscription</value>
   </data>
   <data name="JoinIconClass" xml:space="preserve">
-    <value>Add</value>
+    <value>add</value>
   </data>
   <data name="JoinToolTip" xml:space="preserve">
     <value>Join Group Subscription</value>

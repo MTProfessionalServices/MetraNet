@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -144,6 +144,9 @@
   <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
     <value>This account currently does not have any subscriptions.</value>
   </data>
+  <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
+    <value>Subscriptions</value>
+  </data>
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
     <value>End</value>
   </data>
@@ -154,11 +157,8 @@
     <value>Start</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value />
+    <value></value>
   </data>  
-  <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
-    <value>Subscriptions</value>
-  </data>   
  <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
     <value>Add Subscription</value>
   </data>

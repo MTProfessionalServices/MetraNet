@@ -130,7 +130,7 @@
     <value>Adicionar assinatura em grupo</value>
   </data>
   <data name="AddIconClass" xml:space="preserve">
-    <value>Adicionar</value>
+    <value>adicionar</value>
   </data>
   <data name="AddToolTip" xml:space="preserve">
     <value>Adicionar assinatura em grupo</value>
@@ -160,7 +160,7 @@
     <value>Aderir à assinatura em grupo</value>
   </data>
   <data name="JoinIconClass" xml:space="preserve">
-    <value>Adicionar</value>
+    <value>adicionar</value>
   </data>
   <data name="JoinToolTip" xml:space="preserve">
     <value>Aderir à assinatura em grupo</value>

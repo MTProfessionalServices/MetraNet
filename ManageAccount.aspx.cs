@@ -76,7 +76,6 @@ public partial class ManageAccount : MTPage
     Account acc = AccountLib.LoadAccount(id, UI.User, ApplicationTime);
     if (acc != null)
     {
-      UI.Subscriber.LanguageID = UI.SessionContext.LanguageID;
       UI.Subscriber.SelectedAccount = acc;
       AccountTypeTpl = acc.AccountType + "Tpl"; // setup template name for JavaScript
 

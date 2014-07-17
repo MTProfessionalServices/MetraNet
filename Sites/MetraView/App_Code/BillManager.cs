@@ -7,6 +7,7 @@ using System.Threading;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Xml.Serialization;
+using System.Collections.ObjectModel;
 using Core.UI;
 using MetraTech;
 using MetraTech.ActivityServices.Common;
@@ -15,6 +16,7 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
+using MetraTech.Localization;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.Billing;
 using MetraTech.DomainModel.BaseTypes;
@@ -503,38 +505,37 @@ public class BillManager: System.Web.UI.TemplateControl
 
     //ESR-5461
     string accounttimezone = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).TimezoneIDValueDisplayName;
+    String timeZoneId = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).TimezoneID.ToString();
+    TimeZoneID? accounttimezoneID = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).TimezoneID;
     // Get list of TimeZones with Ids
     List<TimeZoneHelper> TimeZoneList = TimeZoneHelper.GetTimeZoneHelpers();
     //Iterate through usagedetails items
     foreach (BaseProductView bpv in usageDetailsClient.InOut_usageDetails.Items)
     {
+      //string columnName
        foreach (System.Reflection.PropertyInfo prop in bpv.GetType().GetProperties())
        {
          object[] attribs = prop.GetCustomAttributes(typeof(MTProductViewMetadataAttribute), false);
          if (attribs.Length > 0 )
          {
-           MTProductViewMetadataAttribute pvattrib = (MTProductViewMetadataAttribute)attribs[0];
+           var pvattrib = (MTProductViewMetadataAttribute)attribs[0];
             if (pvattrib.UserVisible)
             {
               //check if pvattrib type is timestamp then convert to LocalTimeZone
-              if (pvattrib.DataType.ToString() == "timestamp")
+              if (Convert.ToString(pvattrib.DataType) == "timestamp")
               {
                 try 
                 { 
                   //get current account UTC local timezone
-                  var currenTimezone = TimeZoneList.Where(timezone => timezone.DisplayName == accounttimezone).FirstOrDefault();
+                  var currenTimezone = TimeZoneList.Where(timezone => timezone.DisplayName == accounttimezoneID.ToString()).FirstOrDefault();
                   if (currenTimezone != null)
                   {
-                    TimeZoneInfo targetTimezoneinfo = TimeZoneInfo.FindSystemTimeZoneById(currenTimezone.Id);
-                  //Convert to UTC (GMT) Time  
+                    //TimeZoneInfo targetTimezoneinfo = TimeZoneInfo.FindSystemTimeZoneById(currenTimezone.Id);
+                    //Convert to UTC (GMT) Time  
                     DateTime currentDate = Convert.ToDateTime(bpv.GetValue(pvattrib.ColumnName));  //.ToUniversalTime();
-                    Logger.LogInfo(pvattrib.ColumnName + "Has value before converion to Local timezone" + currentDate);
-                  // Converted UTC Time  
-                    //currentDate = TimeZoneInfo.ConvertTimeToUtc(currentDate);
-                    //Logger.LogInfo(pvattrib.ColumnName + "Has value after converion to UTC " + currentDate.ToString());
-                    Logger.LogInfo(pvattrib.ColumnName + " has value after converting to local TimeZone (" + accounttimezone + ") " + TimeZoneInfo.ConvertTimeFromUtc(currentDate, targetTimezoneinfo));
-                    prop.SetValue(bpv, TimeZoneInfo.ConvertTimeFromUtc(currentDate, targetTimezoneinfo), null);
-                  }
+                    prop.SetValue(bpv, this.GetLocalTime(currenTimezone.Id, currentDate),null);
+                  // Converted UTC Time 
+                   }
                   else
                   {
                     Logger.LogInfo("Specified Timezone " + accounttimezone + "not found");
@@ -549,8 +550,90 @@ public class BillManager: System.Web.UI.TemplateControl
          }
        }
     }
-
     return usageDetailsClient.InOut_usageDetails;
+  }
+
+  public DateTime GetLocalTime(String TimeZoneNameId, DateTime date)
+  {
+    DateTime utcTime = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, DateTimeKind.Utc);
+    // Get the venue time zone info
+    TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById(TimeZoneNameId);
+    TimeSpan timeDiffUtcClient = tz.BaseUtcOffset;
+    DateTime localDate = TimeZoneInfo.ConvertTimeFromUtc(date, tz);
+
+    /* if (tz.SupportsDaylightSavingTime && tz.IsDaylightSavingTime(localDate))
+      {
+        TimeZoneInfo.AdjustmentRule[] rules = tz.GetAdjustmentRules();
+        foreach (var adjustmentRule in rules)
+        {
+          if (adjustmentRule.DateStart <= localDate && adjustmentRule.DateEnd >= localDate)
+          {
+            double dayLtDelta = adjustmentRule.DaylightDelta.Hours;
+            localDate = localDate.AddHours(dayLtDelta);
+          }
+        }
+      }
+      else
+      {
+        DateTimeOffset utcDate = localDate.ToUniversalTime();
+      }*/
+    return localDate;
+  }
+
+  /// <summary>
+  /// CORE-7967 -- Returns Time Zone ID based on the TimeZone ENUM list. 
+  /// </summary>
+  /// <param name="timeZoneList"></param>
+  /// <param name="timeZoneId"></param>
+  /// <returns>timezoneDisplayName</returns>
+  public String ConvertTimeZoneId(List<TimeZoneList> timeZoneList, String timeZoneId)
+  {
+    String timezoneDisplayName = Convert.ToString(timeZoneId);
+    String ThreeUndrScr = "___";
+    String TwoUndrScr = "__";
+    String OneUndrScr = "_";
+    String[] separator = { " " };
+    bool bFndIt = false;
+
+    timezoneDisplayName = timezoneDisplayName.Replace(ThreeUndrScr, " ");
+    timezoneDisplayName = timezoneDisplayName.Replace(TwoUndrScr, " ");
+    timezoneDisplayName = timezoneDisplayName.Replace(OneUndrScr, " ").Trim();
+    String[] timezoneVals = timezoneDisplayName.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+    for (int i = 0; i < timeZoneList.Count; i++)
+    {
+      int j1 = 0;
+      int j2 = 0;
+      foreach (String str in timezoneVals)
+      {
+        int loc = timeZoneList[i].DisplayName.IndexOf(str);
+        if (loc == -1)
+        {
+          j1++;
+          bFndIt = false;
+          int result;
+          if ((j1 == 3) || (Int32.TryParse(str, out result)))
+          {
+            break;
+          }
+        }
+        else
+        {
+          j2++;
+          if (j2 == 4)
+          {
+            bFndIt = true;
+            break;
+          }
+        }
+      }
+
+      if (bFndIt)
+      {
+        timezoneDisplayName = Convert.ToString(timeZoneList[i].DisplayName);
+        break;
+      }
+    }
+    return timezoneDisplayName;
   }
 
   /// <summary>

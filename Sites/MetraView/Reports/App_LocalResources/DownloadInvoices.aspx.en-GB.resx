@@ -120,6 +120,9 @@
   <data name="AddReport.Text" xml:space="preserve">
     <value>Add report {0} to InvioceList</value>
   </data>
+  <data name="AddCreditNoteReport.Text" xml:space="preserve">
+    <value>Add report {0} to CreditNotesList</value>
+  </data>
   <data name="ErrorDownload.Text" xml:space="preserve">
     <value>Unable to download reports</value>
   </data>
@@ -129,13 +132,10 @@
   <data name="NoQuotes.Text" xml:space="preserve">
     <value>No Quotes Found</value>
   </data>
+  <data name="NoCreditNotes.Text" xml:space="preserve">
+    <value>No Credit Notes Found</value>
+  </data>
   <data name="SelectInterval.Text" xml:space="preserve">
     <value>Select Interval</value>
   </data>
-  <data name="AddCreditNoteReport.Text" xml:space="preserve">
-    <value>Add report {0} to CreditNotesList</value>
-  </data> 
-  <data name="NoCreditNotes.Text" xml:space="preserve">
-    <value>No Credit Notes Found</value>
-  </data>  
 </root>

@@ -229,7 +229,7 @@
     <value>Eliminar</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>[es-MX]Bulk Update</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Descripción</value>
@@ -249,6 +249,9 @@
   <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
     <value>Descargar comillas</value>
   </data>
+  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
+    <value>[es-MX]Download Credit Notes</value>
+  </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Editar </value>
   </data>
@@ -265,7 +268,7 @@
     <value>Francés</value>
   </data>
   <data name="TEXT_GENERAL" xml:space="preserve">
-    <value>General</value>
+    <value>[es-MX]General</value>
   </data>
   <data name="TEXT_GO" xml:space="preserve">
     <value>Ir</value>
@@ -384,6 +387,9 @@
   <data name="TEXT_REMOVE" xml:space="preserve">
     <value>Eliminar cuentas</value>
   </data>
+  <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
+    <value>[es-MX]Remove</value>
+  </data>
   <data name="TEXT_REPORT_TYPE" xml:space="preserve">
     <value>Informar tipo</value>
   </data>
@@ -395,6 +401,9 @@
   </data>
   <data name="TEXT_SESSION_ID" xml:space="preserve">
     <value>ID de sesión</value>
+  </data>
+  <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
+    <value>[es-MX]Show Only Hard Closed Intervals</value>
   </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>Mostrar datos de segunda pasada</value>
@@ -459,25 +468,22 @@
   <data name="TEXT_YES" xml:space="preserve">
     <value>Sí</value>
   </data>
-  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
-    <value>(Mexican Spanish) Download Credit Notes</value>
-  </data>
-   <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>(ES-MX)Product View Mappings</value>
+  <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
+    <value>[es-MX]Product View Mappings</value>
   </data>
   <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>(ES-MX)Bill Setting</value>
+    <value>[es-MX]Bill Setting</value>
   </data>
   <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>(ES-MX)Dashboards</value>
+    <value>[es-MX]Dashboards</value>
   </data>
   <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>(ES-MX)Entry Points</value>
+    <value>[es-MX]Entry Points</value>
   </data>
   <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>(ES-MX)Report Inventories</value>
+    <value>[es-MX]Report Inventories</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
-    <value>(ES-MX)Site</value>
+    <value>[es-MX]Site</value>
   </data>
 </root>

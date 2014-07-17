@@ -133,13 +133,13 @@
     <value>Evénement</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Log d’audit</value>
+    <value>Mon journal d'activité</value>
   </data>
   <data name="LOGGED_IN_AS" xml:space="preserve">
     <value>Connecté en tant que</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>Aucun enregistrement trouvé</value>
+    <value>Aucun enregistrement trouvé.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Mon activité</value>

@@ -267,11 +267,23 @@
   <data name="SpecCharacteristicValueModel_Length1" xml:space="preserve">
     <value>Lunghezza:</value>
   </data>
+  <data name="SpecCharacteristicValueModel_Max" xml:space="preserve">
+    <value>Max:</value>
+  </data>
+  <data name="SpecCharacteristicValueModel_Max1" xml:space="preserve">
+    <value>Max:</value>
+  </data>
   <data name="SpecCharacteristicValueModel_MaxDecimal" xml:space="preserve">
     <value>Decimale max:</value>
   </data>
   <data name="SpecCharacteristicValueModel_MaxDecimal1" xml:space="preserve">
     <value>Decimale max:</value>
+  </data>
+  <data name="SpecCharacteristicValueModel_Min" xml:space="preserve">
+    <value>Min:</value>
+  </data>
+  <data name="SpecCharacteristicValueModel_Min1" xml:space="preserve">
+    <value>Min:</value>
   </data>
   <data name="SpecCharacteristicValueModel_MixDecimal" xml:space="preserve">
     <value>Decimale min.:</value>

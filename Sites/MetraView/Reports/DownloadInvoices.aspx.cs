@@ -1,54 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using MetraTech.Core.Services.ClientProxies;
 using MetraTech.UI.Common;
 using MetraTech.Interop.RCD;
 using MetraTech.DomainModel.Billing;
 using System.Text;
 using System.Xml.Linq;
 using System.IO;
-using MetraTech.Core.CreditNotes;
-using MetraTech.CreditNotes;
-using RCD = MetraTech.Interop.RCD;
-
-
 
 public partial class Reports_DownloadInvoices : MTPage
 {
   private XDocument reportFormats = new XDocument();
-  private bool _creditNotesEnabled = false;
-  private RCD.IMTRcd rcd = new RCD.MTRcd();
+  private bool _creditNotesEnabled;
+  private IMTRcd rcd = new MTRcd();
+
   protected void Page_Load(object sender, EventArgs e)
   {
     Intervals1.RedirectURL = Request.FilePath;
 
-    StringBuilder sb = new StringBuilder();
+    var sb = new StringBuilder();
     var billManager = new BillManager(UI);
-    Interval interval = billManager.GetCurrentInterval();
+    var interval = billManager.GetCurrentInterval();
 
-    string reportingDir = Path.Combine(rcd.ExtensionDir, "Reporting");
+    var reportingDir = Path.Combine(rcd.ExtensionDir, "Reporting");
     if (Directory.Exists(reportingDir)) // check if Reporting extension exists
     {
       _creditNotesEnabled =
         MetraTech.CreditNotes.CreditNotePDFConfigurationManager.creditNotePDFConfig.creditNotesEnabled;
     }
-   
+
     if (interval == null)
     {
-      this.Intervals1.Visible = false;
-      InvoiceList.Text = (String)GetLocalResourceObject("NoInvoices.Text");
+      Intervals1.Visible = false;
+      InvoiceList.Text = (String) GetLocalResourceObject("NoInvoices.Text");
       return;
     }
 
     try
     {
-        //fill reports list
-      int intervalID = billManager.GetCurrentInterval().ID;
+      //fill reports list
+      var intervalID = billManager.GetCurrentInterval().ID;
       var reports = billManager.GetReports(intervalID);
       reportFormats = GetReportFormatConfigFile();
 
@@ -87,42 +78,42 @@ public partial class Reports_DownloadInvoices : MTPage
       InvoiceList.Text = sb.ToString();
 
       //fill quotes list
-      
+
       var quoteReports = billManager.GetQuoteReports();
       reportFormats = GetReportFormatConfigFile();
-        sb = new StringBuilder();
+      sb = new StringBuilder();
 
       if (quoteReports != null && quoteReports.Count > 0 && reportFormats.Root != null)
       {
-          if (Session[SiteConstants.QUOTE_REPORT_DICTIONARY] == null)
+        if (Session[SiteConstants.QUOTE_REPORT_DICTIONARY] == null)
+        {
+          Session[SiteConstants.QUOTE_REPORT_DICTIONARY] = new Dictionary<string, ReportFile>();
+        }
+
+        var quoteReportDictionary = Session[SiteConstants.QUOTE_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
+
+        foreach (var reportFile in quoteReports)
+        {
+          // The reportFile objects are stored in a dictionary and the name is passed to ShowReports.aspx
+          if (quoteReportDictionary != null)
           {
-              Session[SiteConstants.QUOTE_REPORT_DICTIONARY] = new Dictionary<string, ReportFile>();
+            if (!quoteReportDictionary.ContainsKey(String.Format("{0}_{1}", reportFile.FileName, intervalID)))
+            {
+              quoteReportDictionary.Add((String.Format("{0}_{1}", reportFile.FileName, intervalID)), reportFile);
+            }
           }
+          string reportToList = AddReportToQuoteList(reportFile.FileName, intervalID);
 
-          var quoteReportDictionary = Session[SiteConstants.QUOTE_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
-
-          foreach (var reportFile in quoteReports)
+          if (!string.IsNullOrEmpty(reportToList))
           {
-              // The reportFile objects are stored in a dictionary and the name is passed to ShowReports.aspx
-              if (quoteReportDictionary != null)
-              {
-                  if (!quoteReportDictionary.ContainsKey(String.Format("{0}_{1}", reportFile.FileName, intervalID)))
-                  {
-                      quoteReportDictionary.Add((String.Format("{0}_{1}", reportFile.FileName, intervalID)), reportFile);
-                  }
-              }
-              string reportToList = AddReportToQuoteList(reportFile.FileName, intervalID);
-
-              if (!string.IsNullOrEmpty(reportToList))
-              {
-                  sb.Append(reportToList);
-                  Logger.LogInfo((string)GetLocalResourceObject("AddReport.Text"), reportFile.FileName);
-              }
+            sb.Append(reportToList);
+            Logger.LogInfo((string) GetLocalResourceObject("AddReport.Text"), reportFile.FileName);
           }
+        }
       }
       else
       {
-          sb.Append(GetLocalResourceObject("NoQuotes.Text"));
+        sb.Append(GetLocalResourceObject("NoQuotes.Text"));
       }
       QuoteList.Text = sb.ToString();
 
@@ -153,7 +144,7 @@ public partial class Reports_DownloadInvoices : MTPage
                 creditNotesReportDictionary.Add((String.Format("{0}", reportFile.FileName)), reportFile);
               }
             }
-            string reportToList = AddReportToCreditNotesList(reportFile.FileName, intervalID);
+            string reportToList = AddReportToCreditNotesList(reportFile.FileName);
 
             if (!string.IsNullOrEmpty(reportToList))
             {
@@ -170,7 +161,7 @@ public partial class Reports_DownloadInvoices : MTPage
 
       }
       else
-      { 
+      {
         DownLoadCreditNotesDiv.Attributes.Add("style", "display: none;");
       }
     }
@@ -181,76 +172,56 @@ public partial class Reports_DownloadInvoices : MTPage
     }
   }
 
+  private const string LiTemplate =
+    "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType={2}\" onclick=\"startLoad();\"><img src='{3}'/>{4}</a></li>";
+
   //Add report to Invoice list, add reports only with  formats 
   //.xls, .xlsx, .csv, .doc, .docx, .htm, .html, .ps, .txt.,.pdf
-  //
-  private string AddReportToInvoiceList(string reportFileName, int intervalID)
-  {
-      string reportFormat = Path.GetExtension(reportFileName);
-      string reportToList = String.Empty;
 
-        foreach (XElement format in reportFormats.Root.Elements())
-        {
-          if (format.Attribute("type").Value.Equals(reportFormat))
-          {
-            reportToList =
-              String.Format(
-                "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType=invoice\"><img src='{2}'/>{3}</a></li>",
-                Request.ApplicationPath,
-                Server.UrlEncode(String.Format("{0}_{1}", reportFileName, intervalID)),
-                format.Element("ReportImage").Value,
-                reportFileName);
-          }
-        }
-      return reportToList;
+  private string AddReportToInvoiceList(string reportFileName, int intervalId)
+  {
+    var reportUrl = Server.UrlEncode(String.Format("{0}_{1}", reportFileName, intervalId));
+    return AddReport(reportFileName, reportUrl, "invoice");
   }
 
-  private string AddReportToCreditNotesList(string reportFileName, int intervalID)
+  private string AddReportToCreditNotesList(string reportFileName)
   {
+    var reportUrl = Server.UrlEncode(String.Format("{0}", reportFileName));
+    return AddReport(reportFileName, reportUrl, "creditnote");
+  }
 
-    string reportFormat = Path.GetExtension(reportFileName);
-    string reportToList = String.Empty;
+  private string AddReportToQuoteList(string reportFileName, int intervalId)
+  {
+    var reportUrl = Server.UrlEncode(String.Format("{0}_{1}", reportFileName, intervalId));
+    return AddReport(reportFileName, reportUrl, "quote");
+  }
 
-    foreach (XElement format in reportFormats.Root.Elements())
+  private string AddReport(string reportFileName, string reportUrl, string reportType)
+  {
+    var reportFormat = Path.GetExtension(reportFileName);
+    var reportToList = String.Empty;
+
+    foreach (var format in reportFormats.Root.Elements())
     {
       if (format.Attribute("type").Value.Equals(reportFormat))
       {
         reportToList =
           String.Format(
-            "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType=creditnote\"><img src='{2}'/>{3}</a></li>",
+            LiTemplate,
             Request.ApplicationPath,
-            Server.UrlEncode(String.Format("{0}", reportFileName)),
+            reportUrl,
+            reportType,
             format.Element("ReportImage").Value,
             reportFileName);
       }
     }
     return reportToList;
- 
   }
 
-  private string AddReportToQuoteList(string reportFileName, int intervalID)
-  {
-      string reportFormat = Path.GetExtension(reportFileName);
-      string reportToList = String.Empty;
-
-      foreach (XElement format in reportFormats.Root.Elements())
-      {
-          if (format.Attribute("type").Value.Equals(reportFormat))
-          {
-              reportToList =
-                String.Format(
-                  "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType=quote\"><img src='{2}'/>{3}</a></li>",
-                  Request.ApplicationPath,
-                  Server.UrlEncode(String.Format("{0}_{1}", reportFileName, intervalID)),
-                  format.Element("ReportImage").Value,
-                  reportFileName);
-          }
-      }
-      return reportToList;
-  }
-  //
-  //Get report format config file. Location r:\extensions\MetraView\Config\ReportFormats.xml
-  //
+  /// <summary>
+  /// Get report format config file. Location r:\extensions\MetraView\Config\ReportFormats.xml
+  /// </summary>
+  /// <returns></returns>
   private XDocument GetReportFormatConfigFile()
   {
     IMTRcd rcd = new MTRcd();
@@ -264,7 +235,8 @@ public partial class Reports_DownloadInvoices : MTPage
     }
     catch (Exception exp)
     {
-      throw new UIException(String.Format("{0} {1} Details:{2}", Resources.ErrorMessages.ERROR_REPORT_CONFIG, reportFormatFile, exp));
+      throw new UIException(String.Format("{0} {1} Details:{2}", Resources.ErrorMessages.ERROR_REPORT_CONFIG,
+                                          reportFormatFile, exp));
     }
     finally
     {
@@ -275,9 +247,10 @@ public partial class Reports_DownloadInvoices : MTPage
     }
     return reportFormats;
   }
-  //
-  //Check report format config file for correct structure
-  //
+
+  /// <summary>
+  /// Check report format config file for correct structure
+  /// </summary>
   private void ReportFormatConfigValidation()
   {
     if (reportFormats.Root != null)
@@ -299,5 +272,3 @@ public partial class Reports_DownloadInvoices : MTPage
     }
   }
 }
-
-

@@ -249,6 +249,9 @@
   <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
     <value>Scarica citazioni</value>
   </data>
+  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
+    <value>[IT]Download Credit Notes</value>
+  </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Modifica</value>
   </data>
@@ -262,7 +265,7 @@
     <value>Questa è solo una stima e non la fattura finale.</value>
   </data>
   <data name="TEXT_FR" xml:space="preserve">
-    <value>French</value>
+    <value>[IT]French</value>
   </data>
   <data name="TEXT_GENERAL" xml:space="preserve">
     <value>Generale</value>
@@ -399,6 +402,9 @@
   <data name="TEXT_SESSION_ID" xml:space="preserve">
     <value>ID sessione</value>
   </data>
+  <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
+    <value>[IT]Show Only Hard Closed Intervals</value>
+  </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>Mostra dati secondo passaggio</value>
   </data>
@@ -462,25 +468,22 @@
   <data name="TEXT_YES" xml:space="preserve">
     <value>Sì</value>
   </data>
-  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
-    <value>(Italian) Download Credit Notes</value>
-  </data>
   <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>(IT)Product View Mappings</value>
+    <value>[IT]Product View Mappings</value>
   </data>
   <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>(IT)Bill Setting</value>
+    <value>[IT]Bill Setting</value>
   </data>
   <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>(IT)Dashboards</value>
+    <value>[IT]Dashboards</value>
   </data>
   <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>(IT)Entry Points</value>
+    <value>[IT]Entry Points</value>
   </data>
   <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>(IT)Report Inventories</value>
+    <value>[IT]Report Inventories</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
-    <value>(IT)Site</value>
+    <value>[IT]Site</value>
   </data>
 </root>

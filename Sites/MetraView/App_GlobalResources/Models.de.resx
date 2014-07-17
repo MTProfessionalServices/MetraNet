@@ -156,6 +156,12 @@
   <data name="SpecCharacteristicModel_EntityId1" xml:space="preserve">
     <value>Einheiten-ID:</value>
   </data>
+  <data name="SpecCharacteristicModel_Name" xml:space="preserve">
+    <value>[DE]Name:</value>
+  </data>
+  <data name="SpecCharacteristicModel_Name1" xml:space="preserve">
+    <value>[DE]Name:</value>
+  </data>
   <data name="SpecCharacteristicModel_Required" xml:space="preserve">
     <value>Erforderlich:</value>
   </data>
@@ -261,17 +267,35 @@
   <data name="SpecCharacteristicValueModel_Length1" xml:space="preserve">
     <value>Länge:</value>
   </data>
+  <data name="SpecCharacteristicValueModel_Max" xml:space="preserve">
+    <value>Max:</value>
+  </data>
+  <data name="SpecCharacteristicValueModel_Max1" xml:space="preserve">
+    <value>Max:</value>
+  </data>
   <data name="SpecCharacteristicValueModel_MaxDecimal" xml:space="preserve">
     <value>Max. Dezimalzahl:</value>
   </data>
   <data name="SpecCharacteristicValueModel_MaxDecimal1" xml:space="preserve">
     <value>Max. Dezimalzahl:</value>
   </data>
+  <data name="SpecCharacteristicValueModel_Min" xml:space="preserve">
+    <value>Min:</value>
+  </data>
+  <data name="SpecCharacteristicValueModel_Min1" xml:space="preserve">
+    <value>Min:</value>
+  </data>
   <data name="SpecCharacteristicValueModel_MixDecimal" xml:space="preserve">
     <value>Min. Dezimalzahl:</value>
   </data>
   <data name="SpecCharacteristicValueModel_MixDecimal1" xml:space="preserve">
     <value>Min. Dezimalzahl:</value>
+  </data>
+  <data name="SpecCharacteristicValueModel_Name" xml:space="preserve">
+    <value>[DE]Name:</value>
+  </data>
+  <data name="SpecCharacteristicValueModel_Name1" xml:space="preserve">
+    <value>[DE]Name:</value>
   </data>
   <data name="SpecCharacteristicValueModel_NameDisplayNames" xml:space="preserve">
     <value>Anzeigenamen für Namen:</value>

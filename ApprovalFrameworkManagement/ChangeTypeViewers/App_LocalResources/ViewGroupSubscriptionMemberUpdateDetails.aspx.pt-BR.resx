@@ -148,6 +148,6 @@
     <value>Atualização dos membros da assinatura em grupo</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
-    <value>[pt-BR]Member Name</value>
+    <value>Nome do membro</value>
   </data>
 </root>

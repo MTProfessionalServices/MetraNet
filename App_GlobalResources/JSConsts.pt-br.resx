@@ -175,7 +175,7 @@
     <value>Sucesso</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[pt-BR]Account</value>
+    <value>Conta</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Detalhes</value>
@@ -1255,9 +1255,9 @@
     <value>N/D</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>[pt-BR]Account Type</value>
+    <value>Tipo de conta</value>
   </data>
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
-    <value>[pt-BR]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
+    <value>O valor nesse campo é inválido. Nomes de qualificação de utilização válidos devem conter apenas caracteres alfanuméricos (Aa-Zz, 0-9) e o caractere '_'.</value>
   </data>
 </root>

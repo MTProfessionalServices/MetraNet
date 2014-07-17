@@ -148,6 +148,6 @@
     <value>Membres de l’abonnement groupé</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
-    <value>[FR]Member Name</value>
+    <value>Nom du membre</value>
   </data>
 </root>

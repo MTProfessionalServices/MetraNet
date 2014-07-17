@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>j/m/A</value>
+    <value>j/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>n/j/Y</value>
+    <value>j/n/Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y G:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:i:s A|n/j/Y</value>
+    <value>j/n/Y G:i:s|j/n/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y G:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>jj/mm/AAAA</value>
+    <value>jj/mm/YYYY</value>
   </data>
   <data name="GRAPH_CURRENCY_FORMAT" xml:space="preserve">
     <value>$%.2f</value>
@@ -454,7 +454,7 @@
     <value>Êtes-vous sûr de vouloir vous déconnecter ?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:ia</value>
+    <value>j/n/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Gérer le compte</value>
@@ -697,6 +697,6 @@
     <value>Le milieu initial est incorrecte</value>
   </data>
   <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y G:i:s</value>
   </data>
 </root>

@@ -24,6 +24,7 @@ inner join t_enum_data ed on ed.id_enum_data = au.id_view
 inner join t_pi_template pit on pit.id_template = au.id_pi_template
 join t_billgroup_member bgm on au.id_acc = bgm.id_acc
 join t_billgroup bg on bgm.id_root_billgroup = bg.id_billgroup
+                       and bg.id_billgroup = %%ID_BILLINGGROUP%%
 where au.id_usage_interval = %%ID_INTERVAL%%
   and id_lang_code = %%ID_LANG_CODE%%
   and pit.id_template_parent is null	

@@ -1255,9 +1255,9 @@
     <value>N/A</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>[FR]Account Type TEST</value>
+    <value>Account Type TEST</value>
   </data>
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
-    <value>[FR]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
+    <value>La valeur de ce champ est incorrecte. Pour être valides les noms des qualifications d'utilisation ne peuvent être composés que de caractères alphanumériques (Aa-Zz, 0-9) et du caractère de soulignement \"_\".</value>
   </data>
 </root>

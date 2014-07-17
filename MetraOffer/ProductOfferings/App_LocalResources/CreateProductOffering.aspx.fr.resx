@@ -133,7 +133,7 @@
     <value>Date de début de validité</value>
   </data>
   <data name="TEXT_MASTER" xml:space="preserve">
-    <value>[FR]Create Master Product Offering</value>
+    <value>Créer une offre produit principale</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nom</value>

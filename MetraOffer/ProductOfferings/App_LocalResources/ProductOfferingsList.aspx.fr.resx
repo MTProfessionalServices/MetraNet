@@ -139,7 +139,7 @@
     <value>Date de début disponible</value>
   </data>
   <data name="TEXT_CopyPO" xml:space="preserve">
-    <value>[FR]Copy Product Offering</value>
+    <value>Copier l’offre produit</value>
   </data>
   <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
     <value>Créer une offre produit</value>
@@ -148,7 +148,7 @@
     <value>Devise</value>
   </data>
   <data name="TEXT_DeletePO" xml:space="preserve">
-    <value>[FR]Delete Product Offering</value>
+    <value>Supprimer les offres produits</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
@@ -157,7 +157,7 @@
     <value>Nom d’affichage</value>
   </data>
   <data name="TEXT_EditPO" xml:space="preserve">
-    <value>[FR]Edit Product Offering</value>
+    <value>Modifier l’offre produit</value>
   </data>
   <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
     <value>Date de fin de validité</value>
@@ -172,7 +172,7 @@
     <value>Code général</value>
   </data>
   <data name="TEXT_HidePO" xml:space="preserve">
-    <value>[FR]Hide Product Offering</value>
+    <value>Masquer l’offre produit</value>
   </data>
   <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
     <value>URL d’informations interne</value>
@@ -187,12 +187,12 @@
     <value>ID de partition</value>
   </data>
   <data name="TEXT_UnhidePO" xml:space="preserve">
-    <value>[FR]Unhide Product Offering</value>
+    <value>Annuler le masquage de l’offre produit</value>
   </data>
   <data name="TEXT_ViewPO" xml:space="preserve">
-    <value>[FR]View Product Offering</value>
+    <value>Afficher l’offre produit</value>
   </data>
   <data name="TEXT_MASTER" xml:space="preserve">
-    <value>[FR]Master Product Offerings</value>
+    <value>Principales offres produits</value>
   </data>
 </root>

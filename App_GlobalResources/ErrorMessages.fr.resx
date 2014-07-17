@@ -304,6 +304,6 @@
     <value>Impossible d’ouvrir et d’enregistrer le rapport</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
-    <value>[FR]Name of product offering must be unique</value>
+    <value>Le nom de l’offre produit doit être unique</value>
   </data>
 </root>

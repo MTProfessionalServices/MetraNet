@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>m/d/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>n/j/Y</value>
+    <value>j/n/Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y g:i:s A</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:i:s A|n/j/Y</value>
+    <value>j/n/Y g:i:s A|j/n/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y g:i:s A</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>mm/dd/YYYY</value>
@@ -454,7 +454,7 @@
     <value>Are you sure you want to logout?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:ia</value>
+    <value>j/n/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Manage Account</value>
@@ -697,7 +697,7 @@
     <value>Middle initial is invalid</value>
   </data>
   <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y g:i:s A</value>
   </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
     <value>Refresh</value>

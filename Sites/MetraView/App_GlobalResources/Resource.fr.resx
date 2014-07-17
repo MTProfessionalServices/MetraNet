@@ -469,21 +469,21 @@
     <value>OUI</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>[FR]Product View Mappings</value>
+    <value>Mappages vue produit</value>
   </data>
   <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>[FR]Bill Setting</value>
+    <value>Paramétrage facture</value>
   </data>
   <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>[FR]Dashboards</value>
+    <value>Tableaux de bord</value>
   </data>
   <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>[FR]Entry Points</value>
+    <value>Points d'entrée</value>
   </data>
   <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>[FR]Report Inventories</value>
+    <value>Signaler inventaires</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
-    <value>[FR]Site</value>
+    <value>Site</value>
   </data>
 </root>

@@ -9,6 +9,7 @@ select
 from t_invoice inv
 join t_billgroup_member bgm on inv.id_acc = bgm.id_acc
 join t_billgroup bg on bgm.id_root_billgroup = bg.id_billgroup
+                       and bg.id_billgroup = %%ID_BILLINGGROUP%%
 where id_interval = %%ID_INTERVAL%%
 group by bg.tx_name, inv.invoice_currency
 

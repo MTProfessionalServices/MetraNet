@@ -3,7 +3,7 @@
           (
              id_scv	int not null,
              id_entity int not null,
-             nm_value	nvarchar(20),
+             nm_value	nvarchar(255),
              c_start_date datetime not null,
              c_end_date datetime,
              c_spec_name nvarchar(20) not null,

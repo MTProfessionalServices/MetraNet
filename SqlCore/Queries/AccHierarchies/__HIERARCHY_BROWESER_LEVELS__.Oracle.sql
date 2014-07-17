@@ -2,7 +2,7 @@
 SELECT
 num_generations,account_type, icon, parent_id, id_parent, child_id, b_children AS children, nm_login, nm_space, hierarchyname,
 CASE WHEN folder_owner IS NULL THEN N'' ELSE folder_owner END AS folder_owner,
-folder, currency, status, numpayees
+folder, currency, status, numpayees, id_payee
 FROM
 (
 SELECT
@@ -30,7 +30,8 @@ CASE
 descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
-accs.numpayees
+accs.numpayees,
+id_payee 
 FROM
 (
 SELECT
@@ -39,7 +40,8 @@ aa.id_ancestor,
 aa2.id_ancestor AS id_parent,
 aa.id_descendent,
 aa3.b_children,
-COUNT(1) numpayees
+COUNT(1) numpayees,
+pr.id_payee id_payee
 FROM t_account_ancestor aa
 INNER JOIN t_account_ancestor aa2 ON aa2.id_descendent = aa.id_ancestor AND %%REF_DATE%% BETWEEN aa2.vt_start AND aa2.vt_end AND aa2.num_generations=1
 INNER JOIN t_account_ancestor aa3 ON aa3.id_descendent = aa.id_ancestor AND %%REF_DATE%% BETWEEN aa3.vt_start AND aa3.vt_end AND aa3.num_generations=0 
@@ -49,7 +51,7 @@ LEFT OUTER JOIN t_payment_redirection pr ON aa.id_descendent = pr.id_payer
 WHERE 1=1
 AND aa.id_descendent = %%DESCENDENT%%
 AND %%REF_DATE%% BETWEEN aa.vt_start AND aa.vt_end
-GROUP BY aa.num_generations, aa.id_ancestor, aa2.id_ancestor, aa.id_descendent, aa3.b_children) accs
+GROUP BY aa.num_generations, aa.id_ancestor, aa2.id_ancestor, aa.id_descendent, aa3.b_children, pr.id_payee) accs
  INNER JOIN t_account acc ON acc.id_acc = accs.id_ancestor
  INNER JOIN t_account_type at ON at.id_type = acc.id_type
   INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_ancestor

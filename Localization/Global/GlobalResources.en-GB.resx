@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,475 +59,493 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="ACOUNT_STATE_WAS" xml:space="preserve">
-        <value>Account state was {0}, changed to {1}. </value>
-    </data>
-    <data name="ANCESTOR_ACOUNT_ID_WAS" xml:space="preserve">
-        <value>Ancestor Account ID was {0}, changed to {1}. </value>
-    </data>
-    <data name="ANCESTOR_ACOUNT_NS_WAS" xml:space="preserve">
-        <value>Ancestor Account name space was {0}, changed to {1}. </value>
-    </data>
-    <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
-        <value>Ancestor Account was {0}, changed to {1}. </value>
-    </data>
-    <data name="BILLING_CYCLES" xml:space="preserve">
-        <value>Billing Cycles</value>
-    </data>
-    <data name="CHANGED_CHILD_PI_INSTANCE" xml:space="preserve">
-        <value>Changed child PI instance from {0} to {1}. </value>
-    </data>
-    <data name="CHANGED_PROP" xml:space="preserve">
-        <value>Changed property '{0}' from '{1}' to '{2}'.</value>
-    </data>
-    <data name="CITY_CHANGED" xml:space="preserve">
-        <value>City was {0}, changed to {1}. </value>
-    </data>
-    <data name="COUNTRY_CHANGED" xml:space="preserve">
-        <value>Country was {0}, changed to {1}. </value>
-    </data>
-    <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
-        <value>Day Of Month was {0}, changed to {1}. </value>
-    </data>
-    <data name="DAY_OF_WEEK_WAS" xml:space="preserve">
-        <value>Day Of Week was {0}, changed to {1}. </value>
-    </data>
-    <data name="END_DATE_WAS" xml:space="preserve">
-        <value>End date was {0}, changed to {1}. </value>
-    </data>
-    <data name="END_DAY_OF_MONTH" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="END_DAY_OF_WEEK" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="EXPIRATION_CHANGED" xml:space="preserve">
-        <value>Expiration date was {0}, changed to {1}.</value>
-    </data>
-    <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
-        <value>First Day Of Month was {0}, changed to {1}. </value>
-    </data>
-    <data name="FIRST_END_DAY_OF_MONTH" xml:space="preserve">
-        <value>1st End Day of Month</value>
-    </data>
-    <data name="FIRST_NAME_CHANGED" xml:space="preserve">
-        <value>First name was {0}, changed to {1}. </value>
-    </data>
-    <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
-    <value>(British)Agreement template ID cannot be less than 0.</value>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACOUNT_STATE_WAS" xml:space="preserve">
+    <value>Account state was {0}, changed to {1}. </value>
   </data>
-    <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
-    <value>(British)The Effective End Date cannot be earlier than the Effective Start Date.</value>
+  <data name="ANCESTOR_ACOUNT_ID_WAS" xml:space="preserve">
+    <value>Ancestor Account ID was {0}, changed to {1}. </value>
   </data>
-    <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>(British)New Agreement Template created successfully with id {0}.</value>
+  <data name="ANCESTOR_ACOUNT_NS_WAS" xml:space="preserve">
+    <value>Ancestor Account name space was {0}, changed to {1}. </value>
   </data>
-    <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>(British)Failed to save agreement template {0}.</value>
+  <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
+    <value>Ancestor Account was {0}, changed to {1}. </value>
   </data>
-    <data name="UPDTED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>(British)Updated Agreement Template with id {0}.</value>
+  <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
+    <value>Transaction {0} is of type {1}, but got a AlreadySettledException</value>
   </data>
-    <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
-    <value>(British)Entity list already contains entity with id {0}.</value>
+  <data name="BILLING_CYCLES" xml:space="preserve">
+    <value>Billing Cycles</value>
   </data>
-    <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
-    <value>(British)Entity list does not contain entity with id {0}.</value>
+  <data name="CHANGED_CHILD_PI_INSTANCE" xml:space="preserve">
+    <value>Changed child PI instance from {0} to {1}. </value>
   </data>
-    <data name="ADDED_ENTITY" xml:space="preserve">
-    <value>(British)Added entity with ID {0} to entity list</value>
+  <data name="CHANGED_PROP" xml:space="preserve">
+    <value>Changed property '{0}' from '{1}' to '{2}'.</value>
   </data>
-    <data name="DELETED_ENTITY" xml:space="preserve">
-    <value>(British)Deleted entity with ID {0} from entity list</value>
+  <data name="CITY_CHANGED" xml:space="preserve">
+    <value>City was {0}, changed to {1}. </value>
   </data>
-    <data name="VALUE_CHANGED" xml:space="preserve">
-    <value>(British){0} was {1}, changed to {2}.</value>
+  <data name="COUNTRY_CHANGED" xml:space="preserve">
+    <value>Country was {0}, changed to {1}. </value>
   </data>
-    <data name="LAST_NAME_CHANGED" xml:space="preserve">
-        <value>Last name was {0}, changed to {1}.</value>
-    </data>
-    <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
-        <value>Max charge per cycle was {0}, changed to {1}. </value>
-    </data>
-    <data name="MIDDLE_NAME_CHANGED" xml:space="preserve">
-        <value>Middle name was {0}, changed to {1}. </value>
-    </data>
-    <data name="PAYER_ACCOUNT_NS_WAS" xml:space="preserve">
-        <value>Payer Account name space was {0}, changed to {1}. </value>
-    </data>
-    <data name="PAYER_ACCOUNT_WAS" xml:space="preserve">
-        <value>Payer Account was {0}, changed to {1}. </value>
-    </data>
-    <data name="PAYER_ID_WAS" xml:space="preserve">
-        <value>Payer ID was {0}, changed to {1}. </value>
-    </data>
-    <data name="PI_DESCRIPTION_WAS" xml:space="preserve">
-        <value>Description was {0}, changed to {1}. </value>
-    </data>
-    <data name="PI_DISPLAY_NAME_WAS" xml:space="preserve">
-        <value>Display name was {0}, changed to {1}. </value>
-    </data>
-    <data name="PI_KIND_WAS" xml:space="preserve">
-        <value>Kind was {0}, changed to {1}. </value>
-    </data>
-    <data name="PI_NAME_WAS" xml:space="preserve">
-        <value>Name was {0}, changed to {1}.</value>
-    </data>
-    <data name="ROOT" xml:space="preserve">
-        <value>Account Hierarchy (1)</value>
-    </data>
-    <data name="SECOND_DAY_OF_MONTH_WAS" xml:space="preserve">
-        <value>Second Day Of Month was {0}, changed to {1}. </value>
-    </data>
-    <data name="SECOND_END_DAY_OF_MONTH" xml:space="preserve">
-        <value>2nd End Day of Month</value>
-    </data>
-    <data name="SELECT_INTERVAL" xml:space="preserve">
-        <value>Select Interval</value>
-    </data>
-    <data name="START_DATE_WAS" xml:space="preserve">
-        <value>Start Date</value>
-    </data>
-    <data name="START_DAY" xml:space="preserve">
-        <value>Start Day</value>
-    </data>
-    <data name="START_DAY_IS" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="START_DAY_WAS" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="START_MONTH" xml:space="preserve">
-        <value>Start Month</value>
-    </data>
-    <data name="START_MONTH_IS" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="START_MONTH_WAS" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="START_YEAR_WAS" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="STATE_CHANGED" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="STREET_2_CHANGED" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="STREET_CHANGED" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
-        <value>Account cannot be its own bill manager</value>
-    </data>
-    <data name="TEXT_ADDED_BILL_MANAGEE" xml:space="preserve">
-        <value>Added bill managee</value>
-    </data>
-    <data name="TEXT_ADDED_BILL_MANAGER" xml:space="preserve">
-        <value>Subscriptions Start Date</value>
-    </data>
-    <data name="TEXT_APPROVED_NS_CHARGES" xml:space="preserve">
-        <value>Approved the relevant nonstandard charges</value>
-    </data>
-    <data name="TEXT_APPROVING_NS_CHARGES" xml:space="preserve">
-        <value>Approving the relevant nonstandard charges</value>
-    </data>
-    <data name="TEXT_BILL_MANAGER_CORPORATION" xml:space="preserve">
-        <value>Bill Manager and account must be in same corporation</value>
-    </data>
-    <data name="TEXT_BILL_MANAGER_EXISTS" xml:space="preserve">
-        <value>Bill Manager Already exists</value>
-    </data>
-    <data name="TEXT_CANNOT_ADD_BILL_MANAGEES" xml:space="preserve">
-        <value>Could not add bill managee</value>
-    </data>
-    <data name="TEXT_CANNOT_ADD_BILL_MANAGER" xml:space="preserve">
-        <value>Cannot add bill manager to the system</value>
-    </data>
-    <data name="TEXT_CANNOT_REMOVE_BILL_MANAGEES" xml:space="preserve">
-        <value>Could not remove bill managee</value>
-    </data>
-    <data name="TEXT_CANNOT_REMOVE_BILL_MANAGER" xml:space="preserve">
-        <value>Cannot remove bill manager from system</value>
-    </data>
-    <data name="TEXT_CANNOT_RETRIEVE_DATA" xml:space="preserve">
-        <value>Cannot retrieve bill management data</value>
-    </data>
-    <data name="TEXT_DENIED_NS_CHARGES" xml:space="preserve">
-        <value>Denied the relevant nonstandard charges</value>
-    </data>
-    <data name="TEXT_DENYING_NS_CHARGES" xml:space="preserve">
-        <value>Denying the relevant nonstandard charges</value>
-    </data>
-    <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
-        <value>No charges for approval.</value>
-    </data>
-    <data name="TEXT_NO_CHARGE_FOR_DENY" xml:space="preserve">
-        <value>No charges provided for denial.</value>
-    </data>
-    <data name="TEXT_NO_CHARGE_FOUND" xml:space="preserve">
-        <value>Cannot retrieve nonstandard charges from the system</value>
-    </data>
-    <data name="TEXT_NO_SESSION_IDS" xml:space="preserve">
-        <value>No session ids provided for approval.</value>
-    </data>
-    <data name="TEXT_REMOVED_BILL_MANAGER" xml:space="preserve">
-        <value>Removed bill manager</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
-        <value>Unable to add credit card to this account</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_DENY_PENDING_NS" xml:space="preserve">
-        <value>Unable to approve pending nonstandard charges.</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_PROCESS" xml:space="preserve">
-        <value>Your password was changed successfully.</value>
-    </data>
-    <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="USAGE_CYCLE_WAS" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="ZIP_CHANGED" xml:space="preserve">
-        <value>Zip / Postal Code</value>
-    </data>
-        <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-        <value>MASBasicException while trying to save specification characteristics to entity.</value>
-    </data>
-    <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-        <value>Unhandled Exception while trying to save specification characteristics to entity.</value>
-    </data>
-    <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
-        <value>An unknown error occurred.  Please have the system administrator review your logs.</value>
-    </data>
-    <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
-        <value>Updating specification characteristic.</value>
-    </data>
-    <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
-        <value>Could not retrieve localization data.</value>
-    </data>
-    <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
-        <value>Retrieved localization data.</value>
-    </data>
-    <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
-        <value>Processed localization data.</value>
-    </data>
-    <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
-        <value>Updating values for specification characteristic.</value>
-    </data>
-    <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
-        <value>Updated specification characteristic values for specification characteristic.</value>
-    </data>
-    <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
-        <value>Updated specification characteristic.</value>
-    </data>
-    <data name="TEXT_CREATING_SPEC" xml:space="preserve">
-        <value>Creating specification characteristic.</value>
-    </data>
-    <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
-        <value>Adding specification characteristic values.</value>
-    </data>     
-    <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
-        <value>Added specification characteristic values.</value>
-    </data>    
-    <data name="TEXT_CREATED_SPEC" xml:space="preserve">
-        <value>Created specification characteristic.</value>
-    </data>
-    <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
-        <value>Failed Created specification characteristic.</value>
-    </data>
-    <data name="TEXT_RETRIEVED" xml:space="preserve">
-        <value>specification characteristics retrieved from system.</value>
-    </data>
-    <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
-        <value>Unable to retrieve specification characteristics from system.</value>
-    </data>
-    <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
-        <value>Retrieving specification characteristic from system.</value>
-    </data>
-    <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
-        <value>Retrieved specification characteristic from system.</value>
-    </data>
-    <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
-        <value>Retrieved localization from system.</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
-        <value>Unable to retrieve specification characteristic from system.</value>
-    </data>
-    <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
-        <value>Retrieving specification characteristic values from system.</value>
-    </data>
-    <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
-        <value>Retrieved specification characteristic values from system.</value>
-    </data>
-    <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
-        <value>Cannot retrieve specification characteristic values from system.</value>
-    </data>
-    <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
-        <value>Removing specification characteristic from entity.</value>
-    </data>    
-    <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
-        <value>Cannot remove specification characteristic because it is in use.</value>
-    </data>     
-    <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
-        <value>Removed specification characteristic from entity.</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
-        <value>An error occurred removing specification characteristic from entity.</value>
-    </data>
-    <data name="TEXT_DELETING_SPEC" xml:space="preserve">
-        <value>Deleting specification characteristic from system.</value>
-    </data>
-    <data name="TEXT_DELETED_SPEC" xml:space="preserve">
-        <value>Deleted specification characteristic from system.</value>
-    </data>
-    <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
-        <value>An error occurred deleting specification characteristic from system.</value>
-    </data>
-    <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
-        <value>Retrieving specification characteristics for entity.</value>
-    </data>
-    <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
-        <value>Retrieved specification characteristics for entity.</value>
-    </data>    
-    <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
-        <value>Could not retrieved specification characteristic values from system.</value>
-    </data>
-    <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
-        <value>Saving specification characteristic value to system.</value>
-    </data>
-    <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
-        <value>Cannot update the specification characteristic value because it is in use.</value>
-    </data>   
-    <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
-        <value>Updated the specification characteristic value.</value>
-    </data>
-    <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
-        <value>Saved the specification characteristic value.</value>
-    </data>
-    <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
-        <value>An error occurred saving the specification characteristic value.</value>
-    </data>    
-    <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
-        <value>Creating entries in spec val map for specification characteristic and values.</value>
-    </data>
-    <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
-        <value>Created entries in spec val map for specification characteristic and values.</value>
-    </data>
-    <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-        <value>Failed creating entries in spec val map for specification characteristic and values.</value>
-    </data>
-    <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
-        <value>Removing entries in spec val map for specification characteristic and values.</value>
-    </data>
-    <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
-        <value>Removed entries in spec val map for specification characteristic and values.</value>
-    </data>
-    <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-        <value>Failed Removing entries in spec val map for specification characteristic and values.</value>
-    </data>    
-    <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
-        <value>No mapping values to delete.</value>
-    </data>
-    <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
-        <value>Mapping cannot be deleted because it is in use.</value>
-    </data>
-    <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
-        <value>Retrieving details for filename </value>
-    </data>
-    <data name="TEXT_FILE_REJECTED" xml:space="preserve">
-        <value>The file was rejected.</value>
-    </data>
-    <data name="TEXT_FILE_PENDING" xml:space="preserve">
-        <value>The file is pending.</value>
-    </data>
-    <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
-        <value>The file is being processed.</value>
-    </data>
-    <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
-        <value>The file is being processed.</value>
-    </data>
-    <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
-        <value>Retrieved details for file </value>
-    </data>
-    <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
-        <value>A load data exception occurred </value>
-    </data>
-    <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
-        <value>A data access exception occurred </value>
-    </data>
-    <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
-        <value>An exception occurred </value>
-    </data>
-    <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
-        <value>Retrieving a list of failed filenames </value>
-    </data>
-    <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
-        <value>Retrieved a list of failed filenames </value>
-    </data>
+  <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
+    <value>Day Of Month was {0}, changed to {1}. </value>
+  </data>
+  <data name="DAY_OF_WEEK_WAS" xml:space="preserve">
+    <value>Day Of Week was {0}, changed to {1}. </value>
+  </data>
+  <data name="END_DATE_WAS" xml:space="preserve">
+    <value>End date was {0}, changed to {1}. </value>
+  </data>
+  <data name="END_DAY_OF_MONTH" xml:space="preserve">
+    <value>End Day of Month</value>
+  </data>
+  <data name="END_DAY_OF_WEEK" xml:space="preserve">
+    <value>End Day of Week</value>
+  </data>
+  <data name="EXPIRATION_CHANGED" xml:space="preserve">
+    <value>Expiration date was {0}, changed to {1}.</value>
+  </data>
+  <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
+    <value>First Day Of Month was {0}, changed to {1}. </value>
+  </data>
+  <data name="FIRST_END_DAY_OF_MONTH" xml:space="preserve">
+    <value>1st End Day of Month</value>
+  </data>
+  <data name="FIRST_NAME_CHANGED" xml:space="preserve">
+    <value>First name was {0}, changed to {1}. </value>
+  </data>
+  <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
+    <value>[en-GB]Agreement template ID cannot be less than 0.</value>
+  </data>
+  <data name="LAST_NAME_CHANGED" xml:space="preserve">
+    <value>Last name was {0}, changed to {1}.</value>
+  </data>
+  <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+    <value>[en-GB]New Agreement Template created successfully with id {0}.</value>
+  </data>
+  <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
+    <value>[en-GB]Failed to save agreement template {0}.</value>
+  </data>
+  <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+    <value>[en-GB]Updated Agreement Template with id {0}.</value>
+  </data>
+  <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
+    <value>[en-GB]Entity list already contains entity with id {0}.</value>
+  </data>
+  <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
+    <value>[en-GB]Entity list does not contain entity with id {0}.</value>
+  </data>
+  <data name="ADDED_ENTITY" xml:space="preserve">
+    <value>[en-GB]Added entity with ID {0} to entity list</value>
+  </data>
+  <data name="DELETED_ENTITY" xml:space="preserve">
+    <value>[en-GB]Deleted entity with ID {0} from entity list</value>
+  </data>
+  <data name="VALUE_CHANGED" xml:space="preserve">
+    <value>[en-GB]{0} was {1}, changed to {2}.</value>
+  </data>
+  <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
+    <value>[en-GB]The Effective End Date cannot be earlier than the Effective Start Date.</value>
+  </data>
+  <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
+    <value>Max charge per cycle was {0}, changed to {1}. </value>
+  </data>
+  <data name="MIDDLE_NAME_CHANGED" xml:space="preserve">
+    <value>Middle name was {0}, changed to {1}. </value>
+  </data>
+  <data name="PAYER_ACCOUNT_NS_WAS" xml:space="preserve">
+    <value>Payer Account name space was {0}, changed to {1}. </value>
+  </data>
+  <data name="PAYER_ACCOUNT_WAS" xml:space="preserve">
+    <value>Payer Account was {0}, changed to {1}. </value>
+  </data>
+  <data name="PAYER_ID_WAS" xml:space="preserve">
+    <value>Payer ID was {0}, changed to {1}. </value>
+  </data>
+  <data name="PI_DESCRIPTION_WAS" xml:space="preserve">
+    <value>Description was {0}, changed to {1}. </value>
+  </data>
+  <data name="PI_DISPLAY_NAME_WAS" xml:space="preserve">
+    <value>Display name was {0}, changed to {1}. </value>
+  </data>
+  <data name="PI_KIND_WAS" xml:space="preserve">
+    <value>Kind was {0}, changed to {1}. </value>
+  </data>
+  <data name="PI_NAME_WAS" xml:space="preserve">
+    <value>Name was {0}, changed to {1}.</value>
+  </data>
+  <data name="ROOT" xml:space="preserve">
+    <value>Account Hierarchy (1)</value>
+  </data>
+  <data name="SECOND_DAY_OF_MONTH_WAS" xml:space="preserve">
+    <value>Second Day Of Month was {0}, changed to {1}. </value>
+  </data>
+  <data name="SECOND_END_DAY_OF_MONTH" xml:space="preserve">
+    <value>2nd End Day of Month</value>
+  </data>
+  <data name="SELECT_INTERVAL" xml:space="preserve">
+    <value>Select Interval</value>
+  </data>
+  <data name="START_DATE_WAS" xml:space="preserve">
+    <value>Start date was {0}, changed to {1}. </value>
+  </data>
+  <data name="START_DAY" xml:space="preserve">
+    <value>Start Day</value>
+  </data>
+  <data name="START_DAY_IS" xml:space="preserve">
+    <value>Start day is {0}. </value>
+  </data>
+  <data name="START_DAY_WAS" xml:space="preserve">
+    <value>Start Day was {0}, changed to {1}. </value>
+  </data>
+  <data name="START_MONTH" xml:space="preserve">
+    <value>Start Month</value>
+  </data>
+  <data name="START_MONTH_IS" xml:space="preserve">
+    <value>Start month is {0}. </value>
+  </data>
+  <data name="START_MONTH_WAS" xml:space="preserve">
+    <value>Start month was {0}, changed to {1}. </value>
+  </data>
+  <data name="START_YEAR_WAS" xml:space="preserve">
+    <value>Start year was {0}, changed to {1}. </value>
+  </data>
+  <data name="STATE_CHANGED" xml:space="preserve">
+    <value>State was {0}, changed to {1}. </value>
+  </data>
+  <data name="STREET_2_CHANGED" xml:space="preserve">
+    <value>Street(2) was {0}, changed to {1}.</value>
+  </data>
+  <data name="STREET_CHANGED" xml:space="preserve">
+    <value>Street was {0}, changed to {1}. </value>
+  </data>
+  <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
+    <value>Successfully updated account for username '{0}' with id '{1}. ' </value>
+  </data>
+  <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
+    <value>Account cannot be its own bill manager</value>
+  </data>
+  <data name="TEXT_ADDED_BILL_MANAGEE" xml:space="preserve">
+    <value>Added bill managee</value>
+  </data>
+  <data name="TEXT_ADDED_BILL_MANAGER" xml:space="preserve">
+    <value>Succesfully added account bill manager</value>
+  </data>
+  <data name="TEXT_APPROVED_NS_CHARGES" xml:space="preserve">
+    <value>Approved the relevant nonstandard charges</value>
+  </data>
+  <data name="TEXT_APPROVING_NS_CHARGES" xml:space="preserve">
+    <value>Approving the relevant nonstandard charges</value>
+  </data>
+  <data name="TEXT_BILL_MANAGER_CORPORATION" xml:space="preserve">
+    <value>Bill Manager and account must be in same corporation</value>
+  </data>
+  <data name="TEXT_BILL_MANAGER_EXISTS" xml:space="preserve">
+    <value>Bill Manager Already exists</value>
+  </data>
+  <data name="TEXT_CANNOT_ADD_BILL_MANAGEES" xml:space="preserve">
+    <value>Could not add bill managee</value>
+  </data>
+  <data name="TEXT_CANNOT_ADD_BILL_MANAGER" xml:space="preserve">
+    <value>Cannot add bill manager to the system</value>
+  </data>
+  <data name="TEXT_CANNOT_REMOVE_BILL_MANAGEES" xml:space="preserve">
+    <value>Could not remove bill managee</value>
+  </data>
+  <data name="TEXT_CANNOT_REMOVE_BILL_MANAGER" xml:space="preserve">
+    <value>Cannot remove bill manager from system</value>
+  </data>
+  <data name="TEXT_CANNOT_RETRIEVE_DATA" xml:space="preserve">
+    <value>Cannot retrieve bill management data</value>
+  </data>
+  <data name="TEXT_DENIED_NS_CHARGES" xml:space="preserve">
+    <value>Denied the relevant nonstandard charges</value>
+  </data>
+  <data name="TEXT_DENYING_NS_CHARGES" xml:space="preserve">
+    <value>Denying the relevant nonstandard charges</value>
+  </data>
+  <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
+    <value>No charges for approval.</value>
+  </data>
+  <data name="TEXT_NO_CHARGE_FOR_DENY" xml:space="preserve">
+    <value>No charges provided for denial.</value>
+  </data>
+  <data name="TEXT_NO_CHARGE_FOUND" xml:space="preserve">
+    <value>Cannot retrieve nonstandard charges from the system</value>
+  </data>
+  <data name="TEXT_NO_SESSION_IDS" xml:space="preserve">
+    <value>No session ids provided for approval.</value>
+  </data>
+  <data name="TEXT_REMOVED_BILL_MANAGER" xml:space="preserve">
+    <value>Removed bill manager</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
+    <value>Unable to approve pending nonstandard charges.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_DENY_PENDING_NS" xml:space="preserve">
+    <value>Unable to deny pending nonstandard charges.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_PROCESS" xml:space="preserve">
+    <value>Your request could not be processed because of the following errors:</value>
+  </data>
+  <data name="TIMEOUT_EXCEPTION" xml:space="preserve">
+    <value>Method timed out</value>
+  </data>
+  <data name="TRANSACTION_NOT_FOUND" xml:space="preserve">
+    <value>Transaction {0} not found.</value>
+  </data>
+  <data name="TX_ALREADY_REJECTED" xml:space="preserve">
+    <value>Trasnaction {0} was already submitted, and was rejected by the payment processor.</value>
+  </data>
+  <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
+    <value>Transaction {0} was already submitted.</value>
+  </data>
+  <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
+    <value>Successfully updated payment instrument {0} to account {1}. {2} </value>
+  </data>
+  <data name="USAGE_CYCLE_WAS" xml:space="preserve">
+    <value>Usage Cycle was {0}, changed to {1}. </value>
+  </data>
+  <data name="VOIDING_TIMEOUT" xml:space="preserve">
+    <value>Timeout exception while voiding payment for Invoice {0}.</value>
+  </data>
+  <data name="ZIP_CHANGED" xml:space="preserve">
+    <value>Zip code was {0}, changed to {1}. </value>
+  </data>
+  <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+    <value>MASBasicException while trying to save specification characteristics to entity.</value>
+  </data>
+  <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+    <value>Unhandled Exception while trying to save specification characteristics to entity.</value>
+  </data>
+  <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
+    <value>An unknown error occurred.  Please have the system administrator review your logs.</value>
+  </data>
+  <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
+    <value>Updating specification characteristic.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
+    <value>Could not retrieve localization data.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
+    <value>Retrieved localization data.</value>
+  </data>
+  <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
+    <value>Processed localization data.</value>
+  </data>
+  <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
+    <value>Updating values for specification characteristic.</value>
+  </data>
+  <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
+    <value>Updated specification characteristic values for specification characteristic.</value>
+  </data>
+  <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
+    <value>Updated specification characteristic.</value>
+  </data>
+  <data name="TEXT_CREATING_SPEC" xml:space="preserve">
+    <value>Creating specification characteristic.</value>
+  </data>
+  <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>Adding specification characteristic values.</value>
+  </data>
+  <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>Added specification characteristic values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC" xml:space="preserve">
+    <value>Created specification characteristic.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
+    <value>Failed Created specification characteristic.</value>
+  </data>
+  <data name="TEXT_RETRIEVED" xml:space="preserve">
+    <value>specification characteristics retrieved from system.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
+    <value>Unable to retrieve specification characteristics from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
+    <value>Retrieving specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
+    <value>Retrieved specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
+    <value>Retrieved localization from system.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
+    <value>Unable to retrieve specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>Retrieving specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>Retrieved specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
+    <value>Cannot retrieve specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>Removing specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
+    <value>Cannot remove specification characteristic because it is in use.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>Removed specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>An error occurred removing specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_DELETING_SPEC" xml:space="preserve">
+    <value>Deleting specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_DELETED_SPEC" xml:space="preserve">
+    <value>Deleted specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
+    <value>An error occurred deleting specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
+    <value>Retrieving specification characteristics for entity.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
+    <value>Retrieved specification characteristics for entity.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>Could not retrieved specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>Saving specification characteristic value to system.</value>
+  </data>
+  <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
+    <value>Cannot update the sepcification characteristic value because it is in use.</value>
+  </data>
+  <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>Updated the specification characteristic value.</value>
+  </data>
+  <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>Saved the specification characteristic value.</value>
+  </data>
+  <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
+    <value>An error occurred saving the sepcification characteristic value.</value>
+  </data>
+  <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
+    <value>Creating entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
+    <value>Created entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+    <value>Failed creating entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
+    <value>Removing entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
+    <value>Removed entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+    <value>Failed Removing entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
+    <value>No mapping values to delete.</value>
+  </data>
+  <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
+    <value>Mapping cannot be deleted because it is in use.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
+    <value>Retrieving details for filename </value>
+  </data>
+  <data name="TEXT_FILE_REJECTED" xml:space="preserve">
+    <value>The file was rejected.</value>
+  </data>
+  <data name="TEXT_FILE_PENDING" xml:space="preserve">
+    <value>The file is pending.</value>
+  </data>
+  <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
+    <value>The file is being processed.</value>
+  </data>
+  <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
+    <value>The file completed processing.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
+    <value>Retrieved details for file </value>
+  </data>
+  <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
+    <value>A load data exception occurred </value>
+  </data>
+  <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
+    <value>A data access exception occurred </value>
+  </data>
+  <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
+    <value>An exception occurred </value>
+  </data>
+  <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
+    <value>Retrieving a list of failed filenames </value>
+  </data>
+  <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
+    <value>Retrieved a list of failed filenames </value>
+  </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
     <value>Retrieving shared properties for entity.</value>
   </data>
@@ -629,10 +647,10 @@
   </data>
   <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
     <value>Adding shared property values.</value>
-  </data>     
+  </data>
   <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
     <value>Added shared property values.</value>
-  </data>    
+  </data>
   <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
     <value>Created shared property.</value>
   </data>
@@ -654,11 +672,11 @@
   <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
     <value>Could not find template {0}.</value>
   </data>
+  <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
+    <value>Request ID {0} does not match template ID {1}.</value>
+  </data>
   <data name="TEXT_CANT_LOAD_TEMPLATE" xml:space="preserve">
     <value>Could not load template {0}.</value>
-  </data>
-    <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
-    <value>(British)Request ID {0} does not match template ID {1}.</value>
   </data>
   <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
     <value>Could not create template.</value>
@@ -669,16 +687,16 @@
   <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
     <value>Could not load template list.</value>
   </data>
-    <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
-    <value>(British)Could not display list of templates.</value>
+  <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
+    <value>Could not display list of templates.</value>
   </data>
-    <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
-    <value>(British)Could not create WebRequest for {0}.</value>
+  <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
+    <value>Could not create WebRequest for {0}.</value>
   </data>
-    <data name="GOT_NO_RESPONSE" xml:space="preserve">
-    <value>(British)Got no response from {0}.</value>
+  <data name="GOT_NO_RESPONSE" xml:space="preserve">
+    <value>Got no response from {0}.</value>
   </data>
-    <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
-    <value>(British)Could not deserialize JSON {0} into type {1}.</value>
-    </data>
+  <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
+    <value>Could not deserialize JSON {0} into type {1}.</value>
+  </data>
 </root>

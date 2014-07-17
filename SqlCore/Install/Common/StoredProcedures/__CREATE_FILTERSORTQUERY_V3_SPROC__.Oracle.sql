@@ -43,8 +43,25 @@ CREATE OR REPLACE PROCEDURE FILTERSORTQUERY_v3 (
 	             END IF; 
 	              
 	             /* Limit counting to the first 1000 rows for performance */ 
-	             v_Sql := 'SELECT /*+ FIRST_ROWS(1000) */ COUNT(1) TotalRows FROM ('  
-	                      || v_InnerQueryString || ' ' || v_OrderByText || ') WHERE ROWNUM <= 1000'; 
+             /* Build like a paginated query, but for rows 1 to 1000, */
+             /* and then wrap in the COUNT.                           */
+             v_EndRow := 1000;
+             v_Sql :=
+                    'SELECT * FROM ( SELECT /*+ FIRST_ROWS('
+                 || v_EndRow
+                 || ') */ userquery.*, ROWNUM row_num FROM ('
+                 || v_InnerQueryString
+                 || ' '
+                 || v_OrderByText
+                 || ' ) userquery WHERE ROWNUM <= ' /* Must use the PSEUDOCOLUMN name here for STOPKEY optimization */
+                 || v_EndRow
+                 || ') abc WHERE row_num >= 1'      /* Must use the renamed PSEUDOCOLUMN here for > or >= operations */
+                 ;
+                 
+             v_Sql := 'SELECT /*+ FIRST_ROWS(' || v_EndRow || ') */ COUNT(1) TotalRows FROM (' || CHR(10) ||
+                      v_Sql                                                                    || CHR(10) ||
+					            ') WHERE ROWNUM <= ' || v_EndRow;   /* Must use the PSEUDOCOLUMN name here */
+ 
 	               
 	             OPEN p_TotalRows FOR v_Sql;  
 	 
@@ -52,11 +69,6 @@ CREATE OR REPLACE PROCEDURE FILTERSORTQUERY_v3 (
 	             THEN 
 	               v_EndRow := p_StartRow + p_NumRows - 1; 
 	 
- 
- 
- 
- 
- 
 	               v_Sql := 
 	                      'SELECT * FROM ( SELECT /*+ FIRST_ROWS(' 
 	                   || v_EndRow 
@@ -69,12 +81,15 @@ CREATE OR REPLACE PROCEDURE FILTERSORTQUERY_v3 (
 	                   || ') abc WHERE row_num >= '       /* Must use the renamed PSEUDOCOLUMN here for > or >= operations */ 
 	                   || p_StartRow; 
 	               ELSE 
+                  v_EndRow := 1000; /* Limit when selecting data for all rows */
 	                v_Sql := 
 	                      'SELECT * FROM ( SELECT userquery.*, ROWNUM row_num FROM (' 
 	                   || v_InnerQueryString 
 	                   || ' ' 
 	                   || v_OrderByText 
-	                   || ' ) userquery WHERE ROWNUM <= 1000) abc'; 
+	                   || ' ) userquery WHERE ROWNUM <= '
+                     || v_EndRow
+                     || ') abc';
 	             END IF; 
 	 
 	             OPEN p_Rows FOR v_Sql; 

@@ -6,7 +6,7 @@
 				insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description)values (380, 'it', 40, 'Italian')
 				insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description) VALUES(826, 'gb', 15, 'English')
 				insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description) VALUES(724, 'es', 80, 'Spanish')
-				insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description) VALUES(1046, 'br', 85, 'Portuguese-Brazil')
-				insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description) VALUES(2058, 'MX', 75, 'Spanish-Mexican')
+				insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description) VALUES(1046, 'pt-br', 85, 'Portuguese-Brazil')
+				insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description) VALUES(2058, 'es-MX', 75, 'Spanish-Mexican')
         insert into t_language (id_lang_code, tx_lang_code, n_order, tx_description) VALUES(2059, 'da', 90, 'Danish')
 			

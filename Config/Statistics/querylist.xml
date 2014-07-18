@@ -1,6 +1,9 @@
 <xmlconfig>
   <version ptype="INTEGER">2</version>
 
+<!-- The following Interval Statistics Reports are moved from here to the System Reports section in MetraNet. The following entries are left in this file just for illustration purpose
+In case customization is needed then the team can follow the following examples -->
+<!--
   <StatisticsQuery>
     <QueryTag>__TOTAL_AMOUNT_BY_ROOT_BILLGROUP__</QueryTag>
     <MenuEntry>Partition\Amounts Summarized by Partition</MenuEntry>
@@ -28,5 +31,5 @@
     <ViewMetaData></ViewMetaData>
     <Classification>EOP\Interval</Classification>
   </StatisticsQuery>
-
+-->
 </xmlconfig>

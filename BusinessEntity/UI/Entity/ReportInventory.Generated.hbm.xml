@@ -90,7 +90,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="LayoutName" column="c_LayoutName" length="255">
+    <property name="LayoutName" column="c_LayoutName" length="255" not-null="true">
       <meta attribute="label">Layout Name</meta>
       <meta attribute="description">The internal name of the grid or chart layout to use for rendering.</meta>
       <meta attribute="defaultvalue" />
@@ -190,7 +190,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="LayoutExtensionName" column="c_LayoutExtensionName" length="255">
+    <property name="LayoutExtensionName" column="c_LayoutExtensionName" length="255" not-null="true">
       <meta attribute="label">Extension</meta>
       <meta attribute="description">Name of the extension containing the layout, specified by LayoutName</meta>
       <meta attribute="defaultvalue" />

@@ -722,6 +722,14 @@
             <ID>Currency</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>Global/SystemCurrencies</EnumSpace>
+                <EnumType>SystemCurrencies</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>Currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

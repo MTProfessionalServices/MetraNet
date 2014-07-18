@@ -57,7 +57,7 @@
       DECLARE @IssueCredit BOOLEAN
 			SET @IssueCredit = (@RCActionType = 'Credit')
 			DECLARE @IssueCreditOrCorrection BOOLEAN
-      SET @IssueCreditOrCorrection = CASE WHEN @RCActionType = 'Credit' OR @RCActionType = 'InitialCorrection' OR @RCActionType = 'AdvanceCorrection' THEN True ELSE False END
+      SET @IssueCreditOrCorrection = CASE WHEN @RCActionType = 'Credit' OR @RCActionType = 'InitialCredit' OR @RCActionType = 'InitialCorrection' OR @RCActionType = 'AdvanceCorrection' THEN True ELSE False END
 			
 			-- Find the number of days to use as the basis of proration
 			DECLARE @ProrationBasis INTEGER

@@ -92,6 +92,14 @@
             <ID>ReasonCode</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>metratech.com/NonStandardCharge</EnumSpace>
+                <EnumType>NonStandardChargeReason</EnumType>
+                <UseEnumValue>false</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>ReasonCode</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
@@ -344,6 +352,14 @@
             <ID>AdditionalCode</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>metratech.com/NonStandardCharge</EnumSpace>
+                <EnumType>AdditionalCode</EnumType>
+                <UseEnumValue>false</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>AdditionalCode</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
@@ -593,6 +609,14 @@
             <ID>ChargeCurrency</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>Global/SystemCurrencies</EnumSpace>
+                <EnumType>SystemCurrencies</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>ChargeCurrency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
@@ -790,8 +814,8 @@
                             <Name>ChargeTaxAmount</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_NonStandardChargeProductView</ObjectName>
                             <ID>IsTaxInclusive</ID>
                             <Name>IsTaxInclusive</Name>
                         </Field>
@@ -848,8 +872,8 @@
                             <Name>ChargeCurrency</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_NonStandardChargeProductView</ObjectName>
                             <ID>IsTaxInformational</ID>
                             <Name>IsTaxInformational</Name>
                         </Field>

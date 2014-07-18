@@ -419,4 +419,4 @@
       <one-to-many class="Core.Quoting.QuoteLog, Core.Quoting.Entity" />
     </bag>
   </class>
-0</hibernate-mapping>
+</hibernate-mapping>

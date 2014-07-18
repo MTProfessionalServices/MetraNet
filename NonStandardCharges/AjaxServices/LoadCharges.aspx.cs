@@ -117,6 +117,7 @@ public partial class NonStandardCharges_AjaxServices_LoadCharges : MTListService
         SetPaging(items);
         SetSorting(items);
         SetFilters(items);
+        ModifyEnumFilter(items, "ChargeCurrency", typeof(MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies.SystemCurrencies));
 
         //unable to extract data
         if (!ExtractData(client, ref items))

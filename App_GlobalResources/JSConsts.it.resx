@@ -285,6 +285,36 @@
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
     <value>Quando il mittente dello stato 'In sospeso' viene modificato, è possibile 'Respingere' la modifica, che verrà ignorata.</value>
   </data>
+  <data name="TEXT_RATE_UPDATE" xml:space="preserve">
+    <value>[IT]Rate Update</value>
+  </data>
+  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+    <value>[IT]Account Updates</value>
+  </data>
+  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
+    <value>[IT]Product Offering Update</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
+    <value>[IT]Subscription Add</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
+    <value>[IT]Subscription Update</value>
+  </data>
+  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
+    <value>[IT]Add Member Hierarchies</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
+    <value>[IT]Add members to group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
+    <value>[IT]Delete members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
+    <value>[IT]Update members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
+    <value>[IT]Unsubscribe members from group subscription</value>
+  </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Cronologia verifiche per numero transazione non riuscita</value>
   </data>
@@ -1260,4 +1290,10 @@
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
     <value>[IT]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[IT] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[IT] right click for options</value>
+  </data>  
 </root>

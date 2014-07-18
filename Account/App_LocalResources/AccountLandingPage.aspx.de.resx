@@ -134,10 +134,10 @@
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
     <value>[DE]Billing Activity</value>
-  </data>
+  </data>  
   <data name="billingSummaryPanel.Text" xml:space="preserve">
     <value>[DE]Invoices and Payments</value>
-  </data>
+  </data>     
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
     <value>[DE]This account does not currently have any invoices or payments.</value>
   </data>
@@ -146,7 +146,7 @@
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
     <value>[DE]Subscriptions</value>
-  </data>
+  </data>   
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
     <value>[DE]End</value>
   </data>
@@ -164,26 +164,29 @@
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>[DE]Create a new subscription to a Product Offering</value>
-  </data>
+  </data>    
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
     <value>[DE]Join Group Subscription</value>
-  </data>
+  </data>  
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>[DE]Add this account as a member of an existing Group Subscription</value>
-  </data>
+  </data>      
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>[DE]Subscription</value>
-  </data>
+  </data>      
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>[DE]Group Subscription</value>
-  </data>
+  </data>          
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
     <value>[DE]Invoice</value>
-  </data>
+  </data>      
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>[DE]Payment</value>
-  </data>
+  </data>            
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>[DE]No Transactions Found for the Current Interval</value>
-  </data>
+    <value>[DE] No Transactions Found for the Current Interval</value>
+  </data>   
+  <data name="lblNowCast.Text" xml:space="preserve">
+    <value>[DE] NowCast</value>
+  </data>  
 </root>

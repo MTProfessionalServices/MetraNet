@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>j/m/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
     <value>j/n/Y</value>
@@ -139,7 +139,7 @@
     <value>Copier</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>jj/mm/YYYY</value>
+    <value>dd/mm/YYYY</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Échec</value>
@@ -284,6 +284,36 @@
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
     <value>En tant qu’expéditeur de cette modification en attente, vous pouvez l’ignorer pour qu’elle ne soit pas prise en compte.</value>
+  </data>
+  <data name="TEXT_RATE_UPDATE" xml:space="preserve">
+    <value>[FR]Rate Update</value>
+  </data>
+  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+    <value>[FR]Account Updates</value>
+  </data>
+  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
+    <value>[FR]Product Offering Update</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
+    <value>[FR]Subscription Add</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
+    <value>[FR]Subscription Update</value>
+  </data>
+  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
+    <value>[FR]Add Member Hierarchies</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
+    <value>[FR]Add members to group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
+    <value>[FR]Delete members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
+    <value>[FR]Update members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
+    <value>[FR]Unsubscribe members from group subscription</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Historique des audits pour le numéro de dossier de transaction échoué</value>
@@ -1260,4 +1290,10 @@
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
     <value>La valeur de ce champ est incorrecte. Pour être valides les noms des qualifications d'utilisation ne peuvent être composés que de caractères alphanumériques (Aa-Zz, 0-9) et du caractère de soulignement \"_\".</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>effectuez un clic droit pour afficher les options</value>
+  </data>  
 </root>

@@ -124,7 +124,7 @@
     <value>j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/nY g:i:s|j/n/Y</value>
+    <value>j/n/Y g:i:s|j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
     <value>n/j/Y g:i:s A</value>
@@ -284,6 +284,36 @@
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
     <value>Como remitente de este cambio Pendiente, puede 'Descartar' este cambio, lo que hará que no se vuelva a considerar.</value>
+  </data>
+  <data name="TEXT_RATE_UPDATE" xml:space="preserve">
+    <value>[ES]Rate Update</value>
+  </data>
+  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+    <value>[ES]Account Updates</value>
+  </data>
+  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
+    <value>[ES]Product Offering Update</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
+    <value>[ES]Subscription Add</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
+    <value>[ES]Subscription Update</value>
+  </data>
+  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
+    <value>[ES]Add Member Hierarchies</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
+    <value>[ES]Add members to group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
+    <value>[ES]Delete members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
+    <value>[ES]Update members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
+    <value>[ES]Unsubscribe members from group subscription</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Historial de auditoría de números de casos de transacciones fallidas</value>
@@ -1260,4 +1290,10 @@
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
     <value>[ES]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[ES] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[ES] right click for options</value>
+  </data>  
 </root>

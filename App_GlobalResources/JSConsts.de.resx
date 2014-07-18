@@ -285,6 +285,36 @@
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
     <value>Da Sie diese ausstehende Änderung übermittelt haben, können Sie sie verwerfen. Dadurch wird sie nicht mehr zur Prüfung vorgelegt.</value>
   </data>
+  <data name="TEXT_RATE_UPDATE" xml:space="preserve">
+    <value>[DE]Rate Update</value>
+  </data>
+  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+    <value>[DE]Account Updates</value>
+  </data>
+  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
+    <value>[DE]Product Offering Update</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
+    <value>[DE]Subscription Add</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
+    <value>[DE]Subscription Update</value>
+  </data>
+  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
+    <value>[DE]Add Member Hierarchies</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
+    <value>[DE]Add members to group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
+    <value>[DE]Delete members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
+    <value>[DE]Update members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
+    <value>[DE]Unsubscribe members from group subscription</value>
+  </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Audit-Verlauf für fehlgeschlagene Transaktion mit Fallnummer</value>
   </data>
@@ -1260,4 +1290,10 @@
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
     <value>[DE]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[DE] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[DE] right click for options</value>
+  </data>  
 </root>

@@ -186,4 +186,7 @@
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
     <value>Aucune transacction détectée pour l’intervalle en cours</value>
   </data>
+  <data name="lblNowCast.Text" xml:space="preserve">
+    <value>NowCast</value>
+  </data>
 </root>

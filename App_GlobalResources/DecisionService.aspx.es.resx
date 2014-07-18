@@ -117,79 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblDetailsResource1.Text" xml:space="preserve">
-    <value>内訳</value>
+  <data name="TEXT_MARKER_AMOUNT" xml:space="preserve">
+    <value>[ES] Amount:</value>
   </data>
-  <data name="lblMessageResource1.Text" xml:space="preserve">
-    <value>パスワードの期限が切れています</value>
+  <data name="TEXT_PROJECTED_AMOUNT" xml:space="preserve">
+    <value>[ES] Projected Amount:</value>
   </data>
-  <data name="lblPleaseChangeResource1.Text" xml:space="preserve">
-    <value>パスワードを変更してください</value>
-  </data>
-  <data name="Login1Resource1.FailureText" xml:space="preserve">
-    <value>ログインの試行に失敗しました。再入力してください。</value>
-  </data>
-  <data name="Login1Resource1.LoginButtonText" xml:space="preserve">
-    <value>ログイン</value>
-  </data>
-  <data name="Login1Resource1.PasswordLabelText" xml:space="preserve">
-    <value>パスワード</value>
-  </data>
-  <data name="Login1Resource1.PasswordRequiredErrorMessage" xml:space="preserve">
-    <value>パスワードは必須です。</value>
-  </data>
-  <data name="Login1Resource1.RememberMeText" xml:space="preserve">
-    <value>次回から自動的に読み込みます。</value>
-  </data>
-  <data name="Login1Resource1.UserNameLabelText" xml:space="preserve">
-    <value>ユーザ名 </value>
-  </data>
-  <data name="Login1Resource1.UserNameRequiredErrorMessage" xml:space="preserve">
-    <value>ユーザ名は必須です。</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet | ログイン</value>
-  </data>
-  <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-    <value>パスワードの確認</value>
-  </data>
-  <data name="tbConfirmPasswordResource1.LabelWidth" xml:space="preserve">
-    <value>140</value>
-  </data>
-  <data name="tbNewPasswordResource1.Label" xml:space="preserve">
-    <value>新しいパスワード</value>
-  </data>
-  <data name="tbNewPasswordResource1.LabelWidth" xml:space="preserve">
-    <value>140</value>
-  </data>
-  <data name="tbOldPasswordResource1.Label" xml:space="preserve">
-    <value>古いパスワード</value>
-  </data>
-  <data name="tbOldPasswordResource1.LabelWidth" xml:space="preserve">
-    <value>140</value>
-  </data>
-  <data name="tbUserNameResource1.Label" xml:space="preserve">
-    <value>ユーザ名</value>
-  </data>
-  <data name="tbUserNameResource1.LabelWidth" xml:space="preserve">
-    <value>140</value>
-  </data>
-  <data name="NEW_PASSWORD_TEXT" xml:space="preserve">
-    <value>[JA]New Password</value>
-  </data>
-  <data name="CONFIRM_PASSWORD_TEXT" xml:space="preserve">
-    <value>[JA]Confirm New Password</value>
-  </data>
-  <data name="ENTER_PASSWORD" xml:space="preserve">
-    <value>[JA]Enter Password</value>
-  </data>
-  <data name="ENTER_NEW_PASSWORD" xml:space="preserve">
-    <value>[JA]Enter New Password</value>
-  </data>
-  <data name="ENTER_CONFIRM_PASSWORD" xml:space="preserve">
-    <value>[JA]Enter Confirm Password</value>
-  </data>
-  <data name="PASSWORDS_DONT_MATCH" xml:space="preserve">
-    <value>[JA]Passwords donot match</value>
+  <data name="TEXT_UNNAMED_DECISION" xml:space="preserve">
+    <value>[ES] Unnamed Decision</value>
   </data>
 </root>

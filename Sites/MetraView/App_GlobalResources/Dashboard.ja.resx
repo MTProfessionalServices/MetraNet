@@ -138,4 +138,7 @@
   <data name="TEXT_USAGE_BY_PRODUCT" xml:space="preserve">
     <value>製品別の現在の利用状況</value>
   </data>
+  <data name="TEXT_DECISION_INSTANCES" xml:space="preserve">
+    <value>[pt-BR]NowCast</value>
+  </data>
 </root>

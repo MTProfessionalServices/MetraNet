@@ -312,4 +312,13 @@
   <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
     <value>Deve ser selecionada uma conta corporativa para assinatura de grupo.</value>
   </data>
+  <data name="CONDITIONS" xml:space="preserve">
+    <value>Condições</value>
+  </data>
+  <data name="CONDITION_SIGN" xml:space="preserve">
+    <value>Condições</value>
+  </data>
+  <data name="DEFAULT_RULE" xml:space="preserve">
+    <value>Regra padrão</value>
+  </data>
 </root>

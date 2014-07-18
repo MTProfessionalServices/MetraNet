@@ -312,4 +312,13 @@
   <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
     <value>Le compte d’entreprise pour abonnement groupé doit être sélectionné</value>
   </data>
+  <data name="CONDITIONS" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="CONDITION_SIGN" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="DEFAULT_RULE" xml:space="preserve">
+    <value>Règle par défaut</value>
+  </data>
 </root>

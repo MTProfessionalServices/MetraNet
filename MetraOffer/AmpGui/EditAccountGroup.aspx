@@ -147,7 +147,7 @@
         makeAjaxRequest("UpdateAccountGroupDescription", id, 
                         '<%= GetLocalResourceObject("TEXT_ERROR_UPDATING_ACCT_GROUP_DESCRIPTION") %>' + " " + "<%= AmpAccountQualificationGroupNameForJs %>");
 
-        location.href= "AccountQualification.aspx?AcctQualAction=View&AcctQualId=" + id;
+        setTimeout(function() { location.href = "AccountQualification.aspx?AcctQualAction=View&AcctQualId=" + id; }, 500);
     }
   
     function onEditAcctQualification(id)

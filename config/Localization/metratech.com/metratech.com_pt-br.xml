@@ -196,7 +196,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Actualized</Name>
-      <Value>[pt-BR]Actualized</Value>
+      <Value>Atualizado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Complete</Name>
@@ -204,7 +204,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Converted</Name>
-      <Value>[pt-BR]Converted</Value>
+      <Value>Convertido</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Failed</Name>
@@ -212,7 +212,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/InProgress</Name>
-      <Value>[pt-BR]InProgress</Value>
+      <Value>Em andamento</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/None</Name>

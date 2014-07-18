@@ -340,7 +340,7 @@
     id: 'west-panel',
         frame:false,
     title: '',
-        split: false,
+        split: true,
     width: 200,
     minSize: 175,
     maxSize: 400,

@@ -7,7 +7,7 @@
           var totalSum = 0.00;
           var regDecimalComma = /\,/;
           var containsComma = false;
-
+          
           $.each($("#adjustmentSummary input:not([id$='adjAmountFldTaxToatl'])"), function() {
             var currentValue = this.value;
             if (regDecimalComma.test(currentValue)) {
@@ -31,7 +31,9 @@
 
           var regOnlyDec = /\d+\.\d+$/;
 
-          if (containsComma)
+          if (isNaN(totalSum))
+            $("input[id$='adjAmountFldTaxToatl']").val("");
+          else if (containsComma)
             $("input[id$='adjAmountFldTaxToatl']").val((parseFloat(totalSum).toFixed(2)).replace('.', ','));
           else if (regOnlyDec.test(totalSum))
             $("input[id$='adjAmountFldTaxToatl']").val(parseFloat(totalSum).toFixed(2));

@@ -397,7 +397,7 @@
     <value>Exibir dados da segunda passagem</value>
   </data>
   <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>Desculpe pelo transtorno, mas o site está em manutenção. Tente novamente mais tarde.</value>
+    <value>Desculpe pelo transtorno, mas o site está em manutenção.  Tente novamente mais tarde.</value>
   </data>
   <data name="TEXT_SITE_NAME" xml:space="preserve">
     <value>Nome do site</value>
@@ -610,40 +610,40 @@
     <value>Atualização da assinatura</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>[pt-BR]Tax</value>
+    <value>Tax</value>
   </data>
   <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>[pt-BR]Tax Vendor</value>
+    <value>Fornecedor fiscal</value>
   </data>
   <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>[pt-BR]Tax Service Address PCode</value>
+    <value>Endereço Código postal</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>[pt-BR]MetraTax Country Eligibility</value>
+    <value>Elegibilidade do país</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>[pt-BR]MetraTax Country Zone</value>
+    <value>Zona país</value>
   </data>
   <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>[pt-BR]MetraTax Has Override Band</value>
+    <value>Tem banda substituição</value>
   </data>
   <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>[pt-BR]MetraTax Override Band</value>
+    <value>Substituir banda</value>
   </data>
   <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>[pt-BR]Tax Registry Reference</value>
+    <value>Registro de referência</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>[pt-BR]Tax Exempt Reason</value>
+    <value>Razão isentos</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>[pt-BR]Tax Exempt Start Date</value>
+    <value>Data de início isentos</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>[pt-BR]Tax Exempt End Date</value>
+    <value>Data final isentos</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>[pt-BR]Use Standard Inclusive Tax Calculation</value>
+    <value>Use Padrão Cálculo do Imposto Inclusive</value>
   </data>
   <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
     <value>[pt-BR]Bill Message Associations</value>

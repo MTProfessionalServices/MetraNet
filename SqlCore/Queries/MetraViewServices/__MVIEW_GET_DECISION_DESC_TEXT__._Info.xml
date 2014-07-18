@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Get</Action>
+    <Implementations>
+        <Implementation>Common</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>ID_LANG</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description>language code</Description>
+        </Parameter>
+        <Parameter>
+            <Name>ID_ENUM</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description>which enum to retrieve text for</Description>
+        </Parameter>
+    </Parameters>
+    <Description>Get description text from t_description</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

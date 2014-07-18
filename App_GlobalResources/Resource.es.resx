@@ -650,8 +650,5 @@
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
     <value>[ES]Bill Messages</value>
-  </data>
-  <data name="TEXT_ADD" xml:space="preserve">
-    <value>[ES]Add</value>
-  </data>
+  </data>  
 </root>

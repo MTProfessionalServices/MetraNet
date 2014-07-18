@@ -3430,6 +3430,14 @@ COMMENT ON COLUMN T_RECUR_WINDOW.C_MEMBERSHIPEND             IS 'Membership end 
 ;
 
 
+COMMENT ON TABLE t_rec_win_bcp_for_reverse IS 'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C_BILLEDTHROUGHDATE         IS 'The last time the RC adapter was run (not currently used)';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMINSTANCEID  IS 'Priceable item instance for this subscription';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMTEMPLATEID  IS 'Priceable item template for this subscription';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRODUCTOFFERINGID        IS 'Product offering for this subscription';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__SUBSCRIPTIONID           IS 'Subscription ID';
+
+
 COMMENT ON TABLE T_RECURRING_EVENT_ACCT_LOG IS '(Package:Recurring Events)'
 ;
 COMMENT ON COLUMN T_RECURRING_EVENT_ACCT_LOG.ID_ACC  IS 'Account identifier'

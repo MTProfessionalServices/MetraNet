@@ -30,6 +30,8 @@ BEGIN
       INNER LOOP JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID
           AND current_sub.id_sub = rw.c__SubscriptionID
           AND current_sub.tt_end = dbo.SubtractSecond(new_sub.tt_start)
+  /* Work with RC only. Exclude UDRC. */
+  WHERE rw.c_UnitValue IS NULL
 
   /* It is a new subscription - nothing to recharge */
   IF @curSubStart IS NULL RETURN;

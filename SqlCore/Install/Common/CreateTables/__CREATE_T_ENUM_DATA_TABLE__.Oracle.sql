@@ -7,3 +7,4 @@
 
            create unique index funiq_t_enum_data on t_enum_data(upper(nm_enum_data));
 
+           CREATE UNIQUE INDEX IDX_ENUM_ID_DATA ON T_ENUM_DATA (ID_ENUM_DATA, UPPER(NM_ENUM_DATA));

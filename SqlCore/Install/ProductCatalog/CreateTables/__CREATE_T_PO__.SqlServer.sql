@@ -6,7 +6,7 @@
 				b_user_subscribe char(1) not null,
 				b_user_unsubscribe char(1) not null,
 				id_nonshared_pl int not null,
-				c_POPartitionId int null,
+				c_POPartitionId int not null default 1,
 				b_hidden char(1) not null default 'N',
 				constraint t_po_PK primary key (id_po),
 				constraint t_po_FK1 foreign key (id_nonshared_pl) references t_pricelist(id_pricelist)

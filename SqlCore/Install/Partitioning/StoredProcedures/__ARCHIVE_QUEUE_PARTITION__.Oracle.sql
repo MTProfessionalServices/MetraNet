@@ -14,6 +14,7 @@ AS
 	DECLARE
 		v_result VARCHAR2(2000);
 	BEGIN
+    DBMS_OUTPUT.ENABLE(1000000);
 		archive_queue_partition ( p_result => v_result );
 		DBMS_OUTPUT.put_line (v_result);
 	END;
@@ -108,6 +109,7 @@ BEGIN
 		arch_q_p_prep_all_keep_ses_tab( p_old_id_partition => v_old_id_partition );
 		
 		BEGIN
+      DBMS_OUTPUT.ENABLE(1000000);
 			dbms_output.put_line('Pausing pipeline...');
 			v_time_count := dbms_utility.get_time;
 			PausePipelineProcessing( p_state => 1 );

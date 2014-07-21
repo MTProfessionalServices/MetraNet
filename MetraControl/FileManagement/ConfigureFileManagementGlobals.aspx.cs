@@ -1,25 +1,11 @@
 using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-
+using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.BusinessEntity.DataAccess.Metadata;
 using MetraTech.BusinessEntity.Service.ClientProxies;
-
 using MetraTech.UI.Common;
-using MetraTech.PageNav.ClientProxies;
-using MetraTech.DomainModel;
-using MetraTech.Security;
-using MetraTech.Interop.MTAuth;
-
 using Core.FileLandingService;
+using MetraTech.UI.Tools;
 using Resources;
 
 public partial class ConfigureFileManagementGlobals : MTPage
@@ -45,9 +31,7 @@ public partial class ConfigureFileManagementGlobals : MTPage
       return;
     }
 
-    RepositoryService_LoadInstances_Client inClient
-          = new RepositoryService_LoadInstances_Client();
-
+    var inClient = new RepositoryService_LoadInstances_Client();
     inClient.UserName = UI.User.UserName;
     inClient.Password = UI.User.SessionPassword;
     inClient.In_entityName = typeof(ConfigurationBE).FullName;
@@ -92,7 +76,6 @@ public partial class ConfigureFileManagementGlobals : MTPage
     {
       isConfirmVisible = false;
       Session[Constants.ERROR] = FileManagementResources.TEXT_INTERNAL_ERROR;
-      return;
     }
   }
 
@@ -147,9 +130,28 @@ public partial class ConfigureFileManagementGlobals : MTPage
       // We only expect one configuration, but we'll use a loop anyway
       foreach (ConfigurationBE config in items.Items)
       {
-        tbIncomingDirectory.Text = config._IncomingDirectory; 
+        tbIncomingDirectory.Text = config._IncomingDirectory;
         return true;
       }
+    }
+    catch (FaultException<MASBasicFaultDetail> ex)
+    {
+      string errorMessage = "";
+      foreach (string msg in ex.Detail.ErrorMessages)
+      {
+        errorMessage += string.Format("{0}{1}", msg, (errorMessage.Length > 0 ? "; " : "")); // "\r\n";
+      }
+
+      string errCodeString = Utils.ExtractString(errorMessage, "status '", "'");
+      if (errCodeString != "")
+      {
+        string detailedError = Utils.MTErrorMessage(errCodeString);
+        errorMessage += "  " + detailedError;
+      }
+
+      errorMessage = "{" + String.Format("'{0}'", errorMessage.Replace("'", "\'")) + "}";
+      Session[Constants.ERROR] = errorMessage;
+      return false;
     }
     catch (Exception)
     {

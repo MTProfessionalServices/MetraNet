@@ -699,4 +699,13 @@
   <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
     <value>d/m/Y H:i:s</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[ES] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[ES] right click for options</value>
+  </data>
+  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+    <value>[ES] No Transactions Found for the Current Interval</value>
+  </data>  
 </root>

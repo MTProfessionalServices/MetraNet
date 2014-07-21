@@ -8,6 +8,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using MetraTech.UI.Common;
 using System.ServiceModel;
 using MetraTech.Debug.Diagnostics;
@@ -128,13 +130,21 @@ public partial class AjaxServices_DecisionService : MTListServicePage
     return builder.ToString ();
   }
 
-  protected string NumberListToJson ( List<decimal> range )
+  protected string NumberListToJson(List<decimal> range)
   {
-    if ( range == null )
+    if (range == null)
     {
       return "[]";
     }
-    return "[" + string.Join ( ",", range ) + "]";
+    String txt = "";
+    bool first = true;
+    foreach (var d in range)
+    {
+      if (!first) txt = txt + ",";
+      txt = txt + d.ToString(System.Globalization.CultureInfo.InvariantCulture);
+      first = false;
+    }
+    return "[" + txt + "]";
   }
 
   protected string NumberListToJson(List<int> range)
@@ -228,95 +238,95 @@ public class BucketInstance
 
   protected MetraTech.ILogger Logger;
 
-  public BucketInstance ( MetraTech.ILogger Logger, IMTDataReader rdr )
+  public BucketInstance(MetraTech.ILogger Logger, IMTDataReader rdr)
   {
     this.Logger = Logger;
-    DecisionInstAttributes = new Dictionary<string, object> ();
+    DecisionInstAttributes = new Dictionary<string, object>();
     TierStart = decimal.MinValue;
     TierEnd = decimal.MaxValue;
-	bool hasStart = false;
-	bool hasEnd = false;
-
-    for ( int i = 0; i < rdr.FieldCount; i++ )
+    bool hasStart = false;
+    bool hasEnd = false;
+    Currency = rdr.GetString("c_currency");
+    for (int i = 0; i < rdr.FieldCount; i++)
     {
-      Logger.LogDebug ( rdr.GetName ( i ) + " = " + rdr.GetValue ( i ) );
-      if ( rdr.GetName ( i ).Equals ( "id_usage_interval", StringComparison.InvariantCultureIgnoreCase ) )
+      Logger.LogDebug(rdr.GetName(i) + " = " + rdr.GetValue(i));
+      if (rdr.GetName(i).Equals("id_usage_interval", StringComparison.InvariantCultureIgnoreCase))
       {
-        IntervalId = rdr.GetInt32 ( i );
+        IntervalId = rdr.GetInt32(i);
       }
-      else if ( rdr.GetName ( i ).Equals ( "tier_start", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("tier_start", StringComparison.InvariantCultureIgnoreCase))
       {
-        if ( !rdr.IsDBNull ( i ) )
+        if (!rdr.IsDBNull(i))
         {
-          TierStart = rdr.GetDecimal ( i );
-		  hasStart = true;
+          TierStart = rdr.GetDecimal(i);
+          hasStart = true;
         }
       }
-      else if ( rdr.GetName ( i ).Equals ( "tier_end", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("tier_end", StringComparison.InvariantCultureIgnoreCase))
       {
-        if ( !rdr.IsDBNull ( i ) )
+        if (!rdr.IsDBNull(i))
         {
-          TierEnd = rdr.GetDecimal ( i );
-		  hasEnd = true;
+          TierEnd = rdr.GetDecimal(i);
+          hasEnd = true;
         }
       }
-      else if ( rdr.GetName ( i ).Equals ( "qualified_total", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("qualified_total", StringComparison.InvariantCultureIgnoreCase))
       {
-        if ( !rdr.IsDBNull ( i ) )
+        if (!rdr.IsDBNull(i))
         {
-          QualifiedTotal = rdr.GetDecimal ( i );
+          QualifiedTotal = rdr.GetDecimal(i);
         }
       }
-      else if ( rdr.GetName ( i ).Equals ( "decision_object_id", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("decision_object_id", StringComparison.InvariantCultureIgnoreCase))
       {
-        string [] values = rdr.GetString ( i ).Split ( new string [ 1 ] { "<|" }, StringSplitOptions.None );
-        string [] headers = GetHeaders ( Convert.ToInt32 ( values [ 0 ] ) );
-        for ( int j = 0; j < headers.Length; j++ )
+        string[] values = rdr.GetString(i).Split(new string[1] {"<|"}, StringSplitOptions.None);
+        string[] headers = GetHeaders(Convert.ToInt32(values[0]));
+        for (int j = 0; j < headers.Length; j++)
         {
-		  decimal dec;
-		  string av = values [ j + 1 ];
-		  if ((!string.IsNullOrEmpty(av)) && Decimal.TryParse(av, out dec))
-		  {
-            DecisionInstAttributes [ headers [ j ] ] = dec;
-		  }
-		  else
-		  {
-            DecisionInstAttributes [ headers [ j ] ] = av;
-		  }
-          Logger.LogDebug ( "\t" + headers [ j ] + " = " + av );
-          if ( headers [ j ].Equals ( "tier_start", StringComparison.InvariantCultureIgnoreCase ) )
+          decimal dec;
+          string av = values[j + 1];
+          if ((!string.IsNullOrEmpty(av)) && Decimal.TryParse(av, out dec))
           {
-		    if (!hasStart && !string.IsNullOrEmpty(values [ j + 1 ]))
-		    {
-              TierStart = Convert.ToDecimal(values [ j + 1 ]);
-			  hasStart = true;
-			}
+            DecisionInstAttributes[headers[j]] = dec;
           }
-          else if ( headers [ j ].Equals ( "tier_end", StringComparison.InvariantCultureIgnoreCase ) )
+          else
           {
-		    if (!hasEnd && !string.IsNullOrEmpty(values [ j + 1 ]))
-		    {
-              TierEnd = Convert.ToDecimal ( values [ j + 1 ] );
-			  hasEnd = true;
-			}
+            DecisionInstAttributes[headers[j]] = av;
+          }
+          Logger.LogDebug("\t" + headers[j] + " = " + av);
+          if (headers[j].Equals("tier_start", StringComparison.InvariantCultureIgnoreCase))
+          {
+            if (!hasStart && !string.IsNullOrEmpty(values[j + 1]))
+            {
+              TierStart = Convert.ToDecimal(values[j + 1]);
+              hasStart = true;
+            }
+          }
+          else if (headers[j].Equals("tier_end", StringComparison.InvariantCultureIgnoreCase))
+          {
+            if (!hasEnd && !string.IsNullOrEmpty(values[j + 1]))
+            {
+              TierEnd = Convert.ToDecimal(values[j + 1]);
+              hasEnd = true;
+            }
           }
         }
       }
-      if ( !rdr.IsDBNull ( i ) )
+      if (!rdr.IsDBNull(i))
       {
-        DecisionInstAttributes [ rdr.GetName ( i ).ToLowerInvariant() ] = rdr.GetValue ( i );
+        DecisionInstAttributes[rdr.GetName(i).ToLowerInvariant()] = rdr.GetValue(i);
       }
     }
-	
-	if (!hasStart)
-	{
-	  TierStart = 0;
-	}
-	if (!hasEnd)
-	{
-//	  TierEnd = TierStart;
-	}
-	
+
+    if (!hasStart)
+    {
+      TierStart = 0;
+    }
+    if (!hasEnd)
+    {
+      //	  TierEnd = TierStart;
+    }
+
     object DecisionIdFormat;
     DecisionInstAttributes.TryGetValue("decision_id_format", out DecisionIdFormat);
 
@@ -462,31 +472,51 @@ public class BucketInstance
         }
         if ( index > -1 )
         {
-		  if (( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":ENUM", StringComparison.InvariantCultureIgnoreCase ))
-		  {
-			using ( var conn = ConnectionManager.CreateConnection ( ) )
-			{
-			  using ( var stmt = conn.CreateAdapterStatement ( "select tx_desc from t_enum_data ted inner join t_description dsc on dsc.id_desc = ted.id_enum_data where dsc.id_lang_code = %%ID_LANG%% and ted.id_enum_data = %%ID_ENUM%%" ) )
-			  {
-				stmt.AddParam ( "%%ID_ENUM%%", array[index] );
-				stmt.AddParam ( "%%ID_LANG%%", 840 );
-				using ( var rdr = stmt.ExecuteReader () )
-				{
-				  while ( rdr.Read () )
-				  {
-					return rdr.GetString ("tx_desc");
-				  }
-				}
-			  }
-			}
-		  }
-            // TODO: support currency symbol
-            // TODO: support currency precision override
-          object currency;
-          if ( ( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":C", StringComparison.InvariantCultureIgnoreCase ) && DecisionInstAttributes.TryGetValue ( "tier_currency", out currency ) )
+          if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":ENUM", StringComparison.InvariantCultureIgnoreCase))
           {
-            // TODO: lookup correct currency format for currency, and use that to format string
-            return textInfo.ToTitleCase(string.Format ( "{0}{1}{2}{3}", open, index, fmt, close ));
+            using (var conn = ConnectionManager.CreateConnection())
+            {
+              using (var stmt = conn.CreateAdapterStatement("MetraViewServices", "__MVIEW_GET_DECISION_DESC_TEXT__"))
+              {
+                stmt.AddParam("%%ID_ENUM%%", array[index]);
+                stmt.AddParam("%%ID_LANG%%", 840);
+                using (var rdr = stmt.ExecuteReader())
+                {
+                  while (rdr.Read())
+                  {
+                    return rdr.GetString("tx_desc");
+                  }
+                }
+              }
+            }
+          }
+
+
+          // support currency symbol
+          // TODO: support currency precision override
+          object currency;
+          if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":C", StringComparison.InvariantCultureIgnoreCase) &&
+              DecisionInstAttributes.TryGetValue("tier_currency", out currency))
+          {
+            // lookup correct currency format for currency, and use that to format string
+            // First, check to see if tier_currency is an enum value
+            int currencyAsInt;
+            string formattedAmountString;
+            if (Int32.TryParse(currency.ToString(), out currencyAsInt))
+            {
+              formattedAmountString = CurrencyFormatter.Format(array[index], EnumHelper.GetGeneratedEnumByValue(typeof(SystemCurrencies), currencyAsInt).ToString());
+            }
+            else
+            {
+              formattedAmountString = CurrencyFormatter.Format(array[index], currency.ToString());
+            }
+            return textInfo.ToTitleCase(string.Format("{0}", formattedAmountString));
+          }
+          else if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":C", StringComparison.InvariantCultureIgnoreCase) &&
+                 !String.IsNullOrEmpty(Currency) && !String.IsNullOrEmpty(array[index].ToString()))
+          {
+            string formattedAmountString = CurrencyFormatter.Format(array[index], Currency);
+            return textInfo.ToTitleCase(string.Format("{0}", formattedAmountString));
           }
           else
           {
@@ -605,10 +635,14 @@ public class BucketInstance
       }
   }
 
-
+  public string Currency
+  {
+    get;
+    set;
+  }
 }
 
-public class DecisionInstance
+public class DecisionInstance : MTListServicePage
 {
   public bool Enabled
   {
@@ -696,44 +730,52 @@ public class DecisionInstance
     set;
   }
 
-  public DecisionInstance ( string decisionId, MetraTech.ILogger Logger, IMTDataReader rdr )
+  public string Currency
+  {
+    get;
+    set;
+  }
+
+  public DecisionInstance(string decisionId, MetraTech.ILogger Logger, IMTDataReader rdr)
   {
     this.DecisionId = decisionId;
-    this.DecisionTypeAttributes = new Dictionary<string, string> (); ;
-    this.BucketInstances = new List<BucketInstance> ();
-    string [] values = rdr.GetString ( "decision_object_id" ).Split ( new string [ 1 ] { "<|" }, StringSplitOptions.None );
-    string [] headers = BucketInstance.GetHeaders ( Convert.ToInt32 ( values [ 0 ] ) );
-    for ( int j = 0; j < headers.Length; j++ )
+    this.DecisionTypeAttributes = new Dictionary<string, string>();
+    ;
+    this.BucketInstances = new List<BucketInstance>();
+    string[] values = rdr.GetString("decision_object_id").Split(new string[1] {"<|"}, StringSplitOptions.None);
+    string[] headers = BucketInstance.GetHeaders(Convert.ToInt32(values[0]));
+    for (int j = 0; j < headers.Length; j++)
     {
-      DecisionTypeAttributes [ headers [ j ] ] = values [ j + 1 ];
+      DecisionTypeAttributes[headers[j]] = values[j + 1];
     }
-    IntervalId = rdr.GetInt32 ( "id_usage_interval" );
-	DecisionTypeAttributes["tier_column_group"] = rdr.GetString("tier_column_group");
+    Currency = rdr.GetString("c_currency");
+    IntervalId = rdr.GetInt32("id_usage_interval");
+    DecisionTypeAttributes["tier_column_group"] = rdr.GetString("tier_column_group");
     for (int i = 0; i < rdr.FieldCount; i++)
     {
-        if (rdr.GetName(i).Equals("start_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
-        {
-			StartDate = rdr.GetDateTime(i);
-        }
-        else if (rdr.GetName(i).Equals("end_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
-        {
-			EndDate = rdr.GetDateTime(i);
-        }
+      if (rdr.GetName(i).Equals("start_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
+      {
+        StartDate = rdr.GetDateTime(i);
+      }
+      else if (rdr.GetName(i).Equals("end_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
+      {
+        EndDate = rdr.GetDateTime(i);
+      }
     }
-	var cycle = DecisionTypeAttributes["cycle_unit_type"];
-	if (!string.IsNullOrEmpty(cycle) && "interval".Equals(cycle, StringComparison.InvariantCultureIgnoreCase))
-	{
-	  var istart = rdr.GetDateTime("dt_slice_start");
-	  if (istart != null)
-	  {
-	    StartDate = istart;
-	  }
-	  var iend = rdr.GetDateTime("dt_slice_end");	  
-	  if (iend != null)
-	  {
-	    EndDate = iend;
-	  }
-	}
+    var cycle = DecisionTypeAttributes["cycle_unit_type"];
+    if (!string.IsNullOrEmpty(cycle) && "interval".Equals(cycle, StringComparison.InvariantCultureIgnoreCase))
+    {
+      var istart = rdr.GetDateTime("dt_slice_start");
+      if (istart != null)
+      {
+        StartDate = istart;
+      }
+      var iend = rdr.GetDateTime("dt_slice_end");
+      if (iend != null)
+      {
+        EndDate = iend;
+      }
+    }
 
   }
 
@@ -758,7 +800,7 @@ public class DecisionInstance
 	}
   }
   
-  public string Title
+  public new string Title
   {
     get
     {
@@ -775,7 +817,7 @@ public class DecisionInstance
 
       if ( string.IsNullOrEmpty ( txt ) )
       {
-        txt = "Unnamed Decision";
+        txt = GetGlobalResourceObject("DecisionService.aspx", "TEXT_UNNAMED_DECISION").ToString();
       }
       return txt;
     }
@@ -816,7 +858,7 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "marker_title" );
-	  txt = "Amount: {marker_amount:c}";
+      txt = GetGlobalResourceObject("DecisionService.aspx", "TEXT_MARKER_AMOUNT").ToString() + " {marker_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -834,7 +876,7 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "projected_marker_before_title" );
-	  txt = "Projected Amount: {projected_amount:c}";
+	    txt = GetGlobalResourceObject("DecisionService.aspx", "TEXT_PROJECTED_AMOUNT").ToString() + " {projected_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -852,7 +894,7 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "projected_marker_after_title" );
-	  txt = "Projected Amount: {projected_amount:c}";
+	    txt = GetGlobalResourceObject("DecisionService.aspx", "TEXT_PROJECTED_AMOUNT").ToString() + " {projected_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -880,113 +922,135 @@ public class DecisionInstance
 
   private string Format(string format)
   {
-    if ( string.IsNullOrEmpty ( format ) )
+    if (string.IsNullOrEmpty(format))
     {
       return string.Empty;
     }
     // TODO: prepopulate this
     // TODO: support custom rounding
-    Dictionary<string, int> indexes = new Dictionary<string, int> ();
-    object [] array = new object [ DecisionTypeAttributes.Count + 4 ];
+    Dictionary<string, int> indexes = new Dictionary<string, int>();
+    object[] array = new object[DecisionTypeAttributes.Count + 4];
     int i = 0;
-    array [ i ] = StartDate;
-    indexes.Add ( "start_date", i++ );
-    array [ i ] = EndDate;
-    indexes.Add ( "end_date", i++ );
-    array [ i ] = DecisionId;
-    indexes.Add ( "decision_id", i++ );
-    array [ i ] = IntervalId;
-    indexes.Add ( "id_usage_interval", i++ );
-    foreach ( string key in DecisionTypeAttributes.Keys )
+    array[i] = StartDate;
+    indexes.Add("start_date", i++);
+    array[i] = EndDate;
+    indexes.Add("end_date", i++);
+    array[i] = DecisionId;
+    indexes.Add("decision_id", i++);
+    array[i] = IntervalId;
+    indexes.Add("id_usage_interval", i++);
+    foreach (string key in DecisionTypeAttributes.Keys)
     {
-      if ( !indexes.ContainsKey ( key ) )
+      if (!indexes.ContainsKey(key))
       {
-	    decimal myd;
-		if (Decimal.TryParse(DecisionTypeAttributes [ key ], out myd))
-		{
-		  array [ i ] = myd;
-		}
-		else
-		{
-          array [ i ] = DecisionTypeAttributes [ key ];
-		}
-        indexes.Add ( key, i++ );
-      }
-    }
-    var textInfo = System.Globalization.CultureInfo.CurrentUICulture.TextInfo; ;
-
-    var regex = new System.Text.RegularExpressions.Regex ( @"(?<open>{+)(?<key>\w+)(?<format>:[^}]+)?(?<close>}+)", System.Text.RegularExpressions.RegexOptions.Compiled );
-    System.Text.RegularExpressions.MatchEvaluator evaluator = ( m ) =>
-    {
-      if ( m.Success )
-      {
-        string open = m.Groups [ "open" ].Value;
-        string close = m.Groups [ "close" ].Value;
-        string key = m.Groups [ "key" ].Value;
-        string fmt = m.Groups [ "format" ].Value;
-
-        if ( open.Length % 2 == 0 )
+        decimal myd;
+        if (Decimal.TryParse(DecisionTypeAttributes[key], out myd))
         {
-          return m.Value;
-        }
-
-        int index = -1;
-        if (key != null)
-        {
-            key = key.ToLowerInvariant();
-        }
-        if ( !indexes.TryGetValue ( key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name, out index ) )
-        {
-          if ( !indexes.TryGetValue ( key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName, out index ) )
-          {
-            if ( !indexes.TryGetValue ( key, out index ) )
-            {
-              index = -1;
-            }
-          }
-        }
-        if (index > -1)
-        {
-		  if (( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":ENUM", StringComparison.InvariantCultureIgnoreCase ))
-		  {
-			using ( var conn = ConnectionManager.CreateConnection ( ) )
-			{
-			  using ( var stmt = conn.CreateAdapterStatement ( "select tx_desc from t_enum_data ted inner join t_description dsc on dsc.id_desc = ted.id_enum_data where dsc.id_lang_code = %%ID_LANG%% and ted.id_enum_data = %%ID_ENUM%%" ) )
-			  {
-				stmt.AddParam ( "%%ID_ENUM%%", array[index] );
-				stmt.AddParam ( "%%ID_LANG%%", 840 );
-				using ( var rdr = stmt.ExecuteReader () )
-				{
-				  while ( rdr.Read () )
-				  {
-					return rdr.GetString ("tx_desc");
-				  }
-				}
-			  }
-			}
-		  }
-            // TODO: support currency symbol
-            // TODO: support currency precision override
-          string currency;
-          if ( ( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":C", StringComparison.InvariantCultureIgnoreCase ) && DecisionTypeAttributes.TryGetValue ( "tier_currency", out currency ) )
-          {
-            // TODO: lookup correct currency format for currency, and use that to format string
-            return textInfo.ToTitleCase(string.Format ( "{0}{1}{2}{3}", open, index, fmt, close ));
-          }
-          else
-          {
-            return textInfo.ToTitleCase(string.Format ( "{0}{1}{2}{3}", open, index, fmt, close ));
-          }
+          array[i] = myd;
         }
         else
         {
-          return string.Empty;
+          array[i] = DecisionTypeAttributes[key];
         }
+        indexes.Add(key, i++);
       }
-      return textInfo.ToTitleCase( m.Value);
-    };
+    }
+    var textInfo = System.Globalization.CultureInfo.CurrentUICulture.TextInfo;
+    ;
 
-    return textInfo.ToTitleCase(string.Format ( regex.Replace ( format, evaluator ), array ));
+    var regex = new System.Text.RegularExpressions.Regex(@"(?<open>{+)(?<key>\w+)(?<format>:[^}]+)?(?<close>}+)",
+                                                         System.Text.RegularExpressions.RegexOptions.Compiled);
+    System.Text.RegularExpressions.MatchEvaluator evaluator = (m) =>
+      {
+        if (m.Success)
+        {
+          string open = m.Groups["open"].Value;
+          string close = m.Groups["close"].Value;
+          string key = m.Groups["key"].Value;
+          string fmt = m.Groups["format"].Value;
+
+          if (open.Length%2 == 0)
+          {
+            return m.Value;
+          }
+
+          int index = -1;
+          if (key != null)
+          {
+            key = key.ToLowerInvariant();
+          }
+          if (!indexes.TryGetValue(key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name, out index))
+          {
+            if (
+              !indexes.TryGetValue(
+                key + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName, out index))
+            {
+              if (!indexes.TryGetValue(key, out index))
+              {
+                index = -1;
+              }
+            }
+          }
+          if (index > -1)
+          {
+            if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":ENUM", StringComparison.InvariantCultureIgnoreCase))
+            {
+              using (var conn = ConnectionManager.CreateConnection())
+              {
+                using (var stmt = conn.CreateAdapterStatement("MetraViewServices", "__MVIEW_GET_DECISION_DESC_TEXT__"))
+                {
+                  stmt.AddParam("%%ID_ENUM%%", array[index]);
+                  stmt.AddParam("%%ID_LANG%%", 840);
+                  using (var rdr = stmt.ExecuteReader())
+                  {
+                    while (rdr.Read())
+                    {
+                      return rdr.GetString("tx_desc");
+                    }
+                  }
+                }
+              }
+            }
+            // support currency symbol
+            // TODO: support currency precision override
+            string currency;
+            if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":C", StringComparison.InvariantCultureIgnoreCase) &&
+                DecisionTypeAttributes.TryGetValue("tier_currency", out currency))
+            {
+              // lookup correct currency format for currency, and use that to format string
+              // First, check to see if tier_currency is an enum value
+              int currencyAsInt;
+              string formattedAmountString;
+              if (Int32.TryParse(currency.ToString(), out currencyAsInt))
+              {
+                formattedAmountString = CurrencyFormatter.Format(array[index], EnumHelper.GetGeneratedEnumByValue(typeof(SystemCurrencies), currencyAsInt).ToString());
+              }
+              else
+              {
+                formattedAmountString = CurrencyFormatter.Format(array[index], currency.ToString());
+              }
+              return textInfo.ToTitleCase(string.Format("{0}", formattedAmountString));
+            }
+            else if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":C", StringComparison.InvariantCultureIgnoreCase) &&
+                   !String.IsNullOrEmpty(Currency))
+            {
+              var formattedAmountString = CurrencyFormatter.Format(array[index], Currency);
+              return textInfo.ToTitleCase(string.Format("{0}", formattedAmountString));
+            }
+            else
+            {
+              return textInfo.ToTitleCase(string.Format("{0}{1}{2}{3}", open, index, fmt, close));
+            }
+          }
+          else
+          {
+            return string.Empty;
+          }
+        }
+        return textInfo.ToTitleCase(m.Value);
+      };
+
+    return textInfo.ToTitleCase(string.Format(regex.Replace(format, evaluator), array));
   }
 
   public string DatesText

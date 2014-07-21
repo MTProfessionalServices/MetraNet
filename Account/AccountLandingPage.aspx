@@ -5,13 +5,147 @@
 <%@ Register src="../UserControls/Analytics/AccountSummary.ascx" tagname="AccountSummary" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<style>
 
+  .bullet
+  {
+    font: 10px sans-serif;
+  }
+  .bullet .marker
+  {
+    stroke: #000;
+    stroke-width: 3px;
+  }
+  .bullet .marker.good
+  {
+    stroke: Green;
+    stroke-width: 3px;
+    stroke-dasharray: 2,1;
+  }
+  .bullet .marker.bad
+  {
+    stroke: Red;
+    stroke-width: 3px;
+    stroke-dasharray: 2,1;
+  }
+  .bullet .marker.past
+  {
+    stroke: Blue;
+    stroke-width: 3px;
+    stroke-dasharray: 2,1;
+  }
+  .bullet .tick line
+  {
+    stroke: #666;
+    stroke-width: .5px;
+  }
+  .bullet .tick.major line
+  {
+    stroke: #666;
+    stroke-width: .5px;
+  }
+  .bullet .tick.selected
+  {
+    font-weight:bolder;
+  }
+  .bullet .tick.expired
+  {
+    text-decoration:line-through;
+  }
+  .bullet .tick.future
+  {
+    font-style:italic;
+  }
+  .bullet .domain
+  {
+    fill: none;
+  }
+  .bullet .title
+  {
+    fill: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    text-anchor: off;
+  }
+  .bullet .range.s0
+  {
+    display: block;
+    position: absolute;
+  }
+  .bullet .subtitle
+  {
+    fill: #999;
+    text-anchor: off;
+  }
+  .bullet .dates
+  {
+    fill: #000;
+    text-anchor: off;
+  }
+  .bullet .tbutton
+  {
+    fill:white;
+    stroke-width:1;
+    stroke:black;
+    stroke-opacity:0.05;
+  }
+  .bullet .notice
+  {
+    fill:#000;
+    font-size: 7px;
+    text-anchor: off;
+  }
+  .bullet .tick
+  {
+    fill:#000;
+  }
+.contextmenu {
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+-khtml-border-radius:10px;
+border-radius:10px;
+}
+.contextmenu li
+{
+  list-style-type:none;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+.contextmenu li:hover
+{
+  font-weight:bolder;
+}
+.datepicker {
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+-khtml-border-radius:10px;
+border-radius:10px;
+overflow-y:auto;
+overflow-x:visible;
+max-height: 100px;
+}
+.datepicker li
+{
+  list-style-type:none;
+  padding-left: 20px;
+  padding-right: 5px;
+white-space:nowrap;
+}
+.datepicker li:hover
+{
+  font-weight:bolder;
+}
+</style>
   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/jquery.gridster.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/crossfilter.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/dc.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script> 
+  <script type="text/javascript" src="/Res/JavaScript/d3.v3.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/Bullet.js"></script>
+  
   <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
   <link rel="stylesheet" type="text/css" href="Styles/Account360.css">
@@ -111,13 +245,14 @@
   
     <div class="widget" data-row="12" data-col="1" data-sizex="8" data-sizey="3">
       <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
-    </div>
- 
-    <div class="widget" data-row="15" data-col="1" data-sizex="8" data-sizey="3">
-      <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
-        <div id="NowCast-body"></div>
-      </MT:MTPanel>
     </div>--%>
+    <div style="width: 99.4%; margin-left: 0;" >
+    <div class="widget" data-row="15" data-col="1" data-sizex="8" data-sizey="3" >
+	  <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
+        <div id="NowCast-body" ></div>
+      </MT:MTPanel>
+    </div>
+    </div>
 
   <%--  <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentTransactionList.xml"
       ExtensionName="Account" ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending"
@@ -327,18 +462,18 @@
 //    };
     
 
-	  function adjustHeights(elem) {
-        var fontstep = 2;
-        if ($(elem).height()>($(elem).parent().height() - 30) || $(elem)[0].scrollWidth>$(elem).parent().width()) {
-          $(elem).css('font-size',(($(elem).css('font-size').substr(0,2)-fontstep)) + 'px').css('line-height',(($(elem).css('font-size').substr(0,2))) + 'px');
-          adjustHeights(elem);
-        }
+    function adjustHeights(elem) {
+      var fontstep = 2;
+      if ($(elem).height()>($(elem).parent().height() - 30) || $(elem)[0].scrollWidth>$(elem).parent().width()) {
+        $(elem).css('font-size',(($(elem).css('font-size').substr(0,2)-fontstep)) + 'px').css('line-height',(($(elem).css('font-size').substr(0,2))) + 'px');
+        adjustHeights(elem);
       }
+    }
   
-	  function resize_to_fit(){
-		  var children = document.getElementById('AccountStatus').children;
-		  adjustHeights(children[1]);
-	  }
+    function resize_to_fit(){
+      var children = document.getElementById('AccountStatus').children;
+      adjustHeights(children[1]);
+    }
     
     Ext.onReady(function() {
       displayAccountStatusInformation();
@@ -351,8 +486,9 @@
     
    
   </script>
+  
 
-  <%-- script used for NowCast widget   
+  <%-- script used for NowCast widget  --%>
       <script>
 
       function populateDatePicker(id) {
@@ -391,7 +527,7 @@
       }
 
       Ext.onReady(function () {
-      
+
         var margin = { top: 25, right: 55, bottom: 20, left: 25 },
         width = document.getElementById("NowCast-body").clientWidth - margin.left - margin.right,
         height = 70 - margin.top - margin.bottom;
@@ -410,16 +546,16 @@
           svg.style("background-color", "white");
           svg.style("margin-bottom", "5px");
           svg.append("rect").attr("width", width + margin.right - 10).attr("height", height + margin.top + margin.bottom + 30).attr("fill", "white").attr("fill-opacity", 0);
-          svg
-            .on("contextmenu", function (d, i) {
-              d3.selectAll(".bullet .contextmenu").attr("display", "none");
-              var cm = d3.select("#contextmenu" + 0)
+          svg.on("contextmenu", function (d, i) {
+            d3.selectAll(".bullet .contextmenu").attr("display", "none");
+            var cm = d3.select("#contextmenu" + 0)
                 .style("display", "block")
                 .style("left", d3.event.pageX + "px")
-                .style("top", d3.event.pageY + "px");
-              d3.event.preventDefault();
-              return false;
-            });
+                .style("top", d3.event.pageY - 60 + "px");
+            d3.event.preventDefault();
+            return false;
+          });
+
           svg = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + (margin.top + 20) + ")")
             .call(chart);
@@ -438,16 +574,16 @@
             .attr("dy", "1.2em")
             .text(function (d) { return d.subtitle; });
 
-          title.append("text")
-            .attr("class", "notice")
-            .attr("x", width + margin.left)
-            .attr("y", 3.4 * height)
-            .attr("text-anchor", "end")
-            .text("right click for options");
+          //title.append("text")
+          //  .attr("class", "notice")
+          //  .attr("x", width + margin.left)
+          //  .attr("y", 3.4 * height)
+          //  .attr("text-anchor", "end")
+          //  .text("TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS");
 
           var svgd = svg.data();
-        if ((typeof svgd === 'undefined') || svgd === undefined || svgd == null || svgd.length == 0) {
-            d3.select("#NowCast-body").append("text").text('<%=NoDecisionsText%>');
+          if ((typeof svgd === 'undefined') || svgd === undefined || svgd == null || svgd.length == 0) {
+            d3.select("#NowCast-body").append("text").text('<%=NoDecisionsText%>').style("color", "gray");
             return;
           }
 
@@ -460,7 +596,7 @@
             var rect = bdy.getBoundingClientRect();
             var span = d3.select("#NowCast-body").append("span").style("position", "relative");
             span.style("top", -((cnt * 100) + 11) + "px");
-            span.style("right", "-480px");
+            span.style("right", "+40px");
             var button = span.append("div");
             button.attr("class", "datepicker").style("white-space", "nowrap").style("display", "inline-block").attr("id", "datepicker" + i).style("width", "auto").style("position", "absolute").style("background-color", "#fff").style("border", "dotted").style("border-width", "1px").style("border-color", "#aaa").style("padding", "0px").style("padding-left", "2px").style("padding-right", "2px").style("margin", "0px");
             if (i == 0) {
@@ -491,13 +627,13 @@
           //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_yes.png) left center no-repeat").text("Include Previous Results");
           //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_no.png) left center no-repeat").text("Include Projected Results");
           //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_redo.png) left center no-repeat").text("Redraw").on('click', function () { console.log("redraw"); svg.call(chart); });
-          ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_refresh_small.png) left center no-repeat").text("Refresh").on('click', function () {
-            d3.json("/MetraNet/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
-              var svg = d3.select("#NowCast-body").selectAll("svg")
-                .data(data);
-              svg.call(chart);
-            });
-          });
+          //ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_refresh_small.png) left center no-repeat").text(TEXT_NOWCAST_REFRESH).on('click', function () {
+          //  d3.json("/MetraNet/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
+          //    var svg = d3.select("#NowCast-body").selectAll("svg")
+          //      .data(data);
+          //    svg.call(chart);
+          //  });
+          //});
 
           d3.select("body").on('click', function (d, i) {
             d3.selectAll(".contextmenu").style("display", "none");
@@ -509,6 +645,6 @@
           //    });
         });
       });
-    </script>--%>
+    </script>
 
 </asp:Content>

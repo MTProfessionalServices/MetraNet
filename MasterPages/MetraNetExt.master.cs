@@ -142,7 +142,7 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
             title: TEXT_ACCOUNT,
             collapsed: true,
             collapsible: true,
-            split: false,
+            split: true,
             width: 400,
             minSize: 100,
             maxSize: 800,

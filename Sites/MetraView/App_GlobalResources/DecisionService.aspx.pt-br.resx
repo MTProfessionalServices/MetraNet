@@ -117,28 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_ACCOUNT_INFORMATION" xml:space="preserve">
-    <value>Informazioni sull'account</value>
+  <data name="TEXT_MARKER_AMOUNT" xml:space="preserve">
+    <value>[pt-BR] Amount:</value>
   </data>
-  <data name="TEXT_MY_REPORTS" xml:space="preserve">
-    <value>Rapporti personali</value>
+  <data name="TEXT_PROJECTED_AMOUNT" xml:space="preserve">
+    <value>[pt-BR] Projected Amount:</value>
   </data>
-  <data name="TEXT_MY_SUBSCRIPTIONS" xml:space="preserve">
-    <value>Abbonamenti personali</value>
-  </data>
-  <data name="TEXT_MY_COUNTERS" xml:space="preserve">
-    <value>[IT]My Counters</value>
-  </data>
-  <data name="TEXT_NO_COUNTERS" xml:space="preserve">
-    <value>[IT]No Counters Defined</value>
-  </data>
-  <data name="TEXT_USAGE_BY_DEPARTMENT" xml:space="preserve">
-    <value>Uso attuale per reparto</value>
-  </data>
-  <data name="TEXT_USAGE_BY_PRODUCT" xml:space="preserve">
-    <value>Uso attuale per prodotto</value>
-  </data>
-  <data name="TEXT_DECISION_INSTANCES" xml:space="preserve">
-    <value>[IT] NowCast</value>
+  <data name="TEXT_UNNAMED_DECISION" xml:space="preserve">
+    <value>[pt-BR] Unnamed Decision</value>
   </data>
 </root>

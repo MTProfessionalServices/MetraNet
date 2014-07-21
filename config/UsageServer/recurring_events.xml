@@ -88,24 +88,7 @@
                 <SystemCycle>Daily</SystemCycle>
             </RecurrencePattern>
         </Adapter>
-        <!-- Product Catalog Discounts -->
-        <!--<Adapter>
-            <Name>ScheduledDiscounts</Name>
-            <DisplayName>Discount Adapter</DisplayName>
-            <ClassID>Metratech.MTDiscountAdapter.1</ClassID>
-            <ConfigFile>Discounts.xml</ConfigFile>
-            <ActivationDate>10/1/2002 00:00:00</ActivationDate>
-            <Description>
-        Generates non billing cycle relative group discounts for discount intervals ending between the given timespan.
-      </Description>
-            <Dependencies>
-                <DependsOn>NonRecurringCharges</DependsOn>
-            </Dependencies>
-            <RecurrencePattern>
-                <SystemCycle>Daily</SystemCycle>
-            </RecurrencePattern>
-        </Adapter> -->
-
+        
         <Adapter>
             <Name>PipelineFailoverAdapter</Name>
             <DisplayName>Pipeline Failover Adapter</DisplayName>
@@ -178,24 +161,7 @@
             <Dependencies>
                 <DependsOn>RecurringCharges</DependsOn>
             </Dependencies>
-        </Adapter> -->
-        <!-- Product Catalog Discounts -->
-        <!--<Adapter>
-            <Name>Discounts</Name>
-            <DisplayName>Discount Adapter</DisplayName>
-            <ClassID>Metratech.MTDiscountAdapter.1</ClassID>
-            <ConfigFile>Discounts.xml</ConfigFile>
-            <Description>
-        MetraTech standard adapter to process discounts from the product catalog.
-      </Description>
-            <RecurrencePattern>
-                <UsageCycleType>All</UsageCycleType>
-            </RecurrencePattern>
-            <Dependencies>
-                <DependsOn>AggregateCharges</DependsOn>
-                <DependsOn>NonRecurringCharges</DependsOn>
-            </Dependencies>
-        </Adapter> -->
+        </Adapter> -->       
         <!-- PayerChange -->
         <Adapter>
             <Name>PayerChange</Name>

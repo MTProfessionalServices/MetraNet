@@ -14,7 +14,7 @@ This file defines the MAM system information that must be localized.
 		</text>
 
  	  <text id='SESSION_LCID'>
-			<value>3084</value>
+			<value>2057</value>
 			 <description>The LCID of the locale that IIS should use. This effects formatting and should match format specifieds below.
        Leave blank to not set a LCID and just accept the default.</description>
 		</text>
@@ -53,7 +53,7 @@ This file defines the MAM system information that must be localized.
  -->
 
   <text id='JS_DATE_FORMAT'>
-    <value>j/n/Y</value>
+    <value>n/j/Y</value>
     <description>ExtJS date format definition</description>
   </text>
   

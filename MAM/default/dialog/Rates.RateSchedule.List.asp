@@ -353,7 +353,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
             ViewEditMode_DisplayCell        = TRUE  
             
         case 7 ' OPTIONS
-            HTML_LINK_EDIT = HTML_LINK_EDIT & "<td class='[CLASS]' width='200px'>"
+            HTML_LINK_EDIT = HTML_LINK_EDIT & "<td nowrap class='[CLASS]'  align='left' >"
 
             If  CBool(ProductView.Properties.Rowset.Value("ICBed")) and CBool(mam_GetDictionary("CANICB")) Then
               HTML_LINK_EDIT = HTML_LINK_EDIT & "<button class='clsButtonBlueLarge' onclick='JavaScript:document.location.href=""[ASP_PAGE]?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]""; return false;'>[MY_BUTTON]</button>&nbsp;&nbsp;&nbsp;"

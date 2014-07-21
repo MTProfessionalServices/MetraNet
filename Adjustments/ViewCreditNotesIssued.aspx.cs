@@ -23,8 +23,11 @@ public partial class Adjustments_ViewCreditNotesIssued : MTPage
     if (!String.IsNullOrEmpty(accountsFilterValue))
     {
       if (accountsFilterValue == "ALL")
+      {
         CreditNotesGrid.DataSourceURL =
           @"/MetraNet/Adjustments/AjaxServices/LoadCreditNotesIssued.aspx?Accounts=ALL";
+        lblViewCreditNotesTitle.Visible = false;
+      }
     }
   }
 }

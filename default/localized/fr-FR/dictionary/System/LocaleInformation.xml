@@ -62,12 +62,12 @@ This file defines the MAM system information that must be localized.
 		</text>  
   
 		<text id="DATE_FORMAT">
-			<value>jj/mm/aaaa</value>
+			<value>dd/mm/yyyy</value>
       <description>The date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
 		</text>
 
   <text id="JS_DATE_FORMAT">
-    <value>n/j/Y</value>
+    <value>j/n/Y</value>
     <description>ExtJS date format definition</description>
   </text>
 
@@ -77,7 +77,7 @@ This file defines the MAM system information that must be localized.
   </text>
     
 		<text id="DATE_TIME_FORMAT">
-			<value>MM/jj/aaaa hh:mm:ss AMPM</value>
+			<value>dd/MM/yyyy hh:mm:ss AMPM</value>
       <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
 		</text>
     

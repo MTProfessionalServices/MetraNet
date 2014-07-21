@@ -25,7 +25,12 @@ public partial class login : MTPage
     public String showFailureText = "false";
     public String showChangePasswdFailureText = "false";
     public string language = "en-US";
-   
+
+    public string enterPasswordTxt;
+    public string enterNewPasswordTxt;
+    public string enterConfirmPasswordTxt;
+    public string passwordsDontMatchTxt;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (UI != null)
@@ -37,12 +42,17 @@ public partial class login : MTPage
         //Login1.LoginButtonText = GetLocalResourceObject("Login1Resource1.LoginButtonText").ToString();
         userNameTxt = GetLocalResourceObject("Login1Resource1.UserNameLabelText").ToString();
         passwordTxt = GetLocalResourceObject("Login1Resource1.PasswordLabelText").ToString();
-        //newpasswordTxt = GetLocalResourceObject("Login1Resource1.NewPasswordLabelText").ToString();
-        //confirmnewpasswordTxt = GetLocalResourceObject("Login1Resource1.ConfirmNewPasswordLabelText").ToString(); 
+        newpasswordTxt = string.Format("{0}", GetLocalResourceObject("NEW_PASSWORD_TEXT"));
+        confirmnewpasswordTxt = string.Format("{0}", GetLocalResourceObject("CONFIRM_PASSWORD_TEXT")); 
         language = (string)Session[Constants.SELECTED_LANGUAGE];
      
         Button btnLogin = (Button)Login1.FindControl("Login");
         btnLogin.Text =  GetLocalResourceObject("Login1Resource1.LoginButtonText").ToString();
+
+        enterPasswordTxt = string.Format("{0}", GetLocalResourceObject("ENTER_PASSWORD"));
+        enterNewPasswordTxt = string.Format("{0}", GetLocalResourceObject("ENTER_NEW_PASSWORD"));
+        enterConfirmPasswordTxt = string.Format("{0}", GetLocalResourceObject("ENTER_CONFIRM_PASSWORD"));
+        passwordsDontMatchTxt = string.Format("{0}", GetLocalResourceObject("PASSWORDS_DONT_MATCH"));
 
         showFailureText = "false";
         showChangePasswdFailureText = "false";

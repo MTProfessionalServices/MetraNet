@@ -158,7 +158,7 @@
       </center>    
     </div>
   </div>
-  <script type="text/javascript" src="/Res/jqPlot/jquery.js"></script>
+  <script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
   <script type="text/javascript" src="IssueMiscellaneousAdjustment.aspx.js"></script>
 </asp:Content>
 

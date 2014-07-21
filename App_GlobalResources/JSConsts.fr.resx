@@ -285,6 +285,36 @@
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
     <value>En tant qu’expéditeur de cette modification en attente, vous pouvez l’ignorer pour qu’elle ne soit pas prise en compte.</value>
   </data>
+    <data name="TEXT_RATE_UPDATE" xml:space="preserve">
+        <value>Rate Update</value>
+    </data>
+  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+        <value>Account Updates</value>
+    </data>
+  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
+        <value>Product Offering Update</value>
+    </data>
+  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
+        <value>Subscription Add</value>
+    </data>
+  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
+        <value>Subscription Update</value>
+    </data>
+  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
+        <value>Add Member Hierarchies</value>
+    </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
+        <value>Add members to group</value>
+    </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
+        <value>Delete members in group</value>
+    </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
+        <value>Update members in group</value>
+    </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
+        <value>Unsubscribe members from group subscription</value>
+    </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Historique des audits pour le numéro de dossier de transaction échoué</value>
   </data>
@@ -1260,4 +1290,10 @@
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
     <value>[FR]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[FR] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[FR] right click for options</value>
+  </data>  
 </root>

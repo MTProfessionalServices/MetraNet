@@ -1,10 +1,11 @@
 using System;
 using MetraTech.UI.Common;
 using MetraTech.Security;
+using MetraTech.SecurityFramework;
 
 public partial class UserControls_ticketToMCM : MTPage
 {
-	public string URL = "";
+  public string URL = "";
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -21,6 +22,22 @@ public partial class UserControls_ticketToMCM : MTPage
     var gotoURL = Request.QueryString["URL"].Replace("|", "?").Replace("**", "&");
     gotoURL = gotoURL.Replace("!", "|");
 
+    try
+    {
+      gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "language=" + Session["MTSelectedLanguage"];      
+      var input = new ApiInput(gotoURL);
+      SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
+    }
+    catch (AccessControllerException accessExp)
+    {
+      Session[Constants.ERROR] = accessExp.Message;
+      gotoURL = string.Empty;
+    }
+    catch (Exception exp)
+    {
+      Session[Constants.ERROR] = exp.Message;
+      throw;
+    }
     HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
     var auth = new Auth();

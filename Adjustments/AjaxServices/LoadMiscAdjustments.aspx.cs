@@ -6,6 +6,7 @@ using System.Web.Script.Serialization;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.DomainModel.ProductView;
 using MetraTech.UI.Common;
@@ -120,7 +121,8 @@ public partial class Adjustments_AjaxServices_LoadMiscAsjustments : MTListServic
         SetPaging(items);
         SetSorting(items);
         SetFilters(items);
-
+        ModifyEnumFilter(items, "currency", typeof(MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies.SystemCurrencies));
+        
         //unable to extract data
         if (!ExtractData(client, ref items))
         {

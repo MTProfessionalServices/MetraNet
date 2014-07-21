@@ -13,6 +13,7 @@ AS
 		v_result VARCHAR2(2000);
     BEGIN
 		archive_queue ( p_result => v_result );
+    DBMS_OUTPUT.ENABLE(1000000);
 		DBMS_OUTPUT.put_line (v_result);
     END;
     

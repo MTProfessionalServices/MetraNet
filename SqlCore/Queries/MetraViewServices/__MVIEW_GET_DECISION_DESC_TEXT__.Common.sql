@@ -1,0 +1,1 @@
+select tx_desc from t_enum_data ted inner join t_description dsc on dsc.id_desc = ted.id_enum_data where dsc.id_lang_code = %%ID_LANG%% and ted.id_enum_data = %%ID_ENUM%%

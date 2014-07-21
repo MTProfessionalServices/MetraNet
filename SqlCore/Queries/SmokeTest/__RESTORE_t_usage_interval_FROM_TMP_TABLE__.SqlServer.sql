@@ -18,7 +18,7 @@ BEGIN
 								   dt_end,
 								   tx_interval_status)
 	SELECT  id_interval,
-			id_cycle,
+			id_usage_cycle,
 			dt_start,
 			dt_end,
 			tx_interval_status

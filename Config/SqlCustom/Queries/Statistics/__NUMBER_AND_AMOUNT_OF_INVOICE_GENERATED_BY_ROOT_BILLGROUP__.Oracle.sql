@@ -1,4 +1,5 @@
 select
+	dbo.GenGuid() "ID",
 	bg.tx_name "Partition",
 	inv.invoice_currency "Currency",
 	count(*) "# Invoices",

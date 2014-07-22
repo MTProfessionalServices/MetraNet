@@ -22,8 +22,8 @@
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
     <NoRecordsText>
-      <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
-      <ResourceClassKey></ResourceClassKey>
+        <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -48,6 +48,7 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -55,7 +56,7 @@
             <ObjectName>MetraTech.DomainModel.ProductCatalog.AccountTemplateSubscription</ObjectName>
             <ID>ProductOfferingId</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>ProductOfferingId</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
@@ -318,6 +319,39 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Filterable>false</Filterable>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.AccountTemplateSubscription</ObjectName>
+            <ID>AccountTemplateSubscriptionID</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>true</IsIdentity>
+            <DataIndex>AccountTemplateSubscriptionID</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
         </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>

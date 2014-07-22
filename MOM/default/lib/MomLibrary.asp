@@ -371,18 +371,7 @@ FUNCTION InitializeApplication() ' As Boolean
     DIM APP_FOLDER, objDictionary, objRCD
             If(IsEmpty(Session("mdm_APP_LANGUAGE")))Then        
         	    if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
-	              Dim userLocale
-                  userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
-                  dim Languages
-                  if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
-                      Languages = Split(userLocale, ",", -1)
-                      dim L
-                      L = Languages(0)
-                      if(IsEmpty(L) or IsNull(L)) then L = mom_LANGUAGE end if
-                        Session("mdm_APP_LANGUAGE")           = L
-                  else
-                        Session("mdm_APP_LANGUAGE")           = mom_LANGUAGE
-                  end if
+	                Session("mdm_APP_LANGUAGE") = mom_LANGUAGE
               else
                   dim lang
                   lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)

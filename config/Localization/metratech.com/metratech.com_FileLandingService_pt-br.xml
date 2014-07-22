@@ -144,7 +144,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/UNMATCHED</Name>
-      <Value>[pt-BR]UNMATCHED</Value>
+      <Value>INIGUALÁVEL</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eLanguageType/CSHARP</Name>
@@ -184,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NoReason</Name>
-      <Value>[pt-BR]NoReason</Value>
+      <Value>NoReason</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NOT_ENOUGH_FILES</Name>

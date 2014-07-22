@@ -234,9 +234,6 @@
   <data name="tbPasswordResource1.Label" xml:space="preserve">
     <value>Mot de passe</value>
   </data>
-  <data name="tbPasswordResource1.XType" xml:space="preserve">
-    <value>CompteurMotDePasse</value>
-  </data>
   <data name="tbPayerResource1.Label" xml:space="preserve">
     <value>Payeur</value>
   </data>
@@ -249,16 +246,10 @@
   <data name="tbStartDateResource1.Label" xml:space="preserve">
     <value>Date de début de compte</value>
   </data>
-  <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-    <value>Exempt de taxe</value>
-  </data>
-  <data name="tbTaxExemptIDResource1.XType" xml:space="preserve">
-    <value>ChampTexte</value>
-  </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
     <value>Nom d’utilisateur</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>Type d'authentification</value>
+    <value>Type d’authentification</value>
   </data>
 </root>

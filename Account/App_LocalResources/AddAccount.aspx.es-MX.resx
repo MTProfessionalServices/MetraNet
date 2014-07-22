@@ -234,9 +234,6 @@
   <data name="tbPasswordResource1.Label" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-  <data name="tbPasswordResource1.XType" xml:space="preserve">
-    <value>PasswordMeter</value>
-  </data>
   <data name="tbPayerResource1.Label" xml:space="preserve">
     <value>Pagador</value>
   </data>
@@ -248,12 +245,6 @@
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
     <value>Fecha de apertura de la cuenta</value>
-  </data>
-  <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-    <value>ID exenta de impuestos</value>
-  </data>
-  <data name="tbTaxExemptIDResource1.XType" xml:space="preserve">
-    <value>TextField</value>
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
     <value>Nombre de usuario</value>

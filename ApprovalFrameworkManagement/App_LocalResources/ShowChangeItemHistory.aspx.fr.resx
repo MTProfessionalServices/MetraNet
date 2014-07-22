@@ -124,7 +124,7 @@
     <value>Détails</value>
   </data>
   <data name="TEXT_APPROVAL_AUDIT_EVENT" xml:space="preserve">
-    <value>Evénement de l'historique </value>
+    <value>Evénement de l’historique </value>
   </data>
   <data name="TEXT_APPROVAL_AUDIT_EVENTDISPLAYNAME" xml:space="preserve">
     <value>Evénement </value>

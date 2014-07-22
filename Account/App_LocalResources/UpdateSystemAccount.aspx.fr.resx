@@ -124,7 +124,7 @@
     <value>Compte parent</value>
   </data>
   <data name="LblAuthenticationType.Label" xml:space="preserve">
-    <value>Type d'authentification</value>
+    <value>Type d’authentification</value>
   </data>
   <data name="LblBrandedSite.Label" xml:space="preserve">
     <value>Site de marque</value>
@@ -160,7 +160,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>Ce compte est déjà associé à un changement en attente dans la file d'attente de l'infrastructure d'approbation. {0} Cliquez ici pour afficher les changements en attente.</value>
+    <value>Ce compte est déjà associé à un changement en attente dans la file d’attente de l’infrastructure d’approbation. {0} Cliquez ici pour afficher les changements en attente.</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Informations du compte</value>

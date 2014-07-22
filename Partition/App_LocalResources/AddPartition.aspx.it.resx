@@ -425,9 +425,6 @@
   <data name="tbPasswordResource1.Label" xml:space="preserve">
     <value>[IT]Password</value>
   </data>
-  <data name="tbPasswordResource1.XType" xml:space="preserve">
-    <value>[IT]PasswordMeter</value>
-  </data>
   <data name="tbPayerResource1.Label" xml:space="preserve">
     <value>Pagatore</value>
   </data>
@@ -439,12 +436,6 @@
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
     <value>[IT]Account Start Date</value>
-  </data>
-  <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-    <value>[IT]Tax Exempt ID</value>
-  </data>
-  <data name="tbTaxExemptIDResource1.XType" xml:space="preserve">
-    <value>[IT]TextField</value>
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
     <value>[IT]User Name</value>

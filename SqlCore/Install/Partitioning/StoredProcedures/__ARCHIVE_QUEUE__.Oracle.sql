@@ -48,6 +48,7 @@ BEGIN
     BEGIN
    SELECT b_processing into pipeline_processing FROM t_pipeline;
    IF pipeline_processing > 0 THEN
+    DBMS_OUTPUT.PUT_LINE('Pipeline is processing usage, so can not execute archive_queue sp.');
    RETURN;
    END IF;
 END;

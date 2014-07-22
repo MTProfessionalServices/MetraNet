@@ -17,7 +17,8 @@
   <GetAccountPayerQueryTag>__GET_ACCOUNT_PAYER__</GetAccountPayerQueryTag>
   <MeteringSessionSetSize>500</MeteringSessionSetSize>
   <MeteringTimeOut>120</MeteringTimeOut>
-  <ReportDefaultTemplateName>Quote Report</ReportDefaultTemplateName>
+  <ReportTemplateNameForSql>Quote Report for SQL</ReportTemplateNameForSql>
+  <ReportTemplateNameForOracle>Quote Report for Oracle</ReportTemplateNameForOracle>
   <ReportInstancePartialPath>\Quotes\{AccountId}\Quote_{QuoteId}</ReportInstancePartialPath>
   <QuotingQueryFolder>Queries\Quoting</QuotingQueryFolder>
   <IsCleanupQuoteAutomaticaly>true</IsCleanupQuoteAutomaticaly>

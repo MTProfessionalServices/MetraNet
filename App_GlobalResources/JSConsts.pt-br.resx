@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>m/d/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>n/j/Y</value>
+    <value>j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:i:s A|n/j/Y</value>
+    <value>j/n/Y G:i:s|j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y g:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>j/n/Y G:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
@@ -139,7 +139,7 @@
     <value>Duplicar</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>mm/dd/YYYY</value>
+    <value>dd/mm/YYYY</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Falha</value>
@@ -175,7 +175,7 @@
     <value>Sucesso</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[pt-BR]Account</value>
+    <value>Conta</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Detalhes</value>
@@ -284,6 +284,36 @@
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
     <value>Como o solicitante desta alteração pendente, é possível \"Rejeitar\" esta alteração que irá removê-la da deliberação.</value>
+  </data>
+  <data name="TEXT_RATE_UPDATE" xml:space="preserve">
+    <value>[pt-BR]Rate Update</value>
+  </data>
+  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+    <value>[pt-BR]Account Updates</value>
+  </data>
+  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
+    <value>[pt-BR]Product Offering Update</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
+    <value>[pt-BR]Subscription Add</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
+    <value>[pt-BR]Subscription Update</value>
+  </data>
+  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
+    <value>[pt-BR]Add Member Hierarchies</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
+    <value>[pt-BR]Add members to group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
+    <value>[pt-BR]Delete members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
+    <value>[pt-BR]Update members in group</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
+    <value>[pt-BR]Unsubscribe members from group subscription</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Histórico de auditoria para número de casos de transações com falha</value>
@@ -643,7 +673,7 @@
     <value>Tem certeza que deseja fazer logout?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:ia</value>
+    <value>j/n/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Gerenciar conta</value>
@@ -1255,9 +1285,15 @@
     <value>N/D</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>[pt-BR]Account Type</value>
+    <value>Tipo de conta</value>
   </data>
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
-    <value>[pt-BR]The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
+    <value>O valor nesse campo é inválido. Nomes de qualificação de utilização válidos devem conter apenas caracteres alfanuméricos (Aa-Zz, 0-9) e o caractere '_'.</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>clique com o botão direito para opções</value>
+  </data>  
 </root>

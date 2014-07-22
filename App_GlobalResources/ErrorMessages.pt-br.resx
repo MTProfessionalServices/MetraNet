@@ -304,6 +304,6 @@
     <value>Não é possível abrir e salvar o relatório</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
-    <value>[pt-BR]Name of product offering must be unique</value>
+    <value>O nome da oferta de produto precisa ser único</value>
   </data>
 </root>

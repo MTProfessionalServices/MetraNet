@@ -162,9 +162,6 @@
   <data name="tbNewPasswordResource1.LabelWidth" xml:space="preserve">
     <value>140</value>
   </data>
-  <data name="tbNewPasswordResource1.XType" xml:space="preserve">
-    <value>PasswordMeter</value>
-  </data>
   <data name="tbOldPasswordResource1.Label" xml:space="preserve">
     <value>Contraseña anterior</value>
   </data>
@@ -176,5 +173,23 @@
   </data>
   <data name="tbUserNameResource1.LabelWidth" xml:space="preserve">
     <value>140</value>
+  </data>
+  <data name="NEW_PASSWORD_TEXT" xml:space="preserve">
+    <value>[es-MX]New Password</value>
+  </data>
+  <data name="CONFIRM_PASSWORD_TEXT" xml:space="preserve">
+    <value>[es-MX]Confirm New Password</value>
+  </data>
+  <data name="ENTER_PASSWORD" xml:space="preserve">
+    <value>[es-MX]Enter Password</value>
+  </data>
+  <data name="ENTER_NEW_PASSWORD" xml:space="preserve">
+    <value>[es-MX]Enter New Password</value>
+  </data>
+  <data name="ENTER_CONFIRM_PASSWORD" xml:space="preserve">
+    <value>[es-MX]Enter Confirm Password</value>
+  </data>
+  <data name="PASSWORDS_DONT_MATCH" xml:space="preserve">
+    <value>[es-MX]Passwords donot match</value>
   </data>
 </root>

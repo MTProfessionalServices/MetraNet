@@ -65,6 +65,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
       if (!IsPostBack)
       {
         DefaultActionSettings(ampSvcClient);
+        setValueControls(FieldDropDown.SelectedValue);
       }
       else
       {
@@ -256,6 +257,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
     LogicDropDown.Items.Add(item0);
     ListItem item1 = new ListItem();
     item1.Text = item1.Value = "==";
+    item1.Selected = true;
     LogicDropDown.Items.Add(item1);
     ListItem item2 = new ListItem();
     item2.Text = item2.Value = "!=";
@@ -413,7 +415,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
       FieldDropDown.Items.Add(new ListItem { Text = "id_sess", Value = "id_sess:bigint::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_acc", Value = "id_acc:int::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_payee", Value = "id_payee:int::" });
-      FieldDropDown.Items.Add(new ListItem { Text = "id_view", Value = "id_view:idviewDropDown::" });
+      FieldDropDown.Items.Add(new ListItem { Text = "id_view", Value = "id_view:idviewDropDown::", Selected = true });
       FieldDropDown.Items.Add(new ListItem { Text = "id_usage_interval", Value = "id_usage_interval:int::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_parent_sess", Value = "id_parent_sess:bigint::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_prod", Value = "id_prod:int::" });

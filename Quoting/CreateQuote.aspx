@@ -138,6 +138,7 @@
       { name: 'DisplayName' },
       { name: 'PIKind' },
       { name: 'PICanICB' },
+      { name: 'RatingType' },
       { name: 'RecordId' }
     ]);
     
@@ -224,6 +225,20 @@
 
       addItemToPIs(response.items);
     }
+    
+    var ConditionSignData = new Ext.data.ArrayStore({
+                  id: 0,
+                  fields: ['value', 'sign'],
+                  data: [
+                          ['Equal', '='],
+                          ['NotEqual', '<>'],
+                          ['Greater', '>'],
+                          ['GreaterEqual', '>='],
+                          ['Less', '<'],
+                          ['LessEqual', '<='],
+                          //['Default', '<%=GetLocalResourceObject("DEFAULT_RULE")%>'],
+                        ]
+                });
   </script>
   <%-- Account Grid--%>
   <script language="javascript" type="text/javascript">
@@ -467,6 +482,7 @@
         var recordId = piId + '_' + poId;
         var piKind = items[i].PIKind;
         var piCanIcb = items[i].PICanICB;
+        var ratingType = items[i].RatingType;
 
         var myNewRecord = new piRecord({
           ProductOfferingId: poId,
@@ -476,6 +492,7 @@
           DisplayName: items[i].DisplayName,
           PIKind: piKind,
           PICanICB: piCanIcb,
+          RatingType: ratingType,
           RecordId: recordId
         });
 
@@ -1022,12 +1039,13 @@
       idx = piWithAllowIcbStore.find('PriceableItemId', piId);
       var piName = piWithAllowIcbStore.getAt(idx).data.Name;
       var piKind = piWithAllowIcbStore.getAt(idx).data.PIKind;
+      var UDRCType = piWithAllowIcbStore.getAt(idx).data.RatingType;
 
-      var isUDRC = (piKind == 25);
+      var isUDRC = (piKind == 'UnitDependentRecurring');
 
       form_addICB = new Ext.FormPanel({
         baseCls: 'x-plain',
-        labelWidth: 70,
+        labelWidth: 120,
         defaultType: 'textfield',
 
         items: [{
@@ -1039,74 +1057,144 @@
           allowBlank: false,
           anchor: '100%'
         },
-                {
-                  xtype: 'hidden',
-                  hideLabel: true,
-                  id: 'form_addICB_POId',
-                  name: 'form_addICB_POId',
-                  value: poId
-                },
-                {
-                  readOnly: true,
-                  fieldLabel: '<%=GetLocalResourceObject("PINAME")%>',
-                  id: 'form_addICB_PIName',
-                  name: 'form_addICB_PIName',
-                  value: piName,
-                  allowBlank: false,
-                  anchor: '100%'
-                },
-                {
-                  xtype: 'hidden',
-                  hideLabel: true,
-                  id: 'form_addICB_PIId',
-                  name: 'form_addICB_PIId',
-                  value: piId
-                },
-                {
-                  xtype: 'hidden',
-                  hideLabel: true,
-                  id: 'form_addICB_PIKind',
-                  name: 'form_addICB_PIKind',
-                  value: piKind
-                }]
+        {
+          xtype: 'hidden',
+          hideLabel: true,
+          id: 'form_addICB_POId',
+          name: 'form_addICB_POId',
+          value: poId
+        },
+        {
+          readOnly: true,
+          fieldLabel: '<%=GetLocalResourceObject("PINAME")%>',
+          id: 'form_addICB_PIName',
+          name: 'form_addICB_PIName',
+          value: piName,
+          allowBlank: false,
+          anchor: '100%'
+        },
+        {
+          xtype: 'hidden',
+          hideLabel: true,
+          id: 'form_addICB_PIId',
+          name: 'form_addICB_PIId',
+          value: piId
+        },
+        {
+          xtype: 'hidden',
+          hideLabel: true,
+          id: 'form_addICB_PIKind',
+          name: 'form_addICB_PIKind',
+          value: piKind
+        }]
       });
 
       if (isUDRC) {
-        form_addICB.items.add(new Ext.form.NumberField({
-          allowDecimals: true,
-          allowBlank: true,
-          allowNegative: false,
-          fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
-          id: 'form_addICB_UnitValue',
-          name: 'form_addICB_UnitValue',
-          anchor: '100%',
-          value: 0,
-          tabIndex: 1
-        }));
+        if (UDRCType == 'Tiered') {
+          form_addICB.items.add(new Ext.form.Label({
+            fieldLabel: '<%=GetLocalResourceObject("CONDITIONS")%>',
+            id: 'form_addICB_Conditions',
+            name: 'form_addICB_Conditions',
+            anchor: '100%',
+            labelStyle: 'font-weight:bold;'
+          }));
 
-        form_addICB.items.add(new Ext.form.NumberField({
-          allowDecimals: true,
-          allowBlank: true,
-          allowNegative: false,
-          fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
-          id: 'form_addICB_UnitAmount',
-          name: 'form_addICB_UnitAmount',
-          anchor: '100%',
-          value: 0,
-          tabIndex: 2
-        }));
+          form_addICB.items.add(new Ext.form.ComboBox({
+            fieldLabel: '<%=GetLocalResourceObject("CONDITION_SIGN")%>',
+            id: 'form_addICB_ConditionSign',
+            name: 'form_addICB_ConditionSign',
+            anchor: '100%',
+            mode: 'local',
+            allowBlank: true,
+            autoSelect: false,
+            forceSelection :  true,
+            store: ConditionSignData,
+            displayField: 'sign',
+            valueField: 'value',
+            //value: 'LessEqual',
+            tabIndex: 1
+          }));
 
-        form_addICB.items.add(new Ext.form.NumberField({
-          allowDecimals: true,
-          allowBlank: true,
-          allowNegative: false,
-          fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
-          id: 'form_addICB_BaseAmount',
-          name: 'form_addICB_BaseAmount',
-          anchor: '100%',
-          value: 0,
-          tabIndex: 3
-        }));
+          form_addICB.items.add(new Ext.form.NumberField({
+            allowDecimals: true,
+            allowBlank: true,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
+            id: 'form_addICB_UnitValue',
+            name: 'form_addICB_UnitValue',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 1
+          }));
+
+          form_addICB.items.add(new Ext.form.Label({
+            fieldLabel: '<%=GetLocalResourceObject("ACTIONS")%>',
+            id: 'form_addICB_Actions',
+            name: 'form_addICB_Actions',
+            anchor: '100%',
+            labelStyle: 'font-weight:bold;'
+          }));
+          form_addICB.items.add(new Ext.form.NumberField({
+            allowDecimals: true,
+            allowBlank: true,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
+            id: 'form_addICB_UnitAmount',
+            name: 'form_addICB_UnitAmount',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 2
+          }));
+          form_addICB.items.add(new Ext.form.NumberField({
+            allowDecimals: true,
+            allowBlank: true,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
+            id: 'form_addICB_BaseAmount',
+            name: 'form_addICB_BaseAmount',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 3
+          }));
+        } //if (UDRCType == 'Tiered') 
+        else if (UDRCType == 'Tapered') {
+          form_addICB.items.add(new Ext.form.Label({
+            fieldLabel: '<%=GetLocalResourceObject("CONDITIONS")%>',
+            id: 'form_addICB_Conditions',
+            name: 'form_addICB_Conditions',
+            anchor: '100%',
+            labelStyle: 'font-weight:bold;'
+          }));
+          form_addICB.items.add(new Ext.form.NumberField({
+            allowDecimals: true,
+            allowBlank: true,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>'+' (<=)',
+            id: 'form_addICB_UnitValue',
+            name: 'form_addICB_UnitValue',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 1
+          }));
+          form_addICB.items.add(new Ext.form.Label({
+            fieldLabel: '<%=GetLocalResourceObject("ACTIONS")%>',
+            id: 'form_addICB_Actions',
+            name: 'form_addICB_Actions',
+            anchor: '100%',
+            labelStyle: 'font-weight:bold;'
+          }));
+          form_addICB.items.add(new Ext.form.NumberField({
+            allowDecimals: true,
+            allowBlank: true,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
+            id: 'form_addICB_UnitAmount',
+            name: 'form_addICB_UnitAmount',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 2
+          }))
+        } 
       }
       else {
         form_addICB.items.add(new Ext.form.NumberField({
@@ -1125,7 +1213,7 @@
       AddICBWindow = new Ext.Window({
         title: '<%=GetLocalResourceObject("TEXT_ADD_ICB")%>',
         width: 400,
-        height: 250,
+        height: 300,
         minWidth: 100,
         minHeight: 100,
         layout: 'fit',
@@ -1178,7 +1266,22 @@
         if (priceComp != undefined)
           price = priceComp.value;
 
-          var pIKind = form_addICB.items.get('form_addICB_PIKind').value
+        var piKind = form_addICB.items.get('form_addICB_PIKind').value
+
+        var conditionSignComp = form_addICB.items.get('form_addICB_ConditionSign');
+        var conditionSign = '';
+        if (conditionSignComp != undefined)
+          conditionSign = conditionSignComp.value;
+
+        var unitValueDisplay = '';
+        if (piKind == 'UnitDependentRecurring')          
+        {
+            var found = ConditionSignData.find('value', conditionSign);
+            if (found != -1) {
+              unitValueDisplay = ConditionSignData.getAt(found).data.sign;
+            }
+            unitValueDisplay = unitValueDisplay + unitValue;
+        }
 
         var recordId = form_addICB.items.get('form_addICB_POId').value + "_" +
               form_addICB.items.get('form_addICB_PIId').value + "_" +
@@ -1199,9 +1302,11 @@
             PriceableItemId: form_addICB.items.get('form_addICB_PIId').value,
             Price: price,
             UnitValue: unitValue,
+            UnitValueDisplay: unitValueDisplay,
             UnitAmount: unitAmount,
             BaseAmount: baseAmount,
-            PIKind: pIKind,
+            PIKind: piKind,
+            ConditionSign: conditionSign,
             RecordId: recordId,
             GroupId: groupId
           });
@@ -1229,10 +1334,12 @@
         {name: 'PriceableItemId' },
         { name: 'ProductOfferingId' },
         { name: 'Price' },
+        { name: 'UnitValueDisplay' },
         { name: 'UnitValue' },
         { name: 'UnitAmount' },
         { name: 'BaseAmount' },
         { name: 'PIKind' },
+        { name: 'ConditionSign' },
         { name: 'RecordId' },
         { name: 'GroupId' }
     ]);
@@ -1251,9 +1358,11 @@
           ProductOfferingId: items[i].ProductOfferingId,
           Price: items[i].Price,
           UnitValue: items[i].UnitValue,
+          UnitValueDisplay: items[i].UnitValueDisplay,
           UnitAmount: items[i].UnitAmount,
           BaseAmount: items[i].BaseAmount,
           PIKind: items[i].PIKind,
+          ConditionSign: items[i].ConditionSign,
           RecordId: items[i].RecordId,
           GroupId: items[i].GroupId
         });
@@ -1270,11 +1379,12 @@
     var textBaseAmount = '<%=GetLocalResourceObject("BASE_AMOUNT")%>';
     var textICBAction = ''; // '<%=GetLocalResourceObject("ACTIONS")%>';
     var textICBGridTitle = '<%=GetLocalResourceObject("ICB_GRID_TITLE")%>';
+    var textConditionSign = '<%=GetLocalResourceObject("CONDITION")%>';
 
     var icbColumns = [
       { header: ' ', hidden: true, dataIndex: 'GroupId' },
       { header: textPrice, width: 55, sortable: true, dataIndex: 'Price' },
-      { header: textUnitValue, width: 70, sortable: true, dataIndex: 'UnitValue' },
+      { header: textUnitValue, width: 70, sortable: true, dataIndex: 'UnitValueDisplay' },
       { header: textUnitAmount, width: 80, sortable: true, dataIndex: 'UnitAmount' },
       { header: textBaseAmount, width: 85, sortable: true, dataIndex: 'BaseAmount' }
     ];

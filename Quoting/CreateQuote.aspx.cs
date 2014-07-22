@@ -51,7 +51,8 @@ namespace MetraNet.Quoting
       public decimal UnitAmount { get; set; }
       public decimal BaseAmount { get; set; }
       public string RecordId { get; set; }
-      public int PIKind { get; set; }
+      public string PIKind { get; set; }
+      public string ConditionSign { get; set; }
     }
 
     public class Udrc
@@ -145,8 +146,9 @@ namespace MetraNet.Quoting
               ProductOfferingId = x.PO_ID,
               x.Name,
               x.DisplayName,
-              x.PIKind,
-              x.PICanICB
+              PIKind = x.PIKind.ToString(),
+              x.PICanICB,
+              RatingType = (x.PIKind == PriceableItemKinds.UnitDependentRecurring ? ((Unit_Dependent_Recurring_ChargePIInstance)x).RatingType.ToString() : null)
             }).ToArray();
         result = new { result = "ok", items };
       }
@@ -175,6 +177,16 @@ namespace MetraNet.Quoting
 
           var pciPoId = new PCIdentifier(poId);
           client.GetPIInstancesForPO(pciPoId, ref priceableItems);
+
+          for (var i = 0; i < priceableItems.Items.Count; i++)
+          {
+            if (priceableItems.Items[i].PIKind == PriceableItemKinds.UnitDependentRecurring)
+            {
+              BasePriceableItemInstance udrcPi;
+              client.GetPIInstanceForPO(new PCIdentifier(poId), new PCIdentifier((int)priceableItems.Items[i].ID), out udrcPi);
+              priceableItems.Items[i] = udrcPi;
+            }
+          }
 
           priceableItemsAll.Items.AddRange(priceableItems.Items);
         }
@@ -305,20 +317,22 @@ namespace MetraNet.Quoting
           BaseAmount = icb.BaseAmount,
           UnitAmount = icb.UnitAmount,
           UnitValue = icb.UnitValue,
+          ConditionSign = icb.ConditionSign
         });
         var qip = new IndividualPrice
-        {          
+        {
           ProductOfferingId = record.ProductOfferingId,
           ChargesRates = chargesRates.ToList(),
           PriceableItemId = record.PriceableItemId
         };
+
         switch (record.PIKind)
         {
-          case 20: { qip.CurrentChargeType = ChargeType.RecurringCharge; break; }     //Recurring = 20,
-          case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
-          case 30: { qip.CurrentChargeType = ChargeType.NonRecurringCharge; break; }  //NonRecurring = 30,
+          case "Recurring": { qip.CurrentChargeType = ChargeType.RecurringCharge; break; }     //Recurring = 20,
+          case "UnitDependentRecurring": { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
+          case "NonRecurring": { qip.CurrentChargeType = ChargeType.NonRecurringCharge; break; }  //NonRecurring = 30,
           default: { qip.CurrentChargeType = ChargeType.None; break; }
-        }        
+        }
         icbPrices.Add(qip);
       }
 
@@ -485,7 +499,7 @@ namespace MetraNet.Quoting
       var totalAmount = decimal.Round(CurrentQuote.TotalAmount, curDecDig).ToString(CultureInfo.CurrentCulture);
       MTTextBoxControlTotal.Text = string.Format("{0} {1}", totalAmount, CurrentQuote.Currency);
 
-      var taxAmount = decimal.Round(CurrentQuote.TotalTax, curDecDig).ToString(CultureInfo.CurrentCulture);      
+      var taxAmount = decimal.Round(CurrentQuote.TotalTax, curDecDig).ToString(CultureInfo.CurrentCulture);
       MTTextBoxControlTax.Text = string.Format("{0} {1}", taxAmount, CurrentQuote.Currency);
 
       MTdpCreationDate.Text = CurrentQuote.CreationDate.ToString();
@@ -574,7 +588,7 @@ namespace MetraNet.Quoting
     {
       var pis = GetPriceableItemsForPOs(pos.Select(poId => poId.ToString(CultureInfo.InvariantCulture)));
 
-      const string piStr = "{8}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','PIKind':'{5}','PICanICB':'{6}','RecordId':'{7}'{9}";
+      const string piStr = "{9}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','PIKind':'{5}','PICanICB':'{6}','RatingType':'{7}','RecordId':'{8}'{10}";
       const string recodrIdStr = "{0}_{1}";
 
       PiNames = new Dictionary<int, string>();
@@ -600,6 +614,7 @@ namespace MetraNet.Quoting
               pi.DisplayName,
               pi.PIKind,
               pi.PICanICB,
+              pi.PIKind == PriceableItemKinds.UnitDependentRecurring ? ((Unit_Dependent_Recurring_ChargePIInstance)pi).RatingType : null,
               recordId,
               "{", "},");
 
@@ -612,7 +627,16 @@ namespace MetraNet.Quoting
 
     private string EncodeICBsForHiddenControl()
     {
-      const string icbStr = "{8}'ProductOfferingId':{0},'PriceableItemId':{1},'Price':'{2}','BaseAmount':'{3}','UnitValue':'{4}','UnitAmount':'{5}','RecordId':'{6}','GroupId':'{7}'{9}";
+      var conditionSigns = new Dictionary<string, string> {
+                          {"Equal", "="},
+                          {"NotEqual", "<>"},
+                          {"Greater", ">"},
+                          {"GreaterEqual", ">="},
+                          {"Less", "<"},
+                          {"LessEqual", "<="},
+                          /*{'Default', GetLocalResourceObject("DEFAULT_RULE")}*/ };
+
+      const string icbStr = "{9}'ProductOfferingId':{0},'PriceableItemId':{1},'Price':'{2}','BaseAmount':'{3}','UnitValue':'{4}','UnitValueDisplay':'{11}','UnitAmount':'{5}','ConditionSign':'{6}','RecordId':'{7}','GroupId':'{8}'{10}";
       const string recodrIdStr = "{0}_{1}_{2}_{3}_{4}_{5}";
 
       if (CurrentQuote.IcbPrices.Count == 0)
@@ -633,6 +657,11 @@ namespace MetraNet.Quoting
             rate.UnitAmount
             );
           var groupId = GetGroupId(icb.ProductOfferingId, Convert.ToInt32(icb.PriceableItemId));
+          var conditionSign = rate.ConditionSign;
+          var unitValueDisplay = "";
+          if (!String.IsNullOrEmpty(conditionSign))
+            conditionSigns.TryGetValue(conditionSign, out unitValueDisplay);
+          unitValueDisplay += rate.UnitValue;
 
           hiddenIcbsValue += string.Format(
             CultureInfo.CurrentCulture,
@@ -643,9 +672,11 @@ namespace MetraNet.Quoting
             Math.Round(rate.BaseAmount, 2),
             Math.Round(rate.UnitValue, 2),
             Math.Round(rate.UnitAmount, 2),
+            conditionSign,
             recordId,
             groupId,
-            "{", "},");
+            "{", "},",
+            unitValueDisplay);
         }
       hiddenIcbsValue = hiddenIcbsValue.Substring(0, hiddenIcbsValue.Length - 1);
       return hiddenIcbsValue + "]";
@@ -840,7 +871,7 @@ namespace MetraNet.Quoting
       {
         var prop = props.FirstOrDefault(t => t.Name == key);
         if (prop == null) continue;
-        switch ( prop.PropertyType.ToString())
+        switch (prop.PropertyType.ToString())
         {
           case "System.DateTime":
             prop.SetValue(p, DateTime.Parse(dictionary[key].ToString()), null);

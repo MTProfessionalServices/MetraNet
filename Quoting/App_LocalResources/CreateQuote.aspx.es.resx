@@ -312,4 +312,13 @@
   <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
     <value>[ES]Corporate account for group subscription should be selected.</value>
   </data>
+  <data name="CONDITIONS" xml:space="preserve">
+    <value>[ES]Conditions</value>
+  </data>
+  <data name="CONDITION_SIGN" xml:space="preserve">
+    <value>[ES]Condition</value>
+  </data>
+  <data name="DEFAULT_RULE" xml:space="preserve">
+    <value>[ES]Default rule</value>
+  </data>
 </root>

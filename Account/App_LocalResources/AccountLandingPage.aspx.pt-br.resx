@@ -184,6 +184,9 @@
     <value>Pagamento</value>
   </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>[pt-BR]No Transactions Found for the Current Interval</value>
+    <value>Nenhuma transação encontrada para o intervalo atual</value>
+  </data>
+  <data name="lblNowCast.Text" xml:space="preserve">
+    <value>NowCast</value>
   </data>
 </root>

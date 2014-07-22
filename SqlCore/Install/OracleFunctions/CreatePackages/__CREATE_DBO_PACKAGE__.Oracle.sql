@@ -245,6 +245,7 @@ RETURN NUMBER;
     function DaysFromPartitionEpoch(
       dt timestamp) 
     return int;
-   
+	
+	function GenGuid return raw;
 end;
 				

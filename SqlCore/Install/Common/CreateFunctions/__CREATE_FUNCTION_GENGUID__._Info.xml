@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>CreateFunction</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <!--Implementation>Oracle version implements in dbo Oracle packet</Implementation-->
+    </Implementations>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <InstallTime>PreSync</InstallTime>
+    <Parameters>      
+    </Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

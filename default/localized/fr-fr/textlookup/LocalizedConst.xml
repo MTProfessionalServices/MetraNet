@@ -1908,11 +1908,48 @@
     <description/>
   </text>
 
-    <text id="TEXT_MANAGE_AH_CANNOT_ASSIGNED_TO_ROLE">
-      <value>La gestion de la hiérarchie de comptes ne peut pas être affectée à ce rôle</value>
-    </text>
-    <text id="TEXT_OPTIONS">
-      <value>Options</value>
-    </text>
+  <text id="TEXT_MANAGE_AH_CANNOT_ASSIGNED_TO_ROLE">
+    <value>La gestion de la hiérarchie de comptes ne peut pas être affectée à ce rôle</value>
+  </text>
+  
+  <text id="TEXT_OPTIONS">
+    <value>Options</value>
+  </text>
+    
+  <text id="TEXT_VIEW_DEFAULT_SECURITY_OWNERS">
+    <value>[FR] View Default Security Owners</value>    	
+  </text> 
+ 
+  <text id="TEXT_ADD_MEMBERS_TO_ROLE">
+    <value>[FR] Add Members to Role</value>    	
+  </text> 
+  
+  <text id="TEXT_SELECT_ACCOUNTS">
+    <value>[FR] Select Accounts</value>
+  </text> 
+  
+  <text id="TEXT_ACCOUNTS_TO_MOVE">
+    <value>[FR] Select Accounts to Move</value>
+  </text> 
+    
+  <text id="TEXT_CAPABILITIES">
+    <value>[FR] Capabilities</value>    	
+  </text>
+  
+  <text id="TEXT_PROG_ID">
+    <value>[FR] ProgID</value>    	
+  </text>
+  
+  <text id="TEXT_NUMBER_OF_ATOMICS">
+    <value>[FR] Number of Atomics</value>    	
+  </text>
+  
+  <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
+    <value>[FR] Requires Manage Account Hierarchies</value>    	
+  </text>
+    
+  <text id="TEXT_CHARACTERS_LEFT">
+     <value>[FR] characters left for</value>
+  </text>
 
 </texts>

@@ -33,6 +33,7 @@ AS
     END;
     */
     v_is_part_enabled			VARCHAR2(1);
+    pipeline_processing   NUMBER;
 BEGIN
 
     SELECT UPPER(b_partitioning_enabled) INTO v_is_part_enabled FROM t_usage_server;

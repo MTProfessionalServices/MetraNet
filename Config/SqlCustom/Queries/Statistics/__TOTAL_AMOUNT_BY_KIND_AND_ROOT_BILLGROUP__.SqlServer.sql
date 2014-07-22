@@ -1,4 +1,5 @@
 select
+	dbo.GenGuid() "ID",
 	bg.tx_name "Partition",
 	am_currency "Currency", 
 	case bp.n_kind

@@ -33,6 +33,7 @@ AS
     END;
     */
     v_is_part_enabled			VARCHAR2(1);
+    pipeline_processing   NUMBER;
 BEGIN
 
     SELECT UPPER(b_partitioning_enabled) INTO v_is_part_enabled FROM t_usage_server;
@@ -44,6 +45,14 @@ BEGIN
     
     /* Adding a commit before calling the proc again to fix ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired */
     COMMIT;
+    
+    BEGIN
+   SELECT b_processing into pipeline_processing FROM t_pipeline;
+   IF pipeline_processing > 0 THEN
+    DBMS_OUTPUT.PUT_LINE('Pipeline is processing usage, so can not execute archive_queue sp.');
+   RETURN;
+   END IF;
+END;
 
 	archive_queue_partition(
 		P_UPDATE_STATS => p_update_stats,

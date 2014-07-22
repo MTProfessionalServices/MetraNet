@@ -39,17 +39,18 @@ BEGIN
       AND rw.c_SubscriptionStart    < ui.dt_end AND rw.c_SubscriptionEnd   > ui.dt_start
       AND rw.c_unitvaluestart       < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
     INNER JOIN TMP_CHANGED_UNITS trv ON trv.id_sub = rw.C__SubscriptionID AND trv.id_prop = rw.c__PriceableItemInstanceID
-        AND trv.vt_start < rw.c_UnitValueEnd AND trv.vt_end > rw.c_UnitValueStart
+      AND trv.vt_start < rw.c_UnitValueEnd AND trv.vt_end > rw.c_UnitValueStart
     INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
     INNER JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount AND auc.id_usage_cycle = ui.id_usage_cycle
-    /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
-    INNER JOIN t_pc_interval pci
-      ON pci.id_cycle = CASE
+    INNER JOIN t_usage_cycle ccl
+      ON  ccl.id_usage_cycle = CASE 
                             WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
                             WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
                             WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
                             ELSE NULL
                         END
+    INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+    INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
       AND (
             (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end)      /* If this is in advance, check if rc start falls in this interval */
             OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                               /* or check if the cycle end falls into this interval */
@@ -60,21 +61,12 @@ BEGIN
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
       AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
       AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-    INNER JOIN t_usage_cycle ccl
-      ON ccl.id_usage_cycle = CASE
-                                WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
-                                WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
-                                WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
-                                ELSE NULL
-                              END
-    INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
     INNER JOIN t_usage_interval currentui ON currentDate BETWEEN currentui.dt_start AND currentui.dt_end
       AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
-    /*Only issue corrections if there's a previous iteration.*/
+    /* Only issue corrections if there's a previous iteration. */
     EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
-    /* Do we need this check? */
-    AND rw.c_UnitValue IS NOT NULL
+    AND ui.dt_start < currentDate
     AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   INSERT INTO TMP_RC

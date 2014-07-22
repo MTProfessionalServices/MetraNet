@@ -92,6 +92,7 @@ AND
 %%ACCOUNT_PREDICATE%%
 AND 
 au.n_adjustmenttype = case when %%%UPPER%%%(:IsPostbill) = 'N' then 0 else 1 end
-AND 
-au.LanguageCode = :langCode
+-- TODO Uncomment this during FEAT-4238 implementation
+--AND 
+--au.LanguageCode = :langCode
 			 

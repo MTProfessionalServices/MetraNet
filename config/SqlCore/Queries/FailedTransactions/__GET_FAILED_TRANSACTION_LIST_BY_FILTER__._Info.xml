@@ -5,6 +5,13 @@
         <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
+        <Parameter>
+            <Name>FILTER</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>OR ft.state='A'</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

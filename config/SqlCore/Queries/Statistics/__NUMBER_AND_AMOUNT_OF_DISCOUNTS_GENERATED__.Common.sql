@@ -1,5 +1,6 @@
 
-				select bp.nm_name "Discount Name",
+				select dbo.GenGuid() "ID",
+				  bp.nm_name "Discount Name",
 				  count(*) "# of Discounts Generated",
 				  am_currency "Currency",
 				  sum({fn ifnull(au.amount,0.0)}) "Amount" 

@@ -57,6 +57,10 @@
                     </QueryParameter>
                 </QueryParameters>
                 <QueryColumns>
+					<QueryColumn>
+                        <Name>ID</Name>
+                        <Type>System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
                     <QueryColumn>
                         <Name>Partition</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
@@ -90,6 +94,41 @@
         </URLParameter>
     </URLParameters>
     <Elements>
+		<Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>ID</ID>
+            <DataType>String</DataType>
+            <IsIdentity>true</IsIdentity>
+            <DataIndex>ID</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText>
+                <Value><![CDATA[ID]]></Value>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>

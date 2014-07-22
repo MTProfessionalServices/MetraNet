@@ -23,6 +23,6 @@ select 	tx_FailureID_Encoded,
 from t_failed_transaction ft
 inner join t_enum_data ed
 on upper(ft.tx_failureServiceName) = upper(ed.nm_enum_data)
-where ft.state in ('N', 'I', 'C', 'P', 'R')
+where ft.state in ('N', 'I', 'C', 'P')
 %%FILTER%%
 order by id_failed_transaction DESC

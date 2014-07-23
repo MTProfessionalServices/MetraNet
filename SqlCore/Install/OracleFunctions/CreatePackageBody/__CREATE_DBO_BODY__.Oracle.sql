@@ -3017,12 +3017,12 @@ end GetAllDescendentAccountTypes;
     return 9999999999; 
    end;
 
-   create or replace function GenGuid return raw
-	as
-	v_uid raw(16);
-	begin
-		v_uid := sys_guid();
-	return v_uid;
-	end;   
-   
+  FUNCTION GenGuid
+  RETURN RAW AS
+    v_uid RAW(16);
+  BEGIN
+    v_uid := sys_guid();
+    RETURN v_uid;
+  END;
+
 END;

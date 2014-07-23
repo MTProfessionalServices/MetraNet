@@ -8,7 +8,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accounttemplate/DetailResult/FailureDetail</Name>
-      <Value>[FR]Failure Detail</Value>
+      <Value>Détail échec</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accounttemplate/DetailResult/Information</Name>

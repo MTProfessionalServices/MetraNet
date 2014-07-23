@@ -112,15 +112,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/AccountTypeID</Name>
-      <Value>[FR]Account Type ID</Value>
+      <Value>ID type de compte</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/CanHaveChildren</Name>
-      <Value>[FR]Can Have Children</Value>
+      <Value>Peut avoir des enfants</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/HasLogonCapability</Name>
-      <Value>[FR]Has Logon Capability</Value>
+      <Value>Dispose d'une capacité d'ouverture de session</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

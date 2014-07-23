@@ -228,7 +228,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
-      <Value>[FR]Standard With Bill Messages</Value>
+      <Value>Standard avec messages de facture</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/Language</Name>
@@ -332,7 +332,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-      <Value>[FR]What is the name of the first school you attended?</Value>
+      <Value>Quel est le nom de la première école que vous avez fréquentée ?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>

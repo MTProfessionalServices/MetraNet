@@ -40,7 +40,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/AuthenticationType</Name>
-      <Value>[pt-BR]Authentication Type</Value>
+      <Value>Tipo de autenticação</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/DayOfMonth</Name>
@@ -112,15 +112,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/AccountTypeID</Name>
-      <Value>[pt-BR]Account Type ID</Value>
+      <Value>ID do tipo de conta</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/CanHaveChildren</Name>
-      <Value>[pt-BR]Can Have Children</Value>
+      <Value>Pode ter subordinado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/account/HasLogonCapability</Name>
-      <Value>[pt-BR]Has Logon Capability</Value>
+      <Value>Tem capacidade de logon</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

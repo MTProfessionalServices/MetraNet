@@ -268,12 +268,12 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
-    <value>Total de l'ajustement émis</value>
+    <value>Total de l’ajustement émis</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
     <value>Une note de crédit a été créée pour cet ajustement divers.</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
-    <value>Une note de crédit sera créée pour cet ajustement divers lors de l'approbation de ce dernier.</value>
+    <value>Une note de crédit sera créée pour cet ajustement divers lors de l’approbation de ce dernier.</value>
   </data>
 </root>

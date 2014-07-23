@@ -127,7 +127,7 @@
     <value>Appliquer aux descendants des comptes</value>
   </data>
   <data name="tbPcodeResource.Label" xml:space="preserve">
-    <value>Code d'emplacement permanent</value>
+    <value>Code d’emplacement permanent</value>
   </data>
   <data name="tbCertificateIdResource.Label" xml:space="preserve">
     <value>ID de certificat</value>

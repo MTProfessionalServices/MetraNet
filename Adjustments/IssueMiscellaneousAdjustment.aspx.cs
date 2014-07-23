@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Data;
 using System.IO;
@@ -526,7 +527,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             string op = data[last - 1];
             if (op.Equals("!="))
                 op = "<>";
-            string expr = String.Format("{0}{1}{2}", totalAmount, op, data[last]);
+            string expr = String.Format("{0}{1}{2}", totalAmount.ToString(CultureInfo.InvariantCulture), op, Convert.ToDecimal(data[last]).ToString(CultureInfo.InvariantCulture));
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("col1", typeof(bool), expr);
             dataTable.Rows.Add(new object[] { });

@@ -178,6 +178,6 @@
     <value>Taxe locale</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[FR]Actions</value>
+    <value>Actions</value>
   </data>
 </root>

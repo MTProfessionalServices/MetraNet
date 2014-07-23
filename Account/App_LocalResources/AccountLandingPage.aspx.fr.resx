@@ -134,19 +134,19 @@
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
     <value>Activité de facturation</value>
-  </data>  
+  </data>
   <data name="billingSummaryPanel.Text" xml:space="preserve">
     <value>Factures et paiements</value>
-  </data>     
+  </data>
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
     <value>Actuellement, ce compte ne contient pas de factures/paiements.</value>
   </data>
   <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
-    <value>Actuellement, ce compte ne contient pas d'abonnements.</value>
+    <value>Actuellement, ce compte ne contient pas d’abonnements.</value>
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
     <value>Abonnements</value>
-  </data>   
+  </data>
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
     <value>Fin</value>
   </data>
@@ -158,35 +158,35 @@
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
     <value></value>
-  </data>  
+  </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
     <value>Ajouter un abonnement</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>Créer un nouvel abonnement pour une offre produit</value>
-  </data>    
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
     <value>Adhérer à un abonnement groupé</value>
-  </data>  
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>Ajouter ce compte en tant que membre d'un abonnement groupé existant</value>
-  </data>      
+    <value>Ajouter ce compte en tant que membre d’un abonnement groupé existant</value>
+  </data>
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>Abonnement</value>
-  </data>      
+  </data>
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>Abonnement groupé</value>
-  </data>          
+  </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
     <value>Facture</value>
-  </data>      
+  </data>
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>Paiement</value>
-  </data>            
+  </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>[FR] No Transactions Found for the Current Interval</value>
-  </data>   
+    <value>Aucune transacction détectée pour l’intervalle en cours</value>
+  </data>
   <data name="lblNowCast.Text" xml:space="preserve">
-    <value>[FR] NowCast</value>
-  </data>  
+    <value>NowCast</value>
+  </data>
 </root>

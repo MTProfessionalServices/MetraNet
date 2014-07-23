@@ -133,7 +133,7 @@
     <value>MetraNet</value>
   </data>
   <data name="contactchangesubmittedSuccessMsg" xml:space="preserve">
-    <value>Changement de contact envoyé à l'infrastructure d'approbation</value>
+    <value>Changement de contact envoyé à l’infrastructure d’approbation</value>
   </data>
   <data name="contactchangesubmittedSuccessTitle" xml:space="preserve">
     <value>Changement de contact envoyé</value>

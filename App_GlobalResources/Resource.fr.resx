@@ -559,7 +559,7 @@
     <value>Enregistrer &amp; Continuer</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Enregistrer la nouvelle qualification d'utilisation</value>
+    <value>Enregistrer la nouvelle qualification d’utilisation</value>
   </data>
   <data name="TEXT_CONTINUE" xml:space="preserve">
     <value>Continuer</value>
@@ -586,7 +586,7 @@
     <value>revenir aux propriétés</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>Ce modèle d'accord ne contient aucune propriété partagée.</value>
+    <value>Ce modèle d’accord ne contient aucune propriété partagée.</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
     <value>Définir la localisation</value>
@@ -610,40 +610,40 @@
     <value>Mise à jour de l’abonnement</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>[FR]Tax</value>
+    <value>Taxe</value>
   </data>
   <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>[FR]Tax Vendor</value>
+    <value>Fournisseur Taxe</value>
   </data>
   <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>[FR]Tax Service Address PCode</value>
+    <value>PCode adresse Service taxe</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>[FR]MetraTax Country Eligibility</value>
+    <value>Eligibilité pays MetraTax</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>[FR]MetraTax Country Zone</value>
+    <value>Zone pays MetraTax</value>
   </data>
   <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>[FR]MetraTax Has Override Band</value>
+    <value>MetraTax a bande de remplacement</value>
   </data>
   <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>[FR]MetraTax Override Band</value>
+    <value>Bande de remplacement MetraTax</value>
   </data>
   <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>[FR]Tax Registry Reference</value>
+    <value>Référence registre taxe</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>[FR]Tax Exempt Reason</value>
+    <value>Motif exemption taxe</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>[FR]Tax Exempt Start Date</value>
+    <value>Date début exemption taxe</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>[FR]Tax Exempt End Date</value>
+    <value>Date fin exemption taxe</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>[FR]Use Standard Inclusive Tax Calculation</value>
+    <value>Utiliser calcul taxe incluse standard</value>
   </data>
   <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
     <value>[FR]Bill Message Associations</value>

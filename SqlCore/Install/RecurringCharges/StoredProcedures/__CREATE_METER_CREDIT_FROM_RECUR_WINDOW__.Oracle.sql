@@ -1,12 +1,33 @@
 create or replace
-PROCEDURE METERCreditFROMRECURWINDOW (currentDate date) AS
+PROCEDURE METERCreditFROMRECURWINDOW (currentDate DATE) AS
+    enabled      VARCHAR2(10);
+    v_newSubStart DATE;
+    v_newSubEnd   DATE;
+    v_curSubStart DATE;
+    v_curSubEnd   DATE;
+BEGIN
+  SELECT value into enabled FROM t_db_values WHERE parameter = N'InstantRc';
+  IF (enabled like 'false')then return;  end if;
 
-    enabled varchar2(10);
-     
+  /* [TODO]: It is partially ported approach from MSSQL. Port else from MSSQL due to priority */
   BEGIN
-   SELECT value into enabled FROM t_db_values WHERE parameter = N'InstantRc';
-     IF (enabled like 'false')then return;  end if;
-     
+    SELECT new_sub.vt_start, new_sub.vt_end, current_sub.vt_start, current_sub.vt_end
+    INTO v_newSubStart,    v_newSubEnd,    v_curSubStart,        v_curSubEnd
+    FROM TMP_NEWRW rw
+        INNER JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID
+            AND new_sub.id_sub = rw.c__SubscriptionID
+            AND new_sub.tt_end = dbo.MTMaxDate()
+        INNER JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID
+            AND current_sub.id_sub = rw.c__SubscriptionID
+            AND current_sub.tt_end = dbo.SubtractSecond(new_sub.tt_start)
+    /* Work with RC only. Exclude UDRC. */
+    WHERE rw.c_UnitValue IS NULL;
+  EXCEPTION
+    /* It is a new subscription or UDRC - nothing to recharge */
+    WHEN NO_DATA_FOUND THEN
+      RETURN;
+  END;
+
    INSERT INTO tmp_rc
 SELECT DISTINCT
 /* First, credit or debit the difference in the ending of the subscription.  If the new one is later, this will be a debit, otherwise a credit.

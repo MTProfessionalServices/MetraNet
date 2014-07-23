@@ -80,8 +80,8 @@
         {
             str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='view_{0}'   title='{1}' href='JavaScript:ViewProductOffering({0});'>  <img src='/Res/Images/icons/package_go.png'   alt='{1}' /></a>",
               record.data.ProductOfferingId, textTEXT_ViewPO);
-            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='edit_{0}'   title='{1}' href='JavaScript:EditProductOffering({0});'>  <img src='/Res/Images/icons/pencil.png'       alt='{1}' /></a>",
-              record.data.ProductOfferingId, textTEXT_EditPO);
+            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='edit_{0}'   title='{1}' href='JavaScript:EditProductOffering({0}, \"{2}\");'>  <img src='/Res/Images/icons/pencil.png'       alt='{1}' /></a>",
+              record.data.ProductOfferingId, textTEXT_EditPO, store.sm.grid.id);
             //str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/copy.png' alt='{2}' /></a>", record.data.ProductOfferingId, escape(record.data.Currency), "Copy Product Offering"); 
             str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{5}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\");'><img src='/Res/Images/icons/copy.png' alt='{5}' /></a>",
               record.data.ProductOfferingId, escape(record.data.Name), escape(record.data.Description),escape(record.data.DisplayName),escape(record.data.Currency), textTEXT_CopyPO); 
@@ -118,10 +118,11 @@
         location.href = targetURL;
     }  
 
-    function EditProductOffering(POID)
+    function EditProductOffering(POID , gridId)
     {
-        var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/ProductOffering.Edit.Asp|ID=" + POID;
-        OpenModalWindow(targetURL);
+      var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/ProductOffering.Edit.Asp|ID=" + POID + "**GridId=" + gridId;
+      OpenModalWindow(targetURL);
+      GridRefresh(gridId);
     }  
 
     //function CopyProductOffering(POID,Currency)
@@ -153,7 +154,19 @@
 
     function OpenModalWindow(url)
     {
-        OpenDialogWindow(url, "height=400,width=600,resizable=yes,scrollbars=yes");
+      window.OpenDialogWindow(url, "height=400,width=600,resizable=yes,scrollbars=yes");
+    }
+    
+    function GridRefresh(gridId) {
+      var grid = window.Ext.getCmp(gridId);
+      setTimeout(function() {
+        if (window.winDialog.closed) {
+          grid.getSelectionModel().deselectAll(true);
+          grid.store.reload();
+        }
+        else
+          setTimeout(arguments.callee, 10);
+      }, 10);
     }
 
     </script>

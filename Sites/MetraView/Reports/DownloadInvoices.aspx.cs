@@ -172,9 +172,6 @@ public partial class Reports_DownloadInvoices : MTPage
     }
   }
 
-  private const string LiTemplate =
-    "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType={2}\" onclick=\"startLoad();\"><img src='{3}'/>{4}</a></li>";
-
   //Add report to Invoice list, add reports only with  formats 
   //.xls, .xlsx, .csv, .doc, .docx, .htm, .html, .ps, .txt.,.pdf
 
@@ -201,16 +198,21 @@ public partial class Reports_DownloadInvoices : MTPage
     var reportFormat = Path.GetExtension(reportFileName);
     var reportToList = String.Empty;
 
+    const string startLoad = "setTimeout(function () { checkFrameLoading(); }, 1000);";
+    const string liTemplate =
+      "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType={2}\" onclick=\"{3}\"><img src='{4}'/>{5}</a></li>";
+
     foreach (var format in reportFormats.Root.Elements())
     {
       if (format.Attribute("type").Value.Equals(reportFormat))
       {
         reportToList =
           String.Format(
-            LiTemplate,
+            liTemplate,
             Request.ApplicationPath,
             reportUrl,
             reportType,
+            startLoad,
             format.Element("ReportImage").Value,
             reportFileName);
       }

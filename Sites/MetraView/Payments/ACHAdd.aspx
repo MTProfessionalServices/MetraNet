@@ -6,8 +6,7 @@
     <script type="text/javascript" src="<%=Request.ApplicationPath%>/JavaScript/Validators.js"></script>
   <h1>
     <asp:Localize ID="Localize1" meta:resourcekey="AddACH" runat="server" Text="Add ACH"></asp:Localize></h1>
-  <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage"
-    Width="100%" meta:resourcekey="ValidationSummary1Resource1" />
+  <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" Width="100%" />
   <asp:Label ID="lblErrorMessage" runat="server" CssClass="ErrorMessage" Text="Error Messages"
     Visible="False" meta:resourcekey="lblErrorMessageResource1"></asp:Label>
   <!-- BILLING INFORMATION -->
@@ -122,7 +121,7 @@
           <!--leftcorner-->
         </span>
         <asp:Button OnClick="btnOK_Click" OnClientClick="return Validate();" ID="btnOK" runat="server"
-          Text="<%$Resources:Resource,TEXT_OK%>" meta:resourcekey="btnOKResource1" />
+          Text="<%$Resources:Resource,TEXT_OK%>" />
         <span class="buttonright">
           <!--rightcorner-->
         </span>
@@ -131,7 +130,7 @@
         <!--leftcorner-->
       </span>
       <asp:Button OnClick="btnCancel_Click" ID="btnCancel" runat="server" CausesValidation="false"
-        meta:resourcekey="btnCancelResource1" Text="<%$Resources:Resource,TEXT_CANCEL%>" />
+        Text="<%$Resources:Resource,TEXT_CANCEL%>" />
       <span class="buttonright">
         <!--rightcorner-->
       </span>

@@ -5,17 +5,10 @@
         var input = this.value;
         if (input != "-") {
           var totalSum = 0.00;
-          var regDecimalComma = /\,/;
-          var containsComma = false;
           
           $.each($("#adjustmentSummary input:not([id$='adjAmountFldTaxToatl'])"), function() {
             var currentValue = this.value;
-            if (regDecimalComma.test(currentValue)) {
-              containsComma = true;
-              totalSum += Number(String(currentValue).replace(',', '.'));
-            } else {
-              totalSum += Number(currentValue);
-            }
+            totalSum += Number(String(currentValue).replace(',', '.'));
           });
 
           var regDecimal = /\./;
@@ -33,12 +26,8 @@
 
           if (isNaN(totalSum))
             $("input[id$='adjAmountFldTaxToatl']").val("");
-          else if (containsComma)
-            $("input[id$='adjAmountFldTaxToatl']").val((parseFloat(totalSum).toFixed(2)).replace('.', ','));
-          else if (regOnlyDec.test(totalSum))
-            $("input[id$='adjAmountFldTaxToatl']").val(parseFloat(totalSum).toFixed(2));
           else
-            $("input[id$='adjAmountFldTaxToatl']").val("");
+            $("input[id$='adjAmountFldTaxToatl']").val((parseFloat(totalSum).toFixed(2)).replace('.', DECIMAL_SEPARATOR));
         }
       });
     });

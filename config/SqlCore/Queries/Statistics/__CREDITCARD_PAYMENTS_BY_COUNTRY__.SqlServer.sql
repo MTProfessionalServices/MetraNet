@@ -18,7 +18,9 @@ FROM t_payment_history where dt_transaction between @date_start_of_month AND @da
 */
 
  
-select  isnull(pti.id_country, '*********' ) id_country, 
+select 
+	   dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+	   isnull(pti.id_country, '*********' ) id_country, 
        isnull(tdx.nm_enum_data,  tdxi.nm_enum_data)  'Card Type',
        isnull(pyi.n_currency , '***') n_currency,
 	   count(pti.id_creditcard_type) 'Registered users', 

@@ -1,5 +1,6 @@
 
-				SELECT 
+				SELECT
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				  CASE 
 				    when c_advance = 1 and sum(amount) >= 0.0 THEN 'Advance'
 				    when c_advance = 0 THEN 'Arrears' 	
@@ -18,7 +19,8 @@
 				  and id_lang_code = %%ID_LANG_CODE%%
 				group by c_advance, au.am_currency
 				UNION ALL
-				select  
+				select
+					dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/  
 				  case 
 				    when c_advance = 1 and sum(amount) >= 0.0 THEN 'Advance udrc'
 				    when c_advance = 0 THEN 'Arrears' 	

@@ -1,5 +1,6 @@
 
-				select 
+				select
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				  bp.nm_name "PI Template",
 				  case c_NRCEventType 
 				    when 0 then 'Unknown' 

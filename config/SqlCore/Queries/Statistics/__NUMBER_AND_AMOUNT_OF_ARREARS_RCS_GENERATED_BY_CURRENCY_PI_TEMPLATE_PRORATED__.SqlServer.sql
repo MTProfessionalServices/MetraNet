@@ -1,5 +1,6 @@
 
-				select 
+				select
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/ 
 				  nm_name "PI Template",
 				  count(c_advance) "# of Arrears Generated",
 				  c_prorateddays "# of Days Prorated",
@@ -18,7 +19,9 @@
 				group by nm_name,am_currency,c_prorateddays,
 				  datediff(day,c_rcintervalstart,c_rcintervalend)+1
       UNION ALL
-				select nm_name "PI Template",
+				select 
+					dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+					nm_name "PI Template",
 				  count(c_advance) "# of Arrears Generated",
 				  c_prorateddays "# of Days Prorated",
 				  datediff(day,c_rcintervalstart,c_rcintervalend)+1 "# of Days in Period",

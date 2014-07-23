@@ -1,5 +1,7 @@
 
-				select bp.nm_name "COMPOUNDED PI TEMPLATE",
+				select 
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+				  bp.nm_name "COMPOUNDED PI TEMPLATE",
 				  count(*) "# Transactions Affected",
 				  am_currency Currency,
 				  SUM({fn ifnull(au.Amount, 0.0)}) "Monetary Amount" 

@@ -1,5 +1,6 @@
 
 				  select 
+					dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				    nm_name "PI Template",
 				    count(c_advance) "# of Adv RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",
@@ -19,6 +20,7 @@
 	          trunc(c_rcintervalend - c_rcintervalstart) + 1 
 				UNION ALL
 				  select 
+        		 dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				    nm_name "PI Template",
 				    count(c_advance) "# of Adv RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",

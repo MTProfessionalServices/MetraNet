@@ -1,5 +1,6 @@
 
 				select 
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				  count(*) "Number of NRCs Generated",
 				  case c_NRCEventType 
 				    when 0 then 'Unknown' 

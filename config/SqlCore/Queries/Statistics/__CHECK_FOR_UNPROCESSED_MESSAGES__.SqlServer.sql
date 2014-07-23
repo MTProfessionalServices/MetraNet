@@ -1,6 +1,8 @@
-select enum.nm_enum_data, 
-				id_pipeline,
-				count(*) as '# Messages'
+select 
+	dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+	enum.nm_enum_data, 
+	id_pipeline,
+	count(*) as '# Messages'
 from t_session_set ss 
 join t_message tm 
 with (nolock) on tm.id_message=ss.id_message 

@@ -1,5 +1,7 @@
 
-				  select nm_name "PI Template",
+				  select 
+				    dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+				    nm_name "PI Template",
 				    count(c_advance) "# of Advanced RCs Generated",
 				    c_prorateddays "# of Days Prorated",
 				    case 
@@ -22,7 +24,8 @@
 				    and au.id_usage_interval=%%ID_INTERVAL%%
 				    and id_lang_code=%%ID_LANG_CODE%%
 				  group by am_currency,nm_name,c_prorateddays,
-				    case 
+				    case
+							dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=1 then 'BOTH'
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=0 then 'SUBSCRIPTION'
 				      when c_proratedonsubscription = 0 and c_proratedonunsubscription=1 then 'UNSUBSCRIPTION'

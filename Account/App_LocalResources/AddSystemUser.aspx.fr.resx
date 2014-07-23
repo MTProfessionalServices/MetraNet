@@ -220,7 +220,7 @@
     <value>Réponse de sécurité</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>[FR]Custom Security Question</value>
+    <value>Question de sécurité personnalisée</value>
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
     <value>Date de début de compte</value>
@@ -235,6 +235,6 @@
     <value>Code postal</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>Type d'authentification</value>
+    <value>Type d’authentification</value>
   </data>
 </root>

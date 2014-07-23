@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Événements d'utilisation</value>
+    <value>Événements d’utilisation</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
     <value>Aucun enregistrement trouvé.</value>
@@ -154,10 +154,10 @@
     <value>Offre produit</value>
   </data>
   <data name="TEXT_NM_PI_TEMPLATE" xml:space="preserve">
-    <value>Modèle d'élément à prix</value>
+    <value>Modèle d’élément à prix</value>
   </data>
   <data name="TEXT_NM_PI_INSTANCE" xml:space="preserve">
-    <value>Exemple d'élément à prix</value>
+    <value>Exemple d’élément à prix</value>
   </data>
   <data name="TEXT_ID_DECISION" xml:space="preserve">
     <value>ID de décision</value>
@@ -211,7 +211,7 @@
     <value>Modifié ?</value>
   </data>
   <data name="TEXT_NM_PV_TABLE" xml:space="preserve">
-    <value>Tableau d'affichage produits</value>
+    <value>Tableau d’affichage produits</value>
   </data>
   <data name="TEXT_TIER_PRIORITY" xml:space="preserve">
     <value>Priorité</value>
@@ -271,7 +271,7 @@
     <value>Créer des frais chaque fois</value>
   </data>
   <data name="TEXT_CHARGE_ON_INBOUND" xml:space="preserve">
-    <value>Créer des frais lors de l'entrée de niveau</value>
+    <value>Créer des frais lors de l’entrée de niveau</value>
   </data>
   <data name="TEXT_CHARGE_ON_OUTBOUND" xml:space="preserve">
     <value>Créer des frais lors de la sortie de niveau</value>
@@ -280,6 +280,6 @@
     <value>Par prix unitaire</value>
   </data>
   <data name="TEXT_PER_EVENT_RATE" xml:space="preserve">
-    <value>Par prix d'événement</value>
+    <value>Par prix d’événement</value>
   </data>
 </root>

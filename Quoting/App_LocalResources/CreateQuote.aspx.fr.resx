@@ -238,7 +238,7 @@
     <value>Supprimer UDRC</value>
   </data>
   <data name="TEXT_ADDING_ICB" xml:space="preserve">
-    <value>Ajout d'ICB</value>
+    <value>Ajout d’ICB</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
     <value>Ajouter une mesure UDRC</value>
@@ -253,7 +253,7 @@
     <value>Date de fin</value>
   </data>
   <data name="TEXT_MISSED_UDRC" xml:space="preserve">
-    <value>La mesure UDRC n'est pas définie pour tous les éléments à prix</value>
+    <value>La mesure UDRC n’est pas définie pour tous les éléments à prix</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
     <value>OK</value>
@@ -265,19 +265,19 @@
     <value>Valeur</value>
   </data>
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
-    <value>L'ICB ne sera pas appliqué aux abonnements groupés (limitation actuelle)</value>
+    <value>L’ICB ne sera pas appliqué aux abonnements groupés (limitation actuelle)</value>
   </data>
   <data name="btnConvertQuoteResource.Text" xml:space="preserve">
     <value>Convertir en abonnement</value>
   </data>
   <data name="MTPanelLog.Text" xml:space="preserve">
-    <value>Journal des bons de commande/message d'erreur</value>
+    <value>Journal des bons de commande/message d’erreur</value>
   </data>
   <data name="MTPanelResult.Text" xml:space="preserve">
     <value>Détails bon de commande</value>
   </data>
   <data name="QuoteFailed.Label" xml:space="preserve">
-    <value>Message d'erreur</value>
+    <value>Message d’erreur</value>
   </data>
   <data name="QuoteLog.Label" xml:space="preserve">
     <value>Journal des bons de commande</value>
@@ -310,6 +310,15 @@
     <value>Rapport PDF pour bon de commande</value>
   </data>
   <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
-    <value>Le compte d'entreprise pour abonnement groupé doit être sélectionné</value>
+    <value>Le compte d’entreprise pour abonnement groupé doit être sélectionné</value>
+  </data>
+  <data name="CONDITIONS" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="CONDITION_SIGN" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="DEFAULT_RULE" xml:space="preserve">
+    <value>Règle par défaut</value>
   </data>
 </root>

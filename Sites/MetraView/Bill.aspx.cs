@@ -106,11 +106,13 @@ public partial class Bill : MTPage
         // Get report with invoice in the name (yup, that's how it is done for now)
         if (reportFile.FileName.ToLowerInvariant().Contains("invoice") && !String.IsNullOrEmpty(reportFormat) && reportFormat.Equals(".pdf"))
         {
-            sb.Append(
-                String.Format(
-                    "<a href=\"{0}/Reports/ShowReports.aspx?report={1}\"><img border=\"0\" src=\"/Res/Images/icons/printer.png\" /></a>",
-                    Request.ApplicationPath,
-                    Server.UrlEncode(String.Format("{0}_{1}", reportFile.DisplayName, intervalID))));     
+          const string startLoad = "setTimeout(function () { checkFrameLoading(); }, 1000);";
+          sb.Append(
+            String.Format(
+              "<a href=\"{0}/Reports/ShowReports.aspx?report={1}\" onclick=\"{2}\"><img border=\"0\" src=\"/Res/Images/icons/printer.png\" /></a>",
+              Request.ApplicationPath,
+              Server.UrlEncode(String.Format("{0}_{1}", reportFile.DisplayName, intervalID)),
+              startLoad));
           break;
         }
       }

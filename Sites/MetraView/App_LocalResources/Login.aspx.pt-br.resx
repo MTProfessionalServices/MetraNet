@@ -156,9 +156,6 @@
   <data name="tbNewPasswordResource1.Label" xml:space="preserve">
     <value>Nova senha</value>
   </data>
-  <data name="tbNewPasswordResource1.XType" xml:space="preserve">
-    <value>[pt-BR]PasswordMeter</value>
-  </data>
   <data name="tbOldPasswordResource1.Label" xml:space="preserve">
     <value>Senha antiga</value>
   </data>

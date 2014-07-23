@@ -469,21 +469,21 @@
     <value>Sim</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>[pt-BR]Product View Mappings</value>
+    <value>Mapeamentos de exibição de produto</value>
   </data>
   <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>[pt-BR]Bill Setting</value>
+    <value>Configurações de conta</value>
   </data>
   <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>[pt-BR]Dashboards</value>
+    <value>Painéis</value>
   </data>
   <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>[pt-BR]Entry Points</value>
+    <value>Pontos de entrada</value>
   </data>
   <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>[pt-BR]Report Inventories</value>
+    <value>Relatório de estoques</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
-    <value>[pt-BR]Site</value>
+    <value>Local</value>
   </data>
 </root>

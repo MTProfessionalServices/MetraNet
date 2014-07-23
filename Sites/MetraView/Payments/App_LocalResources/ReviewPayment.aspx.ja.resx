@@ -156,7 +156,7 @@
   <data name="Next.Text" xml:space="preserve">
     <value>次へ</value>
   </data>
-  <data name="ReviewPayment" xml:space="preserve">
+  <data name="ReviewPayment.Text" xml:space="preserve">
     <value>支払い情報の確認</value>
   </data>
 </root>

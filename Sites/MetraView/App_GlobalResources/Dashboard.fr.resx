@@ -139,6 +139,6 @@
     <value>Utilisation actuelle par produit</value>
   </data>
   <data name="TEXT_DECISION_INSTANCES" xml:space="preserve">
-    <value>[FR] NowCast</value>
+    <value>NowCast</value>
   </data>
 </root>

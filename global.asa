@@ -28,18 +28,7 @@ Sub Session_OnStart
     objDictionary.Clear 
 
     if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
-      Dim userLocale
-      userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
-      dim Languages
-      if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
-          Languages = Split(userLocale, ",", -1)
-          dim L
-          L = Languages(0)
-          if(IsEmpty(L) or IsNull(L)) then L = DEFAULT_LANGUAGE end if
-            Session("PAGE_LANGUAGE")           = L
-      else
-            Session("PAGE_LANGUAGE")           = DEFAULT_LANGUAGE
-      end if 
+      Session("PAGE_LANGUAGE") = DEFAULT_LANGUAGE      
     else
       dim lang
       lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)

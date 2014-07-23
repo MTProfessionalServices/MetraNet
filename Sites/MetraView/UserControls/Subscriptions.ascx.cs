@@ -147,14 +147,31 @@ public partial class UserControls_Subscriptions : System.Web.UI.UserControl
 
           if (externalUrl.Length > 1)
           {
-            externalUrl = GetLocalResourceObject("HttpUrl").ToString() + Server.UrlEncode(externalUrl);
-            prodOfferingList.Append("<li><a href='" + externalUrl + "'" +
+            if (po.DisplayName != null)
+            {
+              externalUrl = GetLocalResourceObject("HttpUrl").ToString() + Server.UrlEncode(externalUrl);
+              prodOfferingList.Append("<li><a href='" + externalUrl + "'" +
                                       "target='_blank' onclick='window.open(this.href);return false''>" +
                                       po.DisplayName + "</a></li>");
+            }
+            else
+            {
+              externalUrl = GetLocalResourceObject("HttpUrl").ToString() + Server.UrlEncode(externalUrl);
+              prodOfferingList.Append("<li><a href='" + externalUrl + "'" +
+                                      "target='_blank' onclick='window.open(this.href);return false''>" +
+                                      po.Name + "</a></li>");
+            }
           }
           else
           {
-            prodOfferingList.Append("<li>" + po.DisplayName + "</li>");
+            if (po.DisplayName != null)
+            {
+              prodOfferingList.Append("<li>" + po.DisplayName + "</li>");
+            }
+            else
+            {
+              prodOfferingList.Append("<li>" + po.Name + "</li>");
+            }
           }
         }
 

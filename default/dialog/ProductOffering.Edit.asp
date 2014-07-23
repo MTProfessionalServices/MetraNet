@@ -71,6 +71,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Set objMTProductOffering  = objMTProductCatalog.GetProductOffering(CLng(Request.QueryString("ID"))) ' We map the dialog with a COM Object not an MT Service
   Set COMObject.Instance    = objMTProductOffering 
   
+  Form("GridId") = Request.QueryString("GridId")
   If Not IsValidObject(COMObject.Instance) Then
       Response.write FrameWork.GetDictionary("ERROR_ITEM_NOT_FOUND") & Request.QueryString("ID")
       Response.end
@@ -217,18 +218,10 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     EventArg.Error.Save Err
     OK_Click = FALSE
     Err.Clear
-  Else
-    Response.Write "<script language='JavaScript'>"
-    Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
-    Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
-    Response.Write "} else {"
-    'Response.Write "  window.opener.location.reload();"
-    Response.Write "  window.opener.location.href = (window.opener.location.href);"
-    Response.Write "}"
-    Response.Write "window.close();"
-    Response.Write "</script>"
-    Response.End
-
+  Else       
+    If (Len(Form("GridId")) > 0) then
+      Form.JavaScriptInitialize = "window.parent.close();"
+    End If
     OK_Click = TRUE
   End If    
 END FUNCTION

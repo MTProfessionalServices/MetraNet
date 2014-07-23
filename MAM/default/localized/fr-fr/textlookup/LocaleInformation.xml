@@ -94,15 +94,15 @@
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="TODAY_TEXT">
-    <value>[FR]Today</value>
+    <value>Aujourd\'hui</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>[FR]January,Febtuary,March,April,May,June,July,August,September,October,November,December</value>
+    <value>Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Aut,Septembre,Octobre,Novembre,Décembre</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">
-    <value>[FR]Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
+    <value>Dimanche,Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi</value>
     <description>weekdays.</description>
   </text>
   <text id="START_DAY_OF_WEEK">
@@ -110,15 +110,15 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>[FR]Cancel</value>
+    <value>annule</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>[FR]Next Month</value>
+    <value>prochaine mois</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>[FR]Previous month</value>
+    <value>mois dernier</value>
     <description></description>
-  </text>
+  </text>  
 </texts>

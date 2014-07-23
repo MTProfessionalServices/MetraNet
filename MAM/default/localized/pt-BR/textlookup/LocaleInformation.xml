@@ -43,7 +43,7 @@
   </text>
   -->
   <text id="END_OF_DAY">
-    <value>11:59:59 PM</value>
+    <value>23:59:59</value>
     <description>End of day</description>
   </text>
   <text id="DATE_FORMAT">
@@ -63,7 +63,7 @@
     <description>The time format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>dd/mm/yyyy hh:mm:ss AMPM</value>
+    <value>dd/mm/yyyy hh:mm:ss</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">

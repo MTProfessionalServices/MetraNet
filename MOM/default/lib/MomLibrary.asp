@@ -208,6 +208,32 @@ FUNCTION mom_Initialize() ' As Boolean
     mom_Initialize=TRUE
 END FUNCTION    
 
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mom_FormatDate(strValue) 
+' PARAMETERS	: Format the date.
+' DESCRIPTION :
+' RETURNS			:
+Public Function mom_FormatDate(varValue, varFormat)
+  if len(varFormat) = 0 then
+    mom_FormatDate = FrameWork.MSIXTools.Format(varValue, mam_GetDictionary("DATE_FORMAT"))
+  else
+    mom_FormatDate = FrameWork.MSIXTools.Format(varValue, varFormat)
+  end if
+End Function
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mom_FormatDateTime(varValue, varFormat) 
+' PARAMETERS	: Format the date.
+' DESCRIPTION :
+' RETURNS			:
+Public Function mom_FormatDateTime(varValue, varFormat)
+  if len(varFormat) = 0 then
+    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, mam_GetDictionary("DATE_TIME_FORMAT"))
+  else
+    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, varFormat)
+  end if
+End Function
+
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 			:

@@ -56,7 +56,9 @@ SELECT
          ON audit1.id_entitytype IN (1, 9)
         AND audit1.id_entity = accmap2.id_acc
         -- CORE-5043 add filtering account aliases
-        AND accmap2.nm_space = accmap1.nm_space
+       INNER JOIN t_namespace ns2 ON accmap2.nm_space  = ns2.nm_space
+              AND ns2.tx_typ_space != 'metered'
+              AND ns2.tx_typ_space != 'system_ar'
        LEFT OUTER JOIN t_base_props bp2
          ON audit1.id_entitytype = 2
         AND audit1.id_entity = bp2.id_prop

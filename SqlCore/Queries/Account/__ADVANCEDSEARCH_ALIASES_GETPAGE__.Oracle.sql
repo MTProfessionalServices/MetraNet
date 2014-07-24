@@ -3,7 +3,7 @@
         from (
           select *
           from (
-             select distinct "_ACCOUNTID", "USERNAME", "NAME_SPACE" %%SORT_COLUMN%%
+             select distinct "_ACCOUNTID", "USERNAME", "NAME_SPACE" %%SORT_COLUMN%% %%FILTER_COLUMN%%
              from (%%INNER_QUERY%%) iq1
              order by %%SORT_DIRECTION%%
           ) iq2

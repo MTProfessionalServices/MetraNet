@@ -108,6 +108,7 @@ SELECT id_usage_interval as aui_id_usage_interval, id_usage_cycle as aui_id_usag
 FROM t_acc_usage_interval aui 
 INNER JOIN t_usage_interval ui ON aui.id_usage_interval = ui.id_interval 
 WHERE {fn mod(aui.id_acc, %%NUMPARTITIONS%%)} = %%PARTITION%%
+AND aui.tx_status <> 'H'
 AND EXISTS (
 	SELECT 1 FROM
 	t_usage_interval ui2

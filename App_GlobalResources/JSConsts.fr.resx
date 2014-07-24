@@ -1297,6 +1297,6 @@
     <value>effectuez un clic droit pour afficher les options</value>
   </data>  
   <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
-    <value>No data available</value>
+    <value>Pas de données disponibles</value>
   </data>     
 </root>

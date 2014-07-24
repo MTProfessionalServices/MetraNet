@@ -1296,4 +1296,7 @@
   <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
     <value>clique com o botão direito para opções</value>
   </data>  
+  <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
+    <value>Não há dados disponível</value>
+  </data>     
 </root>

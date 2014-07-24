@@ -418,7 +418,13 @@
     urlDetails = urlDetails.replace(/%%CHANGE_STATE%%/g, currentState);
     
     urlDetails = urlDetails.replace(/%%CHANGE_TYPE%%/g, changeTypeConfig.GridTitle );
-    window.frames['changedetailsframe'].document.location.href = urlDetails;
+    //frames.document is null in Chrome and Firefox
+    if (window.frames['changedetailsframe'].document == null) {
+      window.frames['changedetailsframe'].contentWindow.document.location.href = urlDetails;
+    } else {
+      window.frames['changedetailsframe'].document.location.href = urlDetails;
+    }
+    
 
     //Make sure to unhide or make the details frame visible
     Ext.get('MyFormDiv_ctl00_ContentPlaceHolder1_ChangeDetailsPanel').dom.style.display = 'block';

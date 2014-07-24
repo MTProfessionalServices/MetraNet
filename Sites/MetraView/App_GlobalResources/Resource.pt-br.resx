@@ -241,7 +241,7 @@
     <value>Valor exibido</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
-    <value>[pt-BR]DisplayAmountAsString</value>
+    <value>Mostrar valor como string</value>
   </data>
   <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
     <value>Baixar faturas e relatórios</value>
@@ -295,7 +295,7 @@
     <value>Id interno</value>
   </data>
   <data name="TEXT_IS_REQUIRED" xml:space="preserve">
-    <value>[pt-BR]IsRequired</value>
+    <value>É necessário</value>
   </data>
   <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
     <value>está desativado para manutenção</value>

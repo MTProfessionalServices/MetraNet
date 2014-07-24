@@ -1,4 +1,5 @@
 using System;
+using MetraTech.DomainModel.Enums;
 using MetraTech.UI.Common;
 using MetraTech.Security;
 
@@ -13,12 +14,12 @@ public partial class ViewOnlineBill : MTPage
     // check manage account hierarchy cap
     var userName = UI.Subscriber["UserName"];
     var nameSpace = UI.Subscriber["Name_Space"];
-
+    var currLanguage = Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
     if (nameSpace == "")
       nameSpace = "mt";
 
-    var auth = new Auth();
-    auth.Initialize(userName, nameSpace, UI.User.UserName, "MetraNet");
+      var auth = new Auth();
+      auth.Initialize(userName, nameSpace, UI.User.UserName, "MetraNet", currLanguage);
     var ticket = auth.CreateTicket();
 
     var site = MetraTech.Core.UI.CoreUISiteGateway.GetRootURL(nameSpace);

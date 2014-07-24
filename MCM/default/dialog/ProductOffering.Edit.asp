@@ -225,18 +225,13 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     OK_Click = TRUE
   End If    
 END FUNCTION
+
 ' ---------------------------------------------------------------------------------------------------------------------------------------
-' FUNCTION 		    : OK_Click
-' PARAMETERS		  :
-' DESCRIPTION 		:
-' RETURNS		      : Return TRUE if ok else FALSE
-'PRIVATE FUNCTION Edit_Click(EventArg) ' As Boolean
-'  
-'    Service.Properties.Enabled                = Not Service.Properties.Enabled 
-'    Form.Grids("ExtendedProperties").Enabled  = Service.Properties.Enabled
-'    Edit_Click = TRUE
-'END FUNCTION
+' FUNCTION 		    : CANCEL_Click
+PRIVATE FUNCTION CANCEL_Click(EventArg) ' As Boolean
+  If (Len(Form("GridId")) > 0) Then
+    Form.JavaScriptInitialize = "window.parent.close();"
+  End If    
+  CANCEL_Click = TRUE
+END FUNCTION
 %>
-
-
-

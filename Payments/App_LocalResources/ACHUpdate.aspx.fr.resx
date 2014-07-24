@@ -177,4 +177,10 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>Code postal</value>
   </data>
+  <data name="CheckingText" xml:space="preserve">
+    <value>Compte courant</value>
+  </data>
+  <data name="SavingsText" xml:space="preserve">
+    <value>Épargne</value>
+  </data>
 </root>

@@ -200,10 +200,16 @@ SELECT
 		 ONLY subscriptions which are scheduled to end this period which have not been ended by subscription change will be caught 
 		 in these queries
 		 */
-	  and rw.c_BilledThroughDate < (CASE WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start <> c_cycleEffectiveDate 
-                                    THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
-                                    ELSE pci.dt_start END)
-)A      ;
+        AND rw.c_BilledThroughDate < dbo.mtmaxoftwodates(
+                   (
+                       CASE 
+                           WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start <> c_cycleEffectiveDate 
+                           THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start) 
+                           ELSE pci.dt_start END
+                   ),
+                   rw.c_SubscriptionStart
+               )
+)A;
 
 SELECT @total_rcs  = COUNT(1) FROM #tmp_rc;
 

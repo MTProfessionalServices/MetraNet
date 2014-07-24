@@ -286,34 +286,34 @@
     <value>En tant qu’expéditeur de cette modification en attente, vous pouvez l’ignorer pour qu’elle ne soit pas prise en compte.</value>
   </data>
   <data name="TEXT_RATE_UPDATE" xml:space="preserve">
-    <value>[FR]Rate Update</value>
+    <value>Mise à jour des prix</value>
   </data>
   <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
-    <value>[FR]Account Updates</value>
+    <value>Mise à jour des comptes</value>
   </data>
   <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
-    <value>[FR]Product Offering Update</value>
+    <value>Mise à jour des offres</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
-    <value>[FR]Subscription Add</value>
+    <value>Ajouter un abonnement</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
-    <value>[FR]Subscription Update</value>
+    <value>Mise à jour des abonnements</value>
   </data>
   <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
-    <value>[FR]Add Member Hierarchies</value>
+    <value>Ajouter des membres à la hiérarchie</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
-    <value>[FR]Add members to group</value>
+    <value>Ajouter des membres au groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
-    <value>[FR]Delete members in group</value>
+    <value>Effacer des membres du groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
-    <value>[FR]Update members in group</value>
+    <value>Mettre à jour les membres du groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
-    <value>[FR]Unsubscribe members from group subscription</value>
+    <value>Désabonner des membres de l'abonnement de groupe</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Historique des audits pour le numéro de dossier de transaction échoué</value>

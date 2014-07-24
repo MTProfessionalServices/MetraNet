@@ -10,6 +10,7 @@
 			vt_end datetime not null,
 			tt_start datetime not null,
 			tt_end datetime not null,
+      		tx_quoting_batch varbinary(16) NULL,
 			CONSTRAINT date_sub_hist_check1 check ( vt_start <= vt_end)
 			)
 				CREATE CLUSTERED INDEX idx_t_sub_history ON t_sub_history (id_sub,tt_end)

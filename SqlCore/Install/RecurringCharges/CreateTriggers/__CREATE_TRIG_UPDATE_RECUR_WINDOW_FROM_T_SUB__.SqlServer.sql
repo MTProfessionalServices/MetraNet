@@ -9,7 +9,8 @@ BEGIN
           @curSubStart  DATETIME,
           @curSubEnd    DATETIME,
           @idAcc        INT,
-          @idSub        INT
+          @idSub        INT,
+          @num_notnull_quote_batchids INT
 
   DELETE
   FROM   t_recur_window
@@ -22,7 +23,7 @@ BEGIN
                     AND t_recur_window.c_SubscriptionEnd = sub.vt_end
          );
 
-  MERGE INTO t_recur_window 
+  MERGE INTO t_recur_window
     USING (
               SELECT DISTINCT sub.id_sub,
                      sub.id_acc,
@@ -47,6 +48,11 @@ BEGIN
                AND t_recur_window.c__AccountID      = source.id_acc
     THEN UPDATE SET c_SubscriptionStart = source.vt_start,
                     c_SubscriptionEnd   = source.vt_end;
+ 
+  SELECT @num_notnull_quote_batchids = count(1) 
+  FROM inserted 
+  WHERE tx_quoting_batch is not null 
+    AND tx_quoting_batch!=0x00000000000000000000000000000000; 
 
   SELECT sub.vt_start AS c_CycleEffectiveDate,
          sub.vt_start AS c_CycleEffectiveStart,
@@ -69,11 +75,11 @@ BEGIN
          -1 AS c_LastIdRun,
          dbo.mtmindate() AS c_MembershipStart,
          dbo.mtmaxdate() AS c_MembershipEnd,
-         dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger 
-         /* We'll use #recur_window_holder in the stored proc that operates only on the latest data */ 
+         dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, sub.dt_crt, @num_notnull_quote_batchids) AS c__IsAllowGenChargeByTrigger         
+         /* We'll use #recur_window_holder in the stored proc that operates only on the latest data */
          INTO #recur_window_holder
   FROM   INSERTED sub
-         INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc 
+         INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc
          /* AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start */
          INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
          INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
@@ -82,7 +88,7 @@ BEGIN
               AND rv.tt_end = dbo.MTMaxDate()
               AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start
               AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
-  WHERE  /* Make sure not to insert a row that already takes care of this account/sub id */ 
+  WHERE  /* Make sure not to insert a row that already takes care of this account/sub id */
          NOT EXISTS
          (
              SELECT 1

@@ -4,6 +4,8 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
 
   startDate DATE;
   v_id_sub INTEGER;
+  v_QuoteBatchId raw(16);
+  num_notnull_quote_batchids INTEGER;
 
   AFTER EACH ROW IS
   BEGIN
@@ -34,6 +36,11 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
           :NEW.tt_end
         );
       v_id_sub:= :NEW.id_sub;
+     
+      SELECT sub.TX_QUOTING_BATCH INTO v_QuoteBatchId
+		  FROM t_sub sub
+		  WHERE sub.id_sub = :new.id_sub
+			AND ROWNUM = 1;
     END IF;
 
   END AFTER EACH ROW;
@@ -44,6 +51,12 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
     IF sql%rowcount != 0 THEN
       /*TODO: look at MSSQL version... now it different */
       SELECT metratime(1,'RC') INTO startDate FROM dual; 
+      
+      IF v_QuoteBatchId is not null THEN         
+        num_notnull_quote_batchids := 1;
+      ELSE 
+        num_notnull_quote_batchids := 0;
+      END IF;
 
       IF UPDATING THEN
         INSERT INTO TMP_NEWRW
@@ -135,8 +148,9 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
           -1 c_LastIdRun ,
           dbo.mtmindate() c_MembershipStart ,
           dbo.mtmaxdate() c_MembershipEnd,
-          AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, startDate) c__IsAllowGenChargeByTrigger
-          from t_sub sub
+          AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, startDate, num_notnull_quote_batchids) c__IsAllowGenChargeByTrigger,
+          sub.TX_QUOTING_BATCH c__QuoteBatchId  
+          FROM t_sub sub
             INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
             INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
             INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
@@ -171,7 +185,8 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
           -1 c_LastIdRun ,
           dbo.mtmindate() c_MembershipStart ,
           dbo.mtmaxdate() c_MembershipEnd,
-          AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, gsm.vt_end, startDate) c__IsAllowGenChargeByTrigger
+          AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, gsm.vt_end, startDate, num_notnull_quote_batchids) c__IsAllowGenChargeByTrigger,
+          sub.TX_QUOTING_BATCH c__QuoteBatchId
           FROM t_gsubmember gsm
             INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
             INNER JOIN t_payment_redirection pay ON pay.id_payee = gsm.id_acc
@@ -213,7 +228,8 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
           -1 c_LastIdRun ,
           grm.vt_start c_MembershipStart ,
           grm.vt_end c_MembershipEnd,
-          AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, sub.vt_end, null) c__IsAllowGenChargeByTrigger
+          AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, sub.vt_end, null, num_notnull_quote_batchids) c__IsAllowGenChargeByTrigger,
+          sub.TX_QUOTING_BATCH c__QuoteBatchId
           FROM t_gsub_recur_map grm
             /* TODO: GRM dates or sub dates or both for filtering */
             INNER JOIN t_sub sub ON grm.id_group = sub.id_group
@@ -255,7 +271,8 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
           c_BilledThroughDate,
           c_LastIdRun,
           c_MembershipStart,
-          c_MembershipEnd
+          c_MembershipEnd,
+          c__QuoteBatchId
           FROM TMP_NEWRW
           WHERE c__SubscriptionID = v_id_sub;
 

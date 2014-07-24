@@ -5,7 +5,7 @@ TRIGGER trig_recur_window_pay_redir
   AFTER
   INSERT ON t_payment_redirection REFERENCING NEW AS NEW
   FOR EACH row
-  DECLARE currentDate DATE;   
+  DECLARE currentDate DATE;
   BEGIN
     /*Get the old vt_start and vt_end for payees that have changed*/
     insert into tmp_redir
@@ -26,7 +26,7 @@ TRIGGER trig_recur_window_pay_redir
         AND trw.c_PayerStart = tmp_redir.vt_start
         AND trw.c_PayerEnd   = tmp_redir.vt_end;
 
-SELECT metratime(1,'RC') INTO currentDate FROM dual;	
+SELECT metratime(1,'RC') INTO currentDate FROM dual;
 
 insert into tmp_newrw
   SELECT orw.c_CycleEffectiveDate ,
@@ -50,7 +50,8 @@ insert into tmp_newrw
     orw.c_LastIdRun ,
     orw.c_MembershipStart ,
     orw.c_MembershipEnd,
-    AllowInitialArrersCharge(orw.c_Advance, :new.id_payer, orw.c_SubscriptionEnd, currentDate) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(orw.c_Advance, :new.id_payer, orw.c_SubscriptionEnd, currentDate, 0) c__IsAllowGenChargeByTrigger,
+    orw.c__QuoteBatchId c__QuoteBatchId
   FROM tmp_oldrw orw
   WHERE orw.c__AccountId = :new.id_payee;
   
@@ -89,7 +90,8 @@ insert into tmp_newrw
     c_BilledThroughDate,
     c_LastIdRun,
     c_MembershipStart,
-    c_MembershipEnd
+    c_MembershipEnd,
+    c__quotebatchid    
     FROM tmp_newrw;
 
   UPDATE t_recur_window w1

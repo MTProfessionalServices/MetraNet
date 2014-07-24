@@ -61,6 +61,7 @@ SELECT DISTINCT
     ,rw.c__subscriptionid      AS c__SubscriptionID
     ,currentui.id_interval AS c__IntervalID
     ,null as id_source_sess
+    ,null as c__QuoteBatchId
     FROM tmp_newrw  rw
    INNER JOIN t_sub_history new_sub on new_sub.id_acc = rw.c__AccountID and new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
     INNER JOIN t_sub_history current_sub on current_sub.id_acc = rw.c__AccountID and current_sub.id_sub = rw.c__SubscriptionID
@@ -129,6 +130,7 @@ SELECT DISTINCT
     ,rw.c__subscriptionid      AS c__SubscriptionID
     ,currentui.id_interval AS c__IntervalID
     ,null as id_source_sess
+    ,null as c__QuoteBatchId
     FROM tmp_newrw  rw
     INNER JOIN t_sub_history new_sub on new_sub.id_acc = rw.c__AccountID and new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
     INNER JOIN t_sub_history current_sub on current_sub.id_acc = rw.c__AccountID and current_sub.id_sub = rw.c__SubscriptionID
@@ -201,6 +203,7 @@ SELECT DISTINCT
     ,rw.c__subscriptionid      AS c__SubscriptionID
     ,currentui.id_interval AS c__IntervalID
     ,null as id_source_sess
+    ,null as c__QuoteBatchId
     FROM tmp_newrw  rw
    INNER JOIN t_sub_history new_sub on new_sub.id_acc = rw.c__AccountID and new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
     INNER JOIN t_sub_history current_sub on current_sub.id_acc = rw.c__AccountID and current_sub.id_sub = rw.c__SubscriptionID

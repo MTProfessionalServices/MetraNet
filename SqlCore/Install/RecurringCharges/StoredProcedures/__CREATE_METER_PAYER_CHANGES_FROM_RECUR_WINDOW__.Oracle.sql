@@ -73,7 +73,7 @@ PROCEDURE MeterPayerChangeFromRecWind (currentDate date) AS
    where 1=1;
 	  
 	  insert INTO tmp_rc 
- 		SELECT 'InitialCredit' AS c_RCActionType
+      SELECT 'InitialCredit' AS c_RCActionType
            ,c_RCIntervalStart
            ,c_RCIntervalEnd
            ,c_BillingIntervalStart
@@ -99,10 +99,12 @@ PROCEDURE MeterPayerChangeFromRecWind (currentDate date) AS
            ,c_BilledRateDate
            ,c__SubscriptionID
            ,c__IntervalID
-           ,sys_guid() AS idSourceSess FROM TMP_PAYER_CHANGES 
-           
-           UNION ALL
-           		SELECT 'InitialDebit' AS c_RCActionType
+           ,sys_guid() AS idSourceSess 
+           ,null
+      FROM TMP_PAYER_CHANGES 
+                      
+    UNION ALL
+      SELECT 'InitialDebit' AS c_RCActionType
            ,c_RCIntervalStart
            ,c_RCIntervalEnd
            ,c_BillingIntervalStart
@@ -128,7 +130,9 @@ PROCEDURE MeterPayerChangeFromRecWind (currentDate date) AS
            ,c_BilledRateDate
            ,c__SubscriptionID
            ,c__IntervalID
-           ,sys_guid() AS idSourceSess FROM TMP_PAYER_CHANGES ;
+           ,sys_guid() AS idSourceSess
+           ,null
+      FROM TMP_PAYER_CHANGES ;
           
     InsertChargesIntoSvcTables('InitialCredit','InitialDebit');
 	

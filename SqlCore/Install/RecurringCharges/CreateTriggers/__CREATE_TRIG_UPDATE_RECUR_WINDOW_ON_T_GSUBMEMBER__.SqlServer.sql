@@ -3,7 +3,9 @@ ON t_gsubmember
 for insert, UPDATE, delete
 as 
 begin
-declare @startDate datetime;
+declare @startDate                    datetime,
+        @num_notnull_quote_batchids   INT
+        
 delete from t_recur_window where exists (
   select 1 from deleted gsm 
          join t_sub sub on gsm.id_group = sub.id_group and
@@ -35,6 +37,12 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
 	
 	
 	SET @startDate = dbo.metratime(1,'RC');
+  
+   SELECT @num_notnull_quote_batchids = count(1)
+    FROM inserted gsm 
+         join t_sub sub on gsm.id_group = sub.id_group 
+    WHERE tx_quoting_batch is not null 
+      AND tx_quoting_batch!=0x00000000000000000000000000000000; 
 			   
 	SELECT
        gsm.vt_start AS c_CycleEffectiveDate
@@ -57,8 +65,8 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
       , @startDate as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
-      , dbo.mtmaxdate() AS c_MembershipEnd
-      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+      , dbo.mtmaxdate() AS c_MembershipEnd      
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate, @num_notnull_quote_batchids) AS c__IsAllowGenChargeByTrigger
 	INTO #recur_window_holder
     FROM INSERTED gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group

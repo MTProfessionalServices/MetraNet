@@ -71,7 +71,7 @@
 <script type="text/javascript">
 
   // Event handler for Add button in MiscellanousAttributesGrid gridlayout
-  functiononAdd_<%=MiscellanousAttributesGrid.ClientID %>() {
+  function onAdd_<%=MiscellanousAttributesGrid.ClientID %>() {
     var addMiscAttributeWindow = new top.Ext.Window({
       id: 'addMiscAttributeWindow',
       title: TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE,

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using MetraTech.Common;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
@@ -62,8 +64,7 @@ public static class ExtensionMethods
       currency = invoiceReport.InvoiceHeader.Currency;
     }
 
-    var languageCode = billManager.GetLanguageCode();
-    var displayAmount = billManager.GetLocaleTranslator(languageCode).GetCurrency(value, currency);
+    var displayAmount = LCConfigManager.Instance.GetLocalizeAmount(value, Thread.CurrentThread.CurrentUICulture.ToString().ToLower(), currency);
     return displayAmount;
   }
 

@@ -94,15 +94,15 @@
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="TODAY_TEXT">
-    <value>[pt-BR]Today</value>
+    <value>Hoje</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>[pt-BR]January,Febtuary,March,April,May,June,July,August,September,October,November,December</value>
+    <value>Janeiro,Fevereiro,Março,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">
-    <value>[pt-BR]Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
+    <value>Domingo,Segunda,Terça,Quarta,Quinta,Sexta,Sábado</value>
     <description>weekdays.</description>
   </text>
   <text id="START_DAY_OF_WEEK">
@@ -110,15 +110,15 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>[pt-BR]Cancel</value>
+    <value>Cancelar</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>[pt-BR]Next Month</value>
+    <value>Próximo mês</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>[pt-BR]Previous month</value>
+    <value>Mês prévio</value>
     <description></description>
   </text>
 </texts>

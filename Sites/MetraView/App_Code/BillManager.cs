@@ -35,7 +35,7 @@ public class BillManager: System.Web.UI.TemplateControl
   #region Private member variables
   private static readonly Logger Logger = new Logger("[MetraView_BillManger]");
   private readonly UIManager UI;
-  private UsageHistoryService_GetInvoiceReport_Client invoiceReportClient;
+  private UsageHistoryService_GetInvoiceReportLocalized_Client invoiceReportClient;
   #endregion
 
   #region Application Cache Properties
@@ -305,7 +305,7 @@ public class BillManager: System.Web.UI.TemplateControl
 
     if (refreshData)
     {
-      invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+      invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
                               {
                                 UserName = UI.User.UserName,
                                 Password = UI.User.SessionPassword,
@@ -344,7 +344,7 @@ public class BillManager: System.Web.UI.TemplateControl
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
 
     Interval interval = GetCurrentInterval();
-    invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+    invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
                               {
                                 UserName = UI.User.UserName,
                                 Password = UI.User.SessionPassword,
@@ -395,7 +395,7 @@ public class BillManager: System.Web.UI.TemplateControl
 
     if (refreshData)
     {
-      invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+      invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
       {
         UserName = UI.User.UserName,
         Password = UI.User.SessionPassword,
@@ -435,7 +435,7 @@ public class BillManager: System.Web.UI.TemplateControl
 
     Interval interval = GetOpenIntervalWithoutSettingItAsCurrentOnTheUI();
 
-    invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+    invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
     {
       UserName = UI.User.UserName,
       Password = UI.User.SessionPassword,

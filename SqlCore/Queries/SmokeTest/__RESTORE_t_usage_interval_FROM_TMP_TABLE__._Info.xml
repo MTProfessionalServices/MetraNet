@@ -8,8 +8,9 @@
     <Parameters>
         <Parameter>
             <Name>TMP_T_ACC_USAGE_TABLE</Name>
-            <DataType>string</DataType>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>t_usage_interval_orig</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

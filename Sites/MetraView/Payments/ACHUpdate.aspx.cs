@@ -99,7 +99,17 @@ public partial class Payments_ACHUpdate : MTPage
         tmpACH = metraPayManger.GetPaymentMethodDetail(acct, PIID);
         ACHCard = (ACHPaymentMethod)tmpACH;
         BankAccountType AcctType = (BankAccountType)ACHCard.AccountType;
-        tbAccountType.Text = Convert.ToString(AcctType);
+        object localResourceObject = null;
+        switch (AcctType)
+        {
+          case BankAccountType.Checking:
+            localResourceObject = GetLocalResourceObject("CheckingText");
+            break;
+          case BankAccountType.Savings:
+            localResourceObject = GetLocalResourceObject("SavingsText");
+            break;
+        }
+        tbAccountType.Text = localResourceObject != null ? localResourceObject.ToString() : ACHCard.AccountType.ToString();
         
       }
       catch(Exception ex)

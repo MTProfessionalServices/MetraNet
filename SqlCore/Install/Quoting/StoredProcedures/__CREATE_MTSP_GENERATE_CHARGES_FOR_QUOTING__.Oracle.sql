@@ -310,8 +310,6 @@ BEGIN
                   JOIN t_pl_map plm ON sub.id_po = plm.id_po AND plm.id_paramtable IS NULL
                   JOIN t_base_props bp ON bp.id_prop = plm.id_pi_instance AND bp.n_kind = 30
                   JOIN t_nonrecur nrc ON nrc.id_prop = bp.id_prop AND nrc.n_event_type = 1
-            WHERE sub.vt_start >= v_dt_start
-                  AND sub.vt_start < v_dt_end
         ;
 
    END;
@@ -354,8 +352,6 @@ BEGIN
                   JOIN t_pl_map plm ON sub.id_po = plm.id_po AND plm.id_paramtable IS NULL
                   JOIN t_base_props bp ON bp.id_prop = plm.id_pi_instance AND bp.n_kind = 30
                   JOIN t_nonrecur nrc ON nrc.id_prop = bp.id_prop AND nrc.n_event_type = 1
-            WHERE sub.vt_start >= v_dt_start
-                  AND sub.vt_start < v_dt_end
         ;
   END;
   END IF;

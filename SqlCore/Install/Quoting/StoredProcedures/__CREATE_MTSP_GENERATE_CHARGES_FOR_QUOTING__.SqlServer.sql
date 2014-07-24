@@ -233,7 +233,6 @@ BEGIN
 			inner join t_pl_map plm on sub.id_po = plm.id_po and plm.id_paramtable IS NULL
 			inner join t_base_props bp on bp.id_prop = plm.id_pi_instance and bp.n_kind = 30
 			inner join t_nonrecur nrc on nrc.id_prop = bp.id_prop and nrc.n_event_type = 1
-	WHERE	sub.vt_start >= @dt_start and sub.vt_start < @dt_end
 	;
 
 END
@@ -281,7 +280,6 @@ BEGIN
 			inner join t_pl_map plm on sub.id_po = plm.id_po and plm.id_paramtable IS NULL
 			inner join t_base_props bp on bp.id_prop = plm.id_pi_instance and bp.n_kind = 30
 			inner join t_nonrecur nrc on nrc.id_prop = bp.id_prop and nrc.n_event_type = 1
-	WHERE	sub.vt_start >= @dt_start and sub.vt_start < @dt_end
 	;
 
 END

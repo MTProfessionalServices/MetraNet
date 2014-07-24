@@ -1,10 +1,8 @@
-
-            CREATE OR REPLACE 
-            TRIGGER t_char_values_del_upd_trigger
+create or replace TRIGGER t_char_values_del_upd_trigger
             BEFORE DELETE OR UPDATE ON T_CHAR_VALUES
             FOR EACH ROW 
             BEGIN
-              if inserting THEN
+              if updating THEN
                 if :NEW.nm_value <> :OLD.nm_value THEN
                   insert into t_char_values_history
                   (id_scv, id_entity, nm_value, c_start_date, c_end_date, c_spec_name, c_spec_type)
@@ -21,4 +19,4 @@
               END IF;
   
             END;
-      
+   

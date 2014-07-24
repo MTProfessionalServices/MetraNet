@@ -9,7 +9,7 @@ public partial class AjaxServices_HierarchyPath : MTPage
   protected void Page_Load(object sender, EventArgs e)
   {
     var id = 0;
-    var type = "'system_mps', 'system_user'";
+    var type = "'system_mps'";
     if (Request["node"] != null)
       id = int.Parse(Request["node"]);
     if (Request["type"] != null)

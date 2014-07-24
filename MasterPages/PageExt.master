@@ -79,7 +79,7 @@
 
 <form id="form1" runat="server">
 
-  <div id="MainContent" class="full">
+  <div id="MainContent" class="full" style="overflow:scroll;">
     
     <asp:Panel ID="PanelActiveAccount" runat="server" Width="100%">
       <uc2:AccountMenu ID="AccountMenu" runat="server" />

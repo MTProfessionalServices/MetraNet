@@ -184,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NoReason</Name>
-      <Value>NoReason</Value>
+      <Value>SemMotivo</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NOT_ENOUGH_FILES</Name>

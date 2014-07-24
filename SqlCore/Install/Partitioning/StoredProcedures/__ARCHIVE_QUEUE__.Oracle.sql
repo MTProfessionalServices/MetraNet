@@ -36,27 +36,31 @@ AS
     pipeline_processing   NUMBER;
 BEGIN
 
-    SELECT UPPER(b_partitioning_enabled) INTO v_is_part_enabled FROM t_usage_server;
-    /* Nothing to do if system isn't enabled for partitioning */
-    IF v_is_part_enabled <> 'Y' THEN 
-        dbms_output.put_line('Partitioning is not enabled, so can not execute archive_queue sp.');
-        RETURN;
-    END IF;
-    
-    /* Adding a commit before calling the proc again to fix ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired */
-    COMMIT;
-    
-    BEGIN
-   SELECT b_processing into pipeline_processing FROM t_pipeline;
-   IF pipeline_processing > 0 THEN
-    DBMS_OUTPUT.PUT_LINE('Pipeline is processing usage, so can not execute archive_queue sp.');
-   RETURN;
-   END IF;
-END;
+  SELECT UPPER(b_partitioning_enabled) INTO v_is_part_enabled FROM t_usage_server;
+  /* Nothing to do if system isn't enabled for partitioning */
+  IF v_is_part_enabled <> 'Y' THEN 
+    dbms_output.put_line('Partitioning is not enabled, so can not execute archive_queue sp.');
+    RETURN;
+  END IF;
 
-	archive_queue_partition(
-		P_UPDATE_STATS => p_update_stats,
-		P_SAMPLING_RATIO => p_sampling_ratio,
-		P_CURRENT_TIME => p_current_time,
-		P_RESULT => p_result);
+  /* Adding a commit before calling the proc again to fix ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired */
+  COMMIT;
+
+  BEGIN
+    SELECT b_processing into pipeline_processing FROM t_pipeline;
+    IF pipeline_processing > 0 THEN
+      DBMS_OUTPUT.PUT_LINE('Pipeline is processing usage, so can not execute archive_queue sp.');
+      RETURN;
+    ELSE
+      PausePipelineProcessing( p_state => 1 );
+    END IF;
+  END;
+
+  archive_queue_partition(
+    P_UPDATE_STATS => p_update_stats,
+    P_SAMPLING_RATIO => p_sampling_ratio,
+    P_CURRENT_TIME => p_current_time,
+    P_RESULT => p_result);
+
+  PausePipelineProcessing( p_state => 0 );
 END;

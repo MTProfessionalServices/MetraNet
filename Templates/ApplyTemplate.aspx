@@ -11,10 +11,8 @@
 
     <MT:MTPanel ID="MTPanel1" runat="server" Text="Subscription Span" meta:resourcekey="SubscriptionSpanPanel" >
     <div id="leftColumn" style="float: left; width: 300px;padding-left:10px;">
-      <MT:MTDatePicker ID="StartDate" runat="server" Label="Subscriptions Start Date" AllowBlank="False" ControlHeight="18" ControlWidth="120" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="StartDateResource1" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10;                             altFormats:DATE_TIME_FORMAT" ReadOnly="False" TabIndex="0" XType="DateField" LabelSeparator=":" XTypeNameSpace="form" />
       <MT:MTCheckBoxControl ID="cbStartNextBillingPeriod" runat="server" BoxLabel="Next start of payer's billing period after this date" Text="c1" Value="c1" AllowBlank="False" Checked="False" HideLabel="True" Listeners="{}" meta:resourcekey="cbStartNextBillingPeriodResource1" Name="cbStartNextBillingPeriod" OptionalExtConfig="boxLabel:'Next start of payer\'s billing period after this date',&#13;&#10;                                            inputValue:'c1',&#13;&#10;                                            checked:false" ReadOnly="False" TabIndex="0" XType="Checkbox" LabelSeparator=":" XTypeNameSpace="form" />
       <div style="height:20px">&nbsp;</div>
-      <MT:MTDatePicker ID="EndDate" runat="server" Label="Subscriptions End Date" AllowBlank="False" ControlHeight="18" ControlWidth="120" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="EndDateResource1" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10;                             altFormats:DATE_TIME_FORMAT" ReadOnly="False" TabIndex="0" XType="DateField" LabelSeparator=":" XTypeNameSpace="form" />
       <MT:MTCheckBoxControl ID="cbEndNextBillingPeriod" runat="server" BoxLabel="Next end of payer's billing period after this date" Text="c2" Value="c2" AllowBlank="False" Checked="False" HideLabel="True" Listeners="{}" meta:resourcekey="cbEndNextBillingPeriodResource1" Name="cbEndNextBillingPeriod" OptionalExtConfig="boxLabel:'Next end of payer\'s billing period after this date',&#13;&#10;                                            inputValue:'c2',&#13;&#10;                                            checked:false" ReadOnly="False" TabIndex="0" XType="Checkbox" LabelSeparator=":" XTypeNameSpace="form" />
       <div style="height:20px">&nbsp;</div>
     </div>
@@ -99,8 +97,10 @@
       args += "ApplyPropertiesString=" + propertyIds + "**";
       args += "ApplyDefaultSecurityString=" + Ext.get("ctl00_ContentPlaceHolder1_cbApplyDefaultSecurityPolicy").dom.checked + "**";
       args += "ApplyAllDescendentsString=" + "true" + "**";
+/*
       args += "ApplyStartDateString=" + Ext.get("ctl00_ContentPlaceHolder1_StartDate").dom.value + "**";
       args += "ApplyEndDateString=" + Ext.get("ctl00_ContentPlaceHolder1_EndDate").dom.value + "**";
+*/
       args += "ApplyStartNextBillingPeriodString=" + Ext.get("ctl00_ContentPlaceHolder1_cbStartNextBillingPeriod").dom.checked + "**";
       args += "ApplyEndNextBillingPeriodString=" + Ext.get("ctl00_ContentPlaceHolder1_cbEndNextBillingPeriod").dom.checked + "**";
       args += "ApplyEndConflictingSubscriptionsString=true";

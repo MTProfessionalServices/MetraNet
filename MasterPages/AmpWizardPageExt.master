@@ -81,7 +81,7 @@
 
 <form id="form1" runat="server">
 
-  <div id="MainContent" class="full">
+  <div id="MainContent" class="full" style="overflow:scroll;">
   
     <uc3:Error ID="Error1" runat="server" />
     <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>

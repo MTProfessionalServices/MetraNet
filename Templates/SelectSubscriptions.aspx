@@ -3,15 +3,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   <MT:MTTitle ID="MTTitle1" Text="Select Subscriptions" runat="server" meta:resourcekey="lblSelectSubscriptionsResource1"  /><br />
-  <MT:MTPanel runat="server">
+  <MT:MTPanel runat="server" Text="Subscription Span" meta:resourcekey="SubscriptionSpanPanel">
           <MT:MTDatePicker ID="tbStartDate" runat="server" AllowBlank="True" Label="Subscriptions Start Date"
             TabIndex="220" ControlWidth="200" ControlHeight="18" HideLabel="False" LabelSeparator=":"
-            LabelWidth="120" Listeners="{}" meta:resourcekey="tbStartDateResource1" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10; altFormats:DATE_TIME_FORMAT"
+            LabelWidth="120" Listeners="{}" meta:resourcekey="StartDateResource1" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10; altFormats:DATE_TIME_FORMAT"
             ReadOnly="False" XType="DateField" XTypeNameSpace="form" />
     <br/>
           <MT:MTDatePicker ID="tbEndDate" runat="server" AllowBlank="True" Label="Subscriptions End Date"
             TabIndex="220" ControlWidth="200" ControlHeight="18" HideLabel="False" LabelSeparator=":"
-            LabelWidth="120" Listeners="{}" meta:resourcekey="tbEndDateResource1" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10; altFormats:DATE_TIME_FORMAT"
+            LabelWidth="120" Listeners="{}" meta:resourcekey="EndDateResource1" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10; altFormats:DATE_TIME_FORMAT"
             ReadOnly="False" XType="DateField" XTypeNameSpace="form" />
   </MT:MTPanel>
   <MT:MTFilterGrid ID="MTFilterGrid1" AjaxTimout="120000" runat="server" TemplateFileName="AccountTemplateSelectSubscription" ExtensionName="Account" ></MT:MTFilterGrid>

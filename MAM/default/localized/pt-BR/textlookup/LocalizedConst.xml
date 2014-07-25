@@ -1914,6 +1914,9 @@
     <text id="TEXT_OPTIONS">
       <value>Opções</value>
     </text>
+ <text id="TEXT_CHARACTERS_LEFT">
+    <value>characters left for</value>
+  </text>
 	
   <text id="TEXT_VIEW_DEFAULT_SECURITY_OWNERS">
     <value>[PT-BR]View Default Security Owners</value>    	

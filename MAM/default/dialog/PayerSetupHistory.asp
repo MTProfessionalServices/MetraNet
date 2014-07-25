@@ -163,7 +163,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     '  add some code at the end of the product view UI
     ' ADD GROUP 
     strEndOfPageHTMLCode = "<tr><td colspan=""5"" align=""center""><br>"
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonMedium' name=""ADDPAYER"" onclick=""window.location.href='" & mam_GetDictionary("PAYER_UPDATE_DIALOG") & "?MDMReload=TRUE&NewPayer=TRUE&ID=" & mam_GetSubscriberAccountID() & "'; return false;"">" & "Add Payer" & "</button>&nbsp;&nbsp;&nbsp;"
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonMedium' name=""ADDPAYER"" onclick=""window.location.href='" & mam_GetDictionary("PAYER_UPDATE_DIALOG") & "?MDMReload=TRUE&NewPayer=TRUE&ID=" & mam_GetSubscriberAccountID() & "'; return false;"">" & mam_GetDictionary("TEXT_ADD_ACCOUNTS_FOR_PAYMENT") & "</button>&nbsp;&nbsp;&nbsp;"
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</div>"
         
     ' Here we must not forget to concat rather than set because we want to keep the result of the inherited event.

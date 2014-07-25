@@ -88,7 +88,7 @@ public partial class AjaxServices_HierarchyPath : MTPage
             imageURLPath.Append(@"/");
             imageURLPath.Append("account.gif");
             imageURLPath.Append("?Payees=");
-            imageURLPath.Append(crsr.GetInt32("numpayees").ToString());
+            imageURLPath.Append(crsr.IsDBNull("id_payee") ? "0" : crsr.GetInt32("numpayees").ToString());
             imageURLPath.Append("&State=");
             imageURLPath.Append(crsr.GetString("status"));
             if (crsr.GetBoolean("children"))

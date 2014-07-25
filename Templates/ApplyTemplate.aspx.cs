@@ -32,8 +32,8 @@ public partial class Templates_ApplyTemplate : MTPage
       AccountTemplateInstance = PageNav.Data.Out_StateInitData["AccountTemplateInstance"] as AccountTemplate;
 
       MTGenericFormAccountTemplate.DataBinderInstanceName = "MTDataBinder1";
-      StartDate.Text = MetraTech.MetraTime.Now.ToString();
-      EndDate.Text = MetraTech.MetraTime.Max.ToString();
+//      StartDate.Text = MetraTech.MetraTime.Now.ToString();
+//      EndDate.Text = MetraTech.MetraTime.Max.ToString();
       if (AccountTemplateInstance != null) MTGenericFormAccountTemplate.RenderObjectType = AccountTemplateInstance.GetType();
       MTGenericFormAccountTemplate.RenderObjectInstanceName = "AccountTemplateInstance";
       MTGenericFormAccountTemplate.TemplateName = MTGenericFormAccountTemplate.RenderObjectType.Name + "Apply_Template";

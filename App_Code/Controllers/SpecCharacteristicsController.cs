@@ -31,11 +31,14 @@ namespace ASP.Controllers
       set { Session["EntityID"] = value; }
     }
 
+   
     // GET: /SpecCharacteristic/id
     [Authorize]
     public ActionResult Index(int? id)
     {
       EntityId = id;
+      Session["CurrentEntityType"] = entityType; 
+     
 
       ViewBag.Message = Resource.SpecCharacteristicsController_Index_Product_Offering_Properties;
 

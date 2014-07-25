@@ -238,20 +238,20 @@ function displayBillingActivityGraph() {
         .transitionDuration(0)
         .legend(dc.legend().x(15).y(245).itemHeight(13).gap(5))
         .brushOn(false)
-        .title("MRR", function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString; })
+        .title("MRR", function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString.replace("&pound", "£"); })
         .compose([
           dc.barChart(composite)
             .dimension(dateDimension)
             .group(invoiceGroup, ACCOUNT_INVOICE_GRAPH_TEXT)
             .centerBar(true)
             .colors('#0070C0')
-            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_INVOICE_GRAPH_TEXT + ": " + items[d.key - 1].n_invoiceamountAsString; }),
+            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_INVOICE_GRAPH_TEXT + ": " + items[d.key - 1].n_invoiceamountAsString.replace("&pound", "£"); }),
           dc.lineChart(composite)
             .dimension(dateDimension)
             .group(mrrGroup, ACCOUNT_MRR_GRAPH_TEXT)
             .colors('#00B0F0')
             .renderDataPoints({ radius: 4, fillOpacity: 0.5, strokeOpacity: 0.8 })
-            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString; })
+            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString.replace("&pound", "£"); })
         ]);
       composite.xAxis().tickSize(0, 0).tickFormat("");
       composite.yAxis().tickSize(0, 0).tickFormat("");

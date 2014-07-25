@@ -1,0 +1,53 @@
+<xmlconfig>
+ 		<LocaleCurrency>
+			<CurrencyCode>USD</CurrencyCode>
+			<CurrencySymbol>$</CurrencySymbol>
+      <!--If the currency symbol to the left, then TRUE else FALSE -->
+			<CurrencySymbolPosition>true</CurrencySymbolPosition>
+		</LocaleCurrency>
+		
+		<LocaleCurrency>
+			<CurrencyCode>EUR</CurrencyCode>
+			<CurrencySymbol>&#x20AC;</CurrencySymbol>
+      <!--If the currency symbol to the left, then TRUE else FALSE -->
+			<CurrencySymbolPosition>true</CurrencySymbolPosition>
+		</LocaleCurrency>
+
+ 		<LocaleCurrency>
+			<CurrencyCode>CAD</CurrencyCode>
+			<CurrencySymbol>$</CurrencySymbol>
+      <!--If the currency symbol to the left, then TRUE else FALSE -->
+			<CurrencySymbolPosition>true</CurrencySymbolPosition>
+		</LocaleCurrency>	
+ 	
+ 		<LocaleCurrency>
+			<CurrencyCode>INR</CurrencyCode>
+			<CurrencySymbol>Rs</CurrencySymbol>
+      <!--If the currency symbol to the left, then TRUE else FALSE -->
+			<CurrencySymbolPosition>false</CurrencySymbolPosition>
+		</LocaleCurrency>
+		
+ 		<LocaleCurrency>
+			<CurrencyCode>GBP</CurrencyCode>
+			<CurrencySymbol>&amp;pound</CurrencySymbol>
+      <!--If the currency symbol to the left, then TRUE else FALSE -->
+			<CurrencySymbolPosition>true</CurrencySymbolPosition>
+		</LocaleCurrency>
+		
+ 		<LocaleCurrency>
+			<CurrencyCode>JPY</CurrencyCode>
+			<CurrencySymbol>&amp;yen</CurrencySymbol>
+      <!--If the currency symbol to the left, then TRUE else FALSE -->
+			<CurrencySymbolPosition>true</CurrencySymbolPosition>
+		</LocaleCurrency>
+ 		<LocaleCurrency>
+			<CurrencyCode>BRL</CurrencyCode>
+			<CurrencySymbol>R$</CurrencySymbol>
+      <!--If the currency symbol to the left, then TRUE else FALSE -->
+			<CurrencySymbolPosition>true</CurrencySymbolPosition>
+		</LocaleCurrency>
+			
+</xmlconfig>
+
+
+

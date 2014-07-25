@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Web;
 
-  /// <summary>
+/// <summary>
   /// ExtensionMethods
   /// </summary>
 public static class ExtensionMethods
@@ -56,4 +57,20 @@ public static class ExtensionMethods
 
     return output;
   }
+
+  public static string GetLocalizedBankAccountType(string bankAccountType)
+  {
+    object localResourceObject = null;
+    switch (bankAccountType)
+    {
+      case "Checking":
+        localResourceObject = HttpContext.GetGlobalResourceObject("Resource", "TEXT_CHECKING");
+        break;
+      case "Savings":
+        localResourceObject = HttpContext.GetGlobalResourceObject("Resource", "TEXT_SAVINGS");
+        break;
+    }
+    return localResourceObject != null ? localResourceObject.ToString() : bankAccountType;
+  }
+
 }

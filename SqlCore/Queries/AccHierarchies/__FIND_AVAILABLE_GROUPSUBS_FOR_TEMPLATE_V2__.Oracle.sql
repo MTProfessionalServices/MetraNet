@@ -35,15 +35,16 @@
     LEFT OUTER JOIN t_acc_tmpl_types tp ON tp.id = 1
     WHERE
       ts.id_group IS NOT NULL AND tg.id_corporate_account = %%CORPORATEACCOUNT%% 
-    AND ts.id_po not in 
+/*
+      AND ts.id_po not in 
     (
       select ts1.id_po from t_acc_template_subs_pub tsubs
       INNER JOIN t_group_sub tg1 on tsubs.id_group = tg1.id_group
       INNER JOIN t_sub ts1 on ts1.id_group = tg1.id_group
-     /* where id_acc_template = at.id_acc_template */
      left outer join t_acc_template act on act.id_acc_template = tsubs.id_acc_template
      and id_folder = %%ID_ACC%% and id_acc_type = %%ACCOUNT_TYPE%%
     )
+*/
     AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%% OR tp.all_types = 1) 
     AND (%%CURRENCYFILTER1%%)    
    	

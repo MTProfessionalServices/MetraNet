@@ -90,25 +90,25 @@ AS
 	SELECT DISTINCT
 	       subs.id_po,
 		   subs.id_group,
-		   dbo.GreatestDate(@sub_start, subs.sub_start),
-		   dbo.LeastDate(@sub_end, subs.sub_end),
+		   subs.sub_start,
+		   subs.sub_end,
 		   subs.sub_start,
 		   subs.sub_end
 	FROM
 	(
 		SELECT t1.id_po
 				, MAX(t1.id_group) AS id_group
-				, MAX(ed.dt_start) AS sub_start
-				, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end
+				, dbo.GreatestDate(t1.vt_start, MAX(ed.dt_start)) AS sub_start
+				, dbo.LeastDate(t1.vt_end,ISNULL(MAX(ed.dt_end), dbo.MTMaxDate())) AS sub_end
 			FROM (
-				SELECT ISNULL(ts.id_po,s.id_po) AS id_po, s.id_group
+				SELECT ISNULL(ts.id_po,s.id_po) AS id_po, ts.vt_start, ts.vt_end, s.id_group
 					FROM t_acc_template_subs ts
 					LEFT JOIN t_sub s ON s.id_group = ts.id_group
 					WHERE ts.id_acc_template = @template_id
 			) t1
 			JOIN t_po po ON po.id_po = t1.id_po
 			JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
-			GROUP BY t1.id_po
+			GROUP BY t1.id_po,t1.vt_start,t1.vt_end
 
 /*
 		SELECT MAX(ts.id_po) AS id_po, NULL AS id_group, ISNULL(MAX(ed.dt_start), @systemdate) AS sub_start, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end

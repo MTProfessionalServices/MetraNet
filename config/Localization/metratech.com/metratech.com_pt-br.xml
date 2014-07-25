@@ -212,7 +212,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/InProgress</Name>
-      <Value>Em andamento</Value>
+      <Value>EmAndamento</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/None</Name>
@@ -272,15 +272,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/BadService</Name>
-      <Value>[pt-BR]BadService</Value>
+      <Value>ServiçoRuim</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/DroppedCall</Name>
-      <Value>[pt-BR]DroppedCall</Value>
+      <Value>ChamadaRecusada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/GeneralDissatisfaction</Name>
-      <Value>[pt-BR]GeneralDissatisfaction</Value>
+      <Value>InsatisfaçãoGeral</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
@@ -288,7 +288,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
-      <Value>[pt-BR]PoorConnection</Value>
+      <Value>ConexãoRuim</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
@@ -308,15 +308,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Timestamp</Name>
-      <Value>[pt-BR]Timestamp</Value>
+      <Value>Timestamp</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/BeginDistributed</Name>
-      <Value>[pt-BR]BeginDistributed</Value>
+      <Value>SendoDistribuído</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/BeginLocal</Name>
-      <Value>[pt-BR]BeginLocal</Value>
+      <Value>IniciarLocal</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/Commit</Name>
@@ -324,7 +324,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/JoinDistributed</Name>
-      <Value>[pt-BR]JoinDistributed</Value>
+      <Value>AderirDistribuído</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ViewID</Name>

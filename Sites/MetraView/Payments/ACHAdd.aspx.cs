@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Web.UI.WebControls;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.MetraPay;
@@ -26,7 +27,8 @@ public partial class Payments_ACHAdd : MTPage
 
     for (var i = 1; i <= totalCards; i++)
     {
-      ddPriority.Items.Add(new ListItem(i.ToString(), i.ToString()));
+      var item = i.ToString(CultureInfo.InvariantCulture);
+      ddPriority.Items.Add(new ListItem(item, item));
     }
   }
 

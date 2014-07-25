@@ -1,18 +1,9 @@
 using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
+using System.Globalization;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.MetraPay;
-using MetraTech.Core.Services.ClientProxies;
 using MetraTech.ActivityServices.Common;
-using System.ServiceModel;
 using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 
 public partial class Payments_ACHUpdate : MTPage
@@ -21,7 +12,7 @@ public partial class Payments_ACHUpdate : MTPage
   {
     get
     {
-      String sPIID = Request.QueryString["piid"];
+      var sPIID = Request.QueryString["piid"];
       if (String.IsNullOrEmpty(sPIID))
       {
         return new Guid();
@@ -37,6 +28,7 @@ public partial class Payments_ACHUpdate : MTPage
       }
     }
   }
+
   public ACHPaymentMethod ACHCard
   {
     get
@@ -50,34 +42,8 @@ public partial class Payments_ACHUpdate : MTPage
     set { ViewState["ACHCard"] = value; }
   }
 
-  protected int GetTotalCards()
-  {
-    var metraPayManger = new MetraPayManager(UI);
-    MTList<MetraPaymentMethod> cardList = new MTList<MetraPaymentMethod>();
-    cardList = metraPayManger.GetPaymentMethodSummaries();
-    if (cardList.TotalRows > 0)
-    {
-      return cardList.TotalRows;
-    }
-    else
-    {
-      return 0;
-    }
-  }
-
-  protected void PopulatePriority()
-  {
-    int totalCards = GetTotalCards();
-
-    for (int i = 1; i <= totalCards; i++)
-    {
-      ddPriority.Items.Add(new ListItem(i.ToString(), i.ToString()));
-    }
-  }
-
   protected void Page_Load(object sender, EventArgs e)
   {
-
     //Validate input
     if (String.IsNullOrEmpty(Request.QueryString["piid"]))
     {
@@ -86,90 +52,108 @@ public partial class Payments_ACHUpdate : MTPage
       return;
     }
 
-    if (!IsPostBack)
+    if (IsPostBack) return;
+    //populate priorities
+    PopulatePriority();
+    try
     {
-      //populate priorities
-      PopulatePriority();
-      try
+      //Load payment method
+      if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
-        //Load payment method
-        AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        MetraPaymentMethod tmpACH;
+        var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
         var metraPayManger = new MetraPayManager(UI);
-        tmpACH = metraPayManger.GetPaymentMethodDetail(acct, PIID);
+        var tmpACH = metraPayManger.GetPaymentMethodDetail(acct, PIID);
         ACHCard = (ACHPaymentMethod)tmpACH;
-        BankAccountType AcctType = (BankAccountType)ACHCard.AccountType;
-        object localResourceObject = null;
-        switch (AcctType)
-        {
-          case BankAccountType.Checking:
-            localResourceObject = GetLocalResourceObject("CheckingText");
-            break;
-          case BankAccountType.Savings:
-            localResourceObject = GetLocalResourceObject("SavingsText");
-            break;
-        }
-        tbAccountType.Text = localResourceObject != null ? localResourceObject.ToString() : ACHCard.AccountType.ToString();
-        
       }
-      catch(Exception ex)
+      var acctType = ACHCard.AccountType;
+      object localResourceObject = null;
+      switch (acctType)
       {
-        SetError(Resources.ErrorMessages.ERROR_ACH_LOAD);
-        Logger.LogError(ex.Message);
-        return;
+        case BankAccountType.Checking:
+          localResourceObject = GetLocalResourceObject("CheckingText");
+          break;
+        case BankAccountType.Savings:
+          localResourceObject = GetLocalResourceObject("SavingsText");
+          break;
       }
+      tbAccountType.Text = localResourceObject != null
+                             ? localResourceObject.ToString()
+                             : ACHCard.AccountType.ToString();
+    }
+    catch (Exception ex)
+    {
+      SetError(Resources.ErrorMessages.ERROR_ACH_LOAD);
+      Logger.LogError(ex.Message);
+      return;
+    }
 
-      if (!this.MTDataBinder1.DataBind())
-      {
-        this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-      }
-      
-      //load current priority
-      LoadPriority();
+    if (!MTDataBinder1.DataBind())
+    {
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
+    }
 
+    //load current priority
+    LoadPriority();
+  }
+
+  protected int GetTotalCards()
+  {
+    var metraPayManger = new MetraPayManager(UI);
+    var cardList = metraPayManger.GetPaymentMethodSummaries();
+    return cardList.TotalRows > 0 ? cardList.TotalRows : 0;
+  }
+
+  protected void PopulatePriority()
+  {
+    var totalCards = GetTotalCards();
+
+    for (var i = 1; i <= totalCards; i++)
+    {
+      var item = i.ToString(CultureInfo.InvariantCulture);
+      ddPriority.Items.Add(new ListItem(item, item));
     }
   }
 
   protected void LoadPriority()
   {
-    int priority = 0;
+    var priority = 0;
 
     if (ACHCard.Priority.HasValue)
     {
       priority = ACHCard.Priority.Value;
     }
 
-    ddPriority.SelectedValue = priority.ToString();
+    ddPriority.SelectedValue = priority.ToString(CultureInfo.InvariantCulture);
   }
   
-
-  
-
   protected void btnOK_Click(object sender, EventArgs e)
   {
+    if (!MTDataBinder1.Unbind())
+    {
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
+    }
+    if (ACHCard.Priority == null) return;
+    var oldPriority = ACHCard.Priority.Value;
+    ACHCard.Priority = Int32.Parse(ddPriority.SelectedValue);
 
-      if (!this.MTDataBinder1.Unbind())
+    try
+    {
+      if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
-          this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-      }
-      int oldPriority = ACHCard.Priority.Value;
-      ACHCard.Priority = Int32.Parse(ddPriority.SelectedValue);
-
-      try
-      {
-          AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-          var metraPayManger = new MetraPayManager(UI);
-          metraPayManger.UpdatePaymentMethod(acct, PIID, ACHCard, oldPriority);
-
-          Response.Redirect("ViewPaymentMethods.aspx", false);
-      }
-      catch (Exception ex)
-      {
-          SetError(Resources.ErrorMessages.ERROR_ACH_UPDATE);
-          Logger.LogError(ex.Message);
+        var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
+        var metraPayManger = new MetraPayManager(UI);
+        metraPayManger.UpdatePaymentMethod(acct, PIID, ACHCard, oldPriority);
       }
 
+      Response.Redirect("ViewPaymentMethods.aspx", false);
+    }
+    catch (Exception ex)
+    {
+      SetError(Resources.ErrorMessages.ERROR_ACH_UPDATE);
+      Logger.LogError(ex.Message);
+    }
   }
+
   protected void btnCancel_Click(object sender, EventArgs e)
   {
     Response.Redirect("ViewPaymentMethods.aspx");

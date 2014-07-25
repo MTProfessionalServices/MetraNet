@@ -15,8 +15,8 @@
 				  on au.id_sess=nrc.id_sess
 				  and au.id_usage_interval = nrc.id_usage_interval
 				inner join t_vw_base_props bp on au.id_pi_template=bp.id_prop
-				where au.id_usage_interval=%%ID_INTERVAL%%
-				  and id_lang_code=%%ID_LANG_CODE%%
+				where au.id_usage_interval like '%%ID_INTERVAL%%'
+				  and id_lang_code like '%%ID_LANG_CODE%%'
 				group by 
 	        case c_NRCEventType 
 				    when 0 then 'Unknown' 

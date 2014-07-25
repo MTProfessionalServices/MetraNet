@@ -116,10 +116,10 @@ FUNCTION form_Refresh(EventArg)
   
 	  objXMLDoc.LoadXML(strXML)
 
-    Service.Properties("METRANET_VERSION").Value = objXMLDoc.SelectSingleNode("/Files/File/Version").Text & "<BR>" & objXMLDoc.SelectSingleNode("/Files/File/LastModified").Text
-
+    Service.Properties("METRANET_VERSION").Value = objXMLDoc.SelectSingleNode("/Files/File/Version").Text & "<BR>" & mom_FormatDateTime(objXMLDoc.SelectSingleNode("/Files/File/LastModified").Text, mom_GetDictionary("DATE_TIME_FORMAT"))
+    
     Service.Properties("PATCH_INFORMATION_HTML").Value = getPatchListHTML
-
+    
    
   form_Refresh=true
 

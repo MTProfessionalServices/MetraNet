@@ -9,14 +9,6 @@
   
     <MTCDT:MTGenericForm ID="MTGenericFormAccountTemplate" runat="server" meta:resourcekey="MTGenericFormAccountTemplateResource1"></MTCDT:MTGenericForm>
 
-    <MT:MTPanel ID="MTPanel1" runat="server" Text="Subscription Span" meta:resourcekey="SubscriptionSpanPanel" >
-    <div id="leftColumn" style="float: left; width: 300px;padding-left:10px;">
-      <MT:MTCheckBoxControl ID="cbStartNextBillingPeriod" runat="server" BoxLabel="Next start of payer's billing period after this date" Text="c1" Value="c1" AllowBlank="False" Checked="False" HideLabel="True" Listeners="{}" meta:resourcekey="cbStartNextBillingPeriodResource1" Name="cbStartNextBillingPeriod" OptionalExtConfig="boxLabel:'Next start of payer\'s billing period after this date',&#13;&#10;                                            inputValue:'c1',&#13;&#10;                                            checked:false" ReadOnly="False" TabIndex="0" XType="Checkbox" LabelSeparator=":" XTypeNameSpace="form" />
-      <div style="height:20px">&nbsp;</div>
-      <MT:MTCheckBoxControl ID="cbEndNextBillingPeriod" runat="server" BoxLabel="Next end of payer's billing period after this date" Text="c2" Value="c2" AllowBlank="False" Checked="False" HideLabel="True" Listeners="{}" meta:resourcekey="cbEndNextBillingPeriodResource1" Name="cbEndNextBillingPeriod" OptionalExtConfig="boxLabel:'Next end of payer\'s billing period after this date',&#13;&#10;                                            inputValue:'c2',&#13;&#10;                                            checked:false" ReadOnly="False" TabIndex="0" XType="Checkbox" LabelSeparator=":" XTypeNameSpace="form" />
-      <div style="height:20px">&nbsp;</div>
-    </div>
-    </MT:MTPanel>    
     
   <!-- BUTTONS -->
  
@@ -101,8 +93,8 @@
       args += "ApplyStartDateString=" + Ext.get("ctl00_ContentPlaceHolder1_StartDate").dom.value + "**";
       args += "ApplyEndDateString=" + Ext.get("ctl00_ContentPlaceHolder1_EndDate").dom.value + "**";
 */
-      args += "ApplyStartNextBillingPeriodString=" + Ext.get("ctl00_ContentPlaceHolder1_cbStartNextBillingPeriod").dom.checked + "**";
-      args += "ApplyEndNextBillingPeriodString=" + Ext.get("ctl00_ContentPlaceHolder1_cbEndNextBillingPeriod").dom.checked + "**";
+      args += "ApplyStartNextBillingPeriodString=false**";
+      args += "ApplyEndNextBillingPeriodString=false**";
       args += "ApplyEndConflictingSubscriptionsString=true";
       pageNav.Execute("TemplateEvents_OKApplyTemplate_Client", args, results);
       return false;

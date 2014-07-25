@@ -486,4 +486,10 @@
   <data name="TEXT_SITE" xml:space="preserve">
     <value>[ES]Site</value>
   </data>
+  <data name="TEXT_CHECKING" xml:space="preserve">
+    <value>Corriente</value>
+  </data>
+  <data name="TEXT_SAVINGS" xml:space="preserve">
+    <value>Ahorros</value>
+  </data>
 </root>

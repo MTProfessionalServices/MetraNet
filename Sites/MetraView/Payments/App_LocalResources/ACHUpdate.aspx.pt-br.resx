@@ -177,10 +177,4 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>CEP</value>
   </data>
-  <data name="CheckingText" xml:space="preserve">
-    <value>Conta Corrente</value>
-  </data>
-  <data name="SavingsText" xml:space="preserve">
-    <value>Poupança</value>
-  </data>
 </root>

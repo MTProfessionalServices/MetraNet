@@ -129,18 +129,7 @@ public partial class Payments_ACHAdd : MTPage
         var paymentData = (MetraPayManager.MakePaymentData) Session["MakePaymentData"];
         paymentData.PaymentInstrumentId = paymentInstrumentId.ToString();
         paymentData.Number = ACHCard.AccountNumber;
-
-        object localResourceObject = null;
-        switch (ACHCard.AccountType)
-        {
-          case BankAccountType.Checking:
-            localResourceObject = GetLocalResourceObject("radCheckingResource1.BoxLabel");
-            break;
-          case BankAccountType.Savings:
-            localResourceObject = GetLocalResourceObject("radSavingsResource1.BoxLabel");
-            break;
-        }
-        paymentData.Type = localResourceObject != null ? localResourceObject.ToString() : ACHCard.AccountType.ToString();
+        paymentData.Type = ExtensionMethods.GetLocalizedBankAccountType(ACHCard.AccountType.ToString());
         Session["MakePaymentData"] = paymentData;
         Response.Redirect("ReviewPayment.aspx", false);
       }

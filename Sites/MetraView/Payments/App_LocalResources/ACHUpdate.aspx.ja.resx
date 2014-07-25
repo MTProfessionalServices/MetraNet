@@ -177,10 +177,4 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>郵便番号</value>
   </data>
-  <data name="CheckingText" xml:space="preserve">
-    <value>当座預金</value>
-  </data>
-  <data name="SavingsText" xml:space="preserve">
-    <value>普通預金</value>
-  </data>
 </root>

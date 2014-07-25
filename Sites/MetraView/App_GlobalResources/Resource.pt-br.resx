@@ -486,4 +486,10 @@
   <data name="TEXT_SITE" xml:space="preserve">
     <value>Local</value>
   </data>
+  <data name="TEXT_CHECKING" xml:space="preserve">
+    <value>Conta Corrente</value>
+  </data>
+  <data name="TEXT_SAVINGS" xml:space="preserve">
+    <value>Poupança</value>
+  </data>
 </root>

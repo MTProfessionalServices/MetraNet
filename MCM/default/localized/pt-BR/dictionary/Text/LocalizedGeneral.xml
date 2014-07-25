@@ -1,186 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
+  <description></description>
 
-	<description></description>
-
-    <!-- used in breadcrumbs -->  
-    <text id="TEXT_SELECT_RATE_SCHEDULE">
-        <value>Selecione a [TEXT_KEYTERM_RATE_SCHEDULE]</value><description></description>
-    </text> 
-    <text id="TEXT_SELECT_PRICEABLE_ITEM">
-        <value>Selecione o [TEXT_KEYTERM_PRICEABLE_ITEM]</value><description></description>
-    </text> 
-              
-    <!-- Columns -->   
-    
-    <text id="TEXT_UDRC">
-        <value>[TEXT_KEYTERM_RECURRING_CHARGE] dependente da unidade</value><description></description>
-    </text>                      
-    <text id="TEXT_UNIT_NAME">
-        <value>Nome da unidade</value><description></description>
-    </text>
-    <text id="TEXT_UNIT_DISPLAY_NAME">
-      <value>Nome de exibição da unidade</value>
-      <description></description>
-    </text>
-
-  <text id="TEXT_TIERED_TAPER_USER_HINT">
-        <value>Avaliação</value>
-    </text>                          
-    <text id="TEXT_MAX_UNIT_VALUE">
-        <value>Valor de unidade máx.</value>
-    </text>                              
-    <text id="TEXT_MIN_UNIT_VALUE">
-        <value>Valor de unidade mín.</value>
-    </text>                                  
-    <text id="TEXT_TIERED">
-        <value>Em camadas</value><description></description>
-    </text>                      
-    <text id="TEXT_RATING_TYPE">
-        <value>Tipo de avaliação</value><description></description>
-    </text>                          
-    <text id="TEXT_TAPERED">
-        <value>Afunilado</value><description></description>
-    </text>                          
-    <text id="TEXT_COLUMN_NAME">
-        <value>Nome</value><description></description>
-    </text>              
-    <text id="TEXT_COLUMN_DISPLAY_NAME">
-        <value>Nome exibido</value><description></description>
-    </text>              
-    <text id="TEXT_COLUMN_KIND">
-        <value>Tipo</value><description></description>
-    </text>              
-    <text id="TEXT_COLUMN_DESCRIPTION">
-        <value>Descrição</value><description></description>
-    </text>                  
-    <text id="TEXT_COLUMN_VALUE">
-        <value>Valor</value><description></description>
-    </text>
-    <text id="TEXT_COLUMN_OPTIONS">
-        <value>Opções</value><description></description>
-    </text>
-    <text id="TEXT_RATES_COLUMN_OPTIONS">
-        <value>Opções</value><description></description>
-    </text>
-    <!-- Shared Field Names -->         
-    <text id="TEXT_FIELD_NAME">
-        <value>Nome</value><description></description>
-    </text>
-    <text id="TEXT_FIELD_DISPLAY_NAME">
-        <value>Nome exibido</value><description></description>
-    </text>
-    <text id="TEXT_FIELD_DESCRIPTION">
-        <value>Descrição</value><description></description>
-    </text>
-	
-    <!-- Product View Property Picker Dialog -->
-    <text id="TEXT_PV_NAME">
-        <value>Nome de exibição do produto</value>
-        <description></description>
-    </text>
-    <text id="TEXT_PV_PROPERTY">
-        <value>Propriedade da exibição de produto</value>
-        <description></description>
-    </text> 
-		<text id="TEXT_PV_DESCRIPTION">
-        <value>Descrição da exibição de produto</value>
-        <description></description>
-    </text>          
-    <text id="MCM_PRODUCT_VIEW_PROPERTY_PICKER">
-        <value>Selecione uma exibição de produto e propriedade</value>
-        <description></description>
-    </text> 
-
-    
-    <text id="TEXT_NAME">
-        <value>Nome</value>
-        <description></description>
-    </text> 
-    <text id="TEXT_DESCRIPTION">
-        <value>Descrição</value>
-        <description></description>
-    </text>     
-    <text id="TEXT_CURRENCY">
-        <value>Moeda</value>
-        <description></description>
-    </text>     
-     
-    <text id="TEXT_PARAMETER_TABLE">
-        <value>[TEXT_KEYTERM_PARAMETER_TABLE]</value>
-        <description></description>
-    </text>  
-		
-    <text id="TEXT_PRICELIST_MAPPING">
-        <value>Mapeamento da [TEXT_KEYTERM_PRICE_LIST]</value>
-        <description></description>
-    </text>
-		
-    <text id="TEXT_PERSONAL_RATES_ALLOWED">
-        <value>[TEXT_KEYTERM_PERSONAL_RATES] permitidas</value>
-        <description></description>
-    </text>
-    
-    <!-- Wizard (General Text) -->
-    <text id="TEXT_WIZARD_SUMMARY_INFORMATION">
-        <value>Informações gerais</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_WIZARD_DEBUG_INFORMATION">
-        <value>Informação de debug</value>
-        <description></description>
-    </text>
-		
-	 <text id="TEXT_YES">
-        <value>Sim</value>
-        <description></description>
-   </text>
-	 
-	<text id="TEXT_NO">
-        <value>Não</value>
-        <description></description>
+  <!-- used in breadcrumbs -->
+  <text id="TEXT_SELECT_RATE_SCHEDULE">
+    <value>Selecione a [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
   </text>
-	<text id="TEXT_USAGE_CHILD_TITLE">
-        <value>Esse [TEXT_KEYTERM_PRICEABLE_ITEM] contém os [TEXT_KEYTERM_PRICEABLE_ITEMS] a seguir</value>
-        <description></description>
- </text>
+  <text id="TEXT_SELECT_PRICEABLE_ITEM">
+    <value>Selecione o [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+
+  <!-- Columns -->
+  <text id="TEXT_UDRC">
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] dependente da unidade</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNIT_NAME">
+    <value>Nome da unidade</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNIT_DISPLAY_NAME">
+    <value>Nome de exibição da unidade</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TIERED_TAPER_USER_HINT">
+    <value>Avaliação</value>
+  </text>
+  <text id="TEXT_MAX_UNIT_VALUE">
+    <value>Valor de unidade máx.</value>
+  </text>
+  <text id="TEXT_MIN_UNIT_VALUE">
+    <value>Valor de unidade mín.</value>
+  </text>
+  <text id="TEXT_TIERED">
+    <value>Em camadas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATING_TYPE">
+    <value>Tipo de avaliação</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TAPERED">
+    <value>Afunilado</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_DISPLAY_NAME">
+    <value>Nome exibido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_KIND">
+    <value>Tipo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_VALUE">
+    <value>Valor</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_OPTIONS">
+    <value>Opções</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_OPTIONS">
+    <value>Opções</value>
+    <description></description>
+  </text>
+
+  <!-- Shared Field Names -->
+  <text id="TEXT_FIELD_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FIELD_DISPLAY_NAME">
+    <value>Nome exibido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FIELD_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+
+  <!-- Product View Property Picker Dialog -->
+  <text id="TEXT_PV_NAME">
+    <value>Nome de exibição do produto</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PV_PROPERTY">
+    <value>Propriedade da exibição de produto</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PV_DESCRIPTION">
+    <value>Descrição da exibição de produto</value>
+    <description></description>
+  </text>
+  <text id="MCM_PRODUCT_VIEW_PROPERTY_PICKER">
+    <value>Selecione uma exibição de produto e propriedade</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CURRENCY">
+    <value>Moeda</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE">
+    <value>[TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICELIST_MAPPING">
+    <value>Mapeamento da [TEXT_KEYTERM_PRICE_LIST]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PERSONAL_RATES_ALLOWED">
+    <value>[TEXT_KEYTERM_PERSONAL_RATES] permitidas</value>
+    <description></description>
+  </text>
+
+  <!-- Wizard (General Text) -->
+  <text id="TEXT_WIZARD_SUMMARY_INFORMATION">
+    <value>Informações gerais</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_DEBUG_INFORMATION">
+    <value>Informação de debug</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YES">
+    <value>Sim</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO">
+    <value>Não</value>
+    <description></description>
+  </text>
+  <text id="TEXT_USAGE_CHILD_TITLE">
+    <value>Esse [TEXT_KEYTERM_PRICEABLE_ITEM] contém os [TEXT_KEYTERM_PRICEABLE_ITEMS] a seguir</value>
+    <description></description>
+  </text>
   <text id="TEXT_PARAMETER_TABLE_TITLE">
-        <value>Esse [TEXT_KEYTERM_PRICEABLE_ITEM] tem as [TEXT_KEYTERM_PARAMETER_TABLES] a seguir mapeadas nas [TEXT_KEYTERM_PRICE_LISTS] a seguir</value><description></description>
- </text>
- <text id="TEXT_NO_CHILD_ITEMS">
-       <value>Não há [TEXT_KEYTERM_PRICEABLE_ITEMS] filhos</value><description></description>
- </text>
-
- <text id="TEXT_NEW">
-        <value>Novo</value><description></description>
- </text>	
+    <value>Esse [TEXT_KEYTERM_PRICEABLE_ITEM] tem as [TEXT_KEYTERM_PARAMETER_TABLES] a seguir mapeadas nas [TEXT_KEYTERM_PRICE_LISTS] a seguir</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_CHILD_ITEMS">
+    <value>Não há [TEXT_KEYTERM_PRICEABLE_ITEMS] filhos</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEW">
+    <value>Novo</value>
+    <description></description>
+  </text>
   <text id="TEXT_WIZARD">
-        <value>Assistente</value><description></description>
- </text>	
- <text id="TEXT_CONFIGURE_CHARGE">
-        <value>Configurar cobrança</value><description></description>
- </text>	
- <text id="TEXT_DELETE_OK_CANCEL">
-        <value>Clique em OK para confirmar ou Cancelar para voltar.</value><description></description>
- </text>	
- <text id="TEXT_DELETE_QUESTION">
-        <value> Tem certeza que deseja excluir esse</value><description></description>
- </text>	 
-
+    <value>Assistente</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIGURE_CHARGE">
+    <value>Configurar cobrança</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_OK_CANCEL">
+    <value>Clique em OK para confirmar ou Cancelar para voltar.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_QUESTION">
+    <value> Tem certeza que deseja excluir esse</value>
+    <description></description>
+  </text>
   <text id="TEXT_UNHIDE">
     <value>Desocultar</value>
     <description></description>
   </text>
-  
   <text id="TEXT_HIDE">
     <value>Ocultar</value>
     <description></description>
   </text>
-
   <text id="TEXT_FILTER_WILDCARD_CONSTRAINT_MESSAGE">
     <value>O curinga * pode ser usado penas no final da string de pesquisa ou no início e no final.\nExemplos:\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
- 
 </texts>

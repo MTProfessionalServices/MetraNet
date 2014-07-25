@@ -650,5 +650,11 @@
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
     <value>Messages pour facture</value>
-  </data>  
+  </data>
+  <data name="TEXT_CHECKING" xml:space="preserve">
+    <value>Compte courant</value>
+  </data>
+  <data name="TEXT_SAVINGS" xml:space="preserve">
+    <value>Épargne</value>
+  </data>
 </root>

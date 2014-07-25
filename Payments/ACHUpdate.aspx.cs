@@ -1,7 +1,6 @@
 using System;
 using System.Globalization;
 using System.Web.UI.WebControls;
-using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.MetraPay;
 using MetraTech.Core.Services.ClientProxies;
@@ -144,20 +143,8 @@ public partial class Payments_ACHUpdate : MTPage
         client.GetPaymentMethodDetail(acct, PIID, out tmpCC);
 
         ACHCard = (ACHPaymentMethod) tmpCC;
+        tbAccountType.Text = ExtensionMethods.GetLocalizedBankAccountType(ACHCard.AccountType.ToString());
       }
-      var acctType = ACHCard.AccountType;
-      object localResourceObject = null;
-      switch (acctType)
-      {
-        case BankAccountType.Checking:
-          localResourceObject = GetLocalResourceObject("CheckingText");
-          break;
-        case BankAccountType.Savings:
-          localResourceObject = GetLocalResourceObject("SavingsText");
-          break;
-      }
-      tbAccountType.Text = localResourceObject != null ? localResourceObject.ToString() : ACHCard.AccountType.ToString();
-
       client.Close();
     }
     catch (Exception e)

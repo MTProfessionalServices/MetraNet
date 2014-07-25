@@ -177,10 +177,4 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>Postleitzahl</value>
   </data>
-  <data name="CheckingText" xml:space="preserve">
-    <value>Girokonto</value>
-  </data>
-  <data name="SavingsText" xml:space="preserve">
-    <value>Sparkonto</value>
-  </data>
 </root>

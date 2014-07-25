@@ -55,19 +55,14 @@ public partial class Payments_ACHAdd : MTPage
 
   protected void PopulateAccountType()
   {
-    var checkingLocalized = GetLocalResourceObject(Checking);
-    var savingLocalized = GetLocalResourceObject(Savings);
-    if (checkingLocalized == null || savingLocalized == null)
-      return;
-
     var checkItem = new ListItem
       {
-        Text = checkingLocalized.ToString(),
+        Text = ExtensionMethods.GetLocalizedBankAccountType(Checking),
         Value = Checking
       };
     var savItem = new ListItem
       {
-        Text = savingLocalized.ToString(),
+        Text = ExtensionMethods.GetLocalizedBankAccountType(Savings),
         Value = Savings
       };
     ddAccountType.Items.Add(checkItem);

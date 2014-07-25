@@ -133,7 +133,7 @@
     <value>j/n/Y G:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
-    <value>.</value>
+    <value>,</value>
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplicar</value>

@@ -21,7 +21,7 @@ BEGIN
             AND current_sub.id_sub = rw.c__SubscriptionID
             AND current_sub.tt_end = dbo.SubtractSecond(new_sub.tt_start)
     /* Work with RC only. Exclude UDRC. */
-    WHERE rw.c_UnitValue IS NULL;
+    WHERE rw.c_UnitValue IS NULL AND ROWNUM <= 1; /* Select only 1 PI*/
   EXCEPTION
     /* It is a new subscription or UDRC - nothing to recharge */
     WHEN NO_DATA_FOUND THEN

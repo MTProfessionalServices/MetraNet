@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Threading;
+using System.Web;
+using MetraTech.Common;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.UI.Common;
+using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 
 /// <summary>
 /// ExtensionMethods used to get date and amount display values for the user
@@ -62,8 +66,7 @@ public static class ExtensionMethods
       currency = invoiceReport.InvoiceHeader.Currency;
     }
 
-    var languageCode = billManager.GetLanguageCode();
-    var displayAmount = billManager.GetLocaleTranslator(languageCode).GetCurrency(value, currency);
+    var displayAmount = LCConfigManager.Instance.GetLocalizeAmount(value, Thread.CurrentThread.CurrentUICulture.ToString().ToLower(), currency);
     return displayAmount;
   }
 
@@ -81,4 +84,21 @@ public static class ExtensionMethods
     }
     return str;
   }
+
+  public static string GetLocalizedBankAccountType(string bankAccountType)
+  {
+    object localResourceObject = null;
+    switch (bankAccountType)
+    {
+      case "Checking":
+        localResourceObject = HttpContext.GetGlobalResourceObject("Resource", "TEXT_CHECKING");
+        break;
+      case "Savings":
+        localResourceObject = HttpContext.GetGlobalResourceObject("Resource", "TEXT_SAVINGS");
+        break;
+    }
+    return localResourceObject != null ? localResourceObject.ToString() : bankAccountType;
+  }
+
+
 }

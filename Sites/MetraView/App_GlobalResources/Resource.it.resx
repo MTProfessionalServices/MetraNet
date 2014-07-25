@@ -486,4 +486,10 @@
   <data name="TEXT_SITE" xml:space="preserve">
     <value>[IT]Site</value>
   </data>
+  <data name="TEXT_CHECKING" xml:space="preserve">
+    <value>Conto corrente</value>
+  </data>
+  <data name="TEXT_SAVINGS" xml:space="preserve">
+    <value>Conto di risparmio</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Web.UI.WebControls;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.MetraPay;
@@ -26,7 +27,8 @@ public partial class Payments_ACHAdd : MTPage
 
     for (var i = 1; i <= totalCards; i++)
     {
-      ddPriority.Items.Add(new ListItem(i.ToString(), i.ToString()));
+      var item = i.ToString(CultureInfo.InvariantCulture);
+      ddPriority.Items.Add(new ListItem(item, item));
     }
   }
 
@@ -127,9 +129,7 @@ public partial class Payments_ACHAdd : MTPage
         var paymentData = (MetraPayManager.MakePaymentData) Session["MakePaymentData"];
         paymentData.PaymentInstrumentId = paymentInstrumentId.ToString();
         paymentData.Number = ACHCard.AccountNumber;
-
-        var localResourceObject = GetLocalResourceObject(radChecking.Checked ? "radSavingsResource1.BoxLabel" : "radCheckingResource1.BoxLabel"); 
-        paymentData.Type = localResourceObject != null ? localResourceObject.ToString() : ACHCard.AccountType.ToString();
+        paymentData.Type = ExtensionMethods.GetLocalizedBankAccountType(ACHCard.AccountType.ToString());
         Session["MakePaymentData"] = paymentData;
         Response.Redirect("ReviewPayment.aspx", false);
       }

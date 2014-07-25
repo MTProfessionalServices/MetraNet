@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -7,26 +8,24 @@ using System.Threading;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Xml.Serialization;
-using System.Collections.ObjectModel;
 using Core.UI;
 using MetraTech;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
-using MetraTech.Core.Services.ClientProxies;
+using MetraTech.DomainModel.AccountTypes;
+using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.Billing;
 using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.Localization;
-using MetraTech.UI.Common;
-using MetraTech.DomainModel.Billing;
-using MetraTech.DomainModel.BaseTypes;
-using MetraTech.UI.Controls.MTLayout;
-using RCD = MetraTech.Interop.RCD;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.COMDBObjects;
-using ICOMLocaleTranslator = MetraTech.Interop.COMDBObjects.ICOMLocaleTranslator;
+using MetraTech.UI.Common;
+using MetraTech.UI.Controls.MTLayout;
 using MetraTech.UI.Tools;
-using MetraTech.DomainModel.AccountTypes;
+using ICOMLocaleTranslator = MetraTech.Interop.COMDBObjects.ICOMLocaleTranslator;
+using RCD = MetraTech.Interop.RCD;
+using MetraTech.Core.Services.ClientProxies;
 
 /// <summary>
 /// BillManager - used to load the online bill
@@ -36,7 +35,7 @@ public class BillManager: System.Web.UI.TemplateControl
   #region Private member variables
   private static readonly Logger Logger = new Logger("[MetraView_BillManger]");
   private readonly UIManager UI;
-  private UsageHistoryService_GetInvoiceReport_Client invoiceReportClient;
+  private UsageHistoryService_GetInvoiceReportLocalized_Client invoiceReportClient;
   #endregion
 
   #region Application Cache Properties
@@ -195,14 +194,14 @@ public class BillManager: System.Web.UI.TemplateControl
     {
       var currentIntervals =
         from currinter in Intervals
-        where currinter.ID.ToString() == HttpContext.Current.Session[SiteConstants.SelectedIntervalId].ToString() && currinter.InvoiceNumber == HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice].ToString()
+        where currinter.ID.ToString(CultureInfo.InvariantCulture) == HttpContext.Current.Session[SiteConstants.SelectedIntervalId].ToString() && currinter.InvoiceNumber == HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice].ToString()
         select currinter;
 
       foreach (var itm in currentIntervals)
       {
         HttpContext.Current.Session[SiteConstants.Interval] = itm;
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = itm.ID.ToString();
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = itm.InvoiceNumber.ToString();
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = itm.ID.ToString(CultureInfo.InvariantCulture);
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = itm.InvoiceNumber;
         return itm;
       } 
     }
@@ -246,8 +245,8 @@ public class BillManager: System.Web.UI.TemplateControl
       if (interval != null)
       {
         HttpContext.Current.Session[SiteConstants.Interval] = interval;
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = interval.ID.ToString();
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = interval.InvoiceNumber.ToString();
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = interval.ID.ToString(CultureInfo.InvariantCulture);
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = interval.InvoiceNumber;
       }
       return interval; 
     }
@@ -306,12 +305,12 @@ public class BillManager: System.Web.UI.TemplateControl
 
     if (refreshData)
     {
-      invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+      invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
                               {
                                 UserName = UI.User.UserName,
                                 Password = UI.User.SessionPassword,
                                 In_intervalID = interval.ID,
-                                In_languageID = GetLanguageCode(),
+                                In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
                                 In_inlineVATTaxes = ReportParams.InlineVATTaxes,
                                 In_owner = new AccountIdentifier((int) UI.Subscriber.SelectedAccount._AccountID)
                               };
@@ -345,12 +344,12 @@ public class BillManager: System.Web.UI.TemplateControl
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
 
     Interval interval = GetCurrentInterval();
-    invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+    invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
                               {
                                 UserName = UI.User.UserName,
                                 Password = UI.User.SessionPassword,
                                 In_intervalID = interval.ID,
-                                In_languageID = GetLanguageCode(),
+                                In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
                                 In_inlineVATTaxes = ReportParams.InlineVATTaxes,
                                 In_owner = new AccountIdentifier((int) UI.Subscriber.SelectedAccount._AccountID)
                               };
@@ -396,12 +395,12 @@ public class BillManager: System.Web.UI.TemplateControl
 
     if (refreshData)
     {
-      invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+      invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
       {
         UserName = UI.User.UserName,
         Password = UI.User.SessionPassword,
         In_intervalID = interval.ID,
-        In_languageID = GetLanguageCode(),
+        In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
         In_inlineVATTaxes = ReportParams.InlineVATTaxes,
         In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID)
       };
@@ -436,12 +435,12 @@ public class BillManager: System.Web.UI.TemplateControl
 
     Interval interval = GetOpenIntervalWithoutSettingItAsCurrentOnTheUI();
 
-    invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+    invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
     {
       UserName = UI.User.UserName,
       Password = UI.User.SessionPassword,
       In_intervalID = interval.ID,
-      In_languageID = GetLanguageCode(),
+      In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
       In_inlineVATTaxes = ReportParams.InlineVATTaxes,
       In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID)
     };
@@ -527,12 +526,12 @@ public class BillManager: System.Web.UI.TemplateControl
                 try 
                 { 
                   //get current account UTC local timezone
-                  var currenTimezone = TimeZoneList.Where(timezone => timezone.DisplayName == accounttimezoneID.ToString()).FirstOrDefault();
+                  var currenTimezone = TimeZoneList.FirstOrDefault(timezone => timezone.DisplayName == accounttimezoneID.ToString());
                   if (currenTimezone != null)
                   {
                     //TimeZoneInfo targetTimezoneinfo = TimeZoneInfo.FindSystemTimeZoneById(currenTimezone.Id);
                     //Convert to UTC (GMT) Time  
-                    DateTime currentDate = Convert.ToDateTime(bpv.GetValue(pvattrib.ColumnName));  //.ToUniversalTime();
+                    var currentDate = Convert.ToDateTime(bpv.GetValue(pvattrib.ColumnName));  //.ToUniversalTime();
                     prop.SetValue(bpv, this.GetLocalTime(currenTimezone.Id, currentDate),null);
                   // Converted UTC Time 
                    }

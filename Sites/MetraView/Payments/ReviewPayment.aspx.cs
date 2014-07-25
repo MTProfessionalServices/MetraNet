@@ -29,7 +29,7 @@ public partial class Payments_ReviewPayment : MTPage
       lcAmount.Text = paymentData.Amount.ToDisplayAmount(UI);
       lcDate.Text = paymentData.SchedulePaymentDate.ToShortDateString();
       lcMethod.Text = paymentData.Method;
-      lcType.Text = paymentData.Type;
+      lcType.Text = ExtensionMethods.GetLocalizedBankAccountType(paymentData.Type);
       lcNumber.Text = HideNumber(paymentData.Number);
     }
   }

@@ -286,34 +286,34 @@
     <value>Como o solicitante desta alteração pendente, é possível \"Rejeitar\" esta alteração que irá removê-la da deliberação.</value>
   </data>
   <data name="TEXT_RATE_UPDATE" xml:space="preserve">
-    <value>[pt-BR]Rate Update</value>
+    <value>Atualização de Taxa</value>
   </data>
   <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
-    <value>[pt-BR]Account Updates</value>
+    <value>Atualizações de conta</value>
   </data>
   <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
-    <value>[pt-BR]Product Offering Update</value>
+    <value>Atualização do Product Offering</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
-    <value>[pt-BR]Subscription Add</value>
+    <value>Adição de assinatura</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
-    <value>[pt-BR]Subscription Update</value>
+    <value>Atualização de assinatura</value>
   </data>
   <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
-    <value>[pt-BR]Add Member Hierarchies</value>
+    <value>Adicionar hierarquia de membro</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
-    <value>[pt-BR]Add members to group</value>
+    <value>Adicionar membros a grupo</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
-    <value>[pt-BR]Delete members in group</value>
+    <value>Excluir os membros do grupo</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
-    <value>[pt-BR]Update members in group</value>
+    <value>Atualizar membros do grupo</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
-    <value>[pt-BR]Unsubscribe members from group subscription</value>
+    <value>Cancelar a subscrição de assinatura grupal</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Histórico de auditoria para número de casos de transações com falha</value>

@@ -40,6 +40,34 @@ public partial class GenericAddAccount : MTAccountPage
     skipProperties.Add("internal.language");    
   }
 
+  /// <summary>
+  /// Returns JSON string with mapping of account attributes to JavaScript client-side controls
+  /// </summary>
+  public string JSControlMapping
+  {
+    get
+    {
+      var sb = new System.Text.StringBuilder();
+
+      foreach (MTDataBindingItem itm in MTDataBinder1.DataBindingItems)
+      {
+        if (itm.ControlInstance != null)
+        {
+          string bSource = itm.BindingSource;
+          if (bSource.StartsWith("Account."))
+          {
+            bSource = bSource.Substring(8);
+          }
+          sb.AppendFormat("{0}'{1}.{2}':'{3}'",
+            sb.Length == 0 ? string.Empty : ",",
+            (bSource == "BillTo") ? "LDAP[ContactType=Bill_To]" : bSource,
+            itm.BindingSourceMember,
+            itm.ControlInstance.ClientID);
+        }
+      }
+      return string.Format("{{{0}}}", sb);
+    }
+  }
 
   protected void Page_Load(object sender, EventArgs e)
   {

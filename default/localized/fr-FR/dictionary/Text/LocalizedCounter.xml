@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
-
-    <description></description>
-    
-   	<text id="TEXT_COUNTER_PARAMETER">
-        <value>[TEXT_KEYTERM_COUNTER] Paramètre</value>
-    </text>    		
-    
-    <text id="TEXT_ADD_NEW_COUNTER">
-        <value>Ajouter un nouveau paramètre[TEXT_KEYTERM_COUNTER]</value>
-    </text>   	
-  
-    <text id="TEXT_COUNTER_EDIT">
-        <value>Modifier[TEXT_KEYTERM_COUNTER]</value>
-    </text>       
-
-   	<text id="TEXT_EDIT_COUNTER_PARAMETER">
-        <value>Sélectionner</value>
-    </text>    		
-
-   	<text id="TEXT_COUNTER_ARGUMENT">
-        <value>Arguments</value>
-    </text>    		
-
-   	<text id="TEXT_COUNTER_Value">
-        <value>Valeur</value>
-    </text>    		
-       
+  <description></description>
+  <text id="TEXT_COUNTER_PARAMETER">
+    <value>[TEXT_KEYTERM_COUNTER] Paramètre</value>
+  </text>
+  <text id="TEXT_ADD_NEW_COUNTER">
+    <value>Ajouter un nouveau paramètre[TEXT_KEYTERM_COUNTER]</value>
+  </text>
+  <text id="TEXT_COUNTER_EDIT">
+    <value>Modifier[TEXT_KEYTERM_COUNTER]</value>
+  </text>
+  <text id="TEXT_EDIT_COUNTER_PARAMETER">
+    <value>Sélectionner</value>
+  </text>
+  <text id="TEXT_COUNTER_ARGUMENT">
+    <value>Arguments</value>
+  </text>
+  <text id="TEXT_COUNTER_Value">
+    <value>Valeur</value>
+  </text>
 </texts>

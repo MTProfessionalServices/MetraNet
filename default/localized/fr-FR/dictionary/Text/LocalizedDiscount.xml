@@ -1,59 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
-
-    <description></description>
-
-    <text id="TEXT_CREATE_NEW_DISCOUNT">
-        <value>Créer une nouvelle [TEXT_KEYTERM_DISCOUNT]</value>
-    </text>   	
-	
-    <text id="TEXT_EXISTING_OR_NEW_DISCOUNT">
-        <value>Voulez-vous utiliser une [TEXT_KEYTERM_DISCOUNT] existante ou en ajouter une nouvelle ?</value><description></description>
-    </text>
-    <text id="TEXT_EXISTING_DISCOUNT">
-        <value>[TEXT_KEYTERM_DISCOUNTS] existantes</value><description></description>
-    </text>
-	<text id="TEXT_CREATE_A_NEW_DISCOUNT">
-        <value>Ajouter une nouvelle [TEXT_KEYTERM_DISCOUNT]</value><description></description>
-    </text>
-    <text id="TEXT_ADD_DISCOUNT">
-        <value>Ajouter une [TEXT_KEYTERM_DISCOUNT]</value><description></description>
-    </text>
-	<text id="TEXT_WHAT_TYPE_DISCOUNT">
-        <value>Quel type de [TEXT_KEYTERM_DISCOUNT] voulez-vous créer ?</value><description></description>
-    </text>
-    <text id="TEXT_DISCOUNT_TYPE">
-        <value>Type de [TEXT_KEYTERM_DISCOUNT]</value><description></description>
-    </text> 
-    <text id="TEXT_DISCOUNT">
-        <value>[TEXT_KEYTERM_DISCOUNT]</value><description></description>
-    </text>
-   <text id="TEXT_DISC_PERIOD">
-        <value>Période de la [TEXT_KEYTERM_DISCOUNT]</value><description></description>
-   </text>
-   <text id="TEXT_DISCOUNT_SUMMARY_DESCRIPTION1">
-        <value>Voici une synthèse de la [TEXT_KEYTERM_DISCOUNT] que vous êtes sur le point de créer.</value><description></description>
+  <description></description>
+  <text id="TEXT_CREATE_NEW_DISCOUNT">
+    <value>Créer une nouvelle [TEXT_KEYTERM_DISCOUNT]</value>
   </text>
-  
+  <text id="TEXT_EXISTING_OR_NEW_DISCOUNT">
+    <value>Voulez-vous utiliser une [TEXT_KEYTERM_DISCOUNT] existante ou en ajouter une nouvelle ?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXISTING_DISCOUNT">
+    <value>[TEXT_KEYTERM_DISCOUNTS] existantes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_A_NEW_DISCOUNT">
+    <value>Ajouter une nouvelle [TEXT_KEYTERM_DISCOUNT]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_DISCOUNT">
+    <value>Ajouter une [TEXT_KEYTERM_DISCOUNT]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_TYPE_DISCOUNT">
+    <value>Quel type de [TEXT_KEYTERM_DISCOUNT] voulez-vous créer ?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISCOUNT_TYPE">
+    <value>Type de [TEXT_KEYTERM_DISCOUNT]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISCOUNT">
+    <value>[TEXT_KEYTERM_DISCOUNT]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISC_PERIOD">
+    <value>Période de la [TEXT_KEYTERM_DISCOUNT]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISCOUNT_SUMMARY_DESCRIPTION1">
+    <value>Voici une synthèse de la [TEXT_KEYTERM_DISCOUNT] que vous êtes sur le point de créer.</value>
+    <description></description>
+  </text>
   <text id="TEXT_DISCOUNT_SUMMARY_DESCRIPTION2">
-        <value>Cliquez sur Terminer pour créer cette [TEXT_KEYTERM_DISCOUNT].</value><description></description>
-  </text> 
+    <value>Cliquez sur Terminer pour créer cette [TEXT_KEYTERM_DISCOUNT].</value>
+    <description></description>
+  </text>
   <text id="TEXT_DISCOUNT_BASED_COUNTERS">
-        <value>Cette [TEXT_KEYTERM_DISCOUNT] s'appuie sur les [TEXT_KEYTERM_COUNTERS] suivants</value><description></description>
-  </text> 
+    <value>Cette [TEXT_KEYTERM_DISCOUNT] s’appuie sur les [TEXT_KEYTERM_COUNTERS] suivants</value>
+    <description></description>
+  </text>
   <text id="TEXT_DISCOUNT_COUNTER_DESCRIPTION">
-        <value>[TEXT_KEYTERM_COUNTER] [TEXT_COLUMN_DESCRIPTION]</value><description></description>
-  </text> 
+    <value>[TEXT_KEYTERM_COUNTER] [TEXT_COLUMN_DESCRIPTION]</value>
+    <description></description>
+  </text>
   <text id="TEXT_DISCOUNT_COUNTER_CONFIGURATION_DESCRIPTION">
-        <value>[TEXT_COLUMN_DESCRIPTION] de la configuration</value><description></description>
-  </text> 
-	<text id="TEXT_NO_COUNTER_FOR_DISCOUNT">
-        <value>	Il n'y a pas de définitions de [TEXT_KEYTERM_COUNTER] pour cette [TEXT_KEYTERM_DISCOUNT].</value><description></description>
-  </text> 
-	<text id="TEXT_SELECT_PERIOD">
-        <value>Période de [TEXT_SELECT]</value><description></description>
-  </text> 
+    <value>[TEXT_COLUMN_DESCRIPTION] de la configuration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_COUNTER_FOR_DISCOUNT">
+    <value>	Il n’y a pas de définitions de [TEXT_KEYTERM_COUNTER] pour cette [TEXT_KEYTERM_DISCOUNT].</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECT_PERIOD">
+    <value>Période de [TEXT_SELECT]</value>
+    <description></description>
+  </text>
   <text id="TEXT_DISCOUNT_PARAMETER_TABLE_TITLE">
-        <value>Cette [TEXT_KEYTERM_DISCOUNT] utilise les [TEXT_KEYTERM_PARAMETER_TABLES] suivantes</value><description></description>
+    <value>Cette [TEXT_KEYTERM_DISCOUNT] utilise les [TEXT_KEYTERM_PARAMETER_TABLES] suivantes</value>
+    <description></description>
   </text>
 </texts>

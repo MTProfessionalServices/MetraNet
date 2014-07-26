@@ -54,6 +54,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
   Form("PO_ID") = Request.QueryString("ID")
   Form("Hide") = CBool(Request.QueryString("Hide"))
+  Form("GridId") = Request.QueryString("GridId")
   
   If Form("Hide") Then
     FrameWork.Dictionary().Add "HIDEORUNHIDE", FrameWork.GetDictionary("TEXT_HIDE") & " " & FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING")
@@ -84,25 +85,27 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   objProductOffering.Hidden = CBool(Form("Hide"))
   objProductOffering.Save
   
-	If(Err.Number)Then
+  If(Err.Number) Then
     FrameWork.Dictionary().Add "DeleteErrorMode", TRUE
-		EventArg.Error.Save Err
-		OK_Click = FALSE
-		Err.Clear
-	Else
-        Response.Write "<script language='JavaScript'>"
-        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
-        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
-        Response.Write "} else {"
-        Response.Write "  window.opener.parent.location.href = '/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx'"
-        Response.Write "}"
-        Response.Write "window.close();"
-        Response.Write "</script>"
-        Response.End
+    EventArg.Error.Save Err
+    OK_Click = FALSE
+    Err.Clear
+  Else
+    If (Len(Form("GridId")) > 0) Then
+      Form.JavaScriptInitialize = "window.parent.close();"
+    End If
+    OK_Click = TRUE
+  End If
 
-		OK_Click = TRUE
-	End If
+END FUNCTION
 
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		    : CANCEL_Click
+PRIVATE FUNCTION CANCEL_Click(EventArg) ' As Boolean
+  If (Len(Form("GridId")) > 0) Then
+    Form.JavaScriptInitialize = "window.parent.close();"
+  End If    
+  CANCEL_Click = TRUE
 END FUNCTION
 %>
 

@@ -142,7 +142,7 @@
     <value>Pagador</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>[pt-BR]Status</value>
+    <value>Estado</value>
   </data>
   <data name="TransactionDate" xml:space="preserve">
     <value>Data da transação</value>

@@ -44,7 +44,11 @@ public partial class ApprovalFrameworkManagement_ViewGroupSubscriptionMemberUpda
         iChangeId = Convert.ToInt32(strchangeid);
         Session["intchangeid"] = iChangeId;
     }
-
+    protected override void OnLoadComplete(EventArgs e)
+    {
+      GroupSubscriptionChangeDetails.Title = Request.QueryString["changetype"];
+      base.OnLoadComplete(e);
+    }  
     protected string GetChangeDetails(int changeId)
     {
       ApprovalManagementServiceClient client = null;

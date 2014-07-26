@@ -651,4 +651,10 @@
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
     <value>[es-MX]Bill Messages</value>
   </data>
- </root>
+  <data name="TEXT_CHECKING" xml:space="preserve">
+    <value>Corriente</value>
+  </data>
+  <data name="TEXT_SAVINGS" xml:space="preserve">
+    <value>Ahorros</value>
+  </data>
+</root>

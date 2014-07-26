@@ -183,4 +183,13 @@
   <data name="START_DATE" xml:space="preserve">
     <value>Date de début</value>
   </data>
+  <data name="EndDateResource1.Label" xml:space="preserve">
+    <value>Abonnements Date de fin</value>
+  </data>
+  <data name="StartDateResource1.Label" xml:space="preserve">
+    <value>Abonnements Date de départ</value>
+  </data>
+  <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
+    <value>Abonnement Span</value>
+  </data>
 </root>

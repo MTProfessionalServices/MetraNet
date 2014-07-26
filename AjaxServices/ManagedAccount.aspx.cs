@@ -287,15 +287,15 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
             json.Append(item);
             item = string.Format("\"n_amount\":{0},", FormatFieldValue(record.Fields[billingSummary_Amount_Index], invariantCulture));
             json.Append(item);
-            item = string.Format("\"n_amountAsString\":{0},", FormatCurrencyValue(record.Fields[billingSummary_Amount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString())); 
+            item = string.Format("\"n_amountAsString\":{0},", FormatCurrencyValueForGraph(record.Fields[billingSummary_Amount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString())); 
             json.Append(item);
             item = string.Format("\"n_invoice_amount\":{0},", FormatFieldValue(record.Fields[billingSummary_InvoiceAmount_Index], invariantCulture));
             json.Append(item);
-            item = string.Format("\"n_invoiceamountAsString\":{0},", FormatCurrencyValue(record.Fields[billingSummary_InvoiceAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
+            item = string.Format("\"n_invoiceamountAsString\":{0},", FormatCurrencyValueForGraph(record.Fields[billingSummary_InvoiceAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
             json.Append(item);
             item = string.Format("\"n_mrr_amount\":{0},", FormatFieldValue(record.Fields[billingSummary_MrrAmount_Index], invariantCulture));
             json.Append(item);
-            item = string.Format("\"n_mrramountAsString\":{0},", FormatCurrencyValue(record.Fields[billingSummary_MrrAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
+            item = string.Format("\"n_mrramountAsString\":{0},", FormatCurrencyValueForGraph(record.Fields[billingSummary_MrrAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
             json.Append(item);
             item = string.Format("\"item_desc\":{0}", FormatFieldValue(record.Fields[billingSummary_ItemDesc_Index]));
             json.Append(item);
@@ -366,7 +366,12 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
   private string FormatCurrencyValue(SQLField field, string currency)
   {
-    return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency).EncodeForHtml());
+    return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency).EncodeForJavaScript());
+  }
+
+  private string FormatCurrencyValueForGraph(SQLField field, string currency)
+  {
+    return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency));
   }
 
   private string FormatDateTime(SQLField field, string format)

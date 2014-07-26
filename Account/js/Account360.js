@@ -205,12 +205,12 @@ function displayFailedTransactionCount(accountId) {
 function displayBillingActivityGraph() {
   var dateFormat = d3.time.format("%m/%d/%Y %I:%M:%S");
   //var dayFormat = d3.time.format("%B %e, %Y");
-  d3.json("/MetraNet/AjaxServices/ManagedAccount.aspx?_=" + new Date().getTime() + "&operation=billingsummary", function(error, data) {
+  d3.json("/MetraNet/AjaxServices/ManagedAccount.aspx?_=" + new Date().getTime() + "&operation=billingsummary", function (error, data) {
     if (error) {
       console.log("Error:" + error.valueOf());
     } else {
       var items = [];
-      data.Items.forEach(function(d) {
+      data.Items.forEach(function (d) {
         d.n_order = +d.n_order;
         d.n_invoice_amount = +d.n_invoice_amount;
         d.n_mrr_amount = +d.n_mrr_amount;
@@ -224,9 +224,9 @@ function displayBillingActivityGraph() {
         }
       });
       var ndx = crossfilter(items);
-      var dateDimension = ndx.dimension(function(d) { return d.n_order; });
-      var invoiceGroup = dateDimension.group().reduceSum(function(d) { return d.n_invoice_amount; });
-      var mrrGroup = dateDimension.group().reduceSum(function(d) { return d.n_mrr_amount; });
+      var dateDimension = ndx.dimension(function (d) { return d.n_order; });
+      var invoiceGroup = dateDimension.group().reduceSum(function (d) { return d.n_invoice_amount; });
+      var mrrGroup = dateDimension.group().reduceSum(function (d) { return d.n_mrr_amount; });
       var composite = dc.compositeChart("#billsPaymentsChart");
       composite
         .margins({ top: 5, right: 5, bottom: 60, left: 5 })
@@ -238,27 +238,30 @@ function displayBillingActivityGraph() {
         .transitionDuration(0)
         .legend(dc.legend().x(15).y(245).itemHeight(13).gap(5))
         .brushOn(false)
-        .title("MRR", function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString; })
+        .title("MRR", function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString.replace("&pound", "£"); })
         .compose([
           dc.barChart(composite)
             .dimension(dateDimension)
             .group(invoiceGroup, ACCOUNT_INVOICE_GRAPH_TEXT)
             .centerBar(true)
             .colors('#0070C0')
-            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_INVOICE_GRAPH_TEXT + ": " + items[d.key - 1].n_invoiceamountAsString; }),
+            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_INVOICE_GRAPH_TEXT + ": " + items[d.key - 1].n_invoiceamountAsString.replace("&pound", "£"); }),
           dc.lineChart(composite)
             .dimension(dateDimension)
             .group(mrrGroup, ACCOUNT_MRR_GRAPH_TEXT)
             .colors('#00B0F0')
             .renderDataPoints({ radius: 4, fillOpacity: 0.5, strokeOpacity: 0.8 })
-            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString; })
+            .title(function (d) { return items[d.key - 1].dt_transactionGraphTooltip + " " + ACCOUNT_MRR_GRAPH_TEXT + ": " + items[d.key - 1].n_mrramountAsString.replace("&pound", "£"); })
         ]);
       composite.xAxis().tickSize(0, 0).tickFormat("");
       composite.yAxis().tickSize(0, 0).tickFormat("");
-
-      composite.render();
+      if (items.length == 0) {
+        d3.select("#billsPaymentsChart").text(TEXT_NO_DATA_FOR_GRAPH).attr("x", "2").attr("y", "2").style("color", "gray");
+        composite.height(275);
+      }
 
       dc.renderAll();
+
     }
   });
 }

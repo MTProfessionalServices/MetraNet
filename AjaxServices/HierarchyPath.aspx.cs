@@ -9,7 +9,7 @@ public partial class AjaxServices_HierarchyPath : MTPage
   protected void Page_Load(object sender, EventArgs e)
   {
     var id = 0;
-    var type = "'system_mps', 'system_user'";
+    var type = "'system_mps'";
     if (Request["node"] != null)
       id = int.Parse(Request["node"]);
     if (Request["type"] != null)
@@ -71,16 +71,13 @@ public partial class AjaxServices_HierarchyPath : MTPage
               Response.Write(" [" + FixString(crsr.GetValue("folder_owner").ToString()) + "]");
             }
             var id = crsr.GetInt32("parent_id");
-            Response.Write("','qtip':'");
-            Response.Write(id);
-            Response.Write("','accType':'");
-            Response.Write(crsr.GetString("account_type"));
-            Response.Write("','href':'/MetraNet/ManageAccount.aspx?id=");
-            Response.Write(id);
+            Response.Write("','qtip':'"); Response.Write(id);
+            Response.Write("','accType':'"); Response.Write(crsr.GetString("account_type"));
+            Response.Write("','href':'/MetraNet/ManageAccount.aspx?id="); Response.Write(id);
             Response.Write("','listeners':{contextmenu:function(node,e){Account.ShowHCMenu(node,e);}}");
+            //					Response.Write(string.Format(",'pageNumber':'{0}'", pageNumber));
             Response.Write(",'hrefTarget':'MainContentIframe");
-            Response.Write("','id':'");
-            Response.Write(id);
+            Response.Write("','id':'"); Response.Write(id);
             Response.Write("','leaf':");
             Response.Write((!(crsr.GetBoolean("children"))).ToString().ToLower());
 
@@ -98,20 +95,15 @@ public partial class AjaxServices_HierarchyPath : MTPage
             {
               imageURLPath.Append("&Folder=TRUE");
               imageURLPath.Append("&FolderOpen=FALSE");
+              //                      Response.Write(",'loaded':"); Response.Write(true.ToString().ToLower());
             }
 
-            Response.Write(",'icon':'");
-            Response.Write(imageURLPath.ToString());
-            Response.Write("','parentid':'");
-            Response.Write(crsr.GetInt32("id_parent").ToString());
-            Response.Write("','n_folder':'");
-            Response.Write(crsr.GetInt32("folder").ToString());
-            Response.Write("','nm_name':'");
-            Response.Write(FixString(crsr.GetString("hierarchyname")));
-            Response.Write("','nm_type':'");
-            Response.Write(crsr.GetString("account_type"));
-            Logger.LogDebug(string.Format("Folder: {0} Hierarchy: {1} Type: {2}", crsr.GetInt32("folder").ToString(),
-                                          crsr.GetString("hierarchyname"), crsr.GetString("account_type")));
+            Response.Write(",'icon':'"); Response.Write(imageURLPath.ToString());
+            Response.Write("','parentid':'"); Response.Write(crsr.GetInt32("id_parent").ToString());
+            Response.Write("','n_folder':'"); Response.Write(crsr.GetInt32("folder").ToString());
+            Response.Write("','nm_name':'"); Response.Write(FixString(crsr.GetString("hierarchyname")));
+            Response.Write("','nm_type':'"); Response.Write(crsr.GetString("account_type"));
+            Logger.LogDebug(string.Format("Folder: {0} Hierarchy: {1} Type: {2}", crsr.GetInt32("folder").ToString(), crsr.GetString("hierarchyname"), crsr.GetString("account_type")));
             Response.Write("'}");
           }
           Response.Write("]");

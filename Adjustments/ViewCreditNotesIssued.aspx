@@ -4,7 +4,9 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  
+   <div class="CaptionBar">
+    <asp:Label ID="lblViewCreditNotesTitle" runat="server" meta:resourcekey="lblViewCreditNotesTitle"></asp:Label>
+  </div>
   <MT:MTFilterGrid ID="CreditNotesGrid" runat="server" ExtensionName="Core" 
     TemplateFileName="CreditNotesIssued.xml">
   </MT:MTFilterGrid>

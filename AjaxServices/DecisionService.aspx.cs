@@ -541,7 +541,7 @@ public class BucketInstance
 
   private bool TryGetLocalizedString(string baseKey, out object value)
   {
-      string localizedKey = baseKey + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+      string localizedKey = baseKey + "_" + System.Threading.Thread.CurrentThread.CurrentUICulture.Name.Replace('-', '_').ToLower();
       if (DecisionInstAttributes.TryGetValue(localizedKey, out value))
       {
           if (value != null)
@@ -549,7 +549,7 @@ public class BucketInstance
               return true;
           }
       }
-      localizedKey = baseKey + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+      localizedKey = baseKey + "_" + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
       if (DecisionInstAttributes.TryGetValue(localizedKey, out value))
       {
           if (value != null)
@@ -1450,7 +1450,7 @@ public class DecisionInstance : MTListServicePage
   private string GetLocalizedString ( string baseKey )
   {
     string value;
-    string localizedKey = baseKey + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+    string localizedKey = baseKey + "_" + System.Threading.Thread.CurrentThread.CurrentUICulture.Name.Replace('-', '_').ToLower();
     if ( DecisionTypeAttributes.TryGetValue ( localizedKey, out value ) )
     {
       if ( value != null )
@@ -1458,7 +1458,7 @@ public class DecisionInstance : MTListServicePage
         return value;
       }
     }
-    localizedKey = baseKey + "." + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    localizedKey = baseKey + "_" + System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
     if ( DecisionTypeAttributes.TryGetValue ( localizedKey, out value ) )
     {
       if ( value != null )

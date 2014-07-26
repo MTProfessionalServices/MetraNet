@@ -165,4 +165,7 @@
   <data name="TEXT_STATUS_INFORMATION" xml:space="preserve">
     <value>[es-MX]Status Information</value>
   </data>
+  <data name="lblViewCreditNotesTitle.Text" xml:space="preserve">
+    <value>[es-MX]View Credit Notes Issued</value>
+  </data>    
 </root>

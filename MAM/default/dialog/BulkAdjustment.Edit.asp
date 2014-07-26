@@ -128,12 +128,10 @@ PRIVATE FUNCTION butCompute_Click(EventArg) ' As Boolean
 
     butCompute_Click = FALSE
 
-    If (Service.RequiredFieldsOK(EventArg.Error) And Service.ValidateRequiredFieldsWithRegEx("[^0-9]", EventArg.Error)) Then ' Check to see if all the required field are set and valid
-
+    If (Service.RequiredFieldsOK(EventArg.Error)) Then ' Check to see if all the required field are set and valid
         AdjustmentHelper.CalculateAndUpdateServiceProperties
         
-        If AdjustmentHelper.WarningsCounter Then
-        
+        If AdjustmentHelper.WarningsCounter Then        
               Form.JavaScriptInitialize = "window.open('[BATCH_ERROR_LIST_DIALOG]&WarningMode=TRUE&Close=TRUE&FilterOff=TRUE&PopUpWindowMode=TRUE','','height=300,width=570,resizable=yes,scrollbars=yes,status=yes');"
               Form.JavaScriptInitialize = FrameWork.Dictionary.PreProcess(Form.JavaScriptInitialize)
         End If

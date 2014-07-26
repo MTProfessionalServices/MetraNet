@@ -74,11 +74,11 @@
     </description>
   </text>
   <text id="DECIMAL_SEPARATOR">
-    <value>.</value>
+    <value>,</value>
     <description>The decimal separator. Used by MDM Client Side (JavaScript).</description>
   </text>
   <text id="THOUSAND_SEPARATOR">
-    <value>,</value>
+    <value> </value>
     <description>The 1000 separator. Used by MDM Client Side (JavaScript).</description>
   </text>
   <text id="DECIMAL_DIGIT_AFTER">
@@ -98,7 +98,7 @@
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>January,Febtuary,March,April,May,June,July,August,September,October,November,December</value>
+    <value>January,February,March,April,May,June,July,August,September,October,November,December</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">

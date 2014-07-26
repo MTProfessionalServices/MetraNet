@@ -43,7 +43,7 @@
   </text>
   -->
   <text id="END_OF_DAY">
-    <value>11:59:59 PM</value>
+    <value>23:59:59</value>
     <description>End of day</description>
   </text>
   <text id="DATE_FORMAT">
@@ -63,22 +63,22 @@
     <description>The time format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>dd/mm/yyyy hh:mm:ss AMPM</value>
+    <value>dd/mm/yyyy hh:mm:ss</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">
-    <value>0,00;-0,00;</value>
+    <value>0.00;-0.00;</value>
     <description>
       NOTE:  This value must always use the "." character as the decimal separator.  Even if the real DECIMAL_SEPARATOR is different.
       The amount format used all accross the application.  See the Visual Basic Format instructor for more help.
     </description>
   </text>
   <text id="DECIMAL_SEPARATOR">
-    <value>.</value>
+    <value>,</value>
     <description>The decimal separator. Used by MDM Client Side (JavaScript).</description>
   </text>
   <text id="THOUSAND_SEPARATOR">
-    <value>,</value>
+    <value> </value>
     <description>The 1000 separator. Used by MDM Client Side (JavaScript).</description>
   </text>
   <text id="DECIMAL_DIGIT_AFTER">
@@ -94,15 +94,15 @@
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="TODAY_TEXT">
-    <value>[pt-BR]Today</value>
+    <value>Hoje</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>[pt-BR]January,Febtuary,March,April,May,June,July,August,September,October,November,December</value>
+    <value>Janeiro,Fevereiro,Março,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">
-    <value>[pt-BR]Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
+    <value>Domingo,Segunda,Terça,Quarta,Quinta,Sexta,Sábado</value>
     <description>weekdays.</description>
   </text>
   <text id="START_DAY_OF_WEEK">
@@ -110,15 +110,15 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>[pt-BR]Cancel</value>
+    <value>Cancelar</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>[pt-BR]Next Month</value>
+    <value>Próximo mês</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>[pt-BR]Previous month</value>
+    <value>Mês prévio</value>
     <description></description>
   </text>
 </texts>

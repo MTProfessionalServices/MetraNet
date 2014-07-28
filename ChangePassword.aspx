@@ -18,7 +18,7 @@
         <br />
         <table>
           <tr>
-            <td colspan="2"><MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbUserNameResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" /></td>
+            <td colspan="2"><MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbUserNameResource1" ReadOnly="True" XType="TextField" XTypeNameSpace="form" /></td>
           </tr>
           <tr>
             <td>

@@ -120,9 +120,6 @@
   <data name="AddACH.Text" xml:space="preserve">
     <value>Aggiungi ACH</value>
   </data>
-  <data name="Checking" xml:space="preserve">
-    <value>Conto corrente</value>
-  </data>
   <data name="ddAccountTypeResource1.Label" xml:space="preserve">
     <value>Tipo di conto</value>
   </data>
@@ -157,9 +154,6 @@
     <value>Conto corrente</value>
   </data>
   <data name="radSavingsResource1.Title" xml:space="preserve">
-    <value>Conto di risparmio</value>
-  </data>
-  <data name="Savings" xml:space="preserve">
     <value>Conto di risparmio</value>
   </data>
   <data name="tbAccountNumberResource1.Title" xml:space="preserve">

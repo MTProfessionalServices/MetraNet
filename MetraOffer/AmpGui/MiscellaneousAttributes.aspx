@@ -71,107 +71,98 @@
 <script type="text/javascript">
 
   // Event handler for Add button in MiscellanousAttributesGrid gridlayout
-  function onAdd_<%=MiscellanousAttributesGrid.ClientID %>()
-  {
+  function onAdd_<%=MiscellanousAttributesGrid.ClientID %>() {
     var addMiscAttributeWindow = new top.Ext.Window({
-          id: 'addMiscAttributeWindow',
-          title: TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE,
-          width: 450,
-          height: 280,
-          minWidth: 450,
-          minHeight: 280,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizable: false,
-          maximizable: false,
-          closable: true,
-          closeAction: 'close',  
-          modal: 'true',       
-          html: '<iframe id="cloneWindow" src="/MetraNet/MetraOffer/AmpGui/AddMiscellaneousAttribute.aspx" width="100%" height="100%" frameborder="0" />'
-        });
-    
-     addMiscAttributeWindow.show();
-     addMiscAttributeWindow.on('close', function() {
-        dataStore_<%= MiscellanousAttributesGrid.ClientID %>.reload();
-      });
-   }
-      
-    OverrideRenderer_<%= MiscellanousAttributesGrid.ClientID %> = function(cm)
-    {
-      if (cm.getIndexById('Actions') != -1)
-      {
-        cm.setRenderer(cm.getIndexById('Actions'), actionsColRenderer);
-      } 
+      id: 'addMiscAttributeWindow',
+      title: TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE,
+      width: 450,
+      height: 280,
+      minWidth: 450,
+      minHeight: 280,
+      layout: 'fit',
+      plain: true,
+      bodyStyle: 'padding:5px;',
+      buttonAlign: 'center',
+      collapsible: true,
+      resizable: false,
+      maximizable: false,
+      closable: true,
+      closeAction: 'close',
+      modal: 'true',
+      html: '<iframe id="cloneWindow" src="/MetraNet/MetraOffer/AmpGui/AddMiscellaneousAttribute.aspx" width="100%" height="100%" frameborder="0" />'
+    });
+
+    addMiscAttributeWindow.show();
+    addMiscAttributeWindow.on('close', function() { GridReload(); });
+  }
+
+  OverrideRenderer_<%= MiscellanousAttributesGrid.ClientID %> = function(cm) {
+    if (cm.getIndexById('Actions') != -1) {
+      cm.setRenderer(cm.getIndexById('Actions'), actionsColRenderer);
     }
+  }
 
-    function actionsColRenderer(value, meta, record, rowIndex, colIndex, store)
-    {
-      var str = "";    
-      str += String.format("&nbsp;&nbsp;<a style='cursor:pointer;' id='Edit' title='{1}' href='JavaScript:onEditMiscAttribute(\"{0}\");'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",  record.data.Name, TEXT_EDIT_DECISION_MISC_ATTRIBUTE);
-      str += String.format("&nbsp;&nbsp;<a style='cursor:pointer;' id='Delete' title='{1}' href='JavaScript:onDeleteMiscAttribute(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",  record.data.Name, TEXT_DELETE_DECISION_MISC_ATTRIBUTE);
-      return str;
-    }
+  function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
+    var str = "";
+    str += String.format("&nbsp;&nbsp;<a style='cursor:pointer;' id='Edit' title='{1}' href='JavaScript:onEditMiscAttribute(\"{0}\");'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>", record.data.Name, TEXT_EDIT_DECISION_MISC_ATTRIBUTE);
+    str += String.format("&nbsp;&nbsp;<a style='cursor:pointer;' id='Delete' title='{1}' href='JavaScript:onDeleteMiscAttribute(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>", record.data.Name, TEXT_DELETE_DECISION_MISC_ATTRIBUTE);
+    return str;
+  }
 
-   function onEditMiscAttribute(name)
-   {
-   var editMiscAttributeWindow = new top.Ext.Window({
-          id: 'editMiscAttributeWindow',
-          title: TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE,
-          width: 450,
-          height: 280,
-          minWidth: 450,
-          minHeight: 280,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizable: false,
-          maximizable: false,
-          closable: true,
-          closeAction: 'close',  
-          modal: 'true',       
-          html: '<iframe id="editWindow" src="/MetraNet/MetraOffer/AmpGui/EditMiscellaneousAttribute.aspx?MiscellaneousAttributeName=' + name + '" width="100%" height="100%" frameborder="0" />'
-        });
-    
-     editMiscAttributeWindow.show();
-     editMiscAttributeWindow.on('close', function() {
-        dataStore_<%= MiscellanousAttributesGrid.ClientID %>.reload();
-      });
+  function onEditMiscAttribute(name) {
+    var editMiscAttributeWindow = new top.Ext.Window({
+      id: 'editMiscAttributeWindow',
+      title: TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE,
+      width: 450,
+      height: 280,
+      minWidth: 450,
+      minHeight: 280,
+      layout: 'fit',
+      plain: true,
+      bodyStyle: 'padding:5px;',
+      buttonAlign: 'center',
+      collapsible: true,
+      resizable: false,
+      maximizable: false,
+      closable: true,
+      closeAction: 'close',
+      modal: 'true',
+      html: '<iframe id="editWindow" src="/MetraNet/MetraOffer/AmpGui/EditMiscellaneousAttribute.aspx?MiscellaneousAttributeName=' + name + '" width="100%" height="100%" frameborder="0" />'
+    });
 
-   }
-  
-   function onDeleteMiscAttribute(name)
-   {
-   var deleteMiscAttributeWindow = new top.Ext.Window({
-          id: 'deleteMiscAttributeWindow',
-          title: TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE,
-          width: 450,
-          height: 180,
-          minWidth: 450,
-          minHeight: 180,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizable: false,
-          maximizable: false,
-          closable: true,
-          closeAction: 'close',  
-          modal: 'true',       
-          html: '<iframe id="deleteWindow" src="/MetraNet/MetraOffer/AmpGui/DeleteMiscellaneousAttribute.aspx?MiscellaneousAttributeName=' + name + '" width="100%" height="100%" frameborder="0" />'
-        });
-    
-     deleteMiscAttributeWindow.show();
-     deleteMiscAttributeWindow.on('close', function() {
-        dataStore_<%= MiscellanousAttributesGrid.ClientID %>.reload();
-      });
+    editMiscAttributeWindow.show();
+    editMiscAttributeWindow.on('close', function() { GridReload(); });
+  }
 
-   }
+  function onDeleteMiscAttribute(name) {
+    var deleteMiscAttributeWindow = new top.Ext.Window({
+      id: 'deleteMiscAttributeWindow',
+      title: TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE,
+      width: 450,
+      height: 180,
+      minWidth: 450,
+      minHeight: 180,
+      layout: 'fit',
+      plain: true,
+      bodyStyle: 'padding:5px;',
+      buttonAlign: 'center',
+      collapsible: true,
+      resizable: false,
+      maximizable: false,
+      closable: true,
+      closeAction: 'close',
+      modal: 'true',
+      html: '<iframe id="deleteWindow" src="/MetraNet/MetraOffer/AmpGui/DeleteMiscellaneousAttribute.aspx?MiscellaneousAttributeName=' + name + '" width="100%" height="100%" frameborder="0" />'
+    });
+
+    deleteMiscAttributeWindow.show();
+    deleteMiscAttributeWindow.on('close', function() { GridReload(); });
+  }
+
+  function GridReload() {
+    dataStore_<%= MiscellanousAttributesGrid.ClientID %>.reload();
+    window.checkFrameLoading();
+  }
 </script>
 
 </asp:Content>

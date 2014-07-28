@@ -158,6 +158,7 @@
         window.location = "/MetraNet/MetraOffer/AmpGui/EditAccountGroup.aspx?AccountGroupAction=Edit&AccountGroupName="
                             + addAccountGroupWindow.myExtraParams.newAccountGroupName;
       }
+      window.checkFrameLoading();
     });
   }
 

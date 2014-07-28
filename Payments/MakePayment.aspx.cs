@@ -176,7 +176,7 @@ public partial class Payments_MakePayment : MTPage
         string format = (string)GetLocalResourceObject("MSGFormat.ACH");
         info = string.Format(//"{0} account in {1}",
           format,
-          achpm.AccountType.ToString(),
+          ExtensionMethods.GetLocalizedBankAccountType(achpm.AccountType.ToString()),
           lastFourDigits);
         ShortPaymentMethodInfo shortPaymentMethodInfo = new ShortPaymentMethodInfo();
         shortPaymentMethodInfo.MethodType = PaymentMethodType.ACH;

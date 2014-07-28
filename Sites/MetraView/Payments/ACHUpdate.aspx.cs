@@ -4,7 +4,6 @@ using System.Web.UI.WebControls;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.MetraPay;
 using MetraTech.ActivityServices.Common;
-using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 
 public partial class Payments_ACHUpdate : MTPage
 {

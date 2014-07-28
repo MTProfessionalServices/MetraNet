@@ -21,22 +21,9 @@ public partial class Payments_ACHAdd : MTPage
     set { ViewState["ACHCard"] = value; }
   }
 
-  protected void PopulatePriority()
+  private bool PayNow
   {
-    var totalCards = GetTotalCards() + 1;
-
-    for (var i = 1; i <= totalCards; i++)
-    {
-      var item = i.ToString(CultureInfo.InvariantCulture);
-      ddPriority.Items.Add(new ListItem(item, item));
-    }
-  }
-
-  protected int GetTotalCards()
-  {
-    var metraPayManger = new MetraPayManager(UI);
-    var cardList = metraPayManger.GetPaymentMethodSummaries();
-    return cardList.TotalRows > 0 ? cardList.TotalRows : 0;
+    get { return !String.IsNullOrEmpty(Request.QueryString["pay"]); }
   }
 
   protected void Page_Load(object sender, EventArgs e)
@@ -56,53 +43,7 @@ public partial class Payments_ACHAdd : MTPage
     PopulatePaymentData();
     PrepopulateSubscriberInformation();
   }
-
-  private void PopulatePaymentData()
-  {
-    if (PayNow)
-    {
-      divPaymentData.Visible = true;
-      var paymentData = (MetraPayManager.MakePaymentData) Session["MakePaymentData"];
-      lcAmount.Text = paymentData.Amount.ToString();
-      lcMethod.Text = paymentData.Method;
-    }
-    else
-    {
-      divPaymentData.Visible = false;
-    }
-  }
-
-  private void PrepopulateSubscriberInformation()
-  {
-    try
-    {
-      var billManger = new BillManager(UI);
-      var invoiceReport = billManger.GetInvoiceReport(true);
-
-      if (invoiceReport == null) return;
-      var invoiceAccount = invoiceReport.InvoiceHeader.PayeeAccount;
-      if (invoiceAccount == null) return;
-      tbFirstName.Text = invoiceAccount.FirstName;
-      tbMiddleInitial.Text = invoiceAccount.MiddleInitial;
-      tbLastName.Text = invoiceAccount.LastName;
-      tbAddress.Text = invoiceAccount.Address1;
-      tbAddress2.Text = invoiceAccount.Address2;
-      tbCity.Text = invoiceAccount.City;
-      tbState.Text = invoiceAccount.State;
-      tbZipCode.Text = invoiceAccount.Zip;
-    }
-    catch (Exception ex)
-    {
-      SetError(ex.Message);
-      Logger.LogError(ex.Message);
-    }
-  }
-
-  private bool PayNow
-  {
-    get { return !String.IsNullOrEmpty(Request.QueryString["pay"]); }
-  }
-
+  
   protected void btnOK_Click(object sender, EventArgs e)
   {
     if (!MTDataBinder1.Unbind())
@@ -145,4 +86,67 @@ public partial class Payments_ACHAdd : MTPage
   {
     Response.Redirect(PayNow ? "MakePayment.aspx" : "ViewPaymentMethods.aspx");
   }
+
+  #region Private methods
+
+  protected void PopulatePriority()
+  {
+    var totalCards = GetTotalCards() + 1;
+
+    for (var i = 1; i <= totalCards; i++)
+    {
+      var item = i.ToString(CultureInfo.InvariantCulture);
+      ddPriority.Items.Add(new ListItem(item, item));
+    }
+  }
+
+  protected int GetTotalCards()
+  {
+    var metraPayManger = new MetraPayManager(UI);
+    var cardList = metraPayManger.GetPaymentMethodSummaries();
+    return cardList.TotalRows > 0 ? cardList.TotalRows : 0;
+  }
+
+  private void PopulatePaymentData()
+  {
+    if (PayNow)
+    {
+      divPaymentData.Visible = true;
+      var paymentData = (MetraPayManager.MakePaymentData)Session["MakePaymentData"];
+      lcAmount.Text = paymentData.Amount.ToString();
+      lcMethod.Text = paymentData.Method;
+    }
+    else
+    {
+      divPaymentData.Visible = false;
+    }
+  }
+
+  private void PrepopulateSubscriberInformation()
+  {
+    try
+    {
+      var billManger = new BillManager(UI);
+      var invoiceReport = billManger.GetInvoiceReport(true);
+
+      if (invoiceReport == null) return;
+      var invoiceAccount = invoiceReport.InvoiceHeader.PayeeAccount;
+      if (invoiceAccount == null) return;
+      tbFirstName.Text = invoiceAccount.FirstName;
+      tbMiddleInitial.Text = invoiceAccount.MiddleInitial;
+      tbLastName.Text = invoiceAccount.LastName;
+      tbAddress.Text = invoiceAccount.Address1;
+      tbAddress2.Text = invoiceAccount.Address2;
+      tbCity.Text = invoiceAccount.City;
+      tbState.Text = invoiceAccount.State;
+      tbZipCode.Text = invoiceAccount.Zip;
+    }
+    catch (Exception ex)
+    {
+      SetError(ex.Message);
+      Logger.LogError(ex.Message);
+    }
+  }
+
+  #endregion
 }

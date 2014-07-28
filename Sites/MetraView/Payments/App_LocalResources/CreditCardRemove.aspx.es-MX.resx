@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="btnOKResource1.Text" xml:space="preserve">
-    <value>Sí</value>
-  </data>
   <data name="lblConfirmResource1.Text" xml:space="preserve">
     <value>¿Está seguro que desea eliminar la tarjeta de crédito a continuación?</value>
   </data>

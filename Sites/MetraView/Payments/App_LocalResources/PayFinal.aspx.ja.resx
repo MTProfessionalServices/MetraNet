@@ -150,7 +150,7 @@
   <data name="lcType.Label" xml:space="preserve">
     <value>カード種別</value>
   </data>
-  <data name="PaymentConfirmation" xml:space="preserve">
+  <data name="PaymentConfirmation.Text" xml:space="preserve">
     <value>支払の確認</value>
   </data>
 </root>

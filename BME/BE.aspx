@@ -1,4 +1,4 @@
-﻿<%@ Page Title="MetraNet" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="BE" CodeFile="BE.aspx.cs" Culture="auto" UICulture="auto" meta:resourcekey="PageResource1" %>
+﻿<%@ Page Title="MetraNet" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="BE" CodeFile="BE.aspx.cs" Culture="auto" UICulture="auto" meta:resourcekey="PageResource1" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 

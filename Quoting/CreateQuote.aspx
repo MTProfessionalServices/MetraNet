@@ -65,7 +65,7 @@
     </div>
     <div id="Div2" class="RightColumn">
         <MT:MTDatePicker AllowBlank="True" ReadOnly="True" HideLabel="False" ID="MTdpCreationDate"
-        Label="Creation date" LabelWidth="120" meta:resourcekey="MTdpCreationDateResource" 
+        Label="Creation date" LabelWidth="100" meta:resourcekey="MTdpCreationDateResource" 
         runat="server"></MT:MTDatePicker>
       <MT:MTTextBoxControl ID="MTTextBoxControlTotal" AllowBlank="True"
         LabelWidth="100" meta:resourcekey="MTTextBoxControlTotalResource" runat="server" ReadOnly="True" />

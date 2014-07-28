@@ -5,21 +5,23 @@
   <script language="javascript" type="text/javascript">
 
     function check_counters() {
-      var mytable = document.getElementById('Table_CounterParameters');
+      var mytable = document.getElementById("Table_CounterParameters");
       // if any of the innerText for the cells in the table are empty, then the user has not selected values for a counter, so return false
-      for (var i = 0, cell; cell = mytable.cells[i]; i++) {
-        if (cell.innerText.length == 0) {
-          // first check if the error message is already showing
-          if (document.getElementById('CheckCountersErrorMessage') == null) {
-            // show the error message
-            var row = mytable.insertRow(0);
-            var cell1 = row.insertCell(0);
-            cell1.innerHTML = "You need to select a value for each argument below before clicking the OK button.";
-            cell1.className = "ErrorMessageCaption";
-            cell1.colSpan = "3";
-            cell1.id = "CheckCountersErrorMessage";
+      for (var i = 0, row; row = mytable.rows[i]; i++) {
+        for (var j = 0, cell; cell = mytable.rows[i].cells[j]; j++) {
+          if (cell.innerText.length == 0) {
+            // first check if the error message is already showing
+            if (document.getElementById('CheckCountersErrorMessage') == null) {
+              // show the error message
+              var row1 = mytable.insertRow(0);
+              var cell1 = row1.insertCell(0);
+              cell1.innerHTML = "You need to select a value for each argument below before clicking the OK button.";
+              cell1.className = "ErrorMessageCaption";
+              cell1.colSpan = "3";
+              cell1.id = "CheckCountersErrorMessage";
+            }
+            return false;
           }
-          return false;
         }
       }
       return true;

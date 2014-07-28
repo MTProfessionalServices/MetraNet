@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>d/m/Y</value>
+    <value>d.m.Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
     <value>j.n.Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j.n.Y g:i:s|j.n.Y</value>
+    <value>j.n.Y H:i:s|j.n.Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>n/j/Y H:i:s A</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j.n.Y g:i:s</value>
+    <value>j.n.Y H:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>
@@ -673,7 +673,7 @@
     <value>Möchten Sie sich wirklich abmelden?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
+    <value>j.n.Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Konto verwalten</value>

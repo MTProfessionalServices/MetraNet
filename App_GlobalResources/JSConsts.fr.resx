@@ -124,13 +124,13 @@
     <value>j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y G:i:s|j/n/Y</value>
+    <value>j/n/Y H:i:s|j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>j/n/Y H:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>j/n/Y H:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>

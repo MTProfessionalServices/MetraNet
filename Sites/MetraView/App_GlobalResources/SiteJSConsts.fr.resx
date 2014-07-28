@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>j/m/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
     <value>j/n/Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>j/n/Y H:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y G:i:s|j/n/Y</value>
+    <value>j/n/Y H:i:s|j/n/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>j/n/Y H:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>jj/mm/YYYY</value>
+    <value>dd/mm/YYYY</value>
   </data>
   <data name="GRAPH_CURRENCY_FORMAT" xml:space="preserve">
     <value>$%.2f</value>
@@ -697,7 +697,7 @@
     <value>Le milieu initial est incorrecte</value>
   </data>
   <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>j/n/Y H:i:s</value>
   </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
     <value>Actualiser</value>

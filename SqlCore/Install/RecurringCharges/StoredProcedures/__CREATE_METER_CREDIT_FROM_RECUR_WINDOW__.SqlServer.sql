@@ -204,6 +204,7 @@ BEGIN
          AND rw.c__IsAllowGenChargeByTrigger = 1
          AND @isStartDateUpdated = 1
 
+  /* TODO: Why do we need this UNION? Delete it */
  UNION
 
 	SELECT DISTINCT 
@@ -274,7 +275,23 @@ BEGIN
 	       AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
 	       AND rw.c__IsAllowGenChargeByTrigger = 1;
 
-	
+
+  /* Remove extra charges for RCs with No Proration (CORE-6789) */
+  IF (@isEndDateUpdated = 1)
+  BEGIN
+    /* PIs, that starts outside of End Date Update range, should not be handled here */
+    DELETE FROM #tmp_rc_1 WHERE c_ProrateOnUnsubscription = '0' AND c_RCIntervalStart < @subscriptionStart
+
+    /* Turn On "Prorate On Subscription" if this is the 1-st RC Cycle of PI with "Prorate on Unsubscription" */
+    UPDATE #tmp_rc_1
+    SET c_ProrateOnSubscription = '1'
+    WHERE c_ProrateOnUnsubscription = '1' AND @newSubStart BETWEEN c_RCIntervalStart AND c_RCIntervalEnd
+  END
+  IF (@isStartDateUpdated = 1)
+    /* PIs, that ends outside of Start Date Update range, should not be handled here */
+    DELETE FROM #tmp_rc_1 WHERE c_ProrateOnSubscription = '0' AND c_RCIntervalEnd > @subscriptionEnd2
+
+
  /* Now determine if th interval and if the RC adapter has run, if no remove those adavanced charge credits */
     DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
 

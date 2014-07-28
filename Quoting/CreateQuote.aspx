@@ -5,7 +5,7 @@
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <asp:PlaceHolder ID="PlaceHolderPOJavaScript" runat="server"></asp:PlaceHolder>
-  <MT:MTTitle ID="CreateQuoteTitle" runat="server" meta:resourcekey="MTTitleCreateQuoteResource" />
+  <MT:MTTitle ID="CreateQuoteTitle" runat="server" />
   <br />
   <MT:MTPanel ID="MTPanelQuoteParameters" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="MTPanelQuoteParametersResource">

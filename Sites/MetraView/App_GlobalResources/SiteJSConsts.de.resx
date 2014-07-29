@@ -124,13 +124,13 @@
     <value>j.n.Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j.n.Y g:i:s</value>
+    <value>j.n.Y H:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j.n.Y g:i:s | j.n.Y</value>
+    <value>j.n.Y H:i:s | j.n.Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j.n.Y g:i:s</value>
+    <value>j.n.Y H:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>dd.mm.YYYY</value>
@@ -253,10 +253,10 @@
     <value>Möchten Sie die ausgewählten Zeilen wirklich löschen?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_MESSAGE" xml:space="preserve">
-    <value>Möchten Sie die Vorlage '{0}' wirklich löschen?</value>
+    <value>Möchten Sie die Vorlage \'{0}\' wirklich löschen?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
-    <value>'Möchten Sie {0} wirklich aus der Vorlage entfernen?</value>
+    <value>Möchten Sie {0} wirklich aus der Vorlage entfernen?</value>
   </data>
   <data name="TEXT_DELETE1" xml:space="preserve">
     <value>Löschen</value>
@@ -454,7 +454,7 @@
     <value>Möchten Sie sich wirklich abmelden?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
+    <value>j.n.Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Konto verwalten</value>
@@ -695,10 +695,10 @@
   </data>              
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>[DE] Middle initial is invalid</value>
-  </data>
-  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>n.j.Y G:i:s</value>
   </data>  
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>j.n.Y H:i:s</value>
+  </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
     <value>[DE] Refresh</value>
   </data>

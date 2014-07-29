@@ -142,7 +142,7 @@
     <value>%b %#d, %Y</value>
   </data>
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
-    <value>No records found</value>
+    <value>No Records Found</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Account Details</value>

@@ -127,7 +127,7 @@
     <value>Time Zone</value>
   </data>
   <data name="EmptyLabel.Text" xml:space="preserve">
-    <value>No records found</value>
+    <value>No Records Found</value>
   </data>
   <data name="ErrorSelectPO" xml:space="preserve">
     <value>Please select a valid product offering</value>
@@ -139,7 +139,7 @@
     <value>My Subscriptions</value>
   </data>
   <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>No records found</value>
+    <value>No Records Found</value>
   </data>
   <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
     <value></value>

@@ -3,14 +3,14 @@
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 
  <MT:MTSecurity ID='Security1' runat="server" Capabilities='Create Subscription'>
-<asp:Literal ID="LitEmptyText1" runat="server" Visible="false" Text="<br />No records found." meta:resourcekey="EmptyLiteral" /> 
+<asp:Literal ID="LitEmptyText1" runat="server" Visible="false" Text="<br />No Records Found." meta:resourcekey="EmptyLiteral" /> 
 <asp:Label ID="LitCurrPlan" runat="server"></asp:Label> 
 <br />
 <br />
 <hr />
 <h6>
 <asp:Localize ID="Localize3" meta:resourcekey="AvailablePlans" runat="server">Available Product Offerings</asp:Localize></h6>
-<asp:Literal ID="LitEmptyText2" runat="server" Visible="false" Text="No records found." meta:resourcekey="EmptyLiteral" />
+<asp:Literal ID="LitEmptyText2" runat="server" Visible="false" Text="No Records Found." meta:resourcekey="EmptyLiteral" />
 <asp:Label ID="LitProdOff" runat="server"></asp:Label>
 <br />
   

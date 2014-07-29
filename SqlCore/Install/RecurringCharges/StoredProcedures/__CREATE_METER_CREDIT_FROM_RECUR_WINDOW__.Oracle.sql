@@ -6,10 +6,12 @@ AS
     v_curSubStart DATE;
     v_curSubEnd   DATE;  
     v_rcActionForEndDateUpdate varchar2(20);
+    /* Borders of updated Sub.End range will stand for internal v_subscriptionStart and v_subscriptionEnd to charge this range. */
     v_subscriptionStart        DATE;
     v_subscriptionEnd          DATE;
     v_isEndDateUpdated         CHAR(1 BYTE) := '0';
     v_rcActionForEndDateUpdate2 varchar2(20);
+    /* Borders of updated Sub.Start range will stand for internal v_subscriptionStart2 and v_subscriptionEnd2 to charge this range. */
     v_subscriptionStart2        DATE;
     v_subscriptionEnd2          DATE;
     v_isStartDateUpdated        CHAR(1 BYTE) := '0';
@@ -217,7 +219,8 @@ BEGIN
   END IF;
   IF (v_isStartDateUpdated = 1) THEN
     /* PIs, that ends outside of Start Date Update range, should not be handled here */
-    DELETE FROM tmp_rc WHERE c_ProrateOnSubscription = '0' AND c_RCIntervalEnd > v_subscriptionEnd2;
+    DELETE FROM tmp_rc WHERE c_ProrateOnSubscription = '0' AND c_RCIntervalEnd > v_subscriptionEnd2
+      AND v_subscriptionEnd2 < c_BillingIntervalEnd; /* If start date was updated To or From "after EOP date" all PIs should be charged. Don't delete anything. */
   END IF;
 
 

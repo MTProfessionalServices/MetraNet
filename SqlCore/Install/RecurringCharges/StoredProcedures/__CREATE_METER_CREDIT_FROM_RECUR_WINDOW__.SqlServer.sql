@@ -11,11 +11,13 @@ BEGIN
           @curSubStart DATETIME,
           @curSubEnd   DATETIME,          
           @rcActionForEndDateUpdate nvarchar(20),
+          /* Borders of updated Sub.End range will stand for internal @subscriptionStart and @subscriptionEnd to charge this range. */
           @subscriptionStart        DATETIME,
           @subscriptionEnd          DATETIME,
           @isEndDateUpdated         BIT = 0,
   /* TODO: Remove duplicated values once 1-st and 2-nd query is executed conditionally */
           @rcActionForEndDateUpdate2 nvarchar(20),
+          /* Borders of updated Sub.Start range will stand for internal @subscriptionStart2 and @subscriptionEnd2 to charge this range. */
           @subscriptionStart2        DATETIME,
           @subscriptionEnd2          DATETIME,
           @isStartDateUpdated        BIT = 0
@@ -219,6 +221,7 @@ BEGIN
   IF (@isStartDateUpdated = 1)
     /* PIs, that ends outside of Start Date Update range, should not be handled here */
     DELETE FROM #tmp_rc_1 WHERE c_ProrateOnSubscription = '0' AND c_RCIntervalEnd > @subscriptionEnd2
+      AND @subscriptionEnd2 < c_BillingIntervalEnd /* If start date was updated To or From "after EOP date" all PIs should be charged. Don't delete anything. */
 
 
   /* Changes related to ESR-6709:"Subscription refunded many times" */

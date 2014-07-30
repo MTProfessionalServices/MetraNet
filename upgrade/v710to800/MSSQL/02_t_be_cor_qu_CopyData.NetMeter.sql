@@ -145,7 +145,7 @@ PRINT 'The database update succeeded'
 COMMIT TRANSACTION
 END
 
-ELSE PRINT 'The database update failed'
+ELSE PRINT 'The database update failed :('
 GO
 DROP TABLE #tmpErrors
 GO

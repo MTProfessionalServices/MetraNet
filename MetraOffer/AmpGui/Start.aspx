@@ -224,6 +224,7 @@
       cloneWindow.show();
       cloneWindow.on('close', function() {
           dataStore_<%= DecisionsGrid.ClientID %> .reload();
+	      checkFrameLoading();
       });
   }
    

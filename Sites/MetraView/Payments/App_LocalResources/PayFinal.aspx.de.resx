@@ -150,7 +150,7 @@
   <data name="lcType.Label" xml:space="preserve">
     <value>Kartentyp</value>
   </data>
-  <data name="PaymentConfirmation" xml:space="preserve">
+  <data name="PaymentConfirmation.Text" xml:space="preserve">
     <value>Zahlungsbestätigung</value>
   </data>
 </root>

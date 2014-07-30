@@ -50,11 +50,11 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
 
     IF sql%rowcount != 0 THEN
       /*TODO: look at MSSQL version... now it different */
-      SELECT metratime(1,'RC') INTO startDate FROM dual; 
+      SELECT metratime(1,'RC') INTO startDate FROM dual;
       
-      IF v_QuoteBatchId is not null THEN         
+      IF v_QuoteBatchId is not null THEN
         num_notnull_quote_batchids := 1;
-      ELSE 
+      ELSE
         num_notnull_quote_batchids := 0;
       END IF;
 
@@ -82,7 +82,8 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
           C_LASTIDRUN,
           C_MEMBERSHIPSTART,
           C_MEMBERSHIPEND,
-          1 c__IsAllowGenChargeByTrigger
+          1 c__IsAllowGenChargeByTrigger,
+          c__QuoteBatchId
         FROM   t_recur_window
         WHERE  EXISTS
            (
@@ -149,7 +150,7 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
           dbo.mtmindate() c_MembershipStart ,
           dbo.mtmaxdate() c_MembershipEnd,
           AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, startDate, num_notnull_quote_batchids) c__IsAllowGenChargeByTrigger,
-          sub.TX_QUOTING_BATCH c__QuoteBatchId  
+          sub.TX_QUOTING_BATCH c__QuoteBatchId
           FROM t_sub sub
             INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
             INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL

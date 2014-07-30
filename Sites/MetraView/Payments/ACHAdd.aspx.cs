@@ -70,7 +70,7 @@ public partial class Payments_ACHAdd : MTPage
         var paymentData = (MetraPayManager.MakePaymentData) Session["MakePaymentData"];
         paymentData.PaymentInstrumentId = paymentInstrumentId.ToString();
         paymentData.Number = ACHCard.AccountNumber;
-        paymentData.Type = ExtensionMethods.GetLocalizedBankAccountType(ACHCard.AccountType.ToString());
+        paymentData.Type = ACHCard.AccountType.ToString();
         Session["MakePaymentData"] = paymentData;
         Response.Redirect("ReviewPayment.aspx", false);
       }

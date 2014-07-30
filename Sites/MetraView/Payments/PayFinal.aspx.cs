@@ -18,11 +18,11 @@ public partial class Payments_PayFinal : MTPage
         lcNumber.Label = (string)GetLocalResourceObject("AccountNumber");
         break;
     }
-    lcConfirmationNumber.Text = paymentConfirmationData.ConfirmationNumber; ;
+    lcConfirmationNumber.Text = paymentConfirmationData.ConfirmationNumber;
     lcAmount.Text = paymentConfirmationData.Amount.ToDisplayAmount(UI);
     lcDate.Text = paymentConfirmationData.SchedulePaymentDate.ToShortDateString();
     lcMethod.Text = paymentConfirmationData.Method;
-    lcType.Text = paymentConfirmationData.Type;
+    lcType.Text = ExtensionMethods.GetLocalizedBankAccountType(paymentConfirmationData.Type);
     lcNumber.Text = paymentConfirmationData.Number;
   }
 }

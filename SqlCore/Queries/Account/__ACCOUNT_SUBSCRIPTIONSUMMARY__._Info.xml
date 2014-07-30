@@ -7,9 +7,9 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>AccountId</Name>
+            <Name>ACCOUNT_ID</Name>
             <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
+            <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
     </Parameters>

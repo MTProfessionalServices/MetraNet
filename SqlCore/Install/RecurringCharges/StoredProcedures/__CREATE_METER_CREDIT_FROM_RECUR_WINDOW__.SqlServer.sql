@@ -68,7 +68,6 @@ BEGIN
       SELECT @subscriptionEnd2 = dbo.SubtractSecond(@subscriptionEnd2);  
   END;
 
-
   SELECT
          /* First, credit or debit the difference in the ending of the subscription.  If the new one is later, this will be a debit, otherwise a credit.
          * TODO: Remove this comment:"There's a weird exception when this is (a) an arrears charge, (b) the old subscription end was after the pci end date, and (c) the new sub end is inside the pci end date." */
@@ -97,7 +96,8 @@ BEGIN
          rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
-         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       AS c__QuoteBatchId
          INTO #tmp_rc_1
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
@@ -129,6 +129,7 @@ BEGIN
               AND @subscriptionStart       < pci.dt_end AND @subscriptionEnd       > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1
@@ -168,7 +169,8 @@ BEGIN
          rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
-         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       AS c__QuoteBatchId
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
@@ -199,6 +201,7 @@ BEGIN
               AND @subscriptionStart2      < pci.dt_end AND @subscriptionEnd2      > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1
@@ -234,7 +237,8 @@ BEGIN
 	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
 	       rw.c_UnitValue                                                                             AS c_UnitValue,
 	       currentui.id_interval                                                                      AS c__IntervalID,
-	       rw.c__subscriptionid                                                                       AS c__SubscriptionID
+	       rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       AS c__QuoteBatchId
 	FROM   #recur_window_holder rw
 	       INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID AND new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
 	       INNER LOOP JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID AND current_sub.id_sub = rw.c__SubscriptionID
@@ -266,49 +270,52 @@ BEGIN
 	                                     END
 	       INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
 	       INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end AND currentui.id_usage_cycle = paymentInterval.id_usage_cycle
-	WHERE
-	       EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate()) 
-	       AND (rcr.b_prorate_on_deactivate='Y' OR pci.dt_start > dbo.mtendofday(rw.c_SubscriptionEnd))
-	       /* Deal with the above-mentioned exceptional case here.
-	       */
-	       AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
-	       AND rw.c__IsAllowGenChargeByTrigger = 1;
+             INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
+      WHERE
+             EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate()) 
+             AND (rcr.b_prorate_on_deactivate='Y' OR pci.dt_start > dbo.mtendofday(rw.c_SubscriptionEnd))
+             /* Deal with the above-mentioned exceptional case here.
+             */
+             AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
+             AND rw.c__IsAllowGenChargeByTrigger = 1;
 
-	
- /* Now determine if th interval and if the RC adapter has run, if no remove those adavanced charge credits */
-    DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
+      
+     /* Now determine if th interval and if the RC adapter has run, if no remove those adavanced charge credits */
+        DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
 
-select @prev_interval = pui.id_interval, @cur_interval = cui.id_interval
-from t_usage_interval cui WITH(NOLOCK)
-inner join #tmp_rc_1 on #tmp_rc_1.c__IntervalID = cui.id_interval
-inner join t_usage_cycle uc WITH(NOLOCK) on cui.id_usage_cycle = uc.id_usage_cycle
-inner join t_usage_interval pui WITH(NOLOCK) ON pui.dt_end = dbo.SubtractSecond( cui.dt_start ) AND pui.id_usage_cycle = cui.id_usage_cycle
-select @do_credit = (CASE WHEN ISNULL(rei.id_arg_interval, 0) = 0 THEN 0
-ELSE
-CASE WHEN (rr.tx_type = 'Execute' AND rei.tx_status = 'Succeeded') THEN 1 ELSE 0 END
-END)
-from t_recevent re
-left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval
-left outer join t_recevent_run rr on rr.id_instance = rei.id_instance
-where 1=1
-and re.dt_deactivated is null
-and re.tx_name = 'RecurringCharges'
-and rr.id_run = (
-select MAX(rr.id_run)
-from t_recevent re
-left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval
-left outer join t_recevent_run rr on rr.id_instance = rei.id_instance
-where 1=1
-and re.dt_deactivated is null
-and re.tx_name = 'RecurringCharges'
-)
+    SELECT @prev_interval = pui.id_interval, @cur_interval = cui.id_interval
+    FROM t_usage_interval cui WITH(NOLOCK)
+      INNER JOIN #tmp_rc_1 on #tmp_rc_1.c__IntervalID = cui.id_interval
+      INNER JOIN t_usage_cycle uc WITH(NOLOCK) on cui.id_usage_cycle = uc.id_usage_cycle
+      INNER JOIN t_usage_interval pui WITH(NOLOCK) ON pui.dt_end = dbo.SubtractSecond( cui.dt_start ) AND pui.id_usage_cycle = cui.id_usage_cycle
+    
+    SELECT @do_credit = (CASE WHEN ISNULL(rei.id_arg_interval, 0) = 0 THEN 0
+                            ELSE
+                         CASE WHEN (rr.tx_type = 'Execute' AND rei.tx_status = 'Succeeded') THEN 1 ELSE 0 END
+                            END)
+    FROM t_recevent re
+        left outer JOIN t_recevent_inst rei on re.id_event = rei.id_event AND rei.id_arg_interval = @prev_interval
+        left outer JOIN t_recevent_run rr on rr.id_instance = rei.id_instance
+        WHERE 1=1
+        AND re.dt_deactivated is null
+        AND re.tx_name = 'RecurringCharges'
+        AND rr.id_run = (
+        SELECT MAX(rr.id_run)
+        FROM t_recevent re
+        left outer JOIN t_recevent_inst rei on re.id_event = rei.id_event AND rei.id_arg_interval = @prev_interval
+        left outer JOIN t_recevent_run rr on rr.id_instance = rei.id_instance
+        WHERE 1=1
+        AND re.dt_deactivated is null
+        AND re.tx_name = 'RecurringCharges'
+        )
 
     IF @do_credit = 0
     BEGIN
-        delete rcred
-        from #tmp_rc_1 rcred
-        inner join t_usage_interval ui on ui.id_interval = @cur_interval and rcred.c_BillingIntervalStart = ui.dt_start
+        DELETE rcred
+        FROM #tmp_rc_1 rcred
+        INNER JOIN t_usage_interval ui on ui.id_interval = @cur_interval AND rcred.c_BillingIntervalStart = ui.dt_start
     END;
+    
 	SELECT *,NEWID() AS idSourceSess INTO #tmp_rc FROM #tmp_rc_1;
 --If no charges to meter, return immediately
     IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;

@@ -38,6 +38,7 @@ BEGIN
       ,dbo.MTMinOfTwoDates(pci.dt_end,rw.c_SubscriptionEnd)  AS c_BilledRateDate
       ,rw.c__subscriptionid      AS c__SubscriptionID
       ,currentui.id_interval AS c__IntervalID
+      ,sub.tx_quoting_batch  as c__QuoteBatchId
     INTO #tmp_rc_1      
 	FROM #tmp_oldrw rw INNER JOIN t_usage_interval ui
          on rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
@@ -51,14 +52,14 @@ BEGIN
           --we only want the cases where the new payer contains the old payer or vice versa.
         AND ((rw.c_PayerStart >= rwnew.c_PayerStart AND rw.c_PayerEnd <= rwnew.c_PayerEnd)
             OR (rw.c_PayerStart <= rwnew.c_PayerStart AND rw.c_PayerEnd >= rwnew.c_PayerEnd)) 
-      INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-      INNER JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+    INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+    INNER JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle       
 	    WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
 	    WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
 	    ELSE NULL END
       JOIN t_acc_usage_cycle auc on auc.id_acc = rw.c__payingaccount and auc.id_usage_cycle = ccl.id_usage_cycle
       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
-      INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
+    INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
                                    AND pci.dt_start BETWEEN ui.dt_start     AND ui.dt_end                            /* rc start falls in this interval */
                                    AND pci.dt_start < dbo.MTMinOfTwoDates(rw.c_PayerEnd, rwnew.c_payerend)
                                    AND pci.dt_end > dbo.MTMaxOfTwoDates(rwnew.c_payerstart, rw.c_PayerStart)             /* rc start goes to this payer */
@@ -68,9 +69,10 @@ BEGIN
                                    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
                                    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
 								   and pci.dt_start < @currentDate /* Don't go into the future*/
-      INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-      inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
-	  where rwnew.c__IsAllowGenChargeByTrigger = 1;
+    INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+    INNER JOIN t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
+    INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
+	WHERE rwnew.c__IsAllowGenChargeByTrigger = 1;
 
 		SELECT 'InitialDebit' AS c_RCActionType
            ,c_RCIntervalStart
@@ -98,10 +100,12 @@ BEGIN
            ,c__PriceableItemTemplateID
            ,c__ProductOfferingID
            ,c__IntervalID
-           ,NEWID() AS idSourceSess INTO #tmp_rc FROM #tmp_rc_1 
+           ,NEWID() AS idSourceSess
+           ,c__QuoteBatchId
+      INTO #tmp_rc FROM #tmp_rc_1 
            
-           UNION ALL
-           		SELECT 'InitialCredit' AS c_RCActionType
+    UNION ALL
+    SELECT 'InitialCredit' AS c_RCActionType
            ,c_RCIntervalStart
            ,c_RCIntervalEnd
            ,c_BillingIntervalStart
@@ -127,18 +131,19 @@ BEGIN
            ,c__PriceableItemTemplateID
            ,c__ProductOfferingID
            ,c__IntervalID
-           ,NEWID() AS idSourceSess FROM #tmp_rc_1 ;
+           ,NEWID() AS idSourceSess
+           ,c__QuoteBatchId
+        FROM #tmp_rc_1 ;
            
 	--If no charges to meter, return immediately
     IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
 	
-	exec InsertChargesIntoSvcTables;
-	
+	EXEC InsertChargesIntoSvcTables;
 	  
 	UPDATE rw
 	SET c_BilledThroughDate = @currentDate
 	FROM #tmp_newrw rw
-	where rw.c__IsAllowGenChargeByTrigger = 1;
+	WHERE rw.c__IsAllowGenChargeByTrigger = 1;
 
 END;
  

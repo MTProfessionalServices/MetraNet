@@ -37,7 +37,8 @@ BEGIN
          trv.vt_end                                                                                 AS c_UnitValueEnd,
          trv.n_value                                                                                AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
-         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       as c__QuoteBatchId
         INTO #tmp_udrc_1
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
@@ -72,6 +73,7 @@ BEGIN
               AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE 
         /* Only issue corrections if there's a previous iteration. */
         EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
@@ -105,7 +107,8 @@ BEGIN
          c__PriceableItemTemplateID,
          c__ProductOfferingID,
          c__IntervalID,
-         NEWID() AS idSourceSess INTO #tmp_rc
+         NEWID() AS idSourceSess,
+         c__QuoteBatchId INTO #tmp_rc
   FROM   #tmp_udrc_1;
 
   /* If no charges to meter, return immediately */

@@ -32,24 +32,24 @@ SET NOCOUNT ON;
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
          rw.c__subscriptionid                                                                       AS c__SubscriptionID,
-         NEWID()                                                                                    AS idSourceSess 
-	,sub.tx_quoting_batch as c__QuoteBatchId
+         NEWID()                                                                                    AS idSourceSess,
+         sub.tx_quoting_batch                                                                       as c__QuoteBatchId
 INTO #tmp_rc
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
-    AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
-    AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
-    AND rw.c_SubscriptionStart < ui.dt_end AND rw.c_SubscriptionEnd > ui.dt_start
-    AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
-    INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+              AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
+              AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
+              AND rw.c_SubscriptionStart < ui.dt_end   AND rw.c_SubscriptionEnd > ui.dt_start
+              AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
+         INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
          INNER LOOP JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount AND auc.id_usage_cycle = ui.id_usage_cycle
          INNER LOOP JOIN t_usage_cycle ccl
               ON  ccl.id_usage_cycle = CASE 
-        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
-        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle
-        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
-                                            ELSE NULL
+                                        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
+                                        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle
+                                        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
+                                        ELSE NULL
                                        END
          INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
          /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
@@ -59,23 +59,22 @@ INTO #tmp_rc
                       OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
                       OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
                   )
-    AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
-    AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
-    AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
-    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
-    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+              AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+              AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
+              AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
+              AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+              AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
-              
   WHERE 
-		 /* Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history */ 
-         NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate()) 
+        /* Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history */ 
+        NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate()) 
          /* Also no old unit values */
-    AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
-             /* Don't meter in the current interval for initial */
-    AND ui.dt_start < @currentDate
-	AND rw.c__IsAllowGenChargeByTrigger = 1;
+        AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
+                   /* Don't meter in the current interval for initial */
+        AND ui.dt_start < @currentDate
+        AND rw.c__IsAllowGenChargeByTrigger = 1;
     
   /* If no charges to meter, return immediately */
     IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;

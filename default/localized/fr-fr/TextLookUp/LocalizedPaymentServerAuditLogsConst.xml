@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<texts id="Main" type='collection'>
-
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_credit_TITLE">   <value>Credit Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_postauth_TITLE"> <value>Post Auth Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_preauth_TITLE">  <value>Pre Auth Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_prenote_TITLE"> <value>ACH Prenote Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_credit_TITLE">  <value>ACH Credit Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_debit_TITLE">   <value>ACH Debit Audit Log</value></text>    
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_paymentscheduler_TITLE">   <value>Payment Scheduler</value></text>
-    
-    <text id="TEXT_SYSTEM_LOG_PS_ERROR_OCCUR_CHANGING_THE_STATUS">   <value>An error occured changing the status of the transaction [TRANSACTIONID]. The status of following transaction(s) is not changed.</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_ERROR">   <value>Error.</value></text>
-    
+<texts id="Main" type="collection">
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_credit_TITLE">
+    <value>[FR]Credit Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_postauth_TITLE">
+    <value>[FR]Post Auth Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_preauth_TITLE">
+    <value>[FR]Pre Auth Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_prenote_TITLE">
+    <value>[FR]ACH Prenote Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_credit_TITLE">
+    <value>[FR]ACH Credit Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_debit_TITLE">
+    <value>[FR]ACH Debit Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_paymentscheduler_TITLE">
+    <value>[FR]Payment Scheduler</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_ERROR_OCCUR_CHANGING_THE_STATUS">
+    <value>[FR]An error occured changing the status of the transaction [TRANSACTIONID]. The status of following transaction(s) is not changed.</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_ERROR">
+    <value>[FR]Error.</value>
+  </text>
 </texts>

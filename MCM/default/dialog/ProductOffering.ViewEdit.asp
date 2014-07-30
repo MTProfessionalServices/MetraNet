@@ -57,8 +57,8 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   'SECENG: Fixing problems with output encoding  
   Service.Properties.Add "disp_name", "String",  1024, FALSE, TRUE
   Service.Properties("disp_name") = SafeForHtml(COMObject.Instance.Name)
-  
-  Set objMTProductCatalog                         = GetProductCatalogObject
+  Service.Properties("EffectiveDate__StartDate") =  CDate(mcm_Format(COMObject.Properties("EffectiveDate__StartDate"),FrameWork.GetDictionary("DATE_FORMAT")))
+    Set objMTProductCatalog                         = GetProductCatalogObject
   'Set objMTProductOffering                        = objMTProductCatalog.GetProductOffering(Form("ID"))
   
   ' Save the id so we can use it on links in the page	

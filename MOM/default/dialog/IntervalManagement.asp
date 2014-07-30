@@ -77,7 +77,7 @@ FUNCTION Form_Refresh(EventArg)
 
   Service.Properties("IntervalID").Value = CStr(objInterval.IntervalID)
   Service.Properties("IntervalType").Value = GetBillingGroupCycleType(objInterval.CycleType)
-  Service.Properties("IntervalStartDateTime").Value = CDate(objInterval.StartDate)
+  Service.Properties("IntervalStartDateTime").Value = mom_Format(objInterval.StartDate, Framework.GetDictionary("DATE_FORMAT"))
   Service.Properties("IntervalEndDateTime").Value = CDate(objInterval.EndDate)
   'Service.Properties("TotalIntervalOnlyAdapterCount").Value = objInterval.TotalIntervalOnlyAdapterCount
   Service.Properties("TotalBillingGroupAdapterCount").Value = objInterval.TotalBillingGroupAdapterCount + objInterval.TotalIntervalOnlyAdapterCount

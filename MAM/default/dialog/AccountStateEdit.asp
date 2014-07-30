@@ -57,7 +57,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     
   ' Add dialog properties
   Service.Properties.Add "AccountStatus",    "String",      0,   TRUE, Empty 
-  Service.Properties.Add "StartDate",        "TIMESTAMP", 0,   TRUE, Empty    
+  Service.Properties.Add "StartDate",        "String", 0,   TRUE, Empty    
   
   Service.Properties("AccountStatus").SetPropertyType "ENUM", FrameWork.Dictionary.Item("ACCOUNT_CREATION_SERVICE_ENUM_TYPE_LOADING").Value , "AccountStatus"	
       
@@ -74,7 +74,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Service.Properties("AccountStatus").Enabled = FALSE
 '  End IF
   
-  Service.properties("StartDate").value = CDate(Form("OldDate"))
+  Service.properties("StartDate").value = mam_FormatDate(CDate(Form("OldDate")), mam_GetDictionary("DATE_FORMAT")) 
   
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
 

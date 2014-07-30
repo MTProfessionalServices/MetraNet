@@ -84,7 +84,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Call DropGrid_Click(null)
                     
   ' Add dialog properties
-  Service.Properties.Add "StartDate", "TIMESTAMP", 0, FALSE, Empty    
+  Service.Properties.Add "StartDate", "String", 0, FALSE, Empty    
   Service.Properties.Add "Parent", "string", 0, FALSE, Empty
 
   If(Session("PARENT") = "1") Then
@@ -98,7 +98,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Service.Properties("Parent").value = objYAAC.AccountName & " (" & CLng(Session("PARENT")) & ")"
   End If
 
-  Service.Properties("StartDate") = CDate(mdm_Format(mam_GetHierarchyTime(),mam_GetDictionary("DATE_FORMAT")))
+  Service.Properties("StartDate") = mdm_Format(mam_GetHierarchyTime(),mam_GetDictionary("DATE_FORMAT"))
   
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
     

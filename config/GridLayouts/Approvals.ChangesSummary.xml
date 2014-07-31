@@ -49,6 +49,7 @@
         <Operation>GetChangesSummary__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -341,21 +342,13 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-		<Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.ChangeSummary</ObjectName>
             <ID>CurrentState</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
-            <!--<FilterEnum>
-                <EnumClassName>MetraTech.DomainModel.Enums.Approvals</EnumClassName>
-                <EnumSpace>Approvals</EnumSpace>
-                <EnumType>ChangeState</EnumType>
-                <UseEnumValue>true</UseEnumValue>
-                <DefaultValue></DefaultValue>
-                <HideEnumValues />
-            </FilterEnum>-->
             <DataIndex>CurrentState</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
@@ -372,12 +365,23 @@
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems>
                 <DropdownItem>
                     <Key>Pending</Key>
                     <Value>
-                         <LocalizationFQN>Approvals/ChangeState/Pending</LocalizationFQN>
-                   </Value>
+                        <LocalizationFQN>Approvals/ChangeState/Pending</LocalizationFQN>
+                    </Value>
                 </DropdownItem>
                 <DropdownItem>
                     <Key>Applied</Key>
@@ -390,33 +394,21 @@
                     <Value>
                         <LocalizationFQN>Approvals/ChangeState/ApprovedWaitingToBeApplied</LocalizationFQN>
                     </Value>
-                </DropdownItem>	
-				<DropdownItem>
+                </DropdownItem>
+                <DropdownItem>
                     <Key>Dismissed</Key>
                     <Value>
                         <LocalizationFQN>Approvals/ChangeState/Dismissed</LocalizationFQN>
                     </Value>
-                </DropdownItem>	
-				<DropdownItem>
+                </DropdownItem>
+                <DropdownItem>
                     <Key>FailedToApply</Key>
                     <Value>
                         <LocalizationFQN>Approvals/ChangeState/FailedToApply</LocalizationFQN>
                     </Value>
-                </DropdownItem>		
-            </DropdownItems>		
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-			<MultiValue>false</MultiValue>
-        </Element>		
+                </DropdownItem>
+            </DropdownItems>
+        </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -434,7 +426,7 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>

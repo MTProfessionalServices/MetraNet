@@ -1,7 +1,7 @@
   create table t_tax_details (
         id_tax_detail int not null,
         id_tax_charge bigint not null,
-        id_acc int not null,
+        id_acc int not null
         id_usage_interval int not null,
         id_tax_run int not null,
         dt_calc datetime not null,

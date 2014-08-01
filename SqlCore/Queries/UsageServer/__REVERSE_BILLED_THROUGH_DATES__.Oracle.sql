@@ -7,4 +7,4 @@ ON      ( rw.c__PriceableItemInstanceID = bkp.c__PriceableItemInstanceID
           AND rw.c__SubscriptionID = bkp.c__SubscriptionID )
 WHEN MATCHED THEN
 UPDATE
-SET     rw.c_BilledThroughDate = bkp.c_BilledThroughDate;
+SET     rw.c_BilledThroughDate = bkp.c_BilledThroughDate

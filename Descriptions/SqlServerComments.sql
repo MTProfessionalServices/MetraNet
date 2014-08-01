@@ -5082,6 +5082,15 @@ EXEC sp_addextendedproperty 'MS_Description', 'Membership start for a group subs
 EXEC sp_addextendedproperty 'MS_Description', 'Membership end for a group subscription', 'Schema', dbo, 'table', t_recur_window, 'column', c_MembershipEnd
 ;
 
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_rec_win_bcp_for_reverse';
+EXEC sp_addextendedproperty 'MS_Description', 'The last time the RC adapter was run (not currently used)', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c_BilledThroughDate;
+EXEC sp_addextendedproperty 'MS_Description', 'Priceable item instance for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemInstanceID;
+EXEC sp_addextendedproperty 'MS_Description', 'Priceable item template for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemTemplateID;
+EXEC sp_addextendedproperty 'MS_Description', 'Product offering for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__ProductOfferingID;
+EXEC sp_addextendedproperty 'MS_Description', 'Subscription ID', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__SubscriptionID;
+
+
 EXEC sp_addextendedproperty 'MS_Description', '(Package:Recurring Events)', 'Schema', dbo, 'table', t_recurring_event_acct_log
 ;
 EXEC sp_addextendedproperty 'MS_Description', 'Account identifier', 'Schema', dbo, 'table', t_recurring_event_acct_log, 'column', id_acc

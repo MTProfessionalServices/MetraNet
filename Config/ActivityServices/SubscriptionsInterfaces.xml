@@ -55,6 +55,9 @@
             <Parameter Name="POEffectiveDate" Description="Parameter identifying the timeframe for which a PO list is effective " Type="System.DateTime">
               <InternalName>POEffectiveDate</InternalName>
             </Parameter>
+            <Parameter Name="LanguageID" Description="Parameter identifying a language code" Type="System.Int32">
+              <InternalName>LanguageID</InternalName>
+            </Parameter>
           </ParameterDefs>
         </EventMethod>
         

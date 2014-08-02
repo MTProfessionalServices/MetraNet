@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <mt_config>
   <language_code>es-mx</language_code>
   <locale_space name="UI">
@@ -124,20 +123,20 @@
       <Value>日本語</Value>
     </locale_entry>
     <locale_entry>
+      <Name>UI/UICultures/Portuguese - Brazil</Name>
+      <Value>Portuguese - Brazil</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>UI/UICultures/Spanish</Name>
       <Value>Español</Value>
     </locale_entry>
     <locale_entry>
+      <Name>UI/UICultures/Spanish - Mexican</Name>
+      <Value>Spanish - Mexican</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>UI/UICultures/日本語</Name>
       <Value>日本語</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>UI/UICultures/Portuguese - Brazil</Name>
-      <Value>UI/UICultures/Portuguese - Brazil</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>UI/UICultures/Spanish - Mexican</Name>
-      <Value>UI/UICultures/Spanish - Mexican</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

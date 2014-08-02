@@ -121,7 +121,7 @@
     <value>Offres produit</value>
   </data>
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>[FR]Product Offerings List</value>
+    <value>Liste des offres produit</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
     <value>Aucun enregistrement trouvé.</value>
@@ -133,22 +133,31 @@
     <value>Actions</value>
   </data>
   <data name="TEXT_AVAILABLE_ENDDATE" xml:space="preserve">
-    <value>La date de fin disponible</value>
+    <value>Date de fin disponible</value>
   </data>
   <data name="TEXT_AVAILABLE_STARTDATE" xml:space="preserve">
-    <value>La date de début disponible</value>
+    <value>Date de début disponible</value>
+  </data>
+  <data name="TEXT_CopyPO" xml:space="preserve">
+    <value>[FR]Copy Product Offering</value>
   </data>
   <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
-    <value>Créer l'offre produit</value>
+    <value>Créer une offre produit</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Devise</value>
+  </data>
+  <data name="TEXT_DeletePO" xml:space="preserve">
+    <value>[FR]Delete Product Offering</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>Le nom d’affichage</value>
+    <value>Nom d’affichage</value>
+  </data>
+  <data name="TEXT_EditPO" xml:space="preserve">
+    <value>[FR]Edit Product Offering</value>
   </data>
   <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
     <value>Date de fin de validité</value>
@@ -157,34 +166,25 @@
     <value>Date de début de validité</value>
   </data>
   <data name="TEXT_EXTERNALINFORMATIONURL" xml:space="preserve">
-    <value>[FR]External Information URL</value>
+    <value>URL d’informations externe</value>
   </data>
   <data name="TEXT_GLCODE" xml:space="preserve">
-    <value>[FR]GL Code</value>
-  </data>
-  <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
-    <value>[FR]Internal Information URL</value>
-  </data>
-  <data name="TEXT_ISHIDDEN" xml:space="preserve">
-    <value>[FR]Hidden</value>
-  </data>
-  <data name="TEXT_NAME" xml:space="preserve">
-    <value>[FR]Name</value>
-  </data>
-  <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[FR]Partition Id</value>
-  </data>
-  <data name="TEXT_CopyPO" xml:space="preserve">
-    <value>[FR]Copy Product Offering</value>
-  </data>
-  <data name="TEXT_DeletePO" xml:space="preserve">
-    <value>[FR]Delete Product Offering</value>
-  </data>
-  <data name="TEXT_EditPO" xml:space="preserve">
-    <value>[FR]Edit Product Offering</value>
+    <value>Code général</value>
   </data>
   <data name="TEXT_HidePO" xml:space="preserve">
     <value>[FR]Hide Product Offering</value>
+  </data>
+  <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
+    <value>URL d’informations interne</value>
+  </data>
+  <data name="TEXT_ISHIDDEN" xml:space="preserve">
+    <value>Masqué</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="TEXT_PartitionID" xml:space="preserve">
+    <value>ID de partition</value>
   </data>
   <data name="TEXT_UnhidePO" xml:space="preserve">
     <value>[FR]Unhide Product Offering</value>

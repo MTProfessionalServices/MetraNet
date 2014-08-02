@@ -126,17 +126,23 @@
   <data name="lblDecisionRangeRestart.Text" xml:space="preserve">
     <value>Restart the count after the end of the range has been reached?</value>
   </data>
-  <data name="lblEndOfRange.Text" xml:space="preserve">
-    <value>End of range:</value>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>5. Range for {0}</value>
+  </data>
+  <data name="rblRangeNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="rblRangeYes.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_END_RANGE" xml:space="preserve">
+    <value>Error: You must specify the end of range.</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_START_RANGE" xml:space="preserve">
+    <value>Error: You must specify the start of range.</value>
   </data>
   <data name="lblProrate.Text" xml:space="preserve">
     <value>How should the decision prorate the range?</value>
-  </data>
-  <data name="lblStartOfRange.Text" xml:space="preserve">
-    <value>Start of range:</value>
-  </data>
-  <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>5. Range for {0}</value>
   </data>
   <data name="PRORATE_BOTH_TEXT" xml:space="preserve">
     <value>Prorate the range on both activation and termination</value>
@@ -150,16 +156,10 @@
   <data name="PRORATE_TIER_START_TEXT" xml:space="preserve">
     <value>Prorate the range only on activation</value>
   </data>
-  <data name="rblRangeNo.Text" xml:space="preserve">
-    <value>No</value>
+  <data name="lblEndOfRange.Text" xml:space="preserve">
+    <value>End of range:</value>
   </data>
-  <data name="rblRangeYes.Text" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_END_RANGE" xml:space="preserve">
-    <value>Error: You must specify the end of range.</value>
-  </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_START_RANGE" xml:space="preserve">
-    <value>Error: You must specify the start of range.</value>
+  <data name="lblStartOfRange.Text" xml:space="preserve">
+    <value>Start of range:</value>
   </data>
 </root>

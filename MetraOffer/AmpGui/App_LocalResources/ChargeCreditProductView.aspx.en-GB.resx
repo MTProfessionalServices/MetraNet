@@ -132,14 +132,8 @@
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="AMOUNTCHAINGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>Amount Chain Groups</value>
-  </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
   <data name="TEXT_ERROR_INIT_CONTROLS" xml:space="preserve">
-    <value>An error occurred on controls initialization</value>
+    <value>An error occurred on control initialization</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE" xml:space="preserve">
     <value>An error occurred while retrieving Generated Charge '{0}'</value>
@@ -152,6 +146,12 @@
   </data>
   <data name="TEXT_ERROR_CREATE_GENERATED_CHARGE" xml:space="preserve">
     <value>Error while creating Generated Charge '{0}'</value>
+  </data>
+  <data name="AMOUNTCHAINGROUPS_GRID_TITLE" xml:space="preserve">
+    <value>Amount Chain Groups</value>
+  </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Name</value>

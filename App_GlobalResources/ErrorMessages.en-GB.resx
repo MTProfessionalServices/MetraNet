@@ -127,16 +127,16 @@
     <value>Unable to add ACH payment method to this account</value>
   </data>
   <data name="ERROR_ACH_LIST" xml:space="preserve">
-    <value>Unable to retrieve the details of the file.</value>
+    <value>Unable to retrieve the list of ACH payment methods</value>
   </data>
   <data name="ERROR_ACH_LOAD" xml:space="preserve">
-    <value>Unable to save search.</value>
+    <value>Unable to view ACH payment account details</value>
   </data>
   <data name="ERROR_ACH_REMOVE" xml:space="preserve">
-    <value>Unable to modify ACH payment method information</value>
+    <value>Unable to remove ACH payment method from your account</value>
   </data>
   <data name="ERROR_ACH_UPDATE" xml:space="preserve">
-    <value>Unable to display page.</value>
+    <value>Unable to modify ACH payment method information</value>
   </data>
   <data name="ERROR_CAPABILITY_INVALID" xml:space="preserve">
     <value>Invalid default capability.</value>
@@ -145,16 +145,16 @@
     <value>Unable to add credit card to this account</value>
   </data>
   <data name="ERROR_CC_LIST" xml:space="preserve">
-    <value>Unable to retrieve the history details of this run.</value>
+    <value>Unable to retrieve the list of credit cards</value>
   </data>
   <data name="ERROR_CC_LOAD" xml:space="preserve">
-    <value>Unable to update account information.</value>
+    <value>Unable to view credit card details</value>
   </data>
   <data name="ERROR_CC_REMOVE" xml:space="preserve">
-    <value>Unable to modify credit card information</value>
+    <value>Unable to remove credit card from your account</value>
   </data>
   <data name="ERROR_CC_UPDATE" xml:space="preserve">
-    <value>Unable to lock account.  Do you have permission?</value>
+    <value>Unable to modify credit card information</value>
   </data>
   <data name="ERROR_EMAIL_REQUIRED" xml:space="preserve">
     <value>Email address is required.</value>
@@ -163,22 +163,22 @@
     <value>Invalid End of Month day selected.  Day MUST be after start day.</value>
   </data>
   <data name="ERROR_LAST_LOGIN" xml:space="preserve">
-    <value>The following Subscription was created successfully:  </value>
+    <value>The last login for {0} was on {1}.  There have been {2} failed login attempts since the last successful login.</value>
   </data>
   <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
     <value>Invalid username or password.</value>
   </data>
   <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
-    <value>You must first populate the remittance details.</value>
+    <value>Your account has been locked for security reasons.  Please contact support to resolve this issue.</value>
   </data>
   <data name="ERROR_LOGIN_PASSWORD_EXPIRING" xml:space="preserve">
-    <value>Your Password Expired</value>
+    <value>Your password is expiring in {0} day(s).  If you have time, why not change it now?  </value>
   </data>
   <data name="ERROR_MAIN_MENU" xml:space="preserve">
     <value>Invalid menu file, notify your system administrator.</value>
   </data>
   <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
-    <value>This content requires the Adobe Flash Player.  </value>
+    <value>This user has never logged into MetraCare.</value>
   </data>
   <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
     <value>Error not a valid account.</value>
@@ -187,7 +187,7 @@
     <value>Invalid parent account id.</value>
   </data>
   <data name="ERROR_PASSWORD_EXPIRED" xml:space="preserve">
-    <value>Your login attempt was not successful. Please try again.</value>
+    <value>Your password has expired</value>
   </data>
   <data name="ERROR_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
     <value>Passwords do not match.</value>
@@ -195,20 +195,20 @@
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>Invalid security answer.</value>
   </data>
-    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value>Unable to set both the Security Question and the Custom Security Question.</value>
-    </data>
+  <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+    <value>Unable to set both the Security Question and the Custom Security Question.</value>
+  </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
-    <value>You can unsubscribe members with existing usage.</value>
+    <value>You must first manage an account before you can perform an action on it.</value>
   </data>
   <data name="ERROR_TEMP_LOCK" xml:space="preserve">
-    <value>The subscription dates must be</value>
+    <value>The system only allows {0} login attempts before the account is temporarily locked for {1} minutes.  You may manually unlock the account.</value>
   </data>
   <data name="ERROR_UNABLE_SAVE_DATA" xml:space="preserve">
-    <value>Unable to retrieve the list of ACH payment methods</value>
+    <value>Unable to save changes.</value>
   </data>
   <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
-    <value>Unable to deny pending nonstandard charges.</value>
+    <value>Unable to lock account.  Do you have permission?</value>
   </data>
   <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
     <value>Username is invalid.</value>
@@ -241,43 +241,43 @@
     <value>must be an integer greater than or equal to zero.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_RETRIEVE" xml:space="preserve">
-    <value>Unable to remove credit card from your account</value>
+    <value>Unable to retreive the configuration. See log for details.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
-    <value>Unable to save changes.</value>
-  </data>
-  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value>Failed deleting spec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
-        <value>Didn't find matching spec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value>Failed getting specs.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value>Failed saving spec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
-        <value></value>
-    </data>
-  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-    <value>Failed getting entity properties.</value>
-  </data>
-  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
-    <value>You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+    <value>Unable to save the configuration changes. See log for details.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
     <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+    <value>Failed deleting spec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+    <value>Didn't find matching spec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+    <value>Failed getting specs.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+    <value>Failed getting entity properties.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+    <value>Failed saving spec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+    <value>Access denied.</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+    <value>Couldn't add property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
+    <value>Couldn't delete property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
+    <value>Couldn't find property.</value>
+  </data>
+  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
+    <value>You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
   </data>
   <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
     <value>Invalid or Missing Payer</value>
@@ -302,5 +302,8 @@
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
     <value>Unable open and save report</value>
+  </data>
+  <data name="ERROR_PO_EXISTS" xml:space="preserve">
+    <value>Name of product offering must be unique</value>
   </data>
 </root>

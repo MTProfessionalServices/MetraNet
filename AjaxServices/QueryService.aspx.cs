@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.ServiceModel;
 using System.Text;
 using System.Web;
@@ -138,12 +139,21 @@ public partial class AjaxServices_QueryService : MTListServicePage
       }
       else if (filterElement.GetType() == typeof(MTFilterElement))
       {
-          MTFilterElement fe = filterElement as MTFilterElement;
-          object filterValue = fe.Value;
+        var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+        try
+        {
+          System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+          var fe = filterElement as MTFilterElement;
+          var filterValue = fe.Value;
 
           bfe = new FilterElement(fe.PropertyName.Replace('.', '_'),
-            (FilterElement.OperationType)((int)fe.Operation),
-            filterValue);
+                                  (FilterElement.OperationType)((int)fe.Operation),
+                                  filterValue);
+        }
+        finally
+        {
+          System.Threading.Thread.CurrentThread.CurrentCulture = currentCulture;
+        }
       }
       else
       {
@@ -431,7 +441,30 @@ public partial class AjaxServices_QueryService : MTListServicePage
       int realFieldID = exportColumns[i];
       if (curRecord.Fields[realFieldID].FieldValue != null)
       {
-        sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        string renderer = Request["column[" + i + "][renderer]"];
+        if (curRecord.Fields[realFieldID].FieldDataType == typeof (DateTime) && !String.IsNullOrEmpty(renderer))
+        {
+          if (renderer.Equals("shortdatestring", StringComparison.Ordinal))
+          {
+            try
+            {
+              DateTime dt = (DateTime) curRecord.Fields[realFieldID].FieldValue;
+              sb.Append(dt.ToShortDateString().Replace("\"", "\"\""));
+            }
+            catch
+            {
+              sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+            }
+          }
+          else
+          {
+            sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+          }
+        }
+        else
+        {
+          sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        }
       }
       sb.Append("\"");
     }

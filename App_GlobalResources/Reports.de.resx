@@ -259,12 +259,12 @@
     <value>[DE]Total</value>
   </data>
   <data name="TEXT_TOTAL_MONETARY_AMOUNT" xml:space="preserve">
-    <value>[DE] Total Monetary Amount</value>
+    <value>[DE]Total Monetary Amount</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
-    <value>[DE] View Id</value>
+    <value>[DE]View Id</value>
   </data>
   <data name="TEXT_VIEW_NAME" xml:space="preserve">
-    <value>[DE] View Name</value>
+    <value>[DE]View Name</value>
   </data>
 </root>

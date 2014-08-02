@@ -130,10 +130,10 @@
     <value>Item</value>
   </data>
   <data name="EVENT_NAME" xml:space="preserve">
-    <value />
+    <value>Event</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value />
+    <value>Audit Log</value>
   </data>
   <data name="LOGGED_IN_AS" xml:space="preserve">
     <value>Logged In As</value>
@@ -148,6 +148,6 @@
     <value>Time</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>Use Quoted Identifiers</value>
+    <value>User</value>
   </data>
 </root>

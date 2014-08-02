@@ -117,8 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnOKResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Zeitplan für Monatsbericht aktualisieren</value>
+  </data>
+  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Zeitplan für Monatsbericht aktualisieren</value>
@@ -192,6 +211,12 @@
   <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Berichtsparameter verwalten</value>
   </data>
+  <data name="TEXT_DEF_MONTH_APRIL" xml:space="preserve">
+    <value>[DE]April</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_AUGUST" xml:space="preserve">
+    <value>[DE]August</value>
+  </data>
   <data name="TEXT_DEF_MONTH_DECEMBER" xml:space="preserve">
     <value>Dezember</value>
   </data>
@@ -213,11 +238,20 @@
   <data name="TEXT_DEF_MONTH_MAY" xml:space="preserve">
     <value>Mai</value>
   </data>
+  <data name="TEXT_DEF_MONTH_NOVEMBER" xml:space="preserve">
+    <value>[DE]November</value>
+  </data>
   <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
     <value>Oktober</value>
   </data>
+  <data name="TEXT_DEF_MONTH_SEPTEMBER" xml:space="preserve">
+    <value>[DE]September</value>
+  </data>
   <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
     <value>Monat bis heute</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
     <value>Datum der nächsten Ausführung</value>

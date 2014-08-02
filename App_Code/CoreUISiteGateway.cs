@@ -77,7 +77,7 @@ namespace MetraTech.Core.UI
       throw new ApplicationException(info);
     }
 
-    public static string GetHelpPageAsp(HttpServerUtility server, HttpSessionState session, string gotoUrl, Logger logger)
+    public static string GetDefaultHelpPage(HttpServerUtility server, HttpSessionState session, string gotoUrl, Logger logger)
     {
       try
       {
@@ -87,7 +87,6 @@ namespace MetraTech.Core.UI
       catch (AccessControllerException accessExp)
       {
         session[Constants.ERROR] = accessExp.Message;
-        gotoUrl = string.Empty;
       }
       catch (Exception exp)
       {
@@ -95,24 +94,21 @@ namespace MetraTech.Core.UI
         throw;
       }
 
-      // Setup help URL
-      var helpName = "welcome.aspx";
-      try
-      {
-        var helpArr = gotoUrl.Split('?');
-        helpName = helpArr[0].Substring(helpArr[0].LastIndexOf('/') + 1);
-        helpName = helpName.Substring(0, helpName.LastIndexOf('.'));
-      }
-      catch (Exception exp)
-      {
-        // Could not get help url
-        logger.LogException("Could not get help URL from:" + gotoUrl, exp);
-      }
-
-      var helpPage = String.Format("/MetraNet/Help.aspx?PageName={0}", server.HtmlEncode(helpName + ".asp"));
+      // Setup help URL - it should have empty page name
+      const string helpPage = "/MetraNet/Help.aspx?PageName=";
       logger.LogDebug(string.Format("HelpPage: {0}", helpPage));
 
       return helpPage;
+    }
+
+    public static string GetAspResponse(string helpPage, string url)
+    {
+      var sb = new MTStringBuilder();
+      sb.Append("<script language='javascript'>");
+      sb.Append("window.getFrameMetraNet().helpPage = '" + helpPage + "';");
+      sb.Append("window.location.href = '" + url + "';");
+      sb.Append("</script>");
+      return sb.ToString();
     }
   }
 }

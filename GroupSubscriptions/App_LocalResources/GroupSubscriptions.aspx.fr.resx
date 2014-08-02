@@ -130,7 +130,7 @@
     <value>Ajouter un abonnement groupé</value>
   </data>
   <data name="AddIconClass" xml:space="preserve">
-    <value>Ajouter</value>
+    <value>ajouter</value>
   </data>
   <data name="AddToolTip" xml:space="preserve">
     <value>Ajouter un abonnement groupé</value>
@@ -160,7 +160,7 @@
     <value>Adhérer à un abonnement groupé</value>
   </data>
   <data name="JoinIconClass" xml:space="preserve">
-    <value>Ajouter</value>
+    <value>ajouter</value>
   </data>
   <data name="JoinToolTip" xml:space="preserve">
     <value>Adhérer à un abonnement groupé</value>
@@ -172,7 +172,7 @@
     <value>Abonnements groupés</value>
   </data>
   <data name="NoRecordsFound.HeaderText" xml:space="preserve">
-    <value>Aucun enregistrement trouvé</value>
+    <value>Aucun enregistrement trouvé.</value>
   </data>
   <data name="PODescription.HeaderText" xml:space="preserve">
     <value>Description du bon de commande</value>

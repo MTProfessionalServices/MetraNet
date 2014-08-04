@@ -102,7 +102,7 @@
 
 		select 
 		/*DATAMART disabled */
-		bpd2.nm_display_name as ProductOfferingName,
+		COALESCE (bpd2.nm_display_name, po_default_name.nm_name) as ProductOfferingName,
 		COALESCE (bp2d2.nm_display_name, pi_type.nm_name) as PriceableItemName,
 		pi_type.id_prop as PriceableItemId,
 		COALESCE (bp3d2.nm_display_name, pi_type_instance_props.nm_name) as PriceableItemInstanceName,
@@ -170,7 +170,8 @@
 		left outer join t_base_props pi_type on pi_type.id_prop = au.id_pi_template
     
 		left outer join t_vw_base_props bpd2 on au.id_prod=bpd2.id_prop and bpd2.id_lang_code=:idLang
-		
+		left outer join t_base_props po_default_name on au.id_prod=po_default_name.id_prop
+     
 		left outer join t_vw_base_props bp3d2 on au.id_pi_instance=bp3d2.id_prop and bp3d2.id_lang_code=:idLang
 		left outer join t_base_props pi_type_instance_props on pi_type_instance_props.id_prop = au.id_pi_instance
     
@@ -198,7 +199,7 @@
 		%%CURRENCY%%
 		group by
 		au.id_prod,
-		bpd2.nm_display_name,
+		COALESCE (bpd2.nm_display_name, po_default_name.nm_name),
 		COALESCE (bp2d2.nm_display_name, pi_type.nm_name),
 		pi_type.id_prop,
 		COALESCE (bp3d2.nm_display_name, pi_type_instance_props.nm_name),

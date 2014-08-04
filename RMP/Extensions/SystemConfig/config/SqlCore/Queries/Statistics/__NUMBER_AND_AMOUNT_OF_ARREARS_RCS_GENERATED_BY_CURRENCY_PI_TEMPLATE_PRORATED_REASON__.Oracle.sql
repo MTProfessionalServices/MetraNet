@@ -1,5 +1,6 @@
 
 				select 
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				  nm_name "PI Template",
 				  count(c_advance) "# of Arrears Generated",
 				  c_prorateddays "# of Days Prorated",
@@ -29,7 +30,8 @@
 				    when c_proratedonsubscription = 0 and c_proratedonunsubscription=0 then 'N/A' end,
           trunc(c_rcintervalend - c_rcintervalstart) + 1 
 			UNION ALL
-				select 
+				select
+					dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				  nm_name "PI Template",
 				  count(c_advance) "# of Arrears Generated",
 				  c_prorateddays "# of Days Prorated",
@@ -57,5 +59,3 @@
 				    when c_proratedonsubscription = 0 and c_proratedonunsubscription=1 then 'UNSUBSCRIPTION'
 				    when c_proratedonsubscription = 0 and c_proratedonunsubscription=0 then 'N/A' end,
           trunc(c_rcintervalend - c_rcintervalstart) + 1
-				order by "Reason for Proration"
-			 

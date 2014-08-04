@@ -1,7 +1,9 @@
 
-				select bp.nm_name "PI Template",
+				select 
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+				  bp.nm_name "PI Template",
 				  count(*) "# Transactions Affected",
-				  am_currency currency,
+				  am_currency Currency,
 				  SUM({fn ifnull(au.Amount, 0.0)}) "Monetary Amount" 
 				from t_acc_usage au 
 				inner join t_vw_base_props bp on au.id_pi_template = bp.id_prop
@@ -13,5 +15,3 @@
 	    		and (bp.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 	    		and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 				group by bp.nm_name,am_currency
-				order by bp.nm_name
-			 

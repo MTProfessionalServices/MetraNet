@@ -2,6 +2,21 @@
 <xmlconfig>
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
+    <!--Adapter>
+      <Name>GenerateAnalyticsDatamart</Name>
+      <DisplayName>Generate and/or Populate Analytics Data Mart</DisplayName>
+      <ClassID>MetraTech.UsageServer.Adapters.AnalyticsDatamartAdapter,MetraTech.UsageServer.Adapters</ClassID>
+      <ConfigFile>GenerateAnalyticsDatamart.xml</ConfigFile>
+      <Description>
+      <![CDATA[
+        Generates the and/or populates the Analytics Data Mart
+      ]]>
+      </Description>
+	  <RecurrencePattern>
+		<SystemCycle>Daily</SystemCycle>
+	  </RecurrencePattern>
+    </Adapter-->
+
         <!--
     <Adapter>
       <Name>MaterializedViewAdapter</Name>
@@ -73,24 +88,7 @@
                 <SystemCycle>Daily</SystemCycle>
             </RecurrencePattern>
         </Adapter>
-        <!-- Product Catalog Discounts -->
-        <Adapter>
-            <Name>ScheduledDiscounts</Name>
-            <DisplayName>Discount Adapter</DisplayName>
-            <ClassID>Metratech.MTDiscountAdapter.1</ClassID>
-            <ConfigFile>Discounts.xml</ConfigFile>
-            <ActivationDate>10/1/2002 00:00:00</ActivationDate>
-            <Description>
-        Generates non billing cycle relative group discounts for discount intervals ending between the given timespan.
-      </Description>
-            <Dependencies>
-                <DependsOn>NonRecurringCharges</DependsOn>
-            </Dependencies>
-            <RecurrencePattern>
-                <SystemCycle>Daily</SystemCycle>
-            </RecurrencePattern>
-        </Adapter>
-
+        
         <Adapter>
             <Name>PipelineFailoverAdapter</Name>
             <DisplayName>Pipeline Failover Adapter</DisplayName>
@@ -146,7 +144,7 @@
 
 
         <!-- Product Catalog Aggregate Charges -->
-        <Adapter>
+        <!-- <Adapter>
             <Name>AggregateCharges</Name>
             <DisplayName>Aggregate Charge Adapter</DisplayName>
             <ClassID>Metratech.MTAggRateAdapter.1</ClassID>
@@ -163,24 +161,7 @@
             <Dependencies>
                 <DependsOn>RecurringCharges</DependsOn>
             </Dependencies>
-        </Adapter>
-        <!-- Product Catalog Discounts -->
-        <Adapter>
-            <Name>Discounts</Name>
-            <DisplayName>Discount Adapter</DisplayName>
-            <ClassID>Metratech.MTDiscountAdapter.1</ClassID>
-            <ConfigFile>Discounts.xml</ConfigFile>
-            <Description>
-        MetraTech standard adapter to process discounts from the product catalog.
-      </Description>
-            <RecurrencePattern>
-                <UsageCycleType>All</UsageCycleType>
-            </RecurrencePattern>
-            <Dependencies>
-                <DependsOn>AggregateCharges</DependsOn>
-                <DependsOn>NonRecurringCharges</DependsOn>
-            </Dependencies>
-        </Adapter>
+        </Adapter> -->       
         <!-- PayerChange -->
         <Adapter>
             <Name>PayerChange</Name>
@@ -194,8 +175,8 @@
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
             <Dependencies>
-                <DependsOn>Discounts</DependsOn>
-                <DependsOn>ScheduledDiscounts</DependsOn>
+                <DependsOn>Aggregate Metrics Processor (Scheduled)</DependsOn>
+                <DependsOn>Aggregate Metrics Processor (EOP)</DependsOn>
             </Dependencies>
         </Adapter>
         <Checkpoint>

@@ -1,5 +1,6 @@
 
-				  select 
+				  select
+				    dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				    nm_name "PI Template",
 				    count(c_advance) "# of Advanced RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",
@@ -19,6 +20,7 @@
 				    datediff(day,c_rcintervalstart,c_rcintervalend)+1
 				UNION ALL
 				  select 
+						dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				    nm_name "PI Template",
 				    count(c_advance) "# of Advanced RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",
@@ -35,5 +37,3 @@
 				    and id_lang_code=%%ID_LANG_CODE%%
 				  group by nm_name,am_currency,c_prorateddays,
 				    datediff(day,c_rcintervalstart,c_rcintervalend)+1
-				  order by nm_name,am_currency
-			 

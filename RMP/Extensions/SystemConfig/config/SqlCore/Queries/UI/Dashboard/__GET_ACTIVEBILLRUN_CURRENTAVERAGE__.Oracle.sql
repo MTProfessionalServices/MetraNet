@@ -1,0 +1,1 @@
+select * from TABLE(active_bill_run_pkg.getActvCurAverage(%%ID_USAGE_INTERVAL%%))

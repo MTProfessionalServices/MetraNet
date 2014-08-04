@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Unknown</Action>
+    <Implementations>
+        <Implementation>Common</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>FILTER</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>OR ft.state='A'</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile>R:\Config\Queries\billingrerun\CommonQueries.xml</CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

@@ -1,5 +1,6 @@
 
-				select 
+				select
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
 				  bp.nm_name "PI Template",
 				  case c_NRCEventType 
 				    when 0 then 'Unknown' 
@@ -25,5 +26,3 @@
 				    when 3 then 'Change-Subscription' end,
 				  nm_name, 
 				  am_currency
-				order by bp.nm_name
-			 

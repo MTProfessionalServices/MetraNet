@@ -1,5 +1,6 @@
 
-				select bp.nm_name "Discount Name",
+				select dbo.GenGuid() "ID",
+				  bp.nm_name "Discount Name",
 				  count(*) "# of Discounts Generated",
 				  am_currency "Currency",
 				  sum({fn ifnull(au.amount,0.0)}) "Amount" 
@@ -14,5 +15,3 @@
 	    		and (bp.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 	    		and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 				group by bp.nm_name, am_currency
-				order by bp.nm_name
-			 

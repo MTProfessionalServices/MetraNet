@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <mt_config>
   <language_code>gb</language_code>
   <locale_space name="metratech.com/BusinessEntity">
@@ -30,6 +29,14 @@
     <locale_entry>
       <Name>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.Core</Name>
       <Value>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.Core</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.Reporting</Name>
+      <Value>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.Reporting</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.SystemConfig</Name>
+      <Value>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.SystemConfig</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

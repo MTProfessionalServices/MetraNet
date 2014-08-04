@@ -2,7 +2,8 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
@@ -21,7 +22,7 @@
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Extensions\SystemConfig\Config\Queries\Statistics\CommonQueries.xml</CommonQuerySourceFile>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

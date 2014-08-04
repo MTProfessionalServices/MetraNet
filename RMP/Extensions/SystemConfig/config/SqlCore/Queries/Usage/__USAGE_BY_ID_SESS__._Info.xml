@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Get</Action>
+    <Implementations>
+        <Implementation>Common</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>ID_INTERVAL</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description>Usage Interval Id</Description>
+        </Parameter>
+        <Parameter>
+            <Name>ID_SESS</Name>
+            <DataType>int64</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description>Session Id</Description>
+        </Parameter>
+        <Parameter>
+            <Name>NM_PV_TABLE</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>t_pv_AccountCredit</SubstitutionSyntaxCheck>
+            <Description>Product View Table Name</Description>
+        </Parameter>
+    </Parameters>
+    <Description>Get usage record by id_sess and interval</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

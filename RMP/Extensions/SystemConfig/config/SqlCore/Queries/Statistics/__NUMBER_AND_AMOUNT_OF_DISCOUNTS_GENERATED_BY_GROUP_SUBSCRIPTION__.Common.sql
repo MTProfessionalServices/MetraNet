@@ -22,5 +22,3 @@
 	    		and (bp3d2.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 	    		and (bp3d2.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 				group by sub.tx_name, bpd2.nm_name, bp3d2.nm_name, am_currency 
-				order by sub.tx_name, bpd2.nm_name, bp3d2.nm_name 
-			 

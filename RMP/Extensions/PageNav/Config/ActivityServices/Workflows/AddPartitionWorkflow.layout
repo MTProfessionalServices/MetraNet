@@ -1,0 +1,207 @@
+<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Size="1215, 625" AutoSizeMargin="16, 24" AutoSize="False" Location="30, 30" Name="AddPartitionWorkflow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<StateMachineWorkflowDesigner.Designers>
+		<StateDesigner Size="222, 166" AutoSizeMargin="16, 24" AutoSize="False" Location="230, 228" Name="AddPartition">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_AddPartition" Size="150, 242" Location="334, 135">
+					<StateInitializationDesigner.Designers>
+						<CodeDesigner Name="GetAccountType" Size="130, 41" Location="344, 197" />
+						<ActivityDesigner Name="priceListService_LoadPriceLists_ClientActivity1" Size="130, 41" Location="344, 257" />
+						<ActivityDesigner Name="mtStateInitOutputActivity1" Size="130, 41" Location="344, 317" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="OK_AddPartition" Size="401, 1899" Location="342, 148">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="HandleOkAddPartition" Size="130, 41" Location="477, 210" />
+						<CodeDesigner Name="CreateNamespace" Size="130, 41" Location="477, 270" />
+						<CodeDesigner Name="SetDefaultProperties" Size="130, 41" Location="477, 330" />
+						<ActivityDesigner Name="accountCreation_AddAccount_ClientActivity1" Size="130, 41" Location="477, 390" />
+						<CodeDesigner Name="SetOutAccountID" Size="130, 41" Location="477, 450" />
+						<IfElseDesigner Name="EmailNotification" Size="381, 303" Location="352, 510">
+							<IfElseDesigner.Designers>
+								<IfElseBranchDesigner Name="SendEmailTrueActivity" Size="170, 203" Location="371, 581">
+									<IfElseBranchDesigner.Designers>
+										<SequenceDesigner Name="SendEmailActivity" Size="150, 122" Location="381, 643">
+											<SequenceDesigner.Designers>
+												<CodeDesigner Name="SendEmailCodeActivity" Size="130, 41" Location="391, 705" />
+											</SequenceDesigner.Designers>
+										</SequenceDesigner>
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+								<IfElseBranchDesigner Name="SendEmailFalseActivity" Size="150, 203" Location="564, 581" />
+							</IfElseDesigner.Designers>
+						</IfElseDesigner>
+						<IfElseDesigner Name="ifElseActivityIfNotSystemAccount" Size="188, 282" Location="448, 832">
+							<IfElseDesigner.Designers>
+								<IfElseBranchDesigner Name="ifNotSystemAccount" Size="150, 182" Location="467, 903">
+									<IfElseBranchDesigner.Designers>
+										<CodeDesigner Name="SetupPartitionAuthorization" Size="130, 41" Location="477, 965" />
+										<ActivityDesigner Name="applyPartitionAuthorization" Size="130, 41" Location="477, 1025" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+							</IfElseDesigner.Designers>
+						</IfElseDesigner>
+						<WhileDesigner Name="whileThereAreContainers" Size="258, 703" Location="413, 1133">
+							<WhileDesigner.Designers>
+								<SequenceDesigner Name="sequenceCreateContainers" Size="208, 603" Location="438, 1205">
+									<SequenceDesigner.Designers>
+										<CodeDesigner Name="SetupContainerAccount" Size="130, 41" Location="477, 1267" />
+										<ActivityDesigner Name="AddContainerAccount" Size="130, 41" Location="477, 1327" />
+										<IfElseDesigner Name="ifContainerIsSystemUser" Size="188, 402" Location="448, 1387">
+											<IfElseDesigner.Designers>
+												<IfElseBranchDesigner Name="ifElseBranchIfContainerIsSystem" Size="150, 302" Location="467, 1458">
+													<IfElseBranchDesigner.Designers>
+														<CodeDesigner Name="SetupPartitionAdmin" Size="130, 41" Location="477, 1520" />
+														<ActivityDesigner Name="AddPartitionAdmin" Size="130, 41" Location="477, 1580" />
+														<CodeDesigner Name="SetupPartitionAdminAuthorization" Size="130, 41" Location="477, 1640" />
+														<ActivityDesigner Name="applyPartitionAdminAuthorization" Size="130, 41" Location="477, 1700" />
+													</IfElseBranchDesigner.Designers>
+												</IfElseBranchDesigner>
+											</IfElseDesigner.Designers>
+										</IfElseDesigner>
+									</SequenceDesigner.Designers>
+								</SequenceDesigner>
+							</WhileDesigner.Designers>
+						</WhileDesigner>
+						<CodeDesigner Name="CreateVirtualMetraViewSite" Size="130, 41" Location="477, 1855" />
+						<ActivityDesigner Name="mtEventOutputActivity3" Size="130, 41" Location="477, 1915" />
+						<SetStateDesigner Name="GoToAccountCreated" Size="130, 53" Location="477, 1975" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity1" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity1" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity1" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Cancel_AddPartition" Size="150, 182" Location="334, 183">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="HandleCancelAddPartition" Size="130, 41" Location="344, 245" />
+						<SetStateDesigner Name="GoToDashboard" Size="130, 41" Location="344, 305" />
+						<FaultHandlersActivityDesigner Location="512, 194" Name="faultHandlersActivity" Size="190, 232" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity2" Size="174, 144" Location="520, 274">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity2" Size="130, 41" Location="562, 347" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="GeneratePassword_AddPartition" Size="150, 242" Location="334, 207">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="HandleGeneratePasswordAddPartition" Size="130, 41" Location="344, 269" />
+						<CodeDesigner Name="GeneratePasswordActivity" Size="130, 41" Location="344, 329" />
+						<ActivityDesigner Name="mtEventOutputActivity4" Size="130, 41" Location="344, 389" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity4" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity4" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity4" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="160, 80" AutoSizeMargin="16, 24" Location="571, 410" Name="AccountCreated">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_AccountCreated" Size="150, 182" Location="579, 441">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="mtStateInitOutputActivity2" Size="130, 41" Location="589, 503" />
+						<SetStateDesigner Name="GoToEndState2" Size="130, 41" Location="589, 563" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="160, 80" AutoSizeMargin="16, 24" Location="402, 410" Name="Dashboard">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_Dashboard" Size="150, 182" Location="410, 441">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="mtStateInitOutputActivity4" Size="130, 41" Location="420, 503" />
+						<SetStateDesigner Name="GoToEndState1" Size="130, 41" Location="420, 563" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="223, 80" AutoSizeMargin="16, 24" Location="61, 132" Name="StartAddPartition">
+			<StateDesigner.Designers>
+				<EventDrivenDesigner Name="Start_AddPartition" Size="150, 182" Location="69, 163">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="Handle_AddPartition" Size="130, 41" Location="79, 225" />
+						<SetStateDesigner Name="GoTo_AddPartition" Size="130, 41" Location="79, 285" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity6" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity6" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity6" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="160, 80" AutoSizeMargin="16, 24" Location="487, 545" Name="EndState" />
+		<EventDrivenDesigner Name="SetStateEventHandler" Size="150, 182" Location="38, 61">
+			<EventDrivenDesigner.Designers>
+				<ActivityDesigner Name="mtHandleEventActivity12" Size="130, 41" Location="48, 123" />
+				<ActivityDesigner Name="mtSetPageStateActivity1" Size="130, 41" Location="48, 183" />
+				<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity11" Size="130, 41" ShowPreview="False">
+					<FaultHandlersActivityDesigner.Designers>
+						<FaultHandlerActivityDesigner Name="faultHandlerActivity11" Size="130, 41" Location="0, 0">
+							<FaultHandlerActivityDesigner.Designers>
+								<ActivityDesigner Name="mtFaultHandlingActivity11" Size="130, 41" Location="0, 0" />
+							</FaultHandlerActivityDesigner.Designers>
+						</FaultHandlerActivityDesigner>
+					</FaultHandlersActivityDesigner.Designers>
+				</FaultHandlersActivityDesigner>
+			</EventDrivenDesigner.Designers>
+		</EventDrivenDesigner>
+	</StateMachineWorkflowDesigner.Designers>
+	<StateMachineWorkflowDesigner.DesignerConnectors>
+		<StateDesignerConnector TargetActivity="AccountCreated" SetStateName="GoToAccountCreated" SourceActivity="AddPartition" TargetConnectionIndex="0" SourceStateName="AddPartition" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="OK_AddPartition" SourceConnectionIndex="1" TargetStateName="AccountCreated">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="349" Y="293" />
+				<ns0:Point X="651" Y="293" />
+				<ns0:Point X="651" Y="410" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetActivity="Dashboard" SetStateName="GoToDashboard" SourceActivity="AddPartition" TargetConnectionIndex="0" SourceStateName="AddPartition" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_AddPartition" SourceConnectionIndex="2" TargetStateName="Dashboard">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="367" Y="317" />
+				<ns0:Point X="482" Y="317" />
+				<ns0:Point X="482" Y="410" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetActivity="EndState" SetStateName="GoToEndState2" SourceActivity="AccountCreated" TargetConnectionIndex="0" SourceStateName="AccountCreated" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_AccountCreated" SourceConnectionIndex="0" TargetStateName="EndState">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="717" Y="451" />
+				<ns0:Point X="743" Y="451" />
+				<ns0:Point X="743" Y="533" />
+				<ns0:Point X="567" Y="533" />
+				<ns0:Point X="567" Y="545" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetActivity="EndState" SetStateName="GoToEndState1" SourceActivity="Dashboard" TargetConnectionIndex="0" SourceStateName="Dashboard" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_Dashboard" SourceConnectionIndex="0" TargetStateName="EndState">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="523" Y="451" />
+				<ns0:Point X="567" Y="451" />
+				<ns0:Point X="567" Y="545" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetActivity="AddPartition" SetStateName="GoTo_AddPartition" SourceActivity="StartAddPartition" TargetConnectionIndex="0" SourceStateName="StartAddPartition" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Start_AddPartition" SourceConnectionIndex="0" TargetStateName="AddPartition">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="190" Y="173" />
+				<ns0:Point X="341" Y="173" />
+				<ns0:Point X="341" Y="228" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+	</StateMachineWorkflowDesigner.DesignerConnectors>
+</StateMachineWorkflowDesigner>

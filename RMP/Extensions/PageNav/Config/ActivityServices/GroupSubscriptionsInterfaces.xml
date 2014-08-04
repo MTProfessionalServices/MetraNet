@@ -24,6 +24,9 @@
 						<Parameter Name="CorporateAccountIdentifier" Description="This is a ref parameter that identifies the parent corporate account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common.dll">
 							<InternalName>CorporateAccountIdentifier</InternalName>
 						</Parameter>
+						<Parameter Name="StartWithStepGr" Description="This is a parameter identifies specific, not first step to start with" Type="System.String">
+						  <InternalName>StartWithStepGr</InternalName>
+						</Parameter>
 					</ParameterDefs>
 				</EventMethod>
 

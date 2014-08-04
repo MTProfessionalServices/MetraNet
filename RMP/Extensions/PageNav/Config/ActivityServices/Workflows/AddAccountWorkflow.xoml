@@ -1,4 +1,4 @@
-<ns0:AddAccountWorkflow ApplyAccountTemplates="False" Password="{p1:Null}" PriceLists="{p1:Null}" PriceListColl="{p1:Null}" NewAccountId="0" TemplateEffectiveDate="0001-01-01T00:00:00.0000000" AccountTemplate="{p1:Null}" Account="{p1:Null}" x:Name="AddAccountWorkflow" PageStateGuid="00000000-0000-0000-0000-000000000000" BillToContactView="{x:Null}" TemplatesApplied="False" TemplateAccount="{x:Null}" SelectedAccountType="CoreSubscriber" CompletedStateName="EndState" InitialStateName="StartAddAccount" AccountTypes="{x:Null}" DynamicUpdateCondition="{x:Null}" SendEmail="False" xmlns:ns1="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns2="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns3="clr-namespace:MetraTech.Account.ProxyActivities;Assembly=MetraTech.Account.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns4="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraCareWorkflowLibrary;Assembly=MetraCareWorkflowLibrary">
+<ns0:AddAccountWorkflow ApplyAccountTemplates="False" Password="{p1:Null}" PriceLists="{p1:Null}" PriceListColl="{p1:Null}" ParentAccountId="0" NewAccountId="0" TemplateEffectiveDate="0001-01-01T00:00:00.0000000" AccountTemplate="{p1:Null}" Account="{p1:Null}" x:Name="AddAccountWorkflow" PageStateGuid="00000000-0000-0000-0000-000000000000" BillToContactView="{x:Null}" TemplatesApplied="False" TemplateAccount="{x:Null}" SelectedAccountType="CoreSubscriber" CompletedStateName="EndState" InitialStateName="StartAddAccount" AccountTypes="{x:Null}" DynamicUpdateCondition="{x:Null}" SendEmail="False" xmlns:ns1="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns2="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns3="clr-namespace:MetraTech.Account.ProxyActivities;Assembly=MetraTech.Account.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns4="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraCareWorkflowLibrary;Assembly=MetraCareWorkflowLibrary">
 	<ns1:MTPageStateActivity x:Name="AddAccount" PageName="/MetraNet/Account/AddAccount.aspx">
 		<StateInitializationActivity x:Name="Init_AddAccount">
 			<CodeActivity x:Name="GetAccountType" ExecuteCode="{ActivityBind AddAccountWorkflow,Path=GetAccountType_ExecuteCode}" />
@@ -155,6 +155,17 @@
 						<ActivityBind Name="AddAccountWorkflow" Path="CONST_SystemAccount" />
 					</ns1:MTSwitch.Cases>
 				</SetStateActivity>
+				<SetStateActivity x:Name="Case_Endpoint" TargetStateName="AddAccount">
+					<ns1:MTSwitch.Cases>
+						<ActivityBind Path="CONST_Endpoint" Name="AddAccountWorkflow" />
+					</ns1:MTSwitch.Cases>
+				</SetStateActivity>
+				<SetStateActivity x:Name="Case_Container" TargetStateName="AddAccount">
+					<ns1:MTSwitch.Cases>
+						<ActivityBind Path="CONST_Container" Name="AddAccountWorkflow" />
+					</ns1:MTSwitch.Cases>
+				</SetStateActivity>
+				<!-- TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow can be thrown from MetraNet project-->
 				<SetStateActivity x:Name="Default_Case_GenericAccount" TargetStateName="GenericAddAccount" />
 			</ns1:MTSwitch>
 		</StateInitializationActivity>

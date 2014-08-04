@@ -1,4 +1,4 @@
-<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Size="1131, 742" AutoSizeMargin="16, 24" AutoSize="False" Location="30, 30" Name="UpdateAccountWorkflow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Size="903, 742" AutoSizeMargin="16, 24" AutoSize="False" Location="30, 30" Name="UpdateAccountWorkflow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
 	<StateMachineWorkflowDesigner.Designers>
 		<StateDesigner Size="210, 80" AutoSizeMargin="16, 24" Location="54, 105" Name="StartUpdateAccount">
 			<StateDesigner.Designers>
@@ -24,33 +24,33 @@
 		</StateDesigner>
 		<StateDesigner Size="175, 112" AutoSizeMargin="16, 24" AutoSize="False" Location="180, 339" Name="UpdateAccount">
 			<StateDesigner.Designers>
-				<StateInitializationDesigner Name="Init_UpdateAccount" Size="150, 182" Location="397, 135">
+				<StateInitializationDesigner Name="Init_UpdateAccount" Size="150, 182" Location="188, 370">
 					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Name="priceListService_LoadPriceLists_ClientActivity1" Size="130, 41" Location="407, 197" />
-						<ActivityDesigner Name="mtStateInitOutputActivity2" Size="130, 41" Location="407, 257" />
+						<ActivityDesigner Name="priceListService_LoadPriceLists_ClientActivity1" Size="130, 41" Location="198, 432" />
+						<ActivityDesigner Name="mtStateInitOutputActivity2" Size="130, 41" Location="198, 492" />
 					</StateInitializationDesigner.Designers>
 				</StateInitializationDesigner>
-				<EventDrivenDesigner Name="OK_UpdateAccount" Size="381, 615" Location="405, 148">
+				<EventDrivenDesigner Name="OK_UpdateAccount" Size="381, 615" Location="188, 394">
 					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Name="mtHandleEventActivity3" Size="130, 41" Location="530, 210" />
-						<CodeDesigner Name="PayerAndAncestorCheck1" Size="130, 41" Location="530, 270" />
-						<CodeDesigner Name="codeActivity1" Size="130, 41" Location="530, 330" />
-						<IfElseDesigner Name="ifElseActivity1" Size="361, 294" Location="415, 390">
+						<ActivityDesigner Name="mtHandleEventActivity3" Size="130, 41" Location="313, 456" />
+						<CodeDesigner Name="PayerAndAncestorCheck1" Size="130, 41" Location="313, 516" />
+						<CodeDesigner Name="codeActivity1" Size="130, 41" Location="313, 576" />
+						<IfElseDesigner Name="ifElseActivity1" Size="361, 294" Location="198, 636">
 							<IfElseDesigner.Designers>
-								<IfElseBranchDesigner Name="ifElseBranchActivity1" Size="150, 194" Location="434, 461">
+								<IfElseBranchDesigner Name="ifElseBranchActivity1" Size="150, 194" Location="217, 707">
 									<IfElseBranchDesigner.Designers>
-										<ActivityDesigner Name="approvalManagementService_SubmitChange_ClientActivity1" Size="130, 41" Location="444, 523" />
-										<SetStateDesigner Name="setStateActivity10" Size="130, 53" Location="444, 583" />
+										<ActivityDesigner Name="approvalManagementService_SubmitChange_ClientActivity1" Size="130, 41" Location="227, 769" />
+										<SetStateDesigner Name="setStateActivity10" Size="130, 53" Location="227, 829" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Name="ifElseBranchActivity2" Size="150, 194" Location="607, 461">
+								<IfElseBranchDesigner Name="ifElseBranchActivity2" Size="150, 194" Location="390, 707">
 									<IfElseBranchDesigner.Designers>
-										<ActivityDesigner Name="accountCreation_UpdateAccount_ClientActivity1" Size="130, 41" Location="617, 559" />
+										<ActivityDesigner Name="accountCreation_UpdateAccount_ClientActivity1" Size="130, 41" Location="400, 805" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
 							</IfElseDesigner.Designers>
 						</IfElseDesigner>
-						<SetStateDesigner Name="setStateActivity4" Size="130, 41" Location="530, 703" />
+						<SetStateDesigner Name="setStateActivity4" Size="130, 41" Location="313, 949" />
 						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity2" Size="130, 41" ShowPreview="False">
 							<FaultHandlersActivityDesigner.Designers>
 								<FaultHandlerActivityDesigner Name="faultHandlerActivity2" Size="130, 41" Location="0, 0">
@@ -62,10 +62,10 @@
 						</FaultHandlersActivityDesigner>
 					</EventDrivenDesigner.Designers>
 				</EventDrivenDesigner>
-				<EventDrivenDesigner Name="Cancel_UpdateAccount" Size="150, 182" Location="397, 183">
+				<EventDrivenDesigner Name="Cancel_UpdateAccount" Size="150, 182" Location="188, 418">
 					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Name="mtHandleEventActivity2" Size="130, 41" Location="407, 245" />
-						<SetStateDesigner Name="setStateActivity7" Size="130, 41" Location="407, 305" />
+						<ActivityDesigner Name="mtHandleEventActivity2" Size="130, 41" Location="198, 480" />
+						<SetStateDesigner Name="setStateActivity7" Size="130, 41" Location="198, 540" />
 						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity3" Size="130, 41" ShowPreview="False">
 							<FaultHandlersActivityDesigner.Designers>
 								<FaultHandlerActivityDesigner Name="faultHandlerActivity3" Size="130, 41" Location="0, 0">
@@ -171,18 +171,21 @@
 				</EventDrivenDesigner>
 			</StateDesigner.Designers>
 		</StateDesigner>
-		<StateDesigner Size="214, 80" AutoSizeMargin="16, 24" Location="326, 201" Name="GotoAccountPageForType">
+		<StateDesigner Size="214, 80" AutoSizeMargin="16, 24" AutoSize="False" Location="326, 201" Name="GotoAccountPageForType">
 			<StateDesigner.Designers>
-				<StateInitializationDesigner Name="Init_GotoAccountPageForType" Size="953, 234" Location="334, 232">
+				<StateInitializationDesigner Name="Init_GotoAccountPageForType" Size="1412, 234" Location="62, 148">
 					<StateInitializationDesigner.Designers>
-						<ns1:SwitchDesigner Name="SwithOnAccountType" Size="933, 153" Location="344, 294" xmlns:ns1="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75">
+						<ns1:SwitchDesigner Name="SwithOnAccountType" Size="1392, 153" Location="72, 210" xmlns:ns1="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75">
 							<ns1:SwitchDesigner.Designers>
-								<SetStateDesigner Name="Case_CoreSubscriber" Size="130, 53" Location="363, 365" />
-								<SetStateDesigner Name="Case_IndependentAccount" Size="130, 53" Location="516, 365" />
-								<SetStateDesigner Name="Case_DepartmentAccount" Size="130, 53" Location="669, 365" />
-								<SetStateDesigner Name="Case_CorporateAccount" Size="130, 53" Location="822, 365" />
-								<SetStateDesigner Name="Case_SystemAccount" Size="130, 53" Location="975, 365" />
-								<SetStateDesigner Name="Default_Case_GenericAccount" Size="130, 53" Location="1128, 365" />
+								<SetStateDesigner Name="Case_CoreSubscriber" Size="130, 53" Location="91, 281" />
+								<SetStateDesigner Name="Case_IndependentAccount" Size="130, 53" Location="244, 281" />
+								<SetStateDesigner Name="Case_DepartmentAccount" Size="130, 53" Location="397, 281" />
+								<SetStateDesigner Name="Case_CorporateAccount" Size="130, 53" Location="550, 281" />
+								<SetStateDesigner Name="Case_SystemAccount" Size="130, 53" Location="703, 281" />
+								<SetStateDesigner Name="Case_Endpoint" Size="130, 53" Location="856, 281" />
+								<SetStateDesigner Name="Case_Partition" Size="130, 53" Location="1009, 281" />
+								<SetStateDesigner Name="Case_Container" Size="130, 53" Location="1162, 281" />
+								<SetStateDesigner Name="Default_Case_GenericAccount" Size="130, 53" Location="1315, 281" />
 							</ns1:SwitchDesigner.Designers>
 						</ns1:SwitchDesigner>
 					</StateInitializationDesigner.Designers>
@@ -366,6 +369,33 @@
 				<ns0:Point X="522" Y="242" />
 				<ns0:Point X="562" Y="242" />
 				<ns0:Point X="562" Y="336" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetActivity="UpdateAccount" SetStateName="Case_Endpoint" SourceActivity="GotoAccountPageForType" TargetConnectionIndex="0" SourceStateName="GotoAccountPageForType" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_GotoAccountPageForType" SourceConnectionIndex="0" TargetStateName="UpdateAccount">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="522" Y="242" />
+				<ns0:Point X="547" Y="242" />
+				<ns0:Point X="547" Y="327" />
+				<ns0:Point X="267" Y="327" />
+				<ns0:Point X="267" Y="339" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetActivity="UpdateAccount" SetStateName="Case_Partition" SourceActivity="GotoAccountPageForType" TargetConnectionIndex="0" SourceStateName="GotoAccountPageForType" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_GotoAccountPageForType" SourceConnectionIndex="0" TargetStateName="UpdateAccount">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="522" Y="242" />
+				<ns0:Point X="547" Y="242" />
+				<ns0:Point X="547" Y="327" />
+				<ns0:Point X="267" Y="327" />
+				<ns0:Point X="267" Y="339" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetActivity="UpdateAccount" SetStateName="Case_Container" SourceActivity="GotoAccountPageForType" TargetConnectionIndex="0" SourceStateName="GotoAccountPageForType" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_GotoAccountPageForType" SourceConnectionIndex="0" TargetStateName="UpdateAccount">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="522" Y="242" />
+				<ns0:Point X="547" Y="242" />
+				<ns0:Point X="547" Y="327" />
+				<ns0:Point X="267" Y="327" />
+				<ns0:Point X="267" Y="339" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
 		<StateDesignerConnector TargetActivity="GenericUpdateAccount" SetStateName="Default_Case_GenericAccount" SourceActivity="GotoAccountPageForType" TargetConnectionIndex="0" SourceStateName="GotoAccountPageForType" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_GotoAccountPageForType" SourceConnectionIndex="0" TargetStateName="GenericUpdateAccount">

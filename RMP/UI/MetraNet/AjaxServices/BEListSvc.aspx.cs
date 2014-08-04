@@ -15,6 +15,7 @@ using MetraTech.BusinessEntity.Service.ClientProxies;
 using MetraTech.DomainModel.Enums;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
+using MetraTech.UI.Tools;
 
 public partial class AjaxServices_BEListSvc : MTListServicePage
 {
@@ -78,14 +79,33 @@ public partial class AjaxServices_BEListSvc : MTListServicePage
     }
     catch (FaultException<MASBasicFaultDetail> ex)
     {
+      string errorMessage = "";
       Response.StatusCode = 500;
-      Logger.LogError(ex.Detail.ErrorMessages[0]);
+      foreach (string msg in ex.Detail.ErrorMessages)
+      {
+        errorMessage += string.Format("{0}{1}", msg, (errorMessage.Length > 0 ? "; " : ""));// "\r\n";
+      }
+
+      string errCodeString = Utils.ExtractString(errorMessage, "status '", "'");
+      if (errCodeString != "")
+      {
+        string detailedError = Utils.MTErrorMessage(errCodeString);
+        errorMessage += "  " + detailedError;
+      }
+
+      Response.StatusDescription = Response.Status;
+      errorMessage = "{" + String.Format("'{0}'", errorMessage.Replace("'", "\'")) + "}";
+      Response.Write(errorMessage);
+	    Logger.LogError(errorMessage);
       Response.End();
       return false;
     }
     catch (CommunicationException ex)
     {
       Response.StatusCode = 500;
+      Response.StatusDescription = Response.Status;
+      string errorMessage = "{" + String.Format("'{0}'", ex.Message.Replace("'", "\'")) + "}";
+      Response.Write(errorMessage);
       Logger.LogError(ex.Message);
       Response.End();
       return false;
@@ -93,6 +113,9 @@ public partial class AjaxServices_BEListSvc : MTListServicePage
     catch (Exception ex)
     {
       Response.StatusCode = 500;
+      Response.StatusDescription = Response.Status;
+      string errorMessage = "{" + String.Format("'{0}'", ex.Message.Replace("'", "\'")) + "}";
+      Response.Write(errorMessage);
       Logger.LogError(ex.Message);
       Response.End();
       return false;
@@ -108,6 +131,7 @@ public partial class AjaxServices_BEListSvc : MTListServicePage
       Response.BufferOutput = false;
       Response.ContentType = "application/csv";
       Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+      Response.BinaryWrite(BOM);
     }
 
     //if there are more records to process than we can process at once, we need to break up into multiple batches

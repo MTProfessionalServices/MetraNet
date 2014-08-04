@@ -1,0 +1,92 @@
+/* Basic control style */
+div.vCh
+{
+	margin-bottom: 2px
+}
+.vCh>table
+{
+	margin: 0px 5px 2px 5px;
+	padding: 0px 10px 0px 10px;
+}
+
+/* Style for State Word (Updated/Deleted/New/NotChanged) */
+td.vCh-stateWord 
+{
+	vertical-align: top;
+}
+label.vCh-stateWord
+{
+	display: block;
+	text-align: center;
+}
+.vCh-notChangedStyle .vCh-stateWord label
+{
+	visibility: hidden;
+}
+
+/* Styles for different type of Change */
+
+/* Style for Updated */
+.vCh-updatedStyle table
+{
+	border:1px double #CC9933;
+	background: #FFFFD1;
+}
+.vCh-updatedStyle .vCh-stateWord label
+{
+	color: #CC9933;
+}
+.vCh-updatedStyle .vCh-oldAndNewValue del /* Old value */
+{
+	background: #FFB2B2;
+}
+.vCh-updatedStyle div .vCh-oldAndNewValue /* New value */
+{
+	background: #B2F0B2;
+}
+
+/* Style for Deleted */
+.vCh-deletedStyle table
+{
+	border:1px double Red;
+	background: #FFFFD1;
+}
+.vCh-deletedStyle .vCh-stateWord label
+{
+	color: Red;
+}
+.vCh-deletedStyle .vCh-oldAndNewValue del /* Old value */
+{
+	background: #FFB2B2;
+}
+
+/* Style for New */
+.vCh-newStyle table
+{
+	border:1px double Green;
+	background: #FFFFD1;
+}
+.vCh-newStyle .vCh-stateWord label
+{
+	color: Green;
+}
+.vCh-newStyle div .vCh-oldAndNewValue /* New value */
+{
+	background: #B2F0B2;
+}
+
+
+/* Style for Scrolls */
+.vCh-schrollDiv-udrc
+{
+	overflow: auto;
+	max-height: 30%;
+	margin-right: 10px;
+}
+.vCh-schrollDiv-subProps
+{
+	overflow: auto;
+	max-height: 20%;
+	margin-right: 10px;
+}
+

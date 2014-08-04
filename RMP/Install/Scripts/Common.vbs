@@ -25,7 +25,7 @@ Option Explicit
 
 '*** Product information
 Const PRODUCT_NAME        = "MetraNet"
-Const PRODUCT_VERSION     = "7.1.0"
+Const PRODUCT_VERSION     = "8.0.0"
 
 '*** Global Constants
 Const kRetVal_SUCCESS     = 1
@@ -62,7 +62,8 @@ Const REG_IE_VERSION      = "HKLM\SOFTWARE\Microsoft\Internet Explorer\Version"
 Const REG_MSMQ            = "HKLM\SOFTWARE\Microsoft\MSMQ\Setup\msmq_Core"
 Const REG_ENHANCED_SECURITY = _
   "HKLM\SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft Enhanced Cryptographic Provider v1.0\Image Path"
-Const REG_CRYSTAL_ENTXI   = "HKLM\SOFTWARE\Business Objects\Suite 12.0\Enterprise\InstallRoot\Path"
+Const REG_CRYSTAL_ENT2013   = "HKLM\SOFTWARE\SAP BusinessObjects\Suite XI 4.0\Enterprise\Auth Plugins\secEnterprise\Version"
+Const REG_CRYSTAL_ENTVER	= "14.0"
 Const REG_RMP_DIR         = "HKLM\SOFTWARE\MetraTech\Install\InstallDir"
 Const HKEY_LOCAL_MACHINE  = &H80000002
 
@@ -1361,11 +1362,12 @@ Function ResourceCheck()
 
     bPreReqOK = False
     sErrMsg = "WARNING:  "
-    sMsg = "Crystal Report 2008 Client components are "
+    sMsg = "Crystal Report 2013 Client components are "
 
-    'Check for Crystal SDK
-    goWsh.RegRead(REG_CRYSTAL_ENTXI)
-    If CheckErrors("finding Crystal in registry") Then
+    Dim crVer
+    'Check for Crystal XI SDK
+    crVer = goWsh.RegRead(REG_CRYSTAL_ENT2013)
+    If ((CheckErrors("finding Crystal in registry")) Or (crVer <> REG_CRYSTAL_ENTVER)) Then
       sMsg = sMsg & "not installed"
     Else
       sMsg = sMsg & "installed"
@@ -1374,7 +1376,7 @@ Function ResourceCheck()
 
     If Not CheckPrereq(bPreReqOK, sMsg, sResult, sErrMsg, "") Then
       sErrMsg = sErrMsg & CHR(10) & _
-        "Please install the Crystal Report 2008 Client before attempting to use the Reporting feature (see MetraTech Installation Guide)"
+        "Please install the Crystal Report 2013 Client before attempting to use the Reporting feature (see MetraTech Installation Guide)"
       NotifyUser(sErrMsg)
     End If
 

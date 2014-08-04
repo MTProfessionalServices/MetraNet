@@ -300,6 +300,7 @@ Function InstallDatabase()
       If Not SetXMLTag (oXMLDoc, sPartitionTag & "/Type",     sPartitionType) Then Exit Function
       If Not SetXMLTag (oXMLDoc, sPartitionTag & "/DataSize", sDataSize) Then Exit Function
       If Not SetXMLTag (oXMLDoc, sPartitionTag & "/LogSize",  sLogSize) Then Exit Function
+	  If Not SetXMLTag (oXMLDoc, sPartitionTag & "/StoragePaths",  "") Then Exit Function
 
       asPartitionPaths = Split(sPartitionPaths,",")
       For Each sPath in asPartitionPaths
@@ -372,22 +373,22 @@ Function InstallDatabase()
    If Not UpgradeSchema(gsDBName, "NetMeter", "PostSync") Then Exit Function
 
    WriteLog "     Adding Sample Accounts"
-   If Not AddAccount     (123, "demo",       "demo123",      "mt",          "US", "IndependentAccount", "30", "0", "MPS") Then Exit Function
-   If Not AddAccount     (124, "hanzel",     "h",            "mt",          "DE", "IndependentAccount", "30", "0", "MPS") Then Exit Function
-   If Not AddAccount     (125, "csr1",       "csr123",       "system_user", "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (126, "ops",        "ops123",       "system_user", "US", "SYSTEMACCOUNT", "30", "0", "MOM") Then Exit Function
-   If Not AddAccount     (127, "mcm1",       "mcm123",       "system_user", "US", "SYSTEMACCOUNT", "30", "0", "MCM") Then Exit Function
-   If Not AddAccount     (128, "rm",         "rm123",        "rate",        "US", "INDEPENDENTACCOUNT", "30", "0", "MPS") Then Exit Function
-   If Not AddAccount     (129, "su",         "su123",        "system_user", "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (130, "jcsr",       "csr123",       "system_user", "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (131, "scsr",       "csr123",       "system_user", "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (132, "anonymous",  "anonymous123", "auth",        "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (133, "csr_folder", "csr123",       "auth",        "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (134, "mps_folder", "mps123",       "auth",        "US", "INDEPENDENTACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (135, "mcm_folder", "mcm123",       "auth",        "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (136, "mom_folder", "mom123",       "auth",        "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (137, "Admin",          "Admin123",     "system_user", "US", "SYSTEMACCOUNT", "30", "1", "CSR") Then Exit Function
-   If Not AddAccount     (138, "MetraViewAdmin", "MetraViewAdmin123",     "mt", "US", "IndependentAccount", "30", "0", "MPS") Then Exit Function
+   If Not AddAccount     (123, "demo",       "demo123",      "mt",          "US", "IndependentAccount", "31", "0", "MPS") Then Exit Function
+   If Not AddAccount     (124, "hanzel",     "h",            "mt",          "DE", "IndependentAccount", "31", "0", "MPS") Then Exit Function
+   If Not AddAccount     (125, "csr1",       "csr123",       "system_user", "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (126, "ops",        "ops123",       "system_user", "US", "SYSTEMACCOUNT", "31", "0", "MOM") Then Exit Function
+   If Not AddAccount     (127, "mcm1",       "mcm123",       "system_user", "US", "SYSTEMACCOUNT", "31", "0", "MCM") Then Exit Function
+   If Not AddAccount     (128, "rm",         "rm123",        "rate",        "US", "INDEPENDENTACCOUNT", "31", "0", "MPS") Then Exit Function
+   If Not AddAccount     (129, "su",         "su123",        "system_user", "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (130, "jcsr",       "csr123",       "system_user", "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (131, "scsr",       "csr123",       "system_user", "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (132, "anonymous",  "anonymous123", "auth",        "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (133, "csr_folder", "csr123",       "auth",        "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (134, "mps_folder", "mps123",       "auth",        "US", "INDEPENDENTACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (135, "mcm_folder", "mcm123",       "auth",        "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (136, "mom_folder", "mom123",       "auth",        "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (137, "Admin",          "Admin123",     "system_user", "US", "SYSTEMACCOUNT", "31", "1", "CSR") Then Exit Function
+   If Not AddAccount     (138, "MetraViewAdmin", "MetraViewAdmin123",     "mt", "US", "IndependentAccount", "31", "0", "MPS") Then Exit Function
 
    WriteLog "     Adding Account Mapping for demo account"
    If Not AddAccountMapping ("GL123", "metratech.com/external", 123) Then Exit Function
@@ -408,13 +409,18 @@ Function InstallDatabase()
    If Not RunHook        ("Tax Framework",       "MetraTech.Tax.Framework.Hooks.VendorParamsHook") Then Exit Function
    If Not RunSecuredHook ("DB Properties",       "MetraTech.Product.Hooks.DatabaseProperties")    Then Exit Function
    If Not RunHook        ("BusinessEntity",      "MetraTech.BusinessEntity.Hook.BusinessEntityHook") Then Exit Function
-   If Not RunHook        ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
+   '## Commented out ExpressionEngine, due to it was excluded from the build
+   'If Not RunHook        ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
 
    WriteLog "     Creating Usage Intervals and Partitions (if enabled)"
    If Not ExecuteCommand (MakeBinPath("usm.exe -create")) Then Exit Function
    
    ' Import MetraView Dashboard configuration
    If Not CreateMetraViewDashboard() Then Exit Function
+
+   ' Import System User Reports Dashboard configuration
+   If Not CreateSystemUserReportsDashboard() Then Exit Function
+
 
    ' Import Machine Roles configuration
    If Not CreateMachineRoles() Then Exit Function
@@ -555,7 +561,8 @@ Function SynchronizeExtensions()
 
   If Not RunSecuredHook ("DB Properties",      "MetraTech.Product.Hooks.DatabaseProperties")    Then Exit Function
   
-  If Not RunHook ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
+  '## Commented out ExpressionEngine, due to it was excluded from the build
+  'If Not RunHook ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
 
   SynchronizeExtensions = kRetVal_SUCCESS
 End Function
@@ -866,6 +873,25 @@ Function CreateMetraViewDashboard()
 End Function
 '*******************************************************************************
 
+ 
+
+         
+'*******************************************************************************
+Function CreateSystemUserReportsDashboard()
+  Dim sCmd
+  CreateSystemUserReportsDashboard = False
+  On Error Resume Next
+
+  WriteLog "     Creating System User Reports Dashboard..."
+  WriteLog "     Running " & sCmd
+  'sCmd = MakeRMPPath("Extensions\Reporting\BusinessEntity\BusinessEntityExport\import.bat")
+  sCmd = MakeBinPath("BMEImportExport.exe imp -I -E MetraTech.SystemConfig.Reports.Report Extensions\SystemConfig\BusinessEntity\BusinessEntityExport")
+         
+  If Not ExecuteCommand(sCmd) Then Exit Function
+
+  CreateSystemUserReportsDashboard = True
+End Function
+'*******************************************************************************
 
 '*******************************************************************************
 Function CreateMachineRoles()

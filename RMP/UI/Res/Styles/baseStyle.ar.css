@@ -5,10 +5,9 @@
 
 body
 {
-  background-color:White; 
-  font-family: verdana; 
-  font-size:11px;
-  color:#3F3F3F;
+  background-color:#FFF; 
+  font:12px/1.5 tahoma,arial,helvetica,clean,sans-serif
+  color:#000;
   direction:rtl;
 }
 #aspnetForm
@@ -103,8 +102,8 @@ table
 
 input
 {
-  background: #FFFFFF url(/Res/Ext/resources/images/default/form/text-bg.gif) repeat-x scroll 0pt;
-  border: 1px solid #B5B8C8;
+  background: #FFFFFF url(/Res/Ext/resources/images/gray/form/text-bg.gif) repeat-x scroll 0pt;
+  border: 1px solid #ddd;
   padding: 1px 3px;
   font:normal 11px tahoma, arial, helvetica, sans-serif;
 }
@@ -128,8 +127,8 @@ input
 
 select
 {
-  background: #FFFFFF url(/Res/Ext/resources/images/default/form/text-bg.gif) repeat-x scroll 0pt;
-  border: 1px solid #B5B8C8;
+  background: #FFFFFF url(/Res/Ext/resources/images/gray/form/text-bg.gif) repeat-x scroll 0pt;
+  border: 1px solid #ddd;
   padding: 1px 3px;
   font:normal 11px tahoma, arial, helvetica, sans-serif;
 }
@@ -195,10 +194,10 @@ HR
 
 .CaptionBar
 {
-  background: transparent url(/Res/Ext/resources/images/default/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
-  border-bottom: 1px solid #99BBE8;
+  background: transparent url(/Res/Ext/resources/images/gray/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
+  border-bottom: 1px solid #ddd;
   color: #15428B;
-  font-family: tahoma,arial,verdana,sans-serif;
+  font-family: tahoma,arial,helvetica,clean,sans-serif;
   font-size: 13px;
   font-style: normal;
   font-variant: normal;
@@ -253,7 +252,7 @@ HR
 {
   font-size: 11px;
   color: Red;
-  border: 1px silver solid;
+  border: 1px #ddd solid;
   background-color: #F6F6F6;
 }
 
@@ -309,7 +308,7 @@ HR
 
 .Container
 {
-  font-size: 11px;
+  font-size: 123.1%;
   width: 100%;
   height: 100%;
 }
@@ -637,7 +636,7 @@ input.x-static-text-field {
   width:725px
 }
 .mtpanel-formicon {
-    background-image:url(../Images/icons/application_form.png) !important;
+    /*background-image:url(../Images/icons/application_form.png) !important;*/
 }
 .x-tbar-page-number
 {

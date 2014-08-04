@@ -1,0 +1,286 @@
+﻿
+.gridster .widget
+{
+}
+
+.rounded
+{
+  background-color: rgb(240, 248, 255);
+  border: 1px solid rgb(153, 153, 153); /*border: solid 1px #ccc;*/
+  -moz-box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+  box-shadow: 1px 1px 4px rgba(0,0,0,.4);
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: #f1f1f1;
+}
+
+#ctl00_ContentPlaceHolder1_lblAccount360Title
+{
+  color: #ddd;
+  font-size: 150%;
+}
+
+.x-panel-header-text
+{
+  font-size: 120%;
+  font-weight: bold;
+  color: #888;
+}
+
+.x-panel-tl .x-panel-icon, .x-window-tl .x-panel-icon
+{
+  padding-left: 3px !important;
+}
+
+
+/*Styles for items displayed in grid rows*/
+.ItemName
+{
+  font-weight: bold;
+}
+
+.ItemName:hover
+{
+  font-weight: bold;
+}
+.ItemDescription
+{
+  font-style: italic;
+  font-size: smaller;
+}
+
+/* Account Information Styles */
+#AccountSummaryInformation
+{
+  color: #666;
+}
+.AccountName
+{
+  font-size: 200%;
+}
+
+.AccountIdentifier
+{
+  font-weight: bold;
+}
+
+.AccountInformationLarger {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: larger;
+  font-weight: bold;
+}
+/* Charting styles */
+.bullet
+{
+  font: 10px sans-serif;
+}
+.bullet .marker
+{
+  stroke: #000;
+  stroke-width: 3px;
+}
+.bullet .marker.good
+{
+  stroke: Green;
+  stroke-width: 3px;
+  stroke-dasharray: 2,1;
+}
+.bullet .marker.bad
+{
+  stroke: Red;
+  stroke-width: 3px;
+  stroke-dasharray: 2,1;
+}
+.bullet .marker.past
+{
+  stroke: Blue;
+  stroke-width: 3px;
+  stroke-dasharray: 2,1;
+}
+.bullet .tick line
+{
+  stroke: #666;
+  stroke-width: .5px;
+}
+.bullet .tick.major line
+{
+  stroke: #666;
+  stroke-width: .5px;
+}
+.bullet .tick.selected
+{
+  font-weight: bolder;
+}
+.bullet .tick.expired
+{
+  text-decoration: line-through;
+}
+.bullet .tick.future
+{
+  font-style: italic;
+}
+.bullet .domain
+{
+  fill: none;
+}
+.bullet .title
+{
+  fill: #000;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  text-anchor: off;
+}
+.bullet .range.s0
+{
+  display: block;
+  position: absolute;
+}
+.bullet .subtitle
+{
+  fill: #999;
+  text-anchor: off;
+}
+.bullet .dates
+{
+  fill: #000;
+  text-anchor: off;
+}
+.bullet .tbutton
+{
+  fill: white;
+  stroke-width: 1;
+  stroke: black;
+  stroke-opacity: 0.05;
+}
+.bullet .notice
+{
+  fill: #000;
+  font-size: 7px;
+  text-anchor: off;
+}
+.bullet .tick
+{
+  fill: #000;
+}
+.contextmenu
+{
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+}
+.contextmenu li
+{
+  list-style-type: none;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+.contextmenu li:hover
+{
+  font-weight: bolder;
+}
+.datepicker
+{
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: visible;
+  max-height: 100px;
+}
+.datepicker li
+{
+  list-style-type: none;
+  padding-left: 20px;
+  padding-right: 5px;
+  white-space: nowrap;
+}
+.datepicker li:hover
+{
+  font-weight: bolder;
+}
+#MyFormDiv_ctl00_ContentPlaceHolder1_pnlNowCast .x-panel
+{
+  width: 100%;
+  height: 100%;
+  padding-right: 30px;
+  margin-right: 30px;
+}
+#MyFormDiv_ctl00_ContentPlaceHolder1_billingActivityPanel .mtpanel
+{
+}
+#MyFormDiv_ctl00_ContentPlaceHolder1_billingActivityPanel .x-panel
+{
+}
+
+#MyFormDiv_ctl00_ContentPlaceHolder1_salesSummaryPanel .x-panel
+{
+  width: 100%;
+  height: 100%;
+  padding-right: 30px;
+  margin-right: 30px;
+}
+
+
+.widgetpanel
+{
+  /* Taken from x-panel and x-gridpanel */
+  float: left;
+  border-bottom-color: #d0d0d0;
+  margin: 5px 5px 5px 10px;
+  border-color: #ccc;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+  border: solid 1px #ccc;
+  height: 75px;
+  color: #666;
+}
+
+.widgetpanel .valueLabel
+{
+  padding-left: 5px;
+  text-align: left;
+  font-size: smaller;
+  color: #a1a1a1;
+}
+
+.widgetpanel .valueHighlighted
+{
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.widgetpanel .valueHighlighted a
+{
+  font-size: inherit !important;
+}
+
+.widgetpanel .positive
+{
+  color: darkgreen;
+}
+.widgetpanel .valueDetail
+{
+  text-align: right;
+  padding-right: 5px;
+  display: block;
+  padding-top: 10px;
+  font-size: smaller;
+  color: #a1a1a1;
+}
+
+.widgetpanel .footer
+{
+  /*position: absolute; */
+  bottom: 0;
+}
+

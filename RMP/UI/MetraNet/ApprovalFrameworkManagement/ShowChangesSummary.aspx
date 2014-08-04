@@ -3,6 +3,7 @@
     Culture="auto" UICulture="auto" CodeFile="ShowChangesSummary.aspx.cs" meta:resourcekey="PageResource1" %>
 
 <%@ Import Namespace="MetraTech.UI.Tools" %>
+<%@ Import Namespace="Resources" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <style>
@@ -415,9 +416,15 @@
     //Set the parameters
     urlDetails = urlDetails.replace(/%%CHANGE_ID%%/g, id);
     urlDetails = urlDetails.replace(/%%CHANGE_STATE%%/g, currentState);
-
-    //alert("urlDetails:" + urlDetails);
-    window.frames['changedetailsframe'].document.location.href = urlDetails;
+    
+    urlDetails = urlDetails.replace(/%%CHANGE_TYPE%%/g, changeTypeConfig.GridTitle );
+    //frames.document is null in Chrome and Firefox
+    if (window.frames['changedetailsframe'].document == null) {
+      window.frames['changedetailsframe'].contentWindow.document.location.href = urlDetails;
+    } else {
+      window.frames['changedetailsframe'].document.location.href = urlDetails;
+    }
+    
 
     //Make sure to unhide or make the details frame visible
     Ext.get('MyFormDiv_ctl00_ContentPlaceHolder1_ChangeDetailsPanel').dom.style.display = 'block';

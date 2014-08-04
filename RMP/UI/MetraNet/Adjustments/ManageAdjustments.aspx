@@ -16,7 +16,7 @@
     Resizable="True" RootElement="Items" SearchOnLoad="True" 
     SelectionModel="Standard" ShowBottomBar="True" ShowColumnHeaders="True" 
     ShowFilterPanel="True" ShowGridFrame="True" ShowGridHeader="True" 
-    ShowTopBar="True" TotalProperty="TotalRows">
+    ShowTopBar="True" TotalProperty="TotalRows" AjaxTimeout="180000">
   </MT:MTFilterGrid>
 
     <script language="javascript" type="text/javascript">

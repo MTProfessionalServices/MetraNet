@@ -120,6 +120,9 @@
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Account Details</value>
   </data>
+  <data name="TEXT_ACCOUNT_QUOTING_LIST" xml:space="preserve">
+    <value>Quotes</value>
+  </data>
   <data name="TEXT_ACCOUNT_STATE" xml:space="preserve">
     <value>Account State</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
     <value>Add Account with Web Service</value>
   </data>
+  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+    <value>Add child Account</value>
+  </data>
   <data name="TEXT_ADD_CSR" xml:space="preserve">
     <value>Add CSR</value>
   </data>
@@ -146,6 +152,9 @@
   </data>
   <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
     <value>Add New Report Parameters</value>
+  </data>
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>Add Partition</value>
   </data>
   <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
     <value>Adjust Transactions</value>
@@ -159,14 +168,11 @@
   <data name="TEXT_ADVANCED_OPTIONS" xml:space="preserve">
     <value>Advanced Options</value>
   </data>
-  <data name="TEXT_AGREEMENTS" xml:space="preserve">
-    <value>Agreements</value>
-  </data>
   <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
     <value>Agreement Templates</value>
   </data>
-  <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
-    <value>Manage Agreement Templates</value>
+  <data name="TEXT_AGREEMENTS" xml:space="preserve">
+    <value>Agreements</value>
   </data>
   <data name="TEXT_ALL_FILES" xml:space="preserve">
     <value>All Jobs</value>
@@ -174,8 +180,17 @@
   <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
     <value>All Intervals</value>
   </data>
+  <data name="TEXT_ANALYTICS" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Application Audit Log</value>
+  </data>
+  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
+    <value>Approvals</value>
+  </data>
+  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+    <value>Assign Bill Messages</value>
   </data>
   <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Assign Report Parameters</value>
@@ -220,7 +235,7 @@
     <value>Billable Intervals</value>
   </data>
   <data name="TEXT_BILLING_MANAGEMENT" xml:space="preserve">
-    <value>Billing Management</value>
+    <value>Billing</value>
   </data>
   <data name="TEXT_BULK_ADJUST_TRANSACTIONS" xml:space="preserve">
     <value>Bulk Adjust Transactions</value>
@@ -258,8 +273,14 @@
   <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
     <value>Create Backout/Rerun</value>
   </data>
+  <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
+    <value>Create Credit Note</value>
+  </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Add New Report Instance</value>
+  </data>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>Create Quote</value>
   </data>
   <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
     <value>Create Remittance</value>
@@ -268,7 +289,7 @@
     <value>Dashboard</value>
   </data>
   <data name="TEXT_DATA_EXPORT_REPORT_MANAGEMENT" xml:space="preserve">
-    <value>Data Export Report Management</value>
+    <value>Data Export</value>
   </data>
   <data name="TEXT_DEFAULT_SECURITY" xml:space="preserve">
     <value>Default Security</value>
@@ -277,10 +298,10 @@
     <value>Dismissed</value>
   </data>
   <data name="TEXT_EDIT_MAPPING" xml:space="preserve">
-    <value>Edit Aliases</value>
+    <value>Aliases</value>
   </data>
   <data name="TEXT_EDIT_NAMESPACES" xml:space="preserve">
-    <value>Edit Namespaces</value>
+    <value>Namespaces</value>
   </data>
   <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
     <value>Edit Template</value>
@@ -313,7 +334,7 @@
     <value>Feeds</value>
   </data>
   <data name="TEXT_FILE_MANAGEMENT" xml:space="preserve">
-    <value>File Management</value>
+    <value>File Processing</value>
   </data>
   <data name="TEXT_FILES_IN_LAST_2_DAYS" xml:space="preserve">
     <value>Jobs in the Past 2 Days</value>
@@ -342,44 +363,56 @@
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>Make a Payment</value>
   </data>
+  <data name="TEXT_MANAGE" xml:space="preserve">
+    <value>Manage</value>
+  </data>
   <data name="TEXT_MANAGE_ACCOUNTS" xml:space="preserve">
     <value>Manage Accounts</value>
   </data>
   <data name="TEXT_MANAGE_ADJUSTMENTS" xml:space="preserve">
-    <value>Manage Adjustments</value>
+    <value>Adjustments</value>
   </data>
-  <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
-    <value>Manage Calendars</value>
+  <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
+    <value>Manage Agreement Templates</value>
   </data>
-  <data name="TEXT_MANAGE_DATA_EXPORT_FRAMEWORK" xml:space="preserve">
-    <value>Data Export Report Management</value>
-  </data>
-  <data name="TEXT_MANAGE_DEFAULT_SECURITY" xml:space="preserve">
-    <value>Default Security</value>
-  </data>
-  <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
-    <value>Manage Misc. Adjustments</value>
-  </data>
-  <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
-    <value>Manage Nonstandard Charges</value>
-  </data>
-  <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
-    <value>Manage Orphan Adjustments</value>
-  </data>
-  <data name="TEXT_MANAGE_REPORTS" xml:space="preserve">
-    <value>Manage Reports</value>
-  </data>
-  <data name="TEXT_MANAGE_ROLES" xml:space="preserve">
-    <value>Manage Roles</value>
-  </data>
-  <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
-    <value>Manage Security</value>
+  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
+    <value>Decision Types</value>
   </data>
   <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
     <value>Manage BillSoft Exemptions</value>
   </data>
   <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
     <value>Manage BillSoft Overrides</value>
+  </data>
+  <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
+    <value>Calendars</value>
+  </data>
+  <data name="TEXT_MANAGE_DATA_EXPORT_FRAMEWORK" xml:space="preserve">
+    <value>Data Export</value>
+  </data>
+  <data name="TEXT_MANAGE_DEFAULT_SECURITY" xml:space="preserve">
+    <value>Default Security</value>
+  </data>
+  <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
+    <value>Misc. Adjustments</value>
+  </data>
+  <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
+    <value>Nonstandard Charges</value>
+  </data>
+  <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
+    <value>Orphan Adjustments</value>
+  </data>
+  <data name="TEXT_MANAGE_REPORTS" xml:space="preserve">
+    <value>Manage Reports</value>
+  </data>
+  <data name="TEXT_MANAGE_ROLES" xml:space="preserve">
+    <value>User Roles</value>
+  </data>
+  <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
+    <value>Manage Security</value>
+  </data>
+  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+    <value>Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Generate Password</value>
@@ -439,13 +472,16 @@
     <value>Pay for Accounts</value>
   </data>
   <data name="TEXT_PAY_FOR_ME" xml:space="preserve">
-    <value>Edit Payers</value>
+    <value>Payers</value>
   </data>
   <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
     <value>Payment History</value>
   </data>
   <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
     <value>Payment Methods</value>
+  </data>
+  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
+    <value>Payment Transactions</value>
   </data>
   <data name="TEXT_PAYMENTS" xml:space="preserve">
     <value>Payments</value>
@@ -464,6 +500,15 @@
   </data>
   <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
     <value>Queue Adhoc Reports</value>
+  </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>Manage Quotes</value>
+  </data>
+  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <value>View All Quotes</value>
+  </data>
+  <data name="TEXT_REFRESH" xml:space="preserve">
+    <value>Refresh</value>
   </data>
   <data name="TEXT_REJECTED_FILES" xml:space="preserve">
     <value>Rejected Files</value>
@@ -501,14 +546,23 @@
   <data name="TEXT_SECURITY" xml:space="preserve">
     <value>Security</value>
   </data>
+  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
+    <value>Self Care Portal</value>
+  </data>
   <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
     <value>Send E-Mail</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>Shared Properties</value>
   </data>
   <data name="TEXT_SHARED_RATES" xml:space="preserve">
     <value>Shared Rates</value>
   </data>
   <data name="TEXT_SHOW_A_REPORT_INSTANCE_DETAILS" xml:space="preserve">
     <value>Show Report Instance Details</value>
+  </data>
+  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
+    <value>View All Changes</value>
   </data>
   <data name="TEXT_SHOW_ALL_REPORT_PARAMETERS" xml:space="preserve">
     <value>Show All Report Parameters</value>
@@ -518,6 +572,15 @@
   </data>
   <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
     <value>Data Export Queue</value>
+  </data>
+  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
+    <value>View Failed Changes</value>
+  </data>
+  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
+    <value>View Item History</value>
+  </data>
+  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
+    <value>View Pending Changes</value>
   </data>
   <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
     <value>Add Log Entry</value>
@@ -559,7 +622,7 @@
     <value>Update Account</value>
   </data>
   <data name="TEXT_UPDATE_CONTACT" xml:space="preserve">
-    <value>Update Contacts</value>
+    <value>Contacts</value>
   </data>
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Update Existing Report Definition</value>
@@ -568,48 +631,51 @@
     <value>Usage Server Maintenance</value>
   </data>
   <data name="TEXT_USM_CONFIG" xml:space="preserve">
-    <value>USM Configuration</value>
+    <value>Usage Server</value>
   </data>
   <data name="TEXT_VERSION_INFO" xml:space="preserve">
     <value>Version Information</value>
   </data>
+  <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
+    <value>View Credit Notes Issued</value>
+  </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
-    <value>View</value>
+    <value>All Events</value>
   </data>
   <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
     <value>View Online Bill</value>
   </data>
-  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>Approvals</value>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Calculation Decision Details</value>
   </data>
-  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>View Item History</value>
+  <data name="TEXT_ADD_TENANT" xml:space="preserve">
+    <value>Add Partition</value>
   </data>
-  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View All Changes</value>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>Reports</value>
   </data>
-  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Pending Changes</value>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>Usage Processing</value>
   </data>
-  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Failed Changes</value>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>Account</value>
   </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>Shared Properties</value>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>Bill Messages</value>
   </data>
-  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
-    <value>Payment Transactions</value>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>Finance Dashboard</value>
   </data>
-  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Manage AMP Decision Types</value>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>Manage Bill Messages</value>
   </data>
-  <data name="TEXT_MANAGE" xml:space="preserve">
-    <value>Manage</value>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>Operations Dashboard</value>
   </data>
-  <data name="TEXT_REFRESH" xml:space="preserve">
-    <value>Refresh</value>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>Product Dashboard</value>
   </data>
-  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
-    <value>View Online Bill</value>
+  <data name="TEXT_SEARCH" xml:space="preserve">
+    <value>Search</value>
   </data>
 </root>

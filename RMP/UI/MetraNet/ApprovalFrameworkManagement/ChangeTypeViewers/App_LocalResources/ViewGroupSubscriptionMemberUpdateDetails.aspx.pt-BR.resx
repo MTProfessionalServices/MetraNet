@@ -127,7 +127,7 @@
     <value>Data de término</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUBID" xml:space="preserve">
-    <value>ID de assinatura do grupo</value>
+    <value>ID da assinatura em grupo</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_MEMBERID" xml:space="preserve">
     <value>ID de membro</value>
@@ -145,6 +145,9 @@
     <value>Data de término antiga</value>
   </data>
   <data name="TEXT_APPROVAL_GROUP_SUBSCRIPTION_CHANGE_DETAILS" xml:space="preserve">
-    <value>Membros da assinatura em grupo atualizados</value>
+    <value>Atualização dos membros da assinatura em grupo</value>
+  </data>
+  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
+    <value>Nome do membro</value>
   </data>
 </root>

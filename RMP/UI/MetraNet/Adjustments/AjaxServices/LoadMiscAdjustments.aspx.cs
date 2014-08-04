@@ -6,6 +6,7 @@ using System.Web.Script.Serialization;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.DomainModel.ProductView;
 using MetraTech.UI.Common;
@@ -70,6 +71,7 @@ public partial class Adjustments_AjaxServices_LoadMiscAsjustments : MTListServic
       Response.BufferOutput = false;
       Response.ContentType = "application/csv";
       Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+      Response.BinaryWrite(BOM);
     }
 
     //if there are more records to process than we can process at once, we need to break up into multiple batches
@@ -119,7 +121,8 @@ public partial class Adjustments_AjaxServices_LoadMiscAsjustments : MTListServic
         SetPaging(items);
         SetSorting(items);
         SetFilters(items);
-
+        ModifyEnumFilter(items, "currency", typeof(MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies.SystemCurrencies));
+        
         //unable to extract data
         if (!ExtractData(client, ref items))
         {

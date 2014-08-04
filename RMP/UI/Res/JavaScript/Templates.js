@@ -78,9 +78,9 @@ var TPL_SUBSCRIPTION_DETAILS =  '<tpl for="ProductOffering">' +
              '<img border="0" align="top" src="/Res/Images/icons/telephone.png"/> {PhoneNumber:htmlEncode}<br/>',
            '</tpl>',
            
-           '<tpl if="this.isNull(FacsimileTelephoneNumber) == false">',
-             '<img border="0" align="top" src="/Res/Images/icons/fax.png"/> {FacsimileTelephoneNumber:htmlEncode}<br/>',
-           '</tpl>',
+//           '<tpl if="this.isNull(FacsimileTelephoneNumber) == false">',
+//             '<img border="0" align="top" src="/Res/Images/icons/fax.png"/> {FacsimileTelephoneNumber:htmlEncode}<br/>',
+//           '</tpl>',
 
          '</tpl>',
        '</tpl>',

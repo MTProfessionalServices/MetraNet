@@ -23,6 +23,15 @@ public partial class Account_SelectAccountType : MTPage
       {
         Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
       }
+
+      // Remove "Partition" account type from dropdown
+      ddAccountTypes.Items.Remove("Partition");
+
+      // Partitions should never be allowed to add accounts out of the hierarchy
+      if (PartitionLibrary.IsPartition)
+      {
+        ddAccountTypes.Items.Remove("IndependentAccount");
+      }      
     }
   }
 

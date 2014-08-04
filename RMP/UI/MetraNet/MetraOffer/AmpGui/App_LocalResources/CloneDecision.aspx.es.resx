@@ -121,24 +121,24 @@
     <value>MetraNet</value>
   </data>
   <data name="cbDeactivateDecisionResource1.BoxLabel" xml:space="preserve">
-    <value>Spanish '{0}'.</value>
+    <value>[ES]Check this box to deactivate '{0}'.</value>
   </data>
   <data name="tbOrigDecisionNameResource1.Label" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]Decision Type to be Cloned</value>
   </data>
   <data name="tbNewDecisionNameResource1.Label" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]New Decision Type Name</value>
   </data>
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]Description</value>
   </data>
   <data name="TEXT_ERROR_CLONE_DECISION" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]Error while cloning Decision Type</value>
   </data>
   <data name="TEXT_SUCCESS_CLONE_DECISION" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]Successfully created new Decision Type clone</value>
   </data>
   <data name="TEXT_ERROR_DUPLICATE_DECISION_NAME" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]Error: Decision Type name already in use</value>
   </data>
 </root>

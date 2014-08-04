@@ -59,7 +59,7 @@ BulletRenderer = function(value, meta, record, rowIndex, colIndex, store)
 
 function RenderDate(value, format)
 {
-  if ((value == null) || (value == '1/1/0001 12:00:00 AM')) //Latter corresponds to .NET Date.MinValue
+  if ((value == null) || (value.indexOf('0001') != -1) ) //Latter corresponds to .NET Date.MinValue
   {
     return '';
   }
@@ -97,7 +97,13 @@ LongDateRenderer = function (value, meta, record, rowIndex, colIndex, store) {
 
 CurrencyRenderer = function (value, meta, record, rowIndex, colIndex, store) {
   meta.attr = "align='right'";
-  return "<span class='amount'>" + value + "</span>";
+
+  var regOnlyDec = /^-?\d+\.?\d+$/;
+  if (regOnlyDec.test(value)) {
+    var result = parseFloat(value).toFixed(2);
+    return "<span class='amount'>" + result.replace(result.charAt(result.length - 3), DECIMAL_SEPARATOR) + "</span>";
+  } else
+    return "<span class='amount'>" + value + "</span>";
 };
 
 ARCurrencyRenderer = function (value, meta, record, rowIndex, colIndex, store) {

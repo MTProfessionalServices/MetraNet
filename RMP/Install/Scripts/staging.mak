@@ -1,7 +1,7 @@
 ############################################################################
 #
 # staging.mak
-#
+# 
 # This makefile is used to populate the staging area.
 #
 # Required environment variables:
@@ -19,9 +19,9 @@
 ################################################
 
 CP       = cp -pu
-CPDIR    = perl C:\build\scripts\copyTree.pl -s
-MKDIR    = perl C:\build\scripts\makePath.pl
-RMDIR    = perl C:\build\scripts\removeTree.pl
+CPDIR    = perl S:\install\scripts\copyTree.pl -s
+MKDIR    = perl S:\install\scripts\makePath.pl
+RMDIR    = perl S:\install\scripts\removeTree.pl
 CD       = cd
 REMOVE   = rm -Rf
 CPWEBSVC = perl S:\install\scripts\copyWebSvcFiles.pl
@@ -48,7 +48,7 @@ BLDTYPE=release
 
 S_BASE_DIR         = S:
 S_METRANET_DIR     = R:
-S_METRACONNECT_DIR = V:\Legacy_Internal\MetraConnect
+S_METRACONNECT_DIR = V:\MetraConnect
 S_TECHDOC_DIR      = P:\TechDoc
 S_3RDPARTY_DIR     = $(THIRDPARTY)
 S_KEY_DIR          = $(S_BASE_DIR)\build\keys
@@ -189,7 +189,6 @@ BINARIES = \
   InstallUtilTest.exe \
   InstallUtilTest.pdb \
   Interop.ADOX.dll \
-  Ionic.zip.dll \
   JabberClient.exe \
   JabberClient.pdb \
   Kiosk.dll \
@@ -247,8 +246,6 @@ BINARIES = \
   MetraTech.ActivityServices.Runtime.pdb \
   MetraTech.ActivityServices.Services.Common.dll \
   MetraTech.ActivityServices.Services.Common.pdb \
-  MetraTech.Agreements.dll \
-  MetraTech.Agreements.pdb \
   MetraTech.Application.dll \
   MetraTech.Application.pdb \
   MetraTech.Approvals.dll \
@@ -272,6 +269,9 @@ BINARIES = \
   MetraTech.BusinessEntity.Service.ClientProxies.pdb \
   MetraTech.BusinessEntity.Service.dll \
   MetraTech.BusinessEntity.Service.pdb \
+  MetraTech.CmdLine.Tool.exe.config \
+  MetraTech.CmdLine.Tool.exe \
+  MetraTech.CmdLine.Tool.pdb \
   MetraTech.Core.Activities.Dll \
   MetraTech.Core.Activities.pdb \
   MetraTech.Core.Client.Dll \
@@ -284,6 +284,8 @@ BINARIES = \
   MetraTech.Core.Services.ProxyActivities.pdb \
   MetraTech.Core.Workflows.Dll \
   MetraTech.Core.Workflows.pdb \
+  MetraTech.CreditNotes.dll \
+  MetraTech.CreditNotes.pdb \
   MetraTech.Crypto511.dll \
   MetraTech.Crypto511.pdb \
   MetraTech.DataAccess.Hinter.dll \
@@ -335,12 +337,6 @@ BINARIES = \
   MetraTech.DomainModel.ProductCatalog.pdb \
   MetraTech.DomainModel.Validators.dll \
   MetraTech.DomainModel.Validators.pdb \
-  MetraTech.ExpressionEngine.dll \
-  MetraTech.ExpressionEngine.pdb \
-  MetraTech.ExpressionEngine.Metadata.dll \
-  MetraTech.ExpressionEngine.Metadata.pdb \
-  MetraTech.ExpressionEngine.Metadata.Hook.dll \
-  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   MetraTech.FileLandingService.exe.config \
   MetraTech.Events.dll \
   MetraTech.Events.pdb \
@@ -385,6 +381,8 @@ BINARIES = \
   MetraTech.Test.pdb \
   MetraTech.Test.Plugins.dll \
   MetraTech.Test.Plugins.pdb \
+  MetraTech.Tools.Library.dll \
+  MetraTech.Tools.Library.pdb \
   MetraTech.UI.CDT.dll \
   MetraTech.UI.CDT.pdb \
   MetraTech.UI.Common.dll \
@@ -408,6 +406,8 @@ BINARIES = \
   Microsoft.Practices.EnterpriseLibrary.Common.pdb \
   Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll \
   Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb \
+  MetraTech.Product.Hooks.IISConfigurationManager.dll \
+  MetraTech.Product.Hooks.IISConfigurationManager.pdb \
   Microsoft.Practices.ServiceLocation.dll \
   Microsoft.Practices.Unity.dll \
   Microsoft.Practices.Unity.Interception.dll \
@@ -471,6 +471,8 @@ BINARIES = \
   NTLogger.pdb \
   NTLoggerRollover.exe \
   NTLoggerRollover.pdb \
+  ParallelExtensionsExtras.dll \
+  ParallelExtensionsExtras.pdb \
   PCCache.dll \
   PCCache.pdb \
   PCImportExport.exe \
@@ -499,7 +501,6 @@ BINARIES = \
   SchemaUpgrade.exe.config \
   SchemaUpgrade.pdb \
   Sdk_Msg.dll \
-  selenium-server.jar \
   SessServerBase.dll \
   SessServerBase.pdb \
   sesstest.exe \
@@ -530,7 +531,6 @@ BINARIES = \
   System.Web.WebPages.Razor.dll \
   TestBatchClient.exe \
   TestBatchClient.pdb \
-  ThoughtWorks.Selenium.Core.dll \
   TransactionConfig.dll \
   TransactionConfig.pdb \
   UpgradeEncryption.exe \
@@ -661,7 +661,6 @@ COM_DLLS = \
   MTCounterTypeHook.dll \
   MTCreateBrandingVdirs.dll \
   MTDecimalOps.dll \
-  MTDiscountAdapter.dll \
   MTEnumConfig.dll \
   MTEnumtl.dll \
   MTFleXML.dll \
@@ -757,7 +756,8 @@ COM_DLLS = \
   WeightedRate.dll \
   XMLTranslator.dll \
   MetraTech.MTPCImportDynamicProperties.dll \
-  MetraTech.ExpressionEngine.Metadata.Hook.dll \
+  ## Commented out ExpressionEngine, due to it was excluded from the build
+  ## MetraTech.ExpressionEngine.Metadata.Hook.dll \
   
   # COM_DLLS -- PDBs
 
@@ -837,7 +837,6 @@ COM_DLLSPDB = \
   MTCounterTypeHook.pdb \
   MTCreateBrandingVdirs.pdb \
   MTDecimalOps.pdb \
-  MTDiscountAdapter.pdb \
   MTEnumConfig.pdb \
   MTEnumtl.pdb \
   MTGenericDBExec.pdb \
@@ -919,7 +918,6 @@ COM_DLLSPDB = \
   ViewAllRates.pdb \
   WeightedRate.pdb \
   MetraTech.MTPCImportDynamicProperties.pdb \
-  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   
   # COM_DLLS -- Interops
 
@@ -1051,6 +1049,7 @@ ASSEMBLIES = \
   MetraTech.Product.Hooks.DynamicTableUpdate.dll \
   MetraTech.Product.Hooks.InsertProdProperties.dll \
   MetraTech.Product.Hooks.UIValidation.dll \
+  MetraTech.Product.Hooks.IISConfigurationManager.dll \
   MetraTech.Reports.Adapters.dll \
   MetraTech.Reports.CrystalEnterprise.dll \
   MetraTech.Reports.dll \
@@ -1106,6 +1105,7 @@ ASSEMBLIES_PDB = \
   MetraTech.Product.Hooks.DynamicTableUpdate.pdb \
   MetraTech.Product.Hooks.InsertProdProperties.pdb \
   MetraTech.Product.Hooks.UIValidation.pdb \
+  MetraTech.Product.Hooks.IISConfigurationManager.pdb \
   MetraTech.Reports.Adapters.pdb \
   MetraTech.Reports.CrystalEnterprise.pdb \
   MetraTech.Reports.pdb \
@@ -1124,7 +1124,6 @@ ASSEMBLIES_PDB = \
   PipelineInterop.pdb \
 
 TPP_ASSEMBLIES = \
-  CrystalDecisions.*.dll \
   Oracle.*.dll \
   SQLDMODotNet.dll \
   ASP.interop.dll \
@@ -1351,7 +1350,6 @@ S_UI_RES_DIR         = $(S_METRATECH_DIR)\UI\Res
 S_UI_IMGHANDLER_DIR  = $(S_METRATECH_DIR)\UI\ImageHandler
 S_UI_SUGGEST_DIR     = $(S_METRATECH_DIR)\UI\Suggest
 S_DOTNET_DIR         = $(S_3RDPARTY_DIR)\Microsoft\DotNET\2.0
-S_AGREEMENTS_DIR     = $(S_METRATECH_DIR)\Agreements
 
 P_UI_DIR             = $(P_BASE_DIR)\UI
 P_METRANET_DIR       = $(P_UI_DIR)\MetraNet
@@ -1360,7 +1358,6 @@ P_RES_DIR            = $(P_UI_DIR)\Res
 P_IMGHANDLER_DIR     = $(P_UI_DIR)\ImageHandler
 P_SUGGEST_DIR        = $(P_UI_DIR)\Suggest
 P_MAM_HIER_CNTRL_BIN = $(P_UI_DIR)\mam\default\dialog
-P_AGREEMENTS_DIR     = $(P_UI_DIR)\Agreements
 
 RMP_UI:
   @echo $(DELIM)
@@ -1411,20 +1408,6 @@ RMP_UI:
   XCOPY $(S_UI_RES_DIR) $(P_RES_DIR) /Y /E /I /C
   $(CD) $(O_BIN_DIR)
  
-  @echo Working on Agreements virtual directory
-  $(REMOVE) $(P_AGREEMENTS_DIR)\source_location.txt
-  XCOPY $(S_AGREEMENTS_DIR)\App_Data $(P_AGREEMENTS_DIR)\App_Data /Y /E /I /C
-  XCOPY $(S_AGREEMENTS_DIR)\App_GlobalResources $(P_AGREEMENTS_DIR)\App_GlobalResources /Y /E /I /C
-  XCOPY $(S_AGREEMENTS_DIR)\App_LocalResources $(P_AGREEMENTS_DIR)\App_LocalResources /Y /E /I /C
-  XCOPY $(S_AGREEMENTS_DIR)\common $(P_AGREEMENTS_DIR)\common /Y /E /I /C
-  XCOPY $(S_AGREEMENTS_DIR)\Content $(P_AGREEMENTS_DIR)\Content /Y /E /I /C
-  XCOPY $(S_AGREEMENTS_DIR)\Properties $(P_AGREEMENTS_DIR)\Properties /Y /E /I /C
-  XCOPY $(S_AGREEMENTS_DIR)\Scripts $(P_AGREEMENTS_DIR)\Scripts /Y /E /I /C
-  XCOPY $(S_AGREEMENTS_DIR)\Views $(P_AGREEMENTS_DIR)\Views /Y /E /I /C
-  $(CD) $(S_AGREEMENTS_DIR)
-  $(CP) Global.asax Web.config $(P_AGREEMENTS_DIR)
-  $(CD) $(O_BIN_DIR)
-
 ###############################################
 # RMP\GacDlls
 ###############################################
@@ -1584,6 +1567,7 @@ P_METRATAX_PE_DIR     = $(P_BASE_OPTEXT_DIR)\MetraTax
 P_TAXWARE_PE_DIR      = $(P_BASE_OPTEXT_DIR)\TaxWare
 P_BILLSOFT_PE_DIR     = $(P_BASE_OPTEXT_DIR)\BillSoft
 P_VERTEXQ_PE_DIR      = $(P_BASE_OPTEXT_DIR)\VertexQ
+P_PARTITIONS_PE_DIR   = $(P_BASE_REQEXT_DIR)\Partitions
 
 RMP_Extensions:
   @echo $(DELIM)
@@ -1702,7 +1686,10 @@ RMP_Extensions:
   $(CPDIR) . $(P_BILLSOFT_PE_DIR)\config\ActivityServices .svn
   @echo $(LABEL) > $(P_BILLSOFT_PE_DIR)\$(PLACEHOLDER)
 
-    
+  @echo Partitions
+  $(CD) $(S_EXT_DIR)\Partitions
+  $(CPDIR) . $(P_PARTITIONS_PE_DIR) .svn
+
 ################################################
 # Attributes Reset
 ################################################

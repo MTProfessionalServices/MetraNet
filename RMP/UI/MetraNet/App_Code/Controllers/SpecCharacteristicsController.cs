@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using MetraNet.Models;
-using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
 using Resources;
 using PropertyType = MetraTech.DomainModel.Enums.Core.Global.PropertyType;
@@ -12,12 +11,13 @@ namespace ASP.Controllers
 {
   public class SpecCharacteristicsController : MTController
   {
+    const EntityType entityType = EntityType.ProductOffering;
 
     public SpecCharacteristicRepository Repository
     {
       get
       {
-        if(Session["SpecRepository"] == null)
+        if (Session["SpecRepository"] == null)
         {
           Session["SpecRepository"] = new SpecCharacteristicRepository(UI);
         }
@@ -31,30 +31,19 @@ namespace ASP.Controllers
       set { Session["EntityID"] = value; }
     }
 
-    public EntityType? CurrentEntityType
-    {
-      get { return Session["CurrentEntityType"] as EntityType?; }
-      set { Session["CurrentEntityType"] = value; }
-    }
-
+   
     // GET: /SpecCharacteristic/id
     [Authorize]
-    public ActionResult Index(int? id, int? entityType)
+    public ActionResult Index(int? id)
     {
       EntityId = id;
-      if (entityType.HasValue)
-      {
-        CurrentEntityType = (EntityType)EnumHelper.GetEnumByValue(typeof(EntityType), entityType.Value.ToString());
-      }
-      else
-      {
-        CurrentEntityType = null;
-      }
+      Session["CurrentEntityType"] = entityType; 
+     
 
       ViewBag.Message = Resource.SpecCharacteristicsController_Index_Product_Offering_Properties;
 
       // Lookup specCharacteristics by PO id
-      List<SpecCharacteristicModel> specs = Repository.LoadSpecCharacteristics(id, CurrentEntityType);
+      List<SpecCharacteristicModel> specs = Repository.LoadSpecCharacteristics(id);
 
       ViewBag.ItemCount = specs.Count;
       var orderedSpecs = specs.OrderBy(o => o.DisplayOrder);
@@ -70,10 +59,10 @@ namespace ASP.Controllers
       ViewBag.Message = Resource.SpecCharacteristicsController_Index_Product_Offering_Properties;
 
       // Lookup specCharacteristics by PO id
-      List<SpecCharacteristicModel> removeSpecs = Repository.LoadSpecCharacteristics(entityId, CurrentEntityType);
+      List<SpecCharacteristicModel> removeSpecs = Repository.LoadSpecCharacteristics(entityId);
 
       // Lookup shared specs
-      List<SpecCharacteristicModel> specs = Repository.LoadSpecCharacteristics(null, null);
+      List<SpecCharacteristicModel> specs = Repository.LoadSpecCharacteristics(null);
 
       // Remove specs we already have on this entity
       foreach (var specCharacteristicModel in removeSpecs)
@@ -95,7 +84,7 @@ namespace ASP.Controllers
       return View(groupedSpecs);
     }
 
-    
+
     // POST: /SpecCharacteristic/SetDisplayOrder
     [HttpPost, Authorize]
     public ActionResult SetDisplayOrder(int id, int position)
@@ -105,13 +94,13 @@ namespace ASP.Controllers
       AjaxResponse ajaxResponse;
 
       SpecCharacteristicModel spec = Repository.LoadSpecCharacteristic(id);
-      
+
       if (spec != null)
       {
         spec.DisplayOrder = position;
 
         if (EntityId.HasValue)
-          Repository.SaveSpecCharacteristic(spec, CurrentEntityType.Value, EntityId, false);
+          Repository.SaveSpecCharacteristic(spec, entityType, EntityId, false);
         ajaxResponse = new AjaxResponse { Success = true, Message = Resource.SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_ };
       }
       else
@@ -157,7 +146,7 @@ namespace ASP.Controllers
       try
       {
         var spec = Repository.LoadSpecCharacteristicValue(specId);
-        Repository.SaveSpecCharacteristicValue(spec, CurrentEntityType.Value, entityId);
+        Repository.SaveSpecCharacteristicValue(spec, entityType, entityId);
         ajaxResponse = new AjaxResponse { Success = true, Message = Resource.SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_ };
       }
       catch (Exception exp)
@@ -168,7 +157,7 @@ namespace ASP.Controllers
 
       return Json(ajaxResponse);
     }
-    
+
 
     // GET: /SpecCharacteristic/AddProperty
     [Authorize]
@@ -176,7 +165,7 @@ namespace ASP.Controllers
     {
       if (!UI.CoarseCheckCapability("Manage Specification Characteristics")) throw new UIException(ErrorMessages.SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_);
 
-      var specCharValue = new SpecCharacteristicValueModel {Category = category};
+      var specCharValue = new SpecCharacteristicValueModel { Category = category };
 
       return View(specCharValue);
     }
@@ -185,46 +174,13 @@ namespace ASP.Controllers
     [HttpPost, Authorize]
     public ActionResult AddProperty(string actionType, string category, SpecCharacteristicValueModel specCharValue)
     {
-      if (!UI.CoarseCheckCapability("Manage Specification Characteristics"))
-        throw new UIException(ErrorMessages.SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_);
+      if (!UI.CoarseCheckCapability("Manage Specification Characteristics")) throw new UIException(ErrorMessages.SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_);
 
-      if (EntityId != null && CurrentEntityType != null)
-      {
-        if (actionType == "cancel")
-          return RedirectToAction("Index",
-                                  new
-                                    {
-                                      id = EntityId,
-                                      entityType =
-                                    (int) EnumHelper.GetCSharpEnum((int) EnumHelper.GetDbValueByEnum(CurrentEntityType))
-                                    });
-      }
-      else
-      {
-        if (actionType == "cancel")
-          return RedirectToAction("Index");
-      }
+      if (actionType == "cancel") return RedirectToAction("Index", new { id = EntityId });
 
-      if (CurrentEntityType.HasValue)
-      {
-        Repository.SaveSpecCharacteristicValue(specCharValue, CurrentEntityType.Value, EntityId);
-      }
-      else
-      {
-        Repository.SaveSpecCharacteristicValue(specCharValue, null, EntityId);
-      }
+      Repository.SaveSpecCharacteristicValue(specCharValue, entityType, EntityId);
 
-      if (EntityId != null && CurrentEntityType != null)
-      {
-        return RedirectToAction("Index",
-                                new
-                                  {
-                                    id = EntityId,
-                                    entityType =
-                                  (int) EnumHelper.GetCSharpEnum((int) EnumHelper.GetDbValueByEnum(CurrentEntityType))
-                                  });
-      }
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", new { id = EntityId });
     }
 
     // GET: /SpecCharacteristic/EditProperty/1
@@ -242,36 +198,11 @@ namespace ASP.Controllers
     {
       if (!UI.CoarseCheckCapability("Manage Specification Characteristics")) throw new UIException(ErrorMessages.SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_);
 
-      if (EntityId != null && CurrentEntityType != null)
-      {
-        if (actionType == "cancel")
-          return RedirectToAction("Index",
-                                  new
-                                  {
-                                    id = EntityId,
-                                    entityType =
-                                  (int)EnumHelper.GetCSharpEnum((int)EnumHelper.GetDbValueByEnum(CurrentEntityType))
-                                  });
-      }
-      else
-      {
-        if (actionType == "cancel")
-          return RedirectToAction("Index");
-      }
+      if (actionType == "cancel") return RedirectToAction("Index", new { id = EntityId });
 
-      Repository.SaveSpecCharacteristicValue(specCharValue, CurrentEntityType.Value, EntityId);
+      Repository.SaveSpecCharacteristicValue(specCharValue, entityType, EntityId);
 
-      if (EntityId != null && CurrentEntityType != null)
-      {
-        return RedirectToAction("Index",
-                                new
-                                {
-                                  id = EntityId,
-                                  entityType =
-                                (int)EnumHelper.GetCSharpEnum((int)EnumHelper.GetDbValueByEnum(CurrentEntityType))
-                                });
-      }
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", new { id = EntityId });
     }
 
     // GET: /SpecCharacteristic/AddCategory
@@ -301,7 +232,7 @@ namespace ASP.Controllers
         DefaultValue = "",
         Category = specChar.Category
       };
-      Repository.SaveSpecCharacteristic(specChar1, CurrentEntityType.Value, EntityId);
+      Repository.SaveSpecCharacteristic(specChar1, entityType, EntityId);
 
       return RedirectToAction("Index", new { id = EntityId });
     }

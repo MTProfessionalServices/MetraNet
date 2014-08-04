@@ -1,20 +1,10 @@
 using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
+using System.Globalization;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.MetraPay;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.ActivityServices.Common;
-using System.ServiceModel;
-
 
 public partial class Payments_ACHUpdate : MTPage
 {
@@ -22,7 +12,7 @@ public partial class Payments_ACHUpdate : MTPage
   {
     get
     {
-      String sPIID = Request.QueryString["piid"];
+      var sPIID = Request.QueryString["piid"];
       if (String.IsNullOrEmpty(sPIID))
       {
         return new Guid();
@@ -38,6 +28,7 @@ public partial class Payments_ACHUpdate : MTPage
       }
     }
   }
+
   public ACHPaymentMethod ACHCard
   {
     get
@@ -53,36 +44,42 @@ public partial class Payments_ACHUpdate : MTPage
 
   protected int GetTotalCards()
   {
-      RecurringPaymentsServiceClient client = null;
-      try
+    RecurringPaymentsServiceClient client = null;
+    try
+    {
+      client = new RecurringPaymentsServiceClient();
+
+      if (client.ClientCredentials != null)
       {
-          client = new RecurringPaymentsServiceClient();
-
-          client.ClientCredentials.UserName.UserName = UI.User.UserName;
-          client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-          AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-          MTList<MetraPaymentMethod> cardList = new MTList<MetraPaymentMethod>();
-          client.GetPaymentMethodSummaries(acct, ref cardList);
-          client.Close();
-          return cardList.TotalRows;
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
-      catch (Exception ex)
+
+      if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
-          this.Logger.LogError(ex.Message);
-          client.Abort();
-          return 0;
-          throw;
-      }      
+        var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
+        var cardList = new MTList<MetraPaymentMethod>();
+        client.GetPaymentMethodSummaries(acct, ref cardList);
+        client.Close();
+        return cardList.TotalRows;
+      }
+    }
+    catch (Exception ex)
+    {
+      Logger.LogError(ex.Message);
+      if (client != null) client.Abort();
+    }
+    return 0;
   }
 
   protected void PopulatePriority()
   {
-    int totalCards = GetTotalCards();
+    var totalCards = GetTotalCards();
 
-    for (int i = 1; i <= totalCards; i++)
+    for (var i = 1; i <= totalCards; i++)
     {
-      ddPriority.Items.Add(new ListItem(i.ToString(), i.ToString()));
+      var item = i.ToString(CultureInfo.InvariantCulture);
+      ddPriority.Items.Add(new ListItem(item, item));
     }
   }
 
@@ -96,71 +93,63 @@ public partial class Payments_ACHUpdate : MTPage
       return;
     }
 
-    if (!IsPostBack)
+    if (IsPostBack) return;
+    //populate priorities
+    PopulatePriority();
+
+    try
     {
-      //populate priorities
-      PopulatePriority();
-
-      try
-      {
-        LoadPaymentMethod();
-      }
-      catch(Exception ex)
-      {
-        SetError(Resources.ErrorMessages.ERROR_ACH_LOAD);
-        Logger.LogError(ex.Message);
-        return;
-      }
-
-      if (!this.MTDataBinder1.DataBind())
-      {
-        this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-      }
-      
-      //load current priority
-      LoadPriority();
-
+      LoadPaymentMethod();
     }
+    catch (Exception ex)
+    {
+      SetError(Resources.ErrorMessages.ERROR_ACH_LOAD);
+      Logger.LogError(ex.Message);
+      return;
+    }
+
+    if (!MTDataBinder1.DataBind())
+    {
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
+    }
+
+    //load current priority
+    LoadPriority();
   }
 
   protected void LoadPriority()
   {
-    int priority = 0;
+    var priority = 0;
 
     if (ACHCard.Priority.HasValue)
     {
       priority = ACHCard.Priority.Value;
     }
 
-    ddPriority.SelectedValue = priority.ToString();
+    ddPriority.SelectedValue = priority.ToString(CultureInfo.InvariantCulture);
   }
-  
 
   protected void LoadPaymentMethod()
   {
-    RecurringPaymentsServiceClient client = null;
-
     try
     {
-        client = new RecurringPaymentsServiceClient();
+      var client = InitRecurringPaymentsServiceClient();
 
-        client.ClientCredentials.UserName.UserName = UI.User.UserName;
-        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-        AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
+      if (UI.Subscriber.SelectedAccount._AccountID != null)
+      {
+        var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
 
         MetraPaymentMethod tmpCC;
         client.GetPaymentMethodDetail(acct, PIID, out tmpCC);
 
-        ACHCard = (ACHPaymentMethod)tmpCC;
-        BankAccountType AcctType = (BankAccountType)ACHCard.AccountType;
-        tbAccountType.Text = Convert.ToString(AcctType);
-        client.Close();
+        ACHCard = (ACHPaymentMethod) tmpCC;
+        tbAccountType.Text = ExtensionMethods.GetLocalizedBankAccountType(ACHCard.AccountType.ToString());
+      }
+      client.Close();
     }
     catch (Exception e)
     {
       Logger.LogException("An unexpected error occurred", e);
-      client.Abort();
       throw;
     }
   }
@@ -168,43 +157,53 @@ public partial class Payments_ACHUpdate : MTPage
   protected void btnOK_Click(object sender, EventArgs e)
   {
 
-      if (!this.MTDataBinder1.Unbind())
+    if (!MTDataBinder1.Unbind())
+    {
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
+    }
+
+    if (ACHCard.Priority == null) return;
+    var oldPriority = ACHCard.Priority.Value;
+    ACHCard.Priority = Int32.Parse(ddPriority.SelectedValue);
+
+    try
+    {
+      var client = InitRecurringPaymentsServiceClient();
+
+      if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
-          this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-      }
-    
+        var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
+        client.UpdatePaymentMethod(acct, PIID, ACHCard);
 
-      int oldPriority =  ACHCard.Priority.Value;
-      ACHCard.Priority = Int32.Parse(ddPriority.SelectedValue);
-
-      RecurringPaymentsServiceClient client = null;
-      try
-      {
-          client = new RecurringPaymentsServiceClient();
-
-          client.ClientCredentials.UserName.UserName = UI.User.UserName;
-          client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-          AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-          client.UpdatePaymentMethod(acct, PIID, ACHCard);
-
-          if (ACHCard.Priority.Value != oldPriority)
-          {
-              client.UpdatePriority(acct, PIID, ACHCard.Priority.Value);
-          }
-
-          Response.Redirect("CreditCardList.aspx", false);
-          client.Close();
-      }
-      catch (Exception ex)
-      {
-          SetError(Resources.ErrorMessages.ERROR_ACH_UPDATE);
-          Logger.LogError(ex.Message);
-          client.Abort();
-          throw;
+        if (ACHCard.Priority.Value != oldPriority)
+        {
+          client.UpdatePriority(acct, PIID, ACHCard.Priority.Value);
+        }
       }
 
+      Response.Redirect("CreditCardList.aspx", false);
+      client.Close();
+    }
+    catch (Exception ex)
+    {
+      SetError(Resources.ErrorMessages.ERROR_ACH_UPDATE);
+      Logger.LogError(ex.Message);
+      throw;
+    }
   }
+
+  private RecurringPaymentsServiceClient InitRecurringPaymentsServiceClient()
+  {
+    var client = new RecurringPaymentsServiceClient();
+
+    if (client.ClientCredentials != null)
+    {
+      client.ClientCredentials.UserName.UserName = UI.User.UserName;
+      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+    }
+    return client;
+  }
+
   protected void btnCancel_Click(object sender, EventArgs e)
   {
     Response.Redirect("CreditCardList.aspx");

@@ -35,6 +35,7 @@
         url: 'AjaxServices/ApproveMiscellaneousAdjustment.aspx',
         scope: this,
         disableCaching: true,
+        timeout: 90000,
         callback: function (options, success, response) {
         var responseJSON = Ext.decode(response.responseText);
         if(responseJSON)

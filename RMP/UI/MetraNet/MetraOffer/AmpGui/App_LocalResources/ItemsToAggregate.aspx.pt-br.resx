@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
+    <value> Add up monetary charge amounts.</value>
+  </data>
+  <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
+    <value> Add up units of usage.</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -124,31 +130,25 @@
   <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value> (BRAZILIAN PORTUGUESE) Add up monetary charge amounts.</value>
-  </data>
-  <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value> (BRAZILIAN PORTUGUESE) Add up units of usage.</value>
-  </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value> (BRAZILIAN PORTUGUESE) Count the number of events.</value>
-  </data>
-  <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
-    <value> (BRAZILIAN PORTUGUESE) From Parameter Table.</value>
+    <value> Count the number of events.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>
+    <value>Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE)Adjust the settings for this Decision Type.</value>
+    <value>Adjust the settings for this Decision Type.</value>
   </data>
   <data name="lblGenInfoResource3.Text" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE)How should usage be aggregated?</value>
+    <value>How should usage be aggregated?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Items to Aggregate for {0}</value>
+    <value>Items to Aggregate for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE)MetraNet</value>
+    <value>MetraNet</value>
+  </data>
+  <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
+    <value> From Parameter Table.</value>
   </data>
 </root>

@@ -7,14 +7,16 @@
 body .x-panel {
 }
 .icon-grid {
-    background-image:url(../Images/icons/grid.png) !important;
+    background-image:none;
 }
 .icon-magnifier {
-    background-image:url( ../Images/icons/application_form_magnify.png ) !important;
+    background-image:none;
 }
 
 #button-grid .x-panel-body {
-    border:1px solid #99bbe8;
+    /*border:1px solid #99bbe8;*/
+	
+	border:1px solid #DDD;
     border-top:0 none;
 }
 .add {
@@ -68,11 +70,13 @@ body .x-panel {
 
 .expanderSectionTitle
 {
-  /* background-color: #DFE8F6; */ /* border-bottom:1px solid #99bbe8; */
+  /*  */ 
+  /* border-bottom:1px solid #99bbe8; */
   color: #000000;
   font-weight: bold !important;
   border-bottom: 1px solid #333333;
   border-bottom-color: #C0C0C0;
+  background-color:#C0C0C0;
 }
 .expanderFieldLabel
 {

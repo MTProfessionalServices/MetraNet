@@ -2,17 +2,18 @@
 <%@ Register Src="../UserControls/LocalizedIncludes.ascx" TagName="LocalizedIncludes"  TagPrefix="uc4" %>
 <%@ Register Src="../UserControls/Error.ascx" TagName="Error" TagPrefix="uc3" %>
 <%@ Import Namespace="MetraTech.UI.Common" %>
+
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <noscript>
+    <meta http-equiv="Refresh" content="0; url=../MetraNet/JavaScriptError.aspx" />
+  </noscript>
   <title>MetraNet</title>
   
-  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
-  <link rel="stylesheet" type="text/css" href="<%= GetGlobalResourceObject("Resource", "LocalizedStyleSheet") %>" />
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5"/>
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
-  <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico" />
-
+    <link rel="stylesheet" type="text/css" href="/Res/Styles/login.css"/>
+  
   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/JavaScript/ExtHacks.js?v=6.5"></script>
@@ -23,29 +24,45 @@
   <script type="text/javascript" src="/Res/ux/form/MiscField.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
-
+ <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
+ 
   <uc4:LocalizedIncludes ID="LocalizedIncludes1" runat="server" />
   <%=Constants.CJ_PROTECTION_CODE%>		
   <script type="text/javascript">
     var serverOffset = <%=TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).TotalSeconds %>;
   </script>
+
+
 </head>
 
-<body>
+<body id="login-page-background" class="login">
 
-<form id="form1" runat="server">
+  <div id="page" class="login-bkg">
 
-  <div id="MainContent" class="full">
+    <form id="form1" runat="server">
+
+      <div>
   
-    <uc3:Error ID="Error1" runat="server" />
-    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>
+        <uc3:Error ID="Error1" runat="server" />
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>
 
-  </div>
+      </div>
     
-</form>
-
+    </form>
+    </div>
 </body>
 </html>
 <script type="text/javascript">
-  var flagOkLoadStore = "true";
+    var flagOkLoadStore = "true";
+    var currentBackgroundImageNumber = 3;   //Math.floor(Math.random() * 9) + 1;
+
+    /*var currentImageValueFromCookies = parseInt(Ext.util.Cookies.get('currentBackgroundImageNumber'));
+    if (!isNaN(currentImageValueFromCookies)) {
+        currentBackgroundImageNumber = currentImageValueFromCookies;
+        Ext.util.Cookies.set('currentBackgroundImageNumber', null);
+    }*/
+
+    var root = '/Res/Images/login/bg/login_' + currentBackgroundImageNumber + ".jpg";
+    document.getElementById('login-page-background').style.backgroundImage = 'url(' + root + ')';
+ 
 </script>

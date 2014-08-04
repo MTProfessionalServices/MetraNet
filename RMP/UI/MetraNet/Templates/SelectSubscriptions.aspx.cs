@@ -17,6 +17,6 @@ public partial class Templates_SelectSubscriptions : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
-
+    tbStartDate.Text = MetraTech.MetraTime.Now.Date.ToString();
   }
 }

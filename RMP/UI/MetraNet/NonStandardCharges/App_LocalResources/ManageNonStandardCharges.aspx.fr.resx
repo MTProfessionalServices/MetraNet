@@ -120,6 +120,9 @@
   <data name="GRID_TITLE" xml:space="preserve">
     <value>Gérer les frais non standard</value>
   </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="TEXT_ADDITIONAL_CODE" xml:space="preserve">
     <value>Code supplémentaire</value>
   </data>
@@ -139,16 +142,16 @@
     <value>Montant des frais</value>
   </data>
   <data name="TEXT_CHARGE_CURRENCY" xml:space="preserve">
-    <value>Devise des frais</value>
+    <value>Charger de devise</value>
   </data>
   <data name="TEXT_CHARGE_ID" xml:space="preserve">
-    <value>ID des frais</value>
+    <value>ID de frais</value>
   </data>
   <data name="TEXT_CHARGE_TAX" xml:space="preserve">
-    <value>Montant de la taxe des frais</value>
+    <value>Facturer le montant des frais</value>
   </data>
   <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir continuer?</value>
+    <value>Êtes-vous sûr de vouloir continuer ?</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Devise</value>
@@ -159,20 +162,23 @@
   <data name="TEXT_DENY_ALL" xml:space="preserve">
     <value>Refuser tout</value>
   </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="TEXT_EXCHANGE_RATE" xml:space="preserve">
     <value>Taux de change</value>
   </data>
   <data name="TEXT_EXTERNAL_CHARGE_ID" xml:space="preserve">
-    <value>ID des frais externes</value>
+    <value>ID de frais externes</value>
   </data>
   <data name="TEXT_GLCODE" xml:space="preserve">
     <value>Code général</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
-    <value>ID de l'intervalle guide</value>
+    <value>ID d&amp;apos;intervalle de guide</value>
   </data>
   <data name="TEXT_INTERNAL_CHARGE_ID" xml:space="preserve">
-    <value>ID des frais internes</value>
+    <value>ID de frais internes</value>
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
     <value>ID de l’intervalle</value>
@@ -184,7 +190,7 @@
     <value>Heure d’émission</value>
   </data>
   <data name="TEXT_ISSUER_ID" xml:space="preserve">
-    <value>ID d'émission</value>
+    <value>ID d’émission</value>
   </data>
   <data name="TEXT_NONSTANDARD_CHARGE_REASON" xml:space="preserve">
     <value>Motif des frais non standard</value>

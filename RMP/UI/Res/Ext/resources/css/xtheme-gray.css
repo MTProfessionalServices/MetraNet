@@ -331,6 +331,14 @@ ul.x-tab-strip-bottom{
     color:#333;
 }
 
+.custom-class.x-btn button
+{
+position: static;
+font: normal 11px tahoma,arial,verdana,sans-serif;
+color: #333;
+border-radius: 3px;
+}
+
 .x-btn em {
     font-style:normal;
     font-weight:normal;

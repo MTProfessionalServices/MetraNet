@@ -77,7 +77,8 @@ public partial class PageNav : MTPage
           lock (data)
           {
             // Cache proxyData (representing output values) by Guid
-            PageNav.mCachedResponseData.Add(PageNav.State, proxyData);
+            if (!PageNav.mCachedResponseData.ContainsKey(PageNav.State))
+              PageNav.mCachedResponseData.Add(PageNav.State, proxyData);
           }
         }
       }

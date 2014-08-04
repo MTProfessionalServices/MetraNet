@@ -118,54 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDirectiveType.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]What type of work will this directive do?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Charge/Credit: Directive</value>
   </data>
   <data name="rblFieldPopulation.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Field Population</value>
   </data>
   <data name="rblProcedureExecution.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Procedure Execution</value>
   </data>
   <data name="rblTableInclusion.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Table Inclusion</value>
   </data>
   <data name="tbChargeCreditName.LabelSeparator" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Charge/Credit:</value>
   </data>
   <data name="tbDefaultValue.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Default Value</value>
   </data>
   <data name="tbFieldName.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Field Name</value>
   </data>
   <data name="tbFilter.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Condition for Execution</value>
   </data>
   <data name="tbIncludedFieldPrefix.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Included Field Prefix</value>
   </data>
   <data name="tbIncludePredicate.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Include Predicate</value>
   </data>
   <data name="tbIncludeTableName.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Include Table Name</value>
   </data>
   <data name="tbMvmProcedure.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]MVM Procedure</value>
   </data>
   <data name="tbPopulationString.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Population String</value>
   </data>
   <data name="tbProductView.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Product View</value>
   </data>
   <data name="tbSourceValue.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Source Value</value>
   </data>
   <data name="tbTargetField.Label" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]Target Field</value>
   </data>
 </root>

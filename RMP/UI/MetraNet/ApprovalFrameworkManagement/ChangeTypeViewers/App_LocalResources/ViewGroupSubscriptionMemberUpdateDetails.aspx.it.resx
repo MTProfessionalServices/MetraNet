@@ -147,4 +147,7 @@
   <data name="TEXT_APPROVAL_GROUP_SUBSCRIPTION_CHANGE_DETAILS" xml:space="preserve">
     <value>Membri abbonamento di gruppo aggiornati</value>
   </data>
+  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
+    <value>[IT]Member Name</value>
+  </data>
 </root>

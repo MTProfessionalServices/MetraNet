@@ -31,6 +31,40 @@ public partial class AjaxServices_FindAccountSvc : MTListServicePage
     private const int MAX_RECORDS_PER_BATCH = 50;
     private bool displayAliases = false;
 
+    // CORE-7119 fix specific to the Advanced Find page to ensure that all items serialized to the json will have a unique id for the grid
+    protected struct WrappedAccount
+    {
+        public Account account;
+        public int advancedfinduniquerowid;      
+    }
+
+    // CORE-7119 fix specific to the Advanced Find page to ensure that all items serialized to the json will have a unique id for the grid
+    protected bool wrapAccountsList(ref MTList<MetraTech.DomainModel.BaseTypes.Account> input,
+                                    ref MTList<WrappedAccount> output)
+    {
+        try
+        {
+            int i = 0;
+            foreach (var item in input.Items)
+            {
+                var wrappedAccount = new WrappedAccount { account = item, advancedfinduniquerowid = i };
+                output.Items.Add(wrappedAccount);
+                i++;
+            }
+            output.TotalRows = input.TotalRows;
+        }
+        catch (Exception ex)
+        {
+            Response.StatusCode = 500;
+            Response.StatusDescription = Response.Status;
+            Logger.LogError(ex.Message);
+            SendResult(false, ex.Message);
+            Response.End();
+            return false;
+        }
+        return true;
+    }
+
     protected bool ExtractDataInternal(AccountServiceClient client, ref MTList<MetraTech.DomainModel.BaseTypes.Account> items, int batchID, int limit)
     {
         try
@@ -95,6 +129,7 @@ public partial class AjaxServices_FindAccountSvc : MTListServicePage
             Response.BufferOutput = false;
             Response.ContentType = "application/csv";
             Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+            Response.BinaryWrite(BOM);
         }
         else
         {
@@ -179,7 +214,6 @@ public partial class AjaxServices_FindAccountSvc : MTListServicePage
         {
             displayAliases = true;
         }
-
         using (new HighResolutionTimer("AccountFinderAjax", 5000))
         {
             AccountServiceClient client = null;
@@ -265,13 +299,16 @@ public partial class AjaxServices_FindAccountSvc : MTListServicePage
 
                 if (Page.Request["mode"] != "csv")
                 {
-                    //convert paymentMethods into JSON
+                    // CORE-7119 fix specific to the Advanced Find page to ensure that all items serialized to the json will have a unique id for the grid
+                    MTList<WrappedAccount> wrappedItems = new MTList<WrappedAccount>();
+                    wrapAccountsList(ref items, ref wrappedItems);
+                    //convert accounts into JSON
                     JavaScriptSerializer jss = new JavaScriptSerializer();
-                    string json = jss.Serialize(items);
+                    string json = jss.Serialize(wrappedItems);
+                    json = json.Replace(@"},""advancedfinduniquerowid""", @",""advancedfinduniquerowid""").Replace(@"""account"":{", ""); // CORE-7119 fix specific to the Advanced Find page to ensure that all items serialized to the json will have a unique id for the grid
 
                     //fix empty LDAP view
                     json = FixJsonDate(json);
-
                     Response.Write(json);
                 }
                 client.Close();

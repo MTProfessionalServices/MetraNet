@@ -26,6 +26,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetAccountChangeDe
             Response.BufferOutput = false;
             Response.ContentType = "application/csv";
             Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+            Response.BinaryWrite(BOM);
         }
 
         //if there are more records to process than we can process at once, we need to break up into multiple batches
@@ -70,8 +71,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetAccountChangeDe
             client.GetChangeDetails(changeId, ref accountchangedetailsblob);
 
             ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
-            changeDetailsIn.KnownTypes.AddRange(MetraTech.DomainModel.BaseTypes.Account.KnownTypes());
-            changeDetailsIn.FromXml(accountchangedetailsblob);
+            changeDetailsIn.FromBuffer(accountchangedetailsblob);
 
             // Once you get the change details blob, you can now parse it for the property name and updated value, Key-Value Pair. 
             object o = changeDetailsIn["Account"];

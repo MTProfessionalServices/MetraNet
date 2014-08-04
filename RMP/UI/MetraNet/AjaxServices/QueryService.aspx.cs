@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.ServiceModel;
 using System.Text;
 using System.Web;
@@ -44,7 +45,8 @@ public partial class AjaxServices_QueryService : MTListServicePage
               // Set the parameters
               foreach (SQLQueryParam param in QueryInfo.Params)
               {
-                  stmt.AddParam(param.FieldName, param.FieldValue);
+                  //stmt.AddParam(param.FieldName, param.FieldValue);
+                  stmt.AddParamIfFound(param.FieldName, param.FieldValue);
               }
 
               #region Apply Sorting
@@ -137,12 +139,21 @@ public partial class AjaxServices_QueryService : MTListServicePage
       }
       else if (filterElement.GetType() == typeof(MTFilterElement))
       {
-          MTFilterElement fe = filterElement as MTFilterElement;
-          object filterValue = fe.Value;
+        var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+        try
+        {
+          System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+          var fe = filterElement as MTFilterElement;
+          var filterValue = fe.Value;
 
           bfe = new FilterElement(fe.PropertyName.Replace('.', '_'),
-            (FilterElement.OperationType)((int)fe.Operation),
-            filterValue);
+                                  (FilterElement.OperationType)((int)fe.Operation),
+                                  filterValue);
+        }
+        finally
+        {
+          System.Threading.Thread.CurrentThread.CurrentCulture = currentCulture;
+        }
       }
       else
       {
@@ -159,6 +170,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
       Response.BufferOutput = false;
       Response.ContentType = "application/csv";
       Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+      Response.BinaryWrite(BOM);
     }
 
     //if there are more records to process than we can process at once, we need to break up into multiple batches
@@ -246,6 +258,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    bool generateMetaData = false;
       //parse query name
     String qsQuery = Request["urlparam_q"];
     if (string.IsNullOrEmpty(qsQuery))
@@ -255,6 +268,12 @@ public partial class AjaxServices_QueryService : MTListServicePage
       Response.End();
       return;
     }
+
+	String qm = Request["urlparam_m"];
+    if (!string.IsNullOrEmpty(qm))
+	{
+		generateMetaData = bool.Parse(qm);
+	}
 
     //populate the object
     try
@@ -302,7 +321,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
       if ((Page.Request["mode"] != "csv") && (Page.Request["mode"] != "SelectAll"))
       {
         //convert paymentMethods into JSON
-        string json = SerializeItems(items);
+        string json = SerializeItems(items, generateMetaData);
 
         Response.Write(json);
       }
@@ -422,18 +441,71 @@ public partial class AjaxServices_QueryService : MTListServicePage
       int realFieldID = exportColumns[i];
       if (curRecord.Fields[realFieldID].FieldValue != null)
       {
-        sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        string renderer = Request["column[" + i + "][renderer]"];
+        if (curRecord.Fields[realFieldID].FieldDataType == typeof (DateTime) && !String.IsNullOrEmpty(renderer))
+        {
+          if (renderer.Equals("shortdatestring", StringComparison.Ordinal))
+          {
+            try
+            {
+              DateTime dt = (DateTime) curRecord.Fields[realFieldID].FieldValue;
+              sb.Append(dt.ToShortDateString().Replace("\"", "\"\""));
+            }
+            catch
+            {
+              sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+            }
+          }
+          else
+          {
+            sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+          }
+        }
+        else
+        {
+          sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        }
       }
       sb.Append("\"");
     }
     return sb.ToString();
   }
 
-  protected string SerializeItems(MTList<SQLRecord> items)
+  protected string SerializeItems(MTList<SQLRecord> items, bool generateMetaData)
   {
     StringBuilder json = new StringBuilder();
 
-    json.Append("{\"TotalRows\":");
+    json.Append("{");
+	if (generateMetaData)
+	{
+	  json.Append("\"metaData\":{");
+	  json.Append("\"root\":\"Items\"");
+	  json.Append(", \"totalProperty\":\"TotalRows\"");
+	  json.Append(", \"fields\": [");
+      for (int i = 0; i < items.Items.Count && i < 1; i++ )
+      {
+		  SQLRecord record = items.Items[i];
+		  for (int j = 0; j < record.Fields.Count; j++)
+		  {
+			SQLField field = record.Fields[j];
+			if (j > 0)
+			{
+			  json.Append(", ");
+			}
+			json.Append("{\"name\":\"");
+			json.Append(field.FieldName);
+			json.Append("\", \"header\":\"");
+			json.Append(field.FieldName);
+			json.Append("\"}");
+		  }
+	  }
+	  json.Append("]");
+//	  json.Append(", \"sortInfo\":{\"field\":\"name\", \"direction\":\"ASC\"}");
+//	  json.Append(", \"start\": 0");
+//	  json.Append(", \"limit\": 2");
+	  json.Append("}, ");
+	}
+	json.Append("\"TotalRows\":");
     json.Append(items.TotalRows.ToString());
     json.Append(", \"Items\":[");
 
@@ -467,8 +539,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
         }
         else
         {
-
-            if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
+          if (typeof(Decimal) == field.FieldDataType || typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
           {
             json.Append("\"");
           }
@@ -500,7 +571,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
 
           json.Append(fieldvalue);
 
-          if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
+          if (typeof(Decimal) == field.FieldDataType ||  typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
           {
             json.Append("\"");
           }

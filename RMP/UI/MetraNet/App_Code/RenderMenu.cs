@@ -208,6 +208,7 @@ public static class MenuRenderer
     sb.Append("<script type=\"text/javascript\">");
     sb.Append("Ext.onReady(function(){");
     sb.Append("Ext.get(document.body).mask('Loading...');");
+	bool first = true;
     foreach (MenuSection menuSection in menu.MenuSections)
     {
       if (MenuManager.IsMenuSectionVisible(ui.SessionContext.SecurityContext, menuSection))
@@ -222,11 +223,19 @@ public static class MenuRenderer
         sb.Append("title: '&nbsp;&nbsp;&nbsp;&nbsp;" + menuSectionCaption + "',");
         sb.Append("layout:'fit',");
         sb.Append("collapsible:true,");
-        sb.Append("collapsed:false,");
+		if (first)
+		{
+          sb.Append("collapsed:false,");
+		}
+		else
+		{
+          sb.Append("collapsed:true,");
+		}
         sb.Append("titleCollapse : true,");
         sb.Append("renderTo: 'container" + menuSection.ID + "',");
         sb.Append("contentEl: 'content" + menuSection.ID + "'");
         sb.Append("});");
+		first = false;
       }
     }
 
@@ -237,61 +246,89 @@ public static class MenuRenderer
     return sb.ToString();
   }
 
-	public static string RenderMenuContext(Menu menu, UIManager ui)
-	{
-		StringBuilder sb = new StringBuilder();
-		sb.AppendLine("new Ext.menu.Menu({");
-		sb.AppendFormat("id : '{0}',", menu.ID);
-        sb.AppendLine();
-        bool firstItem = true;
-        sb.AppendLine("items: [");
-		foreach (MenuSection menuSection in menu.MenuSections)
-		{
-			//Check capabilities for menu section
-			if (MenuManager.IsMenuSectionVisible(ui.SessionContext.SecurityContext, menuSection))
-			{
-				foreach (MenuItem menuItem in menuSection.MenuItems)
-				{
-					//Check capabilities for menu items
-					if (MenuManager.IsMenuItemVisible(ui.SessionContext.SecurityContext, menuItem))
-					{
-                        sb.Append(firstItem ? string.Empty : ",");
-                        sb.AppendLine("{");
-						sb.AppendFormat("id : '{0}',", menuItem.ID);
-						sb.AppendLine();
-                        sb.AppendFormat("text : '{0}',", menuItem.Caption.GetValue());
-                        sb.AppendLine();
-                        
-						//Set action for menu item.
-						if (!menuItem.Link.StartsWith("javascript:"))
-						{
-							string link = GetLink(menuItem.Link, ui);
-							sb.AppendFormat("href : '{0}',", link);
-						}
-						else
-						{
-                            sb.AppendFormat("listeners: {{ click :  function (item, e) {{ {0} }} }},", menuItem.Link.Replace("javascript:", string.Empty));
-						}
 
-                        sb.AppendLine();
+  private static string RenderExtMenuObject(Menu menu, UIManager ui, bool isRootMenu = false)
+  {
+    var sb = new StringBuilder();
 
-						sb.AppendFormat("hrefTarget : '{0}',", menuItem.Target);
-						sb.AppendLine();
-						sb.AppendFormat("icon : '{0}'", menuItem.Icon);
-						sb.AppendLine();
-						sb.Append("}");
-						sb.AppendLine();
-                        firstItem = false;
-					}
-				}
-			}
-		}
-        sb.AppendLine("],");
-        sb.AppendLine("listeners: { hide: function(e){e.destroy();} }");
-        sb.AppendLine("});");
+    sb.AppendLine("{");
+    sb.AppendFormat("id : '{0}',", menu.ID);
+    sb.AppendLine();
+    bool firstItem = true;
 
-        return sb.ToString();
-	}
+    // Append Items
+    sb.AppendLine("items: [");
+    foreach (MenuSection menuSection in menu.MenuSections)
+    {
+      //Check capabilities for menu section
+      if (MenuManager.IsMenuSectionVisible(ui.SessionContext.SecurityContext, menuSection))
+      {
+        foreach (MenuItem menuItem in menuSection.MenuItems)
+        {
+          //Check capabilities for menu items
+          if (MenuManager.IsMenuItemVisible(ui.SessionContext.SecurityContext, menuItem))
+          {
+            sb.Append(firstItem ? string.Empty : ",");
+            sb.AppendLine("{");
+            sb.AppendFormat("id : '{0}'", menuItem.ID);
+            sb.AppendLine();
+            sb.AppendFormat(",text : '{0}'", menuItem.Caption.GetValue());
+            sb.AppendLine();
+            sb.AppendFormat(",icon : '{0}'", menuItem.Icon);
+            sb.AppendLine();
+            if (!String.IsNullOrEmpty(menuItem.Link))
+            {
+              //Set action for menu item.
+              if (menuItem.Link.StartsWith("javascript:"))
+              {
+                sb.AppendFormat(",listeners: {{ click :  function (item, e) {{{0}}} }}",
+                                menuItem.Link.Replace("javascript:", string.Empty));
+              }
+              else
+              {
+                string link = GetLink(menuItem.Link, ui);
+                sb.AppendFormat(",href : '{0}'", link);
+              }
+              sb.AppendLine();
+            }
+            
+            if (!String.IsNullOrEmpty(menuItem.Target))
+            {
+              sb.AppendFormat(",hrefTarget : '{0}'", menuItem.Target);
+              sb.AppendLine();
+            }
+
+            if (!String.IsNullOrEmpty(menuItem.SubMenu.ID))
+            {
+              sb.AppendFormat(",menu : {0}", RenderExtMenuObject(menuItem.SubMenu, ui));
+              sb.AppendLine();
+            }
+
+            sb.Append("}");
+            sb.AppendLine();
+            firstItem = false;
+          }
+        }
+      }
+    }
+    sb.AppendLine("]");
+
+    if (isRootMenu)
+    {
+      sb.AppendLine(",listeners: {");
+      sb.AppendLine("hide: function(e){e.destroy();},");
+      sb.AppendLine("show: function(thisMenu){ Account.RenderAllowedChildMenuItems( thisMenu ); }");
+      sb.AppendLine("}");
+    }
+
+    sb.AppendLine("}");
+    return sb.ToString();
+  }
+
+  public static string RenderMenuContext(Menu menu, UIManager ui)
+  {
+    return string.Format("new Ext.menu.Menu({0});", RenderExtMenuObject(menu, ui, true));
+  }
 
   /// <summary>
   /// Returns either the link, or the link resolved by dictionary key wrapped in [ ]

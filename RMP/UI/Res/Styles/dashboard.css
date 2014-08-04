@@ -1,0 +1,143 @@
+   .legend rect
+    {
+      fill: white;
+      stroke: black;
+      opacity: 0.8;
+    }
+    
+    .axis path, .axis line
+    {
+      fill: none;
+      stroke: #7F7F7F;
+      shape-rendering: crispEdges;
+    }
+    
+    .arc path
+    {
+      stroke: #7F7F7F;
+    }
+    
+    .line
+    {
+      fill: none;
+    }
+    
+    .label
+    {
+      text-align: right;
+      vertical-align:middle ;
+     text-transform: uppercase;
+    }
+    
+    .tbllabel
+    {
+      background-color: #fff;
+      border: 4px solid #ccc;
+     text-transform: uppercase;
+      border-bottom: 0px;
+      border-spacing: 0px;
+       padding: 2px;
+       
+    }
+    
+    .clszerovalue
+    {
+      color: #7F7F7F;
+      vertical-align:middle ;
+    }
+    
+    .clshasvalue
+    {
+      vertical-align:middle ;
+      font-weight: bold;
+      color: #C00;
+    }
+    
+     .tblclshasvalue
+    {
+      vertical-align:middle ;
+      font-weight: bold;
+      color: #C00;
+      background-color: #fff;
+      border: 4px solid #ccc;
+      border-top: none;
+       padding: 2px;
+    }
+    
+    
+    .tblclszerovalue
+    {
+      vertical-align:middle ;
+      color: #7F7F7F;
+      background-color: #fff;
+      border: 4px solid #ccc;
+      border-top: none;
+      padding: 2px;
+    }
+    
+    .divleftfloat
+    {
+      float: left;
+      width: 399px;
+    }
+    
+    .divrightfloat
+    {
+      float: right;
+      width: 399px;
+    }
+   
+    .align-alt {text-align: right;}
+    .align-center {text-align: center;}
+    .block-center {margin-left: auto; margin-right: auto;}
+	
+    .float {float: left;}
+
+    .align-alt.float {float: right;}
+	
+
+    .barchart text
+    {
+      fill: red;
+      font: 8px sans-serif;
+      text-anchor: end;
+    }
+    
+     
+  .x-panel-bwrap {
+    width: 100%;
+    height: 100%;
+  }
+
+  .x-panel-body {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0px !important;
+  }
+
+  #gridsterul {
+    position: static !important;
+  }
+  
+  .base-bottom 
+{
+    width: 100%; 
+    height: 100%;
+    position: relative;
+}
+
+.corner-bottom 
+{
+    z-index: 10;
+    margin: 0 0 0 15px;
+    background-color: #fff;
+    border: 4px solid #ccc;
+     /*border-radius: 8px;*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
+   display: inline-table;
+  padding: 5px;
+}
+
+

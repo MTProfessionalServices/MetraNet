@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
+    <value>Nom de l’adaptateur</value>
+  </data>
+  <data name="TEXT_AMOUNT" xml:space="preserve">
+    <value>Montant</value>
+  </data>
+  <data name="TEXT_AMOUNT_IF_NOT_PRORATED" xml:space="preserve">
+    <value>Montant sans proration</value>
+  </data>
+  <data name="TEXT_CODE" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TEXT_COMPLETED" xml:space="preserve">
+    <value>Terminé</value>
+  </data>
+  <data name="TEXT_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
+    <value>Modèle PI composé</value>
+  </data>
+  <data name="TEXT_CONTRIBUTING_ACCOUNTS" xml:space="preserve">
+    <value>Comptes concernés</value>
+  </data>
+  <data name="TEXT_COUNT" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="TEXT_CURRENCY" xml:space="preserve">
+    <value>Devise</value>
+  </data>
+  <data name="TEXT_DATE_FIRST" xml:space="preserve">
+    <value>Date initiale</value>
+  </data>
+  <data name="TEXT_DATE_HISTORY" xml:space="preserve">
+    <value>Historique des utilisations</value>
+  </data>
+  <data name="TEXT_DATE_LAST" xml:space="preserve">
+    <value>Date finale</value>
+  </data>
+  <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
+    <value>Nom de la remise</value>
+  </data>
+  <data name="TEXT_DISMISSED" xml:space="preserve">
+    <value>Ignoré</value>
+  </data>
+  <data name="TEXT_DISTINCT_PAYEES" xml:space="preserve">
+    <value>Bénéficiaires différents</value>
+  </data>
+  <data name="TEXT_DISTINCT_PAYERS" xml:space="preserve">
+    <value>Payeurs différents</value>
+  </data>
+  <data name="TEXT_EXPECTED" xml:space="preserve">
+    <value>Prévu</value>
+  </data>
+  <data name="TEXT_FAILED" xml:space="preserve">
+    <value>Échec</value>
+  </data>
+  <data name="TEXT_GENERATION_REASON" xml:space="preserve">
+    <value>Motif de la création</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>Abonnement groupé</value>
+  </data>
+  <data name="TEXT_INVOICE_METHOD" xml:space="preserve">
+    <value>Méthode de facturation</value>
+  </data>
+  <data name="TEXT_INVOICE_NUMBER" xml:space="preserve">
+    <value>Numéro de facture</value>
+  </data>
+  <data name="TEXT_MESSAGE" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="TEXT_METERED" xml:space="preserve">
+    <value>CHRONOMÉTRÉ</value>
+  </data>
+  <data name="TEXT_MONETARY_AMOUNT" xml:space="preserve">
+    <value>Montant monétaire</value>
+  </data>
+  <data name="TEXT_NAMESPACE" xml:space="preserve">
+    <value>Espace de nommage</value>
+  </data>
+  <data name="TEXT_NON_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
+    <value>Modèle PI non composé</value>
+  </data>
+  <data name="TEXT_NUM_ADV_RCS_CREDITS_GENERATED" xml:space="preserve">
+    <value>Nombre de crédits RC avancés créés</value>
+  </data>
+  <data name="TEXT_NUM_ADV_RCS_GENERATED" xml:space="preserve">
+    <value>Nombre de RC avancés créés</value>
+  </data>
+  <data name="TEXT_NUM_ARREARS_GENERATED" xml:space="preserve">
+    <value>Nombre d’arriérés créés</value>
+  </data>
+  <data name="TEXT_NUM_DAYS_IN_PERIOD" xml:space="preserve">
+    <value>Nombre de jours dans la période</value>
+  </data>
+  <data name="TEXT_NUM_DAYS_PRORATED" xml:space="preserve">
+    <value>Nombre de jours de proration</value>
+  </data>
+  <data name="TEXT_NUM_DISCOUNTS_GENERATED" xml:space="preserve">
+    <value>Nombre de remises créées</value>
+  </data>
+  <data name="TEXT_NUM_INVOICES" xml:space="preserve">
+    <value>Nombre de factures</value>
+  </data>
+  <data name="TEXT_NUM_NRCS_GENERATED" xml:space="preserve">
+    <value>Nombre de NRC créés</value>
+  </data>
+  <data name="TEXT_NUM_TRANS_AFFECTED" xml:space="preserve">
+    <value>Nombre de transactions affectées</value>
+  </data>
+  <data name="TEXT_NUM_TRANS_GENERATED" xml:space="preserve">
+    <value>Nombre de transactions créées</value>
+  </data>
+  <data name="TEXT_PAYER" xml:space="preserve">
+    <value>Payeur</value>
+  </data>
+  <data name="TEXT_PERCENTAGE" xml:space="preserve">
+    <value>Pourcentage</value>
+  </data>
+  <data name="TEXT_PI_TEMPLATE" xml:space="preserve">
+    <value>Modèle PI</value>
+  </data>
+  <data name="TEXT_PO_SUBSCRIBED_TO" xml:space="preserve">
+    <value>PO abonnement</value>
+  </data>
+  <data name="TEXT_PRORATION_REASON" xml:space="preserve">
+    <value>Motif de proration</value>
+  </data>
+  <data name="TEXT_RC_TYPE" xml:space="preserve">
+    <value>Type de RC</value>
+  </data>
+  <data name="TEXT_STATE" xml:space="preserve">
+    <value>État</value>
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>État</value>
+  </data>
+  <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
+    <value>Montant de la taxe</value>
+  </data>
+  <data name="TEXT_TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TEXT_TOTAL_MONETARY_AMOUNT" xml:space="preserve">
+    <value>Montant monétaire total</value>
+  </data>
+  <data name="TEXT_VIEW_ID" xml:space="preserve">
+    <value>Afficher ID</value>
+  </data>
+  <data name="TEXT_VIEW_NAME" xml:space="preserve">
+    <value>Afficher le nom</value>
+  </data>
+</root>

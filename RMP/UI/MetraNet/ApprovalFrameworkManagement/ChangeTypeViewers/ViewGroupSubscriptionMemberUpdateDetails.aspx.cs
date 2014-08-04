@@ -33,17 +33,7 @@ public partial class ApprovalFrameworkManagement_ViewGroupSubscriptionMemberUpda
     public string strchangeid { get; set; }
     public int iChangeId { get; set; }
     public string strcurrentstate { get; set; }
-    public string strincomingshowchangestate { get; set; }
-
-    protected override void OnLoadComplete(EventArgs e)
-    {
-        //GroupSubscriptionChangeDetails.Title = "This Change is in " + strcurrentstate + " State";
-
-        //Response.Write("<b>Default Dump Of Change Details From Database</b><br>");
-        //Response.Write("<textarea rows='20' cols='100'>" + GetChangeDetails(iChangeId) + "</textarea>");
-
-        base.OnLoadComplete(e);
-    }
+    public string strincomingshowchangestate { get; set; }   
     
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -53,17 +43,18 @@ public partial class ApprovalFrameworkManagement_ViewGroupSubscriptionMemberUpda
         strchangeid = Request.QueryString["changeid"];
         iChangeId = Convert.ToInt32(strchangeid);
         Session["intchangeid"] = iChangeId;
-
-        //strcurrentstate = Request.QueryString["currentstate"];
-        //strincomingshowchangestate = Request.QueryString["showchangestate"];
-
     }
-
+    protected override void OnLoadComplete(EventArgs e)
+    {
+      GroupSubscriptionChangeDetails.Title = Request.QueryString["changetype"];
+      base.OnLoadComplete(e);
+    }  
     protected string GetChangeDetails(int changeId)
     {
       ApprovalManagementServiceClient client = null;
-      string gschangedetailsblob = String.Empty;
-      string retVal = gschangedetailsblob;
+      
+      string retVal = String.Empty;
+      bool gotException = true;
       try
       {
         client = new ApprovalManagementServiceClient();
@@ -71,44 +62,29 @@ public partial class ApprovalFrameworkManagement_ViewGroupSubscriptionMemberUpda
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
 
+        client.GetChangeDetails(changeId, ref retVal);
 
-        ///*string gschangedetailsblob = String.Empty;*/
-        client.GetChangeDetails(changeId, ref gschangedetailsblob);
-        retVal = gschangedetailsblob;
-        //ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
-        //changeDetailsIn.KnownTypes.AddRange(MetraTech.DomainModel.BaseTypes.Account.KnownTypes());
-        //changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.ProductOffering));
-        //changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.GroupSubscriptionMember));
-        //changeDetailsIn.KnownTypes.Add(typeof(List<MetraTech.DomainModel.ProductCatalog.GroupSubscriptionMember>));
-        //changeDetailsIn.KnownTypes.Add(typeof(Dictionary<AccountIdentifier, MetraTech.DomainModel.ProductCatalog.AccountTemplateScope>));
-        //changeDetailsIn.KnownTypes.Add(typeof(AccountIdentifier));
-        //changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.AccountTemplateScope));
-        //changeDetailsIn.KnownTypes.Add(typeof(ProdCatTimeSpan));
-        //changeDetailsIn.FromXml(gschangedetailsblob);
+        ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
+        changeDetailsIn.FromBuffer(retVal);
 
-        //// Once you get the change details blob, you can now parse it for the property name and updated value, Key-Value Pair. 
-        //Object o = changeDetailsIn["groupSubscriptionId"];
-        //int gsId = (int)o;
-        //o = changeDetailsIn["accounts"];
-        //var accounts = o as Dictionary<AccountIdentifier, MetraTech.DomainModel.ProductCatalog.AccountTemplateScope>;
-        //foreach (var pair in accounts)
-        //{
-        //  retVal += pair.Key.AccountID.ToString() + ",";
-        //}
-        //o = changeDetailsIn["subscriptionSpan"];
-        //ProdCatTimeSpan timeSpan = o as ProdCatTimeSpan;
-
-        //client.Close();
+        return changeDetailsIn.ToStringDictionary();
       }
       catch (Exception ex)
+      {       
+        gotException = true;
+        return "An unknown exception occurred.  Please check system logs: " + ex;
+        throw;
+      }
+      finally
       {
         if (client != null)
         {
-          client.Abort();
+          if (gotException)
+            client.Abort();
+          else
+            client.Close();
         }
-        return "An unknown exception occurred. Please check system logs: " + ex;
       }
 
-      return retVal;
     }
 }

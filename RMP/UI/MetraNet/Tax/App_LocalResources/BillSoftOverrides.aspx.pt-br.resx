@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Substituições de BillSoft</value>
+    <value>Substituições BillSoft</value>
   </data>
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>Gerenciar substituições de Billsoft</value>
+    <value>Gerenciar substituições BillSoft</value>
   </data>
   <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
     <value>ID de conta</value>
@@ -130,13 +133,13 @@
     <value>Ações</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Adicionar nova substituição de BillSoft</value>
+    <value>Adicionar nova substituição BillSoft</value>
   </data>
   <data name="TEXT_APPLY_TO_ACCOUNT_DESCENDENTS" xml:space="preserve">
     <value>Aplicar aos descendentes da conta</value>
   </data>
   <data name="TEXT_CREATE_DATE" xml:space="preserve">
-    <value>Data de criação</value>
+    <value>Criar data</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Editar substituição</value>
@@ -145,7 +148,7 @@
     <value>Data de vigência</value>
   </data>
   <data name="TEXT_EXCESS_TAX_RATE" xml:space="preserve">
-    <value>Nível excessivo de impostos</value>
+    <value>Taxa de imposto excedente</value>
   </data>
   <data name="TEXT_EXEMPT_LEVEL" xml:space="preserve">
     <value>Nível de isenção</value>
@@ -154,7 +157,7 @@
     <value>Indicador de limite</value>
   </data>
   <data name="TEXT_MAXIMUM_BASE" xml:space="preserve">
-    <value>Piso máximo</value>
+    <value>Base máxima</value>
   </data>
   <data name="TEXT_PERMANENT_LOCATION_CODE" xml:space="preserve">
     <value>Código de localização permanente</value>
@@ -169,10 +172,10 @@
     <value>Data de início</value>
   </data>
   <data name="TEXT_TAX_LEVEL" xml:space="preserve">
-    <value>Nível de impostos</value>
+    <value>Nível de imposto</value>
   </data>
   <data name="TEXT_TAX_RATE" xml:space="preserve">
-    <value>Alíquota</value>
+    <value>Taxa de imposto</value>
   </data>
   <data name="TEXT_TAX_TYPE" xml:space="preserve">
     <value>Tipo de imposto</value>

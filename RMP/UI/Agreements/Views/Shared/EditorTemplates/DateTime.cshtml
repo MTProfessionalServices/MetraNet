@@ -1,8 +1,0 @@
-﻿@model Nullable<System.DateTime>
-
-@if ( Model.HasValue ) {
-    @Html.TextBox("", String.Format("{0:d}", Model.Value.ToShortDateString()), new { @class = "datepicker sm nofloat" })
-}
-else {
-   @Html.TextBox( "" ,"", new { @class = "datepicker sm nofloat" , @style = "width:400px;" } )
-}

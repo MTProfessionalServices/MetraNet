@@ -117,82 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPLIED" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_DISMISSED" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_FAILEDTOAPPLY" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_PENDING" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
   <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Approver ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Comment</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Current State</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Action</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATUS" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Last Modified Date</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Submitted Date</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Submitter</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Submitter ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Type</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]Modified Item ID</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
-    <value>Japanese</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]No Records Found</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]View Changes</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
+    <value>[JA]State</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
+    <value>[JA]Modified Item</value>
   </data>
 </root>

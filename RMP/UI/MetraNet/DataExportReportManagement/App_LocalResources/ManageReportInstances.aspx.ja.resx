@@ -120,6 +120,12 @@
   <data name="lblManageReportInstancesTitleResource1.Text" xml:space="preserve">
     <value>報告書インスタンスの管理</value>
   </data>
+  <data name="lblManageReportInstancesTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MyGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>報告書インスタンスの管理</value>
   </data>

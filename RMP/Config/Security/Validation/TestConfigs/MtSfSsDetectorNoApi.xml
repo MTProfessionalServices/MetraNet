@@ -1,0 +1,5 @@
+﻿<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="false" IsControlApiEnabled="true" IsControlApiPublic="false">
+  <Engines>
+    <Engine Id="Sql.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultSqlDetectorEngine, MetraTech.SecurityFramework"/>
+  </Engines>
+</SubsystemProperties>

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 using System.Web.UI;
 using MetraTech.ActivityServices.Common;
+using MetraTech.Approvals.ChangeTypes;
 using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.ProductCatalog;
+using MetraTech.Core.Services.ClientProxies;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
@@ -294,6 +297,8 @@ public partial class Subscriptions_SetUDRCValues : MTPage
     #region Events
     protected void Page_Load(object sender, EventArgs e)
     {
+        //TODO: Save and pass original subscription object through WorkFlow to Approval Framework
+
         if (!IsPostBack)
         {
             if (Request["UPDATE"] == null)
@@ -411,18 +416,34 @@ public partial class Subscriptions_SetUDRCValues : MTPage
     {
         if (Page.IsValid)
         {
-            SubscriptionsEvents_OKSetUDRCValues_Client update = new SubscriptionsEvents_OKSetUDRCValues_Client();
-
+            var sub = SubscriptionInstance;
+            
             // Update Subscription Instance with UDRC values in UDRCDictionary
-            SubscriptionInstance.UDRCValues = new Dictionary<string, List<UDRCInstanceValue>>();
-            foreach (KeyValuePair<string, MTTemporalList<UDRCInstanceValue>> kvp in UDRCDictionary)
+            sub.UDRCValues = new Dictionary<string, List<UDRCInstanceValue>>();
+            foreach (var kvp in UDRCDictionary)
             {
-                SubscriptionInstance.UDRCValues.Add(kvp.Key, kvp.Value.Items);
+                sub.UDRCValues.Add(kvp.Key, kvp.Value.Items);
             }
 
-            update.In_SubscriptionInstance = SubscriptionInstance;
-            update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+            var isNewSubscription = sub.SubscriptionId == null;
+            var changeTypeName = isNewSubscription
+                                   ? SubscriptionChangeType.AddSubscriptionChangeTypeName
+                                   : SubscriptionChangeType.UpdateSubscriptionChangeTypeName;
+            var isApprovalsEnabled = IsApprovalsEnabled(changeTypeName);
+
+            var update = new SubscriptionsEvents_OKSetUDRCValues_Client
+            {
+                In_SubscriptionInstance = sub,
+                In_AccountId = new AccountIdentifier(UI.User.AccountId),
+                In_IsApprovalEnabled = isApprovalsEnabled
+            };
+            
             PageNav.Execute(update);
+
+            if (isApprovalsEnabled)
+            {
+              Response.Redirect("/MetraNet/ApprovalFrameworkManagement/ChangeSubmittedConfirmation.aspx", false);
+            }
         }
     }
 
@@ -533,5 +554,38 @@ public partial class Subscriptions_SetUDRCValues : MTPage
         }
     }
     #endregion
+    
+    #region Private Methods
+    
+    private bool IsApprovalsEnabled(string changeType)
+    {
+        bool isEnabled;
 
+      var client = new ApprovalManagementServiceClient();
+      try
+        {
+            SetCredantional(client.ClientCredentials);
+            client.ApprovalEnabledForChangeType(changeType, out isEnabled);
+        }
+      finally
+      {
+        if (client.State == CommunicationState.Faulted)
+          client.Abort();
+        else
+          client.Close();
+      }
+
+        return isEnabled;
+    }
+
+    private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+    {
+        if (clientCredentials == null)
+            throw new InvalidOperationException("Client credentials is null");
+
+        clientCredentials.UserName.UserName = UI.User.UserName;
+        clientCredentials.UserName.Password = UI.User.SessionPassword;
+    }
+
+    #endregion
 }

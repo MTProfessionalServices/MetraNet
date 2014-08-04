@@ -28,6 +28,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
             Response.BufferOutput = false;
             Response.ContentType = "application/csv";
             Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+            Response.BinaryWrite(BOM);
         }
 
         //if there are more records to process than we can process at once, we need to break up into multiple batches
@@ -72,15 +73,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
         client.GetChangeDetails(changeId, ref gschangedetailsblob);
 
         ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
-        changeDetailsIn.KnownTypes.AddRange(MetraTech.DomainModel.BaseTypes.Account.KnownTypes());
-        changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.ProductOffering));
-        changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.GroupSubscriptionMember));
-        changeDetailsIn.KnownTypes.Add(typeof(List<MetraTech.DomainModel.ProductCatalog.GroupSubscriptionMember>));
-        changeDetailsIn.KnownTypes.Add(typeof(Dictionary<AccountIdentifier, MetraTech.DomainModel.ProductCatalog.AccountTemplateScope>));
-        changeDetailsIn.KnownTypes.Add(typeof(AccountIdentifier));
-        changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.AccountTemplateScope));
-        changeDetailsIn.KnownTypes.Add(typeof(ProdCatTimeSpan));
-        changeDetailsIn.FromXml(gschangedetailsblob); 
+        changeDetailsIn.FromBuffer(gschangedetailsblob); 
 
         // Once you get the change details blob, you can now parse it for the property name and updated value, Key-Value Pair. 
         int gsId = -1;
@@ -118,6 +111,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
                 changeDetailsDisplay.StartDate = (timeSpan.StartDate == null) ? " " : timeSpan.StartDate.ToString();
                 changeDetailsDisplay.EndDate = (timeSpan.EndDate == null) ? " " : timeSpan.EndDate.ToString();
               }
+              changeDetailsDisplay.AccountName = string.IsNullOrEmpty(account.Key.Username) ? string.Empty : account.Key.Username;
               items.Items.Add(changeDetailsDisplay);
             }
           }
@@ -191,7 +185,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
         changeDetailsDisplay.StartDate = (timeSpan.StartDate == null) ? " " : timeSpan.StartDate.ToString();
         changeDetailsDisplay.EndDate = (timeSpan.EndDate == null) ? " " : timeSpan.EndDate.ToString();
       }
-
+      changeDetailsDisplay.AccountName = string.IsNullOrEmpty(account.AccountName) ? string.Empty : account.AccountName;
       GroupSubscriptionMember oldMemberInfo = null;
       gsClient.GetMemberInfoForGroupSubscription(changeDetailsDisplay.GroupSubId, changeDetailsDisplay.MemberId, ref oldMemberInfo);
       changeDetailsDisplay.OldStartDate = (oldMemberInfo != null) ? oldMemberInfo.MembershipSpan.StartDate.ToString() : "";

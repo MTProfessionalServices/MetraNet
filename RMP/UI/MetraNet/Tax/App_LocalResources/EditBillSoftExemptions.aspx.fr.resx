@@ -117,28 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="tbIdAccResource.Label" xml:space="preserve">
     <value>ID du compte</value>
   </data>
   <data name="cbApplyDescendentsResource1.BoxLabel" xml:space="preserve">
-    <value>Appliquer aux descendants du compte</value>
+    <value>Appliquer aux descendants des comptes</value>
   </data>
   <data name="tbPcodeResource.Label" xml:space="preserve">
-    <value>Code d'emplacement permanent</value>
+    <value>Code d’emplacement permanent</value>
   </data>
   <data name="tbCertificateIdResource.Label" xml:space="preserve">
-    <value>ID du certificat</value>
+    <value>ID de certificat</value>
   </data>
   <data name="ddTaxLevelResource.Label" xml:space="preserve">
-    <value>Niveau fiscal</value>
+    <value>Niveau de taxe</value>
   </data>
   <data name="tbTaxTypeResource.Label" xml:space="preserve">
     <value>Type de taxe</value>
   </data>
   <data name="TEXT_UPDATED_TITLE" xml:space="preserve">
-    <value>Exonération de facture mise à jour</value>
+    <value>Note de compte mise à jour</value>
   </data>
   <data name="TEXT_UPDATED" xml:space="preserve">
-    <value>Exonération de facture mise à jour</value>
+    <value>Note de compte mise à jour</value>
   </data>
 </root>

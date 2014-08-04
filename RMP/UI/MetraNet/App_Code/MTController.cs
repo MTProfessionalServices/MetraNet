@@ -97,18 +97,9 @@ public class MTController : Controller
     {
       if (Request.ServerVariables["SCRIPT_NAME"].Contains("AjaxServices")) return;
 
-      string pageName = Path.GetFileName(Request.ServerVariables["SCRIPT_NAME"]);
-      pageName = pageName + ".hlp.htm";
-
-      HelpPage = String.Format("{0}Help/{1}/index.htm?toc.htm?{2}", Request.ApplicationPath,
-                                  Thread.CurrentThread.CurrentCulture, pageName);
-      var filePath = Server.MapPath(HelpPage.Substring(0, HelpPage.IndexOf('?'))).Replace("index.htm", pageName);
-      
-      if (!System.IO.File.Exists(filePath))
-      {
-        Logger.LogInfo(String.Format("Missing help page: {0}, defaulting to index.htm", filePath));
-        HelpPage = String.Format("{0}Help/{1}/index.htm", Request.ApplicationPath, Thread.CurrentThread.CurrentCulture);
-      }
+      // Setup help URL - currently it should have empty page name
+      HelpPage = "/MetraNet/Help.aspx?PageName="; //String.Format("/MetraNet/Help.aspx?PageName={0}", Path.GetFileName(Request.ServerVariables["SCRIPT_NAME"]));
+      Logger.LogDebug(string.Format("HelpPage: {0}", HelpPage));
     }
     catch (Exception exp)
     {

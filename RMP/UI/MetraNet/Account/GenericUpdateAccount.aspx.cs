@@ -1,31 +1,32 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Approvals;
-using System.Windows.Forms;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.UI.Controls;
 
 
+//TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow and all other
+//TODO: GenericAddAccount.aspx/GenericUpdateAccount.aspx/GenericAccountSummary.aspx can be thrown from MetraNet project
 public partial class GenericUpdateAccount : MTAccountPage
 {
 
-    //Approval Framework Code Starts Here 
+  //Approval Framework Code Starts Here 
   public int? bAccountUpdateApprovalsEnabled
   {
     get { return ViewState["bAccountUpdateApprovalsEnabled"] as int?; }
     set { ViewState["bAccountUpdateApprovalsEnabled"] = value; }
   } //so we can read it any time in the session
-  
-  public bool bAllowMoreThanOnePendingChange { get; set; }
-    public bool bAccountHasPendingChange { get; set; }
-    public string strChangeType { get; set; }
-    //Approval Framework Code Ends Here 
 
-  private List<string> skipProperties = new List<string>();
+  public bool bAllowMoreThanOnePendingChange { get; set; }
+  public bool bAccountHasPendingChange { get; set; }
+  public string strChangeType { get; set; }
+  //Approval Framework Code Ends Here 
+
+  private readonly List<string> skipProperties = new List<string>();
   private void SetupSkipProperties()
   {
     skipProperties.Add("username");
@@ -41,30 +42,61 @@ public partial class GenericUpdateAccount : MTAccountPage
     skipProperties.Add("internal.language");
   }
 
+  /// <summary>
+  /// Returns JSON string with mapping of account attributes to JavaScript client-side controls
+  /// </summary>
+  public string JSControlMapping
+  {
+    get
+    {
+      var sb = new System.Text.StringBuilder();
+
+      foreach (MTDataBindingItem itm in MTDataBinder1.DataBindingItems)
+      {
+        if (itm.ControlInstance != null)
+        {
+          string bSource = itm.BindingSource;
+          if (bSource.StartsWith("Account."))
+          {
+            bSource = bSource.Substring(8);
+          }
+          sb.AppendFormat("{0}'{1}.{2}':'{3}'", 
+            sb.Length == 0 ? string.Empty : ",",
+            (bSource == "BillTo") ? "LDAP[ContactType=Bill_To]" : bSource, 
+            itm.BindingSourceMember, 
+            itm.ControlInstance.ClientID);
+        }
+      }
+      return string.Format("{{{0}}}", sb);
+    }
+  }
+
+
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
     {
       Account = PageNav.Data.Out_StateInitData["Account"] as Account;
+      if (Account == null) return;
+
       var Properties = Account.GetType().GetProperties();
       foreach (var property in Properties)
       {
-          object Result = ((PropertyInfo)property).GetValue(Account, null);
-          if (Result == null)
+        object Result = property.GetValue(Account, null);
+        if (Result == null)
+        {
+          try
           {
-              try
-              {
-                  Type type = ((PropertyInfo)property).PropertyType;
-                  if (!type.ToString().Contains("System."))
-                      property.SetValue(Account, Activator.CreateInstance(type), null);
-              }
-              catch (Exception)
-              {
-
-              }
+            Type type = property.PropertyType;
+            if (!type.ToString().Contains("System."))
+              property.SetValue(Account, Activator.CreateInstance(type), null);
           }
+          catch (Exception exp)
+          {
+            Logger.LogWarning(exp.Message);
+          }
+        }
       }
-      if (Account == null) return;
 
       MTGenericForm1.RenderObjectType = Account.GetType();
       MTGenericForm1.RenderObjectInstanceName = "Account";
@@ -73,63 +105,66 @@ public partial class GenericUpdateAccount : MTAccountPage
       SetupSkipProperties();
       MTGenericForm1.IgnoreProperties = skipProperties;
 
-      //Approval Framework Code Starts Here 
+      #region Approval Framework Code Starts Here
 
-      ApprovalManagementServiceClient client = new ApprovalManagementServiceClient();
+      var client = new ApprovalManagementServiceClient();
 
-      client.ClientCredentials.UserName.UserName = UI.User.UserName;
-      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
       strChangeType = "AccountUpdate";
       bAccountHasPendingChange = false;
       bAccountUpdateApprovalsEnabled = 0;
 
-      MTList<ChangeTypeConfiguration> mactc = new MTList<ChangeTypeConfiguration>();
+      var mactc = new MTList<ChangeTypeConfiguration>();
 
       client.RetrieveChangeTypeConfiguration(strChangeType, ref mactc);
 
       if (mactc.Items[0].Enabled)
       {
         bAccountUpdateApprovalsEnabled = 1;// mactc.Items[0].Enabled; 
-    }
+      }
 
       if (bAccountUpdateApprovalsEnabled == 1)
       {
         bAllowMoreThanOnePendingChange = mactc.Items[0].AllowMoreThanOnePendingChange;
 
         List<int> pendingchangeids;
-        string straccountid = "";
-        straccountid = UI.Subscriber.SelectedAccount._AccountID.ToString();
+        string straccountid = UI.Subscriber.SelectedAccount._AccountID.ToString();
 
         client.GetPendingChangeIdsForItem(strChangeType, straccountid, out pendingchangeids);
 
         if (pendingchangeids.Count != 0)
         {
           bAccountHasPendingChange = true;
-  }
+        }
 
         if (!bAllowMoreThanOnePendingChange)
         {
           if (bAccountHasPendingChange)
           {
+            //todo potential localization issue
             SetError("This account already has Account Update type pending change. This type of change does not allow more than one pending changes.");
-            this.Logger.LogError(string.Format("The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.", UI.Subscriber.SelectedAccount.UserName, "AccountUpdate"));
+            Logger.LogError(string.Format("The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.", UI.Subscriber.SelectedAccount.UserName, "AccountUpdate"));
             btnOK.Visible = false;
             client.Abort();
-
           }
-
         }
 
         if (bAccountHasPendingChange)
         {
-          string approvalframeworkmanagementurl = "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
-          string strPendingChangeWarning = "This account already has pending change in the approval framework queue. " + approvalframeworkmanagementurl + " Click here to view pending changes.";
+          //todo potential localization issue
+          const string approvalframeworkmanagementurl = "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
+          const string strPendingChangeWarning = "This account already has pending change in the approval framework queue. " + approvalframeworkmanagementurl + " Click here to view pending changes.";
           divLblMessage.Visible = true;
           lblMessage.Text = strPendingChangeWarning;
         }
 
       }
-      //Approval Framework Code Ends Here 
+
+      #endregion//Approval Framework Code Ends Here
 
     }
   }
@@ -140,14 +175,16 @@ public partial class GenericUpdateAccount : MTAccountPage
     {
       MTDataBinder1.Unbind();
 
-      UpdateAccountEvents_UpdateAccount_Client update = new UpdateAccountEvents_UpdateAccount_Client();
-      update.In_Account = Account;
-      update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-      update.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
-      update.In_LoadTime = ApplicationTime;
+      var update = new UpdateAccountEvents_UpdateAccount_Client
+      {
+        In_Account = Account,
+        In_AccountId = new AccountIdentifier(UI.User.AccountId),
+        In_ApplyAccountTemplates = cbApplyTemplate.Checked,
+        In_LoadTime = ApplicationTime,
+        In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
+      };
 
       //Approval Framework related code starts here
-      update.In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1;
 
       //Approval Framework related code ends here
 
@@ -158,10 +195,12 @@ public partial class GenericUpdateAccount : MTAccountPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    UpdateAccountEvents_CancelUpdateAccount_Client cancel = new UpdateAccountEvents_CancelUpdateAccount_Client();
-    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var cancel = new UpdateAccountEvents_CancelUpdateAccount_Client
+    {
+      In_AccountId = new AccountIdentifier(UI.User.AccountId)
+    };
     PageNav.Execute(cancel);
   }
 
- 
+
 }

@@ -7,59 +7,36 @@ using MetraTech.ActivityServices.Services.Common;
 
 public partial class Logout : MTPage
 {
-  private const string _mcmLogoutUrl = "/mcm/LogOut.asp";
-  private const string _cookiePathSeparator = "/";
-  private const string _portParamName = "SERVER_PORT";
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    if (Session["IsMAMActive"] != null && (bool)Session["IsMAMActive"])
-    {
-      Response.Write("LOGOUT_MAM");
-    }
+    LogoutFromAspApplications();
 
-    //CORE-5999 Logout from MCM application for current user.
-    if (Session["IsMCMActive"] != null && (bool)Session["IsMCMActive"])
-    {
-      McmLogout();
-    }
+    var lang = Session[Constants.SELECTED_LANGUAGE];
     TicketManager.InvalidateTicket(UI.User.Ticket);    
     FormsAuthentication.SignOut();
     Session.Abandon();
+    Response.Write(lang);
     Response.End();
   }
 
-  private void McmLogout()
+  private void LogoutFromAspApplications()
   {
-    string protocol = Request.IsSecureConnection ? Uri.UriSchemeHttps : Uri.UriSchemeHttp;
-    string hostAddress = Request.UserHostAddress;
-    int port = int.Parse(Request.Params[_portParamName]);
-    Uri absolute = new Uri((new UriBuilder(protocol, hostAddress, port)).ToString());
+      LogoutUtil logoutUtility = new LogoutUtil();
+      if (Convert.ToBoolean(Session["IsMAMActive"]))
+      {
+          logoutUtility.LogoutFromAspApp(Request, UI.User.UserName, UI.User.NameSpace, "mam");
+      }
 
-    Auth auth = new Auth();
-    auth.Initialize(UI.User.UserName, UI.User.NameSpace);
+      if (Convert.ToBoolean(Session["IsMCMActive"]))
+      {
+          logoutUtility.LogoutFromAspApp(Request, UI.User.UserName, UI.User.NameSpace, "mcm");
+      }
 
-    string relativeUrlString = auth.CreateEntryPoint("mcm", "system_user", 0, _mcmLogoutUrl, false, true);
-    Uri relative = new Uri(relativeUrlString, UriKind.Relative);
-    Uri uri = new Uri(absolute, relative);
-
-    //Request to page for abadon session in MCM application for current session in MetraNet.
-    var request = WebRequest.Create(uri) as HttpWebRequest;
-    request.CookieContainer = new CookieContainer();
-
-    foreach (var cookie in Request.Cookies.AllKeys)
-    {
-      request.CookieContainer.Add(absolute, new Cookie(cookie, Request.Cookies[cookie].Value, _cookiePathSeparator));
-    }
-
-    try
-    {
-      request.GetResponse();
-    }
-    catch (Exception exc)
-    {
-      Logger.LogException("Error while logout from MCM application: ", exc);
-      throw;
-    }
+      if (Convert.ToBoolean(Session["IsMOMActive"]))
+      {
+          logoutUtility.LogoutFromAspApp(Request, UI.User.UserName, UI.User.NameSpace, "mom");
+      }
   }
+  
 }

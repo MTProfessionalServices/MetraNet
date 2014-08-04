@@ -1,0 +1,6 @@
+﻿<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+  <Engines>
+    <Engine Id="NullCharacterSanitizer.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Sanitizer.NullCharacterSanitizerEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Base64Sanitizer.V1" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Sanitizer.Base64SanitizerEngine, MetraTech.SecurityFramework"/>
+  </Engines>
+</SubsystemProperties>

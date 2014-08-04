@@ -29,15 +29,13 @@ public partial class AddSystemUser : MTAccountPage
         MTGenericForm1.TemplatePath = TemplatePath;
         MTGenericForm1.ReadOnly = false;
         ddAuthenticationType.Items.Clear();
+        // ReSharper disable LocalizableElement
         ddAuthenticationType.EnumSpace = "metratech.com/accountcreation";
         ddAuthenticationType.EnumType = "AuthenticationType";
+        // ReSharper restore LocalizableElement
 
-        var enumType = MetraTech.DomainModel.Enums.EnumHelper.GetGeneratedEnumType(ddAuthenticationType.EnumSpace,
-                                                                                   ddAuthenticationType.EnumType,
-                                                                                   System.IO.Path.GetDirectoryName(
-                                                                                     new Uri(
-                                                                                       this.GetType().Assembly.CodeBase)
-                                                                                       .AbsolutePath));
+        var enumType = EnumHelper.GetGeneratedEnumType(ddAuthenticationType.EnumSpace, ddAuthenticationType.EnumType,
+              System.IO.Path.GetDirectoryName(new Uri(GetType().Assembly.CodeBase).AbsolutePath));
 
         if (enumType != null)
         {
@@ -65,50 +63,50 @@ public partial class AddSystemUser : MTAccountPage
 
   public override void Validate()
   {
-	  // password
-	  if (tbPassword.Text != tbConfirmPassword.Text)
-	  {
-		  throw new ApplicationException(Resources.ErrorMessages.ERROR_PASSWORDS_DO_NOT_MATCH);
-	  }
+    // password
+    if (tbPassword.Text != tbConfirmPassword.Text)
+    {
+      throw new ApplicationException(Resources.ErrorMessages.ERROR_PASSWORDS_DO_NOT_MATCH);
+    }
 
-	  // email
-	  if (cbEmailNotification.Checked)
-	  {
-		  if (((MTTextBoxControl)FindControlRecursive(Page, "tbEmail")).Text == String.Empty)
-		  {
-			  throw new ApplicationException(Resources.ErrorMessages.ERROR_EMAIL_REQUIRED);
-		  }
-	  }
+    // email
+    if (cbEmailNotification.Checked)
+    {
+      if (((MTTextBoxControl)FindControlRecursive(Page, "tbEmail")).Text == String.Empty)
+      {
+        throw new ApplicationException(Resources.ErrorMessages.ERROR_EMAIL_REQUIRED);
+      }
+    }
 
-	  // user name
-	  Regex RegexPattern = new Regex(ConfigurationManager.AppSettings["AcctUserNameRegex"]);
-	  if (!RegexPattern.IsMatch(tbUserName.Text))
-	  {
-		  tbUserName.Text = "";
-		  throw new ApplicationException(Resources.ErrorMessages.ERROR_USERNAME_INVALID);
-	  }
+    // user name
+    var RegexPattern = new Regex(ConfigurationManager.AppSettings["AcctUserNameRegex"]);
+    if (!RegexPattern.IsMatch(tbUserName.Text))
+    {
+      tbUserName.Text = "";
+      throw new ApplicationException(Resources.ErrorMessages.ERROR_USERNAME_INVALID);
+    }
 
-	  // SECENG: CORE-4848 Modify security questions (password hint)
-	  // Changed the security question/answer validation
-	  if (ddSecurityQuestion.SelectedIndex <= 1 && String.IsNullOrWhiteSpace(tbSecurityQuestionText.Text))
-	  {
-		  if (!String.IsNullOrWhiteSpace(tbSecurityAnswer.Text))
-		  {
-			  throw new ApplicationException(Resources.ErrorMessages.ERROR_SECURITY_ANSWER_INVALID);
-		  }
-	  }
-	  else
-	  {
-		  if (ddSecurityQuestion.SelectedIndex > 1 && !String.IsNullOrWhiteSpace(tbSecurityQuestionText.Text))
-		  {
-			  throw new ApplicationException(Resources.ErrorMessages.ERROR_SECURITY_QUESTION_INVALID);
-		  }
+    // SECENG: CORE-4848 Modify security questions (password hint)
+    // Changed the security question/answer validation
+    if (ddSecurityQuestion.SelectedIndex <= 1 && String.IsNullOrWhiteSpace(tbSecurityQuestionText.Text))
+    {
+      if (!String.IsNullOrWhiteSpace(tbSecurityAnswer.Text))
+      {
+        throw new ApplicationException(Resources.ErrorMessages.ERROR_SECURITY_ANSWER_INVALID);
+      }
+    }
+    else
+    {
+      if (ddSecurityQuestion.SelectedIndex > 1 && !String.IsNullOrWhiteSpace(tbSecurityQuestionText.Text))
+      {
+        throw new ApplicationException(Resources.ErrorMessages.ERROR_SECURITY_QUESTION_INVALID);
+      }
 
-		  if (String.IsNullOrWhiteSpace(tbSecurityAnswer.Text))
-		  {
-			  throw new ApplicationException(Resources.ErrorMessages.ERROR_SECURITY_ANSWER_INVALID);
-		  }
-	  }
+      if (String.IsNullOrWhiteSpace(tbSecurityAnswer.Text))
+      {
+        throw new ApplicationException(Resources.ErrorMessages.ERROR_SECURITY_ANSWER_INVALID);
+      }
+    }
   }
 
   protected void btnOK_Click(object sender, EventArgs e)
@@ -121,12 +119,14 @@ public partial class AddSystemUser : MTAccountPage
       MTDataBinder1.Unbind();
 
       // default for system user
-      ((InternalView) Account.GetInternalView()).PriceList = null;
+      ((InternalView)Account.GetInternalView()).PriceList = null;
 
-      AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
-      add.In_Account = Account;
-      add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-      add.In_SendEmail = cbEmailNotification.Checked;
+      var add = new AddAccountEvents_AddAccount_Client
+        {
+          In_Account = Account,
+          In_AccountId = new AccountIdentifier(UI.User.AccountId),
+          In_SendEmail = cbEmailNotification.Checked
+        };
       PageNav.Execute(add);
     }
     catch (Exception exp)
@@ -137,10 +137,9 @@ public partial class AddSystemUser : MTAccountPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    AddAccountEvents_CancelAddAccount_Client cancel = new AddAccountEvents_CancelAddAccount_Client();
-    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var cancel = new AddAccountEvents_CancelAddAccount_Client {In_AccountId = new AccountIdentifier(UI.User.AccountId)};
     PageNav.Execute(cancel);
   }
 
- 
+
 }

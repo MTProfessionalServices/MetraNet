@@ -117,65 +117,71 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Remplacements de facture</value>
+    <value>Remplacements</value>
   </data>
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>Gérer les remplacements de facture</value>
+    <value>Gérer les remplacements</value>
   </data>
   <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
     <value>ID du compte</value>
   </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>Actions</value>
+  </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Ajouter un nouveau remplacement de facture</value>
+    <value>Ajouter un remplacement</value>
   </data>
   <data name="TEXT_APPLY_TO_ACCOUNT_DESCENDENTS" xml:space="preserve">
-    <value>Appliquer aux descendants du compte</value>
+    <value>Appliquer aux descendants des comptes</value>
   </data>
   <data name="TEXT_CREATE_DATE" xml:space="preserve">
     <value>Date de création</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
-    <value>Modifier le remplacement</value>
+    <value>Modifier un remplacement</value>
   </data>
   <data name="TEXT_EFFECTIVE_DATE" xml:space="preserve">
     <value>Date de validité</value>
   </data>
   <data name="TEXT_EXCESS_TAX_RATE" xml:space="preserve">
-    <value>Taux d'imposition supplémentaire</value>
+    <value>Taxe excédentaire</value>
   </data>
   <data name="TEXT_EXEMPT_LEVEL" xml:space="preserve">
-    <value>Niveau d'exonération</value>
+    <value>Niveau d’exemption</value>
   </data>
   <data name="TEXT_LIMIT_INDICATOR" xml:space="preserve">
-    <value>Indicateur de seuil</value>
+    <value>Indicateur de limite</value>
   </data>
   <data name="TEXT_MAXIMUM_BASE" xml:space="preserve">
-    <value>Base maximale</value>
+    <value>Base maximum</value>
   </data>
   <data name="TEXT_PERMANENT_LOCATION_CODE" xml:space="preserve">
-    <value>Code d'emplacement permanent</value>
+    <value>Code d’emplacement permanent</value>
   </data>
   <data name="TEXT_REPLACE_TAX_LEVEL" xml:space="preserve">
-    <value>Changer le niveau fiscal</value>
+    <value>Remplacer le niveau de taxe</value>
   </data>
   <data name="TEXT_SCOPE" xml:space="preserve">
-    <value>Portée</value>
+    <value>Étendue</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
     <value>Date de début</value>
   </data>
   <data name="TEXT_TAX_LEVEL" xml:space="preserve">
-    <value>Niveau fiscal</value>
+    <value>Niveau de taxe</value>
   </data>
   <data name="TEXT_TAX_RATE" xml:space="preserve">
-    <value>Taux d'imposition</value>
+    <value>Taxe</value>
   </data>
   <data name="TEXT_TAX_TYPE" xml:space="preserve">
     <value>Type de taxe</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>ID d'exonération fiscale</value>
+    <value>ID d’exemption de taxe</value>
   </data>
   <data name="TEXT_UPDATE_DATE" xml:space="preserve">
     <value>Date de mise à jour</value>

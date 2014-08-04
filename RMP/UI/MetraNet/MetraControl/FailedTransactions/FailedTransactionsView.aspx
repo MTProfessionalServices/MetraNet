@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="FailedTransactionsView.aspx.cs" Inherits="FailedTransactionsView" Culture="auto" UICulture="auto" Title="<%$Resources:Resource,TEXT_TITLE%>" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="FailedTransactionsView.aspx.cs" Inherits="FailedTransactionsView" Culture="auto" UICulture="auto" Title="<%$Resources:Resource,TEXT_TITLE%>" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <MT:MTFilterGrid ID="FailedTransactionList" runat="Server" ExtensionName="SystemConfig" TemplateFileName="FailedTransactionLayout.xml"></MT:MTFilterGrid>

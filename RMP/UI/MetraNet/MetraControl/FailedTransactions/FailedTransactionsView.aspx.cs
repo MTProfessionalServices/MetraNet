@@ -52,6 +52,12 @@ public partial class FailedTransactionsView : MTPage
       SetGridFilterByColumnValue(FailedTransactionList, "status", statusFilterValue);
     }
 
+    string possiblePayerFilterValue = Request["Filter_" + FailedTransactionList.ID + "_PossiblePayer"];
+    if (!String.IsNullOrEmpty(possiblePayerFilterValue))
+    {
+      SetGridFilterByColumnValue(FailedTransactionList, "possiblepayeraccountid", possiblePayerFilterValue);
+    }
+
     string batchidFilterValue = Request["Filter_" + FailedTransactionList.ID + "_BatchId"];
     if (!String.IsNullOrEmpty(batchidFilterValue))
     {
@@ -63,6 +69,8 @@ public partial class FailedTransactionsView : MTPage
     if (string.Compare(statusFilterValue, "R", StringComparison.InvariantCultureIgnoreCase) == 0)
     {
       FailedTransactionList.GridButtons.RemoveAll(p => p.ButtonID == "Resubmit" || p.ButtonID == "ResubmitAll");
+      FailedTransactionList.GridButtons.RemoveAll(p => p.ButtonID == "UpdateStatus" || p.ButtonID == "UpdateAllStatuses"); 
+      FailedTransactionList.SelectionModel = MTGridSelectionModel.Standard; 
     }
   }
 

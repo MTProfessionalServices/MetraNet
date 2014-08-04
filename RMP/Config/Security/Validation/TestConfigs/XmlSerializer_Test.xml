@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSerializeClass IntProperty="0">
+  <CollectionProperty>
+    <Element NestedProperty="0" />
+    <Element NestedProperty="1" />
+    <Element NestedProperty="2" />
+    <Element NestedProperty="3" />
+    <Element NestedProperty="4" />
+  </CollectionProperty>
+</TestSerializeClass>

@@ -206,6 +206,18 @@
       }
     }
     
+    function onViewDetails(internalId, id)
+    {
+      if(<%=ChildGrid %>)
+      {
+        document.location.href = String.format("BEViewDetails.aspx?EditChildRow=true&name={0}&id={1}&url={2}", entityName, internalId, referer);
+       }
+      else
+      {
+        document.location.href = String.format("BEViewDetails.aspx?name={0}&id={1}&url={2}", entityName, internalId, referer);
+      }
+    }
+    
     function onEdit(internalId, id)
     {
       if(<%=ChildGrid %>)
@@ -320,9 +332,9 @@
       }
       else if(<%=ChildGrid%>)
       {       
-         // Edit Template
-        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"javascript:onEdit('{0}','{1}')\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{2}\" alt=\"{2}\"/></a>", internalId, String.escape(id).replace(/"/g,""), String.escape(TEXT_EDIT));
-
+        // View only
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"javascript:onViewDetails('{0}','{1}')\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{2}\" alt=\"{2}\"/></a>", internalId, String.escape(id).replace(/"/g,""), String.escape(TEXT_VIEW));
+       
        // Delete button     
         str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}','{1}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{2}\" alt=\"{2}\"/></a>", internalId, String.escape(id).replace(/"/g,""), String.escape(TEXT_REMOVE));
       }

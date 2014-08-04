@@ -1,0 +1,14 @@
+<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+  <Engines>
+    <Engine Id="Url.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultUrlEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="JavaScript.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultJavaScriptEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="VbScript.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultVbScriptEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Css.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultCssEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="HtmlAttribute.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultHtmlAttributeEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Html.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultHtmlEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Xml.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultXmlEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="XmlAttribute.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultXmlAttributeEncoderEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Ldap.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultLdapEncoderEngine, MetraTech.SecurityFramework"/>
+    <!--Engine Id="Base64.Default" Category="Base64" IsDefault="true" RealType="MetraTech.SecurityFramework.EngineCommonProps" TypeName="MetraTech.SecurityFramework.DefaultLdapEncoderEngine"/-->
+  </Engines>
+</SubsystemProperties>

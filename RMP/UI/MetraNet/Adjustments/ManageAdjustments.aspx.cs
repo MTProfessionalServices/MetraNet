@@ -36,7 +36,13 @@ public partial class Adjustments_ManageAdjustments : MTPage
         MTFilterGrid1.SearchOnLoad = true;
       }
     }
-
+//TODO uncomment this when defect about datebox will be fixed -  ESR-7253
+//var createDate = MTFilterGrid1.FindElementByID("AdjustmentCreationDate"); 
+//if (createDate != null) 
+//{ 
+//  createDate.ElementValue = DateTime.Today.AddDays(-1).ToString(CultureInfo.CurrentUICulture); 
+//  createDate.ElementValue2 = DateTime.Today.ToString(CultureInfo.CurrentUICulture); 
+//}  
     base.OnLoadComplete(e);
   }
 

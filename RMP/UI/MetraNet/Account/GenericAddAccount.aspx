@@ -106,6 +106,99 @@
       });
 
     }
+
+    /// parses account display value and returns account identifier
+    function getIdFromAccStr(accStr) {
+      return accStr.substring(accStr.lastIndexOf('(') + 1, accStr.lastIndexOf(')'));
+    }
+
+    /// Collection contains all available account properties with matched client-side controls
+    var ctlMap = Ext.util.JSON.decode("<%=JSControlMapping%>");
+
+    /// Contains references to all available Ext.ComboBox objects. It needed to use correct methods to get/set their values and fire appropriate events. 
+    var cBoxes = {};
+
+    /// Reads template data returned by AJAX service. Set values from template to appropriate controls on page and then disable them.
+    function processTemplate(tmplData) {
+      for (var id in ctlMap) {
+        var obj = Ext.getCmp(ctlMap[id]);
+        if (obj != null) { obj.enable(); }
+      }
+      for (var el in tmplData) {
+        if (el == 'Account.StartDay' && tmplData['Internal.UsageCycleType'] == 'Bi_weekly') {
+          var cb = cBoxes['<%=MTBillingCycleControl1.BiWeekly.ClientID%>'];
+          if (typeof (cb) != 'undefined') {
+            cb.setValue(tmplData[el]);
+            cb.fireEvent('select');
+          }
+          var cmp = Ext.getCmp('<%=MTBillingCycleControl1.BiWeekly.ClientID%>');
+          if (cmp != null) { cmp.disable(); }
+        }
+        else {
+          if (ctlMap[el] != null && typeof (ctlMap[el]) != "undefined") {
+            var ctl = Ext.get(ctlMap[el]);
+            if (ctl != null) {
+              var cb = cBoxes[ctlMap[el]];
+              if (typeof (cb) != 'undefined') {
+                cb.setValue(tmplData[el]);
+                cb.fireEvent('select');
+              }
+              else {
+                ctl.dom.value = tmplData[el];
+              }
+              var cmp = Ext.getCmp(ctlMap[el]);
+              if (cmp != null) { cmp.disable(); }
+            }
+          }
+        }
+      }
+    }
+
+    /// Sends AJAX request to get template data for account if available.
+    function getTemplateData() {
+      var parentId = 1;
+      var ancestor = Ext.get("<%=tbAncestorAccountID.ClientID%>");
+      if (typeof (ancestor) != 'undefined' && ancestor != null) {
+        parentId = getIdFromAccStr(Ext.get("<%=tbAncestorAccountID.ClientID%>").dom.value);
+      }
+      Ext.Ajax.request({
+        url: '<%=GetVirtualFolder()%>/AjaxServices/LoadDataFromAccTemplate.aspx',
+        params: {
+          AccountID: '<%=Account._AccountID%>',
+          ParentID: parentId,
+          AccType: '<%=Account.AccountType%>'
+        },
+        timeout: 10000,
+        success: function (response) {
+          processTemplate(Ext.util.JSON.decode(response.responseText));
+        },
+        failure: function (response) {
+        }
+      });
+    }
+
+    /// onSelected event handler to handle changes in account ancestor field
+    function ancestorChange(e, t) {
+      getTemplateData();
+    }
+
+    /// Enables all controls, which were disabled by template settings before submitting data
+    function enableCtrls() {
+      for (var id in ctlMap) {
+        var obj = Ext.getCmp(ctlMap[id]);
+        if (obj != null) { obj.enable(); }
+      }
+    }
+
+    /// Add all neccessary event listeners for account template activity
+    function addTemplateEvents() {
+      var ancestor = cBoxes["<%=tbAncestorAccountID.ClientID%>"];
+      if (typeof (ancestor) != 'undefined' && ancestor != null) {
+        ancestor.addEvents('selected');
+        ancestor.addListener('selected', ancestorChange);
+      }
+    }
+
   </script>
   <MT:MTTitle ID="MTTitle1" Text="Add Account" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <br />
@@ -168,7 +261,6 @@
         <MT:MTDropDown ID="ddBrandedSite" runat="server" AllowBlank="True" Label="Branded Site"
           ControlWidth="200" ListWidth="200" HideLabel="False" LabelSeparator=":" meta:resourcekey="ddBrandedSiteResource1"
           ReadOnly="False" TabIndex="180">
-          <asp:ListItem Value="MT" meta:resourcekey="ListItemResource1">MetraView</asp:ListItem>
         </MT:MTDropDown>
       </div>
       <div id="rightColumn2" class="RightColumn">
@@ -401,4 +493,10 @@
         MetaType="DomainModel" Value="CoreSubscriber" />
     </MetaDataMappings>
   </MT:MTDataBinder>
+  <script type="text/javascript" language="javascript">
+    Ext.onReady(function () {
+      addTemplateEvents();
+      getTemplateData();
+    });
+  </script>
 </asp:Content>

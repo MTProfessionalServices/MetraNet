@@ -120,11 +120,20 @@
   <data name="lblShowAllReportDefinitionsTitleResource1.Text" xml:space="preserve">
     <value>Alle Berichtsdefinitionen anzeigen</value>
   </data>
+  <data name="lblShowAllReportDefinitionsTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MyGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Alle Berichtsdefinitionen anzeigen</value>
   </data>
   <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
     <value>Beschreibung</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
     <value>Berichts-ID</value>

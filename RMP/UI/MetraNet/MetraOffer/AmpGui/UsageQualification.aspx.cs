@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Configuration;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -64,6 +65,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
       if (!IsPostBack)
       {
         DefaultActionSettings(ampSvcClient);
+        setValueControls(FieldDropDown.SelectedValue);
       }
       else
       {
@@ -255,6 +257,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
     LogicDropDown.Items.Add(item0);
     ListItem item1 = new ListItem();
     item1.Text = item1.Value = "==";
+    item1.Selected = true;
     LogicDropDown.Items.Add(item1);
     ListItem item2 = new ListItem();
     item2.Text = item2.Value = "!=";
@@ -412,7 +415,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
       FieldDropDown.Items.Add(new ListItem { Text = "id_sess", Value = "id_sess:bigint::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_acc", Value = "id_acc:int::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_payee", Value = "id_payee:int::" });
-      FieldDropDown.Items.Add(new ListItem { Text = "id_view", Value = "id_view:idviewDropDown::" });
+      FieldDropDown.Items.Add(new ListItem { Text = "id_view", Value = "id_view:idviewDropDown::", Selected = true });
       FieldDropDown.Items.Add(new ListItem { Text = "id_usage_interval", Value = "id_usage_interval:int::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_parent_sess", Value = "id_parent_sess:bigint::" });
       FieldDropDown.Items.Add(new ListItem { Text = "id_prod", Value = "id_prod:int::" });
@@ -619,12 +622,32 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
     UsageQualificationFilter.Text = newValue;
   }
 
+  protected bool validateUsageQualificationName(string name)
+  {
+    if (String.IsNullOrEmpty(name))
+      return false;
+
+    Regex regex = new Regex("^[a-zA-Z0-9_]*$");
+    if (!regex.IsMatch(name))
+    {
+      return false;
+    }
+
+    return true;
+  }
+
   protected void btnContinue_Click(object sender, EventArgs e)
   {
     if (AmpUsageQualificationAction != "View")
     {
-      AmpServiceClient ampSvcStoreUsageQualificationClient = null;
       string name = UsageQualificationName.Text;
+      if (!validateUsageQualificationName(name))
+      {
+        var errorMessage = String.Format(GetGlobalResourceObject("JSConsts", "TEXT_AMPWIZARD_INVALID_UQG_NAME").ToString(), name);
+        SetError(errorMessage);
+        return;
+      }
+      AmpServiceClient ampSvcStoreUsageQualificationClient = null;
       try
       {
         ampSvcStoreUsageQualificationClient = new AmpServiceClient();

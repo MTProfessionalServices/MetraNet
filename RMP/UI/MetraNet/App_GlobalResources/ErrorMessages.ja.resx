@@ -195,9 +195,9 @@
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>無効なセキュリティ回答。</value>
   </data>
-    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value>セキュリティの質問およびカスタム セキュリティの質問の両方を設定できません。</value>
-    </data>
+  <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+    <value>セキュリティの質問およびカスタム セキュリティの質問の両方を設定できません。</value>
+  </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
     <value>アカウントの処理を実行する前に、まずアカウントを管理する必要があります。</value>
   </data>
@@ -247,33 +247,63 @@
     <value>設定の変更を保存できません。詳細は、ログを確認してください。</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
   </data>
-    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value>仕様の削除に失敗しました。</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
-        <value>一致する使用が見つかりませんでした。</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value>仕様の取得に失敗しました。</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-        <value>エンティティ プロパティの取得に失敗しました。</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value>仕様の保存に失敗しました。</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
-        <value>アクセスが拒否されました。</value>
-    </data>
-    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
-        <value>プロパティを追加できませんでした。</value>
-    </data>
-    <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
-        <value>プロパティを削除できませんでした。</value>
-    </data>
-    <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
-        <value>プロパティが見つかりませんでした。</value>
-    </data>
+  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+    <value>仕様の削除に失敗しました。</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+    <value>一致する使用が見つかりませんでした。</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+    <value>仕様の取得に失敗しました。</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+    <value>エンティティ プロパティの取得に失敗しました。</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+    <value>仕様の保存に失敗しました。</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+    <value>アクセスが拒否されました。</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+    <value>プロパティを追加できませんでした。</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
+    <value>プロパティを削除できませんでした。</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
+    <value>プロパティが見つかりませんでした。</value>
+  </data>
+  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
+    <value>[JA]You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+  </data>
+  <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
+    <value>[JA]Invalid or Missing Payer</value>
+  </data>
+  <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
+    <value>[JA]Invalid Currency</value>
+  </data>
+  <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
+    <value>[JA]Invalid Partition ID</value>
+  </data>
+  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
+    <value>[JA]Error in config ReportFormat file</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
+    <value>[JA]Error in config ReportFormat file. Report format type isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
+    <value>[JA]Error in config ReportFormat file. Incorrect file structure.</value>
+  </data>
+  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
+    <value>[JA]Error in config ReportFormat file. Report image  isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
+    <value>[JA]Unable open and save report</value>
+  </data>
+  <data name="ERROR_PO_EXISTS" xml:space="preserve">
+    <value>[JA]Name of product offering must be unique</value>
+  </data>
 </root>

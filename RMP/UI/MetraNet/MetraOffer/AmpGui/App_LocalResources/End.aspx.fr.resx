@@ -124,4 +124,10 @@
   <data name="btnYesResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="PageResource2.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
 </root>

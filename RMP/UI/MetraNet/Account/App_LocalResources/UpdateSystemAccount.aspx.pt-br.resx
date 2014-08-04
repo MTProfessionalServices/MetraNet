@@ -123,6 +123,9 @@
   <data name="LblAncestorAccount.Label" xml:space="preserve">
     <value>Conta pai</value>
   </data>
+  <data name="LblAuthenticationType.Label" xml:space="preserve">
+    <value>Tipo de autenticação</value>
+  </data>
   <data name="LblBrandedSite.Label" xml:space="preserve">
     <value>Site da marca</value>
   </data>
@@ -157,7 +160,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>Brazilian Portuguese {0}</value>
+    <value>Essa conta já tem uma alteração pendente na fila de estrutura de aprovação. {0} Clique aqui para exibir as alterações pendentes.</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Informações de conta</value>

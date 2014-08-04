@@ -117,82 +117,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPLIED" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_DISMISSED" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_FAILEDTOAPPLY" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_PENDING" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
   <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Aprovador ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Comentário</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Estado actual</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Ação</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATUS" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Última data de modificação</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Nome de envio</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Remetente</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>ID do remetente</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Tipo</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>ID de item modificado</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Nenhum registro encontrado</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>Exibir alterações</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
+    <value>Item modificado</value>
+  </data>
+  <data name="TEXT_APPROVAL_ALL_CHANGES" xml:space="preserve">
+    <value>Todas as alterações</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
+    <value>Mudanças de status tudo</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_APPLIED" xml:space="preserve">
+    <value>Aplicado</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_DISMISSED" xml:space="preserve">
+    <value>Demitido</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_FAILEDTOAPPLY" xml:space="preserve">
+    <value>Falha ao aplicar</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_PENDING" xml:space="preserve">
+    <value>Pendente</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_WAITINGTOBEAPPLIED" xml:space="preserve">
+    <value>Esperando para serem aplicados</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATUS" xml:space="preserve">
+    <value>Alterar Estado</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
+    <value>Negar</value>
+  </data>
+  <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
+    <value>Negar tudo</value>
+  </data>
+  <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
+    <value>Demitir</value>
+  </data>
+  <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
+    <value>Dispensar tudo</value>
+  </data>
+  <data name="TEXT_APPROVAL_FAILED_CHANGES" xml:space="preserve">
+    <value>Mudanças Falharam</value>
+  </data>
+  <data name="TEXT_APPROVAL_PENDING_CHANGES" xml:space="preserve">
+    <value>Alterações pendentes</value>
+  </data>
+  <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
+    <value>Reenviar</value>
+  </data>
+  <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
+    <value>Reenviar todos</value>
   </data>
 </root>

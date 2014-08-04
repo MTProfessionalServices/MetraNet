@@ -155,6 +155,16 @@ Function InstallCOMPlusApps()
   If Not InstallApplication()     Then Exit Function  
   If Not RegisterAssemblies(True) Then Exit Function
 
+' Disable until tool handles install time run.
+  If FileExists(MakeBinPath("MetraTech.CmdLine.Tool.exe")) Then 
+    Dim oShell : Set oShell = CreateObject("WScript.Shell")
+    strBaseDir = oShell.CurrentDirectory
+    oShell.CurrentDirectory = GetBinDir()
+    oShell.Run(MakeBinPath("MetraTech.CmdLine.Tool.exe"))
+    oShell.CurrentDirectory = strBaseDir
+    Set oShell = Nothing
+  End If
+  
   ExitAction "InstallCOMPlusApps"
   InstallCOMPlusApps = kRetVal_SUCCESS
 End Function
@@ -520,6 +530,7 @@ FUNCTION IsAnAssembly (sFileName)
      LCase(Mid(sFileName,11,15)) <> "domainmodel.dll" And _
      LCase(Mid(sFileName,11,7)) <> "custom." And _
      LCase(Right(sFileName,4)) = ".dll" And _
+     LCase(Right(sFileName,9)) <> ".test.dll" And _
      LCase(Mid(sFileName,11,Len("ActivityServices."))) <> "activityservices." And _
      LCase(Right(sFileName, Len("clientproxies.dll"))) <> "clientproxies.dll" And _
      LCase(Right(sFileName, Len("proxyactivities.dll"))) <> "proxyactivities.dll" Then

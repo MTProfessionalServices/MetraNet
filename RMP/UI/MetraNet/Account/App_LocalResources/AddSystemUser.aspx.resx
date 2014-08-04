@@ -157,7 +157,7 @@
     <value>Invalid Username</value>
   </data>
   <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-    <value>User Name</value>
+    <value>Valid User Name</value>
   </data>
   <data name="ListItemResource1.Text" xml:space="preserve">
     <value>MetraView</value>
@@ -218,6 +218,9 @@
   </data>
   <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
     <value>Security Answer</value>
+  </data>
+  <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
+    <value>Custom Security Question</value>
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
     <value>Account Start Date</value>

@@ -121,417 +121,407 @@ Ext.onReady(function () {
 ////////////////////////////////////////////////////////////////////
 // Common UI Related Functions
 ////////////////////////////////////////////////////////////////////
-Ext.UI = function() {
-  var msgCt;
+Ext.UI = function () {
+    var msgCt;
 
-  function createBox(t, s) {
-    return ['<div class="msg">',
+    function createBox(t, s) {
+        return ['<div class="msg">',
                 '<div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div>',
                 '<div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc"><h3>', t, '</h3>', s, '</div></div></div>',
                 '<div class="x-box-bl"><div class="x-box-br"><div class="x-box-bc"></div></div></div>',
                 '</div>'].join('');
-  }
-  return {
-    // Load a requested page into an element's innerHTML   (TEST)
-    loadPage: function(url, target) {
-      Ext.get(target).load({
-        url: url,
-        callback: function(el, success, response) {
-          if (success) {
-            Ext.UI.msg(TEXT_LOADING, TEXT_SUCCESS_LOADING);
-          } else {
-            Ext.UI.msg(TEXT_LOADING, TEXT_FAILED_LOADING);
-          }
-        },
-        scripts: true
-      });
-    },
-
-    startLoading: function(id, msg)
-    {
-      Ext.get(id).mask(msg, 'x-mask-loading');
-    },
- 
-    doneLoading: function(id)
-    {
-      Ext.get(id).unmask();
-    },
-
-    // Return the short name for a string with elipse...
-    shortName: function(name) {
-      if (name.length > 15) {
-        return String.escape(name.substr(0, 12) + '...');
-      }
-      return String.escape(name);
-    },
-
-    // Display and then hide an animated message box  
-    msg: function(title, format) {
-      if (!msgCt) {
-        msgCt = Ext.DomHelper.insertFirst(document.body, { id: 'msg-div' }, true);
-      }
-      msgCt.alignTo(document, 't-t');
-      var s = String.format.apply(String, Array.prototype.slice.call(arguments, 1));
-      var m = Ext.DomHelper.append(msgCt, { html: createBox(title, s) }, true);
-      m.slideIn('t').pause(2).ghost("t", { remove: true });
-    },
-
-    // Load the Dashboard page
-    LoadDashboard: function() {
-      getFrameMetraNet().MainContentIframe.location.href = "/MetraNet/Welcome.aspx";
-    },
-
-    LoadHelp: function() {
-      Ext.UI.NewWindow(TEXT_HELP_TITLE, "HelpWin", helpPage);
-    },
-
-    // Load a page to the main iframe
-    LoadPage: function(url) {
-      getFrameMetraNet().MainContentIframe.location.href = url;
-    },
-
-    // Show or hide part of the viewport
-    Toggle: function(panel) {
-      if (getFrameMetraNet().viewport.items.get(panel).hidden) {
-        getFrameMetraNet().viewport.items.get(panel).show();
-      }
-      else {
-        getFrameMetraNet().viewport.items.get(panel).hide();
-      }
-      getFrameMetraNet().viewport.doLayout();
-    },
-
-    // Logout of application session
-    Logout: function () {
-      var req = Ext.Ajax.request({
-        url: "AjaxServices/Logout.aspx",
-        method: 'GET',
-        scope: this,
-        disableCaching: true,
-        success: function (result, request) {
-          if (result.responseText == "LOGOUT_MAM") {
-            var reqOld = Ext.Ajax.request({
-              url: "/MAM/Default/Dialog/logout.asp",
-              method: 'GET',
-              scope: this,
-              disableCaching: true,
-              success: function (result, request) {
-                document.location.href = 'Login.aspx';
-              }
-            });
-          }
-          document.location.href = 'Login.aspx';
-        }
-      });
-    /*
-      top.Ext.MessageBox.show({
-        title: TEXT_LOGOUT,
-        msg: TEXT_LOGOUT_QUESTION,
-        buttons: Ext.MessageBox.OKCANCEL,
-        fn: function(btn) {
-          if (btn == 'ok') {
-            var req = Ext.Ajax.request({
-              url: "AjaxServices/Logout.aspx",
-              method: 'GET',
-              scope: this,
-              disableCaching: true,
-              success: function(result, request) {
-                if (result.responseText == "LOGOUT_MAM") {
-                  var reqOld = Ext.Ajax.request({
-                    url: "/MAM/Default/Dialog/logout.asp",
-                    method: 'GET',
-                    scope: this,
-                    disableCaching: true,
-                    success: function(result, request) {
-                      document.location.href = 'Login.aspx';
-                    }
-                  });
-                }
-                document.location.href = 'Login.aspx';
-              }
-            });
-          }
-        },
-        animEl: 'elId',
-        icon: Ext.MessageBox.QUESTION
-      });
-      */
-    },
-
-    SessionTimeout: function() {
-      top.Ext.MessageBox.show({
-        title: TEXT_SESSION_TIMEOUT_TITLE,
-        msg: TEXT_SESSION_TIMEOUT_TEXT,
-        buttons: Ext.MessageBox.OK,
-        fn: function(btn) {
-          if (btn == 'ok') {
-            document.location.href = '/MetraNet/Login.aspx';
-          }
-        },
-        animEl: 'elId',
-        icon: Ext.MessageBox.INFO
-      });
-    },
-
-    SystemError: function(str) {
-
-      var errMessage;
-      if ((str != null) &&
-          (str !== undefined) &&
-          (str != ""))
-      {
-        errMessage = str;
-      }
-      else {
-        errMessage = TEXT_ERROR_RECEIVING_DATA;
-      }
-
-      top.Ext.MessageBox.show({
-        title: TEXT_ERROR,
-        msg: errMessage,
-        buttons: Ext.MessageBox.OK,
-        animEl: 'elId',
-        icon: Ext.MessageBox.ERROR
-      });
-    },
-
-    ShowAccountSelector: function(functionName, target) {
-      if (accountSelectorWin == null || accountSelectorWin === undefined ||
-             target != lastTarget || functionName != lastFunctionName) {
-        accountSelectorWin = new top.Ext.Window({
-          title: TEXT_SELECT_ACCOUNT,
-          width: 450,
-          height: 600,
-          minWidth: 300,
-          minHeight: 200,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizeable: true,
-          maximizable: false,
-          closable: true,
-          closeAction: 'close',
-          html: '<iframe id="accountSelectorWindow" src="/MetraNet/AccountSelector.aspx?multi=false&t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" />'
-        });
-      }
-
-      if (accountSelectorWin2 != null) {
-        accountSelectorWin2.hide();
-      }
-      lastTarget = target;
-      lastFunctionName = functionName;
-      accountSelectorWin.show();
-
-      accountSelectorWin.on('close', function() {
-        accountSelectorWin = null;
-      });
-
-    },
-
-
-
-    ShowMultiAccountSelector: function(functionName, target) {
-      if (accountSelectorWin2 == null || accountSelectorWin2 === undefined ||
-             target != lastTarget2 || functionName != lastFunctionName2) {
-        accountSelectorWin2 = new top.Ext.Window({
-          title: TEXT_SELECT_ACCOUNTS,
-          width: 450,
-          height: 600,
-          minWidth: 300,
-          minHeight: 200,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizeable: true,
-          maximizable: false,
-          closable: true,
-          closeAction: 'close',
-          html: '<iframe id="accountSelectorWindow2" src="/MetraNet/AccountSelector.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" />'
-        });
-      }
-      if (accountSelectorWin != null) {
-        accountSelectorWin.hide();
-      }
-      lastTarget2 = target;
-      lastFunctionName2 = functionName;
-      accountSelectorWin2.show();
-
-      accountSelectorWin2.on('close', function() {
-        accountSelectorWin2 = null;
-      });
-    },
-
-
-
-    NewWindow: function(winTitle, id, url) {
-
-      if (helpwin == null) {
-        helpwin = new top.Ext.Window({
-          title: winTitle,
-          width: 710,
-          height: 650,
-          minWidth: 300,
-          minHeight: 200,
-          pageX: 50,
-          pageY: 50,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizeable: true,
-          maximizable: true,
-          closeAction: 'hide',
-          html: '<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />'
-        });
-      }
-      else {
-        helpwin.body.update('<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />')
-      }
-      helpwin.show();
-
-    },
-
-    NewDesktopWindow: function(winTitle, id, url) {
-
-      if (desktopwin == null) {
-        desktopwin = new top.Ext.Window({
-          title: winTitle,
-          width: 600,
-          height: 480,
-          minWidth: 300,
-          minHeight: 200,
-          pageX: 50,
-          pageY: 50,
-          layout: 'fit',
-          plain: true,
-          shim: false,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizeable: true,
-          maximizable: true,
-          closeAction: 'hide',
-          html: '<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />'
-        });
-      }
-      else {
-        desktopwin.body.update('<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />')
-      }
-      desktopwin.show();
-
-    },
-
-    NewWindowGuide: function(winTitle, id, url) {
-      var win = new top.Ext.Window({
-        title: winTitle,
-        width: 600,
-        height: 300,
-        minWidth: 300,
-        minHeight: 200,
-        layout: 'fit',
-        plain: true,
-        bodyStyle: 'padding:5px;',
-        buttonAlign: 'center',
-        collapsible: true,
-        resizeable: true,
-        maximizable: true,
-        html: '<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />'
-      });
-      win.show();
-    },
-
-    GlobalKeyHandler: function() {
-
-      var map = new Ext.KeyMap(document, [
-              {
-                key: [10, 13],
-                ctrl: true,
-                alt: true,
-                fn: function() { alert("Return, ctrl, and alt was pressed"); }
-              }, {
-                key: "f",
-                ctrl: true,
-                alt: true,
-                fn: function() {
-                  var s = getFrameMetraNet().Ext.get("search");
-                  s.highlight();
-                  s.focus();
-                }
-              }, {
-                key: "g",
-                ctrl: true,
-                alt: true,
-                fn: function() { Account.FindAccount(); }
-              }, {
-                key: "d",
-                ctrl: true,
-                alt: true,
-                fn: function() { Ext.UI.LoadDashboard(); }
-              }, {
-                key: "1",
-                ctrl: true,
-                alt: true,
-                fn: function() {
-                  getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(0);
-                }
-              }, {
-                key: "2",
-                ctrl: true,
-                alt: true,
-                fn: function() {
-                  getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(1);
-                }
-              }, {
-                key: "3",
-                ctrl: true,
-                alt: true,
-                fn: function() {
-                  getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(2);
-                }
-              }, {
-                key: "4",
-                ctrl: true,
-                alt: true,
-                fn: function() {
-                  getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(3);
-                }
-              }, {
-                key: "h",
-                ctrl: true,
-                alt: true,
-                fn: function() { Ext.UI.LoadHelp(); }
-              }, {
-                key: "l",
-                ctrl: true,
-                alt: true,
-                fn: function() { Ext.UI.Logout(); }
-              }, {
-                key: "m",
-                ctrl: true,
-                alt: true,
-                fn: function() { Ext.UI.Toggle("west-panel"); }
-              }, {
-                key: "a",
-                ctrl: true,
-                alt: true,
-                fn: function() {
-                  getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(2);
-                }
-              }, {
-              key: "c",
-              ctrl: true,
-              alt: true,
-              fn: function() { Ext.UI.Toggle("east-panel"); }
-            }
-          ]);
     }
+    return {
+        // Load a requested page into an element's innerHTML   (TEST)
+        loadPage: function (url, target) {
+            Ext.get(target).load({
+                url: url,
+                callback: function (el, success, response) {
+                    if (success) {
+                        Ext.UI.msg(TEXT_LOADING, TEXT_SUCCESS_LOADING);
+                    } else {
+                        Ext.UI.msg(TEXT_LOADING, TEXT_FAILED_LOADING);
+                    }
+                },
+            });
+                scripts: true
+        },
 
-  };
+        startLoading: function (id, msg) {
+            Ext.get(id).mask(msg, 'x-mask-loading');
+        },
+
+        doneLoading: function (id) {
+            Ext.get(id).unmask();
+        },
+
+        // Return the short name for a string with elipse...
+        shortName: function (name) {
+            if (name.length > 15) {
+                return String.escape(name.substr(0, 12) + '...');
+            }
+            return String.escape(name);
+        },
+
+        // Display and then hide an animated message box  
+        msg: function (title, format) {
+            if (!msgCt) {
+                msgCt = Ext.DomHelper.insertFirst(document.body, { id: 'msg-div' }, true);
+            }
+            msgCt.alignTo(document, 't-t');
+            var s = String.format.apply(String, Array.prototype.slice.call(arguments, 1));
+            var m = Ext.DomHelper.append(msgCt, { html: createBox(title, s) }, true);
+            m.slideIn('t').pause(2).ghost("t", { remove: true });
+        },
+
+        // Load the Dashboard page
+        LoadDashboard: function () {
+            getFrameMetraNet().MainContentIframe.location.href = "/MetraNet/Welcome.aspx";
+        },
+
+        LoadHelp: function () {
+            Ext.UI.NewWindow(TEXT_HELP_TITLE, "HelpWin", helpPage);
+        },
+
+        // Load a page to the main iframe
+        LoadPage: function (url) {
+            getFrameMetraNet().MainContentIframe.location.href = url;
+        },
+
+        // Show or hide part of the viewport
+        Toggle: function (panel) {
+            if (getFrameMetraNet().viewport.items.get(panel).hidden) {
+                getFrameMetraNet().viewport.items.get(panel).show();
+            }
+            else {
+                getFrameMetraNet().viewport.items.get(panel).hide();
+            }
+            getFrameMetraNet().viewport.doLayout();
+        },
+
+        // Logout of application session
+        Logout: function () {
+            var req = Ext.Ajax.request({
+                url: "AjaxServices/Logout.aspx",
+                method: 'GET',
+                scope: this,
+                disableCaching: true,
+                success: function (result, request) {
+					if (selectedLanguage && selectedLanguage != 'undefined')
+						document.location.href = 'Login.aspx?l=' + selectedLanguage;
+					else
+						document.location.href = 'Login.aspx';
+                }
+            });
+        },
+
+            /*
+            top.Ext.MessageBox.show({
+            title: TEXT_LOGOUT,
+            msg: TEXT_LOGOUT_QUESTION,
+            buttons: Ext.MessageBox.OKCANCEL,
+            fn: function(btn) {
+            if (btn == 'ok') {
+            var req = Ext.Ajax.request({
+            url: "AjaxServices/Logout.aspx",
+            method: 'GET',
+            scope: this,
+            disableCaching: true,
+            success: function(result, request) {
+            if (result.responseText == "LOGOUT_MAM") {
+            var reqOld = Ext.Ajax.request({
+            url: "/MAM/Default/Dialog/logout.asp",
+            method: 'GET',
+            scope: this,
+            disableCaching: true,
+            success: function(result, request) {
+            document.location.href = 'Login.aspx';
+            }
+            });
+            }
+            document.location.href = 'Login.aspx';
+            }
+            });
+            }
+            },
+            animEl: 'elId',
+            icon: Ext.MessageBox.QUESTION
+            });
+            */
+
+        SessionTimeout: function () {
+            top.Ext.MessageBox.show({
+                title: TEXT_SESSION_TIMEOUT_TITLE,
+                msg: TEXT_SESSION_TIMEOUT_TEXT,
+                buttons: Ext.MessageBox.OK,
+                fn: function (btn) {
+                    if (btn == 'ok') {
+                        document.location.href = '/MetraNet/Login.aspx';
+                    }
+                },
+                animEl: 'elId',
+                icon: Ext.MessageBox.INFO
+            });
+        },
+
+        SystemError: function (str) {
+
+            var errMessage;
+            if ((str != null) &&
+          (str !== undefined) &&
+          (str != "")) {
+                errMessage = str;
+            }
+            else {
+                errMessage = TEXT_ERROR_RECEIVING_DATA;
+            }
+
+            top.Ext.MessageBox.show({
+                title: TEXT_ERROR,
+                msg: errMessage,
+                buttons: Ext.MessageBox.OK,
+                animEl: 'elId',
+                icon: Ext.MessageBox.ERROR
+            });
+        },
+
+        ShowAccountSelector: function (functionName, target) {
+            if (accountSelectorWin == null || accountSelectorWin === undefined ||
+             target != lastTarget || functionName != lastFunctionName) {
+                accountSelectorWin = new top.Ext.Window({
+                    title: TEXT_SELECT_ACCOUNT,
+                    width: 450,
+                    height: 750,
+                    minWidth: 300,
+                    minHeight: 200,
+                    layout: 'fit',
+                    plain: true,
+                    bodyStyle: 'padding:5px;',
+                    buttonAlign: 'center',
+                    collapsible: true,
+                    resizeable: true,
+                    maximizable: false,
+                    closable: true,
+                    closeAction: 'close',
+                    html: '<iframe id="accountSelectorWindow" src="/MetraNet/AccountSelector.aspx?multi=false&t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no" />'
+                });
+            }
+
+            if (accountSelectorWin2 != null) {
+                accountSelectorWin2.hide();
+            }
+            lastTarget = target;
+            lastFunctionName = functionName;
+            accountSelectorWin.show();
+
+            accountSelectorWin.on('close', function () {
+                accountSelectorWin = null;
+            });
+
+        },
+
+
+
+        ShowMultiAccountSelector: function (functionName, target) {
+            if (accountSelectorWin2 == null || accountSelectorWin2 === undefined ||
+             target != lastTarget2 || functionName != lastFunctionName2) {
+                accountSelectorWin2 = new top.Ext.Window({
+                    title: TEXT_SELECT_ACCOUNTS,
+                    width: 400,
+                    height: 700,
+                    minWidth: 300,
+                    minHeight: 200,
+                    layout: 'fit',
+                    plain: true,
+                    bodyStyle: 'padding:5px;',
+                    buttonAlign: 'center',
+                    collapsible: true,
+                    resizeable: true,
+                    maximizable: false,
+                    closable: true,
+                    closeAction: 'close',
+                    html: '<iframe id="accountSelectorWindow2" src="/MetraNet/AccountSelector.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
+                });
+            }
+            if (accountSelectorWin != null) {
+                accountSelectorWin.hide();
+            }
+            lastTarget2 = target;
+            lastFunctionName2 = functionName;
+            accountSelectorWin2.show();
+
+            accountSelectorWin2.on('close', function () {
+                accountSelectorWin2 = null;
+            });
+        },
+
+
+
+        NewWindow: function (winTitle, id, url) {
+
+            if (helpwin == null) {
+                helpwin = new top.Ext.Window({
+                    title: winTitle,
+                    width: 1100,
+                    height: 800,
+                    minWidth: 600,
+                    minHeight: 400,
+                    pageX: 50,
+                    pageY: 50,
+                    layout: 'fit',
+                    plain: true,
+                    bodyStyle: 'padding:5px;',
+                    buttonAlign: 'center',
+                    collapsible: true,
+                    resizeable: true,
+                    maximizable: true,
+                    closeAction: 'hide',
+                    html: '<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />'
+                });
+            }
+            else {
+                helpwin.body.update('<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />')
+            }
+            helpwin.show();
+
+        },
+
+        NewDesktopWindow: function (winTitle, id, url) {
+
+            if (desktopwin == null) {
+                desktopwin = new top.Ext.Window({
+                    title: winTitle,
+                    width: 600,
+                    height: 480,
+                    minWidth: 300,
+                    minHeight: 200,
+                    pageX: 50,
+                    pageY: 50,
+                    layout: 'fit',
+                    plain: true,
+                    shim: false,
+                    bodyStyle: 'padding:5px;',
+                    buttonAlign: 'center',
+                    collapsible: true,
+                    resizeable: true,
+                    maximizable: true,
+                    closeAction: 'hide',
+                    html: '<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />'
+                });
+            }
+            else {
+                desktopwin.body.update('<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />')
+            }
+            desktopwin.show();
+
+        },
+
+        NewWindowGuide: function (winTitle, id, url) {
+            var win = new top.Ext.Window({
+                title: winTitle,
+                width: 600,
+                height: 300,
+                minWidth: 300,
+                minHeight: 200,
+                layout: 'fit',
+                plain: true,
+                bodyStyle: 'padding:5px;',
+                buttonAlign: 'center',
+                collapsible: true,
+                resizeable: true,
+                maximizable: true,
+                html: '<iframe id="' + id + '" src=' + url + ' width="100%" height="100%" frameborder="0" />'
+            });
+            win.show();
+        },
+
+        GlobalKeyHandler: function () {
+
+            var map = new Ext.KeyMap(document, [
+              {
+                  key: [10, 13],
+                  ctrl: true,
+                  alt: true,
+                  fn: function () { alert("Return, ctrl, and alt was pressed"); }
+              }, {
+                  key: "f",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () {
+                      var s = getFrameMetraNet().Ext.get("search");
+                      s.highlight();
+                      s.focus();
+                  }
+              }, {
+                  key: "g",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () { Account.FindAccount(); }
+              }, {
+                  key: "d",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () { Ext.UI.LoadDashboard(); }
+              }, {
+                  key: "1",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () {
+                      getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(0);
+                  }
+              }, {
+                  key: "2",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () {
+                      getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(1);
+                  }
+              }, {
+                  key: "3",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () {
+                      getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(2);
+                  }
+              }, {
+                  key: "4",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () {
+                      getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(3);
+                  }
+              }, {
+                  key: "h",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () { Ext.UI.LoadHelp(); }
+              }, {
+                  key: "l",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () { Ext.UI.Logout(); }
+              }, {
+                  key: "m",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () { Ext.UI.Toggle("west-panel"); }
+              }, {
+                  key: "a",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () {
+                      getFrameMetraNet().Ext.getCmp("tabAcctInfo").setActiveTab(2);
+                  }
+              }, {
+                  key: "c",
+                  ctrl: true,
+                  alt: true,
+                  fn: function () { Ext.UI.Toggle("east-panel"); }
+              }
+          ]);
+        }
+
+    };
 } ();
 
 // If you need some text to see how something looks
@@ -697,7 +687,7 @@ ServerState.clear = function(name) {
     var f = document.getElementById('MainContentIframe');
     var el = document.getElementById('hideAllDiv');
     try {
-      if (forceClose || oldUrl == null || (f.document.readyState != "loading" && f.contentWindow.location.href != oldUrl)) {
+      if (forceClose || oldUrl == null || (f.contentDocument.readyState != "loading" && f.contentWindow.location.href != oldUrl)) {
         if (el) {
           el.style.display = 'none';
           clearTimeout(checkTimeOut);
@@ -742,24 +732,28 @@ ServerState.clear = function(name) {
     }
   }
 
-//  Ext.onReady(
-//    function () {
-//      var t = getFrameMetraNet();
-//      if (t && t.checkInnerFrameLoading !== undefined) {
-//        t.checkInnerFrameLoading(true);
-//      }
-//      if (window.opener && window.opener.top && window.opener.top.checkInnerFrameLoading !== undefined) {
-//        window.opener.top.checkInnerFrameLoading(true);
-//      }
-//    }
-//  );
+  Ext.onReady(
+    function() {
+      checkFrameLoading();
+    });
 
-//  window.attachEvent(
-//    'onbeforeunload', 
-//    function() {
-//      var t = getFrameMetraNet();
-//      if (t && t.reloadInnerFrame !== undefined) {
-//        t.reloadInnerFrame();
-//      }
-//    }
-//  );
+  function checkFrameLoading() {
+    var t = getFrameMetraNet();
+    if (t && t.checkInnerFrameLoading !== undefined) {
+      t.checkInnerFrameLoading(true);
+    }
+    if (window.opener && window.opener.top && window.opener.top.checkInnerFrameLoading !== undefined) {
+      window.opener.top.checkInnerFrameLoading(true);
+    }
+  }
+
+  window.addEventListener(
+    'beforeunload', 
+    function() {
+      var t = getFrameMetraNet();
+      if (t && t.reloadInnerFrame !== undefined) {
+        t.reloadInnerFrame();
+      }
+    },
+    true
+  );

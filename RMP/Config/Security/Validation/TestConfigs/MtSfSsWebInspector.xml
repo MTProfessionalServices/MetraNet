@@ -1,0 +1,26 @@
+<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+  <Engines>
+    
+    <Engine Id="WebInspector.Process.Error" IsDefault="true" RealType="MetraTech.SecurityFramework.WebInspectorErrorEngine, MetraTech.SecurityFramework">
+      <InspectorInfo SerializerTypeName="MtSfXmlSerializer"
+                     PathType="Nested"
+                     PathToSource="Security\Validation\MtSfWebInspectorDefaultConfiguration.xml"
+                     NestedPath="ConfigurationPath"/>
+    </Engine>
+
+    <Engine Id="WebInspector.Process.Response" IsDefault="true" RealType="MetraTech.SecurityFramework.WebInspectorResponseEngine, MetraTech.SecurityFramework">
+      <InspectorInfo SerializerTypeName="MtSfXmlSerializer"
+                     PathType="Nested"
+                     PathToSource="Security\Validation\MtSfWebInspectorDefaultConfiguration.xml"
+                     NestedPath="ConfigurationPath"/>
+    </Engine>
+
+    <Engine Id="WebInspector.Process.Request" IsDefault="true" RealType="MetraTech.SecurityFramework.WebInspectorRequestEngine, MetraTech.SecurityFramework">
+      <InspectorInfo SerializerTypeName="MtSfXmlSerializer"
+                     PathType="Nested"
+                     PathToSource="Security\Validation\MtSfWebInspectorDefaultConfiguration.xml"
+                     NestedPath="ConfigurationPath"/>
+    </Engine>
+    
+  </Engines>
+</SubsystemProperties>

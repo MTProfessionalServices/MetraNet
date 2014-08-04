@@ -231,4 +231,25 @@
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
     <value>Custom Security Question</value>
   </data>
+  <data name="ddCurrencyResource1.Label" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="ddPriceListResource1.Label" xml:space="preserve">
+    <value>Price List</value>
+  </data>
+  <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
+    <value>Billable</value>
+  </data>
+  <data name="ddStatusReasonResource1.Label" xml:space="preserve">
+    <value>Status Reason</value>
+  </data>
+  <data name="tbOtherResource1.Label" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
+    <value>Tax Exempt</value>
+  </data>
+  <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
+    <value>Tax Exempt ID</value>
+  </data>
 </root>

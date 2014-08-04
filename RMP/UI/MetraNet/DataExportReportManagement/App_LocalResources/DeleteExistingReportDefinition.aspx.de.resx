@@ -117,17 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="btnManageReportParametersResource1.ServerSide" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="btnManageReportParametersResource1.Text" xml:space="preserve">
     <value>Berichtsparameter verwalten</value>
   </data>
+  <data name="btnManageReportParametersResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnOKResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Vorhandene Berichtsdefinition aktualisieren</value>
+  </data>
+  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
   </data>
   <data name="TEXT_DEF_CREATE_NEW_REPORT_DEFINITION" xml:space="preserve">
     <value>Neue Berichtsdefinition erstellen</value>
   </data>
   <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
     <value>Beschreibung</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
     <value>Ad-hoc-Ausführung verhindern</value>

@@ -68,6 +68,7 @@ public partial class NonStandardCharges_AjaxServices_LoadCharges : MTListService
       Response.BufferOutput = false;
       Response.ContentType = "application/csv";
       Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+      Response.BinaryWrite(BOM);
     }
 
     //if there are more records to process than we can process at once, we need to break up into multiple batches
@@ -116,6 +117,7 @@ public partial class NonStandardCharges_AjaxServices_LoadCharges : MTListService
         SetPaging(items);
         SetSorting(items);
         SetFilters(items);
+        ModifyEnumFilter(items, "ChargeCurrency", typeof(MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies.SystemCurrencies));
 
         //unable to extract data
         if (!ExtractData(client, ref items))

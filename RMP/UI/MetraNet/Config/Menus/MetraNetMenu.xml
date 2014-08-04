@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MenuManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Menus>
+        <Menu>
+            <ID>MetraNetMenu</ID>
+            <Type>Vertical</Type>
+            <Description></Description>
+            <MenuSections>
+                <MenuSection>
+                    <ID>ReportsSection</ID>
+                    <Caption>
+					  <LocalizationTag>TEXT_ANALYTICS</LocalizationTag>
+                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>                        
+					</Caption>
+                    <Description></Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>ReportsTree</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_REPORTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Reporting/ReportsTree.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/chart_bar.png</Icon>
+                            <Description>MetraNet Reports</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <!--MenuItem>
+                            <ID>ReportsMetraControlDashboard</ID>
+                            <Caption>
+                              <LocalizationTag>TEXT_OPERATIONS_DASHBOARD</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>MetraOffer Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem-->
+						<!--
+                        <MenuItem>
+                            <ID>ReportsMetraOfferDashboard</ID>
+                            <Caption>
+                              <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraOffer/ProductDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>Product Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+						-->
+						<!--
+                        <MenuItem>
+                            <ID>ReportsAnalyticsDashboard</ID>
+                            <Caption>
+                              <LocalizationTag>TEXT_FINANCE_DASHBOARD</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ReportsAnalyticsDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>Finance Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+						-->
+                    </MenuItems>
+                </MenuSection>
+            </MenuSections>
+        </Menu>
+    </Menus>
+    <Name></Name>
+    <Description></Description>
+</MenuManager>

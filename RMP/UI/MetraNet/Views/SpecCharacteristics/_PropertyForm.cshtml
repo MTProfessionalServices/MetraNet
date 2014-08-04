@@ -256,7 +256,7 @@
           int index = 0;
           foreach (var item in Model.NameDisplayNames)
           {
-             <div class="editor-label">@item.Key: <input class="copyVal" data-val="true" type="hidden" data-name="Name" name="copyVal_NameDisplayNames[@(index)].Key" id="copyVal_DisplayNames@(i)Key" value="@item.Key" /></div>
+             <div class="editor-label"><label>@item.Key:</label> <input class="copyVal" data-val="true" type="hidden" data-name="Name" name="copyVal_NameDisplayNames[@(index)].Key" id="copyVal_DisplayNames@(i)Key" value="@item.Key" /></div>
              <div class="editor-field"><input class="copyVal" data-val="true" data-name="Name" name="copyVal_NameDisplayNames[@(index)].Value" id="copyVal_DisplayNames@(i)Value" value="@item.Value" /></div>
             i++;
             index++;

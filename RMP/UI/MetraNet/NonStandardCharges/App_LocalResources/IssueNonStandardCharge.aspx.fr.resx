@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>Émettre des frais non standard</value>
+    <value>Emettre des frais non standard</value>
   </data>
   <data name="dbCurrencyResource1.Label" xml:space="preserve">
     <value>Devise</value>
@@ -131,6 +131,12 @@
   </data>
   <data name="issueDateResource1.Label" xml:space="preserve">
     <value>Date de facturation</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
+  <data name="taDescriptionResource1.Label" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="tbGLCodeResource1.Label" xml:space="preserve">
     <value>Code général</value>
@@ -154,7 +160,7 @@
     <value>Frais non standard créés</value>
   </data>
   <data name="TEXT_MAX_AUTHORIZED_AMOUNT" xml:space="preserve">
-    <value>Montant maximum autorisé</value>
+    <value>Montant autorisé maximum</value>
   </data>
   <data name="TEXT_PENDING" xml:space="preserve">
     <value>Des frais non standard en attente ont été créés, car les frais émis étaient supérieurs au montant autorisé.</value>
@@ -163,10 +169,10 @@
     <value>Frais non standard en attente créés</value>
   </data>
   <data name="TEXT_PROCESSING_ERROR" xml:space="preserve">
-    <value>Une erreur est survenue lors du traitement des frais non standard.</value>
+    <value>Une erreur est survenue lors du traitement de frais non standard.</value>
   </data>
   <data name="TEXT_THROUGH" xml:space="preserve">
-    <value>À l'aide de</value>
+    <value>A l’aide de</value>
   </data>
   <data name="TEXT_UNLIMITED" xml:space="preserve">
     <value>Illimité</value>

@@ -118,10 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LblAccountStartDate.Label" xml:space="preserve">
-    <value>Date d'effet du compte</value>
+    <value>Date de début de compte</value>
   </data>
   <data name="LblAncestorAccount.Label" xml:space="preserve">
-    <value>Compte-parent</value>
+    <value>Compte parent</value>
+  </data>
+  <data name="LblAuthenticationType.Label" xml:space="preserve">
+    <value>Type d’authentification</value>
   </data>
   <data name="LblBrandedSite.Label" xml:space="preserve">
     <value>Site de marque</value>
@@ -130,7 +133,7 @@
     <value>Langue</value>
   </data>
   <data name="LblSecurityAnswer.Label" xml:space="preserve">
-    <value>Réponse à la question de sécurité</value>
+    <value>Réponse de sécurité</value>
   </data>
   <data name="LblSecurityQuestion.Label" xml:space="preserve">
     <value>Question de sécurité</value>
@@ -157,7 +160,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>French {0}</value>
+    <value>Ce compte est déjà associé à un changement en attente dans la file d’attente de l’infrastructure d’approbation. {0} Cliquez ici pour afficher les changements en attente.</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Informations du compte</value>

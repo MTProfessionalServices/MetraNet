@@ -8,19 +8,26 @@ using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.Interop.IMTAccountType;
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.ActivityServices.Common;
 using MetraTech.UI.Controls;
 
+//TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow and all other
+//TODO: GenericAddAccount.aspx/GenericUpdateAccount.aspx/GenericAccountSummary.aspx can be thrown from MetraNet project
 public partial class GenericAddAccount : MTAccountPage
 {
-  private List<string> skipProperties = new List<string>();
-  private static AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
+  private readonly List<string> skipSections = new List<string>
+  {
+    "TEXT_LOGIN_INFORMATION",
+    "TEXT_ACCOUNT_INFORMATION"
+  };
+  private readonly List<string> skipProperties = new List<string>();
+  private static readonly AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
   private void SetupSkipProperties()
   {
+
     skipProperties.Add("username");
     skipProperties.Add("ancestoraccountid");
     skipProperties.Add("password_");
@@ -28,13 +35,41 @@ public partial class GenericAddAccount : MTAccountPage
     skipProperties.Add("name_space");
     skipProperties.Add("applydefaultsecuritypolicy");
     skipProperties.Add("internal.timezoneid");
-    skipProperties.Add("payerid"); 
+    skipProperties.Add("payerid");
     skipProperties.Add("accountstartdate");
-    skipProperties.Add("internal.language");
+    skipProperties.Add("internal.language");    
   }
 
+  /// <summary>
+  /// Returns JSON string with mapping of account attributes to JavaScript client-side controls
+  /// </summary>
+  public string JSControlMapping
+  {
+    get
+    {
+      var sb = new System.Text.StringBuilder();
 
-  protected void Page_Load(object sender, EventArgs e) 
+      foreach (MTDataBindingItem itm in MTDataBinder1.DataBindingItems)
+      {
+        if (itm.ControlInstance != null)
+        {
+          string bSource = itm.BindingSource;
+          if (bSource.StartsWith("Account."))
+          {
+            bSource = bSource.Substring(8);
+          }
+          sb.AppendFormat("{0}'{1}.{2}':'{3}'",
+            sb.Length == 0 ? string.Empty : ",",
+            (bSource == "BillTo") ? "LDAP[ContactType=Bill_To]" : bSource,
+            itm.BindingSourceMember,
+            itm.ControlInstance.ClientID);
+        }
+      }
+      return string.Format("{{{0}}}", sb);
+    }
+  }
+
+  protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
     {
@@ -42,7 +77,7 @@ public partial class GenericAddAccount : MTAccountPage
       setDefaultProperties(Account);
       if (Account != null)
       {
-
+        Account.AccountStartDate = DateTime.Now;
         // For UX reasons, if the settings are not there, lets not confuse the user with
         // settings which have no affect... plus I hate researching bugs due to bad config...
         var accountType = mAccountTypeCollection.GetAccountType(Account.AccountType);
@@ -62,17 +97,20 @@ public partial class GenericAddAccount : MTAccountPage
         }
       }
 
-
+      PopulatePresentationNameSpaceList(ddBrandedSite);
       MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
       if (Account != null) MTGenericForm1.RenderObjectType = Account.GetType();
       MTGenericForm1.RenderObjectInstanceName = "Account";
       MTGenericForm1.TemplatePath = TemplatePath;
       MTGenericForm1.ReadOnly = false;
       SetupSkipProperties();
-      PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
+      //PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
       MTGenericForm1.IgnoreProperties = skipProperties;
+      MTGenericForm1.IgnoreSectionsByLocalizationTag = skipSections;
 
-      PopulatePriceList(ddPriceList);
+      //PopulatePriceList(ddPriceList);
+
+      PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
     }
   }
 
@@ -94,7 +132,7 @@ public partial class GenericAddAccount : MTAccountPage
     }
 
     // user name
-    Regex regexPattern = new Regex(ConfigurationManager.AppSettings["AcctUserNameRegex"]);
+    var regexPattern = new Regex(ConfigurationManager.AppSettings["AcctUserNameRegex"]);
     if (!regexPattern.IsMatch(tbUserName.Text))
     {
       tbUserName.Text = "";
@@ -129,7 +167,7 @@ public partial class GenericAddAccount : MTAccountPage
       }
     }
 
-    // [TODO] After fixing CORE-6642 validation of SemiMonthly Cycle is no longer required here. Before removing it:
+    // TODO After fixing CORE-6642 validation of SemiMonthly Cycle is no longer required here. Before removing it:
     // Use localized "Resources.ErrorMessages.ERROR_ENDDOM_INVALID"(see below) instead of unlocalized INVALID_FIRST_DAY in S:\MetraTech\DomainModel\Validators\AccountValidator.cs
 
     // Validate the semi-monthly selected days if semi-monthly defined.
@@ -150,18 +188,20 @@ public partial class GenericAddAccount : MTAccountPage
     {
       Page.Validate();
 
-    if (Page.IsValid)
-    {
-      MTDataBinder1.Unbind();
+      if (Page.IsValid)
+      {
+        MTDataBinder1.Unbind();
 
-      AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
-      add.In_Account = Account;
-        add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-        add.In_SendEmail = cbEmailNotification.Checked;
-      add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
-      PageNav.Execute(add);
+        var add = new AddAccountEvents_AddAccount_Client
+          {
+            In_Account = Account,
+            In_AccountId = new AccountIdentifier(UI.User.AccountId),
+            In_SendEmail = cbEmailNotification.Checked,
+            In_ApplyAccountTemplates = cbApplyTemplate.Checked
+          };
+        PageNav.Execute(add);
+      }
     }
-  }
     catch (Exception exp)
     {
       SetError(exp.Message);
@@ -170,14 +210,13 @@ public partial class GenericAddAccount : MTAccountPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    AddAccountEvents_CancelAddAccount_Client cancel = new AddAccountEvents_CancelAddAccount_Client();
-    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var cancel = new AddAccountEvents_CancelAddAccount_Client {In_AccountId = new AccountIdentifier(UI.User.AccountId)};
     if (PageNav != null) PageNav.Execute(cancel);
   }
 
   protected void setDefaultProperties(Account acct)
   {
-    InternalView internalView = (InternalView)acct.GetInternalView();
+    var internalView = (InternalView)acct.GetInternalView();
 
     if (internalView != null)
     {
@@ -187,20 +226,20 @@ public partial class GenericAddAccount : MTAccountPage
       internalView.UsageCycleType = UsageCycleType.Monthly;
     }
 
-    BindingFlags memberAccess = BindingFlags.Public | BindingFlags.NonPublic |
-         BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
+    const BindingFlags memberAccess = BindingFlags.Public | BindingFlags.NonPublic |
+                                      BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
 
     var contactViews = Account.GetType().GetProperty("LDAP", memberAccess);
     if (contactViews != null)
     {
-      List<ContactView> views = contactViews.GetValue(Account, null) as List<ContactView>;
+      var views = contactViews.GetValue(Account, null) as List<ContactView>;
 
       try
       {
         foreach (ContactView view in views)
           if (view.ContactType == null)
           {
-            ((ContactView)view).ContactType = ContactType.Bill_To;
+            view.ContactType = ContactType.Bill_To;
           }
       }
       catch
@@ -210,5 +249,5 @@ public partial class GenericAddAccount : MTAccountPage
     }
   }
 
- 
+
 }

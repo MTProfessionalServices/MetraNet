@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
   <language_code>jp</language_code>
   <locale_space name="metratech.com">
@@ -48,6 +47,22 @@
       <Value>更新</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/BillMessageType/FOOTER</Name>
+      <Value>FOOTER</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BillMessageType/HEADER</Name>
+      <Value>HEADER</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BillMessageType/INSERT</Name>
+      <Value>INSERT</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BillMessageType/OTHER</Name>
+      <Value>OTHER</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/CountyTaxAmount</Name>
       <Value>国税額</Value>
     </locale_entry>
@@ -78,6 +93,10 @@
     <locale_entry>
       <Name>metratech.com/CreditCardType/MasterCard</Name>
       <Value>マスターカード</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/CreditCardType/None</Name>
+      <Value>[JA]None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/Visa</Name>
@@ -157,7 +176,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Engineer</Name>
-      <Value>Engineer</Value>
+      <Value>[JA]Engineer</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Executive</Name>
@@ -165,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Manager</Name>
-      <Value>Manager</Value>
+      <Value>[JA]Manager</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/PostbillAdjustmentAmount</Name>
@@ -174,6 +193,30 @@
     <locale_entry>
       <Name>metratech.com/PrebillAdjustmentAmount</Name>
       <Value>請求前の調整金額</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Actualized</Name>
+      <Value>[JA]Actualized</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Complete</Name>
+      <Value>[JA]Complete</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Converted</Name>
+      <Value>[JA]Converted</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Failed</Name>
+      <Value>[JA]Failed</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/InProgress</Name>
+      <Value>[JA]InProgress</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/None</Name>
+      <Value>[JA]None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SaleForceRelationship/Account Development</Name>
@@ -228,6 +271,38 @@
       <Value>州税額</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/BadService</Name>
+      <Value>[JA]BadService</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/DroppedCall</Name>
+      <Value>[JA]DroppedCall</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/GeneralDissatisfaction</Name>
+      <Value>[JA]GeneralDissatisfaction</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
+      <Value>[JA]Other</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
+      <Value>[JA]PoorConnection</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
+      <Value>[JA]APPROVED</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestStatus/DENIED</Name>
+      <Value>[JA]DENIED</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestStatus/PENDING</Name>
+      <Value>[JA]PENDING</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/TaxAmount</Name>
       <Value>税額</Value>
     </locale_entry>
@@ -237,11 +312,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/BeginDistributed</Name>
-      <Value>BeginDistributed</Value>
+      <Value>[JA]BeginDistributed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/BeginLocal</Name>
-      <Value>BeginLocal</Value>
+      <Value>[JA]BeginLocal</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/Commit</Name>
@@ -249,31 +324,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/JoinDistributed</Name>
-      <Value>JoinDistributed</Value>
+      <Value>[JA]JoinDistributed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ViewID</Name>
       <Value>ビュー ID</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/CreditCardType/None</Name>
-      <Value>None</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/FOOTER</Name>
-      <Value>FOOTER</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/HEADER</Name>
-      <Value>HEADER</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/INSERT</Name>
-      <Value>INSERT</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/OTHER</Name>
-      <Value>OTHER</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

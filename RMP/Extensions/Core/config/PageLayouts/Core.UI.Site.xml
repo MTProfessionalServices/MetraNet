@@ -22,6 +22,7 @@
                 <Value><![CDATA[Site]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -60,6 +61,38 @@
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
                             <ObjectName>Core.UI.Site</ObjectName>
+                            <ID>AuthenticationNamespace</ID>
+                            <Name>AuthenticationNamespace</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
+                            <ObjectName>Core.UI.Site</ObjectName>
+                            <ID>PhysicalPath</ID>
+                            <Name>PhysicalPath</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
+                            <ObjectName>Core.UI.Site</ObjectName>
                             <ID>IsSiteDownForMaintenance</ID>
                             <Name>IsSiteDownForMaintenance</Name>
                             <Alignment>Left</Alignment>
@@ -77,6 +110,22 @@
                 </Column>
                 <Column>
                     <Fields>
+                        <Field>
+                            <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
+                            <ObjectName>Core.UI.Site</ObjectName>
+                            <ID>RootUrl</ID>
+                            <Name>RootUrl</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                        </Field>
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
                             <ObjectName>Core.UI.Site</ObjectName>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <mt_config>
   <language_code>gb</language_code>
   <locale_space name="metratech.com/audit">
     <locale_entry>
       <Name>metratech.com/audit</Name>
-      <Value></Value>
+      <Value>Audit Log</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/CsrID</Name>
@@ -13,7 +12,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/description</Name>
-      <Value></Value>
+      <Value>Description</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmApplicationID/MAM</Name>
@@ -25,15 +24,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmApplicationID/UNKNOWN</Name>
-      <Value>metratech.com/audit/enmApplicationID/UNKNOWN</Value>
+      <Value>UNKNOWN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmAuditOperation/Add</Name>
-      <Value>metratech.com/audit/enmAuditOperation/Add</Value>
+      <Value>Add</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmAuditOperation/Delete</Name>
-      <Value>metratech.com/audit/enmAuditOperation/Delete</Value>
+      <Value>Delete</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmAuditOperation/Update</Name>
@@ -41,7 +40,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/subscriberaccountID</Name>
-      <Value></Value>
+      <Value>Subscriber Account ID</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

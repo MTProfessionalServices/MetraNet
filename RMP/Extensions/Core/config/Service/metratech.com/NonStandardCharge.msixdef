@@ -47,7 +47,7 @@
         <type>string</type>
         <length>20</length>
         <required>N</required>
-        <defaultvalue></defaultvalue>
+        <defaultvalue>mt</defaultvalue>
         <description>The accounts namespace</description>
     </ptype>
     <ptype>

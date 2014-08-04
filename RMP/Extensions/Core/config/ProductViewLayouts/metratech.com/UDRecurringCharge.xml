@@ -29,7 +29,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath></CustomImplementationFilePath>
+    <CustomImplementationFilePath>/MetraView/Product/UnitDependantRecurringCharge.js</CustomImplementationFilePath>
     <DataBinder>
         <ServicePath></ServicePath>
         <OutPropertyName></OutPropertyName>
@@ -96,7 +96,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -129,7 +129,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -228,7 +228,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -261,7 +261,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -294,7 +294,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -327,7 +327,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -360,7 +360,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -657,7 +657,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -690,7 +690,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -723,7 +723,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -756,7 +756,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -789,7 +789,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -822,7 +822,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -855,7 +855,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>

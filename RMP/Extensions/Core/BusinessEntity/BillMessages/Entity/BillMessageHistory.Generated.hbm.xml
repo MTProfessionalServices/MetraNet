@@ -133,6 +133,20 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
+    <property name="Language" column="c_Language">
+      <meta attribute="label">Language</meta>
+      <meta attribute="description">Language of Bill Messages</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="MetraTech.DomainModel.Enums.Core.Global.LanguageCode, MetraTech.DomainModel.Enums.Generated" />
+    </property>
     <property name="_StartDate" column="c__StartDate" not-null="true">
       <meta attribute="label" />
       <meta attribute="description" />
@@ -183,6 +197,7 @@ c_messagecode,
 c_messagetype, 
 c_messagetext, 
 c_messageformat, 
+c_language, 
 c__startdate, 
 c__enddate
 ) 
@@ -197,6 +212,7 @@ VALUES
 :dataRow.c_messagetype, 
 :dataRow.c_messagetext, 
 :dataRow.c_messageformat, 
+:dataRow.c_language, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
 ) 
@@ -225,6 +241,7 @@ c_messagecode,
 c_messagetype, 
 c_messagetext, 
 c_messageformat, 
+c_language, 
 c__startdate, 
 c__enddate
 )
@@ -238,6 +255,7 @@ c_messagecode,
 c_messagetype, 
 c_messagetext, 
 c_messageformat, 
+c_language, 
 c_updatedate, 
 dbo.mtmaxdate()
 FROM INSERTED;</create>

@@ -51,7 +51,7 @@
     END
     ELSE  
     BEGIN
-      IF @RCActionType = 'Credit' OR @RCActionType = 'InitialCorrection' OR @RCActionType = 'AdvanceCorrection' OR @RCActionType = 'DebitCorrection'
+      IF @RCActionType = 'Credit' OR @RCActionType = 'InitialCredit' OR @RCActionType = 'InitialCorrection' OR @RCActionType = 'AdvanceCorrection' OR @RCActionType = 'DebitCorrection' 
       BEGIN
         -- For credits we will use the BilledRateDate which should be the BillingCycleEndDate from the billing cycle the
         -- advance or initial charges were billed in.
@@ -59,7 +59,7 @@
         --PRINT 'ratedate: Credit using rates effective on [' + CAST(@RateDate AS VARCHAR) + '] which is the BillingCyleEndDate from the billing cycle the advance or initial charge was billed in.';
       END
       ELSE
-      IF (@RCActionType = 'Advance') OR (@RCActionType = 'Initial')
+      IF (@RCActionType = 'Advance') OR (@RCActionType = 'Initial') OR (@RCActionType = 'InitialDebit')
       BEGIN
         -- For advance charges we will use the Billing Cycle End Date. This is so we can match the rates used by 'Credits' above.
         -- The exception is if the Subscription End Date is less then the Billing Cycle End Date (they unsubscribed during the period of this bill), then

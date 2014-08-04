@@ -214,7 +214,187 @@
                 <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
                 <ResourceClassKey>RESOURCE</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+            <ID>FederalTaxAmount</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>FederalTaxAmount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_FEDERAL_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter>CurrencyRenderer</Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+            <ID>StateTaxAmount</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>StateTaxAmount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_STATE_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter>CurrencyRenderer</Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+            <ID>CountyTaxAmount</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>CountyTaxAmount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_COUNTY_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter>CurrencyRenderer</Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+            <ID>LocalTaxAmount</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>LocalTaxAmount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_LOCAL_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter>CurrencyRenderer</Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+            <ID>OtherTaxAmount</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>OtherTaxAmount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_OTHER_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -512,7 +692,7 @@
                 <LocalizationTag>TEXT_ADJUSTMENT_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -542,6 +722,14 @@
             <ID>Currency</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>Global/SystemCurrencies</EnumSpace>
+                <EnumType>SystemCurrencies</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>Currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
@@ -584,7 +772,7 @@
                 <LocalizationTag>TEXT_TAX_AMOUNT</LocalizationTag>
                 <ResourceClassKey>RESOURCE</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -656,7 +844,7 @@
                 <LocalizationTag>TEXT_AMOUNT_WITH_TAX</LocalizationTag>
                 <ResourceClassKey>RESOURCE</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -785,6 +973,36 @@
                             <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
                             <ID>Amount</ID>
                             <Name>Amount</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+                            <ID>FederalTaxAmount</ID>
+                            <Name>FederalTaxAmount</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+                            <ID>StateTaxAmount</ID>
+                            <Name>StateTaxAmount</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+                            <ID>CountyTaxAmount</ID>
+                            <Name>CountyTaxAmount</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+                            <ID>LocalTaxAmount</ID>
+                            <Name>LocalTaxAmount</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductView.Metratech_com_AccountCreditProductView</ObjectName>
+                            <ID>OtherTaxAmount</ID>
+                            <Name>OtherTaxAmount</Name>
                         </Field>
                         <Field>
                             <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.Billing.Generated.dll</AssemblyFilename>

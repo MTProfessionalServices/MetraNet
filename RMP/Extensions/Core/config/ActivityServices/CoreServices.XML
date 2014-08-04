@@ -7,6 +7,12 @@
         <MASCodeService ElementName="AmpService" Type="MetraTech.Core.Services.AmpService, MetraTech.Core.Services.dll" Description="The Aggregate Metrics Processor (AMP) performs complex rating decisions by analyzing aggregated usage and modifying charges on the basis of that analysis. &#xA;">
             <Interface Name="AmpService" ContractType="MetraTech.Core.Services.IAmpService, MetraTech.Core.Services.dll" Description="The Aggregate Metrics Processor (AMP) performs complex rating decisions by analyzing aggregated usage and modifying charges on the basis of that analysis. " />
         </MASCodeService>
+		<MASCodeService ElementName="CreditNoteService" Type="MetraTech.Core.Services.CreditNoteService, MetraTech.Core.Services.dll" Description="Provides access to Credit Notes functionality">
+            <Interface Name="CreditNoteService" ContractType="MetraTech.Core.Services.ICreditNoteService, MetraTech.Core.Services.dll" Description="Provides access to Credit Notes functionality" />
+        </MASCodeService>
+        <MASCodeService ElementName="IntervalManagementService" Type="MetraTech.Core.Services.IntervalManagementService, MetraTech.Core.Services.dll" Description="Provides access to interval information">
+            <Interface Name="IntervalManagementService" ContractType="MetraTech.Core.Services.IIntervalManagementService, MetraTech.Core.Services.dll" Description="Provides access to interval information" />
+        </MASCodeService>
         <MASCodeService ElementName="AuditLogService" Type="MetraTech.Core.Services.AuditLogService, MetraTech.Core.Services.dll" Description="Provides access to the MT Auditing functionality &#xA;">
             <Interface Name="AuditLogService" ContractType="MetraTech.Core.Services.IAuditLogService, MetraTech.Core.Services.dll" Description="Provides access to the MT Auditing functionality. " />
         </MASCodeService>

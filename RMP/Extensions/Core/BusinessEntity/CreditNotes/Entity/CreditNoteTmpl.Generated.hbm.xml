@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.Quoting.QuoteContent, Core.Quoting.Entity" table="t_be_cor_qu_quotecontent">
-    <meta attribute="description">Data about quote report content</meta>
-    <meta attribute="label">QuoteContent</meta>
-    <meta attribute="plural-name">QuoteContents</meta>
+  <class name="MetraTech.Core.CreditNotes.CreditNoteTmpl, MetraTech.Core.CreditNotes.Entity" table="t_be_cor_cre_creditnotetmpl">
+    <meta attribute="description">Stores credit note template information</meta>
+    <meta attribute="label">CreditNoteTmpl</meta>
+    <meta attribute="plural-name">CreditNoteTmpls</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
     <meta attribute="record-history">false</meta>
     <meta attribute="entity-type">Entity</meta>
-    <meta attribute="interface">Core.Quoting.Interface.IQuoteContent, Core.Interface</meta>
+    <meta attribute="interface">MetraTech.Core.CreditNotes.Interface.ICreditNoteTmpl, MetraTech.Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <id name="Id" column="c_QuoteContent_Id">
+    <id name="Id" column="c_CreditNoteTmpl_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>
     <version name="_Version" column="c__version" />
-    <component class="Core.Quoting.QuoteContentBusinessKey, Core.Quoting.Entity" name="QuoteContentBusinessKey">
+    <component class="MetraTech.Core.CreditNotes.CreditNoteTmplBusinessKey, MetraTech.Core.CreditNotes.Entity" name="CreditNoteTmplBusinessKey">
       <meta attribute="business-key">true</meta>
       <meta attribute="internal-business-key">true</meta>
       <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">
@@ -72,11 +72,25 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="ReportLink" column="c_ReportLink" length="255">
-      <meta attribute="label">ReportLink</meta>
-      <meta attribute="description">Link to PDF file with report</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
+    <property name="LanguageCode" column="c_LanguageCode" not-null="true">
+      <meta attribute="label">LanguageCode</meta>
+      <meta attribute="description">Language code for credit note template</meta>
+      <meta attribute="defaultvalue">840</meta>
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="CreditNotePrefix" column="c_CreditNotePrefix" length="15" not-null="true">
+      <meta attribute="label">CreditNotePrefix</meta>
+      <meta attribute="description">Prefix for credit note</meta>
+      <meta attribute="defaultvalue">CN</meta>
+      <meta attribute="sortable">true</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>
@@ -86,53 +100,11 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="ReportContent" column="c_ReportContent">
-      <meta attribute="label">ReportContent</meta>
-      <meta attribute="description">Content of quote file</meta>
+    <property name="TemplateName" column="c_TemplateName" length="64" not-null="true">
+      <meta attribute="label">TemplateName</meta>
+      <meta attribute="description">Name of the template that will be exposed to the CSR</meta>
       <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Byte[], mscorlib" />
-    </property>
-    <property name="Total" column="c_Total" precision="22" scale="10">
-      <meta attribute="label">Total</meta>
-      <meta attribute="description">Total sum of charges in quote</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Decimal, mscorlib" />
-    </property>
-    <property name="TotalTax" column="c_TotalTax" precision="22" scale="10">
-      <meta attribute="label">Total tax</meta>
-      <meta attribute="description">Total sum of taxes in quote</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Decimal, mscorlib" />
-    </property>
-    <property name="Currency" column="c_Currency" length="255">
-      <meta attribute="label">ReportLink</meta>
-      <meta attribute="description">Currency of quote amount</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
+      <meta attribute="sortable">true</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>
@@ -142,41 +114,10 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="BatchIDs" column="c_BatchIDs" length="255">
-      <meta attribute="label">ReportLink</meta>
-      <meta attribute="description">BatchIDs for quote, separated by comma</meta>
+    <property name="CreditNoteTemplateID" column="c_CreditNoteTemplateID" not-null="true" unique="true">
+      <meta attribute="label">CreditNoteTemplateID</meta>
+      <meta attribute="description">Credit Note Template ID.</meta>
       <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
-    <property name="FailedMessage" column="c_FailedMessage" length="2000">
-      <meta attribute="label">FailedMessage</meta>
-      <meta attribute="description">Error message</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
-    <property name="Status" column="c_Status">
-      <meta attribute="label">Status</meta>
-      <meta attribute="description">0 - None
-1 - In progress
-2 - Failed
-3 - Completed</meta>
-      <meta attribute="defaultvalue">0</meta>
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
@@ -187,22 +128,22 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <many-to-one name="QuoteHeader" class="Core.Quoting.QuoteHeader, Core.Quoting.Entity" column="c_QuoteHeader_Id">
+    <one-to-one name="CreditNote" class="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" cascade="delete">
       <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">QuoteHeader_QuoteContent</meta>
+      <meta attribute="relationship-name">CreditNoteTmpl_CreditNote</meta>
       <meta attribute="has-join-table">false</meta>
       <meta attribute="is-default">true</meta>
       <meta attribute="is-self-relationship">false</meta>
       <meta attribute="is-bidirectional">false</meta>
       <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">QuoteContent</meta>
+      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNoteTmpl</meta>
+      <meta attribute="source-key-column">c_CreditNoteTmpl_Id</meta>
+      <meta attribute="source-property-name-for-target">CreditNote</meta>
       <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">Core.Quoting.QuoteContent</meta>
-      <meta attribute="target-key-column">c_QuoteContent_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
+      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
+      <meta attribute="target-key-column">c_CreditNote_Id</meta>
+      <meta attribute="target-property-name-for-source">CreditNoteTmpl</meta>
       <meta attribute="cascade">true</meta>
-    </many-to-one>
+    </one-to-one>
   </class>
 </hibernate-mapping>

@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
-    <Name>MetraTech.Core.Quoting.QuoteHeader</Name>
+    <Name>Quoting.Accounts</Name>
     <Title>
-      <Value><![CDATA[]]></Value>
+        <LocalizationTag>GRID_TITLE</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
     <Expandable>true</Expandable>
-    <Buttons>Cancel</Buttons>
-	<ObjectName>MetraTech.Core.Quoting.QuoteHeader</ObjectName>
-	<AssemblyNameHint>MetraTech.Core.Quoting.Entity.dll</AssemblyNameHint>
-    <DataSourceURL>../AjaxServices/BEListSvc.aspx?Name=MetraTech.Core.Quoting.QuoteHeader&amp;Assembly=MetraTech.Core.Quoting.Entity</DataSourceURL>
+    <Buttons>None</Buttons>
+    <DataSourceURL></DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
@@ -20,9 +18,15 @@
     <PageSize>10</PageSize>
     <Description></Description>
     <ExpansionCssClass></ExpansionCssClass>
+    <ShowFilterPanel>false</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
+    <ShowTopBar>true</ShowTopBar>
+    <ShowBottomBar>true</ShowBottomBar>
+    <ShowGridFrame>true</ShowGridFrame>
+    <ShowGridHeader>true</ShowGridHeader>
+    <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
         <Value><![CDATA[]]></Value>
     </NoRecordsText>
@@ -34,30 +38,38 @@
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
-    <DisplayCount>true</DisplayCount>
+    <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-	  <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
-    <SupportExportSelected>true</SupportExportSelected>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <DataBinder>
+        <ServicePath>/MetraNet/AjaxServices/GetData.aspx</ServicePath>
+        <OutPropertyName></OutPropertyName>
+        <Operation>__Client</Operation>
+    </DataBinder>
+    <SubGrid></SubGrid>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
-            <ID>internalId</ID>
-            <DataIndex>internalId</DataIndex>
-            <DataType>String</DataType>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.AccountForQuote</ObjectName>
+            <ID>AccountID</ID>
+            <DataType>Numeric</DataType>
             <IsIdentity>true</IsIdentity>
+            <DataIndex>AccountID</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText>
-                <Value><![CDATA[Internal ID]]></Value>
-            </HeaderText>
+            <HeaderText />
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
+            <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>false</Filterable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
@@ -73,18 +85,20 @@
         <Element>
             <RecordElement>false</RecordElement>
             <ID>Actions</ID>
+            <DataIndex>actions</DataIndex>
             <IsColumn>true</IsColumn>
-            <ShowInExpander>false</ShowInExpander>
             <HeaderText>
-                <Value><![CDATA[Actions]]></Value>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
-            <Width>120</Width>
+            <Formatter></Formatter>
+            <Width>60</Width>
             <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>false</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Filterable>false</Filterable>
-	    <ShowInExpander>false</ShowInExpander>
         </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
@@ -93,43 +107,16 @@
         <Button>
             <ButtonID>Add</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_BUTTON_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_BUTTON_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </ToolTip>
-            <IconClass>Add</IconClass>
-            <Capability></Capability>
-            <JSHandlerFunction>onNew</JSHandlerFunction>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onAddAccount</JSHandlerFunction>
         </Button>
-        <Button>
-		  <ButtonID>Delete</ButtonID>
-			<ButtonText>
-			  <LocalizationTag>TEXT_DELETE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ButtonText>
-			<ToolTip>
-			  <LocalizationTag>TEXT_DELETE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ToolTip>
-			<IconClass>remove</IconClass>
-			<RequiredCapabilities></RequiredCapabilities>
-			<JSHandlerFunction>onDelete</JSHandlerFunction>
-		  </Button>			
-        <Button>  	  
-		  <ButtonID>BulkUpdate</ButtonID>
-			<ButtonText>
-			  <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ButtonText>
-			<ToolTip>
-			  <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ToolTip>
-			<IconClass>bulkupdate</IconClass>
-			<RequiredCapabilities></RequiredCapabilities>
-			<JSHandlerFunction>onBulkUpdate</JSHandlerFunction>
-		  </Button>          
     </ToolbarButtons>
-
 </GridLayout>

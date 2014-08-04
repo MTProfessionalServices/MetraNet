@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
   <language_code>es</language_code>
   <locale_space name="metratech.com">
@@ -48,6 +47,22 @@
       <Value>Actualizar</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/BillMessageType/FOOTER</Name>
+      <Value>FOOTER</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BillMessageType/HEADER</Name>
+      <Value>HEADER</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BillMessageType/INSERT</Name>
+      <Value>INSERT</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BillMessageType/OTHER</Name>
+      <Value>OTHER</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/CountyTaxAmount</Name>
       <Value>Importe del impuesto municipal</Value>
     </locale_entry>
@@ -78,6 +93,10 @@
     <locale_entry>
       <Name>metratech.com/CreditCardType/MasterCard</Name>
       <Value>MasterCard</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/CreditCardType/None</Name>
+      <Value>[ES]None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/Visa</Name>
@@ -176,6 +195,30 @@
       <Value>Importe del ajuste previo a la facturación</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/QuoteStatus/Actualized</Name>
+      <Value>[ES]Actualized</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Complete</Name>
+      <Value>[ES]Complete</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Converted</Name>
+      <Value>[ES]Actualized</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Failed</Name>
+      <Value>[ES]Failed</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/InProgress</Name>
+      <Value>[ES]InProgress</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/None</Name>
+      <Value>[ES]None</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/SaleForceRelationship/Account Development</Name>
       <Value>Desarrollo de la cuenta</Value>
     </locale_entry>
@@ -228,6 +271,38 @@
       <Value>Importe del impuesto estatal</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/BadService</Name>
+      <Value>[ES]BadService</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/DroppedCall</Name>
+      <Value>[ES]DroppedCall</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/GeneralDissatisfaction</Name>
+      <Value>[ES]GeneralDissatisfaction</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
+      <Value>[ES]Other</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
+      <Value>[ES]PoorConnection</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
+      <Value>[ES]APPROVED</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestStatus/DENIED</Name>
+      <Value>[ES]DENIED</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/SubscriberCreditAccountRequestStatus/PENDING</Name>
+      <Value>[ES]PENDING</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/TaxAmount</Name>
       <Value>Importe del impuesto</Value>
     </locale_entry>
@@ -254,26 +329,6 @@
     <locale_entry>
       <Name>metratech.com/ViewID</Name>
       <Value>Ver ID</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/CreditCardType/None</Name>
-      <Value>None</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/FOOTER</Name>
-      <Value>FOOTER</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/HEADER</Name>
-      <Value>HEADER</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/INSERT</Name>
-      <Value>INSERT</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/BillMessageType/OTHER</Name>
-      <Value>OTHER</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

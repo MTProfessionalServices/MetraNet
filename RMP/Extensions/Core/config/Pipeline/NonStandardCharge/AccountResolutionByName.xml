@@ -27,8 +27,8 @@
 
 
     <Resolution>
-  	  <Login>Payer</Login> 
-  	  <NameSpace>Namespace</NameSpace> 
+  	  <Login>AccountName</Login> 
+  	  <NameSpace>AccountNameSpace</NameSpace> 
     </Resolution>
     <Retrieval>	
 	    <Property>

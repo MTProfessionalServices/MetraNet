@@ -116,46 +116,55 @@
                             <value>0</value>
                             <value>840</value>
                             <value>en-US</value>
+                            <value>US</value>
                         </entry>
                         <entry name="DE">
                             <value>1</value>
                             <value>276</value>
                             <value>de-DE</value>
+                            <value>DE</value>
                         </entry>
                         <entry name="FR">
                             <value>3</value>
                             <value>250</value>
-                            <value>fr=FR</value>
+                            <value>fr-FR</value>
+                            <value>FR</value>
                         </entry>
                         <entry name="IT">
                             <value>4</value>
                             <value>380</value>
-                            <value>it</value>
+                            <value>it-IT</value>
+                            <value>IT</value>
                         </entry>
                         <entry name="JP">
                             <value>5</value>
                             <value>392</value>
-                            <value>ja</value>
+                            <value>ja-JP</value>
+                            <value>JA</value>
                         </entry>
                         <entry name="ES">
                             <value>6</value>
                             <value>724</value>
-                            <value>es</value>
+                            <value>es-ES</value>
+                            <value>ES</value>
                         </entry>
                         <entry name="GB">
                             <value>7</value>
                             <value>826</value>
                             <value>en-GB</value>
+                            <value>GB</value>
                         </entry>
                         <entry name="MX">
                             <value>8</value>
                             <value>2058</value>
-                            <value>es-mx</value>
+                            <value>es-MX</value>
+                            <value>MX</value>
                         </entry>
                         <entry name="BR">
                             <value>9</value>
                             <value>1046</value>
-                            <value>pt-br</value>
+                            <value>pt-BR</value>
+                            <value>BR</value>
                         </entry>
                         <entry name="DA">
                             <value>10</value>

@@ -1,156 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
   <language_code>pt-br</language_code>
   <locale_space name="Global/SystemCurrencies">
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BRL</Name>
-      <Value>BRL</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CAD</Name>
-      <Value>CAD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/DEM</Name>
-      <Value>DEM</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ESP</Name>
-      <Value>ESP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/EUR</Name>
-      <Value>EUR</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/FRF</Name>
-      <Value>FRF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/GBP</Name>
-      <Value>GBP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/INR</Name>
-      <Value>INR</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/JPY</Name>
-      <Value>JPY</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/MXN</Name>
-      <Value>MXN</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/USD</Name>
-      <Value>USD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ARS</Name>
-      <Value>ARS</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/AUD</Name>
-      <Value>AUD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CHF</Name>
-      <Value>CHF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CLP</Name>
-      <Value>CLP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CZK</Name>
-      <Value>CZK</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/DKK</Name>
-      <Value>DKK</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/HKD</Name>
-      <Value>HKD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/HUF</Name>
-      <Value>HUF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ILS</Name>
-      <Value>ILS</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ISK</Name>
-      <Value>ISK</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/LVL</Name>
-      <Value>LVL</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/MYR</Name>
-      <Value>MYR</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/NOK</Name>
-      <Value>NOK</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/NZD</Name>
-      <Value>NZD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/PHP</Name>
-      <Value>PHP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/PLN</Name>
-      <Value>PLN</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/RON</Name>
-      <Value>RON</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/RSD</Name>
-      <Value>RSD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/RUB</Name>
-      <Value>RUB</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SAR</Name>
-      <Value>SAR</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SEK</Name>
-      <Value>SEK</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SGD</Name>
-      <Value>SGD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/THB</Name>
-      <Value>THB</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/TRY</Name>
-      <Value>TRY</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/TWD</Name>
-      <Value>TWD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ZAR</Name>
-      <Value>ZAR</Value>
-    </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/AED</Name>
       <Value>AED</Value>
@@ -164,12 +15,36 @@
       <Value>AFF</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/AFN</Name>
+      <Value>AFN</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/ALL</Name>
-      <Value>ALL</Value>
+      <Value>TODOS</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/AMD</Name>
       <Value>AMD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ANG</Name>
+      <Value>ANG</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/AOA</Name>
+      <Value>AOA</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ARS</Name>
+      <Value>ARS</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/AUD</Name>
+      <Value>AUD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/AWG</Name>
+      <Value>AWG</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/AZN</Name>
@@ -178,6 +53,10 @@
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/BAM</Name>
       <Value>BAM</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BBD</Name>
+      <Value>BBD</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/BDT</Name>
@@ -192,6 +71,10 @@
       <Value>BHD</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BIF</Name>
+      <Value>BIF</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/BMD</Name>
       <Value>BMD</Value>
     </locale_entry>
@@ -200,12 +83,52 @@
       <Value>BND</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BOB</Name>
+      <Value>BOB</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/BRE</Name>
       <Value>BRE</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BRL</Name>
+      <Value>BRL</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BSD</Name>
+      <Value>BSD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BTN</Name>
+      <Value>BTN</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BWP</Name>
+      <Value>BWP</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/BYR</Name>
       <Value>BYR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/BZD</Name>
+      <Value>BZD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CAD</Name>
+      <Value>CAD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CDF</Name>
+      <Value>CDF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CHF</Name>
+      <Value>CHF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CLP</Name>
+      <Value>CLP</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/CNY</Name>
@@ -220,12 +143,44 @@
       <Value>CRC</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CUC</Name>
+      <Value>CUC</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CUP</Name>
+      <Value>CUP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CVE</Name>
+      <Value>CVE</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/CYP</Name>
       <Value>CYP</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/CZK</Name>
+      <Value>CZK</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/DEM</Name>
+      <Value>DEM</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/DJF</Name>
+      <Value>DJF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/DKK</Name>
+      <Value>DKK</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/DOP</Name>
       <Value>DOP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/DZD</Name>
+      <Value>DZD</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/EEK</Name>
@@ -236,16 +191,68 @@
       <Value>EGP</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ERN</Name>
+      <Value>ERN</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ESP</Name>
+      <Value>ESP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ETB</Name>
+      <Value>ETB</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ETP</Name>
+      <Value>ETP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/EUR</Name>
+      <Value>EUR</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/FJD</Name>
       <Value>FJD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/FKF</Name>
+      <Value>FKF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/FKP</Name>
+      <Value>FKP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/FRF</Name>
+      <Value>FRF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/GBP</Name>
+      <Value>GBP</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/GEL</Name>
       <Value>GEL</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/GGP</Name>
+      <Value>GGP</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/GHS</Name>
       <Value>GHS</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/GIP</Name>
+      <Value>GIP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/GMD</Name>
+      <Value>GMD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/GNF</Name>
+      <Value>GNF</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/GQE</Name>
@@ -260,6 +267,10 @@
       <Value>GYD</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/HKD</Name>
+      <Value>HKD</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/HNL</Name>
       <Value>HNL</Value>
     </locale_entry>
@@ -272,6 +283,10 @@
       <Value>HTG</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/HUF</Name>
+      <Value>HUF</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/IDR</Name>
       <Value>IDR</Value>
     </locale_entry>
@@ -280,16 +295,68 @@
       <Value>IEP</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ILS</Name>
+      <Value>ILS</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/IMP</Name>
+      <Value>IMP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/INR</Name>
+      <Value>INR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/IQD</Name>
+      <Value>IQD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/IQQ</Name>
+      <Value>IQQ</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/IRR</Name>
+      <Value>IRR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ISK</Name>
+      <Value>ISK</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/JEP</Name>
+      <Value>JEP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/JMD</Name>
+      <Value>JMD</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/JOD</Name>
       <Value>JOD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/JPY</Name>
+      <Value>JPY</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/KES</Name>
       <Value>KES</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/KGS</Name>
+      <Value>KGS</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/KHR</Name>
       <Value>KHR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/KMF</Name>
+      <Value>KMF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/KPW</Name>
+      <Value>KPW</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/KRW</Name>
@@ -298,6 +365,10 @@
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/KWD</Name>
       <Value>KWD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/KYD</Name>
+      <Value>KYD</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/KZT</Name>
@@ -316,12 +387,24 @@
       <Value>LKR</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/LRD</Name>
+      <Value>LRD</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/LSL</Name>
       <Value>LSL</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/LTL</Name>
       <Value>LTL</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/LVL</Name>
+      <Value>LVL</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/LYD</Name>
+      <Value>LYD</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/MAD</Name>
@@ -356,6 +439,10 @@
       <Value>MOP</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/MRO</Name>
+      <Value>MRO</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/MTL</Name>
       <Value>MTL</Value>
     </locale_entry>
@@ -368,8 +455,24 @@
       <Value>MVR</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/MWK</Name>
+      <Value>MWK</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/MXN</Name>
+      <Value>MXN</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/MYR</Name>
+      <Value>MYR</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/MZN</Name>
       <Value>MZN</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/NAD</Name>
+      <Value>NAD</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/NGN</Name>
@@ -380,12 +483,24 @@
       <Value>NIO</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/NOK</Name>
+      <Value>NOK</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/NPR</Name>
       <Value>NPR</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/NZD</Name>
+      <Value>NZD</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/OMR</Name>
       <Value>OMR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/PAB</Name>
+      <Value>PAB</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/PEN</Name>
@@ -396,8 +511,16 @@
       <Value>PGK</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/PHP</Name>
+      <Value>PHP</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/PKR</Name>
       <Value>PKR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/PLN</Name>
+      <Value>PLN</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/PYG</Name>
@@ -412,12 +535,32 @@
       <Value>ROL</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/RON</Name>
+      <Value>RON</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/RSD</Name>
+      <Value>RSD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/RUB</Name>
+      <Value>RUB</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/RUR</Name>
       <Value>RUR</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/RWF</Name>
       <Value>RWF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SAR</Name>
+      <Value>SAR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SBD</Name>
+      <Value>SBD</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/SCR</Name>
@@ -432,12 +575,64 @@
       <Value>SDG</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SEK</Name>
+      <Value>SEK</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SGD</Name>
+      <Value>SGD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SHP</Name>
+      <Value>SHP</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/SKK</Name>
       <Value>SKK</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SLL</Name>
+      <Value>SLL</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SOS</Name>
+      <Value>SOS</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SPL</Name>
+      <Value>SPL</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/SRD</Name>
       <Value>SRD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/STD</Name>
+      <Value>STD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SVC</Name>
+      <Value>SVC</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SYP</Name>
+      <Value>SYP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/SZL</Name>
+      <Value>SZL</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/THB</Name>
+      <Value>THB</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/TJS</Name>
+      <Value>TJS</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/TMM</Name>
+      <Value>TMM</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/TMT</Name>
@@ -448,12 +643,28 @@
       <Value>TND</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/TOP</Name>
+      <Value>TOP</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/TRL</Name>
       <Value>TRL</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/TRY</Name>
+      <Value>TRY</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/TTD</Name>
       <Value>TTD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/TVD</Name>
+      <Value>TVD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/TWD</Name>
+      <Value>TWD</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/TZS</Name>
@@ -462,6 +673,22 @@
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/UAH</Name>
       <Value>UAH</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/UGX</Name>
+      <Value>UGX</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/USD</Name>
+      <Value>USD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/UYU</Name>
+      <Value>UYU</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/UZS</Name>
+      <Value>UZS</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/VEB</Name>
@@ -484,276 +711,56 @@
       <Value>WST</Value>
     </locale_entry>
     <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XAF</Name>
+      <Value>XAF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XAG</Name>
+      <Value>XAG</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XAU</Name>
+      <Value>XAU</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XCD</Name>
+      <Value>XCD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XDR</Name>
+      <Value>XDR</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XOF</Name>
+      <Value>XOF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XPD</Name>
+      <Value>XPD</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XPF</Name>
+      <Value>XPF</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/XPT</Name>
+      <Value>XPT</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/YER</Name>
+      <Value>YER</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/SystemCurrencies/SystemCurrencies/ZAR</Name>
+      <Value>ZAR</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/ZMK</Name>
       <Value>ZMK</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/SystemCurrencies/SystemCurrencies/ZWD</Name>
       <Value>ZWD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/AFN</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/AFN</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ANG</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/ANG</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/AOA</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/AOA</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/AWG</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/AWG</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BBD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/BBD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BIF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/BIF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BOB</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/BOB</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BSD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/BSD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BTN</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/BTN</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BWP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/BWP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/BZD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/BZD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CDF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/CDF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CUC</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/CUC</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CUP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/CUP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/CVE</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/CVE</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/DJF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/DJF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/DZD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/DZD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ERN</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/ERN</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/ETB</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/ETB</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/FKP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/FKP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/GGP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/GGP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/GIP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/GIP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/GMD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/GMD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/GNF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/GNF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/IMP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/IMP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/IQD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/IQD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/IRR</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/IRR</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/JEP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/JEP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/JMD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/JMD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/KGS</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/KGS</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/KMF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/KMF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/KPW</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/KPW</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/KYD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/KYD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/LRD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/LRD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/LYD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/LYD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/MRO</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/MRO</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/MWK</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/MWK</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/NAD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/NAD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/PAB</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/PAB</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SBD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SBD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SHP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SHP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SLL</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SLL</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SOS</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SOS</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SPL</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SPL</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/STD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/STD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SVC</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SVC</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SYP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SYP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/SZL</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/SZL</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/TJS</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/TJS</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/TMM</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/TMM</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/TOP</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/TOP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/TWD</Name>
-      <Value>TWD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/UGX</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/UGX</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/UYU</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/UYU</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/UZS</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/UZS</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XAF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XAF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XAG</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XAG</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XAU</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XAU</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XCD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XCD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XDR</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XDR</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XOF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XOF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XPD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XPD</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XPF</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XPF</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/XPT</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/XPT</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/YER</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/YER</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>Global/SystemCurrencies/SystemCurrencies/TVD</Name>
-      <Value>Global/SystemCurrencies/SystemCurrencies/TVD</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

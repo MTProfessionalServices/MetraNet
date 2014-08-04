@@ -3,7 +3,8 @@
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
     <Name>Core.BillMessages.BillMessage</Name>
     <Title>
-        <Value><![CDATA[Bill Messages]]></Value>
+      <LocalizationTag>TEXT_BILL_MESSAGES</LocalizationTag>
+      <ResourceClassKey>Resource</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -24,8 +25,8 @@
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
     <NoRecordsText>
-      <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-      <ResourceClassKey>Resource</ResourceClassKey>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>Resource</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -44,6 +45,8 @@
     <ShowGridFrame>true</ShowGridFrame>
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
+    <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -187,6 +190,47 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
+            <AssemblyFilename>Core.BillMessages.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.BillMessages.BillMessage</ObjectName>
+            <ID>Language</ID>
+            <DataType>List</DataType>
+            <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>Global</EnumSpace>
+                <EnumType>LanguageCode</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
+            <DataIndex>Language</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>internalId</ID>
@@ -226,7 +270,8 @@
             <DataIndex></DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Actions]]></Value>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -244,15 +289,16 @@
         <Button>
             <ButtonID>Add</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </ToolTip>
-            <IconClass>Add</IconClass>
+            <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>
     </ToolbarButtons>
-    <SubGrid></SubGrid>
 </GridLayout>

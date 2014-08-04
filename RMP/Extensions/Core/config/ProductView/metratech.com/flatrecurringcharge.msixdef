@@ -219,4 +219,13 @@
     </defaultvalue>
     <description>The date when CDE should finalize the decisions in the corresponding subscription.</description>
   </ptype>
+  <ptype exportable="False" filterable="False">
+    <dn>RCActionType</dn>
+    <type>string</type>
+    <length>32</length>
+    <required>Y</required>
+    <defaultvalue>
+    </defaultvalue>
+    <description>Specifies type of the charge: arrears, advance, credit, initial, initial correction, advance correction, or debit correction charge.</description>
+  </ptype>
 </defineservice>

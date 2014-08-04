@@ -40,7 +40,7 @@
     <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
-    <SearchOnLoad>true</SearchOnLoad>
+    <SearchOnLoad>false</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <DataBinder>
         <ServicePath>/MetraNet/AjaxServices/GetData.aspx</ServicePath>

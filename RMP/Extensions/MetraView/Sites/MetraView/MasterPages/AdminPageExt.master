@@ -46,7 +46,7 @@
     <div id="header">
       <div class="logo">
         <a href="#">
-          <img src="<%= SiteConfig.GetApplicationLogo() %>" /></a></div>
+          <img src="<%= SiteConfig.GetApplicationLogo() %>" alt="Company logo" /></a></div>
       <div id="headernav">
         <uc6:TopMenu ID="TopMenu1" runat="server" />
       </div>
@@ -97,7 +97,7 @@
       <div class="legal"><span class="legalleft">
         <!--leftcorner-->
         </span>
-        <p>&copy;2013 MetraTech Corp. All rights reserved.</p>
+        <p>&copy;2014 MetraTech Corp. All rights reserved.</p>
         <span class="legalright">
           <!--rightcorner-->
         </span></div>

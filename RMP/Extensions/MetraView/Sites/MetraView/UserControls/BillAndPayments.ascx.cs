@@ -79,7 +79,7 @@ public partial class UserControls_BillAndPayments : UserControl
       }
 
       //show or hide last payment info
-      if ((paymentInfo.LastPaymentDate == null) || (paymentInfo.LastPaymentDate == new DateTime(1900, 1, 1)))
+      if (((paymentInfo.LastPaymentDate == null) || (paymentInfo.LastPaymentDate == new DateTime(1900, 1, 1))) && paymentInfo.LastPaymentAmount == 0)
       {
         lastPaymentDiv.Visible = false;
       }
@@ -125,7 +125,7 @@ public partial class UserControls_BillAndPayments : UserControl
 
     if ((paymentInfo.LastPaymentDate == null) || (paymentInfo.LastPaymentDate == new DateTime(1900, 1, 1)))
     {
-      return "";
+        return "";
     }
 
     return paymentInfo.LastPaymentDate.ToShortDateString();

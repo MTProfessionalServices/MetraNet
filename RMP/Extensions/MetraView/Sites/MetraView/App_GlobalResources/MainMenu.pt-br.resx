@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_ACCOUNT_INFO" xml:space="preserve">
-    <value>Informações &lt;br&gt; de conta</value>
+    <value>Informações de conta</value>
   </data>
   <data name="TEXT_ADMIN" xml:space="preserve">
-    <value>Admin &lt;br&gt; &amp;nbsp;</value>
+    <value>Admin</value>
   </data>
   <data name="TEXT_BILL" xml:space="preserve">
-    <value>Faturas &lt;br&gt; e Pagamentos</value>
+    <value>Faturas e Pagamentos</value>
   </data>
   <data name="TEXT_HOME" xml:space="preserve">
-    <value>Página &lt;br&gt; Inicial</value>
+    <value>Página Inicial</value>
   </data>
   <data name="TEXT_MYACTIVITY" xml:space="preserve">
-    <value>Minhas &lt;br&gt; atividades</value>
+    <value>Minha atividade</value>
   </data>
   <data name="TEXT_MY_REPORTS" xml:space="preserve">
-    <value>Meus &lt;br&gt; relatórios</value>
+    <value>Meus relatórios</value>
   </data>
   <data name="TEXT_MY_SUBSCRIPTIONS" xml:space="preserve">
-    <value>Minhas &lt;br&gt; assinaturas</value>
+    <value>Minhas assinaturas</value>
   </data>
   <data name="TEXT_SELECT_BILL" xml:space="preserve">
-    <value>Selecionar &lt;br&gt; fatura</value>
+    <value>Selecionar fatura</value>
   </data>
   <data name="TEXT_USAGE" xml:space="preserve">
     <value>Utilização</value>

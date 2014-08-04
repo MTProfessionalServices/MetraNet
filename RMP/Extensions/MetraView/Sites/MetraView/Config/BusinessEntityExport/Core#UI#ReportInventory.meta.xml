@@ -48,7 +48,7 @@
     <FieldMetadata>
       <Name>c_LayoutName</Name>
       <Type>String</Type>
-      <isRequired>false</isRequired>
+      <isRequired>true</isRequired>
       <Length>255</Length>
     </FieldMetadata>
     <FieldMetadata>
@@ -90,7 +90,7 @@
     <FieldMetadata>
       <Name>c_LayoutExtensionName</Name>
       <Type>String</Type>
-      <isRequired>false</isRequired>
+      <isRequired>true</isRequired>
       <Length>255</Length>
     </FieldMetadata>
   </Fields>

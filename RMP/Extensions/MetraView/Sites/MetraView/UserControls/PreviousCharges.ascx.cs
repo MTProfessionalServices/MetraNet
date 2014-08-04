@@ -132,7 +132,7 @@ public partial class UserControls_PreviousCharges : UserControl
 
       foreach (var payment in InvoiceReport.Payments)
       {
-        sb.Append(String.Format(strAdj, GetLocalResourceObject("PaymentsReceived.Text"), payment.PaymentDate.ToUserDateString(UI),
+          sb.Append(String.Format(strAdj, GetLocalResourceObject("PaymentsReceived.Text"), (payment.PaymentDate.HasValue) ? payment.PaymentDate.Value.ToUserDateString(UI) : GetLocalResourceObject("NA.Text"),
                                 payment.AmountAsString));
       }
     }

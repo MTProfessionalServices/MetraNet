@@ -7,12 +7,14 @@ using MetraTech.DomainModel.BaseTypes;
 using MetraTech.Interop.MTAuth;
 using MetraTech.Security;
 using MetraTech.UI.Common;
+using MetraTech.DomainModel.Enums;
 
 public partial class login : MTPage
 {
   private string _nameSpace;
   private string _authApp;
   private const int m_ticketLifeSpanInMins = 65;
+  private int _currLanguage;
   
   protected override void OnPreInit(EventArgs e)
   {
@@ -45,6 +47,7 @@ public partial class login : MTPage
   {
     _nameSpace = SiteConfig.AuthSettings.AuthenticationNamespace;
     _authApp = SiteConfig.AuthSettings.AuthenticationCapabilityApplicationValue;
+    _currLanguage =  Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
 
     if (UI != null)
     {
@@ -113,7 +116,7 @@ public partial class login : MTPage
     object tmp = null;  //IMTSessionContext
 
     Auth auth = new Auth();
-    auth.Initialize(username, name_space, username, "MetraView");
+    auth.Initialize(username, name_space, username, "MetraView", _currLanguage);
     MetraTech.Security.LoginStatus status = auth.Login(password, _authApp, ref tmp);
     if((status == MetraTech.Security.LoginStatus.OK) || (status == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon))
     {
@@ -187,7 +190,7 @@ public partial class login : MTPage
 
     object tmp = null;  //IMTSessionContext
     Auth auth = new Auth();
-    auth.Initialize(userName, _nameSpace, userName, "MetraView");
+    auth.Initialize(userName, _nameSpace, userName, "MetraView", _currLanguage);
     MetraTech.Security.LoginStatus status = auth.Login(password, _authApp, ref tmp);
     IMTSessionContext sessionContext = tmp as IMTSessionContext;
     string ticket = "";
@@ -261,6 +264,7 @@ public partial class login : MTPage
 
       case MetraTech.Security.LoginStatus.FailedPasswordExpired:
         err = Resources.ErrorMessages.ERROR_LOGIN_LOCKED;
+        auth.LockAccount();
         break;
 
       case MetraTech.Security.LoginStatus.NoCapabilityToLogonToThisApplication:

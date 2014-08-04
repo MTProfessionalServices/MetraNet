@@ -14,6 +14,7 @@
         var indent = target.getAttributeNS('ext', 'indent');
         var page = target.getAttributeNS('ext', 'page');
         var path = target.getAttributeNS('ext', 'path');
+        var currency = target.getAttributeNS('ext', 'currency');
         if (position == "open") {
           Ext.fly(accId).update('');
           var elImg = Ext.fly("img" + accId);
@@ -30,7 +31,7 @@
         var mgr = el.getUpdater();
         mgr.update({
           url: reportLevelSvc,
-          params: { "id": accId, "accEffDate": accEffDate, "indent": indent, "page": page },
+          params: { "id": accId, "accEffDate": accEffDate, "indent": indent, "page": page, "currency": currency },
           text: TEXT_LOADING,
           timeout: 60000
         });
@@ -51,6 +52,7 @@
         var indent = target.getAttributeNS('ext', 'indent');
         var page = target.getAttributeNS('ext', 'page');
         var path = target.getAttributeNS('ext', 'path');
+        var currency = target.getAttributeNS('ext', 'currency');
         if (position == "open") {
             Ext.get('<%=PanelImpliedTaxes.ClientID %>').setStyle('display', 'none');  // to hide it
             var elImg = Ext.fly("subtotalBullet");
@@ -79,6 +81,7 @@
         var indent = target.getAttributeNS('ext', 'indent');
         var page = target.getAttributeNS('ext', 'page');
         var path = target.getAttributeNS('ext', 'path');
+        var currency = target.getAttributeNS('ext', 'currency');
         if (position == "open") {
             Ext.get('<%=TaxSubTotalsPanel.ClientID %>').setStyle('display', 'none');  // to hide it
             var elImg = Ext.fly("taxBullet");

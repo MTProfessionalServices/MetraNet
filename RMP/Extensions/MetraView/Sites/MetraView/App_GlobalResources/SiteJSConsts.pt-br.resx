@@ -124,13 +124,13 @@
     <value>j/n/Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s</value>
+    <value>j/n/Y G:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s | j/n/Y</value>
+    <value>j/n/Y G:i:s|/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y g:i:s</value>
+    <value>j/n/Y G:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>dd/mm/YYYY</value>
@@ -142,7 +142,7 @@
     <value>%b %#d, %Y</value>
   </data>
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
-    <value>Nenhum registro encontrado.</value>
+    <value>Nenhum registro encontrado</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Detalhes da conta</value>
@@ -208,7 +208,7 @@
     <value>Coluna</value>
   </data>
   <data name="TEXT_COLUMN_CONFIG_PROMPT" xml:space="preserve">
-    <value>Selecionar todas as colunas visíveis Usar arrastar e soltar para reordenar</value>
+    <value>Selecione todas as colunas visíveis. Use arrastar e soltar para classificar novamente</value>
   </data>
   <data name="TEXT_CONFIGURATION_COMPLETED" xml:space="preserve">
     <value>Alterações da configuração concluídas com sucesso</value>
@@ -241,7 +241,7 @@
     <value>Excluir</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>Atualização em massa</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
     <value>Tem certeza que deseja excluir {0}?</value>
@@ -256,7 +256,7 @@
     <value>Tem certeza que deseja excluir o modelo {0}?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
-    <value>Tem certeza de que deseja remover {0} a partir do modelo?</value>
+    <value>Tem certeza que deseja remover {0} do modelo?</value>
   </data>
   <data name="TEXT_DELETE1" xml:space="preserve">
     <value>Excluir</value>
@@ -268,7 +268,7 @@
     <value>Descrição de detalhes</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
-    <value>Editar </value>
+    <value>Editar</value>
   </data>
   <data name="TEXT_EDIT_ACH" xml:space="preserve">
     <value>Editar ACH</value>
@@ -280,10 +280,10 @@
     <value>Editar conta de cobrança</value>
   </data>
   <data name="TEXT_EDIT_GRPSUB" xml:space="preserve">
-    <value>Editar </value>
+    <value>Editar</value>
   </data>
   <data name="TEXT_EDIT_GRPSUB_MEMBER" xml:space="preserve">
-    <value>Editar </value>
+    <value>Editar</value>
   </data>
   <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
     <value>Editar modelo</value>
@@ -295,7 +295,7 @@
     <value>Data de término</value>
   </data>
   <data name="TEXT_ERROR" xml:space="preserve">
-    <value>Erro</value>
+    <value>ERRO</value>
   </data>
   <data name="TEXT_ERROR_CREATE_RELSHIP" xml:space="preserve">
     <value>Erro ao criar relacionamentos</value>
@@ -337,55 +337,55 @@
     <value>Exportar</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>Export All Filtered Records</value>
+    <value>Exportar todos os registros filtrados</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>Bulk Update All Filtered Records</value>
+    <value>Atualização em massa de todos os registros filtrados</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>Export Selected Records</value>
+    <value>Exportar registros selecionados</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>Bulk Update Selected Records</value>
+    <value>Atualização em massa dos registros selecionados</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Exportar só a página atual</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>Bulk Update Current Page Only</value>
+    <value>Atualização em massa apenas da página atual</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Exportar resultados da busca</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>Bulk Update Search Results</value>
+    <value>Atualização em massa dos resultados de pesquisa</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>Nothing will be updated</value>
+    <value>Nada será atualizado</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no selected BMEs for bulk update</value>
+    <value>Não há BMEs selecionados para atualização em massa</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>Too many records to update</value>
+    <value>Muitos registros para atualizar</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>Você vai atualizar NUMBER_TO_UPDATE itens. Selecione menos itens para atender à limitação de {0} item/itens</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no properties for bulk update</value>
+    <value>Não há propriedades para atualização em massa</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>Attention. Your changes will be permanent</value>
+    <value>Atenção. Suas alterações serão permanentes</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>Are you sure that you want to make these changes?</value>
+    <value>Tem certeza de que deseja fazer essas alterações?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>No properties are going to be updated</value>
+    <value>Nenhuma propriedade será atualizada</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Properties that are going to be updated</value>
+    <value>Propriedades que serão atualizadas</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Informações externas</value>
@@ -394,7 +394,7 @@
     <value>Falha ao carregar página.</value>
   </data>
   <data name="TEXT_FILTER_CONFIG_PROMPT" xml:space="preserve">
-    <value>Selecionar todos os filtros visíveis. Usar arrastar e soltar para reordenar</value>
+    <value>Selecione todos os filtros visíveis. Use arrastar e soltar para classificar novamente</value>
   </data>
   <data name="TEXT_FIND_ACCOUNT" xml:space="preserve">
     <value>Localizar conta</value>
@@ -418,13 +418,13 @@
     <value>Ajuda</value>
   </data>
   <data name="TEXT_HELP_TITLE" xml:space="preserve">
-    <value>MetraView Help</value>
+    <value>Ajuda do MetraView</value>
   </data>
   <data name="TEXT_HIERARCHY_ROOT" xml:space="preserve">
     <value>Raiz de hierarquia</value>
   </data>
   <data name="TEXT_HISTORY_TOOLTIP" xml:space="preserve">
-    <value>Números de contas:  {0} &lt;br/&gt;Número de contas concluídas: {1} &lt;br/&gt;Número de erros de conta: {2} &lt;br/&gt;Número de assinaturas: {3} &lt;br/&gt;Número de assinaturas concluídas:  {4}&lt;br/&gt; Número de erros de assinatura: {5}</value>
+    <value>Número de contas:  {0} &lt;br/&gt;Número de contas concluídas: {1} &lt;br/&gt;Número de erros de conta: {2} &lt;br/&gt;Número de assinaturas: {3} &lt;br/&gt;Número de assinaturas concluídas:  {4}&lt;br/&gt; Número de erros de assinatura: {5}</value>
   </data>
   <data name="TEXT_INTERNAL" xml:space="preserve">
     <value>Informações internas</value>
@@ -520,10 +520,10 @@
     <value>Propriedades</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>Você recebeu um crédito, pois sua assinatura com uma cobrança recorrente sendo faturada antecipadamente foi alterada durante esse período de faturamento.&lt;BR&gt;&lt;BR&gt;Em sua fatura anterior, nós cobramos [RCAmount] de você, antecipadamente.  Você usou o serviço apenas de [RCIntervalStart] a [RCIntervalEnd].  Assim, esse crédito representa a diferença de [ProratedIntervalStart] a [ProratedIntervalEnd].  Esse é um período de [ProratedDays] dias.&lt;BR&gt;&lt;BR&gt;Para calcular o crédito, nós usamos uma taxa diária de [ProratedDailyRate].  A taxa diária foi calculada dividindo [RCAmount] pelo número de dias do período.  Então, usamos o período de [ProratedDays] dias e multiplicamos por [ProratedDailyRate] resultando em um crédito de [Amount] para você.&lt;BR&gt;</value>
+    <value>Você recebeu esse crédito, pois sua assinatura com uma cobrança recorrente sendo faturada em adiantado foi alterada durante esse período de faturamento.&lt;BR&gt;&lt;BR&gt;Na sua fatura anterior, nós cobramos [RCAmount] em adiantado.  Você usou o serviço apenas de [RCIntervalStart] a [ProratedIntervalStartPreviousDay].  Portanto, esse crédito representa a diferença de [ProratedIntervalStart] a [ProratedIntervalEnd].  Esse é um período de [ProratedDays] dias.&lt;BR&gt;&lt;BR&gt;Para calcular o crédito, usamos uma taxa diária de [ProratedDailyRate].  A taxa diária foi recalculada tomando [RCAmount] e dividindo pelo número de dias no período. Depois, tomamos o período de [ProratedDays] dias e multiplicamos por [ProratedDailyRate], resultando em um crédito de [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
-    <value>Essa cobrança foi rateada.  O rateio reduz as cobranças cobrando somente pelo número de dias que você assinou um serviço em um dado período de faturamento.&lt;BR&gt;&lt;BR&gt;Para esse item, sua cobrança começou em [ProratedIntervalStart] e terminou em [ProratedIntervalEnd].  Assim, você recebeu [ProratedDays] dias de serviço.  Sua cobrança para esse período foi calculada multiplicando a taxa diária de [ProratedDailyRate] pelos [ProratedDays] dias nos quais você estava assinando.  Isso é igual a [Amount].  (A taxa diária de [ProratedDailyRate] é calculada dividindo as cobranças do período de [RCAmount] pelo número de dias no período).&lt;BR&gt;</value>
+    <value>Essa fatura foi rateada. O rateamento reduz as cobranças cobrando apenas pelo número de dias que você assinou o serviço em um dado período de faturamento.&lt;BR&gt;&lt;BR&gt;Para esse item, suas cobranças começaram em [ProratedIntervalStart] e terminaram em [ProratedIntervalEnd].  Assim, você recebeu [ProratedDays] dias de serviço. Sua cobrança desse período foi calculada multiplicando a taxa diária de [ProratedDailyRate] por [ProratedDays] dias da sua assinatura.  Isso equivale a [Amount].  (A taxa diária de [ProratedDailyRate] é calculada dividindo as cobranças do período de [RCAmount] pelo número de dias do período).&lt;BR&gt;</value>
   </data>
   <data name="TEXT_RATES" xml:space="preserve">
     <value>Taxas  </value>
@@ -532,7 +532,7 @@
     <value>Contas recentes</value>
   </data>
   <data name="TEXT_RECURRING_CHARGE_CREDIT" xml:space="preserve">
-    <value>Você recebeu um crédito, pois sua assinatura com uma cobrança recorrente sendo faturada antecipadamente foi alterada durante esse período de faturamento.&lt;BR&gt;&lt;BR&gt;Em sua fatura anterior, nós cobramos [RCAmount] de você, antecipadamente. Estamos agora lhe reembolsando esse valor.&lt;BR&gt;</value>
+    <value>Você recebeu um crédito, pois sua assinatura com uma cobrança recorrente sendo faturada antecipadamente foi alterada durante esse período de faturamento.&lt;BR&gt;&lt;BR&gt;Em sua fatura anterior, nós cobramos [RCAmount] de você, antecipadamente. Esse valor será reembolsado.&lt;BR&gt;</value>
   </data>
   <data name="TEXT_RELOAD_ACCOUNT" xml:space="preserve">
     <value>Recarregar conta</value>
@@ -586,7 +586,7 @@
     <value>Login do SelfCare</value>
   </data>
   <data name="TEXT_SESSION_TIMEOUT_TEXT" xml:space="preserve">
-    <value>Sua sessão expirou. Faça login novamente.</value>
+    <value>Sua sessão expirou. Faça login novamente</value>
   </data>
   <data name="TEXT_SESSION_TIMEOUT_TITLE" xml:space="preserve">
     <value>A sessão expirou</value>
@@ -637,7 +637,7 @@
     <value>Histórico de utilização</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Há erros de validação nesta página. Preencha os campos obrigatórios.</value>
+    <value>Há erros de validação nessa página. Preencha os campos obrigatórios.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Valor</value>
@@ -670,6 +670,42 @@
     <value>Relacionamento para :</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value />
+    <value>O nome não pode contar caracteres de aspas simples e duplas.</value>
+  </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>As senhas não coincidem.</value>
+  </data>
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Insira um número de telefone válido. Formato: 555-555-5555</value>
+  </data>
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>O formato do cartão de crédito é inválido</value>
+  </data>
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>O número CV inválido</value>
+  </data>
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Formato de SSN: xxx-xx-xxxx</value>
+  </data>
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Apenas dígitos numéricos são permitidos</value>
+  </data>
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>CEP inválido</value>
+  </data>
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>A inicial do meio é inválida</value>
+  </data>
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>j/n/Y G:i:s</value>
+  </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>clique com o botão direito para opções</value>
+  </data>
+  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+    <value>Nenhuma transação encontrada para o intervalo atual</value>
   </data>
 </root>

@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using MetraTech.DomainModel.Billing;
 using MetraTech.UI.Common;
 using System.ServiceModel;
 using MetraTech.Debug.Diagnostics;
@@ -44,7 +45,47 @@ public partial class AjaxServices_QueryService : MTListServicePage
           // Set the parameters
           foreach (SQLQueryParam param in QueryInfo.Params)
           {
-            stmt.AddParam(param.FieldName, param.FieldValue);
+              // ESR-6678 Pass in the values for parameters supported by MetraView
+              if (param.FieldName == "%%ACCOUNT_ID%%")
+              {
+                  if (UI.Subscriber.SelectedAccount._AccountID != null)
+                  {
+                      stmt.AddParam(param.FieldName, UI.Subscriber.SelectedAccount._AccountID.ToString());
+                  }
+                  else
+                  {
+                      throw new MASBasicException("Could not get _AccountID for logged in MetraView account to pass to " +
+                          QueryInfo.QueryName + " query for %%ACCOUNT_ID%% parameter.");
+                  }
+              }
+              else if (param.FieldName == "%%PAYER_ID%%")
+              {
+                  if (UI.Subscriber.SelectedAccount.PayerID != null)
+                  {
+                      stmt.AddParam(param.FieldName, UI.Subscriber.SelectedAccount.PayerID.ToString());
+                  }
+                  else
+                  {
+                      throw new MASBasicException("Could not get PayerID for logged in MetraView account to pass to " +
+                          QueryInfo.QueryName + " query for %%PAYER_ID%% parameter.");
+                  }
+              }
+              else if (param.FieldName == "%%INTERVAL_ID%%")
+              {
+                  var billManager = new BillManager(UI);
+                  Interval interval = billManager.GetCurrentInterval();
+                  if (interval != null)
+                  {
+                      stmt.AddParam(param.FieldName, interval.ID.ToString());
+                  }
+                  else
+                  {
+                      throw new MASBasicException("Could not get current interval ID for logged in MetraView account to pass to " +
+                          QueryInfo.QueryName + " query for %%INTERVAL_ID%% parameter.");
+                  }
+              }
+              else
+                  stmt.AddParam(param.FieldName, param.FieldValue);
           }
 
           #region Apply Sorting
@@ -159,6 +200,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
       Response.BufferOutput = false;
       Response.ContentType = "application/csv";
       Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+      Response.BinaryWrite(BOM);
     }
 
     //if there are more records to process than we can process at once, we need to break up into multiple batches
@@ -328,7 +370,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
         {
           SQLField curField = curRecord.Fields[i];
 
-          if (curField.FieldName.ToLower() == columnID.ToLower())
+          if (curField.FieldName.ToLower() == columnID.ToLower() && !exportColumns.Contains(i))
           {
             exportColumns.Add(i);
             break;
@@ -421,7 +463,30 @@ public partial class AjaxServices_QueryService : MTListServicePage
       int realFieldID = exportColumns[i];
       if (curRecord.Fields[realFieldID].FieldValue != null)
       {
-        sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        string renderer = Request["column[" + i + "][renderer]"];
+        if (curRecord.Fields[realFieldID].FieldDataType == typeof (DateTime) && !String.IsNullOrEmpty(renderer))
+        {
+          if (renderer.Equals("shortdatestring", StringComparison.Ordinal))
+          {
+            try
+            {
+              DateTime dt = (DateTime) curRecord.Fields[realFieldID].FieldValue;
+              sb.Append(dt.ToShortDateString().Replace("\"", "\"\""));
+            }
+            catch
+            {
+              sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+            }
+          }
+          else
+          {
+            sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+          }
+        }
+        else
+        {
+          sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        }
       }
       sb.Append("\"");
     }

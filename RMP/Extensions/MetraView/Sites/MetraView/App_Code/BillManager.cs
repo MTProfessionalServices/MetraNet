@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,19 +12,20 @@ using Core.UI;
 using MetraTech;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
-using MetraTech.Core.Services.ClientProxies;
-using MetraTech.DomainModel.Common;
-using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.UI.Common;
-using MetraTech.DomainModel.Billing;
+using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
-using MetraTech.UI.Controls.MTLayout;
-using RCD = MetraTech.Interop.RCD;
+using MetraTech.DomainModel.Billing;
+using MetraTech.DomainModel.Common;
+using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.COMDBObjects;
-using ICOMLocaleTranslator = MetraTech.Interop.COMDBObjects.ICOMLocaleTranslator;
+using MetraTech.UI.Common;
+using MetraTech.UI.Controls.MTLayout;
 using MetraTech.UI.Tools;
-using MetraTech.DomainModel.AccountTypes;
+using ICOMLocaleTranslator = MetraTech.Interop.COMDBObjects.ICOMLocaleTranslator;
+using RCD = MetraTech.Interop.RCD;
+using MetraTech.Core.Services.ClientProxies;
 
 /// <summary>
 /// BillManager - used to load the online bill
@@ -33,7 +35,7 @@ public class BillManager: System.Web.UI.TemplateControl
   #region Private member variables
   private static readonly Logger Logger = new Logger("[MetraView_BillManger]");
   private readonly UIManager UI;
-  private UsageHistoryService_GetInvoiceReport_Client invoiceReportClient;
+  private UsageHistoryService_GetInvoiceReportLocalized_Client invoiceReportClient;
   #endregion
 
   #region Application Cache Properties
@@ -192,14 +194,14 @@ public class BillManager: System.Web.UI.TemplateControl
     {
       var currentIntervals =
         from currinter in Intervals
-        where currinter.ID.ToString() == HttpContext.Current.Session[SiteConstants.SelectedIntervalId].ToString() && currinter.InvoiceNumber == HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice].ToString()
+        where currinter.ID.ToString(CultureInfo.InvariantCulture) == HttpContext.Current.Session[SiteConstants.SelectedIntervalId].ToString() && currinter.InvoiceNumber == HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice].ToString()
         select currinter;
 
       foreach (var itm in currentIntervals)
       {
         HttpContext.Current.Session[SiteConstants.Interval] = itm;
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = itm.ID.ToString();
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = itm.InvoiceNumber.ToString();
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = itm.ID.ToString(CultureInfo.InvariantCulture);
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = itm.InvoiceNumber;
         return itm;
       } 
     }
@@ -243,8 +245,8 @@ public class BillManager: System.Web.UI.TemplateControl
       if (interval != null)
       {
         HttpContext.Current.Session[SiteConstants.Interval] = interval;
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = interval.ID.ToString();
-        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = interval.InvoiceNumber.ToString();
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalId] = interval.ID.ToString(CultureInfo.InvariantCulture);
+        HttpContext.Current.Session[SiteConstants.SelectedIntervalinvoice] = interval.InvoiceNumber;
       }
       return interval; 
     }
@@ -303,12 +305,12 @@ public class BillManager: System.Web.UI.TemplateControl
 
     if (refreshData)
     {
-      invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+      invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
                               {
                                 UserName = UI.User.UserName,
                                 Password = UI.User.SessionPassword,
                                 In_intervalID = interval.ID,
-                                In_languageID = GetLanguageCode(),
+                                In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
                                 In_inlineVATTaxes = ReportParams.InlineVATTaxes,
                                 In_owner = new AccountIdentifier((int) UI.Subscriber.SelectedAccount._AccountID)
                               };
@@ -342,12 +344,12 @@ public class BillManager: System.Web.UI.TemplateControl
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
 
     Interval interval = GetCurrentInterval();
-    invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+    invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
                               {
                                 UserName = UI.User.UserName,
                                 Password = UI.User.SessionPassword,
                                 In_intervalID = interval.ID,
-                                In_languageID = GetLanguageCode(),
+                                In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
                                 In_inlineVATTaxes = ReportParams.InlineVATTaxes,
                                 In_owner = new AccountIdentifier((int) UI.Subscriber.SelectedAccount._AccountID)
                               };
@@ -393,12 +395,12 @@ public class BillManager: System.Web.UI.TemplateControl
 
     if (refreshData)
     {
-      invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+      invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
       {
         UserName = UI.User.UserName,
         Password = UI.User.SessionPassword,
         In_intervalID = interval.ID,
-        In_languageID = GetLanguageCode(),
+        In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
         In_inlineVATTaxes = ReportParams.InlineVATTaxes,
         In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID)
       };
@@ -433,12 +435,12 @@ public class BillManager: System.Web.UI.TemplateControl
 
     Interval interval = GetOpenIntervalWithoutSettingItAsCurrentOnTheUI();
 
-    invoiceReportClient = new UsageHistoryService_GetInvoiceReport_Client
+    invoiceReportClient = new UsageHistoryService_GetInvoiceReportLocalized_Client
     {
       UserName = UI.User.UserName,
       Password = UI.User.SessionPassword,
       In_intervalID = interval.ID,
-      In_languageID = GetLanguageCode(),
+      In_languageID = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
       In_inlineVATTaxes = ReportParams.InlineVATTaxes,
       In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID)
     };
@@ -502,38 +504,37 @@ public class BillManager: System.Web.UI.TemplateControl
 
     //ESR-5461
     string accounttimezone = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).TimezoneIDValueDisplayName;
+    String timeZoneId = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).TimezoneID.ToString();
+    TimeZoneID? accounttimezoneID = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).TimezoneID;
     // Get list of TimeZones with Ids
     List<TimeZoneHelper> TimeZoneList = TimeZoneHelper.GetTimeZoneHelpers();
     //Iterate through usagedetails items
     foreach (BaseProductView bpv in usageDetailsClient.InOut_usageDetails.Items)
     {
+      //string columnName
        foreach (System.Reflection.PropertyInfo prop in bpv.GetType().GetProperties())
        {
          object[] attribs = prop.GetCustomAttributes(typeof(MTProductViewMetadataAttribute), false);
          if (attribs.Length > 0 )
          {
-           MTProductViewMetadataAttribute pvattrib = (MTProductViewMetadataAttribute)attribs[0];
+           var pvattrib = (MTProductViewMetadataAttribute)attribs[0];
             if (pvattrib.UserVisible)
             {
               //check if pvattrib type is timestamp then convert to LocalTimeZone
-              if (pvattrib.DataType.ToString() == "timestamp")
+              if (Convert.ToString(pvattrib.DataType) == "timestamp")
               {
                 try 
                 { 
                   //get current account UTC local timezone
-                  var currenTimezone = TimeZoneList.Where(timezone => timezone.DisplayName == accounttimezone).FirstOrDefault();
+                  var currenTimezone = TimeZoneList.FirstOrDefault(timezone => timezone.DisplayName == accounttimezoneID.ToString());
                   if (currenTimezone != null)
                   {
-                    TimeZoneInfo targetTimezoneinfo = TimeZoneInfo.FindSystemTimeZoneById(currenTimezone.Id);
-                  //Convert to UTC (GMT) Time  
-                    DateTime currentDate = Convert.ToDateTime(bpv.GetValue(pvattrib.ColumnName));  //.ToUniversalTime();
-                    Logger.LogInfo(pvattrib.ColumnName + "Has value before converion to Local timezone" + currentDate);
-                  // Converted UTC Time  
-                    //currentDate = TimeZoneInfo.ConvertTimeToUtc(currentDate);
-                    //Logger.LogInfo(pvattrib.ColumnName + "Has value after converion to UTC " + currentDate.ToString());
-                    Logger.LogInfo(pvattrib.ColumnName + " has value after converting to local TimeZone (" + accounttimezone + ") " + TimeZoneInfo.ConvertTimeFromUtc(currentDate, targetTimezoneinfo));
-                    prop.SetValue(bpv, TimeZoneInfo.ConvertTimeFromUtc(currentDate, targetTimezoneinfo), null);
-                  }
+                    //TimeZoneInfo targetTimezoneinfo = TimeZoneInfo.FindSystemTimeZoneById(currenTimezone.Id);
+                    //Convert to UTC (GMT) Time  
+                    var currentDate = Convert.ToDateTime(bpv.GetValue(pvattrib.ColumnName));  //.ToUniversalTime();
+                    prop.SetValue(bpv, this.GetLocalTime(currenTimezone.Id, currentDate),null);
+                  // Converted UTC Time 
+                   }
                   else
                   {
                     Logger.LogInfo("Specified Timezone " + accounttimezone + "not found");
@@ -548,8 +549,108 @@ public class BillManager: System.Web.UI.TemplateControl
          }
        }
     }
-
     return usageDetailsClient.InOut_usageDetails;
+  }
+
+  public DateTime GetLocalTime(String TimeZoneNameId, DateTime date)
+  {
+    DateTime utcTime = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, DateTimeKind.Utc);
+    // Get the venue time zone info
+    TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById(TimeZoneNameId);
+    TimeSpan timeDiffUtcClient = tz.BaseUtcOffset;
+    DateTime localDate = TimeZoneInfo.ConvertTimeFromUtc(date, tz);
+
+    /* if (tz.SupportsDaylightSavingTime && tz.IsDaylightSavingTime(localDate))
+      {
+        TimeZoneInfo.AdjustmentRule[] rules = tz.GetAdjustmentRules();
+        foreach (var adjustmentRule in rules)
+        {
+          if (adjustmentRule.DateStart <= localDate && adjustmentRule.DateEnd >= localDate)
+          {
+            double dayLtDelta = adjustmentRule.DaylightDelta.Hours;
+            localDate = localDate.AddHours(dayLtDelta);
+          }
+        }
+      }
+      else
+      {
+        DateTimeOffset utcDate = localDate.ToUniversalTime();
+      }*/
+    return localDate;
+  }
+
+  /// <summary>
+  /// CORE-7967 -- Returns Time Zone ID based on the TimeZone ENUM list. 
+  /// </summary>
+  /// <param name="timeZoneList"></param>
+  /// <param name="timeZoneId"></param>
+  /// <returns>timezoneDisplayName</returns>
+  public String ConvertTimeZoneId(List<TimeZoneList> timeZoneList, String timeZoneId)
+  {
+    String timezoneDisplayName = Convert.ToString(timeZoneId);
+    String ThreeUndrScr = "___";
+    String TwoUndrScr = "__";
+    String OneUndrScr = "_";
+    String[] separator = { " " };
+    bool bFndIt = false;
+
+    timezoneDisplayName = timezoneDisplayName.Replace(ThreeUndrScr, " ");
+    timezoneDisplayName = timezoneDisplayName.Replace(TwoUndrScr, " ");
+    timezoneDisplayName = timezoneDisplayName.Replace(OneUndrScr, " ").Trim();
+    String[] timezoneVals = timezoneDisplayName.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+    for (int i = 0; i < timeZoneList.Count; i++)
+    {
+      int j1 = 0;
+      int j2 = 0;
+      foreach (String str in timezoneVals)
+      {
+        int loc = timeZoneList[i].DisplayName.IndexOf(str);
+        if (loc == -1)
+        {
+          j1++;
+          bFndIt = false;
+          int result;
+          if ((j1 == 3) || (Int32.TryParse(str, out result)))
+          {
+            break;
+          }
+        }
+        else
+        {
+          j2++;
+          if (j2 == 4)
+          {
+            bFndIt = true;
+            break;
+          }
+        }
+      }
+
+      if (bFndIt)
+      {
+        timezoneDisplayName = Convert.ToString(timeZoneList[i].DisplayName);
+        break;
+      }
+    }
+    return timezoneDisplayName;
+  }
+
+  /// <summary>
+  /// Returns fully qualified name 
+  /// </summary>
+  public string GetFQN(int id_view)
+  {
+      string nm_name = "";
+      var usageDetailsClient = new UsageHistoryService_GetFullyQualifiedName_Client
+      {
+          UserName = UI.User.UserName,
+          Password = UI.User.SessionPassword,
+          In_id_view =  id_view,
+          Out_nm_name = nm_name
+      };
+         usageDetailsClient.Invoke();
+
+      return usageDetailsClient.Out_nm_name;
   }
 
   /// <summary>
@@ -774,8 +875,15 @@ public class BillManager: System.Web.UI.TemplateControl
   {
     try
     {
-      var languageCode = (LanguageCode)CommonEnumHelper.GetEnumByValue(typeof(LanguageCode), Thread.CurrentThread.CurrentUICulture.ToString());
-      return languageCode;
+      if (Thread.CurrentThread.CurrentUICulture.ToString().ToLower() == "ja-jp")
+      {
+        return LanguageCode.JP;
+      }
+      if (Thread.CurrentThread.CurrentUICulture.ToString().ToLower() == "it-it")
+      {
+        return LanguageCode.IT;
+      }
+      return (LanguageCode)CommonEnumHelper.GetEnumByValue(typeof(LanguageCode), Thread.CurrentThread.CurrentUICulture.ToString());
     }
     catch (Exception)
     {
@@ -784,7 +892,7 @@ public class BillManager: System.Web.UI.TemplateControl
     }
   }
 
-  /// <summary>
+   /// <summary>
   /// Keep a cache of locale translators
   /// </summary>
   /// <param name="languageId"></param>
@@ -854,7 +962,13 @@ public class BillManager: System.Web.UI.TemplateControl
       return GetReports(-1);
   }
   #endregion
+  #region  GetCreditNotes
+  public List<ReportFile> GetCreditNotesReports()
+  {
+    return GetReports(-2);
+  }
 
+  #endregion
   #region Payment Info - Last Payment and Next Payment Amount and Due Date
   public PaymentInfo GetPaymentInfo(int accID)
   {
@@ -949,14 +1063,15 @@ public class BillManager: System.Web.UI.TemplateControl
       }
 
       sb.Append("<tr>");
-      sb.Append(String.Format("<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\">{3}</a></td>", 
+      sb.Append(String.Format("<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\" ext:currency=\"{5}\">{3}</a></td>", 
                                 indent * 10,
                                 uniqueId, 
                                 indent,
                                 // SECENG: CORE-4791 CLONE - MSOL BSS 31927 Online Bill - Stored XSS through the individual or tenant name associated with syndication orders (ESR for 31444)
                                 // Added HTML enecoding
                                 Utils.EncodeForHtml(level.Name),
-                                SliceConverter.ToString(level.AccountEffectiveDate)));
+                                SliceConverter.ToString(level.AccountEffectiveDate), 
+                                level.Currency));
 
       sb.Append(String.Format("<td class=\"{0}\">{1}</td>", GetAmountStyle(indent, isByProduct), level.DisplayAmountAsString));
 
@@ -1120,11 +1235,12 @@ public class BillManager: System.Web.UI.TemplateControl
   // By-Folder Report Rendering
   ////////////////////////////////////////////////////////////////////////////
   #region By-Folder Report Rendering
+
   /// <summary>
   /// Get By Folder Report
   /// </summary>
   /// <returns></returns>
-  public ReportLevel GetByFolderReport(int? folderId, DateRangeSlice accountEffectiveDate)
+  public ReportLevel GetByFolderReport(int? folderId, DateRangeSlice accountEffectiveDate, string currency = null)
   {
     if (UI.Subscriber.SelectedAccount == null)
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
@@ -1145,7 +1261,8 @@ public class BillManager: System.Web.UI.TemplateControl
       In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID),
       In_accountEffectiveDate = accountEffectiveDate,
       In_repParams = ReportParams,
-      In_folder = acc 
+      In_folder = acc, 
+      In_currency = currency
     };
 
     try
@@ -1268,7 +1385,7 @@ public class BillManager: System.Web.UI.TemplateControl
       if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
         var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        client.GetSubscriptions(acct, ref subList);
+        client.GetSubscriptionsByLanguageCode(acct, Convert.ToInt32(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)), ref subList);
       }
 
       client.Close();
@@ -1292,7 +1409,7 @@ public class BillManager: System.Web.UI.TemplateControl
   public MTList<ProductOffering> GetEligiblePOsForSubscriptions(MTList<ProductOffering> poList)
   {
     SubscriptionServiceClient client = null;
-
+     
     try
     {
 
@@ -1304,7 +1421,7 @@ public class BillManager: System.Web.UI.TemplateControl
       if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
         var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        client.GetEligiblePOsForSubscriptionMetraView(acct, MetraTime.Now, false, ref poList);
+        client.GetEligiblePOsForSubscriptionMetraView(acct, MetraTime.Now, false, Convert.ToInt32(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)), ref poList);
       }
 
       client.Close();

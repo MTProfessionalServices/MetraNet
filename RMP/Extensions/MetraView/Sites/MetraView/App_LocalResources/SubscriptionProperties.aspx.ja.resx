@@ -141,4 +141,7 @@
   <data name="EmptyLiteral.Text" xml:space="preserve">
     <value>記録が見つかりません</value>
   </data>
+  <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using System.Web;
 using System.Web.Security;
 using Core.UI.Interface;
@@ -26,7 +28,14 @@ public partial class EntryPointPage : MTPage
     string URL = Request.QueryString["URL"];
     string Name = Request.QueryString["Name"];
     string refstr = Request.QueryString["ref"];
+    //Set session variables to logout from asp applications when MetraView user logs out. Valid only when MetraView is loaded from MetraCare
+    Session["IsMAMActive"] = string.IsNullOrEmpty(Request.QueryString["IsMAMActive"]) ? "" : Request.QueryString["IsMAMActive"];
+    Session["IsMOMActive"] = string.IsNullOrEmpty(Request.QueryString["IsMOMActive"]) ? "" : Request.QueryString["IsMOMActive"];
+    Session["IsMCMActive"] = string.IsNullOrEmpty(Request.QueryString["IsMCMActive"]) ? "" : Request.QueryString["IsMCMActive"];
 
+    SetMetraViewLanguage(string.IsNullOrEmpty(Request.QueryString["LanguageCode"]) ? "" : Request.QueryString["LanguageCode"]);
+
+    
     // Get URL for entrypoint name
     if(!String.IsNullOrEmpty(Name))
     {
@@ -165,7 +174,21 @@ public partial class EntryPointPage : MTPage
       Session[SiteConstants.LastActiveInterval] = null;
       Session[SiteConstants.PaymentInformation] = null;
       Session[SiteConstants.OwnedAccount] = null;
-
+      
   }
 
+  private void SetMetraViewLanguage(string languageCode)
+  {
+    string browserLanguage = Thread.CurrentThread.CurrentCulture.Name;
+    if (languageCode == "")
+    {
+      Session[Constants.SELECTED_LANGUAGE] =  !string.IsNullOrEmpty(browserLanguage) ? browserLanguage : "en-US";  
+    }
+    else
+    {
+      Session[Constants.SELECTED_LANGUAGE] = languageCode;
+    }
+    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Session[Constants.SELECTED_LANGUAGE].ToString());
+    Thread.CurrentThread.CurrentUICulture = new CultureInfo(Session[Constants.SELECTED_LANGUAGE].ToString());
+  }
 }

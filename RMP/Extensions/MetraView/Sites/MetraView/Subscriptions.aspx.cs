@@ -80,11 +80,25 @@ public partial class Subscriptions : MTAccountPage
             ListItem poItem = new ListItem();
             if (prodOff.Description != null)
             {
-              poItem.Text = prodOff.Name + "---" + prodOff.Description.ToString() + "<br/><br/>";
+              if (prodOff.DisplayName != null)
+              {
+                poItem.Text = prodOff.DisplayName + "---" + prodOff.Description.ToString() + "<br/><br/>";
+              }
+              else
+              {
+                poItem.Text = prodOff.Name + "---" + prodOff.Description.ToString() + "<br/><br/>"; 
+              }
             }
             else
             {
-              poItem.Text = prodOff.Name + "<br/><br/>";
+              if (prodOff.DisplayName != null)
+              {
+                poItem.Text = prodOff.DisplayName + "<br/><br/>";
+              }
+              else
+              {
+                poItem.Text = prodOff.Name + "<br/><br/>";
+              }
             }
 
             poItem.Value = prodOff.ProductOfferingId.Value.ToString();

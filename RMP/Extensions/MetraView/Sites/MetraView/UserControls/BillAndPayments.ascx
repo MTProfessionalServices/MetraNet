@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_BillAndPayments" CodeFile="BillAndPayments.ascx.cs" %>
-<%@ OutputCache Duration="1200" VaryByParam="none" VaryByCustom="username" shared="true" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 

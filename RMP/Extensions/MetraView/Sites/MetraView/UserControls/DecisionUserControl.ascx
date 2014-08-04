@@ -186,7 +186,7 @@ white-space:nowrap;
     .height(height);
 
   d3.json("<%=Request.ApplicationPath%>/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
-    var svg = d3.select("#DecisionInstances-body").selectAll("svg")
+    var svg = d3.select("#NowCast-body").selectAll("svg")
       .data(data)
     .enter().append("svg")
       .attr("class", "bullet")
@@ -223,37 +223,47 @@ white-space:nowrap;
       .attr("dy", "1.2em")
       .text(function (d) { return d.subtitle; });
 
-    title.append("text")
-      .attr("class", "notice")
-      .attr("x", width + margin.left)
-      .attr("y", 3.4 * height)
-      .attr("text-anchor", "end")
-      .text("right click for options");
+    //title.append("text")
+    //  .attr("class", "notice")
+    //  .attr("x", width + margin.left)
+    //  .attr("y", 3.4 * height)
+    //  .attr("text-anchor", "end")
+    //  .text(TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS);
 
-    if (svg.data() == null || svg.data().length == 0) {
-        d3.select("#DecisionInstances-body").append("text").text("No Transactions Found for the Current Interval");
+    var svgd = svg.data();
+    if ((typeof svgd === 'undefined') || svgd === undefined || svgd == null || svgd.length == 0) {
+      d3.select("#NowCast-body").append("text").text(NO_DECISIONS_TEXT);
+      return;
     }
 
     var cnt = 0;
-	if (title != null && title.length > 0)
-	{
-	  cnt = title[0].length;
-	}
+    if (title != null && title.length > 0) {
+      cnt = title[0].length;
+    }
     title.each(function (d, i) {
-      var bdy = document.getElementById("DecisionInstances-body");
+      var bdy = document.getElementById("NowCast-body");
       var rect = bdy.getBoundingClientRect();
-      var span = d3.select("#DecisionInstances-body").append("span").style("position", "relative");
+      var span = d3.select("#NowCast-body").append("span").style("position", "relative");
       span.style("top", -((cnt * 100) + 11) + "px");
-      span.style("right", "-480px");
+      if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
+        span.style("right", "+40px");
+      } 
+      else if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+        span.style("right", "+40px");
+      }
+      else {
+        span.style("right", "-480px");
+      }
       var button = span.append("div");
       button.attr("class", "datepicker").style("white-space", "nowrap").style("display", "inline-block").attr("id", "datepicker" + i).style("width", "auto").style("position", "absolute").style("background-color", "#fff").style("border", "dotted").style("border-width", "1px").style("border-color", "#aaa").style("padding", "0px").style("padding-left", "2px").style("padding-right", "2px").style("margin", "0px");
       if (i == 0) {
         //        button.style("top", -((cnt * 100) + 41) + "px"); //.style("right", "-300px");
+        button.style("top", ((i * 108) - 25) + "px"); //.style("right", "-300px");
       }
       else {
-        button.style("top", ((i * 108) + 0) + "px"); //.style("right", "-300px");
+        button.style("top", ((i * 108) - 25) + "px"); //.style("right", "-300px");
       }
-    button.attr("interval", d.intervalId);
+      button.attr("interval", d.intervalId);
       button.text(d.datesLabel).attr("title", "Interval " + d.intervalId).style("right", "0px").style("text-anchor", "end");
       span.on("contextmenu", function (d, i) {
         d3.selectAll(".bullet .contextmenu").attr("display", "none");
@@ -271,17 +281,17 @@ white-space:nowrap;
       populateDatePicker("datepicker" + i);
     });
 
-    var divs = d3.select("#DecisionInstances-body").append("div").attr("id", function (d, i) { return "contextmenu" + i; }).attr("class", "contextmenu").style("display", "none").style("top", "150px").style("left", "400px").style("position", "absolute").style("background-color", "#fff").style("border", "solid").style("border-width", "3px").style("padding", "2px");
+    var divs = d3.select("#NowCast-body").append("div").attr("id", function (d, i) { return "contextmenu" + i; }).attr("class", "contextmenu").style("display", "none").style("top", "150px").style("left", "400px").style("position", "absolute").style("background-color", "#fff").style("border", "solid").style("border-width", "3px").style("padding", "2px");
     var ul = divs.append("ul").attr("class", "contextmenulist").style("margin-left", "0px").style("padding-left", "0px");
-//    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_yes.png) left center no-repeat").text("Include Previous Results");
-//    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_no.png) left center no-repeat").text("Include Projected Results");
-//    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_redo.png) left center no-repeat").text("Redraw").on('click', function () { console.log("redraw"); svg.call(chart); });
-    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_refresh_small.png) left center no-repeat").text("Refresh").on('click', function () {
-        d3.json("<%=Request.ApplicationPath%>/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
-        var svg = d3.select("#DecisionInstances-body").selectAll("svg")
-      .data(data); svg.call(chart);
-      });
-    });
+    //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_yes.png) left center no-repeat").text("Include Previous Results");
+    //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_no.png) left center no-repeat").text("Include Projected Results");
+    //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_redo.png) left center no-repeat").text("Redraw").on('click', function () { console.log("redraw"); svg.call(chart); });
+    //ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_refresh_small.png) left center no-repeat").text(TEXT_NOWCAST_REFRESH).on('click', function () {
+    //  d3.json("<%=Request.ApplicationPath%>/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
+    //    var svg = d3.select("#NowCast-body").selectAll("svg")
+    //  .data(data); svg.call(chart);
+    //  });
+    //});
 
     d3.select("body").on('click', function (d, i) { d3.selectAll(".contextmenu").style("display", "none"); d3.selectAll(".bullet .tbutton").attr("height", 13); });
     d3.select("body").on('contextmenu', function (d, i) { clearDatePickers(); });

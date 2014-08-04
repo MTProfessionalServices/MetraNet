@@ -241,7 +241,7 @@
     <value>Eliminar</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>[es-MX]Bulk Update</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
     <value>¿Está seguro que desea eliminar {0}?</value>
@@ -337,55 +337,55 @@
     <value>Exportar</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>Export All Filtered Records</value>
+    <value>[es-MX]Export All Filtered Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>Bulk Update All Filtered Records</value>
+    <value>[es-MX]Bulk Update All Filtered Records</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>Export Selected Records</value>
+    <value>[es-MX]Export Selected Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>Bulk Update Selected Records</value>
+    <value>[es-MX]Bulk Update Selected Records</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Exportar solo la página actual</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>Bulk Update Current Page Only</value>
+    <value>[es-MX]Bulk Update Current Page Only</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Exportar los resultados de la búsqueda</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>Bulk Update Search Results</value>
+    <value>[es-MX]Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-      <value>Nothing will be updated</value>
+    <value>[es-MX]Nothing will be updated</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-      <value>There are no selected BMEs for bulk update</value>
+    <value>[es-MX]There are no selected BMEs for bulk update</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>Too many records to update</value>
+    <value>[es-MX]Too many records to update</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>[es-MX]You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no properties for bulk update</value>
+    <value>[es-MX]There are no properties for bulk update</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>Attention. Your changes will be permanent</value>
+    <value>[es-MX]Attention. Your changes will be permanent</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>Are you sure that you want to make these changes?</value>
+    <value>[es-MX]Are you sure that you want to make these changes?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>No properties are going to be updated</value>
+    <value>[es-MX]No properties are going to be updated</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Properties that are going to be updated</value>
+    <value>[es-MX]Properties that are going to be updated</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Información externa</value>
@@ -520,7 +520,7 @@
     <value>Propiedades</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>Recibió este crédito debido a que su suscripción con un cargo recurrente que se factura en forma anticipada cambió durante este período de facturación.&lt;BR&gt;&lt;BR&gt;En su factura anterior, le cobramos [RCAmount] en forma anticipada.  Usted solo utilizó el servicio entre [RCIntervalStart] y [RCIntervalEnd].  Por lo tanto, este crédito representa la diferencia entre [ProratedIntervalStart] y [ProratedIntervalEnd].  Este es un período de [ProratedDays] días.&lt;BR&gt;&lt;BR&gt;Para calcular el crédito, utilizamos una tarifa diaria de [ProratedDailyRate].  La tarifa diaria se calculó al tomar [RCAmount] y dividirlo por el número de días en el período.  Por lo tanto, tomamos el período de [ProratedDays] días y lo multiplicamos por [ProratedDailyRate], lo que le otorga un crédito de [Amount].&lt;BR&gt;</value>
+    <value>Recibió este crédito debido a que su suscripción con un cargo recurrente que se factura en forma anticipada cambió durante este período de facturación.&lt;BR&gt;&lt;BR&gt;En su factura anterior, le cobramos [RCAmount] en forma anticipada.  Usted solo utilizó el servicio entre [RCIntervalStart] y [ProratedIntervalStartPreviousDay].  Por lo tanto, este crédito representa la diferencia entre [ProratedIntervalStart] y [ProratedIntervalEnd].  Este es un período de [ProratedDays] días.&lt;BR&gt;&lt;BR&gt;Para calcular el crédito, utilizamos una tarifa diaria de [ProratedDailyRate].  La tarifa diaria se calculó al tomar [RCAmount] y dividirlo por el número de días en el período.  Por lo tanto, tomamos el período de [ProratedDays] días y lo multiplicamos por [ProratedDailyRate], lo que le otorga un crédito de [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>Este cargo se ha prorrateado.  El prorrateo reduce los cargos al cobrarlo solo el número de días que se ha suscrito a un servicio en un período de facturación determinado.&lt;BR&gt;&lt;BR&gt;Para este elemento, sus cargos comenzaron el [ProratedIntervalStart] y terminaron el [ProratedIntervalEnd].  En consecuencia, recibió [ProratedDays] días de servicio.  Su cargo por este período se calculó al multiplicar la tarifa diaria de [ProratedDailyRate] por [ProratedDays] días de suscripción.  Esto es igual a [Amount].  (La tarifa diaria de [ProratedDailyRate] se calcula al dividir cargos del período de [RCAmount] por el número de días en el período).&lt;BR&gt;</value>
@@ -670,6 +670,42 @@
     <value>Relaciones para:</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value />
+    <value>[es-MX]The name cannot contain single or double quote characters.</value>
   </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]Passwords do not match.</value>
+  </data>
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]Enter a valid phone number. Format: 555-555-5555</value>
+  </data>
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]Credit card format is invalid</value>
+  </data>
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]CV Number is invalid</value>
+  </data>
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]SSN format: xxx-xx-xxxx</value>
+  </data>
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]Only numeric digits are allowed</value>
+  </data>
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]Zipcode is invalid</value>
+  </data>
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>[es-MX]Middle initial is invalid</value>
+  </data>
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>n/j/Y g:i:s A</value>
+  </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[es-MX] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[es-MX] right click for options</value>
+  </data>
+  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+    <value>[es-MX]No Transactions Found for the Current Interval</value>
+  </data>  
 </root>

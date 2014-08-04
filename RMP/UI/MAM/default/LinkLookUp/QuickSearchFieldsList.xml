@@ -18,7 +18,7 @@
           metratech.com/external:QuickFindAlias1
           
     QuickFindAlias1 is used as well as dictionary entry for the localization.
-    see file mam/default/localized/us/textlookup/LocalizedSystemInformation.xml entry QUICKFINDALIAS1.
+    see file mam/default/localized/en-us/textlookup/LocalizedSystemInformation.xml entry QUICKFINDALIAS1.
 
     You can define more that one alias associated with different name space this way :
 

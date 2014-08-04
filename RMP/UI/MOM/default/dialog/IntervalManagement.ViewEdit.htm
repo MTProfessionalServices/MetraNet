@@ -1,6 +1,6 @@
 <HTML>
  <HEAD>
-  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/us/styles/Styles.css">  
+  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/en-us/styles/Styles.css">  
 <SCRIPT>
 function DoSelectAllAdapters(checkboxSelectAll){
   objElements = document.forms.mdm.elements;
@@ -110,18 +110,18 @@ function isAdapterSelected(){
   <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0" width="100%">
    <TR>
       <TD colspan=3>
-        <div id="actions" class="TableCell" style="float:right;width:300px;border:solid 1px black;">
-          <img src="/mom/default/localized/us/images/billinggroups/stats.gif">&nbsp;          
-          <b><a href="#" OnClick="window.open('IntervalManagement.Statistics.Frame.asp?IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>&BillingGroupId=<MDMLABEL Name="BillingGroupId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View Statistics</a></b><br>
-          [TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION]
-          <br><br>
-          <img src="/mom/default/localized/us/images/billinggroups/ViewHistory.gif">&nbsp;
-          <b><a href="#" OnClick="window.open('IntervalManagement.RunHistory.List.asp?Title=' + '<MDMLABEL Name="BillingGroup"></MDMLABEL>' + ' In Interval ' + '<MDMLABEL Name="IntervalId"></MDMLABEL>' + '&BillingGroupID=<MDMLABEL Name="BillingGroupId"></MDMLABEL>&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View History</a></b><br>
-          [TEXT_VIEW_HISTORY_DESCRIPTION]
+        <div id="actions" class="TableCell" style="width:300px;float:right;border:solid 2px black;margin-right:13px; -moz-border-radius: 15px; border-radius: 15px;padding: 10px 5px 10px 15px;">
+          <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/chart_line.png"></div>
+          <div style='margin-left:30px; margin-bottom:10px;'><b><a href="javascript:void(0)" OnClick="window.open('IntervalManagement.Statistics.Frame.asp?IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>&BillingGroupId=<MDMLABEL Name="BillingGroupId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View Statistics</a></b><br>
+          [TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION]</div>
+          
+          <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/script.png"></div>    
+          <div style='margin-left:30px; margin-bottom:10px;'><b><a href="javascript:void(0)" OnClick="window.open('IntervalManagement.RunHistory.List.asp?Title=' + '<MDMLABEL Name="BillingGroup"></MDMLABEL>' + ' In Interval ' + '<MDMLABEL Name="IntervalId"></MDMLABEL>' + '&BillingGroupID=<MDMLABEL Name="BillingGroupId"></MDMLABEL>&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View History</a></b><br>
+          [TEXT_VIEW_HISTORY_DESCRIPTION]</div>
 #MDMIf SHOW_CREATE_PULL_LIST_OPTION          
-          <br><br>
-          <img src="/mom/default/localized/us/images/billinggroups/pullList.gif">&nbsp; 
-          <b><a href="#" OnClick="window.open('BillingGroupPullList.asp?BillingGroupID=[BillingGroupID]&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=660,width=800, resizable=yes, scrollbars=yes, status=yes');">Create Pull List</a></b><br>
+          
+          <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/table_edit.png"></div> 
+          <div style='margin-left:30px; margin-bottom:5px;'><b><a href="#" OnClick="window.open('BillingGroupPullList.asp?BillingGroupID=[BillingGroupID]&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=660,width=800, resizable=yes, scrollbars=yes, status=yes');">Create Pull List</a></b><br></div>
           [TEXT_CREATE_GROUP_DESCRIPTION]   
 #MDMENDIF       
         </div>      

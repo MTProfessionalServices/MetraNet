@@ -44,69 +44,75 @@
 			 	  	 <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_NAME">Name</MDMLABEL>:&nbsp;&nbsp;</td>
 				    	<td><input name="name" class="field" size="50" type="text"></td>
 	 			   </tr>
-		  		 <tr>
-			       <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_DISPLAY_NAME">Display Name</MDMLABEL>:&nbsp;&nbsp;</td>
-				     <td><input name="DISPLAYNAMES" MultiLanguage="true" class="field" size="50" type="text"></td>
+				 <tr>
+				   <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_DISPLAY_NAME">Display Name</MDMLABEL>:&nbsp;&nbsp;</td>
+				   <td><input name="DISPLAYNAMES" MultiLanguage="true" class="field" size="50" type="text"></td>
+				 </tr>
+				   <tr>
+				     <td class="captionEWRequired" style='vertical-align: top;'><MDMLABEL name="TEXT_FIELD_DESCRIPTION">Description</MDMLABEL>:&nbsp;&nbsp;</td>
+				     <td><input name="DISPLAYDESCRIPTIONS" MultiLanguage="true" class="field" type="text" size="50"></td>
 				   </tr>
-			     <tr>
-			      	<td class="captionEW" style='vertical-align: top;'><MDMLABEL name="TEXT_FIELD_DESCRIPTION">Description</MDMLABEL>:&nbsp;</td>
-				    <td><textarea class="field" name="description" cols="50" rows="4"></TEXTAREA></td>
-			     </tr>
-           
    			  <tr><td>&nbsp;</td></tr>			 
           </table>
-          <table>
-			    <tr>
-				 		<td Class="captionEWRequired"><MDMLABEL name="TEXT_CHARGE_IN">Charge In</MDMLABEL>:&nbsp;&nbsp;</td>
-						<td> <SELECT  class='clsInputBox' name='ChargeInAdvance'></SELECT></td>
-				  </tr>
-          <div id='Proration' name='Proration' style='display: block;'>  
-          <tr><td>&nbsp;</td></tr>	
-          <tr>
-		     			<td Class="captionEWRequired" width="130px"><MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;</td>
-				      <td Class='clsStandardText' ><INPUT Name="ProrateOnActivation"   Type="CheckBox" onClick="updateProrationBasedOnField();"><MDMLABEL name="TEXT_PRORATE_ACTIVATION">Prorate On Activation</MDMLABEL></td>
-			    </tr>
-         <tr>
-              <td></td>  
-				      <td Class='clsStandardText' ><INPUT disabled Name="ProrateOnUnsubscribeDate"   Type="CheckBox" [ProrateOnUnsubscribeDateComValue] onClick="updateDeactivation();updateProrationBasedOnField();">
-              <MDMLABEL name="TEXT_PRORATE_UNSUBSCRIPTION">Prorate On Unsubscription Date</MDMLABEL></td>
-			    </tr>
-          <tr>
-		          <td></td><td></td>
-              <td Class='clsStandardText'> 
-                    <DIV id='ProrateOnDeactivationDiv' name='ProrateOnDeactivationDiv' style='display: block;'>
-						          <INPUT Name="ProrateOnDeactivation" Type="radio" [ProrateOnDeactivationComValue] onClick="document.mdm.ProrateInstantly.checked=false;updateProrationBasedOnField();">
-							        <MDMLABEL name="TEXT_PRORATE_DEACTIVATION">Prorate On Deactivation</MDMLABEL>
-                    </DIV>
-              </td>
-		    	  </tr>
-		   		  <tr>
-				       <td></td><td></td>
-				       <td Class='clsStandardText'> 
-                 <DIV id='ProrateInstantlyDiv' name='ProrateInstantlyDiv' style='display: block;'>
-                   <INPUT Name="ProrateInstantly" Type="radio" [ProrateInstantlyComValue] onClick="document.mdm.ProrateOnDeactivation.checked=false;updateProrationBasedOnField();">
-                   <MDMLABEL name="TEXT_PRORATE_INSTANTLY">Prorate Instantly</MDMLABEL>
-                 </DIV>
-               </td>
-		    	  </tr>
 
-				  <tr>
-						<td Class="captionEW">&nbsp;</td>
-						<td><div id='ProrateOn' name='ProrateOn' style='display: block;'><MDMLABEL name="TEXT_PRORATE_BASEDON">Prorate</MDMLABEL>&nbsp;&nbsp;<select name="FixedProrationLength" size="1" Class='clsInputBox'></select>&nbsp;<MDMLABEL name="TEXT_DAYS_IN_PERIOD">days in period.</MDMLABEL></div></td>
-				  </tr>
-        </div>
-			  <tr>
-		     	<td Class="captionEWRequired" width="130px"><MDMLABEL name="TEXT_GROUP_CHARGES">Generate Group Charges</MDMLABEL>:&nbsp;&nbsp;</td>
-				  <td><INPUT Name="ChargePerParticipant" Type="Radio" Value="FALSE"><MDMLABEL name="TEXT_PER_SUBSCRIPTION">One charge per subscription</MDMLABEL></td>
-			  </tr>
-		   	<tr>
-				  <td></td>
-				  <td><INPUT Name="ChargePerParticipant" Type="Radio" Value="TRUE"><MDMLABEL name="TEXT_PER_PARTICIPANT">One charge per subscription</MDMLABEL></td>
-		    </tr>					
-      </table>
-      
-      </div>
-         
+          <table>
+            <tr>
+              <td Class="captionEWRequired">
+                <MDMLABEL name="TEXT_CHARGE_IN">Charge In</MDMLABEL>:&nbsp;&nbsp;
+              </td>
+              <td>
+                <SELECT  class='clsInputBox' name='ChargeInAdvance'></SELECT>
+              </td>
+            </tr>
+            <div id='Proration' name='Proration' style='display: block;'>  
+              <tr>
+                <td>&nbsp;</td>
+              </tr>	
+              <tr>
+                <td Class="captionEWRequired" width="130px">
+                  <MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;
+                </td>
+                <td Class='clsStandardText' >
+                  <INPUT Name="ProrateOnActivation"   Type="CheckBox" onClick="updateProrationBasedOnField();" />
+                  <MDMLABEL name="TEXT_PRORATE_ACTIVATION">Prorate On Activation</MDMLABEL>
+                </td>
+              </tr>
+              <tr>
+                <td />  
+                <td Class='clsStandardText'>
+                  <INPUT Name="ProrateOnDeactivation" Type="CheckBox" onClick="updateProrationBasedOnField();" />
+                  <MDMLABEL name="TEXT_PRORATE_UNSUBSCRIPTION">Prorate On Unsubscription Date</MDMLABEL>
+                </td>
+              </tr>
+              <tr>
+                <td Class="captionEW">&nbsp;</td>
+                <td>
+                  <div id='ProrateOn' name='ProrateOn' style='display: block;'>
+                    <MDMLABEL name="TEXT_PRORATE_BASEDON">Prorate</MDMLABEL>&nbsp;&nbsp;
+                    <select name="FixedProrationLength" size="1" Class='clsInputBox' />&nbsp;
+                    <MDMLABEL name="TEXT_DAYS_IN_PERIOD">days in period.</MDMLABEL>
+                  </div>
+                </td>
+              </tr>
+            </div>
+            <tr>
+              <td Class="captionEWRequired" width="130px">
+                <MDMLABEL name="TEXT_GROUP_CHARGES">Generate Group Charges</MDMLABEL>:&nbsp;&nbsp;
+              </td>
+              <td>
+                <INPUT Name="ChargePerParticipant" Type="Radio" Value="FALSE" />
+                <MDMLABEL name="TEXT_PER_SUBSCRIPTION">One charge per subscription</MDMLABEL>
+              </td>
+            </tr>
+            <tr>
+              <td />
+              <td>
+                <INPUT Name="ChargePerParticipant" Type="Radio" Value="TRUE" />
+                <MDMLABEL name="TEXT_PER_PARTICIPANT">One charge per subscription</MDMLABEL>
+              </td>
+            </tr>					
+          </table>
+               
 #MDMIF IsUDRC
           <tr><td>&nbsp;</td></tr>
           <tr><td colspan=4>
@@ -152,13 +158,16 @@
       <td valign="top">
           <!-- Extended Properties -->
           <fieldset style="padding: 20 10 10 10;">
-          <legend style="font-weight: normal;">Extended Properties</LEGEND>
+          <legend style="font-weight: normal;">Extended Properties</legend>
           
           <MDMGrid Name="ExtendedProperties">Extended Properties</MDMGrid>
+          <!--
           <br>
           <center>
           <img src='..\localized\us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;">What are extended properties?</a>
           </center>
+          -->
+          </fieldset>
       </td>
 	 </tr>
  </table>  
@@ -166,22 +175,22 @@
 	<CENTER>
       #MDMIf ShowEditButton
 	    <div style="display: inline;">
-      <button class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('PriceAbleItem.RecurringCharge.Edit.asp?ID=[CURRENT_RECURRING_ITEM_ID]&POBASED=[CURRENT_PO_BASED]', '_blank', 'height=100,width=200,resizable=yes,scrollbars=yes'); return false;">
+      <button type="button" class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('PriceAbleItem.RecurringCharge.Edit.asp?ID=[CURRENT_RECURRING_ITEM_ID]&POBASED=[CURRENT_PO_BASED]', '_blank', 'height=100,width=200,resizable=yes,scrollbars=yes');return false;">
         <MDMLABEL Name="TEXT_EDIT">Edit</MDMLABEL>
       </button>
       
-      <button class="clsButtonLarge" name="EditAdjustmentInstance" onClick="javascript:window.open('[ADJUSTMENT_INSTANCES_EDIT_DIALOG]?TemplateType=RC&ID=[CURRENT_RECURRING_ITEM_ID]&POID=[POID]', '_blank', 'height=500,width=600,resizable=yes,scrollbars=yes'); return false;">
+      <button type="button" class="clsButtonLarge" name="EditAdjustmentInstance" onClick="javascript:window.open('[ADJUSTMENT_INSTANCES_EDIT_DIALOG]?TemplateType=RC&ID=[CURRENT_RECURRING_ITEM_ID]&POID=[POID]', '_blank', 'height=500,width=600,resizable=yes,scrollbars=yes');return false;">
       <MDMLABEL Name='TEXT_BUTTON_SET_UP_ADJUSTMENTS'></MDMLABEL>
       </button>
       </div>
       #MDMEndIf	
       	
 #MDMIf ShowOKButton
-	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name="TEXT_OK">OK</MDMLABEL></BUTTON>
+	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this); return false;"><MDMLABEL Name="TEXT_OK">OK</MDMLABEL></BUTTON>
 #MDMEndIf	
 &nbsp;&nbsp;&nbsp;
 #MDMIf ShowCancelButton
-		<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></BUTTON>
+		<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this); return false;"><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></BUTTON>
 #MDMEndIf	
 	</CENTER>
   </td>

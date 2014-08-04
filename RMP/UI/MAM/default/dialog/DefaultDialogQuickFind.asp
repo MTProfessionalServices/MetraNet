@@ -66,7 +66,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Call FrameWork.Dictionary().Add("RECENT_ACCOUNT_LIST", "<span style='color:white;'>None.</span>")
   Dim recentAccounts
   Dim icon
-  icon = "<img src='/mam/default/localized/us/images/icon.gif'>"
+  icon = "<img src='/mam/default/localized/en-us/images/icon.gif'>"
   If ((FrameWork.CheckCoarseCapability("Manage Account Hierarchies") or FrameWork.CheckCoarseCapability("Manage independent accounts")) and (Not IsEmpty(Session("COL_RECENT_ACCOUNTS")))) Then 
      If mam_GetSubscriberAccountID() <> 0 or Not IsEmpty(Session("COL_RECENT_ACCOUNTS")) Then
         Dim node

@@ -103,7 +103,7 @@ Session("HelpContext") = "AdvancedDialog.hlp.htm"
    				<%=FrameWork.GetDictionary("TEXT_VIEW_AUDIT_LOG") %>
 				</button>
         <!-- Test link to open audit log in separate window -->
-        <img src="../localized/us/images/spacer.gif" width="10" height="10" border="0" alt="Open Audit Log In Separate Window"  onClick="javascript:window.open('AuditLog.List.asp', '_blank', 'height=100,width=100, resizable=yes, scrollbars=yes,'); return false;"></i>
+        <img src="../localized/en-us/images/spacer.gif" width="10" height="10" border="0" alt="Open Audit Log In Separate Window"  onClick="javascript:window.open('AuditLog.List.asp', '_blank', 'height=100,width=100, resizable=yes, scrollbars=yes,'); return false;"></i>
         <!--<A href="javascript:window.open('AuditLog.List.asp', '_blank', 'height=100,width=100, resizable=yes, scrollbars=yes,'); return false;" alt="Open Audit Log In Separate Window">&nbsp;</a>-->
 			</div>
 		</td>

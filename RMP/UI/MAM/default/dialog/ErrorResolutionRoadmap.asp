@@ -10,11 +10,11 @@ End IF
 <html>
 <head>
 	<title>Error Resolution Roadmap</title>
-<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/Grid.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/MAMMenu.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/RuleEditor_styles.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/styles.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/tab_styles.css'>	
+<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/Grid.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/MAMMenu.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/RuleEditor_styles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/styles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/tab_styles.css'>	
 </head>
 
 <body topmargin="0" rightmargin="0" leftmargin="0">

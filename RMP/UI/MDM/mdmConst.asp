@@ -36,7 +36,7 @@ PRIVATE CONST LOGIN_LIB_NAMESPACE = "SESSION:LOGIN_LIB_NAMESPACE"
 PRIVATE CONST LOGIN_LIB_ACCOUNTID = "SESSION:LOGIN_LIB_ACCOUNTID"
 PRIVATE CONST MDM_METERING_SERVICE_TIME_OUT = "SESSION:MDM_METERING_SERVICE_TIME_OUT"
 
-' MDM Error messages - This error are localized in \ui\mdm\dictionary\localized\us\dictionary\mdm
+' MDM Error messages - This error are localized in \ui\mdm\dictionary\localized\en-us\dictionary\mdm
 ' The XML file must be copied in the localiZed dictionary of each web app - 
 ' These hard coded english value are the default value is case there is nothing in the dictionary
 ' MDM 3.0 - fred - may 23 2002 - 

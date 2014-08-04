@@ -99,7 +99,6 @@ response.expires = 0
   
     dim bChargeInAdvance
     dim bProrateOnActivation
-    dim bProrateInstantly
     dim bProrateOnDeactivation
     dim bProrateOnRateChange
     dim bChargePerParticipant
@@ -121,13 +120,7 @@ response.expires = 0
    else
      objChargeTemplate.ProrateOnActivation = cbool(session(strWizardName & "_ProrateOnActivation"))
    end if
-
-   if session(strWizardName & "_ProrateInstantly") = "" then
-		objChargeTemplate.ProrateInstantly = false    
-   else
-       objChargeTemplate.ProrateInstantly = cbool(session(strWizardName & "_ProrateInstantly"))
-   end if
-
+   
    if session(strWizardName & "_ProrateOnDeactivation") = "" then
    	 objChargeTemplate.ProrateOnDeactivation = false
    else
@@ -224,6 +217,9 @@ response.expires = 0
 		
     On Error Resume Next   
 
+		' FEAT-4151 - ProrateInstantly is an obsolete property, that won't be used in future.
+		objChargeTemplate.ProrateInstantly = false
+
 		objChargeTemplate.Save
     
 		if (Err.Number) then
@@ -271,6 +267,7 @@ End Function
 %>
 <html>
   <head>
+    <SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>
     <SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js"></SCRIPT>	
 		<SCRIPT language="JavaScript">
 	  //POMODE is 1 means,called from Product offering else called from Service  Charges

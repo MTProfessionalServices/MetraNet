@@ -88,7 +88,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
  	End if	
 		
-  mdm_GetDictionary().Add "ShowExtendedBillingCycleOption", FALSE
+  'mdm_GetDictionary().Add "ShowExtendedBillingCycleOption", FALSE  'Commented for ESR-6246 (CORE-7772)
   
   Form.Grids("ExtendedProperties").Enabled  = CBool(UCase(Request("EditMode")) = "TRUE") 'FALSE
   Service.Properties.Enabled 				  =  CBool(UCase(Request("EditMode")) = "TRUE")
@@ -135,20 +135,6 @@ PRIVATE FUNCTION RefreshData(EventArg,booInitializeEvent) ' As Boolean
     SetMSIXPropertyTypeToChargeInEnumType       COMObject.Properties("ChargeInAdvance")		
     SetMSIXPropertyTypeToProrationLengthOnEnumType COMObject.Properties("FixedProrationLength")
 	
-    mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", ""
-    If COMObject.Instance.ProrateInstantly <> 0 Then 
-         mdm_GetDictionary().Add "ProrateInstantlyComValue", "Checked"
-         mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", "Checked"
-    Else
-         mdm_GetDictionary().Add "ProrateInstantlyComValue", ""
-    End If
-
-    If COMObject.Instance.ProrateOnDeactivation <> 0 Then 
-         mdm_GetDictionary().Add "ProrateOnDeactivationComValue", "Checked"
-         mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", "Checked"
-    Else
-         mdm_GetDictionary().Add "ProrateOnDeactivationComValue", ""
-    End If
     COMObject.Properties.Enabled  = FALSE ' Set Enabled all the Property
     RefreshData = TRUE
 		
@@ -266,7 +252,7 @@ PRIVATE FUNCTION ContainedPriceableItems_DisplayCell(EventArg) ' As Boolean
                                          
             'EventArg.HTMLRendered     =  "<td class='GridCell'><a href='PriceableItem.Usage.ViewEdit.asp?ID=" & _
             '                             EventArg.Grid.Rowset.Value("ID") & "&Kind=" & Request("Kind") & _
-            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
+            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
 
             ContainedPriceableItems_DisplayCell = TRUE
         Case else

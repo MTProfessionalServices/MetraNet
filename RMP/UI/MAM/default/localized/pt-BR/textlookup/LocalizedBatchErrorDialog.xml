@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Batch Error Terms" type="collection">
+
+    <text id="TEXT_ERROR_TITLE">
+      <value>Lista de erros em lote</value>
+    </text> 
+    
+    <text id="TEXT_WARNING_TITLE">
+      <value>Lista de avisos em lote</value>
+    </text>
+
+</texts>

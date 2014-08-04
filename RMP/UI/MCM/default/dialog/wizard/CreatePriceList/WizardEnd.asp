@@ -32,6 +32,10 @@ response.expires = 0
   <!-- #INCLUDE FILE="../../../lib/WizardClass.asp" -->
   <!-- #INCLUDE VIRTUAL="/MDM/FrameWork/CFrameWork.Class.asp"-->
   <!-- #INCLUDE VIRTUAL="/mcm/default/lib/ProductCatalog/MTProductCatalog.Library.asp"-->
+  
+  <!-- #INCLUDE VIRTUAL="/MDM/mdmConst.asp"-->
+
+  <!-- #INCLUDE VIRTUAL="/mcm/default/lib/MultiTenancyLib.asp"-->
 <%
 
   On Error Resume Next 
@@ -47,18 +51,40 @@ response.expires = 0
   
   objPriceList.Name = session(strWizardName & "_Name")
   objPriceList.Description = session(strWizardName & "_description")
-  objPriceList.CurrencyCode = session(strWizardName & "_CurrencyCode")
+  'Disabling Currency dropdown as part of Enabling Rating Currency
+  objPriceList.CurrencyCode = "USD" ' session(strWizardName & "_CurrencyCode")
   
   'Currently this indicates that the price list is a regular pricelist and not a ICB specific pricelist
   objPriceList.Shareable = true
-         
-	objPriceList.Save
- 
+
+  ' If this is a Partition admin, Prefix PL name with Partition name
+  If Session("isPartitionUser") Then
+    objPriceList.Name = Session("topLevelAccountUserName") + ":" + objPriceList.Name
+  End If
+
+  objPriceList.Save
+
   if (Err.Number) then
     'SECENG: CORE-4797 CLONE - MSOL 30262 MetraOffer: Stored cross-site scripting - All output should be properly encoded
     'Adding HTML Encoding
     'session(strWizardName & "__ErrorMessage") = Err.Description
     session(strWizardName & "__ErrorMessage") = SafeForHtmlAttr(Err.Description)
+    response.redirect("Wizard.asp?Path=/mcm/default/dialog/wizard/CreatePriceList&PageID=summary&Error=Y")    
+  End If
+ 
+  ' If this operation is being performed by a Partition user, save PartitionId in Extended properties
+  'Dim PLPartitionId
+  'If Session("isPartitionUser") Then
+    ' objPriceList.Properties.Item("PLPartitionId") = Session("topLevelAccountId") ' Support for Extended properties for PLs was never finished
+   ' PLPartitionId = Session("topLevelAccountId")
+  'Else
+  '  PLPartitionId = 1
+  'End If
+  'Dim success
+  'success = SavePartitionIdForPriceList(objPriceList.ID, PartitionId)
+
+  if (Not(success)) then
+    session(strWizardName & "__ErrorMessage") = "Failed to add Partition Id to new Pricelist"
     response.redirect("Wizard.asp?Path=/mcm/default/dialog/wizard/CreatePriceList&PageID=summary&Error=Y")    
   End If
 
@@ -103,12 +129,13 @@ End Function
 %>
 <html>
   <head>
+      <SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>
 	  <SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js"></SCRIPT>	
     <script language="Javascript">
     var strRedirectURL ="<% = strRedirectUrl %>";
     //window.alert("[" + strRedirectURL + "]");
    
-		if (strRedirectURL.length == 0)
+	if (strRedirectURL.length == 0)
     {
 		  window.opener.location = (window.opener.location); 
     }
@@ -116,7 +143,8 @@ End Function
     {
       if (String(strRedirectURL).substring(0,16) == "DISPLAY_NEW_ITEM")
       {
-        window.opener.top.MainContentIframe.ticketFrame.location.href = '/mcm/default/dialog/Pricelist.ViewEdit.Frame.asp?ID=<%=objPriceList.ID%>';
+          // window.opener.top.MainContentIframe.ticketFrame.location.href = '/mcm/default/dialog/Pricelist.ViewEdit.Frame.asp?ID=<%=objPriceList.ID%>';
+          window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();
       }
       else
       {

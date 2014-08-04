@@ -305,7 +305,7 @@ CLASS CTransactionUIFinder
                           strHTMLTEMPLATE = ""
                           strHTMLTEMPLATE = strHTMLTEMPLATE & vbNewLine & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''>" & vbNewLine
                           strHTMLTEMPLATE = strHTMLTEMPLATE & "<INPUT  Size=30 Type='Text' Class='clsInputBox' Name='[PROPERTYNAME]'>" & vbNewLine
-                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<a href='#' onClick='getCalendarForStartDate(document.mdm.[PROPERTYNAME]);return false;'><img src='/mam/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>" & vbNewLine
+                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<a href='#' onClick='getCalendarForStartDate(document.mdm.[PROPERTYNAME]);return false;'><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>" & vbNewLine
                           strHTMLTEMPLATE = strHTMLTEMPLATE & "</TD></TR>" & vbNewLine                  
                           strHTML         = strHTML & strHTMLTEMPLATE
                           
@@ -439,6 +439,15 @@ CLASS CTransactionUIFinder
         
         Service.Properties.Add "EndDate", "TimeStamp", 0, False, Empty
         Service.Properties("EndDate").Caption = FrameWork.Dictionary.Item("TEXT_END_DATE").Value 
+
+        Service.Properties.Add "BillingInterval", "String", 0, False, Empty
+        Service.Properties("BillingInterval").Caption = FrameWork.Dictionary.Item("TEXT_BILLING_INTERVAL").Value 
+
+        Service.Properties.Add "FixedDate", "String", 0, False, Empty
+        Service.Properties("FixedDate").Caption = FrameWork.Dictionary.Item("TEXT_FIXED_DATE").Value 
+               
+        Service.Properties.Add "PeriodOfTime", "String", 0, False, Empty
+        Service.Properties("PeriodOfTime").Caption = FrameWork.Dictionary.Item("TEXT_PERIOD_OF_TIME").Value 
         
         Service.Properties.Add "PriceAbleItem", "Int32" , 0 , TRUE , Empty  
         Service.Properties("PriceAbleItem").Caption = FrameWork.Dictionary.Item("TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL").Value

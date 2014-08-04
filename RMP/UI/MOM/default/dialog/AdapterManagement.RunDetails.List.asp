@@ -160,14 +160,17 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             dim strDetailType
             strDetailType = ProductView.Properties.RowSet.Value("detailtype")
             if lcase(strDetailType)="warning" then
-              strDetailType = "<img src='../localized/us/images/errorsmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType 
+              strDetailType = "<img src='../localized/en-us/images/errorsmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType 
             else
-              strDetailType = "<img src='../localized/us/images/infosmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType               
+              strDetailType = "<img src='../localized/en-us/images/infosmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType               
             end if
             
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & strDetailType & "</td>" 
             
   			    Form_DisplayCell = TRUE
+         Case "timestamp"
+            EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("timestamp"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>"
+            Form_DisplayCell = TRUE
   	     Case else
             Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
       End Select
@@ -187,7 +190,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim strEndOfPageHTMLCode, strTmp
     
     
-    strTmp = "</table><div align=center><BR><BR><button  onclick='mdm_RefreshDialog(this)' name='refresh' Class='clsOkButton'>Refresh</button><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button>" & vbNewLine
+    strTmp = "</table><div align=center><BR><BR><button  onclick='mdm_RefreshDialog(this); return false;' name='refresh' Class='clsOkButton'>Refresh</button><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"

@@ -416,10 +416,17 @@ function ConditionsAreEqual(iobjCondition1, iobjCondition2)
         exit function
       end if 
     case PROP_TYPE_DECIMAL
-      if not CDec(iobjCondition1.Value) = CDec(iobjCondition2.Value) then 
-        ConditionsAreEqual = false
-        exit function
-      end if 
+      if VarType(iobjCondition1.Value) = 14 AND VarType(iobjCondition2.Value) = 14 then 
+          if not cdbl(iobjCondition1.Value) = cdbl(iobjCondition2.Value) then  
+             ConditionsAreEqual = false 
+          exit function 
+          end if  
+              else 
+                  if not CDec(iobjCondition1.Value) = CDec(iobjCondition2.Value) then  
+          ConditionsAreEqual = false 
+          exit function 
+          end if  
+      end if  
     case PROP_TYPE_STRING
       if not iobjCondition1.Value = iobjCondition2.Value then 
         ConditionsAreEqual = false

@@ -93,13 +93,14 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   
   ProductView.Properties.ClearSelection ' Select the properties I want to print in the PV Browser Order
   i = 1
-  ProductView.Properties("RerunId").Selected       = i : i=i+1
-  ProductView.Properties("Filter").Selected       = i : i=i+1
-  ProductView.Properties("Tag").Selected       = i : i=i+1
-  ProductView.Properties("LastAction").Selected       = i : i=i+1
-  ProductView.Properties("Time").Selected       = i : i=i+1
-  ProductView.Properties("UserName").Selected       = i : i=i+1
-  ProductView.Properties("Comment").Selected       = i : i=i+1
+  ProductView.Properties("RerunId").Selected     = i : i=i+1
+  ProductView.Properties("Filter").Selected      = i : i=i+1
+  ProductView.Properties("Tag").Selected         = i : i=i+1
+  ProductView.Properties("LastAction").Selected  = i : i=i+1
+  ProductView.Properties("Time").Selected        = i : i=i+1
+  ProductView.Properties("Time").Format          = mom_GetDictionary("DATE_TIME_FORMAT")
+  ProductView.Properties("UserName").Selected    = i : i=i+1
+  ProductView.Properties("Comment").Selected     = i : i=i+1
   
   ProductView.Properties.CancelLocalization
  
@@ -189,9 +190,9 @@ END FUNCTION
 PRIVATE FUNCTION GetHTMLCodeForButton(strDisplayName,strName,lngReRunID)
 
    if len(strDisplayName)>20 then
-    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]"");'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
+    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]""); return false;'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
    else
-    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]"");'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
+    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]""); return false;'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
    end if 
 END FUNCTION
 
@@ -267,6 +268,9 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
                 strSessionID          = Mid(strComment,lngPos+Len(TAG))
                 EventArg.HTMLRendered = Replace(EventArg.HTMLRendered,strImageHTMLAttributeName,"TurnDown:" & strSessionID)
             End If
+            Form_DisplayCell = TRUE
+        Case 7:
+            EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("time"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>"
             Form_DisplayCell = TRUE
         Case Else
             Form_DisplayCell = Inherited("Form_DisplayCell")

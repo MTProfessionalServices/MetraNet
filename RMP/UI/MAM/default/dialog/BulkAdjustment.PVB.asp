@@ -141,7 +141,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
           Form_DisplayCell      = TRUE
         Case 2
           Form_DisplayCell = Inherited("Form_DisplayCell()")    
-              
+        Case 9
+            EventArg.HTMLRendered = EventArg.HTMLRendered  & "<TD nowrap Class='[CLASS]'>"
+            EventArg.HTMLRendered = EventArg.HTMLRendered  & Framework.Format(ProductView.Properties.RowSet.Value("timestamp"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value)
+            EventArg.HTMLRendered = EventArg.HTMLRendered  &  "</TD>"
+            EventArg.HTMLRendered = PreProcess(EventArg.HTMLRendered,Array("CLASS", Form.Grid.CellClass))
         Case Else
               
           Select Case UCase(Form.Grid.SelectedProperty.Name)

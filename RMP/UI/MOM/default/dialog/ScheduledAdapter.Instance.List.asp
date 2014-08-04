@@ -153,7 +153,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
          Case "xstatus"
             dim strImage,strTooltip
             
-            strImage = "../localized/us/images/adapter_scheduled.gif"
+            strImage = "../localized/en-us/images/adapter_scheduled.gif"
             strTooltip= "Run Id: " & ProductView.Properties.RowSet.Value("RunId") & vbNewLine & "Arg Start: " & ProductView.Properties.RowSet.Value("ArgStart") & vbNewLine & "Arg End: " & ProductView.Properties.RowSet.Value("ArgEnd") & vbNewLine
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' title='" & strToolTip & "'>"  &_
                   "<img src='" & strImage & "' align='absmiddle'><strong>" & ProductView.Properties.RowSet.Value("DisplayName") & "</strong></td>" 
@@ -163,7 +163,12 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mom_GetDurationMessage(ProductView.Properties.RowSet.Value("LastRunStart"),ProductView.Properties.RowSet.Value("LastRunEnd")) & "</td>" 
             
   			    Form_DisplayCell = TRUE
-
+         Case "argstartdate"
+             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("ArgStartDate"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>" 
+  			    Form_DisplayCell = TRUE
+         Case "argenddate"
+             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("ArgEndDate"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>" 
+  			    Form_DisplayCell = TRUE
   	     Case else
             Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
       End Select

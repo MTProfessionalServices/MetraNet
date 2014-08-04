@@ -161,11 +161,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
            
             Select Case lcase(strIntervalType)
             Case "daily"
-              StrScheduleName = "Every " & interval & " day(s) at " & executionTimes
+              StrScheduleName = "Every " & interval & " day(s) at " &   mdm_Format(executionTimes,mom_GetDictionary("TIME_FORMAT"))  
             Case "monthly"
-              StrScheduleName = "Every " & interval & " month(s) at " & executionTimes & " on " & daysOfMonth
+              StrScheduleName = "Every " & interval & " month(s) at " &  mdm_Format(executionTimes,mom_GetDictionary("TIME_FORMAT")) & " on " & daysOfMonth
             Case "weekly"
-              StrScheduleName = "Every " & interval & " week(s) at " & executionTimes & " on " & daysOfWeek
+              StrScheduleName = "Every " & interval & " week(s) at " & mdm_Format(executionTime,mom_GetDictionary("TIME_FORMAT")) & " on " & daysOfWeek
             Case "minutely"
               StrScheduleName = "Every " & interval & " minutes "
             Case "manual"
@@ -202,7 +202,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
   			    Form_DisplayCell = TRUE
          Case "displayname"
             dim strName,strLink            
-            strName = "<img src='../localized/us/images/adapter_scheduled.gif' align='absmiddle' border='0'><strong>" & ProductView.Properties.RowSet.Value("DisplayName") & "</strong>"
+            strName = "<img src='../localized/en-us/images/adapter_scheduled.gif' align='absmiddle' border='0'><strong>" & ProductView.Properties.RowSet.Value("DisplayName") & "</strong>"
             strLink = "ScheduledAdapter.Instance.List.asp?ID=" & ProductView.Properties.RowSet.Value("EventId") & "&AdapterName=" & server.urlencode(strName)
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' nowrap><a href='" & strLink & "'>"  & strName & "</a></td>" 
   			    Form_DisplayCell = TRUE

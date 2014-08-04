@@ -167,39 +167,40 @@ on error resume next
     
     Set Form("CurrentState") = objTempYAAC.GetAccountStateMgr().GetStateObject()                    
     
-    strEndOfPageHTMLCode = "<br><div align='center'>"
+    strEndOfPageHTMLCode = "<tr><td colspan=""5"" align=""center""><br>"
     
     if(Form("CurrentState") <> NULL) then
 		Select Case UCase(Form("CurrentState").Name)		
 				Case "AC", "PA"
           If FrameWork.CheckCoarseCapability("Update account from active to suspended") or FrameWork.CheckCoarseCapability("Update account from active to closed") Then 
-            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"
+            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")
           Else
-            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"          
+            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")   
           End If
   			Case "SU"
           If FrameWork.CheckCoarseCapability("Update account from suspended to active") Then         
-            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"
+            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")
           Else
-            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"                    
+            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")                   
           End If
         Case "PF"
           If FrameWork.CheckCoarseCapability("Update account from pending final bill to active") Then         
-            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"
+            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")
           Else
-            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"                    
+            strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")                
           End If
         Case Else
-          strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"                    
+          strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")                 
 		End Select    
 	else
-        strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE") & "</button>&nbsp;&nbsp;&nbsp;"                    
+        strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button disabled class='clsButtonLarge' name=""changestate"" onclick=""window.location.href='" & mam_GetDictionary("ACCOUNT_STATE_UPDATE_DIALOG") & "?MDMReload=TRUE" & "';return false;"">" & mam_GetDictionary("ACCOUNT_STATE_UPDATE")                   
     end if
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</div>"    
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode    
         
     ' Here we must not forget to concat rather than set because we want to keep the result of the inherited event.
-    EventArg.HTMLRendered = EventArg.HTMLRendered & strEndOfPageHTMLCode
-    
+    ' CORE-4906, include the button as an additional table row and concat *before* the EventArg.HTMLRendered so that the button is contained within the </FORM></BODY></HTML> on the page. When the button used to be below the </HTML> tag, the button would jump by a few pixels on click the first time in IE.
+    EventArg.HTMLRendered =  strEndOfPageHTMLCode & "</td></tr>" & EventArg.HTMLRendered
+
     Form_DisplayEndOfPage = TRUE
 END FUNCTION
 

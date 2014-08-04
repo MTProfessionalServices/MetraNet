@@ -180,13 +180,13 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     
     '  add some code at the end of the product view UI
     ' ADD OWNER BUTTON
-    strEndOfPageHTMLCode = "<br><div align='center'>"
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""ADDOWNER"" onclick=""window.location.href='" & mam_GetDictionary("OWNER_ADD_DIALOG") & "?MDMReload=TRUE" & "'"">" & mam_GetDictionary("TEXT_ADD_OWNER_ACCOUNTS") & "</button>&nbsp;&nbsp;&nbsp;"
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</div>"
+    strEndOfPageHTMLCode = "<tr><td colspan=""7"" align=""center""><br>"
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""ADDOWNER"" onclick=""window.location.href='" & mam_GetDictionary("OWNER_ADD_DIALOG") & "?MDMReload=TRUE" & "'; return false;"">" & mam_GetDictionary("TEXT_ADD_OWNER_ACCOUNTS") & "</button>&nbsp;&nbsp;&nbsp;"
         
     ' Here we must not forget to concat rather than set because we want to keep the result of the inherited event.
-    EventArg.HTMLRendered = EventArg.HTMLRendered & strEndOfPageHTMLCode
-    
+    ' CORE-4906, include the button as an additional table row and concat *before* the EventArg.HTMLRendered so that the button is contained within the </FORM></BODY></HTML> on the page. When the button used to be below the </HTML> tag, the button would jump by a few pixels on click the first time in IE.
+    EventArg.HTMLRendered =  strEndOfPageHTMLCode & "</td></tr>" & EventArg.HTMLRendered
+
     Form_DisplayEndOfPage = TRUE
 END FUNCTION
 %>

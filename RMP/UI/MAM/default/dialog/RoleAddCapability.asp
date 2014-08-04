@@ -176,7 +176,7 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
           If UCase(ProductView.Properties("umbrella_sensitive")) = "N" then
               EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'>--&nbsp;</td>"
             Else
-              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
             End If
             Form_DisplayCell          = TRUE					
                         

@@ -256,7 +256,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
                 ProductView.Properties.RowSet.Value("AncestorAccountID") = -1  then
               strSelectorHTMLCode   = Replace(strSelectorHTMLCode,"[SYNC]","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
             Else
-              strSelectorHTMLCode   = Replace(strSelectorHTMLCode,"[SYNC]","<a target='secret' Name='butSyncRow[ROW]' href='[FIND_ACCOUNT_IN_HIERARCHY_DIALOG]?ID=" & ProductView.Properties.RowSet.Value("_AccountId") & "'><img BORDER='0' LOCALIZED='true' SRC='/mam/default/localized/us/images/sync.gif' ALT='Find Account in Hierarchy'></a>")
+              strSelectorHTMLCode   = Replace(strSelectorHTMLCode,"[SYNC]","<a target='secret' Name='butSyncRow[ROW]' href='[FIND_ACCOUNT_IN_HIERARCHY_DIALOG]?ID=" & ProductView.Properties.RowSet.Value("_AccountId") & "'><img BORDER='0' LOCALIZED='true' SRC='/mam/default/localized/en-us/images/sync.gif' ALT='Find Account in Hierarchy'></a>")
             End IF
             strSelectorHTMLCode   = Replace(strSelectorHTMLCode,"[ACCOUNTID]",ProductView.Properties.RowSet.Value("_AccountId"))
             strSelectorHTMLCode   = Replace(strSelectorHTMLCode,"[ASP_PAGE]",mam_GetDictionary("SUBSCRIBER_FOUND"))

@@ -191,7 +191,7 @@ PUBLIC FUNCTION LinkColumnMode_DisplayCell(EventArg) ' As Boolean
 			MDMListDialog.PreProcessor.Clear
 			MDMListDialog.PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
 			MDMListDialog.PreProcessor.Add "ASP_PAGE"    , FrameWork.GetDictionary("PRICELIST_EDIT_PROPERTIES_DIALOG")
-			MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
+			MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
 			MDMListDialog.PreProcessor.Add "ALT_EDIT"    , mdm_GetDictionary().Item("TEXT_EDIT").Value
 			MDMListDialog.PreProcessor.Add "ID"	    	   , ProductView.Properties.Rowset.Value("id_prop")
 			

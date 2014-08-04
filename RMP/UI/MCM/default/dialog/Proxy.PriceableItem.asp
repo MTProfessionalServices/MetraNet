@@ -1,6 +1,6 @@
 <!-- #INCLUDE FILE="../../MCMIncludes.asp" -->
 <%
-
+  Response.write "<SCRIPT language='JavaScript' src='/mpte/shared/browsercheck.js'></SCRIPT>"
   Response.write "<SCRIPT language='JavaScript' src='/mdm/internal/mdm.JavaScript.lib.js'></SCRIPT>"
 	  Dim objMTProductCatalog1, objMTPriceableItem1,objMTProductOffering1, targetPage
 

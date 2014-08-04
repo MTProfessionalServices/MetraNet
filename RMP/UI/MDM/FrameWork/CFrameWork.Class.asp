@@ -56,7 +56,7 @@ PUBLIC CONST FRAMEWORK_LOCALIZED_PATH   = "FRAMEWORK_LOCALIZED_PATH"
 PUBLIC CONST FRAMEWORK_APP_RCD          = "FRAMEWORK_APP_RCD"
 
 
-PUBLIC CONST FRAMEWORK_DEFAULT_LANGUAGE = "us"
+PUBLIC CONST FRAMEWORK_DEFAULT_LANGUAGE = "en-us"
 PUBLIC CONST MTLOGGER_PROG_ID           = "MTLogger.MTLogger.1"
 
 ' I added the word alias to when we use the mdm we do have const twice declared
@@ -701,9 +701,20 @@ CLASS CFrameWork ' -- The FrameWork Class --
 	            CheckInternalStuff booMDMMode
 	        
 	            ' Setup application start page
-	            
+             if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
+	                if(not IsEmpty(Session("PAGE_LANGUAGE"))) then
+                    Session(FRAMEWORK_APP_LANGUAGE) = Session("PAGE_LANGUAGE")
+                  else                  
+                    Session(FRAMEWORK_APP_LANGUAGE) = FRAMEWORK_DEFAULT_LANGUAGE                      
+                  end if
+            
+              else
+                  dim lang
+                  lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+                    Session(FRAMEWORK_APP_LANGUAGE) = lang
+              end if
+
 	            Session    (FRAMEWORK_APP_FOLDER)     = Server.MapPath(Application(FRAMEWORK_APP_STARTPAGE))
-	            Session    (FRAMEWORK_APP_LANGUAGE)   = FRAMEWORK_DEFAULT_LANGUAGE
 	            Set Session(FRAMEWORK_APP_DICTIONARY) = Server.CreateObject("MTMSIX.Dictionary")
 	            
 	            ' -- For Compatibility with the past --
@@ -905,7 +916,7 @@ CLASS CFrameWork ' -- The FrameWork Class --
 	    ' RETURNS     :
 	    PUBLIC PROPERTY GET Language() ' As Boolean
 	
-	        If(IsEmpty(Session(FRAMEWORK_APP_LANGUAGE)))Then Session(FRAMEWORK_APP_LANGUAGE) = "us"
+	        If(IsEmpty(Session(FRAMEWORK_APP_LANGUAGE)))Then Session(FRAMEWORK_APP_LANGUAGE) = FRAMEWORK_DEFAULT_LANGUAGE
 	
 	        Language = Session(FRAMEWORK_APP_LANGUAGE)
 	    END PROPERTY

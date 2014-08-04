@@ -16,17 +16,17 @@
  </link>
  
  <link id="MPTE_STYLESHEET1">
-   <value>/mam/default/localized/us/styles/RuleEditor_styles.css</value>
+   <value>/mam/default/localized/en-us/styles/RuleEditor_styles.css</value>
       <description></description>
     </link>
 
  <link id="MPTE_STYLESHEET2">
-   <value>/mam/default/localized/us/styles/styles.css</value>
+   <value>/mam/default/localized/en-us/styles/styles.css</value>
       <description></description>
  </link>
  
  <link id="MPTE_STYLESHEET3">
-   <value>/mam/default/localized/us/styles/tab_styles.css</value>
+   <value>/mam/default/localized/en-us/styles/tab_styles.css</value>
       <description></description>
  </link>
  

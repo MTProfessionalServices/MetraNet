@@ -50,7 +50,11 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   
   Service("ReRunId").Value = Session("FAILEDTRANSACTION_CURRENT_RERUNID")
   Service("Comment").Value = Session("FAILEDTRANSACTION_CURRENT_COMMENT")
-  
+  'CORE-7420
+  'Unnecessary list of all transactions with is appeared
+   Form.Modal = true
+   Form.JavaScriptInitialize = "window.parent.parent.close();"
+  '-----------------
   Form_Initialize = true
 
 END FUNCTION

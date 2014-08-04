@@ -29,7 +29,7 @@ CONST GLOBAL_CSR_METERED_ACCOUNT_ID               =   123
 CONST mom_DEFAULT_NAME_SPACE                      =   "system_user"
 CONST mom_CSR_NAME_SPACE                          =   "system_user"
 CONST mom_OPS_NAME_SPACE                          =   "system_user"
-CONST mom_LANGUAGE                                =    "US"
+CONST mom_LANGUAGE                                =    "en-us"
 
 CONST mom_TEST_MODE                               =   true ' By turning of and on the bool some dialog behave for test mode...
 
@@ -195,7 +195,7 @@ END FUNCTION
 ' RETURNS			  :
 FUNCTION mom_GetLocalizeImagePath()
 
-    mom_GetLOcalizeImagePath="/mom/default/localized/US/images"
+    mom_GetLOcalizeImagePath="/mom/default/localized/en-us/images"
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -207,6 +207,32 @@ FUNCTION mom_Initialize() ' As Boolean
 
     mom_Initialize=TRUE
 END FUNCTION    
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mom_FormatDate(strValue) 
+' PARAMETERS	: Format the date.
+' DESCRIPTION :
+' RETURNS			:
+Public Function mom_FormatDate(varValue, varFormat)
+  if len(varFormat) = 0 then
+    mom_FormatDate = FrameWork.MSIXTools.Format(varValue, mam_GetDictionary("DATE_FORMAT"))
+  else
+    mom_FormatDate = FrameWork.MSIXTools.Format(varValue, varFormat)
+  end if
+End Function
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mom_FormatDateTime(varValue, varFormat) 
+' PARAMETERS	: Format the date.
+' DESCRIPTION :
+' RETURNS			:
+Public Function mom_FormatDateTime(varValue, varFormat)
+  if len(varFormat) = 0 then
+    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, mam_GetDictionary("DATE_TIME_FORMAT"))
+  else
+    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, varFormat)
+  end if
+End Function
 
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -361,11 +387,26 @@ PUBLIC FUNCTION mom_GetAccountCreationMsixdefFileName()
 
     mom_GetAccountCreationMsixdefFileName = mdm_GetDictionary().Item("ACCOUNT_CREATION_MSIXDEF_FILE_NAME")
 END FUNCTION
-
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
 FUNCTION InitializeApplication() ' As Boolean
 
     DIM APP_FOLDER, objDictionary, objRCD
-    
+            If(IsEmpty(Session("mdm_APP_LANGUAGE")))Then        
+        	    if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
+	                Session("mdm_APP_LANGUAGE") = mom_LANGUAGE
+              else
+                  dim lang
+                  lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+                  if(not FolderExists(Application("startPage")  & "/default/localized/" & lang)) then
+                    lang = mom_LANGUAGE
+                  end if
+                  Session("mdm_APP_LANGUAGE") = lang 
+              end if
+            end if
     FrameWork.Initialize TRUE
     
     Set objRCD                = CreateObject("Metratech.RCD")    
@@ -375,15 +416,15 @@ FUNCTION InitializeApplication() ' As Boolean
     
     ' setup application start page
     Application("startPage")                    = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1)   '"
-    Session("LocalizedPath")                    = Application("startPage")  & "/default/localized/us/"
+    Session("LocalizedPath")                    = Application("startPage")  & "/default/localized/" & Session("mdm_APP_LANGUAGE")
     APP_FOLDER                                  = Server.MapPath("/mom")
     Session("mdm_APP_FOLDER")                   = APP_FOLDER ' Store the application folder for the mdm
     Application("APP_HTTP_PATH")                = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' " 
     Session("VIRTUAL_DIR")                      = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
     Set Session("mdm_LOCALIZATION_DICTIONARY")  = FrameWork.Dictionary
-    Session("mdm_APP_LANGUAGE")                 = mom_LANGUAGE    
+    'Session("mdm_APP_LANGUAGE")                 = mom_LANGUAGE    
     
-    LoadDictionary APP_FOLDER, mom_LANGUAGE, FrameWork.Dictionary '"
+    LoadDictionary APP_FOLDER, Session("mdm_APP_LANGUAGE") , FrameWork.Dictionary '"
     
     InitializeApplication = TRUE
 END FUNCTION

@@ -87,7 +87,7 @@ FUNCTION getScheduledAdapterListHTML
 
           'sToolTip = rowset.value("Details")
           sHTML = sHTML & "<tr class='TableDetailCell' title='" & sToolTip & "'><td style='vertical-align: top'>" & sSelectHTML & "</td>"
-          sHTML = sHTML & "<td style='vertical-align: top' nowrap><strong>" & "<img alt='' border='0' src= '" & "../localized/us/images/adapter_scheduled.gif" & "' align='absmiddle'>&nbsp;" & rowset.value("Display Name") & "</strong></td>"  
+          sHTML = sHTML & "<td style='vertical-align: top' nowrap><strong>" & "<img alt='' border='0' src= '" & "../localized/en-us/images/adapter_scheduled.gif" & "' align='absmiddle'>&nbsp;" & rowset.value("Display Name") & "</strong></td>"  
           sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("InstanceLastArgEndDate") & "&nbsp;</td>"
           sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("Description") & "&nbsp;</td></tr>"
           rowset.movenext

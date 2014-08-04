@@ -1,9 +1,10 @@
-<SCRIPT LANGUAGE="VBScript" RUNAT="Server"> 
+<SCRIPT LANGUAGE="VBScript" RUNAT="Server"> ' This comment fixes the formating issue: <%
 Option Explicit
 
-CONST mcm_LANGUAGE = "US"
+CONST DEFAULT_LANGUAGE = "en-us"
 
 Sub Application_OnStart
+   Set Application("cache_enumconfig") = server.CreateObject("Metratech.MTEnumConfig.1")  
 End Sub
 
 Sub Application_OnEnd
@@ -11,6 +12,11 @@ End Sub
 
 Sub Session_OnEnd
 End Sub
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
 
 Sub Session_OnStart
 
@@ -20,7 +26,19 @@ Sub Session_OnStart
     APP_FOLDER         = Server.MapPath("/mcm")
     set objDictionary  = CreateObject("MTMSIX.DICTIONARY")  
     objDictionary.Clear 
-    objDictionary.LoadFolder APP_FOLDER & "\Default\Localized\" & mcm_LANGUAGE & "\dictionary\system", TRUE ' MDM V2 Read dictionary sub folder
+
+    if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
+      Session("PAGE_LANGUAGE") = DEFAULT_LANGUAGE      
+    else
+      dim lang
+      lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+      if(not FolderExists(APP_FOLDER & "\Default\Localized\" & lang)) then
+        lang = DEFAULT_LANGUAGE
+      end if
+      Session("PAGE_LANGUAGE") = lang
+    end if
+
+    objDictionary.LoadFolder APP_FOLDER & "\Default\Localized\" & Session("PAGE_LANGUAGE") & "\dictionary\system", TRUE ' MDM V2 Read dictionary sub folder
 
     lcid = Trim(objDictionary("SESSION_LCID"))
 

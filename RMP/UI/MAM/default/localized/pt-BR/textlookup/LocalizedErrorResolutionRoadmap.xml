@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Roadmap Messages" type="collection">
+
+<description>
+  The file defines the text that will be displayed in the Guide frame if an error occurs.
+  The id format is ROADMAP(error number)
+  Supports HTML and Keyterms
+</description>
+
+    <text id="ROADMAP-516947931">
+			 <description>Synchronous metering timed out.</description>
+		   <value>
+    			 <![CDATA[ Parece que o MetraTech Pipeline não está sendo executado no servidor. Peça ao seu administrador para se certificar que o servidor está funcionando corretamente. A ação será enviada quando o pipeline iniciar. ]]>
+			 </value>
+		</text>
+    <text id="ROADMAP-486604795">
+			 <description>The paying account is not billable.</description>
+		   <value>
+		       <![CDATA[ É necessário primeiro marcar a conta de pagamento como faturável antes de configurá-la para pagar para outras contas. Isso é feito na tela Informações de Conta. ]]>
+			 </value>
+	  </text>		
+    <text id="ROADMAP-469368830">
+			 <description>This account is a payee.  It cannot be suspended.</description>
+		   <value>
+		       <![CDATA[ É necessário primeiro marcar a conta de pagamento como faturável antes de suspendê-la. ]]>
+			 </value>
+	  </text>		
+    <text id="ROADMAP1025">
+			 <description>Batch failed</description>
+		   <value>
+		       <![CDATA[ Para obter mais informações sobre as operações de lotes que falharam clique&lt;a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]"&gt;aqui&lt;/a&gt;. ]]> 
+			 </value>
+	  </text>		
+    <text id="ROADMAP1036">
+			 <description>Batch failed</description>
+		   <value>
+		       <![CDATA[ Para obter mais informações sobre as contras que falharam em assinar clique &lt;a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]"&gt;aqui&lt;/a&gt;. ]]>
+			 </value>
+	  </text>		   
+    <text id="ROADMAP1052">
+      <description>Batch template failed</description>    
+      <value>
+        <![CDATA[ A operação de modelo de lote falhou em algumas contas. Para obter mais informações sobre as contas que falharam, clique&lt;a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]"&gt;aqui&lt;/a&gt;. ]]>
+      </value>
+	  </text>		 	   
+    <text id="ROADMAP-492896235">
+			 <description>Role cannot be deleted with members</description>
+		   <value>
+		       <![CDATA[ A função que você está tentando excluir tem membros atualmente. É necessário primeiro remover todos os membros da função antes de excluí-la. Clique&lt;a target="MainContentIframe" href="[MANAGE_ROLES_DIALOG]"&gt;aqui&lt;/a&gt; para retornar a Gerenciar funções e então selecionar o ícone Membros para ver quem está designado a essa função. ]]>
+			 </value>
+	  </text>		    
+    <text id="ROADMAP-492896216">
+			 <description>Manage Account Hierarchies capability cannot be associated with Subscriber Assignable Role</description>
+		   <value>
+		       <![CDATA[ Para atribuir o recurso de gerenciar hierarquias de conta a um assinante, é necessário colocar o recurso diretamente na conta.  &lt;a target="MainContentIframe" href="[LAST_ROLE_PAGE]"&gt;Voltar para configurar capacidades&lt;/a&gt;. ]]>
+			 </value>
+	  </text>		
+    <text id="ROADMAP-OVERRIDESUBDATE">
+			 <description>Subscription date override according to group sub or product offering effective dates.</description>
+		   <value>
+		       <![CDATA[ A data de assinatura selecionada foi substituída pela data máxima permitida de acordo com as datas efetivas de assinatura em grupo ou oferta de produto. ]]>
+			 </value>
+	  </text>	
+
+    <text id="ROADMAP-OVERRIDEGROUPSUBDATE">
+			 <description>Group Subscription date override according to product offering effective date.</description>
+		   <value>
+		       <![CDATA[ A data efetiva da sua assinatura em grupo foi substituída pelo máximo permitido de acordo com a data efetiva da oferta de produto. ]]>
+			 </value>
+	  </text>	
+
+    <text id="ROADMAP-OVERRIDEMEMBERSHIPDATE">
+			 <description>Group Subscription membership date override according to product offering or group subscription effective dates.</description>
+		   <value>
+		       <![CDATA[ Sua data de associação ao grupo foi substituída pela data máxima permitida de acordo com as datas efetivas de assinatura em grupo ou oferta de produto. ]]>
+			 </value>
+	  </text>		
+  
+</texts>

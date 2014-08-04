@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+  <text id="TEXT_RATES_PRODUCT_OFFERING_LIST">
+    <value>Taxas baseadas em [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_PRICELIST_LIST">
+    <value>Taxas baseadas em [TEXT_KEYTERM_PRICE_LIST] do item cobrável</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_ALLPRICELISTS_LIST">
+    <value>Taxas baseadas em [TEXT_KEYTERM_PRICE_LIST]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_PRICEABLE_ITEM_LIST">
+    <value>Selecione o [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PARAMETER_TABLE">
+    <value>Selecione uma [TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PRICELIST">
+    <value>Selecionar [TEXT_KEYTERM_PRICE_LIST]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PRODUCT_OFFERING">
+    <value>Selecionar [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PRICEABLE_ITEM">
+    <value>Selecione o [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_ALLPRICELISTS_CHOOSE_PRICEABLE_ITEM">
+    <value>Selecione o [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_RATE_SCHEDULE">
+    <value>[TEXT_KEYTERM_RATE_SCHEDULES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_CURRENCY_CODE">
+    <value>Moeda</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_NUMBER_OF_RATES">
+    <value>Número de [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HAS_NO_RATES">
+    <value>Nenhum</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_RATES_OPTIONS">
+    <value>Opções</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_PICKER_TITLE">
+    <value>Selecione a [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_LIST_TITLE">
+    <value>Selecione a [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_EDIT_PROPERTIES">
+    <value>Editar propriedades</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_PRICELIST">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_START_DATE">
+    <value>Começa</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_END_DATE">
+    <value>Termina</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_NEW_RATE">
+    <value>Nova [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_WIZARD_STARTDATE_TITLE">
+    <value>Quando essa [TEXT_KEYTERM_RATE_SCHEDULE] deve entrar em vigor?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_WIZARD_ENDDATE_TITLE">
+    <value>Quando essa [TEXT_KEYTERM_RATE_SCHEDULE] deve entrar em vigor?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_WIZARD_DESCRIPTION_TITLE">
+    <value>Opcionalmente, é possível inserir uma descrição para essa [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_EFFECTIVE_DATE_TIP">
+    <value>As datas efetivas controlam quando um conjunto específico de regras deve ser aplicado na avaliação.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_EFFECTIVE_DATE_NULL_TIP">
+    <value>Selecionar "[TEXT_NULL_START_DATE_TYPE]" significa que a data de início da sua [TEXT_KEYTERM_RATE_SCHEDULE] está infinitamente no passado. Da mesma maneira, selecionar "[TEXT_NULL_END_DATE_TYPE]" significa que a data de término da sua[TEXT_KEYTERM_RATE_SCHEDULE] está infinitamente no futuro.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_DESCRIPTION_TIP">
+    <value>Um mecanismo simples e opcional para identificar sua [TEXT_KEYTERM_RATE_SCHEDULE].</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_RATES">
+    <value>Taxas da [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHILD_PRICEABLE_ITEM">
+    <value>Selecionar [TEXT_KEYTERM_PRICEABLE_ITEM] filho</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_SOURCE_FILE">
+    <value>Selecionar [TEXT_KEYTERM_PRICEABLE_ITEM] filho</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_DESCRIPTION">
+    <value>Descrição da [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_RULES_NUMBER">
+    <value>Número de regras a importar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_RULES">
+    <value>Importar regras</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_RULES_FIELDSET_LABEL">
+    <value>Importar regras da agenda de taxas</value>
+    <description></description>
+  </text>
+  <text id="COPY_SHARED_RSCHED">
+    <value>Copiar de uma [TEXT_KEYTERM_RATE_SCHEDULE] compartilhada</value>
+    <description></description>
+  </text>
+  <text id="COPY_NONSHARED_RSCHED">
+    <value>Copiar de uma [TEXT_KEYTERM_RATE_SCHEDULE] não compartilhada</value>
+    <description></description>
+  </text>
+</texts>

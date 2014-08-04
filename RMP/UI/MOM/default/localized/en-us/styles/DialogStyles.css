@@ -1,0 +1,447 @@
+.clsLoginMessage{
+	font-size: 11px;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
+	margin: 0;
+	TEXT-ALIGN: Center;
+}
+
+.CaptionBar
+{
+  /*background: transparent url(/Res/Ext/resources/images/gray/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
+  border-bottom: 1px solid #99BBE8;*/
+  background-color:#fff;
+  color: #000;
+  font-family: tahoma,arial,verdana,sans-serif;
+  font-size: 197%;
+  margin: .3em 0 .3em;
+  font-weight: bold;
+  padding: 5px 3px 4px 15px;
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+
+.clsWelcomeTitle{
+	padding: 5px 8px 5px 8px;
+	font-size: 16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #FFFFFF;
+	background-color: #0065CE;
+}
+
+.clsBulletList{
+	COLOR: black;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	FONT-SIZE: 10pt;
+	TEXT-ALIGN: left;
+	FONT-WEIGHT: normal;
+}
+
+.clsStandardText{
+	font-size: 11px;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
+	margin: 0;
+}
+
+.clsMainTitle{
+	font-size: 12px;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	margin: 0;
+}
+
+.clsStandardTitle{
+	padding: 5px 8px 5px 8px;
+	font-size: 11px;
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: black;
+}
+
+.clsInputBox{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 1px;	
+}
+
+.CaptionBarHelp{
+	padding: 5px 8px 5px 8px;
+	font-size: 20px;
+	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #FFFFFF;
+	background-color: #0065CE;
+}
+
+.TableCellAlt{
+	background-color: #FFFFFF;
+}
+
+.TableCell{
+	background-color: #EEEEEE;
+}
+
+/*
+A:link, A:visited, A:active
+	{
+	font-size: 11px; 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	}
+*/
+
+.TableHeader{
+	BORDER-BOTTOM: black solid 1px;
+	BORDER-LEFT: #0099ff solid 1px;
+	BORDER-RIGHT: black solid 1px;
+	BORDER-TOP: #0099ff solid 1px;
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: center;
+	color: #FFFFFF; 
+	background-color: #0065CE; 
+}
+
+
+a.TableHeaderA:hover{
+
+
+	color: yellow; 
+
+
+}
+
+a.TableHeaderA{
+	color: white; 
+
+}
+
+.TableDetailCell{
+	font-size: 11px;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
+	margin: 0;
+	BORDER-BOTTOM: white solid 1px;
+	BORDER-LEFT: white solid 1px;
+	BORDER-RIGHT: white solid 1px;
+	BORDER-TOP: white solid 1px;
+}
+
+.clsStaticInputBox{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: none;
+	border-width: 1px;
+	background-color: #FFFFFF;
+}
+
+.ErrorMessage{
+	BACKGROUND-COLOR: #EFEFE7;
+	BORDER-BOTTOM: black solid 1px;
+	BORDER-LEFT: gray solid 1px;
+	BORDER-RIGHT: black solid 1px;
+	BORDER-TOP: gray solid 1px ;
+	clipBottom: 100%;
+	clipLeft: 0px;
+	clipRight: 100%;
+	clipTop: 0px;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 10pt;
+	FONT-WEIGHT: bold;
+	TEXT-ALIGN: left;
+}
+
+.ErrorMessageCaption{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	BACKGROUND-COLOR: #FDFECF;
+	BORDER-BOTTOM: black solid 1px;
+	BORDER-LEFT: gray solid 1px;
+	BORDER-RIGHT: black solid 1px;
+	BORDER-TOP: gray solid 1px;
+	COLOR: black;
+}
+
+.clsBox{
+	BACKGROUND-COLOR : white;
+	BORDER-BOTTOM : black solid 1px;
+	BORDER-LEFT : black solid 1px;
+	BORDER-RIGHT : black solid 1px;
+	BORDER-TOP : black solid 1px;
+	COLOR : black;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	FONT-SIZE : 11px;
+}
+
+.clsFindInputBox{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 1px;
+}
+
+  
+/* NEW STYLES */  
+
+
+BODY
+	{
+	font-size: 12px;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
+	margin: 0;
+	}
+
+INPUT.checkbox
+	{
+	border-style: none;
+	}
+
+INPUT.radiobutton
+	{
+	border-style: none;
+	}
+
+INPUT.image
+	{
+	border-style: none;
+	}
+
+SELECT
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: none;
+	border-width: 1px;
+	}
+
+/* (not currently used)
+OPTION
+	{
+	}
+*/
+
+.sectionCaption
+	{
+	padding: 5px 8px 5px 8px;
+	font-size: 20px;
+	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #FFFFFF;
+	background-color: #0065CE;
+	}
+
+.captionEW
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: right;
+	vertical-align: baseline;
+	}
+
+.captionEWRequired
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	text-align: right; 
+	font-weight: bold;
+	vertical-align: baseline;
+	}
+
+.captionNS
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: left;
+	}
+
+.captionNSRequired
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	text-align: left;
+	font-weight: bold;
+	}
+
+INPUT.field
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 1px;
+	}
+
+INPUT.fieldRequired
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 1px;	
+	}
+
+INPUT.fieldNumeric
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	text-align: right; 
+	border-style: solid;
+	border-width: 1px;
+	}
+
+INPUT.fieldNumericRequired
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 1px;	
+	text-align: right; 
+	}
+
+.fieldNonEditable /* select WAS: INPUT.fieldNonEditable; removed INPUT so can use with static HTML text */
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 1px;
+	border-color: #BBBBBB;
+	background-color: transparent;
+	}
+
+TEXTAREA
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 1px;
+	}
+
+TEXTAREA.required
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif; 
+	border-style: solid;
+	border-width: 2px;
+	}
+
+.otherControl
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	border-style: groove;
+	}
+
+.otherControlRequired
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	}
+
+THEAD
+	{
+	border-style: solid;
+	border-width: 1px;
+	}
+
+TBODY
+	{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	}
+
+TH
+	{
+	font-size: 10px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: center;
+	color: #FFFFFF; 
+	background-color: #0065CE; 
+	}
+
+.clickableHeader
+	{
+	border-style: outset;
+	border-width: 1px;
+	border-color: #FFFFFF #0065CE #0065CE #FFFFFF;
+	}
+
+.numericColumn
+	{
+	text-align: right; 
+	}
+
+/* Assume that table row numbering is *zero-based*. So the sequence is: even, odd, even, ...  */
+.tableRowEven
+	{
+	background-color: #FFFFFF;
+	}
+.tableRowOdd
+	{
+	background-color: #EEEEEE;
+	}
+
+
+
+.clsRateText{
+	font-size: 14px;
+	font-family: tahoma,arial,verdana,sans-serif; 
+	background-color: #edf0f8; 
+	margin: 0;
+}
+.clsRateHeader{
+	padding: 2px 4px 2px 4px;
+	font-size: 14px;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #FFFFFF;
+	background-color: #0065CE;
+	background-image : url(../images/blend.gif);
+	background-repeat : repeat-y; 
+}
+.clsRateTableSubHeader{
+	font-size: 12px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: center;
+	color: #FFFFFF; 
+	background-color: #0065CE; 
+}
+.clsRateTableTextEven{
+	font-size: 14px; 
+	background-color: #D6D3CE;
+  font-weight:bold;
+}
+.clsRateTableTextOdd  {
+	font-size: 12px; 
+}
+.clsRateConstraintTableHeader{
+	font-size: 12px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: center;
+	color: #FFFFFF; 
+	background-color: black; 
+  font-weight:bold;  
+}
+.clsRateTableSubHeader{
+	font-size: 12px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: center;
+	color: black; 
+	background-color: #e8e8e8; 
+  font-weight:bold;  
+}
+.clsRateTableText{
+	font-size: 12px; 
+	background-color: #FFFFFF;
+}

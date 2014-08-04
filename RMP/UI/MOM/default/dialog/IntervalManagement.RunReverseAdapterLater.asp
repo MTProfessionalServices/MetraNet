@@ -61,13 +61,13 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "AdapterList"     , "string", 1024, FALSE , Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "ADAPTER_LIST_HTML"     , "string", 50000, FALSE , Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "ActionText"    , "string", 20, FALSE , Empty, eMSIX_PROPERTY_FLAG_NONE
-  Service.Properties.Add "ActionDatetime"    , MSIXDEF_TYPE_TIMESTAMP, 0   , FALSE, Empty
-  
+  Service.Properties.Add "ActionDatetime"    , "string", 30   , FALSE, Empty
+
   Service.Properties("AdapterList").Value = Form("AdapterList")
   Service.Properties("ADAPTER_LIST_HTML").Value = getAdapterInformationHTML()
   
-  Service.Properties("ActionDatetime").Value = Framework.MetraTimeGMTNow()
-  
+  Service.Properties("ActionDatetime").Value = mdm_Format(Framework.MetraTimeGMTNow(), mom_GetDictionary("DATE_TIME_FORMAT"))
+
   'Set the title for the page
 
   Service.Properties("PageTitle").Value = Form("ActionText") & " Adapter(s) At Scheduled Time"
@@ -141,7 +141,7 @@ FUNCTION getAdapterInformationHTML
       do while not rowset.eof 
           dim sToolTip, sAdapterName, sErrorMessage
           
-          sAdapterName = "<img src='../localized/us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
+          sAdapterName = "<img src='../localized/en-us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
           
           sHTML = sHTML & "<tr title='" & sToolTip & "'>"
           sHTML = sHTML & "<td style='vertical-align: top'>" & sAdapterName & "</td>"
@@ -168,7 +168,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
   dim sAdapterList, arrAdapterList, i
   sAdapterList = Service.Properties("AdapterList").value
 
-  mdm_TerminateDialogAndExecuteDialog "IntervalManagement.RunReverseAdapter.asp?Action=" & Form("Action") & "&AdapterList=" & server.urlencode(sAdapterList) & "&ReturnURL=" & server.urlencode(Form.RouteTo) & "&RunDate=" & server.urlencode(Service.Properties("ActionDatetime").Value)
+  mdm_TerminateDialogAndExecuteDialog "IntervalManagement.RunReverseAdapter.asp?Action=" & Form("Action") & "&AdapterList=" & server.urlencode(sAdapterList) & "&ReturnURL=" & server.urlencode(Form.RouteTo) & "&RunDate=" & server.urlencode(CDate(Service.Properties("ActionDatetime").Value))
 
 
   '//Submit them right now without checking dependencies  

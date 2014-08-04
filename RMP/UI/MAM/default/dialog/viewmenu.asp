@@ -2,7 +2,7 @@
 <!-- #INCLUDE FILE="../../auth.asp" --> 
 <html>
   <head>
-    <link rel="stylesheet" href="/mam/default/localized/us/styles/styles.css">
+    <link rel="stylesheet" href="/mam/default/localized/en-us/styles/styles.css">
   </head>
   
   <body style="margin:5;">

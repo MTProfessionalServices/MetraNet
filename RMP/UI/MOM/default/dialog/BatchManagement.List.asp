@@ -169,22 +169,22 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             
             Select Case lcase(ProductView.Properties.RowSet.Value("status"))
             Case "completed"
-              strImage= "../localized/us/images/batch_complete.gif"
+              strImage= "../localized/en-us/images/batch_complete.gif"
               iState=0
             Case "failed"
-              strImage= "../localized/us/images/batch_fail.gif"
+              strImage= "../localized/en-us/images/batch_fail.gif"
               iState=1
             Case "active"
-              strImage= "../localized/us/images/batch_active.gif"
+              strImage= "../localized/en-us/images/batch_active.gif"
               iState=2
             Case "dismissed"
-              strImage= "../localized/us/images/batch_dismissed.gif"
+              strImage= "../localized/en-us/images/batch_dismissed.gif"
               iState=2              
             Case "backed out"
-              strImage= "../localized/us/images/batch_backedout.gif"
+              strImage= "../localized/en-us/images/batch_backedout.gif"
               iState=2              
             Case Else
-              strImage= "../localized/us/images/batch.gif"
+              strImage= "../localized/en-us/images/batch.gif"
               iState=-1
             End Select
               
@@ -208,8 +208,8 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
              EventArg.HTMLRendered = EventArg.HTMLRendered & nFailedTransactions
            else
              'EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('FailedTransaction.List.asp?BatchView_ID=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"
-              EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionsView.aspx?Filter_FailedTransactionList=N&Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"   
-           end if
+              EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionViewFromBatch.aspx?Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"
+			end if
            EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
 
   			   Form_DisplayCell = TRUE

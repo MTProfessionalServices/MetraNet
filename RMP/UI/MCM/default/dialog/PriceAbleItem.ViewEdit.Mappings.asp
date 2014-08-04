@@ -304,7 +304,7 @@ Dim MTPOBased
                                          
             'EventArg.HTMLRendered     =  "<td class='GridCell'><a href='PriceableItem.Usage.ViewEdit.asp?ID=" & _
             '                             EventArg.Grid.Rowset.Value("ID") & "&Kind=" & Request("Kind") & _
-            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
+            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
 
             ContainedPriceableItems_DisplayCell = TRUE
         
@@ -396,7 +396,7 @@ PRIVATE FUNCTION ContainedParameterTables_DisplayCell(EventArg) ' As Boolean
       dim strLinkParams
       strLinkParams = "ID|" & Request("ID") & ";EditMode|False;POBased|" & Request("POBased") & ";Kind|" & Request("Kind") & ";Automatic|" & Request("Automatic")
       EventArg.HTMLRendered     =  "<td class='" & EventArg.Grid.CellClass & "'>"  & _
-            "<button class='clsButtonBlueMedium' name=""EditMapping_" & EventArg.Grid.Rowset.Value("tpt_nm_name") & """ onclick=""window.open('PriceListMapping.Edit.asp?ID=" & EventArg.Grid.Rowset.Value("id_paramtable") & "&NonSharedPLID=" & Form("NonSharedPLID") & "&PI_ID=" & Request("ID") & "&NextPage=PriceableItem.Usage.ViewEdit.asp&MonoSelect=TRUE&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;" & strLinkParams & ";PARAMTABLEID|" & EventArg.Grid.Rowset.Value("id_paramtable")  & "','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_EDIT") & " Mapping" & "</button></td>"                       
+            "<button type=""button"" class='clsButtonBlueLarge' name=""EditMapping_" & EventArg.Grid.Rowset.Value("tpt_nm_name") & """ onclick=""window.open('PriceListMapping.Edit.asp?ID=" & EventArg.Grid.Rowset.Value("id_paramtable") & "&NonSharedPLID=" & Form("NonSharedPLID") & "&PI_ID=" & Request("ID") & "&NextPage=PriceableItem.Usage.ViewEdit.asp&MonoSelect=TRUE&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;" & strLinkParams & ";PARAMTABLEID|" & EventArg.Grid.Rowset.Value("id_paramtable")  & "','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_EDIT") & " Mapping" & "</button></td>"                       
             
       ContainedParameterTables_DisplayCell = TRUE      
                       
@@ -404,7 +404,7 @@ PRIVATE FUNCTION ContainedParameterTables_DisplayCell(EventArg) ' As Boolean
       if UCase(EventArg.Grid.SelectedProperty.Value) = "Y" then
         EventArg.HTMLRendered = ""
         EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & EventArg.Grid.CellClass & "'>"
-        'EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/icons/check.gif'>"
+        'EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/icons/check.gif'>"
         EventArg.HTMLRendered = EventArg.HTMLRendered & FrameWork.GetDictionary("TEXT_YES")
         EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
       else

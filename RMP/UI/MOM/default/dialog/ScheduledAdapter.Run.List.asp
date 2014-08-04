@@ -137,13 +137,20 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("ArgStartDate").Selected       = i : i=i+1    
   ProductView.Properties("ArgEndDate").Selected       = i : i=i+1 
   ProductView.Properties("LastRunStart").Selected       = i : i=i+1
-  ProductView.Properties("LastRunMachine").Selected       = i : i=i+1
-         
+  ProductView.Properties("LastRunMachine").Selected       = i : i=i+1         
   'ProductView.Properties("RunEnd").Selected         = i : i=i+1    
 
+  ProductView.Properties("InstanceId").Caption = "InstanceId"
+  ProductView.Properties("EventDisplayName").Caption = "EventDisplayName"
+  ProductView.Properties("Status").Caption = "Status"
+  ProductView.Properties("ArgStartDate").Caption = "ArgStartDate"
+  ProductView.Properties("ArgEndDate").Caption = "ArgEndDate"
+  ProductView.Properties("LastRunStart").Caption = "LastRunStart"
+  ProductView.Properties("LastRunMachine").Caption = "LastRunMachine"
+  
   ProductView.Properties("ArgStartDate").Sorted = MTSORT_ORDER_DESCENDING
   
-  ProductView.Properties.CancelLocalization
+  'ProductView.Properties.CancelLocalization
   
   ProductView.LoadJavascriptCode
   
@@ -225,7 +232,7 @@ PRIVATE FUNCTION xForm_DisplayDetailRow(EventArg) ' As Boolean
       do while not rowset.eof 
           dim sToolTip
           sToolTip = "Component: " & rowset.value("method") & vbCRLF & "Config File: " & rowset.value("configfile")
-          EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableDetailCell' title='" & sToolTip & "'><td><img src='../localized/us/images/adapter.gif' width='16' height='16' alt='" & sToolTip & "' border='0'>&nbsp;" & rowset.value("adapter") & "</td>"    '(" & rowset.value("method") & ")
+          EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableDetailCell' title='" & sToolTip & "'><td><img src='../localized/en-us/images/adapter.gif' width='16' height='16' alt='" & sToolTip & "' border='0'>&nbsp;" & rowset.value("adapter") & "</td>"    '(" & rowset.value("method") & ")
           EventArg.HTMLRendered = EventArg.HTMLRendered & "<td>" & rowset.value("Start Time") & "</td>"
           EventArg.HTMLRendered = EventArg.HTMLRendered & "<td>" & rowset.value("End Time") & "</td></tr>"    
           rowset.movenext

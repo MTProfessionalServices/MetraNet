@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+  <text id="TEXT_SELECT_PRICE_LIST">
+    <value>Selecionar [TEXT_KEYTERM_PRICE_LIST]</value>
+  </text>
+  <text id="TEXT_CREATE_NEW_PRICE_LIST">
+    <value>Criar novo [TEXT_KEYTERM_PRICE_LIST]</value>
+  </text>
+  <text id="TEXT_SELECT_A_PRICE_LIST">
+    <value>Selecionar uma [TEXT_KEYTERM_PRICE_LIST]</value>
+  </text>
+  <text id="TEXT_CURRENCY">
+    <value>Moeda</value>
+  </text>
+  <text id="TEXT_NEW_PRICELIST">
+    <value>Nova [TEXT_KEYTERM_PRICE_LIST]</value>
+  </text>
+  <text id="TEXT_EDIT_PRICELIST">
+    <value>Gerenciar [TEXT_KEYTERM_PRICE_LISTS]</value>
+  </text>
+  <text id="TEXT_NEW_PRICELIST_DESCRIPTION">
+    <value>Defina as propriedades da nova [TEXT_KEYTERM_PRICE_LIST]</value>
+  </text>
+  <text id="TEXT_PRICELIST_SUMMARY_DESCRIPTION1">
+    <value>Aqui está um resumo da [TEXT_KEYTERM_PRICE_LIST] que você está prestes a criar.</value>
+  </text>
+  <text id="TEXT_PRICELIST_SUMMARY_DESCRIPTION2">
+    <value>Clique em "Finalizar" para criar essa [TEXT_KEYTERM_PRICE_LIST].</value>
+  </text>
+  <text id="TEXT_PRICELIST_EDIT_PROPERTIES">
+    <value>Editar propriedades</value>
+  </text>
+  <text id="TEXT_PRICELIST_LIST_TITLE">
+    <value>Gerenciar [TEXT_KEYTERM_PRICE_LISTS]</value>
+  </text>
+  <text id="TEXT_SHARED_PRICELIST_LIST_TITLE">
+    <value>[TEXT_KEYTERM_PRICE_LISTS] [TEXT_SHARED]</value>
+  </text>
+  <text id="TEXT_PRICELIST_LIST">
+    <value>Gerenciar [TEXT_KEYTERM_PRICE_LISTS]</value>
+  </text>
+  <text id="TEXT_PRICELIST_MAPPING_NO_NAME">
+    <value>Especifique uma lista de preços.</value>
+  </text>
+  <text id="TEXT_NONSHARED_PRICE_LIST">
+    <value>[TEXT_KEYTERM_PRICE_LIST] não compartilhada</value>
+  </text>
+  <text id="TEXT_NONSHARED">
+    <value>Não compartilhado</value>
+  </text>
+  <text id="TEXT_SHARED">
+    <value>Compartilhado</value>
+  </text>
+  <text id="TEXT_KEYTERM_PRICE_LIST_TYPE">
+    <value>Tipo de [TEXT_KEYTERM_PRICE_LIST]</value>
+  </text>
+  <text id="TEXT_EDIT_PRICE_LIST_MAPPING">
+    <value>Editar [TEXT_PRICELIST_MAPPING]</value>
+  </text>
+  <text id="TEXT_SHARED_RATES">
+    <value>Taxas [TEXT_SHARED]</value>
+  </text>
+  <text id="TEXT_PRICELIST_PLPARTITIONID">
+    <value>Id da partição</value>
+  </text>
+  <text id="TEXT_PRICELIST_CURRENCY_CHANGE_WARNING">
+    <value><![CDATA[<strong>AVISO: alterar a moeda da [TEXT_KEYTERM_PRICE_LIST]</strong><BR>A cópia da[TEXT_KEYTERM_PRICE_LIST] será criada com uma moeda diferente, no entanto, as taxas não serão alteradas e devem ser atualizadas para refletir o valor apropriado na nova moeda.<BR>]]></value>
+  </text>
+</texts>

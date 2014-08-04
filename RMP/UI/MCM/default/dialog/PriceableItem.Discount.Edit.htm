@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
   <head>
-    <link localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
+    <link localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
     <title><MDMLABEL name="TEXT_KEYTERM_DISCOUNT"></MDMLABEL></title>
 </head>
 <body onLoad="SizeWindow();">
@@ -42,7 +42,7 @@
 <MDMGrid Name="ExtendedProperties">Extended Properties</MDMGrid>
 <br>
 <center>
-<img src='..\localized\us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;">What are extended properties?</a>
+<img src='..\localized\en-us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;">What are extended properties?</a>
 </center>
 </td>
 </tr>
@@ -53,8 +53,8 @@
 <!-- Dialog Buttons -->
 <br>
 <div align="center">
-  <button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
-  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
+  <button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this); return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
+  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
 </div>
 </form>
 </body>

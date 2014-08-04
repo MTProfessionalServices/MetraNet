@@ -72,7 +72,8 @@ FUNCTION Form_Refresh(EventArg)
 
   Dim objUSM, objInterval
   Set objUSM = mom_GetUsageServerClientObject()
-  Set objInterval = objUSM.GetUsageInterval(Form("IntervalID"))
+  'Set objInterval = objUSM.GetUsageInterval(Form("IntervalID"))
+  Set objInterval = objUSM.GetUsageIntervalWithoutAccountStats(Form("IntervalID"))
 
   Service.Properties("IntervalID").Value = CStr(objInterval.IntervalID)
   Service.Properties("IntervalType").Value = GetBillingGroupCycleType(objInterval.CycleType)
@@ -82,8 +83,8 @@ FUNCTION Form_Refresh(EventArg)
   Service.Properties("TotalBillingGroupAdapterCount").Value = objInterval.TotalBillingGroupAdapterCount + objInterval.TotalIntervalOnlyAdapterCount
   Service.Properties("SucceededAdapterCount").Value = objInterval.SucceededAdapterCount
   Service.Properties("FailedAdapterCount").Value = objInterval.FailedAdapterCount
-  Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
-  Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
+  'Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
+  'Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
   'Service.Properties("Percentage").Value = objInterval.Progress
   Service.Properties("Status").Value = objInterval.Status
 

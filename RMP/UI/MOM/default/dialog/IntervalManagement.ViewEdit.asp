@@ -119,7 +119,7 @@ FUNCTION Form_Refresh(EventArg)
     Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;<A href=""#"" onclick=""window.open('IntervalManagement.StateChange.asp?MDMReload=TRUE&BillingGroupID=" & Service.Properties("BillingGroupID").Value & "&IntervalId=" & Service.Properties("IntervalId").Value & "&State=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&StateName=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&IntervalEndDate=" & Server.UrlEncode(Service.Properties("IntervalEndDateTime").Value) & "','', 'height=500,width=650, resizable=yes, scrollbars=yes, status=yes')"">" & "Change State" &  "</A>"
   else 
     if bg.CanBeHardClosed then
-      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);"">" & "<span style='font-size: 10px;'>Force Hard Close</span>" &  "</button>"
+      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);return false;"">" & "<span style='font-size: 10px;'>Force Hard Close</span>" &  "</button>"
     else
       Service.Properties("CHANGESTATE_HTML_LINK") = ""
     end if
@@ -178,8 +178,8 @@ FUNCTION getRecurringEventRunHTML
     Service.Properties("ACTION_HTML") = getAvailableActionsHTML(rowset)     
 
     sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
-    sHTML = sHTML & "<tr class='TableHeader' style='background-color:#005DAA;color:white;'><td align='left' colspan='15'><strong><font size=4>Billing Process Adapters</font></strong></td></tr>"    
-    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;'><td align='left' width='10px' style='padding: 0px 0px 0px 0px; '><input type='checkbox' name='selectAllAdapters' " & IIF(bDisableActions,"disabled ","") & "value='' onClick='DoSelectAllAdapters(this);'></td><td align='left'>Adapter</td><td align='left'>Instance Id</td><td valign='bottom' align='left'>Status</td><td align='left'>Last<br>Action</td><td align='left'>Start Time [Duration]</td><td align='left'>Result</td><td align='left'>Machine</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='background-color:#C0C0C0;color:black;'><td align='left' colspan='15'><strong><font size=4>Billing Process Adapters</font></strong></td></tr>" 
+    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;color:black'><td align='left' width='10px' style='padding: 0px 0px 0px 0px; '><input type='checkbox' name='selectAllAdapters' " & IIF(bDisableActions,"disabled ","") & "value='' onClick='DoSelectAllAdapters(this);'></td><td align='left'>Adapter</td><td align='left'>Instance Id</td><td valign='bottom' align='left'>Status</td><td align='left'>Last<br>Action</td><td align='left'>Start Time [Duration]</td><td align='left'>Result</td><td align='left'>Machine</td></tr>"    
 
     if rowset.eof then
       sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='15'>No adapter event runs for this interval currently.</td></tr>"
@@ -191,14 +191,14 @@ FUNCTION getRecurringEventRunHTML
           sStatusCode	= rowset.value("Status")
           sStatus		= mom_GetAdapterInstanceStatusMessage(rowset.value("Status"),rowset.value("EffectiveDate"))
           if sStatusCode = "Failed" then
-            sStatus = "<img border='0' height='16' src= '../localized/us/images/errorsmall.gif' align='absmiddle' width='16'>&nbsp;" & sStatus
+            sStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>&nbsp;" & sStatus
           end if
           
           if rowset.value("EventType")="EndOfPeriod" then
 
 
             '// This is an adapter event
-            sIcon = "../localized/us/images/adapters/" & rowset.value("BillGroupSupportType") & ".png"
+            sIcon = "../localized/en-us/images/adapters/" & rowset.value("BillGroupSupportType") & ".png"
             sInstanceId = rowset.value("InstanceId")
             'sInstanceId = "<A href=""#"" title=""View Adapter Instance Run History"" onclick=""window.open('AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & sInstanceId & "</A>"
             sInstanceId = "<A href='AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&DisableActions=" & bDisableActions & "&IntervalDescription=" & Server.UrlEncode(sIntervalDescription) & "&ReturnUrl=" & Server.UrlEncode("IntervalManagement.ViewEdit.asp") & "' title='View Adapter Instance Run History'>" & sInstanceId & "</A>"
@@ -223,7 +223,7 @@ FUNCTION getRecurringEventRunHTML
                 sLastRunDetail = rowset.value("LastRunDetail")
               else
                 if sStatusCode = "Succeeded" then
-                  sLastRunStatus = "<img border='0' height='16' src= '../localized/us/images/errorsmall.gif' align='absmiddle' width='16'>" & "Succeeded With Warnings"
+                  sLastRunStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>" & "Succeeded With Warnings"
                 else
                   sLastRunStatus = rowset.value("LastRunStatus")
                 end if
@@ -266,10 +266,10 @@ FUNCTION getRecurringEventRunHTML
             sSelectHTML = "&nbsp;"
             sLastRunActionHTML = "&nbsp;"
             sLastRunResultHTML = "&nbsp;"
-            sStyle = "height: 29px;text-align:middle;vertical-align: middle;BACKGROUND-COLOR:#CCDEF6; border-bottom: silver solid 1px;	BORDER-TOP: silver solid 1px;"            
+            sStyle = "height: 29px;text-align:middle;vertical-align: middle;BACKGROUND-COLOR:#D6D3CE; border-bottom: silver solid 1px;	BORDER-TOP: silver solid 1px;"            
             if sStatusCode = "NotYetRun" then
-              'sStatus =  "<button  style='font-weight: bold;padding: 0px 0px 0px 0px;font-size: 8px;height=18px;width=60px;' name='AcknowledgeCheckPoint' onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");"">" & "Acknowledge" &  "</button>" & vbNewLine
-              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");"">" & "<span style='font-size: 10px;'>Acknowledge</span>" &  "</button>" & vbNewLine
+              'sStatus =  "<button  style='font-weight: bold;padding: 0px 0px 0px 0px;font-size: 8px;height=18px;width=60px;' name='AcknowledgeCheckPoint' onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "Acknowledge" &  "</button>" & vbNewLine
+              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "<span style='font-size: 10px;'>Acknowledge</span>" &  "</button>" & vbNewLine
             end if
             if sStatusCode = "ReadyToRun" or sStatusCode = "Succeeded" then
               'sStatus =  "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='EditMapping' onclick=""javascript:alert('Not implemented yet... hold your horses');"">" & "Acknowledge" &  "</button>" & vbNewLine
@@ -277,7 +277,7 @@ FUNCTION getRecurringEventRunHTML
             end if
             
             
-            sIcon = "../localized/us/images/adapter_checkpoint.gif"
+            sIcon = "../localized/en-us/images/adapter_checkpoint.gif"
           end if
 
           

@@ -1,6 +1,6 @@
 <HTML>
  <HEAD>
-  <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/us/styles/styles.css">  
+  <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">  
  </HEAD>
 
 <BODY>
@@ -30,7 +30,7 @@
         <TD class="captionEW"><MDMLABEL Name="StartDate" type="Caption">Start Date</MDMLABEL>:&nbsp;&nbsp;</TD>
         <TD>
           <INPUT type="text" class="fieldRequired" size="20" name="StartDate">
-          <a href="#" onClick="getCalendarForStartDate(document.mdm.StartDate);return false"><img src='/mam/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
+          <a href="#" onClick="getCalendarForStartDate(document.mdm.StartDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
 #MDMIF SHOW_NEXTBILLINGPERIOD_CHOICE
           &nbsp;<input type="checkbox" name="StartNextBillingPeriod"><MDMLabel Name="StartNextBillingPeriod" type="Caption">Start after next biling period</MDMLabel></TD>
 #MDMENDIF
@@ -40,7 +40,7 @@
         <TD class="captionEW"><MDMLABEL Name="EndDate" type="Caption">End Date</MDMLABEL>:&nbsp;&nbsp;</TD>
         <TD>
           <INPUT type="text" class="fieldRequired" size="20" name="EndDate">
-          <a href="#" onClick="getCalendarForEndDate(document.mdm.EndDate);return false"><img src='/mam/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
+          <a href="#" onClick="setEndDateTimeAndShowCalendar(document.mdm.EndDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
 #MDMIF SHOW_NEXTBILLINGPERIOD_CHOICE					
           &nbsp;<input type="checkbox" name="EndNextBillingPeriod"><MDMLabel Name="EndNextBillingPeriod" type="Caption">End after next biling period</MDMLabel></TD>
 #MDMENDIF				
@@ -48,7 +48,12 @@
      <tr>
        <td colspan="2" align="center">
          <BR><br>
-         <button onclick="mdm_RefreshDialog(this)" name="ok" Class='clsOkButton'><MDMLABEL Name="TEXT_OK">OK</MDMLABEL></button> <button onclick="mdm_RefreshDialog(this)" name="cancel" Class='clsOkButton'><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></button>
+             <button onclick="mdm_RefreshDialog(this); return false;" name="ok" Class='clsOkButton'>
+               <MDMLABEL Name="TEXT_OK">OK</MDMLABEL>
+             </button> 
+             <button onclick="mdm_RefreshDialog(this); return false;" name="cancel" Class='clsOkButton'>
+              <MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL>
+             </button>
        </td>
      </tr>
     </TABLE>

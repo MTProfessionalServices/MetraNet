@@ -363,7 +363,7 @@ PRIVATE FUNCTION DropGrid_DisplayCell(EventArg) ' As Boolean
               Service.Properties.Add "folderAction" & EventArg.Grid.Properties("id").Value, "String",  256, FALSE, mam_GetDictionary("TEXT_ALL_DESCENDANTS") 
                
               EventArg.HTMLRendered  = EventArg.HTMLRendered & "<a href=""JavaScript:SetFolderAction(" & "document.all.folderActionText" & EventArg.Grid.Properties("id").Value & ");"">"  
-              EventArg.HTMLRendered  = EventArg.HTMLRendered & "<img align='absmiddle' border=0 src='/mam/default/localized/us/images/toggle.gif'></a>"
+              EventArg.HTMLRendered  = EventArg.HTMLRendered & "<img align='absmiddle' border=0 src='/mam/default/localized/en-us/images/toggle.gif'></a>"
               EventArg.HTMLRendered  = EventArg.HTMLRendered & "&nbsp;<input name='" & "folderActionText" & EventArg.Grid.Properties("id").Value & "' class='" &  EventArg.Grid.CellClass & "' style='border:0;' type='test' value='" &  Service.Properties("folderAction" & EventArg.Grid.Properties("id").Value )  & "'>"
               
               EventArg.HTMLRendered  = EventArg.HTMLRendered & "</td>"

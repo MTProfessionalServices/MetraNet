@@ -96,16 +96,16 @@
         </input>   
 <!--<xsl:choose>
        <xsl:when test="contains(paramtable_displayname, 'xxxRules')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxParameters')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxxBand')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>       
        <xsl:when test="contains(paramtable_displayname, 'xxxCalendar')">
-        <img src="/mcm/default/localized/us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
   <xsl:otherwise>-->
         <img alt="" border="0" align="absmiddle">
@@ -123,17 +123,17 @@
         <xsl:value-of select="paramtable_displayname" />
         
         <xsl:if test="allowicb='TRUE'">
-        &#160;<img src="/mcm/default/localized/us/images/icons/icb_allowed.gif" alt="Personal Rates can be set for this item" border="0" align="absmiddle" />
+        &#160;<img src="/mcm/default/localized/en-us/images/icons/icb_allowed.gif" alt="Personal Rates can be set for this item" border="0" align="absmiddle" />
         </xsl:if>
         <xsl:if test="allowicb='FALSE'">
-        &#160;<img src="/mcm/default/localized/us/images/icons/icb_not_allowed.gif" alt="Personal Rates cannot be set for this item" border="0" align="absmiddle" />
+        &#160;<img src="/mcm/default/localized/en-us/images/icons/icb_not_allowed.gif" alt="Personal Rates cannot be set for this item" border="0" align="absmiddle" />
         </xsl:if>
         <br />
         <span style="font-size:10px;color:silver;">
-        <img src="/mcm/default/localized/us/images/icons/pl_mapping_corner.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/icons/pl_mapping_corner.gif" alt="" border="0" align="absmiddle" />
         <xsl:choose>
           <xsl:when test="not(pricelist_name)">
-            <img src="/mcm/default/localized/us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
+            <img src="/mcm/default/localized/en-us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
             This parameter table is not mapped to a pricelist.
           </xsl:when>
           <xsl:when test="nonsharedpricelist='FALSE'">

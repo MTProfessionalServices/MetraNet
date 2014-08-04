@@ -170,8 +170,8 @@ END FUNCTION
 ' RETURNS       :  Return TRUE if ok else FALSE
 PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
   EventArg.HTMLRendered = EventArg.HTMLRendered & "</table><br><br><div align='center'>"
-  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutResubmit' onclick='mdm_RefreshDialog(this); return false;'>Next Step: Resubmit These Records&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
-  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutDelete' onclick='if(confirm(""Are you sure you wish to permanently delete these records?\nClick OK to continue and delete these records"")){mdm_RefreshDialog(this); return false;}'>Next Step: Delete These Records&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutResubmit' onclick='mdm_RefreshDialog(this); return false;'>Next Step: Resubmit These Records&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/en-us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutDelete' onclick='if(confirm(""Are you sure you wish to permanently delete these records?\nClick OK to continue and delete these records"")){mdm_RefreshDialog(this); return false;}'>Next Step: Delete These Records&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/en-us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
   EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='Abandon' onclick='mdm_RefreshDialog(this); return false;'>Abandon This Backout And Start Over</button>"
   EventArg.HTMLRendered = EventArg.HTMLRendered & "</div>"
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="MeteringTimeOut" type="collection">
+
+  
+  <text id="TEXT_METERING_TIME_OUT_DO_YOU_WANT_TO_RE_TRY">
+    <value>Deseja tentar novamente?</value>
+  </text>  
+  
+  <text id="TEXT_RETRY_COUNTER">
+    <value>Contador de novas tentativas</value>
+  </text>  
+  
+  <text id="TEXT_METERING_TIME_OUT_MANAGER_TITLE">
+    <value>Gerenciador de expiração de medição</value>
+  </text>  
+  
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_TIME_OUT">
+    <value>A operação expirou.</value>
+  </text>  
+
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_UPDATE_TIME_OUT">
+    <value>A atualização expirou.</value>
+  </text>    
+  
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_SUCCEEDED">
+    <value>A operação foi bem-sucedida.</value>
+  </text>  
+  
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_WILL_BE_EXECUTED_LATED">
+    <value>A operação será executada posteriormente.</value>
+  </text>
+  
+  <text id="TEXT_PLEASE_RELOAD_THE_ACCOUNT">
+    <value>Localize e exiba a conta para continuar a trabalhar com ela.</value>
+  </text>  
+  
+</texts>

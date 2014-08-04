@@ -80,7 +80,12 @@ Function WriteGeneralConfiguration(strWizardName)
     session(strWizardName & "_CopyName") = objProductOffering.Name
     
     if session(strWizardName & "_name") = "" then
-      session(strWizardName & "_name") = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & objProductOffering.Name
+        ' If this is a Partition admin, remove Partition Prefix before prefixing with "Copy of"
+        If Session("isPartitionUser") Then
+            session(strWizardName & "_name") = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & Replace(objProductOffering.Name, Session("topLevelAccountUserName") + ":", "")
+        Else
+            session(strWizardName & "_name") = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & objProductOffering.Name
+        End If
     end if
 
     if session(strWizardName & "_displayname") = "" then
@@ -104,6 +109,7 @@ Function WriteGeneralConfiguration(strWizardName)
   strHTML = strHTML & gobjMTForms.CloseEditBoxTable() 
 
   strHTML = strHTML & "<div align='center'><button class=""clsButtonBlueLarge"" style=""vertical-align: middle;"" onclick=""window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Parameters=POMode|source','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING") & "&nbsp;<IMG align=middle border=0 src=""/mcm/default/localized/us/images/icons/arrowSelect.gif""></button></div>"
+  strHTML = strHTML & "<div align='center'><button class=""clsButtonBlueLarge"" style=""vertical-align: middle;"" onclick=""window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Master=TRUE&Parameters=POMode|source','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_WIZARD_BUTTON_CREATE_COPY_OF_MASTER") & "&nbsp;<IMG align=middle border=0 src=""/mcm/default/localized/us/images/icons/arrowSelect.gif""></button></div>"
   
   strHTML = strHTML &  "<br><br>" & vbNewline
 
@@ -491,7 +497,7 @@ Function WriteSummary(strWizardName)
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_FIELD_DESCRIPTION"), SafeForHtmlAttr(session(strWizardName & "_Description"))), _
                                             "", false, "", "", Array("right", "left"))
-  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(mdm_Format(session(strWizardName & "_effectivedatestart"), FrameWork.GetDictionary("DATE_FORMAT")))), _
+  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(session(strWizardName & "_effectivedatestart"))), _
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_CURRENCY"), SafeForHtmlAttr(session(strWizardName & "_CurrencyCode"))), _
                                             "", false, "", "", Array("right", "left"))

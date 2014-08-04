@@ -5,28 +5,28 @@ response.buffer=false
 
 <HTML>
 <HEAD>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/Grid.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/menu.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/MenuStyles.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/NavStyles.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/oldmenu.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/RuleEditor_styles.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/styles.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/Tab.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/tab_styles.css'>
-<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/wizard_styles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/Grid.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/menu.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/MenuStyles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/NavStyles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/oldmenu.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/RuleEditor_styles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/styles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/Tab.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/tab_styles.css'>
+<LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/wizard_styles.css'>
 
 <!-- Meta Tag from dictionary -->
 <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 
-  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
+  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
   <title>Ruleset Changes</title>                 
 </HEAD>
 <body>
 <FORM Method="post" Action="/mcm/default/dialog/AuditLog.List.asp"  name='mdm'>
 <!-- MDM Client Side -->
 <!--  MDM Client Side JavaScript -->
-
+<SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript1.2">
 // MetraTech Dialog Manager Client Side. This JavaScript was generated.
@@ -175,7 +175,7 @@ mdm_Initialize();
 
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", idRateSchedule1
-        rowset.AddParam "%%TX_LANG_CODE%%", Session("FRAMEWORK_APP_LANGUAGE")
+        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
         rowset.Execute
         
         dim sPriceListName
@@ -306,7 +306,7 @@ mdm_Initialize();
         rowset.Init "queries\audit"
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", objMTRateSched.Id
-        rowset.AddParam "%%TX_LANG_CODE%%", Session("FRAMEWORK_APP_LANGUAGE")
+        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
         rowset.Execute
         
         if len(rowset.value("PriceListName"))>0 then
@@ -371,7 +371,7 @@ mdm_Initialize();
 '// Displays the 'No Differences Found' message which is always written and then hidden or displayed as needed
 sub writeNoChangeMessage
     response.write"<div id='NoChangesDetectedMessage' style='display: none;'><span style='background-color:#efefef;width:350px;border:solid #848284 1px;padding:5px;text-align: center; white-space:nowrap; '>"
-    response.write"<table><tr><td valign=top><img align='absmiddle' src='/MCM/default/localized/us/images/icons/infosmall.gif' alt='' width='16' height='16' border='0'>"
+    response.write"<table><tr><td valign=top><img align='absmiddle' src='/MCM/default/localized/en-us/images/icons/infosmall.gif' alt='' width='16' height='16' border='0'>"
     response.write"</td><td>" & FrameWork.GetDictionary("TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE")
     response.write"</td></tr></table></span><BR><BR></div>"
 end sub
@@ -1115,6 +1115,19 @@ PUBLIC FUNCTION GetEffectiveDateTextByType(a_type, dt_date, int_offset, bStart)
   
   GetEffectiveDateTextByType = strText
   
+END FUNCTION
+
+PUBLIC FUNCTION GetFrameworkAppLanguageFromPageLanguage(strPageLanguage)
+  IF (LCASE(strPageLanguage) = "pt-br" OR LCASE(strPageLanguage) = "es-mx") THEN
+    GetFrameworkAppLanguageFromPageLanguage = strPageLanguage
+  END IF
+  Dim dashIndex 
+  dashIndex = INSTR(strPageLanguage,"-")
+  IF ( dashIndex > 0)  THEN
+    GetFrameworkAppLanguageFromPageLanguage = CSTR(MID(strPageLanguage, dashIndex + 1, LEN(strPageLanguage)))
+  ELSE
+    GetFrameworkAppLanguageFromPageLanguage = strPageLanguage
+  END IF
 END FUNCTION
 
 %>

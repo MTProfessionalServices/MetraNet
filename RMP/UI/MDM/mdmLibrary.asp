@@ -511,7 +511,7 @@ PUBLIC FUNCTION mdm_SetDialogID(uniqueID)
   mdm_DialogID = mdm_UIValueDefault("mdmFormUniqueKey", uniqueID)
   If NOT IsValidObject(mdm_GetDictionary()) Then
     FrameWork.Initialize TRUE
-    FrameWork.Language = "US"
+    FrameWork.Language = mdm_GetSessionVariable("mdm_APP_LANGUAGE")
     FrameWork.LoadDictionary
   End If
   'SECENG: CORE-4797 CLONE - MSOL 30262 MetraOffer: Stored cross-site scripting - All output should be properly encoded

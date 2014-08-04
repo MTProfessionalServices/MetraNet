@@ -221,7 +221,7 @@ FUNCTION getAdapterInformationHTML
       do while not rowset.eof 
           dim sToolTip, sAdapterName, sErrorMessage, sIntervalInstanceMessage
           
-          sAdapterName = "<img src='../localized/us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
+          sAdapterName = "<img src='../localized/en-us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
           
           if isNull(rowset.value("Reason")) then
             sErrorMessage="&nbsp;"
@@ -231,7 +231,7 @@ FUNCTION getAdapterInformationHTML
             '// Hack until rowset returns "OK" when reversing
             if not bRunning and sReason="Succeeded" then sReason="OK" end if
             if sReason<>"OK" then
-              sErrorMessage = "<IMG SRC='/mcm/default/localized/us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage(sReason)
+              sErrorMessage = "<IMG SRC='/mcm/default/localized/en-us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage(sReason)
               gIssueWithAdapter = true
             else
               sErrorMessage="&nbsp;"
@@ -291,11 +291,11 @@ FUNCTION getAdapterInformationHTML
           
           select case sEventType
           case "CHECKPOINT"
-            sAdapterName = "<img src='../localized/us/images/adapter_checkpoint.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
+            sAdapterName = "<img src='../localized/en-us/images/adapter_checkpoint.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
           case "SCHEDULED"
-            sAdapterName = "<img src='../localized/us/images/adapter_scheduled.gif' align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName") & " (Scheduled Adapter)"
+            sAdapterName = "<img src='../localized/en-us/images/adapter_scheduled.gif' align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName") & " (Scheduled Adapter)"
           case else
-            sAdapterName = "<img src='../localized/us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
+            sAdapterName = "<img src='../localized/en-us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
           end select
          
 
@@ -306,15 +306,15 @@ FUNCTION getAdapterInformationHTML
           
             if (bRunning and sReason<>"NotYetRun" and sReason<>"Missing") or ((not bRunning) and sReason <> "Succeeded" and sReason <> "ReadyToRun" and sReason <> "Failed") then
               if (sReason="NotCreated") then
-                sErrorMessage = "<IMG SRC='/mcm/default/localized/us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage(sReason) & "[" & rowset.value("BillGroupName") & "]"
+                sErrorMessage = "<IMG SRC='/mcm/default/localized/en-us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage(sReason) & "[" & rowset.value("BillGroupName") & "]"
               else
-                sErrorMessage = "<IMG SRC='/mcm/default/localized/us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage(sReason)
+                sErrorMessage = "<IMG SRC='/mcm/default/localized/en-us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage(sReason)
               end if
               gIssueWithAdapterDependencyOtherThanAdditionalWork = true
             else
               if (not bRunning) then
                 if rowset.value("ReverseMode")="NotImplemented" and sReason<>"ReadyToRun" then
-                  sErrorMessage = "<IMG SRC='/mcm/default/localized/us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage("NotImplemented")
+                  sErrorMessage = "<IMG SRC='/mcm/default/localized/en-us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & mom_GetAdapterRunReverseStatusErrorMessage("NotImplemented")
                   gIssueWithAdapterDependencyOtherThanAdditionalWork = true
 		            end if
               end if
@@ -373,7 +373,7 @@ FUNCTION getAdapterInformationHTML
               end if
               if IsNull(rowset.value("InstanceID")) then
                 if sEventType <> "SCHEDULED" then
-                  sErrorMessage = sErrorMessage & "<IMG SRC='/mcm/default/localized/us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & sTemp & "Instance doesn't exist."
+                  sErrorMessage = sErrorMessage & "<IMG SRC='/mcm/default/localized/en-us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & sTemp & "Instance doesn't exist."
                 end if
               else
                 sErrorMessage = sErrorMessage & sTemp & "Instance: " & rowset.value("InstanceID") & "&nbsp; &nbsp; &nbsp; &nbsp; Billing Group: " & rowset.value("BillGroupName")

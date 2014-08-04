@@ -13,7 +13,7 @@
 
   <head>
     <title>Presentation Server - Statistics</title>
-    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/us/styles/styles.css">
+    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/en-us/styles/styles.css">
 
   </head>
 
@@ -42,7 +42,7 @@
 %>
           </table>
           <br><br>
-          <a href="PresentationServerInformation.asp"><img border=0 alt="Refresh Page" src="../../../default/localized/us/images/refresh.gif"></a>
+          <a href="PresentationServerInformation.asp"><img border=0 alt="Refresh Page" src="../../../default/localized/en-us/images/refresh.gif"></a>
         </td>
       </tr>
     </table>

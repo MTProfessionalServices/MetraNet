@@ -32,19 +32,19 @@ Option Explicit
 %>
 <html>
 <head>
-  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/us/styles/dialogstyles.css">  
+  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/en-us/styles/dialogstyles.css">  
 </head>
 <TABLE BGCOLOR="WhiteSmoke" BORDER="1" CELLSPACING="0" CELLPADDING="0" BORDERCOLOR="Black">
   <TR>
     <TD>
       <TABLE BGCOLOR="WhiteSmoke" BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="WhiteSmoke">
         <TR>
-          <TD WIDTH=10 HEIGHT=16><IMG SRC="/mom/default/localized/us/images/spacer.gif" WIDTH="10" HEIGHT="16" BORDER="0"></TD>
-          <TD VALIGN="top"><IMG SRC="/mom/default/localized/us/images/error.gif" align="center" WIDTH="38" HEIGHT="37" BORDER="0" ></TD>
+          <TD WIDTH=10 HEIGHT=16><IMG SRC="/mom/default/localized/en-us/images/spacer.gif" WIDTH="10" HEIGHT="16" BORDER="0"></TD>
+          <TD VALIGN="top"><IMG SRC="/mom/default/localized/en-us/images/error.gif" align="center" WIDTH="38" HEIGHT="37" BORDER="0" ></TD>
           <TD><BR><font size='2' >
           <% =mom_GetDictionary("TEXT_MOM_ADMINISTRATOR_RIGHTS_NEEDED") %>
           </TD>
-          <TD WIDTH=10 HEIGHT=16><IMG SRC="/mom/default/localized/us/images/spacer.gif" WIDTH="10" HEIGHT="16" BORDER="0"></TD>
+          <TD WIDTH=10 HEIGHT=16><IMG SRC="/mom/default/localized/en-us/images/spacer.gif" WIDTH="10" HEIGHT="16" BORDER="0"></TD>
         </TR>
         <TR>
           <TD>&nbsp</TD>

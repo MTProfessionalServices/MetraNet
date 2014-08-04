@@ -53,7 +53,8 @@ Class CMTTabs
   Private mstrTabClass                    ' css style for the unselected tabs
   Private mstrSelectedTabClass            ' css style for the chosen tabs
   Private mstrTabLinkUnsel                ' css style for unselected tabs
-  
+   Private mstrTabLinkSel                ' css style for Selected tabs
+ 
   Private mintCurTab                      ' the current tab
   
   'Data for the tabs
@@ -72,13 +73,13 @@ Class CMTTabs
     mintCurTab = 0
     
     'Set the default classes and images
-    mstrLeftCap             = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/left_cap.gif"
-    mstrRightCap            = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/right_cap.gif"
-    mstrLeftCapSelected     = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/left_cap_selected.gif"
-    mstrRightCapSelected    = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/right_cap_selected.gif"
-    mstrMidCap              = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/mid_cap.gif"
-    mstrMidCapRightSelected = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/mid_cap_right_selected.gif"
-    mstrMidCapLeftSelected  = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/mid_cap_left_selected.gif"
+    mstrLeftCap             = "" 'FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/left_cap.gif"
+    mstrRightCap            = "" 'FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/right_cap.gif"
+    mstrLeftCapSelected     =  "" 'FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/left_cap_selected.gif"
+    mstrRightCapSelected    = "" 'FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/right_cap_selected.gif"
+    mstrMidCap              = "" 'FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/mid_cap.gif"
+    mstrMidCapRightSelected = "" 'FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/mid_cap_right_selected.gif"
+    mstrMidCapLeftSelected  = "" 'FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/mid_cap_left_selected.gif"
     mstrTabLine             = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/line.gif"
     mstrTabLineUnselected   = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/lineunselected.gif"
     mstrTabEnd              = FrameWork.GetDictionary("DEFAULT_LOCALIZED_PATH") & "/images/tabs/Page/AngleTop/end.gif"
@@ -86,7 +87,8 @@ Class CMTTabs
     mstrImageTabClass     = "clsTabAngleTopImage"
     mstrTabClass          = "clsTabAngleTopUnselected"
     mstrSelectedTabClass  = "clsTabAngleTopSelected"
-    mstrTabLinkUnsel      = "clsTabAngleTopLinkUnsel"    
+    mstrTabLinkUnsel      = "clsTabAngleTopLinkUnsel"  
+	mstrTabLinkSel      = "clsTabAngleTopLinkSel"  	
   End Sub
   '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   ' Function    : AddTab(strCaption, strLink)                                 '
@@ -201,40 +203,19 @@ Class CMTTabs
     ' Make a little space before the first tab starts
     strHTML = strHTML & "  <td background=""" & mstrTabEnd & """ class=""" & mstrImageTabClass & """ width=""5"" nowrap></td>" & vbNewline
     
-    'Write the left cap
-    if mintCurTab = 0 then
-      strHTML = strHTML & "  <td valign=""center"" class=""" & mstrImageTabClass & """ nowrap><img src=""" & mstrLeftCapSelected & """></td>" & vbNewline
-    else
-      strHTML = strHTML & "  <td valign=""center"" class=""" & mstrTabClass & """ nowrap><img src=""" & mstrLeftCap & """></td>" & vbNewline
-    end if
-    
+
   
     for i = 0 to mintTabCount - 1
       'If this tab is the chosen one
       if mintCurTab = i then
-      strHTML = strHTML & "  <td  background=""" & mstrTabLine & """ valign=""center"" class=""" & mstrSelectedTabClass & """ nowrap>&nbsp;<a name='aTAB" & (i+1) & "' class=""" & mstrSelectedTabClass & """ href=""" & marrLinks(i) & """>" & marrCaptions(i) & "</a>&nbsp;</td>" & vbNewline
-        
-        'if this is the last tab, draw the cap
-        if i = mintTabCount - 1 then
-          strHTML = strHTML & "  <td class=""" & mstrImageTabClass & """ valign=""center"" nowrap><img src=""" & mstrRightCapSelected & """></td>" & vbNewline
-        else
-          strHTML = strHTML & "  <td valign=""center"" class=""" & mstrImageTabClass & """ nowrap><img src=""" & mstrMidCapLeftSelected & """></td>" & vbNewline
-        end if
+      strHTML = strHTML & "  <td  valign=""center"" class=""" & mstrSelectedTabClass & """ nowrap>&nbsp;<a name='aTAB" & (i+1) & "' class=""" & mstrTabLinkSel & """ href=""" & marrLinks(i) & """>" & marrCaptions(i) & "</a>&nbsp;</td>" & vbNewline
+       
   
       else
         ' zizi
         strHTML = strHTML & "  <td background=""" & mstrTabLineUnselected & """ valign=""center"" class=""" & mstrTabClass & """ nowrap>&nbsp;<a name='aTAB" & (i+1) & "' class=""" & mstrTabLinkUnsel & """ href=""" & marrLinks(i) & """>" & marrCaptions(i) & "</a>&nbsp;</td>" & vbNewline
         
-        'if this is the last tab, draw the cap
-        if i = mintTabCount - 1 then
-          strHTML = strHTML & "  <td valign=""center"" class=""" & mstrImageTabClass & """ nowrap><img src=""" & mstrRightCap & """></td>" & vbNewline
-        else
-          if i + 1 = mintCurTab then
-            strHTML = strHTML & "  <td valign=""center"" class=""" & mstrImageTabClass & """ nowrap><img src=""" & mstrMidCapRightSelected & """></td>" & vbNewline
-          else
-            strHTML = strHTML & "  <td valign=""center"" class=""" & mstrImageTabClass & """ nowrap><img src=""" & mstrMidCap & """></td>" & vbNewline
-          end if
-        end if
+      
       end if
     next
     

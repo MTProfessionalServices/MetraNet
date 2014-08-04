@@ -284,7 +284,7 @@ Function CheckDefaultPolicy()
   else
     Service.Properties("ApplyDefaultSecurityPolicy").Enabled = false
     Service.Properties("ApplyDefaultSecurityPolicy").Value = false
-    Service.Properties("SecurityPolicyMessage") = "<table><tr><td><image src=""/mam/default/localized/us/images/warning.gif"" width=""16"" height=""16""></td><td>&nbsp;" & mam_GetDictionary("TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES") & "</td></tr></table>"
+    Service.Properties("SecurityPolicyMessage") = "<table><tr><td><image src=""/mam/default/localized/en-us/images/warning.gif"" width=""16"" height=""16""></td><td>&nbsp;" & mam_GetDictionary("TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES") & "</td></tr></table>"
   end if
 
 End Function
@@ -532,7 +532,7 @@ PRIVATE FUNCTION SubscriptionsGrid_DisplayCell(EventArg) ' As Boolean
             Set m_objPP = mdm_CreateObject(CPreProcessor)
 							
             m_objPP.Add "CLASS"          , EventArg.Grid.CellClass
-						m_objPP.Add "IMAGE"  		     , "../localized/us/images/delete.gif"
+						m_objPP.Add "IMAGE"  		     , "../localized/en-us/images/delete.gif"
 						m_objPP.Add "ASP_FILE"  	   , Session("MAM_TEMPLATE_START_DIALOG") & "?PageAction=DeleteSubscription&mdmAction=Refresh&ID=[SUBSCRIPTION_PO]"
 						m_objPP.Add "REMOVE_MESSAGE" , Replace(mam_GetDictionary("TEXT_MSGBOX_REMOVE_TEMPLATE_SUBSCRIPTION"),"[ITEM]",Replace(Form.Grids("SubscriptionsGrid").Properties("NM_DISPLAY_NAME").Value, "'", "&rsquo;"))
 						m_objPP.Add "SUBSCRIPTION_PO"  		     , Form.Grids("SubscriptionsGrid").Properties("SUBSCRIPTION_PO").Value
@@ -542,7 +542,7 @@ PRIVATE FUNCTION SubscriptionsGrid_DisplayCell(EventArg) ' As Boolean
       
         Case "b_group"
           if EventArg.Grid.Properties("B_GROUP") then
-            EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+            EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
           else
             EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'>--&nbsp;</td>"
           end if

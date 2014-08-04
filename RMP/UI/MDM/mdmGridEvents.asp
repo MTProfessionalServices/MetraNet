@@ -90,7 +90,7 @@ PRIVATE FUNCTION mdm_RenderGrid(EventArg,objMDMGrid) ' As Boolean
             objMDMGrid.Rowset.MoveFirst ' Added in mdm 3.5
         End If    
     Else
-      objCat.Concat "<tr><td Class=""TableCell"" ColSpan=" & objMDMGrid.Rowset.Count & "><b>" & Form.Page.NoRecordUserMessage & "</td></tr>"
+      objCat.Concat "<tr><td Class=""TableCell"" ColSpan=" & objMDMGrid.Rowset.Count & "><b>" &  mdm_GetMDMLocalizedError("NO_RECORD_USER_MESSAGE") & "</td></tr>"
     End If
 
     objMDMGrid.Row = 0

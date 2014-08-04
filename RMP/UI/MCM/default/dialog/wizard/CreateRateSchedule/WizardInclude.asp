@@ -258,7 +258,7 @@ FUNCTION WriteEffectiveDates(strWizardName) 'PLug this in
 	strHTML = strHTML &				FrameWork.GetDictionary("TEXT_ABSOLUTE_DATE_TYPE") & vbNewLine
 	strHTML = strHTML &	"			<INPUT type=""text"" class=" & inputClass & " name=""" & strWizardName & "_abs_startdate_tf"" value=""" & writeValue (istart_checked, "ABS", "start", strWizardName) & """ size=""22"" maxlength=""22"">"  & vbNewLine
 	strHTML = strHTML &	"			<A HREF=""#"" onClick=""getCalendarForStartDate(document.WizardForm." & strWizardName & "_abs_startdate_tf);return false"">"  & vbNewLine
-	strHTML = strHTML &	"				<img src='../../../localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
+	strHTML = strHTML &	"				<img src='../../../localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
 	strHTML = strHTML &	"			</A>" & vbNewLine
 	strHTML = strHTML & " 	</TD>" & vbNewLine
 	strHTML = strHTML & " </TR>" & vbNewLine
@@ -277,7 +277,7 @@ FUNCTION WriteEffectiveDates(strWizardName) 'PLug this in
 	strHTML = strHTML &	"			Next billing cycle after" & vbNewLine
 	strHTML = strHTML & "  		<INPUT type=""text"" class=" & inputClass & " name=""" & strWizardName & "_bill_startdate_tf"" value=""" & writeValue (istart_checked, "BILL", "start", strWizardName) & """ size=""22"" maxlength=""22"">" & vbNewLine
 	strHTML = strHTML & "			<A HREF=""#"" onClick=""getCalendarForStartDate(document.WizardForm." & strWizardName & "_bill_startdate_tf);return false"">" & vbNewLine
-	strHTML = strHTML &	"				<img src='../../../localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
+	strHTML = strHTML &	"				<img src='../../../localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
 	strHTML = strHTML &	"			</A>" & vbNewLine
 	strHTML = strHTML & "		</TD>" & vbNewLine
 	strHTML = strHTML & "	</TR>" & vbNewLine
@@ -304,8 +304,8 @@ FUNCTION WriteEffectiveDates(strWizardName) 'PLug this in
 	strHTML = strHTML &	"			<INPUT type=""radio"" class=" & inputRadioClass & " value=""ABS"" name=""" & strWizardName & "_enddate_pick""" & writeChecked(iend_checked, "ABS") & " " & writeDisabled(iend_checked, "ABS") & ">"  & vbNewLine
 	strHTML = strHTML &				FrameWork.GetDictionary("TEXT_ABSOLUTE_DATE_TYPE") & vbNewLine
 	strHTML = strHTML &	"			<INPUT type=""text"" class=" & inputClass & " name=""" & strWizardName & "_abs_enddate_tf"" value=""" & writeValue (iend_checked, "ABS", "end", strWizardName) & """ size=""22"" maxlength=""22"" " & writeDisabled(iend_checked, "ABS") & ">"  & vbNewLine
-	strHTML = strHTML &	"			<A HREF=""#"" onClick=""getCalendarForEndDate(document.WizardForm." & strWizardName & "_abs_enddate_tf);return false"">"  & vbNewLine
-	strHTML = strHTML &	"				<img src='../../../localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
+	strHTML = strHTML &	"			<A HREF=""#"" onClick=""setEndDateTimeAndShowCalendar(document.WizardForm." & strWizardName & "_abs_enddate_tf);return false"">"  & vbNewLine
+	strHTML = strHTML &	"				<img src='../../../localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
 	strHTML = strHTML &	"			</A>" & vbNewLine
 	strHTML = strHTML & " 	</TD>" & vbNewLine
 	strHTML = strHTML & " </TR>" & vbNewLine
@@ -324,7 +324,7 @@ FUNCTION WriteEffectiveDates(strWizardName) 'PLug this in
 	strHTML = strHTML & 			FrameWork.GetDictionary("TEXT_BILLINGCYCLE_DATE_TYPE")
 	strHTML = strHTML & "  		<INPUT type=""text"" class=" & inputClass & " name=""" & strWizardName & "_bill_enddate_tf"" value=""" & writeValue (iend_checked, "BILL", "end", strWizardName) & """ size=""22"" maxlength=""22"" " & " " & writeDisabled(iend_checked, "BILL") & ">" & vbNewLine
 	strHTML = strHTML & "			<A HREF=""#"" onClick=""getCalendarForEndDate(document.WizardForm." & strWizardName & "_bill_enddate_tf);return false"">" & vbNewLine
-	strHTML = strHTML &	"				<img src='../../../localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
+	strHTML = strHTML &	"				<img src='../../../localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
 	strHTML = strHTML &	"			</A>" & vbNewLine
 	strHTML = strHTML & "		</TD>" & vbNewLine
 	strHTML = strHTML & "	</TR>" & vbNewLine

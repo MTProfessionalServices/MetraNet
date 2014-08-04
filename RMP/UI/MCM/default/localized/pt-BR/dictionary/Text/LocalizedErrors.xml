@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>The file defines MetraOffer errors. The error message are localized.</description>
+  <text id="MCM_ERROR_999">
+    <value>O sistema não conseguiu processar sua solicitação. Peça ao seu administrador verificar os logs do sistema.</value>
+  </text>
+  <text id="MCM_ERROR_1000">
+    <value>Erro no ciclo de faturamento, o primeiro dia do mês não deve ser maior ou igual ao segundo dia do mês.</value>
+  </text>
+  <text id="MCM_ERROR_1001">
+    <value>[FIELD_NAME] deve ser especificado.</value>
+  </text>
+  <text id="MCM_ERROR_1002">
+    <value>Entrada de data inválida. Verifique os valores.</value>
+  </text>
+  <text id="MCM_ERROR_1003">
+    <value>Aviso: você está definindo uma data efetiva no passado e isso pode causar problemas com as sessões que você já mediu. Clique em OK novamente para prosseguir com essas datas, ou defina novas datas no futuro.</value>
+  </text>
+  <text id="MCM_ERROR_1004">
+    <value>A data de início deve ser anterior à data de término.</value>
+  </text>
+  <text id="MCM_ERROR_1005">
+    <value>Selecione uma [TEXT_KEYTERM_RATE_SCHEDULE] antes de clicar em [TEXT_OK].</value>
+  </text>
+  <text id="MCM_ERROR_1006">
+    <value>Um ou mais valores de enumeração foram ignorados</value>
+  </text>
+  <text id="MCM_ERROR_1007">
+    <value>Cada ajuste deve ter pelo menos um código de motivo</value>
+  </text>
+  <text id="MCM_ERROR_1008">
+    <value>Datas efetivas e de disponibilidade não podem ficar em branco.</value>
+  </text>
+  <text id="MCM_ERROR_1009">
+    <value>As alterações de assinatura em massa não podem ser feitas se o destino[TEXT_KEYTERM_PRODUCT_OFFERING] contiver quaisquer[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES].</value>
+  </text>
+  <text id="MCM_ERROR_ERROR_DETAIL">
+    <value>Detalhes</value>
+  </text>
+
+  <!-- 
+    I removed this entry because it is not used and it is defined with a new value in mcm 3.0
+    text id="FrameWork_ERROR_1000"><value>E-Mail is not valid</value></text -->
+  <text id="ERROR_ITEM_NOT_FOUND">
+    <value>Não é possível encontrar o item para ID:</value>
+    <description></description>
+  </text>
+  <text id="ERROR_ITEM_NO_PARAMETER_TABLES">
+    <value>Sem [TEXT_KEYTERM_PARAMETER_TABLES]</value>
+    <description></description>
+  </text>
+  <text id="MCM_ERROR_STARTDATE_INVALID">
+    <value>O valor da data de início é inválido</value>
+  </text>
+  <text id="MCM_ERROR_ENDDATE_INVALID">
+    <value>O valor da data de término é inválido</value>
+  </text>
+  <text id="MCM_ERROR_START_AFTER_END">
+    <value>A data de início deve ser anterior à data de término</value>
+  </text>
+  <text id="MCM_ERROR_STARTDATE_IN_PAST">
+    <value>A data de início está no passado, isso pode ocasionar perda de informações.</value>
+  </text>
+  <text id="MCM_ERROR_ENDDATE_IN_PAST">
+    <value>A data de término está no passado, isso pode ocasionar perda de informações.</value>
+  </text>
+  <text id="MCM_ERROR_PARTITION_NOT_EQUAL">
+    <value>A oferta de produto de origem e de destino devem ter a mesma partição.</value>
+  </text>
+  <text id="ERROR_WIZARD_NOTIFICATION">
+    <value>Observação:</value>
+    <description></description>
+  </text>
+</texts>

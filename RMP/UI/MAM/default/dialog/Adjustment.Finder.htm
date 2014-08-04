@@ -1,6 +1,12 @@
 <HTML>
 <HEAD>
-<LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/US/styles/styles.css">
+  <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-US/styles/styles.css">
+  <script language="javascript">
+    var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+    if (is_chrome) {
+      document.writeln(" <style type='text/css'> td {padding:0}</style> ");
+    }
+  </script>
 </HEAD>
 <BODY>
 <FORM name='mdm'>
@@ -26,14 +32,14 @@
 <TR>
 <TD colspan=4>
 <fieldset > 
-<legend style='FONT-WEIGHT: bold;FONT-SIZE: 11px'>Period</legend>
+<legend style='FONT-WEIGHT: bold;FONT-SIZE: 11px'><LABEL Name='PeriodOfTime' Type='Caption'></LABEL></legend>
 <TABLE border=0 width="100%">
 <tr>
 <td valign=top>
-      <table border=0 width=300>
+      <table border="0" width="300px">
           <TR>
             <td><input type="radio" name="FixedPeriod" value="0" checked onClick="showInterval();"></td>
-            <td><strong>Billing Interval</strong></td>
+            <td><strong><LABEL Name='BillingInterval' Type='Caption'></LABEL></strong></td>
           </TR>
           <TR>
             <td>&nbsp;</td>
@@ -43,7 +49,7 @@
                <table>
                
                   <TR>
-                  	<TD class='captionEW'>Period:</TD>
+                  	<TD class='captionEW'><LABEL Name='PeriodOfTime' Type='Caption'></LABEL>:</TD>
               	    <TD><SELECT Class='clsInputBox' Name='mdmIntervalID'></SELECT></TD>      
                   </TR>
                </table>
@@ -58,7 +64,7 @@
     <table border=0 width=300>
     <TR>
       <TD><input type="radio" name="FixedPeriod" value="1" onClick="showFixed();"></TD>
-      <TD><strong>Fixed Date</strong></TD>
+      <TD><strong><LABEL Name='FixedDate' Type='Caption'></LABEL></strong></TD>
     </TR>
     
     <TR>
@@ -71,7 +77,7 @@
 	    <TD class='captionEW'><LABEL Name='StartDate' Type='Caption'></LABEL>:</TD>
 	    <TD>
           <INPUT Type='text' Class='clsInputBox' Name='StartDate'>
-          <a href="#" onClick="getCalendarForStartDate(document.mdm.StartDate);return false"><img src='/mam/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
+          <a href="#" onClick="getCalendarForStartDate(document.mdm.StartDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
       </TD>
     
    </TR>
@@ -79,7 +85,7 @@
 	    <TD class='captionEW'><LABEL Name='EndDate' Type='Caption'></LABEL>:</TD>
 	    <TD>
           <INPUT Type='text' Class='clsInputBox' Name='EndDate'>
-          <a href="#" onClick="getCalendarForStartDate(document.mdm.EndDate);return false"><img src='/mam/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
+          <a href="#" onClick="getCalendarForStartDate(document.mdm.EndDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
       </TD>	  
 	  </TR>
 
@@ -130,63 +136,63 @@
 	</table></TD></TR></TBODY></TABLE>
 </FORM>
 <script>
-	function disableDIV(sDivName,bDisable){
-		//alert('Tring to disable div: ' + sDivName);
+  function disableDIV(sDivName,bDisable){
+    //alert('Tring to disable div: ' + sDivName);
     //alert('Type is ' + typeof(document.all.item(sDivName).all));
     
-		var section = document.all.item(sDivName).all.tags("input");
-		for (i =0; i < section.length; i++) {
-			section.item(i).disabled= bDisable;
-       //alert ("Rudi " + section.item(i).className);
+    var section = document.all.item(sDivName).all.tags("input");
+    for (i =0; i < section.length; i++) {
+      section.item(i).disabled= bDisable;
+      //alert ("Rudi " + section.item(i).className);
       if (bDisable && section.item(i).className == "clsInputBox")
         section.item(i).className = "fieldNonEditable";
       if (!bDisable && section.item(i).className == "fieldNonEditable")
         section.item(i).className = "clsInputBox";
-		}
+    }
     
     //alert("Done with input");
     
-		var section = document.all.item(sDivName).all.tags("select");
-		for (i =0; i < section.length; i++) {
-			section.item(i).disabled= bDisable;
-		}
+    var section = document.all.item(sDivName).all.tags("select");
+    for (i =0; i < section.length; i++) {
+      section.item(i).disabled= bDisable;
+    }
     
     //alert("Done with select");
     
-		var section = document.all.item(sDivName).all.tags("td");
-		sColor =  (bDisable) ? 'gray' : 'black';
-		for (i =0; i < section.length; i++) {
-			//section.item(i).class = 'clsStandardTextDisabled';
-			section.item(i).style.color = sColor;
-		}
-	}
+    var section = document.all.item(sDivName).all.tags("td");
+    sColor =  (bDisable) ? 'gray' : 'black';
+    for (i =0; i < section.length; i++) {
+      //section.item(i).class = 'clsStandardTextDisabled';
+      section.item(i).style.color = sColor;
+    }
+  }
 
-     function showFixed(){
-        //window.alert("Here"); 
-    		//document.getElementById("Fixed").style.display = "block";
-    		//document.getElementById("Relative").style.display = "none";
-        //if(eval('document.all.item("ConstrainBillingCycle")') != null)
-        //  document.all.item("ConstrainBillingCycle").checked = false;
-        //document.all.item("Cycle@BillingCycleTypeID").value = 0;
-        disableDIV('Fixed',false);
-        disableDIV('IntervalDiv',true);
-     }
+  function showFixed(){
+    //window.alert("Here"); 
+    //document.getElementById("Fixed").style.display = "block";
+    //document.getElementById("Relative").style.display = "none";
+    //if(eval('document.all.item("ConstrainBillingCycle")') != null)
+    //  document.all.item("ConstrainBillingCycle").checked = false;
+    //document.all.item("Cycle@BillingCycleTypeID").value = 0;
+    disableDIV('Fixed',false);
+    disableDIV('IntervalDiv',true);
+  }
       
-     function showInterval(){
-  	  	//document.getElementById("Fixed").style.display = "none";
-  		  //document.getElementById("Relative").style.display = "block";      
-        disableDIV('Fixed',true);
-        disableDIV('IntervalDiv',false);
-     }  
+  function showInterval(){
+    //document.getElementById("Fixed").style.display = "none";
+    //document.getElementById("Relative").style.display = "block";      
+    disableDIV('Fixed',true);
+    disableDIV('IntervalDiv',false);
+  }  
      
-     if (document.mdm.FixedPeriod(1).checked)
-       showFixed();
-     else
-       showInterval();
+  if (document.mdm.FixedPeriod(1).checked)
+    showFixed();
+  else
+    showInterval();
 
      
-     if (document.mdm.mdmIntervalID[document.mdm.mdmIntervalID.selectedIndex].text.length==0)
-       document.mdm.mdmIntervalID.selectedIndex = 1
+  if (document.mdm.mdmIntervalID[document.mdm.mdmIntervalID.selectedIndex].text.length==0)
+    document.mdm.mdmIntervalID.selectedIndex = 1
      
 </script>
 </BODY>

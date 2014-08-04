@@ -1,0 +1,91 @@
+<HTML>
+  <HEAD>
+    <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
+  </HEAD>
+  <BODY>
+    <FORM name='mdm'>
+      <TABLE border="0" cellpadding="1" cellspacing="0" width="100%">
+        <tr>
+          <td Class='CaptionBar' nowrap><LABEL Name='TEXT_PAYMENT_DIALOG'></LABEL></td>
+        </tr>
+      </TABLE>
+      <br />
+      
+      <table width="100%">
+        <tr>
+          <td align="center">
+            <TABLE border="0" cellpadding="2" cellspacing="1">
+              <tr>
+                <td class="captionEWRequired"><LABEL Name='_AMOUNT' Type='Caption'>Amount</LABEL>(USD):
+                </td>
+                <td valign="top">
+                  <INPUT class='fieldRequired' Type="text" Size="30" Name="_Amount">
+                </td>
+              </tr>
+              <tr>
+                <td class='captionEWRequired'><LABEL Name='ReasonCode' Type='Caption'>ReasonCode</LABEL>:
+                </td>
+                <td class='clsStandardText'>
+                  <SELECT name="ReasonCode" size="1" Class='field'>
+                  </SELECT>
+                </td>
+              </tr>
+              <tr>
+                <td class='captionEWRequired' style="vertical-align: top;"><LABEL Name='Description' Type='Caption'>Memo</LABEL>:</td>
+                <td class='clsStandardText'>
+                  <TEXTAREA class='field' name="Description" rows="4" cols="60"></TEXTAREA>
+                </td>
+              </tr>
+              <tr>
+                <td class="captionEWRequired">Invoice:</td>
+                <td><SELECT class='clsInputBox' Name='mdmIntervalID' OnChange='mdm_RefreshDialog();' ID="mdmIntervalID"></SELECT></td>
+              </tr>
+              <tr>
+                <td class='captionEWRequired'><LABEL Name='PaymentMethod' Type='Caption'>PaymentMethod</LABEL>:
+                </td>
+                <td class='clsStandardText'>
+                  <SELECT name="PaymentMethod" size="1" Class='field' ID="PaymentMethod">
+                  </SELECT>
+                </td>
+              </tr>
+              <tr>
+                <td class='captionEWRequired'><LABEL Name='CCType' Type='Caption'>CCType</LABEL>:
+                </td>
+                <td class='clsStandardText'>
+                  <SELECT name="CCType" size="1" Class='field' ID="CCType">
+                  </SELECT>
+                </td>
+              </tr>
+              <tr>
+                <td class="captionEWRequired"><LABEL Name='CheckOrCardNumber' Type='Caption'>CheckOrCardNumber</LABEL>:
+                </td>
+                <td valign="top">
+                  <INPUT class='fieldRequired' Type="text" Size="30" Name="CheckOrCardNumber" ID="CheckOrCardNumber">
+                </td>
+              </tr>
+              <tr>
+                <td class="captionEWRequired"><LABEL Name='ReferenceID' Type='Caption'>ReferenceID</LABEL>:
+                </td>
+                <td valign="top">
+                  <INPUT class='fieldRequired' Type="text" Size="30" Name="ReferenceID" ID="ReferenceID">
+                </td>
+              </tr>
+
+              <tr>
+                <TD align="center" colspan="2"><BR>
+                  <button onclick="mdm_RefreshDialog(this)" name="ok" Class='clsOkButton'>
+                    <MDMLABEL Name="TEXT_OK">OK</MDMLABEL>
+                  </button>
+                  &nbsp;&nbsp;&nbsp;
+                  <button onclick="mdm_RefreshDialog(this)" name="cancel" Class='clsOkButton'>
+                    <MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL>
+                  </button>
+                </TD>
+              </tr>
+            </TABLE>
+          </td>
+        </tr>
+      </table>
+    </FORM>
+  </BODY>
+</HTML>

@@ -1,28 +1,24 @@
 <HTML>
 <HEAD>
-  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
-  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/Navstyles.css">  
+  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
+  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/Navstyles.css">  
   <title>Bulk Update <MDMLABEL Name="TEXT_PRICELIST_MAPPING"></MDMLABEL></title>
   
   <script language="Javascript">
-    function ValidateForm()
-    { 
+    function ValidateForm() {
       var strMessage = '';
       var strName;
     
       strName = document.mdm.PRICELISTNAME.value;
-
-      if ((document.mdm.UpdatePricelist.checked) && (strName.length == 0) && (!document.mdm.NonSharedPriceList(0).checked)) 
+      if ((document.mdm.UpdatePricelist.checked) && (strName.length == 0) && (!document.mdm.NonSharedPriceList[0].checked)) 
       {
         strMessage = '<MDMLABEL name="TEXT_PRICELIST_MAPPING_NO_NAME" type="caption">Price List</MDMLABEL>';
       }
-
       if ((!document.mdm.UpdatePricelist.checked) && (!document.mdm.UpdateICB.checked))
       {
         strMessage = 'Please select if you want Price List information to be updated, "Allow Personal Rates" information to be updated or both.\n\nCurrently, nothing has been selected to be updated.';
       }
-
-      var checkboxes = document.mdm.paramtable_selected
+      var checkboxes = document.mdm.paramtable_selected;
 	  if (typeof(checkboxes)=="undefined")
       {
         strMessage = 'This Product Offering does not contain any items. There are no pricelist mappings to update.';
@@ -54,16 +50,16 @@
 			strMessage = 'No parameter tables have been selected to have their Price List mapping information updated.\n\nPlease select one or more parameter tables on the left to have their mapping information updated.';
 		}
       }
-      
-      if (strMessage.length==0)
-      {
+
+      if (strMessage.length==0) {
+        
         mdm_RefreshDialog(document.mdm.OK);
       } 
       else 
       {
         alert(strMessage);
         //document.mdm.PRICELISTNAME.focus();
-      } 
+      }
     }
     
     function ClearPriceListNameBox()
@@ -122,9 +118,11 @@
       <MDMLABEL name="PRICELISTNAME" type="caption">Price List</MDMLABEL>:&nbsp;&nbsp;
       <input class="fieldNonEditable" style="vertical-align: middle;" type="text" name="PRICELISTNAME" size="30" readonly>
       #MDMNOTIF CAN_NOT_BE_MODIFIED
-      <button class="clsButtonBlueXLarge" id="BtnCounter" style="vertical-align: middle;" onclick="window.open('[PRICE_LIST_PICKER_DIALOG]?MonoSelect=TRUE&FILTER_CURRENCY=<MDMLABEL name="ProductOfferingCurrency" type="value"></MDMLABEL>&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;PARAMTABLEID|99999','', 'height=400,width=600, resizable=yes, scrollbars=yes, status=yes'); return false;">
+      <button class="clsButtonBlueXLarge" id="BtnCounter" style="vertical-align: middle;"
+        onclick=" mdm_RefreshDialog(this);window.open('[PRICE_LIST_PICKER_DIALOG]?MonoSelect=TRUE&FILTER_CURRENCY=<MDMLABEL name="ProductOfferingCurrency" type="value">
+        </MDMLABEL>&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;PARAMTABLEID|99999','', 'height=400,width=600, resizable=yes, scrollbars=yes, status=yes');return false;">
         <MDMLABEL Name="TEXT_SELECT_A_PRICE_LIST">Select Price List</MDMLABEL>&nbsp;
-        <IMG localized='true' align=middle alt="" border=0 src="/mcm/default/localized/us/images/icons/arrowSelect.gif">
+        <IMG localized='true' align=middle alt="" border=0 src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif">
       </button>
       #MDMENDIF
     &nbsp;
@@ -146,9 +144,9 @@
         <tr>
           <td width="20px">&nbsp;</td>
           <td colspan="1" nowrap align="left">
-            <INPUT Name="CanICB" Type="radio" value="TRUE"><img src="/mcm/default/localized/us/images/icons/icb_allowed.gif" alt="Allows Personal Rates to be set for this item" border="0" align="absmiddle" />
+            <INPUT Name="CanICB" Type="radio" value="TRUE"><img src="/mcm/default/localized/en-us/images/icons/icb_allowed.gif" alt="Allows Personal Rates to be set for this item" border="0" align="absmiddle" />
             <MDMLABEL Name="TEXT_PRICELIST_MAPPING_CAN_ICB" Type="Caption">Can be ICBed</MDMLABEL><br>
-            <INPUT Name="CanICB" Type="radio" value="FALSE"><img src="/mcm/default/localized/us/images/icons/icb_not_allowed.gif" alt="Does not allow Personal Rates to be set for this item" border="0" align="absmiddle" />
+            <INPUT Name="CanICB" Type="radio" value="FALSE"><img src="/mcm/default/localized/en-us/images/icons/icb_not_allowed.gif" alt="Does not allow Personal Rates to be set for this item" border="0" align="absmiddle" />
             Do not allow Personal Rates to be set
           </td>
         </tr>
@@ -189,7 +187,7 @@
 
 <br><br>
 <div align="center"><!-- Dialog Buttons -->
-  <button Class='clsButtonXXLarge' name="OK" onclick="ValidateForm();">Update Selected Price List Mappings</button>&nbsp;&nbsp;&nbsp;<br><br>
+  <button Class='clsButtonXXLarge' name="OK" onclick="ValidateForm();return false;">Update Selected Price List Mappings</button>&nbsp;&nbsp;&nbsp;<br><br>
   <button Class='clsOKButton' name="CANCEL" onclick="javascript:window.close();">Close</button>
 </div>
 <br><br>

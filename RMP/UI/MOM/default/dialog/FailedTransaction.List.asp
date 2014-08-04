@@ -61,7 +61,7 @@ PRIVATE FUNCTION CheckReRunError()
          EventArg.Error.LocalizedDescription = EventArg.Error.Description
       End Select 
       
-      response.write "<html><head><LINK rel='STYLESHEET' type='text/css' href='/mom/default/localized/us/styles/styles.css'></head><body>"  
+      response.write "<html><head><LINK rel='STYLESHEET' type='text/css' href='/mom/default/localized/en-us/styles/styles.css'></head><body>"  
       Form_DisplayErrorMessage EventArg
       response.write "</body></html>"
       Session("FAILEDTRANSACTION_CURRENT_RERUNID") = Empty

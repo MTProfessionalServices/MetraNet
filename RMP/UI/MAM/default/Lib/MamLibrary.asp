@@ -20,7 +20,7 @@
 ' VERSION	        : 5.0
 ' AUTHOR	        : F.Torres, Kevin A. Boucher
 ' ----------------------------------------------------------------------------------------------------------------------------------------
-PUBLIC CONST DEFAULT_LANGUAGE = "US"
+PAGE_LANGUAGE = Session("PAGE_LANGUAGE")
 
 PRIVATE m_objFrameWorkSecurity
 
@@ -180,7 +180,7 @@ PUBLIC FUNCTION Form_DisplayErrorMessage(EventArg) ' As Boolean
     Response.write "  <center><TABLE BGCOLOR=""#FFFFC4"" BORDER=""0"" CELLSPACING=""0"" CELLPADDING=""0"" BORDERCOLOR=""Black"" style=""margin-top: 5px;"">"
     Response.write "  <TR>"
     Response.write "  <TD Class='ErrorCaptionBar'>" 
-    Response.write "   <IMG SRC='/mam/default/localized/us/images/error.gif' valign=""center"" BORDER=""0"" >&nbsp;"
+    Response.write "   <IMG SRC='/mam/default/localized/en-us/images/error.gif' valign=""center"" BORDER=""0"" >&nbsp;"
 
     If Len(EventArg.Error.LocalizedDescription) Then     
     
@@ -230,7 +230,7 @@ PUBLIC FUNCTION mam_ShowGuide(strGuide)
  If CBool(mam_GetDictionary("GUIDE_ON")) Then
 	  If Len(strGuide) > 0 Then
 
-      Session("GUIDE_TEXT") = "<img src='/mam/default/localized/us/images/warning.gif'>"
+      Session("GUIDE_TEXT") = "<img src='/mam/default/localized/en-us/images/warning.gif'>"
     	Session("GUIDE_TEXT") = Session("GUIDE_TEXT") & "&nbsp;&nbsp;" & Session("objMAM").Dictionary.PreProcess(strGuide)
 	    response.write "<script language='JavaScript1.2'>if(getFrameMetraNet().guide){getFrameMetraNet().guide.location.href = '" & mam_GetDictionary("ERROR_RESOLUTION_ROADMAP") & "';"
       response.write "getFrameMetraNet().showGuide();}</script>"
@@ -312,7 +312,6 @@ END FUNCTION
 PUBLIC FUNCTION mam_LoadDictionary(objMAM,strLanguage) ' As Boolean
 
     DIM APP_FOLDER
-    
     APP_FOLDER          = Session("mdm_APP_FOLDER")    
     mam_LoadDictionary  = FALSE
     
@@ -320,7 +319,6 @@ PUBLIC FUNCTION mam_LoadDictionary(objMAM,strLanguage) ' As Boolean
         mam_LoadDictionary = TRUE
         Exit Function
     End If
-        
     objMAM.Dictionary.Clear
     ' Read the dictionary entries that do not need to be localized
     ' Generally it is the mam application logical/physical links
@@ -929,17 +927,15 @@ PUBLIC FUNCTION mam_SetupCSR(strLogon, strNameSpace, strNameSpaceType) ' as bool
     
     Dim objLanguageContext
     dim objSessionContext
-
-    mam_LoadDictionary MAM(), MAM().CSR.Language
+    mam_LoadDictionary MAM(), PAGE_LANGUAGE'MAM().CSR.Language
     ' g. cieplik CR 12683 Load the dictionary based upon the CSR's language code, added for localization support of adjustments        
 	  set objLanguageContext = CreateObject("MetraTech.Localization.LanguageList")
     SET objSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)
     objSessionContext.LanguageID = objLanguageContext.GetLanguageID(MAM().CSR.Language)
     SET Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME) = objSessionContext    
 
-    MAM().CSR.Language = MAM().CSR("Language").EnumType.Entries.ItemByValue(MAM().CSR("Language").Value).Name 
-    MAM().CSR("Language").Value = MAM().CSR.Language  
-    
+    MAM().CSR.Language = PAGE_LANGUAGE 'MAM().CSR("Language").EnumType.Entries.ItemByValue(MAM().CSR("Language").Value).Name 
+    MAM().CSR("Language").Value = PAGE_LANGUAGE 'MAM().CSR.Language  
     mam_loadDictionary Session("objMAM"), MAM().CSR("Language").value
     
     SET Session("mdm_LOCALIZATION_DICTIONARY") = Session("objMAM").Dictionary
@@ -1300,14 +1296,14 @@ PUBLIC FUNCTION mam_GetDisplayEndDate(datDate)
 
     If FrameWork.IsInfinity(datDate) Then
 
-          mam_GetDisplayEndDate = "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/infinity.gif" & "'>"
+          mam_GetDisplayEndDate = "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/infinity.gif" & "'>"
 
     ElseIf FrameWork.IsMinusInfinity(datDate) Then
     
-          mam_GetDisplayEndDate = "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/minusinfinity.gif" & "'>"                              
+          mam_GetDisplayEndDate = "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/minusinfinity.gif" & "'>"                              
     Else    
          ' mam_GetDisplayEndDate = Service.Tools.ConvertFromGMT(datDate, MAM().CSR("TimeZoneId").Value)
-          mam_GetDisplayEndDate = datDate
+          mam_GetDisplayEndDate = mdm_Format(datDate,mam_GetDictionary("DATE_FORMAT"))
     End If
 END FUNCTION
 
@@ -1509,7 +1505,7 @@ End Function
 Function WriteUnableToLoad(strText, depricatedParam) 
   response.write "<html>"
   response.write " <head>"
-  response.write "  <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/styles.css'>"
+  response.write "  <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/styles.css'>"
   response.write " </head>"
   response.write " <body>"
   response.write " <TABLE border='0' cellpadding='1' cellspacing='0' width='100%'>"

@@ -32,7 +32,6 @@ Option Explicit
 
 <%
 Form.Version        = MDM_VERSION     ' Set the dialog version - we are version 2.0.
-Form.RouteTo        = FrameWork.GetDictionary("PRODUCT_OFFERING_LIST_DIALOG")
 Form.ErrorHandler   = true
 
 mdm_Main ' invoke the mdm framework
@@ -49,6 +48,10 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Else
     Form("ID") = session("POID")
   End if
+  
+  Form.Modal = TRUE   ' Tell the MDM this dialog is open in a  pop up window. 
+                      ' The OK and CANCEL event will not terminate the dialog
+                      ' but do a last rendering/refresh.
   
   GetProductOffering TRUE
 
@@ -101,12 +104,15 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   COMObject.Properties.Enabled              = FALSE ' Every control is grayed
   Form.Grids.Enabled                        = FALSE ' All Grid are not enabled    
 
-        ' Dynamically Add Tabs to template
-    Dim strTabs  
-    gObjMTTabs.AddTab "General", "/mcm/default/dialog/ProductOffering.ViewEdit.asp?ID=" & FORM("ID") & "&Tab=0"
-  gObjMTTabs.AddTab "Properties", "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=1"
-  gObjMTTabs.AddTab "Included Items", "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=2"
-  gObjMTTabs.AddTab "Subscription Restrictions", "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
+  ' Dynamically Add Tabs to template
+  Dim strTabs  
+  gObjMTTabs.AddTab "General", "/mcm/default/dialog/ProductOffering.ViewEdit.asp?ID=" & FORM("ID") & "&Tab=0"
+  
+  If Not(Session("isPartitionUser")) Then
+    gObjMTTabs.AddTab "Properties", "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=1"
+    gObjMTTabs.AddTab "Included Items", "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=2"
+    gObjMTTabs.AddTab "Subscription Restrictions", "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
+  End If
       
     gObjMTTabs.Tab          = Clng(Request.QueryString("Tab"))		  
     strTabs                 = gObjMTTabs.DrawTabMenu(g_int_TAB_TOP)

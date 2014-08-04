@@ -21,7 +21,7 @@
           <order>20</order>
 					<textid>TEXT_SUMMARY_ACCOUNT_INFO_DIALOG</textid>
 					<page>SUMMARY_ACCOUNT_INFO_DIALOG</page>
-					<image>/mam/default/localized/us/images/summary.gif</image>
+					<image>/mam/default/localized/en-us/images/summary.gif</image>
           <target></target>			
 				</menulink>
 				                
@@ -29,7 +29,7 @@
           <order>30</order>
 					<textid>TEXT_ACCOUNT_STATE</textid>
 					<page>UPDATE_ACCOUNT_STATE_DIALOG</page>
-					<image>/mam/default/localized/us/images/state/menu_s.gif</image>
+					<image>/mam/default/localized/en-us/images/state/menu_s.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
@@ -42,7 +42,7 @@
           <order>40</order>
 					<textid>TEXT_UPDATE_ACCOUNT_INFO_DIALOG</textid>
 					<page>UPDATE_ACCOUNT_INFO_DIALOG</page>
-					<image>/mam/default/localized/us/images/manage.gif</image>
+					<image>/mam/default/localized/en-us/images/manage.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
@@ -55,7 +55,7 @@
           <order>50</order>        
 					<textid>TEXT_UPDATE_CONTACT_INFO_DIALOG</textid>
 					<page>SUBSCRIBER_CONTACTS_BROWSER</page>
-					<image>/mam/default/localized/us/images/contact.gif</image>
+					<image>/mam/default/localized/en-us/images/contact.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
@@ -68,7 +68,7 @@
   				<order>60</order>
         	<textid>TEXT_SETUP_SUBSCRIPTIONS</textid>
 					<page>SETUP_SUBSCRIPTIONS_DIALOG</page>
-					<image>/mam/default/localized/us/images/subscription5.gif</image>
+					<image>/mam/default/localized/en-us/images/subscription5.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="View subscriptions">
@@ -81,7 +81,7 @@
           <order>70</order>
 					<textid>TEXT_GROUP_SUBSCRIPTIONS_DIALOG</textid>
 					<page>GROUP_SUBSCRIPTIONS_DIALOG</page>
-					<image>/mam/default/localized/us/images/group.gif</image>
+					<image>/mam/default/localized/en-us/images/group.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="View group subscriptions">
@@ -94,7 +94,7 @@
   				<order>80</order>
         	<textid>TEXT_PAYMENT_METHODS</textid>
 					<page>PAYMENT_METHODS_DIALOG</page>
-					<image>/mam/default/localized/us/images/payment.gif</image>
+					<image>/mam/default/localized/en-us/images/payment.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
@@ -107,7 +107,7 @@
    				<order>90</order>
         	<textid>TEXT_INTERACTIVE_BILL</textid>
 					<page>INTERACTIVE_BILL_LOGON</page>
-					<image>/mam/default/localized/us/images/web.gif</image>
+					<image>/mam/default/localized/en-us/images/web.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="View Online Bill">
@@ -120,7 +120,7 @@
           <order>100</order>
 					<textid>TEXT_EDIT_TEMPLATE_DIALOG</textid>
 					<page>BEFORE_VIEW_ACCOUNT_TEMPLATE</page>
-					<image>/mam/default/localized/us/images/template.gif</image>
+					<image>/mam/default/localized/en-us/images/template.gif</image>
           <target></target>
           <capabilities type="collection">
              <capability id="Manage Subscriber Auth">
@@ -152,7 +152,7 @@
           <order>120</order>
   				<textid>TEXT_FOLDER_OWNER</textid>
   				<page>FOLDER_OWNER_UPDATE_DIALOG</page>
-  				<image>/mam/default/localized/us/images/manage.gif</image>
+  				<image>/mam/default/localized/en-us/images/manage.gif</image>
           <target></target>
           <capabilities type="collection">
              <capability id="Manage Subscriber Auth">
@@ -165,7 +165,7 @@
           <order>130</order>
   				<textid>TEXT_OWNED_FOLDERS</textid>
   				<page>FOLDER_OWNER_SETUP_DIALOG</page>
-  				<image>/mam/default/localized/us/images/csr.gif</image>
+  				<image>/mam/default/localized/en-us/images/csr.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage Subscriber Auth">
@@ -181,7 +181,7 @@
           <order>140</order>
  					<textid>TEXT_OWNER_ACCOUNTS</textid>
 					<page>OWNER_ACCOUNTS_DIALOG</page>
-					<image>/mam/default/localized/us/images/csr.gif</image>
+					<image>/mam/default/localized/en-us/images/csr.gif</image>
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
               <capabilityParameters type="collection" />
@@ -196,7 +196,7 @@
           <order>150</order>
 					<textid>TEXT_PAY_FOR_ACCOUNTS</textid>
 					<page>PAYER_SETUP_DIALOG</page>
-					<image>/mam/default/localized/us/images/PayForAccounts.gif</image>
+					<image>/mam/default/localized/en-us/images/PayForAccounts.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage Payment Redirection">
@@ -209,7 +209,7 @@
           <order>160</order>
 					<textid>TEXT_PAY_FOR_ME</textid>
 					<page>PAYER_SETUP_HISTORY_DIALOG</page>
-					<image>/mam/default/localized/us/images/payer2.gif</image>
+					<image>/mam/default/localized/en-us/images/payer2.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage Payment Redirection">
@@ -222,7 +222,7 @@
 				  <order>170</order>
         	<textid>TEXT_SEND_EMAIL_DIALOG</textid>
 					<page>SEND_EMAIL_DIALOG</page>
-					<image>/mam/default/localized/us/images/email.gif</image>
+					<image>/mam/default/localized/en-us/images/email.gif</image>
           <target></target>
 				</menulink>
 
@@ -230,7 +230,7 @@
 				  <order>180</order>
         	<textid>TEXT_SUBSCRIBER_LOG_ADD</textid>
 					<page>APPLICATION_LOG_BROWSER_CURRENT_SUBSCRIBER_ADD</page>
-					<image>/mam/default/localized/us/images/note_small.gif</image>
+					<image>/mam/default/localized/en-us/images/note_small.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
@@ -253,7 +253,7 @@
           <order>200</order>
  					<textid>TEXT_CREATE_ADJUSTMENTS</textid>
 					<page>ADJUSTMENT_FINDER_DIALOG</page>
-					<image>/mam/default/localized/us/images/BulkAdjust2.gif</image>
+					<image>/mam/default/localized/en-us/images/BulkAdjust2.gif</image>
           <capabilities type="collection">
             <capability id="Apply Adjustments">
                <capabilityParameters type="collection" />
@@ -265,7 +265,7 @@
           <order>210</order>
  					<textid>TEXT_CREATE_BULKADJUSTMENTS</textid>
 					<page>BULKADJUSTMENT_FINDER_DIALOG</page>
-					<image>/mam/default/localized/us/images/BulkAdjust3.gif</image>
+					<image>/mam/default/localized/en-us/images/BulkAdjust3.gif</image>
           <capabilities type="collection">
             <capability id="Apply Adjustments">
                <capabilityParameters type="collection" />
@@ -277,7 +277,7 @@
 				  <order>220</order>
         	<textid>TEXT_MENU_ISSUE_MISC_ADJUSTMENT</textid>
 					<page>ISSUE_MISC_ADJUSTEMENT_DIALOG</page>
-					<image>/mam/default/localized/us/images/adjust2.gif</image>
+					<image>/mam/default/localized/en-us/images/adjust2.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Apply Adjustments">
@@ -295,7 +295,7 @@
           <order>235</order>
 					<textid>TEXT_MANAGE_DEFAULT_SECURITY</textid>
  					<page>MANAGE_DEFAULT_SECURITY_DIALOG</page>
-					<image>/mam/default/localized/us/images/roles.gif</image>
+					<image>/mam/default/localized/en-us/images/roles.gif</image>
           <target></target>
           <capabilities type="collection">
              <capability id="Manage Subscriber Auth">
@@ -308,7 +308,7 @@
           <order>240</order>
   				<textid>TEXT_MANAGE_SECURITY</textid>
   				<page>MANAGE_ACTIVE_SECURITY_RELOAD_DIALOG</page>
-  				<image>/mam/default/localized/us/images/Security.gif</image>
+  				<image>/mam/default/localized/en-us/images/Security.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage Subscriber Auth">
@@ -321,7 +321,7 @@
 				  <order>250</order>
         	<textid>TEXT_MENU_GENERATE_PASSWORD</textid>
 					<page>GENERATE_PASSWORD_DIALOG</page>
-					<image>/mam/default/localized/us/images/password.gif</image>
+					<image>/mam/default/localized/en-us/images/password.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
@@ -334,7 +334,7 @@
 					<order>260</order>
           <textid>TEXT_EDIT_MAPPING</textid>
 					<page>EDIT_MAPPING_DIALOG</page>
-					<image>/mam/default/localized/us/images/EditAlias.gif</image>
+					<image>/mam/default/localized/en-us/images/EditAlias.gif</image>
           <target></target>        
           <capabilities type="collection">
             <capability id="Update subscriber accounts">
@@ -347,7 +347,7 @@
           <order>270</order>
  					<textid>TEXT_MOVE_ACCOUNT</textid>
 					<page>HIERARCHY_MOVE_DATE_INDIVIDUAL_DIALOG</page>
-					<image>/mam/default/localized/us/images/manage.gif</image>
+					<image>/mam/default/localized/en-us/images/manage.gif</image>
           <capabilities type="collection">
           </capabilities>                   
         </menulink>    
@@ -356,7 +356,7 @@
 				  <order>280</order>
         	<textid>TEXT_SUBSCRIBER_LOG</textid>
 					<page>APPLICATION_LOG_BROWSER_CURRENT_SUBSCRIBER</page>
-					<image>/mam/default/localized/us/images/log.gif</image>
+					<image>/mam/default/localized/en-us/images/log.gif</image>
           <target></target>       
 				</menulink>
 

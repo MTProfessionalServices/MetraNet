@@ -95,7 +95,7 @@ FUNCTION form_Refresh(EventArg)
     '// Determine if this is developer machine or production machine
     dim objSystemInfo
     set objSystemInfo=CreateObject("MetraTech.Statistics.SystemInfo")
-    sPath = objSystemInfo.GetEnviromentVariable("outdir")
+    sPath = objSystemInfo.GetEnviromentVariable("mtoutdir")
     if len(sPath)=0 then
       '//This is a production machine  
       sPath = session("INSTALL_DIR") & "\Bin\pipeline.exe"
@@ -116,10 +116,10 @@ FUNCTION form_Refresh(EventArg)
   
 	  objXMLDoc.LoadXML(strXML)
 
-    Service.Properties("METRANET_VERSION").Value = objXMLDoc.SelectSingleNode("/Files/File/Version").Text & "<BR>" & objXMLDoc.SelectSingleNode("/Files/File/LastModified").Text
-
+    Service.Properties("METRANET_VERSION").Value = objXMLDoc.SelectSingleNode("/Files/File/Version").Text & "<BR>" & mom_FormatDateTime(objXMLDoc.SelectSingleNode("/Files/File/LastModified").Text, mom_GetDictionary("DATE_TIME_FORMAT"))
+    
     Service.Properties("PATCH_INFORMATION_HTML").Value = getPatchListHTML
-
+    
    
   form_Refresh=true
 
@@ -253,7 +253,7 @@ FUNCTION getScheduledAdapterListHTML
 
           'sToolTip = rowset.value("Details")
           sHTML = sHTML & "<tr class='TableDetailCell' title='" & sToolTip & "'><td style='vertical-align: top'>" & sSelectHTML & "</td>"
-          sHTML = sHTML & "<td style='vertical-align: top' nowrap><strong>" & "<img alt='' border='0' src= '" & "../localized/us/images/adapter_scheduled.gif" & "' align='absmiddle'>&nbsp;" & rowset.value("Display Name") & "</strong></td>"  
+          sHTML = sHTML & "<td style='vertical-align: top' nowrap><strong>" & "<img alt='' border='0' src= '" & "../localized/en-us/images/adapter_scheduled.gif" & "' align='absmiddle'>&nbsp;" & rowset.value("Display Name") & "</strong></td>"  
           sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("InstanceLastArgEndDate") & "&nbsp;</td>"
           sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("Description") & "&nbsp;</td></tr>"
           rowset.movenext

@@ -167,7 +167,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             dim strForced
             
             if ProductView.Properties.RowSet.Value("Forced")="Y" and UCASE(ProductView.Properties.RowSet.Value("type"))<>"CHECKPOINT" then
-              strForced = "<br><img src='../localized/us/images/errorsmall.gif' align='absmiddle' border='0'><strong> The adapter run was forced to ignore dependencies</strong>"
+              strForced = "<br><img src='../localized/en-us/images/errorsmall.gif' align='absmiddle' border='0'><strong> The adapter run was forced to ignore dependencies</strong>"
             else
               strForced = ""
             end if
@@ -175,6 +175,9 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>" & ProductView.Properties.RowSet.Value("Action") & strForced & "</td>"
             
   			    Form_DisplayCell = TRUE
+         Case "time"
+            EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("time"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>"
+            Form_DisplayCell = TRUE
   	     Case else
             Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
       End Select

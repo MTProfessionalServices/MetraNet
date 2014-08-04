@@ -7,7 +7,7 @@ Option Explicit
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <LINK rel="STYLESHEET" type="text/css" href="<% =application("APP_HTTP_PATH") %>/default/localized/us/styles/styles.css">
+    <LINK rel="STYLESHEET" type="text/css" href="<% =application("APP_HTTP_PATH") %>/default/localized/en-us/styles/styles.css">
 </HEAD>
 <BODY Class='clsBackGround'>
 

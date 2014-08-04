@@ -42,27 +42,36 @@ response.expires = 0
   Dim objMTProductCatalog
   Set objMTProductCatalog = GetProductCatalogObject 
 	
-	Dim objNewProductOffering
-  
+  Dim objNewProductOffering
+  Dim poPartitionId
+  Dim poName
+
+  ' If this is a Partition admin, save PartitionId in Extended properties and prefix PO name with Partition name
+  'If Session("isPartitionUser") Then
+  '  poPartitionId = Session("topLevelAccountId")
+  '  poName = Session("topLevelAccountUserName") + ":" + session(strWizardName & "_Name")
+  'Else
+    poPartitionId = 1
+    poName = session(strWizardName & "_Name")
+  'End If
   
   if session(strWizardName & "_CopyOfExistingId")="" then
-  
-	  Set objNewProductOffering = objMTProductCatalog.CreateProductOffering
+    Set objNewProductOffering = objMTProductCatalog.CreateProductOffering
   else
     dim intSourceProductOfferingId, objSourceProductOffering
 
     intSourceProductOfferingId   = CLng(session(strWizardName & "_CopyOfExistingId"))
     Set objSourceProductOffering = objMTProductCatalog.GetProductOffering(intSourceProductOfferingId)   
-    Set objNewProductOffering    = objSourceProductOffering.CreateCopy(session(strWizardName & "_Name"), session(strWizardName & "_CurrencyCode"))    
+    Set objNewProductOffering    = objSourceProductOffering.CreateCopy(poName, session(strWizardName & "_CurrencyCode"))
     If Err.Number Then 
       SetErrorAndRedirect Err.Description
     End If
   End if 
 
-	'Set objNewProductOffering = session(strWizardName & "ProductOffering")
+  'Set objNewProductOffering = session(strWizardName & "ProductOffering")
 
-	objNewProductOffering.Name = session(strWizardName & "_Name")
-	objNewProductOffering.DisplayName = session(strWizardName & "_DisplayName")
+  objNewProductOffering.Name = poName
+  objNewProductOffering.DisplayName = session(strWizardName & "_DisplayName")
   objNewProductOffering.Description = session(strWizardName & "_Description")
   
   'dim sDefaultDisplayNameSuffix
@@ -78,7 +87,7 @@ response.expires = 0
     end if
   next
     
-	objNewProductOffering.SetCurrencyCode(session(strWizardName & "_CurrencyCode"))  
+  objNewProductOffering.SetCurrencyCode("USD") ' session(strWizardName & "_CurrencyCode")) - Enabling Rating Currency 5/29/2013
 	
   
   if session(strWizardName & "_effectivedatestart") <> "" then
@@ -110,6 +119,9 @@ response.expires = 0
       objNewProductOffering.DisplayNames.SetMapping objLanguage.LanguageCode, session(strWizardName & "_DisplayName") & Replace(sDefaultDisplayNameSuffix,"%%LANGCODE%%", objLanguage.LanguageCode)
     end if
   next
+
+  objNewProductOffering.Properties.Item("POPartitionId") = poPartitionId
+
   objNewProductOffering.Save
  
   If (Err.Number) then
@@ -160,8 +172,10 @@ End Function
 <html>
   <head>
     <script language="Javascript">
-      window.opener.top.MainContentIframe.ticketFrame.location.href = '/mcm/default/dialog/ProductOffering.ViewEdit.Frame.asp?ID=<%=objNewProductOffering.ID%>';
-	    window.close();
+        // window.opener.top.MainContentIframe.ticketFrame.location.href = '/mcm/default/dialog/ProductOffering.ViewEdit.Frame.asp?ID=<%=objNewProductOffering.ID%>';
+        // window.opener.top.MainContentIframe.location.reload(true); // This reloads the whole page. Next option is much better because it instructs the grid to reload just the data
+        window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();
+        window.close();
     </script>
   </head>
   <body>

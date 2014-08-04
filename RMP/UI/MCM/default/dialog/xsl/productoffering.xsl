@@ -6,7 +6,7 @@
                     <xsl:attribute name="href">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
                     Return To Previous Search Results
                     </a>
-                    <img src="/MCM/default/localized/us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
+                    <img src="/MCM/default/localized/en-us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
                     <xsl:attribute name="OnClick">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
                     </img>
       <!-- PO Properties -->
@@ -19,7 +19,7 @@
             <td class="NavigationPaneHeader" colspan="1" style="font-size:10;padding-left:8px;">Selected Product Offering</td>
             <td class="NavigationPaneHeader" align="right" style='padding-top:4px;'>
 
-              <img src="/MCM/default/localized/us/images/Icons/refresh.gif" alt="" border="0" align="bottom" style="cursor:hand;">
+              <img src="/MCM/default/localized/en-us/images/Icons/refresh.gif" alt="" border="0" align="bottom" style="cursor:hand;">
                     <xsl:attribute name="OnClick">window.location=window.location</xsl:attribute>
               </img>
             </td>
@@ -69,7 +69,7 @@
       <xsl:attribute name="title"><xsl:value-of select="description" /></xsl:attribute>
       <td class="NavigationPaneItem" colspan="2">
 
-        <img src="/mcm/default/localized/us/images/Icons/sectionContract.gif" alt="" border="0" align="absmiddle">
+        <img src="/mcm/default/localized/en-us/images/Icons/sectionContract.gif" alt="" border="0" align="absmiddle">
           <xsl:attribute name="id">img:<xsl:value-of select="id" /></xsl:attribute>
           <xsl:attribute name="onClick">ToggleRow('row:<xsl:value-of select="id" />', 'img:<xsl:value-of select="id" />');</xsl:attribute>
         </img>
@@ -138,16 +138,16 @@
     <!--<xsl:choose>
     
        <xsl:when test="contains(paramtable_displayname, 'xxxRules')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxParameters')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxxBand')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>       
        <xsl:when test="contains(paramtable_displayname, 'xxxCalendar')">
-        <img src="/mcm/default/localized/us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
   <xsl:otherwise>-->
         <img alt="" border="0" align="absmiddle">
@@ -166,7 +166,7 @@
         <xsl:attribute name="href">javascript:alert('This parameter table is not mapped to a pricelist for this product offering. Please select the \'<xsl:value-of select="../../name" />\' priceable item above and create a mapping.');</xsl:attribute>
        <xsl:value-of select="paramtable_displayname" />
        <xsl:text>&#160;</xsl:text>
-       <img src="/mcm/default/localized/us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
+       <img src="/mcm/default/localized/en-us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
           <xsl:attribute name="alt">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../name" />' priceable item above and create a mapping.'</xsl:attribute>
         </a> 
                                     

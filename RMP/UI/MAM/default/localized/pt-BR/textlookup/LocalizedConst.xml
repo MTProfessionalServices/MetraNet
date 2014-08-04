@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="MAM Static Texts" type="collection">
+  <description>
+    The file define most of the MAM static texts. The MAM/MDM use also the localization
+    supplied by the MetraTech plate form.
+  </description>
+  <text id="TEXT_MANUAL_PAYMENT_SUCCESS">
+    <value>O pagamento manual foi adicionado com sucesso.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MANUAL_PAYMENT_TITLE">
+    <value>Pagamento manual</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_NAME">
+    <value>Nome da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOGIN_NAME">
+    <value>Nome de log-in</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CURRENCY">
+    <value>Moeda</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHILD_NAME">
+    <value>Nome do filho</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_ID">
+    <value>ID de conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ERROR_DESCRIPTION">
+    <value>Descrição de erro</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MOVE_ACROSS_CORPORATE">
+    <value><![CDATA[ <br>&nbsp;&nbsp;Você só pode mover contas dentro da mesma hierarquia de corporação. ]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_BATCH_OPERATION_WARNING">
+    <value>As operações em lote podem demorar muito e só devem ser feitas quando o sistema não estiver ocupado.</value>
+    <description>Batch warning</description>
+  </text>
+  <text id="TEXT_FOLDER">
+    <value>Pasta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SYSTEM_FOLDER">
+    <value>Pasta do sistema</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNABLE_TO_MANAGE_ACCOUNT">
+    <value><![CDATA[ <br>&nbsp;&nbsp;Não é possível gerenciar a conta. Isso pode ser uma restrição de segurança <br>&nbsp;&nbsp;ou a conta pode não existir no momento atual na hierarquia. ]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY_CURRENT_TEMPLATE">
+    <value>Aplicar modelo atual</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY_TEMPLATE">
+    <value>Aplicar modelo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SAVE_AND_APPLY_TEMPLATE">
+    <value>Salvar e aplicar modelo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INCLUDING_FOLDERS">
+    <value>(incluindo pastas)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXCLUDING_FOLDERS">
+    <value>(excluindo pastas)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PAY_FOR_ME">
+    <value>Editar pagadores</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FOLDER_OWNER_UPDATE">
+    <value>Administrador da conta atualizado</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FOLDER_OWNER_UPDATED_SUCCESS">
+    <value>O administrador da conta foi atualizado com sucesso.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APP_MAM">
+    <value><![CDATA[ <b>MetraCare</b> - Gerenciamento de conta e autoatendimento do cliente ]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_APP_MCM">
+    <value><![CDATA[ <b>MetraOffer</b> - Ofertas de produtos e serviços ]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_APP_MOM">
+    <value><![CDATA[ <b>MetraControl</b> - Centro de controle de operações ]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_APP_MPS">
+    <value><![CDATA[ <b>MetraView</b> - Relatórios e apresentação de faturas interativos ]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PAYMENT_HISTORY">
+    <value>Histórico de pagamento</value>
+    <description>Payment History</description>
+  </text>
+  <text id="TEXT_ADVANCED_ENTRY">
+    <value>Avançado</value>
+    <description>Advanced</description>
+  </text>
+  <text id="TEXT_ACCOUNTS_TO_MOVE">
+    <value>Selecionar contas para mover</value>
+    <description>Select Accounts to Move</description>
+  </text>
+  <text id="TEXT_ACCOUNT_IDS">
+    <value>Adicionar IDs da conta</value>
+    <description>Add Account IDs</description>
+  </text>
+  <text id="TEXT_UPDATE">
+    <value>Atualizar</value>
+    <description>Update</description>
+  </text>
+  <text id="TEXT_ADD_FOLDER_OWNERSHIP">
+    <value>Adicionar conta para administração</value>
+    <description>Add folder for ownership</description>
+  </text>
+  <text id="TEXT_DRAG_FOLDERS_HERE">
+    <value>Arraste e solte contas aqui...</value>
+    <description>Drag and drop folders here...</description>
+  </text>
+  <text id="TEXT_DRAG_ONLY_FOLDERS_HERE">
+    <value>Você só pode adicionar pastas.</value>
+    <description>folders only</description>
+  </text>
+  <text id="TEXT_ACCOUNT_STATE">
+    <value>Estado da conta</value>
+    <description>Account State</description>
+  </text>
+  <text id="TEXT_LOGIN_INFORMATION">
+    <value>Informações de login</value>
+    <description>Login Information</description>
+  </text>
+  <text id="TEXT_OTHER">
+    <value>Outro</value>
+    <description>Other</description>
+  </text>
+  <text id="TEXT_ANCESTOR">
+    <value>Pai</value>
+    <description>Parent</description>
+  </text>
+  <text id="TEXT_ACCOUNT">
+    <value>Conta</value>
+    <description>Account</description>
+  </text>
+  <text id="TEXT_PAYER">
+    <value>Pagador</value>
+    <description>Payer</description>
+  </text>
+  <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
+    <value>Adicionando membro ao grupo</value>
+    <description>Adding Member to Group</description>
+  </text>
+  <text id="TEXT_REMOVING_MEMBER_FROM_GROUP_SUB">
+    <value>Removendo membro do grupo</value>
+    <description>Removing Member from Group</description>
+  </text>
+  <text id="TEXT_SETTING_PAYER">
+    <value>Definindo pagador</value>
+    <description>Setting Payer</description>
+  </text>
+  <text id="TEXT_ADDING_ROLE_TO_MEMBER">
+    <value>Adicionando membros à função</value>
+    <description>Adding Members to Role</description>
+  </text>
+  <text id="TEXT_FOLDERS_IMPERSONETED_BY">
+    <value>Contas administradas por</value>
+    <description>Folders Owned By</description>
+  </text>
+  <text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
+    <value>Proprietário da conta de </value>
+    <description>owner</description>
+  </text>
+  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
+    <value>Contas pagas pelo</value>
+    <description>Contas pagas pelo</description>
+  </text>
+  <text id="TEXT_MOVING_ACCOUNTS">
+    <value>Movendo contas</value>
+    <description>Moving Accounts</description>
+  </text>
+  <text id="TEXT_CURRENT_ACCOUNT_STATE">
+    <value>Estado atual da conta</value>
+    <description>Current Account State</description>
+  </text>
+  <text id="TEXT_NEW_ACCOUNT_STATE">
+    <value>Novo estado da conta</value>
+    <description>New Account State</description>
+  </text>
+  <text id="ACCOUNT_STATE_UPDATE">
+    <value>Atualizar estado da conta</value>
+    <description>Update Account State</description>
+  </text>
+  <text id="TEXT_ACCOUNT_STATE">
+    <value>Estado da conta</value>
+    <description>Account State</description>
+  </text>
+  <text id="TEXT_BACK">
+    <value>Voltar</value>
+    <description>Back</description>
+  </text>
+  <text id="TEXT_CSR_DEFAULT_POLICY">
+    <value>Segurança padrão</value>
+    <description>Default Security</description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNTS_FOR_PAYMENT">
+    <value>Adicionar contas para pagamento</value>
+    <description>Add Accounts for Payment</description>
+  </text>
+  <text id="TEXT_MOVE_ACCOUNTS">
+    <value>Mover contas</value>
+    <description>Move Accounts</description>
+  </text>
+  <text id="TEXT_MOVE_ACCOUNT">
+    <value>Mover conta</value>
+    <description>Move Account</description>
+  </text>
+  <text id="TEXT_MEMBERS">
+    <value>Membros</value>
+    <description>Members</description>
+  </text>
+  <text id="TEXT_MOVE_DATE">
+    <value>Mover data de vigência</value>
+    <description>Move Date</description>
+  </text>
+  <text id="TEXT_UPDATE_PAYER_TITLE">
+    <value>Atualizar informações de pagador para a conta [USERNAME]</value>
+    <description>Accounts</description>
+  </text>
+  <text id="TEXT_ACCOUNTS">
+    <value>Contas</value>
+    <description>Accounts</description>
+  </text>
+  <text id="TEXT_USER">
+    <value>Usuário</value>
+    <description>User</description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTIONS_NAME">
+    <value>Nome</value>
+    <description>Group Subscription Name</description>
+  </text>
+  <text id="TEXT_SET_GROUP_PRICEABLE_ITEMS">
+    <value>Suporta operações em grupo</value>
+    <description>Support Group Operations</description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTIONS_NOTE">
+    <value>Selecione um conta corporativa para visualizar uma lista de [TEXT_GROUP_SUBSCRIPTIONS]:</value>
+    <description>Group Subscriptions Note</description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTIONS">
+    <value>Assinaturas em grupo</value>
+    <description>Group Subscriptions</description>
+  </text>
+  <text id="TEXT_SUBSCRIBE_PO">
+    <value>Assinar [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description>Group Subscriptions</description>
+  </text>
+  <text id="TEXT_SUBSCRIBE_GROUP">
+    <value>Aderir à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description>Group Subscriptions</description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_SUBSCRIPTIONS">
+    <value>Assinaturas de [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description>PO Subscriptions</description>
+  </text>
+  <text id="TEXT_AVAILABLE_GROUPSUBSCRIPTION_PO_SELECTION">
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERINGS] disponível para assinatura em grupo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AVAILABLE_GROUPSUBSCRIPTIONS">
+    <value>[TEXT_KEYTERM_GROUP_SUBSCRIPTIONS] disponível para associação</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MANAGE_DEFAULT_SECURITY">
+    <value>Permissões de segurança padrão</value>
+    <description>Default Security</description>
+  </text>
+  <text id="TEXT_ADD_ROLE_TO_ACCOUNT_TITLE">
+    <value>Adicionar [TEXT_KEYTERM_ROLE]</value>
+    <description>Add role to account</description>
+  </text>
+  <text id="TEXT_NO_ROLES">
+    <value>Nenhum [TEXT_KEYTERM_ROLES] foi configurado.</value>
+    <description>No roles</description>
+  </text>
+  <text id="TEXT_NO_CAPABILITIES">
+    <value>Nenhum [TEXT_KEYTERM_CAPABILITIES] foi configurado.</value>
+    <description>No capabilities</description>
+  </text>
+  <text id="TEXT_ROLES_ON_ACCOUNT">
+    <value>Essa conta tem as seguintes [TEXT_KEYTERM_ROLES]:</value>
+    <description>roles on account</description>
+  </text>
+  <text id="TEXT_CAPABILITIES_ON_ACCOUNT">
+    <value>Essa conta tem os seguintes [TEXT_KEYTERM_CAPABILITIES]:</value>
+    <description>capabilities on account</description>
+  </text>
+  <text id="TEXT_ADD_CAPABILITY">
+    <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
+    <description>Add Capability</description>
+  </text>
+  <text id="TEXT_MANAGE_SECURITY">
+    <value>Permissões de segurança</value>
+    <description>Security</description>
+  </text>
+  <text id="TEXT_MANAGE_SECURITY_HINT">
+    <value>Gerenciar funções e capacidades de segurança</value>
+    <description>Security</description>
+  </text>
+  <text id="TEXT_MANAGE">
+    <value>Gerenciar</value>
+    <description>Manage</description>
+  </text>
+  <text id="TEXT_ACTION">
+    <value>Ação</value>
+    <description>Action</description>
+  </text>
+  <text id="TEXT_SUBSCRIBER_ASSIGNABLE">
+    <value>Atribuível do assinante</value>
+    <description>subscriber assignable</description>
+  </text>
+  <text id="TEXT_CSR_ASSIGNABLE">
+    <value>Atribuível do CSR</value>
+    <description>CSR assignable</description>
+  </text>
+  <text id="TEXT_PATH_CAPABILITY_HELP">
+    <value>Você pode usar a Hierarquia de conta para localização um nó na hierarquia e arrastá-lo para o campo de caminho.</value>
+    <description>Access Type Capability</description>
+  </text>
+  <text id="TEXT_CAPABILITY_ACCESS_TYPE">
+    <value>Acessar [TEXT_KEYTERM_CAPABILITY]</value>
+    <description>Access Type Capability</description>
+  </text>
+  <text id="TEXT_CAPABILITY_PATH_TYPE">
+    <value>Caminho [TEXT_KEYTERM_CAPABILITY]</value>
+    <description>Path Type Capability</description>
+  </text>
+  <text id="TEXT_ADD_PATH">
+    <value>Adicionar outro caminho</value>
+    <description>Add Another Path</description>
+  </text>
+  <text id="TEXT_ALL_DESCENDANTS">
+    <value>Todos os descendentes</value>
+    <description>All Descendants</description>
+  </text>
+  <text id="TEXT_DIRECT_DESCENDANTS">
+    <value>Descendentes diretos</value>
+    <description>Direct Descendants</description>
+  </text>
+  <text id="TEXT_CURRENT_NODE">
+    <value>Nó atual</value>
+    <description>Current Node</description>
+  </text>
+  <text id="TEXT_WOULD_YOU_LIKE_TO_REMOVE">
+    <value>Você deseja remover</value>
+    <description>Would you like to remove</description>
+  </text>
+  <text id="TEXT_MSGBOX_DELETE_ITEM">
+    <value>Excluir [ITEM] ?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FROM">
+    <value>de</value>
+    <description>from</description>
+  </text>
+  <text id="TEXT_THIS">
+    <value>deste</value>
+    <description>this</description>
+  </text>
+  <text id="TEXT_ACCOUNT_OWNED_BY">
+    <value>Conta de propriedade de</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
+    <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
+    <description>Select capability to add to role</description>
+  </text>
+  <text id="TEXT_CAPABILITY_DESCRIPTION">
+    <value>Descrição de [TEXT_KEYTERM_CAPABILITY]</value>
+    <description>Capability</description>
+  </text>
+  <text id="TEXT_MANAGE_ACCOUNT_HIERARCHIES">
+    <value>Exige gerenciar hierarquias de conta</value>
+    <description>Hierarchy</description>
+  </text>
+  <text id="TEXT_CAPABILITY_NAME">
+    <value>Nome do [TEXT_KEYTERM_CAPABILITY]</value>
+    <description>Capability Name</description>
+  </text>
+  <text id="TEXT_BACK_SECURITY">
+    <value>Voltar</value>
+    <description>Back</description>
+  </text>
+  <text id="TEXT_BACK_TO_MANAGE_ROLES">
+    <value>Voltar para Gerenciar funções</value>
+    <description>Back to Manage Roles</description>
+  </text>
+  <text id="TEXT_ROLE_SETUP_READONLY">
+    <value>Exibir [TEXT_KEYTERM_CAPABILITIES] para </value>
+    <description>view capabilities for role</description>
+  </text>
+  <text id="TEXT_ROLE_SETUP">
+    <value>Configurar [TEXT_KEYTERM_CAPABILITIES] para </value>
+    <description>Configure capabilities for role</description>
+  </text>
+  <text id="TEXT_ROLE_ADD_CAPABILITY">
+    <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
+    <description>Add Capability</description>
+  </text>
+  <text id="TEXT_ADD_ROLE">
+    <value>Adicionar [TEXT_KEYTERM_ROLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ROLE_NAME">
+    <value>Nome da [TEXT_KEYTERM_ROLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ROLE_DESCRIPTION">
+    <value>Descrição da [TEXT_KEYTERM_ROLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECT_PARAMETER_TABLE">
+    <value>Selecione uma [TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TIME_FORMAT">
+    <value>(DD/MM/YYYY HH:MM:SS)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PERSONAL_PRICELIST">
+    <value>[TEXT_KEYTERM_PRICE_LIST] personalizado</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT_PROPERTIES">
+    <value>Editar propriedades</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATE_START_DATE">
+    <value>Data de início</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATE_END_DATE">
+    <value>Data de término</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EFFECTIVE_START_DATE">
+    <value>Data de início da vigência</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EFFECTIVE_END_DATE">
+    <value>Data de término da vigência</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLICATION_TITLE">
+    <value>MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_SOURCE_FILE">
+    <value>Arquivo de origem</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_TITLE">
+    <value>Selecionar calendário:</value>
+    <description></description>
+  </text>
+  <text id="MAM_SELECT_RATE_SCHEDULE_TO_COPY">
+    <value>Selecione o [TEXT_KEYTERM_RATE_SCHEDULE] para copiar regras de:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_RATE_FOUND">
+    <value>Nenhuma taxa encontrada.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HAS_PERSONAL_RATES">
+    <value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CAN_ICB">
+    <value>[TEXT_KEYTERM_PERSONAL_RATE] permitida</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEW_PERSONAL_RATES">
+    <value>Novas [TEXT_KEYTERM_PERSONAL_RATES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PERSONAL_RATES_NOT_ALLOWED">
+    <value>[TEXT_KEYTERM_PERSONAL_RATES] não são permitidas nesta [TEXT_KEYTERM_PARAMETER_TABLE].</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_START_DATE">
+    <value>Começa</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_END_DATE">
+    <value>Termina</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_DEFAULT_ACCOUNT_PRICELIST">
+    <value>Nenhum</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DEFAULT_ACCOUNT_PRICELIST">
+    <value>[TEXT_KEYTERM_PRICE_LIST] da conta padrão</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEW_RATE_SCHEDULE">
+    <value>Novo [TEXT_KEYTERM_RATE_SCHEDULE] pessoal</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COPY_EXISTING">
+    <value>Copiar do [TEXT_KEYTERM_RATE_SCHEDULE] existente?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEXT_BILLING_PERIOD">
+    <value>Próximo período de faturamento</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AVAILABLE_SUBSCRIPTONS">
+    <value>Assinaturas disponíveis</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_ITEM">
+    <value>[TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE">
+    <value>[TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BUTTON_VALIDATE_USER_NAME">
+    <value>Validar nome do usuário</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BUTTON_GENERATE_PASSWORD">
+    <value>Gerar senha</value>
+    <description></description>
+  </text>
+  <text id="TEXT_START_DATE">
+    <value>Data de início</value>
+    <description></description>
+  </text>
+  <text id="TEXT_STATUS">
+    <value>Status</value>
+  </text>
+  <text id="TEXT_CHOOSE_RATE_SCHEDULE">
+    <value>Selecione um [TEXT_KEYTERM_RATE_SCHEDULE] ou crie um novo [TEXT_KEYTERM_PERSONAL_RATES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_END_DATE">
+    <value>Data de término</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PERIOD_OF_TIME">
+    <value>Período</value>
+  </text>
+  <text id="TEXT_BILLING_INTERVAL">
+    <value>Intervalo de faturamento</value>
+  </text>
+  <text id="TEXT_FIXED_DATE">
+    <value>Data fixa</value>
+  </text>
+  <text id="TEXT_COLUMN_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_KIND">
+    <value>Tipo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLES">
+    <value>[TEXT_KEYTERM_PARAMETER_TABLES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LIST_RATES_TITLE">
+    <value>Clique nas taxas que você está interessado em</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES">
+    <value>Taxas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_DISABLED">
+    <value>Exibir as assinaturas desativadas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIBE">
+    <value>Assinar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNSUBSCRIBE">
+    <value>Cancelar assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_SUBSCRIPTION">
+    <value>Excluir assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_SUBSCRIPTIONS">
+    <value>Não há assinaturas para esta conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_GROUP_SUBSCRIPTIONS">
+    <value>Esta conta não é um membro de nenhuma assinatura de grupo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_INACTIVE_SUBSCRIPTIONS">
+    <value>Não há assinaturas desativadas para esta conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTIONS">
+    <value>Assinaturas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACTIVE_SUBSCRIPTIONS">
+    <value>Ativo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISABLED_SUBSCRIPTIONS">
+    <value>Desativado</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION">
+    <value>Assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_DATE">
+    <value>Inserir datas de assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_DATE_EDIT">
+    <value>Editar ou excluir assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEW_SUBSCRIPTION_DATE">
+    <value>Nova assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_ID">
+    <value>ID da assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_END_DATE">
+    <value>Data de término da assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_START_DATE">
+    <value>Data de início da assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_START">
+    <value>Próximo início do período de faturamento do pagador após essa data</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_END">
+    <value>Próximo fim do período de faturamento do pagador após essa data</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RECURRING_CHARGE">
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE](s)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISCOUNT">
+    <value>[TEXT_KEYTERM_DISCOUNT]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PERSONAL_RATE">
+    <value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUPICB_RATE">
+    <value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OPTIONS">
+    <value>Opções</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTIONS">
+    <value>Assinaturas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INVOICE_NUMBER">
+    <value>Número da fatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAMESPACE">
+    <value>Espaço de nomes</value>
+    <description></description>
+  </text>
+  <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
+    <value>Nenhum dado encontrado.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INFO_SUCCEFULLY_UPDATED">
+    <value>As informações foram atualizadas com sucesso.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_REQUIRED_FIELD">
+    <value>* denota os campos exigidos</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHANGE_PASSWORD">
+    <value>Alterar senha</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOGIN_TITLE">
+    <value>Login no MetraCare</value>
+    <description></description>
+  </text>
+ <text id="TEXT_NO_AUTH">
+    <value>Sua sessão expirou.  Faça login novamente.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOGIN_NAME">
+    <value>Nome do usuário</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOGIN_PASSWORD">
+    <value>Senha</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INVALID_LOGIN">
+    <value>Verifique seu nome e senha de usuário e selecione inserir para tentar novamente.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INVALID_BLANK_LOGIN">
+    <value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GENERATE_PASSWORD">
+    <value>Gerar senha</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEW_PASSWORD">
+    <value>Nova senha</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT">
+    <value>Adicionar conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_PRIMARYALIAS">
+    <value>Apelido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_LOGIN_VALIDATED">
+    <value>O nome de usuário foi validado.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_LOGIN_NOT_VALIDATED">
+    <value>O nome de usuário é inválido, tente outro.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_PRIMARYALIAS_STATUS">
+    <value>Status do apelido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_EMAILNOTIFICATION_STATUS">
+    <value>Status da notificação de e-mail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_ACCOUNT">
+    <value>Informações de conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONTACT">
+    <value>Contato</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BRANDED_SITE">
+    <value>Site da marca</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXTERNAL_SYSTEM">
+    <value>Sistema externo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOGIN_CAPTION">
+    <value>Login</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BIWEEKLYLABELINFO">
+    <value>Rótulo bi-semanal</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GENERAL_INFO">
+    <value>Informações de faturamento</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BILLING_INFO">
+    <value>Informações de faturamento</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_INFO">
+    <value>Informações de conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONTACTS">
+    <value>Informações de contato</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_CONTACT">
+    <value>Adicionar contato</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MPS_FAIL_TITLE">
+    <value>Fatura interativa</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MPS_FAIL">
+    <value>Não é possível fazer log on em uma conta interativa. Verifique se o assinante tem o recurso de logon correto para MetraView.  Se ainda houver um problema, peça a seu administrador verificar o log do sistema e tente novamente mais tarde.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED_FIND">
+    <value>Localização avançada</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED_FIND_DESCRIPTION">
+    <value>Procurar critérios</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED_FIND_DESCRIPTION_PART2">
+    <value> Você pode limitar sua pesquisa preenchendo vários campos nessa categoria.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADDRESS_1">
+    <value>Endereço 1</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADDRESS_2">
+    <value>Endereço 2</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADDRESS_3">
+    <value>Endereço 3</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CITY">
+    <value>Cidade</value>
+    <description></description>
+  </text>
+  <text id="TEXT_STATE">
+    <value>Estado</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ZIP">
+    <value>CEP</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COUNTRY">
+    <value>País</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PHONENUMBER">
+    <value>Número de telefone</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FAX">
+    <value>Fax</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_TYPE">
+    <value>Tipo de conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EMAIL">
+    <value>E-mail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COMPANY">
+    <value>Empresa</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NICKNAME">
+    <value>Apelido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_FOUND">
+    <value>Conta(s) encontrada(s)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ADDITIONAL_CHARGE">
+    <value>Cobrança adicional</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT_ACCOUNT_TEMPLATE">
+    <value>Editar modelo de conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_TEMPLATE_SUBSCRIPTION">
+    <value>Adicionar assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_TEMPLATE_GROUP_SUBSCRIPTION">
+    <value>Adicionar assinatura em grupo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_TEMPLATE_AVAILABLE_SUBSCRIPTION">
+    <value>Assinaturas disponíveis</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_ADD_CHARGE_TITLE">
+    <value>Cobrança adicional adicionada</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_ADD_CHARGE">
+    <value>Uma nova cobrança foi adicionada com sucesso à conta.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_CSR">
+    <value>Adicionar usuário do sistema</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_CSR">
+    <value>Atualizar usuário do sistema</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FOUND_CSR">
+    <value>Atualizar usuário(s) do sistema</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_UPDATE_CSR_CONFIRM_PASSWORD">
+    <value>Senha de confirmação</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_UPDATE_CSR_LOCATION">
+    <value>Localização</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_UPDATE_CSR_GENERAL">
+    <value>Geral</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_UPDATE_CSR_STATUS">
+    <value>Status da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_UPDATE_CSR_REASON">
+    <value>Motivo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_ADD_CSR_TITLE">
+    <value>Conta adicionada</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_ADD_CSR">
+    <value>A nova conta [ACCOUNT] foi adicionada com sucesso.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_UPDATE_CSR_TITLE">
+    <value>Conta atualizada</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_UPDATE_CSR">
+    <value>A conta [ACCOUNT] foi atualizada com sucesso.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_MAPPING">
+    <value>Editar pseudônimo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MAPPING_LIST">
+    <value>Editar pseudônimo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_MAPPING">
+    <value>Adicionar apelido da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_MAPPING_NAMESPACE">
+    <value>Espaço de nomes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_MAPPING_NAME">
+    <value>Apelido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_MAPPING_NAMESPACE_TEMPLATE">
+    <value>Modelo do espaço de nomes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_ACCOUNT_MAPPING">
+    <value>Editar apelido da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_ACCOUNT_MAPPING_NAMESPACE">
+    <value>Espaço de nomes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_ACCOUNT_MAPPING_NAME">
+    <value>Apelido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_ACCOUNT_MAPPING">
+    <value>Excluir apelido da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_ACCOUNT_MAPPING_NAMESPACE">
+    <value>Sistema externo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_ACCOUNT_MAPPING_NAME">
+    <value>Apelido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_DELETE_ACCOUNT_MAPPING">
+    <value>Excluir sistema externo: [MAPPING_NAME], apelido: [LOGIN_NAME]?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ALIAS">
+    <value>Apelido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SPACE">
+    <value>Sistema externo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREDIT_TITLE">
+    <value>^^Crédito^^</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ISSUE_CREDIT_TITLE">
+    <value>Emitir ajuste diverso</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ISSUE_CREDIT_REQUEST_TITLE">
+    <value>^^Solicitação de crédito^^</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ISSUE_ISSUE_CREDIT_FROM_CREDIT_REQUEST_TITLE">
+    <value>^^Emitir crédito da solicitação de crédito^^</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ISSUE_CREDIT_CONFIRM">
+    <value>^^Um novo crédito foi emitido com sucesso.^^</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ISSUE_CREDIT_CONFIRM_DENIED">
+    <value>^^Crédito negado com sucesso.^^</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIBER_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_CONFIRMATION_TITLE">
+    <value>Adicionar página de resumo da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_ADD_PAYMENT_METHOD_QUESTION">
+    <value>Você deseja adicionar um método de pagamento?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIBER_EMAIL_NOTIFICATION">
+    <value>Notificação de e-mail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_SUMMARY_TITLE">
+    <value>Resumo de conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_CONTACT_SUB_TITLE">
+    <value>Contato</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ABOUT">
+    <value>Sobre</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MAM">
+    <value>MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MAM_VERSION">
+    <value>3.5</value>
+    <description></description>
+  </text>
+  <text id="NEXT_PAGE_TOOL_TIP">
+    <value>Próxima página</value>
+    <description></description>
+  </text>
+  <text id="PREVIOUS_PAGE_TOOL_TIP">
+    <value>Página anterior</value>
+    <description></description>
+  </text>
+  <text id="FIRST_PAGE_TOOL_TIP">
+    <value>Primeira página</value>
+    <description></description>
+  </text>
+  <text id="LAST_PAGE_TOOL_TIP">
+    <value>Última página</value>
+    <description></description>
+  </text>
+  <text id="REFRESH_PAGE_TOOL_TIP">
+    <value>Atualizar página</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WELCOME_TITLE">
+    <value>Bem-vindo ao MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREDIT_REQUEST_BROWSER_PERIOD">
+    <value>Período</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLICATION_AUDIT_LOG">
+    <value>Log de auditoria da aplicação</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_AUDIT_LOG">
+    <value>Log da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_AUDIT_LOG_CREATE_EVENT">
+    <value>Adicionar evento ao log da conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EVENT_TYPE">
+    <value>Evento</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAILS">
+    <value>Detalhes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HELP_TITLE">
+    <value>Ajuda do MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CSR_ID">
+    <value>Timestamp</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DESCRIPTION">
+    <value>Descrição</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME">
+    <value>Nome</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_ID">
+    <value>Conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CSR_ID">
+    <value>ID do CSR</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TIMESTAMP">
+    <value>Timestamp</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AMOUNT">
+    <value>Valor</value>
+    <description></description>
+  </text>
+  <text id="TEXT_JAVASCRIPT_ERROR">
+    <value>Seu navegador não parece ter o JavaScript ativado.  Siga esse link para corrigir a situação.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_GROUP_SUBSCRIPTION">
+    <value>Criar um novo [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT_GROUP_SUBSCRIPTION">
+    <value>Editar [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_DISCOUNT_DISTRIBUTION">
+    <value>Distribuição do desconto</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISCOUNT_PROPORTIONAL_DISTRIBUTION">
+    <value>proporcional</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISCOUNT_TO_ONE_ACCOUNT">
+    <value>valor total para uma conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISCOUNT_ACCOUNT">
+    <value>Conta para desconto de grupo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BUTTON_ADD_NEW_GROUP_SUBSCRIPTION">
+    <value>Criar assinatura em grupo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_MEMBERS_TO_GROUP_SUBSCRIPTION_BUTTON">
+    <value>Adicionar membros</value>
+    <description></description>
+  </text>
+  <text id="TEXT_REMOVE_MEMBERS_FROM_GROUP_SUBSCRIPTION_BUTTON">
+    <value>Cancelar assinatura de membros</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_MEMBERS_TO_GROUP_SUBSCRIPTION">
+    <value>Adicionar membro à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_REMOVE_MEMBERS_FROM_GROUP_SUBSCRIPTION">
+    <value>Cancelar assinatura de membros da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_EDIT_MEMBERSHIP">
+    <value>Editar ou excluir [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE">
+    <value>Cancelar assinatura da conta da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_UNSUBSCRIBE">
+    <value>Cancelar assinatura da conta da [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_JOIN">
+    <value>Aderir à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_MEMBERS">
+    <value>Membros da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_PROPERTIES">
+    <value>Propriedades da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_DISCOUNT_DISTRIBUTION_CONFIG">
+    <value>Configuração do desconto</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GSUB_CYCLE_CONFIGURATION">
+    <value>Configuração do ciclo de utilização</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GSUB_USE_CYCLE_FROM_TEMPLATE">
+    <value>Usar ciclo do modelo de conta corporativo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GSUB_USE_OTHER_CYCLE">
+    <value>Especificar outro</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GSUB_USE_CYCLE_ENFORCED_BY_PO">
+    <value>Usar ciclo aplicado pela oferta do produto</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DRAGDROP_ACCOUNTS_MESSAGE">
+    <value>Arraste e solte contas aqui...</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IS_FOLDER">
+    <value>É pasta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_TEMPLATE_SUBSCRIPTIONS">
+    <value>Não há assinaturas definidas para esse modelo.</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_UPDATE_TEMPLATE_PROPERTIES">
+    <value>Atualizar propriedades</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_MSGBOX_REMOVE_TEMPLATE_SUBSCRIPTION">
+    <value>Remover oferta de produto [ITEM] do modelo?</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_VIEW_ACCOUNT_STATUS_HISTORY">
+    <value>Exibir histórico do status</value>
+  </text>
+  <text id="TEXT_ACCOUNT_STATUS_HISTORY">
+    <value>Histórico do status da conta</value>
+  </text>
+  <text id="TEXT_APPLY_TEMPLATE_TO_ACCOUNT">
+    <value>Aplicar modelo à conta</value>
+  </text>
+  <text id="TEXT_ACCOUNT_TEMPLATE_PROPERTY_NAME">
+    <value>Nome</value>
+  </text>
+  <text id="TEXT_ACCOUNT_TEMPLATE_TEMPLATE_VALUE">
+    <value>Valor do modelo</value>
+  </text>
+  <text id="TEXT_ACCOUNT_TEMPLATE_ACCOUNT_VALUE">
+    <value>Valor da conta</value>
+  </text>
+  <text id="TEXT_ACCOUNT_TEMPLATE_APPLY_PROMPT">
+    <value>Deseja aplicar o modelo de [FOLDER_NAME] para a(s) conta(s) movida(s)?</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_MOVED_SUCCESSFULLY">
+    <value>Conta(s) movida(s) com sucesso.</value>
+  </text>
+  <text id="TEXT_ISSUE_CREDIT_MAX_AUTHORIZED_AMOUNT">
+    <value>Valor máximo autorizado</value>
+  </text>
+  <text id="TEXT_MOVED_ACCOUNTS_WARNING_TITLE">
+    <value>Aviso de contas movidas</value>
+  </text>
+  <text id="TEXT_MOVED_ACCOUNTS_WARNING_MESSAGE">
+    <value>Você acabou de mover contas para outra pasta, você deve verificar para cada conta suas propriedades, assinaturas e políticas de segurança.</value>
+  </text>
+  <text id="TEXT_HIERARCHY_ACCOUNT_INFO">
+    <value>Informações da conta de hierarquia</value>
+  </text>
+  <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_START_DATE">
+    <value>Data de início efetivo das assinaturas</value>
+  </text>
+  <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_END_DATE">
+    <value>Data de término efetivo das assinaturas</value>
+  </text>
+  <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_DATE_NEXT_BILLING_PERIODE">
+    <value>Próximo período de faturamento efetivo de assinaturas</value>
+  </text>
+  <text id="TEXT_APPLY_TEMPLATE_TO_MOVED_ACCOUNT">
+    <value>Aplicar modelo</value>
+  </text>
+  <text id="TEXT_EDIT_DEFAULT_POLICY">
+    <value>Editar política padrão</value>
+  </text>
+  <text id="TEXT_APPLY_DEFAULT_SECURITY">
+    <value>Aplicar política padrão</value>
+  </text>
+  <text id="TEXT_ACCOUNT_SUMMARY">
+    <value>Resumo de conta</value>
+  </text>
+  <text id="TEXT_FOLDER_SUBSCRIPTIONS">
+    <value>Assinaturas de pasta</value>
+  </text>
+  <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS">
+    <value>Aplicar assinaturas de modelo</value>
+  </text>
+  <text id="TEXT_UPDATE_STATUS_BUTTON">
+    <value>Atualizar status</value>
+  </text>
+  <text id="TEXT_DO_YOU_WANT_TO_COPY_PARENT_TEMPLATE">
+    <value>A pasta não tem modelo. Você deseja copiar o modelo pai?</value>
+  </text>
+  <text id="TEXT_NEW_PARENT">
+    <value>Novo pai</value>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION">
+    <value>Assinatura em grupo</value>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_NAME">
+    <value>Nome</value>
+  </text>
+  <text id="TEXT_DAYS_AFTER">
+    <value> dia(s) após </value>
+  </text>
+  <text id="TEXT_SUBSCRIPTIONS_AND_GROUP_SUBSCRIPTIONS">
+    <value>Assinaturas e assinaturas de grupo</value>
+  </text>
+  <text id="TEXT_NO_TEMPLATE_EXISTS">
+    <value>Não existe modelo para esta pasta, portanto, uma nova será criada.</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_USE_ANCESTOR_TEMPLATE">
+    <value>Deseja preencher previamente o novo modelo com informações de modelo para </value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_CREATE_NEW_TEMPLATE">
+    <value>Deseja criar um novo modelo</value>
+    <description>Create New Template?</description>
+  </text>
+  <text id="TEXT_TEMPLATE_NAME">
+    <value>Nome do modelo de conta</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_TEMPLATE_DESCRIPTION">
+    <value>Descrição do modelo de conta</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_TEMPLATE_APPLY_SECURITY">
+    <value>Aplicar política de segurança padrão</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES">
+    <value>Nenhuma função foi definida para a política de segurança padrão.</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_DELETE_SUBSCRIPTION_EXPLANATION">
+    <value>Use esse botão "Excluir assinatura" quando desejar remover inteiramente todo o histórico que essa conta tem da assinatura dessa oferta de produto. Caso contrário, use o botão "Cancelar assinatura" na tela Assinaturas anterior. Veja o tópico de ajuda Sobre exclusão de assinaturas para obter mais detalhes.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_SUBSCRIPTION_WARNING">
+    <value>Você está prestes a excluir permanentemente essa assinatura do sistema. Para encerrá-la em uma determinada data, use o recurso para cancelar assinatura.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_WARNING">
+    <value>Você está prestes a excluir permanentemente essa assinatura em grupo e todos os dados contidos do sistema. Isso é permitido apenas se nunca houver nenhuma participação nessa assinatura em grupo. Essa assinatura em grupo será removida de quaisquer modelos de conta que possam ter sido atribuídos a ela.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_MEMBERSHIP_WARNING">
+    <value>Você está prestes a remover permanentemente essa assinatura. Clique em OK para prosseguir ou Cancelar para voltar.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE_MESSAGE_WARNING_COMPLEMENT">
+    <value>Clique em OK para confirmar a exclusão ou em CANCELAR para voltar.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT_ACCOUNT_TEMPLATE_SUCCESS">
+    <value>Modelo de conta atualizado com sucesso.</value>
+    <description>Templates Dialog</description>
+  </text>
+  <text id="TEXT_CURRENT_SUBSCRIPTION">
+    <value>Atual</value>
+    <description>Current Subscription</description>
+  </text>
+  <text id="TEXT_PAST_SUBSCRIPTION">
+    <value>Passado</value>
+    <description>Past Subscription</description>
+  </text>
+  <text id="TEXT_FUTURE_SUBSCRIPTION">
+    <value>Futuro</value>
+    <description>Future Subscription</description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_FILTER_MESSAGE">
+    <value>Exibindo assinaturas que estavam ativas nos últimos dias de [SUBSCRIPTION_FILTERING_INTERVAL]</value>
+    <description>Subscription Message</description>
+  </text>
+  <text id="TEXT_CALCULATE">
+    <value>Calcular</value>
+  </text>
+  <text id="TEXT_SAVE">
+    <value>Salvar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COMPUTE">
+    <value>Calcular</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RESULTS_ACCOUNTS">
+    <value>Retornar uma lista de contas correspondentes aos critérios de pesquisa.</value>
+    <description />
+  </text>
+  <text id="TEXT_RESULTS_SERVICE_ENDPOINTS">
+    <value>Retorne uma lista de [TEXT_KEYTERM_SERVICE_ENDPOINTS] conectados a contas que correspondem aos critérios de pesquisa.</value>
+    <description />
+  </text>
+  <text id="TEXT_RESULTS">
+    <value>Resultados</value>
+    <description />
+  </text>
+  <text id="TEXT_EVENT_DETAILS">
+    <value>Caracteres restantes para detalhes</value>
+    <description>Legenda para detalhes de evento</description>
+  </text>
+  <text id="TEXT_EVENT_TYPE">
+    <value>Tipo de evento</value>
+    <description />
+  </text>
+  <text id="TEXT_NOTE">
+    <value>Observação</value>
+    <description />
+  </text>
+  <text id="TEXT_TELEPHONE_CALL">
+    <value>Chamada telefônica</value>
+    <description />
+  </text>
+  <text id="TEXT_UNABLE_TO_LOAD_ACCOUNT">
+    <value>Não é possível carregar a conta</value>
+    <description />
+  </text>
+  <text id="TEXT_PAYEE_DISPLAY_NAME">
+    <value>Assinante</value>
+    <description />
+  </text>
+  <text id="TEXT_TAX_AMOUNT">
+    <value>Valores do imposto</value>
+    <description />
+  </text>
+  <text id="TEXT_WARNING_EBCR_START_DATE_CHANGE">
+    <value>Alterar essa data de início pode afetar negativamente as cobranças alinhadas com o ciclo de faturamento contidos na [TEXT_KEYTERM_PRODUCT_OFFERING]! associada.</value>
+    <description />
+  </text>
+  <text id="TEXT_DELETE_ACCOUNT_TEMPLATE">
+    <value>Excluir modelo de conta</value>
+    <description />
+  </text>
+  <text id="ADD_FOLDER_OWNER">
+    <value>Adicionar administrador de conta</value>
+    <description />
+  </text>
+  <text id="ADD_ACCOUNT_FOR_ADMINISTRATION">
+    <value>Adicionar conta para administração</value>
+    <description />
+  </text>
+  <text id="TEXT_FOLDER_OWNER">
+    <value>Administrador de conta</value>
+    <description />
+  </text>
+  <text id="TEXT_DELETE_ACCOUNT_TEMPLATE_SUCCESS">
+    <value>Modelo de conta excluído com sucesso.</value>
+    <description />
+  </text>
+  <text id="TEXT_TEMPLATE_OPTIONS">
+    <value>Opções de modelo</value>
+    <description />
+  </text>
+  <text id="TEXT_DISPLAY_RESTRICTED_TO_1000_RESULTS">
+    <value>Essa exibição está limitada a 1000 resultados. Use os critérios de filtro para ver os resultados não listados aqui.</value>
+    <description />
+  </text>
+  <text id="TEXT_ACCOUNT_ADDED_SUCCESSFULLY">
+    <value>A conta foi adicionada com sucesso.</value>
+    <description />
+  </text>
+  <text id="TEXT_SUCCESSFUL">
+    <value>Bem-sucedido</value>
+    <description />
+  </text>
+  <text id="TEXT_MANAGE_AH_CANNOT_ASSIGNED_TO_ROLE">
+    <value>A hierarquia de gerenciamento de conta não pode ser atribuída para esta função</value>
+  </text>
+  <text id="TEXT_OPTIONS">
+    <value>Opções</value>
+  </text>
+  <text id="TEXT_VIEW_DEFAULT_SECURITY_OWNERS">
+    <value>Ver proprietários de segurança padrão</value>
+  </text>
+  <text id="TEXT_ADD_MEMBERS_TO_ROLE">
+    <value>Adicionar membros a função</value>
+  </text>
+  <text id="TEXT_SELECT_ACCOUNTS">
+    <value>Selecione contas</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_TO_MOVE">
+    <value>Selecionar contas para mover</value>
+  </text>
+  <text id="TEXT_CAPABILITIES">
+    <value>Capacidades</value>
+  </text>
+  <text id="TEXT_PROG_ID">
+    <value>ProgID</value>
+  </text>
+  <text id="TEXT_NUMBER_OF_ATOMICS">
+    <value>Número de Atomics</value>
+  </text>
+  <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
+    <value>Requre gerenciar hierarquias conta</value>
+  </text>
+  <text id="TEXT_CHARACTERS_LEFT">
+    <value>caracteres restantes para</value>
+  </text>
+</texts>

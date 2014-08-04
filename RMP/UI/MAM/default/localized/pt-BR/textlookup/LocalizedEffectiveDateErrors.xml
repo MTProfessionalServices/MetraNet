@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Date Errors" type="collection">
+
+<description>
+ Effective date error strings
+</description>
+
+    <!-- Subscription Effective Date Errors -->              
+    <text id="MAM_ERROR_5000"><value>Não é permitido deixar as datas de início e término em branco.</value></text>
+    <text id="MAM_ERROR_5001"><value>Não é possível deixar a data de início em branco.</value></text>
+    <text id="MAM_ERROR_5002"><value>A data não pode estar no passado.</value></text>
+    <text id="MAM_ERROR_5003"><value>A data de término não pode ser anterior à data de início.</value></text>
+    <text id="MAM_ERROR_5004"><value>As datas de início e término não podem ser iguais e as datas de término não podem estar no passado.</value></text>
+    <text id="MAM_ERROR_5005"><value>A data de início da assinatura não pode ser anterior à data de início efetiva</value></text>
+		<text id="MAM_ERROR_5006"><value>O sistema não consegue calcular o próximo ciclo de faturamento após a data de início fornecida dessa assinatura, pois ela está muito distante no passado ou futuro. É possível ajustar a data de início ou torná-la uma data absoluta.</value></text>
+		<text id="MAM_ERROR_5007"><value>O sistema não consegue calcular o próximo ciclo de faturamento após a data de término fornecida dessa assinatura, pois ela está muito distante no passado ou futuro. É possível ajustar a data de término ou torná-la uma data absoluta.</value></text>		
+    
+
+    <!-- Rate Schedule Effective Date Errors -->  
+    <text id="MAM_ERROR_6001"><value>Se não houver uma data de início, então, uma data de término deve ser posterior ao dia de hoje.</value></text>
+    <text id="MAM_ERROR_6002"><value>Se não houver uma data de término, então, uma data de início deve estar no passado.</value></text>
+    <text id="MAM_ERROR_6003"><value>A data de término não pode ser anterior à data de início.</value></text>
+    <text id="MAM_ERROR_6004"><value>As data de início e término não devem ser iguais.</value></text>
+
+    <!-- Format error -->
+    <text id="MAM_ERROR_7004"><value>Formato de hora inválido. Um exemplo de formato válido é (MM/DD/AAAA HH:MM:SS).</value></text>    
+    
+    <text id="MAM_WARNING_8000"><value>AVISO-Data de início no passado. Pressione OK novamente para confirmar.</value></text>
+    <text id="MAM_WARNING_8001"><value>AVISO-Data de término no passado. Pressione OK novamente para confirmar.</value></text>
+    
+    
+</texts>

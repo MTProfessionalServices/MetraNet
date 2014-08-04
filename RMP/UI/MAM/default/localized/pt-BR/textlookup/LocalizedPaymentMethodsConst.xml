@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Payment Methods" type="collection">
+
+<description>
+The file define most of the MAM static texts related to the payment server. 
+The MAM/MDM use also the localization supplied by the MetraTech plate form.
+</description>
+
+
+    <text id="TEXT_CARD_VERIFY_VALUE">
+        <value>Valor de verificação do cartão</value>
+        <description>This is the 3-digit number that appears on the back of MasterCard and Visa cards in the signature box. The purpose is to aid in reducing fraud in card-not-present transactions. The cardholder provides this information to prove they are in possession of the card.</description>
+    </text>
+
+    <text id="TEXT_CONFIRM_REQUESTED">
+        <value>Confirmação solicitada</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_PAYMENT_METHODS">
+        <value>Métodos de pagamento</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_PAPER_INVOICE">
+        <value>Dinheiro/Cheque</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_SELECTED">
+        <value>Selecionado</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_SELECTED_ELECTRONIC">
+        <value>Este é o tipo de pagamento eletrônico selecionado</value>
+        <description>Message to display if this is the preferred electronic payment type</description>
+    </text>
+    
+    <text id="TEXT_ERROR_ROWSET">
+        <value>Nenhuma informação de pagamento encontrada. Peça ao seu administrador para verificar sua configuração.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_DEFAULT_PAYMENT">
+        <value>Preferencial</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_PAYMENT_TYPE">
+        <value>Tipo de pagamento</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_BANK">
+        <value>Nome do banco</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ACCOUNT_TYPE">
+        <value>Tipo de conta</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ACCOUNT_NUMBER">
+        <value>Último quatro dígitos</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_EXPIRATION">
+        <value>Expiração (MM/AAAA)</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ACTION_ICONS">
+        <value>Ações</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_EXPERATION_DATE">
+        <value>Data de expiração (MM/AAAA)</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ADD_CREDIT_CARD">
+        <value>Adicionar cartão de crédito</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CREDIT_CARD_TYPE">
+        <value>Tipo de cartão de crédito</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CREDIT_CARD_NUM">
+        <value>Número do cartão de crédito</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_BANK_NAME">
+        <value>Nome do banco</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CUSTOMER_NAME">
+        <value>Nome (conforme ele aparece no cartão)</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ADDRESS">
+        <value>Endereço</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CITY">
+        <value>Cidade</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_STATE">
+        <value>Estado/Província</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ZIP">
+        <value>CEP</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_COUNTRY">
+        <value>País</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_UPDATE_CREDIT_CARD">
+        <value>Atualizar cartão de crédito</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CONFIRM_DELETE_CREDIT_CARD">
+        <value>Tem certeza que deseja remover o término do cartão de crédito pelos quatro últimos dígitos de:[DIGITS]?</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_LAST_FOUR_DIGITS">
+        <value>Últimos quatro dígitos do núm. da conta</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_PURCHASE_CARD">
+        <value>Cartão de compras</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ADD_PURCHASE_CARD">
+        <value>Adicionar cartão de compras</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_UPDATE_PURCHASE_CARD">
+        <value>Atualizar cartão de compras</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CARD_ID">
+        <value>ID do cartão</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CUSTOMER_REFERENCE_ID">
+        <value>ID de referência do cliente</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CUSTOMER_VAT_NUMBER">
+        <value>Número VAT do cliente</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_COMPANY_ADDRESS">
+        <value>Endereço da empresa</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_COMPANY_POSTAL_CODE">
+        <value>CEP da empresa</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_COMPANY_PHONE">
+        <value>Número de telefone da empresa</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ADD_ACH">
+        <value>Adicionar ACH</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_UPDATE_ACH">
+        <value>Atualizar ACH</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_BANK_ACCOUNT_TYPE">
+        <value>Tipo de conta bancária</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_BANK_ACCOUNT_NUMBER">
+        <value>Número de conta do banco</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_TEXT_EMAIL">
+        <value>E-mail</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ROUTING_NUMBER">
+        <value>Número de identificação</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CUSTOMER_NAME_ACH">
+        <value>Nome</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CONFIRM_DELETE_ACH">
+        <value>Tem certeza que deseja remover o término de conta ACH pelos quatro últimos dígitos de:[DIGITS]?</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_AUTHRECEIVED">
+        <value>Formulário de autorização recebido</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_VALIDATED">
+        <value>Validado</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_ENABLED">
+        <value>Ativado</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_AUTHRECEIVED_CONTROL">
+        <value>Sim</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_AUTH_DESCRIPTION">
+        <value>Insira as informações sobre o contrato da conta ACH na descrição.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_AUTH_USERNAME">
+        <value>Nome do usuário</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_DESCRIPTION_OF_AUTH">
+        <value>Descrição</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_AMOUNT">
+        <value>Valor</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_VALIDATED_YES">
+        <value>Sim</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_VALIDATED_NO">
+        <value>Não</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_PAYMENT_METHODS_SCHEDULER">
+        <value>Agendador dos métodos de pagamento</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CONFIRMATION_REQUESTED">
+        <value>Confirmação solicitada</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_SETUP_PAYMENT_METHOD">
+        <value>Configure um método de pagamento primeiro.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_UPDATE_PAPER_INVOICE">
+        <value>Atualizar dinheiro / cheque</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_INVOICE_METHOD">
+        <value>Tipo de pagamento</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CREDIT_CREDIT_CARD_TITLE">
+        <value>Aplicar crédito ao cartão de crédito</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_DEBIT_CREDIT_CARD_TITLE">
+        <value>Aplicar débito ao cartão de crédito</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CREDIT_ACH_TITLE">
+        <value>Aplicar crédito ao ACH</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_DEBIT_ACH_TITLE">
+        <value>Aplicar débito ao ACH</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_CREDIT_CONFIRM">
+        <value>O crédito foi emitido com sucesso.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_DEBIT_CONFIRM">
+        <value>O débito foi emitido com sucesso.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_PS_PRENOTE_FAILURE">
+        <value>Erro ao executar Pré-nota ACH. Peça ao seu administrador para verificar sua configuração de servidor de pagamento.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_AUTH_FAILURE">
+        <value>Erro ao executar autorização de arquivo ACH. Peça ao seu administrador para verificar sua configuração de servidor de pagamento.</value>
+        <description></description>
+    </text>
+    <text id="TEXT_ISSUER_NUMBER">
+        <value>(Somente para Maestro) Número de emissão</value>
+        <description></description>
+    </text>
+   
+    <text id="TEXT_STARTDATE_DATE">
+        <value>(Somente para Maestro) Data de início (MM/AAAA)</value>
+        <description></description>
+    </text>
+</texts>

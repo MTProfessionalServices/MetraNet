@@ -6,11 +6,11 @@ Option Explicit
 <HTML>
 <HEAD>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-   <LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/us/styles/styles.css">
+   <LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
 </HEAD>
 <BODY>
 
-<img src="/mam/default/localized/us/images/logo.gif">
+<img src="/mam/default/localized/en-us/images/logo.gif">
 <br>
 
 <%

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+  <text id="TEXT_VIEW_ALL_RATES">
+    <value>Exibir todas as taxas por [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE">
+    <value>Exibir todas as taxas por tipo de [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_TITLE">
+    <value>Alteração em massa das assinaturas</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_CHANGE">
+    <value>Alteração em massa das assinaturas</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_PO_SOURCE">
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] de origem</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_PO_DESTINATION">
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] de destino</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE">
+    <value>Data de vigência</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE_BILLING_CYCLE_RELATIVE">
+    <value>Tornar a alteração de assinatura efetiva no próximo ciclo de faturamento após essa data</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_SELECT_PRODUCT_OFFERING">
+    <value>Selecionar uma [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+  </text>
+  <text id="TEXT_ADVANCED_DIALOG_DESCRIPTION">
+    <value>Selecione a ação que deseja executar.</value>
+  </text>
+  <text id="TEXT_VIEW_ALL_RATES_DESCRIPTION">
+    <value>Exibir uma página contendo todas as taxas no catálogo de produtos agrupadas por[TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+  </text>
+  <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE_DESCRIPTION">
+    <value>Exibir uma página com todas as taxas agrupadas por item de [TEXT_KEYTERM_PRICEABLE_ITEM].</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_DESCRIPTION">
+    <value>Transferir todas as assinatura de cliente de uma [TEXT_KEYTERM_PRODUCT_OFFERING] a outra [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+  </text>
+  <text id="TEXT_EDIT_PRICELIST_DESCRIPTION">
+    <value>Adicionar novas [TEXT_KEYTERM_PRICE_LISTS] e editar as descrições das [TEXT_KEYTERM_PRICE_LISTS] existentes.</value>
+  </text>
+  <text id="TEXT_MANAGE_CALENDARS">
+    <value>Gerenciar calendários</value>
+  </text>
+  <text id="TEXT_MANAGE_CALENDARS_DESCRIPTION">
+    <value>Criar e configurar calendários.</value>
+  </text>
+  <text id="TEXT_MANAGE_HIDDEN_POS">
+    <value>Gerenciar [TEXT_KEYTERM_PRODUCT_OFFERINGS] ocultas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MANAGE_HIDDEN_POS_DESCRIPTION">
+    <value>Exibir [TEXT_KEYTERM_PRODUCT_OFFERINGS] ocultas do uso normal do MetraOffer e desocultá-las.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_CHARGES">
+    <value>alterações de assinatura em grupo</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_CHARGE_GENERATED">
+    <value>Como as [TEXT_GROUP_SUBSCRIPTION_CHARGES] podem ser geradas?</value>
+    <description></description>
+  </text>
+</texts>

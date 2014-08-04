@@ -184,7 +184,7 @@ PRIVATE FUNCTION Load_Grids(EventArg)
 	  Form.Grids("AccountCapabilitiesGrid").Properties("id_cap_type").Caption = mam_GetDictionary("TEXT_ACTION")		
 	  Form.Grids("AccountCapabilitiesGrid").Properties("tx_name").Caption = mam_GetDictionary("TEXT_CAPABILITY_NAME")
 	  Form.Grids("AccountCapabilitiesGrid").Properties("tx_desc").Caption = mam_GetDictionary("TEXT_CAPABILITY_DESCRIPTION")
-	  Form.Grids("AccountCapabilitiesGrid").Properties("umbrella_sensitive").Caption = "Requires Manage Account Hierarchies"	
+	  Form.Grids("AccountCapabilitiesGrid").Properties("umbrella_sensitive").Caption = mam_GetDictionary("TEXT_MANAGE_ACCOUNT_HIERARCHIES")	
   
 	  Form.Grids("AccountCapabilitiesGrid").Properties("tx_name").Sorted = MTSORT_ORDER_ASCENDING	
 		Form.Grids("AccountCapabilitiesGrid").Width = "100%"
@@ -216,7 +216,7 @@ PRIVATE FUNCTION AccountRolesGrid_DisplayCell(EventArg) ' As Boolean
          Case "id_role" 'Action Icons
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "<td nowrap class='[CLASS]' Width='40px'>"
 						HTML_LINK_EDIT = HTML_LINK_EDIT  & "<a href='" & mam_GetDictionary("ROLE_SETUP_DIALOG") & "?MDMReload=True&ReadOnly=TRUE&id=" &  EventArg.Grid.SelectedProperty.Value & "&DefaultPolicy=" & Session("DefaultPolicy") & "&RoleName=" & server.URLEncode(EventArg.Grid.Rowset.Value("tx_name")) & "'>" 
-            HTML_LINK_EDIT = HTML_LINK_EDIT  & "<img border='0' src='/mam/default/localized/us/images/view.gif'></a>" 
+            HTML_LINK_EDIT = HTML_LINK_EDIT  & "<img border='0' src='/mam/default/localized/en-us/images/view.gif'></a>" 
 						
 			' popup javascript message to ensure delete operation
 			'SECENG	ESR-4039: MetraCare - Update the Javascript encode method used to mitigate MetraCare XSS bugs inside of javascript (ESR for 27233) (Post-PB)
@@ -313,7 +313,7 @@ PRIVATE FUNCTION AccountCapabilitiesGrid_DisplayCell(EventArg) ' As Boolean
             If UCase(EventArg.Grid.Properties("umbrella_sensitive")) = "N" then
               EventArg.HTMLRendered     =  "<td class=" & EventArg.Grid.CellClass & " align='center'>--&nbsp;</td>"
             Else
-              EventArg.HTMLRendered     =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+              EventArg.HTMLRendered     =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
             End If
             AccountCapabilitiesGrid_DisplayCell = TRUE	
             													

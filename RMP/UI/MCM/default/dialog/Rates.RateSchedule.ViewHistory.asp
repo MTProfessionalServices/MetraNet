@@ -72,7 +72,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   rowset2.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
   'rowset2.SetQueryString("select nm_name from t_base_props bp join t_rsched rs on bp.id_prop = rs.id_pricelist and rs.id_sched=%%RS_ID%%")
   rowset2.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
-  rowset2.AddParam "%%TX_LANG_CODE%%", Session("FRAMEWORK_APP_LANGUAGE")
+  rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
   rowset2.Execute
 
   Form("PT_ID") = rowset2.value("ParamTableId")
@@ -271,6 +271,19 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     EventArg.HTMLRendered = EventArg.HTMLRendered & strEndOfPageHTMLCode
     
     Form_DisplayEndOfPage = TRUE
+END FUNCTION
+
+PUBLIC FUNCTION GetFrameworkAppLanguageFromPageLanguage(strPageLanguage)
+  IF (LCASE(strPageLanguage) = "pt-br" OR LCASE(strPageLanguage) = "es-mx") THEN
+    GetFrameworkAppLanguageFromPageLanguage = strPageLanguage
+  END IF
+  Dim dashIndex 
+  dashIndex = INSTR(strPageLanguage,"-")
+  IF ( dashIndex > 0)  THEN
+    GetFrameworkAppLanguageFromPageLanguage = LCASE(CSTR(MID(strPageLanguage, dashIndex + 1, LEN(strPageLanguage))))
+  ELSE
+    GetFrameworkAppLanguageFromPageLanguage = strPageLanguage
+  END IF
 END FUNCTION
 
 %>

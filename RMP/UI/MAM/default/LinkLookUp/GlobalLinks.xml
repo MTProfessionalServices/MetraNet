@@ -436,12 +436,12 @@ file mam\custom\linklookup\GlobalLinks.xml.
  
  <!-- Cookies and Javascript help -->
     <link id="COOKIE_HELP_URL">
-			<value>[APP_HTTP_PATH]/default/localized/us/help/Help_cookies.hlp.htm</value>
+			<value>[APP_HTTP_PATH]/default/localized/en-us/help/Help_cookies.hlp.htm</value>
       <description>Cookie help.</description>
 		</link>
 
     <link id="JAVASCRIPT_HELP_URL">
-			<value>[APP_HTTP_PATH]/default/localized/us/help/Help_JavaScript.hlp.htm</value>
+			<value>[APP_HTTP_PATH]/default/localized/en-us/help/Help_JavaScript.hlp.htm</value>
       <description>JavaScript help.</description>
 		</link>
     

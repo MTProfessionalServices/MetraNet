@@ -7,7 +7,7 @@ response.buffer = false
 %>
 <html>
   <head>
-    <link rel="stylesheet" href="<%=Application("APP_HTTP_PATH")%>/default/localized/us/styles/styles.css">
+    <link rel="stylesheet" href="<%=Application("APP_HTTP_PATH")%>/default/localized/en-us/styles/styles.css">
   </head>
   
   <body style="margin:5;">

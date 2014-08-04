@@ -51,6 +51,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
                       ' but do a last rendering/refresh.
 
 	Form("PO_ID") = Request.QueryString("ID")
+  Form("GridId") = Request.QueryString("GridId")
 
   Set COMObject.Instance = objMTProductCatalog.GetProductOffering(Form("PO_ID"))
   COMObject.Properties.Enabled              = FALSE ' Every control is grayed
@@ -79,22 +80,20 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 		OK_Click = FALSE
 		Err.Clear
 	Else
-    response.write "<script language='JavaScript1.2'>"
-    'response.write "alert('rudi');stop;"
-    '//function NavigateToPreviousSearchResults()
-'//{
-'    if ((parent.document.all("ProductOfferingView")) && (parent.document.all("ProductOfferingView").all("ProductOfferingNav")))
-'      parent.document.all("ProductOfferingView").all("ProductOfferingNav").rows = '*,0';
-'    parent.frames["ProductOfferingMain"].location = "ProductOffering.List.asp?NextPage=/mcm/default/dialog/ProductOffering.ViewEdit.Frame.asp&amp;Title=TEXT_KEYTERM_PRODUCT_OFFERINGS&amp;LinkColumnMode=TRUE&amp;mdmAction=REFRESH";
-'}
-    'response.write "opener.parent.document.all(""ProductOfferingView"").all(""ProductOfferingSelected"").NavigateToPreviousSearchResults();"
-    response.write "opener.parent.ProductOfferingSelected.NavigateToPreviousSearchResults();"
-    response.write "window.close();"
-    response.write "</script>"
-    response.end
-    
+		If (Len(Form("GridId")) > 0) Then
+				Form.JavaScriptInitialize = "window.parent.close();"
+		End If    
 		OK_Click = TRUE
 	End If
 
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		    : CANCEL_Click
+PRIVATE FUNCTION CANCEL_Click(EventArg) ' As Boolean
+  If (Len(Form("GridId")) > 0) Then
+    Form.JavaScriptInitialize = "window.parent.close();"
+  End If    
+	CANCEL_Click = TRUE
 END FUNCTION
 %>

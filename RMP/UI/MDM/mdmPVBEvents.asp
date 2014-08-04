@@ -456,12 +456,10 @@ PRIVATE FUNCTION inheritedForm_DisplayCell(EventArg) ' As Boolean
             
             ' Test if the property has a format assigned, if yes format the value
             strFormat = Form.Grid.SelectedProperty.Format
-            If(Len(strFormat))Then
-            
-                'strValue = ProductView.Tools.Format(strValue,strFormat)
+            If(Len(strFormat))Then            
+                strValue = ProductView.Tools.Format(strValue,strFormat) 'CORE-7367
                 ' 3.6 - support decimal localization
-                strValue = Service.Tools.Format(strValue, FrameWork.Dictionary())
-        
+                'strValue = Service.Tools.Format(strValue, FrameWork.Dictionary())        
             End If
             
             If (Len(strValue)=0) Then strValue = " "
@@ -715,18 +713,18 @@ PUBLIC FUNCTION Form_DisplayEndOfPageAddSelectButtons(EventArg, strJavaScript, b
     ' -- Add some code at the end of the product view UI
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</TABLE><br>" & vbNewLine
 
-    strTmp = "<br><button name='butSelectPage' Class='clsButtonBlueLarge' OnClick='mdm_PVBPickerSelectPage(true);return false;'>" & FrameWork.Dictionary.Item("MDM_SELECT_PAGE") & "</button>" & vbNewLine
+    strTmp = "<br><button name='butSelectPage' Class='clsButtonBlueXLarge' OnClick='mdm_PVBPickerSelectPage(true);return false;'>" & FrameWork.Dictionary.Item("MDM_SELECT_PAGE") & "</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
 
     ' -- The button Select Page and UnSelect Page trigger a javascript client side event
-    strTmp = "<button name='butUnSelectPage' Class='clsButtonBlueLarge' OnClick='mdm_PVBPickerSelectPage(false);return false;'>" & FrameWork.Dictionary.Item("MDM_UNSELECT_PAGE") & "</button>" & vbNewLine
+    strTmp = "<button name='butUnSelectPage' Class='clsButtonBlueXLarge' OnClick='mdm_PVBPickerSelectPage(false);return false;'>" & FrameWork.Dictionary.Item("MDM_UNSELECT_PAGE") & "</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
     
     ' -- The button Select All And UnSelect All Trigger a server side event --
-    strTmp = "<button name='butMDMSelectAll' Class='clsButtonBlueLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this);return false;'>" & FrameWork.Dictionary.Item("MDM_SELECT_ALL") & "</button>" & vbNewLine
+    strTmp = "<button name='butMDMSelectAll' Class='clsButtonBlueXLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this);return false;'>" & FrameWork.Dictionary.Item("MDM_SELECT_ALL") & "</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
     
-    strTmp = "<button name='butMDMUnSelectAll' Class='clsButtonBlueLarge' OnClick='mdm_RefreshDialogUserCustom(this,""dummy"");return false;'>" & FrameWork.Dictionary.Item("MDM_UNSELECT_ALL") & "</button><br>" & vbNewLine
+    strTmp = "<button name='butMDMUnSelectAll' Class='clsButtonBlueXLarge' OnClick='mdm_RefreshDialogUserCustom(this,""dummy"");return false;'>" & FrameWork.Dictionary.Item("MDM_UNSELECT_ALL") & "</button><br>" & vbNewLine
     strEndOfPageHTMLCode  = strEndOfPageHTMLCode & strTmp
     
     If(booCloseFormTag)Then

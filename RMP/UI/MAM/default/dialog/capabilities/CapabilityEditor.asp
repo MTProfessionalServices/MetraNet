@@ -273,13 +273,20 @@ FUNCTION DynamicCapabilites(EventArg)
 					  Service.Properties("MTENUMTYPECAPABILITY" & nCount).Value = atomic.GetParameter().Value
 					Else
 					  Service.Properties("MTENUMTYPECAPABILITY" & nCount).Value = ""
-					End If	
-					
+					End If
+          	
+					If (atomic.capabilityType.CompositionDescription = "Specify currency for adjustments") Then
 					strHTML = strHTML & "   <tr>"
  			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>[MTENUMTYPECAPABILITY_DESCRIPTION]:</td>"
-				  strHTML = strHTML & "     <td width='50%' class='clsStandardText'><SELECT class='fieldRequired' name='MTENUMTYPECAPABILITY" & nCount & "'></SELECT></td>"
+          strHTML = strHTML & "     <td width='50%' class='clsStandardText'><SELECT class='fieldRequired' name='MTENUMTYPECAPABILITY" & nCount & "'>"
+          strHTML = strHTML & "     <option selected>USD</option></SELECT></td>"
 				  strHTML = strHTML & "   </tr>"
-														
+          Else
+          strHTML = strHTML & "   <tr>"
+ 			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>[MTENUMTYPECAPABILITY_DESCRIPTION]:</td>"
+          strHTML = strHTML & "     <td width='50%' class='clsStandardText'><SELECT class='fieldRequired' name='MTENUMTYPECAPABILITY" & nCount & "'></SELECT></td>"
+          strHTML = strHTML & "   </tr>"
+					End If									
 	 		'----------------------------------------------------------------------------------------------------------					
 			Case Else
 			  mdm_GetDictionary().add "NOT_FOUND", TRUE			

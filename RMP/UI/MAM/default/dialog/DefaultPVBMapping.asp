@@ -140,16 +140,17 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     '  add some code at the end of the product view UI
         
     ' Place Add Account Mapping button at bottom of page  
-    strEndOfPageHTMLCode = "<br>"
+    strEndOfPageHTMLCode = "<tr><td colspan=""4"" align=""center""><br>"
     
     ' Need to pass in the current subscribers login and namespace
-    strTmp = "<center><button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""'>Add</button></center>"
+    strTmp = "<center><button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""; return false;'>"&mam_GetDictionary("TEXT_ADD")&"</button></center>"
     strTmp = ProductView.Tools.PreProcess(strTmp,"LINK",mam_GetDictionary("ADD_ACCOUNT_MAPPING_DIALOG"))
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
     
     ' Here we must not forget to concat rather than set because we want to keep the result of the inherited event.
-    EventArg.HTMLRendered = EventArg.HTMLRendered & strEndOfPageHTMLCode
+    ' CORE-4906, include the button as an additional table row and concat *before* the EventArg.HTMLRendered so that the button is contained within the </FORM></BODY></HTML> on the page. When the button used to be below the </HTML> tag, the button would jump by a few pixels on click the first time in IE.
+    EventArg.HTMLRendered =  strEndOfPageHTMLCode & "</td></tr>" & EventArg.HTMLRendered
     
     Form_DisplayEndOfPage = TRUE
 END FUNCTION

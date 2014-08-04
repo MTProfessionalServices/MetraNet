@@ -29,7 +29,7 @@
 <html>
   <head>
     <title>Logging - Pipeline</title>
-    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/us/styles/styles.css">
+    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/en-us/styles/styles.css">
 
 <!--    <script language="JavaScript1.2" src="../Shared/edit.js">
     </script>

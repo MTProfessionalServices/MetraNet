@@ -184,6 +184,18 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   
 END FUNCTION
 
+'----------------------------------------------------------------------------------------------------------------------------------------
+Const MaxDate = #12/31/9999#
+
+'----------------------------------------------------------------------------------------------------------------------------------------
+Private Function GetEndDate(endDate)
+    If IsNull(endDate) Then
+       GetEndDate = MaxDate
+    Else
+       GetEndDate = endDate
+    End If
+End Function
+
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: JoinRowsets
 ' PARAMETERS	:
@@ -199,7 +211,7 @@ Private Function JoinRowsets(rowsetDefault, rowsetICB)
     newRowset.AddColumnDefinition "id_sched",  "int32",  10
     newRowset.AddColumnDefinition "nm_desc",   "string", 255
     newRowset.AddColumnDefinition "dt_start", "timestamp",  255
-    newRowset.AddColumnDefinition "dt_end",   "string",  255
+    newRowset.AddColumnDefinition "dt_end", "timestamp",  255
     newRowset.AddColumnDefinition "n_begintype", "string",  255
     newRowset.AddColumnDefinition "n_endtype",   "string",  255
     newRowset.AddColumnDefinition "n_beginoffset",   "string",  255    
@@ -213,11 +225,11 @@ Private Function JoinRowsets(rowsetDefault, rowsetICB)
 		If (rowsetDefault.RecordCount) Then 
 		  rowsetDefault.MoveFirst
 		  Do While Not rowsetDefault.EOF
-		      newRowset.AddRow
+          newRowset.AddRow
 		      newRowset.AddColumnData "id_sched",CLng(rowsetDefault.Value("id_sched"))
 		      newRowset.AddColumnData "nm_desc", "" & rowsetDefault.Value("nm_desc")
 		      newRowset.AddColumnData "dt_start", rowsetDefault.Value("dt_start")
-		      newRowset.AddColumnData "dt_end",  "" & rowsetDefault.Value("dt_end")
+		      newRowset.AddColumnData "dt_end", GetEndDate(rowsetDefault.Value("dt_end"))
 		      newRowset.AddColumnData "n_begintype","" & rowsetDefault.Value("n_begintype")
 		      newRowset.AddColumnData "n_endtype",  "" & rowsetDefault.Value("n_endtype")
 		      newRowset.AddColumnData "n_beginoffset",  "" & rowsetDefault.Value("n_beginoffset")          
@@ -236,7 +248,7 @@ Private Function JoinRowsets(rowsetDefault, rowsetICB)
 		      newRowset.AddColumnData "id_sched", CLng(rowsetICB.Value("id_sched"))
 		      newRowset.AddColumnData "nm_desc",  "" & rowsetICB.Value("nm_desc")
 		      newRowset.AddColumnData "dt_start", rowsetICB.Value("dt_start")
-		      newRowset.AddColumnData "dt_end",   "" & rowsetICB.Value("dt_end")
+		      newRowset.AddColumnData "dt_end", GetEndDate(rowsetICB.Value("dt_end"))
 		      newRowset.AddColumnData "n_begintype", "" & rowsetICB.Value("n_begintype")
 		      newRowset.AddColumnData "n_endtype",   "" & rowsetICB.Value("n_endtype")
 		      newRowset.AddColumnData "n_beginoffset",   "" & rowsetICB.Value("n_beginoffset")          
@@ -278,8 +290,8 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
           
             MDMListDialog.PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
             MDMListDialog.PreProcessor.Add "ASP_PAGE"    , getParamTablePage(Form("PT_ID"))
-            MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
-            MDMListDialog.PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/view.gif"
+            MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
+            MDMListDialog.PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/view.gif"
             MDMListDialog.PreProcessor.Add "ALT_VIEW"    , mam_GetDictionary("TEXT_VIEW")
             MDMListDialog.PreProcessor.Add "ALT_EDIT"    , mam_GetDictionary("TEXT_EDIT")
 	      		MDMListDialog.PreProcessor.Add "PT_ID"    	 , Form("PT_ID")
@@ -300,7 +312,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
               'Check for Null value added
               If len(ltrim(rtrim(ProductView.Properties.Rowset.Value("dt_start"))))=0 Or IsNull(ProductView.Properties.Rowset.Value("dt_start")) Then  
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               Else
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
@@ -316,15 +328,13 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
               EventArg.HTMLRendered = EventArg.HTMLRendered & ProductView.Properties.Rowset.Value("n_endoffset") & mam_GetDictionary("TEXT_DAYS_AFTER") & Service.Tools.ConvertFromGMT(ProductView.Properties.Rowset.Value("dt_end"), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
               EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
             Else 
-              'SECENG: ESR-5050: BCAN 6.5 : Can't view a rate schedule in MetraCare
-              'Check for Null value added
-              If len(ltrim(rtrim(ProductView.Properties.Rowset.Value("dt_end"))))=0 Or IsNull(ProductView.Properties.Rowset.Value("dt_end")) Then  
+              If CDate(ProductView.Properties.Rowset.Value("dt_end")) = MaxDate Then  
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
-	      Else
+              Else
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & Service.Tools.ConvertFromGMT(CDate(ProductView.Properties.Rowset.Value("dt_end")), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & Service.Tools.ConvertFromGMT(ProductView.Properties.Rowset.Value("dt_end"), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               End IF
             End If
@@ -334,7 +344,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='center' width='40'>"
             
             If CBool(ProductView.Properties.Rowset.Value("ICBed")) Then
-              EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/check.gif'>"
+              EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/check.gif'>"
             Else
               EventArg.HTMLRendered = EventArg.HTMLRendered & "--"
             End If
@@ -343,7 +353,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
             ViewEditMode_DisplayCell        = TRUE  
             
         case 7 ' OPTIONS
-            HTML_LINK_EDIT = HTML_LINK_EDIT & "<td class='[CLASS]' width='200px'>"
+            HTML_LINK_EDIT = HTML_LINK_EDIT & "<td nowrap class='[CLASS]'  align='left' >"
 
             If  CBool(ProductView.Properties.Rowset.Value("ICBed")) and CBool(mam_GetDictionary("CANICB")) Then
               HTML_LINK_EDIT = HTML_LINK_EDIT & "<button class='clsButtonBlueLarge' onclick='JavaScript:document.location.href=""[ASP_PAGE]?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]""; return false;'>[MY_BUTTON]</button>&nbsp;&nbsp;&nbsp;"

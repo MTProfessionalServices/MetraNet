@@ -4,9 +4,9 @@
 
 <html>
 <head>
-  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/styles.css'>
-  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/NavStyles.css">
-  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/ListTabs.css">
+  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/styles.css'>
+  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/NavStyles.css">
+  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/ListTabs.css">
 	<title>Untitled</title>
 </head>
 <script type="text/javascript">
@@ -15,7 +15,7 @@
       event.srcElement.hideFocus = true
     });
 
-      var strBaseImagePath = '/mcm/default/localized/us/images/Icons/'; //sectionExpand.gif" width="16" height="16" alt="" border="0">")%>';
+      var strBaseImagePath = '/mcm/default/localized/en-us/images/Icons/'; //sectionExpand.gif" width="16" height="16" alt="" border="0">")%>';
 
       function ToggleRow(strRow, strImage) {
         var strImageHref;

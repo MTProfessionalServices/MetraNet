@@ -316,7 +316,7 @@ Dim MTPOBased
                                          
             'EventArg.HTMLRendered     =  "<td class='GridCell'><a href='PriceableItem.Usage.ViewEdit.asp?ID=" & _
             '                             EventArg.Grid.Rowset.Value("ID") & "&Kind=" & Request("Kind") & _
-            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
+            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
 
             ContainedPriceableItems_DisplayCell = TRUE
         Case else
@@ -370,7 +370,7 @@ PRIVATE FUNCTION CounterDefinitions_DisplayCell(EventArg) ' As Boolean
 						if UCase(EventArg.Grid.SelectedProperty.Value) = "Y" then
 							EventArg.HTMLRendered = ""
 							EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & EventArg.Grid.CellClass & "'>"
-							EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/icons/check.gif'>"
+							EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/icons/check.gif'>"
 							EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
 						else
 							EventArg.HTMLRendered     =  "<td class='" & EventArg.Grid.CellClass & "'>&nbsp;</td>"

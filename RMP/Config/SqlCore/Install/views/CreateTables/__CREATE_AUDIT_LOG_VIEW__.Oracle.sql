@@ -1,35 +1,73 @@
-
-CREATE or replace VIEW vw_audit_log AS
-        select 	audit1.dt_crt as Time,
-       	accmap.nm_login || case accmap.nm_login when null then null else '/' end || accmap.nm_space as username,
-        	audit1.id_userid userid,
-        	audit1.id_Event eventid,
-        	d.tx_desc EventName,
-          (CASE audit1.id_entitytype
-        	 WHEN 1 THEN (select nm_login from t_account_mapper a,t_namespace n where id_acc=audit1.id_entity 
-						and a.nm_space=n.nm_space and n.tx_typ_space !='metered' and n.tx_typ_space != 'system_ar'  and rownum < 2)
-        	 WHEN 2 THEN (select nm_name from t_base_props where id_prop=audit1.id_entity)
-        	 WHEN 3 THEN (select tx_name from t_group_sub where id_group=audit1.id_entity)
-         	 WHEN 5 THEN (select tx_FailureCompoundId_encoded from t_failed_transaction where 
-						id_failed_transaction=audit1.id_entity)
-         	 WHEN 6 THEN (select tx_namespace || '\' || tx_name || '\' || tx_sequence from 
-						t_batch where id_batch=audit1.id_entity)            
-        	 WHEN 9 THEN (select nm_login from t_account_mapper a,t_namespace n where id_acc=audit1.id_entity 
-                        and a.nm_space=n.nm_space and n.tx_typ_space !='metered' and n.tx_typ_space != 'system_ar')
-			ELSE NULL
-        	END) EntityName,
-        	audit1.id_entity EntityId,
-        	audit1.id_entitytype  EntityType,
-        	auditdetail.tx_details Details,
-        	audit1.tx_logged_in_as LoggedInAs,
-			audit1.tx_application_name ApplicationName,
-        	audit1.*
-        from
-				t_audit audit1
-          inner join t_audit_events auditevent on audit1.id_event = auditevent.id_event
-          inner join t_description d on auditevent.id_desc = d.id_desc and d.id_lang_code = 840
-          left outer join t_account_mapper accmap on audit1.id_userid = accmap.id_acc 
-          left outer join t_audit_details auditdetail on audit1.id_audit = auditdetail.id_audit
-          -- CORE-5043 add filtering account aliases 
-          WHERE accmap.nm_space NOT IN (select nm_space from t_namespace where lower(tx_typ_space) in ('metered', 'system_ar'))
- 		
+CREATE OR REPLACE FORCE VIEW VW_AUDIT_LOG
+AS
+SELECT
+       audit1.dt_crt AS Time,
+          accmap1.nm_login
+       || CASE accmap1.nm_login WHEN NULL THEN NULL ELSE '/' END
+       || accmap1.nm_space
+          AS username,
+       audit1.id_userid userid,
+       audit1.id_Event eventid,
+       d.tx_desc EventName,
+       (CASE audit1.id_entitytype
+           WHEN 1
+           THEN accmap2.nm_login
+           WHEN 2
+           THEN bp2.nm_name
+           WHEN 3
+           THEN gs2.tx_name
+           WHEN 5
+           THEN ft2.tx_FailureCompoundId_encoded
+           WHEN 6
+           THEN b2.tx_namespace || '\' || b2.tx_name || '\' || b2.tx_sequence
+           WHEN 9
+           THEN accmap2.nm_login
+           ELSE
+              NULL
+        END)
+          EntityName,
+       audit1.id_entity EntityId,
+       audit1.id_entitytype EntityType,
+       auditdetail.tx_details Details,
+       audit1.tx_logged_in_as LoggedInAs,
+       audit1.tx_application_name ApplicationName,
+       audit1."ID_AUDIT",
+       audit1."ID_EVENT",
+       audit1."ID_USERID",
+       audit1."ID_ENTITYTYPE",
+       audit1."ID_ENTITY",
+       audit1."TX_LOGGED_IN_AS",
+       audit1."TX_APPLICATION_NAME",
+       audit1."DT_CRT"
+  FROM t_audit audit1
+       INNER JOIN t_audit_events auditevent
+          ON audit1.id_event = auditevent.id_event
+       INNER JOIN t_description d
+          ON auditevent.id_desc = d.id_desc AND d.id_lang_code = 840
+       INNER JOIN t_account_mapper accmap1 ON audit1.id_userid = accmap1.id_acc
+       -- CORE-5043 add filtering account aliases
+       INNER JOIN t_namespace ns1 ON accmap1.nm_space  = ns1.nm_space
+              AND ns1.tx_typ_space != 'metered'
+              AND ns1.tx_typ_space != 'system_ar'
+       LEFT OUTER JOIN t_audit_details auditdetail
+         ON audit1.id_audit = auditdetail.id_audit
+       /* Handle different entity types below */
+       LEFT OUTER JOIN t_account_mapper accmap2
+         ON audit1.id_entitytype IN (1, 9)
+        AND audit1.id_entity = accmap2.id_acc
+        -- CORE-5043 add filtering account aliases
+       INNER JOIN t_namespace ns2 ON accmap2.nm_space  = ns2.nm_space
+              AND ns2.tx_typ_space != 'metered'
+              AND ns2.tx_typ_space != 'system_ar'
+       LEFT OUTER JOIN t_base_props bp2
+         ON audit1.id_entitytype = 2
+        AND audit1.id_entity = bp2.id_prop
+       LEFT OUTER JOIN t_group_sub gs2
+         ON audit1.id_entitytype = 3
+        AND audit1.id_entity = gs2.id_group
+       LEFT OUTER JOIN t_failed_transaction ft2
+         ON audit1.id_entitytype = 5
+        AND audit1.id_entity = ft2.id_failed_transaction
+       LEFT OUTER JOIN t_batch b2
+         ON audit1.id_entitytype = 6
+        AND audit1.id_entity = b2.id_batch

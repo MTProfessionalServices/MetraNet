@@ -371,7 +371,7 @@ end if;
  /* resolve account's corporate account */
  
  begin
-    select ancestor.id_ancestor into p_corporate_account_id from t_account_ancestor ancestor
+    select max(ancestor.id_ancestor) into p_corporate_account_id from t_account_ancestor ancestor
     inner join t_account acc on ancestor.id_ancestor = acc.id_acc
     inner join t_account_type atype on atype.id_type = acc.id_type
     where

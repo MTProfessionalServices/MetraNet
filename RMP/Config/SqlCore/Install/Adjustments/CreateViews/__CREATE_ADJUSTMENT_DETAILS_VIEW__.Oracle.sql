@@ -56,14 +56,14 @@
           ajinfo.AtomicPostbillAdjAmt AS PostbillAdjAmt
           FROM t_adjustment_transaction ajt
           INNER JOIN VW_AJ_INFO ajinfo ON ajt.id_sess = ajinfo.id_sess
-          /* resolve adjustment template or instance name */
+                  /*resolve adjustment template or instance name                      */
           INNER JOIN t_base_props ajtemplatebp ON ajt.id_aj_template = ajtemplatebp.id_prop
           left outer JOIN t_description  ajtemplatedesc ON ajtemplatebp.n_display_name = ajtemplatedesc.id_desc
           left outer JOIN t_base_props ajinstancebp ON ajt.id_aj_instance = ajinstancebp.id_prop
           LEFT OUTER JOIN t_description  ajinstancedesc ON ajinstancebp.n_display_name = ajinstancedesc.id_desc
           left outer join t_description des2 on des2.id_lang_code = ajtemplatedesc.id_lang_code and des2.id_desc =  ajinstancebp.n_display_name
           left outer join t_description des3 on des3.id_lang_code = ajinstancedesc.id_lang_code and des3.id_desc =  ajtemplatebp.n_display_name
-          /* resolve adjustment reason code name */
+                  /*resolve adjustment reason code name                  */
           INNER JOIN t_base_props rcbp ON ajt.id_reason_code = rcbp.id_prop
           INNER JOIN t_description  rcdesc ON rcbp.n_display_name = rcdesc.id_desc
 					and

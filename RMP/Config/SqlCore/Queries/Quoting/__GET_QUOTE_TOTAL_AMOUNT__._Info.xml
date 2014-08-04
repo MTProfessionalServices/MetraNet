@@ -1,31 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Unknown</Action>
+    <Action>Get</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ACCOUNTS</Name>
+            <Name>QUOTE_ID</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>10</SubstitutionSyntaxCheck>
             <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>USAGE_INTERVAL</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>POS</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
+        </Parameter>       
     </Parameters>
     <Description></Description>
     <ConversionAudit>

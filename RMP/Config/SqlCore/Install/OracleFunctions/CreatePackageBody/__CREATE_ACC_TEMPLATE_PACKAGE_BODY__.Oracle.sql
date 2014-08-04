@@ -17,7 +17,6 @@ AS
         v_guid                RAW(16);
         curr_id_sub           INT;
     BEGIN
-
         IF (id_group IS NOT NULL) THEN
             INSERT INTO tmp_gsubmember (id_group, id_acc, vt_start, vt_end)
                 VALUES (id_group, id_acc, sub_start, sub_end);
@@ -91,29 +90,28 @@ AS
          END IF;
 
       DELETE FROM t_acc_template_valid_subs WHERE id_acc_template_session = apply_subscriptions.id_template_session;
-
       /* Detect conflicting subscriptions in the template and choice first available of them and without conflicts */
       INSERT INTO t_acc_template_valid_subs (id_acc_template_session, id_po, id_group, sub_start, sub_end, po_start, po_end)
       SELECT DISTINCT
            apply_subscriptions.id_template_session,
            subs.id_po,
            subs.id_group,
-           GREATEST(apply_subscriptions.sub_start, subs.sub_start),
-           LEAST(apply_subscriptions.sub_end, subs.sub_end),
+           subs.sub_start,
+           subs.sub_end,
            subs.sub_start,
            subs.sub_end
       FROM
         (
-            SELECT t1.id_po, MAX(t1.id_group) AS id_group, MAX(ed.dt_start) AS sub_start, NVL(MAX(ed.dt_end), mtmaxdate()) AS sub_end
+            SELECT t1.id_po, MAX(t1.id_group) AS id_group, GREATEST(MAX(ed.dt_start), t1.vt_start) AS sub_start, LEAST(NVL(MAX(ed.dt_end), mtmaxdate()), t1.vt_end) AS sub_end
                 FROM (
-                    SELECT NVL(ts.id_po,s.id_po) AS id_po, s.id_group
+                    SELECT NVL(ts.id_po,s.id_po) AS id_po, s.id_group, ts.vt_start, ts.vt_end
                         FROM t_acc_template_subs ts
                         LEFT JOIN t_sub s ON s.id_group = ts.id_group
                         WHERE ts.id_acc_template = apply_subscriptions.template_id
                 ) t1
                 JOIN t_po po ON po.id_po = t1.id_po
                 JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
-                GROUP BY t1.id_po
+                GROUP BY t1.id_po, t1.vt_start, t1.vt_end
         ) subs;
 
        /* Applying subscriptions to accounts */
@@ -140,21 +138,22 @@ AS
       maxdate := mtmaxdate();
 
       mt_rate_pkg.current_id_audit := apply_subscriptions.id_audit;
+
+      INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
+      SELECT id_group, id_acc, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
+      FROM   tmp_gsubmember;
+
       INSERT INTO t_gsubmember (id_group, id_acc, vt_start, vt_end)
       SELECT tmp.id_group, tmp.id_acc, tmp.vt_start, NVL(tmp.vt_end, maxdate)
       FROM   tmp_gsubmember tmp;
 
-      --INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
-      --SELECT id_group, id_acc, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
-      --FROM   tmp_gsubmember;
+      INSERT INTO t_sub_history (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
+      SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
+      FROM   tmp_sub;
 
       INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
       SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate)
       FROM   tmp_sub;
-
-      --INSERT INTO t_sub_history (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
-      --SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
-      --FROM   tmp_sub;
 
       INSERT INTO t_audit_details (id_auditdetails, id_audit, tx_details)
       SELECT seq_t_audit_details.NEXTVAL, tmp.my_id_audit, tmp.tx_details
@@ -217,7 +216,6 @@ AS
        THEN
           my_user_id := 1;
        END IF;
-
        my_id_audit := apply_subscriptions_to_acc.id_audit;
 
        IF (my_id_audit IS NULL)
@@ -242,7 +240,6 @@ AS
        INTO   id_acc_type
        FROM   t_account
        WHERE  id_acc = apply_subscriptions_to_acc.id_acc;
-
        /* Create new subscriptions */
        FOR sub IN (
         SELECT
@@ -280,18 +277,18 @@ AS
             FOR c_sub IN (
                 SELECT S.*
                     FROM t_sub s
-                    WHERE s.vt_end >= sub.v_sub_start 
+                    WHERE s.vt_end >= sub.v_sub_start
                         AND s.vt_start <= sub.v_sub_end
                         AND s.id_acc = apply_subscriptions_to_acc.id_acc
                         AND s.id_po = sub.id_po
                     ORDER BY s.vt_start
-            ) 
+            )
             LOOP
-                IF c_sub.vt_start > v_prev_end THEN 
+                IF c_sub.vt_start > v_prev_end THEN
                     v_vt_start := v_prev_end + 1;
                     v_vt_end := c_sub.vt_start - 1;
                 END IF;
-                IF v_vt_start <= v_vt_end THEN 
+                IF v_vt_start <= v_vt_end THEN
                     subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
                 END IF;
                 v_prev_end := c_sub.vt_end;

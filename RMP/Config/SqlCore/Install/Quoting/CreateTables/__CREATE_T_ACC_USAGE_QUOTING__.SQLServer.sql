@@ -1,0 +1,33 @@
+
+	CREATE TABLE t_acc_usage_quoting
+	(
+	 quote_id int NOT NULL,
+	 id_sess bigint NOT NULL,
+	 tx_UID varbinary(16) NOT NULL,
+	 id_acc int NOT NULL,
+	 id_payee int NOT NULL,
+	 id_view int NOT NULL,
+	 id_usage_interval int NOT NULL,
+	 id_parent_sess bigint NULL,
+	 id_prod int NULL,
+	 id_svc int NOT NULL,
+	 dt_session datetime NOT NULL,
+	 amount numeric(22,10) NOT NULL,
+	 am_currency nvarchar(3) NOT NULL,
+	 dt_crt datetime NOT NULL,
+	 tx_batch varbinary(16) NULL,
+	 tax_federal numeric(22,10) NULL,
+	 tax_state numeric(22,10) NULL,
+	 tax_county numeric(22,10) NULL,
+	 tax_local numeric(22,10) NULL,
+	 tax_other numeric(22,10) NULL,
+	 id_pi_instance int NULL,
+	 id_pi_template int NULL,
+	 id_se int NOT NULL,
+	 div_currency nvarchar(3) NULL,
+	 div_amount numeric(22,10) NULL,
+	 is_implied_tax nvarchar(1) NOT NULL,
+	 tax_calculated nvarchar(1) NULL,
+	 tax_informational nvarchar(1) NOT NULL, 
+	 CONSTRAINT PK_t_acc_usage_quoting PRIMARY KEY CLUSTERED (quote_id, id_sess, id_usage_interval)
+	 )

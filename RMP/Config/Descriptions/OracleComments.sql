@@ -198,6 +198,67 @@ COMMENT ON COLUMN T_ACC_USAGE.TAX_CALCULATED     IS 'Has the tax already been ca
 COMMENT ON COLUMN T_ACC_USAGE.TAX_INFORMATIONAL  IS 'Is this tax informational-only'
 ;
 
+COMMENT ON TABLE T_ACC_USAGE_QUOTING IS 'Stores information about the rated usage data which is common to all product views'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.QUOTE_ID           IS 'Quote unique identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_SESS            IS 'MetraNet generated surrogate key for session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TX_UID             IS 'The unique external session identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_ACC             IS 'The payer identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_PAYEE           IS 'The account identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_VIEW            IS 'The product view identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_USAGE_INTERVAL  IS 'The billing period identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_PARENT_SESS     IS 'The parent session identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_PROD            IS 'The Product Offering identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_SVC             IS 'The service identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.DT_SESSION         IS 'The date and time the usage occurred'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.AMOUNT             IS 'The monetary amount calculated for the session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.AM_CURRENCY        IS 'The currency code of the monetary amounts calculated for the session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.DT_CRT             IS 'The date and time the session was added to the database'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TX_BATCH           IS 'The batch session identifier'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_FEDERAL        IS 'The monetary amount of federal tax calculated for the session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_STATE          IS 'The monetary amount of state tax calculated for the session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_COUNTY         IS 'The monetary amount of country tax calculated for the session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_LOCAL          IS 'The monetary amount of local tax calculated for the session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_OTHER          IS 'The monetary amount of other tax calculated for the session'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_PI_INSTANCE     IS 'The database ID for the priceable item instance associated with the usage'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_PI_TEMPLATE     IS 'The database ID for the priceable item template associated with the usage'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.ID_SE              IS 'The database identifier for associated service endpoint'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.DIV_CURRENCY       IS 'Division currency '
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.DIV_AMOUNT         IS 'Division amount'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_INCLUSIVE      IS 'Is the tax included in the price?'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_CALCULATED     IS 'Has the tax already been calculated'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.TAX_INFORMATIONAL  IS 'Is this tax informational-only'
+;
+COMMENT ON COLUMN T_ACC_USAGE_QUOTING.IS_IMPLIED_TAX  IS 'If set to "Y" tax is assumed to be already part of the given amount.  More information here implied tax'
+;
+
 COMMENT ON TABLE T_ACC_USAGE_CYCLE IS 'This table stores usage cycle for all billable accounts. (Package: Usage Interval)'
 ;
 COMMENT ON COLUMN T_ACC_USAGE_CYCLE.ID_ACC          IS 'The account identifier'
@@ -2740,6 +2801,8 @@ COMMENT ON COLUMN T_PO.B_USER_UNSUBSCRIBE  IS 'Flag indicating whether users can
 ;
 COMMENT ON COLUMN T_PO.ID_NONSHARED_PL     IS 'Non-shared  pricelist identifier'
 ;
+COMMENT ON COLUMN T_PO.C_POPARTITIONID     IS 'Partition identifier of this product offering'
+;
 COMMENT ON COLUMN T_PO.B_HIDDEN            IS 'Flag indicating whether this PO is available or hidden'
 ;
 
@@ -2767,6 +2830,8 @@ COMMENT ON COLUMN T_PRICELIST.ID_PRICELIST      IS 'MetraNet generated surrogate
 COMMENT ON COLUMN T_PRICELIST.N_TYPE            IS 'The identifier for a pricelist type  for example 0 - ICB, 1- Regular, 2- PO'
 ;
 COMMENT ON COLUMN T_PRICELIST.NM_CURRENCY_CODE  IS 'Currency of the pricelist'
+;
+COMMENT ON COLUMN T_PRICELIST.C_PLPARTITIONID     IS 'Partition identifier of the pricelist'
 ;
 
 
@@ -3363,6 +3428,14 @@ COMMENT ON COLUMN T_RECUR_WINDOW.C_MEMBERSHIPSTART           IS 'Membership star
 ;
 COMMENT ON COLUMN T_RECUR_WINDOW.C_MEMBERSHIPEND             IS 'Membership end for a group subscription'
 ;
+
+
+COMMENT ON TABLE t_rec_win_bcp_for_reverse IS 'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C_BILLEDTHROUGHDATE         IS 'The last time the RC adapter was run (not currently used)';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMINSTANCEID  IS 'Priceable item instance for this subscription';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMTEMPLATEID  IS 'Priceable item template for this subscription';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRODUCTOFFERINGID        IS 'Product offering for this subscription';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__SUBSCRIPTIONID           IS 'Subscription ID';
 
 
 COMMENT ON TABLE T_RECURRING_EVENT_ACCT_LOG IS '(Package:Recurring Events)'
@@ -4039,3 +4112,232 @@ COMMENT ON TABLE T_WF_COMPLETEDSCOPE IS '(Package:WorkFlow)'
 
 COMMENT ON TABLE T_WF_INSTANCESTATE IS 'store of persisted workflow instances. (Package:WorkFlow)'
 ;
+
+COMMENT ON TABLE CURRENCYEXCHANGEMONTHLY IS 'The CurrencyExchangeMonthly table contains the monthly currency exchange rate'
+;
+COMMENT ON COLUMN CURRENCYEXCHANGEMONTHLY.INSTANCEID               IS 'The MetraNet instance from which the data originated'
+;
+COMMENT ON COLUMN CURRENCYEXCHANGEMONTHLY.STARTDATE                IS 'Start date for this exchange rate'
+;
+COMMENT ON COLUMN CURRENCYEXCHANGEMONTHLY.ENDDATE                  IS 'End date for this exchange rate'
+;
+COMMENT ON COLUMN CURRENCYEXCHANGEMONTHLY.SOURCECURRENCY           IS 'The currency to convert from (string name from t_enum_data)'
+;
+COMMENT ON COLUMN CURRENCYEXCHANGEMONTHLY.TARGETCURRENCY           IS 'The currency to convert to (string name from t_enum_data)'
+;
+COMMENT ON COLUMN CURRENCYEXCHANGEMONTHLY.EXCHANGERATE             IS 'The exchange rate between SourceCurrency and TargetCurrency'
+;
+
+
+COMMENT ON TABLE CUSTOMER IS 'Contains summary customer information'
+;
+COMMENT ON COLUMN CUSTOMER.INSTANCEID                 IS 'The MetraNet instance from which the data originated'
+;
+COMMENT ON COLUMN CUSTOMER.METRANETID                 IS 'The internal MetraNet account identifier'
+;
+COMMENT ON COLUMN CUSTOMER.ACCOUNTTYPE                IS 'The account type'
+;
+COMMENT ON COLUMN CUSTOMER.EXTERNALID                 IS 'The external account identifier (from t_account_mapper)'
+;
+COMMENT ON COLUMN CUSTOMER.EXTERNALIDSPACE            IS 'The namespace for the ExternalId.'
+;
+COMMENT ON COLUMN CUSTOMER.FIRSTNAME                  IS 'The first name of the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.MIDDLENAME                 IS 'The middle initial of the billing contact.'
+;
+COMMENT ON COLUMN CUSTOMER.LASTNAME                   IS 'The last name of the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.COMPANY                    IS 'The company name for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.CURRENCY                    IS 'The currency name for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.CITY                       IS 'The city the customer is located in for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.STATE                      IS 'The state the customer is located in for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.ZIPCODE                    IS 'The zip code that the customer is located in for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.EMAIL                      IS 'The email address for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.COUNTRY                    IS 'The country that the customer is located in for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.PHONE                      IS 'The phone number for the billing contact'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYMETRANETID        IS 'The internal MetraNet account identifier for the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYACCOUNTTYPE       IS 'The account type of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYEXTERNALID        IS 'The external account identifier (from t_account_mapper) of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYEXTERNALIDSPACE   IS 'The namespace for the ExternalId of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYFIRSTNAME         IS 'The first name of the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYMIDDLENAME        IS 'The middle initial of the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYLASTNAME          IS 'The last name of the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYCOMPANY           IS 'The company name for the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYCURRENCY          IS 'The currency the customer is located in for the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYCITY              IS 'The city the customer is located in for the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYSTATE             IS 'The state the customer is located in for the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYZIPCODE           IS 'The zip code that the customer is located in for the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYCOUNTRY           IS 'The country that the customer is located in for the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYEMAIL             IS 'The email address for the billing contact of the top-level hierarchy account'
+;
+COMMENT ON COLUMN CUSTOMER.HIERARCHYPHONE             IS 'The phone number for the billing contact of the top-level hierarchy account'
+;
+
+
+COMMENT ON TABLE PRODUCTOFFERING IS 'This ProductOffering table stores descriptions for product offerings.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.INSTANCEID              IS 'The MetraNet instance from which the data originated.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.PRODUCTOFFERINGID       IS 'Product Offering Identifier.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.PRODUCTOFFERINGNAME     IS 'Name of the product offering (should be unique by InstanceId).'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.ISUSERSUBSCRIBABLE      IS 'Whether the user can self-subscribe to this offering.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.ISUSERUNSUBSCRIBABLE    IS 'Whether the user can self-unsubscribe to this offering.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.ISHIDDEN                IS 'Whether this product offering is hidden from the list of available offerings.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.EFFECTIVESTARTDATE      IS 'Earliest date when a subscription to this product offering is allowed to begin.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.EFFECTIVEENDDATE        IS 'Latest date when a subscription to this product offering is allowed to end.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.AVAILABLESTARTDATE      IS 'When this product offering becomes available for subscriptions.'
+;
+COMMENT ON COLUMN PRODUCTOFFERING.AVAILABLEENDDATE        IS 'When this product offering stops being available for subscriptions.'
+;
+
+
+COMMENT ON TABLE SALESREP IS 'Contains the sales representatives and their territories'
+;
+COMMENT ON COLUMN SALESREP.INSTANCEID              IS 'The MetraNet instance from which the data originated'
+;
+COMMENT ON COLUMN SALESREP.METRANETID              IS 'The MetraNet account ID of the sales person'
+;
+COMMENT ON COLUMN SALESREP.EXTERNALID              IS 'An identifier for an external system'
+;
+COMMENT ON COLUMN SALESREP.CUSTOMERID              IS 'The MetraNet account ID of the account being represented'
+;
+COMMENT ON COLUMN SALESREP.PERCENTAGE              IS 'For relationships that are shared, this represents the corresponding ownership percentage.  Usually used for commissions, etc.  (100-based)'
+;
+COMMENT ON COLUMN SALESREP.RELATIONSHIPTYPE        IS 'The type of the relationship (string value from t_enum_data, using metratech.com/SaleForceRelationship namespace).'
+;
+
+
+COMMENT ON TABLE SUBSCRIPTIONSBYMONTH IS 'This SubscriptionByMonth table apportions the entire term of a subscription into calendar-month buckets. In other words, each row contains monthly data for the past, present and future for every subscription with a recurring charge. Given that MRR and other calculations are somewhat complex and exception-based, the impact to MRR is stored in separate fields to facilitate reporting.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.INSTANCEID                       IS 'The MetraNet instance from which the data originated'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.SUBSCRIPTIONID                   IS 'Uniquely identifies the subscription'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.YEAR                             IS 'The calendar year in which the fee was or will be incurred'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MONTH                            IS 'The calendar month in which the fee was or will be incurred.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.CURRENCY                         IS 'The currency the subscription fees are in'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRR                              IS 'The Monthly Recurring Revenue (MRR). This is the sum of MRRBase, MRRRenewal, MRRPriceChange, MRRChurn, MRRNew and MRRCancellation'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRPRIMARYCURRENCY               IS 'MRR converted to the Primary Currency'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRNEW                           IS 'MRR increase due to new sales. This is only non-zero if  in the month that the subscription was created. Report "MRR from new sales"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRNEWPRIMARYCURRENCY            IS 'MRRNew converted to the Primary Currency'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRBASE                          IS 'The base MRR (i.e., what we are expecting from the prior month). In the first month this will be zero and in the last month it will have a value. No report option'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRBASEPRIMARYCURRENCY           IS 'MRRBase converted to the Primary Currency'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRRENEWAL                       IS 'The MRR increase due to a renewal. This will only have a non-zero value in the month the renewal occurred. Defaults to zero. Report option "MRR Renewals"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRRENEWALPRIMARYCURRENCY        IS 'MRRRenewal converted to the Primary Currency'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRPRICECHANGE                   IS 'The change in MRR due to a price increase or decrease. This may be positive or negative. Defaults to zero. Report option "MRR Price Changes"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRPRICECHANGEPRIMARYCURRENCY    IS 'MRRPriceChange converted to the Primary Currency'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRCHURN                         IS 'The MRR loss due to churn. Must be zero or negative MRRBase. At the moment we can''t distinguish between Churn and early termination as we don''t have the contract terms. "MRR Churn"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRCHURNPRIMARYCURRENCY          IS 'MRRChurn converted to the Primary Currency'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRCANCELATION                   IS 'The MRR loss due to a cancelation. Must be zero or negative MRRBase. Report option "MRR Cancelations"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.MRRCANCELATIONPRIMARYCURRENCY    IS 'MRRCancellation converted to the Primary Currency'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.SUBSCRIPTIONREVENUE              IS 'The monetary amount of revenue for the month'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.SUBSCRIPTIONREVPRIMARYCURRENCY   IS 'SubscriptionRevenue converted to the Primary Currency.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.DAYSINMONTH                      IS 'The number of days in the month'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.DAYSACTIVEINMONTH                IS 'The number of days in the month that the subscription is deemed active'
+;
+
+
+
+COMMENT ON TABLE SUBSCRIPTIONUNITS IS 'The SubscriptionUnits table tracks the initial units any changes to the bundled (i.e., included) number of units during the term of subscription'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.INSTANCEID          IS 'Indicates what MetraNet instance generated the data'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.SUBSCRIPTIONID      IS 'Uniquely identifies the subscription.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.STARTDATE           IS 'Subscription Start date'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.ENDDATE             IS 'Subscription End date'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.UDRCID              IS 'Uniquely identifies the UDRC'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.UDRCNAME            IS 'UDRC name'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.UNITNAME            IS 'Unit name of UDRC'
+;
+COMMENT ON COLUMN SUBSCRIPTIONUNITS.UNITS               IS 'Unit of measure'
+;
+
+
+COMMENT ON TABLE SUBSCRIPTIONSUMMARY IS 'This SubscriptionSummary aggregates the SubscriptionsByMonth Table by POCode. Note that MRR and all fields thereafter are a simple sum.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.INSTANCEID                        IS 'The MetraNet instance from which the data originated.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.PRODUCTOFFERINGID                 IS 'Product Offering Identifier.  Can join to ProductOffering DataMart table to get display name and details.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.YEAR                              IS 'The calendar year in which the fee was or will be incurred.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MONTH                             IS 'The calendar month in which the fee was or will be incurred (1-12)'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.TOTALPARTICIPANTS                 IS 'The number of subscriptions.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.DISTINCTHIERARCHIES               IS 'The number of unique customers. For example, a company may have 200 users with the subscription, that would be ONE here and 200 in Subscriptions above.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.NEWPARTICIPANTS                   IS 'The number of new customers in the month who have the subscription in the month (i.e., it likely attracted them).'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MRRPRIMARYCURRENCY                IS 'The Monthly Recurring Revenue (MRR) in the primary currency. This is the sum of MRRBase, MRRRenewal, MRRPriceChange, MRRChurn, MRRNew and MRRCancellation.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MRRNEWPRIMARYCURRENCY             IS 'MRRNew converted to the Primary Currency.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MRRBASEPRIMARYCURRENCY            IS 'The base MRR, in the primary currency (i.e., what we are expecting from the prior month). In the first month this will be zero and in the last month it will have a value. No report option.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MRRRENEWALPRIMARYCURRENCY         IS 'The MRR increase due to a renewal, in the primary currency. This will only have a non-zero value in the month the renewal occurred. Defaults to zero. Report option "MRR Renewals"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MRRPRICECHANGEPRIMARYCURRENCY     IS 'The change in MRR due to a price increase or decrease, in the primary currency. This may be positive or negative. Defaults to zero. Report option "MRR Price Changes"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MRRCHURNPRIMARYCURRENCY           IS 'The MRR loss due to churn, in the primary currency. Must be zero or negative MRRBase. At the moment we can''t distinguish between Churn and early termination as we don''t have the contract terms. "MRR Churn"'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.MRRCANCELATIONPRIMARYCURRENCY     IS 'The MRR loss due to a cancelation, in the primary currency. Must be zero or negative MRRBase. Report option "MRR Cancelations". '
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.SUBSCRIPTIONREVPRIMARYCURRENCY    IS 'The monetary amount of revenue for the month, in the primary currency.'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.DAYSINMONTH                       IS 'The number of days in the month.'
+;
+

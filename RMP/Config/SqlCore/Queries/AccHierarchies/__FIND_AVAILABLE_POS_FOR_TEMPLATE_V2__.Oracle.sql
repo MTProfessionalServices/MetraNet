@@ -47,7 +47,7 @@ from t_vw_base_props
   LEFT OUTER JOIN t_po_account_type_map atm ON t_po.id_po = atm.id_po
     LEFT OUTER JOIN t_acc_tmpl_types tp ON tp.id = 1
   where t_vw_base_props.n_kind = 100 and t_vw_base_props.id_lang_code = %%ID_LANG%%
-  
+/*  
   AND t_po.id_po not in 
   (
     select id_po from t_acc_template_subs_pub ats 
@@ -65,7 +65,10 @@ from t_vw_base_props
 	left outer join t_acc_template act on act.id_acc_template = asub.id_acc_template
     where asub.id_group is not null and id_folder = %%FOLDERACCOUNT%% and id_acc_type = %%ACCOUNT_TYPE%%
   )   
+*/
   AND tpl.nm_currency_code  = tpl.nm_currency_code
  
   AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%% OR tp.all_types = 1)
+  
+  %%PARTITIONFILTER%%
 		

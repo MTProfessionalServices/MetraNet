@@ -592,7 +592,7 @@ to purge the archived account before the new account could be created.
     has b_iscorporate set to true */
 
    BEGIN
-      SELECT ancestor.id_ancestor
+      SELECT max(ancestor.id_ancestor)
         INTO p_corporate_account_id
         FROM t_account_ancestor ancestor INNER JOIN t_account acc ON acc.id_acc =
                                                                        ancestor.id_ancestor

@@ -1,0 +1,1 @@
+del %MTRMP%\config\SqlCore\Queries\UsageServer\__GET_LAST_MATERIALIZATION_ID_WITH_REASSIGNMENT_WARNINGS__.Common.sql 

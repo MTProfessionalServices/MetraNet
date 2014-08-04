@@ -20,6 +20,13 @@
             <SubstitutionSyntaxCheck>1 = 1 </SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
+		<Parameter>
+            <Name>CURRENCY</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>1 = 1 </SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
         <Parameter>
             <Name>dtEnd</Name>
             <DataType>timestamp</DataType>

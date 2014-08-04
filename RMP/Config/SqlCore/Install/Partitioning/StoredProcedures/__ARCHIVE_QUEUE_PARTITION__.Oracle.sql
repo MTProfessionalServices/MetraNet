@@ -14,6 +14,7 @@ AS
 	DECLARE
 		v_result VARCHAR2(2000);
 	BEGIN
+    DBMS_OUTPUT.ENABLE(1000000);
 		archive_queue_partition ( p_result => v_result );
 		DBMS_OUTPUT.put_line (v_result);
 	END;
@@ -85,6 +86,9 @@ BEGIN
     ELSE
         v_meter_tablespace_name := prtn_GetMeterPartFileGroupName();
 
+        /* Adding a commit before calling the proc again to fix ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired */
+        COMMIT;
+        
         arch_q_p_apply_next_partition(
             p_new_current_id_partition => v_new_current_id_partition,
             p_current_time => v_current_time,
@@ -108,6 +112,7 @@ BEGIN
 		arch_q_p_prep_all_keep_ses_tab( p_old_id_partition => v_old_id_partition );
 		
 		BEGIN
+      DBMS_OUTPUT.ENABLE(1000000);
 			dbms_output.put_line('Pausing pipeline...');
 			v_time_count := dbms_utility.get_time;
 			PausePipelineProcessing( p_state => 1 );

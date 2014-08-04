@@ -1,4 +1,10 @@
-
+WITH cycle_type as 
+   (SELECT id_cycle_type as id 
+   FROM t_acc_usage_cycle, 
+      t_usage_cycle 
+   WHERE t_acc_usage_cycle.id_acc = %%ACC_ID%% 
+      and t_usage_cycle.id_usage_cycle = t_acc_usage_cycle.id_usage_cycle
+   )
 SELECT DISTINCT (t_po.id_po), 
    t_po.id_eff_date, 
    t_po.id_avail, 
@@ -28,7 +34,8 @@ SELECT DISTINCT (t_po.id_po),
    ta.dt_end        as ta_dt_end, 
    ta.n_endoffset   as ta_n_endoffset, 
    template_po_map.b_recurringcharge, 
-   template_po_map.b_discount1 as b_discount 
+   template_po_map.b_discount1 as b_discount,
+   t_po.c_POPartitionId as POPartitionId   
    %%COLUMNS%% 
 FROM 
    (SELECT %%REFDATE%% now 
@@ -53,78 +60,45 @@ FROM
       END 
       b_discount1 
    FROM 
-      (SELECT t_pl_map.id_po, 
-         CASE 
-            WHEN (tb.n_kind = 20 or tb.n_kind = 25)
-            and count (*)  > 0 
-            THEN 1 
-            ELSE 0 
-         END 
-         yesno, 
-         CASE 
-            WHEN tb.n_kind = 40 
-            and count (*)  > 0 
-            THEN 1 
-            ELSE 0 
-         END 
-         yesnodiscount 
-      FROM 
-         t_pricelist, 
-         t_base_props tb, 
-         t_pl_map, 
-         (SELECT c_currency  as payercurrency
-         FROM t_po po 
-         INNER JOIN t_pricelist pl1 
-            ON pl1.id_pricelist = po.id_nonshared_pl 
-         INNER JOIN t_payment_redirection pr 
-            ON pr.id_payee = %%ACC_ID%% 
-         LEFT OUTER JOIN t_av_internal tav 
-            ON tav.id_acc            = pr.id_payer 
-            and /* pl1.nm_currency_code = tav.c_currency */
-	    %%CURRENCYFILTER1%%
-         WHERE tav.c_currency is not null 
-         GROUP BY c_currency
-         ) 
-         tmp 
-      WHERE 
-         /* Check currency */ 
-         t_pricelist.id_pricelist = t_pl_map.id_pricelist 
-         /* and tmp.payercurrency        = t_pricelist.nm_currency_code */
-	 and %%CURRENCYFILTER2%% 
-         and t_pl_map.id_paramtable is not null 
-         and t_pl_map.id_sub is null 
-         and t_pl_map.id_acc is null 
-         and tb.id_prop = t_pl_map.id_pi_template 
-         and 
-         /* Not already have */ 
-         id_po not in 
-         (SELECT DISTINCT subs.id_po 
-         FROM t_vw_effective_subs subs 
-         INNER JOIN t_po 
-            ON t_po.id_po = subs.id_po 
-         INNER JOIN t_effectivedate inner_te 
-            ON inner_te.id_eff_date = t_po.id_eff_date 
-         WHERE subs.id_acc          = %%ACC_ID%% 
-            /* allow the user to see the product offering if they are not subscribed till the end of  */ 
-            /* of the effective date interval */ 
-            and ( (subs.dt_end = inner_te.dt_end ) 
-            or ( inner_te.dt_end is null 
-            and subs.dt_end    = dbo.mtmaxdate () ) ) 
-            and subs.dt_start <= %%REFDATE%%
-         ) 
-      GROUP BY t_pl_map.id_po, 
-         tb.n_kind
+       (
+        select 
+        /*+ 
+        index(t_pl_map t_pl_dc_nl_ndx) 
+        use_nl(tb)
+        */
+        t_pl_map.id_po,
+        CASE WHEN tb.n_kind = 20 AND COUNT (*) > 0 THEN 1 ELSE 0 END yesno,
+        CASE WHEN tb.n_kind = 40 AND COUNT (*) > 0 THEN 1 ELSE 0 END yesnodiscount
+        FROM t_pl_map
+        INNER JOIN t_pricelist ON t_pricelist.id_pricelist = t_pl_map.id_pricelist
+        INNER JOIN (
+            SELECT c_currency AS payercurrency 
+            FROM t_payment_redirection pr 
+            LEFT OUTER JOIN t_av_internal tav ON tav.id_acc = pr.id_payer 
+            WHERE pr.id_payee = %%ACC_ID%% 
+        ) tmp ON %%CURRENCYFILTER2%%
+        INNER JOIN t_base_props tb ON tb.id_prop = t_pl_map.id_pi_template
+        INNER JOIN t_av_internal tav on tav.id_acc = %%ACC_ID%% 
+        WHERE  1=1 /* %%CURRENCYFILTER1%% */
+        AND DECODE (to_char(t_pl_map.id_paramtable), NULL, 1, 0) = 0
+        AND DECODE (to_char(t_pl_map.id_sub), NULL, 1, 0) = 1
+        AND DECODE (to_char(t_pl_map.id_acc), NULL, 1, 0) = 1
+        AND id_po NOT IN (
+            SELECT   /*+ INDEX(t_po) INDEX(inner_te) */
+            DISTINCT subs.id_po
+            FROM t_vw_effective_subs subs
+            INNER JOIN t_po ON t_po.id_po = subs.id_po
+            INNER JOIN t_effectivedate inner_te ON inner_te.id_eff_date = t_po.id_eff_date
+            WHERE subs.id_acc = %%ACC_ID%% 
+            AND ( (subs.dt_end = inner_te.dt_end) OR (inner_te.dt_end IS NULL AND subs.dt_end = dbo.mtmaxdate ()))
+            AND subs.dt_start <= %%REFDATE%%
+        )
+        GROUP BY t_pl_map.id_po, tb.n_kind
       ) 
       template_po_map0 
    WHERE not exists 
       (SELECT 1 
-      FROM 
-      (SELECT id_cycle_type as id 
-       FROM t_acc_usage_cycle, 
-          t_usage_cycle 
-       WHERE t_acc_usage_cycle.id_acc = %%ACC_ID%% 
-         and t_usage_cycle.id_usage_cycle = t_acc_usage_cycle.id_usage_cycle) cycle_Type,
-      t_pl_map 
+      FROM t_pl_map 
       LEFT OUTER JOIN t_recur rc 
          ON rc.id_prop = t_pl_map.id_pi_template 
          or rc.id_prop = t_pl_map.id_pi_instance 
@@ -138,18 +112,25 @@ FROM
          and t_pl_map.id_paramtable is null 
          and ( ( rc.tx_cycle_mode = 'BCR Constrained' 
          and rc.id_cycle_type    <> 
-         cycle_type.id
+         (SELECT id 
+         FROM cycle_type
          ) ) 
          or ( rc.tx_cycle_mode = 'EBCR' 
          and dbo.checkebcrcycletypecompatible (rc.id_cycle_type, 
-         cycle_type.id 
+         (SELECT id 
+         FROM cycle_type
+         ) 
          ) = 0 ) 
          or ( t_discount.id_cycle_type is not null 
          and t_discount.id_cycle_type <> 
-         cycle_type.id ) 
+         (SELECT id 
+         FROM cycle_type
+         ) ) 
          or ( t_aggregate.id_cycle_type is not null 
          and t_aggregate.id_cycle_type <> 
-         cycle_type.id )
+         (SELECT id 
+         FROM cycle_type
+         ) ) )
       ) 
    GROUP BY template_po_map0.id_po
    ) 

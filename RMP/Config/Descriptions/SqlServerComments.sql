@@ -520,6 +520,93 @@ EXEC sp_addextendedproperty 'MS_Description', 'Has the tax already been calculat
 EXEC sp_addextendedproperty 'MS_Description', 'Is this tax informational-only', 'Schema', dbo, 'table', t_acc_usage, 'column', tax_informational
 ;
 
+EXEC sp_addextendedproperty 'MS_Description', 'Stores information about the rated usage data which is common to all product views', 'Schema', dbo, 'table', t_acc_usage_quoting
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'MetraNet generated surrogate key for session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_sess
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Quote unique identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', quote_id
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The unique external session identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tx_UID
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The payer identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_acc
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The account identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_payee
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The product view identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_view
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The billing period identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_usage_interval
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The parent session identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_parent_sess
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The Product Offering identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_prod
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The service identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_svc
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The date and time the usage occurred', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', dt_session
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The monetary amount calculated for the session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', amount
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The currency code of the monetary amounts calculated for the session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', am_currency
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The date and time the session was added to the database', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', dt_crt
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The batch session identifier', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tx_batch
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The monetary amount of federal tax calculated for the session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tax_federal
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The monetary amount of state tax calculated for the session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tax_state
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The monetary amount of country tax calculated for the session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tax_county
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The monetary amount of local tax calculated for the session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tax_local
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The monetary amount of other tax calculated for the session', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tax_other
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The database ID for the priceable item instance associated with the usage', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_pi_instance
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The database ID for the priceable item template associated with the usage', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_pi_template
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The database identifier for associated service endpoint', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', id_se
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Division currency ', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', div_currency
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Division amount', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', div_amount
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Has the tax already been calculated', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tax_calculated
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Is this tax informational-only', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', tax_informational
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'If set to "Y" tax is assumed to be already part of the given amount.  More information here implied tax', 'Schema', dbo, 'table', t_acc_usage_quoting, 'column', is_implied_tax
+;
+
 EXEC sp_addextendedproperty 'MS_Description', 'This table stores usage cycle for all billable accounts (Package: Usage Interval)', 'Schema', dbo, 'table', t_acc_usage_cycle
 ;
 EXEC sp_addextendedproperty 'MS_Description', 'The account identifier', 'Schema', dbo, 'table', t_acc_usage_cycle, 'column', id_acc
@@ -4190,6 +4277,9 @@ EXEC sp_addextendedproperty 'MS_Description', 'Flag indicating whether users can
 EXEC sp_addextendedproperty 'MS_Description', 'Non-shared  pricelist identifier', 'Schema', dbo, 'table', t_po, 'column', id_nonshared_pl
 ;
 
+EXEC sp_addextendedproperty 'MS_Description', 'Partition identifier of this product offering', 'Schema', dbo, 'table', t_po, 'column', c_POPartitionId
+;
+
 EXEC sp_addextendedproperty 'MS_Description', 'Flag indicating whether this PO is available or hidden', 'Schema', dbo, 'table', t_po, 'column', b_hidden
 ;
 
@@ -4218,6 +4308,9 @@ EXEC sp_addextendedproperty 'MS_Description', 'The identifier for a pricelist ty
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Currency of the pricelist', 'Schema', dbo, 'table', t_pricelist, 'column', nm_currency_code
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Partition identifier of the pricelist', 'Schema', dbo, 'table', t_pricelist, 'column', c_PLPartitionId
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'This table contain information about subscriber''s policy. (Package:Policy)', 'Schema', dbo, 'table', t_principal_policy
@@ -4988,6 +5081,15 @@ EXEC sp_addextendedproperty 'MS_Description', 'Membership start for a group subs
 
 EXEC sp_addextendedproperty 'MS_Description', 'Membership end for a group subscription', 'Schema', dbo, 'table', t_recur_window, 'column', c_MembershipEnd
 ;
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_rec_win_bcp_for_reverse';
+EXEC sp_addextendedproperty 'MS_Description', 'The last time the RC adapter was run (not currently used)', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c_BilledThroughDate;
+EXEC sp_addextendedproperty 'MS_Description', 'Priceable item instance for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemInstanceID;
+EXEC sp_addextendedproperty 'MS_Description', 'Priceable item template for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemTemplateID;
+EXEC sp_addextendedproperty 'MS_Description', 'Product offering for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__ProductOfferingID;
+EXEC sp_addextendedproperty 'MS_Description', 'Subscription ID', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__SubscriptionID;
+
 
 EXEC sp_addextendedproperty 'MS_Description', '(Package:Recurring Events)', 'Schema', dbo, 'table', t_recurring_event_acct_log
 ;
@@ -5824,3 +5926,118 @@ EXEC sp_addextendedproperty 'MS_Description', 'Store of persisted workflow insta
 
 EXEC sp_addextendedproperty 'MS_Description', '(Package:Misc. Feature)', 'Schema', dbo, 'table', tier_domain_mapping
 ;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Contains summary customer information', 'Schema', dbo, 'table', Customer;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The internal MetraNet account identifier' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'MetraNetId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The account type' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'AccountType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The external account identifier (from t_account_mapper)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'ExternalId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The namespace for the ExternalId.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'ExternalIdSpace'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The first name of the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'FirstName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The middle initial of the billing contact.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'MiddleName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The last name of the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'LastName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The company name for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'Company'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The currency name for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'Currency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The city the customer is located in for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'City'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The state the customer is located in for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'State'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The zip code that the customer is located in for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'ZipCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The email address for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'Email'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the customer is located in for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'Country'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The phone number for the billing contact' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'Phone'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The internal MetraNet account identifier for the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyMetraNetId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The account type of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyAccountType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The external account identifier (from t_account_mapper) of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyExternalId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The namespace for the ExternalId of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyExternalIdSpace'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The first name of the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyFirstName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The middle initial of the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyMiddleName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The last name of the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyLastName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The company name for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyCompany'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The currency the customer is located in for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The city the customer is located in for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyCity'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The state the customer is located in for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyState'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The zip code that the customer is located in for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyZipCode'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the customer is located in for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyCountry'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The email address for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyEmail'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The phone number for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyPhone'
+
+EXEC sp_addextendedproperty 'MS_Description', 'Contains the sales representatives and their territories', 'Schema', dbo, 'table', SalesRep;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SalesRep', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet account ID of the sales person' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SalesRep', @level2type=N'COLUMN',@level2name=N'MetraNetId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An identifier for an external system' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SalesRep', @level2type=N'COLUMN',@level2name=N'ExternalId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet account ID of the account being represented' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SalesRep', @level2type=N'COLUMN',@level2name=N'CustomerId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'For relationships that are shared, this represents the corresponding ownership percentage.  Usually used for commissions, etc.  (100-based)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SalesRep', @level2type=N'COLUMN',@level2name=N'Percentage'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of the relationship (string value from t_enum_data, using metratech.com/SaleForceRelationship namespace).' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SalesRep', @level2type=N'COLUMN',@level2name=N'RelationshipType'
+
+EXEC sp_addextendedproperty 'MS_Description', 'This SubscriptionByMonth table apportions the entire term of a subscription into calendar-month buckets. In other words, each row contains monthly data for the past, present and future for every subscription with a recurring charge. Given that MRR and other calculations are somewhat complex and exception-based, the impact to MRR is stored in separate fields to facilitate reporting.', 'Schema', dbo, 'table', SubscriptionsByMonth;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Uniquely identifies the subscription' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'SubscriptionId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The calendar year in which the fee was or will be incurred' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'Year'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The calendar month in which the fee was or will be incurred.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'Month'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The currency the subscription fees are in' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'Currency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The Monthly Recurring Revenue (MRR). This is the sum of MRRBase, MRRRenewal, MRRPriceChange, MRRChurn, MRRNew and MRRCancellation' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRR'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRR converted to the Primary Currency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRR increase due to new sales. This is only non-zero if  in the month that the subscription was created. Report "MRR from new sales"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRNew'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRRNew converted to the Primary Currency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRNewPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The base MRR (i.e., what we are expecting from the prior month). In the first month this will be zero and in the last month it will have a value. No report option' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRBase'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRRBase converted to the Primary Currency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRBasePrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MRR increase due to a renewal. This will only have a non-zero value in the month the renewal occurred. Defaults to zero. Report option "MRR Renewals"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRRenewal'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRRRenewal converted to the Primary Currency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRRenewalPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The change in MRR due to a price increase or decrease. This may be positive or negative. Defaults to zero. Report option "MRR Price Changes"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRPriceChange'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRRPriceChange converted to the Primary Currency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRPriceChangePrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MRR loss due to churn. Must be zero or negative MRRBase. At the moment we can''t distinguish between Churn and early termination as we don''t have the contract terms. "MRR Churn"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRChurn'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRRChurn converted to the Primary Currency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRChurnPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MRR loss due to a cancelation. Must be zero or negative MRRBase. Report option "MRR Cancelations"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRCancelation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRRCancellation converted to the Primary Currency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'MRRCancelationPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The monetary amount of revenue for the month' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'SubscriptionRevenue'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'SubscriptionRevenue converted to the Primary Currency.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'SubscriptionRevPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of days in the month' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'DaysInMonth'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of days in the month that the subscription is deemed active' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'DaysActiveInMonth'
+
+EXEC sp_addextendedproperty 'MS_Description', 'The SubscriptionUnits table tracks the initial units any changes to the bundled (i.e., included) number of units during the term of subscription', 'Schema', dbo, 'table', SubscriptionUnits;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates what MetraNet instance generated the data' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Uniquely identifies the subscription.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'SubscriptionId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Subscription Start date' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'StartDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Subscription End date' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'EndDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Uniquely identifies the UDRC' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'UdrcId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'UDRC name' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'UdrcName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Unit name of UDRC' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'UnitName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Unit of measure' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'Units'
+
+EXEC sp_addextendedproperty 'MS_Description', 'The CurrencyExchangeMonthly table contains the monthly currency exchange rate', 'Schema', dbo, 'table', CurrencyExchangeMonthly;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'CurrencyExchangeMonthly', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Start date for this exchange rate' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'CurrencyExchangeMonthly', @level2type=N'COLUMN',@level2name=N'StartDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'End date for this exchange rate' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'CurrencyExchangeMonthly', @level2type=N'COLUMN',@level2name=N'EndDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The currency to convert from (string name from t_enum_data)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'CurrencyExchangeMonthly', @level2type=N'COLUMN',@level2name=N'SourceCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The currency to convert to (string name from t_enum_data)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'CurrencyExchangeMonthly', @level2type=N'COLUMN',@level2name=N'TargetCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The exchange rate between SourceCurrency and TargetCurrency' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'CurrencyExchangeMonthly', @level2type=N'COLUMN',@level2name=N'ExchangeRate'
+
+
+EXEC sp_addextendedproperty 'MS_Description', 'This SubscriptionSummary aggregates the SubscriptionsByMonth Table by POCode. Note that MRR and all fields thereafter are a simple sum.', 'Schema', dbo, 'table', SubscriptionSummary;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Product Offering Identifier.  Can join to ProductOffering DataMart table to get display name and details.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'ProductOfferingId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The calendar year in which the fee was or will be incurred.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'Year'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The calendar month in which the fee was or will be incurred (1-12)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'Month'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of subscriptions.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'TotalParticipants'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of unique customers. For example, a company may have 200 users with the subscription, that would be ONE here and 200 in Subscriptions above.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'DistinctHierarchies'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of new customers in the month who have the subscription in the month (i.e., it likely attracted them).' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'NewParticipants'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The Monthly Recurring Revenue (MRR) in the primary currency. This is the sum of MRRBase, MRRRenewal, MRRPriceChange, MRRChurn, MRRNew and MRRCancellation.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'MRRPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'MRRNew converted to the Primary Currency.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'MRRNewPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The base MRR, in the primary currency (i.e., what we are expecting from the prior month). In the first month this will be zero and in the last month it will have a value. No report option.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'MRRBasePrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MRR increase due to a renewal, in the primary currency. This will only have a non-zero value in the month the renewal occurred. Defaults to zero. Report option "MRR Renewals"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'MRRRenewalPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The change in MRR due to a price increase or decrease, in the primary currency. This may be positive or negative. Defaults to zero. Report option "MRR Price Changes"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'MRRPriceChangePrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MRR loss due to churn, in the primary currency. Must be zero or negative MRRBase. At the moment we can''t distinguish between Churn and early termination as we don''t have the contract terms. "MRR Churn"' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'MRRChurnPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MRR loss due to a cancelation, in the primary currency. Must be zero or negative MRRBase. Report option "MRR Cancelations". ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'MRRCancelationPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The monetary amount of revenue for the month, in the primary currency.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'SubscriptionRevPrimaryCurrency'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of days in the month.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionSummary', @level2type=N'COLUMN',@level2name=N'DaysInMonth'
+
+EXEC sp_addextendedproperty 'MS_Description', 'This ProductOffering table stores descriptions for product offerings.', 'Schema', dbo, 'table', ProductOffering;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Product Offering Identifier.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'ProductOfferingId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Name of the product offering (should be unique by InstanceId).' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'ProductOfferingName'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Whether the user can self-subscribe to this offering.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'IsUserSubscribable'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Whether the user can self-unsubscribe to this offering.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'IsUserUnsubscribable'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Whether this product offering is hidden from the list of available offerings.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'IsHidden'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Earliest date when a subscription to this product offering is allowed to begin.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'EffectiveStartDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Latest date when a subscription to this product offering is allowed to end.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'EffectiveEndDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When this product offering becomes available for subscriptions.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'AvailableStartDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'When this product offering stops being available for subscriptions.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ProductOffering', @level2type=N'COLUMN',@level2name=N'AvailableEndDate'

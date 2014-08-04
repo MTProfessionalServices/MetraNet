@@ -1,0 +1,1 @@
+create global temporary table all_rcs_linked(x clob) on commit delete rows

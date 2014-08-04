@@ -114,14 +114,14 @@ BEGIN
             || ' add constraint '
             || constraint_name
             || ' primary key ('
-            || dbo.strtabtocsv (CAST (COLLECT (column_name) AS str_tab))
+			|| LISTAGG (column_name, ',') WITHIN GROUP (ORDER BY POSITION)
             || ')'
             || ' using index (create index '
             || constraint_name
             || ' on '
             || partn_tab
             || ' ('
-            || dbo.strtabtocsv (CAST (COLLECT (column_name) AS str_tab))
+			|| LISTAGG (column_name, ',') WITHIN GROUP (ORDER BY POSITION)
             || ') local)',                  /* todo: logging or nologging ? */
                'alter table '
             || table_name
@@ -144,7 +144,7 @@ BEGIN
             || ' add constraint '
             || constraint_name
             || ' unique ('
-            || dbo.strtabtocsv (CAST (COLLECT (column_name) AS str_tab))
+			|| LISTAGG (column_name, ',') WITHIN GROUP (ORDER BY POSITION)
             || ')'
             || ' disable',                  /* todo: logging or nologging ? */
                'alter table '
@@ -168,7 +168,7 @@ BEGIN
             || ' on '
             || partn_tab
             || ' ('
-            || dbo.strtabtocsv (CAST (COLLECT (column_name) AS str_tab))
+			|| LISTAGG (column_name, ',') WITHIN GROUP (ORDER BY column_position)
             || ') local ',                  /* todo: logging or nologging ? */
             'drop index ' || index_name
    BULK COLLECT INTO idx_ddl,
@@ -179,7 +179,7 @@ BEGIN
                       ON uic.index_name = ui.index_name
                     AND ui.uniqueness = 'NONUNIQUE'
                 WHERE LOWER (uic.table_name) = LOWER (p_tab)
-             ORDER BY uic.table_name, uic.index_name, uic.column_position)
+             ORDER BY uic.table_name, uic.column_position, uic.index_name)
    GROUP BY table_name, index_name;
 
    /* CORE-6638. Some workaround about this issue. */

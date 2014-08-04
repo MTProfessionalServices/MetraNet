@@ -92,6 +92,7 @@ Copy /Y %SrcDir%\Extensions\Core\config\EnumType\metratech.com\metratech.com.xml
 Copy /Y %SrcDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_cn.xml %TargetDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_cn.xml 
 Copy /Y %SrcDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_de.xml %TargetDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_de.xml 
 Copy /Y %SrcDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_us.xml %TargetDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_us.xml 
+Copy /Y %SrcDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_pt-br.xml %TargetDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_auditevents_pt-br.xml
 Copy /Y %SrcDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_us.xml %TargetDir%\Extensions\Core\config\Localization\metratech.com\metratech.com_us.xml 
 Copy /Y %SrcDir%\Extensions\Core\config\PageLayouts\ControlTypes.xml %TargetDir%\Extensions\Core\config\PageLayouts\ControlTypes.xml 
 Copy /Y %SrcDir%\Extensions\Core\config\PageLayouts\DataTypes.xml %TargetDir%\Extensions\Core\config\PageLayouts\DataTypes.xml 

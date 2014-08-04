@@ -1,0 +1,1 @@
+create global temporary table tmp_all_customers(x clob) on commit delete rows

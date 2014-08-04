@@ -35,28 +35,16 @@ INNER JOIN tmp_unsubscribe_batch ar
 ON gsm.id_acc = ar.id_acc AND gsm.id_group = ar.id_group AND gsm.vt_start < ar.vt_start AND gsm.vt_end >= ar.vt_start AND gsm.tt_end = dbo.MTMaxDate()
 WHERE
 ar.status=0;
-
-update t_gsubmember_historical gsm
-set tt_end =
-       (select subtractsecond (ar.tt_now)
-        from   tmp_unsubscribe_batch ar
-        where      gsm.id_acc = ar.id_acc
+merge into t_gsubmember_historical gsm
+  using tmp_unsubscribe_batch ar
+  on (gsm.id_acc = ar.id_acc
                and gsm.id_group = ar.id_group
                and gsm.vt_start < ar.vt_start
                and gsm.vt_end >= ar.vt_start
-               and gsm.tt_end = dbo.mtmaxdate ()
                and ar.status = 0)
-where  exists (
-          select 1
-          from   tmp_unsubscribe_batch ar
-          where      gsm.id_acc = ar.id_acc
-                 and gsm.id_group = ar.id_group
-                 and gsm.vt_start < ar.vt_start
-                 and gsm.vt_end >= ar.vt_start
-                 and gsm.tt_end = dbo.mtmaxdate ()
-                 and ar.status = 0);
-
+  when matched then update set gsm.tt_end = subtractsecond (ar.tt_now) where gsm.tt_end = dbo.mtmaxdate();
 		/* Valid time update becomes bi-temporal insert (of the modified existing history into the past history) and update (of the modified existing history) */
+    
 INSERT INTO t_gsubmember_historical(id_group, id_acc, vt_start, vt_end, tt_start, tt_end) 
 SELECT gsm.id_group, gsm.id_acc, addsecond(ar.vt_end) AS vt_start, gsm.vt_end, ar.tt_now AS tt_start, dbo.MTMaxDate() AS tt_end 
 FROM t_gsubmember_historical gsm
@@ -65,50 +53,28 @@ ON gsm.id_acc = ar.id_acc AND gsm.id_group = ar.id_group AND gsm.vt_start <= ar.
 WHERE
 ar.status=0;
 
-update t_gsubmember_historical gsm
-set tt_end =
-       (select subtractsecond (ar.tt_now)
-        from   tmp_unsubscribe_batch ar
-        where      gsm.id_acc = ar.id_acc
+merge into t_gsubmember_historical gsm
+  using tmp_unsubscribe_batch ar
+  on (gsm.id_acc = ar.id_acc
                and gsm.id_group = ar.id_group
                and gsm.vt_start <= ar.vt_end
                and gsm.vt_end > ar.vt_end
-               and gsm.tt_end = dbo.mtmaxdate ()
                and ar.status = 0)
-where  exists (
-          select 1
-          from   tmp_unsubscribe_batch ar
-          where      gsm.id_acc = ar.id_acc
-                 and gsm.id_group = ar.id_group
-                 and gsm.vt_start <= ar.vt_end
-                 and gsm.vt_end > ar.vt_end
-                 and gsm.tt_end = dbo.mtmaxdate ()
-                 and ar.status = 0);
+  when matched then update set gsm.tt_end = subtractsecond (ar.tt_now) where gsm.tt_end = dbo.mtmaxdate();
 
 /*  Now we delete any interval contained entirely in the interval we are deleting. */
 /*  Transaction table delete is really an update of the tt_end */
 /*    [----------------]                 (interval that is being modified) */
 /*  [------------------------]           (interval we are deleting) */
-update t_gsubmember_historical gsm
-set tt_end =
-       (select subtractsecond (ar.tt_now)
-        from   tmp_unsubscribe_batch ar
-        where      gsm.id_acc = ar.id_acc
+merge into t_gsubmember_historical gsm
+  using tmp_unsubscribe_batch ar
+  on (gsm.id_acc = ar.id_acc
                and gsm.id_group = ar.id_group
                and gsm.vt_start >= ar.vt_start
                and gsm.vt_end <= ar.vt_end
-               and gsm.tt_end = dbo.mtmaxdate ()
-               and status = 0)
-where  exists (
-          select 1
-          from   tmp_unsubscribe_batch ar
-          where      gsm.id_acc = ar.id_acc
-                 and gsm.id_group = ar.id_group
-                 and gsm.vt_start >= ar.vt_start
-                 and gsm.vt_end <= ar.vt_end
-                 and gsm.tt_end = dbo.mtmaxdate ()
-                 and status = 0);
-
+               and ar.status = 0)
+  when matched then update set gsm.tt_end = subtractsecond (ar.tt_now) where gsm.tt_end = dbo.mtmaxdate();
+  
 /*  Deal with current time table  */
 INSERT INTO t_gsubmember(id_group, id_acc, vt_start, vt_end) 
 SELECT gsm.id_group, gsm.id_acc, addsecond(ar.vt_end) AS vt_start, gsm.vt_end
@@ -118,41 +84,21 @@ ON gsm.id_acc = ar.id_acc AND gsm.id_group = ar.id_group AND gsm.vt_start < ar.v
 WHERE
 ar.status=0;
 
-update t_gsubmember gsm
-set vt_end =
-       (select subtractsecond (ar.vt_start)
-        from   tmp_unsubscribe_batch ar
-        where      gsm.id_acc = ar.id_acc
+merge into t_gsubmember gsm
+  using tmp_unsubscribe_batch ar
+  on (gsm.id_acc = ar.id_acc
                and gsm.id_group = ar.id_group
                and gsm.vt_start < ar.vt_start
-               and gsm.vt_end >= ar.vt_start
                and ar.status = 0)
-where  exists (
-          select 1
-          from   tmp_unsubscribe_batch ar
-          where      gsm.id_acc = ar.id_acc
-                 and gsm.id_group = ar.id_group
-                 and gsm.vt_start < ar.vt_start
-                 and gsm.vt_end >= ar.vt_start
-                 and ar.status = 0);
+  when matched then update set gsm.vt_end = subtractsecond (ar.vt_start) where gsm.vt_end >= ar.vt_start;
 
-update t_gsubmember gsm
-set vt_start =
-       (select addsecond (ar.vt_end)
-        from   tmp_unsubscribe_batch ar
-        where      gsm.id_acc = ar.id_acc
+merge into t_gsubmember gsm
+  using tmp_unsubscribe_batch ar
+  on (gsm.id_acc = ar.id_acc
                and gsm.id_group = ar.id_group
-               and gsm.vt_start <= ar.vt_end
                and gsm.vt_end > ar.vt_end
                and ar.status = 0)
-where  exists (
-          select addsecond (ar.vt_end)
-          from   tmp_unsubscribe_batch ar
-          where      gsm.id_acc = ar.id_acc
-                 and gsm.id_group = ar.id_group
-                 and gsm.vt_start <= ar.vt_end
-                 and gsm.vt_end > ar.vt_end
-                 and ar.status = 0);
+  when matched then update set gsm.vt_start = addsecond (ar.vt_end) where gsm.vt_start <= ar.vt_end;
 
 delete t_gsubmember gsm
 where exists (

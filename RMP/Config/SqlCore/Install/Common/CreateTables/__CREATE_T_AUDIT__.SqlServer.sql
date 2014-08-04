@@ -10,4 +10,4 @@
 				dt_crt datetime NOT NULL,
 				CONSTRAINT PK_t_audit PRIMARY KEY CLUSTERED (id_audit)
 				)
-		
+      CREATE INDEX idx_t_audit_dt_crt on t_audit(dt_crt desc)

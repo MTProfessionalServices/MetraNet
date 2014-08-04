@@ -154,6 +154,8 @@
 		where id_acc=@idAcc
 		and vt_start <= @dtEnd and vt_end >= @dtBegin)
 		and s1.num_generations between 0 and 0
+		and 
+		%%CURRENCY%%
 		group by
 		au.id_prod,
 		bpd2.nm_display_name,

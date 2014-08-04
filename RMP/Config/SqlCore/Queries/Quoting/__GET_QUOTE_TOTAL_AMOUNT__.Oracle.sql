@@ -13,11 +13,9 @@ FROM
 			(CASE WHEN au.tax_county IS NULL THEN 0 ELSE SUM(au.tax_county) END) +
 			(CASE WHEN au.tax_local IS NULL THEN 0 ELSE SUM(au.tax_local) END) +
 			(CASE WHEN au.tax_other IS NULL THEN 0 ELSE SUM(au.tax_other) END) AS TaxTotal_		 
-	FROM t_acc_usage au
+	FROM t_acc_usage_quoting au
 	WHERE 
-		au.id_acc in (%%ACCOUNTS%%) 
-		and au.id_usage_interval = %%USAGE_INTERVAL%% 
-		and au.id_prod in (%%POS%%)
+		au.quote_id = %%QUOTE_ID%%		
 	GROUP BY 
 			au.tax_federal,
 			au.tax_state,

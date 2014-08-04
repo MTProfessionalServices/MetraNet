@@ -1,20 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xmlconfig>
     <AccountType>
-        <Name>AllTypes</Name>
-        <Description>This is compound account type which should include all available account views</Description>
+        <Name>Container</Name>
+        <Description>Container account to be used to segment accounts by function under a Partition</Description>
         <ServiceDefinitions>
             <ServiceDef>
                 <Operation>metratech.com/accountcreation/operation/Add</Operation>
                 <Name>metratech.com/accountcreation</Name>
             </ServiceDef>
+            <ServiceDef>
+                <Operation>metratech.com/accountcreation/operation/Update</Operation>
+                <Name>metratech.com/accountcreation</Name>
+            </ServiceDef>
         </ServiceDefinitions>
-        <CanBePayer>False</CanBePayer>
+        <CanBePayer>True</CanBePayer>
         <CanSubscribe>True</CanSubscribe>
         <CanHaveSyntheticRoot>False</CanHaveSyntheticRoot>
         <CanParticipateInGSub>True</CanParticipateInGSub>
         <CanHaveTemplates>True</CanHaveTemplates>
-        <IsVisibleInHierarchy>False</IsVisibleInHierarchy>
+        <IsVisibleInHierarchy>True</IsVisibleInHierarchy>
         <IsCorporate>False</IsCorporate>
         <AccountViews>
             <AdapterSet>
@@ -28,26 +32,20 @@
                 <ConfigFile>metratech.com/contact</ConfigFile>
             </AdapterSet>
         </AccountViews>
-        <DirectDescendentAccountTypes></DirectDescendentAccountTypes>
-        <DirectAncestorAccountTypes>
-            <Ancestor>
-                <Name>CorporateAccount</Name>
-            </Ancestor>
-            <Ancestor>
+        <DirectDescendentAccountTypes>
+            <Descendent>
                 <Name>CoreSubscriber</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>IndependentAccount</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>Root</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>AllTypes</Name>
-            </Ancestor>
-            <Ancestor>
+            </Descendent>
+            <Descendent>
                 <Name>DepartmentAccount</Name>
-            </Ancestor>
-        </DirectAncestorAccountTypes>
+            </Descendent>
+            <Descendent>
+                <Name>SystemAccount</Name>
+            </Descendent>
+            <Descendent>
+                <Name>CorporateAccount</Name>
+            </Descendent>
+        </DirectDescendentAccountTypes>
+        <DirectAncestorAccountTypes />
     </AccountType>
 </xmlconfig>

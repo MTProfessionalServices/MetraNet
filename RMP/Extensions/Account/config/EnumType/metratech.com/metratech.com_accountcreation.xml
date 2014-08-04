@@ -84,6 +84,9 @@
                         <entry name="Detailed">
                             <value>2</value>
                         </entry>
+                        <entry name="StandardWithBillMessages">
+                            <value>3</value>
+                        </entry>
                     </entries>
                 </enum>
                 <enum name="AccountStatus">

@@ -17,7 +17,8 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Tax]]></Value>
+                <LocalizationTag>TEXT_TAX</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Name></Name>
@@ -37,7 +38,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_TAX_VENDOR</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -54,7 +58,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_TAX_SERVICE_ADDRESS_PCODE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -71,7 +78,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_METRATAX_COUNTRY_ELIGIBILITY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -88,7 +98,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_METRATAX_COUNTRY_ZONE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -105,7 +118,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_METRATAX_HAS_OVERRIDE_BAND</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -122,7 +138,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_METRATAX_OVERRIDE_BAND</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -143,7 +162,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_TAX_REGISTRY_REFERENCE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -177,7 +199,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_TAX_EXEMPT_REASON</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -194,7 +219,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_TAX_EXEMPT_START_DATE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -211,7 +239,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_TAX_EXEMPT_END_DATE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -228,7 +259,10 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>

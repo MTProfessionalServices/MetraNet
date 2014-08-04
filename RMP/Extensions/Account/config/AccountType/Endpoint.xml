@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xmlconfig>
     <AccountType>
-        <Name>AllTypes</Name>
-        <Description>This is compound account type which should include all available account views</Description>
+        <Name>Endpoint</Name>
+        <Description>Service Endpoint account</Description>
         <ServiceDefinitions>
             <ServiceDef>
                 <Operation>metratech.com/accountcreation/operation/Add</Operation>
+                <Name>metratech.com/accountcreation</Name>
+            </ServiceDef>
+            <ServiceDef>
+                <Operation>metratech.com/accountcreation/operation/Update</Operation>
                 <Name>metratech.com/accountcreation</Name>
             </ServiceDef>
         </ServiceDefinitions>
@@ -13,8 +17,8 @@
         <CanSubscribe>True</CanSubscribe>
         <CanHaveSyntheticRoot>False</CanHaveSyntheticRoot>
         <CanParticipateInGSub>True</CanParticipateInGSub>
-        <CanHaveTemplates>True</CanHaveTemplates>
-        <IsVisibleInHierarchy>False</IsVisibleInHierarchy>
+        <CanHaveTemplates>False</CanHaveTemplates>
+        <IsVisibleInHierarchy>True</IsVisibleInHierarchy>
         <IsCorporate>False</IsCorporate>
         <AccountViews>
             <AdapterSet>
@@ -31,22 +35,7 @@
         <DirectDescendentAccountTypes></DirectDescendentAccountTypes>
         <DirectAncestorAccountTypes>
             <Ancestor>
-                <Name>CorporateAccount</Name>
-            </Ancestor>
-            <Ancestor>
                 <Name>CoreSubscriber</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>IndependentAccount</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>Root</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>AllTypes</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>DepartmentAccount</Name>
             </Ancestor>
         </DirectAncestorAccountTypes>
     </AccountType>

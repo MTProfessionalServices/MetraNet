@@ -1,21 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xmlconfig>
     <AccountType>
-        <Name>AllTypes</Name>
-        <Description>This is compound account type which should include all available account views</Description>
+        <Name>Partition</Name>
+        <Description>Partition Account</Description>
         <ServiceDefinitions>
             <ServiceDef>
                 <Operation>metratech.com/accountcreation/operation/Add</Operation>
                 <Name>metratech.com/accountcreation</Name>
             </ServiceDef>
+            <ServiceDef>
+                <Operation>metratech.com/accountcreation/operation/Update</Operation>
+                <Name>metratech.com/accountcreation</Name>
+            </ServiceDef>
         </ServiceDefinitions>
-        <CanBePayer>False</CanBePayer>
+        <CanBePayer>True</CanBePayer>
         <CanSubscribe>True</CanSubscribe>
         <CanHaveSyntheticRoot>False</CanHaveSyntheticRoot>
         <CanParticipateInGSub>True</CanParticipateInGSub>
         <CanHaveTemplates>True</CanHaveTemplates>
-        <IsVisibleInHierarchy>False</IsVisibleInHierarchy>
-        <IsCorporate>False</IsCorporate>
+        <IsVisibleInHierarchy>True</IsVisibleInHierarchy>
+        <IsCorporate>True</IsCorporate>
         <AccountViews>
             <AdapterSet>
                 <Name>Internal</Name>
@@ -28,25 +32,14 @@
                 <ConfigFile>metratech.com/contact</ConfigFile>
             </AdapterSet>
         </AccountViews>
-        <DirectDescendentAccountTypes></DirectDescendentAccountTypes>
+        <DirectDescendentAccountTypes>
+            <Descendent>
+                <Name>Container</Name>
+            </Descendent>
+        </DirectDescendentAccountTypes>
         <DirectAncestorAccountTypes>
             <Ancestor>
-                <Name>CorporateAccount</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>CoreSubscriber</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>IndependentAccount</Name>
-            </Ancestor>
-            <Ancestor>
                 <Name>Root</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>AllTypes</Name>
-            </Ancestor>
-            <Ancestor>
-                <Name>DepartmentAccount</Name>
             </Ancestor>
         </DirectAncestorAccountTypes>
     </AccountType>

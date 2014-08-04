@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
   <language_code>pt-br</language_code>
   <locale_space name="metratech.com/accountcreation">
@@ -121,11 +120,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-      <Value>ApplyAccountTemplate</Value>
+      <Value>Aplicar modelo de conta</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
       <Value>Aplicar política de segurança padrão</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
+      <Value>Autenticação LDAP</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
+      <Value>Autenticação MetraNet</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/billable</Name>
@@ -144,15 +151,15 @@
       <Value>Tipo de contato</Value>
     </locale_entry>
     <locale_entry>
-      <Name>metratech.com/accountcreation/contacttype/bill-to</Name>
+      <Name>metratech.com/accountcreation/ContactType/Bill-To</Name>
       <Value>Destinatário da fatura</Value>
     </locale_entry>
     <locale_entry>
-      <Name>metratech.com/accountcreation/contacttype/none</Name>
+      <Name>metratech.com/accountcreation/ContactType/None</Name>
       <Value>Nenhum</Value>
     </locale_entry>
     <locale_entry>
-      <Name>metratech.com/accountcreation/contacttype/ship-to</Name>
+      <Name>metratech.com/accountcreation/ContactType/Ship-To</Name>
       <Value>Destinatário da mercadoria</Value>
     </locale_entry>
     <locale_entry>
@@ -218,6 +225,10 @@
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/Standard</Name>
       <Value>Padrão</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
+      <Value>Padrão com mensagens de fatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/Language</Name>
@@ -320,6 +331,10 @@
       <Value>Pergunta de segurança</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
+      <Value>Qual é o nome da primeira escola que você cursou?</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>
       <Value>Nome de solteira da mãe</Value>
     </locale_entry>
@@ -405,11 +420,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/transactioncookie</Name>
-      <Value>Transactioncookie</Value>
+      <Value>Cookie de transação</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-      <Value>TruncateOldSubscriptions</Value>
+      <Value>TruncarAssinaturasVelhos</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/usagecycletype</Name>
@@ -422,18 +437,6 @@
     <locale_entry>
       <Name>metratech.com/accountcreation/zip</Name>
       <Value>CEP</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-      <Value>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
-      <Value>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
-      <Value>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

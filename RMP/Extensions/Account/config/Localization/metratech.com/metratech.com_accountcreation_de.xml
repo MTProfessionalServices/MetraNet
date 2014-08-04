@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
   <language_code>de</language_code>
   <locale_space name="metratech.com/accountcreation">
@@ -21,7 +20,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Active</Name>
-      <Value>Active</Value>
+      <Value>[DE]Active</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Archived</Name>
@@ -29,15 +28,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Closed</Name>
-      <Value>Closed</Value>
+      <Value>[DE]Closed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingActiveApproval</Name>
-      <Value>PendingActiveApproval</Value>
+      <Value>[DE]PendingActiveApproval</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingFinalBill</Name>
-      <Value>PendingFinalBill</Value>
+      <Value>[DE]PendingFinalBill</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Suspended</Name>
@@ -85,7 +84,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ActionType/Account</Name>
-      <Value>Account</Value>
+      <Value>[DE]Account</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ActionType/Both</Name>
@@ -121,11 +120,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-      <Value>ApplyAccountTemplate</Value>
+      <Value>[DE]ApplyAccountTemplate</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
       <Value>Standard Security Policy Zuweissen</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
+      <Value>[DE]LDAP Authentication</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
+      <Value>[DE]MetraNet Authentication</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/billable</Name>
@@ -217,7 +224,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/Standard</Name>
-      <Value>Standard</Value>
+      <Value>[DE]Standard</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
+      <Value>[DE]Standard With Bill Messages</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/Language</Name>
@@ -320,8 +331,12 @@
       <Value>Sicherheitsfrage</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
+      <Value>[DE]What is the name of the first school you attended?</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>
-      <Value>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Value>
+      <Value>[DE]What was your childhood nickname?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/None</Name>
@@ -329,11 +344,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/PIN</Name>
-      <Value>metratech.com/accountcreation/SecurityQuestion/PIN</Value>
+      <Value>[DE]What was the name of your first car?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/SSN</Name>
-      <Value>metratech.com/accountcreation/SecurityQuestion/SSN</Value>
+      <Value>[DE]What school did you attend for sixth grade?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/startday</Name>
@@ -422,18 +437,6 @@
     <locale_entry>
       <Name>metratech.com/accountcreation/zip</Name>
       <Value>Postleitzahl</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-      <Value>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
-      <Value>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
-      <Value>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
   <language_code>es-mx</language_code>
   <locale_space name="metratech.com/accountcreation">
@@ -33,11 +32,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingActiveApproval</Name>
-      <Value>PendingActiveApproval</Value>
+      <Value>[es-MX]PendingActiveApproval</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingFinalBill</Name>
-      <Value>PendingFinalBill</Value>
+      <Value>[es-MX]PendingFinalBill</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Suspended</Name>
@@ -121,11 +120,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-      <Value>ApplyAccountTemplate</Value>
+      <Value>[es-MX]ApplyAccountTemplate</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
       <Value>Aplicar política de seguridad predeterminada</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
+      <Value>[es-MX]LDAP Authentication</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
+      <Value>[es-MX]MetraNet Authentication</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/billable</Name>
@@ -144,15 +151,15 @@
       <Value>Tipo de contacto</Value>
     </locale_entry>
     <locale_entry>
-      <Name>metratech.com/accountcreation/contacttype/bill-to</Name>
+      <Name>metratech.com/accountcreation/ContactType/Bill-To</Name>
       <Value>Facturar a</Value>
     </locale_entry>
     <locale_entry>
-      <Name>metratech.com/accountcreation/contacttype/none</Name>
+      <Name>metratech.com/accountcreation/ContactType/None</Name>
       <Value>Ninguno(a)</Value>
     </locale_entry>
     <locale_entry>
-      <Name>metratech.com/accountcreation/contacttype/ship-to</Name>
+      <Name>metratech.com/accountcreation/ContactType/Ship-To</Name>
       <Value>Enviar a</Value>
     </locale_entry>
     <locale_entry>
@@ -218,6 +225,10 @@
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/Standard</Name>
       <Value>Estándar</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
+      <Value>[es-MX]Standard With Bill Messages</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/Language</Name>
@@ -320,6 +331,10 @@
       <Value>Pregunta de seguridad</Value>
     </locale_entry>
     <locale_entry>
+      <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
+      <Value>[es-MX]What is the name of the first school you attended?</Value>
+    </locale_entry>
+    <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>
       <Value>Nombre de soltera de la madre</Value>
     </locale_entry>
@@ -405,11 +420,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/transactioncookie</Name>
-      <Value>Transactioncookie</Value>
+      <Value>[es-MX]Transactioncookie</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-      <Value>TruncateOldSubscriptions</Value>
+      <Value>[es-MX]TruncateOldSubscriptions</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/usagecycletype</Name>
@@ -422,18 +437,6 @@
     <locale_entry>
       <Name>metratech.com/accountcreation/zip</Name>
       <Value>Código postal</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-      <Value>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
-      <Value>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
-      <Value>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

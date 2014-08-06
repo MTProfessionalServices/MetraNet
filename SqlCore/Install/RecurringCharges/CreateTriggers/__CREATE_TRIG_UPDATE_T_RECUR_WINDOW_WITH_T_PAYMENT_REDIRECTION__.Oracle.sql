@@ -60,7 +60,7 @@ insert into tmp_newrw
   FROM t_recur_window
   WHERE EXISTS
     (SELECT 1
-    FROM tmp_newrw orw where
+    FROM tmp_oldrw orw where
     t_recur_window.c__PayingAccount      = orw.c__PayingAccount
     AND t_recur_window.c__ProductOfferingID = orw.c__ProductOfferingID
     AND t_recur_window.c_PayerStart         = orw.c_PayerStart

@@ -30,22 +30,19 @@ function onDetails()
       <asp:Panel ID="pnlLogin" runat="server" Width="252px">
         <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" 
           DisplayRememberMe="False" TitleText="" meta:resourcekey="Login1Resource1">
-          <LabelStyle Font-Bold="True" HorizontalAlign="Right" /> <LoginButtonStyle CssClass="button" />
+          <LabelStyle Font-Bold="True" HorizontalAlign="Right" /> <LoginButtonStyle CssClass="button" /><FailureTextStyle ForeColor="#B22222"></FailureTextStyle>
         </asp:Login>
       </asp:Panel>
       
       <asp:Panel ID="pnlChangePassword" runat="server" Visible="False">
-        <asp:Label ID="lblMessage" runat="server" Text="Your Password Expired" ForeColor="Red" meta:resourcekey="lblMessageResource1"></asp:Label>
-        &nbsp;&nbsp;
-        <a href="javascript:onDetails();"><asp:Label ID="lblDetails" runat="server" Text="details" meta:resourcekey="lblDetailsResource1"></asp:Label></a>
-        <div id="reasonText" runat="server" style="display:none">
-          <asp:Label ID="lblPleaseChange" runat="server" Text="Please change your password" meta:resourcekey="lblPleaseChangeResource1"></asp:Label>
-        </div>
+        <asp:Label ID="lblMessage" runat="server" Text="Your Password Expired" ForeColor="#B22222" meta:resourcekey="lblMessageResource1"></asp:Label>
+        
         <MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="150" Listeners="{}" ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbUserNameResource1" />
         <MT:MTTextBoxControl ID="tbOldPassword" runat="server" AllowBlank="False" Label="Old Password" OptionalExtConfig="inputType:'password'" TabIndex="110" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="150" Listeners="{}"  ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbOldPasswordResource1" />
         <MT:MTPasswordMeter ID="tbNewPassword" runat="server" AllowBlank="False" Label="New Password" TabIndex="120" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="150" Listeners="{}" ReadOnly="False" XType="PasswordMeter" XTypeNameSpace="ux" LabelSeparator=":" meta:resourcekey="tbNewPasswordResource1" />
         <MT:MTTextBoxControl ID="tbConfirmPassword" runat="server" AllowBlank="False" Label="Confirm Password" OptionalExtConfig="inputType:'password',initialPassField:'ctl00_ContentPlaceHolder1_tbNewPassword'" TabIndex="130" VType="password" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="150" Listeners="{}"  ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbConfirmPasswordResource1" />
     
+        <div id="reasonText" class="inner" runat="server" style="color: #B22222" ></div>
         <div class="Buttons" style="text-align:left">
            <br />   
            <asp:Button CssClass="button" ID="btnOK" OnClientClick="return ValidateForm();" Width="70px" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="150" meta:resourcekey="btnOKResource1" />&nbsp;&nbsp;&nbsp;

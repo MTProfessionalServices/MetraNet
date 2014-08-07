@@ -130,7 +130,7 @@
     <value>j/n/Y g:i:s A|j/n/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y g:i:s A</value>
+    <value>j/n/Y g:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>mm/dd/YYYY</value>
@@ -707,5 +707,5 @@
   </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
     <value>No Transactions Found for the Current Interval</value>
-  </data>  
+  </data>
 </root>

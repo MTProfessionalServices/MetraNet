@@ -7,7 +7,7 @@
                     Return To Previous Search Results
                     </a>
                     <img src="/MCM/default/localized/en-us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
-                    <xsl:attribute name="OnClick">NavigateToPreviousSearchResults();</xsl:attribute>
+                    <xsl:attribute name="OnClick">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
                     </img>
       <!-- PO Properties -->
       <br/>

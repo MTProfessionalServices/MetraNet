@@ -50,11 +50,14 @@ public partial class UserControls_UsageGraph : System.Web.UI.UserControl
       ReportLevel = billManager.GetByFolderReport(UI.Subscriber.SelectedAccount._AccountID, null);
 
     var acc = 0;
-    if (ReportLevel.FolderSlice != null)
+    var slice = ReportLevel.FolderSlice as PayeeAccountSlice;
+    if (slice != null)
     {
-      acc = (int)((PayeeAccountSlice)ReportLevel.FolderSlice).PayeeID.AccountID;
+      var accountId =  slice.PayeeID.AccountID;
+      if (accountId != null)
+        acc = (int)accountId;
     }
-    
+
     var childrenLevels = new MTList<ReportLevel>();
     var sortCriteria = new SortCriteria("Amount", SortType.Descending);
     childrenLevels.SortCriteria.Add(sortCriteria);

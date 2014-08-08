@@ -23,6 +23,7 @@
                 <Value><![CDATA[Report Instance Details ]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -44,6 +45,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -63,6 +65,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -82,6 +85,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -92,7 +96,7 @@
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
                             <EditorValidation>
-                                <Required>false</Required>
+                                <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
@@ -101,6 +105,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -111,7 +116,7 @@
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
                             <EditorValidation>
-                                <Required>false</Required>
+                                <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
@@ -120,6 +125,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -139,6 +145,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -162,6 +169,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -181,6 +189,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -200,6 +209,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -219,6 +229,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -238,6 +249,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -257,10 +269,144 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+        <Section>
+            <Title>
+                <Value><![CDATA[Export File Destination]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>ReportDistributionType</ID>
+                            <Name>ReportDistributionType</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Output File Distribution Method ]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>ReportDestination</ID>
+                            <Name>ReportDestination</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Report Destination]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>FTPAccessUser</ID>
+                            <Name>FTPAccessUser</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[FTP Access User]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>FTPAccessPassword</ID>
+                            <Name>FTPAccessPassword</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTPasswordMeter</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[FTP Access Password]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>bGenerateControlFile</ID>
+                            <Name>bGenerateControlFile</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Generate Control File]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>ControlFileDeliveryLocation</ID>
+                            <Name>ControlFileDeliveryLocation</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Control File Location]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

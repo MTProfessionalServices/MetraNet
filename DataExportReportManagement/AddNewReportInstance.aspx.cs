@@ -20,6 +20,7 @@ using MetraTech.UI.Common;
 using System.ServiceModel;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Security.Crypto;
+using MetraTech.UI.Controls;
 
 
 public partial class DataExportReportManagement_AddNewReportInstance : MTPage
@@ -33,8 +34,12 @@ public partial class DataExportReportManagement_AddNewReportInstance : MTPage
   public string strincomingReportId { get; set; } //so we can read it any time in the session 
   public int intincomingReportID { get; set; }
   public string strincomingReportTitle { get; set; }
-  
-  
+
+  protected void Page_LoadComplete(object sender, EventArgs e)
+  {
+    PopulateReportDistributionTypeDropDownControls();
+
+  }
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -66,24 +71,7 @@ public partial class DataExportReportManagement_AddNewReportInstance : MTPage
         Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
       }
 
-      if (ddDistributionType.SelectedValue == "FTP")
-      {
-        tbFTPUser.Visible = true;
-        pmFTPPassword.Visible = true;
-        chkGenerateControlFile.Visible = true;
-        tbControlFileLocation.Visible = true;
-        tbReportDestination.Visible = true;
-      }
-      else
-      {
-        tbFTPUser.Visible = false;
-        pmFTPPassword.Visible = false;
-        chkGenerateControlFile.Visible = false;
-        tbControlFileLocation.Visible = false;
-        tbReportDestination.Visible = true;
-      }
-
-      
+     
     }
   }
 
@@ -239,6 +227,7 @@ public partial class DataExportReportManagement_AddNewReportInstance : MTPage
     }
 
 
+   /*
     protected void ddDistributionType_SelectedIndexChanged(object sender, EventArgs e)
     {
 
@@ -261,11 +250,26 @@ public partial class DataExportReportManagement_AddNewReportInstance : MTPage
       }
 
     }
-
+  */
     protected void btnCancel_Click(object sender, EventArgs e)
     {
 
       Response.Redirect("ManageReportInstances.aspx?reportid=" + strincomingReportId, false);
       
     }
+
+    #region
+    private void PopulateReportDistributionTypeDropDownControls()
+    {
+      MTDropDown ddReportDistributionType = FindControlRecursive(MTGenericForm1, "ddReportDistributionType") as MTDropDown;
+
+      if (ddReportDistributionType != null)
+      {
+        ddReportDistributionType.Listeners = "{select:ddReportDistributionTypeSelected}";
+      }
+
     }
+
+    #endregion
+
+}

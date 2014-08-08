@@ -20,6 +20,23 @@ using MetraTech.UI.Common;
 using System.ServiceModel;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Security.Crypto;
+using MetraTech.UI.Controls;
+
+
+using System.Linq;
+using MetraTech.DataAccess;
+using System.Reflection;
+using System.Xml;
+using System.Text;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
 
 
 
@@ -38,6 +55,12 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
   public int intincomingReportID { get; set; }
   public string strincomingAction { get; set; } //so we can read it any time in the session 
 
+
+  protected void Page_LoadComplete(object sender, EventArgs e)
+  {
+    PopulateReportDistributionTypeDropDownControls();
+
+  }
   protected void Page_Load(object sender, EventArgs e)
   {
     strincomingReportInstanceId = Request.QueryString["idreportinstance"];
@@ -75,7 +98,8 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
 
       try
       {
-        GetReportInstanceInfo();       
+        GetReportInstanceInfo();
+
       }
                 
 
@@ -85,33 +109,15 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
         this.Logger.LogError(ex.Message);
         //client.Abort();
       }
-      
-      //ddDistributionType_SelectedIndexChanged(object sender, EventArgs e);
 
-      if (!MTDataBinder1.DataBind())
+
+
+   if (!MTDataBinder1.DataBind())
       {
         Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
       }
 
-
-      if (ddDistributionType.SelectedValue == "FTP")
-      {
-        tbFTPUser.Visible = true;
-        pmFTPPassword.Visible = true;
-        chkGenerateControlFile.Visible = true;
-        tbControlFileLocation.Visible = true;
-        tbReportDestination.Visible = true;
-      }
-      else
-      {
-        tbFTPUser.Visible = false;
-        pmFTPPassword.Visible = false;
-        chkGenerateControlFile.Visible = false;
-        tbControlFileLocation.Visible = false;
-        tbReportDestination.Visible = true;
-      }
-
-
+   
     }
   }
 
@@ -310,38 +316,34 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-      //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
-      Response.Redirect("ManageReportInstances.aspx?reportid="+strincomingReportId, false);
+        //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
+        Response.Redirect("ManageReportInstances.aspx?reportid="+strincomingReportId, false);
     }
 
     protected void btnManageInstanceParameterValues_Click(object sender, EventArgs e)
-    {
-      //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
-      Response.Redirect("ManageReportInstanceParameterValues.aspx?reportinstanceid=" + strincomingReportInstanceId, false);
-    }
-
-    protected void ddDistributionType_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-      if (ddDistributionType.SelectedValue == "FTP")
       {
-        tbFTPUser.Visible = true;
-        pmFTPPassword.Visible = true;
-        chkGenerateControlFile.Visible = true;
-        tbControlFileLocation.Visible = true;
-        tbReportDestination.Visible = true;
-      }
-      else
-      {
-        tbFTPUser.Visible = false;
-        pmFTPPassword.Visible = false;
-        chkGenerateControlFile.Visible = false;
-        tbControlFileLocation.Visible = false;
-        tbReportDestination.Visible = true;
-
+        //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
+        Response.Redirect("ManageReportInstanceParameterValues.aspx?reportinstanceid=" + strincomingReportInstanceId, false);
       }
 
+    #region 
+    private void PopulateReportDistributionTypeDropDownControls()
+    {
+      MTDropDown ddReportDistributionType = FindControlRecursive(MTGenericForm1, "ddReportDistributionType") as MTDropDown;
+      
+      if (ddReportDistributionType != null)
+      {
+        ddReportDistributionType.Listeners = "{select:ddReportDistributionTypeSelected}";
+      }
+
+      //Bind the database values to the drop down selected values
+      //ddReportDistributionType.SelectedValue = exportreportinstance.ReportDistributionType.ToString();
     }
 
+    #endregion
+  
+ 
 
 }
+
+

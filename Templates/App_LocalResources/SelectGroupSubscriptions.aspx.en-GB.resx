@@ -174,4 +174,13 @@
   <data name="WARNONEBCR" xml:space="preserve">
     <value>Warn On EBCR Start Date Change</value>
   </data>
+  <data name="EndDateResource1.Label" xml:space="preserve">
+    <value>Subscriptions End Date</value>
+  </data>
+  <data name="StartDateResource1.Label" xml:space="preserve">
+    <value>Subscriptions Start Date</value>
+  </data>
+  <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
+    <value>Subscription Span</value>
+  </data>
 </root>

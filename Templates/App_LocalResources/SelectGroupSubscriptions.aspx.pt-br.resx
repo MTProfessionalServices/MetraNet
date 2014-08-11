@@ -174,4 +174,13 @@
   <data name="WARNONEBCR" xml:space="preserve">
     <value>Avisar sobre alteração de data de início de EBCR</value>
   </data>
+  <data name="EndDateResource1.Label" xml:space="preserve">
+    <value>Data Assinaturas Fim</value>
+  </data>
+  <data name="StartDateResource1.Label" xml:space="preserve">
+    <value>Assinaturas Data de Início</value>
+  </data>
+  <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
+    <value>Assinatura Span</value>
+  </data>
 </root>

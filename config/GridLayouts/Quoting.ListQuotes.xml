@@ -128,7 +128,7 @@
                 <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>65</Width>
+            <Width>75</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>true</PreventSortable>
             <Sortable>false</Sortable>

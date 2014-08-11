@@ -462,10 +462,4 @@ PRIVATE FUNCTION mcm_DefaultFilterValueHandler(sValue)
   end if
   
 END FUNCTION
-
-PUBLIC FUNCTION mcm_Format(varValue,strFormat)
-  Dim objTools
-  Set objTools  = CreateObject(MSIXTOOLS_PROG_ID)
-  mcm_Format    = objTools.Format(varValue,strFormat)
-END FUNCTION
 %>

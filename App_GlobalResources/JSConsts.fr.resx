@@ -135,6 +135,9 @@
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>
   </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>.</value>
+  </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Copier</value>
   </data>
@@ -1298,5 +1301,11 @@
   </data>
   <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
     <value>Pas de données disponibles</value>
-  </data>     
+  </data>
+  <data name="CURRENT_LOCALE" xml:space="preserve">
+    <value>fr-FR</value>
+  </data>
+  <data name="FRACTION_DIGITS" xml:space="preserve">
+    <value>2</value>
+  </data>
 </root>

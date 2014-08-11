@@ -8,7 +8,7 @@
           
           $.each($("#adjustmentSummary input:not([id$='adjAmountFldTaxToatl'])"), function() {
             var currentValue = this.value;
-            totalSum += Number(String(currentValue).replace(',', '.'));
+            totalSum += Number(parseValue(currentValue));
           });
 
           var regDecimal = /\./;
@@ -22,12 +22,10 @@
 
           $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");
 
-          var regOnlyDec = /\d+\.\d+$/;
-
           if (isNaN(totalSum))
             $("input[id$='adjAmountFldTaxToatl']").val("");
           else
-            $("input[id$='adjAmountFldTaxToatl']").val((parseFloat(totalSum).toFixed(2)).replace('.', DECIMAL_SEPARATOR));
+            $("input[id$='adjAmountFldTaxToatl']").val(parseFloat(totalSum).toLocaleString(CURRENT_LOCALE, {maximumFractionDigits: FRACTION_DIGITS, minimumFractionDigits: FRACTION_DIGITS}));
         }
       });
     });
@@ -47,6 +45,21 @@ function incrementButtonClickCount() {
 function resetButtonClickCount() {
   buttonClickCount = 0;
 }
+
+// private
+  // Can't call parseFloat() because value might be too large.
+  // Instead, just replaces decimal separator with standard '.' and checks for NaN.
+  // Returns number or empty string.
+  function parseValue (value) {
+    value = String(value).split(DECIMAL_SEPARATOR).join("_");
+    ;
+    ;
+    value = String(value).split(DIGIT_SEPARATOR + DIGIT_SEPARATOR).join("?")
+    value = String(value).split(DIGIT_SEPARATOR).join("")
+    value = String(value).split("_").join(".");
+    value = Number(value);
+    return isNaN(value) ? '' : value;
+  }
 
 // Use this function to ensure that only one button click gets executed on the page
 function checkButtonClickCount() {

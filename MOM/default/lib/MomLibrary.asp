@@ -601,11 +601,5 @@ FUNCTION mom_AddQuickSearchFieldsForAccounts(strMDMPropertyName)
    
    mom_AddQuickSearchFieldsForAccounts = TRUE
 END Function 
-
-PUBLIC FUNCTION mom_Format(varValue,strFormat)
-  Dim objTools
-  Set objTools  = CreateObject(MSIXTOOLS_PROG_ID)
-  mom_Format    = objTools.Format(varValue,strFormat)
-END FUNCTION
 %>
 

@@ -1078,47 +1078,55 @@ public class BillManager: System.Web.UI.TemplateControl
     if ((string) HttpContext.Current.Session[SiteConstants.View] == "details")
     {
       string uniqueId = null;
-      if(ReportParams.ReportView == ReportViewType.OnlineBill)
+      var payerAndPayee = level.FolderSlice as PayerAndPayeeSlice;
+      if (payerAndPayee != null)
       {
-        if (level.FolderSlice != null)
-          uniqueId = string.Format("{0}_{1}", ((PayerAndPayeeSlice) level.FolderSlice).PayeeAccountId.AccountID, Guid.NewGuid());
+        uniqueId = string.Format("{0}_{1}", payerAndPayee.PayeeAccountId.AccountID, Guid.NewGuid());
       }
       else
       {
-        if (level.FolderSlice != null)
-          uniqueId = string.Format("{0}_{1}", ((PayeeAccountSlice) level.FolderSlice).PayeeID.AccountID, Guid.NewGuid());
+        var payee = level.FolderSlice as PayeeAccountSlice;
+        if (payee != null)
+        {
+          uniqueId = string.Format("{0}_{1}", payee.PayeeID.AccountID, Guid.NewGuid());
+        }
       }
 
       // check if there are charges
       if (level.ProductOfferings == null && level.Charges == null && String.IsNullOrEmpty(level.Name))
       {
         sb.Append("<tr>");
-        sb.Append(String.Format("<td colspan \"2\" style=\"padding-left:{0}px;\">{1}</td>", indent*10,
+        sb.Append(String.Format("<td colspan \"2\" style=\"padding-left:{0}px;\">{1}</td>",
+                                indent*10,
                                 Resources.Resource.TEXT_NO_TRANSACTIONS_FOUND));
         sb.Append("</tr>");
         return;
       }
 
       sb.Append("<tr>");
-      sb.Append(String.Format("<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\" ext:currency=\"{5}\">{3}</a></td>", 
-                                indent * 10,
-                                uniqueId, 
-                                indent,
-                                // SECENG: CORE-4791 CLONE - MSOL BSS 31927 Online Bill - Stored XSS through the individual or tenant name associated with syndication orders (ESR for 31444)
-                                // Added HTML enecoding
-                                Utils.EncodeForHtml(level.Name),
-                                SliceConverter.ToString(level.AccountEffectiveDate), 
-                                level.Currency));
+      sb.Append(
+        String.Format(
+          "<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\" ext:currency=\"{5}\">{3}</a></td>",
+          indent*10,
+          uniqueId,
+          indent,
+          // SECENG: CORE-4791 CLONE - MSOL BSS 31927 Online Bill - Stored XSS through the individual or tenant name associated with syndication orders (ESR for 31444)
+          // Added HTML enecoding
+          Utils.EncodeForHtml(level.Name),
+          SliceConverter.ToString(level.AccountEffectiveDate),
+          level.Currency));
 
-      sb.Append(String.Format("<td class=\"{0}\">{1}</td>", GetAmountStyle(indent, isByProduct), level.DisplayAmountAsString));
+      sb.Append(String.Format("<td class=\"{0}\">{1}</td>",
+                              GetAmountStyle(indent, isByProduct),
+                              level.DisplayAmountAsString));
 
       sb.Append("</tr>");
       // this is the placeholder for dynamic content to be loaded
-      sb.Append(String.Format("<tr><td colspan=\"2\"><div id=\"{0}\"></div></td></tr>", uniqueId));  
+      sb.Append(String.Format("<tr><td colspan=\"2\"><div id=\"{0}\"></div></td></tr>", uniqueId));
       indent++;
     }
 
-    if(isByProduct)
+    if (isByProduct)
       sb = RenderReportLevelCharges(level, true, indent, ref sb);
   }
 

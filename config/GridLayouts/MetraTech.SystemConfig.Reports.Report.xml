@@ -41,7 +41,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath>\MetraNet\Reporting\js\Reports.js</CustomImplementationFilePath>
+    <CustomImplementationFilePath>~/Reporting/js/Reports.js</CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <SupportExportSelected>true</SupportExportSelected>
     <ShowFilterPanel>true</ShowFilterPanel>

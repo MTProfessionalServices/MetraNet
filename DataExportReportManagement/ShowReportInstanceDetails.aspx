@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Show Report Instance" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="ShowReportInstanceDetails.aspx.cs" Inherits="DataExportReportManagement_ShowReportInstanceDetails" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="Show Report Instance" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="ShowReportInstanceDetails.aspx.cs" Inherits="DataExportReportManagement_ShowReportInstanceDetails" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 

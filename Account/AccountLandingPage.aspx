@@ -21,6 +21,7 @@
     stroke: Green;
     stroke-width: 3px;
     stroke-dasharray: 2,1;
+    width: 10px;
   }
   .bullet .marker.bad
   {
@@ -557,7 +558,7 @@ white-space:nowrap;
           });
 
           svg = svg.append("g")
-            .attr("transform", "translate(" + margin.left + "," + (margin.top + 20) + ")")
+            .attr("transform", "translate(" + margin.left + "," + (margin.top + 30) + ")")
             .call(chart);
 
           var title = svg.append("g")
@@ -566,13 +567,13 @@ white-space:nowrap;
           title.append("text")
             .attr("class", "title")
             .attr("dx", "0.5em")
-            .attr("dy", "0.5em")
+            .attr("dy", "-0.3em")
             .text(function (d) { return d.title; });
 
           title.append("text")
             .attr("class", "subtitle")
-            .attr("dx", "-1em")
-            .attr("dy", "1.2em")
+            .attr("dx", "0.8em")
+            .attr("dy", "1em")
             .text(function (d) { return d.subtitle; });
 
           //title.append("text")

@@ -2,7 +2,7 @@ CREATE OR REPLACE FORCE VIEW VW_AUDIT_LOG
 AS
 SELECT
        audit1.dt_crt AS Time,
-          accmap1.nm_login
+       accmap1.nm_login
        || CASE accmap1.nm_login WHEN NULL THEN NULL ELSE '/' END
        || accmap1.nm_space
           AS username,
@@ -22,10 +22,8 @@ SELECT
            THEN b2.tx_namespace || '\' || b2.tx_name || '\' || b2.tx_sequence
            WHEN 9
            THEN accmap2.nm_login
-           ELSE
-              NULL
-        END)
-          EntityName,
+           ELSE NULL
+        END) EntityName,
        audit1.id_entity EntityId,
        audit1.id_entitytype EntityType,
        auditdetail.tx_details Details,
@@ -46,19 +44,17 @@ SELECT
           ON auditevent.id_desc = d.id_desc AND d.id_lang_code = 840
        INNER JOIN t_account_mapper accmap1 ON audit1.id_userid = accmap1.id_acc
        -- CORE-5043 add filtering account aliases
-       INNER JOIN t_namespace ns1 ON accmap1.nm_space  = ns1.nm_space
-              AND ns1.tx_typ_space != 'metered'
-              AND ns1.tx_typ_space != 'system_ar'
+       INNER JOIN t_namespace ns1 
+         ON accmap1.nm_space  = ns1.nm_space
+        AND lower(ns1.tx_typ_space) != 'metered'
+        AND lower(ns1.tx_typ_space) != 'system_ar'
        LEFT OUTER JOIN t_audit_details auditdetail
          ON audit1.id_audit = auditdetail.id_audit
        /* Handle different entity types below */
        LEFT OUTER JOIN t_account_mapper accmap2
          ON audit1.id_entitytype IN (1, 9)
         AND audit1.id_entity = accmap2.id_acc
-        -- CORE-5043 add filtering account aliases
-       INNER JOIN t_namespace ns2 ON accmap2.nm_space  = ns2.nm_space
-              AND ns2.tx_typ_space != 'metered'
-              AND ns2.tx_typ_space != 'system_ar'
+        AND accmap2.nm_space NOT IN (select nm_space from t_namespace where lower(tx_typ_space) in ('metered', 'system_ar'))
        LEFT OUTER JOIN t_base_props bp2
          ON audit1.id_entitytype = 2
         AND audit1.id_entity = bp2.id_prop

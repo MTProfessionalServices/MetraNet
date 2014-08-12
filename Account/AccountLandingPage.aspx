@@ -21,7 +21,6 @@
     stroke: Green;
     stroke-width: 3px;
     stroke-dasharray: 2,1;
-    width: 10px;
   }
   .bullet .marker.bad
   {

@@ -82,8 +82,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
         {
           o = changeDetailsIn["groupSubscriptionId"];
           gsId = (int)o;
-        }        
-
+        }
         //Now get the specific info for this change   
         ProdCatTimeSpan timeSpan = null;
         if (changeDetailsIn.ContainsKey("subscriptionSpan"))
@@ -104,6 +103,10 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
             foreach (var account in accountsAsDictionary)
             {
               GroupSubscriptionChangeDetailsDisplay changeDetailsDisplay = new GroupSubscriptionChangeDetailsDisplay();
+              GroupSubscription gsub = new GroupSubscription();
+              gsClient.GetGroupSubscriptionDetail(gsId, out gsub);
+
+              changeDetailsDisplay.GroupSubName = (gsub.Name == null) ? "" : gsub.Name;
               changeDetailsDisplay.GroupSubId = gsId;
               changeDetailsDisplay.MemberId = (account.Key.AccountID == null) ? -1 : (int)account.Key.AccountID;
               if (timeSpan != null)
@@ -176,9 +179,13 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
 
     private GroupSubscriptionChangeDetailsDisplay HandleGroupSubMember(GroupSubscriptionMember account, int gsId, GroupSubscriptionServiceClient gsClient)
     {
+      GroupSubscription gsub = new GroupSubscription();
+      gsClient.GetGroupSubscriptionDetail(gsId, out gsub);
       GroupSubscriptionChangeDetailsDisplay changeDetailsDisplay = new GroupSubscriptionChangeDetailsDisplay();
       changeDetailsDisplay.GroupSubId = (account.GroupId == null) ? gsId : (int)account.GroupId;
       changeDetailsDisplay.MemberId = (account.AccountId == null) ? -1 : (int)account.AccountId;
+      changeDetailsDisplay.GroupSubName = (gsub.Name == null) ? " " : gsub.Name;
+      changeDetailsDisplay.AccountName = (account.AccountName == null) ? " " : account.AccountName;
       ProdCatTimeSpan timeSpan = account.MembershipSpan;
       if (timeSpan != null)
       {

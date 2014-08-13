@@ -157,7 +157,7 @@
     <value>Início</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value></value>
+    <value>Tipo</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
     <value>Adicionar assinatura</value>

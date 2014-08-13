@@ -50,8 +50,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 
   ' Add dialog properties
   Service.Properties.Add "Payer",      "String",    256, TRUE,  ""                   
-  Service.Properties.Add "StartDate",  "TIMESTAMP", 0,   TRUE, Empty    
-  Service.Properties.Add "EndDate",    "TIMESTAMP", 0,   FALSE, Empty    	
+  Service.Properties.Add "StartDate",  "String", 0,   TRUE, Empty    
+  Service.Properties.Add "EndDate",    "String", 0,   FALSE, Empty    	
 	
   If FrameWork.IsInfinity(request.QueryString("OldStartDate")) Then
     Form("OldStartDate") = Empty
@@ -81,8 +81,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     End If  
   End If
 
-  Service.Properties("StartDate").Value = CDate(Form("OldStartDate"))
-	Service.Properties("EndDate").Value = CDate(Form("OldEndDate"))	
+  Service.Properties("StartDate").Value = mam_FormatDate(CDate(Form("OldStartDate")), mam_GetDictionary("DATE_FORMAT")) 
+	Service.Properties("EndDate").Value = mam_FormatDate(CDate(Form("OldEndDate")), mam_GetDictionary("DATE_FORMAT"))	
 			 
 	' Set Captions 
   Service.Properties("Payer").caption = mam_GetDictionary("TEXT_ACCOUNTS")

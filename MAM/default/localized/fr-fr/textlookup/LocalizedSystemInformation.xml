@@ -80,7 +80,7 @@ This string is the replaced string. Here we do not hard code mam but we use the 
   </text>    
 
     <text id="BILLING_CYCLE_BI_WEEKLY_COMBOX_BOX_FORMAT">
-   <value>[LABEL] : [START_DATE] - [END_DATE] ([MONTH]/[DAY]/[YEAR])</value>            
+   <value>[LABEL] : [START_DATE] - [END_DATE] ([DAY]/[MONTH]/[YEAR])</value>            
       <description>
 Dialog DefaultDialogAddAccount.asp, The Billing Cycle BiWeekLy show a combo box with 14 periodes or less. 
 This entry allow to customize the display of the periode information. See the Billing Cycle documentation for more help.

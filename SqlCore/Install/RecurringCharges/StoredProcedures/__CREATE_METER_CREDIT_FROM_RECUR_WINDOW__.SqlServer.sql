@@ -9,22 +9,22 @@ BEGIN
   DECLARE @newSubStart DATETIME,
           @newSubEnd   DATETIME,
           @curSubStart DATETIME,
-          @curSubEnd   DATETIME,          
-          @rcAction    nvarchar(20),
+          @curSubEnd   DATETIME,
           /* Borders of updated Sub.End range will stand for internal @subscriptionStart and @subscriptionEnd to charge this range. */
           @subscriptionStart        DATETIME,
           @subscriptionEnd          DATETIME,
+          @rcAction                 VARCHAR(20),
           @isEndDateUpdated         BIT = 0,
   /* TODO: Remove duplicated values once 1-st and 2-nd query is executed conditionally */
-          @rcAction2                nvarchar(20),
           /* Borders of updated Sub.Start range will stand for internal @subscriptionStart2 and @subscriptionEnd2 to charge this range. */
           @subscriptionStart2       DATETIME,
           @subscriptionEnd2         DATETIME,
+          @rcAction2                VARCHAR(20),
           @isStartDateUpdated       BIT = 0,
-  /* Values for full recharge of Arrears if End date update crosses EOP border */
+          /* Values for full recharge of Arrears if End date update crosses EOP border */
           @subscriptionStart3       DATETIME,
           @subscriptionEnd3         DATETIME,
-          @rcAction3                nvarchar(20)
+          @rcAction3                VARCHAR(20)
 
   /* Assuming only 1 subscription can be changed at a time */
   SELECT TOP 1 /* Using only 1-st PI of RC */
@@ -117,7 +117,8 @@ BEGIN
          rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
-         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         0                                                                                          AS IsArrearsRecalculation
          INTO #tmp_rc_1
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
@@ -189,7 +190,8 @@ BEGIN
          rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
-         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         0                                                                                          AS IsArrearsRecalculation
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
@@ -256,7 +258,8 @@ BEGIN
          rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
-         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         1                                                                                          AS IsArrearsRecalculation
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
@@ -289,14 +292,16 @@ BEGIN
               AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
          ui.dt_start < @currentDate
-         /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
+         /* Handle the case if this is an Arrears AND end date update crosses the EOP border */
          AND rw.c_advance <> 'Y' AND ui.dt_end BETWEEN @subscriptionStart AND @subscriptionEnd;
 
   /* Remove extra charges for RCs with No Proration (CORE-6789) */
   IF (@isEndDateUpdated = 1)
   BEGIN
     /* PIs, that starts outside of End Date Update range, should not be handled here */
-    DELETE FROM #tmp_rc_1 WHERE c_ProrateOnUnsubscription = '0' AND c_RCIntervalStart < @subscriptionStart
+    DELETE FROM #tmp_rc_1 WHERE c_ProrateOnUnsubscription = '0'
+        AND c_RCIntervalStart < @subscriptionStart
+        AND IsArrearsRecalculation = 0;
 
     /* Turn On "Prorate On Subscription" if this is the 1-st RC Cycle of PI with "Prorate on Unsubscription" */
     UPDATE #tmp_rc_1
@@ -306,9 +311,14 @@ BEGIN
   IF (@isStartDateUpdated = 1)
     /* PIs, that ends outside of Start Date Update range, should not be handled here */
     DELETE FROM #tmp_rc_1 WHERE c_ProrateOnSubscription = '0' AND c_RCIntervalEnd > @subscriptionEnd2
-      AND @subscriptionEnd2 < c_BillingIntervalEnd /* If start date was updated To or From "after EOP date" all PIs should be charged. Don't delete anything. */
+      AND @subscriptionEnd2 < c_BillingIntervalEnd
+      AND IsArrearsRecalculation = 0; /* If start date was updated To or From "after EOP date" all PIs should be charged. Don't delete anything. */
 
-
+  SELECT c__SubscriptionID, c__PriceableItemInstanceID, c__PriceableItemTemplateID
+         INTO #backoutArrearsUsages
+  FROM #tmp_rc_1
+  WHERE c_Advance = 0 AND c_BillingIntervalEnd BETWEEN @curSubEnd AND @newSubEnd;
+      
   /* Changes related to ESR-6709:"Subscription refunded many times" */
   /* Now determine if the interval and if the RC adapter has run, if no remove those advanced charge credits */
   DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
@@ -360,7 +370,35 @@ BEGIN
   END;
   /* End of ESR-6709 */
 
-  SELECT *, NEWID() AS idSourceSess INTO #tmp_rc FROM #tmp_rc_1;
+  SELECT c_RCActionType,
+         c_RCIntervalStart,
+         c_RCIntervalEnd,
+         c_BillingIntervalStart,
+         c_BillingIntervalEnd,
+         c_RCIntervalSubscriptionStart,
+         c_RCIntervalSubscriptionEnd,
+         c_SubscriptionStart,
+         c_SubscriptionEnd,
+         c_Advance,
+         c_ProrateOnSubscription,
+         c_ProrateInstantly,
+         c_UnitValueStart,
+         c_UnitValueEnd,
+         c_UnitValue,
+         c_RatingType,
+         c_ProrateOnUnsubscription,
+         c_ProrationCycleLength,
+         c__AccountID,
+         c__PayingAccount,
+         c__PriceableItemInstanceID,
+         c__PriceableItemTemplateID,
+         c__ProductOfferingID,
+         c_BilledRateDate,
+         c__SubscriptionID,
+         c__IntervalID,
+         NEWID() AS idSourceSess
+         INTO #tmp_rc
+  FROM #tmp_rc_1;
 
   /* If no charges to meter, return immediately */
   IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;
@@ -368,7 +406,13 @@ BEGIN
   EXEC InsertChargesIntoSvcTables;
 
   UPDATE rw
-  SET c_BilledThroughDate = @currentDate
+  SET c_BilledThroughDate =
+             CASE 
+                  WHEN rw.c__SubscriptionID IN (SELECT c__SubscriptionID FROM #backoutArrearsUsages)
+                   AND rw.c__PriceableItemInstanceID IN (SELECT c__PriceableItemInstanceID FROM #backoutArrearsUsages)
+                      THEN dbo.mtmindate()
+                  ELSE @currentDate
+             END
   FROM #recur_window_holder rw
   WHERE rw.c__IsAllowGenChargeByTrigger = 1;
 

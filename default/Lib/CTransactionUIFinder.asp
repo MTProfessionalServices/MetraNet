@@ -434,10 +434,10 @@ CLASS CTransactionUIFinder
         Service.Properties("CurrentAccountIsThePayer").AddValidListOfValueFromDictionaryCollection FrameWork.Dictionary(),"ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH"
         Service.Properties("CurrentAccountIsThePayer").Value    = CLng(FrameWork.Dictionary.Item("ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER").Value)
           
-        Service.Properties.Add "StartDate", "TimeStamp",  0, False, Empty
+        Service.Properties.Add "StartDate", "String",  0, False, Empty
         Service.Properties("StartDate").Caption = FrameWork.Dictionary.Item("TEXT_START_DATE").Value
         
-        Service.Properties.Add "EndDate", "TimeStamp", 0, False, Empty
+        Service.Properties.Add "EndDate", "String", 0, False, Empty
         Service.Properties("EndDate").Caption = FrameWork.Dictionary.Item("TEXT_END_DATE").Value 
 
         Service.Properties.Add "BillingInterval", "String", 0, False, Empty

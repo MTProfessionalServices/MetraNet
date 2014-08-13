@@ -153,7 +153,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     If FrameWork.DecodeFieldID(Service.Properties("Parent").value, strParent) Then
         If strParent <> "1" then
           ' Make sure we have a valid Parent account
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, CDate(Service.Properties("StartDate")))           
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, CDate(mam_NormalDateFormat(Service.Properties("StartDate"))))           
           
           If Err.Number <> 0 Then
               EventArg.Error.number = 1049
@@ -196,9 +196,9 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         next
     
         If col.count = 1 Then
-          Call objYAAC.GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(Service.Properties("StartDate")))
+          Call objYAAC.GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(mam_NormalDateFormat(Service.Properties("StartDate"))))
         Else
-          Set Session("LAST_BATCH_ERRORS") = objYAAC.GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, CDate(Service.Properties("StartDate")))
+          Set Session("LAST_BATCH_ERRORS") = objYAAC.GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, mam_NormalDateFormat(CDate(Service.Properties("StartDate"))))
           
           If Err.Number <> 0 Then
             EventArg.Error.Save Err

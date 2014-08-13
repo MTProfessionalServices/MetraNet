@@ -132,8 +132,9 @@ public class PartitionLibrary
       gdel.FilterReadOnly = false;
 
     gdel.FilterHideable = true;
-    gdel.ElementValue = filtertype.ToUpper() != "PO" ? partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture)
-                                                     : partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture);
+    gdel.ElementValue = filtertype.ToUpper() == "PL"? "0"
+                                                    : (filtertype.ToUpper() != "PO" ? partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture)
+                                                                                    : partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture));
   }
 
   public static void SetupFilterGridForMaster(MetraTech.UI.Controls.MTFilterGrid grid, string masterLocalizedText)

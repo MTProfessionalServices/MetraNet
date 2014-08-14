@@ -163,7 +163,7 @@ public class VisualizeService
     grid.DataSourceURLParams.Add("q", qsParam);
   }
 
-  public static void ConfigureAndLoadDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
+  public static void ConfigureAndLoadIntervalDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
   {
     using (var conn = ConnectionManager.CreateConnection())
     {

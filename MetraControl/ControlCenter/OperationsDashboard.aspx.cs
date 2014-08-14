@@ -81,7 +81,7 @@ public partial class OperationsDashboard : MTPage
   private void LoadDropDowns()
   {
     var ddList = new List<MTDropDown>{ ddActiveBillRun, ddBillCloses};
-    VisualizeService.ConfigureAndLoadDropDowns(ddList);
+    VisualizeService.ConfigureAndLoadIntervalDropDowns(ddList);
   }
 
   private void SetLocalization()

@@ -136,7 +136,7 @@
     <value>,</value>
   </data>
   <data name="DIGIT_SEPARATOR" xml:space="preserve">
-    <value>.</value>
+    <value> </value>
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Copier</value>

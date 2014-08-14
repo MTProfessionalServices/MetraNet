@@ -134,10 +134,10 @@
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
     <value>[ES]Billing Activity</value>
-  </data>  
+  </data>
   <data name="billingSummaryPanel.Text" xml:space="preserve">
     <value>[ES]Invoices and Payments</value>
-  </data>     
+  </data>
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
     <value>[ES]This account does not currently have any invoices or payments.</value>
   </data>
@@ -146,7 +146,7 @@
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
     <value>[ES]Subscriptions</value>
-  </data>   
+  </data>
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
     <value>[ES]End</value>
   </data>
@@ -157,36 +157,36 @@
     <value>[ES]Start</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value>[ES]</value>
-  </data>  
+    <value>[ES]Type</value>
+  </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
     <value>[ES]Add Subscription</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>[ES]Create a new subscription to a Product Offering</value>
-  </data>    
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
     <value>[ES]Join Group Subscription</value>
-  </data>  
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>[ES]Add this account as a member of an existing Group Subscription</value>
-  </data>      
+  </data>
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>[ES]Subscription</value>
-  </data>      
+  </data>
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>[ES]Group Subscription</value>
-  </data>          
+  </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
     <value>[ES]Invoice</value>
-  </data>      
+  </data>
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>[ES]Payment</value>
-  </data>            
+  </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
     <value>[ES]No Transactions Found for the Current Interval</value>
-  </data>   
+  </data>
   <data name="lblNowCast.Text" xml:space="preserve">
     <value>[ES] NowCast</value>
-  </data>  
+  </data>
 </root>

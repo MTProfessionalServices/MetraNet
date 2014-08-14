@@ -22,15 +22,29 @@
   function iDColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
     var str = "";
-    str += String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.asp?ID={0}'>{1}</a>",value,value)    
+    str += String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.asp?ID={0}'>{1}</a>", value, value);   
     return str;
   }
   
   function statusColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
     var str = "";
-    value == "0" ? str += '<%=GetLocalResourceObject("TEXT_OPEN").ToString()%>' : value == "2" ? str += '<%=GetLocalResourceObject("TEXT_HARD_CLOSED").ToString()%>' : value == "1" ? str += '<%=GetLocalResourceObject("TEXT_SOFT_CLOSED").ToString()%>' : str += '<%=GetLocalResourceObject("TEXT_UNKNOWN").ToString()%>';
+    switch(value) {
+      case 0:
+        str += "<img src='/Res/Images/icons/IntervalStateOpen.gif' align='absmiddle' width='14px' height='14px'/>" + '<%=GetLocalResourceObject("TEXT_OPEN").ToString()%>';
+        break;
+      case 1:
+        str += "<img src='/Res/Images/icons/IntervalStateSoftClosed.gif' align='absmiddle' width='14px' height='14px'/>" + '<%=GetLocalResourceObject("TEXT_SOFT_CLOSED").ToString()%>';
+        break;
+      case 2:
+        str += "<img src='/Res/Images/icons/IntervalStateHardClosed.gif' align='absmiddle' width='14px' height='14px'/>" + '<%=GetLocalResourceObject("TEXT_HARD_CLOSED").ToString()%>';
+        break;
+      default:
+        str += "<img src='/Res/Images/icons/Interval.gif' align='absmiddle' width='14px' height='14px'/>" + '<%=GetLocalResourceObject("TEXT_UNKNOWN").ToString()%>';
+        break;
+    }
     return str;
   }
+  
   </script>
 </asp:Content>

@@ -565,7 +565,8 @@ white-space:nowrap;
 
           title.append("text")
             .attr("class", "title")
-            .attr("dx", "-1em")
+            .attr("dx", "0.5em")
+            .attr("dy", "0.5em")
             .text(function (d) { return d.title; });
 
           title.append("text")

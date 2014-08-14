@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using MetraTech.UI.Common;
+using MetraTech.UI.Controls;
 
 public partial class OperationsDashboard : MTPage
 {
@@ -78,10 +80,8 @@ public partial class OperationsDashboard : MTPage
 
   private void LoadDropDowns()
   {
-    VisualizeService.ConfigureAndLoadDropDowns(ddBillCloses, "dt_end", "id_usage_interval",
-                                               "__GET_BILLCLOSESYNOPSIS_AVAILABLEINTERVALS__");
-    VisualizeService.ConfigureAndLoadDropDowns(ddActiveBillRun, "dt_end", "id_usage_interval",
-                                               "__GET_ACTIVEBILLRUN_AVAILABLEINTERVALS__");
+    var ddList = new List<MTDropDown>{ ddActiveBillRun, ddBillCloses};
+    VisualizeService.ConfigureAndLoadDropDowns(ddList);
   }
 
   private void SetLocalization()

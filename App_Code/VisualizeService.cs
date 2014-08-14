@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
+using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 using MetraTech;
 using MetraTech.UI.Controls;
 using System.Web.UI.WebControls;
+
 
 /// <summary>
 /// Summary description for VisualizeService
@@ -159,13 +163,11 @@ public class VisualizeService
     grid.DataSourceURLParams.Add("q", qsParam);
   }
 
-  public static void ConfigureAndLoadDropDowns(MTDropDown dropDown, string colDisplay, string colValue, string queryName,
-                                               string queryPath = SqlQueriesPath,
-                                               Dictionary<string, object> paramDict = null)
+  public static void ConfigureAndLoadDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
   {
     using (var conn = ConnectionManager.CreateConnection())
     {
-      using (var stmt = conn.CreateAdapterStatement(queryPath, queryName))
+      using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, "__GET_AVAILABLE_INTERVALS__"))
       {
         if (paramDict != null)
         {
@@ -179,27 +181,18 @@ public class VisualizeService
         {
           var items = new ListItem[MaxDdCount];
           int count = 0;
-          int displayOrdinal = 0;
-          int valueOrdinal = 0;
 
           while (reader.Read())
           {
             items[count] = new ListItem();
-            if (count == 0)
-            {
-              for (int i = 0; i < reader.FieldCount; i++)
-              {
-                if (reader.GetName(i).Equals(colDisplay))
-                  displayOrdinal = i;
-                if (reader.GetName(i).Equals(colValue))
-                  valueOrdinal = i;
-              }
-              items[count].Selected = true;
-            }
-            items[count].Text = reader.GetValue(displayOrdinal).ToString();
-            items[count].Value = reader.GetValue(valueOrdinal).ToString();
+            items[count].Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), reader.GetValue("dt_end"));
+            items[count].Value = reader.GetValue("id_interval").ToString();
+            if (count == 0) items[count].Selected = true;
 
-            dropDown.Items.Add(items[count]);
+            foreach (MTDropDown dd in ddIntervalsList)
+            {
+              dd.Items.Add(items[count]);  
+            }
             count = count + 1;
           }
         }

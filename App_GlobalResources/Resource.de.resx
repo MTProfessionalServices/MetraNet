@@ -153,6 +153,9 @@
   <data name="TEXT_ADD" xml:space="preserve">
     <value>Konten hinzufügen</value>
   </data>
+  <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
+    <value>Rechnung hinzufügen Nachricht</value>
+  </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>Hinzufügen</value>
   </data>

@@ -132,6 +132,12 @@
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
     <value>Y/n/j G:i:s</value>
   </data>
+  <data name="DECIMAL_SEPARATOR" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>,</value>
+  </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>YYYY/mm/dd</value>
   </data>

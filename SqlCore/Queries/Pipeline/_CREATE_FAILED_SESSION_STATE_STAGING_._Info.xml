@@ -5,15 +5,7 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters>
-        <Parameter>
-            <Name>NETMETERSTAGE</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>NETMETER_STG</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-    </Parameters>
+    <Parameters></Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

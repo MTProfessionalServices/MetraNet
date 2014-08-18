@@ -1854,19 +1854,21 @@ PUBLIC FUNCTION mdm_NormalDateFormat(vardate,strFormat)
   else
     formatparts = Split(strFormat, ".")                   '[dd, MM, yyyy hh:mm:ss AMPM]
 end if
-
-  if(InStr(vardate, ".") = 0) then
+  if(InStr(vardate, ".") = 0 and InStr(vardate, "/") = 0) then
+    mdm_NormalDateFormat = ""
+    exit function
+  elseif(InStr(vardate, ".") = 0) then
     parts = Split(vardate, "/")                                '[9/1/2013 12:00:01 AM]
-  else
-    parts = Split(vardate, ".")                                '[9.1.2013 12:00:01 AM]
+  elseif(InStr(vardate, "/") = 0) then
+    parts = Split(vardate, ".")
 end if
 
   Dim Rest 
   Rest = parts(2)
 
-  if ((StrComp(formatparts(0),"dd")= 0) and (StrComp(formatparts(0), "j")= 0))  Then 
-    Month = parts(0)                               '9
-    Day = parts(1)                                          '1
+  if ((StrComp(formatparts(0),"dd")= 0) or (StrComp(formatparts(0), "j")= 0))  Then 
+    Month = parts(1)                               '9
+    Day = parts(0)                                          '1
   elseIf (StrComp(formatparts(0),"yyyy")= 0) Then
     Month = parts(1)                               '9
     Dim dayplustime
@@ -1880,8 +1882,8 @@ end if
      Rest = Rest & " " +dayplustime(2)
     end if
   else
-    Day = parts(0)                               '9
-    Month = parts(1)     
+    Day = parts(1)                               '9
+    Month = parts(0)     
   end if 
   mdm_NormalDateFormat = Month & "/" & Day & "/" & Rest
 END FUNCTION 

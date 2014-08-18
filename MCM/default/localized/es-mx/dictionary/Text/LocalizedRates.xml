@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+  <text id="TEXT_RATES_PRODUCT_OFFERING_LIST">
+    <value>Prix basés sur la[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_PRICELIST_LIST">
+    <value>Prix basés sur la [TEXT_KEYTERM_PRICE_LIST] pour l’élément à prix</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_ALLPRICELISTS_LIST">
+    <value>Prix basés sur la [TEXT_KEYTERM_PRICE_LIST]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_PRICEABLE_ITEM_LIST">
+    <value>Sélectionner un [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PARAMETER_TABLE">
+    <value>Sélectionner la [TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PRICELIST">
+    <value>Sélectionner la [TEXT_KEYTERM_PRICE_LIST]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PRODUCT_OFFERING">
+    <value>Sélectionner la [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_PRICEABLE_ITEM">
+    <value>Sélectionner un [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_ALLPRICELISTS_CHOOSE_PRICEABLE_ITEM">
+    <value>Sélectionner un [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHOOSE_RATE_SCHEDULE">
+    <value>[TEXT_KEYTERM_RATE_SCHEDULES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_CURRENCY_CODE">
+    <value>Devise</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_NUMBER_OF_RATES">
+    <value>Nombre de [TEXT_KEYTERM_RATE_SCHEDULES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HAS_NO_RATES">
+    <value>Aucun(e)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_RATES_OPTIONS">
+    <value>Options</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_PICKER_TITLE">
+    <value>Sélectionnez un [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_LIST_TITLE">
+    <value>Sélectionnez un [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_EDIT_PROPERTIES">
+    <value>Modifier une propriété</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_PRICELIST">
+    <value>Description</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_START_DATE">
+    <value>Commence</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_COLUMN_END_DATE">
+    <value>Se termine</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_NEW_RATE">
+    <value>Nouveau [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_WIZARD_STARTDATE_TITLE">
+    <value>A quelle date ce [TEXT_KEYTERM_RATE_SCHEDULE] entrera-t-il en vigueur ?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_WIZARD_ENDDATE_TITLE">
+    <value>A quelle date ce [TEXT_KEYTERM_RATE_SCHEDULE] ne sera-t-il plus en vigueur ?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_WIZARD_DESCRIPTION_TITLE">
+    <value>(Facultatif) Vous pouvez entrer une description pour ce [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_EFFECTIVE_DATE_TIP">
+    <value>Les dates de validité déterminent les périodes d’application d’un ensemble de règles particulier à la tarification.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_EFFECTIVE_DATE_NULL_TIP">
+    <value>Si vous sélectionnez "[TEXT_NULL_START_DATE_TYPE]" , cela signifie que votre date de début de [TEXT_KEYTERM_RATE_SCHEDULE] se situe dans le passé. Si vous sélectionnez "[TEXT_NULL_END_DATE_TYPE]", cela signifie que votre date de fin de [TEXT_KEYTERM_RATE_SCHEDULE] se situe dans l’avenir.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_DESCRIPTION_TIP">
+    <value>Mécanisme simple et facultatif permettant d’identifier votre [TEXT_KEYTERM_RATE_SCHEDULE].</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_RATES">
+    <value>Prix de l’[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHILD_PRICEABLE_ITEM">
+    <value>Sélectionnez l’[TEXT_KEYTERM_PRICEABLE_ITEM] enfant</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_SOURCE_FILE">
+    <value>Sélectionnez l’[TEXT_KEYTERM_PRICEABLE_ITEM] enfant</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATESCHEDULE_DESCRIPTION">
+    <value>Description du [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_RULES_NUMBER">
+    <value>Nombre de règles à importer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_RULES">
+    <value>Règles d’importation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_RULES_FIELDSET_LABEL">
+    <value>Importer les règles à partir du calendrier de prix</value>
+    <description></description>
+  </text>
+  <text id="COPY_SHARED_RSCHED">
+    <value>Copier à partir d’un [TEXT_KEYTERM_RATE_SCHEDULE] partagé</value>
+    <description></description>
+  </text>
+  <text id="COPY_NONSHARED_RSCHED">
+    <value>Copier à partir d’un [TEXT_KEYTERM_RATE_SCHEDULE] non partagé</value>
+    <description></description>
+  </text>
+</texts>

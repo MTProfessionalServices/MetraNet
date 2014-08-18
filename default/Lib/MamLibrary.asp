@@ -925,15 +925,6 @@ PUBLIC FUNCTION mam_SetupCSR(strLogon, strNameSpace, strNameSpaceType) ' as bool
     MAM().SetActiveCSRAccountType "SystemAccount" 
     MAM().CSR.SetPropertiesFromRowset rs    
     
-    Dim objLanguageContext
-    dim objSessionContext
-    mam_LoadDictionary MAM(), PAGE_LANGUAGE'MAM().CSR.Language
-    ' g. cieplik CR 12683 Load the dictionary based upon the CSR's language code, added for localization support of adjustments        
-	  set objLanguageContext = CreateObject("MetraTech.Localization.LanguageList")
-    SET objSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)
-    objSessionContext.LanguageID = objLanguageContext.GetLanguageID(MAM().CSR.Language)
-    SET Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME) = objSessionContext    
-
     MAM().CSR.Language = PAGE_LANGUAGE 'MAM().CSR("Language").EnumType.Entries.ItemByValue(MAM().CSR("Language").Value).Name 
     MAM().CSR("Language").Value = PAGE_LANGUAGE 'MAM().CSR.Language  
     mam_loadDictionary Session("objMAM"), MAM().CSR("Language").value
@@ -941,6 +932,15 @@ PUBLIC FUNCTION mam_SetupCSR(strLogon, strNameSpace, strNameSpaceType) ' as bool
     SET Session("mdm_LOCALIZATION_DICTIONARY") = Session("objMAM").Dictionary
           
     Set Session("CSR_YAAC") = FrameWork.AccountCatalog.GetActorAccount()
+
+    Dim objLanguageContext
+    dim objSessionContext
+    mam_LoadDictionary MAM(), PAGE_LANGUAGE'MAM().CSR.Language
+    ' g. cieplik CR 12683 Load the dictionary based upon the CSR's language code, added for localization support of adjustments        
+	  set objLanguageContext = CreateObject("MetraTech.Localization.LanguageList")
+    SET objSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)    
+    objSessionContext.LanguageID = objLanguageContext.GetLanguageID(PAGE_LANGUAGE)
+    SET Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME) = objSessionContext    
 
     mam_SetupCSR = TRUE
   Else

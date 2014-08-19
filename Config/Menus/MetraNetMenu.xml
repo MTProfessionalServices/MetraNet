@@ -38,8 +38,7 @@
                             <Description>MetraOffer Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem-->
-						<!--
-                        <MenuItem>
+						            <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
@@ -51,7 +50,6 @@
                             <Description>Product Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-						-->
 						<!--
                         <MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<texts id="Main" type='collection'>
+<texts id="Main" type="collection">
   <text id="TEXT_BILLING_GROUP">
     <value>Billing Group</value>
   </text>
@@ -28,7 +28,7 @@
     <value>Select to view statistics for all billing groups in this interval.</value>
   </text>
   <text id="TEXT_LOCATE_PAYER_DESCRIPTION">
-    <value>Find a payer's billing group for this interval.</value>
+    <value>Find a payer\'s billing group for this interval.</value>
   </text>
   <text id="TEXT_MATERIALIZE">
     <value>Create Billing Groups for Interval</value>
@@ -119,5 +119,26 @@
   </text>
   <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_NO_ACCOUNTS_FOUND">
     <value>No accounts with reported failures were found. Either this adapter did not report any batches or in the reported batches there were no failures against particular accounts. </value>
+  </text>
+  <text id="TEXT_OPENUNASSIGNED_ACCOUNTS">
+    <value>Open Unassigned Accounts</value>
+  </text>
+  <text id="TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS">
+    <value>Hard closed Unassigned Accounts</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_INVOICED">
+    <value>New Accounts Can Be Invoiced For This Interval</value>
+  </text>
+  <text id="TEXT_CHANGE">
+    <value>Change</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_NOT_INVOICED">
+    <value>New Accounts Will Not Be Invoiced For This Interval</value>
+  </text>
+  <text id="TEXT_REFRESH_INTERVAL_DETAILS">
+    <value>Refresh Interval Details</value>
+  </text>
+  <text id="TEXT_SUCCEEDED">
+    <value>Succeeded</value>
   </text>
 </texts>

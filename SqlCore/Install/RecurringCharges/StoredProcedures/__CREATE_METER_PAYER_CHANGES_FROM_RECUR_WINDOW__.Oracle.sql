@@ -1,11 +1,11 @@
 CREATE OR REPLACE PROCEDURE MeterPayerChangeFromRecWind (currentDate date)
 AS
   enabled VARCHAR2(10);
-BEGIN
+  BEGIN
   SELECT value INTO enabled FROM t_db_values WHERE parameter = N'InstantRc';
   IF (enabled = 'false') THEN RETURN; END IF;
-
-  INSERT INTO TMP_PAYER_CHANGES
+    
+   INSERT INTO TMP_PAYER_CHANGES
   SELECT
     pci.dt_start                                                                        AS c_RCIntervalStart,
     pci.dt_end                                                                          AS c_RCIntervalEnd,
@@ -36,20 +36,20 @@ BEGIN
     INNER JOIN tmp_newrw rw
       ON  rw.c_payerstart           < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
       AND rw.c_cycleeffectivestart  < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
-      AND rw.c_membershipstart      < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
+           AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend > ui.dt_start /* next interval overlaps with membership */
       AND rw.c_SubscriptionStart    < ui.dt_end AND rw.c_SubscriptionEnd   > ui.dt_start
       AND rw.c_unitvaluestart       < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
-    INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+      INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
     INNER JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount AND auc.id_usage_cycle = ui.id_usage_cycle
     INNER JOIN t_usage_cycle ccl
       ON  ccl.id_usage_cycle = CASE 
-                            WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
-                            WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
-                            WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+	    WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+		WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
+		WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
                             ELSE NULL
                         END
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-    INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
+      INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
       AND (
             (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end)      /* If this is in advance, check if rc start falls in this interval */
             OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                               /* or check if the cycle end falls into this interval */
@@ -58,14 +58,14 @@ BEGIN
       AND pci.dt_end BETWEEN rw.c_payerstart AND rw.c_payerend                            /* rc start goes to this payer */
       AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
-      AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
-      AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+                                   AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+                                   AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
     INNER JOIN t_usage_interval currentui ON currentDate BETWEEN currentui.dt_start AND currentui.dt_end
       AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
     ui.dt_start < currentDate
     AND rw.c__IsAllowGenChargeByTrigger = 1;
-
+	  
   INSERT INTO TMP_RC
   SELECT 'InitialDebit' AS c_RCActionType,
          c_RCIntervalStart,
@@ -93,7 +93,8 @@ BEGIN
          c_BilledRateDate,
          c__SubscriptionID,
          c__IntervalID,
-         SYS_GUID() AS idSourceSess
+         SYS_GUID() AS idSourceSess,
+         null
   FROM   TMP_PAYER_CHANGES 
   UNION ALL
   SELECT 'InitialCredit' AS c_RCActionType,
@@ -122,17 +123,18 @@ BEGIN
          tmp.c_BilledRateDate,
          tmp.c__SubscriptionID,
          tmp.c__IntervalID,
-         SYS_GUID() AS idSourceSess
+         SYS_GUID() AS idSourceSess,
+         null
   FROM   TMP_PAYER_CHANGES tmp
          JOIN TMP_OLDRW rwold
             ON tmp.c__SubscriptionID = rwold.c__SubscriptionID
             AND tmp.c__PriceableItemInstanceID = rwold.c__PriceableItemInstanceID
             AND tmp.c__PriceableItemTemplateID = rwold.c__PriceableItemTemplateID;
-
-  InsertChargesIntoSvcTables('InitialCredit','InitialDebit');
-
-  UPDATE tmp_newrw rw
-  SET    c_BilledThroughDate = currentDate	
+          
+    InsertChargesIntoSvcTables('InitialCredit','InitialDebit');
+	
+	UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = currentDate	
   WHERE  rw.c__IsAllowGenChargeByTrigger = 1;
 
 END MeterPayerChangeFromRecWind;

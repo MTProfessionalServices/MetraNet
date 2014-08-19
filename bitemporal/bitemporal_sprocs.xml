@@ -11,6 +11,7 @@
       <param name="id_group" type="int32" nullable="Y"/>
       <param name="id_po" type="int32"/>
       <param name="dt_crt" type="date"/>
+      <param name="tx_quoting_batch" type="binary" length="16" nullable="Y" />
     </params>
   </sprocdef>
 

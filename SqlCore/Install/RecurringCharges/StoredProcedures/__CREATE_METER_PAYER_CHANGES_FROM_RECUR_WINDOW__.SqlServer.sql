@@ -1,5 +1,5 @@
 CREATE  PROCEDURE [dbo].[MeterPayerChangesFromRecurWindow]
-  @currentDate datetime
+@currentDate datetime
 AS
 BEGIN
   SET NOCOUNT ON;
@@ -32,12 +32,13 @@ BEGIN
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
          rw.c__subscriptionid                                                                       AS c__SubscriptionID
-        INTO #tmp_rc_1
+      ,sub.tx_quoting_batch  as c__QuoteBatchId
+    INTO #tmp_rc_1      
   FROM   t_usage_interval ui
          INNER JOIN #tmp_newrw rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
               AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
-              AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
+           AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend > ui.dt_start /* next interval overlaps with membership */
               AND rw.c_SubscriptionStart   < ui.dt_end AND rw.c_SubscriptionEnd   > ui.dt_start
               AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
          INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop         
@@ -45,12 +46,12 @@ BEGIN
          INNER LOOP JOIN t_usage_cycle ccl
               ON  ccl.id_usage_cycle = CASE 
                                             WHEN rcr.tx_cycle_mode = 'Fixed'           THEN rcr.id_usage_cycle
-                                            WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle
-                                            WHEN rcr.tx_cycle_mode = 'EBCR'            THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
+	    WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
+	    WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
                                             ELSE NULL
                                        END
          INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-         /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
+      /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
          INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
               AND (
                       (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
@@ -60,10 +61,11 @@ BEGIN
               AND pci.dt_end BETWEEN    rw.c_payerstart AND rw.c_payerend                         /* rc start goes to this payer */              
               AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
-              AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
-              AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+                                   AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+                                   AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1;
@@ -94,7 +96,8 @@ BEGIN
          c__PriceableItemTemplateID,
          c__ProductOfferingID,
          c__IntervalID,
-         NEWID() AS idSourceSess
+         NEWID() AS idSourceSess,
+         c__QuoteBatchId
          INTO #tmp_rc
   FROM   #tmp_rc_1 
   UNION ALL
@@ -124,21 +127,22 @@ BEGIN
          tmp.c__PriceableItemTemplateID,
          tmp.c__ProductOfferingID,
          tmp.c__IntervalID,
-         NEWID() AS idSourceSess
+         NEWID() AS idSourceSess,
+         tmp.c__QuoteBatchId
   FROM   #tmp_rc_1 tmp
         JOIN #tmp_oldrw rwold
           ON tmp.c__SubscriptionID = rwold.c__SubscriptionID
           AND tmp.c__PriceableItemInstanceID = rwold.c__PriceableItemInstanceID
           AND tmp.c__PriceableItemTemplateID = rwold.c__PriceableItemTemplateID;
-
+           
   /* If no charges to meter, return immediately */
-  IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
+    IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
 
   EXEC InsertChargesIntoSvcTables;
 
   UPDATE rw
-  SET    c_BilledThroughDate = @currentDate
-  FROM   #tmp_newrw rw
+  SET c_BilledThroughDate = @currentDate
+  FROM #tmp_newrw rw
   WHERE  rw.c__IsAllowGenChargeByTrigger = 1;
 
 END;

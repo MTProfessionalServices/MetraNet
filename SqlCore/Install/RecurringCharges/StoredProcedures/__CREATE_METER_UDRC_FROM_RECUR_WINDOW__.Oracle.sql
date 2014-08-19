@@ -96,7 +96,8 @@ BEGIN
          c_BilledRateDate,
          c__SubscriptionID,
          c__IntervalID,
-         SYS_GUID() AS idSourceSess
+         SYS_GUID() AS idSourceSess,
+         null
   FROM   TMP_UDRC;
 
   insertChargesIntoSvcTables('AdvanceCorrection','DebitCorrection');

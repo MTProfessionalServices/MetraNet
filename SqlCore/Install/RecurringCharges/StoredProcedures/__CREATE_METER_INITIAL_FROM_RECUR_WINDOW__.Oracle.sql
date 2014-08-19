@@ -33,7 +33,8 @@ BEGIN
     dbo.MTMinOfTwoDates(pci.dt_end,rw.c_SubscriptionEnd)                                AS c_BilledRateDate,
     rw.c__subscriptionid                                                                AS c__SubscriptionID,
     currentui.id_interval                                                               AS c__IntervalID,
-    SYS_GUID()                                                                          AS id_source_sess
+    SYS_GUID()                                                                          AS id_source_sess,
+    rw.c__QuoteBatchId                                                                  AS c__QuoteBatchId 
   FROM t_usage_interval ui
     INNER JOIN tmp_newrw rw
       ON  rw.c_payerstart           < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */

@@ -118,6 +118,7 @@ BEGIN
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
          rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       AS c__QuoteBatchId,
          0                                                                                          AS IsArrearsRecalculation
          INTO #tmp_rc_1
   FROM   t_usage_interval ui
@@ -150,6 +151,7 @@ BEGIN
               AND @subscriptionStart       < pci.dt_end AND @subscriptionEnd       > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1
@@ -191,6 +193,7 @@ BEGIN
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
          rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       AS c__QuoteBatchId,
          0                                                                                          AS IsArrearsRecalculation
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
@@ -222,6 +225,7 @@ BEGIN
               AND @subscriptionStart2      < pci.dt_end AND @subscriptionEnd2      > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1
@@ -259,6 +263,7 @@ BEGIN
          rw.c_UnitValue                                                                             AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
          rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       AS c__QuoteBatchId,
          1                                                                                          AS IsArrearsRecalculation
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
@@ -290,6 +295,7 @@ BEGIN
               AND @subscriptionStart3      < pci.dt_end AND @subscriptionEnd3      > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
          /* Handle the case if this is an Arrears AND end date update crosses the EOP border */
@@ -396,7 +402,8 @@ BEGIN
          c_BilledRateDate,
          c__SubscriptionID,
          c__IntervalID,
-         NEWID() AS idSourceSess
+         NEWID() AS idSourceSess,
+         c__QuoteBatchId,
          INTO #tmp_rc
   FROM #tmp_rc_1;
 

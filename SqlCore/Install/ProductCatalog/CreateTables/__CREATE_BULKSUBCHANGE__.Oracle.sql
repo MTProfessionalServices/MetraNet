@@ -39,10 +39,10 @@ PROCEDURE bulksubscriptionchange (
 
 
   select case when nextbillingcycle = 'Y' AND temp_date is not null then
-		dbo.subtractsecond(dbo.NextDateAfterBillingCycle(temp_id_acc,temp_date)) 
+		dbo.subtractsecond(dbo.NextDateAfterBillingCycle(temp_id_acc,temp_date))
 	else
 		dbo.subtractsecond(temp_date)
-	end	into realenddate from dual;	
+	end	into realenddate from dual;
 
   /* it is possible that temp_date <= end_date <= realenddate. */
   /* for this case treat as though subscription doesn't match at all */
@@ -61,7 +61,7 @@ PROCEDURE bulksubscriptionchange (
 	    /* insert the new record*/
 	    INSERT INTO t_sub_history
       SELECT id_sub, id_sub_ext, id_acc, id_po, dt_crt, id_group,
-             vt_start, realenddate, p_systemdate, varmaxdatetime
+             vt_start, realenddate, p_systemdate, varmaxdatetime, TX_QUOTING_BATCH
       FROM t_sub_history
        WHERE id_sub = temp_id_sub
          AND tt_end = dbo.subtractsecond (p_systemdate);

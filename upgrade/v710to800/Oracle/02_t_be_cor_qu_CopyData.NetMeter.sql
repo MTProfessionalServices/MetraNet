@@ -72,3 +72,21 @@ COMMENT ON COLUMN t_be_cor_qu_quoteicb.c_priceableitemid IS 'Priceable item id';
 
 DROP TABLE t_be_cor_qu_quotecontent;
 
+DECLARE tmpEnumValNone NUMBER(10);
+tmpEnumValInprogress NUMBER(10);
+tmpEnumValFailed NUMBER(10);
+tmpEnumValCompleted NUMBER(10);
+
+BEGIN
+
+SELECT id_enum_data into tmpEnumValNone  FROM t_enum_data WHERE nm_enum_data = 'metratech.com/QuoteStatus/None';
+SELECT id_enum_data into tmpEnumValInprogress FROM t_enum_data WHERE nm_enum_data = 'metratech.com/QuoteStatus/InProgress';
+SELECT id_enum_data into tmpEnumValFailed  FROM t_enum_data WHERE nm_enum_data = 'metratech.com/QuoteStatus/Failed';
+SELECT id_enum_data into tmpEnumValCompleted FROM t_enum_data WHERE nm_enum_data = 'metratech.com/QuoteStatus/Complete';
+
+UPDATE t_be_cor_qu_quoteheader SET c_status = tmpEnumValNone WHERE c_status = 0;
+UPDATE t_be_cor_qu_quoteheader SET c_status = tmpEnumValInprogress WHERE c_status = 1;
+UPDATE t_be_cor_qu_quoteheader SET c_status = tmpEnumValFailed WHERE c_status = 2;
+UPDATE t_be_cor_qu_quoteheader SET c_status = tmpEnumValCompleted WHERE c_status = 3;
+
+END; 

@@ -21,6 +21,7 @@
        C_LASTIDRUN NUMBER, 
        C_MEMBERSHIPSTART DATE, 
        C_MEMBERSHIPEND DATE,
-	   c__IsAllowGenChargeByTrigger SMALLINT
+	   c__IsAllowGenChargeByTrigger SMALLINT,
+	   c__QuoteBatchId raw(16) NULL
    ) ON COMMIT preserve ROWS 
 

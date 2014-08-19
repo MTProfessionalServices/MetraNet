@@ -88,10 +88,9 @@ function NavigateToRates(id,pi_id,id_pricelist)
 
 function NavigateToPreviousSearchResults()
 {
-    if ((parent.document.all("PricelistView")) && (parent.document.all("PricelistView").all("PricelistNav")))
-      parent.document.all("PricelistView").all("PricelistNav").rows = '*,0';
-    //parent.frames["PricelistMain"].location = "Rates.AllPricelists.List.asp?NextPage=/mcm/default/dialog/ProductOffering.ViewEdit.Frame.asp&amp;Title=TEXT_KEYTERM_PRODUCT_OFFERINGS&amp;LinkColumnMode=TRUE&amp;mdmAction=REFRESH";
-    parent.frames["PricelistMain"].location = "Rates.AllPricelists.List.asp?NextPage=/mcm/default/dialog/Pricelist.ViewEdit.Frame.asp&Title=TEXT_KEYTERM_PRODUCT_OFFERINGS&LinkColumnMode=TRUE";
+    var targetURL="/MetraNet/MetraOffer/PriceLists/PriceListsList.aspx";
+    window.parent.location.href = targetURL;
+    window.parent.close();
 }
 
 var last;

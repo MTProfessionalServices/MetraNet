@@ -124,16 +124,19 @@
     <value>j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s|j/n/Y</value>
+    <value>j/n/Y h:i:s a|j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>n/j/Y h:i:s a</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y g:i:s A</value>
+    <value>j/n/Y h:i:s a</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>,</value>
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplicar</value>
@@ -1168,7 +1171,7 @@
     <value>[es-MX]View</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
     <value>[es-MX]Delete Account Qualification</value>
@@ -1295,8 +1298,14 @@
   </data>
   <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
     <value>[es-MX] right click for options</value>
-  </data>  
+  </data>
   <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
     <value>No data available</value>
-  </data>     
+  </data>
+  <data name="CURRENT_LOCALE" xml:space="preserve">
+    <value>es-MX</value>
+  </data>
+  <data name="FRACTION_DIGITS" xml:space="preserve">
+    <value>2</value>
+  </data>
 </root>

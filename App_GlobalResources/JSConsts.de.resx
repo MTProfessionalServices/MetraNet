@@ -118,22 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>d/m/Y</value>
+    <value>d.m.Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
     <value>j.n.Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j.n.Y g:i:s|j.n.Y</value>
+    <value>j.n.Y H:i:s|j.n.Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>n/j/Y g:i:s A</value>
+    <value>n/j/Y H:i:s A</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j.n.Y g:i:s</value>
+    <value>j.n.Y H:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>.</value>
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplizieren</value>
@@ -673,7 +676,7 @@
     <value>Möchten Sie sich wirklich abmelden?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
+    <value>j.n.Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Konto verwalten</value>
@@ -1168,7 +1171,7 @@
     <value>[DE]View</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
     <value>Delete Account Qualification</value>
@@ -1295,8 +1298,14 @@
   </data>
   <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
     <value>[DE] right click for options</value>
-  </data>  
+  </data>
   <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
     <value>No data available</value>
-  </data>     
+  </data>
+  <data name="CURRENT_LOCALE" xml:space="preserve">
+    <value>de-DE</value>
+  </data>
+  <data name="FRACTION_DIGITS" xml:space="preserve">
+    <value>2</value>
+  </data>
 </root>

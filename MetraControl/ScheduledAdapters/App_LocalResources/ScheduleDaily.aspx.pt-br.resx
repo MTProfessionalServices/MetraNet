@@ -160,7 +160,7 @@
 altFormats:DATE_TIME_FORMAT</value>
   </data>
   <data name="tbStartDateResource1.ValidationRegex" xml:space="preserve">
-    <value>nulo</value>
+    <value>null</value>
   </data>
   <data name="tbStartTimeResource1.Label" xml:space="preserve">
     <value>Horários de execução (na UTC)</value>

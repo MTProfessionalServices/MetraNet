@@ -41,7 +41,7 @@
     <value>Manage [TEXT_KEYTERM_PRICE_LISTS]</value>
   </text>
   <text id="TEXT_PRICELIST_MAPPING_NO_NAME">
-    <value>Please specify a pricelist.</value>
+    <value>Please specify a price list.</value>
   </text>
   <text id="TEXT_NONSHARED_PRICE_LIST">
     <value>Non-shared [TEXT_KEYTERM_PRICE_LIST]</value>

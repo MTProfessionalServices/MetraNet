@@ -158,10 +158,11 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 
   call COMObject.Instance.Save
 
-  mcmTriggerUpdateOfPricelistNavigationPane
+  mcmTriggerUpdateOfPricelistNavigationPane 
     
-    
-  OK_Click = TRUE
+  OK_Click = TRUE  
+
+  Response.Redirect("/mcm/default/dialog/Pricelist.ViewEdit.Frame.asp?ID=" + idPL)
 
 END FUNCTION
 

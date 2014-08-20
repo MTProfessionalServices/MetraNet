@@ -137,7 +137,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     ' Need to pass in the current subscribers login and namespace
     'strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<A HRef='" & mom_GetDictionary("UPDATE_NAME_SPACE_DIALOG") & "'><img src='" & mom_GetImagesPath() &  "/add.gif' Border='0'></A>"
     
-    strTmp = "<button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""'>Add</button>"
+    strTmp = "<button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""'>[TEXT_ADD]</button>"
     strTmp = ProductView.Tools.PreProcess(strTmp,"LINK",mom_GetDictionary("UPDATE_NAME_SPACE_DIALOG"))
     
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp

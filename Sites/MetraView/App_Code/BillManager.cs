@@ -525,13 +525,13 @@ public class BillManager: System.Web.UI.TemplateControl
     if (productSlice == null)
       throw new UIException("Invalid product slice.");
     
-    var usageDetailsClient = new UsageHistoryService_GetUsageDetails_Client
+    var usageDetailsClient = new UsageHistoryService_GetUsageDetailsLocalized_Client
     {
       UserName = UI.User.UserName,
       Password = UI.User.SessionPassword,
       In_accountSlice = accountSlice,
       In_productSlice = productSlice,
-      In_repParams = ReportParams,
+      In_repParams = ReportParamsLocalized,
       InOut_usageDetails = details,
     };
     

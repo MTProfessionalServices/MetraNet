@@ -240,6 +240,11 @@ function addTemplateEvents() {
     }
 }
 
+function enableCheckBoxBillable() {
+
+  document.getElementById('cbBillable').parentElement.disabled = false;
+  document.getElementById('cbBillable').disabled = false;
+}
   </script>
 
   <MT:MTTitle ID="MTTitle1" Text="Add Account" runat="server" meta:resourcekey="MTTitle1Resource1" /><br />
@@ -320,7 +325,7 @@ function addTemplateEvents() {
         ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />
       <MT:MTCheckBoxControl ID="cbApplyDefaultPolicy" runat="server" BoxLabel="Apply Default Policy"
         Text="policy" Value="policy" TabIndex="240" ControlWidth="200" AllowBlank="False"
-        Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyDefaultPolicyResource1"
+        HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyDefaultPolicyResource1"
         Name="cbApplyDefaultPolicy" OptionalExtConfig="boxLabel:'Apply Default Policy',&#13;&#10;inputValue:'policy',&#13;&#10;checked:false"
         ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />
       <MT:MTCheckBoxControl ID="cbApplyTemplate" runat="server" BoxLabel="Apply Template"
@@ -347,10 +352,10 @@ function addTemplateEvents() {
         meta:resourcekey="ddPriceListResource1" ReadOnly="False">        
       </MT:MTDropDown>
       <MT:MTCheckBoxControl ID="cbBillable" runat="server" AllowBlank="True" BoxLabel="Billable"
-        Text="billable" Value="billable" TabIndex="270" ControlWidth="200" ReadOnly="False"
-        Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbBillableResource1"
-        Name="cbBillable" OptionalExtConfig="boxLabel:'Billable',&#13;&#10;                                            inputValue:'billable',&#13;&#10;                                            checked:false"
-        XType="Checkbox" XTypeNameSpace="form" />
+        Text="billable" Value="billable" TabIndex="270" ControlWidth="100" ReadOnly="False"
+         Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbBillableResource1"
+        Name="cbBillable" OptionalExtConfig="boxLabel:'Billable',&#13;&#10;inputValue:'billable',&#13;&#10;checked:false"
+        XType="Checkbox" XTypeNameSpace="form"  />
       <MT:MTDropDown ID="ddStatusReason" runat="server" AllowBlank="True" Label="Status Reason"
         TabIndex="280" ControlWidth="200" ListWidth="200" HideLabel="False" LabelSeparator=":" Listeners="{}"
         meta:resourcekey="ddStatusReasonResource1" ReadOnly="False">
@@ -570,8 +575,10 @@ function addTemplateEvents() {
       onAuthTypeChange(null, Ext.get("<%=ddAuthenticationType.ClientID %>").dom.value);
     });
     Ext.onReady(function () {
+      enableCheckBoxBillable();
       addTemplateEvents();
       getTemplateData();
+      
     });
   </script>
 </asp:Content>

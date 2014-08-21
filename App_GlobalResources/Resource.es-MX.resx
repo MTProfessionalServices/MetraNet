@@ -153,16 +153,9 @@
   <data name="TEXT_ADD" xml:space="preserve">
     <value>[es-MX]Add Accounts</value>
   </data>
-<<<<<<< HEAD
-      <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
-    <value>[es-MX]Create Bill Message</value>
-  </data>
-  
-=======
-  <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
+  <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
     <value>[es-MX]Add Bill Message</value>
   </data>
->>>>>>> develop
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>[es-MX]Add</value>
   </data>

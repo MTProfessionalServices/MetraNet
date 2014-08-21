@@ -300,13 +300,17 @@ CLASS CTransactionUIFinder
                       Service.Properties("_" & prop.dn).Caption = strDisplayName
                       Service.Properties("_" & prop.dn).Tag = "INPUT"
     
+
                       If Service.Properties("_" & prop.dn).PropertyType=MSIXDEF_TYPE_TIMESTAMP Then
                      
                           strHTMLTEMPLATE = ""
                           strHTMLTEMPLATE = strHTMLTEMPLATE & vbNewLine & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''>" & vbNewLine
-                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<INPUT  Size=30 Type='Text' Class='clsInputBox' Name='[PROPERTYNAME]'>" & vbNewLine
-                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<a href='#' onClick='getCalendarForStartDate(document.mdm.[PROPERTYNAME]);return false;'><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>" & vbNewLine
-                          strHTMLTEMPLATE = strHTMLTEMPLATE & "</TD></TR>" & vbNewLine                  
+                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<INPUT  Size=30 Type='Text' Class='clsInputBox' Name='[PROPERTYNAME]' id='[PROPERTYNAME]'>" & vbNewLine
+                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<img style='cursor:pointer'  id='openCalendar[PROPERTYNAME]' src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
+                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<div id='div[PROPERTYNAME]' style='position:absolute'></div>" & vbNewLine
+                          strHTMLTEMPLATE = strHTMLTEMPLATE & "<script language='javascript' type='text/javascript'>" & vbNewLine
+                          strHTMLTEMPLATE = strHTMLTEMPLATE & "generateDatePicker('[PROPERTYNAME]', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');" & vbNewLine
+                          strHTMLTEMPLATE = strHTMLTEMPLATE & "</script></TD></TR>" & vbNewLine                  
                           strHTML         = strHTML & strHTMLTEMPLATE
                           
                           Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = TRUE

@@ -17,15 +17,15 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789/: APMapm</value>
+    <value>0123456789/: </value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
-    <value>d/M/yyyy</value>
+    <value>dd/MM/yyyy</value>
     <description>Special date format used by javascript based calendar widget.Note this format is slightly different than VB's format. See MDM/Common/Widgets/Calendar/date.js for more information.</description>
   </text>
   <text id="MDM_INPUT_DATEFORMAT">
-    <value>d/M/yyyy</value>
+    <value>dd/MM/yyyy</value>
     <description>Special date format used by javascript based calendar widget.Note this format is slightly different than VB's format. See MDM/Common/Widgets/Calendar/date.js for more information.</description>
   </text>
   <text id="MDM_USE_24HOUR_CLOCK">
@@ -51,19 +51,19 @@
     <description>Do not remove the space at the begin</description>
   </text>
   <text id="DATE_FORMAT">
-    <value>dd/mm/yyyy</value>
+    <value>dd/MM/yyyy</value>
     <description>The date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="JS_DATE_FORMAT">
-    <value>j/n/Y</value>
+    <value>d/m/Y</value>
     <description>ExtJS date format definition</description>
   </text>
   <text id="JS_DATE_TIME_RENDERER">
-    <value>j/n/Y g:i:s</value>
+    <value>d/m/Y H:i:s</value>
     <description>ExtJS long date format definition</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>dd/mm/yyyy hh:mm:ss</value>
+    <value>dd/MM/yyyy HH:mm:ss</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">
@@ -90,4 +90,8 @@
     <value>True</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
+  <text id="DATE_SEPARATOR">
+    <value>/</value>
+    <description>Define the dates separator.</description>
+  </text>  
 </texts>

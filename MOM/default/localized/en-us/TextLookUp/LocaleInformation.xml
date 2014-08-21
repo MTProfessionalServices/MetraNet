@@ -42,19 +42,19 @@
   </text>
   -->
   <text id="DATE_TIME_END_OF_DAY">
-    <value><![CDATA[ 23:59:59]]></value>
+    <value><![CDATA[ 11:59:59 PM]]></value>
     <description>Do not remove the space at the begin</description>
   </text>
   <text id="DATE_FORMAT">
-    <value>mm/dd/yyyy</value>
+    <value>M/d/yyyy</value>
     <description>The date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="TIME_FORMAT">
-    <value>hh:mm:ss</value>
+    <value>h:mm:ss</value>
     <description>The time format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>mm/dd/yyyy hh:mm:ss AMPM</value>
+    <value>M/d/yyyy h:mm:ss AMPM</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">
@@ -81,4 +81,8 @@
     <value>TRUE</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
+  <text id="DATE_SEPARATOR">
+    <value>/</value>
+    <description>Define the dates separator.</description>
+  </text>  
 </texts>

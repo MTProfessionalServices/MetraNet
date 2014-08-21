@@ -24,7 +24,7 @@ The MDM Renderer process use this string to perform a string search/replace.
 		</text>        
 
 		<text id="DEFAULT_PATH_REPLACE">
-			<value>[APP_HTTP_PATH]/default/localized/en-us</value>
+			<value>[APP_HTTP_PATH]/default/localized/fr-fr</value>
       <description>
 Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
 This string is used by the MDM Renderer process use this string to perform a string search/replace.

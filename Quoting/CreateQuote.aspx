@@ -5,7 +5,7 @@
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <asp:PlaceHolder ID="PlaceHolderPOJavaScript" runat="server"></asp:PlaceHolder>
-  <MT:MTTitle ID="CreateQuoteTitle" runat="server" meta:resourcekey="MTTitleCreateQuoteResource" />
+  <MT:MTTitle ID="CreateQuoteTitle" runat="server" />
   <br />
   <MT:MTPanel ID="MTPanelQuoteParameters" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="MTPanelQuoteParametersResource">
@@ -65,7 +65,7 @@
     </div>
     <div id="Div2" class="RightColumn">
         <MT:MTDatePicker AllowBlank="True" ReadOnly="True" HideLabel="False" ID="MTdpCreationDate"
-        Label="Creation date" LabelWidth="120" meta:resourcekey="MTdpCreationDateResource" 
+        Label="Creation date" LabelWidth="100" meta:resourcekey="MTdpCreationDateResource" 
         runat="server"></MT:MTDatePicker>
       <MT:MTTextBoxControl ID="MTTextBoxControlTotal" AllowBlank="True"
         LabelWidth="100" meta:resourcekey="MTTextBoxControlTotalResource" runat="server" ReadOnly="True" />

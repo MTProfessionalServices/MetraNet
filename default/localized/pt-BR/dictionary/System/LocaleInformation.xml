@@ -17,7 +17,7 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789 /:APMapm</value>
+    <value>0123456789/: </value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
@@ -51,19 +51,19 @@
     <description>Do not remove the space at the begin</description>
   </text>
   <text id="DATE_FORMAT">
-    <value>dd/mm/yyyy</value>
+    <value>d/M/yyyy</value>
     <description>The date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="JS_DATE_FORMAT">
-    <value>j/n/Y</value>
+    <value>d/n/Y</value>
     <description>ExtJS date format definition</description>
   </text>
   <text id="JS_DATE_TIME_RENDERER">
-    <value>j/n/Y g:i:s</value>
+    <value>d/n/Y G:i:s</value>
     <description>ExtJS long date format definition</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>dd/mm/yyyy hh:mm:ss</value>
+    <value>dd/M/yyyy H:mm:ss</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">
@@ -90,4 +90,8 @@
     <value>True</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
+  <text id="DATE_SEPARATOR">
+    <value>/</value>
+    <description>Define the dates separator.</description>
+  </text>  
 </texts>

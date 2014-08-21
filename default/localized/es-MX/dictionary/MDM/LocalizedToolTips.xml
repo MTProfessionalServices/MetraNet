@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    This file defines the MAM tool tips localization.
+  </description>
+  <text id="TEXT_OK">
+    <value>[es-MX]OK</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CANCEL">
+    <value>[es-MX]Cancel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLEAR">
+    <value>[es-MX]Clear</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT">
+    <value>[es-MX]Edit</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW">
+    <value>[es-MX]View</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE">
+    <value>[es-MX]Delete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD">
+    <value>[es-MX]Add</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE">
+    <value>[es-MX]Update</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HELP">
+    <value>[es-MX]MetraOffer Help</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FULLSCREEN">
+    <value>[es-MX]Toggle Full Screen Mode</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO">
+    <value>[es-MX]Find Account</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED">
+    <value>[es-MX]Advanced Find</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_DOWN">
+    <value>[es-MX]Show Detailed Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_UP">
+    <value>[es-MX]Hide Detailed Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSEWINDOW">
+    <value>[es-MX]Close Account</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_PAYMENT_METHOD">
+    <value>[es-MX]Add Payment Method</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ENTER">
+    <value>[es-MX]Enter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO_BACK">
+    <value>[es-MX]Go Back to Find Results</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY">
+    <value>[es-MX]Apply</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUCCEED">
+    <value>[es-MX]Succeed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>[es-MX]Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NONE">
+    <value>[es-MX]None</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO">
+    <value>[es-MX]No</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YES">
+    <value>[es-MX]Yes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>[es-MX]Close</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INFO_SUCCEFULLY_ADDED">
+    <value>[es-MX]The information was successfully added.</value>
+    <description></description>
+  </text>
+</texts>

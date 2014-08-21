@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_BILLING_GROUP">
+    <value>[DE]Billing Group</value>
+  </text>
+  <text id="TEXT_SUCCEED">
+    <value>[DE]Succeed</value>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>[DE]Failed</value>
+  </text>
+  <text id="TEXT_ADAPTERS">
+    <value>[DE]Adapters</value>
+  </text>
+  <text id="TEXT_MEMBERS">
+    <value>[DE]Members</value>
+  </text>
+  <text id="TEXT_STATUS">
+    <value>[DE]Status</value>
+  </text>
+  <text id="TEXT_BILLING_GROUPS">
+    <value>[DE]Billing Groups</value>
+  </text>
+  <text id="TEXT_BILLING_GROUPS_FOR_INTERVAL">
+    <value>[DE]Billing Groups for Interval</value>
+  </text>
+  <text id="TEXT_VIEW_STATISTICS_DESCRIPTION">
+    <value>[DE]Select to view statistics for all billing groups in this interval.</value>
+  </text>
+  <text id="TEXT_LOCATE_PAYER_DESCRIPTION">
+    <value>[DE]Find a payer\'s billing group for this interval.</value>
+  </text>
+  <text id="TEXT_MATERIALIZE">
+    <value>[DE]Create Billing Groups for Interval</value>
+  </text>
+  <text id="TEXT_REMATERIALIZE">
+    <value>[DE]Recreate Billing Groups for Interval</value>
+  </text>
+  <text id="TEXT_MATERIALIZE_WAIT">
+    <value>[DE]Please wait while billing groups are populated...</value>
+  </text>
+  <text id="TEXT_CREATE_GROUP_DESCRIPTION">
+    <value>[DE]Create a pull list for this billing group.</value>
+  </text>
+  <text id="TEXT_VIEW_HISTORY_DESCRIPTION">
+    <value>[DE]View Billing Process Adapter history for this billing group in this interval.</value>
+  </text>
+  <text id="TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION">
+    <value>[DE]Select to view statistics for this billing group and interval.</value>
+  </text>
+  <text id="TEXT_CREATE_PULL_LIST_ACCOUNT_DESCRIPTION">
+    <value>[DE]A pull list is used to remove accounts from the current billing group. These accounts will be placed in this newly created billing group. Specify either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
+  </text>
+  <text id="TEXT_CREATE_PULL_LIST_FILE_DESCRIPTION">
+    <value>[DE]A pull list file is used to remove accounts from the current billing group.  These accounts will be placed in this newly created billing group.  The file format is a UTF-8 encoded text file that specifies either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
+  </text>
+  <text id="TEXT_NO_BILLING_GROUPS">
+    <value>[DE]Your system has valid billing group definitions, but the system has not assigned payers to groups for this interval. Please click the Create Billing Groups for Interval button above.</value>
+  </text>
+  <text id="TEXT_NO_PAYING_ACCOUNTS_IN_INTERVAL_DESCRIPTION">
+    <value>[DE]This interval does not have any paying accounts or any accounts to invoice. It can be hard closed directly by clicking on the button below.</value>
+  </text>
+  <text id="TEXT_TOGGLE_HIERARCHY_DISPLAY">
+    <value>[DE]Toggle Hierarchy Display</value>
+  </text>
+  <text id="TEXT_HARD_CLOSE_THIS_INTERVAL">
+    <value>[DE]Hard Close This Interval</value>
+  </text>
+  <text id="TEXT_SUB_BILLING_GROUPS">
+    <value>[DE]Sub-Billing Groups Created from Pull Lists:</value>
+  </text>
+  <text id="TEXT_BG_INTERVALID">
+    <value>[DE]Interval</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_TYPE">
+    <value>[DE]Type</value>
+  </text>
+  <text id="TEXT_BG_START">
+    <value>[DE]Start</value>
+  </text>
+  <text id="TEXT_BG_END">
+    <value>[DE]End</value>
+  </text>
+  <text id="TEXT_BG_TOTAL_GROUP_COUNT">
+    <value>[DE]Groups</value>
+  </text>
+  <text id="TEXT_BG_OPEN_BILLING_GROUP_COUNT">
+    <value>[DE]Open</value>
+  </text>
+  <text id="TEXT_BG_SOFT_CLOSED_GROUP_COUNT">
+    <value>[DE]Soft Closed</value>
+  </text>
+  <text id="TEXT_BG_HARD_CLOSED_GROUP_COUNT">
+    <value>[DE]Hard Closed</value>
+  </text>
+  <text id="TEXT_BG_UNASSIGNED">
+    <value>[DE]Unassigned Accounts</value>
+  </text>
+  <text id="TEXT_BG_PROGRESS">
+    <value>[DE]Progress</value>
+  </text>
+  <text id="TEXT_VIEW_STATISTICS">
+    <value>[DE]View Statistics</value>
+  </text>
+  <text id="TEXT_REFRESH_INTERVAL_DETAILS">
+    <value>[DE]Refresh interval details</value>
+  </text>
+  <text id="TEXT_LOCATE_PAYER">
+    <value>[DE]Locate Payer</value>
+  </text>
+  <text id="TEXT_MANUALLY_ASSIGN_ACCOUNTS">
+    <value>[DE]Manually Assign Accounts</value>
+  </text>
+  <text id="TEXT_TEMP_BILLING_GROUP">
+    <value>[DE]Create a temporary billing group for this interval in order to bill for unassigned accounts.</value>
+  </text>
+  <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_TITLE">
+    <value>[DE]Accounts That Had Reported Failures For This Adapter Run</value>
+  </text>
+  <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_NO_ACCOUNTS_FOUND">
+    <value>[DE]No accounts with reported failures were found. Either this adapter did not report any batches or in the reported batches there were no failures against particular accounts. </value>
+  </text>
+  <text id="TEXT_OPENUNASSIGNED_ACCOUNTS">
+    <value>[DE]Open Unassigned Accounts</value>
+  </text>
+  <text id="TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS">
+    <value>[DE]Hard closed Unassigned Accounts</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_INVOICED">
+    <value>[DE]New Accounts Can Be Invoiced For This Interval</value>
+  </text>
+  <text id="TEXT_CHANGE">
+    <value>[DE]Change</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_NOT_INVOICED">
+    <value>[DE]New Accounts Will Not Be Invoiced For This Interval</value>
+  </text>
+  <text id="TEXT_REFRESH_INTERVAL_DETAILS">
+    <value>[DE]Refresh Interval Details</value>
+  </text>
+  <text id="TEXT_SUCCEEDED">
+    <value>[DE]Succeeded</value>
+  </text>
+</texts>

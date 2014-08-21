@@ -167,7 +167,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             RuleSetStartDate = ProductView.Properties.RowSet.Value("RuleSetStartDate")
             if EventId=1402 then 'Ruleset Update
               dim sPageInfo
-              sPageInfo = "Pricelist <strong>" & Service.Properties("PriceListName") & "</strong><br>modified by <strong>" & ProductView.Properties.RowSet.Value("UserName") & "</strong> at <strong>" & ProductView.Properties.RowSet.Value("Time") & "</strong>"
+              sPageInfo = "Price list <strong>" & Service.Properties("PriceListName") & "</strong><br>modified by <strong>" & ProductView.Properties.RowSet.Value("UserName") & "</strong> at <strong>" & ProductView.Properties.RowSet.Value("Time") & "</strong>"
               sPageInfo = server.urlencode(sPageInfo)
               strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">View Changes</button>"
             else

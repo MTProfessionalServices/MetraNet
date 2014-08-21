@@ -156,8 +156,8 @@ BEGIN
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
-         AND rw.c__IsAllowGenChargeByTrigger = 1
          AND @isEndDateUpdated = 1
+         AND NOT (rw.c_advance = 'N' AND @newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
          AND NOT (rw.c_advance = 'N' AND @subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < @subscriptionEnd)
 
@@ -230,8 +230,8 @@ BEGIN
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
-         AND rw.c__IsAllowGenChargeByTrigger = 1
          AND @isStartDateUpdated = 1
+         AND NOT (rw.c_advance = 'N' AND @newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
          AND NOT (rw.c_advance = 'N' AND @subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < @subscriptionEnd)
 

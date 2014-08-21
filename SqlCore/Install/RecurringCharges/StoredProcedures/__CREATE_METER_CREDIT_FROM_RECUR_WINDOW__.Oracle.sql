@@ -155,8 +155,8 @@ BEGIN
               AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
          ui.dt_start < currentDate
-         AND rw.c__IsAllowGenChargeByTrigger = 1
          AND v_isEndDateUpdated = '1'
+         AND NOT (rw.c_advance = 'N' AND v_newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
          AND NOT (rw.c_advance = 'N' AND v_subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < v_subscriptionEnd)
 
@@ -229,8 +229,8 @@ BEGIN
               AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
          ui.dt_start < currentDate
-         AND rw.c__IsAllowGenChargeByTrigger = 1
          AND v_isStartDateUpdated = '1'
+         AND NOT (rw.c_advance = 'N' AND v_newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
          AND NOT (rw.c_advance = 'N' AND v_subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < v_subscriptionEnd)
 

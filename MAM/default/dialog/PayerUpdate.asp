@@ -52,13 +52,16 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "Payer",      "String",    256, TRUE,  ""                   
   Service.Properties.Add "StartDate",  "String", 0,   TRUE, Empty    
   Service.Properties.Add "EndDate",    "String", 0,   FALSE, Empty    	
-	
-  If FrameWork.IsInfinity(mam_NormalDateFormat(request.QueryString("OldStartDate"))) Then
+	If IsEmpty(request.QueryString("OldStartDate")) Then 
+    Form("OldStartDate") = Empty
+  ElseIf FrameWork.IsInfinity(mam_NormalDateFormat(request.QueryString("OldStartDate"))) Then
     Form("OldStartDate") = Empty
   Else
   	Form("OldStartDate") = request.QueryString("OldStartDate")
   End If
-  If FrameWork.IsInfinity(mam_NormalDateFormat(request.QueryString("OldEndDate"))) Then
+  If IsEmpty(request.QueryString("OldEndDate")) Then
+    Form("OldEndDate") = Empty
+  ElseIf FrameWork.IsInfinity(mam_NormalDateFormat(request.QueryString("OldEndDate"))) Then
     Form("OldEndDate") = Empty
   Else
 	  Form("OldEndDate") = request.QueryString("OldEndDate")

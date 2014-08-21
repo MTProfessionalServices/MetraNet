@@ -19,18 +19,12 @@ SELECT
   inst.b_ignore_deps IgnoreDeps,
   inst.dt_effective EffectiveDate,    
   inst.tx_status Status,
-  case  cur_run.tx_status 
-	  when 'InProgress' then cur_run.id_run 
-	 	  else run.id_run  
-  end LastRunID,
+  CASE WHEN cur_run.tx_status = 'InProgress' THEN cur_run.id_run ELSE run.id_run END LastRunID,
   run.tx_type LastRunAction,
   {fn ifnull(run.dt_start, cur_run.dt_start)} LastRunStart, 
   {fn ifnull(run.dt_end, %%%SYSTEMDATE%%%)} LastRunEnd,
   {fn ifnull(cur_run.tx_status,run.tx_status)} LastRunStatus,
-   case  cur_run.tx_status 
-	   when 'InProgress' then cur_run.tx_detail 
-	 	  else run.tx_detail  
-   end LastRunDetail,
+  CASE WHEN cur_run.tx_status = 'InProgress' THEN cur_run.tx_detail ELSE run.tx_detail END LastRunDetail,
   {fn ifnull(run.tx_machine, cur_run.tx_machine)} LastRunMachine, 
   {fn ifnull(batch.total, 0)} LastRunBatches,
   COUNT(dep.id_event) TotalDeps,

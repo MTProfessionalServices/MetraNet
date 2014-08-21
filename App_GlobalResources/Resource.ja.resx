@@ -153,8 +153,8 @@
   <data name="TEXT_ADD" xml:space="preserve">
     <value>アカウントの追加</value>
   </data>
-  <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
-     <value>法案メッセージを追加</value>
+  <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
+    <value>法案メッセージを追加</value>
   </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>追加</value>

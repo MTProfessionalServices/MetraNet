@@ -153,8 +153,8 @@
   <data name="TEXT_ADD" xml:space="preserve">
     <value>Adicionar contas</value>
   </data>
-    <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
-     <value>Adicionar mensagem de projeto de lei</value>
+  <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
+    <value>Adicionar mensagem de projeto de lei</value>
   </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>Adicionar</value>

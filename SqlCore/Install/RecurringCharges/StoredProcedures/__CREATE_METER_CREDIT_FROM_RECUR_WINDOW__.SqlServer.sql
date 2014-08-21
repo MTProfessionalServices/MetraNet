@@ -26,6 +26,8 @@ BEGIN
           @subscriptionEnd3         DATETIME,
           @rcAction3                VARCHAR(20)
 
+  SELECT @subscriptionStart = dbo.MTMinDate(), @subscriptionEnd = dbo.MTMinDate();
+
   /* Assuming only 1 subscription can be changed at a time */
   SELECT TOP 1 /* Using only 1-st PI of RC */
          @newSubStart = new_sub.vt_start, @newSubEnd = new_sub.vt_end,
@@ -157,7 +159,7 @@ BEGIN
          AND rw.c__IsAllowGenChargeByTrigger = 1
          AND @isEndDateUpdated = 1
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
-         AND NOT (rw.c_advance <> 'Y' AND ui.dt_end BETWEEN @subscriptionStart AND @subscriptionEnd)
+         AND NOT (rw.c_advance = 'N' AND @subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < @subscriptionEnd)
 
   UNION ALL
 
@@ -231,7 +233,7 @@ BEGIN
          AND rw.c__IsAllowGenChargeByTrigger = 1
          AND @isStartDateUpdated = 1
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
-         AND NOT (rw.c_advance <> 'Y' AND ui.dt_end BETWEEN @subscriptionStart AND @subscriptionEnd)
+         AND NOT (rw.c_advance = 'N' AND @subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < @subscriptionEnd)
 
   UNION ALL
 
@@ -299,7 +301,7 @@ BEGIN
   WHERE
          ui.dt_start < @currentDate
          /* Handle the case if this is an Arrears AND end date update crosses the EOP border */
-         AND rw.c_advance <> 'Y' AND ui.dt_end BETWEEN @subscriptionStart AND @subscriptionEnd;
+         AND rw.c_advance = 'N' AND @subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < @subscriptionEnd;
 
   /* Remove extra charges for RCs with No Proration (CORE-6789) */
   IF (@isEndDateUpdated = 1)

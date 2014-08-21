@@ -25,6 +25,8 @@ BEGIN
   SELECT value INTO enabled FROM t_db_values WHERE parameter = N'InstantRc';
   IF (enabled LIKE 'false') THEN RETURN; END IF;
 
+  SELECT dbo.MTMinDate(), dbo.MTMinDate() INTO v_subscriptionStart, v_subscriptionEnd FROM dual;
+
   /* Assuming only 1 subscription can be changed at a time */
   BEGIN  
     SELECT new_sub.vt_start, new_sub.vt_end, current_sub.vt_start, current_sub.vt_end
@@ -156,7 +158,7 @@ BEGIN
          AND rw.c__IsAllowGenChargeByTrigger = 1
          AND v_isEndDateUpdated = '1'
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
-         AND NOT (rw.c_advance <> 'Y' AND ui.dt_end BETWEEN v_subscriptionStart AND v_subscriptionEnd)
+         AND NOT (rw.c_advance = 'N' AND v_subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < v_subscriptionEnd)
 
   UNION ALL
 
@@ -230,7 +232,7 @@ BEGIN
          AND rw.c__IsAllowGenChargeByTrigger = 1
          AND v_isStartDateUpdated = '1'
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
-         AND NOT (rw.c_advance <> 'Y' AND ui.dt_end BETWEEN v_subscriptionStart AND v_subscriptionEnd)
+         AND NOT (rw.c_advance = 'N' AND v_subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < v_subscriptionEnd)
 
   UNION ALL
 
@@ -298,7 +300,7 @@ BEGIN
   WHERE
          ui.dt_start < currentDate
          /* Handle the case if this is an Arrears AND end date update crosses the EOP border */
-         AND rw.c_advance <> 'Y' AND ui.dt_end BETWEEN v_subscriptionStart AND v_subscriptionEnd;
+         AND rw.c_advance = 'N' AND v_subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < v_subscriptionEnd;
 
   /* Remove extra charges for RCs with No Proration (CORE-6789) */
   IF (v_isEndDateUpdated = 1) THEN

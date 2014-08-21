@@ -153,10 +153,16 @@
   <data name="TEXT_ADD" xml:space="preserve">
     <value>Ajouter des comptes</value>
   </data>
+<<<<<<< HEAD
     <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
     <value>Create Bill Message</value>
   </data>
   
+=======
+  <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
+    <value>Ajouter un message de facture</value>
+  </data>
+>>>>>>> develop
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>Ajouter</value>
   </data>

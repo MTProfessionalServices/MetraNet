@@ -9,6 +9,7 @@ using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.BaseTypes;
 using System.Web.UI.WebControls;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.UI.Controls;
 
 public struct PartitionData
 {
@@ -132,7 +133,7 @@ public class PartitionLibrary
       gdel.FilterReadOnly = false;
 
     gdel.FilterHideable = true;
-    gdel.ElementValue = filtertype.ToUpper() == "PL"? "0"
+    gdel.ElementValue = filtertype.ToUpper() == "PL"? partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture)
                                                     : (filtertype.ToUpper() != "PO" ? partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture)
                                                                                     : partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture));
   }
@@ -150,6 +151,7 @@ public class PartitionLibrary
     }
 
     grid.Title = masterLocalizedText;
+    gdel.FilterOperation = MTFilterOperation.Equal;
     gdel.ElementValue = "0";
     gdel.FilterReadOnly = true;
     gdel.FilterHideable = false;

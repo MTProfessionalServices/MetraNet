@@ -2,15 +2,16 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
     </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Config\Queries\AccHierarchies\CommonQueries.xml</CommonQuerySourceFile>
-        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
-        <OracleQuerySourceFile></OracleQuerySourceFile>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Config\Queries\AccHierarchies\SQLServer.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\Config\Queries\AccHierarchies\Oracle.xml</OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

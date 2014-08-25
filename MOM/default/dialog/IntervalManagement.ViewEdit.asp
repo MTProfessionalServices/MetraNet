@@ -223,7 +223,7 @@ FUNCTION getRecurringEventRunHTML
                 sLastRunDetail = rowset.value("LastRunDetail")
               else
                 if sStatusCode = "Succeeded" then
-                  sLastRunStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>" & [TEXT_SUCCEEDED_WITH_WARNINGS]
+                  sLastRunStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>" & "[TEXT_SUCCEEDED_WITH_WARNINGS]"
                 else
                   sLastRunStatus = rowset.value("LastRunStatus")
                 end if
@@ -239,7 +239,7 @@ FUNCTION getRecurringEventRunHTML
             if false then
             if CLng(rowset.value("BatchCount"))>0 then
               if CLng(rowset.value("BatchCount"))=1 then
-                sStatus = sStatus & " (<A href=""#"" title=""[TEXT_VIEW_BATH_INFORMATION]"" onclick=""window.open('BatchManagement.ViewEdit.asp?BatchEncodedId=" & server.urlencode(rowset.value("HackBatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & "1 batch" & "</A>)"
+                sStatus = sStatus & " (<A href=""#"" title=""[TEXT_VIEW_BATCH_INFORMATION]"" onclick=""window.open('BatchManagement.ViewEdit.asp?BatchEncodedId=" & server.urlencode(rowset.value("HackBatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & "1 batch" & "</A>)"
               else
                 sStatus = sStatus & " (" & rowset.value("BatchCount") & " [TEXT_BATCHES])"
               end if

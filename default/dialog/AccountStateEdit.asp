@@ -98,7 +98,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
 									 CLng(mam_GetSubscriberAccountID()), _
 									 -1, _
 									 CStr(Service.Properties("AccountStatus")),  _
-									 CDate(Service.Properties("StartDate").Value), _
+									 mam_NormalDateFormat(Service.Properties("StartDate").Value), _
 									 CDate(0)
 								
     If(CBool(Err.Number = 0)) then

@@ -3,94 +3,125 @@
   <description>
     The file defines localized string for system users and Sales Force Hierarchy
   </description>
+
   <text id="TEXT_SELECT_OWNED_ACCOUNT_MESSAGE">
-    <value>[IT]Because you do not have top level access to accounts, your account hierarchy view is currently empty. To view accounts in the hierarchy, go to the menu tab and select the 'My Accounts' screen and select the 'Find Account In Hierarchy' icon next to the account.&lt;br&gt;&lt;br&gt;</value>
+    <value>Puisque vous ne disposez pas d'un accès de haut niveau aux comptes, votre vue de la hiérarchie des comptes est actuellement vide. Pour consulter les comptes de la hiérarchie, accédez à l'onglet Menu et sélectionnez l'écran 'Mes comptes'. Ensuite, cliquez sur l'icône Rechercher le compte dans la hiérarchie' en regard du compte.&lt;br&gt;&lt;br&gt;</value>
   </text>
+  
   <text id="TEXT_DELETING_OWNED_ACCOUNTS">
-    <value>[IT]Deleting owned subscribers</value>
+    <value>Suppression en cours des abonnés détenus</value>
   </text>
+  
   <text id="TEXT_DELETE_OWNED_QUESTION">
-    <value>[IT]Are you sure you want to delete all owned subscribers? </value>
+    <value>Êtes-vous sûr de vouloir supprimer cet abonnement ? </value>
   </text>
+
   <text id="TEXT_SYSTEM_USER">
-    <value>[IT]System User</value>
+    <value>Utilisateur système</value>
   </text>
+  
   <text id="TEXT_USERS">
-    <value>[IT]Users</value>
+    <value>Utilisateurs</value>
   </text>
+    
   <text id="TEXT_SYTEM_USER_UNABLE_TO_LOAD">
-    <value>[IT]Unable to load system user.  It may not be in the hierarchy at this time, or you may not have the security to manage it.</value>
+    <value>Impossible de charger l'utilisateur système. Il ne se trouve peut-être pas dans la hiérarchie actuellement, ou vous ne disposez peut-être pas des droits permettant sa gestion.</value>
   </text>
+  
   <text id="TEXT_SYSTEM_USER_ACCOUNT_SUMMARY">
-    <value>[IT]Account Summary</value>
+    <value>Résumé du compte</value>
   </text>
+
   <text id="TEXT_SYSTEM_USER_ACCOUNT_INFO">
-    <value>[IT]Account Info</value>
+    <value>Infos du compte</value>
   </text>
+  
   <text id="TEXT_SYSTEM_USER_OWNED_ACCOUNTS">
-    <value>[IT]Owned Subscribers</value>
+    <value>Abonnés détenus</value>
   </text>
+  
   <text id="TEXT_SYSTEM_USER_OWNED_SYSTEM_FOLDERS">
-    <value>[IT]Administrated Accounts</value>
+    <value>Comptes administrés</value>
   </text>
+  
   <text id="TEXT_SYSTEM_USER_SECURITY">
-    <value>[IT]Security</value>
+    <value>Sécurité</value>
   </text>
+  
   <text id="TEXT_ID_OWNER">
-    <value>[IT]ID Owner</value>
-  </text>
+    <value>ID propriétaire</value>
+  </text>  
+
   <text id="TEXT_ID_OWNED">
-    <value>[IT]ID Owned</value>
-  </text>
+    <value>ID détenu</value>
+  </text>  
+
   <text id="TEXT_PERCENT_OWNERSHIP">
-    <value>[IT]Percentage Ownership</value>
-  </text>
+    <value>Pourcentage de détention</value>
+  </text>  
+
   <text id="TEXT_OWNED_HIERARCHYNAME">
-    <value>[IT]Account</value>
-  </text>
+    <value>Compte</value>
+  </text>  
+
   <text id="TEXT_OWNED_RELATION_TYPE">
-    <value>[IT]Relationship</value>
-  </text>
+    <value>Relation</value>
+  </text>  
+
   <text id="TEXT_ADD_OWNED_ACCOUNTS">
-    <value>[IT]Add Owned Subscribers</value>
-  </text>
+    <value>Ajouter des abonnés détenus</value>
+  </text> 
+
   <text id="TEXT_ADD_OWNER_ACCOUNTS">
-    <value>[IT]Add Owner Accounts</value>
-  </text>
+    <value>Ajouter des comptes de propriétaires</value>
+  </text> 
+  
   <text id="TEXT_SETTING_OWNERS">
-    <value>[IT]Setting Owners</value>
-  </text>
+    <value>Configuration des propriétaires</value>
+  </text> 
+
   <text id="TEXT_UPDATE_OWNED_ACCOUNT">
-    <value>[IT]Update Owned Account</value>
-  </text>
+    <value>Mettre à jour le compte détenu</value>
+  </text>     
+
   <text id="TEXT_UPDATE_OWNER_ACCOUNT">
-    <value>[IT]Update Owner Account</value>
-  </text>
+    <value>Mettre à jour le compte de propriétaire</value>
+  </text> 
+  
   <text id="TEXT_CONTACT_INFO">
-    <value>[IT]Contact Information</value>
-  </text>
+    <value>Coordonnées</value>
+  </text>     
+
   <text id="TEXT_OWNER_ACCOUNTS">
-    <value>[IT]Account Owners</value>
-  </text>
+    <value>Propriétaires de compte</value>
+  </text>  
+
   <text id="TEXT_OWNER_ACCOUNT">
-    <value>[IT]Account Owner</value>
-  </text>
+    <value>Propriétaire de compte</value>
+  </text>  
+     
   <text id="TEXT_MY_ACCOUNTS_DIALOG">
-    <value>[IT]My Accounts</value>
-  </text>
+    <value>Mes comptes</value>
+  </text>      
+
   <text id="TEXT_DIRECT_OWNER">
-    <value>[IT]Direct Owner</value>
-  </text>
+    <value>Propriétaire direct</value>
+  </text>      
+
   <text id="TEXT_FIND_METRANET_USER">
-    <value>[IT]Find MetraNet User</value>
-  </text>
+    <value>Rechercher un utilisateur MetraNet</value>
+  </text>       
+  
   <text id="TEXT_SYTEM_USER_FOUND">
-    <value>[IT]MetraNet User(s) Found</value>
-  </text>
+    <value>Utilisateur(s) MetraNet trouvé(s)</value>
+  </text>         
+
   <text id="TEXT_FIND_IN_HIERARCHY">
-    <value>[IT]Find Account In Hierarchy</value>
-  </text>
+    <value>Rechercher un compte dans la hiérarchie</value>
+  </text>  
+  
   <text id="TEXT_VIEW_ONLINE_BILL">
-    <value>[IT]View Online Bill</value>
-  </text>
+    <value>Afficher la facture en ligne</value>
+  </text>  
+      
 </texts>

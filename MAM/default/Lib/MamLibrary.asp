@@ -752,12 +752,41 @@ PUBLIC FUNCTION mam_GetGMTTimeFormatted()
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetNormalDateFormat()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_NormalDateFormat(strdate)
+    if(Len(strdate)=0) Then
+        mam_NormalDateFormat = ""
+    else
+        mam_NormalDateFormat = mdm_NormalDateFormat(strdate, mam_GetDictionary("DATE_TIME_FORMAT"))
+    end If
+END FUNCTION
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetGMTTime()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_GetGMTTime()
+    mam_GetGMTTime = mdm_GetGMTTime()
+END FUNCTION
+' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: mam_GetGMTDateFormatted()
 ' PARAMETERS	:
 ' DESCRIPTION :
 ' RETURNS			:
 PUBLIC FUNCTION mam_GetGMTDateFormatted()
     mam_GetGMTDateFormatted = mdm_GetGMTTimeFormatted(mam_GetDictionary("DATE_FORMAT"))
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetGMTDate()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_GetGMTDate()
+    mam_GetGMTDate = mdm_GetGMTTimeFormatted("mm/dd/yyyy")
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -769,6 +798,15 @@ PUBLIC FUNCTION mam_GetGMTEndOfTheDayFormatted()
    mam_GetGMTEndOfTheDayFormatted = CDate(mam_GetGMTDateFormatted() & " " & mam_GetDictionary("END_OF_DAY"))
 END FUNCTION  
 
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetGMTEndOfTheDay()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_GetGMTEndOfTheDay()
+   mam_GetGMTEndOfTheDay = CDate(mam_GetGMTDate() & " " & mam_GetDictionary("END_OF_DAY"))
+END FUNCTION  
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -1053,7 +1091,7 @@ END FUNCTION
 ' RETURNS		  :
 PRIVATE FUNCTION mam_GetHierarchyTime() 
   If IsEmpty(Session("HIERARCHY_HELPER")) Then
-    mam_GetHierarchyTime = CDate(mam_GetGMTEndOfTheDayFormatted())
+    mam_GetHierarchyTime =  CDate(mam_GetGMTEndOfTheDay())
   Else
     mam_GetHierarchyTime = CDate(Session("HIERARCHY_HELPER").SnapShot)
   End If
@@ -1066,7 +1104,7 @@ End Function
 ' RETURNS		  :
 PRIVATE FUNCTION mam_GetSystemUserHierarchyTime() 
   If IsEmpty(Session("SYSTEM_USER_HIERARCHY_HELPER")) Then
-    mam_GetSystemUserHierarchyTime = CDate(mam_GetGMTEndOfTheDayFormatted())
+    mam_GetSystemUserHierarchyTime = CDate(mam_GetGMTEndOfTheDay())
   Else
     mam_GetSystemUserHierarchyTime = CDate(Session("SYSTEM_USER_HIERARCHY_HELPER").SnapShot)
   End If
@@ -1686,11 +1724,11 @@ PUBLIC FUNCTION GetAssociationAsOwned(mgr, acc)
 
   assoc.RelationType = Service.Properties("Relationship").Value
   assoc.PercentOwnership = Service.Properties("Percentage").Value
-  assoc.StartDate = CDate(Service.Properties("StartDate").Value)
+  assoc.StartDate = CDate(mam_NormalDateFormat(Service.Properties("StartDate").Value))
   If Len(Service.Properties("EndDate")) > 0 Then  
-    assoc.EndDate = CDate(Service.Properties("EndDate").Value)    
+    assoc.EndDate = CDate(mam_NormalDateFormat(Service.Properties("EndDate").Value))    
   Else
-    assoc.EndDate = CDate(FrameWork.RCD().GetMaxDate())
+    assoc.EndDate = CDate(mam_NormalDateFormat(FrameWork.RCD().GetMaxDate()))
   End If
   assoc.OwnerAccount = acc
 

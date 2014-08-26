@@ -10,7 +10,7 @@
     <description>The Language HTML Meta tag definition. This tag is used by MTMSIX.DLL.</description>
   </text>
   <text id="SESSION_LCID">
-    <value>1036</value>
+    <value>2058</value>
     <description>
       The LCID of the locale that IIS should use. This affects formatting and should match format specified below.
       Leave blank to not set a LCID and just accept the default.

@@ -441,7 +441,7 @@
     <description></description>
   </text>
   <text id="TEXT_TIME_FORMAT">
-    <value>(MM/DD/YYYY HH:MM:SS PP)</value>
+    <value>(DD/MM/YYYY HH:MM:SS)</value>
     <description></description>
   </text>
   <text id="TEXT_PERSONAL_PRICELIST">

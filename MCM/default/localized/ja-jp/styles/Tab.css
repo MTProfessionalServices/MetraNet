@@ -1,0 +1,69 @@
+.TabHeader{
+	BORDER-BOTTOM		: #AAAAAA solid 2px;
+	BORDER-LEFT		  : Black solid 0px;
+	BORDER-RIGHT		: Black solid 0px;
+	BORDER-TOP		  : Black solid 0px;
+	clipBottom		  : 0px;
+	clipLeft		    : 0px;
+	clipRight		    : 0px;
+	clipTop			    : 0px;
+	COLOR			      : white;
+	FONT-FAMILY		  : Arial;
+	FONT-SIZE		    : 9pt;
+	FONT-WEIGHT		  : bold;
+	PADDING-BOTTOM	: 1px;
+	PADDING-LEFT		: 1px;
+	PADDING-RIGHT		: 1px;
+	PADDING-TOP		  : 1px;
+	TEXT-ALIGN		  : Center;
+}
+.TabHeaderSelected{
+	BACKGROUND-COLOR: #EEEEEE;
+	BORDER-BOTTOM		: #EEEEEE solid 2px;
+	BORDER-LEFT		  : #FFFFFF solid 2px;
+	BORDER-RIGHT		: #AAAAAA solid 2px;
+	BORDER-TOP		  : #FFFFFF solid 2px;
+  clipBottom		  : 0px;
+	clipLeft		    : 0px;
+	clipRight		    : 0px;
+	clipTop			    : 0px;
+	COLOR			      : white;
+	FONT-FAMILY		  : Arial;
+	FONT-SIZE		    : 9pt;
+	FONT-WEIGHT		  : bold;
+	PADDING-BOTTOM	: 1px;
+	PADDING-LEFT		: 1px;
+	PADDING-RIGHT		: 1px;
+	PADDING-TOP		  : 1px;
+	TEXT-ALIGN		  : Center;
+}
+a.TabHeaderA:hover{
+  COLOR			      : black;
+	text-decoration	: none;    
+}
+.TabHeaderBar{
+	BORDER-BOTTOM		: black solid 0px;
+	BORDER-LEFT		  : black solid 0px;
+	BORDER-RIGHT		: black solid 0px;
+	BORDER-TOP		  : black solid 1px;
+}
+.Tab{
+	BACKGROUND-COLOR: #EEEEEE;
+	BORDER-BOTTOM		: #AAAAAA solid 2px;
+	BORDER-LEFT		  : #AAAAAA solid 2px;
+	BORDER-RIGHT		: #AAAAAA solid 2px;
+	BORDER-TOP		  : #EEEEEE solid 2px;
+	clipBottom		  : 0px;
+	clipLeft		    : 0px;
+	clipRight		    : 0px;
+	clipTop			    : 0px;
+	COLOR			      : black;
+	FONT-FAMILY		  : Arial;
+	FONT-SIZE		    : 9pt;
+	FONT-WEIGHT		  : bold;
+	PADDING-BOTTOM	: 1px;
+	PADDING-LEFT		: 1px;
+	PADDING-RIGHT		: 1px;
+	PADDING-TOP		  : 1px;
+	TEXT-ALIGN		  : left;
+}

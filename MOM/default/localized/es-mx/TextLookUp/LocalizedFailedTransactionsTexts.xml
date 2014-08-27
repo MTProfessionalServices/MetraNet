@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_FAILED_TRANSACTIONS_FAILED_TRANSACTION_BROWSER">
+    <value>[es-MX]Failed Transactions</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_FAILED_TRANSACTION">
+    <value>[es-MX]Edit Failed Transaction</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_SERVICE_NAME">
+    <value>[es-MX]Service Name</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_SESSION_UID">
+    <value>[es-MX]Session UID</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_SESSION_ID">
+    <value>[es-MX]Session ID</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_HOST">
+    <value>[es-MX]Host</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_METERED_TIME">
+    <value>[es-MX]Metered Time</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_ERROR_CODE">
+    <value>[es-MX]Error Code</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_ERROR_DESCRIPTION">
+    <value>[es-MX]Error Description</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STAGE">
+    <value>[es-MX]Stage</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_PLUGIN">
+    <value>[es-MX]PlugIn</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_POSSIBLE_ACCOUNT_ID">
+    <value>[es-MX]Account ID</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_LINE">
+    <value>[es-MX]Line</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_METHOD">
+    <value>[es-MX]Method</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_MODULE">
+    <value>[es-MX]Module</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATE">
+    <value>[es-MX]State</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_FAILURETIME">
+    <value>[es-MX]Failure Time</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_COMPOUND_ID">
+    <value>[es-MX]Compound ID</value>
+  </text>
+  <text id="TEXT_RESUBMIT_TRANSACTION">
+    <value>[es-MX]ReSubmit Failed Transaction</value>
+  </text>
+  <text id="TEXT_RESUBMIT_TRANSACTION_SUCCEED">
+    <value>[es-MX]The transaction was sent with success to the pipeline.</value>
+  </text>
+  <text id="TEXT_RESUBMIT_TRANSACTION_FAILED">
+    <value>[es-MX]Error found sending the transaction to the pipeline. View the log file.</value>
+  </text>
+  <text id="TEXT_INTERVAL_ID">
+    <value>[es-MX]Interval ID</value>
+  </text>
+  <text id="TEXT_SESSION_ID">
+    <value>[es-MX]Session ID</value>
+  </text>
+  <text id="TEXT_SESSION_TYPE">
+    <value>[es-MX]Session Type</value>
+  </text>
+  <text id="TEXT_VIEW_ID">
+    <value>[es-MX]View ID</value>
+  </text>
+  <text id="TEXT_SERVICE_NAME">
+    <value>[es-MX]Service Name</value>
+  </text>
+  <text id="TEXT_ERROR_MESSAGE">
+    <value>[es-MX]Error Message</value>
+  </text>
+  <text id="TEXT_ERROR">
+    <value>[es-MX]Error</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_METERED_STATUS">
+    <value>[es-MX]Metered</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_NOT_METERED_STATUS">
+    <value>[es-MX]Not Metered</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_METER">
+    <value>[es-MX]Meter</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_SUBMIT_TITLE">
+    <value>[es-MX]Submit</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT">
+    <value>[es-MX]ReSubmit As Sender</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_SUBMIT_PRESS_OK_TO_REFRESH_FAILED_TRANSACTION_SCREEN">
+    <value>[es-MX]Press OK to refresh the screen.</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_FAILED_PVB_COMBOX_BOX_TITLE">
+    <value>[es-MX]Period</value>
+  </text>
+  <text id="TEXT_PLEASE_SELECT">
+    <value>[es-MX]Please select at least one transaction to act on.</value>
+  </text>
+  <text id="TEXT_EXPORT">
+    <value>[es-MX]Export</value>
+  </text>
+  <text id="TEXT_SAVE">
+    <value>[es-MX]Save</value>
+  </text>
+  <text id="TEXT_LOST_TRANSACTIONS_LOST_TRANSACTION_BROWSER">
+    <value>[es-MX]Suspended Transactions</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_TITLE">
+    <value>[es-MX]Bulk Change</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE">
+    <value>[es-MX]Mode</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE_CHANGE_ALL">
+    <value>[es-MX]Change All</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE_CHANGE_IF_PREVIOUS_VALUE_IS">
+    <value>[es-MX]Change Only If Previous Value Is</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTION_BULK_NEW_VALUE">
+    <value>[es-MX]New Value</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTION_BULK_PREVIOUS_VALUE">
+    <value>[es-MX]Previous Value</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTION_BULK_PROPERTY">
+    <value>[es-MX]Property</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_ALL">
+    <value>[es-MX]Failed Transactions</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
+    <value>[es-MX]Open Failed Transactions</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_UNDER_INVESTIGATION">
+    <value>[es-MX]Failed Transactions Under Investigation</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_CORRECTED">
+    <value>[es-MX]Corrected Failed Transactions Waiting To Be Resubmitted</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
+    <value>[es-MX]Dismissed Failed Transactions</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_RESUBMITTED">
+    <value>[es-MX]Resubmitted Failed Transactions</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_FOR_BATCH">
+    <value>[es-MX]Failed Transactions For Batch</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS_OPEN">
+    <value>[es-MX]Open</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS_UNDER_INVESTIGATION">
+    <value>[es-MX]Under Investigation</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS_CORRECTED">
+    <value>[es-MX]Corrected - Pending Resubmit</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS_DISMISSED">
+    <value>[es-MX]Dismissed</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS_RESUBMITTED">
+    <value>[es-MX]Resubmitted</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS_OPEN">
+    <value>[es-MX]Open</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS_DELETED">
+    <value>[es-MX]Deleted</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_DELETE_CHILD_TRANSACTION">
+    <value>[es-MX]Are you sure you wish to delete this child transaction ?</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_NEW_STATUS">
+    <value>[es-MX]New Status</value>
+  </text>
+  <text id="TEXT_ERROR_TITLE">
+    <value>[es-MX]Failed Transaction Resubmit Errors</value>
+  </text>
+  <text id="TEXT_TX_UID_ENCODED">
+    <value>[es-MX]Failure Compound Session ID</value>
+  </text>
+  <text id="TEXT_EXCEPTION">
+    <value>[es-MX]Exception</value>
+  </text>
+</texts>

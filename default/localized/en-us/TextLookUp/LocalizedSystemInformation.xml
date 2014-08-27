@@ -1,69 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<texts id="More Localized System Information" type='collection'>
-
-<description>
-This file defines the MAM system information that must be localized.
-</description>
-    
-              
-
-  <text id='DEFAULT_PATH_SEARCH'>
-   <value>/mam/default/localized/en-us</value>
-      <description>
-The path defined in the HTML Dialog template file. In this case we keep /mam/ because it is hard code this way in the HTML template file. 
-The MDM Renderer process use this string to perform a string search/replace.
-      .</description>
-  </text>       
-
-  <text id='CUSTOM_PATH_SEARCH'>
-   <value>/mam/custom/localized/en-us</value>
-      <description>Same as DEFAULT_PATH_SEARCH but for the folder custom.</description>
-  </text>        
-
-  <text id='DEFAULT_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/default/localized/en-us</value>
-      <description>
-Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
-This string is used by the MDM Renderer process use this string to perform a string search/replace.
-This string is the replaced string. Here we do not hard code mam but we use the internal macro so the MAM can be installed in different site.
-      </description>
+<texts id="More Localized System Information" type="collection">
+  <description>
+    This file defines the MAM system information that must be localized.
+  </description>
+  <text id="DEFAULT_PATH_SEARCH">
+    <value>/mam/default/localized/en-us</value>
+    <description>
+      The path defined in the HTML Dialog template file. In this case we keep /mam/ because it is hard code this way in the HTML template file.
+      The MDM Renderer process use this string to perform a string search/replace.
+      .
+    </description>
   </text>
-
-    <text id='CUSTOM_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/custom/localized/en-us</value>
-      <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
+  <text id="CUSTOM_PATH_SEARCH">
+    <value>/mam/custom/localized/en-us</value>
+    <description>Same as DEFAULT_PATH_SEARCH but for the folder custom.</description>
   </text>
-
-
-    <text id='PV_ROW_PER_PAGE'>
-   <value>25</value>
-      <description>Number of row per page for any product view.</description>
+  <text id="DEFAULT_PATH_REPLACE">
+    <value>[APP_HTTP_PATH]/default/localized/en-us</value>
+    <description>
+      Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
+      This string is used by the MDM Renderer process use this string to perform a string search/replace.
+      This string is the replaced string. Here we do not hard code mam but we use the internal macro so the MAM can be installed in different site.
+    </description>
   </text>
-    
-    <text id="MAX_ROW_PER_PICKER_PAGE">
-        <value>25</value>
-        <description>Number of lines in a picker</description>
-    </text>
-    <text id="MAX_ROW_PER_LIST_PAGE">
-        <value>25</value>
-        <description>Number of lines in a list</description>
-    </text>    
-        
-    <text id='DEFAULT_TIME_ZONE_ID'>
-   <value>18</value>
-      <description>When you open add account define the default time zone id selected.</description>
-  </text>    
-    
-     
-    <text id='DEFAULT_TAX_EXEMPT'>
-   <value>FALSE</value>
-      <description>When you open add account define the default tax exempt value.</description>
-  </text>        
-
-    <text id='MDM_BACK_BUTTON_ERROR'>
-   <value>
-       <![CDATA[
+  <text id="CUSTOM_PATH_REPLACE">
+    <value>[APP_HTTP_PATH]/custom/localized/en-us</value>
+    <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
+  </text>
+  <text id="PV_ROW_PER_PAGE">
+    <value>25</value>
+    <description>Number of row per page for any product view.</description>
+  </text>
+  <text id="MAX_ROW_PER_PICKER_PAGE">
+    <value>25</value>
+    <description>Number of lines in a picker</description>
+  </text>
+  <text id="MAX_ROW_PER_LIST_PAGE">
+    <value>25</value>
+    <description>Number of lines in a list</description>
+  </text>
+  <text id="DEFAULT_TIME_ZONE_ID">
+    <value>18</value>
+    <description>When you open add account define the default time zone id selected.</description>
+  </text>
+  <text id="DEFAULT_TAX_EXEMPT">
+    <value>FALSE</value>
+    <description>When you open add account define the default tax exempt value.</description>
+  </text>
+  <text id="MDM_BACK_BUTTON_ERROR">
+    <value>
+      <![CDATA[
           <html>
             <head>
               <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/styles.css'>
@@ -73,67 +59,57 @@ This string is the replaced string. Here we do not hard code mam but we use the 
                <center><em>This can happen if you access a cached page or use the browser Back button to get to an invalid cached page.</em></center>
            </body>
          </html>
-       
-         
-       ]]>   
-      </value>
-      <description>Localized error message when the user use the Back button bowser.</description>
-  </text>    
-
-    <text id='BILLING_CYCLE_BI_WEEKLY_COMBOX_BOX_FORMAT'>
-   <value>[LABEL] : [START_DATE] - [END_DATE] ([MONTH]/[DAY]/[YEAR])</value>            
-      <description>
-Dialog DefaultDialogAddAccount.asp, The Billing Cycle BiWeekLy show a combo box with 14 periodes or less. 
-This entry allow to customize the display of the periode information. See the Billing Cycle documentation for more help.
-This tag allows you to build the string format that will show up in the combo box for the billing cycle bi-weekly
-Tag List : END_DATE,START_DATE,LABEL,MONTH,DAY,NAMEDDAY,SECONDDAY,YEAR.
-      </description>
+       ]]>
+    </value>
+    <description>Localized error message when the user use the Back button bowser.</description>
   </text>
-
-    <text id='DEFAULT_COUNTRY_ENUM_TYPE_VALUE'>
-   <value></value>
-      <description>
+  <text id="BILLING_CYCLE_BI_WEEKLY_COMBOX_BOX_FORMAT">
+    <value>[LABEL] : [START_DATE] - [END_DATE] ([MONTH]/[DAY]/[YEAR])</value>
+    <description>
+      Dialog DefaultDialogAddAccount.asp, The Billing Cycle BiWeekLy show a combo box with 14 periodes or less.
+      This entry allow to customize the display of the periode information. See the Billing Cycle documentation for more help.
+      This tag allows you to build the string format that will show up in the combo box for the billing cycle bi-weekly
+      Tag List : END_DATE,START_DATE,LABEL,MONTH,DAY,NAMEDDAY,SECONDDAY,YEAR.
+    </description>
+  </text>
+  <text id="DEFAULT_COUNTRY_ENUM_TYPE_VALUE">
+    <value></value>
+    <description>
       In MAM 2.0 because the contact fields are no more required, the Country default value is blank...
       When you open add account define the default country selected id selected. 208 is USA. See enum type name space global.
-      </description>
+    </description>
   </text>
-    
-    <text id='DEFAULT_DEFAULT_ADD_ACCOUNT_EMAIL_NOTIFICATION'>
-   <value>FALSE</value>
-      <description>When you open add account define if the Add Account dialog Email notification check box is checked.</description>
-  </text>    
-
-    <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_CURRENT_MONTH'>
-   <value>[START_DATE] Through today</value>
-      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
+  <text id="DEFAULT_DEFAULT_ADD_ACCOUNT_EMAIL_NOTIFICATION">
+    <value>FALSE</value>
+    <description>When you open add account define if the Add Account dialog Email notification check box is checked.</description>
   </text>
-    <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_NON_CLOSED_MONTH'>
-   <value>[START_DATE] Through [END_DATE]</value>
-      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
+  <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_CURRENT_MONTH">
+    <value>[START_DATE] Through today</value>
+    <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
-    <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH'>
-   <value>[START_DATE] Through [END_DATE] #invoice:[INVOICE_NUMBER]</value>
-      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
+  <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_NON_CLOSED_MONTH">
+    <value>[START_DATE] Through [END_DATE]</value>
+    <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
-    <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH_WITH_NO_INVOICE_NUMBER'>
-   <value>[START_DATE] Through [END_DATE]</value>
-      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
-  </text>    
-    
-    <text id='QUICKFINDALIAS1'>
-   <value>Alias</value>
-      <description>The Quick Search allow to perform search on Alias, the word Alias will appear in the Quick Find ComboBox and need a translation..</description>
+  <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH">
+    <value>[START_DATE] Through [END_DATE] #invoice:[INVOICE_NUMBER]</value>
+    <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
-
-  <text id='ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER'>
-  <value>1</value>
-      <description>
+  <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH_WITH_NO_INVOICE_NUMBER">
+    <value>[START_DATE] Through [END_DATE]</value>
+    <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
+  </text>
+  <text id="QUICKFINDALIAS1">
+    <value>Alias</value>
+    <description>The Quick Search allow to perform search on Alias, the word Alias will appear in the Quick Find ComboBox and need a translation..</description>
+  </text>
+  <text id="ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER">
+    <value>1</value>
+    <description>
       When we look transaction for the current looked up account we need to know how to view the account:
       as the payer or the payer
       PUBLIC CONST ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_PAYER=1
       PUBLIC CONST ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_PAYEE=2
-      </description>
+    </description>
   </text>
-  
-  
 </texts>

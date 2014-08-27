@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Unknown</Action>
+    <Action>Get</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
     </Parameters>
-    <Description></Description>
+    <Description>Get the value of Hierarchy_RestrictedOperations from t_db_values</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Config\Queries\AccHierarchies\SQLServer.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\AccHierarchies\Oracle.xml</OracleQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

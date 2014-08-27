@@ -165,22 +165,6 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   
   id_pricelist_new = objPriceList.id
   
-    ' If this operation is being performed by a tenant user, save TenantId in Extended properties
-  Dim tenantId
-  If Session("isTenantUser") Then
-    tenantId = Session("topLevelAccountId")
-  Else
-    tenantId = 0
-  End If
-  Dim success
-  success = SaveTenantIdForPriceList(objPriceList.ID, tenantId)
-
-  if (Not(success)) then
-      EventArg.Error.Save "Failed to add Tenant Id to new Pricelist"
-      OK_Click = FALSE
-      Exit Function
-  End If
-
   'response.write "Created new pricelist '" & objPriceList.Name & "' with id [" & id_pricelist_new & "]<BR>"
   
   'Create new rateschedules

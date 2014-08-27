@@ -121,22 +121,16 @@
     <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>d/m/Y</value>
+    <value>j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>d/m/Y h:i:s a|d/m/Y</value>
+    <value>j/n/Y h:i:s a|j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>d/m/Y h:i:s a</value>
+    <value>n/j/Y h:i:s a</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>d/m/Y h:i:s a</value>
-  </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>d/m/Y h:ia</value>
-  </data>
-  <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>dd/mm/YYYY</value>
+    <value>j/n/Y h:i:s a</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
@@ -146,6 +140,9 @@
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplicar</value>
+  </data>
+  <data name="ERR_DATE_FORMAT" xml:space="preserve">
+    <value>dd/mm/YYYY</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Error</value>
@@ -677,6 +674,9 @@
   </data>
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>¿Está seguro que desea cerrar sesión?</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>j/n/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Administrar cuenta</value>

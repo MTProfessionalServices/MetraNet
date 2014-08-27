@@ -121,22 +121,16 @@
     <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>d/m/Y</value>
+    <value>j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>d/m/Y G:i:s|d/m/Y</value>
+    <value>j/n/Y G:i:s|j/n/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>d/m/Y G:i:s</value>
+    <value>j/n/Y G:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>d/m/Y G:i:s</value>
-  </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>d/m/Y G:ia</value>
-  </data>
-  <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>dd/MM/YYYY</value>
+    <value>j/n/Y G:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>
@@ -146,6 +140,9 @@
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplica</value>
+  </data>
+  <data name="ERR_DATE_FORMAT" xml:space="preserve">
+    <value>dd/mm/YYYY</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Errore</value>
@@ -677,6 +674,9 @@
   </data>
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>Eseguire il logout?</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>j/n/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Gestisci account</value>

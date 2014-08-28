@@ -218,9 +218,19 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     COMObject.Instance.AvailabilityDate.EndDate = mdm_NormalDateFormat(COMObject.Properties("AvDate_EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
     COMObject.Properties("AvailabilityDate__EndDate").Value = COMObject.Instance.AvailabilityDate.EndDate
   end if
+  if (not IsEmpty(COMObject.Properties("AvDate_EndDate")) and StrComp(COMObject.Properties("AvDate_EndDate").Value, "")=0) then
+    COMObject.Instance.AvailabilityDate.EndDate = Empty
+    COMObject.Instance.AvailabilityDate.EndDateType = PCDATE_TYPE_NULL
+    COMObject.Properties("AvailabilityDate__EndDate").Value = Empty
+  end if
   if(not IsEmpty(COMObject.Properties("EffDate_EndDate")) and StrComp(COMObject.Properties("EffDate_EndDate").Value, "")<>0) then
     COMObject.Instance.EffectiveDate.EndDate = mdm_NormalDateFormat(COMObject.Properties("EffDate_EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
-    COMObject.Properties("EffectiveDate__EndDate").Value = COMObject.Instance.EffectiveDate.EndDate 
+    COMObject.Properties("EffectiveDate__EndDate").Value = COMObject.Instance.EffectiveDate.EndDate
+  end if
+  if (not IsEmpty(COMObject.Properties("EffDate_EndDate")) and StrComp(COMObject.Properties("EffDate_EndDate").Value, "")=0) then
+    COMObject.Instance.EffectiveDate.EndDate = Empty
+    COMObject.Instance.EffectiveDate.EndDateType = PCDATE_TYPE_NULL
+    COMObject.Properties("EffectiveDate__EndDate").Value = Empty
   end if
 
   COMObject.Properties.Remove "EffDate_StartDate"    

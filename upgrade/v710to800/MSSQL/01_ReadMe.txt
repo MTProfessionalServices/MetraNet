@@ -17,4 +17,3 @@ NOTE: verify that Report Templates and Credit Note Templates hooks are available
 6.	Verify that sync was completed successfully and there are no errors in Mtlog and ICE validation (if its installed)
 7.	Execute “UpdateAfterHook_t_be_cor_ui_site.sql”
 8.  Execute “UpdateAfterSyncAll.sql”
-9.  Execute “UpdateQuoteDetails.sql”

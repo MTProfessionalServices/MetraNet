@@ -6,7 +6,7 @@ This file defines the system path information that must be localized.
 </description>
 
 		<text id="DEFAULT_LOCALIZED_PATH">
-			<value>[APP_HTTP_PATH]/default/localized/en-us</value>
+			<value>[APP_HTTP_PATH]/default/localized/pt-br</value>
       <description>
       Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
       </description>

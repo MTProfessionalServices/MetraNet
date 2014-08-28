@@ -2,83 +2,83 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-    <value>Journal d’audit du catalogue produits</value>
+    <value>[JA]Product Catalog Audit Log</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_AUDIT_LOG">
-    <value>Afficher le journal d’audit</value>
+    <value>[JA]View Audit Log</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOG_DESCRIPTION">
-    <value>Afficher les événements associés au catalogue produits</value>
+    <value>[JA]View events that have been performed against the Product Catalog.</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TIME">
-    <value>Heure</value>
+    <value>[JA]Time</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USERNAME">
-    <value>Utilisateur</value>
+    <value>[JA]User</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENTNAME">
-    <value>Evénement</value>
+    <value>[JA]Event</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITYNAME">
-    <value>Élément</value>
+    <value>[JA]Item</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DETAILS">
-    <value>Détails</value>
+    <value>[JA]Details</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOGGED_IN_AS">
-    <value>Connecté en tant que</value>
+    <value>[JA]Logged in as</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_APPLICATION_NAME">
-    <value>Nom de l’application</value>
+    <value>[JA]Application name</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>ID d’entité</value>
+    <value>[JA]Entity ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_AUDIT_ID">
-    <value>ID d’audit</value>
+    <value>[JA]Audit ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENT_ID">
-    <value>ID d’événement</value>
+    <value>[JA]Event ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USER_ID">
-    <value>ID de l’utilisateur</value>
+    <value>[JA]User ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-    <value>ID de type d’entité</value>
+    <value>[JA]Entity Type ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>ID d’entité</value>
+    <value>[JA]Entity ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DT_CRT">
-    <value>Date CRT</value>
+    <value>[JA]Date CRT</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
-    <value>tx_logged_in_as</value>
+    <value>[JA]tx_logged_in_as</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_APPLICATION_NAME">
-    <value>tx_application_name</value>
+    <value>[JA]tx_application_name</value>
     <description></description>
   </text>
   <text id="TEXT_CURRENT_GMT_TIME_IS">
-    <value>L’heur GMT actuelle est</value>
+    <value>[JA]Current GMT time is</value>
     <description></description>
   </text>
 </texts>

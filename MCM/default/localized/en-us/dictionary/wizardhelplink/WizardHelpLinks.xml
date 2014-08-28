@@ -1,68 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Main" type="collection">
-
+  <description></description>
+  <text id="CREATEPO_START">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/start.html</value>
     <description></description>
-
-    <text id="CREATEPO_START">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/start.html</value><description></description>
-    </text>
-
-    <text id="CREATEPO_CURRENCY">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/currency.html</value><description></description>
-    </text>    
-    
-    <text id="CREATEPO_DATES">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/dates.html</value><description></description>
-    </text>
-
-    <text id="CREATEPO_SUMMARY">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/summary.html</value><description></description>
-    </text>
-    
-		<text id="CREATE_NON_RECURRING_START">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddNonRecurringCharge/start.html</value><description></description>
-    </text>
-
-    <text id="CREATE_NON_RECURRING_EVENT">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddNonRecurringCharge/Event.html</value><description></description>
-    </text>
-
-    <text id="CREATE_NONRECURRING_SUMMARY">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddNonRecurringCharge/summary.html</value><description></description>
-    </text>     
-		
-		<text id="CREATE_RECURRING_START">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/start.html</value><description></description>
-    </text>
-
-    <text id="CREATE_RECURRING_PERIOD">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/Period.html</value><description></description>
-    </text>
-
-    <text id="CREATE_RECURRING_CONFIG_CHARGE">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/Configcharge.html</value><description></description>
-    </text>     		 
-    
-    <text id="CREATE_RECURRING_CONFIG_CHARGE_UDRC">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/ConfigchargeUDRC.html</value><description></description>
-    </text>     		     
-
-    <text id="CREATE_RECURRING_SUMMARY">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/summary.html</value><description></description>
-    </text>   	 
-  	<text id="CREATE_DISCOUNT_START">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddDiscount/start.html</value><description></description>
-    </text>
-
-    <text id="CREATE_DISCOUNT_PERIOD">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddDiscount/Period.html</value><description></description>
-    </text>
-		    <text id="CREATE_DISCOUNT_SUMMARY">
-        <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddDiscount/summary.html</value><description></description>
-    </text>
-		 
+  </text>
+  <text id="CREATEPO_CURRENCY">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/currency.html</value>
+    <description></description>
+  </text>
+  <text id="CREATEPO_DATES">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/dates.html</value>
+    <description></description>
+  </text>
+  <text id="CREATEPO_SUMMARY">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/CreatePO/summary.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_NON_RECURRING_START">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddNonRecurringCharge/start.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_NON_RECURRING_EVENT">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddNonRecurringCharge/Event.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_NONRECURRING_SUMMARY">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddNonRecurringCharge/summary.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_RECURRING_START">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/start.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_RECURRING_PERIOD">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/Period.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_RECURRING_CONFIG_CHARGE">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/Configcharge.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_RECURRING_CONFIG_CHARGE_UDRC">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/ConfigchargeUDRC.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_RECURRING_SUMMARY">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddRecurringCharge/summary.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_DISCOUNT_START">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddDiscount/start.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_DISCOUNT_PERIOD">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddDiscount/Period.html</value>
+    <description></description>
+  </text>
+  <text id="CREATE_DISCOUNT_SUMMARY">
+    <value>[APP_HTTP_PATH]/default/localized/en-us/wizardhelp/AddDiscount/summary.html</value>
+    <description></description>
+  </text>
 </texts>
-
-
-

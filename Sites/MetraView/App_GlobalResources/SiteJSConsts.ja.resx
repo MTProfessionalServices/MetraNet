@@ -121,25 +121,31 @@
     <value>Y/m/d</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>Y/n/j</value>
+    <value>Y/m/d</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>Y/n/j G:i:s</value>
+    <value>Y/m/d G:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>Y/n/j G:i:s | Y/n/j</value>
+    <value>Y/m/d G:i:s | Y/m/d</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>Y/n/j G:i:s</value>
+    <value>Y/m/d G:i:s</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>Y/m/d G:ia</value>
+  </data>
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>Y/m/d G:i:s</value>
+  </data>
+  <data name="ERR_DATE_FORMAT" xml:space="preserve">
+    <value>YYYY/mm/dd</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
   </data>
   <data name="DIGIT_SEPARATOR" xml:space="preserve">
     <value>,</value>
-  </data>
-  <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>YYYY/mm/dd</value>
   </data>
   <data name="GRAPH_CURRENCY_FORMAT" xml:space="preserve">
     <value>$%.2f</value>
@@ -459,9 +465,6 @@
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>ログアウトしますか。</value>
   </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>Y/n/j g:ia</value>
-  </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>アカウントの管理</value>
   </data>
@@ -701,9 +704,6 @@
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>[JA]Middle initial is invalid</value>
-  </data>
-  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>Y/n/j G:i:s</value>
   </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
     <value>[JA] Refresh</value>

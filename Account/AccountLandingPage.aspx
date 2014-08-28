@@ -200,10 +200,10 @@ white-space:nowrap;
   </div>
 
 
-  <%--<div class="widgetpanel" style="width:318px;">
-    <div id="LTVInformation" style="float:left;margin-left: 10px;"><span class="valueLabel">LTV</span><span class="valueHighlighted" style='padding-left: 10px;'></span></div>
-    <div id="MRRInformation" style="float:left;margin-left: 10px"><span class="valueLabel">MRR</span><span class="valueHighlighted" style="padding: 10px;"></span></div>
-  </div>--%>
+  <div id="MRRInformation" class="widgetpanel" style="width:150px; display:none;">
+    <%-- <div id="LTVInformation" style="float:left;margin-left: 10px;"><span class="valueLabel">LTV</span><span class="valueHighlighted" style='padding-left: 10px;'></span></div> --%>
+    <div><span class="valueLabel">MRR</span><span class="valueHighlighted"></span></div>
+  </div>
 
   <br style="clear: both;" />
    
@@ -479,8 +479,7 @@ white-space:nowrap;
       displayAccountStatusInformation();
       displayBalanceInformation();
       displayFailedTransactionCount(<% =int.Parse(UI.Subscriber["_AccountID"]) %>);
-      //displayLtvAndMrrInformation();
-      displayBillingActivityGraph();
+      displayBillingActivityAndMRR();
       resize_to_fit();
     });
     

@@ -289,7 +289,7 @@
       makeTop10SubsPart();
       //makeTop10RevenuePart();
       //makeTop10UniqueCustomersPart();
-      //makeTop10NewCustomersPart();
+      makeTop10NewCustomersPart();
 
 
     });

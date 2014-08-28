@@ -48,15 +48,18 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
             }
             else if (operation.Equals("AnalyticsTopMRR"))
             {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopMRR__", null, ref items);
+				        paramDict.Add("%%METRATIME%%", MetraTech.MetraTime.Now);
+                VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRR__", paramDict, ref items);
             }
             else if (operation.Equals("AnalyticsTopMRRGain"))
             {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopMRRGain__", null, ref items);
+				        paramDict.Add("%%METRATIME%%", MetraTech.MetraTime.Now);
+                VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRGain__", paramDict, ref items);
             }
             else if (operation.Equals("AnalyticsTopMRRLoss"))
             {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopMRRLoss__", null, ref items);
+				        paramDict.Add("%%METRATIME%%", MetraTech.MetraTime.Now);
+                VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRLoss__", paramDict, ref items);
             }
 
             else if (operation.Equals("AnalyticsTopSubscriptions"))

@@ -76,16 +76,16 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
       Response.write FrameWork.GetDictionary("ERROR_ITEM_NOT_FOUND") & Request.QueryString("ID")
       Response.end
   End If
- COMObject.Properties.Add "EffectiveDate__StartDate",  "String", 0,   TRUE, Empty    
+ COMObject.Properties.Add "EffectiveDate__StartDate",  "String", 0,   FALSE, Empty    
  COMObject.Properties.Add "EffectiveDate__EndDate",    "String", 0,   FALSE, Empty    	
- COMObject.Properties.Add "AvailabilityDate__StartDate",  "String", 0,   TRUE, Empty    
+ COMObject.Properties.Add "AvailabilityDate__StartDate",  "String", 0,   FALSE, Empty    
  COMObject.Properties.Add "AvailabilityDate__EndDate",    "String", 0,   FALSE, Empty    	
  
 
 
-  COMObject.Properties.Add "EffDate_StartDate",  "String", 0,   TRUE, Empty    
+  COMObject.Properties.Add "EffDate_StartDate",  "String", 0,   FALSE, Empty    
   COMObject.Properties.Add "EffDate_EndDate",    "String", 0,   FALSE, Empty    	
-  COMObject.Properties.Add "AvDate_StartDate",  "String", 0,   TRUE, Empty    
+  COMObject.Properties.Add "AvDate_StartDate",  "String", 0,   FALSE, Empty    
   COMObject.Properties.Add "AvDate_EndDate",    "String", 0,   FALSE, Empty    	
   COMObject.Properties.Add "Name",    "String", 0,   FALSE, Empty 
   COMObject.Properties.Add "POPartitionId",    "String", 0,   FALSE, Empty   	

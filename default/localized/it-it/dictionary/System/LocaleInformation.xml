@@ -10,60 +10,42 @@
     <description>The Language HTML Meta tag definition. This tag is used by MTMSIX.DLL.</description>
   </text>
   <text id="SESSION_LCID">
-    <value>1036</value>
+    <value>1040</value>
     <description>
       The LCID of the locale that IIS should use. This affects formatting and should match format specified below.
       Leave blank to not set a LCID and just accept the default.
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789/: APMapm</value>
+    <value>0123456789/: </value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
-    <value>d/M/yyyy</value>
+    <value>dd/MM/yyyy</value>
     <description>Special date format used by JavaScript based calendar widget. See MDM/Common/Widgets/Calendar for more information.</description>
   </text>
   <text id="MDM_USE_24HOUR_CLOCK">
     <value>true</value>
     <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
   </text>
-  <!--
-  <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789.: APMapm</value>
-    <description>Chars allowed for a date</description>
-  </text>
-  <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
-    <value>d.M.yyyy</value>
-    <description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar/pupdate.js for more information.</description>
-  </text>
-  <text id="MDM_USE_24HOUR_CLOCK">
-    <value>true</value>
-    <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
-  </text>
-  -->
   <text id="END_OF_DAY">
     <value>23:59:59</value>
     <description>End of day</description>
   </text>
   <text id="DATE_FORMAT">
-    <value>dd/mm/yyyy</value>
+    <value>dd/MM/yyyy</value>
     <description>The date format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="JS_DATE_FORMAT">
-    <value>j/n/Y</value>
+    <value>d/m/Y</value>
     <description>ExtJS date format definition</description>
   </text>
-  <text id="END_OF_TIME">
-    <value>01/01/2038</value>
-    <description>End of Time</description>
-  </text>
   <text id="TIME_FORMAT">
-    <value>hh:mm:ss</value>
+    <value>H:mm:ss</value>
     <description>The time format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>dd/mm/yyyy H:mm:ss</value>
+    <value>dd/MM/yyyy H:mm:ss</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">
@@ -93,16 +75,20 @@
     <value>True</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
+  <text id="DATE_SEPARATOR">
+    <value>/</value>
+    <description>Define the dates separator.</description>
+  </text>
   <text id="TODAY_TEXT">
-    <value>Aujourd\'hui</value>
+    <value>[IT]Today</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Aut,Septembre,Octobre,Novembre,Décembre</value>
+    <value>[IT]January,February,March,April,May,June,July,August,September,October,November,December</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">
-    <value>Dimanche,Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi</value>
+    <value>[IT]Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
     <description>weekdays.</description>
   </text>
   <text id="START_DAY_OF_WEEK">
@@ -110,15 +96,15 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>annule</value>
+    <value>[IT]Cancel</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>prochaine mois</value>
+    <value>[IT]Next Month</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>mois dernier</value>
+    <value>[IT]Previous month</value>
     <description></description>
-  </text>  
+  </text>
 </texts>

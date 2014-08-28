@@ -88,14 +88,13 @@ public partial class ProductDashboard : MTPage
 
   private void SetLocalization()
   {
-    //MRRTotalText = GetLocalResourceObject("TEXT_MRR_TOTAL").ToString();
-    MrrTotalGraphTitle = "MRR Total goes here";
-    MrrGainGraphTitle = "MRR Gain goes here";
-    MrrLossGraphTitle = "MRR Loss goes here";
-    TopSubsGraphTitle = "Subscriptions Total goes here";
-    TopSubsGainGraphTitle = "Subscriptions Gain goes here";
-    TopSubsLossGraphTitle = "Subscriptions Loss goes here";
-    NoDataText = "No data available";
+    MrrTotalGraphTitle = GetLocalResourceObject("TEXT_MRR_TOTAL").ToString();
+    MrrGainGraphTitle = GetLocalResourceObject("TEXT_MRR_GAIN").ToString();
+    MrrLossGraphTitle = GetLocalResourceObject("TEXT_MRR_LOSS").ToString();
+    TopSubsGraphTitle = GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOTAL").ToString();
+    TopSubsGainGraphTitle = GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN").ToString();
+    TopSubsLossGraphTitle = GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS").ToString();
+    NoDataText = GetLocalResourceObject("TEXT_NO_DATA_AVAILABLE").ToString();
   }
 }
 

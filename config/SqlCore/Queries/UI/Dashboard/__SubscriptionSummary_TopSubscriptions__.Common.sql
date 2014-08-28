@@ -21,8 +21,9 @@ ON po.ProductOfferingId = ss.ProductOfferingId
 LEFT JOIN SubscriptionSummary prev 
 ON ss.InstanceId = prev.InstanceId 
  AND ss.ProductOfferingId = prev.ProductOfferingId 
- AND prev.Month = DATEADD(m,-1,ss.Month)
-WHERE ss.Month = DATEPART(m, DATEADD(m, -1, getdate())) 
- AND   ss.Year = DATEPART(yyyy, DATEADD(m, -1, getdate()))
+ AND prev.Month = DATEPART(m, DATEADD(m, -2, GETDATE()))
+ AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, GETDATE()))
+WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE())) 
+ AND   ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
 GROUP BY ss.InstanceId, po.ProductOfferingId, ss.Month, po.ProductOfferingName 
 ORDER BY ss.Month asc

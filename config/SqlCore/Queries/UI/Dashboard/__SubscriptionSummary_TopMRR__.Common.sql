@@ -1,14 +1,15 @@
-SELECT top 10 po.ProductOfferingName, 
+ SELECT TOP 10 dense_rank () OVER (ORDER BY sum(isnull(ss.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum, 
+		po.ProductOfferingName as 'productname', po.ProductOfferingId as 'productcode',
 		ss.Month, 
-		sum(ss.MRRPrimaryCurrency) as MRR, 
-		sum(prev.MRRPrimaryCurrency) as MRRPrevious, 
-		sum(ss.MRRPrimaryCurrency)-sum(prev.MRRPrimaryCurrency) as MRRChange,
-		sum(ss.TotalParticipants) as Subscriptions, 
-		sum(prev.TotalParticipants) as SubscriptionsPrevious, 
-		sum(ss.TotalParticipants)-sum(prev.TotalParticipants) as SubscriptionsChange,
-		sum(ss.NewParticipants) as NewCustomers, 
-		sum(prev.NewParticipants) as NewCustomersPrevious, 
-		sum(ss.NewParticipants)-sum(prev.NewParticipants) as NewCustomersChange
+		SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0)) AS MRR, 
+		SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) AS MRRPrevious, 
+		SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) AS MRRChange,
+		SUM(ISNULL(ss.TotalParticipants, 0.0)) AS Subscriptions, 
+		SUM(ISNULL(prev.TotalParticipants, 0.0)) AS SubscriptionsPrevious, 
+		SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) AS SubscriptionsChange,
+		SUM(ISNULL(ss.NewParticipants, 0.0)) AS NewCustomers, 
+		SUM(ISNULL(prev.NewParticipants, 0.0)) AS NewCustomersPrevious, 
+		SUM(ISNULL(ss.NewParticipants, 0.0))-SUM(ISNULL(prev.NewParticipants, 0.0)) AS NewCustomersChange
 FROM SubscriptionSummary ss
 INNER JOIN ProductOffering po 
 ON po.ProductOfferingId = ss.ProductOfferingId 
@@ -17,7 +18,6 @@ LEFT JOIN SubscriptionSummary prev
 ON ss.InstanceId = prev.InstanceId 
 	AND ss.ProductOfferingId = prev.ProductOfferingId 
 	AND prev.Month = DATEADD(m,-1,ss.Month)
-WHERE DATEPART(m, ss.Month) = DATEPART(m, DATEADD(m, -1, getdate())) 
-		AND DATEPART(yyyy, ss.Month) = DATEPART(yyyy, DATEADD(m, -1, getdate()))
-GROUP BY ss.InstanceId, po.ProductOfferingName, ss.Month 
-ORDER BY sum(ss.MRRPrimaryCurrency) desc
+WHERE ss.Month = DATEPART(m, DATEADD(m, -1, %%METRATIME%%)) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, %%METRATIME%%))
+GROUP BY ss.InstanceId, po.ProductOfferingName, po.ProductOfferingId, ss.Month
+ORDER BY SUM(ss.MRRPrimaryCurrency) DESC 

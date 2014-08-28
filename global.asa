@@ -7,6 +7,13 @@
 Option Explicit
 CONST MDM_CACHE_SESSION_NAME     = "MDM.CACHE"
 CONST DEFAULT_LANGUAGE = "en-us"
+'-----------------------
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
+'
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: Application_OnStart
 ' PARAMETERS	:
@@ -59,13 +66,38 @@ Sub Session_OnStart
   '    'Date & " " & Time & "[" & sessionID & "]"
    '   Call session("PERF_TIMER_SCRIPT_TIMER").Init(Application("PERF_TIMER_MANAGER").InitializeTimerXML(Date & " " & Time & " [" & Session.SessionID & "]"))
     'end if
-    
+     if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
+      Dim userLocale
+      userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
+      dim Languages
+      if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
+          Languages = Split(userLocale, ",", -1)
+          dim L
+          L = Languages(0)
+          if(IsEmpty(L) or IsNull(L)) then L = DEFAULT_LANGUAGE end if
+            Session("PAGE_LANGUAGE")           = L
+      else
+            Session("PAGE_LANGUAGE")           = DEFAULT_LANGUAGE
+      end if 
+    else
+      dim lang
+      lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
+      'if(not FolderExists(APP_FOLDER & "\custom\Localized\" & lang)) then
+       ' lang = DEFAULT_LANGUAGE
+     ' end if
+      if (instr(1, lang, "en") <> 0) then
+        lang = "en-US"
+     end if
+      Session("PAGE_LANGUAGE") = lang
+    end if
+
+
 	  Dim objMAM      ' As Object
     DIM APP_FOLDER  ' As String
     
     ' This help the mdm to know when the session time out
     Session("mdm_SESSION_ID")     = "MDM_SESSION_ID=" & Now()
-  
+
     ' Setup application start page
     Application("startPage")      = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
   
@@ -73,6 +105,7 @@ Sub Session_OnStart
     Application("APP_HTTP_PATH")  = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
     
     APP_FOLDER                    = server.MapPath(application("startPage"))   ' "
+
   	Set objMAM                    = Server.CreateObject("MTMAM.MAM")    ' "
     Session("mdm_APP_FOLDER")     = APP_FOLDER ' Store the application folder for the mdm
 
@@ -89,6 +122,7 @@ Sub Session_OnStart
 
     
     ' It is required to load the dictionary before we initialize the MAM componant.
+    objMAM.Language= Session("PAGE_LANGUAGE")
     mam_LoadDictionary objMAM, Session("PAGE_LANGUAGE") 
 
     
@@ -113,6 +147,7 @@ Sub Session_OnStart
     objMAM.Menu.MenuWithGraphics = False ' Turn on FANCY graphical memu 
 
     objMAM.Log "MetraCare Initialized..."
+    stop
 End Sub
 
 ' TODO:  WE WANT TO INCLUDE THIS FUNCTION FROM MAMLIBRARY - SOMEDAY

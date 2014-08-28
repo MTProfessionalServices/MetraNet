@@ -56,6 +56,7 @@ when matched then update set
   qh.c_status = qc.c_status,
   qh.c_effectivedate = qh.c_startdate,
   qh.c_effectiveenddate = qh.c_enddate,
+  qh.c_QuoteCreationDate = qh.c_CreationDate
   qh.c_idquote = qh.c_quoteid;
 
 ALTER TABLE t_be_cor_qu_quoteheader DROP (c_startdate, c_enddate, c_quoteid);

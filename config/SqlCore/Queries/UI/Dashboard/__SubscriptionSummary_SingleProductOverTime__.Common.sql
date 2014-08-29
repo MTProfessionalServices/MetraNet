@@ -1,26 +1,29 @@
-SELECT  ss.ProductOfferingId,
-		ss.Month, 
-		sum(ss.MRRPrimaryCurrency) as MRR,
-		sum(prev.MRRPrimaryCurrency) as MRRPrevious, 
-		sum(ss.MRRPrimaryCurrency)-sum(prev.MRRPrimaryCurrency) as MRRChange,
-		sum(ss.TotalParticipants) as Subscriptions, 
-		sum(prev.TotalParticipants) as SubscriptionsPrevious, 
-		sum(ss.TotalParticipants)-sum(prev.TotalParticipants) as SubscriptionsChange,
-		sum(ss.NewParticipants) as NewCustomers, 
-		sum(prev.NewParticipants) as NewCustomersPrevious, 
-		sum(ss.NewParticipants)-sum(prev.NewParticipants) as NewCustomersChange,
-		sum(ss.SubscriptionRevPrimaryCurrency) as Revenue, 
-		sum(prev.SubscriptionRevPrimaryCurrency) as RevenuePrevious, 
-		sum(ss.SubscriptionRevPrimaryCurrency)-sum(prev.SubscriptionRevPrimaryCurrency) as RevenueChange
+SELECT  
+ po.ProductOfferingId,
+ po.ProductOfferingName AS 'ProductName',
+ ss.Month, 
+	SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0)) AS 'MRR',
+	SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) AS 'MRRPrevious', 
+	SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) AS 'MRRChange',
+	SUM(ISNULL(ss.TotalParticipants, 0.0)) AS 'Subscriptions', 
+	SUM(ISNULL(prev.TotalParticipants, 0.0)) AS 'SubscriptionsPrevious', 
+	SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) AS 'SubscriptionsChange',
+	SUM(ISNULL(ss.NewParticipants, 0.0)) AS 'NewCustomers', 
+	SUM(ISNULL(prev.NewParticipants, 0.0)) AS 'NewCustomersPrevious', 
+	SUM(ISNULL(ss.NewParticipants, 0.0))-SUM(ISNULL(prev.NewParticipants, 0.0)) AS 'NewCustomersChange',
+	SUM(ISNULL(ss.SubscriptionRevPrimaryCurrency, 0.0)) AS 'Revenue', 
+	SUM(ISNULL(prev.SubscriptionRevPrimaryCurrency, 0.0)) AS 'RevenuePrevious', 
+	SUM(ISNULL(ss.SubscriptionRevPrimaryCurrency, 0.0))-SUM(ISNULL(prev.SubscriptionRevPrimaryCurrency, 0.0)) AS 'RevenueChange'
 FROM SubscriptionSummary ss
 INNER JOIN ProductOffering po 
-ON po.ProductOfferingId = ss.ProductOfferingId 
+ ON po.ProductOfferingId = ss.ProductOfferingId 
 	AND ss.InstanceId = po.InstanceId
 LEFT JOIN SubscriptionSummary prev 
-ON ss.InstanceId = prev.InstanceId 
+ ON ss.InstanceId = prev.InstanceId 
 	AND ss.ProductOfferingId = prev.ProductOfferingId 
-	AND prev.Month = DATEADD(m,-1,ss.Month)
-WHERE DATEPART(m, ss.Month) = DATEPART(m, DATEADD(m, -1, getdate())) 
-		AND DATEPART(yyyy, ss.Month) = DATEPART(yyyy, DATEADD(m, -1, getdate()))
-GROUP BY ss.InstanceId, ss.ProductOfferingId, ss.Month 
-ORDER BY ss.Month asc
+	AND prev.Month = DATEPART(m, DATEADD(m, -2, getdate()))
+	AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, getdate()))
+WHERE ss.Month = DATEPART(m, DATEADD(m, -1, getdate())) 
+	AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, getdate()))
+GROUP BY ss.InstanceId, po.ProductOfferingId, ss.Month, po.ProductOfferingName 
+ORDER BY ss.Month ASC

@@ -123,7 +123,8 @@
             <DataIndex>nm_login</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_LOGIN</LocalizationFQN>
+                <LocalizationTag>TEXT_USER_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -158,7 +159,8 @@
             <DataIndex>dt_crt</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_DATE_CREATE</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DATE</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter>DateRenderer</Formatter>
             <Width>120</Width>
@@ -193,7 +195,8 @@
             <DataIndex>tx_details</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_TX_DETAILS</LocalizationFQN>
+                <LocalizationTag>TEXT_DETAILS</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -228,7 +231,8 @@
             <DataIndex>id_po</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_PO_ID</LocalizationFQN>
+                <LocalizationTag>TEXT_PO_ID</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -263,7 +267,8 @@
             <DataIndex>nm_po</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_PO_NAME</LocalizationFQN>
+                <LocalizationTag>TEXT_PO_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -298,7 +303,8 @@
             <DataIndex>tx_desc</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_DESCRIPTION</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

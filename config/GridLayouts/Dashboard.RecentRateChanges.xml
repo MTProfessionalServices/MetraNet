@@ -91,7 +91,7 @@
                 <QueryDir></QueryDir>
                 <QueryParameters></QueryParameters>
                 <QueryColumns>
-				    <QueryColumn>
+                    <QueryColumn>
                         <Name>unique_id</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
@@ -137,7 +137,7 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>unique_id</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText> </HeaderText>          
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>false</Resizeable>
@@ -161,7 +161,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-		<Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -171,7 +171,8 @@
             <DataIndex>nm_login</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_LOGIN</LocalizationFQN>
+                <LocalizationTag>TEXT_USER_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -206,7 +207,8 @@
             <DataIndex>dt_crt</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_DATE_CREATE</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DATE</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter>DateRenderer</Formatter>
             <Width>120</Width>
@@ -241,7 +243,8 @@
             <DataIndex>id_sched</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_ID_SCHED</LocalizationFQN>
+                <LocalizationTag>TEXT_SCHEDULE_ID</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -276,7 +279,8 @@
             <DataIndex>tx_details</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_TX_DETAILS</LocalizationFQN>
+                <LocalizationTag>TEXT_DETAILS</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -311,7 +315,8 @@
             <DataIndex>tx_desc</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_TX_DETAILS</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -346,7 +351,8 @@
             <DataIndex>id_pt</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_PT_ID</LocalizationFQN>
+                <LocalizationTag>TEXT_PRODUCT_TEMPLATE_ID</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -381,7 +387,8 @@
             <DataIndex>nm_pt</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_PT_NAME</LocalizationFQN>
+                <LocalizationTag>TEXT_PRODUCT_TEMPLATE_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

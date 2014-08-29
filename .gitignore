@@ -10,5 +10,14 @@ RMP/Bin/
 RMP/*.txt
 RMP/MTLog.Be.txt
 /**/[Bb]in
+/**/[Tt]emp
+/**/*.resources
 
 _MetraNet_*
+sessions.bin
+RMP/Config/Security/sessionkeys.xml
+
+# Achilles additions
+RMP/InstallScripts/**/SQLLogs
+RMP/mtlog.be.txt.*
+RMP/Extensions/MetraView/Sites/MetraView/App_Data/Logs/*

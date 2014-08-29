@@ -287,7 +287,7 @@
       //Failed transaction area
       makeTop10MRRPart();
       makeTop10SubsPart();
-      //makeTop10RevenuePart();
+      makeTop10RevenuePart();
       //makeTop10UniqueCustomersPart();
       makeTop10NewCustomersPart();
 
@@ -518,9 +518,9 @@
     function makeTop10UniqueCustomersPart() {
       
       var data = [];
-      data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",newcustomers:"125" });
+/*      data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",newcustomers:"125" });
       data.push({ productcode: 2, subscriptions: 9200, productname: "Simple Web" ,newcustomers:"30"});
-
+*/
 
       var fnData = function(x) {
         x.newcustomers = +x.newcustomers;
@@ -545,7 +545,7 @@
     function makeTop10NewCustomersPart() {
       
       var data = [];
-      data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",newcustomers:"125" });
+/*      data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",newcustomers:"125" });
       data.push({ productcode: 2, subscriptions: 9200, productname: "Simple Web" ,newcustomers:"30"});
       data.push({ productcode: 3, subscriptions: 1040, productname: "On-Demand Cloud" ,newcustomers:"10"});
       data.push({ productcode: 4, subscriptions: 500, productname: "Pre-paid Cloud" ,newcustomers:"11"});
@@ -553,7 +553,7 @@
       data.push({ productcode: 6, subscriptions: 250, productname: "Wholesale offer for Cloud10",newcustomers:"60" });
       data.push({ productcode: 7, subscriptions: 10000, productname: "Cloud10 WebSite Offer",newcustomers:"200" });
       data.push({ productcode: 8, subscriptions: 300, productname: "Content Squared Revenue Share contract",newcustomers:"59" });
-
+*/
 
       var fnData = function(x) {
         x.newcustomers = +x.newcustomers;
@@ -578,8 +578,8 @@
     function makeTop10RevenuePart() {
       
       var data = [];
-      data.push({ productcode: 1, productname: "500 Free Minutes", revenue:"1250" });
-      
+/*      data.push({ productcode: 1, productname: "500 Free Minutes", revenue:"1250" });
+*/      
 
       var fnData = function(x) {
         x.revenue = +x.revenue;
@@ -596,7 +596,7 @@
 
       var fnTitle = function (d) { return d.key + " - " + d.value; };
 
-      visualizeRowChart("AnalyticsTopOfferingsByRevenue", "#divTop10Revenue", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data);
+      visualizeRowChart("AnalyticsSingleProductOverTime", "#divTop10Revenue", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data);
 
     }
 

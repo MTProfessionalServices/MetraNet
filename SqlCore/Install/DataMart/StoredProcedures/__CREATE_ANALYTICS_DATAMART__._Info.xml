@@ -5,7 +5,7 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <InstallTime>PreSync</InstallTime>
+    <InstallTime>PostSync</InstallTime>
     <Schemas>
         <Schema>NetMeter</Schema>
     </Schemas>

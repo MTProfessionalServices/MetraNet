@@ -1363,7 +1363,7 @@ CLASS CFrameWork ' -- The FrameWork Class --
   		' Separate template into the date subtemplate and time subtemplate, and maybe the AMPM piece
   		vFormatTemplate = Split(Framework.GetDictionary("DATE_TIME_FORMAT"), " ")
   		
-  		cDateSep = MID(vFormatTemplate(0), 3, 1)
+  		cDateSep = Framework.GetDictionary("DATE_SEPARATOR")'MID(vFormatTemplate(0), 3, 1)
   		cTimeSep = ":"
   		
   		' Do the same thing for our input string
@@ -1386,13 +1386,13 @@ CLASS CFrameWork ' -- The FrameWork Class --
   			End If
   			
   			Select Case UCase(vDateTemplate(i))
-  				Case "DD"
+  				Case "DD", "D"
   					iDay = Clng(vDateInput(i))
   					If iDay < 1 or iDay > 31 Then
   						IsValidDate = FALSE
   						exit function
   					End If								
-  				Case "MM"
+  				Case "MM", "M"
   					iMonth = Clng(vDateInput(i))
   					If iMonth < 1 or iMonth > 12 Then
   						IsValidDate = FALSE

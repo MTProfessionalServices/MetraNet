@@ -1,73 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="ProductCatalogCOMObject" type="collection">
-
-    <description>
-    Texts for the billing cycles sub dialog 
-    </description>
-    
-    <text id="TEXT_PC_CYCLE_TITLE">
-      <value>Cycle</value></text>   
-
-    <text id="TEXT_PC_CYCLE_FIXED_CYCLE">
-      <value>Cycle fixe</value></text>   
-
-    <text id="TEXT_PC_CYCLE_SAME_AS_SUBSCRIBER_BILLING_CYCLE">
-      <value>Identique au cycle de facturation du payeur de l'abonné</value></text>
-    <text id="TEXT_PC_CYCLE_REQUIRE_CYCLE_IS">
-      <value>Exige que le cycle de facturation du payeur de l'abonné soit</value></text>
-
-    <text id="TEXT_PC_CYCLE_ALIGNED_TO_SUBSCRIBER_BILLING_CYCLE">
-      <value>Ajusté sur le cycle de facturation du payeur de l'abonné</value></text>
-    <text id="TEXT_PC_CYCLE_ALIGNED_OCURRING">
-      <value>Se produisant</value></text>
-
-    <text id="TEXT_PC_CYCLE_DAILY">
-      <value>Tous les jours</value></text>
-
-    <text id="TEXT_PC_CYCLE_WEEKLY">
-      <value>Toutes les semaines</value></text>
-    <text id="TEXT_PC_CYCLE_WEEKLY_LABEL1">
-      <value>Fin le</value></text>
-
-    <text id="TEXT_PC_CYCLE_BIWEEKLY">
-      <value>Toutes les deux semaines</value></text>
-    <text id="TEXT_PC_CYCLE_BIWEEKLY_LABEL1">
-      <value/></text>
-
-    <text id="TEXT_PC_CYCLE_SEMIMONTHLY">
-      <value>Deux fois par mois</value></text>
-    <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL1">
-      <value>Fin le</value></text>
-    <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL2">
-      <value>et</value></text>
-
-    <text id="TEXT_PC_CYCLE_MONTHLY">
-      <value>Tous les mois</value></text>
-    <text id="TEXT_PC_CYCLE_MONTHLY_LABEL1">
-      <value>Fin le</value></text>
-
-    <text id="TEXT_PC_CYCLE_QUARTERLY">
-      <value>Trimestriel</value></text>
-    <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL1">
-      <value>Début le</value></text>
-    <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL2">
-      <value/></text>
-
-    <text id="TEXT_PC_CYCLE_ANNUAL">
-      <value>Tous les ans</value></text>
-    <text id="TEXT_PC_CYCLE_ANNUAL_LABEL1">
-      <value>Début le</value></text>
-    <text id="TEXT_PC_CYCLE_ANNUAL_LABEL2">
-      <value/></text>
-
+  <description>
+    Texts for the billing cycles sub dialog
+  </description>
+  <text id="TEXT_PC_CYCLE_TITLE">
+    <value>[ES]Cycle</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_FIXED_CYCLE">
+    <value>[ES]Fixed cycle</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_SAME_AS_SUBSCRIBER_BILLING_CYCLE">
+    <value>[ES]Same as subscriber's payer's billing cycle</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_REQUIRE_CYCLE_IS">
+    <value>[ES]Require that subscriber's payer's billing cycle be</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ALIGNED_TO_SUBSCRIBER_BILLING_CYCLE">
+    <value>[ES]Aligned to subscriber's payer's billing cycle</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ALIGNED_OCURRING">
+    <value>[ES]Occurring</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_DAILY">
+    <value>[ES]Daily</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_WEEKLY">
+    <value>[ES]Weekly</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_WEEKLY_LABEL1">
+    <value>[ES]Ending on</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_BIWEEKLY">
+    <value>[ES]Bi-weekly</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_BIWEEKLY_LABEL1">
+    <value></value>
+  </text>
+  <text id="TEXT_PC_CYCLE_SEMIMONTHLY">
+    <value>[ES]Semi-monthly</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL1">
+    <value>[ES]Ending on days</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL2">
+    <value>[ES]and</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_MONTHLY">
+    <value>[ES]Monthly</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_MONTHLY_LABEL1">
+    <value>[ES]Ending on day</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_QUARTERLY">
+    <value>[ES]Quarterly</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL1">
+    <value>[ES]Starting on</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL2">
+    <value></value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ANNUAL">
+    <value>[ES]Annual</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ANNUAL_LABEL1">
+    <value>[ES]Starting on</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ANNUAL_LABEL2">
+    <value></value>
+  </text>
   <text id="TEXT_PC_CYCLE_SEMIANNUAL">
-    <value>Deux fois par an</value>
+    <value>[ES]Semi-annual</value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIANNUAL_LABEL1">
-    <value>Début le</value>
+    <value>[ES]Starting on</value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIANNUAL_LABEL2">
-    <value/>
+    <value></value>
   </text>
-
 </texts>

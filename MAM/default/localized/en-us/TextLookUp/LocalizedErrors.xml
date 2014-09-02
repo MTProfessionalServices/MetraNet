@@ -1,87 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Localized Errors" type="collection">
-
-<description>
-The file defines the MAM application errors. The error message are localized.
-When the Metering SDK returns an error to the MAM looks up the message in the MetraTech Global Message Dll.
-(Actually this task is performed by the MDM.)
-</description>
-
-    <text id="MAM_ERROR_1000"><value>E-Mail is not valid</value></text>
-    <text id="MAM_ERROR_1001"><value>Password does not match confirm password - please try again</value></text>
-    <text id="MAM_ERROR_1002"><value>Billing Cycle error. The first day of the month must be less than the second day of the month.</value></text>
-    <text id="MAM_ERROR_1003"><value>E-Mail is required</value></text>
-    <text id="MAM_ERROR_1004"><value>Namespace description not found. Namespace=[NAME_SPACE]</value></text>
-    <text id="MAM_ERROR_1005"><value>A system error has occurred.  Please have your administrator check the system log, and try again later.</value></text>
-    <text id="MAM_ERROR_1006"><value>An unknown error has occurred.  Please have your administrator check the system log, and try again later.</value></text>
-    <text id="MAM_ERROR_1007"><value>Too many accounts found.  Please narrow your search.</value></text>
-    <text id="MAM_ERROR_1008"><value>Please enter at least one criteria to search on.</value></text>
-    <text id="MAM_ERROR_1009"><value>Please enter a value to search on.</value></text>
-    <text id="MAM_ERROR_1010"><value>This feature is only supported in IE version 4.0 and above.</value></text>
-    <text id="MAM_ERROR_1011"><value>The E-Mail notification failed, Please have your administrator check the system log, and try again later.</value></text>
-    <text id="MAM_ERROR_1012"><value>Subscriber [ACCOUNT_ID] not found by MAM().Subscriber().Find() in SubscriberFound.Asp.</value></text>
-    <text id="MAM_ERROR_1013"><value>Previous account status [PREVIOUS] or new account status [NEW] mismatch error.</value></text>
-
-    <text id="MAM_ERROR_1014"><value>Method MAM.Find() returned FALSE.</value></text>
-    <text id="MAM_ERROR_1015"><value>Internal error.</value></text>    
-    <text id="MAM_ERROR_1016"><value>Internal database error, the credit was not found.  Record count is zero.  Please contact your administrator.</value></text>    
-    <text id="MAM_ERROR_1017"><value>Find error - No rowset returned for user [USERNAME].</value></text>    
-    <text id="MAM_ERROR_1018"><value>Impossible to retrieve output session from the AccountCreation metering. Please contact your administrator.</value></text>    
-    <text id="MAM_ERROR_1019"><value>Impossible to read the new account id from the output session. Please contact your administrator.</value></text>    
-    <text id="MAM_ERROR_1020"><value>Billing Cycle error. The first day of the month must be between 1 and 30 and the second day of the month must be between 2 and 31.</value></text>
-    <text id="MAM_ERROR_1021"><value>Ticketing file [FILENAME] not found.</value></text>
-    <text id="MAM_ERROR_1022"><value>The user name already exists.</value></text>
-    <text id="MAM_ERROR_ERROR_DETAIL"><value>Details</value></text>
-    <text id="MAM_ERROR_1023"><value>Cannot get credit card information. Please contact your administrator.</value></text>
-    <text id="MAM_ERROR_1024"><value>Cannot get ACH information. Please contact your administrator.</value></text>
-    <text id="MAM_ERROR_1025"><value>The batch operation failed and all changes were rolled back.</value></text>
-		<text id="MAM_ERROR_1026"><value>You must specify an account for discount distribution by selecting it from the Account Finder.</value></text>
-    <text id="MAM_ERROR_1027"><value>Invalid ancestor account</value></text>
-    <text id="MAM_ERROR_1028"><value>Invalid payer account</value></text>
-    <text id="MAM_ERROR_1029"><value>You do not have access to manage:  [ACCOUNT_ID].</value></text>
-		<text id="MAM_ERROR_1030"><value>Discount account format is invalid.</value></text>
-		<text id="MAM_ERROR_1031"><value>The group has been created.  Please select accounts to add.  Or click cancel to go back.</value></text>
-		<text id="MAM_ERROR_1032"><value>Unable to refresh the account catalog.  Please logout and login again.</value></text>
-		<text id="MAM_ERROR_1033"><value>You must specify at least one account.</value></text>    
-		<text id="MAM_ERROR_1034"><value>There are no accounts in your current selection.</value></text>    
-    <text id="MAM_ERROR_1035"><value>You must specify a valid account id to describe the hierarchy path.</value></text>            
-    <text id="MAM_ERROR_1036"><value>The batch subscription failed for some accounts.</value></text>    
-    <text id="MAM_ERROR_1037"><value>Please enter a valid account ID.</value></text>
-    <text id="MAM_ERROR_1038"><value>No transactions found.</value></text>
-    <text id="MAM_ERROR_1039"><value>Select a child transaction</value></text>
-    <text id="MAM_ERROR_1040"><value>You must compute the adjustment before viewing details or saving it</value></text>
-    <text id="MAM_ERROR_1041"><value>[TEXT_KEYTERM_PRICEABLE_ITEM] [NAME] has no adjustment types configured.</value></text>
-    <text id="MAM_ERROR_1042"><value>No [TEXT_KEYTERM_PRICEABLE_ITEM] Type with Adjustment(s) found in the Product Catalog.  There are no transactions that can be adjusted.</value></text>
-    <text id="MAM_ERROR_1043"><value>Cannot find the orphan adjustment [SESSIONID].</value></text>
-    <text id="MAM_ERROR_1044"><value>Please select [ITEM]</value></text>
-    <text id="MAM_ERROR_1045"><value>Internal Error.  Cannot find the Session ID [SESSIONID] in the transaction rowset</value></text>
-    <text id="MAM_ERROR_1046"><value>No default payment method was set up for the account.  It has been reset to cash/check.</value></text>
-    <text id="MAM_ERROR_1047"><value>No item selected</value></text>
-    <text id="MAM_ERROR_1048"><value>MAM_ERROR_1048-Adjustment Display Internal Error</value></text>
-    <text id="MAM_ERROR_1049"><value>You must enter a valid parent account ID.</value></text>
-    <text id="MAM_ERROR_1050"><value>Please select either a Billing Interval or both the Start Date and End Date for the search.</value></text>    
-    <text id="MAM_ERROR_1051"><value>Please select at least one transaction.</value></text>    
-    <text id="MAM_ERROR_1052">
-      <value>
-        <![CDATA[  The batch template operation failed for some accounts. <br><br> <i>Please note that any account update operations that succeeded will not be rolled back.  However, Group Subscriptions are done in a single transaction.  This means that if there is an error with one of the accounts being placed in a Group Subscription none of them will be added.</i> ]]>  
-      </value>
-	  </text>
-    <text id="MAM_ERROR_1053"><value>Account cannot be moved to another namespace.</value></text>
-    <text id="MAM_ERROR_2000"><value>An error occurred while adding the id mapping.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2001"><value>An error occurred while removing an id mapping.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2002"><value>An error occurred while updating the id mapping.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2003"><value>An error occurred while creating the connection.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2004"><value>An error occurred while removing the connection.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2005"><value>An error occurred while updating the connection dates.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2006"><value>An error occurred while moving the connection.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2007"><value>An error occurred while creating the [TEXT_KEYTERM_SERVICE_ENDPOINT].  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2008"><value>Unable to determine Corporate Account ID from the specified value.  Value should be an account ID or have the format Name (ID).</value></text>
-    <text id="MAM_ERROR_2009"><value>Unable to determine [TEXT_SE_ID] from the specified value.  Value should be a valid [TEXT_SE_ID] or have the format: Name (ID).</value></text>
-    <text id="MAM_ERROR_2010"><value>The specified value for [TEXT_SE_ID] does not map to an existing [TEXT_KEYTERM_SERVICE_ENDPOINT].</value></text>
-    <text id="MAM_ERROR_2011"><value>Failed to delete account template.  Please have your administrator check the system log.</value></text>
-    <text id="MAM_ERROR_2012"><value>One or more warnings occurred, Adjustment cannot be saved</value></text>
-    <text id="MAM_ERROR_2013"><value>Failed to create account template.  Please have your administrator check the system log.</value></text>    
-    <text id="MAM_ERROR_2014"><value>No accounts found to apply template to.</value></text>
-	<text id="MAM_ERROR_2015"><value>The batch operation failed and all changes were rolled back.</value></text>
+  <description>
+    The file defines the MAM application errors. The error message are localized.
+    When the Metering SDK returns an error to the MAM looks up the message in the MetraTech Global Message Dll.
+    (Actually this task is performed by the MDM.)
+  </description>
+  <text id="MAM_ERROR_1000">
+    <value>E-Mail is not valid</value>
+  </text>
+  <text id="MAM_ERROR_1001">
+    <value>Password does not match confirm password - please try again</value>
+  </text>
+  <text id="MAM_ERROR_1002">
+    <value>Billing Cycle error. The first day of the month must be less than the second day of the month.</value>
+  </text>
+  <text id="MAM_ERROR_1003">
+    <value>E-Mail is required</value>
+  </text>
+  <text id="MAM_ERROR_1004">
+    <value>Namespace description not found. Namespace=[NAME_SPACE]</value>
+  </text>
+  <text id="MAM_ERROR_1005">
+    <value>A system error has occurred.  Please have your administrator check the system log, and try again later.</value>
+  </text>
+  <text id="MAM_ERROR_1006">
+    <value>An unknown error has occurred.  Please have your administrator check the system log, and try again later.</value>
+  </text>
+  <text id="MAM_ERROR_1007">
+    <value>Too many accounts found.  Please narrow your search.</value>
+  </text>
+  <text id="MAM_ERROR_1008">
+    <value>Please enter at least one criteria to search on.</value>
+  </text>
+  <text id="MAM_ERROR_1009">
+    <value>Please enter a value to search on.</value>
+  </text>
+  <text id="MAM_ERROR_1010">
+    <value>This feature is only supported in IE version 4.0 and above.</value>
+  </text>
+  <text id="MAM_ERROR_1011">
+    <value>The E-Mail notification failed, Please have your administrator check the system log, and try again later.</value>
+  </text>
+  <text id="MAM_ERROR_1012">
+    <value>Subscriber [ACCOUNT_ID] not found by MAM().Subscriber().Find() in SubscriberFound.Asp.</value>
+  </text>
+  <text id="MAM_ERROR_1013">
+    <value>Previous account status [PREVIOUS] or new account status [NEW] mismatch error.</value>
+  </text>
+  <text id="MAM_ERROR_1014">
+    <value>Method MAM.Find() returned FALSE.</value>
+  </text>
+  <text id="MAM_ERROR_1015">
+    <value>Internal error.</value>
+  </text>
+  <text id="MAM_ERROR_1016">
+    <value>Internal database error, the credit was not found.  Record count is zero.  Please contact your administrator.</value>
+  </text>
+  <text id="MAM_ERROR_1017">
+    <value>Find error - No rowset returned for user [USERNAME].</value>
+  </text>
+  <text id="MAM_ERROR_1018">
+    <value>Impossible to retrieve output session from the AccountCreation metering. Please contact your administrator.</value>
+  </text>
+  <text id="MAM_ERROR_1019">
+    <value>Impossible to read the new account id from the output session. Please contact your administrator.</value>
+  </text>
+  <text id="MAM_ERROR_1020">
+    <value>Billing Cycle error. The first day of the month must be between 1 and 30 and the second day of the month must be between 2 and 31.</value>
+  </text>
+  <text id="MAM_ERROR_1021">
+    <value>Ticketing file [FILENAME] not found.</value>
+  </text>
+  <text id="MAM_ERROR_1022">
+    <value>The user name already exists.</value>
+  </text>
+  <text id="MAM_ERROR_ERROR_DETAIL">
+    <value>Details</value>
+  </text>
+  <text id="MAM_ERROR_1023">
+    <value>Cannot get credit card information. Please contact your administrator.</value>
+  </text>
+  <text id="MAM_ERROR_1024">
+    <value>Cannot get ACH information. Please contact your administrator.</value>
+  </text>
+  <text id="MAM_ERROR_1025">
+    <value>The batch operation failed and all changes were rolled back.</value>
+  </text>
+  <text id="MAM_ERROR_1026">
+    <value>You must specify an account for discount distribution by selecting it from the Account Finder.</value>
+  </text>
+  <text id="MAM_ERROR_1027">
+    <value>Invalid ancestor account</value>
+  </text>
+  <text id="MAM_ERROR_1028">
+    <value>Invalid payer account</value>
+  </text>
+  <text id="MAM_ERROR_1029">
+    <value>You do not have access to manage:  [ACCOUNT_ID].</value>
+  </text>
+  <text id="MAM_ERROR_1030">
+    <value>Discount account format is invalid.</value>
+  </text>
+  <text id="MAM_ERROR_1031">
+    <value>The group has been created.  Please select accounts to add.  Or click cancel to go back.</value>
+  </text>
+  <text id="MAM_ERROR_1032">
+    <value>Unable to refresh the account catalog.  Please logout and login again.</value>
+  </text>
+  <text id="MAM_ERROR_1033">
+    <value>You must specify at least one account.</value>
+  </text>
+  <text id="MAM_ERROR_1034">
+    <value>There are no accounts in your current selection.</value>
+  </text>
+  <text id="MAM_ERROR_1035">
+    <value>You must specify a valid account id to describe the hierarchy path.</value>
+  </text>
+  <text id="MAM_ERROR_1036">
+    <value>The batch subscription failed for some accounts.</value>
+  </text>
+  <text id="MAM_ERROR_1037">
+    <value>Please enter a valid account ID.</value>
+  </text>
+  <text id="MAM_ERROR_1038">
+    <value>No transactions found.</value>
+  </text>
+  <text id="MAM_ERROR_1039">
+    <value>Select a child transaction</value>
+  </text>
+  <text id="MAM_ERROR_1040">
+    <value>You must compute the adjustment before viewing details or saving it</value>
+  </text>
+  <text id="MAM_ERROR_1041">
+    <value>[TEXT_KEYTERM_PRICEABLE_ITEM] [NAME] has no adjustment types configured.</value>
+  </text>
+  <text id="MAM_ERROR_1042">
+    <value>No [TEXT_KEYTERM_PRICEABLE_ITEM] Type with Adjustment(s) found in the Product Catalog.  There are no transactions that can be adjusted.</value>
+  </text>
+  <text id="MAM_ERROR_1043">
+    <value>Cannot find the orphan adjustment [SESSIONID].</value>
+  </text>
+  <text id="MAM_ERROR_1044">
+    <value>Please select [ITEM]</value>
+  </text>
+  <text id="MAM_ERROR_1045">
+    <value>Internal Error.  Cannot find the Session ID [SESSIONID] in the transaction rowset</value>
+  </text>
+  <text id="MAM_ERROR_1046">
+    <value>No default payment method was set up for the account.  It has been reset to cash/check.</value>
+  </text>
+  <text id="MAM_ERROR_1047">
+    <value>No item selected</value>
+  </text>
+  <text id="MAM_ERROR_1048">
+    <value>MAM_ERROR_1048-Adjustment Display Internal Error</value>
+  </text>
+  <text id="MAM_ERROR_1049">
+    <value>You must enter a valid parent account ID.</value>
+  </text>
+  <text id="MAM_ERROR_1050">
+    <value>Please select either a Billing Interval or both the Start Date and End Date for the search.</value>
+  </text>
+  <text id="MAM_ERROR_1051">
+    <value>Please select at least one transaction.</value>
+  </text>
+  <text id="MAM_ERROR_1052">
+    <value><![CDATA[  The batch template operation failed for some accounts. <br><br> <i>Please note that any account update operations that succeeded will not be rolled back.  However, Group Subscriptions are done in a single transaction.  This means that if there is an error with one of the accounts being placed in a Group Subscription none of them will be added.</i> ]]></value>
+  </text>
+  <text id="MAM_ERROR_1053">
+    <value>Account cannot be moved to another namespace.</value>
+  </text>
+  <text id="MAM_ERROR_2000">
+    <value>An error occurred while adding the id mapping.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2001">
+    <value>An error occurred while removing an id mapping.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2002">
+    <value>An error occurred while updating the id mapping.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2003">
+    <value>An error occurred while creating the connection.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2004">
+    <value>An error occurred while removing the connection.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2005">
+    <value>An error occurred while updating the connection dates.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2006">
+    <value>An error occurred while moving the connection.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2007">
+    <value>An error occurred while creating the [TEXT_KEYTERM_SERVICE_ENDPOINT].  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2008">
+    <value>Unable to determine Corporate Account ID from the specified value.  Value should be an account ID or have the format Name (ID).</value>
+  </text>
+  <text id="MAM_ERROR_2009">
+    <value>Unable to determine [TEXT_SE_ID] from the specified value.  Value should be a valid [TEXT_SE_ID] or have the format: Name (ID).</value>
+  </text>
+  <text id="MAM_ERROR_2010">
+    <value>The specified value for [TEXT_SE_ID] does not map to an existing [TEXT_KEYTERM_SERVICE_ENDPOINT].</value>
+  </text>
+  <text id="MAM_ERROR_2011">
+    <value>Failed to delete account template.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2012">
+    <value>One or more warnings occurred, Adjustment cannot be saved</value>
+  </text>
+  <text id="MAM_ERROR_2013">
+    <value>Failed to create account template.  Please have your administrator check the system log.</value>
+  </text>
+  <text id="MAM_ERROR_2014">
+    <value>No accounts found to apply template to.</value>
+  </text>
+  <text id="MAM_ERROR_2015">
+    <value>The batch operation failed and all changes were rolled back.</value>
+  </text>
 </texts>

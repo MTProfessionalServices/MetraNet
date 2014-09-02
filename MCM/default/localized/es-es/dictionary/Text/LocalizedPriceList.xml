@@ -53,13 +53,13 @@
     <value>[ES]Shared</value>
   </text>
   <text id="TEXT_KEYTERM_PRICE_LIST_TYPE">
-    <value>[TEXT_KEYTERM_PRICE_LIST] [ES] type</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST] [ES]type</value>
   </text>
   <text id="TEXT_EDIT_PRICE_LIST_MAPPING">
     <value>[ES]Edit [TEXT_PRICELIST_MAPPING]</value>
   </text>
   <text id="TEXT_SHARED_RATES">
-    <value>[TEXT_SHARED] [ES] Rates</value>
+    <value>[TEXT_SHARED] [ES]Rates</value>
   </text>
   <text id="TEXT_PRICELIST_PLPARTITIONID">
     <value>[ES]Partition Id</value>

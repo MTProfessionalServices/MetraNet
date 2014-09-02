@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_credit_TITLE">
+    <value>[pt-BR]Credit Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_postauth_TITLE">
+    <value>[pt-BR]Post Auth Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_preauth_TITLE">
+    <value>[pt-BR]Pre Auth Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_prenote_TITLE">
+    <value>[pt-BR]ACH Prenote Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_credit_TITLE">
+    <value>[pt-BR]ACH Credit Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_debit_TITLE">
+    <value>[pt-BR]ACH Debit Audit Log</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_paymentscheduler_TITLE">
+    <value>[pt-BR]Payment Scheduler</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_ERROR_OCCUR_CHANGING_THE_STATUS">
+    <value>[pt-BR]An error occured changing the status of the transaction [TRANSACTIONID]. The status of following transaction(s) is not changed.</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_ERROR">
+    <value>[pt-BR]Error.</value>
+  </text>
+</texts>

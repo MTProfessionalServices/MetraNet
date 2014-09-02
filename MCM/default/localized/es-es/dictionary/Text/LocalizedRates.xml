@@ -2,15 +2,15 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_RATES_PRODUCT_OFFERING_LIST">
-    <value>[ES][TEXT_KEYTERM_PRODUCT_OFFERING]-based Rates</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING][ES]-based Rates</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_PRICELIST_LIST">
-    <value>[ES][TEXT_KEYTERM_PRICE_LIST]-based Rates For Priceable Item</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST][ES]-based Rates For Priceable Item</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_ALLPRICELISTS_LIST">
-    <value>[ES][TEXT_KEYTERM_PRICE_LIST]-based Rates</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST][ES]-based Rates</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_PRICEABLE_ITEM_LIST">
@@ -38,7 +38,7 @@
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_RATE_SCHEDULE">
-    <value>[ES][TEXT_KEYTERM_RATE_SCHEDULES]</value>
+    <value>[TEXT_KEYTERM_RATE_SCHEDULES]</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_CURRENCY_CODE">
@@ -110,7 +110,7 @@
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_RATES">
-    <value>[ES][TEXT_KEYTERM_PRODUCT_OFFERING] Rates</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] [ES]Rates</value>
     <description></description>
   </text>
   <text id="TEXT_CHILD_PRICEABLE_ITEM">
@@ -122,7 +122,7 @@
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_DESCRIPTION">
-    <value>[ES][TEXT_KEYTERM_RATE_SCHEDULE] Description</value>
+    <value>[TEXT_KEYTERM_RATE_SCHEDULE] [ES]Description</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_RULES_NUMBER">

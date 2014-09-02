@@ -2,257 +2,464 @@
 <texts id="Adjustments and Re-Bills" type="collection">
   <description>Localized terms related to adjustments and re-bills.</description>
 
-    <!-- To be removed [Why? - Simon]-->
-    <text id="TEXT_ADJUSTMENT">
-      <value>Ajustement</value>
-    </text>
-    
-    <text id="TEXT_ADJUSTMENT_SHORT">
-      <value>Ajust.</value>
-    </text>
-    
-    
-    <text id="TEXT_ADJUSTMENTS">
-      <value>divers</value>
-    </text>
-        
-    <text id="TEXT_MISC_ADJUSTMENT">
-      <value>Ajustement divers</value>    
-    </text>
-    <text id="TEXT_MISC_ADJUSTMENTS">
-      <value>Ajustements divers</value>
-    </text>        
-
-    <text id="TEXT_MISCELLANEOUS_ADJUSTMENT">
-      <value>Ajustement divers</value>    
-    </text>
-    <text id="TEXT_MISCELLANEOUS_ADJUSTMENTS">
-      <value>Ajustements divers</value>
-    </text>        
-
-    <text id="TEXT_ORPHAN_ADJUSTMENT">
-      <value>Ajustement orphelin</value>    
-    </text>
-    <text id="TEXT_ORPHAN_ADJUSTMENTS">
-      <value>Ajustements orphelins</value>
-    </text>        
-  
-  <text id="TEXT_REBILL"><value>[TEXT_KEYTERM_REBILL_VERB]</value></text>
-  
-  <text id="TEXT_YOU_DO_NOT_HAVE_ADJUSTMENT_MANAGMENT_CAPABILITY"><value>Vous ne pouvez pas gérer les ajustements</value></text>
-  
-  <text id="TEXT_CREATE_ADJUSTMENTS"><value>Ajuster les transactions</value></text>
-  <text id="TEXT_CREATE_BULKADJUSTMENTS"><value>Ajuster les transactions en vrac</value></text>
-  <text id="TEXT_MANAGE_ADJUSTMENTS"><value>Gérer les [TEXT_ADJUSTMENTS]</value></text>
-  <text id="TEXT_MANAGE_ORPHAN_ADJUSTMENTS"><value>Gérer les [TEXT_ORPHAN_ADJUSTMENTS]</value></text>
-  <text id="TEXT_MANAGE_ORPHAN_ADJUSTMENT"><value>Gérer l'[TEXT_ORPHAN_ADJUSTMENT]</value></text>
-  
-  <text id="TEXT_TRANSACTIONS_FINDER"><value>Outil de recherche de transaction</value></text>
-  <text id="TEXT_ADJUST"><value>Ajuster</value></text>
-  <text id="TEXT_ADJUST_BULK"><value>Ajuster en vrac</value></text>
-  
-  <text id="TEXT_PREBILL_ADJUSTED"><value>Est ajusté avant facturation</value></text>  
-  <text id="TEXT_POSTBILL_ADJUSTED"><value>Est ajusté après facturation</value></text>
-  
-  <text id="TEXT_CHILDREN_ADJUSTMENT_SELECTOR"><value>Outil de sélection d'[TEXT_ADJUSTMENT] enfant</value></text>
-  
-  <text id="TEXT_ADJUSTMENT(s)_HAS_BEEN_APPROVED"><value>Les [TEXT_ADJUSTMENT]s ont été approuvés</value></text>
-  
-  <text id="TEXT_REBILL_SUCCEEDED"><value>L'opération [TEXT_KEYTERM_REBILL_VERB] a abouti</value></text>
-<text id="TEXT_REBILL_TOTAL_TRANSACTIONS"><value>Total des transactions</value></text>
-
-  
-  <text id="TEXT_VIEW_OUTPUT_DETAILS_ADJUSTMENT_COMPUTATION"><value>Détails du calcul</value></text>
-  
-  <text id="TEXT_CANNOT_BE_ADJUSTED_WITH_INPUT_PROPERTIES"><value>Impossible d'effectuer le calcul avec les propriétés d'entrée spécifiées</value></text>
-  
-  <text id="TEXT_MANAGE_ADJUSTMENT"><value>Gérer l'[TEXT_ADJUSTMENT]</value></text>
-  
-  <text id="TEXT_ADJUSTMENT_DESCRIPTION"><value>Description</value></text>
-  
-  <text id="TEXT_ADJUSTMENT_NEW_ADJUSTMENTS_WARNING"><value>Informations sur la version</value></text>
-  
-  <text id="TEXT_ADJUSTMENT_STATUSES">
-      <value>P:Pending (en attente), D:Deleted (supprimé), A:Approved (approuvé), U:Unknown (inconnu)</value>
-      <description>The last description must be Unknown</description>
+  <!-- To be removed [Why? - Simon]-->
+  <text id="TEXT_ADJUSTMENT">
+    <value>[JA]Adjustment</value>
   </text>
-  
-  <text id="TEXT_PREBILL"><value>Avant facturation</value></text>
-  <text id="TEXT_POSTBILL"><value>Après facturation</value></text>
-  
-  <text id="TEXT_APPROVE"><value>Approuver</value></text>
-  
-  <text id="TEXT_TRANSACTION_ADJUSTMENT_STATUS"><value>Les [lngTotalAdjustment] [TEXT_ADJUSTMENT]s existent déjà. [lngPrebillAdjusted] avant facturation [TEXT_ADJUSTMENT]s. [lngPostbillAdjusted] après facturation [TEXT_ADJUSTMENT]s</value></text>
-  <text id="TEXT_TRANSACTION_ADJUSTMENT_NOTHING_LEFT_TO_ADJUST"><value>Il n'y a plus rien à ajuster !</value></text>
-  
-    <text id="TEXT_DELETE_ADJUSTED_TRANSACTION"><value>Supprimer les transactions ajustées</value></text>
-    <text id="TEXT_ADJUST_SELECTED_TRANSACTION"><value>Ajuster les transactions sélectionnées</value></text>
-    
-    <text id="TEXT_MANAGE_MISCELLANEOUS_ADJUSTMENTS"><value>Gérer les [TEXT_MISCELLANEOUS_ADJUSTMENTS]</value></text>      
-    <text id="TEXT_MANAGE_MISCELLANEOUS_ADJUSTMENT"><value>Gérer l'[TEXT_MISCELLANEOUS_ADJUSTMENT]</value></text>      
-    
-		<!-- Menu Text Strings -->
-    <text id="TEXT_MENU_ISSUE_MISC_ADJUSTMENT"><value>Émettre un [TEXT_MISC_ADJUSTMENT]</value></text>        
-    <text id="TEXT_MENU_MANAGE_ADJUSTMENTS"><value>Gérer les [TEXT_ADJUSTMENTS]</value></text>        
-    <text id="TEXT_MENU_MANAGE_ORPHAN_ADJUSTMENTS"><value>Gérer les [TEXT_ORPHAN_ADJUSTMENTS]</value></text>        
-    <text id="TEXT_MENU_MANAGE_MISC_ADJUSTMENTS"><value>Gérer les [TEXT_MISC_ADJUSTMENTS]</value></text>        
+  <text id="TEXT_ADJUSTMENT_SHORT">
+    <value>[JA]Adj.</value>
+  </text>
+  <text id="TEXT_ADJUSTMENTS">
+    <value>[JA]Adjustments</value>
+  </text>
+  <text id="TEXT_MISC_ADJUSTMENT">
+    <value>[JA]Misc. Adjustment</value>
+  </text>
+  <text id="TEXT_MISC_ADJUSTMENTS">
+    <value>[JA]Misc. Adjustments</value>
+  </text>
+  <text id="TEXT_MISCELLANEOUS_ADJUSTMENT">
+    <value>[JA]Miscellaneous Adjustment</value>
+  </text>
+  <text id="TEXT_MISCELLANEOUS_ADJUSTMENTS">
+    <value>[JA]Miscellaneous Adjustments</value>
+  </text>
+  <text id="TEXT_ORPHAN_ADJUSTMENT">
+    <value>[JA]Orphan Adjustment</value>
+  </text>
+  <text id="TEXT_ORPHAN_ADJUSTMENTS">
+    <value>[JA]Orphan Adjustments</value>
+  </text>
+  <text id="TEXT_REBILL">
+    <value>[TEXT_KEYTERM_REBILL_VERB]</value>
+  </text>
+  <text id="TEXT_YOU_DO_NOT_HAVE_ADJUSTMENT_MANAGMENT_CAPABILITY">
+    <value>[JA]You do not have the capability to manage adjustment(s)</value>
+  </text>
+  <text id="TEXT_CREATE_ADJUSTMENTS">
+    <value>[JA]Adjust Transactions</value>
+  </text>
+  <text id="TEXT_CREATE_BULKADJUSTMENTS">
+    <value>[JA]Bulk Adjust Transactions</value>
+  </text>
+  <text id="TEXT_MANAGE_ADJUSTMENTS">
+    <value>[JA]Manage [TEXT_ADJUSTMENTS]</value>
+  </text>
+  <text id="TEXT_MANAGE_ORPHAN_ADJUSTMENTS">
+    <value>[JA]Manage [TEXT_ORPHAN_ADJUSTMENTS]</value>
+  </text>
+  <text id="TEXT_MANAGE_ORPHAN_ADJUSTMENT">
+    <value>[JA]Manage [TEXT_ORPHAN_ADJUSTMENT]</value>
+  </text>
+  <text id="TEXT_TRANSACTIONS_FINDER">
+    <value>[JA]Transaction Finder</value>
+  </text>
+  <text id="TEXT_ADJUST">
+    <value>[JA]Adjust</value>
+  </text>
+  <text id="TEXT_ADJUST_BULK">
+    <value>[JA]Adjust Bulk</value>
+  </text>
+  <text id="TEXT_PREBILL_ADJUSTED">
+    <value>[JA]Pre-Bill Adjusted</value>
+  </text>
+  <text id="TEXT_POSTBILL_ADJUSTED">
+    <value>[JA]Post-Bill Adjusted</value>
+  </text>
+  <text id="TEXT_CHILDREN_ADJUSTMENT_SELECTOR">
+    <value>[JA]Child [TEXT_ADJUSTMENT] Selector</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT(s)_HAS_BEEN_APPROVED">
+    <value>[JA]The [TEXT_ADJUSTMENT](s) have been approved</value>
+  </text>
+  <text id="TEXT_REBILL_SUCCEEDED">
+    <value>[TEXT_KEYTERM_REBILL_VERB] [JA]operation succeeded</value>
+  </text>
+  <text id="TEXT_REBILL_TOTAL_TRANSACTIONS">
+    <value>[JA]Total Transactions</value>
+  </text>
+  <text id="TEXT_VIEW_OUTPUT_DETAILS_ADJUSTMENT_COMPUTATION">
+    <value>[JA]Computation Details</value>
+  </text>
+  <text id="TEXT_CANNOT_BE_ADJUSTED_WITH_INPUT_PROPERTIES">
+    <value>[JA]Cannot be computed with the specified input properties</value>
+  </text>
+  <text id="TEXT_MANAGE_ADJUSTMENT">
+    <value>[JA]Manage [TEXT_ADJUSTMENT]</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_DESCRIPTION">
+    <value>[JA]Description</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_NEW_ADJUSTMENTS_WARNING">
+    <value>[JA]Operation Information</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_STATUSES">
+    <value>[JA]P:Pending, D:Deleted, A:Approved, U:Unknown</value>
+    <description>The last description must be Unknown</description>
+  </text>
+  <text id="TEXT_PREBILL">
+    <value>[JA]Pre-Bill</value>
+  </text>
+  <text id="TEXT_POSTBILL">
+    <value>[JA]Post-Bill</value>
+  </text>
+  <text id="TEXT_APPROVE">
+    <value>[JA]Approve</value>
+  </text>
+  <text id="TEXT_TRANSACTION_ADJUSTMENT_STATUS">
+    <value>[lngTotalAdjustment] [TEXT_ADJUSTMENT][JA](s) already exist. [lngPrebillAdjusted] PreBill [TEXT_ADJUSTMENT](s). [lngPostbillAdjusted] PostBill [TEXT_ADJUSTMENT](s)</value>
+  </text>
+  <text id="TEXT_TRANSACTION_ADJUSTMENT_NOTHING_LEFT_TO_ADJUST">
+    <value>[JA]There is nothing left to adjust!</value>
+  </text>
+  <text id="TEXT_DELETE_ADJUSTED_TRANSACTION">
+    <value>[JA]Delete Adjusted Transactions</value>
+  </text>
+  <text id="TEXT_ADJUST_SELECTED_TRANSACTION">
+    <value>[JA]Adjust Selected Transactions</value>
+  </text>
+  <text id="TEXT_MANAGE_MISCELLANEOUS_ADJUSTMENTS">
+    <value>[JA]Manage [TEXT_MISCELLANEOUS_ADJUSTMENTS]</value>
+  </text>
+  <text id="TEXT_MANAGE_MISCELLANEOUS_ADJUSTMENT">
+    <value>[JA]Manage [TEXT_MISCELLANEOUS_ADJUSTMENT]</value>
+  </text>
 
-    <text id="TEXT_ISSUE_MISC_ADJUSTEMENT_DIALOG"><value>Émettre un [TEXT_MISCELLANEOUS_ADJUSTMENT]</value></text>        
-    <text id="TEXT_ISSUE_MISC_ORPHAN_ADJUSTEMENT_DIALOG"><value>Entrer une description pour l'[TEXT_ORPHAN_ADJUSTMENT]</value></text>        
-    <text id="TEXT_ISSUE_MISC_ADJUSTEMENT_CONFIRM"><value>L'[TEXT_MISCELLANEOUS_ADJUSTMENT] a été approuvé</value></text>
-    <text id="TEXT_ISSUE_MISC_ADJUSTEMENT_CONFIRM_PENDING"><value>L'[TEXT_MISCELLANEOUS_ADJUSTMENT] porte la valeur PENDING (en attente), car la capacité requise d'émission d'ajustement pour le montant spécifié est introuvable.</value></text>
-  
-    <text id="TEXT_ADJUSTMENT_REASON_CODE">
-      <value>Code de motif d'[TEXT_ADJUSTMENT]</value>
-    </text>
-    <text id="TEXT_ADJUSTMENT_REASON_CODES">
-      <value>Codes de motif d'[TEXT_ADJUSTMENT]</value>
-    </text>    
+  <!-- Menu Text Strings -->
+  <text id="TEXT_MENU_ISSUE_MISC_ADJUSTMENT">
+    <value>[JA]Issue [TEXT_MISC_ADJUSTMENT]</value>
+  </text>
+  <text id="TEXT_MENU_MANAGE_ADJUSTMENTS">
+    <value>[JA]Manage [TEXT_ADJUSTMENTS]</value>
+  </text>
+  <text id="TEXT_MENU_MANAGE_ORPHAN_ADJUSTMENTS">
+    <value>[JA]Manage [TEXT_ORPHAN_ADJUSTMENTS]</value>
+  </text>
+  <text id="TEXT_MENU_MANAGE_MISC_ADJUSTMENTS">
+    <value>[JA]Manage [TEXT_MISC_ADJUSTMENTS]</value>
+  </text>
+  <text id="TEXT_ISSUE_MISC_ADJUSTEMENT_DIALOG">
+    <value>[JA]Issue [TEXT_MISCELLANEOUS_ADJUSTMENT]</value>
+  </text>
+  <text id="TEXT_ISSUE_MISC_ORPHAN_ADJUSTEMENT_DIALOG">
+    <value>[JA]Enter Description for [TEXT_ORPHAN_ADJUSTMENT]</value>
+  </text>
+  <text id="TEXT_ISSUE_MISC_ADJUSTEMENT_CONFIRM">
+    <value>[JA]The [TEXT_MISCELLANEOUS_ADJUSTMENT] has been approved</value>
+  </text>
+  <text id="TEXT_ISSUE_MISC_ADJUSTEMENT_CONFIRM_PENDING">
+    <value>[JA]The [TEXT_MISCELLANEOUS_ADJUSTMENT] has been set to PENDING because the required capability to issue an adjustment for the specified amount was not found.</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_REASON_CODE">
+    <value>[TEXT_ADJUSTMENT] [JA]Reason Code</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_REASON_CODES">
+    <value>[TEXT_ADJUSTMENT] [JA]Reason Codes</value>
+  </text>
+  <text id="TEXT_FOUND_TRANSACTIONS">
+    <value>[JA]Found Transactions</value>
+  </text>
+  <text id="TITLE_Adjustment.Edit.Children.Bulk.asp">
+    <value>[JA]Create a Bulk [TEXT_ADJUSTMENT]</value>
+  </text>
+  <text id="TITLE_Adjustment.Edit.Children.asp">
+    <value>[JA]Create Child [TEXT_ADJUSTMENTS]</value>
+  </text>
+  <text id="TITLE_Adjustment.Edit.Parent.asp">
+    <value>[JA]Create a Parent [TEXT_ADJUSTMENT]</value>
+  </text>
+  <text id="TITLE_BulkAdjustment.Edit.asp">
+    <value>[JA]Create a Bulk [TEXT_ADJUSTMENT]</value>
+  </text>
 
-    <text id="TEXT_FOUND_TRANSACTIONS">
-      <value>Transactions trouvées</value>    
-    </text>    
-    
-    <text id="TITLE_Adjustment.Edit.Children.Bulk.asp">
-      <value>Créer un [TEXT_ADJUSTMENT] en vrac</value>
-    </text>
-    <text id="TITLE_Adjustment.Edit.Children.asp">
-      <value>Créer des [TEXT_ADJUSTMENTS] enfant</value>
-    </text>
-    <text id="TITLE_Adjustment.Edit.Parent.asp">
-      <value>Créer un [TEXT_ADJUSTMENT] parent</value>
-    </text>
-
-    <text id="TITLE_BulkAdjustment.Edit.asp">
-      <value>Créer un [TEXT_ADJUSTMENT] en vrac</value>
-    </text>
-    
-    <!-- Dictionary Collection  -->
-    <text id="REBILL_ACTIONTYPE(1)"><value>Compte inconnu</value></text>
-    <text id="REBILL_ACTIONTYPE(2)"><value>Identifiant(s) de compte externe</value></text>
-    <text id="REBILL_ACTIONTYPE(3)"><value>ID du compte</value></text>
-    <text id="REBILL_ACTIONTYPE(4)"><value>Identifiant de compte interne</value></text>
-
-    <text id="ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH(1)"><value>Payeur</value></text>
-    <text id="ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH(2)"><value>Souscripteur</value></text>
-    
-    <text id="ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_CAPTION"><value>Rechercher des transactions dont le compte d'[SUBSCRIBER] est</value></text>
-    
-    <text id="TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL"><value>[TEXT_KEYTERM_PRICEABLE_ITEM]</value></text>
-    
-    <text id="TEXT_ORPHAN_ADJUSTMENT_WERE_APPROVED_DENIED_AS_MISC_ADJUSTMENT"><value>[APPROVED_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] approuvé. [PENDING_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] en attente.</value></text>
-    
-    <text id="TEXT_ADJUST_OR_MANAGE_ADJUSTMENT_CHILDREN"><value>Ajuster ou gérer les éléments enfant</value></text>
-    <text id="TEXT_MANAGE_ADJUSTMENT_CHILDREN"><value>Gérer les éléments enfant</value></text>
-    <text id="TEXT_ADJUST_ADJUSTMENT_CHILDREN"><value>Ajuster les éléments enfant</value></text>
-    <text id="TEXT_CANNOT_REBILL_ADJUSTMENT"><value>Impossible de [TEXT_KEYTERM_REBILL_VERB] une transaction lorsqu'elle contient un ajustement ou qu'elle est en cours de clôture</value></text>
-    <text id="TEXT_REBILL_IS_NOT_SUPPORTED_BY_PRICEABLEITEM"><value>[TEXT_KEYTERM_REBILL_VERB] n'est pas pris en charge par cet [TEXT_KEYTERM_PRICEABLE_ITEM]</value></text>
-    
-    <text id="TEXT_ADJUSTED_AMOUNT"><value>Montant corrigé</value></text>
-    <text id="TEXT_ADJUSTMENT_AMOUNT"><value>Montant de l'[TEXT_ADJUSTMENT]</value></text>
-    <text id="TEXT_NUMBER_OF_ADJUSTMENTS"><value>Nombre d'[TEXT_ADJUSTMENT](s)</value></text>
-    
-    <text id="TEXT_ACCOUNT_FINDER_PLEASE_SELECT_A_PI"><value>Sélectionnez un [TEXT_KEYTERM_PRICEABLE_ITEM]</value></text>
-    <text id="TEXT_ACCOUNT_FINDER_SELECT_ALL_PI"><value>Sélectionner tous les éléments à prix</value></text>
-    <text id="TEXT_CHILDREN_ADJUSTED"><value>éléments enfant ajustés</value></text>
-    <text id="TEXT_CHILD_ADJUSTED"><value>élément enfant ajusté</value></text>
-    
-    <text id="TEXT_PREBILL_ADJUSTMENT_AMOUNT"><value>Montant de l'[TEXT_ADJUSTMENT_SHORT] avant facturation</value></text>
-    <text id="TEXT_POSTBILL_ADJUSTMENT_AMOUNT"><value>Montant de l'[TEXT_ADJUSTMENT_SHORT] après facturation</value></text>
-    
-    <text id="TEXT_PENDING_PREBILL_ADJUSTMENT_AMOUNT"><value>Montant de l'[TEXT_ADJUSTMENT_SHORT] en attente avant facturation</value></text>
-    <text id="TEXT_PENDING_POSTBILL_ADJUSTMENT_AMOUNT"><value>Montant de l'[TEXT_ADJUSTMENT_SHORT] en attente après facturation</value></text>    
-
-    <text id="TEXT_PARENT_PREBILL_ADJUSTMENT"><value>[TEXT_ADJUSTMENT] parent avant facturation</value></text>
-    <text id="TEXT_PARENT_POSTBILL_ADJUSTMENT"><value>[TEXT_ADJUSTMENT] parent après facturation</value></text>
-    
-    <text id="TEXT_ALL_CHILDREN_ARE_ADJUSTED"><value>Tous les éléments enfant sont ajustés</value></text>
-    <text id="TEXT_REASON_CODE"><value>Code d’erreur</value></text>
-    <text id="TEXT_TRANSACTION"><value>Transaction</value></text>
-    <text id="TEXT_REBILL_TYPE"><value>Type de [TEXT_KEYTERM_REBILL_NAME]</value></text>
-    
-    <text id="TEXT_SESSION_ID"><value>ID de la session</value></text>
-  
-    <text id="TEXT_VIEW_ID"><value>Afficher ID</value></text>
-    <text id="TEXT_CURRENCY"><value>Devise</value></text>
-    <text id="TEXT_ACCOUNT_ID"><value>ID du compte</value></text>
-    <text id="TEXT_PI_TEMPLATE"><value>Modèle PI</value></text>
-    <text id="TEXT_PI_INSTANCE"><value>Instance PI</value></text>
-    <text id="TEXT_SESSION_TYPE"><value>Type de session</value></text>
-    <text id="TEXT_TAX_AMOUNT"><value>Montant de la taxe</value></text>
-    <text id="TEXT_FEDERAL_TAX_AMOUNT"><value>Montant de la taxe fédérale</value></text>
-    <text id="TEXT_STATE_TAX_AMOUNT"><value>Montant de la taxe appliquée par l'État</value></text>
-    <text id="TEXT_COUNTY_TAX_AMOUNT"><value>Montant de la taxe pays</value></text>
-    <text id="TEXT_LOCAL_TAX_AMOUNT"><value>Montant de la taxe locale</value></text>
-    <text id="TEXT_OTHER_TAX_AMOUNT"><value>Autre montant de taxe</value></text>
-    <text id="TEXT_AMOUNT_WITH_TAX"><value>Montant avec taxe</value></text>
-    <text id="TEXT_INTERVAL_ID"><value>ID de l’intervalle</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLADJAMT"><value>CompoundPostbillAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLADJEDAMT"><value>CompoundPostbillAdjedAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLADJAMT"><value>AtomicPrebillAdjAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLADJUSTEDAMOUNT"><value>AtomicPrebillAdjustedAmount</value></text>
-    <text id="TEXT_ATOMICPOSTBILLADJAMT"><value>AtomicPostbillAdjAmt</value></text>
-    <text id="TEXT_ATOMICPOSTBILLADJUSTEDAMOUNT"><value>AtomicPostbillAdjustedAmount</value></text>
-    <text id="TEXT_COMPOUNDPREBILLFEDTAXADJAMT"><value>CompoundPreBillFedTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPREBILLSTATETAXADJAMT"><value>CompoundPrebillStateTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPREBILLCNTRYTAXADJAMT"><value>CompoundPrebillCntryTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPREBILLLOCALTAXADJAMT"><value>CompoundPrebillLocalTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPREBILLOTHERTAXADJAMT"><value>CompoundPrebillOtherTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPREBILLTOTALTAXADJAMT"><value>CompoundPrebillTotalTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLFEDTAXADJAMT"><value>CompoundPostBillFedTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLSTATETAXADJAMT"><value>CompoundPostbillStateTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLCNTRYTAXADJAMT"><value>CompoundPostbillCntryTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLLOCALTAXADJAMT"><value>CompoundPostbillLocalTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLOTHERTAXADJAMT"><value>CompoundPostbillOtherTaxAdjAmt</value></text>
-    <text id="TEXT_COMPOUNDPOSTBILLTOTALTAXADJAMT"><value>CompoundPostbillTotalTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLFEDTAXADJAMT"><value>AtomicPreBillFedTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLSTATETAXADJAMT"><value>AtomicPrebillStateTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLCNTRYTAXADJAMT"><value>AtomicPrebillCntryTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLLOCALTAXADJAMT"><value>AtomicPrebillLocalTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLOTHERTAXADJAMT"><value>AtomicPrebillOtherTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPREBILLTOTALTAXADJAMT"><value>AtomicPrebillTotalTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPOSTBILLFEDTAXADJAMT"><value>AtomicPostBillFedTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPOSTBILLSTATETAXADJAMT"><value>AtomicPostbillStateTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPOSTBILLCNTRYTAXADJAMT"><value>AtomicPostbillCntryTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPOSTBILLLOCALTAXADJAMT"><value>AtomicPostbillLocalTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPOSTBILLOTHERTAXADJAMT"><value>AtomicPostbillOtherTaxAdjAmt</value></text>
-    <text id="TEXT_ATOMICPOSTBILLTOTALTAXADJAMT"><value>AtomicPostbillTotalTaxAdjAmt</value></text>
-    <text id="TEXT_ISPREBILLTRANSACTION"><value>Est Transaction avant facturation ?</value></text>
-    <text id="TEXT_ISADJUSTED"><value>Est Corrigé ?</value></text>
-    <text id="TEXT_ISPREBILLADJUSTED"><value>Est Corrigé avant facturation ?</value></text>
-    <text id="TEXT_ISPOSTBILLADJUSTED"><value>Est Corrigé après facturation ?</value></text>
-    <text id="TEXT_CANADJUST"><value>Peut effectuer les ajustements ?</value></text>
-    <text id="TEXT_CANREBILL"><value>Peut refacturer ?</value></text>
-    <text id="TEXT_CANMANAGEADJUSTMENTS"><value>Peut gérer les ajustements ?</value></text>
-    <text id="TEXT_PREBILLADJUSTMENTID"><value>ID d'ajustements avant facturation</value></text>
-    <text id="TEXT_POSTBILLADJUSTMENTID"><value>ID d'ajustements après facturation</value></text>
-    <text id="TEXT_ISINTERVALSOFTCLOSED"><value>Est Intervalle clos automatiquement ?</value></text>
-    <text id="TEXT_DISPLAYAMOUNT"><value>Afficher le montant</value></text>
-  
-  <text id="TEXT_ADJUSTMENT_TYPE"><value>Type d'[TEXT_ADJUSTMENT]</value></text>
-    
-    <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_IN_SOFT_CLOSE"><value>Vous ne pouvez pas émettre ou gérer un ajustement lorsque l'intervalle est clôturé</value></text>
-    <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_BECAUSE_ALREADY_BUILD"><value>Vous ne pouvez pas émettre ou gérer un ajustement, car l'ajustement après facturation a déjà été facturé</value></text>
-    <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_BECAUSE_REASSIGNED"><value>Vous ne pouvez pas émettre ou gérer un ajustement, car il a été réaffecté après la clôture de l'intervalle</value></text>
-    
-    <text id="TEXT_ADJUSTMENT_DEFAULT_DESCRIPTION">
-        <value>Description par défaut</value>
-        <description></description>
-    </text>
-    
-    <text id="TEXT_ADJUSTMENT_NOT_SUPPORTED">
-        <value>L'ajustement n'est pas pris en charge pour cet [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
-        <description></description>
-    </text>    
-
-    <text id="TEXT_ADJUSTMENT_WARNING_NOTE">
-      <value>Remarque : certaines transactions peuvent avoir été exécutées avec succès dans ce lot.</value>
-      <description></description>
-    </text>
-
-  <text id="TEXT_CANNOT_REASSIGN_ADJUSTMENT">
-    <value>Impossible de réaffecter la transaction lorsqu'aucun attribut accountname n'est spécifié dans la définition de service de l'élément à prix</value>
+  <!-- Dictionary Collection  -->
+  <text id="REBILL_ACTIONTYPE(1)">
+    <value>[JA]Meter to unknown account</value>
+  </text>
+  <text id="REBILL_ACTIONTYPE(2)">
+    <value>[JA]External Account Identifier(s)</value>
+  </text>
+  <text id="REBILL_ACTIONTYPE(3)">
+    <value>[JA]Account ID</value>
+  </text>
+  <text id="REBILL_ACTIONTYPE(4)">
+    <value>[JA]Internal Account Identifier</value>
+  </text>
+  <text id="ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH(1)">
+    <value>[JA]Payer</value>
+  </text>
+  <text id="ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH(2)">
+    <value>[JA]Subscriber</value>
+  </text>
+  <text id="ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_CAPTION">
+    <value>[JA]Search for transactions where account [SUBSCRIBER] is the</value>
+  </text>
+  <text id="TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL">
+    <value>[TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+  </text>
+  <text id="TEXT_ORPHAN_ADJUSTMENT_WERE_APPROVED_DENIED_AS_MISC_ADJUSTMENT">
+    <value>[APPROVED_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] [JA]approved. [PENDING_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] pending.</value>
+  </text>
+  <text id="TEXT_ADJUST_OR_MANAGE_ADJUSTMENT_CHILDREN">
+    <value>[JA]Adjust or manage children</value>
+  </text>
+  <text id="TEXT_MANAGE_ADJUSTMENT_CHILDREN">
+    <value>[JA]Manage children</value>
+  </text>
+  <text id="TEXT_ADJUST_ADJUSTMENT_CHILDREN">
+    <value>[JA]Adjust children</value>
+  </text>
+  <text id="TEXT_CANNOT_REBILL_ADJUSTMENT">
+    <value>[JA]Cannot [TEXT_KEYTERM_REBILL_VERB] a transaction when it contains an adjustment or is in soft close</value>
+  </text>
+  <text id="TEXT_REBILL_IS_NOT_SUPPORTED_BY_PRICEABLEITEM">
+    <value>[TEXT_KEYTERM_REBILL_VERB] [JA]is not supported by this [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+  </text>
+  <text id="TEXT_ADJUSTED_AMOUNT">
+    <value>[JA]Adjusted Amount</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_AMOUNT">
+    <value>[TEXT_ADJUSTMENT] [JA]Amount</value>
+  </text>
+  <text id="TEXT_NUMBER_OF_ADJUSTMENTS">
+    <value>[JA]Number Of [TEXT_ADJUSTMENT](s)</value>
+  </text>
+  <text id="TEXT_ACCOUNT_FINDER_PLEASE_SELECT_A_PI">
+    <value>[JA]Please select a [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+  </text>
+  <text id="TEXT_ACCOUNT_FINDER_SELECT_ALL_PI">
+    <value>[JA]Select all Priceable Items</value>
+  </text>
+  <text id="TEXT_CHILDREN_ADJUSTED">
+    <value>[JA]children adjusted</value>
+  </text>
+  <text id="TEXT_CHILD_ADJUSTED">
+    <value>[JA]child adjusted</value>
+  </text>
+  <text id="TEXT_PREBILL_ADJUSTMENT_AMOUNT">
+    <value>[JA]Pre-Bill [TEXT_ADJUSTMENT_SHORT] Amount</value>
+  </text>
+  <text id="TEXT_POSTBILL_ADJUSTMENT_AMOUNT">
+    <value>[JA]Post-Bill [TEXT_ADJUSTMENT_SHORT] Amount</value>
+  </text>
+  <text id="TEXT_PENDING_PREBILL_ADJUSTMENT_AMOUNT">
+    <value>[JA]Pending Pre-Bill [TEXT_ADJUSTMENT_SHORT] Amount</value>
+  </text>
+  <text id="TEXT_PENDING_POSTBILL_ADJUSTMENT_AMOUNT">
+    <value>[JA]Pending Post-Bill [TEXT_ADJUSTMENT_SHORT] Amount</value>
+  </text>
+  <text id="TEXT_PARENT_PREBILL_ADJUSTMENT">
+    <value>[JA]Parent Pre-Bill [TEXT_ADJUSTMENT]</value>
+  </text>
+  <text id="TEXT_PARENT_POSTBILL_ADJUSTMENT">
+    <value>[JA]Parent Post-Bill [TEXT_ADJUSTMENT]</value>
+  </text>
+  <text id="TEXT_ALL_CHILDREN_ARE_ADJUSTED">
+    <value>[JA]All children are adjusted</value>
+  </text>
+  <text id="TEXT_REASON_CODE">
+    <value>[JA]Reason Code</value>
+  </text>
+  <text id="TEXT_TRANSACTION">
+    <value>[JA]Transaction</value>
+  </text>
+  <text id="TEXT_REBILL_TYPE">
+    <value>[TEXT_KEYTERM_REBILL_NAME] [JA]Type</value>
+  </text>
+  <text id="TEXT_SESSION_ID">
+    <value>[JA]Session ID</value>
+  </text>
+  <text id="TEXT_VIEW_ID">
+    <value>[JA]View ID</value>
+  </text>
+  <text id="TEXT_CURRENCY">
+    <value>[JA]Currency</value>
+  </text>
+  <text id="TEXT_ACCOUNT_ID">
+    <value>[JA]Account ID</value>
+  </text>
+  <text id="TEXT_PI_TEMPLATE">
+    <value>[JA]PI Template</value>
+  </text>
+  <text id="TEXT_PI_INSTANCE">
+    <value>[JA]PI Instance</value>
+  </text>
+  <text id="TEXT_SESSION_TYPE">
+    <value>[JA]Session Type</value>
+  </text>
+  <text id="TEXT_TAX_AMOUNT">
+    <value>[JA]Tax Amount</value>
+  </text>
+  <text id="TEXT_FEDERAL_TAX_AMOUNT">
+    <value>[JA]Federal Tax Amount</value>
+  </text>
+  <text id="TEXT_STATE_TAX_AMOUNT">
+    <value>[JA]State Tax Amount</value>
+  </text>
+  <text id="TEXT_COUNTY_TAX_AMOUNT">
+    <value>[JA]County Tax Amount</value>
+  </text>
+  <text id="TEXT_LOCAL_TAX_AMOUNT">
+    <value>[JA]Local Tax Amount</value>
+  </text>
+  <text id="TEXT_OTHER_TAX_AMOUNT">
+    <value>[JA]Other Tax Amount</value>
+  </text>
+  <text id="TEXT_AMOUNT_WITH_TAX">
+    <value>[JA]Amount With Tax</value>
+  </text>
+  <text id="TEXT_INTERVAL_ID">
+    <value>[JA]Interval ID</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLADJAMT">
+    <value>[JA]CompoundPostbillAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLADJEDAMT">
+    <value>[JA]CompoundPostbillAdjedAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLADJAMT">
+    <value>[JA]AtomicPrebillAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLADJUSTEDAMOUNT">
+    <value>[JA]AtomicPrebillAdjustedAmount</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLADJAMT">
+    <value>[JA]AtomicPostbillAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLADJUSTEDAMOUNT">
+    <value>[JA]AtomicPostbillAdjustedAmount</value>
+  </text>
+  <text id="TEXT_COMPOUNDPREBILLFEDTAXADJAMT">
+    <value>[JA]CompoundPreBillFedTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPREBILLSTATETAXADJAMT">
+    <value>[JA]CompoundPrebillStateTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPREBILLCNTRYTAXADJAMT">
+    <value>[JA]CompoundPrebillCntryTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPREBILLLOCALTAXADJAMT">
+    <value>[JA]CompoundPrebillLocalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPREBILLOTHERTAXADJAMT">
+    <value>[JA]CompoundPrebillOtherTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPREBILLTOTALTAXADJAMT">
+    <value>[JA]CompoundPrebillTotalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLFEDTAXADJAMT">
+    <value>[JA]CompoundPostBillFedTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLSTATETAXADJAMT">
+    <value>[JA]CompoundPostbillStateTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLCNTRYTAXADJAMT">
+    <value>[JA]CompoundPostbillCntryTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLLOCALTAXADJAMT">
+    <value>[JA]CompoundPostbillLocalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLOTHERTAXADJAMT">
+    <value>[JA]CompoundPostbillOtherTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_COMPOUNDPOSTBILLTOTALTAXADJAMT">
+    <value>[JA]CompoundPostbillTotalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLFEDTAXADJAMT">
+    <value>[JA]AtomicPreBillFedTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLSTATETAXADJAMT">
+    <value>[JA]AtomicPrebillStateTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLCNTRYTAXADJAMT">
+    <value>[JA]AtomicPrebillCntryTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLLOCALTAXADJAMT">
+    <value>[JA]AtomicPrebillLocalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLOTHERTAXADJAMT">
+    <value>[JA]AtomicPrebillOtherTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPREBILLTOTALTAXADJAMT">
+    <value>[JA]AtomicPrebillTotalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLFEDTAXADJAMT">
+    <value>[JA]AtomicPostBillFedTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLSTATETAXADJAMT">
+    <value>[JA]AtomicPostbillStateTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLCNTRYTAXADJAMT">
+    <value>[JA]AtomicPostbillCntryTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLLOCALTAXADJAMT">
+    <value>[JA]AtomicPostbillLocalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLOTHERTAXADJAMT">
+    <value>[JA]AtomicPostbillOtherTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ATOMICPOSTBILLTOTALTAXADJAMT">
+    <value>[JA]AtomicPostbillTotalTaxAdjAmt</value>
+  </text>
+  <text id="TEXT_ISPREBILLTRANSACTION">
+    <value>[JA]Is Prebill Transaction?</value>
+  </text>
+  <text id="TEXT_ISADJUSTED">
+    <value>[JA]Is Adjusted?</value>
+  </text>
+  <text id="TEXT_ISPREBILLADJUSTED">
+    <value>[JA]Is Prebill Adjusted?</value>
+  </text>
+  <text id="TEXT_ISPOSTBILLADJUSTED">
+    <value>[JA]Is Postbill Adjusted?</value>
+  </text>
+  <text id="TEXT_CANADJUST">
+    <value>[JA]Can Adjust?</value>
+  </text>
+  <text id="TEXT_CANREBILL">
+    <value>[JA]Can Rebill?</value>
+  </text>
+  <text id="TEXT_CANMANAGEADJUSTMENTS">
+    <value>[JA]Can Manage Adjustments?</value>
+  </text>
+  <text id="TEXT_PREBILLADJUSTMENTID">
+    <value>[JA]Prebill Adjustment ID</value>
+  </text>
+  <text id="TEXT_POSTBILLADJUSTMENTID">
+    <value>[JA]Postbill Adjustment ID</value>
+  </text>
+  <text id="TEXT_ISINTERVALSOFTCLOSED">
+    <value>[JA]Is Interval Soft Closed?</value>
+  </text>
+  <text id="TEXT_DISPLAYAMOUNT">
+    <value>[JA]Display Amount</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_TYPE">
+    <value>[TEXT_ADJUSTMENT] [JA]Type</value>
+  </text>
+  <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_IN_SOFT_CLOSE">
+    <value>[JA]You cannot issue or manage an adjustment when the interval is soft closed</value>
+  </text>
+  <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_BECAUSE_ALREADY_BUILD">
+    <value>[JA]You cannot issue or manage an adjustment because the post bill adjustment has already been billed</value>
+  </text>
+  <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_BECAUSE_REASSIGNED">
+    <value>[JA]You cannot issue or manage an adjustment because it has been reassigned after the interval is hard closed</value>
+  </text>
+  <text id="TEXT_ADJUSTMENT_DEFAULT_DESCRIPTION">
+    <value>[JA]Default Description</value>
     <description></description>
   </text>
-    
+  <text id="TEXT_ADJUSTMENT_NOT_SUPPORTED">
+    <value>[JA]Adjustment not supported for this [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADJUSTMENT_WARNING_NOTE">
+    <value>[JA]Please note that some transactions may have succeeded in the batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CANNOT_REASSIGN_ADJUSTMENT">
+    <value>[JA]Cannot re-assign transaction when there is no accountname attribute specified in the service definition of the priceable item</value>
+    <description></description>
+  </text>
 </texts>

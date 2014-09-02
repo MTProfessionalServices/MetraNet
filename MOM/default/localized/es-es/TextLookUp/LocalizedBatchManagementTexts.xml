@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_BATCH_MANANAGEMENT">
+    <value>[ES]Batch Management</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_UPDATE_STATUS_TITLE">
+    <value>[ES]Update Batch Status</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_ACTION">
+    <value>[ES]Mark As Failed</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_TITLE">
+    <value>[ES]Mark Batch As Failed</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_ACTION">
+    <value>[ES]Mark As Completed</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_TITLE">
+    <value>[ES]Mark Batch As Completed</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_ACTION">
+    <value>[ES]Mark As Dismissed</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_TITLE">
+    <value>[ES]Mark Batch As Dismissed</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_ACTION">
+    <value>[ES]Backout</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_TITLE">
+    <value>[ES]Backout Batch</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_ACTION">
+    <value>[ES]Resubmit</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_TITLE">
+    <value>[ES]Resubmit Batch</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_ACTIVE">
+    <value>[ES]Active/Open</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_ACTIVE_DESCRIPTION">
+    <value>[ES]This batch is open and can have transactions metered against it.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_COMPLETED">
+    <value>[ES]Completed</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_COMPLETED_DESCRIPTION">
+    <value>[ES]This batch is complete. No more transactions can be metered against it.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_FAILED">
+    <value>[ES]Failed</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_FAILED_DESCRIPTION">
+    <value>[ES]This batch has failed.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_BACKEDOUT">
+    <value>[ES]Backed Out</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_BACKEDOUT_DESCRIPTION">
+    <value>[ES]This batch has been backed out.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_RESUBMIT">
+    <value>[ES]Resubmit</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_RESUBMIT_DESCRIPTION">
+    <value>[ES]This batch has been resubmitted after it was backed out.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_DISMISSED">
+    <value>[ES]Dismissed</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION">
+    <value>[ES]This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value>
+  </text>
+</texts>

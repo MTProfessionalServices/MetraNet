@@ -80,7 +80,7 @@
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_NO_ACCOUNT_TYPE_RESTRICTIONS_MESSAGE">
-    <value><![CDATA[<b>[DE]All account types can subscribe to this product offering</b><br>Currently there are no account type restrictions for this [TEXT_KEYTERM_PRODUCT_OFFERING]. Any account type that allows subscription can subscribe to this product offering.]]></value>
+    <value><![CDATA[[DE]<b>All account types can subscribe to this product offering</b><br>Currently there are no account type restrictions for this [TEXT_KEYTERM_PRODUCT_OFFERING]. Any account type that allows subscription can subscribe to this product offering.]]></value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ADD_ACCOUNT_TYPE_RESTRICTION">
@@ -148,7 +148,7 @@
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_PICKER">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] [DE]Picker</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING][DE] Picker</value>
     <description></description>
   </text>
   <text id="TEXT_BUTTON_REMOVE_PRICEABLE_ITEM">

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Batch Error Terms" type="collection">
-
-    <text id="TEXT_ERROR_TITLE">
-      <value>Liste d'erreurs de lot</value>
-    </text> 
-    
-    <text id="TEXT_WARNING_TITLE">
-      <value>Liste d'avertissements sur les lots</value>
-    </text>
-
+  <text id="TEXT_ERROR_TITLE">
+    <value>[es-MX]Batch Error List</value>
+  </text>
+  <text id="TEXT_WARNING_TITLE">
+    <value>[es-MX]Batch Warning List</value>
+  </text>
 </texts>

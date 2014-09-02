@@ -198,7 +198,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   mcmTriggerUpdateOfPONavigationPane   
  
   ' An empty start date means no date, not infinitely in the past (CR8205)
-    If not IsEmpty(COMObject.Properties("EffDate_StartDate") and StrComp(COMObject.Properties("EffDate_StartDate").Value, "")<>0) Then
+    If (not IsEmpty(COMObject.Properties("EffDate_StartDate")) and StrComp(COMObject.Properties("EffDate_StartDate").Value, "")<>0) Then
       COMObject.Instance.EffectiveDate.StartDate = mdm_NormalDateFormat(COMObject.Properties("EffDate_StartDate").Value,mdm_GetDictionary().GetValue("DATE_FORMAT"))
       COMObject.Properties("EffectiveDate__StartDate").Value = mdm_NormalDateFormat(COMObject.Properties("EffDate_StartDate").Value,mdm_GetDictionary().GetValue("DATE_FORMAT"))
     else

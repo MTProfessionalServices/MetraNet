@@ -4,107 +4,107 @@
     This file defines the MAM tool tips localization.
   </description>
   <text id="TEXT_OK">
-    <value>OK</value>
+    <value>[FR]OK</value>
     <description></description>
   </text>
   <text id="TEXT_CANCEL">
-    <value>Cancel</value>
+    <value>[FR]Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_CLEAR">
-    <value>Clear</value>
+    <value>[FR]Clear</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT">
-    <value>Edit</value>
+    <value>[FR]Edit</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW">
-    <value>View</value>
+    <value>[FR]View</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE">
-    <value>Delete</value>
+    <value>[FR]Delete</value>
     <description></description>
   </text>
   <text id="TEXT_ADD">
-    <value>Add</value>
+    <value>[FR]Add</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE">
-    <value>Update</value>
+    <value>[FR]Update</value>
     <description></description>
   </text>
   <text id="TEXT_HELP">
-    <value>Account Manager Help</value>
+    <value>[FR]Account Manager Help</value>
     <description></description>
   </text>
   <text id="TEXT_FULLSCREEN">
-    <value>Toggle Full Screen Mode</value>
+    <value>[FR]Toggle Full Screen Mode</value>
     <description></description>
   </text>
   <text id="TEXT_GO">
-    <value>Find Account</value>
+    <value>[FR]Find Account</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED">
-    <value>Advanced Find</value>
+    <value>[FR]Advanced Find</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_DOWN">
-    <value>Show Detailed Information</value>
+    <value>[FR]Show Detailed Information</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_UP">
-    <value>Hide Detailed Information</value>
+    <value>[FR]Hide Detailed Information</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSEWINDOW">
-    <value>Close Account</value>
+    <value>[FR]Close Account</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_PAYMENT_METHOD">
-    <value>Add Payment Method</value>
+    <value>[FR]Add Payment Method</value>
     <description></description>
   </text>
   <text id="TEXT_ENTER">
-    <value>Enter</value>
+    <value>[FR]Enter</value>
     <description></description>
   </text>
   <text id="TEXT_GO_BACK">
-    <value>Go Back to Find Results</value>
+    <value>[FR]Go Back to Find Results</value>
     <description></description>
   </text>
   <text id="TEXT_APPLY">
-    <value>Apply</value>
+    <value>[FR]Apply</value>
     <description></description>
   </text>
   <text id="TEXT_SUCCEED">
-    <value>Succeed</value>
+    <value>[FR]Succeed</value>
     <description></description>
   </text>
   <text id="TEXT_FAILED">
-    <value>Failed</value>
+    <value>[FR]Failed</value>
     <description></description>
   </text>
   <text id="TEXT_NONE">
-    <value>None</value>
+    <value>[FR]None</value>
     <description></description>
   </text>
   <text id="TEXT_NO">
-    <value>No</value>
+    <value>[FR]No</value>
     <description></description>
   </text>
   <text id="TEXT_YES">
-    <value>Yes</value>
+    <value>[FR]Yes</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSE">
-    <value>Close</value>
+    <value>[FR]Close</value>
     <description></description>
   </text>
   <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-    <value>The information was successfully added.</value>
+    <value>[FR]The information was successfully added.</value>
     <description></description>
   </text>
 </texts>

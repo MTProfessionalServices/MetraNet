@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Framework Errors" type="collection">
-  <text id="FRAMEWORK_LOGON_ERROR_200"><value><![CDATA[<br>Sua conta foi bloqueada por motivos de segurança. <br> Entre em contato com o atendimento ao cliente para perguntar sobre <br> o status da sua conta. ]]></value></text>
-  <text id="FRAMEWORK_LOGON_ERROR_201"><value>Senha ou nome de usuário inválido. Tente novamente.</value></text>
-  <text id="FRAMEWORK_LOGON_ERROR_300"><value>Sua conta não permite login. Entre em contato com o atendimento ao cliente para se informar sobre o status de sua conta.</value></text>
-  <text id="FRAMEWORK_LOGON_ERROR_1003"><value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value></text>
-
+  <text id="FRAMEWORK_LOGON_ERROR_200">
+    <value><![CDATA[<br>Sua conta foi bloqueada por motivos de segurança. <br> Entre em contato com o atendimento ao cliente para perguntar sobre <br> o status da sua conta. ]]></value>
+  </text>
+  <text id="FRAMEWORK_LOGON_ERROR_201">
+    <value>Senha ou nome de usuário inválido. Tente novamente.</value>
+  </text>
+  <text id="FRAMEWORK_LOGON_ERROR_300">
+    <value>Sua conta não permite login. Entre em contato com o atendimento ao cliente para se informar sobre o status de sua conta.</value>
+  </text>
+  <text id="FRAMEWORK_LOGON_ERROR_1003">
+    <value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value>
+  </text>
   <text id="TEXT_PASSWORD_EXPIRING">
     <value>Sua senha expira em {0} dia(s). Se tiver tempo, altere-a agora.</value>
   </text>
-
 </texts>

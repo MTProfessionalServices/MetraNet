@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Toolbar Texts" type="collection">
   <text id="GO_TOOL_TIP">
-    <value>[pt-BR]Go</value>
+    <value>[JA]Go</value>
     <description></description>
   </text>
   <text id="RESET_TOOL_TIP">
-    <value>[pt-BR]Reset</value>
+    <value>[JA]Reset</value>
     <description></description>
   </text>
   <text id="NEXT_PAGE_TOOL_TIP">
-    <value>[pt-BR]Next Page</value>
+    <value>[JA]Next Page</value>
     <description></description>
   </text>
   <text id="PREVIOUS_PAGE_TOOL_TIP">
-    <value>[pt-BR]Previous Page</value>
+    <value>[JA]Previous Page</value>
     <description></description>
   </text>
   <text id="FIRST_PAGE_TOOL_TIP">
-    <value>[pt-BR]First Page</value>
+    <value>[JA]First Page</value>
     <description></description>
   </text>
   <text id="LAST_PAGE_TOOL_TIP">
-    <value>[pt-BR]Last Page</value>
+    <value>[JA]Last Page</value>
     <description></description>
   </text>
   <text id="REFRESH_PAGE_TOOL_TIP">
-    <value>[pt-BR]Refresh Page</value>
+    <value>[JA]Refresh Page</value>
     <description></description>
   </text>
   <text id="EXPORT_PAGE_TOOL_TIP">
-    <value>[pt-BR]Export</value>
+    <value>[JA]Export</value>
     <description></description>
   </text>
   <text id="MDM_TOOL_BAR_PAGE_WORD">
-    <value>[pt-BR]Page</value>
+    <value>[JA]Page</value>
   </text>
   <text id="MDM_TOOL_BAR_OF_WORD">
-    <value>[pt-BR]of</value>
+    <value>[JA]of</value>
   </text>
   <text id="MDM_SELECT_ALL">
-    <value>[pt-BR]Select All</value>
+    <value>[JA]Select All</value>
   </text>
   <text id="MDM_UNSELECT_ALL">
-    <value>[pt-BR]UnSelect All</value>
+    <value>[JA]UnSelect All</value>
   </text>
   <text id="MDM_SELECT_PAGE">
-    <value>[pt-BR]Select Page</value>
+    <value>[JA]Select Page</value>
   </text>
   <text id="MDM_UNSELECT_PAGE">
-    <value>[pt-BR]UnSelect Page</value>
+    <value>[JA]UnSelect Page</value>
   </text>
 </texts>

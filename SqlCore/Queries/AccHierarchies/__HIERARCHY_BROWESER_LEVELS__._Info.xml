@@ -22,6 +22,7 @@
             <Name>TYPE_SPACE</Name>
             <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>system_mps</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

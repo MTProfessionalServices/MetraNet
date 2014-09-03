@@ -6,6 +6,7 @@ TRIGGER trig_recur_window_pay_redir
   INSERT ON t_payment_redirection REFERENCING NEW AS NEW
   FOR EACH row
   DECLARE currentDate DATE;
+          noChanges NUMBER(1);
   BEGIN
     /*Get the old vt_start and vt_end for payees that have changed*/
     insert into tmp_redir
@@ -18,6 +19,22 @@ TRIGGER trig_recur_window_pay_redir
        ON redirold.tt_end      = dbo.subtractSecond(redirnew.tt_start)
        WHERE redirnew.id_payee = :new.id_payee
          AND redirnew.tt_end     = dbo.MTMaxDate();
+
+    SELECT CASE 
+                WHEN EXISTS(
+                         SELECT * FROM tmp_redir t_old
+                         WHERE  t_old.id_payer = :new.id_payer
+                                AND t_old.id_payee = :new.id_payee
+                                AND t_old.vt_start = :new.vt_start
+                                AND t_old.vt_end = :new.vt_end
+                     ) THEN 1
+                ELSE 0
+           END INTO noChanges
+    FROM   DUAL;
+
+    /* Fix for CORE-8430. In described case logic layer doing unnecessary DELETE and then INSERT of a same row on Oracle only.
+    It launches RC generation logic - and we don't want that. It's a quick and safe fix. */
+    IF noChanges = 1 THEN RETURN; END IF;
 
    /*Get the old windows for payees that have changed*/
     insert into tmp_oldrw

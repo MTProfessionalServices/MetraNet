@@ -133,7 +133,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
       string json;
 
       if (operation.Equals("AnalyticsTopMRR") || operation.Equals("AnalyticsTopMRRGain") ||
-          operation.Equals("AnalyticsTopMRRLoss"))
+          operation.Equals("AnalyticsTopMRRLoss") || operation.Equals("AnalyticsSingleProductOverTime"))
       {
         json = ConstructJson(operation, items);
       }
@@ -166,6 +166,9 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
         if (record.Fields.Count > 0)
         {
+          if (operation.Equals("AnalyticsTopMRR") || operation.Equals("AnalyticsTopMRRGain") ||
+              operation.Equals("AnalyticsTopMRRLoss"))
+          {
             item = string.Format("\"ordernum\":{0},", FormatFieldValue(record.Fields[0]));
             json.Append(item);
             item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
@@ -174,16 +177,38 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
             json.Append(item);
             item = string.Format("\"mrr\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
             json.Append(item);
-            item = string.Format("\"mrrAsString\":\"{0}\",", FormatFieldValue(record.Fields[4]));
+            item = string.Format("\"mrrAsString\":{0},", FormatAmount(record.Fields[4]));
             json.Append(item);
             item = string.Format("\"mrrprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
             json.Append(item);
-            item = string.Format("\"mrrpreviousAsString\":\"{0}\",", FormatFieldValue(record.Fields[5]));
+            item = string.Format("\"mrrpreviousAsString\":{0},", FormatAmount(record.Fields[5]));
             json.Append(item);
             item = string.Format("\"mrrchange\":{0},", FormatFieldValue(record.Fields[6], invariantCulture));
             json.Append(item);
-            item = string.Format("\"mrrchangeAsString\":\"{0}\"", FormatFieldValue(record.Fields[6]));
+            item = string.Format("\"mrrchangeAsString\":{0}", FormatAmount(record.Fields[6]));
             json.Append(item);
+          }
+          else if (operation.Equals("AnalyticsSingleProductOverTime"))
+          {
+            item = string.Format("\"ordernum\":{0},", FormatFieldValue(record.Fields[0]));
+            json.Append(item);
+            item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
+            json.Append(item);
+            item = string.Format("\"month\":{0},", FormatFieldValue(record.Fields[3]));
+            json.Append(item);
+            item = string.Format("\"revenue\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
+            json.Append(item);
+            item = string.Format("\"revenueAsString\":{0},", FormatAmount(record.Fields[4]));
+            json.Append(item);
+            item = string.Format("\"revenueprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
+            json.Append(item);
+            item = string.Format("\"revenuepreviousAsString\":{0},", FormatAmount(record.Fields[5]));
+            json.Append(item);
+            item = string.Format("\"revenuechange\":{0},", FormatFieldValue(record.Fields[6], invariantCulture));
+            json.Append(item);
+            item = string.Format("\"revenuechangeAsString\":{0}", FormatAmount(record.Fields[6]));
+            json.Append(item);
+          }
         }
         json.Append("}");
       }
@@ -198,7 +223,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
     {
       if (field.FieldValue == null) return "null";
       string fieldValue;
-      fieldValue = (formatCulture == null) ? field.FieldValue.ToString() : Convert.ToString(field.FieldValue, formatCulture);// field.ToString();
+      fieldValue = (formatCulture == null) ? field.FieldValue.ToString() : Convert.ToString(field.FieldValue, formatCulture); // field.ToString();
 
       // CORE-5487 HtmlEncode the field so XSS tags don't show up in UI.
       //StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(value));
@@ -216,5 +241,10 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
                ? string.Format("\"{0}\"", sb)
                : string.Format("{0}", sb);
 
+    }
+
+    private string FormatAmount(SQLField field)
+    {
+      return (field.FieldValue == null) ? "null" : string.Format("\"{0}\"", Convert.ToDecimal(field.FieldValue).ToString("N2").EncodeForJavaScript());
     }
 }

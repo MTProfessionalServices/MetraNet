@@ -1,4 +1,4 @@
-SELECT TOP 10 DENSE_RANK () OVER (ORDER BY ss.Month ASC) AS 'OrderNum',
+SELECT TOP 10 ROW_NUMBER () OVER (ORDER BY ss.Month ASC) AS 'OrderNum',
  po.ProductOfferingId as 'ProductCode',
  po.ProductOfferingName AS 'ProductName', 
  ss.Month, 
@@ -20,4 +20,3 @@ ON ss.InstanceId = prev.InstanceId
 WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE())) 
  AND   ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
 GROUP BY ss.InstanceId, po.ProductOfferingId, ss.Month, po.ProductOfferingName 
-ORDER BY ss.Month ASC

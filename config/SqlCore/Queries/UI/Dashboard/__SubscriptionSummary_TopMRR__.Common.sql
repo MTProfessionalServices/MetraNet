@@ -1,4 +1,4 @@
- SELECT TOP 10 dense_rank () OVER (ORDER BY sum(isnull(ss.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum, 
+ SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY sum(isnull(ss.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum, 
 		po.ProductOfferingName as 'productname', po.ProductOfferingId as 'productcode',
 		ss.Month, 
 		SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0)) AS MRR, 
@@ -21,4 +21,3 @@ ON ss.InstanceId = prev.InstanceId
   AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, %%METRATIME%%))
 WHERE ss.Month = DATEPART(m, DATEADD(m, -1, %%METRATIME%%)) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, %%METRATIME%%))
 GROUP BY ss.InstanceId, po.ProductOfferingName, po.ProductOfferingId, ss.Month
-ORDER BY SUM(ss.MRRPrimaryCurrency) DESC 

@@ -1,4 +1,4 @@
-SELECT TOP 10 DENSE_RANK () OVER (ORDER BY SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) DESC) AS 'ordernum', 
+SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) DESC) AS 'ordernum', 
 	po.ProductOfferingName as 'productname', 
 	po.ProductOfferingId AS 'productcode',
 	ss.Month, 
@@ -17,4 +17,3 @@ LEFT JOIN SubscriptionSummary prev
 WHERE ss.Month = DATEPART(m, DATEADD(m, -1, %%METRATIME%%)) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, %%METRATIME%%))
 GROUP BY ss.InstanceId, po.ProductOfferingName,  po.ProductOfferingId, ss.Month 
 HAVING SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) > 0
-ORDER BY SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-sum(prev.MRRPrimaryCurrency) DESC

@@ -1,4 +1,4 @@
-SELECT TOP 10 DENSE_RANK () OVER (ORDER BY SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) ASC) AS 'OrderNum', 
+SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) ASC) AS 'OrderNum', 
    po.ProductOfferingId as 'ProductCode',
 	 po.ProductOfferingName AS 'ProductName',
 	 ss.Month,
@@ -21,4 +21,3 @@ WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE()))
  AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
 GROUP BY ss.InstanceId, po.ProductOfferingId, po.ProductOfferingName, ss.Month 
 HAVING SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) < 0
-ORDER BY SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) ASC

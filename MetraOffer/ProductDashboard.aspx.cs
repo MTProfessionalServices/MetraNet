@@ -27,6 +27,8 @@ public partial class ProductDashboard : MTPage
   protected string SubscriptionsText;
   protected string SubscriptionsGainText;
   protected string SubscriptionsLossText;
+  protected string RevenueText;
+
   #endregion
 
   protected void Page_Load(object sender, EventArgs e)
@@ -107,6 +109,7 @@ public partial class ProductDashboard : MTPage
     SubscriptionsText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
     SubscriptionsGainText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN_TOOLTIP"));
     SubscriptionsLossText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS_TOOLTIP"));
+    RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP")); 
   }
 }
 

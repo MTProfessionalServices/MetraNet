@@ -81,7 +81,9 @@
 	  d3.json("/MetraNet/MetraOffer/AjaxServices/VisualizeService.aspx?operation=" + op + "&_=" + new Date().getTime(), function (error, json) {
 	    if (error) alert(error);
 	    else {
-	      d3.select(headingid).text(headingtext);
+	      if (headingid != null) {
+	        d3.select(headingid).text(headingtext);
+	      }
 
 	      if (demomode)
 	        data = demodata;
@@ -243,7 +245,7 @@
         <MT:MTPanel ID="pnlTop10Revenue" runat="server" Text="Top 10 Revenue" 
           Collapsed="False" Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlTop10RevenueResource1" >
-           <div id="divTop10Revenue" style="float:left">
+           <div id="divTop10Revenue" style="float:left; padding-left:10px">
            </div>
         </MT:MTPanel>
       </li>
@@ -287,7 +289,7 @@
       //Failed transaction area
       makeTop10MRRPart();
       makeTop10SubsPart();
-      //makeTop10RevenuePart();
+      makeTop10RevenuePart();
       //makeTop10UniqueCustomersPart();
       //makeTop10NewCustomersPart();
 
@@ -349,6 +351,11 @@
                                                                                                     : String.format(((dataItem.subscriptionschange >= 0) ? "<%=SubscriptionsGainText%>" : "<%=SubscriptionsLossText%>"), localizedperSubscriptionsChange + "%", Math.abs(dataItem.subscriptionschange)));
       return titleText;
     }    
+    
+    function createTop10RevenueTitle(dataItem) {
+      var titleText =  String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + String.format("{0}: {1}", "<%=RevenueText%>", dataItem.revenueAsString);
+      return titleText;
+    }
         
     function makeTop10MRRPart() {
       var data = [];
@@ -481,26 +488,20 @@
     function makeTop10RevenuePart() {
       
       var data = [];
-/*      data.push({ productcode: 1, productname: "500 Free Minutes", revenue:"1250" });
-*/      
 
       var fnData = function(x) {
         x.revenue = +x.revenue;
       };
       
       var fnDim = function(d) {
-        return d.productname;
+        return d.ordernum; //d.productname;
       };
 
       var fnGroup = function(d) {
         return d.revenue;
       };
 
-
-      var fnTitle = function (d) { return d.key + " - " + d.value; };
-
-      visualizeRowChart("AnalyticsSingleProductOverTime", "#divTop10Revenue", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data);
-
+      visualizeRowChart("AnalyticsSingleProductOverTime", "#divTop10Revenue", fnData, fnDim, fnGroup, createTop10RevenueTitle, "#0070c0", data, null, null);
     }
 
 

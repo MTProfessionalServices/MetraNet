@@ -603,7 +603,7 @@ Private Function Delete_Click(EventArg)
   Dim success  
   
   ' Get a Fresh YAAC
-  Set Session("SubscriberYAAC") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_GetHierarchyTime())
+  Set Session("SubscriberYAAC") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_GetHierarchyTime()&"")
           
   ' Delete the account template
   success = SubscriberYAAC().DeleteTemplate(AccountTemplateHelper.AccountTemplate.TemplateAccountTypeID)

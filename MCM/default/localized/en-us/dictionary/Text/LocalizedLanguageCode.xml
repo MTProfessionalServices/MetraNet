@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Main" type="collection">
-
-    <description>This is the name to display on the screen for a particular language code.</description>
-    
-    <text id="LANGUAGECODE_DISPLAYINFORMATION_US">
-        <value>English</value><description></description>
-    </text>    
-
-    <text id="LANGUAGECODE_DISPLAYINFORMATION_DE">
-        <value>German</value><description></description>
-    </text>    
-
-    <text id="LANGUAGECODE_DISPLAYINFORMATION_FR">
-        <value>French</value><description></description>
-    </text>    
-
-    <text id="LANGUAGECODE_DISPLAYINFORMATION_IT">
-        <value>Italian</value><description></description>
-    </text>    
-
-    <text id="LANGUAGECODE_DISPLAYINFORMATION_JP">
-        <value>Japanese</value><description></description>
-    </text>    
-        
+  <description>This is the name to display on the screen for a particular language code.</description>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_US">
+    <value>English</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_DE">
+    <value>German</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_FR">
+    <value>French</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_IT">
+    <value>Italian</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_JP">
+    <value>Japanese</value>
+    <description></description>
+  </text>
 </texts>
-
-
-

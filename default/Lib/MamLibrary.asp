@@ -1488,7 +1488,7 @@ Function mam_LoadSubscriberAccount(lngAccountID)
     
   Dim rs
   On error resume next
-  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime(), lngAccountID, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime()&"", lngAccountID, NULL)
   If err.number > 0 or IsEmpty(rs) Then
       If mam_AccountFound(FALSE) Then
         mam_LoadSubscriberAccount = FALSE

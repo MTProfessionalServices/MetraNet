@@ -195,4 +195,22 @@
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
     <value>{ES}No data available</value>
   </data>  
+  <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
+    <value>{ES}Change</value>
+  </data>
+  <data name="TEXT_MRR" xml:space="preserve">
+    <value>{ES}MRR</value>
+  </data>
+  <data name="TEXT_PRODUCT_CODE_TOOLTIP" xml:space="preserve">
+    <value>{ES}Product Code</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
+    <value>{ES}Subscriptions</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS_GAIN_TOOLTIP" xml:space="preserve">
+    <value>{ES}Increase of {0} or {1} subscriptions</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS_LOSS_TOOLTIP" xml:space="preserve">
+    <value>{ES}Decrease of {0} or {1} subscriptions</value>
+  </data>    
 </root>

@@ -1,19 +1,13 @@
-SELECT
- po.ProductOfferingId,
+SELECT TOP 10 DENSE_RANK () OVER (ORDER BY ss.Month ASC) AS 'OrderNum',
+ po.ProductOfferingId as 'ProductCode',
  po.ProductOfferingName AS 'ProductName', 
  ss.Month, 
- SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0)) AS 'MRR', 
- SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) AS 'MRRPrevious', 
- SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) AS 'MRRChange',
  SUM(ISNULL(ss.TotalParticipants, 0.0)) AS 'Subscriptions', 
  SUM(ISNULL(prev.TotalParticipants, 0.0)) AS 'SubscriptionsPrevious', 
  SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) AS 'SubscriptionsChange',
  SUM(ISNULL(ss.NewParticipants, 0.0)) AS 'NewCustomers', 
  SUM(ISNULL(prev.NewParticipants, 0.0)) AS 'NewCustomersPrevious', 
- SUM(ISNULL(ss.NewParticipants, 0.0))-SUM(ISNULL(prev.NewParticipants, 0.0)) AS 'NewCustomersChange',
- SUM(ISNULL(ss.SubscriptionRevPrimaryCurrency, 0.0)) AS 'Revenue', 
- SUM(ISNULL(prev.SubscriptionRevPrimaryCurrency, 0.0)) AS 'RevenuePrevious', 
- SUM(ISNULL(ss.SubscriptionRevPrimaryCurrency, 0.0))-SUM(ISNULL(prev.SubscriptionRevPrimaryCurrency, 0.0)) AS 'RevenueChange'
+ SUM(ISNULL(ss.NewParticipants, 0.0))-SUM(ISNULL(prev.NewParticipants, 0.0)) AS 'NewCustomersChange'
 FROM SubscriptionSummary ss
 INNER JOIN ProductOffering po 
 ON po.ProductOfferingId = ss.ProductOfferingId 
@@ -26,4 +20,4 @@ ON ss.InstanceId = prev.InstanceId
 WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE())) 
  AND   ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
 GROUP BY ss.InstanceId, po.ProductOfferingId, ss.Month, po.ProductOfferingName 
-ORDER BY ss.Month asc
+ORDER BY ss.Month ASC

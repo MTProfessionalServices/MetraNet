@@ -21,6 +21,12 @@ public partial class ProductDashboard : MTPage
   protected string TopSubsGainGraphTitle;
   protected string TopSubsLossGraphTitle;
   protected string NoDataText;
+  protected string MrrText;
+  protected string ProductCodeText;
+  protected string ChangeText;
+  protected string SubscriptionsText;
+  protected string SubscriptionsGainText;
+  protected string SubscriptionsLossText;
   #endregion
 
   protected void Page_Load(object sender, EventArgs e)
@@ -88,13 +94,19 @@ public partial class ProductDashboard : MTPage
 
   private void SetLocalization()
   {
-    MrrTotalGraphTitle = GetLocalResourceObject("TEXT_MRR_TOTAL").ToString();
-    MrrGainGraphTitle = GetLocalResourceObject("TEXT_MRR_GAIN").ToString();
-    MrrLossGraphTitle = GetLocalResourceObject("TEXT_MRR_LOSS").ToString();
-    TopSubsGraphTitle = GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOTAL").ToString();
-    TopSubsGainGraphTitle = GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN").ToString();
-    TopSubsLossGraphTitle = GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS").ToString();
-    NoDataText = GetLocalResourceObject("TEXT_NO_DATA_AVAILABLE").ToString();
+    MrrTotalGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_MRR_TOTAL"));
+    MrrGainGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_MRR_GAIN"));
+    MrrLossGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_MRR_LOSS"));
+    TopSubsGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOTAL"));
+    TopSubsGainGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN"));
+    TopSubsLossGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS"));
+    NoDataText = Convert.ToString(GetLocalResourceObject("TEXT_NO_DATA_AVAILABLE"));
+    MrrText = Convert.ToString(GetLocalResourceObject("TEXT_MRR"));
+    ProductCodeText = Convert.ToString(GetLocalResourceObject("TEXT_PRODUCT_CODE_TOOLTIP"));
+    ChangeText = Convert.ToString(GetLocalResourceObject("TEXT_CHANGE_TOOLTIP"));
+    SubscriptionsText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
+    SubscriptionsGainText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN_TOOLTIP"));
+    SubscriptionsLossText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS_TOOLTIP"));
   }
 }
 

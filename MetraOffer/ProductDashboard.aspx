@@ -116,10 +116,10 @@
               .xAxis().ticks(5);
 
 
-	      if (fnTitle == null) {
-	        rowChart.title(function (d) { return CreateTitle(data[d.key - 1]); });
-	      } else {
-	        rowChart.title(fnTitle);
+	      if (fnTitle != null) {
+	        rowChart.title(function (d) {
+	          return formatTitle([], fnTitle, [data[d.key - 1]]);
+	        });
 	      }
 
 	      dc.renderAll(op);
@@ -226,13 +226,13 @@
         <MT:MTPanel ID="pnlTop10Subs" runat="server" Text="Top 10 Subscriptions" 
           Collapsed="False" Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlTop10SubsResource1" >
-           <div id="divTop10SubsTotal" style="float:left">
+           <div id="divTop10SubsTotal" style="float:left; padding-left:10px">
                 <h4 align="center" id="TopSubsGraphTitle">Subscriptions Total</h4>
             </div>
-            <div id="divTop10SubsGain"  style="float:left">
+            <div id="divTop10SubsGain"  style="float:left; padding-left:5px">
                 <h4 align="center" id="TopSubsGainGraphTitle">Subscriptions Gain</h4>
             </div>
-            <div id="divTop10SubsLoss" style="float:left">
+            <div id="divTop10SubsLoss" style="float:left; padding-left:10px">
                <h4 align="center" id="TopSubsLossGraphTitle">Subscriptions Loss</h4>
             </div>
 
@@ -287,9 +287,9 @@
       //Failed transaction area
       makeTop10MRRPart();
       makeTop10SubsPart();
-      makeTop10RevenuePart();
+      //makeTop10RevenuePart();
       //makeTop10UniqueCustomersPart();
-      makeTop10NewCustomersPart();
+      //makeTop10NewCustomersPart();
 
 
     });
@@ -318,200 +318,103 @@
       };
     }
 
-
-    var fnMRRTitle = (function (d) {
-      var dataItem = data[d.key - 1];
-      var perMRRChange = (dataItem.mrrprevious != 0) ? ((dataItem.mrrchange/dataItem.mrrprevious)*100) : 0;
-        /*var perMRRChange = ((d["mrrchange"]/d["mrrprevious"])*100);
-        //var perSubscriptionChange = ((d["subscriptionschange"]/d["subscriptionsprevious"])*100).;
-        //var msgNewCustomerChange = formatPercentageChangeMessage(d["newcustomersprevious"],d["newcustomerschange"], "{0} new customer");
-        var html = "<div class=ProductCode>{0}</div>".format(d["productcode"]);
-        html += "<div class=Information>MRR: {0} <img src='/Res/Images/icons/arrow-{2}.png' style='vertical-align:sub;'/> {1}%</div>".format(d["mrr"], perMRRChange, perMRRChange<0 ? "down":"up");
-        //html += "<div class=Information>Subscriptions: {0} <img src='/Res/Images/icons/arrow-{2}.png' style='vertical-align:sub;'/> {1}%</div>".format(d["subscriptions"], perSubscriptionChange, perSubscriptionChange<0 ? "down":"up");
-        //html += "<div class=Information>New customers: {0} {1}</div>".format(d["newcustomers"], msgNewCustomerChange);
-        return html;*/
-      var titleText = String.format("{0}: {1} {2}: {3}", "Product Code", dataItem.productcode, "Product Name", dataItem.productname ) + ((dataItem.mrrprevious == 0) ? String.format(" {0}: {1}", "MRR", dataItem.mrr) : String.format(" {0}: {1}%", "MRR", perMRRChange));
-      return titleText;    
-    });
-
-    function CreateTitle(dataItem) {
-      var perMRRChange = (dataItem.mrrprevious != 0) ? ((dataItem.mrrchange/dataItem.mrrprevious)*100) : 0;
-      var titleText = String.format("{0}: {1} {2}: {3}", "Product Code", dataItem.productcode, "Product Name", dataItem.productname ) + ((dataItem.mrrprevious == 0) ? String.format(" {0}: {1}", "MRR", dataItem.mrr) : String.format(" {0}: {1}%", "MRR", perMRRChange));
+    function formatTitle(myArray, callback, args)
+    {
+        //execute callback
+        return callback.apply(this, args);
+    }
+     
+    function createMRRTitle(dataItem) {
+      var titleText =  String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + String.format("{0}: {1}", "<%=MrrText%>", dataItem.mrrAsString);
       return titleText;
     }    
-    
-    function formatPercentageChangeMessage(previous, change, changeText)
-    {
-      if (change==0)
-      {
-        return "<span class=NoChange></span>";
-      }
-      if (previous!=0)
-      {
-        var percentChange = ((change/previous)*100).toFixed(1);
-        return "<img src='/Res/Images/icons/arrow-{1}.png' style='vertical-align:sub;'/> {0}%".format(percentChange, percentChange<0 ? "down":"up");
-      }
-      else
-      {
-        //We have no previous value so can't calculate the percentage
-        //Just list the numerical increase
-        return "<img src='/Res/Images/icons/arrow-{0}.png' style='vertical-align:sub;'/> {1}{2}".format(change<0 ? "down":"up", changeText, (change==1) ? "":"s");
-      }
-    }
 
+    function createMRRChangeTitle(dataItem) {
+      var perMRRChange = (dataItem.mrrprevious != 0) ? ((dataItem.mrrchange/dataItem.mrrprevious)*100) : 0;
+      var localizedperMRRChange = parseFloat(Math.abs(perMRRChange.toFixed(2))).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+      var titleText = String.format("{0}: {1}", "<%=ProductCodeText%>", dataItem.productcode) + String.format(" {0}: {1}", "<%=ChangeText%>", (dataItem.mrrprevious == 0) ? "--" : localizedperMRRChange + "%");
+      return titleText;
+    }    
+
+    function createSubscriptionTitle(dataItem) {
+      var titleText =  String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + String.format(" {0}: {1}", "<%=SubscriptionsText%>", dataItem.subscriptions);
+      return titleText;
+    }    
+
+    function createSubscriptionChangeTitle(dataItem) {
+      var perSubscriptionsChange = (dataItem.subscriptionsprevious != 0) ? ((dataItem.subscriptionschange/dataItem.subscriptionsprevious)*100) : 0;
+      var localizedperSubscriptionsChange = parseFloat(Math.abs(perSubscriptionsChange.toFixed(2))).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+      var titleText = String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + ((dataItem.subscriptionsprevious == 0) 
+                                                                                                    ? String.format(" {0}: {1}", "<%=ChangeText%>", "--") 
+                                                                                                    : String.format(((dataItem.subscriptionschange >= 0) ? "<%=SubscriptionsGainText%>" : "<%=SubscriptionsLossText%>"), localizedperSubscriptionsChange + "%", Math.abs(dataItem.subscriptionschange)));
+      return titleText;
+    }    
+        
     function makeTop10MRRPart() {
-      
-      //START MRR TOTAL
       var data = [];
-/*
-      data.push({ productcode: 1, mrr: 700, productname: "500 Free Minutes" });
-      data.push({ productcode: 2, mrr: 900, productname: "Simple Web" });
-      data.push({ productcode: 3, mrr: 100, productname: "On-Demand Cloud" });
-      data.push({ productcode: 4, mrr: 400, productname: "Pre-paid Cloud" });
-      data.push({ productcode: 5, mrr: 1100, productname: "Campaign Manager" });
-      data.push({ productcode: 6, mrr: 600, productname: "Wholesale offer for Cloud10" });
-      data.push({ productcode: 7, mrr: 700, productname: "Cloud10 WebSite Offer" });
-      data.push({ productcode: 8, mrr: 700, productname: "Content Squared Revenue Share contract" });
-*/
-
       var fnData = function(x) 
       {
+        x.ordernum = +x.ordernum;
         x.mrr = +x.mrr;
         x.productcode = +x.productcode;
-        x.ordernum = +x.ordernum;
         x.mrrchange = +x.mrrchange;
         x.mrrprevious = +x.mrrprevious;      
-      };
+      };      
       
+      //MRR TOTAL
       var fnDim = function(d) {
         return d.ordernum; // d.productname;
       };
-
       var fnGroup = function(d) {
         return d.mrr;
       };
+      visualizeRowChart("AnalyticsTopMRR", "#divTop10MRRTotal", fnData, fnDim, fnGroup, createMRRTitle, "#0070c0", data, "#MRRTotalGraphTitle", "<%=MrrTotalGraphTitle%>");
 
-      var fnTitle = fnMRRTitle;//function (d) { return d.key + " - " + currencyFormat(d.value); };
-      visualizeRowChart("AnalyticsTopMRR", "#divTop10MRRTotal", fnData, fnDim, fnGroup, null, "#0070c0", data, "#MRRTotalGraphTitle", "<%=MrrTotalGraphTitle%>");
-      
-      //DONE MRR TOTAL
-
-      //START MRR GAIN
-/*      data = [];
-
-      data.push({ productcode: 1, mrr: 700, productname: "500 Free Minutes",change:"300" });
-      data.push({ productcode: 3, mrr: 100, productname: "On-Demand Cloud" ,change:"50"});
-      data.push({ productcode: 8, mrr: 700, productname: "Content Squared Revenue Share contract",change:"100" });
-
-      fnData = function (x) {
-        x.change = +x.change;
-      };
-*/
-      
+      //MRR GAIN
       fnGroup = function (d) {
         return d.mrrchange;
       };
-
-      visualizeRowChart("AnalyticsTopMRRGain", "#divTop10MRRGain", fnData, fnDim, fnGroup, null, "#148622", data, "#MRRGainGraphTitle", "<%=MrrGainGraphTitle%>");
-
-
-      //END MRR GAIN
+      visualizeRowChart("AnalyticsTopMRRGain", "#divTop10MRRGain", fnData, fnDim, fnGroup, createMRRChangeTitle, "#148622", data, "#MRRGainGraphTitle", "<%=MrrGainGraphTitle%>");
       
-      //START MRR LOSS
-/*
-      data = [];
-      data.push({ productcode: 2, mrr: 900, productname: "Simple Web",change:"-100" });
-      data.push({ productcode: 4, mrr: 400, productname: "Pre-paid Cloud", change: "-25" });
-      data.push({ productcode: 5, mrr: 1100, productname: "Campaign Manager", change: "-40" });
-      data.push({ productcode: 6, mrr: 600, productname: "Wholesale offer for Cloud10", change: "-65" });
-      data.push({ productcode: 7, mrr: 700, productname: "Cloud10 WebSite Offer", change: "-210" });
-*/
+      //MRR LOSS
       fnGroup = function (d) {
         return -(d.mrrchange);
       };
-
-
-      //fnTitle = function(d) { return d.key + " - -" + currencyFormat(d.value); };
-      visualizeRowChart("AnalyticsTopMRRLoss", "#divTop10MRRLoss", fnData, fnDim, fnGroup, null, "#C00", data,  "#MRRLossGraphTitle", "<%=MrrLossGraphTitle%>");
-      //END MRR LOSS
+      visualizeRowChart("AnalyticsTopMRRLoss", "#divTop10MRRLoss", fnData, fnDim, fnGroup, createMRRChangeTitle, "#C00", data,  "#MRRLossGraphTitle", "<%=MrrLossGraphTitle%>");
     }
 
     
 
     function makeTop10SubsPart() {
-      
-      //START Subs TOTAL
       var data = [];
-/*      data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes" });
-      data.push({ productcode: 2, subscriptions: 9200, productname: "Simple Web" });
-      data.push({ productcode: 3, subscriptions: 1040, productname: "On-Demand Cloud" });
-      data.push({ productcode: 4, subscriptions: 500, productname: "Pre-paid Cloud" });
-      data.push({ productcode: 5, subscriptions: 600, productname: "Campaign Manager" });
-      data.push({ productcode: 6, subscriptions: 250, productname: "Wholesale offer for Cloud10" });
-      data.push({ productcode: 7, subscriptions: 10000, productname: "Cloud10 WebSite Offer" });
-      data.push({ productcode: 8, subscriptions: 300, productname: "Content Squared Revenue Share contract" });
-*/
-
       var fnData = function(x) {
+        x.ordernum = +x.ordernum;
+        x.productcode = +x.productcode;
         x.subscriptions = +x.subscriptions;
-      };
-      
-      var fnDim = function(d) {
-        return d.productname;
-      };
-
-      var fnGroup = function(d) {
-        return d.subscriptions;
-      };
-
-      var fnTitle = function(d) {
-        return d.key + " - " + d.value;
-      };
-
-      visualizeRowChart("AnalyticsTopSubscriptions", "#divTop10SubsTotal", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data,  "#TopSubsGraphTitle", "<%=TopSubsGraphTitle%>");
-      
-      
-      //DONE Subs TOTAL
-
-      //START Subs GAIN
-
-/*      data = [];
-      data.push({ productcode: 2, subscriptions: 9200, productname: "Simple Web",subscriptionschange:"200" });
-      data.push({ productcode: 3, subscriptions: 1040, productname: "On-Demand Cloud" ,subscriptionschange:"40"});
-      data.push({ productcode: 4, subscriptions: 500, productname: "Pre-paid Cloud" ,subscriptionschange:"100"});
-      data.push({ productcode: 5, subscriptions: 600, productname: "Campaign Manager",subscriptionschange:"75" });
-      data.push({ productcode: 6, subscriptions: 250, productname: "Wholesale offer for Cloud10" ,subscriptionschange:"50"});
-      data.push({ productcode: 7, subscriptions: 10000, productname: "Cloud10 WebSite Offer",subscriptionschange:"3000" });
-      data.push({ productcode: 8, subscriptions: 300, productname: "Content Squared Revenue Share contract",subscriptionschange:"10" });
-*/
-      fnData = function (x) {
+        x.subscriptionsprevious = +x.subscriptionsprevious;
         x.subscriptionschange = +x.subscriptionschange;
       };
       
+      //SUBS TOTAL
+      var fnDim = function(d) {
+        return d.ordernum; // d.productname;
+      };
+      var fnGroup = function(d) {
+        return d.subscriptions;
+      };
+      visualizeRowChart("AnalyticsTopSubscriptions", "#divTop10SubsTotal", fnData, fnDim, fnGroup, createSubscriptionTitle, "#0070c0", data,  "#TopSubsGraphTitle", "<%=TopSubsGraphTitle%>");
+      
+      //SUBS GAIN
       fnGroup = function (d) {
         return d.subscriptionschange;
       };
-
-      visualizeRowChart("AnalyticsTopSubscriptionGain", "#divTop10SubsGain", fnData, fnDim, fnGroup, fnTitle, "#148622", data, "#TopSubsGainGraphTitle", "<%=TopSubsGainGraphTitle%>");
-
-
-      //END Subs GAIN
+      visualizeRowChart("AnalyticsTopSubscriptionGain", "#divTop10SubsGain", fnData, fnDim, fnGroup, createSubscriptionChangeTitle, "#148622", data, "#TopSubsGainGraphTitle", "<%=TopSubsGainGraphTitle%>");
       
-      //START Subs LOSS
-
-/*      data = [];
-      data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",subscriptionschange:"-1000" });
-*/      
+      //SUBS LOSS
       fnGroup = function (d) {
-        return d.subscriptionschange;
+        return -(d.subscriptionschange);
       };
-
-      fnTitle = function(d) {
-        return d.key + " -  -" + d.value;
-      };
-      
-      visualizeRowChart("AnalyticsTopSubscriptionLoss", "#divTop10SubsLoss", fnData, fnDim, fnGroup, fnTitle, "#C00", data, "#TopSubsLossGraphTitle", "<%=TopSubsLossGraphTitle%>");
-      //END Subs LOSS
+      visualizeRowChart("AnalyticsTopSubscriptionLoss", "#divTop10SubsLoss", fnData, fnDim, fnGroup, createSubscriptionChangeTitle, "#C00", data, "#TopSubsLossGraphTitle", "<%=TopSubsLossGraphTitle%>");
 
     }
 

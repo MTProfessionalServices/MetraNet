@@ -213,4 +213,7 @@
   <data name="TEXT_SUBSCRIPTIONS_LOSS_TOOLTIP" xml:space="preserve">
     <value>{FR}Decrease of {0} or {1} subscriptions</value>
   </data>      
+  <data name="TEXT_REVENUE_TOOLTIP" xml:space="preserve">
+    <value>{FR}Revenue</value>
+  </data>  
 </root>

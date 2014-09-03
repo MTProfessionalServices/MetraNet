@@ -1,183 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
+  <description></description>
 
+  <!-- Product Offerting Properties -->
+  <text id="TEXT_PRODUCT_OFFERING_SELFSUBSCRIBABLE">
+    <value>Auto-assinável</value>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_SELFUNSUBSCRIBABLE">
+    <value>Assinatura auto-cancelável</value>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE">
+    <value>Data de início da vigência</value>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE">
+    <value>Data de término da vigência</value>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE">
+    <value>Data de início disponível</value>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_POPARTITIONID">
+    <value>ID de partição de PO</value>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE">
+    <value>Data de término disponível</value>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_NO_CHILD_ITEMS">
+    <value>Atualmente, essa [TEXT_KEYTERM_PRODUCT_OFFERING] não contém quaisquer[TEXT_KEYTERM_PRICEABLE_ITEMS] ou [TEXT_KEYTERM_DISCOUNTS].</value>
+  </text>
+  <text id="TEXT_PO_CONFIGURATION_NOT_COMPLETE">
+    <value>A configuração de [TEXT_KEYTERM_PRODUCT_OFFERING] está incompleta pelos seguintes motivos:</value>
     <description></description>
+  </text>
+  <text id="TEXT_CHECK_PO_CONFIGURATION">
+    <value>Verificar a configuração [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GOOD_CONFIGURATION">
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] está completamente configurada.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WARNING_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
+    <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] está disponível para assinatura e assim os itens cobráveis não podem ser modificados.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TOOLTIP_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
+    <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] está disponível para assinatura e assim os itens cobráveis não podem ser modificados.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WARNING_PRODUCT_OFFERING_PRICELIST_MAPPINGS_CANNOT_BE_MODIFIED">
+    <value><![CDATA[Essa [TEXT_KEYTERM_PRODUCT_OFFERING] está disponível para assinatura e assim o mapeamento de lista de preços. <br />No entanto, tenha ou não a permissão, o usuário pode inserir as [TEXT_KEYTERM_PERSONAL_RATES] de um assinante que pode ser atualizado.]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_NEW_PRODUCT_OFFERING">
+    <value>Criar novo [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_ADD_USAGE_ITEM">
+    <value>Adicionar [TEXT_KEYTERM_USAGE_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_ADD_RECURRING">
+    <value>Adicionar [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_ADD_NON_RECURRING">
+    <value>Adicionar [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_ADD_DISCOUNT">
+    <value>Adicionar [TEXT_KEYTERM_DISCOUNT]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_ITEMS_INCLUDED">
+    <value>Itens inclusos nessa [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_ACCOUNT_TYPE_RESTRICTIONS">
+    <value>Tipos de conta que podem assinar essa [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_NO_ACCOUNT_TYPE_RESTRICTIONS_MESSAGE">
+    <value><![CDATA[<b>Todos os tipos de conta podem assinar essa oferta de produto</b><br>Atualmente, não há restrições de tipo de conta para essa [TEXT_KEYTERM_PRODUCT_OFFERING]. Qualquer tipo de conta que permite assinatura pode assinar essa oferta de produto.]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_ADD_ACCOUNT_TYPE_RESTRICTION">
+    <value>Adicionar restrição de tipo de conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECT_ACCOUNT_TYPES_THAT_SHOULD_BE_ABLE_TO_SUBSCRIBE">
+    <value>Selecione um ou mais tipos de conta que devem ser adicionados como restrições dessa assinatura nessa [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
 
-    <!-- Product Offerting Properties -->
-    <text id="TEXT_PRODUCT_OFFERING_SELFSUBSCRIBABLE"><value>Auto-assinável</value></text>
-    <text id="TEXT_PRODUCT_OFFERING_SELFUNSUBSCRIBABLE"><value>Assinatura auto-cancelável</value></text>
-    <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"><value>Data de início da vigência</value></text>
-    <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE"><value>Data de término da vigência</value></text>
-    <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE"><value>Data de início disponível</value></text>
-    <text id="TEXT_PRODUCT_OFFERING_POPARTITIONID"><value>ID de partição de PO</value></text>
-    <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE"><value>Data de término disponível</value></text>    
- 
-    <text id="TEXT_PRODUCT_OFFERING_NO_CHILD_ITEMS"><value>Atualmente, essa [TEXT_KEYTERM_PRODUCT_OFFERING] não contém quaisquer[TEXT_KEYTERM_PRICEABLE_ITEMS] ou [TEXT_KEYTERM_DISCOUNTS].</value></text>
- 
-    <text id="TEXT_PO_CONFIGURATION_NOT_COMPLETE">
-       <value>A configuração de [TEXT_KEYTERM_PRODUCT_OFFERING] está incompleta pelos seguintes motivos:</value>
-       <description></description>
-    </text> 
- 
-    <text id="TEXT_CHECK_PO_CONFIGURATION">
-       <value>Verificar a configuração [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
-       <description></description>
-    </text> 
- 
-    <text id="TEXT_GOOD_CONFIGURATION">
-       <value>[TEXT_KEYTERM_PRODUCT_OFFERING] está completamente configurada.</value>
-       <description></description>
-    </text> 
- 
-    <text id="TEXT_WARNING_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
-       <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] está disponível para assinatura e assim os itens cobráveis não podem ser modificados.</value>
-       <description></description>
-    </text> 
+  <!-- Wizard -->
+  <text id="TEXT_WIZARD_PROMPT_CREATE_COPY_OF_EXISTING">
+    <value>Deseja fazer uma cópia de uma [TEXT_KEYTERM_PRODUCT_OFFERING] existente?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_PROMPT_CREATE_NEW_PRODUCT_OFFERING">
+    <value>Criar [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING">
+    <value>Selecionar existente</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_COPY_NAME_PREFIX">
+    <value>Cópia de </value>
+    <description>The new product offering name will be the original name prepended with this text.</description>
+  </text>
+  <text id="TEXT_WIZARD_SUMMARY_COPY_NAME">
+    <value>Criando cópia de</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_PROMPT_EFFECTIVEDATE">
+    <value>Quando essa [TEXT_KEYTERM_PRODUCT_OFFERING] estará em vigor no sistema?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_PROMPT_CURRENCY">
+    <value>Selecione a moeda dessa [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT1">
+    <value>A moeda dessa [TEXT_KEYTERM_PRODUCT_OFFERING] não pode ser alterada, pois a [TEXT_KEYTERM_PRODUCT_OFFERING] de origem tem mapeamentos compartilhados</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT2">
+    <value>A moeda dessa [TEXT_KEYTERM_PRODUCT_OFFERING] não pode ser alterada, pois a [TEXT_KEYTERM_PRODUCT_OFFERING] de origem já tem taxas.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_PROMPT_AVAILABILITYDATE">
+    <value>Quando essa [TEXT_KEYTERM_PRODUCT_OFFERING] estará disponível para assinatura?</value>
+    <description></description>
+  </text>
 
-    <text id="TEXT_TOOLTIP_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
-       <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] está disponível para assinatura e assim os itens cobráveis não podem ser modificados.</value>
-       <description></description>
-    </text> 
-
-    <text id="TEXT_WARNING_PRODUCT_OFFERING_PRICELIST_MAPPINGS_CANNOT_BE_MODIFIED">
-       <value><![CDATA[Essa [TEXT_KEYTERM_PRODUCT_OFFERING] está disponível para assinatura e assim o mapeamento de lista de preços. <br />No entanto, tenha ou não a permissão, o usuário pode inserir as [TEXT_KEYTERM_PERSONAL_RATES] de um assinante que pode ser atualizado.]]></value>
-       <description></description>
-    </text> 
-        
-    <text id="TEXT_CREATE_NEW_PRODUCT_OFFERING">
-        <value>Criar novo [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
-    </text>
-    <text id="TEXT_PRODUCT_OFFERING_ADD_USAGE_ITEM">
-        <value>Adicionar [TEXT_KEYTERM_USAGE_CHARGE]</value><description></description>
-    </text>
-    <text id="TEXT_PRODUCT_OFFERING_ADD_RECURRING">
-        <value>Adicionar [TEXT_KEYTERM_RECURRING_CHARGE]</value><description></description>
-    </text>
-    <text id="TEXT_PRODUCT_OFFERING_ADD_NON_RECURRING">
-        <value>Adicionar [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value><description></description>
-    </text>
-    <text id="TEXT_PRODUCT_OFFERING_ADD_DISCOUNT">
-        <value>Adicionar [TEXT_KEYTERM_DISCOUNT]</value><description></description>
-    </text>
-    <text id="TEXT_PRODUCT_OFFERING_ITEMS_INCLUDED">
-        <value>Itens inclusos nessa [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
-    </text>
-    <text id="TEXT_PRODUCT_OFFERING_ACCOUNT_TYPE_RESTRICTIONS">
-        <value>Tipos de conta que podem assinar essa [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
-    </text>
-    <text id="TEXT_PRODUCT_OFFERING_NO_ACCOUNT_TYPE_RESTRICTIONS_MESSAGE">
-        <value><![CDATA[
-<b>Todos os tipos de conta podem assinar essa oferta de produto</b><br>Atualmente, não há restrições de tipo de conta para essa [TEXT_KEYTERM_PRODUCT_OFFERING]. Qualquer tipo de conta que permite assinatura pode assinar essa oferta de produto.]]></value><description></description>
-    </text>    
-    <text id="TEXT_PRODUCT_OFFERING_ADD_ACCOUNT_TYPE_RESTRICTION">
-        <value>Adicionar restrição de tipo de conta</value><description></description>
-    </text>
-    <text id="TEXT_SELECT_ACCOUNT_TYPES_THAT_SHOULD_BE_ABLE_TO_SUBSCRIBE">
-        <value>Selecione um ou mais tipos de conta que devem ser adicionados como restrições dessa assinatura nessa [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
-    </text>   
-    
-	  <!-- Wizard -->
-    <text id="TEXT_WIZARD_PROMPT_CREATE_COPY_OF_EXISTING">
-        <value>Deseja fazer uma cópia de uma [TEXT_KEYTERM_PRODUCT_OFFERING] existente?</value><description></description>
-    </text>
-    
-    <text id="TEXT_WIZARD_PROMPT_CREATE_NEW_PRODUCT_OFFERING">
-        <value>Criar [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
-    </text>
-    
-    <text id="TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING">
-        <value>Selecionar existente</value><description></description>
-    </text>
-    
-    <text id="TEXT_WIZARD_COPY_NAME_PREFIX">
-        <value>Cópia de </value><description>The new product offering name will be the original name prepended with this text.</description>
-    </text>
-
-    <text id="TEXT_WIZARD_SUMMARY_COPY_NAME">
-        <value>Criando cópia de</value><description></description>
-    </text>
-   
-    <text id="TEXT_WIZARD_PROMPT_EFFECTIVEDATE">
-        <value>Quando essa [TEXT_KEYTERM_PRODUCT_OFFERING] estará em vigor no sistema?</value><description></description>
-    </text>
-
-    <text id="TEXT_WIZARD_PROMPT_CURRENCY">
-        <value>Selecione a moeda dessa [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
-    </text>    
-    
-    <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT1">
-        <value>A moeda dessa [TEXT_KEYTERM_PRODUCT_OFFERING] não pode ser alterada, pois a [TEXT_KEYTERM_PRODUCT_OFFERING] de origem tem mapeamentos compartilhados</value><description></description>
-    </text>    
-
-    <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT2">
-        <value>A moeda dessa [TEXT_KEYTERM_PRODUCT_OFFERING] não pode ser alterada, pois a [TEXT_KEYTERM_PRODUCT_OFFERING] de origem já tem taxas.</value><description></description>
-    </text>        
-
-    <text id="TEXT_WIZARD_PROMPT_AVAILABILITYDATE">
-        <value>Quando essa [TEXT_KEYTERM_PRODUCT_OFFERING] estará disponível para assinatura?</value><description></description>
-    </text>
-    
-	  <!-- Price List Mapping Screen -->
-
-    <text id="TEXT_PRICELIST_MAPPING_CAN_ICB">
-        <value>Permitir [TEXT_KEYTERM_PERSONAL_RATES]</value><description></description>
-    </text>
-
-    <text id="TEXT_NO_PRICE_LIST_MAPPING_MESSAGE">
-        <value>Aviso: nenhuma [TEXT_KEYTERM_PRICE_LIST]</value><description></description>
-    </text>
-
-	 <text id="TEXT_COLUMN_OPTIONS">
-        <value/>
-        <description></description>
-    </text>
-		
-		<text id="TEXT_PRODUCT_OFFERING_PICKER">
-        <value>Seletor de [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
-        <description></description>
-    </text>
-
-	 <text id="TEXT_BUTTON_REMOVE_PRICEABLE_ITEM">
-        <value>Remover</value>
-        <description></description>
-   </text>	
-
-	 <text id="TEXT_CONFIRM_REMOVE_PRICEABLE_ITEM">
-        <value>Remover {PI_NAME} da [TEXT_KEYTERM_PRODUCT_OFFERING]?</value>
-	    <!--  I used the tag {} because this is a run-time replacement -->
-        <description></description>
-   </text>	
- 	 <text id="TEXT_EFFECTIVE_DATES">
-        <value>Datas de vigência</value>
-        <description></description>
-   </text>	
- 	 <text id="TEXT_WIZARD_CURRENCY">
-        <value>Moeda</value>
-        <description></description>
-   </text>	
-
- 	 <text id="TEXT_CONFIRM_HIDE_PRODUCT_OFFERING">
-        <value>Clique em OK para ocultar esse [TEXT_KEYTERM_PRODUCT_OFFERING] do uso normal do MetraOffer.</value>
-        <description></description>
-   </text>	
-
- 	 <text id="TEXT_CONFIRM_UNHIDE_PRODUCT_OFFERING">
-        <value>Clique em OK para desocultar esse [TEXT_KEYTERM_PRODUCT_OFFERING] do uso normal do MetraOffer.</value>
-        <description></description>
-   </text>
-       
- 	 <text id="TEXT_APPROVALS_PRODUCTOFFERING_ALREADY_HAS_PENDING_CHANGE">
-        <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] atualmente tem uma atualização cuja aprovação está pendente. Para manter a consistência, atualizações posteriores não podem ser feitas até que a alteração pendente seja aprovada ou negada.</value>
-        <description></description>
-   </text>
-
-     <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_BLOCKING_CHANGES">
-       <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] atualmente tem uma atualização cuja aprovação está pendente. Para manter a consistência, atualizações posteriores não podem ser feitas até que a alteração pendente seja aprovada ou negada.</value>
-       <description></description>
-    </text> 
-
-	 <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_PENDING_CHANGES">
-       <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] atualmente tem uma atualização cuja aprovação está pendente.</value>
-       <description></description>
-    </text> 
+  <!-- Price List Mapping Screen -->
+  <text id="TEXT_PRICELIST_MAPPING_CAN_ICB">
+    <value>Permitir [TEXT_KEYTERM_PERSONAL_RATES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_PRICE_LIST_MAPPING_MESSAGE">
+    <value>Aviso: nenhuma [TEXT_KEYTERM_PRICE_LIST]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COLUMN_OPTIONS">
+    <value/>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING_PICKER">
+    <value>Seletor de [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BUTTON_REMOVE_PRICEABLE_ITEM">
+    <value>Remover</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_REMOVE_PRICEABLE_ITEM">
+    <value>Remover {PI_NAME} da [TEXT_KEYTERM_PRODUCT_OFFERING]?</value>
+    <!--  I used the tag {} because this is a run-time replacement -->
+    <description></description>
+  </text>
+  <text id="TEXT_EFFECTIVE_DATES">
+    <value>Datas de vigência</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WIZARD_CURRENCY">
+    <value>Moeda</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_HIDE_PRODUCT_OFFERING">
+    <value>Clique em OK para ocultar esse [TEXT_KEYTERM_PRODUCT_OFFERING] do uso normal do MetraOffer.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_UNHIDE_PRODUCT_OFFERING">
+    <value>Clique em OK para desocultar esse [TEXT_KEYTERM_PRODUCT_OFFERING] do uso normal do MetraOffer.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPROVALS_PRODUCTOFFERING_ALREADY_HAS_PENDING_CHANGE">
+    <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] atualmente tem uma atualização cuja aprovação está pendente. Para manter a consistência, atualizações posteriores não podem ser feitas até que a alteração pendente seja aprovada ou negada.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_BLOCKING_CHANGES">
+    <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] atualmente tem uma atualização cuja aprovação está pendente. Para manter a consistência, atualizações posteriores não podem ser feitas até que a alteração pendente seja aprovada ou negada.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_PENDING_CHANGES">
+    <value>Essa [TEXT_KEYTERM_PRODUCT_OFFERING] atualmente tem uma atualização cuja aprovação está pendente.</value>
+    <description></description>
+  </text>
 </texts>

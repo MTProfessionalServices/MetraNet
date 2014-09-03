@@ -1,67 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
-
-    <description></description>
-
-    <text id="TEXT_CREATE_NEW_NON_RECURRING_CHARGE">
-        <value>Criar novo [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
-    </text>              	
-
-    <text id="TEXT_ADD_NEW_NON_RECURRING_CHARGE">
-        <value>Adicionar nova [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
-    </text>
-
-    <text id="TEXT_EVENT">
-        <value>Evento</value><description></description>
-    </text>
-    
-    <text id="TEXT_SUBSCRIPTION">
-        <value>Assinatura</value><description></description>
-    </text>
-	
-	 <text id="TEXT_UNSUBSCRIPTION">
-        <value>Cancelamento de assinatura</value><description></description>
-    </text>
-	
-	 <text id="TEXT_SUBSCRIPTION_CHANGE">
-        <value>Alteração de assinatura</value><description></description>
-    </text>
-	
-	 <text id="TEXT_EXISTING_OR_NEW_NON_REC_CHARGE">
-        <value>Deseja usar uma [TEXT_KEYTERM_NON_RECURRING_CHARGE] existente ou adicionar uma nova?</value><description></description>
-    </text>
-  
-   <text id="TEXT_EXISTING_NON_REC_CHARGE">
-        <value>[TEXT_KEYTERM_NON_RECURRING_CHARGES] existentes</value><description></description>
-   </text>
-   <text id="TEXT_ADD_NON_RECURRING">
-        <value>Adicionar [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value><description></description>
+  <description></description>
+  <text id="TEXT_CREATE_NEW_NON_RECURRING_CHARGE">
+    <value>Criar novo [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
   </text>
-  <text id="TEXT_WHAT_TYPE_NON_REC_CHARGE">
-        <value>Que tipo de [TEXT_KEYTERM_NON_RECURRING_CHARGE] deseja criar?</value><description></description>
-  </text>
-  <text id="TEXT_NON_RECURRING_CHARGE_TYPE">
-        <value>Tipo de [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value><description></description>
-  </text>
-  <text id="TEXT_NON_RECURRING">
-        <value>[TEXT_KEYTERM_NON_RECURRING_CHARGE]</value><description></description>
-  </text> 
-  <text id="TEXT_WHAT_EVENT">
-        <value>Par qual evento se aplicará essa [TEXT_KEYTERM_NON_RECURRING_CHARGE]?</value><description></description>
+  <text id="TEXT_ADD_NEW_NON_RECURRING_CHARGE">
+    <value>Adicionar nova [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
   </text>
   <text id="TEXT_EVENT">
-        <value>Evento</value><description></description>
+    <value>Evento</value>
+    <description></description>
   </text>
-    <text id="TEXT_NON_REC_SUMMARY_DESCRIPTION1">
-        <value>Aqui está um resumo da [TEXT_KEYTERM_NON_RECURRING_CHARGE] que você está prestes a criar.</value><description></description>
+  <text id="TEXT_SUBSCRIPTION">
+    <value>Assinatura</value>
+    <description></description>
   </text>
-  
+  <text id="TEXT_UNSUBSCRIPTION">
+    <value>Cancelamento de assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_CHANGE">
+    <value>Alteração de assinatura</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXISTING_OR_NEW_NON_REC_CHARGE">
+    <value>Deseja usar uma [TEXT_KEYTERM_NON_RECURRING_CHARGE] existente ou adicionar uma nova?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXISTING_NON_REC_CHARGE">
+    <value>[TEXT_KEYTERM_NON_RECURRING_CHARGES] existentes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_NON_RECURRING">
+    <value>Adicionar [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_TYPE_NON_REC_CHARGE">
+    <value>Que tipo de [TEXT_KEYTERM_NON_RECURRING_CHARGE] deseja criar?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NON_RECURRING_CHARGE_TYPE">
+    <value>Tipo de [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NON_RECURRING">
+    <value>[TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_EVENT">
+    <value>Par qual evento se aplicará essa [TEXT_KEYTERM_NON_RECURRING_CHARGE]?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EVENT">
+    <value>Evento</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NON_REC_SUMMARY_DESCRIPTION1">
+    <value>Aqui está um resumo da [TEXT_KEYTERM_NON_RECURRING_CHARGE] que você está prestes a criar.</value>
+    <description></description>
+  </text>
   <text id="TEXT_NON_REC_SUMMARY_DESCRIPTION2">
-        <value>Clique em Finalizar para criar esse/essa [TEXT_KEYTERM_NON_RECURRING_CHARGE].</value><description></description>
+    <value>Clique em Finalizar para criar esse/essa [TEXT_KEYTERM_NON_RECURRING_CHARGE].</value>
+    <description></description>
   </text>
-	<text id="TEXT_CONFIGURE_EVENT">
-        <value>Configurar [TEXT_EVENT]</value><description></description>
+  <text id="TEXT_CONFIGURE_EVENT">
+    <value>Configurar [TEXT_EVENT]</value>
+    <description></description>
   </text>
-
-	
 </texts>

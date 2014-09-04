@@ -153,7 +153,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     If FrameWork.DecodeFieldID(Service.Properties("Parent").value, strParent) Then
         If strParent <> "1" then
           ' Make sure we have a valid Parent account
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, CDate(mam_NormalDateFormat(Service.Properties("StartDate"))))           
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, mam_ConvertToSysDate(CDate(mam_NormalDateFormat(Service.Properties("StartDate")))))           
           
           If Err.Number <> 0 Then
               EventArg.Error.number = 1049

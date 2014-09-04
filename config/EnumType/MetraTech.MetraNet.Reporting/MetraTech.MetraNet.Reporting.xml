@@ -2,7 +2,7 @@
 <mt_config>
     <enum_spaces>
         <enum_space name="MetraTech.MetraNet.Reporting">
-            <description></description>
+            <description>Reporting</description>
             <enums>
                 <enum name="ReportType">
                     <description>Report Type</description>

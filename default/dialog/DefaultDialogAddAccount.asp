@@ -128,7 +128,7 @@ Function CheckDefaultPolicy()
     end if
 
     On error resume next
-    Set	objAuthAccount  = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, CLng(Form("FolderID")), mam_GetHierarchyTime())
+    Set	objAuthAccount  = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, CLng(Form("FolderID")), mam_ConvertToSysDate(mam_GetHierarchyTime()))
     If err.number <> 0 then
       Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
     End If
@@ -320,7 +320,7 @@ PRIVATE FUNCTION OK_Click(EventArg) ' As Boolean
     If Len(Service.Properties("PayerAccount").value) Then
       If FrameWork.DecodeFieldID(Service.Properties("PayerAccount").value, PayerAccountID) Then
             Dim objYAAC
-            Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), Service.Properties("HIERARCHY_STARTDATE").Value)
+            Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), mam_ConvertToSysDate(Service.Properties("HIERARCHY_STARTDATE").Value))
             If err.number <> 0 then
               EventArg.Error.Save Err  
               OK_Click = FALSE       
@@ -568,7 +568,7 @@ PRIVATE FUNCTION InitializeServiceForAddingANewAccount()
       FrameWork.Dictionary.Add "SHOW_CURRENCY", TRUE      
     Else
       Dim objYaac
-      Set objYaac = FrameWork.AccountCatalog.GetAccount(CLng(Form("FolderID")), mam_GetHierarchyTime())
+      Set objYaac = FrameWork.AccountCatalog.GetAccount(CLng(Form("FolderID")), mam_ConvertToSysDate(mam_GetHierarchyTime()))
 
       mam_LoadTempAccount objYaac.CorporateAccountID
  

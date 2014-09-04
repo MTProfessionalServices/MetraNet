@@ -551,7 +551,7 @@ PUBLIC FUNCTION GetUserNameFromAccountID(lngAccountID) ' as string
   If Len(lngAccountID) > 0 Then
   
     On Error Resume Next
-    Set objYAAC               = FrameWork.AccountCatalog.GetAccount(CLng(lngAccountID),mam_GetHierarchyTime())    
+    Set objYAAC               = FrameWork.AccountCatalog.GetAccount(CLng(lngAccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))    
     
     If Err.Number Then
         EventArg.Error.Save Err        
@@ -749,6 +749,15 @@ END FUNCTION
 ' RETURNS			:
 PUBLIC FUNCTION mam_GetGMTTimeFormatted()
     mam_GetGMTTimeFormatted = mdm_GetGMTTimeFormatted(mam_GetDictionary("DATE_TIME_FORMAT"))
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_ConvertToSysDate()
+' PARAMETERS	: localized date
+' DESCRIPTION : Converts localized date to sysdate format
+' RETURNS			: sysdate
+PUBLIC FUNCTION mam_ConvertToSysDate(localeDate)
+   mam_ConvertToSysDate = localeDate&""
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -956,7 +965,7 @@ PUBLIC FUNCTION mam_SetupCSR(strLogon, strNameSpace, strNameSpaceType) ' as bool
   mam_SetupCSR = FALSE
 
   Dim rs
-  Set rs = FrameWork.AccountCatalog.FindAccountByNameAsRowset(mam_GetHierarchyTime(), strLogon, strNameSpace, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByNameAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), strLogon, strNameSpace, NULL)
 
   If rs.RecordCount >= 1 Then 
  
@@ -1051,7 +1060,7 @@ PUBLIC FUNCTION mam_LoadTempAccount(lngAccountID)
   mam_LoadTempAccount = FALSE
 
   Dim rs
-  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime(), lngAccountID, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), lngAccountID, NULL)
 
   If rs.RecordCount >= 1 Then
     Call MAM().SetActiveTempAccountType(rs.Value("AccountType"))
@@ -1072,7 +1081,7 @@ PUBLIC FUNCTION mam_LoadTempCSRAccount(lngAccountID)
   mam_LoadTempCSRAccount = FALSE
 
   Dim rs
-  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime(), lngAccountID, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), lngAccountID, NULL)
 
   If rs.RecordCount >= 1 Then
     Call MAM().SetActiveTempAccountType(rs.Value("AccountType"))
@@ -1148,7 +1157,7 @@ PRIVATE FUNCTION mam_GetUserNameNameSpaceFromAccountID(lngAccountID, strUserName
 
     Dim objParentFolderYaac
   
-    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID,mam_GetHierarchyTime())
+    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(mam_GetHierarchyTime()))
     strUserName               = objParentFolderYaac.LoginName
     strNameSpace              = objParentFolderYaac.NameSpace        
     
@@ -1165,7 +1174,7 @@ PRIVATE FUNCTION mam_GetUserNameNameSpaceFromAccountIDForSystemUser(lngAccountID
 
     Dim objParentFolderYaac
   
-    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID,mam_GetSystemUserHierarchyTime())
+    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
     strUserName               = objParentFolderYaac.LoginName
     strNameSpace              = objParentFolderYaac.NameSpace        
     
@@ -1245,7 +1254,7 @@ PRIVATE FUNCTION mam_GetFieldIDFromAccountIDAtTime(lngAccountID, strTime)
       If CLng(lngAccountID) = MAM_HIERARCHY_ROOT_ACCOUNT_ID then
         strFullName = mam_GetDictionary("TEXT_CORPORATE_ACCOUNT")
       Else
-        Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID, CDate(strTime))
+        Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(CDate(strTime)))
         strFullName = objYaac.AccountName  
       End If 
   
@@ -1271,7 +1280,7 @@ END FUNCTION
 PRIVATE FUNCTION mam_GetPathFromAccountID(lngAccountID)
   Dim objYaac
   
-  Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID,mam_GetHierarchyTime())
+  Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(mam_GetHierarchyTime()))
               
   mam_GetPathFromAccountID = objYaac.HierarchyPath
 END FUNCTION
@@ -1284,7 +1293,7 @@ END FUNCTION
 PRIVATE FUNCTION mam_GetAccountIDFromUserNameNameSpace(strUserName, strNameSpace)
     Dim objYaac
 
-    Set objYaac = FrameWork.AccountCatalog.GetAccountByName(strUserName, strNameSpace,mam_GetHierarchyTime())
+    Set objYaac = FrameWork.AccountCatalog.GetAccountByName(strUserName, strNameSpace, mam_ConvertToSysDate(mam_GetHierarchyTime()))
     mam_GetAccountIDFromUserNameNameSpace = objYaac.AccountID
 END FUNCTION
 
@@ -1488,7 +1497,7 @@ Function mam_LoadSubscriberAccount(lngAccountID)
     
   Dim rs
   On error resume next
-  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime()&"", lngAccountID, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), lngAccountID, NULL)
   If err.number > 0 or IsEmpty(rs) Then
       If mam_AccountFound(FALSE) Then
         mam_LoadSubscriberAccount = FALSE
@@ -1660,7 +1669,7 @@ End Function
 ' RETURNS		  :
 Public Function mam_LoadSystemUser(lngID, bFlipMenu)
   
-  Set Session("CURRENT_SYSTEM_USER") = FrameWork.AccountCatalog.GetAccount(CLng(lngID), mam_GetSystemUserHierarchyTime())
+  Set Session("CURRENT_SYSTEM_USER") = FrameWork.AccountCatalog.GetAccount(CLng(lngID), mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
   
   if not session("CURRENT_SYSTEM_USER") is nothing then
     mam_LoadSystemUser = true

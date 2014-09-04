@@ -7,8 +7,6 @@ ALTER TABLE tmp_rc ADD (c__quotebatchid RAW(16));
 
 ALTER TABLE t_recur_window ADD (c__quotebatchid RAW(16));
 
-ALTER TABLE tmp_oldrw ADD (c__quotebatchid RAW(16));
-
 /* *** start ADDS c__QuoteBatchId column to TMP_OLDRW  *** */ 
 CREATE TABLE TMP_OLDRW_BACKUP AS
 SELECT *

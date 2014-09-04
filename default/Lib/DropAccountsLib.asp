@@ -284,12 +284,12 @@ PRIVATE FUNCTION GetAccountIDCollection()
            If Service.Properties("folderAction" & Form.Grids("DropGrid").Properties("id").Value).Value =  mam_GetDictionary("TEXT_ALL_DESCENDANTS") Then
              ' Add all descendants
              Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form.Grids("DropGrid").Properties("id").Value), mam_ConvertToSysDate(mam_GetHierarchyTime()))
-             Call objYAAC.GetDescendents(col, mam_GetHierarchyTime(), RECURISVE, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
+             Call objYAAC.GetDescendents(col, mam_ConvertToSysDate(mam_GetHierarchyTime()), RECURISVE, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
   
            ELseIf Service.Properties("folderAction" & Form.Grids("DropGrid").Properties("id").Value).Value =  mam_GetDictionary("TEXT_DIRECT_DESCENDANTS") Then
              ' Add direct descendants
              Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form.Grids("DropGrid").Properties("id").Value), mam_ConvertToSysDate(mam_GetHierarchyTime()))
-             Call objYAAC.GetDescendents(col, mam_GetHierarchyTime(), DIRECT_DESCENDENTS, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
+             Call objYAAC.GetDescendents(col, mam_ConvertToSysDate(mam_GetHierarchyTime()), DIRECT_DESCENDENTS, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
   
            Else
              col.Add CLng(Form.Grids("DropGrid").Properties("id").Value)  

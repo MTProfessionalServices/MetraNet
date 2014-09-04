@@ -18,6 +18,7 @@ IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('all_rcs_linked'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('all_rcs_by_month'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('sum_rcs_by_month'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
+    EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('sum_rev_by_month'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF;
 
 
@@ -30,6 +31,8 @@ execute immediate 'create table all_rcs_linked (InstanceId varchar2(64), Subscri
 execute immediate 'create table all_rcs_by_month (InstanceId varchar2(64), SubscriptionId int not null, ProductOfferingId int, PriceableItemTemplateId int, PriceableItemInstanceId int, SubscriptionStartDate date, SubscriptionEndDate date, Currency nvarchar2(3), ActionType nvarchar2(255), Year int, Month int, DailyRate number(22,10), Rate number(22,10), OldDailyRate number(22,10), OldRate number(22,10), OldProratedDailyRate number(22,10), OldSubscriptionStartDate date, OldSubscriptionEndDate date, Days int)';
 
 execute immediate 'create table sum_rcs_by_month (InstanceId varchar2(64), SubscriptionId int not null, PriceableItemTemplateId int, PriceableItemInstanceId int, Currency nvarchar2(3), Year int, Month int, DaysInMonth int, DaysActiveInMonth int, TotalAmount number(22,10), OldAmount number(22,10), NewAmount number(22,10))';
+
+execute immediate 'create table sum_rev_by_month (InstanceId varchar2(64), ProductOfferingId int, Currency nvarchar2(3), Year int, Month int, SubscriptionRev number(22,10))';
 
 execute immediate 'create or replace procedure CreateADMInternal (p_dt_now date, p_id_run int, p_nm_currency nvarchar2, p_nm_instance nvarchar2, p_n_months int, p_STAGINGDB_prefix nvarchar2)
    AUTHID CURRENT_USER
@@ -57,6 +60,7 @@ execute immediate ('TRUNCATE TABLE SubscriptionSummary');
 /*TRUNCATE TABLE Counters;*/
 execute immediate ('TRUNCATE TABLE CurrencyExchangeMonthly');
 execute immediate ('TRUNCATE TABLE ProductOffering');
+execute immediate ('TRUNCATE TABLE ProductOfferingRevenue');
 
 if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Generating Customers DataMart');
@@ -716,6 +720,41 @@ END IF;
 /* TODO: churn */
 /* TODO: cancellations */
 /* TODO: subscription revenue */
+
+insert into sum_rev_by_month
+(
+InstanceId,
+ProductOfferingId,
+Currency,
+Year,
+Month,
+SubscriptionRev
+)
+select 
+p_nm_instance,
+tac.id_prod,
+tac.am_currency,
+extract (year from tac.dt_session),
+extract (month from tac.dt_session),
+sum (tac.amount)
+from t_acc_usage tac
+inner join t_pi_template tpt on tac.id_pi_template = tpt.id_template
+inner join t_base_props tbp on tbp.id_prop = tpt.id_pi
+where tbp.n_kind  IN (30,10)
+group by tac.id_prod, tac.am_currency, extract (month from tac.dt_session), extract (year from tac.dt_session);
+
+select count(1) into l_count from sum_rev_by_month;
+
+if (p_id_run is not null) then
+	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Debug', 'Summarized non Flat RC revenue by month: ' || nvl(l_count, 0));
+END IF;
+
+execute immediate 'create index idx_sum_rev_by_month on sum_rev_by_month (InstanceId, ProductOfferingId, Year, Month, Currency)';
+
+if (p_id_run is not null) then
+	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Debug', 'Created index for summarized non Flat RC revenue by month');
+END IF;
+
 insert into SubscriptionsByMonth
 (	InstanceId,
 	SubscriptionId,
@@ -910,6 +949,40 @@ END IF;
 /* TODO: non recurring charges */
 /* TODO: counters */
 /* TODO: revrec */
+
+insert into ProductOfferingRevenue
+(	InstanceId,
+	ProductOfferingId,
+	Year,
+	Month,
+	RevPrimaryCurrency)
+select 
+to_char(rcs.InstanceId),
+rcs.ProductOfferingId,
+rcs.Year,
+rcs.Month,
+rcs.MRRPrimaryCurrency + NVL(non_rcs.SubscriptionRev,0)*(case when p_nm_currency <> non_rcs.Currency then exc.ExchangeRate else 1.0 end)
+from SubscriptionSummary rcs
+left outer join sum_rev_by_month non_rcs on rcs.InstanceId = non_rcs.InstanceId and rcs.ProductOfferingId = non_rcs.ProductOfferingId and rcs.Year = non_rcs.Year and rcs.Month = non_rcs.Month
+left outer join CurrencyExchangeMonthly exc on exc.InstanceId = non_rcs.InstanceId and exc.SourceCurrency = non_rcs.Currency and exc.TargetCurrency = p_nm_currency and p_dt_now between exc.StartDate and exc.EndDate
+where 1=1
+UNION ALL
+select 
+to_char(non_rcs.InstanceId),
+non_rcs.ProductOfferingId,
+non_rcs.Year,
+non_rcs.Month,
+non_rcs.SubscriptionRev*(case when p_nm_currency <> non_rcs.Currency then exc.ExchangeRate else 1.0 end)
+from sum_rev_by_month non_rcs
+left outer join CurrencyExchangeMonthly exc on exc.InstanceId = non_rcs.InstanceId and exc.SourceCurrency = non_rcs.Currency and exc.TargetCurrency = p_nm_currency and p_dt_now between exc.StartDate and exc.EndDate
+where not exists (select 1 from SubscriptionSummary rcs where rcs.InstanceId = non_rcs.InstanceId and rcs.ProductOfferingId = non_rcs.ProductOfferingId and rcs.Year = non_rcs.Year and rcs.Month = non_rcs.Month)
+;
+
+select count(1) into l_count from ProductOfferingRevenue;
+
+if (p_id_run is not null) then
+	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Product Offerings with revenue: ' || nvl(l_count, 0));
+END IF;
 
 if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Finished generating DataMart');

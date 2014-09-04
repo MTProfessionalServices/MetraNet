@@ -70,7 +70,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   	' get capabilities for account 
 		' Set ProductView.Properties.RowSet = FrameWork.Policy.GetAvailableCapabilityTypesAsRowset(FrameWork.SessionContext, CLng(Session("SecurityAccountID")), 1) 
     On error resume next
-    Set objAccount = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, Session("SecurityAccountID"), mam_GetHierarchyTime())
+    Set objAccount = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, Session("SecurityAccountID"), mam_ConvertToSysDate(mam_GetHierarchyTime()))
     If err.number <> 0 then
       Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
     End If

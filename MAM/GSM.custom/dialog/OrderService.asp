@@ -211,7 +211,7 @@ FUNCTION Validate_Click(EventArg) ' As Boolean
 	bValid = FALSE
 	
   Dim objYaac
-  Set objYaac = FrameWork.AccountCatalog.GetAccountByName(Service.Properties("SimNumber"), NAMESPACE, mam_GetHierarchyTime())
+  Set objYaac = FrameWork.AccountCatalog.GetAccountByName(Service.Properties("SimNumber"), NAMESPACE, mam_ConvertToSysDate(mam_GetHierarchyTime()))
 
   If IsValidObject(objYaac)  Then
     mam_LoadTempAccount objYaac.AccountID

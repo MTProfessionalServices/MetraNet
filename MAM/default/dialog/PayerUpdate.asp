@@ -139,14 +139,14 @@ FUNCTION OK_Click(EventArg) ' As Boolean
                    
         If Len(Form("OldStartDate")) = 0 Then
           ' No start date so create new 
-  	      Call PaymentMgr.PayForAccount(Form("AccountID"), CDate(Service.Properties("StartDate")&""), CDate(mam_NormalDateFormat(strEndDate)))
+  	      Call PaymentMgr.PayForAccount(Form("AccountID"), CDate(mam_ConvertToSysDate(Service.Properties("StartDate"))), CDate(mam_NormalDateFormat(strEndDate)))
         Else
     		  ' Payer is the same so just do ChangePaymentEffectiveDate
-          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(mam_NormalDateFormat(Form("OldStartDate"))), CDate(mam_NormalDateFormat(Form("OldEndDate"))), CDate(Service.Properties("StartDate")&""), CDate(mam_NormalDateFormat(strEndDate))
+          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(mam_NormalDateFormat(Form("OldStartDate"))), CDate(mam_NormalDateFormat(Form("OldEndDate"))), CDate(mam_ConvertToSysDate(Service.Properties("StartDate"))), CDate(mam_NormalDateFormat(strEndDate))
         End If
         
   		Else
-        Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), mam_GetHierarchyTime()&"")
+        Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))
         If err.number <> 0 then
           EventArg.Error.number = 1037
           EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1037")
@@ -158,10 +158,10 @@ FUNCTION OK_Click(EventArg) ' As Boolean
            
         If CLng(Form("OldPayer")) = CLng(PayerAccountID) Then
     		  ' Payer is the same so just do ChangePaymentEffectiveDate
-          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(mam_NormalDateFormat(Form("OldStartDate"))), CDate(mam_NormalDateFormat(Form("OldEndDate"))), CDate(Service.Properties("StartDate")&""), CDate(mam_NormalDateFormat(strEndDate))
+          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(mam_NormalDateFormat(Form("OldStartDate"))), CDate(mam_NormalDateFormat(Form("OldEndDate"))), CDate(mam_ConvertToSysDate(Service.Properties("StartDate"))), CDate(mam_NormalDateFormat(strEndDate))
         Else
     		  ' There is a new payer so create new pay for account record
-    	     Call PaymentMgr.PayForAccount(Form("AccountID"), CDate(Service.Properties("StartDate")&""), CDate(mam_NormalDateFormat((strEndDate))))
+    	     Call PaymentMgr.PayForAccount(Form("AccountID"), CDate(mam_ConvertToSysDate(Service.Properties("StartDate"))), CDate(mam_NormalDateFormat((strEndDate))))
         End If 
  							
   		End If

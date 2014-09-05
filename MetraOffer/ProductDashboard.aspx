@@ -31,14 +31,15 @@
    .x-panel-bwrap,.x-panel-body, 
    #formPanel_<%=pnlTop10MMR.ClientID%>,
    #formPanel_<%=pnlTop10Subs.ClientID%>,
-   #formPanel_<%=pnlTop10Revenue.ClientID%>,
-   #formPanel_<%=pnlTop10UniqueCustomers.ClientID%>,
-   #formPanel_<%=pnlTop10NewCustomers.ClientID%>
+   
+   <%--#formPanel_<%=pnlTop10Revenue.ClientID%>, --%>
+   <%--#formPanel_<%=pnlTop10UniqueCustomers.ClientID%>,--%>
+   <%--#formPanel_<%=pnlTop10NewCustomers.ClientID%>--%>
      {
       width: 100% !important;
       height: 100% !important;
     }
-    
+  
     
    #formPanel_<%=pnlRecentOfferingChanges.ClientID%>, 
    #formPanel_<%=pnlRecentRateChanges.ClientID%>,
@@ -77,8 +78,11 @@
     var currencyFormat = d3.format("$,.0f");
 
     function visualizeRowChart(op, divid, fnData, fnDim, fnGroup, fnTitle, colors, demodata, headingid, headingtext) {
-	  var data = [];
-	  d3.json("/MetraNet/MetraOffer/AjaxServices/VisualizeService.aspx?operation=" + op + "&_=" + new Date().getTime(), function (error, json) {
+      var data = [];
+      var chartWidth = 310;
+      var chartHeight = 225;
+      
+  	  d3.json("/MetraNet/MetraOffer/AjaxServices/VisualizeService.aspx?operation=" + op + "&_=" + new Date().getTime(), function (error, json) {
 	    if (error) alert(error);
 	    else {
 	      if (headingid != null) {
@@ -99,24 +103,23 @@
                 dimension = ndx.dimension(fnDim),
                 group = dimension.group().reduceSum(fnGroup);
 
-	      rowChart.width(310)
-              .height(225)
-              .margins({
-                top: 5,
-                left: 10,
-                right: 50,
-                bottom: 20
-              })
-              .dimension(dimension)
-              .renderLabel(false)
+	      rowChart.width(chartWidth)
+	        .height(chartHeight)
+	        .margins({
+	          top: 5,
+	          left: 10,
+	          right: 50,
+	          bottom: 20
+	        })
+	        .dimension(dimension)
+	        .renderLabel(false)
 
 
 	      //.title(fnTitle)
-              .group(group)
-              .colors(colors)
+	        .group(group)
+	        .colors(colors)
 	      //.elasticX(true)
-              .xAxis().ticks(5);
-
+	        .xAxis().ticks(5);
 
 	      if (fnTitle != null) {
 	        rowChart.title(function (d) {
@@ -124,7 +127,13 @@
 	        });
 	      }
 
+
 	      dc.renderAll(op);
+
+	      d3.select(divid + " svg").selectAll(" .axis text").text(function (d) {
+	        return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 1 });
+	      });
+	      
 	      var defs = rowChart.svg().append("defs");
 	      var filter = defs.append("filter")
               .attr("id", "drop-shadow")
@@ -152,9 +161,10 @@
 	      if (data.length == 0) {
 	        d3.select(divid + " svg .axis").attr("visibility", "hidden");
 	        d3.select(divid + " svg").append("text")
-	          .attr("x", 100)
-	          .attr("y", 100)
-	          .text("<%=NoDataText%>"); //.append("div").text("<%=NoDataText%>");
+	          .attr("x", chartWidth/2)
+	          .attr("y", chartHeight/2)
+	          .style("text-anchor", "middle")
+	          .text("<%=NoDataText%>"); 
 	      }
 	      /*rowChart.selectAll("rect")
 	      .style("filter", "url(#drop-shadow)")
@@ -240,7 +250,7 @@
 
         </MT:MTPanel>
       </li>
-      
+      <%--
       <li data-row="25" data-col="1" data-sizex="3" data-sizey="8">
         <MT:MTPanel ID="pnlTop10Revenue" runat="server" Text="Top 10 Revenue" 
           Collapsed="False" Collapsible="True" EnableChrome="True" 
@@ -265,6 +275,7 @@
           </div>
         </MT:MTPanel>
       </li>
+       --%>
     </ul>
   </div>
   <script type="text/javascript">
@@ -279,21 +290,20 @@
       Ext.getCmp('formPanel_<%=pnlTop10MMR.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(3), 9, 8); });
       Ext.getCmp('formPanel_<%=pnlTop10Subs.ClientID%>').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 9, 1); });
       Ext.getCmp('formPanel_<%=pnlTop10Subs.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 9,8); });
+      <%--
       Ext.getCmp('formPanel_<%=pnlTop10Revenue.ClientID%>').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 3, 1); });
       Ext.getCmp('formPanel_<%=pnlTop10Revenue.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 3, 8); });
       Ext.getCmp('formPanel_<%=pnlTop10UniqueCustomers.ClientID%>').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 1); });
       Ext.getCmp('formPanel_<%=pnlTop10UniqueCustomers.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 8); });
       Ext.getCmp('formPanel_<%=pnlTop10NewCustomers.ClientID%>').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
       Ext.getCmp('formPanel_<%=pnlTop10NewCustomers.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3,8); });
-    
-      //Failed transaction area
+      --%>
       makeTop10MRRPart();
       makeTop10SubsPart();
-      makeTop10RevenuePart();
-      //makeTop10UniqueCustomersPart();
-      //makeTop10NewCustomersPart();
-
-
+      <%--makeTop10RevenuePart();
+      makeTop10UniqueCustomersPart();
+      makeTop10NewCustomersPart();
+      --%>
     });
     
 
@@ -352,11 +362,13 @@
       return titleText;
     }    
     
+    <%--
     function createTop10RevenueTitle(dataItem) {
       var titleText =  String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + String.format("{0}: {1}", "<%=RevenueText%>", dataItem.revenueAsString);
       return titleText;
     }
-        
+    --%>        
+    
     function makeTop10MRRPart() {
       var data = [];
       var fnData = function(x) 
@@ -425,6 +437,7 @@
 
     }
 
+    <%--
     function makeTop10UniqueCustomersPart() {
       
       var data = [];
@@ -504,7 +517,7 @@
       visualizeRowChart("AnalyticsSingleProductOverTime", "#divTop10Revenue", fnData, fnDim, fnGroup, createTop10RevenueTitle, "#0070c0", data, null, null);
     }
 
-
+     --%>
     var gridster;
 
     $(function () {

@@ -55,7 +55,7 @@ INTO #tmp_rc
          /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
          INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
               AND (
-                      (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                      pci.dt_start  BETWEEN ui.dt_start AND ui.dt_end                          /* If this is in advance, check if rc start falls in this interval */
                       OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
                       OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
                   )

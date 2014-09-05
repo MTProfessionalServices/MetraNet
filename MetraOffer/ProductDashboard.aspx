@@ -164,6 +164,7 @@
 	          .attr("x", chartWidth/2)
 	          .attr("y", chartHeight/2)
 	          .style("text-anchor", "middle")
+	          .style("fill", "gray")
 	          .text("<%=NoDataText%>"); 
 	      }
 	      /*rowChart.selectAll("rect")

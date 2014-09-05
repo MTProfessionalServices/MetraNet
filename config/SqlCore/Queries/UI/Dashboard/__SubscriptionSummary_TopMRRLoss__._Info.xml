@@ -5,14 +5,7 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters>
-        <Parameter>
-            <Name>METRATIME</Name>
-            <DataType>timestamp</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-    </Parameters>
+    <Parameters></Parameters>
     <Description>MetraOffer Dashboard SubscriptionSummary Top Monthly Recurring Revenue Loss</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

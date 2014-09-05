@@ -17,7 +17,7 @@ ON po.ProductOfferingId = ss.ProductOfferingId
 LEFT JOIN SubscriptionSummary prev 
 ON ss.InstanceId = prev.InstanceId 
 	AND ss.ProductOfferingId = prev.ProductOfferingId 
-	AND prev.Month = DATEPART(m, DATEADD(m, -2, %%METRATIME%%))
-  AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, %%METRATIME%%))
-WHERE ss.Month = DATEPART(m, DATEADD(m, -1, %%METRATIME%%)) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, %%METRATIME%%))
+	AND prev.Month = DATEPART(m, DATEADD(m, -2, GETDATE()))
+  AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, GETDATE()))
+WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE())) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
 GROUP BY ss.InstanceId, po.ProductOfferingName, po.ProductOfferingId, ss.Month

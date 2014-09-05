@@ -3,13 +3,13 @@
 --
 SET DEFINE OFF
 
-ALTER TABLE netmeter.tmp_rc ADD (c__quotebatchid RAW(16));
+ALTER TABLE tmp_rc ADD (c__quotebatchid RAW(16));
 
-ALTER TABLE netmeter.t_recur_window ADD (c__quotebatchid RAW(16));
+ALTER TABLE t_recur_window ADD (c__quotebatchid RAW(16));
 
-ALTER TABLE netmeter.tmp_oldrw ADD (c__quotebatchid RAW(16));
+ALTER TABLE tmp_oldrw ADD (c__quotebatchid RAW(16));
 
-CREATE GLOBAL TEMPORARY TABLE netmeter.tmp_rc_1 (
+CREATE GLOBAL TEMPORARY TABLE tmp_rc_1 (
   c_rcactiontype NVARCHAR2(255),
   c_rcintervalstart DATE NOT NULL,
   c_rcintervalend DATE NOT NULL,
@@ -42,28 +42,28 @@ CREATE GLOBAL TEMPORARY TABLE netmeter.tmp_rc_1 (
 )
 ON COMMIT PRESERVE ROWS;
 
-ALTER TABLE netmeter.t_sub ADD (tx_quoting_batch RAW(16));
+ALTER TABLE t_sub ADD (tx_quoting_batch RAW(16));
 
-ALTER TABLE netmeter.tmp_payer_changes RENAME COLUMN c__payingaccountdebit to c__payingaccount;
+ALTER TABLE tmp_payer_changes RENAME COLUMN c__payingaccountdebit to c__payingaccount;
 
-ALTER TABLE netmeter.tmp_payer_changes DROP (c__payingaccountcredit);
+ALTER TABLE tmp_payer_changes DROP (c__payingaccountcredit);
 
-ALTER TABLE netmeter.tmp_newrw ADD (c__quotebatchid RAW(16));
+ALTER TABLE tmp_newrw ADD (c__quotebatchid RAW(16));
 
-CREATE GLOBAL TEMPORARY TABLE netmeter.tmp_backoutarrearsusages (
+CREATE GLOBAL TEMPORARY TABLE tmp_backoutarrearsusages (
   c__priceableiteminstanceid NUMBER(10) NOT NULL,
   c__priceableitemtemplateid NUMBER(10) NOT NULL,
   c__subscriptionid NUMBER(10) NOT NULL
 )
 ON COMMIT PRESERVE ROWS;
 
-ALTER TABLE netmeter.t_sub_history ADD (tx_quoting_batch RAW(16));
+ALTER TABLE t_sub_history ADD (tx_quoting_batch RAW(16));
 
-ALTER PACKAGE netmeter.dbo COMPILE;
+ALTER PACKAGE dbo COMPILE;
 
-ALTER FUNCTION netmeter.metratime COMPILE;
+ALTER FUNCTION metratime COMPILE;
 
-CREATE OR REPLACE function netmeter.AllowInitialArrersCharge(
+CREATE OR REPLACE function AllowInitialArrersCharge(
 p_b_advance IN    char,
 p_id_acc IN       integer,
 p_sub_end IN      date,
@@ -102,7 +102,7 @@ begin
 end;
 /
 
-CREATE OR REPLACE procedure netmeter.insertChargesIntoSvcTables (meterType1 in VARCHAR2, meterType2 in varchar2) as
+CREATE OR REPLACE procedure insertChargesIntoSvcTables (meterType1 in VARCHAR2, meterType2 in varchar2) as
     idRun INT;
     idMessage INT;
     idServiceFlat int;
@@ -326,7 +326,7 @@ delete FROM tmp_rc where (c_RCActionType like meterType1 or c_RcActionType like 
 end insertchargesintosvctables;
 /
 
-CREATE OR REPLACE PROCEDURE netmeter.MeterUdrcFromRecurWindow (currentDate date, actionType VARCHAR2) AS
+CREATE OR REPLACE PROCEDURE MeterUdrcFromRecurWindow (currentDate date, actionType VARCHAR2) AS
   enabled VARCHAR2(10);
 BEGIN
   SELECT value INTO enabled FROM t_db_values WHERE parameter = N'InstantRc';
@@ -436,12 +436,12 @@ BEGIN
 END MeterUdrcFromRecurWindow;
 /
 
-CREATE OR REPLACE procedure netmeter.CreateSubscriptionRecord (    p_id_sub IN integer, p_id_sub_ext IN raw, p_id_acc IN integer, p_id_group IN integer, p_id_po IN integer, p_dt_crt IN date, p_tx_quoting_batch IN raw,    p_startdate IN date,    p_enddate IN date,    p_systemdate IN date,    status OUT integer    )    as    realstartdate date;    realenddate date;    tempStartDate date;    tempEndDate date;    varMaxDateTime date;    onesecond_systemdate date;    temp_id_sub integer; temp_id_sub_ext raw(16); temp_id_acc integer; temp_id_group integer; temp_id_po integer; temp_dt_crt date; temp_tx_quoting_batch raw(16);     begin     select p_startdate,p_enddate,dbo.mtmaxdate(),dbo.subtractsecond(p_systemdate)       into realstartdate,realenddate,varMaxDateTime,onesecond_systemdate from dual;      status := 0;      /* Someone changes the start date of an existing record so that it creates gaps in time */     /* Existing Record      |---------------------| */     /* modified record        |-----------| */     /* modified record      |-----------------| */     /* modified record         |------------------| */     begin            /* find the start and end dates of the original interval */      select        vt_start,vt_end into tempstartdate,tempenddate     from     t_sub_history     where dbo.encloseddaterange(vt_start,vt_end,realstartdate,realenddate) = 1 AND     id_sub = p_id_sub and tt_end = varMaxDateTime ;       /* the original date range is no longer true */      update t_sub_history     set tt_end = onesecond_systemdate      where id_sub = p_id_sub AND vt_start = tempstartdate AND      tempenddate = vt_end AND tt_end = varMaxDateTime;        /* ---------------------moved from below-------------------------------------------------- */      /* adjust the two records end dates that are adjacent on the start and */      /* end dates; these records are no longer true */      update t_sub_history       set tt_end = onesecond_systemdate where      id_sub = p_id_sub AND tt_end = varMaxDateTime AND      (vt_end = dbo.subtractSecond(tempstartdate) OR vt_start = dbo.addsecond(tempenddate));      /* ----------------------------------------------------------------------- */       insert into t_sub_history       (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)      select        id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,dbo.subtractsecond(realstartdate),p_systemdate,varMaxDateTime       from t_sub_history        where       id_sub = p_id_sub AND vt_end = dbo.subtractSecond(tempstartdate)      UNION ALL      select       id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,realenddate,vt_end,p_systemdate,varMaxDateTime       from t_sub_history       where       id_sub = p_id_sub  AND vt_start = dbo.addsecond(tempenddate);       /* adjust the two records end dates that are adjacent on the start and */      /* end dates; these records are no longer true */      /**************************************************************************************      update t_sub_history       set tt_end = onesecond_systemdate where      id_sub = p_id_sub AND tt_end = varMaxDateTime AND      (vt_end = dbo.subtractSecond(tempstartdate) OR vt_start = dbo.addsecond(tempenddate));      **************************************************************************************/     exception when NO_DATA_FOUND then       status := 0;     end;      /* detect directly adjacent records with a adjacent start and end date.  If the */     /* key comparison matches successfully, use the start and/or end date of the original record  */     /* instead. */        if 1=1 then          begin           realstartdate := p_startdate;           realenddate := p_enddate;         end;         else        begin         select vt_start into realstartdate         from          t_sub_history  where id_sub = p_id_sub AND          p_startdate between vt_start AND dbo.addsecond(vt_end) and tt_end = varMaxDateTime;        exception when NO_DATA_FOUND then       select p_startdate into realstartdate from dual;        end;         begin         select vt_end into realenddate         from         t_sub_history  where id_sub = p_id_sub AND         p_enddate between vt_start AND dbo.addsecond(vt_end) and tt_end = varMaxDateTime;        exception when NO_DATA_FOUND then        select p_enddate into realenddate from dual;        end;        end if;      /* step : delete a range that is entirely in the new date range */     /* existing record:      |----| */     /* new record:      |----------------| */     update  t_sub_history      set tt_end = onesecond_systemdate     where dbo.EnclosedDateRange(realstartdate,realenddate,vt_start,vt_end) =1 AND     id_sub = p_id_sub  AND tt_end = varMaxDateTime;       /* create two new records that are on around the new interval         */     /* existing record:          |-----------------------------------| */     /* new record                        |-------| */     /*  */     /* adjusted old records      |-------|       |--------------------| */      begin     select     id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end     into      temp_id_sub,temp_id_sub_ext,temp_id_acc,temp_id_group,temp_id_po,temp_dt_crt,temp_tx_quoting_batch,tempStartDate,tempEndDate     from     t_sub_history     where dbo.encloseddaterange(vt_start,vt_end,realstartdate,realenddate) = 1 AND     id_sub = p_id_sub and tt_end = varMaxDateTime ;     update     t_sub_history      set tt_end = onesecond_systemdate where     dbo.encloseddaterange(vt_start,vt_end,realstartdate,realenddate) = 1 AND     id_sub = p_id_sub AND tt_end = varMaxDateTime ;       insert into t_sub_history        (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)       select      temp_id_sub,temp_id_sub_ext,temp_id_acc,temp_id_group,temp_id_po,temp_dt_crt,temp_tx_quoting_batch,tempStartDate,dbo.subtractsecond(realstartdate),     p_systemdate,varMaxDateTime from dual      where tempstartdate is not NULL AND tempStartDate <> realstartdate;     /* the previous statement may fail */     if realenddate <> tempendDate AND realenddate <> varMaxDateTime then       insert into t_sub_history        (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)       select       temp_id_sub,temp_id_sub_ext,temp_id_acc,temp_id_group,temp_id_po,temp_dt_crt,temp_tx_quoting_batch,realenddate,tempEndDate,p_systemdate,varMaxDateTime       from dual;     end if;      exception when NO_DATA_FOUND then     status := 0;      end;     /* step 5: update existing payment records that are overlapping on the start */     /* range */     /* Existing Record |--------------| */     /* New Record: |---------| */     insert into t_sub_history     (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)     select      id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,realenddate,vt_end,p_systemdate,varMaxDateTime     from      t_sub_history  where     id_sub = p_id_sub AND      vt_start > realstartdate and vt_start < realenddate      and tt_end = varMaxDateTime;             if 1=1 then         begin        update t_sub_history        set tt_end = onesecond_systemdate          where            id_sub = p_id_sub     and tt_end = varMaxDateTime;       end;       else begin         update t_sub_history         set tt_end = onesecond_systemdate         where     id_sub = p_id_sub AND      vt_start > realstartdate and vt_start < realenddate      and tt_end = varMaxDateTime;       end;       end if;     /* step 4: update existing payment records that are overlapping on the end */     /* range */     /* Existing Record |--------------| */     /* New Record:             |-----------| */     insert into t_sub_history     (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)     select     id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,dbo.subtractsecond(realstartdate),p_systemdate,varMaxDateTime     from t_sub_history     where     id_sub = p_id_sub AND      vt_end > realstartdate AND vt_end < realenddate     AND tt_end = varMaxDateTime;                if 1=1 then         begin      update t_sub_history      set tt_end = onesecond_systemdate      where id_sub = p_id_sub         AND tt_end = varMaxDateTime;       end;       else begin         update t_sub_history         set tt_end = onesecond_systemdate         where         id_sub = p_id_sub  AND       vt_end > realstartdate AND vt_end < realenddate      AND tt_end = varMaxDateTime;       end;       end if;     /* used to be realenddate */     /* step 7: create the new payment redirection record.  If the end date  */     /* is not max date, make sure the enddate is subtracted by one second */     insert into t_sub_history      (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)     select      p_id_sub,p_id_sub_ext,p_id_acc,p_id_group,p_id_po,p_dt_crt,p_tx_quoting_batch,realstartdate,      case when realenddate = dbo.mtmaxdate() then realenddate else       realenddate end as realenddate,      p_systemdate,varMaxDateTime      from dual;          delete from t_sub where id_sub = p_id_sub;    insert into t_sub (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end)    select id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end    from t_sub_history  where id_sub = p_id_sub and tt_end = varMaxDateTime;     status := 1;     end;
+CREATE OR REPLACE procedure CreateSubscriptionRecord (    p_id_sub IN integer, p_id_sub_ext IN raw, p_id_acc IN integer, p_id_group IN integer, p_id_po IN integer, p_dt_crt IN date, p_tx_quoting_batch IN raw,    p_startdate IN date,    p_enddate IN date,    p_systemdate IN date,    status OUT integer    )    as    realstartdate date;    realenddate date;    tempStartDate date;    tempEndDate date;    varMaxDateTime date;    onesecond_systemdate date;    temp_id_sub integer; temp_id_sub_ext raw(16); temp_id_acc integer; temp_id_group integer; temp_id_po integer; temp_dt_crt date; temp_tx_quoting_batch raw(16);     begin     select p_startdate,p_enddate,dbo.mtmaxdate(),dbo.subtractsecond(p_systemdate)       into realstartdate,realenddate,varMaxDateTime,onesecond_systemdate from dual;      status := 0;      /* Someone changes the start date of an existing record so that it creates gaps in time */     /* Existing Record      |---------------------| */     /* modified record        |-----------| */     /* modified record      |-----------------| */     /* modified record         |------------------| */     begin            /* find the start and end dates of the original interval */      select        vt_start,vt_end into tempstartdate,tempenddate     from     t_sub_history     where dbo.encloseddaterange(vt_start,vt_end,realstartdate,realenddate) = 1 AND     id_sub = p_id_sub and tt_end = varMaxDateTime ;       /* the original date range is no longer true */      update t_sub_history     set tt_end = onesecond_systemdate      where id_sub = p_id_sub AND vt_start = tempstartdate AND      tempenddate = vt_end AND tt_end = varMaxDateTime;        /* ---------------------moved from below-------------------------------------------------- */      /* adjust the two records end dates that are adjacent on the start and */      /* end dates; these records are no longer true */      update t_sub_history       set tt_end = onesecond_systemdate where      id_sub = p_id_sub AND tt_end = varMaxDateTime AND      (vt_end = dbo.subtractSecond(tempstartdate) OR vt_start = dbo.addsecond(tempenddate));      /* ----------------------------------------------------------------------- */       insert into t_sub_history       (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)      select        id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,dbo.subtractsecond(realstartdate),p_systemdate,varMaxDateTime       from t_sub_history        where       id_sub = p_id_sub AND vt_end = dbo.subtractSecond(tempstartdate)      UNION ALL      select       id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,realenddate,vt_end,p_systemdate,varMaxDateTime       from t_sub_history       where       id_sub = p_id_sub  AND vt_start = dbo.addsecond(tempenddate);       /* adjust the two records end dates that are adjacent on the start and */      /* end dates; these records are no longer true */      /**************************************************************************************      update t_sub_history       set tt_end = onesecond_systemdate where      id_sub = p_id_sub AND tt_end = varMaxDateTime AND      (vt_end = dbo.subtractSecond(tempstartdate) OR vt_start = dbo.addsecond(tempenddate));      **************************************************************************************/     exception when NO_DATA_FOUND then       status := 0;     end;      /* detect directly adjacent records with a adjacent start and end date.  If the */     /* key comparison matches successfully, use the start and/or end date of the original record  */     /* instead. */        if 1=1 then          begin           realstartdate := p_startdate;           realenddate := p_enddate;         end;         else        begin         select vt_start into realstartdate         from          t_sub_history  where id_sub = p_id_sub AND          p_startdate between vt_start AND dbo.addsecond(vt_end) and tt_end = varMaxDateTime;        exception when NO_DATA_FOUND then       select p_startdate into realstartdate from dual;        end;         begin         select vt_end into realenddate         from         t_sub_history  where id_sub = p_id_sub AND         p_enddate between vt_start AND dbo.addsecond(vt_end) and tt_end = varMaxDateTime;        exception when NO_DATA_FOUND then        select p_enddate into realenddate from dual;        end;        end if;      /* step : delete a range that is entirely in the new date range */     /* existing record:      |----| */     /* new record:      |----------------| */     update  t_sub_history      set tt_end = onesecond_systemdate     where dbo.EnclosedDateRange(realstartdate,realenddate,vt_start,vt_end) =1 AND     id_sub = p_id_sub  AND tt_end = varMaxDateTime;       /* create two new records that are on around the new interval         */     /* existing record:          |-----------------------------------| */     /* new record                        |-------| */     /*  */     /* adjusted old records      |-------|       |--------------------| */      begin     select     id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end     into      temp_id_sub,temp_id_sub_ext,temp_id_acc,temp_id_group,temp_id_po,temp_dt_crt,temp_tx_quoting_batch,tempStartDate,tempEndDate     from     t_sub_history     where dbo.encloseddaterange(vt_start,vt_end,realstartdate,realenddate) = 1 AND     id_sub = p_id_sub and tt_end = varMaxDateTime ;     update     t_sub_history      set tt_end = onesecond_systemdate where     dbo.encloseddaterange(vt_start,vt_end,realstartdate,realenddate) = 1 AND     id_sub = p_id_sub AND tt_end = varMaxDateTime ;       insert into t_sub_history        (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)       select      temp_id_sub,temp_id_sub_ext,temp_id_acc,temp_id_group,temp_id_po,temp_dt_crt,temp_tx_quoting_batch,tempStartDate,dbo.subtractsecond(realstartdate),     p_systemdate,varMaxDateTime from dual      where tempstartdate is not NULL AND tempStartDate <> realstartdate;     /* the previous statement may fail */     if realenddate <> tempendDate AND realenddate <> varMaxDateTime then       insert into t_sub_history        (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)       select       temp_id_sub,temp_id_sub_ext,temp_id_acc,temp_id_group,temp_id_po,temp_dt_crt,temp_tx_quoting_batch,realenddate,tempEndDate,p_systemdate,varMaxDateTime       from dual;     end if;      exception when NO_DATA_FOUND then     status := 0;      end;     /* step 5: update existing payment records that are overlapping on the start */     /* range */     /* Existing Record |--------------| */     /* New Record: |---------| */     insert into t_sub_history     (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)     select      id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,realenddate,vt_end,p_systemdate,varMaxDateTime     from      t_sub_history  where     id_sub = p_id_sub AND      vt_start > realstartdate and vt_start < realenddate      and tt_end = varMaxDateTime;             if 1=1 then         begin        update t_sub_history        set tt_end = onesecond_systemdate          where            id_sub = p_id_sub     and tt_end = varMaxDateTime;       end;       else begin         update t_sub_history         set tt_end = onesecond_systemdate         where     id_sub = p_id_sub AND      vt_start > realstartdate and vt_start < realenddate      and tt_end = varMaxDateTime;       end;       end if;     /* step 4: update existing payment records that are overlapping on the end */     /* range */     /* Existing Record |--------------| */     /* New Record:             |-----------| */     insert into t_sub_history     (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)     select     id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,dbo.subtractsecond(realstartdate),p_systemdate,varMaxDateTime     from t_sub_history     where     id_sub = p_id_sub AND      vt_end > realstartdate AND vt_end < realenddate     AND tt_end = varMaxDateTime;                if 1=1 then         begin      update t_sub_history      set tt_end = onesecond_systemdate      where id_sub = p_id_sub         AND tt_end = varMaxDateTime;       end;       else begin         update t_sub_history         set tt_end = onesecond_systemdate         where         id_sub = p_id_sub  AND       vt_end > realstartdate AND vt_end < realenddate      AND tt_end = varMaxDateTime;       end;       end if;     /* used to be realenddate */     /* step 7: create the new payment redirection record.  If the end date  */     /* is not max date, make sure the enddate is subtracted by one second */     insert into t_sub_history      (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end,tt_start,tt_end)     select      p_id_sub,p_id_sub_ext,p_id_acc,p_id_group,p_id_po,p_dt_crt,p_tx_quoting_batch,realstartdate,      case when realenddate = dbo.mtmaxdate() then realenddate else       realenddate end as realenddate,      p_systemdate,varMaxDateTime      from dual;          delete from t_sub where id_sub = p_id_sub;    insert into t_sub (id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end)    select id_sub,id_sub_ext,id_acc,id_group,id_po,dt_crt,tx_quoting_batch,vt_start,vt_end    from t_sub_history  where id_sub = p_id_sub and tt_end = varMaxDateTime;     status := 1;     end;
 /
 
-ALTER PROCEDURE netmeter.adjustsubdates COMPILE;
+ALTER PROCEDURE adjustsubdates COMPILE;
 
-CREATE OR REPLACE PROCEDURE netmeter.addsubscriptionbase (
+CREATE OR REPLACE PROCEDURE addsubscriptionbase (
    p_id_acc         IN       INTEGER,
    p_id_group       IN       INTEGER,
    p_id_po          IN       INTEGER,
@@ -624,7 +624,7 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE PROCEDURE netmeter.addnewsub (
+CREATE OR REPLACE PROCEDURE addnewsub (
    p_id_acc                          INT,
    p_dt_start                        DATE,
    p_dt_end                          DATE,
@@ -684,7 +684,7 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE PROCEDURE netmeter.MeterCreditFromRecurWindow (currentDate DATE)
+CREATE OR REPLACE PROCEDURE MeterCreditFromRecurWindow (currentDate DATE)
 AS
     enabled       varchar2(10);
     v_newSubStart DATE;
@@ -1062,7 +1062,7 @@ BEGIN
 end MeterCreditFromRecurWindow;
 /
 
-CREATE OR REPLACE PROCEDURE netmeter.updatesub (
+CREATE OR REPLACE PROCEDURE updatesub (
    p_id_sub                          INT,
    p_dt_start                        DATE,
    p_dt_end                          DATE,
@@ -1279,7 +1279,7 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE PROCEDURE netmeter.MeterInitialFromRecurWindow (currentDate date) AS
+CREATE OR REPLACE PROCEDURE MeterInitialFromRecurWindow (currentDate date) AS
   enabled varchar2(10);
 BEGIN
   SELECT value INTO enabled FROM t_db_values WHERE parameter = N'InstantRc';
@@ -1363,7 +1363,7 @@ BEGIN
 END MeterInitialFromRecurWindow;
 /
 
-CREATE OR REPLACE PROCEDURE netmeter.bulksubscriptionchange (
+CREATE OR REPLACE PROCEDURE bulksubscriptionchange (
 				id_old_po          INT,
 				id_new_po          INT,
 				temp_date          DATE,
@@ -1480,7 +1480,7 @@ CREATE OR REPLACE PROCEDURE netmeter.bulksubscriptionchange (
 END;
 /
 
-CREATE OR REPLACE PROCEDURE netmeter.MeterPayerChangeFromRecWind (currentDate date)
+CREATE OR REPLACE PROCEDURE MeterPayerChangeFromRecWind (currentDate date)
 AS
   enabled VARCHAR2(10);
   BEGIN
@@ -1622,9 +1622,9 @@ AS
 END MeterPayerChangeFromRecWind;
 /
 
-ALTER PROCEDURE netmeter.checkgroupsubbusinessrules COMPILE;
+ALTER PROCEDURE checkgroupsubbusinessrules COMPILE;
 
-CREATE OR REPLACE PROCEDURE netmeter.creategroupsubscription (
+CREATE OR REPLACE PROCEDURE creategroupsubscription (
    p_sub_guid                   IN       RAW,
    p_group_guid                 IN       RAW,
    p_name                       IN       NVARCHAR2,
@@ -1720,7 +1720,7 @@ BEGIN /* business rule checks*/
 END;
 /
 
-CREATE OR REPLACE FORCE VIEW netmeter.vw_audit_log ("TIME",username,userid,eventid,eventname,entityname,entityid,entitytype,details,loggedinas,applicationname,id_audit,id_event,id_userid,id_entitytype,id_entity,tx_logged_in_as,tx_application_name,dt_crt) AS
+CREATE OR REPLACE FORCE VIEW vw_audit_log ("TIME",username,userid,eventid,eventname,entityname,entityid,entitytype,details,loggedinas,applicationname,id_audit,id_event,id_userid,id_entitytype,id_entity,tx_logged_in_as,tx_application_name,dt_crt) AS
 SELECT
        audit1.dt_crt AS Time,
        accmap1.nm_login
@@ -1789,11 +1789,11 @@ SELECT
          ON audit1.id_entitytype = 6
         AND audit1.id_entity = b2.id_batch;
 
-CREATE OR REPLACE TRIGGER netmeter.trig_recur_window_pay_redir
+CREATE OR REPLACE TRIGGER trig_recur_window_pay_redir
   /* We don't want to trigger on delete, because the insert comes right after a delete, and we can get the info that was deleted
   from payment_redir_history*/
   AFTER
-  INSERT ON netmeter.t_payment_redirection REFERENCING NEW AS NEW
+  INSERT ON t_payment_redirection REFERENCING NEW AS NEW
   FOR EACH row
   DECLARE currentDate DATE;
   BEGIN
@@ -1908,10 +1908,10 @@ insert into tmp_newrw
 END;
 /
 
-CREATE OR REPLACE TRIGGER netmeter.trg_rec_win_on_t_gsubmember AFTER
+CREATE OR REPLACE TRIGGER trg_rec_win_on_t_gsubmember AFTER
   INSERT OR
   DELETE OR
-  UPDATE ON netmeter.t_gsubmember REFERENCING NEW AS new OLD AS OLD
+  UPDATE ON t_gsubmember REFERENCING NEW AS new OLD AS OLD
   FOR EACH row
   DECLARE
 	currentDate DATE;
@@ -2053,8 +2053,8 @@ END IF;
 END;
 /
 
-CREATE OR REPLACE TRIGGER netmeter.TRG_UPDATE_REC_WIND_ON_REC_VAL
-  FOR INSERT OR UPDATE ON netmeter.T_RECUR_VALUE
+CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
+  FOR INSERT OR UPDATE ON T_RECUR_VALUE
     COMPOUND TRIGGER
 
   startDate DATE;
@@ -2343,8 +2343,8 @@ CREATE OR REPLACE TRIGGER netmeter.TRG_UPDATE_REC_WIND_ON_REC_VAL
 END;
 /
 
-CREATE OR REPLACE TRIGGER netmeter.trg_recur_win_acc_usage_int AFTER INSERT OR DELETE OR UPDATE
-  ON netmeter.T_ACC_USAGE_INTERVAL
+CREATE OR REPLACE TRIGGER trg_recur_win_acc_usage_int AFTER INSERT OR DELETE OR UPDATE
+  ON T_ACC_USAGE_INTERVAL
     REFERENCING OLD AS old NEW AS new
     FOR EACH ROW
 	when (new.tx_status ='O' or new.tx_status is null)
@@ -2506,8 +2506,8 @@ AND EXISTS
 END;
 /
 
-CREATE OR REPLACE TRIGGER netmeter.trig_recur_window_recur_map
-AFTER INSERT OR UPDATE OR DELETE ON netmeter.t_gsub_recur_map
+CREATE OR REPLACE TRIGGER trig_recur_window_recur_map
+AFTER INSERT OR UPDATE OR DELETE ON t_gsub_recur_map
 REFERENCING NEW AS new OLD AS OLD
 FOR EACH row
 DECLARE
@@ -2660,8 +2660,8 @@ num_notnull_quote_batchids INTEGER;
 END;
 /
 
-CREATE OR REPLACE TRIGGER netmeter.trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
-ON netmeter.t_sub
+CREATE OR REPLACE TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
+ON t_sub
 REFERENCING NEW AS new old as old
 FOR EACH row
 DECLARE currentDate DATE;
@@ -2788,53 +2788,53 @@ BEGIN
 END;
 /
 
-ALTER PROCEDURE netmeter.mtsp_generate_stateful_rcs COMPILE;
+ALTER PROCEDURE mtsp_generate_stateful_rcs COMPILE;
 
-ALTER PROCEDURE netmeter.removegsubs_quoting COMPILE;
+ALTER PROCEDURE removegsubs_quoting COMPILE;
 
-ALTER PROCEDURE netmeter.mtsp_generate_st_rcs_quoting COMPILE;
+ALTER PROCEDURE mtsp_generate_st_rcs_quoting COMPILE;
 
-ALTER PROCEDURE netmeter.mtsp_generate_charges_quoting COMPILE;
+ALTER PROCEDURE mtsp_generate_charges_quoting COMPILE;
 
-ALTER PROCEDURE netmeter.subscribebatchgroupsub COMPILE;
+ALTER PROCEDURE subscribebatchgroupsub COMPILE;
 
-ALTER PROCEDURE netmeter.rev_updatestatefrompfbtoclosed COMPILE;
+ALTER PROCEDURE rev_updatestatefrompfbtoclosed COMPILE;
 
-ALTER PROCEDURE netmeter.sequencedinsertgsubrecur COMPILE;
+ALTER PROCEDURE sequencedinsertgsubrecur COMPILE;
 
-ALTER PROCEDURE netmeter.sequencedupsertgsubrecur COMPILE;
+ALTER PROCEDURE sequencedupsertgsubrecur COMPILE;
 
-ALTER PROCEDURE netmeter.createpaymentrecord COMPILE;
+ALTER PROCEDURE createpaymentrecord COMPILE;
 
-ALTER PACKAGE  netmeter.mt_acc_template COMPILE BODY;
+ALTER PACKAGE  mt_acc_template COMPILE BODY;
 
-ALTER PROCEDURE netmeter.geticbmappingforsub COMPILE;
+ALTER PROCEDURE geticbmappingforsub COMPILE;
 
-ALTER PACKAGE  netmeter.mt_rate_pkg COMPILE BODY;
+ALTER PACKAGE  mt_rate_pkg COMPILE BODY;
 
-ALTER PROCEDURE netmeter.updategroupsubscription COMPILE;
+ALTER PROCEDURE updategroupsubscription COMPILE;
 
-ALTER PROCEDURE netmeter.updatestatefrompfbtoclosed COMPILE;
+ALTER PROCEDURE updatestatefrompfbtoclosed COMPILE;
 
-ALTER PROCEDURE netmeter.removegroupsubscription COMPILE;
+ALTER PROCEDURE removegroupsubscription COMPILE;
 
-ALTER PROCEDURE netmeter.removesubscription COMPILE;
+ALTER PROCEDURE removesubscription COMPILE;
 
-ALTER PROCEDURE netmeter.addaccounttogroupsub COMPILE;
+ALTER PROCEDURE addaccounttogroupsub COMPILE;
 
-ALTER PROCEDURE netmeter.deleteaccounts COMPILE;
+ALTER PROCEDURE deleteaccounts COMPILE;
 
-ALTER PROCEDURE netmeter.seqinsertgsubrecurinitialize COMPILE;
+ALTER PROCEDURE seqinsertgsubrecurinitialize COMPILE;
 
-ALTER PROCEDURE netmeter.mtsp_generate_st_nrcs_quoting COMPILE;
+ALTER PROCEDURE mtsp_generate_st_nrcs_quoting COMPILE;
 
-ALTER PROCEDURE netmeter.getrateschedules COMPILE;
+ALTER PROCEDURE getrateschedules COMPILE;
 
-ALTER PROCEDURE netmeter.piresolutionbyname COMPILE;
+ALTER PROCEDURE piresolutionbyname COMPILE;
 
-ALTER PROCEDURE netmeter.canbulksubscribe COMPILE;
+ALTER PROCEDURE canbulksubscribe COMPILE;
 
-ALTER PROCEDURE netmeter.piresolutionbyid COMPILE;
+ALTER PROCEDURE piresolutionbyid COMPILE;
 
-ALTER PROCEDURE netmeter.adjustgsubmemberdates COMPILE;
+ALTER PROCEDURE adjustgsubmemberdates COMPILE;
 

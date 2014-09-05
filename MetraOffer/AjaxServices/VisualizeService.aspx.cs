@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using System.Threading;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.SecurityFramework;
@@ -24,107 +25,125 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
         Logger.LogInfo("operation : " + operation);
 
-        using (new HighResolutionTimer("VisualizeService", 5000))
+    using (new HighResolutionTimer("VisualizeService", 5000))
+    {
+      try
+      {
+        MTList<SQLRecord> items = new MTList<SQLRecord>();
+        Dictionary<string, object> paramDict = new Dictionary<string, object>();
+
+        //System.Diagnostics.Debugger.Break();
+        string connectionInfo = "NetMeter";
+        string catalog = "NetMeter";
+
+
+        if (operation.Equals("ftoverxdays"))
         {
-            MTList<SQLRecord> items = new MTList<SQLRecord>();
-            Dictionary<string, object> paramDict = new Dictionary<string, object>();
+          string threshold = Request["threshold"];
 
-            //System.Diagnostics.Debugger.Break();
-            string connectionInfo = "NetMeter";
-            string catalog = "NetMeter";
-
-
-            if (operation.Equals("ftoverxdays"))
-            {
-                string threshold = Request["threshold"];
-               
-                if (string.IsNullOrEmpty(threshold))
-                {
-                    Logger.LogWarning("No query specified");
-                    Response.Write("{\"Items\":[]}");
-                    Response.End();
-                    return;
-                }
-
-                paramDict.Add("%%AGE_THRESHOLD%%", int.Parse(threshold));
-                VisualizeService.GetData(connectionInfo,catalog,"__GET_FAILEDTRANSACTIONS_OVERXDAYS__",paramDict,ref items);
-            }
-            else if (operation.Equals("AnalyticsTopMRR"))
-            {
-				        paramDict.Add("%%METRATIME%%", MetraTech.MetraTime.Now);
-                VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRR__", paramDict, ref items);
-            }
-            else if (operation.Equals("AnalyticsTopMRRGain"))
-            {
-				        paramDict.Add("%%METRATIME%%", MetraTech.MetraTime.Now);
-                VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRGain__", paramDict, ref items);
-            }
-            else if (operation.Equals("AnalyticsTopMRRLoss"))
-            {
-				        paramDict.Add("%%METRATIME%%", MetraTech.MetraTime.Now);
-                VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRLoss__", paramDict, ref items);
-            }
-
-            else if (operation.Equals("AnalyticsTopSubscriptions"))
-            {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptions__", null, ref items);
-            }
-            else if (operation.Equals("AnalyticsTopSubscriptionGain"))
-            {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptionsGain__", null, ref items);
-            }
-            else if (operation.Equals("AnalyticsTopSubscriptionLoss"))
-            {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptionsLoss__", null, ref items);
-            }
-
-            else if (operation.Equals("AnalyticsTopOfferingsByNewCustomers"))
-            {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptionsByNewCustomers__", null, ref items);
-            }
-
-            else if (operation.Equals("AnalyticsSingleProductOverTime"))
-            {
-                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_SingleProductOverTime__", null, ref items);
-            }
-
-            else if (operation.Equals("billclosesummary") || operation.Equals("billclosedetails"))
-            {
-
-                    paramDict = new Dictionary<string, object>();
-
-                    string id_usage_interval = Request["intervalid"];
-               
-                    if (string.IsNullOrEmpty(id_usage_interval))
-                    {
-                        Logger.LogWarning("No intervalid specified");
-                        Response.Write("{\"Items\":[]}");
-                        Response.End();
-                        return;
-                    }
-
-                    paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
-
-                    if(operation.Equals("billclosedetails"))
-                        VisualizeService.GetData(connectionInfo,catalog,"__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
-                    else 
-                       VisualizeService.GetData(connectionInfo,catalog,"__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
-                   
-            }
-
-
-            if (items.Items.Count == 0)
-            {
-                Response.Write("{\"Items\":[]}");
-                Response.End();
-                return;
-            }
-
-            string json = SerializeItems(operation, items);
-            Logger.LogInfo("Returning " + json);
-            Response.Write(json);
+          if (string.IsNullOrEmpty(threshold))
+          {
+            Logger.LogWarning("No query specified");
+            Response.Write("{\"Items\":[]}");
             Response.End();
+            return;
+          }
+
+          paramDict.Add("%%AGE_THRESHOLD%%", int.Parse(threshold));
+          VisualizeService.GetData(connectionInfo, catalog, "__GET_FAILEDTRANSACTIONS_OVERXDAYS__", paramDict, ref items);
         }
+        else if (operation.Equals("AnalyticsTopMRR"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRR__", paramDict, ref items);
+        }
+        else if (operation.Equals("AnalyticsTopMRRGain"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRGain__", paramDict, ref items);
+        }
+        else if (operation.Equals("AnalyticsTopMRRLoss"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRLoss__", paramDict, ref items);
+        }
+
+        else if (operation.Equals("AnalyticsTopSubscriptions"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptions__", null, ref items);
+        }
+        else if (operation.Equals("AnalyticsTopSubscriptionGain"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsGain__", null,
+                                   ref items);
+        }
+        else if (operation.Equals("AnalyticsTopSubscriptionLoss"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsLoss__", null,
+                                   ref items);
+        }
+
+        else if (operation.Equals("AnalyticsTopOfferingsByNewCustomers"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsByNewCustomers__",
+                                   null, ref items);
+        }
+
+        else if (operation.Equals("AnalyticsSingleProductOverTime"))
+        {
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_SingleProductOverTime__", null,
+                                   ref items);
+        }
+
+        else if (operation.Equals("billclosesummary") || operation.Equals("billclosedetails"))
+        {
+
+          paramDict = new Dictionary<string, object>();
+
+          string id_usage_interval = Request["intervalid"];
+
+          if (string.IsNullOrEmpty(id_usage_interval))
+          {
+            Logger.LogWarning("No intervalid specified");
+            Response.Write("{\"Items\":[]}");
+            Response.End();
+            return;
+          }
+
+          paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
+
+          if (operation.Equals("billclosedetails"))
+            VisualizeService.GetData(connectionInfo, catalog, "__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
+          else
+            VisualizeService.GetData(connectionInfo, catalog, "__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
+
+        }
+
+
+        if (items.Items.Count == 0)
+        {
+          Response.Write("{\"Items\":[]}");
+          Response.End();
+          return;
+        }
+
+        string json = SerializeItems(operation, items);
+        Logger.LogInfo("Returning " + json);
+        Response.Write(json);
+        Response.End();
+      }
+      catch (ThreadAbortException ex)
+      {
+        //Looks like Response.End is deprecated/changed
+        //Might have a lot of unhandled exceptions in product from when we call response.end
+        //http://support.microsoft.com/kb/312629
+        //Logger.LogError("Thread Abort Exception: {0} {1}", ex.Message, ex.ToString());
+        Logger.LogInfo("Handled Exception from Response.Write() {0} ", ex.Message);
+      }
+      catch (Exception ex)
+      {
+        Logger.LogError("Exception: {0} {1}", ex.Message, ex.ToString());
+        Response.Write("{\"Items\":[]}");
+        Response.End();
+      }
+    }
 
     }
 

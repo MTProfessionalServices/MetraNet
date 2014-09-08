@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Threading;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Debug.Diagnostics;
+using MetraTech.Interop.RCD;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
+using MetraTech.Xml;
 
 
 public partial class AjaxServices_VisualizeService : MTListServicePage
@@ -54,29 +57,35 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
         }
         else if (operation.Equals("AnalyticsTopMRR"))
         {
+          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID); 
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRR__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopMRRGain"))
         {
+          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRGain__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopMRRLoss"))
         {
+          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRLoss__", paramDict, ref items);
         }
 
         else if (operation.Equals("AnalyticsTopSubscriptions"))
         {
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptions__", null, ref items);
+          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptions__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopSubscriptionGain"))
         {
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsGain__", null,
+          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsGain__", paramDict,
                                    ref items);
         }
         else if (operation.Equals("AnalyticsTopSubscriptionLoss"))
         {
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsLoss__", null,
+          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsLoss__", paramDict,
                                    ref items);
         }
 
@@ -165,10 +174,11 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
     private string ConstructJson(string operation, MTList<SQLRecord> items)
     {
-       var json = new StringBuilder();
+      var json = new StringBuilder();
       string item = string.Empty;
       //format dates/amounts used as data in client side for formatting or plotting graphs using invaraint culture otherwise culture specific decimal/group seperators mess up with json returned
       var invariantCulture = CultureInfo.InvariantCulture;
+      string reportingCurrency = GetReportingCurrency();
 
       json.Append("{\"Items\":[");
 
@@ -192,19 +202,17 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
             json.Append(item);
             item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
             json.Append(item);
+            item = string.Format("\"productname\":{0},", FormatFieldValue(record.Fields[1]));
+            json.Append(item);
             item = string.Format("\"month\":{0},", FormatFieldValue(record.Fields[3]));
             json.Append(item);
             item = string.Format("\"mrr\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
             json.Append(item);
-            item = string.Format("\"mrrAsString\":{0},", FormatAmount(record.Fields[4]));
+            item = string.Format("\"mrrAsString\":{0},", FormatAmount(record.Fields[4], reportingCurrency));
             json.Append(item);
             item = string.Format("\"mrrprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
             json.Append(item);
-            item = string.Format("\"mrrpreviousAsString\":{0},", FormatAmount(record.Fields[5]));
-            json.Append(item);
-            item = string.Format("\"mrrchange\":{0},", FormatFieldValue(record.Fields[6], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"mrrchangeAsString\":{0}", FormatAmount(record.Fields[6]));
+            item = string.Format("\"mrrchange\":{0}", FormatFieldValue(record.Fields[6], invariantCulture));
             json.Append(item);
           }
           else if (operation.Equals("AnalyticsSingleProductOverTime"))
@@ -213,19 +221,17 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
             json.Append(item);
             item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
             json.Append(item);
+            item = string.Format("\"productname\":{0},", FormatFieldValue(record.Fields[1]));
+            json.Append(item);
             item = string.Format("\"month\":{0},", FormatFieldValue(record.Fields[3]));
             json.Append(item);
             item = string.Format("\"revenue\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
             json.Append(item);
-            item = string.Format("\"revenueAsString\":{0},", FormatAmount(record.Fields[4]));
+            item = string.Format("\"revenueAsString\":{0},", FormatAmount(record.Fields[4], reportingCurrency));
             json.Append(item);
             item = string.Format("\"revenueprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
             json.Append(item);
-            item = string.Format("\"revenuepreviousAsString\":{0},", FormatAmount(record.Fields[5]));
-            json.Append(item);
-            item = string.Format("\"revenuechange\":{0},", FormatFieldValue(record.Fields[6], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"revenuechangeAsString\":{0}", FormatAmount(record.Fields[6]));
+            item = string.Format("\"revenuechange\":{0}", FormatFieldValue(record.Fields[6], invariantCulture));
             json.Append(item);
           }
         }
@@ -262,8 +268,28 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
     }
 
-    private string FormatAmount(SQLField field)
+    private string FormatAmount(SQLField field, string currency)
     {
-      return (field.FieldValue == null) ? "null" : string.Format("\"{0}\"", Convert.ToDecimal(field.FieldValue).ToString("N2").EncodeForJavaScript());
+      return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency));
     }
+
+    private string GetReportingCurrency()
+    {
+      string reportingCurrency;
+      MTXmlDocument doc = new MTXmlDocument();
+      IMTRcd rcd = new MTRcd();
+      try
+      {
+        string configFile = Path.Combine(rcd.ExtensionDir, @"SystemConfig\config\UsageServer\GenerateAnalyticsDatamart.xml");
+        doc.Load(configFile);
+        reportingCurrency = doc.GetNodeValueAsString("/xmlconfig/PrimaryCurrency", "USD");
+      }
+      catch (Exception e)
+      {
+        Logger.LogInfo("Couldnot load GenerateAnalyticsDatamart config file. Using USD as the default reporting currency. Details: {0} " + e.InnerException);
+        reportingCurrency = "USD";
+      }
+      return reportingCurrency;
+    }
+
 }

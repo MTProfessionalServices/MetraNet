@@ -338,34 +338,34 @@
     }
      
     function createMRRTitle(dataItem) {
-      var titleText =  String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + String.format("{0}: {1}", "<%=MrrText%>", dataItem.mrrAsString);
+      var titleText =  dataItem.productname + String.format(" {0}: {1}", "<%=MrrText%>", dataItem.mrrAsString.replace("&pound", "£"));
       return titleText;
     }    
 
     function createMRRChangeTitle(dataItem) {
       var perMRRChange = (dataItem.mrrprevious != 0) ? ((dataItem.mrrchange/dataItem.mrrprevious)*100) : 0;
       var localizedperMRRChange = parseFloat(Math.abs(perMRRChange.toFixed(2))).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-      var titleText = String.format("{0}: {1}", "<%=ProductCodeText%>", dataItem.productcode) + String.format(" {0}: {1}", "<%=ChangeText%>", (dataItem.mrrprevious == 0) ? "--" : localizedperMRRChange + "%");
+      var titleText = dataItem.productname + String.format(" {0}: {1}", "<%=ChangeText%>", (dataItem.mrrprevious == 0) ? "--" : localizedperMRRChange + "%");
       return titleText;
     }    
 
     function createSubscriptionTitle(dataItem) {
-      var titleText =  String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + String.format(" {0}: {1}", "<%=SubscriptionsText%>", dataItem.subscriptions);
+      var titleText =  dataItem.productname + String.format(" {0}: {1}", "<%=SubscriptionsText%>", dataItem.subscriptions);
       return titleText;
     }    
 
     function createSubscriptionChangeTitle(dataItem) {
       var perSubscriptionsChange = (dataItem.subscriptionsprevious != 0) ? ((dataItem.subscriptionschange/dataItem.subscriptionsprevious)*100) : 0;
       var localizedperSubscriptionsChange = parseFloat(Math.abs(perSubscriptionsChange.toFixed(2))).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-      var titleText = String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + ((dataItem.subscriptionsprevious == 0) 
-                                                                                                    ? String.format(" {0}: {1}", "<%=ChangeText%>", "--") 
-                                                                                                    : String.format(((dataItem.subscriptionschange >= 0) ? "<%=SubscriptionsGainText%>" : "<%=SubscriptionsLossText%>"), localizedperSubscriptionsChange + "%", Math.abs(dataItem.subscriptionschange)));
+      var titleText = dataItem.productname + ((dataItem.subscriptionsprevious == 0) 
+                                             ? String.format(" {0}: {1}", "<%=ChangeText%>", "--") 
+                                             : String.format(((dataItem.subscriptionschange >= 0) ? "<%=SubscriptionsGainText%>" : "<%=SubscriptionsLossText%>"), localizedperSubscriptionsChange + "%", Math.abs(dataItem.subscriptionschange)));
       return titleText;
     }    
     
     <%--
     function createTop10RevenueTitle(dataItem) {
-      var titleText =  String.format("{0}: {1} ", "<%=ProductCodeText%>", dataItem.productcode) + String.format("{0}: {1}", "<%=RevenueText%>", dataItem.revenueAsString);
+      var titleText = dataItem.productname + String.format(" {0}: {1}", "<%=RevenueText%>", dataItem.revenueAsString);
       return titleText;
     }
     --%>        

@@ -22,7 +22,6 @@ public partial class ProductDashboard : MTPage
   protected string TopSubsLossGraphTitle;
   protected string NoDataText;
   protected string MrrText;
-  protected string ProductCodeText;
   protected string ChangeText;
   protected string SubscriptionsText;
   protected string SubscriptionsGainText;
@@ -104,7 +103,6 @@ public partial class ProductDashboard : MTPage
     TopSubsLossGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS"));
     NoDataText = Convert.ToString(GetLocalResourceObject("TEXT_NO_DATA_AVAILABLE"));
     MrrText = Convert.ToString(GetLocalResourceObject("TEXT_MRR"));
-    ProductCodeText = Convert.ToString(GetLocalResourceObject("TEXT_PRODUCT_CODE_TOOLTIP"));
     ChangeText = Convert.ToString(GetLocalResourceObject("TEXT_CHANGE_TOOLTIP"));
     SubscriptionsText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
     SubscriptionsGainText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN_TOOLTIP"));

@@ -59,13 +59,14 @@ public partial class ProductDashboard : MTPage
 
   private void loadGrids()
   {
-    Dictionary<string, object> paramDict = new Dictionary<string, object>();
     string querydir = "..\\Extensions\\SystemConfig\\config\\SqlCore\\Queries\\UI\\Dashboard";
 
-
     ConfigureAndLoadGrid(grdRecentOfferingChanges, "__GET_RECENT_OFFERING_CHANGES__", querydir, null);
-    /*ConfigureAndLoadGrid(grdRecentRateChanges, "__GET_RECENT_RATE_CHANGES__", querydir, null);
-    ConfigureAndLoadGrid(grdMyRecentChanges, "__GET_MY_RECENT_CHANGES__", querydir, null);*/
+    ConfigureAndLoadGrid(grdRecentRateChanges, "__GET_RECENT_RATE_CHANGES__", querydir, null);
+
+    Dictionary<string, object> paramDict = new Dictionary<string, object>();
+    paramDict.Add("%%USERNAME%%", UI.User.UserName);
+    ConfigureAndLoadGrid(grdMyRecentChanges, "__GET_MY_RECENT_CHANGES__", querydir, paramDict);
   }
 
 

@@ -9,36 +9,47 @@
                 <MenuSection>
                     <ID>ReportsSection</ID>
                     <Caption>
-					  <LocalizationTag>TEXT_ANALYTICS</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>                        
-					</Caption>
+                        <LocalizationTag>TEXT_ANALYTICS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
                     <Description></Description>
-                    <MenuItems>
-                        <MenuItem>
-                            <ID>ReportsTree</ID>
-                            <Caption>
-                                <LocalizationTag>TEXT_REPORTS</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>/MetraNet/Reporting/ReportsTree.aspx</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/icons/chart_bar.png</Icon>
-                            <Description>MetraNet Reports</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
-                        <!--MenuItem>
-                            <ID>ReportsMetraControlDashboard</ID>
-                            <Caption>
-                              <LocalizationTag>TEXT_OPERATIONS_DASHBOARD</LocalizationTag>
-                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
-                            <Description>MetraOffer Dashboard</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem-->
-						            <!--MenuItem>
+                  <MenuItems>
+                    <MenuItem>
+                      <ID>ReportsTree</ID>
+                      <Caption>
+                        <LocalizationTag>TEXT_REPORTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                      </Caption>
+                      <Link>/MetraNet/Reporting/ReportsTree.aspx</Link>
+                      <Target>MainContentIframe</Target>
+                      <Icon>/Res/Images/icons/chart_bar.png</Icon>
+                      <Description>MetraNet Reports</Description>
+                      <RequiredCapabilities></RequiredCapabilities>
+                    </MenuItem>
+                    <MenuItem>
+                      <ID>RevRecReport</ID>
+                      <Caption>
+                        <Value><![CDATA[Revenue Recognition Report]]></Value>
+                      </Caption>
+                      <Link>/MetraNet/Reporting/RevRecReport.aspx</Link>
+                      <Target>MainContentIframe</Target>
+                      <Icon>/Res/Images/Icons/money_dollar.png</Icon>
+                      <Description>Revenue Recognition Report</Description>
+                      <RequiredCapabilities></RequiredCapabilities>
+                    </MenuItem>
+                    <!--MenuItem>
+                    <ID>ReportsMetraControlDashboard</ID>
+                    <Caption>
+                      <LocalizationTag>TEXT_OPERATIONS_DASHBOARD</LocalizationTag>
+                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
+                    <Target>MainContentIframe</Target>
+                    <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                    <Description>MetraOffer Dashboard</Description>
+                    <RequiredCapabilities></RequiredCapabilities>
+                    </MenuItem-->
+                    <!--MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
@@ -50,7 +61,7 @@
                             <Description>Product Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem-->
-						<!--
+                    <!--
                         <MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
@@ -64,7 +75,7 @@
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
 						-->
-                    </MenuItems>
+                  </MenuItems>
                 </MenuSection>
             </MenuSections>
         </Menu>

@@ -1,6 +1,7 @@
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Web.Mvc;
+using ASP.Models;
 using MetraNet.DbContext;
 using System.Linq;
 using System.Collections.Generic;
@@ -109,24 +110,60 @@ namespace ASP.Controllers
                               Date = new DateTime(subByMonth.Month.Value.Year, subByMonth.Month.Value.Month, 1),
                               CurrencyCode = sub.FeeCurrency
                             }
-                          into grp
-                          select new
-                            {
-                              grp.Key.Date,
-                              grp.Key.CurrencyCode,
-                              Amount =
-                            grp.Sum(
-                              x =>
-                              x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
-                            }).ToList();
+                            into grp
+                            select new
+                              {
+                                grp.Key.Date,
+                                grp.Key.CurrencyCode,
+                                Amount =
+                              grp.Sum(
+                                x =>
+                                x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
+                              }).ToList();
 
         return Json(MRRByMonth, JsonRequestBehavior.AllowGet);
       }
     }
 
+    public ActionResult RevRec()
+    {
+      //using (var context = GetNetMeterContext())
+      //{
+      //  var revRec = (from rec in context.T_pv_FlatRecurringCharge
+      //                select new RevRecModel
+      //                  {
+      //                    Currency = "USD",
+      //                    Amount = (double)(rec.C_ProratedDays * rec.C_ProratedDailyRate)
+      //                  }).ToList();
+      //  return View(revRec);
+      //}
+      return Json(new
+      {
+        sEcho = "Test",
+        iTotalRecords = 3,
+        iTotalDisplayRecords = 3,
+        //aaData = new List<RevRecModel> {
+        //            new RevRecModel {Currency = "USD", RevenuePart = "Earned", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
+        //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,
+        //                             Amount11 = 124.34, Amount12 = 124.34},
+        //            new RevRecModel {Currency = "USD", RevenuePart = "Incremntal", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
+        //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,
+        //                             Amount11 = 124.34, Amount12 = 124.34},
+        //            new RevRecModel {Currency = "USD", RevenuePart = "Deferred", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
+        //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,
+        //                             Amount11 = 124.34, Amount12 = 124.34},
+        aaData = new List<string[]>{
+
+          new string[] {"USD", "Earned", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34"},
+          new string[] {"USD", "Incremntal", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34"},
+          new string[] {"USD", "Deferred", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34"}
+        }
+      }, JsonRequestBehavior.AllowGet);
+    }
+
     private IEnumerable<SelectListItem> GetProductCodes()
     {
-      var list = new List<SelectListItem> {new SelectListItem {Selected = true, Text = "All", Value = "all"}};
+      var list = new List<SelectListItem> { new SelectListItem { Selected = true, Text = "All", Value = "all" } };
 
       using (var dbContext = GetDatamartContext())
       {

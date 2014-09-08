@@ -64,7 +64,7 @@ INTO #tmp_rc
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
               AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
               AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+         INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE 
@@ -73,7 +73,7 @@ INTO #tmp_rc
          /* Also no old unit values */
         AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
                    /* Don't meter in the current interval for initial */
-        AND ui.dt_start < @currentDate
+        AND ui.dt_start < rw.c_SubscriptionStart
         AND rw.c__IsAllowGenChargeByTrigger = 1;
     
   /* If no charges to meter, return immediately */

@@ -152,11 +152,11 @@ BEGIN
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
               /* rw.c_cycleeffectivestart EQUAL TO @subscriptionStart , rw.c_cycleeffectiveend EQUAL TO @subscriptionEnd */
               AND @subscriptionStart       < pci.dt_end AND @subscriptionEnd       > pci.dt_start /* rc overlaps with this subscription */
-         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+         INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
-         ui.dt_start < @currentDate
+         ui.dt_start < rw.c_SubscriptionStart
          AND @isEndDateUpdated = 1
          AND NOT (rw.c_advance = 'N' AND @newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
@@ -226,11 +226,11 @@ BEGIN
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
               /* rw.c_cycleeffectivestart EQUAL TO @subscriptionStart , rw.c_cycleeffectiveend EQUAL TO @subscriptionEnd */
               AND @subscriptionStart2      < pci.dt_end AND @subscriptionEnd2      > pci.dt_start /* rc overlaps with this subscription */
-         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+         INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
-         ui.dt_start < @currentDate
+         ui.dt_start < rw.c_SubscriptionStart
          AND @isStartDateUpdated = 1
          AND NOT (rw.c_advance = 'N' AND @newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
@@ -296,11 +296,11 @@ BEGIN
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
               /* rw.c_cycleeffectivestart EQUAL TO @subscriptionStart , rw.c_cycleeffectiveend EQUAL TO @subscriptionEnd */
               AND @subscriptionStart3      < pci.dt_end AND @subscriptionEnd3      > pci.dt_start /* rc overlaps with this subscription */
-         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+         INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
-         ui.dt_start < @currentDate
+         ui.dt_start < rw.c_SubscriptionStart
          /* Handle the case if this is an Arrears AND end date update crosses the EOP border */
          AND rw.c_advance = 'N' AND @subscriptionStart <= dbo.AddSecond(ui.dt_end) AND ui.dt_end < @subscriptionEnd;
 

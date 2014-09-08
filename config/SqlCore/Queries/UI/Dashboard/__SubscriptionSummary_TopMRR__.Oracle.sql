@@ -2,7 +2,7 @@ SELECT *
 FROM (
   SELECT 
     ROW_NUMBER () OVER (ORDER BY SUM(NVL(ss.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum,
-	po.ProductOfferingName AS productname,
+		NVL(props.nm_display_name, '') AS productname,
     po.ProductOfferingId AS productcode,
 	ss.Month, 
 	SUM(NVL(ss.MRRPrimaryCurrency, 0.0)) AS MRR, 
@@ -18,6 +18,7 @@ FROM (
   INNER JOIN ProductOffering po 
     ON po.ProductOfferingId = ss.ProductOfferingId 
     AND ss.InstanceId = po.InstanceId
+  LEFT JOIN t_vw_base_props props on props.id_prop = po.ProductOfferingId AND props.id_lang_code = %%ID_LANG%%
   LEFT JOIN SubscriptionSummary prev 
     ON ss.InstanceId = prev.InstanceId 
     AND ss.ProductOfferingId = prev.ProductOfferingId 
@@ -25,5 +26,5 @@ FROM (
     AND prev.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -2),'yyyy'))
   WHERE ss.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -1),'mm')) 
     AND ss.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -1),'yyyy'))
-  GROUP BY ss.InstanceId, po.ProductOfferingName, po.ProductOfferingId, ss.Month ) a
+  GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, NVL(props.nm_display_name, '')) a
 WHERE a.ordernum <=10 

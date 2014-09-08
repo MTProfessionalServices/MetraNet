@@ -3,7 +3,7 @@ FROM (
   SELECT 
     ROW_NUMBER () OVER (ORDER BY ss.Month ASC) AS OrderNum,
     po.ProductOfferingId as ProductCode,
-    po.ProductOfferingName AS ProductName, 
+    NVL(props.nm_display_name, '') AS productname,
     ss.Month, 
     SUM(NVL(ss.TotalParticipants, 0.0)) AS Subscriptions, 
     SUM(NVL(prev.TotalParticipants, 0.0)) AS SubscriptionsPrevious, 
@@ -15,6 +15,7 @@ FROM (
   INNER JOIN ProductOffering po 
     ON po.ProductOfferingId = ss.ProductOfferingId 
     AND ss.InstanceId = po.InstanceId
+	LEFT JOIN t_vw_base_props props on props.id_prop = po.ProductOfferingId AND props.id_lang_code = %%ID_LANG%%
   LEFT JOIN SubscriptionSummary prev 
     ON ss.InstanceId = prev.InstanceId 
     AND ss.ProductOfferingId = prev.ProductOfferingId 
@@ -22,6 +23,6 @@ FROM (
     AND prev.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS (SYSDATE, -2),'yyyy'))
   WHERE ss.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS (SYSDATE, -1),'mm')) 
     AND ss.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS (SYSDATE, -1),'yyyy'))
-  GROUP BY ss.InstanceId, po.ProductOfferingId, ss.Month, po.ProductOfferingName  ) a
+  GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, NVL(props.nm_display_name, '') ) a
 WHERE a.OrderNum <=10 
 

@@ -1,5 +1,5 @@
- SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY sum(isnull(ss.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum, 
-		po.ProductOfferingName as 'productname', po.ProductOfferingId as 'productcode',
+SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY sum(isnull(ss.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum, 
+		ISNULL(props.nm_display_name, '') AS 'productname', po.ProductOfferingId AS 'productcode',
 		ss.Month, 
 		SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0)) AS MRR, 
 		SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) AS MRRPrevious, 
@@ -14,10 +14,11 @@ FROM SubscriptionSummary ss
 INNER JOIN ProductOffering po 
 ON po.ProductOfferingId = ss.ProductOfferingId 
 		AND ss.InstanceId = po.InstanceId
+LEFT JOIN t_vw_base_props props on props.id_prop = po.ProductOfferingId AND props.id_lang_code = %%ID_LANG%%
 LEFT JOIN SubscriptionSummary prev 
 ON ss.InstanceId = prev.InstanceId 
 	AND ss.ProductOfferingId = prev.ProductOfferingId 
 	AND prev.Month = DATEPART(m, DATEADD(m, -2, GETDATE()))
   AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, GETDATE()))
 WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE())) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
-GROUP BY ss.InstanceId, po.ProductOfferingName, po.ProductOfferingId, ss.Month
+GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, ISNULL(props.nm_display_name, '')

@@ -290,6 +290,30 @@
 </policies>
 </principal>
 
+
+<principal type="role" name = "Partition Operations Manager">
+<description>Partition Operations Manager
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<cs>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MOM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Manage Usage Intervals And Scheduled Adapters" guid="">
+  </c>  
+</cs>
+</policy>
+</policies>
+</principal>
+
+
 <principal type="account" name = "demo" namespace = "mt">
 <policies>
 <policy type="a">

@@ -135,7 +135,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
       
   If Form.Grids("DropGrid").Rowset.recordCount = 1 Then
 
-      Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, CLng(Form.Grids("DropGrid").Properties("id").value), mam_GetHierarchyTime())
+      Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, CLng(Form.Grids("DropGrid").Properties("id").value), mam_ConvertToSysDate(mam_GetHierarchyTime()))
       If err.number <> 0 then
         Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
       End If

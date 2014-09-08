@@ -93,7 +93,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   ElseIf(Session("PARENT") = "") Then
     Service.Properties("Parent").value = "" 
   Else
-    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Session("PARENT")), mam_GetHierarchyTime())
+    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Session("PARENT")), mam_ConvertToSysDate(mam_GetHierarchyTime()))
     Form("CorporateAccountID") = objYAAC.CorporateAccountID          
     Service.Properties("Parent").value = objYAAC.AccountName & " (" & CLng(Session("PARENT")) & ")"
   End If
@@ -114,7 +114,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Set pc = GetProductCatalogObject()  
   If pc.IsBusinessRuleEnabled(PCCONFIGLib.MTPC_BUSINESS_RULE_Hierarchy_RestrictedOperations) and mam_GetDictionary("EDIT_PARENT") = FALSE Then
     For each id in GetAccountIDCollection()
-      Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(id), mam_GetHierarchyTime())
+      Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(id), mam_ConvertToSysDate(mam_GetHierarchyTime()))
       If objYAAC.CorporateAccountID <> Form("CorporateAccountID") Then
         mdm_GetDictionary.Add "ShowCorporateWarning", true
     	  Form_Initialize = TRUE      
@@ -153,7 +153,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     If FrameWork.DecodeFieldID(Service.Properties("Parent").value, strParent) Then
         If strParent <> "1" then
           ' Make sure we have a valid Parent account
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, CDate(mam_NormalDateFormat(Service.Properties("StartDate"))))           
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, mam_ConvertToSysDate(CDate(mam_NormalDateFormat(Service.Properties("StartDate")))))           
           
           If Err.Number <> 0 Then
               EventArg.Error.number = 1049
@@ -183,7 +183,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
       	Set newCol = Server.CreateObject(MT_COLLECTION_PROG_ID)
 
         for each id in col
-           Set objYAAC = FrameWork.AccountCatalog.GetAccount(id, mam_GetHierarchyTime())
+           Set objYAAC = FrameWork.AccountCatalog.GetAccount(id, mam_ConvertToSysDate(mam_GetHierarchyTime()))
            If (objYAAC.Namespace <> nameSpace) Then 
              EventArg.Error.number = 1053
              EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1053")

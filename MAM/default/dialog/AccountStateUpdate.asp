@@ -49,7 +49,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
         
   Dim objTempYAAC
   'Set objTempYAAC = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), CDate(mam_GetDictionary("END_OF_TIME")))
-  Set objTempYAAC = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), Session("MAX_END_DATE"))
+  Set objTempYAAC = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_ConvertToSysDate(Session("MAX_END_DATE")))
   
   Set Form("CurrentState") = objTempYAAC.GetAccountStateMgr().GetStateObject()    
     

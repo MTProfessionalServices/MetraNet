@@ -286,7 +286,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
       }
       catch (Exception e)
       {
-        Logger.LogInfo("Couldnot load GenerateAnalyticsDatamart config file. Using USD as the default reporting currency. Details: {0} " + e.InnerException);
+        Logger.LogWarning("Couldnot load GenerateAnalyticsDatamart config file. Using USD as the default reporting currency. Details: {0} " + e.InnerException);
         reportingCurrency = "USD";
       }
       return reportingCurrency;

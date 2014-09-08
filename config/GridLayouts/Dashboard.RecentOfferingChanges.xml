@@ -15,7 +15,7 @@
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
-    <PageSize>10</PageSize>
+    <PageSize>8</PageSize>
     <Description>GridLayout template for Product Dashboard</Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>false</ShowFilterPanel>

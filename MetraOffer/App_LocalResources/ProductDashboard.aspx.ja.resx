@@ -201,9 +201,6 @@
   <data name="TEXT_MRR" xml:space="preserve">
     <value>{JA}MRR</value>
   </data>
-  <data name="TEXT_PRODUCT_CODE_TOOLTIP" xml:space="preserve">
-    <value>{JA}Product Code</value>
-  </data>
   <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
     <value>{JA}Subscriptions</value>
   </data>

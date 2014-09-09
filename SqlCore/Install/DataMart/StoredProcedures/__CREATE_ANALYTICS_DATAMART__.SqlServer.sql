@@ -26,7 +26,6 @@ TRUNCATE TABLE SubscriptionSummary;
 /*TRUNCATE TABLE Counters;*/
 TRUNCATE TABLE CurrencyExchangeMonthly;
 TRUNCATE TABLE ProductOffering;
-TRUNCATE TABLE ProductOfferingRevenue;
 
 if (@p_id_run is not null)
 begin
@@ -42,7 +41,6 @@ IF OBJECT_ID('tempdb..#all_rcs_linked') IS NOT NULL drop table #all_rcs_linked;
 IF OBJECT_ID('tempdb..#all_rcs_by_month') IS NOT NULL drop table #all_rcs_by_month;
 IF OBJECT_ID('tempdb..#sum_rcs_by_month') IS NOT NULL drop table #sum_rcs_by_month;
 IF OBJECT_ID('tempdb..#tmp_fx') IS NOT NULL drop table #tmp_fx;
-IF OBJECT_ID('tempdb..#sum_rev_by_month') IS NOT NULL drop table #sum_rev_by_month;
 
 if (@p_id_run is not null)
 begin
@@ -637,36 +635,6 @@ end;
 /* TODO: churn */
 /* TODO: cancellations */
 /* TODO: subscription revenue */
-
-select 
-@p_nm_instance as InstanceId,
-tac.id_prod as ProductOfferingId,
-tac.am_currency as Currency,
-YEAR(tac.dt_session) as Year,
-MONTH(tac.dt_session) as Month,
-sum (tac.amount) as SubscriptionRev
-into #sum_rev_by_month
-from t_acc_usage tac with(nolock)
-inner join t_pi_template tpt on tac.id_pi_template = tpt.id_template
-inner join t_base_props tbp on tbp.id_prop = tpt.id_pi
-where tbp.n_kind  IN (30,10)
-group by tac.id_prod, tac.am_currency, MONTH(tac.dt_session), YEAR(tac.dt_session);
-
-select @l_count = count(1) from #sum_rev_by_month;
-
-if (@p_id_run is not null)
-begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Summarized non Flat RC revenue by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-end;
-
-create index idx_sum_rev_by_month on #sum_rev_by_month (InstanceId, ProductOfferingId, Year, Month, Currency);
-
-if (@p_id_run is not null)
-begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Created index for summarized non Flat RC revenue by month');
-end;
-
-
 insert into SubscriptionsByMonth
 (	InstanceId,
 	SubscriptionId,
@@ -865,41 +833,6 @@ end;
 /* TODO: non recurring charges */
 /* TODO: counters */
 /* TODO: revrec */
-
-insert into ProductOfferingRevenue
-(	InstanceId,
-	ProductOfferingId,
-	[Year],
-	[Month],
-	RevPrimaryCurrency)
-select 
-rcs.InstanceId,
-rcs.ProductOfferingId,
-rcs.Year,
-rcs.Month,
-rcs.MRRPrimaryCurrency + ISNULL(non_rcs.SubscriptionRev,0)*(case when @p_nm_currency <> non_rcs.Currency then exc.ExchangeRate else 1.0 end)
-from SubscriptionSummary rcs
-left outer join #sum_rev_by_month non_rcs on rcs.InstanceId = non_rcs.InstanceId and rcs.ProductOfferingId = non_rcs.ProductOfferingId and rcs.Year = non_rcs.Year and rcs.Month = non_rcs.Month
-left outer join #tmp_fx exc on exc.InstanceId = non_rcs.InstanceId and exc.SourceCurrency = non_rcs.Currency and exc.TargetCurrency = @p_nm_currency and @p_dt_now between exc.StartDate and exc.EndDate
-where 1=1
-UNION ALL
-select 
-non_rcs.InstanceId,
-non_rcs.ProductOfferingId,
-non_rcs.Year,
-non_rcs.Month,
-non_rcs.SubscriptionRev*(case when @p_nm_currency <> non_rcs.Currency then exc.ExchangeRate else 1.0 end)
-from #sum_rev_by_month non_rcs
-left outer join #tmp_fx exc on exc.InstanceId = non_rcs.InstanceId and exc.SourceCurrency = non_rcs.Currency and exc.TargetCurrency = @p_nm_currency and @p_dt_now between exc.StartDate and exc.EndDate
-where not exists (select 1 from SubscriptionSummary rcs where rcs.InstanceId = non_rcs.InstanceId and rcs.ProductOfferingId = non_rcs.ProductOfferingId and rcs.Year = non_rcs.Year and rcs.Month = non_rcs.Month)
-;
-
-select @l_count = count(1) from ProductOfferingRevenue;
-
-if (@p_id_run is not null)
-begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Product Offerings with revenue: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-end;
 
 if (@p_id_run is not null)
 begin

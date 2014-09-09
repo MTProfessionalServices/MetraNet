@@ -77,8 +77,8 @@ BEGIN
   WHERE 
         /* Only issue corrections if there's a previous iteration. */
         EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
-        /* Don't meter in the current interval for initial */
-        AND ui.dt_start < rw.c_SubscriptionStart
+        /* Meter only in 1-st billing interval */
+        AND ui.dt_start <= rw.c_SubscriptionStart
         AND rw.c__IsAllowGenChargeByTrigger = 1; 
 
   SELECT @actionType AS c_RCActionType,

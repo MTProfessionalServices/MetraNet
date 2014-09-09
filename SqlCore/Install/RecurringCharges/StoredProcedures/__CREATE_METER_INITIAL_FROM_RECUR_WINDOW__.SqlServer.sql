@@ -72,17 +72,32 @@ INTO #tmp_rc
         NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate()) 
          /* Also no old unit values */
         AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
-                   /* Don't meter in the current interval for initial */
-        AND ui.dt_start < rw.c_SubscriptionStart
+        /* Meter only in 1-st billing interval */
+        AND ui.dt_start <= rw.c_SubscriptionStart
         AND rw.c__IsAllowGenChargeByTrigger = 1;
-    
+
   /* If no charges to meter, return immediately */
-    IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;
+  IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;
 
-   EXEC InsertChargesIntoSvcTables;
+  EXEC InsertChargesIntoSvcTables;
 
-	UPDATE rw
-	SET c_BilledThroughDate = @currentDate
-	FROM #recur_window_holder rw
-  WHERE  rw.c__IsAllowGenChargeByTrigger = 1;
+  MERGE
+  INTO    #recur_window_holder trw
+  USING   (
+            SELECT MAX(c_RCIntervalSubscriptionEnd) AS NewBilledThroughDate, c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+            FROM #tmp_rc
+            GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+          ) trc
+  ON      (
+            trw.c__AccountID = trc.c__AccountID
+            AND trw.c__SubscriptionID = trc.c__SubscriptionID
+            AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+            AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+            AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+          )
+  WHEN MATCHED THEN
+  UPDATE
+  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate
+  WHERE   trw.c__IsAllowGenChargeByTrigger = 1;
+
 END

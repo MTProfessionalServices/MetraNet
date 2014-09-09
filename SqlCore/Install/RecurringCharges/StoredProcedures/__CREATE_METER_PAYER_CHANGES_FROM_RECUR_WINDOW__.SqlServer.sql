@@ -67,7 +67,7 @@ BEGIN
               AND currentui.id_usage_cycle = ui.id_usage_cycle
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
-         ui.dt_start < rw.c_SubscriptionStart
+         ui.dt_start <= rw.c_SubscriptionStart
          AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   SELECT 'InitialDebit' AS c_RCActionType,

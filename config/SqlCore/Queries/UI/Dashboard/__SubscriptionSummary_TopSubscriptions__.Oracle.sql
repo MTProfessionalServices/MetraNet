@@ -3,7 +3,7 @@ FROM (
   SELECT 
     ROW_NUMBER () OVER (ORDER BY ss.Month ASC) AS OrderNum,
     po.ProductOfferingId as ProductCode,
-    NVL(props.nm_display_name, '') AS productname,
+    NVL(props.nm_display_name, po.ProductOfferingName) AS productname,
     ss.Month, 
     SUM(NVL(ss.TotalParticipants, 0.0)) AS Subscriptions, 
     SUM(NVL(prev.TotalParticipants, 0.0)) AS SubscriptionsPrevious, 
@@ -23,6 +23,6 @@ FROM (
     AND prev.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS (SYSDATE, -2),'yyyy'))
   WHERE ss.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS (SYSDATE, -1),'mm')) 
     AND ss.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS (SYSDATE, -1),'yyyy'))
-  GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, NVL(props.nm_display_name, '') ) a
+  GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, po.ProductOfferingName, props.nm_display_name ) a
 WHERE a.OrderNum <=10 
 

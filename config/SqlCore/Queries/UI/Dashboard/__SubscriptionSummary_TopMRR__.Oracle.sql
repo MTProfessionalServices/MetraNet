@@ -2,7 +2,7 @@ SELECT *
 FROM (
   SELECT 
     ROW_NUMBER () OVER (ORDER BY SUM(NVL(ss.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum,
-		NVL(props.nm_display_name, '') AS productname,
+		NVL(props.nm_display_name, po.ProductOfferingName) AS productname,
     po.ProductOfferingId AS productcode,
 	ss.Month, 
 	SUM(NVL(ss.MRRPrimaryCurrency, 0.0)) AS MRR, 
@@ -26,5 +26,5 @@ FROM (
     AND prev.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -2),'yyyy'))
   WHERE ss.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -1),'mm')) 
     AND ss.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -1),'yyyy'))
-  GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, NVL(props.nm_display_name, '')) a
+  GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, po.ProductOfferingName, props.nm_display_name) a
 WHERE a.ordernum <=10 

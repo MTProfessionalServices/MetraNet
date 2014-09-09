@@ -1,6 +1,6 @@
 SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) ASC) AS 'OrderNum', 
    po.ProductOfferingId as 'ProductCode',
-	 ISNULL(props.nm_display_name, '') AS 'productname',
+	 ISNULL(props.nm_display_name, po.ProductOfferingName) AS 'productname',
 	 ss.Month,
 	 SUM(ISNULL(ss.TotalParticipants, 0.0)) AS 'Subscriptions',
 	 SUM(ISNULL(prev.TotalParticipants, 0.0)) AS 'SubscriptionsPrevious', 
@@ -20,5 +20,5 @@ LEFT JOIN SubscriptionSummary prev
  AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, GETDATE()))
 WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE())) 
  AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
-GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, ISNULL(props.nm_display_name, '') 
+GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, po.ProductOfferingName, props.nm_display_name
 HAVING SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) < 0

@@ -6,12 +6,17 @@ using MetraNet.DbContext;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using MetraTech.ActivityServices.Common;
+using MetraTech.UI.Common;
+using MetraTech.DataAccess;
 
 namespace ASP.Controllers
 {
   [Authorize]
   public class ReportController : MTController
   {
+    private const string sqlQueriesPath = @"..\Extensions\SystemConfig\config\SqlCustom\Queries\UI\Dashboard";
+
     public JsonResult NewCustomers()
     {
       using (var dbDataMart = GetDatamartContext())
@@ -242,7 +247,7 @@ namespace ASP.Controllers
           using (IMTDataReader reader = stmt.ExecuteReader())
           {
 
-            ConstructItems(reader, ref items);
+            //ConstructItems(reader, ref items);
             // get the total rows that would be returned without paging
           }
         }

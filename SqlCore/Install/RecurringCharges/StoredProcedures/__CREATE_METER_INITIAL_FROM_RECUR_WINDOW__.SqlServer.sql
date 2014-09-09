@@ -94,10 +94,10 @@ INTO #tmp_rc
             AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
             AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
             AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+            AND trw.c__IsAllowGenChargeByTrigger = 1
           )
   WHEN MATCHED THEN
   UPDATE
-  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate
-  WHERE   trw.c__IsAllowGenChargeByTrigger = 1;
+  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
 
 END

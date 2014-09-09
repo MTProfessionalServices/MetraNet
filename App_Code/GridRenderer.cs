@@ -112,6 +112,12 @@ public static class GridRenderer
   public static void AddAccountTypeFilter(MTFilterGrid MyGrid1)
   {
     MTGridDataElement accountTypeElement = FindElementByID(MyGrid1, "AccountTypeID");
+	
+	if (HttpContext.Current.Request.Url.ToString().Contains("TemplateHistory.aspx"))  
+	{
+	  accountTypeElement = FindElementByID(MyGrid1, "AccountType");  
+	} 
+	
     if (accountTypeElement == null)
     {
       return;

@@ -152,6 +152,11 @@ public static class GridRenderer
     {
       MTFilterDropdownItem filterItem = new MTFilterDropdownItem();
       filterItem.Key = map[sortedItem].ToString();
+	  
+	   if (HttpContext.Current.Request.Url.ToString().Contains("TemplateHistory.aspx"))  
+	   {
+		filterItem.Key = sortedItem;  
+	   }
       filterItem.Value = sortedItem;
       accountTypeElement.FilterDropdownItems.Add(filterItem);
     }

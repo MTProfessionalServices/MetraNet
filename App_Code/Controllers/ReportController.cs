@@ -225,6 +225,31 @@ namespace ASP.Controllers
       return new SqlConnection(connString.ToString());
     }
 
+    private void GetData(string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
+    {
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      {
+        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(sqlQueriesPath, sqlQueryTag))
+        {
+          if (paramDict != null)
+          {
+            foreach (var pair in paramDict)
+            {
+              stmt.AddParam(pair.Key, pair.Value);
+            }
+          }
+
+          using (IMTDataReader reader = stmt.ExecuteReader())
+          {
+
+            ConstructItems(reader, ref items);
+            // get the total rows that would be returned without paging
+          }
+        }
+        conn.Close();
+      }
+    }
+
     /*public ActionResult Churn()
     {
       Title = "Churn Report";

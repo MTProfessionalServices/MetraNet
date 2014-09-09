@@ -60,10 +60,10 @@ AS
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
                                    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
                                    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-    INNER JOIN t_usage_interval currentui ON currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+    INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
       AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
-    ui.dt_start < currentDate
+    ui.dt_start <= rw.c_SubscriptionStart
     AND rw.c__IsAllowGenChargeByTrigger = 1;
 	  
   INSERT INTO TMP_RC

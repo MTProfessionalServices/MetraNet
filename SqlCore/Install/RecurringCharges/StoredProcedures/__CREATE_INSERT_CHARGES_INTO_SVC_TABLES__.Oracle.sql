@@ -219,6 +219,7 @@ SELECT
     ,1 as id_partition
    FROM tmp_rc where c_UnitValue is not null
      and (c_RCActionType like meterType1 or c_RcActionType like meterType2);
-     
+
+/* WHY?! */
 delete FROM tmp_rc where (c_RCActionType like meterType1 or c_RcActionType like meterType2);
 end insertchargesintosvctables;

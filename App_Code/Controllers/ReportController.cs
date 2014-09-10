@@ -142,6 +142,11 @@ namespace ASP.Controllers
       //                  }).ToList();
       //  return View(revRec);
       //}
+      
+      //var items = new MTList<SQLRecord>();
+      //var paramDict = new Dictionary<string, object>();
+      //GetData("__GET_DEFERRED_REVENUE__", paramDict, ref items);
+
       return Json(new
       {
         sEcho = "Test",
@@ -247,11 +252,38 @@ namespace ASP.Controllers
           using (IMTDataReader reader = stmt.ExecuteReader())
           {
 
-            //ConstructItems(reader, ref items);
+            ConstructItems(reader, ref items);
             // get the total rows that would be returned without paging
           }
         }
         conn.Close();
+      }
+    }
+
+    protected void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)
+    {
+      items.Items.Clear();
+
+      // process the results
+      while (rdr.Read())
+      {
+        var record = new SQLRecord();
+
+        for (int i = 0; i < rdr.FieldCount; i++)
+        {
+          SQLField field = new SQLField();
+          field.FieldDataType = rdr.GetType(i);
+          field.FieldName = rdr.GetName(i);
+
+          if (!rdr.IsDBNull(i))
+          {
+            field.FieldValue = rdr.GetValue(i);
+          }
+
+          record.Fields.Add(field);
+        }
+
+        items.Items.Add(record);
       }
     }
 

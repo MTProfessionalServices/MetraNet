@@ -143,21 +143,44 @@ namespace ASP.Controllers
       //  return View(revRec);
       //}
 
-      var items = new MTList<SQLRecord>();
-      var paramDict = new Dictionary<string, object>();
-      paramDict.Add("%%START_DATE%%", new DateTime(2014, 09, 1));
-      paramDict.Add("%%END_DATE%%", new DateTime(2014, 10, 1));
-      GetData("__GET_DEFERRED_REVENUE__", paramDict, ref items);
-      GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict, ref items);
-      paramDict = new Dictionary<string, object>();
-      paramDict.Add("%%START_DATE%%", new DateTime(2014, 09, 1));
-      GetData("__GET_EARNED_REVENUE__", paramDict, ref items);
+      var paramDict = new Dictionary<string, object>
+        {
+          {"%%START_DATE%%", new DateTime(2014, 09, 1)},
+          {"%%END_DATE%%", new DateTime(2014, 10, 1)}
+        };
+      var deferred = GetData("__GET_DEFERRED_REVENUE__", paramDict);
+      var incremental = GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
+      paramDict.Remove("%%END_DATE%%");
+      var earned = GetData("__GET_EARNED_REVENUE__", paramDict);
 
+      var currencies = (from sss in earned
+                        select sss.Currency).Distinct().ToList();
       var data = new List<string[]>();
 
-      data.Add(SerializeItems(items));
-      data.Add(SerializeItems(items));
-      data.Add(SerializeItems(items));
+      foreach (var currency in currencies)
+      {
+        var er = (from c in earned
+                  where c.Currency.Equals(currency)
+                  group c by c.Currency
+                    into grp
+                    select new SegregatedCharges { Currency = grp.Key, ProrationAmount = grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
+          .ToList();
+        var inc = (from c in incremental
+                   where c.Currency.Equals(currency)
+                   group c by new { c.Currency/*, c.StartSubscriptionDate*/} into grp
+                   select new SegregatedCharges { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, ProrationAmount = grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
+          .ToList();
+
+        var def = (from c in deferred
+                   where c.Currency.Equals(currency)
+                   group c by new { c.Currency/*, c.StartSubscriptionDate*/ } into grp
+                   select new SegregatedCharges { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, ProrationAmount = grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
+          .ToList();
+        data.Add(SerializeItems(er, "Earned"));
+        data.Add(SerializeItems(inc, "Incremental"));
+        data.Add(SerializeItems(def, "Deferred"));
+
+      }
 
       return Json(new
       {
@@ -242,7 +265,7 @@ namespace ASP.Controllers
       return new SqlConnection(connString.ToString());
     }
 
-    private void GetData(string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
+    private List<SegregatedCharges> GetData(string sqlQueryTag, Dictionary<string, object> paramDict)
     {
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
@@ -259,7 +282,7 @@ namespace ASP.Controllers
           using (IMTDataReader reader = stmt.ExecuteReader())
           {
 
-            ConstructItems(reader, ref items);
+            return ConstructItems(reader);
             // get the total rows that would be returned without paging
           }
         }
@@ -267,36 +290,38 @@ namespace ASP.Controllers
       }
     }
 
-    protected void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)
+    protected List<SegregatedCharges> ConstructItems(IMTDataReader rdr)
     {
-      items.Items.Clear();
+      var res = new List<SegregatedCharges>();
 
       // process the results
       while (rdr.Read())
       {
-        var record = new SQLRecord();
-
-        for (int i = 0; i < rdr.FieldCount; i++)
+        var sch = new SegregatedCharges
         {
-          SQLField field = new SQLField();
-          field.FieldDataType = rdr.GetType(i);
-          field.FieldName = rdr.GetName(i);
+          Currency = rdr.GetString("c_currency"),
+          StartSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionStart"),
+          EndSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionEnd"),
+          ProrationDate = rdr.GetInt32("c_ProratedDays"),
+          ProrationAmount = rdr.GetDecimal("c_ProratedDailyRate")
+        };
 
-          if (!rdr.IsDBNull(i))
-          {
-            field.FieldValue = rdr.GetValue(i);
-          }
-
-          record.Fields.Add(field);
-        }
-
-        items.Items.Add(record);
+        res.Add(sch);
       }
+
+      return res;
     }
 
-    protected string[] SerializeItems(MTList<SQLRecord> items)
+    protected string[] SerializeItems(List<SegregatedCharges> items, string revenuePart)
     {
-      var res = new string[] { "USD", "Earned", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34" };
+      //var res = new string[] { "USD", "Earned", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34" };
+      var res = new string[14];
+      foreach (var item in items)
+      {
+        res[0] = item.Currency;
+        res[1] = revenuePart;
+        res[2] = item.ProrationAmount.ToString("N2");
+      }
       return res;
     }
 

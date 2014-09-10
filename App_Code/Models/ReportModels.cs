@@ -1,4 +1,4 @@
-
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASP.Models
@@ -62,6 +62,16 @@ namespace ASP.Models
         [Required]
         [Display(Name = "Amount12")]
         public double Amount12 { get; set; }
+    }
+
+    public class SegregatedCharges
+    {
+      public string Currency { get; set; }
+      public DateTime StartSubscriptionDate { get; set; }
+      public DateTime EndSubscriptionDate { get; set; }
+      
+      public int ProrationDate { get; set; }
+      public decimal ProrationAmount { get; set; }
     }
 
     #endregion

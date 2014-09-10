@@ -142,10 +142,22 @@ namespace ASP.Controllers
       //                  }).ToList();
       //  return View(revRec);
       //}
-      
-      //var items = new MTList<SQLRecord>();
-      //var paramDict = new Dictionary<string, object>();
-      //GetData("__GET_DEFERRED_REVENUE__", paramDict, ref items);
+
+      var items = new MTList<SQLRecord>();
+      var paramDict = new Dictionary<string, object>();
+      paramDict.Add("%%START_DATE%%", new DateTime(2014, 09, 1));
+      paramDict.Add("%%END_DATE%%", new DateTime(2014, 10, 1));
+      GetData("__GET_DEFERRED_REVENUE__", paramDict, ref items);
+      GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict, ref items);
+      paramDict = new Dictionary<string, object>();
+      paramDict.Add("%%START_DATE%%", new DateTime(2014, 09, 1));
+      GetData("__GET_EARNED_REVENUE__", paramDict, ref items);
+
+      var data = new List<string[]>();
+
+      data.Add(SerializeItems(items));
+      data.Add(SerializeItems(items));
+      data.Add(SerializeItems(items));
 
       return Json(new
       {
@@ -162,12 +174,7 @@ namespace ASP.Controllers
         //            new RevRecModel {Currency = "USD", RevenuePart = "Deferred", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
         //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,
         //                             Amount11 = 124.34, Amount12 = 124.34},
-        aaData = new List<string[]>{
-
-          new string[] {"USD", "Earned", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34"},
-          new string[] {"USD", "Incremntal", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34"},
-          new string[] {"USD", "Deferred", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34"}
-        }
+        aaData = data
       }, JsonRequestBehavior.AllowGet);
     }
 
@@ -285,6 +292,12 @@ namespace ASP.Controllers
 
         items.Items.Add(record);
       }
+    }
+
+    protected string[] SerializeItems(MTList<SQLRecord> items)
+    {
+      var res = new string[] { "USD", "Earned", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34" };
+      return res;
     }
 
     /*public ActionResult Churn()

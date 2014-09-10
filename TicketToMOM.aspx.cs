@@ -23,6 +23,12 @@ public partial class UserControls_ticketToMOM : MTPage
     try
     {
       gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "language=" + Session["MTSelectedLanguage"];
+      int partitionId = 1;
+      if (PartitionLibrary.PartitionData.isPartitionUser)
+      {
+        partitionId = PartitionLibrary.PartitionData.PartitionId;
+      }
+      gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "partitionId=" + partitionId;
       var input = new ApiInput(gotoURL);
       SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
     }

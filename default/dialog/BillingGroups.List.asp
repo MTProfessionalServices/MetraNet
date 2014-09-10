@@ -124,7 +124,16 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   '  ///   
   '  ///   Sorted by:  Name ASC
   '  /// </returns>   
-  Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsRowset(CLng(Form("IntervalID")), CBool(Form("ShowAllBillingGroups")))
+
+  dim partitionId 
+  partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  
+  if (partitionId = 1) then
+    Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsRowset(CLng(Form("IntervalID")), CBool(Form("ShowAllBillingGroups")))  
+  else
+    Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsForPartitionRowset(CLng(Form("IntervalID")), CLng(partitionId), CBool(Form("ShowAllBillingGroups")))
+  end if
+
   ProductView.Properties.AddPropertiesFromRowset ProductView.Properties.RowSet
   ProductView.Properties.ClearSelection
 '	ProductView.Properties.SelectAll  

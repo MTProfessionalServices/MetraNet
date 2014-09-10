@@ -185,8 +185,8 @@ namespace ASP.Controllers
       return Json(new
       {
         sEcho = "Test",
-        iTotalRecords = 3,
-        iTotalDisplayRecords = 3,
+        iTotalRecords = 20,
+        iTotalDisplayRecords = 20,
         //aaData = new List<RevRecModel> {
         //            new RevRecModel {Currency = "USD", RevenuePart = "Earned", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
         //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,

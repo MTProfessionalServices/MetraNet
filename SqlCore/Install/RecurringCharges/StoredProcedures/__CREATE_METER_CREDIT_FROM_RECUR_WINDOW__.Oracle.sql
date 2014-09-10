@@ -322,10 +322,16 @@ BEGIN
       AND IsArrearsRecalculation = 0; /* If start date was updated To or From "after EOP date" all PIs should be charged. Don't delete anything. */
   END IF;
 
-  INSERT INTO tmp_backoutArrearsUsages
+  INSERT INTO tmp_unbilledPIs
   SELECT c__SubscriptionID, c__PriceableItemInstanceID, c__PriceableItemTemplateID         
-  FROM tmp_rc_1
-  WHERE c_Advance = 0 AND c_BillingIntervalEnd BETWEEN v_curSubEnd AND v_newSubEnd;
+  FROM   tmp_rc_1
+  WHERE
+         c_Advance = 0 AND c_BillingIntervalEnd BETWEEN v_curSubEnd AND v_newSubEnd
+  UNION ALL
+  SELECT c__SubscriptionID, c__PriceableItemInstanceID, c__PriceableItemTemplateID
+  FROM   tmp_rc_1
+  WHERE
+         c_Advance = 1 AND c_BillingIntervalEnd BETWEEN v_curSubStart AND v_newSubStart;
 
   INSERT INTO tmp_rc
   SELECT c_RCActionType,
@@ -358,17 +364,34 @@ BEGIN
          c__QuoteBatchId
   FROM tmp_rc_1;
 
-  insertChargesIntoSvcTables('%Credit','%Debit');
+  MERGE
+  INTO    tmp_newrw trw
+  USING   (
+            SELECT MAX(dbo.mtminoftwodates(c_RCIntervalEnd, v_newSubEnd)) AS NewBilledThroughDate,
+                   c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__SubscriptionID
+            FROM tmp_rc
+            GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__SubscriptionID
+          ) trc
+  ON      (
+            trw.c__AccountID = trc.c__AccountID
+            AND trw.c__SubscriptionID = trc.c__SubscriptionID
+            AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+            AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+            AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+            AND trw.c__IsAllowGenChargeByTrigger = 1
+          )
+  WHEN MATCHED THEN
+  UPDATE
+  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
 
   UPDATE tmp_newrw rw
-  SET c_BilledThroughDate =
-             CASE 
-                  WHEN rw.c__SubscriptionID IN (SELECT c__SubscriptionID FROM tmp_backoutArrearsUsages)
-                    AND rw.c__PriceableItemInstanceID IN (SELECT c__PriceableItemInstanceID FROM tmp_backoutArrearsUsages)
-                      THEN dbo.mtmindate()
-                  ELSE currentDate
-             END
-  WHERE rw.c__IsAllowGenChargeByTrigger = 1;
+  SET    c_BilledThroughDate = dbo.mtmindate()
+  WHERE
+         rw.c__SubscriptionID IN (SELECT c__SubscriptionID FROM tmp_unbilledPIs)
+         AND rw.c__PriceableItemInstanceID IN (SELECT c__PriceableItemInstanceID FROM tmp_unbilledPIs)
+         AND rw.c__IsAllowGenChargeByTrigger = 1;
+  
+  insertChargesIntoSvcTables('%Credit','%Debit');
 
   /*We can get an no data exception if there are no previous subscriptions; just return in this case.*/   
   EXCEPTION

@@ -116,8 +116,26 @@ BEGIN
 
   EXEC InsertChargesIntoSvcTables;
 
-  UPDATE rw
-  SET    c_BilledThroughDate = @currentDate
-  FROM   #recur_window_holder rw
-  WHERE  rw.c__IsAllowGenChargeByTrigger = 1;
+  IF (@actionType = 'DebitCorrection')
+  BEGIN
+    MERGE
+    INTO    #recur_window_holder trw
+    USING   (
+              SELECT MAX(c_RCIntervalSubscriptionEnd) AS NewBilledThroughDate, c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+              FROM #tmp_rc
+              GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+            ) trc
+    ON      (
+              trw.c__AccountID = trc.c__AccountID
+              AND trw.c__SubscriptionID = trc.c__SubscriptionID
+              AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+              AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+              AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+              AND trw.c__IsAllowGenChargeByTrigger = 1
+            )
+    WHEN MATCHED THEN
+    UPDATE
+    SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
+  END;
+
  END;

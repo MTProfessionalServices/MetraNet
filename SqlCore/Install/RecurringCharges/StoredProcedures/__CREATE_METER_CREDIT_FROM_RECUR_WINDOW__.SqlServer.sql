@@ -324,10 +324,16 @@ BEGIN
       AND IsArrearsRecalculation = 0; /* If start date was updated To or From "after EOP date" all PIs should be charged. Don't delete anything. */
 
   SELECT c__SubscriptionID, c__PriceableItemInstanceID, c__PriceableItemTemplateID
-         INTO #backoutArrearsUsages
-  FROM #tmp_rc_1
-  WHERE c_Advance = 0 AND c_BillingIntervalEnd BETWEEN @curSubEnd AND @newSubEnd;
-      
+         INTO #unbilledPIs
+  FROM   #tmp_rc_1
+  WHERE
+         c_Advance = 0 AND c_BillingIntervalEnd BETWEEN @curSubEnd AND @newSubEnd
+  UNION ALL
+  SELECT c__SubscriptionID, c__PriceableItemInstanceID, c__PriceableItemTemplateID
+  FROM   #tmp_rc_1
+  WHERE
+         c_Advance = 1 AND c_BillingIntervalEnd BETWEEN @curSubStart AND @newSubStart
+
   /* Changes related to ESR-6709:"Subscription refunded many times" */
   /* Now determine if the interval and if the RC adapter has run, if no remove those advanced charge credits */
   DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
@@ -415,15 +421,32 @@ BEGIN
  
   EXEC InsertChargesIntoSvcTables;
 
-  UPDATE rw
-  SET c_BilledThroughDate =
-             CASE 
-                  WHEN rw.c__SubscriptionID IN (SELECT c__SubscriptionID FROM #backoutArrearsUsages)
-                   AND rw.c__PriceableItemInstanceID IN (SELECT c__PriceableItemInstanceID FROM #backoutArrearsUsages)
-                      THEN dbo.mtmindate()
-                  ELSE @currentDate
-             END
-  FROM #recur_window_holder rw
-  WHERE rw.c__IsAllowGenChargeByTrigger = 1;
+  MERGE
+  INTO    #recur_window_holder trw
+  USING   (
+            SELECT MAX(dbo.mtminoftwodates(c_RCIntervalEnd, @newSubEnd)) AS NewBilledThroughDate,
+                   c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__SubscriptionID
+            FROM #tmp_rc
+            GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__SubscriptionID
+          ) trc
+  ON      (
+            trw.c__AccountID = trc.c__AccountID
+            AND trw.c__SubscriptionID = trc.c__SubscriptionID
+            AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+            AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+            AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+            AND trw.c__IsAllowGenChargeByTrigger = 1
+          )
+  WHEN MATCHED THEN
+  UPDATE
+  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
 
- END;
+  UPDATE rw
+  SET    c_BilledThroughDate = dbo.mtmindate()
+  FROM   #recur_window_holder rw
+  WHERE
+         rw.c__SubscriptionID IN (SELECT c__SubscriptionID FROM #unbilledPIs)
+         AND rw.c__PriceableItemInstanceID IN (SELECT c__PriceableItemInstanceID FROM #unbilledPIs)
+         AND rw.c__IsAllowGenChargeByTrigger = 1;
+
+END;

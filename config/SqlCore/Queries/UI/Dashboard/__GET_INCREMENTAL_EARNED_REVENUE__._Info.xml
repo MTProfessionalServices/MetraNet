@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
     <Action>Get</Action>
     <Implementations>
@@ -7,10 +7,18 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_USAGE_INTERVAL</Name>
-            <DataType>int32</DataType>
+            <Name>START_DATE</Name>
+            <DataType>timestamp</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <Description>ID Usage Interval</Description>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Start date</Description>
+        </Parameter>
+        <Parameter>
+            <Name>END_DATE</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>End date</Description>
         </Parameter>
     </Parameters>
     <Description></Description>

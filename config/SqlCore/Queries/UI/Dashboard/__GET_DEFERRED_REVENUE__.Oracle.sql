@@ -1,6 +1,3 @@
-DECLARE @startDate datetime = '%%START_DATE%%'
-DECLARE @endDate datetime = '%%END_DATE%%'
-
 SELECT 
 	acc.c_Currency
 	,udrc.id_usage_interval
@@ -14,8 +11,8 @@ FROM t_pv_UDRecurringCharge AS udrc
 INNER JOIN t_sub AS sub ON udrc.c__SubscriptionID = sub.id_sub
 INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
 WHERE
-	c_RCIntervalSubscriptionStart >= @startDate
-	AND c_RCIntervalSubscriptionEnd < DATEADD(YEAR, 1, @endDate)
+	c_RCIntervalSubscriptionStart >= %%START_DATE%%
+	AND c_RCIntervalSubscriptionEnd < DATEADD(YEAR, 1, %%END_DATE%%)
 
 UNION
 
@@ -32,5 +29,5 @@ FROM t_pv_FlatRecurringCharge AS rc
 INNER JOIN t_sub AS sub ON rc.c__SubscriptionID = sub.id_sub
 INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
 WHERE
-	c_RCIntervalSubscriptionStart >= @startDate
-	AND c_RCIntervalSubscriptionEnd < DATEADD(YEAR, 1, @endDate)
+	c_RCIntervalSubscriptionStart >= %%START_DATE%%
+	AND c_RCIntervalSubscriptionEnd < DATEADD(YEAR, 1, %%END_DATE%%)

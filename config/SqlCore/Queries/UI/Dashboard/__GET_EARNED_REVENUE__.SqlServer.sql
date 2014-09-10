@@ -1,6 +1,3 @@
-DECLARE @startDate datetime = '%%START_DATE%%'
-DECLARE @endDate datetime = '%%END_DATE%%'
-
 SELECT 
 	 acc.c_Currency
 	,udrc.id_usage_interval
@@ -15,7 +12,7 @@ INNER JOIN t_sub AS sub ON udrc.c__SubscriptionID = sub.id_sub
 INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
 WHERE
 	c_RCIntervalSubscriptionStart >= '19000101'
-	AND c_RCIntervalSubscriptionEnd < @startDate
+	AND c_RCIntervalSubscriptionEnd < %%START_DATE%%
 
 UNION
 
@@ -33,4 +30,4 @@ INNER JOIN t_sub AS sub ON rc.c__SubscriptionID = sub.id_sub
 INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
 WHERE
 	c_RCIntervalSubscriptionStart >= '19000101'
-	AND c_RCIntervalSubscriptionEnd < @startDate
+	AND c_RCIntervalSubscriptionEnd < %%START_DATE%%

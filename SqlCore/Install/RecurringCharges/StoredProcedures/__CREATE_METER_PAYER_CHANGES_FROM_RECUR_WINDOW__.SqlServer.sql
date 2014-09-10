@@ -35,7 +35,7 @@ BEGIN
       ,sub.tx_quoting_batch  as c__QuoteBatchId
     INTO #tmp_rc_1      
   FROM   t_usage_interval ui
-         INNER JOIN #tmp_newrw rw
+         INNER JOIN #recur_window_holder rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
               AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
            AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend > ui.dt_start /* next interval overlaps with membership */
@@ -134,16 +134,31 @@ BEGIN
           ON tmp.c__SubscriptionID = rwold.c__SubscriptionID
           AND tmp.c__PriceableItemInstanceID = rwold.c__PriceableItemInstanceID
           AND tmp.c__PriceableItemTemplateID = rwold.c__PriceableItemTemplateID;
-           
+
   /* If no charges to meter, return immediately */
-    IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
+  IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
 
   EXEC InsertChargesIntoSvcTables;
 
-  UPDATE rw
-  SET c_BilledThroughDate = @currentDate
-  FROM #tmp_newrw rw
-  WHERE  rw.c__IsAllowGenChargeByTrigger = 1;
+  MERGE
+  INTO    #recur_window_holder trw
+  USING   (
+            SELECT MAX(c_RCIntervalSubscriptionEnd) AS NewBilledThroughDate, c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+            FROM #tmp_rc
+            WHERE c_RCActionType = 'InitialDebit'
+            GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+          ) trc
+  ON      (
+            trw.c__AccountID = trc.c__AccountID
+            AND trw.c__SubscriptionID = trc.c__SubscriptionID
+            AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+            AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+            AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+            AND trw.c__IsAllowGenChargeByTrigger = 1
+          )
+  WHEN MATCHED THEN
+  UPDATE
+  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
 
 END;
  

@@ -18,18 +18,18 @@
           <tr>
             <th>Currency</th>
             <th>Revenue Part</th>
-            <th>Month 1</th>
-            <th>Month 2</th>
-            <th>Month 3</th>
-            <th>Month 4</th>
-            <th>Month 5</th>
-            <th>Month 6</th>
-            <th>Month 7</th>
-            <th>Month 8</th>
-            <th>Month 9</th>
-            <th>Month 10</th>
-            <th>Month 11</th>
-            <th>Month 12</th>
+            <th><%=month1 %></th>
+            <th><%=month2 %></th>
+            <th><%=month3 %></th>
+            <th><%=month4 %></th>
+            <th><%=month5 %></th>
+            <th><%=month6 %></th>
+            <th><%=month7 %></th>
+            <th><%=month8 %></th>
+            <th><%=month9 %></th>
+            <th><%=month10 %></th>
+            <th><%=month11 %></th>
+            <th><%=month12 %></th>
           </tr>
         </thead>
         <tbody>

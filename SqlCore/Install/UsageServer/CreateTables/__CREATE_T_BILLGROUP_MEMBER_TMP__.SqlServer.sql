@@ -5,7 +5,7 @@ CREATE TABLE t_billgroup_member_tmp
   tx_name NVARCHAR(50) NOT NULL,    -- name of this billing group
   id_acc INT NOT NULL,              -- member account assigned to this billing group name.
   b_extra INT NULL,                  -- 1, if this account is added to satisfy billing group constraints during pull list creation, else NULL
-  partition_id_acc INT NOT NULL        -- id_acc of the partition account this bill group belongs to.
+  partition_id_acc INT NULL        -- id_acc of the partition account this bill group belongs to.
  
   CONSTRAINT FK1_t_billgroup_member_tmp 
     FOREIGN KEY (id_materialization) 

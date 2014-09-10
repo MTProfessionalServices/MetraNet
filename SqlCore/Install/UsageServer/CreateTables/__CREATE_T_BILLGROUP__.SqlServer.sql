@@ -7,7 +7,7 @@ CREATE TABLE t_billgroup
   id_usage_interval INT NOT NULL,                      -- interval associated with this billing group
   id_parent_billgroup  INT NULL,                         -- id of the parent billing group, if this is the materialization of a pull list
   tx_type VARCHAR(20) NOT NULL,                     -- The type of materialization. One of: Full, Rematerialization, PullList
-  partition_id_acc  INT NOT NULL              -- id_acc of the partition account this bill group belongs to.
+  partition_id_acc  INT NULL              -- id_acc of the partition account this bill group belongs to.
 
   CONSTRAINT PK_t_billgroup PRIMARY KEY (id_billgroup),
   CONSTRAINT FK1_t_billgroup FOREIGN KEY (id_usage_interval) REFERENCES t_usage_interval (id_interval),

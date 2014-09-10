@@ -1,5 +1,5 @@
 SELECT 
-	acc.c_Currency
+  acc.am_currency
 	,udrc.id_usage_interval
 	,udrc.c_RCIntervalSubscriptionStart
 	,udrc.c_RCIntervalSubscriptionEnd
@@ -7,9 +7,12 @@ SELECT
 	,udrc.c_ProratedIntervalEnd
 	,udrc.c_ProratedDays
 	,udrc.c_ProratedDailyRate
+	,udrc_ep.c_IsLiabilityProduct
+	,udrc_ep.c_RevenueCode
+	,udrc_ep.c_DeferredRevenueCode
 FROM t_pv_UDRecurringCharge AS udrc
-INNER JOIN t_sub AS sub ON udrc.c__SubscriptionID = sub.id_sub
-INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
+INNER JOIN t_acc_usage AS acc ON udrc.id_sess = acc.id_sess
+LEFT JOIN t_ep_unit_dependent_recurring AS udrc_ep ON udrc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_RCIntervalSubscriptionStart >= %%START_DATE%%
 	AND c_RCIntervalSubscriptionEnd < DATEADD(YEAR, 1, %%END_DATE%%)
@@ -17,17 +20,20 @@ WHERE
 UNION
 
 SELECT 
-	 acc.c_Currency
-	,rc.id_usage_interval
-	,rc.c_RCIntervalSubscriptionStart
-	,rc.c_RCIntervalSubscriptionEnd
-	,rc.c_ProratedIntervalStart
-	,rc.c_ProratedIntervalEnd
-	,rc.c_ProratedDays
-	,rc.c_ProratedDailyRate
-FROM t_pv_FlatRecurringCharge AS rc
-INNER JOIN t_sub AS sub ON rc.c__SubscriptionID = sub.id_sub
-INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
+  acc.am_currency
+ ,frc.id_usage_interval
+ ,frc.c_RCIntervalSubscriptionStart
+ ,frc.c_RCIntervalSubscriptionEnd
+ ,frc.c_ProratedIntervalStart
+ ,frc.c_ProratedIntervalEnd
+ ,frc.c_ProratedDays
+ ,frc.c_ProratedDailyRate
+ ,frc_ep.c_IsLiabilityProduct
+ ,frc_ep.c_RevenueCode
+ ,frc_ep.c_DeferredRevenueCode
+FROM t_pv_FlatRecurringCharge AS frc
+INNER JOIN t_acc_usage AS acc ON frc.id_sess = acc.id_sess
+LEFT JOIN t_ep_recurring AS frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_RCIntervalSubscriptionStart >= %%START_DATE%%
 	AND c_RCIntervalSubscriptionEnd < DATEADD(YEAR, 1, %%END_DATE%%)

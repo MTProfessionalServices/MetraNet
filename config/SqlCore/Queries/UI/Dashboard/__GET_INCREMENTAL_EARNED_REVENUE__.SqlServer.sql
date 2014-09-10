@@ -12,7 +12,7 @@ INNER JOIN t_sub AS sub ON udrc.c__SubscriptionID = sub.id_sub
 INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
 WHERE
 	c_RCIntervalSubscriptionStart >= %%START_DATE%%
-	AND c_RCIntervalSubscriptionEnd < DATEADD(MONTH, 1, %%START_DATE%%)
+	AND c_RCIntervalSubscriptionEnd < %%END_DATE%%
 
 UNION 
 
@@ -30,4 +30,4 @@ INNER JOIN t_sub AS sub ON rc.c__SubscriptionID = sub.id_sub
 INNER JOIN t_av_Internal AS acc ON sub.id_acc = acc.id_acc
 WHERE
 	c_RCIntervalSubscriptionStart >= %%START_DATE%%
-	AND c_RCIntervalSubscriptionEnd < DATEADD(MONTH, 1, %%START_DATE%%)
+	AND c_RCIntervalSubscriptionEnd < %%END_DATE%%

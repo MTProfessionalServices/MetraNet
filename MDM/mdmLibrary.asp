@@ -1866,7 +1866,7 @@ end if
   Dim Rest 
   Rest = parts(2)
 
-  if ((StrComp(formatparts(0),"dd")= 0) or (StrComp(formatparts(0), "j")= 0))  Then 
+  if ((StrComp(formatparts(0),"dd")= 0) or (StrComp(formatparts(0),"d")= 0) or (StrComp(formatparts(0), "j")= 0))  Then 
     Month = parts(1)                               '9
     Day = parts(0)                                          '1
   elseIf (StrComp(formatparts(0),"yyyy")= 0) Then

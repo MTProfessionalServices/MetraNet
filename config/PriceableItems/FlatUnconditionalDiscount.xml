@@ -7,12 +7,12 @@
     <parent>
     </parent>
   </relationships>
-  <parameter_table>metratech.com/flatdiscount_nocond</parameter_table>
+  <parameter_table>metratech.com/FlatDiscount_NoCond</parameter_table>
   <counters>
   </counters>
   <pipeline>
-    <service_definition>metratech.com/flatdiscount_nocond</service_definition>
-    <product_view>metratech.com/flatdiscount_nocond</product_view>
+    <service_definition>metratech.com/FlatDiscount_NoCond</service_definition>
+    <product_view>metratech.com/FlatDiscount_NoCond</product_view>
   </pipeline>
   <charges />
 </priceable_item>

@@ -7,7 +7,7 @@
   <relationships>
     <parent></parent>
   </relationships>
-  <parameter_table>metratech.com/percentdiscount</parameter_table>
+  <parameter_table>metratech.com/PercentDiscount</parameter_table>
   <counters>
     <cpd>
       <name>Qualifier</name>
@@ -23,7 +23,7 @@
     </cpd>
   </counters>
   <pipeline>
-    <service_definition>metratech.com/percentdiscount</service_definition>
-    <product_view>metratech.com/percentdiscount</product_view>
+    <service_definition>metratech.com/PercentDiscount</service_definition>
+    <product_view>metratech.com/PercentDiscount</product_view>
   </pipeline>
 </priceable_item>

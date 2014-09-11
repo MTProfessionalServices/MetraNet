@@ -7,7 +7,7 @@
   <relationships>
     <parent></parent>
   </relationships>
-  <parameter_table>metratech.com/flatdiscount</parameter_table>
+  <parameter_table>metratech.com/FlatDiscount</parameter_table>
   <counters>
     <cpd>
       <name>Qualifier</name>
@@ -17,7 +17,7 @@
     </cpd>
   </counters>
   <pipeline>
-    <service_definition>metratech.com/flatdiscount</service_definition>
-    <product_view>metratech.com/flatdiscount</product_view>
+    <service_definition>metratech.com/FlatDiscount</service_definition>
+    <product_view>metratech.com/FlatDiscount</product_view>
   </pipeline>
 </priceable_item>

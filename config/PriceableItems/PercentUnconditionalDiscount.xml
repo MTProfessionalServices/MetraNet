@@ -7,7 +7,7 @@
   <relationships>
     <parent></parent>
   </relationships>
-  <parameter_table>metratech.com/percentdiscount_nocond</parameter_table>
+  <parameter_table>metratech.com/PercentDiscount_NoCond</parameter_table>
   <counters>
     <cpd>
       <name>Target</name>
@@ -17,7 +17,7 @@
     </cpd>
   </counters>
   <pipeline>
-    <service_definition>metratech.com/percentdiscount_nocond</service_definition>
-    <product_view>metratech.com/percentdiscount_nocond</product_view>
+    <service_definition>metratech.com/PercentDiscount_NoCond</service_definition>
+    <product_view>metratech.com/PercentDiscount_NoCond</product_view>
   </pipeline>
 </priceable_item>

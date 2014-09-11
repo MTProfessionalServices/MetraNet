@@ -7,11 +7,11 @@
   <relationships>
     <parent></parent>
   </relationships>
-  <parameter_table>metratech.com/nonrecurringcharge</parameter_table>
+  <parameter_table>metratech.com/NonRecurringCharge</parameter_table>
   <counters></counters>
   <pipeline>
-    <service_definition>metratech.com/nonrecurringcharge</service_definition>
-    <product_view>metratech.com/nonrecurringcharge</product_view>
+    <service_definition>metratech.com/NonRecurringCharge</service_definition>
+    <product_view>metratech.com/NonRecurringCharge</product_view>
   </pipeline>
     <adjustment_type>
     <name>FlatNonRecurringChargeFlatAdjustment</name>

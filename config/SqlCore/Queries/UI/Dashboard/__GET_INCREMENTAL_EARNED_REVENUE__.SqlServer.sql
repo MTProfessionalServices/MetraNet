@@ -15,7 +15,7 @@ INNER JOIN t_acc_usage AS acc ON udrc.id_sess = acc.id_sess
 LEFT JOIN t_ep_unit_dependent_recurring AS udrc_ep ON udrc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_RCIntervalSubscriptionStart >= %%START_DATE%%
-	AND c_RCIntervalSubscriptionEnd < %%END_DATE%%
+	AND c_RCIntervalSubscriptionStart < %%END_DATE%%
 
 UNION 
 
@@ -36,4 +36,4 @@ INNER JOIN t_acc_usage AS acc ON frc.id_sess = acc.id_sess
 LEFT JOIN t_ep_recurring AS frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_RCIntervalSubscriptionStart >= %%START_DATE%%
-	AND c_RCIntervalSubscriptionEnd < %%END_DATE%%
+	AND c_RCIntervalSubscriptionStart < %%END_DATE%%

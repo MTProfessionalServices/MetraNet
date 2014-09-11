@@ -10,6 +10,9 @@
                         <entry name="Basic">
                             <value>0</value>
                         </entry>
+                        <entry name="Accounting">
+                            <value>4</value>
+                        </entry>
                         <entry name="Configured">
                             <value>1</value>
                         </entry>

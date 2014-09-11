@@ -7,13 +7,6 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>START_DATE</Name>
-            <DataType>timestamp</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description>Start date</Description>
-        </Parameter>
-        <Parameter>
             <Name>END_DATE</Name>
             <DataType>timestamp</DataType>
             <ReplacementType>DoublePercent</ReplacementType>

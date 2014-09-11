@@ -17,4 +17,5 @@
 			aa3.id_ancestor=1
 			group by aa3.id_descendent, aa3.tx_path, aa3.vt_start, aa3.vt_end, aa3.num_generations
 			order by  count(*) desc, aa3.num_generations desc
-			
+			option (force order)  
+      

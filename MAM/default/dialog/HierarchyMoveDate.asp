@@ -57,8 +57,9 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Dim id
     
 	Service.Clear 	' Set all the property of the service to empty. 
-					        ' The Product view if allocated is cleared too.
- Form.Page.NoRecordUserMessage   = mam_GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
+  ' The Product view if allocated is cleared too.
+  Form.Page.NoRecordUserMessage   = mam_GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
+
   ' Make sure to clear the service properties
 	Do while Service.Properties.count
 	  Service.Properties.Remove(1)
@@ -98,7 +99,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Service.Properties("Parent").value = objYAAC.AccountName & " (" & CLng(Session("PARENT")) & ")"
   End If
 
-  Service.Properties("StartDate") = mdm_Format(mam_GetHierarchyTime(),mam_GetDictionary("DATE_FORMAT"))
+  Service.Properties("StartDate") = mdm_Format(mam_GetHierarchyDate(),mam_GetDictionary("DATE_FORMAT"))
   
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
     
@@ -149,11 +150,12 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     RECURISVE = 2
 
     On Error Resume Next
-    
+    Dim startDate
+    startDate = CDate(mam_ConvertToSysDate(Service.Properties("StartDate")))
     If FrameWork.DecodeFieldID(Service.Properties("Parent").value, strParent) Then
         If strParent <> "1" then
           ' Make sure we have a valid Parent account
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, mam_ConvertToSysDate(CDate(mam_NormalDateFormat(Service.Properties("StartDate")))))           
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, startDate)           
           
           If Err.Number <> 0 Then
               EventArg.Error.number = 1049
@@ -196,9 +198,9 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         next
     
         If col.count = 1 Then
-          Call objYAAC.GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(mam_NormalDateFormat(Service.Properties("StartDate"))))
+          Call objYAAC.GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), startDate)
         Else
-          Set Session("LAST_BATCH_ERRORS") = objYAAC.GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, mam_NormalDateFormat(CDate(Service.Properties("StartDate"))))
+          Set Session("LAST_BATCH_ERRORS") = objYAAC.GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, startDate)
           
           If Err.Number <> 0 Then
             EventArg.Error.Save Err
@@ -231,7 +233,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         Set Session("BATCH_TEMPLATE_COLLECTION") = newCol
         
         'Route to the apply template prompt page
-        Form.RouteTo = PreProcess(ASP_CALL_TEMPLATE, Array("ASP", mam_GetDictionary("ACCOUNT_TEMPLATE_APPLY_PROMPT"), "ACCOUNTID", CLng(col.item(1)), "ANCESTORACCOUNTID"	, strParent,"MOVESTARTDATE", Service.Properties("StartDate")))
+        Form.RouteTo = PreProcess(ASP_CALL_TEMPLATE, Array("ASP", mam_GetDictionary("ACCOUNT_TEMPLATE_APPLY_PROMPT"), "ACCOUNTID", CLng(col.item(1)), "ANCESTORACCOUNTID"	, strParent,"MOVESTARTDATE", startDate))
 		Else
             EventArg.Error.number = 1049
             EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1049")

@@ -17,6 +17,8 @@
         <thead>
           <tr>
             <th>Currency</th>
+            <th>Revenue Code</th>
+            <th>Deferred Revenue Code</th>
             <th>Revenue Part</th>
             <th><%=month1 %></th>
             <th><%=month2 %></th>
@@ -30,6 +32,7 @@
             <th><%=month10 %></th>
             <th><%=month11 %></th>
             <th><%=month12 %></th>
+            <th><%=month13 %></th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +48,8 @@
         "bProcessing": true,
         "aoColumns": [
       { "sName": "CURRENCY" },
+      { "sName": "REVENUECODE" },
+      { "sName": "DEFERREDREVENUECODE" },
       { "sName": "REVENUEPART" },
       { "sName": "AMOUNT1" },
       { "sName": "AMOUNT2" },
@@ -57,7 +62,8 @@
       { "sName": "AMOUNT9" },
       { "sName": "AMOUNT10" },
       { "sName": "AMOUNT11" },
-      { "sName": "AMOUNT12" }
+      { "sName": "AMOUNT12" },
+      { "sName": "AMOUNT13" }
       ]
       });
     }); 

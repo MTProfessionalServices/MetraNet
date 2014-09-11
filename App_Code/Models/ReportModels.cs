@@ -10,6 +10,14 @@ namespace ASP.Models
         [Required]
         [Display(Name = "Currency")]
         public string Currency { get; set; }
+      
+        [Required]
+        [Display(Name = "Revenue Code")]
+        public string RevenueCode { get; set; }
+      
+        [Required]
+        [Display(Name = "Deferred Revenue Code")]
+        public string DeferredRevenueCode { get; set; }
 
         [Required]
         [Display(Name = "Revenue Part")]
@@ -62,6 +70,10 @@ namespace ASP.Models
         [Required]
         [Display(Name = "Amount12")]
         public double Amount12 { get; set; }
+
+        [Required]
+        [Display(Name = "Amount13")]
+        public double Amount13 { get; set; }
     }
 
     public class SegregatedCharges
@@ -69,7 +81,8 @@ namespace ASP.Models
       public string Currency { get; set; }
       public DateTime StartSubscriptionDate { get; set; }
       public DateTime EndSubscriptionDate { get; set; }
-      
+      public string RevenueCode { get; set; }
+      public string DeferredRevenueCode { get; set; }
       public int ProrationDate { get; set; }
       public decimal ProrationAmount { get; set; }
     }

@@ -6,8 +6,6 @@ using MetraNet.DbContext;
 using System.Linq;
 using System.Collections.Generic;
 using System;
-using MetraTech.ActivityServices.Common;
-using MetraTech.UI.Common;
 using MetraTech.DataAccess;
 
 namespace ASP.Controllers
@@ -148,6 +146,7 @@ namespace ASP.Controllers
           {"%%START_DATE%%", new DateTime(2014, 09, 1)},
           {"%%END_DATE%%", new DateTime(2014, 10, 1)}
         };
+
       var incremental = GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
       paramDict.Remove("%%START_DATE%%");
       var deferred = GetData("__GET_DEFERRED_REVENUE__", paramDict);
@@ -160,27 +159,28 @@ namespace ASP.Controllers
               .Union(deferred.Select(x => x.Currency))
               .Distinct()
               .ToList();
+
       var data = new List<string[]>();
 
       foreach (var currency in currencies)
       {
         var er = (from c in earned
                   where c.Currency.Equals(currency)
-                  group c by c.Currency
-                    into grp
-                    select new SegregatedCharges { Currency = grp.Key, ProrationAmount = grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
-          .ToList();
+                  group c by new { c.Currency} into grp
+                    select new RevRecModel { Currency = grp.Key.Currency, Amount1 = (double) grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
+          .DefaultIfEmpty(new RevRecModel {Currency = currency}).First();
         var inc = (from c in incremental
                    where c.Currency.Equals(currency)
                    group c by new { c.Currency/*, c.StartSubscriptionDate*/} into grp
-                   select new SegregatedCharges { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, ProrationAmount = grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
-          .ToList();
+                   select new RevRecModel { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, Amount1 = (double) grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
+          .DefaultIfEmpty(new RevRecModel { Currency = currency }).First();
 
         var def = (from c in deferred
                    where c.Currency.Equals(currency)
                    group c by new { c.Currency/*, c.StartSubscriptionDate*/ } into grp
-                   select new SegregatedCharges { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, ProrationAmount = grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
-          .ToList();
+                   select new RevRecModel { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, Amount1 = (double) grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
+          .DefaultIfEmpty(new RevRecModel { Currency = currency }).First();
+
         data.Add(SerializeItems(er, "Earned"));
         data.Add(SerializeItems(inc, "Incremental"));
         data.Add(SerializeItems(def, "Deferred"));
@@ -190,8 +190,8 @@ namespace ASP.Controllers
       return Json(new
       {
         sEcho = "Test",
-        iTotalRecords = 20,
-        iTotalDisplayRecords = 20,
+        iTotalRecords = data.Count,
+        iTotalDisplayRecords = 10,
         aaData = data
       }, JsonRequestBehavior.AllowGet);
     }
@@ -289,12 +289,13 @@ namespace ASP.Controllers
     {
       var res = new List<SegregatedCharges>();
 
-      // process the results
       while (rdr.Read())
       {
         var sch = new SegregatedCharges
         {
           Currency = rdr.GetString("am_currency"),
+          RevenueCode =  !rdr.IsDBNull("c_RevenueCode") ? rdr.GetString("c_RevenueCode") : "",
+          DeferredRevenueCode = !rdr.IsDBNull("c_DeferredRevenueCode") ? rdr.GetString("c_DeferredRevenueCode") : "",
           StartSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionStart"),
           EndSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionEnd"),
           ProrationDate = rdr.GetInt32("c_ProratedDays"),
@@ -307,16 +308,28 @@ namespace ASP.Controllers
       return res;
     }
 
-    protected string[] SerializeItems(List<SegregatedCharges> items, string revenuePart)
+    protected string[] SerializeItems(RevRecModel item, string revenuePart)
     {
       //var res = new string[] { "USD", "Earned", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34" };
-      var res = new string[14];
-      foreach (var item in items)
-      {
-        res[0] = item.Currency;
-        res[1] = revenuePart;
-        res[2] = item.ProrationAmount.ToString("N2");
-      }
+      var res = new string[17];
+      res[0] = item.Currency;
+      res[1] = item.RevenueCode;
+      res[2] = item.DeferredRevenueCode;
+      res[3] = revenuePart;
+      res[4] = item.Amount1.ToString("N2");
+      res[5] = item.Amount2.ToString("N2");
+      res[6] = item.Amount3.ToString("N2");
+      res[7] = item.Amount4.ToString("N2");
+      res[8] = item.Amount5.ToString("N2");
+      res[9] = item.Amount6.ToString("N2");
+      res[10] = item.Amount7.ToString("N2");
+      res[11] = item.Amount8.ToString("N2");
+      res[12] = item.Amount9.ToString("N2");
+      res[13] = item.Amount10.ToString("N2");
+      res[14] = item.Amount11.ToString("N2");
+      res[15] = item.Amount12.ToString("N2");
+      res[16] = item.Amount13.ToString("N2");
+
       return res;
     }
 
@@ -578,3 +591,4 @@ namespace ASP.Controllers
 
   }
 }
+

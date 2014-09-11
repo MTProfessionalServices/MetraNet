@@ -142,25 +142,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <bag name="UDRCMetrics" access="field.camelcase-underscore" inverse="true" cascade="delete">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">SubscriptionParameters_UDRCMetrics</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
-      <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
-      <meta attribute="source-property-name-for-target">UDRCMetrics</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.AccountConfigSets.UDRCMetric</meta>
-      <meta attribute="target-key-column">c_UDRCMetric_Id</meta>
-      <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
-      <meta attribute="cascade">true</meta>
-      <key column="c_SubscriptionParameters_Id" />
-      <one-to-many class="Core.AccountConfigSets.UDRCMetric, Core.AccountConfigSets.Entity" />
-    </bag>
     <bag name="AccountConfigSets" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">SubscriptionParameters_AccountConfigSets</meta>
@@ -179,6 +160,25 @@
       <meta attribute="cascade">true</meta>
       <key column="c_SubscriptionParameters_Id" />
       <one-to-many class="Core.AccountConfigSets.AccountConfigSetBME, Core.AccountConfigSets.Entity" />
+    </bag>
+    <bag name="UDRCMetrics" access="field.camelcase-underscore" inverse="true" cascade="delete">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">SubscriptionParameters_UDRCMetrics</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
+      <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
+      <meta attribute="source-property-name-for-target">UDRCMetrics</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">Core.AccountConfigSets.UDRCMetric</meta>
+      <meta attribute="target-key-column">c_UDRCMetric_Id</meta>
+      <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
+      <meta attribute="cascade">true</meta>
+      <key column="c_SubscriptionParameters_Id" />
+      <one-to-many class="Core.AccountConfigSets.UDRCMetric, Core.AccountConfigSets.Entity" />
     </bag>
   </class>
 </hibernate-mapping>

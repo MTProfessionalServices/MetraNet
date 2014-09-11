@@ -170,23 +170,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <many-to-one name="SubscriptionParameters" class="Core.AccountConfigSets.SubscriptionParameters, Core.AccountConfigSets.Entity" column="c_SubscriptionParameters_Id" cascade="none">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">SubscriptionParameters_AccountConfigSets</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
-      <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
-      <meta attribute="source-property-name-for-target">AccountConfigSets</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
-      <meta attribute="target-key-column">c_AccountConfigSet_Id</meta>
-      <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
-      <meta attribute="cascade">true</meta>
-    </many-to-one>
     <bag name="PropertyValues" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">AccountConfigSet_PropertyValues</meta>
@@ -225,5 +208,22 @@
       <key column="c_AccountConfigSet_Id" />
       <one-to-many class="Core.AccountConfigSets.PropertyValueForCriterion, Core.AccountConfigSets.Entity" />
     </bag>
+    <many-to-one name="SubscriptionParameters" class="Core.AccountConfigSets.SubscriptionParameters, Core.AccountConfigSets.Entity" column="c_SubscriptionParameters_Id" cascade="none">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">SubscriptionParameters_AccountConfigSets</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
+      <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
+      <meta attribute="source-property-name-for-target">AccountConfigSets</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
+      <meta attribute="target-key-column">c_AccountConfigSet_Id</meta>
+      <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
+      <meta attribute="cascade">true</meta>
+    </many-to-one>
   </class>
 </hibernate-mapping>

@@ -173,12 +173,12 @@
       <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
       <meta attribute="source-property-name-for-target">AccountConfigSets</meta>
       <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSet</meta>
+      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
       <meta attribute="target-key-column">c_AccountConfigSet_Id</meta>
       <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
       <meta attribute="cascade">true</meta>
       <key column="c_SubscriptionParameters_Id" />
-      <one-to-many class="Core.AccountConfigSets.AccountConfigSet, Core.AccountConfigSets.Entity" />
+      <one-to-many class="Core.AccountConfigSets.AccountConfigSetBME, Core.AccountConfigSets.Entity" />
     </bag>
   </class>
 </hibernate-mapping>

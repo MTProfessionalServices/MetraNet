@@ -148,13 +148,18 @@ namespace ASP.Controllers
           {"%%START_DATE%%", new DateTime(2014, 09, 1)},
           {"%%END_DATE%%", new DateTime(2014, 10, 1)}
         };
-      var deferred = GetData("__GET_DEFERRED_REVENUE__", paramDict);
       var incremental = GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
-      paramDict.Remove("%%END_DATE%%");
-      var earned = GetData("__GET_EARNED_REVENUE__", paramDict);
+      paramDict.Remove("%%START_DATE%%");
+      var deferred = GetData("__GET_DEFERRED_REVENUE__", paramDict);
+      var paramDictEr = new Dictionary<string, object> {{ "%%START_DATE%%", new DateTime(2014, 09, 1) }};
+      var earned = GetData("__GET_EARNED_REVENUE__", paramDictEr);
 
-      var currencies = (from sss in earned
-                        select sss.Currency).Distinct().ToList();
+      var currencies =
+        earned.Select(x => x.Currency)
+              .Union(incremental.Select(x => x.Currency))
+              .Union(deferred.Select(x => x.Currency))
+              .Distinct()
+              .ToList();
       var data = new List<string[]>();
 
       foreach (var currency in currencies)
@@ -187,16 +192,6 @@ namespace ASP.Controllers
         sEcho = "Test",
         iTotalRecords = 20,
         iTotalDisplayRecords = 20,
-        //aaData = new List<RevRecModel> {
-        //            new RevRecModel {Currency = "USD", RevenuePart = "Earned", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
-        //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,
-        //                             Amount11 = 124.34, Amount12 = 124.34},
-        //            new RevRecModel {Currency = "USD", RevenuePart = "Incremntal", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
-        //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,
-        //                             Amount11 = 124.34, Amount12 = 124.34},
-        //            new RevRecModel {Currency = "USD", RevenuePart = "Deferred", Amount1 = 124.34, Amount2 = 124.34, Amount3 = 124.34, Amount4 = 124.34, Amount5 = 124.34,
-        //                             Amount6 = 124.34, Amount7 = 124.34, Amount8 = 124.34, Amount9 = 124.34, Amount10 = 124.34,
-        //                             Amount11 = 124.34, Amount12 = 124.34},
         aaData = data
       }, JsonRequestBehavior.AllowGet);
     }
@@ -299,7 +294,7 @@ namespace ASP.Controllers
       {
         var sch = new SegregatedCharges
         {
-          Currency = rdr.GetString("c_currency"),
+          Currency = rdr.GetString("am_currency"),
           StartSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionStart"),
           EndSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionEnd"),
           ProrationDate = rdr.GetInt32("c_ProratedDays"),

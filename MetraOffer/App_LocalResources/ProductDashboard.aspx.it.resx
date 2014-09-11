@@ -193,7 +193,7 @@
     <value>{IT}Subscriptions Loss</value>
   </data>
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
-    <value>{IT}No data available</value>
+    <value>{IT}No data found</value>
   </data>  
   <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
     <value>{IT}Change</value>

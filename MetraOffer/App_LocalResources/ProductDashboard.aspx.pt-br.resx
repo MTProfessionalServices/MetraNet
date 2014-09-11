@@ -193,7 +193,7 @@
     <value>{PT-BR}Subscriptions Loss</value>
   </data>
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
-    <value>{PT-BR}No data available</value>
+    <value>{PT-BR}No data found</value>
   </data>  
   <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
     <value>{PT-BR}Change</value>

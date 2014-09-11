@@ -193,7 +193,7 @@
     <value>{ES-MX}Subscriptions Loss</value>
   </data>
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
-    <value>{ES-MX}No data available</value>
+    <value>{ES-MX}No data found</value>
   </data>  
   <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
     <value>{ES-MX}Change</value>

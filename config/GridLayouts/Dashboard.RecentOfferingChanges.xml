@@ -28,7 +28,8 @@
     <ShowGridHeader>false</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[No Data]]></Value>
+        <LocalizationTag>TEXT_NO_DATA_AVAILABLE</LocalizationTag>
+        <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>SingleColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>

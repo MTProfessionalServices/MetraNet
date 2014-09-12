@@ -142,21 +142,21 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ' Setup columns
   dim i
   i = 1
-	ProductView.Properties("Name").Selected		               = i : i=i+1
+	ProductView.Properties("BillingGroupName").Selected		               = i : i=i+1
 	ProductView.Properties("Status").Selected		             = i : i=i+1  
   ProductView.Properties("MemberCount").Selected           = i : i=i+1
 	ProductView.Properties("AdapterCount").Selected          = i : i=i+1
   ProductView.Properties("AdapterSucceededCount").Selected = i : i=i+1
   ProductView.Properties("AdapterFailedCount").Selected    = i : i=i+1
            
-	ProductView.Properties("Name").Caption			             = mom_GetDictionary("TEXT_BILLING_GROUP")
+	ProductView.Properties("BillingGroupName").Caption			             = mom_GetDictionary("TEXT_BILLING_GROUP")
 	ProductView.Properties("Status").Caption		             = mom_GetDictionary("TEXT_STATUS") 
   ProductView.Properties("MemberCount").Caption		         = mom_GetDictionary("TEXT_MEMBERS")
 	ProductView.Properties("AdapterCount").Caption	         = mom_GetDictionary("TEXT_ADAPTERS")
   ProductView.Properties("AdapterSucceededCount").Caption  = mom_GetDictionary("TEXT_SUCCEED")
   ProductView.Properties("AdapterFailedCount").Caption     = mom_GetDictionary("TEXT_FAILED")
   
-  ProductView.Properties("Name").Sorted = MTSORT_ORDER_ASCENDING
+  ProductView.Properties("BillingGroupName").Sorted = MTSORT_ORDER_ASCENDING
   mdm_SetMultiColumnFilteringMode TRUE 
   
   Form_LoadProductView = TRUE  
@@ -181,7 +181,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
 
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "<td width='250px' class='" & Form.Grid.CellClass & "' align='left'>"
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "<b><a target='ticketFrame' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & ProductView.Properties("BillingGroupID") & "&ID=" & Form("IntervalID") & _
-                                                      "'>" & ProductView.Properties("Name") & "</a></b><br>" & ProductView.Properties("Description") 
+                                                      "'>" & ProductView.Properties("BillingGroupName") & "</a></b><br>" & ProductView.Properties("Description") 
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
             
       Form_DisplayCell = TRUE   

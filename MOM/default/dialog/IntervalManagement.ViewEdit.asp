@@ -121,7 +121,11 @@ FUNCTION Form_Refresh(EventArg)
   end if
 
   Service.Properties("BillingGroupId").Value          = bg.BillingGroupID
-  Service.Properties("BillingGroup").Value            = bg.Name
+  If (IsNull(bg.PartitionName) Or IsEmpty(bg.PartitionName)) Then
+    Service.Properties("BillingGroup").Value          = bg.Name 
+  Else
+    Service.Properties("BillingGroup").Value          = bg.PartitionName + " - " + bg.Name     
+  End If
   Service.Properties("BillingGroupMemberCount").Value = bg.MemberCount
   Service.Properties("IntervalOnlyAdapterCount").Value  = bg.IntervalOnlyAdapterCount
   Service.Properties("AdapterCount").Value            = bg.AdapterCount 

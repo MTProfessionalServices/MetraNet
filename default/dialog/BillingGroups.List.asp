@@ -127,8 +127,9 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
 
   dim partitionId 
   partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
-  
-  if (partitionId = 1) then
+  if IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    'show no bill groups if the partition id is empty
+  elseif (partitionId = 1) then
     Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsRowset(CLng(Form("IntervalID")), CBool(Form("ShowAllBillingGroups")))  
   else
     Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsForPartitionRowset(CLng(Form("IntervalID")), CLng(partitionId), CBool(Form("ShowAllBillingGroups")))

@@ -23,12 +23,6 @@ public partial class UserControls_ticketToMOM : MTPage
     try
     {
       gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "language=" + Session["MTSelectedLanguage"];
-      int partitionId = 1;
-      if (PartitionLibrary.PartitionData.isPartitionUser)
-      {
-        partitionId = PartitionLibrary.PartitionData.PartitionId;
-      }
-      gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "partitionId=" + partitionId;
       var input = new ApiInput(gotoURL);
       SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
     }
@@ -44,8 +38,14 @@ public partial class UserControls_ticketToMOM : MTPage
     }
     HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
+    int partitionId = 1;
+    if (PartitionLibrary.PartitionData.isPartitionUser)
+    {
+      partitionId = PartitionLibrary.PartitionData.PartitionId;
+    }
+
     var auth = new Auth();
     auth.Initialize(UI.User.UserName, UI.User.NameSpace);
-    URL = auth.CreateEntryPoint("mom", "system_user", 0, gotoURL, false, true);
+    URL = auth.CreateEntryPointWithPartitionID("mom", "system_user", 0, gotoURL, false, true, partitionId);
   }
 }

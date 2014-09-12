@@ -87,8 +87,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   COMObject.Properties.Add "EffDate_EndDate",    "String", 0,   FALSE, Empty    	
   COMObject.Properties.Add "AvDate_StartDate",  "String", 0,   FALSE, Empty    
   COMObject.Properties.Add "AvDate_EndDate",    "String", 0,   FALSE, Empty    	
-  COMObject.Properties.Add "Name",    "String", 0,   FALSE, Empty 
-  COMObject.Properties.Add "POPartitionId",    "String", 0,   FALSE, Empty   	
+  COMObject.Properties.Add "Name",    "String", 0,   FALSE, Empty 	
   	
   If StrComp(mdm_NormalDateFormat(objMTProductOffering.EffectiveDate.StartDate, mdm_GetDictionary().GetValue("DATE_FORMAT")), "")<> 0 Then
     COMObject.Properties("EffDate_StartDate").Value   = mdm_format(objMTProductOffering.EffectiveDate.StartDate, mdm_GetDictionary().GetValue("DATE_FORMAT"))

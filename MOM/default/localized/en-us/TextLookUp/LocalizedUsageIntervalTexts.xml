@@ -195,4 +195,7 @@
   <text id="TEXT_INTERVAL_STATE_SOFT_CLOSED_DESCRIPTION">
     <value><![CDATA[This billing group is closed to new usage data.<BR><BR>Setting a billing groups state to [TEXT_INTERVAL_STATE_SOFT_CLOSED] will create adapter instances for this billing group. You will need to run the adapters manually for this billing group since the adapters are not run automatically.]]></value>
   </text>
+  <text id="TEXT_NO_PERMISSION_TO_VIEW_BILLING_GROUP">
+    <value><![CDATA[You do not have permission to view this billing group.]]></value>
+  </text>
 </texts>

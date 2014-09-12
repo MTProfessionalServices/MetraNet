@@ -41,9 +41,6 @@ mdm_Main
 ' RETURNS    : Return TRUE / FALSE
 FUNCTION Form_Initialize(EventArg) 
 
-  If Len(Request.QueryString("partitionId")) > 0 Then
-    Session("MOM_SESSION_CSR_PARTITION_ID") = Request.QueryString("partitionId")
-  End If 
   If Len(Request.QueryString("ID")) > 0 Then
     Form("IntervalID") = Request.QueryString("ID")
   End If  

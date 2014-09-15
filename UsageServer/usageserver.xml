@@ -112,13 +112,13 @@
       <!-- query responsible for mapping accounts to billing groups -->
       <AssignmentQuery>
         <QueryPath>Queries\UsageServer\Samples</QueryPath>
-        <QueryTag>__ASSIGN_BILLING_GROUPS_BY_NAMESPACE__</QueryTag>
+        <QueryTag>__ASSIGN_BILLING_GROUPS_BY_CONTINENT__</QueryTag>
       </AssignmentQuery>
 
       <!-- query responsible for adding descriptions to billing groups -->
       <DescriptionQuery>
         <QueryPath>Queries\UsageServer\Samples</QueryPath>
-        <QueryTag>__DESCRIBE_BILLING_GROUPS_BY_NAMESPACE__</QueryTag>
+        <QueryTag>__DESCRIBE_BILLING_GROUPS_BY_CONTINENT__</QueryTag>
       </DescriptionQuery>
     </RecurringBillingGroups>
 

@@ -156,6 +156,8 @@ BEGIN
               AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
          ui.dt_start < currentDate
+         /* We're working only with Bill. interval where subscription starts, except future one */
+         AND v_newSubStart BETWEEN ui.dt_start AND ui.dt_end
          AND v_isEndDateUpdated = '1'
          AND NOT (rw.c_advance = 'N' AND v_newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */

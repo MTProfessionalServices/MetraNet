@@ -157,6 +157,8 @@ BEGIN
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
+         /* We're working only with Bill. interval where subscription starts, except future one */
+         AND @newSubStart BETWEEN ui.dt_start AND ui.dt_end
          AND @isEndDateUpdated = 1
          AND NOT (rw.c_advance = 'N' AND @newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */

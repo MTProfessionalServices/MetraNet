@@ -72,6 +72,20 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
+    <property name="SubscriptionParametersID" column="c_SubscriptionParametersID">
+      <meta attribute="label">POID</meta>
+      <meta attribute="description">Product offering ID</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int64, mscorlib" />
+    </property>
     <property name="POID" column="c_POID">
       <meta attribute="label">POID</meta>
       <meta attribute="description">Product offering ID</meta>
@@ -100,20 +114,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
-    <property name="SubscriptionEndDate" column="c_SubscriptionEndDate" length="255">
-      <meta attribute="label">SubscriptionEndDate</meta>
-      <meta attribute="description">Subscription end date</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
     <property name="CorporateAccountId" column="c_CorporateAccountId">
       <meta attribute="label">CorporateAccountId</meta>
       <meta attribute="description">Corporate Account Id For Group Subscription</meta>
@@ -141,6 +141,20 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
+    </property>
+    <property name="SubscriptionEndDate" column="c_SubscriptionEndDate">
+      <meta attribute="label">SubscriptionEndDate</meta>
+      <meta attribute="description">Subscription end date</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
     </property>
     <bag name="AccountConfigSets" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>

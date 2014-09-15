@@ -38,7 +38,7 @@ BEGIN
 
   DELETE FROM t_rec_win_bcp_for_reverse;
 
-  INSERT INTO t_rec_win_bcp_for_reverse
+  INSERT INTO t_rec_win_bcp_for_reverse (c_BilledThroughDate, c_CycleEffectiveDate, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__ProductOfferingID, c__SubscriptionID) 
   SELECT c_BilledThroughDate, c_CycleEffectiveDate, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__ProductOfferingID, c__SubscriptionID FROM t_recur_window;
 
   INSERT

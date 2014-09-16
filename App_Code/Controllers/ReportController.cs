@@ -281,7 +281,6 @@ namespace ASP.Controllers
             // get the total rows that would be returned without paging
           }
         }
-        conn.Close();
       }
     }
 

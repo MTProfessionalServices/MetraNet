@@ -1,5 +1,6 @@
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Web.Mvc;
 using ASP.Models;
 using MetraNet.DbContext;
@@ -141,50 +142,106 @@ namespace ASP.Controllers
       //  return View(revRec);
       //}
 
-      var paramDict = new Dictionary<string, object>
+      var startDate = new DateTime(2014, 09, 1);
+      var endDate = new DateTime(2015, 10, 1);
+
+      var paramDictIncremental = new Dictionary<string, object>
         {
-          {"%%START_DATE%%", new DateTime(2014, 09, 1)},
-          {"%%END_DATE%%", new DateTime(2014, 10, 1)}
+          {"%%START_DATE%%", startDate},
+          {"%%END_DATE%%", endDate}
         };
 
-      var incremental = GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
-      paramDict.Remove("%%START_DATE%%");
-      var deferred = GetData("__GET_DEFERRED_REVENUE__", paramDict);
-      var paramDictEr = new Dictionary<string, object> {{ "%%START_DATE%%", new DateTime(2014, 09, 1) }};
-      var earned = GetData("__GET_EARNED_REVENUE__", paramDictEr);
+      var paramDictDeferred = new Dictionary<string, object>
+        {
+          {"%%END_DATE%%", startDate},
+        };
 
-      var currencies =
-        earned.Select(x => x.Currency)
-              .Union(incremental.Select(x => x.Currency))
-              .Union(deferred.Select(x => x.Currency))
+      var paramDictEarned = new Dictionary<string, object>
+        {
+          {"%%START_DATE%%", startDate},
+        };
+
+      var incremental = GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDictIncremental);
+      var deferred = GetData("__GET_DEFERRED_REVENUE__", paramDictDeferred);
+      var earned = GetData("__GET_EARNED_REVENUE__", paramDictEarned);
+
+      var groups =
+        earned.Select(x => new {x.Currency, x.RevenueCode, x.DeferredRevenueCode})
+              .Union(incremental.Select(x => new {x.Currency, x.RevenueCode, x.DeferredRevenueCode}))
+              .Union(deferred.Select(x => new {x.Currency, x.RevenueCode, x.DeferredRevenueCode}))
               .Distinct()
               .ToList();
 
       var data = new List<string[]>();
 
-      foreach (var currency in currencies)
+      foreach (var rowGroup in groups)
       {
-        var er = (from c in earned
-                  where c.Currency.Equals(currency)
-                  group c by new { c.Currency} into grp
-                    select new RevRecModel { Currency = grp.Key.Currency, Amount1 = (double) grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
-          .DefaultIfEmpty(new RevRecModel {Currency = currency}).First();
-        var inc = (from c in incremental
-                   where c.Currency.Equals(currency)
-                   group c by new { c.Currency/*, c.StartSubscriptionDate*/} into grp
-                   select new RevRecModel { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, Amount1 = (double) grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
-          .DefaultIfEmpty(new RevRecModel { Currency = currency }).First();
+        var earnedRow = new RevRecModel
+          {
+            Currency = rowGroup.Currency,
+            RevenueCode = rowGroup.RevenueCode,
+            DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+            RevenuePart = "Earned"
+          };
 
-        var def = (from c in deferred
-                   where c.Currency.Equals(currency)
-                   group c by new { c.Currency/*, c.StartSubscriptionDate*/ } into grp
-                   select new RevRecModel { Currency = grp.Key.Currency/*, StartSubscriptionDate = grp.Key.StartSubscriptionDate*/, Amount1 = (double) grp.Sum(x => x.ProrationDate * x.ProrationAmount) })
-          .DefaultIfEmpty(new RevRecModel { Currency = currency }).First();
+        var incrementalRow = new RevRecModel
+        {
+          Currency = rowGroup.Currency,
+          RevenueCode = rowGroup.RevenueCode,
+          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+          RevenuePart = "Incremental"
+        };
 
-        data.Add(SerializeItems(er, "Earned"));
-        data.Add(SerializeItems(inc, "Incremental"));
-        data.Add(SerializeItems(def, "Deferred"));
+        var deferredRow = new RevRecModel
+        {
+          Currency = rowGroup.Currency,
+          RevenueCode = rowGroup.RevenueCode,
+          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+          RevenuePart = "Deferred"
+        };
 
+        var decimalTotalEarned = new Dictionary<string, double>();
+        var decimalIncrementalEarned = new Dictionary<string, double>();
+        var decimalDeferred = new Dictionary<string, double>();
+
+        
+
+        for (var i = 1; i < 14; i++)
+        {
+          var prevMonth = startDate.AddMonths(i - 2);
+          var month = startDate.AddMonths(i - 1).AddDays(-1);
+          
+          var calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
+                                                       && x.EndSubscriptionDate > month)
+                                           .Select(x => (x.EndSubscriptionDate - month).Days * x.ProrationAmount).Sum();
+
+          var calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
+                                                       && x.StartSubscriptionDate >= prevMonth
+                                                       && x.StartSubscriptionDate < month)
+                                           .Select(x => (month - x.StartSubscriptionDate).Days * x.ProrationAmount).Sum();
+
+          var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
+                                                       && x.StartSubscriptionDate < prevMonth)
+                                           .Select(x => (prevMonth - x.StartSubscriptionDate).Days * x.ProrationAmount).Sum();
+
+          decimalIncrementalEarned.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedIncrementalEarned);
+          decimalDeferred.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedDeferred);
+          decimalTotalEarned.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedTotalEarned);
+        }
+
+        RoundRevRecModel(earnedRow, decimalTotalEarned);
+        RoundRevRecModel(incrementalRow, decimalIncrementalEarned);
+        RoundRevRecModel(deferredRow, decimalDeferred);
+        
+        data.Add(SerializeItems(earnedRow));
+        data.Add(SerializeItems(incrementalRow));
+        data.Add(SerializeItems(deferredRow));
       }
 
       return Json(new
@@ -195,6 +252,24 @@ namespace ASP.Controllers
         aaData = data
       }, JsonRequestBehavior.AllowGet);
     }
+
+    private static void RoundRevRecModel(RevRecModel revRecModel, Dictionary<string, double> calculations)
+    {
+      revRecModel.Amount1 = calculations["1"];
+      revRecModel.Amount2 = calculations["2"];
+      revRecModel.Amount3 = calculations["3"];
+      revRecModel.Amount4 = calculations["4"];
+      revRecModel.Amount5 = calculations["5"];
+      revRecModel.Amount6 = calculations["6"];
+      revRecModel.Amount7 = calculations["7"];
+      revRecModel.Amount8 = calculations["8"];
+      revRecModel.Amount9 = calculations["9"];
+      revRecModel.Amount10 = calculations["10"];
+      revRecModel.Amount11 = calculations["11"];
+      revRecModel.Amount12 = calculations["12"];
+      revRecModel.Amount13 = calculations["13"];
+    }
+
 
     private IEnumerable<SelectListItem> GetProductCodes()
     {
@@ -307,14 +382,14 @@ namespace ASP.Controllers
       return res;
     }
 
-    protected string[] SerializeItems(RevRecModel item, string revenuePart)
+    protected string[] SerializeItems(RevRecModel item)
     {
       //var res = new string[] { "USD", "Earned", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34", "124.34" };
       var res = new string[17];
       res[0] = item.Currency;
       res[1] = item.RevenueCode;
       res[2] = item.DeferredRevenueCode;
-      res[3] = revenuePart;
+      res[3] = item.RevenuePart; 
       res[4] = item.Amount1.ToString("N2");
       res[5] = item.Amount2.ToString("N2");
       res[6] = item.Amount3.ToString("N2");

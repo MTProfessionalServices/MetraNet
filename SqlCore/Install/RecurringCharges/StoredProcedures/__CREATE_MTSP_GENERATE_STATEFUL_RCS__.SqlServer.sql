@@ -513,10 +513,24 @@ END;
 			 ** REGENERATED FOR ALL THE MONTHS WHERE RC ADAPTER RAN (But forgot to mark)
 			 ** Only for advanced charges.
 		     **/
-            UPDATE trw 
-			SET trw.c_BilledThroughDate = trc.c_RCIntervalSubscriptionEnd
-			FROM t_recur_window trw
-			INNER JOIN #tmp_rc trc ON trc.c_RCActionType = 'Advance' AND trw.c__AccountID = trc.c__AccountID AND trw.c__SubscriptionID = trc.c__SubscriptionID
+    MERGE
+    INTO    t_recur_window trw
+    USING   (
+              SELECT MAX(c_RCIntervalSubscriptionEnd) AS NewBilledThroughDate, c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+              FROM #tmp_rc
+              WHERE c_RCActionType = 'Advance'
+              GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+            ) trc
+    ON      (
+              trw.c__AccountID = trc.c__AccountID
+              AND trw.c__SubscriptionID = trc.c__SubscriptionID
+              AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+              AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+              AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+            )
+    WHEN MATCHED THEN
+    UPDATE
+    SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
 
  END;
 

@@ -842,7 +842,7 @@
   </compositetype>
   <compositetype>
     <name>Manage account configuration sets</name>
-    <description>Permits to create, update and view of account configuration sets</description>
+    <description>Manage account configuration sets: Permits to create, update and view of account configuration sets</description>
     <editor></editor>
     <progid>MetraTech.Auth.Capabilities.ManageAccountConfigurationSetsCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>

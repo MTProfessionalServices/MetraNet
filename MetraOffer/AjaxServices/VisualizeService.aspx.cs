@@ -57,34 +57,40 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
         }
         else if (operation.Equals("AnalyticsTopMRR"))
         {
-          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID); 
+          paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRR__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopMRRGain"))
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRGain__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopMRRLoss"))
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRLoss__", paramDict, ref items);
         }
 
         else if (operation.Equals("AnalyticsTopSubscriptions"))
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptions__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopSubscriptionGain"))
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsGain__", paramDict,
                                    ref items);
         }
         else if (operation.Equals("AnalyticsTopSubscriptionLoss"))
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
+          paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
           VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsLoss__", paramDict,
                                    ref items);
         }

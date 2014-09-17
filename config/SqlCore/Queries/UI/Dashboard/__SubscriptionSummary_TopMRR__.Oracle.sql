@@ -22,9 +22,9 @@ FROM (
   LEFT JOIN SubscriptionSummary prev 
     ON ss.InstanceId = prev.InstanceId 
     AND ss.ProductOfferingId = prev.ProductOfferingId 
-    AND prev.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -2),'mm'))  
-    AND prev.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -2),'yyyy'))
-  WHERE ss.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -1),'mm')) 
-    AND ss.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(SYSDATE, -1),'yyyy'))
+    AND prev.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS(%%CURRENT_DATETIME%%, -2),'mm'))  
+    AND prev.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(%%CURRENT_DATETIME%%, -2),'yyyy'))
+  WHERE ss.Month = TO_NUMBER (TO_CHAR (ADD_MONTHS(%%CURRENT_DATETIME%%, -1),'mm')) 
+    AND ss.Year = TO_NUMBER (TO_CHAR (ADD_MONTHS(%%CURRENT_DATETIME%%, -1),'yyyy'))
   GROUP BY ss.InstanceId, ss.Month, po.ProductOfferingId, po.ProductOfferingName, props.nm_display_name) a
 WHERE a.ordernum <=10 

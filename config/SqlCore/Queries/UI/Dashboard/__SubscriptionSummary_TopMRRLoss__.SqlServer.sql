@@ -13,8 +13,8 @@ LEFT JOIN t_vw_base_props props on props.id_prop = po.ProductOfferingId AND prop
 LEFT JOIN SubscriptionSummary prev 
  ON ss.InstanceId = prev.InstanceId 
  AND ss.ProductOfferingId = prev.ProductOfferingId 
- AND prev.Month = DATEPART(m, DATEADD(m, -2, GETDATE()))
- AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, GETDATE()))
-WHERE ss.Month = DATEPART(m, DATEADD(m, -1, GETDATE())) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, GETDATE()))
+ AND prev.Month = DATEPART(m, DATEADD(m, -2, %%CURRENT_DATETIME%%))
+ AND prev.Year = DATEPART(yyyy, DATEADD(m, -2, %%CURRENT_DATETIME%%))
+WHERE ss.Month = DATEPART(m, DATEADD(m, -1, %%CURRENT_DATETIME%%)) AND ss.Year = DATEPART(yyyy, DATEADD(m, -1, %%CURRENT_DATETIME%%))
 GROUP BY ss.InstanceId,  ss.Month, po.ProductOfferingId, po.ProductOfferingName, props.nm_display_name
 HAVING SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) < 0

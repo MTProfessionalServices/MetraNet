@@ -18,6 +18,7 @@ IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('all_rcs_linked'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('all_rcs_by_month'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('sum_rcs_by_month'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
+    EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF; l_tmp_tbl := UPPER('tmp_previous_two_months'); IF (TABLE_EXISTS(l_tmp_tbl)) THEN
     EXEC_DDL('DROP TABLE ' || l_tmp_tbl); END IF;
 
 
@@ -30,6 +31,8 @@ execute immediate 'create table all_rcs_linked (InstanceId varchar2(64), Subscri
 execute immediate 'create table all_rcs_by_month (InstanceId varchar2(64), SubscriptionId int not null, ProductOfferingId int, PriceableItemTemplateId int, PriceableItemInstanceId int, SubscriptionStartDate date, SubscriptionEndDate date, Currency nvarchar2(3), ActionType nvarchar2(255), Year int, Month int, DailyRate number(22,10), Rate number(22,10), OldDailyRate number(22,10), OldRate number(22,10), OldProratedDailyRate number(22,10), OldSubscriptionStartDate date, OldSubscriptionEndDate date, Days int)';
 
 execute immediate 'create table sum_rcs_by_month (InstanceId varchar2(64), SubscriptionId int not null, PriceableItemTemplateId int, PriceableItemInstanceId int, Currency nvarchar2(3), Year int, Month int, DaysInMonth int, DaysActiveInMonth int, TotalAmount number(22,10), OldAmount number(22,10), NewAmount number(22,10))';
+
+execute immediate 'create table tmp_previous_two_months (InstanceId varchar2(64), Year int, Month int, FirstDayOfMonth date, LastDayOfMonth date)';
 
 execute immediate 'create or replace procedure CreateADMInternal (p_dt_now date, p_id_run int, p_nm_currency nvarchar2, p_nm_instance nvarchar2, p_n_months int, p_STAGINGDB_prefix nvarchar2)
    AUTHID CURRENT_USER
@@ -57,6 +60,7 @@ execute immediate ('TRUNCATE TABLE SubscriptionSummary');
 /*TRUNCATE TABLE Counters;*/
 execute immediate ('TRUNCATE TABLE CurrencyExchangeMonthly');
 execute immediate ('TRUNCATE TABLE ProductOffering');
+execute immediate ('TRUNCATE TABLE SubscriptionParticipants');
 
 if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Generating Customers DataMart');
@@ -897,6 +901,68 @@ select count(1) into l_count from SubscriptionUnits;
 
 if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Product Offerings: ' || nvl(l_count, 0));
+  INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Generating SubscriptionParticipants DataMart');
+END IF;
+
+/*get total number of subscriptions for all product offerings, not just product offerings with recurring charges*/
+
+insert into tmp_previous_two_months(InstanceId,Month,Year,FirstDayOfMonth,LastDayOfMonth)
+select 
+p_nm_instance as InstanceId,
+extract(month from ADD_MONTHS(p_dt_now,0)) as Month,
+extract(year from ADD_MONTHS(p_dt_now,0)) as Year,
+TRUNC(ADD_MONTHS(p_dt_now,0),'MON') as FirstDayOfMonth,
+TRUNC(ADD_MONTHS(p_dt_now,1),'MON')-1/60/60/24 as LastDayOfMonth
+from dual
+;
+insert into tmp_previous_two_months(InstanceId,Month,Year,FirstDayOfMonth,LastDayOfMonth)
+select 
+p_nm_instance as InstanceId,
+extract(month from ADD_MONTHS(p_dt_now,-1)) as Month,
+extract(year from ADD_MONTHS(p_dt_now,-1)) as Year,
+TRUNC(ADD_MONTHS(p_dt_now,-1),'MON') as FirstDayOfMonth,
+TRUNC(ADD_MONTHS(p_dt_now,0),'MON')-1/60/60/24 as LastDayOfMonth
+from dual
+;
+insert into tmp_previous_two_months(InstanceId,Month,Year,FirstDayOfMonth,LastDayOfMonth)
+select 
+p_nm_instance as InstanceId,
+extract(month from ADD_MONTHS(p_dt_now,-2)) as Month,
+extract(year from ADD_MONTHS(p_dt_now,-2)) as Year,
+TRUNC(ADD_MONTHS(p_dt_now,-2),'MON') as FirstDayOfMonth,
+TRUNC(ADD_MONTHS(p_dt_now,-1),'MON')-1/60/60/24 as LastDayOfMonth
+from dual
+;
+insert into SubscriptionParticipants
+(	InstanceId,
+	ProductOfferingId,
+	Year,
+	Month,
+	TotalParticipants,
+	DistinctHierarchies,
+	NewParticipants,
+  UnsubscribedParticipants)
+select
+months.InstanceId,
+sub.id_po as ProductOfferingId,
+months.Year,
+months.Month,
+count(1) as TotalParticipants,
+count(distinct cust.HierarchyMetraNetId) as DistinctHierarchies,
+sum (case when sub.dt_start >= months.FirstDayOfMonth and sub.dt_start <= months.LastDayOfMonth then 1 else 0 end) as NewParticipants,
+sum (case when sub.dt_end >= months.FirstDayOfMonth and sub.dt_end <= months.LastDayOfMonth then 1 else 0 end) as UnsubscribedParticipants
+from t_vw_effective_subs sub
+inner join Customer cust on cust.MetraNetId = sub.id_acc and cust.InstanceId = p_nm_instance 
+/*was this subscription active during any part of this month?*/
+inner join tmp_previous_two_months months on (sub.dt_end >= months.FirstDayOfMonth and sub.dt_end <= months.LastDayOfMonth) or (sub.dt_start >= months.FirstDayOfMonth and sub.dt_start <= months.LastDayOfMonth) or (sub.dt_start <= months.FirstDayOfMonth and sub.dt_end >= months.LastDayOfMonth)
+where 1=1
+group by months.InstanceId, months.Year, months.Month, sub.id_po
+;
+
+select count(1) into l_count from SubscriptionParticipants;
+
+if (p_id_run is not null) then
+	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'SubscriptionParticipants rows: ' || nvl(l_count, 0));
 END IF;
 
 /* TODO: churn/renewal/cancellations */

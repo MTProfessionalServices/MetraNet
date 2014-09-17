@@ -26,6 +26,7 @@ TRUNCATE TABLE SubscriptionSummary;
 /*TRUNCATE TABLE Counters;*/
 TRUNCATE TABLE CurrencyExchangeMonthly;
 TRUNCATE TABLE ProductOffering;
+TRUNCATE TABLE SubscriptionParticipants;
 
 if (@p_id_run is not null)
 begin
@@ -41,6 +42,7 @@ IF OBJECT_ID('tempdb..#all_rcs_linked') IS NOT NULL drop table #all_rcs_linked;
 IF OBJECT_ID('tempdb..#all_rcs_by_month') IS NOT NULL drop table #all_rcs_by_month;
 IF OBJECT_ID('tempdb..#sum_rcs_by_month') IS NOT NULL drop table #sum_rcs_by_month;
 IF OBJECT_ID('tempdb..#tmp_fx') IS NOT NULL drop table #tmp_fx;
+IF OBJECT_ID('tempdb..#tmp_previous_two_months') IS NOT NULL drop table #tmp_previous_two_months;
 
 if (@p_id_run is not null)
 begin
@@ -820,6 +822,66 @@ select @l_count = count(1) from SubscriptionUnits;
 if (@p_id_run is not null)
 begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Product Offerings: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+  INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating SubscriptionParticipants DataMart');
+end;
+
+/*get total number of subscriptions for all product offerings, not just product offerings with recurring charges*/
+
+select 
+@p_nm_instance as InstanceId,
+datepart(month,@p_dt_now) as [Month],
+datepart(year,@p_dt_now) as [Year],
+DATEADD(month, DATEDIFF(month, 0, @p_dt_now), 0) as FirstDayOfMonth,
+DATEADD(ss, -1, DATEADD(m, DATEDIFF(m, 0, @p_dt_now) + 1, 0)) as LastDayOfMonth
+into #tmp_previous_two_months
+;
+insert into #tmp_previous_two_months(InstanceId,[Month],[Year],FirstDayOfMonth,LastDayOfMonth)
+select 
+@p_nm_instance as InstanceId,
+datepart(month,dateadd(mm, -1, @p_dt_now)) as [Month],
+datepart(year,dateadd(mm, -1, @p_dt_now)) as [Year],
+DATEADD(month, DATEDIFF(month, 0,   dateadd(mm, -1, @p_dt_now)), 0) as FirstDayOfMonth,
+DATEADD(ss, -1, DATEADD(m, DATEDIFF(m, 0, dateadd(mm, -1, @p_dt_now)) + 1, 0)) as LastDayOfMonth
+;
+insert into #tmp_previous_two_months(InstanceId,[Month],[Year],FirstDayOfMonth,LastDayOfMonth)
+select 
+@p_nm_instance as InstanceId,
+datepart(month,dateadd(mm, -2, @p_dt_now)) as [Month],
+datepart(year,dateadd(mm, -2, @p_dt_now)) as [Year],
+DATEADD(month, DATEDIFF(month, 0,   dateadd(mm, -2, @p_dt_now)), 0) as FirstDayOfMonth,
+DATEADD(ss, -1, DATEADD(m, DATEDIFF(m, 0, dateadd(mm, -2, @p_dt_now)) + 1, 0)) as LastDayOfMonth
+;
+insert into SubscriptionParticipants
+(	InstanceId,
+	ProductOfferingId,
+	[Year],
+	[Month],
+	TotalParticipants,
+	DistinctHierarchies,
+	NewParticipants,
+  UnsubscribedParticipants)
+select
+months.InstanceId,
+sub.id_po as ProductOfferingId,
+months.Year,
+months.Month,
+count(1) as TotalParticipants,
+count(distinct cust.HierarchyMetraNetId) as DistinctHierarchies,
+sum (case when sub.dt_start >= months.FirstDayOfMonth and sub.dt_start <= months.LastDayOfMonth then 1 else 0 end) as NewParticipants,
+sum (case when sub.dt_end >= months.FirstDayOfMonth and sub.dt_end <= months.LastDayOfMonth then 1 else 0 end) as UnsubscribedParticipants
+from t_vw_effective_subs sub with(nolock)
+inner join Customer cust on cust.MetraNetId = sub.id_acc and cust.InstanceId = @p_nm_instance 
+/*was this subscription active during any part of this month?*/
+inner join #tmp_previous_two_months months on (sub.dt_end >= months.FirstDayOfMonth and sub.dt_end <= months.LastDayOfMonth) or (sub.dt_start >= months.FirstDayOfMonth and sub.dt_start <= months.LastDayOfMonth) or (sub.dt_start <= months.FirstDayOfMonth and sub.dt_end >= months.LastDayOfMonth)
+where 1=1
+group by months.InstanceId, months.Year, months.Month, sub.id_po
+;
+
+select @l_count = count(1) from SubscriptionParticipants;
+
+if (@p_id_run is not null)
+begin
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'SubscriptionParticipants rows: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 /* TODO: churn/renewal/cancellations */

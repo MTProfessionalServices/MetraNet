@@ -106,6 +106,17 @@
 </compositetype>
 
 <compositetype>
+  <name>Manage Payment Server</name>
+  <description>Manage Payment Server: </description>
+  <editor></editor>
+  <progid>MetraTech.Auth.Capabilities.ManagePaymentServerCapability</progid>
+  <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+  <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
+  <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+  <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+</compositetype>
+
+<compositetype>
   <name>Manage billable accounts</name>
   <description>Manage Billable Accounts: Permits configuring the billable subscriber property</description>
   <editor></editor>

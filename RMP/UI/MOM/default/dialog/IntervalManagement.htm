@@ -15,31 +15,31 @@
   
         <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
         <TR>
-            <TD class="captionEWRequired">Interval:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_BG_INTERVALID]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="IntervalID"></MDMLABEL></TD>
         </TR>     
         <TR>
-            <TD class="captionEWRequired">Type:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_BG_CYCLE_TYPE]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="IntervalType"></MDMLABEL></TD>
         </TR> 
         <TR>
-            <TD class="captionEWRequired">Start:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_BG_START]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="IntervalStartDateTime"></MDMLABEL></TD>
         </TR> 
         <TR>
-            <TD class="captionEWRequired">End:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_BG_END]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="IntervalEndDateTime"></MDMLABEL></TD>
         </TR>  
         <TR>
-            <TD class="captionEWRequired">Adapters:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_ADAPTERS]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="TotalBillingGroupAdapterCount"></MDMLABEL></TD>
         </TR>  
           <TR>
-            <TD class="captionEWRequired">Succeeded:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_SUCCEEDED]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="SucceededAdapterCount"></MDMLABEL></TD>
         </TR>  
           <TR>
-            <TD class="captionEWRequired">Failed:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_FAILED]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="FailedAdapterCount"></MDMLABEL></TD>
         </TR> 
     </table>
@@ -49,7 +49,7 @@
 
         <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ID="Table1"> 
           <TR>
-            <TD class="captionEWRequired">Open Unassigned Accounts:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_OPENUNASSIGNED_ACCOUNTS]:&nbsp;</TD>
             <TD class="fieldRequired"><a title="View Members" href="#" OnClick="window.open('BillingGroups.UnassignedAccounts.asp?MDMReload=TRUE&IntervalID=[IntervalId]&Status=Open','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="OpenUnassignedAccountsCount"></MDMLABEL></a>
             #MDMIf INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED
             <br><a title="[TEXT_TEMP_BILLING_GROUP]" href="#" OnClick="window.open('BillingGroupManualCreate.asp?IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=700,width=790, resizable=yes, scrollbars=yes, status=yes');">[TEXT_MANUALLY_ASSIGN_ACCOUNTS]</a>
@@ -57,7 +57,7 @@
             </TD>
         </TR>
         <TR>
-            <TD class="captionEWRequired">Hard closed Unassigned Accounts:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS]:&nbsp;</TD>
             <TD class="fieldRequired"><a title="View Members" href="#" OnClick="window.open('BillingGroups.UnassignedAccounts.asp?Status=HardClosed&MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="HardClosedUnassignedAccountsCount"></MDMLABEL></a></TD>
         </TR>                     
         <!--<TR>
@@ -69,16 +69,16 @@
             <TD class="fieldRequired"><MDMLABEL Name="IntervalBlockedToUsageFromNewAccountsMessage"></MDMLABEL></TD>
         </TR>  --> 
         <TR>
-            <TD class="captionEWRequired">Status:&nbsp;</TD>
+            <TD class="captionEWRequired">[TEXT_STATUS]:&nbsp;</TD>
             <TD class="fieldRequired"><MDMLABEL Name="Status"></MDMLABEL></TD>
         </TR>
         <TR>
             <TD class="fieldRequired" colspan="2">
             #MDMNotIf INTERVAL_IS_BLOCKED_TO_NEW_ACCOUNTS
-			New Accounts Can Be Invoiced For This Interval <a title="Block This Interval From Receiving New Accounts To Be Invoiced" href="#" OnClick="window.open('IntervalManagement.ChangeAccountCreationState.asp?MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=450,width=500, resizable=yes, scrollbars=yes, status=yes');">Change</a>
+			[TEXT_ACCOUNTS_INVOICED] <a title="Block This Interval From Receiving New Accounts To Be Invoiced" href="#" OnClick="window.open('IntervalManagement.ChangeAccountCreationState.asp?MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=450,width=500, resizable=yes, scrollbars=yes, status=yes');">[TEXT_CHANGE]</a>
             #MDMENDIF
             #MDMIf INTERVAL_IS_BLOCKED_TO_NEW_ACCOUNTS
-            New Accounts Will Not Be Invoiced For This Interval
+            [TEXT_ACCOUNTS_NOT_INVOICED]
             #MDMENDIF
             </TD>
         </TR>                              
@@ -99,7 +99,7 @@
           [TEXT_TEMP_BILLING_GROUP]-->
 	  
           <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/page_refresh.png"></div>  
-          <div style='margin-left:30px; margin-bottom:5px;'><b><a href="javascript:location.reload(true)">Refresh Interval Details</a></b><br></div>
+          <div style='margin-left:30px; margin-bottom:5px;'><b><a href="javascript:location.reload(true)">[TEXT_REFRESH_INTERVAL_DETAILS]</a></b><br></div>
         </div>
         
      </td>

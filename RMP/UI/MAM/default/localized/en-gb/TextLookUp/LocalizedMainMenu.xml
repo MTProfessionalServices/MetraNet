@@ -1,188 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main Menu Options" type="collection">
+  <description>
+    The file defines the localization of the main menu options.
+  </description>
 
-<texts id="Main Menu Options" type='collection'>
-
-<description>
-The file defines the localization of the main menu options.
-</description>
-
-    <!-- Main Menu Translation -->
-
-    <text id="TEXT_MANUAL_PAYMENT_DIALOG">
-     <value>Manual Payment</value>
-    </text>
-    
-    <text id="TEXT_VIEW_LAST_ERROR">
-   		<value>View Last Error</value>
-		</text>   
-    
-    <text id="TEXT_ADD_INDEPENDENT_ACCOUNT_DIALOG">
-   		<value>Add Independent Account</value>
-		</text>   
-        
-    <text id='TEXT_FOLDER_OWNER'>
-   		<value>Account Administrator</value>
-		</text>   
-    
-    <text id='TEXT_PAY_FOR_ACCOUNTS'>
-   		<value>Pay for Accounts</value>
-		</text>   
-    
-    <text id='TEXT_OWNED_FOLDERS'>
-   		<value>Administrated Accounts</value>
-		</text>
-
-   <text id='TEXT_BILL_MANAGER'>
+  <!-- Main Menu Translation -->
+  <text id="TEXT_MANUAL_PAYMENT_DIALOG">
+    <value>Manual Payment</value>
+  </text>
+  <text id="TEXT_VIEW_LAST_ERROR">
+    <value>View Last Error</value>
+  </text>
+  <text id="TEXT_ADD_INDEPENDENT_ACCOUNT_DIALOG">
+    <value>Add Independent Account</value>
+  </text>
+  <text id="TEXT_FOLDER_OWNER">
+    <value>Account Administrator</value>
+  </text>
+  <text id="TEXT_PAY_FOR_ACCOUNTS">
+    <value>Pay for Accounts</value>
+  </text>
+  <text id="TEXT_OWNED_FOLDERS">
+    <value>Administrated Accounts</value>
+  </text>
+  <text id="TEXT_BILL_MANAGER">
     <value>Assign Bill Managers</value>
-   </text>
-
-  <text id='TEXT_BILL_MANAGEES'>
+  </text>
+  <text id="TEXT_BILL_MANAGEES">
     <value>Managed Online Bills</value>
   </text>
-  
-    <text id='TEXT_MANAGE_ROLES'>
-   		<value>Manage Roles</value>
-		</text>   
-
-    <text id='TEXT_GROUP_SUBSCRIPTIONS_DIALOG'>
-   		<value>Group Subscriptions</value>
-		</text>   
-
-    <text id='TEXT_FIND_ACCOUNT'>
-		<value>Search</value>
-		</text>   
-		<text id='TEXT_SUMMARY_ACCOUNT_INFO_DIALOG'>
-			<value>Summary</value>
-		</text>        
-		<text id='TEXT_MAIN_MENU_TAB_SUBSCRIBER'>
-			<value>Account Tab</value>
-		</text>
-		<text id='TEXT_UPDATE_ACCOUNT_INFO_DIALOG'>
-			<value>Account Info</value>
-		</text>
-		<text id='TEXT_UPDATE_CONTACT_INFO_DIALOG'>
-			<value>Contact Info</value>
-		</text>      
-		<text id='TEXT_INTERACTIVE_BILL'>
-			<value>Interactive Bill</value>
-		</text>      
-		<text id='TEXT_PAYMENT_METHODS'>
-			<value>Payment Methods</value>
-		</text>    
-		<text id='TEXT_SETUP_SUBSCRIPTIONS'>
-			<value>Subscriptions</value>
-		</text>     
-		<text id='TEXT_VIEW_RATES'>
-			<value>View Rates</value>
-		</text>        
-		<text id='TEXT_ISSUE_CREDIT_DIALOG'>
-			<value>Issue Misc. Adjustment</value>
-		</text>
-		<text id='TEXT_ADD_CHARGE_DIALOG'>
-			<value>Additional Charge</value>
-		</text>
-		<text id='TEXT_LINK_TO_ADD_CHARGE_DIALOG'>
-			<value>Link to Add. Charge</value>
-		</text>
-		<text id='TEXT_SEND_EMAIL_DIALOG'>
-			<value>Send E-Mail</value>
-		</text>
-		<text id='TEXT_CREDIT_REQUESTS_BROWSER'>
-			<value>Credit Requests</value>
-		</text>
-		<text id='TEXT_MAM_LOG_OUT'>
-			<value>Log Out</value>
-		</text>
-		<text id='TEXT_SUMMARY'>
-			<value>Summary</value>
-		</text> 
-	    <text id='TEXT_ADD_UPDATE_CSR'>
-			<value>Add/Update CSR</value>
-		</text>         
-		<text id='TEXT_MAIN_MENU_TAB_ACTION'>
-			<value>System</value>
-		</text>
-		
-		<text id='TEXT_MAIN_MENU_TAB_FOLDER'>
-			<value>Folder</value>
-		</text>		
-        <text id='TEXT_ADD_ACCOUNT_INFO_DIALOG'>
-			<value>Add Account</value>
-		</text>        
-        <text id='TEXT_EDIT_MAPPING'>
-			<value>Edit Aliases</value>
-		</text>
-        <text id='TEXT_GENERATE_PASSWORD'>
-			<value>Generate Password</value>
-		</text>        
-        <text id='TEXT_HOME_DIALOG'>
-			<value>Home</value>
-		</text>                
-        <text id='TEXT_EDIT_TEMPLATE_DIALOG'>
-			<value>Edit Template</value>
-		</text>                		
-    <text id='TEXT_MAM_ABOUT'>
-			<value>About</value>
-		</text>       
-    <text id='TEXT_MENU_GENERATE_PASSWORD'>
-			<value>Generate Password</value>      
-		</text>       
-    <text id='TEXT_SUBSCRIBER_LOG'>
-			<value>Account Log</value>
-		</text>
-    <text id='TEXT_SUBSCRIBER_LOG_ADD'>
-			<value>Notes</value>
-		</text>           
-    <text id='TEXT_APP_AUDIT_LOG'>
-			<value>App. Audit Log</value>      
-		</text>       
-    <text id='TEXT_PASSWORD'>
-			<value>Change Password</value>
-		</text>   
-    <text id='TEXT_ADMINISTRATION'>
-			<value>Security</value>
-		</text>   
-    <text id="TEXT_SEP_ACCOUNTS">
-			<value>Accounts</value>
-		</text>   
-    <text id="TEST_SEP_SERVICE_ENDPOINTS">
-			<value>Service Endpoints</value>
-		</text>   
-    <text id="TEXT_SEP_ADJUSTMENTS">
-			<value>Adjustments</value>
-		</text>   
-    <text id="TEXT_SEP_LOGS">
-			<value>Logs</value>
-		</text>   
-    <text id="TEXT_SEP_ACCOUNT_INFORMATION">
-			<value>Account Information</value>
-		</text>  
-    <text id="TEXT_SEP_BILL">
-			<value>Bill</value>
-		</text>  
-    <text id="TEXT_SEP_PAYMENT">
-			<value>Payment</value>
-		</text>  
-    <text id="TEXT_SEP_SUBSCRIPTIONS">
-			<value>Subscriptions</value>
-		</text> 
-    <text id="TEXT_SEP_ACCOUNT_ADJUSTMENTS">
-			<value>Account Adjustments</value>
-		</text> 
-    <text id="TEXT_SEP_ACCOUNT_LOGS">
-			<value>Account Logs</value>
-		</text> 
-    <text id="TEXT_SEP_ACCOUNT_SECURITY">
-			<value>Account Security</value>
-		</text> 
-    <text id="TEXT_SEP_TEMPLATE">
-			<value>Template</value>
-		</text>                 
-    <text id="TEXT_SEP_CSRS">
-			<value>CSRs</value>
-		</text>                 
-    <text id="TEXT_SEP_SECURITY">
-			<value>Security</value>
-		</text>                 
-    
+  <text id="TEXT_MANAGE_ROLES">
+    <value>Manage Roles</value>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTIONS_DIALOG">
+    <value>Group Subscriptions</value>
+  </text>
+  <text id="TEXT_FIND_ACCOUNT">
+    <value>Search</value>
+  </text>
+  <text id="TEXT_SUMMARY_ACCOUNT_INFO_DIALOG">
+    <value>Summary</value>
+  </text>
+  <text id="TEXT_MAIN_MENU_TAB_SUBSCRIBER">
+    <value>Account Tab</value>
+  </text>
+  <text id="TEXT_UPDATE_ACCOUNT_INFO_DIALOG">
+    <value>Account Info</value>
+  </text>
+  <text id="TEXT_UPDATE_CONTACT_INFO_DIALOG">
+    <value>Contact Info</value>
+  </text>
+  <text id="TEXT_INTERACTIVE_BILL">
+    <value>Interactive Bill</value>
+  </text>
+  <text id="TEXT_PAYMENT_METHODS">
+    <value>Payment Methods</value>
+  </text>
+  <text id="TEXT_SETUP_SUBSCRIPTIONS">
+    <value>Subscriptions</value>
+  </text>
+  <text id="TEXT_VIEW_RATES">
+    <value>View Rates</value>
+  </text>
+  <text id="TEXT_ISSUE_CREDIT_DIALOG">
+    <value>Issue Misc. Adjustment</value>
+  </text>
+  <text id="TEXT_ADD_CHARGE_DIALOG">
+    <value>Additional Charge</value>
+  </text>
+  <text id="TEXT_LINK_TO_ADD_CHARGE_DIALOG">
+    <value>Link to Add. Charge</value>
+  </text>
+  <text id="TEXT_SEND_EMAIL_DIALOG">
+    <value>Send E-Mail</value>
+  </text>
+  <text id="TEXT_CREDIT_REQUESTS_BROWSER">
+    <value>Credit Requests</value>
+  </text>
+  <text id="TEXT_MAM_LOG_OUT">
+    <value>Log Out</value>
+  </text>
+  <text id="TEXT_SUMMARY">
+    <value>Summary</value>
+  </text>
+  <text id="TEXT_ADD_UPDATE_CSR">
+    <value>Add/Update CSR</value>
+  </text>
+  <text id="TEXT_MAIN_MENU_TAB_ACTION">
+    <value>System</value>
+  </text>
+  <text id="TEXT_MAIN_MENU_TAB_FOLDER">
+    <value>Folder</value>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_INFO_DIALOG">
+    <value>Add Account</value>
+  </text>
+  <text id="TEXT_EDIT_MAPPING">
+    <value>Edit Aliases</value>
+  </text>
+  <text id="TEXT_GENERATE_PASSWORD">
+    <value>Generate Password</value>
+  </text>
+  <text id="TEXT_HOME_DIALOG">
+    <value>Home</value>
+  </text>
+  <text id="TEXT_EDIT_TEMPLATE_DIALOG">
+    <value>Edit Template</value>
+  </text>
+  <text id="TEXT_MAM_ABOUT">
+    <value>About</value>
+  </text>
+  <text id="TEXT_MENU_GENERATE_PASSWORD">
+    <value>Generate Password</value>
+  </text>
+  <text id="TEXT_SUBSCRIBER_LOG">
+    <value>Account Log</value>
+  </text>
+  <text id="TEXT_SUBSCRIBER_LOG_ADD">
+    <value>Notes</value>
+  </text>
+  <text id="TEXT_APP_AUDIT_LOG">
+    <value>App. Audit Log</value>
+  </text>
+  <text id="TEXT_PASSWORD">
+    <value>Change Password</value>
+  </text>
+  <text id="TEXT_ADMINISTRATION">
+    <value>Security</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNTS">
+    <value>Accounts</value>
+  </text>
+  <text id="TEST_SEP_SERVICE_ENDPOINTS">
+    <value>Service Endpoints</value>
+  </text>
+  <text id="TEXT_SEP_ADJUSTMENTS">
+    <value>Adjustments</value>
+  </text>
+  <text id="TEXT_SEP_LOGS">
+    <value>Logs</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_INFORMATION">
+    <value>Account Information</value>
+  </text>
+  <text id="TEXT_SEP_BILL">
+    <value>Bill</value>
+  </text>
+  <text id="TEXT_SEP_PAYMENT">
+    <value>Payment</value>
+  </text>
+  <text id="TEXT_SEP_SUBSCRIPTIONS">
+    <value>Subscriptions</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_ADJUSTMENTS">
+    <value>Account Adjustments</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_LOGS">
+    <value>Account Logs</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_SECURITY">
+    <value>Account Security</value>
+  </text>
+  <text id="TEXT_SEP_TEMPLATE">
+    <value>Template</value>
+  </text>
+  <text id="TEXT_SEP_CSRS">
+    <value>CSRs</value>
+  </text>
+  <text id="TEXT_SEP_SECURITY">
+    <value>Security</value>
+  </text>
 </texts>

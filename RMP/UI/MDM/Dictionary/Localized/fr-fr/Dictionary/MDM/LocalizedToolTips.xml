@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    This file defines the MAM tool tips localization.
+  </description>
+  <text id="TEXT_OK">
+    <value>[FR]OK</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CANCEL">
+    <value>[FR]Cancel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLEAR">
+    <value>[FR]Clear</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT">
+    <value>[FR]Edit</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW">
+    <value>[FR]View</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE">
+    <value>[FR]Delete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD">
+    <value>[FR]Add</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE">
+    <value>[FR]Update</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HELP">
+    <value>[FR]Account Manager Help</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FULLSCREEN">
+    <value>[FR]Toggle Full Screen Mode</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO">
+    <value>[FR]Find Account</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED">
+    <value>[FR]Advanced Find</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_DOWN">
+    <value>[FR]Show Detailed Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_UP">
+    <value>[FR]Hide Detailed Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSEWINDOW">
+    <value>[FR]Close Account</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_PAYMENT_METHOD">
+    <value>[FR]Add Payment Method</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ENTER">
+    <value>[FR]Enter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO_BACK">
+    <value>[FR]Go Back to Find Results</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY">
+    <value>[FR]Apply</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUCCEED">
+    <value>[FR]Succeed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>[FR]Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NONE">
+    <value>[FR]None</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO">
+    <value>[FR]No</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YES">
+    <value>[FR]Yes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>[FR]Close</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INFO_SUCCEFULLY_ADDED">
+    <value>[FR]The information was successfully added.</value>
+    <description></description>
+  </text>
+</texts>

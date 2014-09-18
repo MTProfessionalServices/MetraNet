@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Toolbar Texts" type="collection">
+  <text id="GO_TOOL_TIP">
+    <value>[es-MX]Go</value>
+    <description></description>
+  </text>
+  <text id="RESET_TOOL_TIP">
+    <value>[es-MX]Reset</value>
+    <description></description>
+  </text>
+  <text id="NEXT_PAGE_TOOL_TIP">
+    <value>[es-MX]Next Page</value>
+    <description></description>
+  </text>
+  <text id="PREVIOUS_PAGE_TOOL_TIP">
+    <value>[es-MX]Previous Page</value>
+    <description></description>
+  </text>
+  <text id="FIRST_PAGE_TOOL_TIP">
+    <value>[es-MX]First Page</value>
+    <description></description>
+  </text>
+  <text id="LAST_PAGE_TOOL_TIP">
+    <value>[es-MX]Last Page</value>
+    <description></description>
+  </text>
+  <text id="REFRESH_PAGE_TOOL_TIP">
+    <value>[es-MX]Refresh Page</value>
+    <description></description>
+  </text>
+  <text id="EXPORT_PAGE_TOOL_TIP">
+    <value>[es-MX]Export</value>
+    <description></description>
+  </text>
+  <text id="MDM_TOOL_BAR_PAGE_WORD">
+    <value>[es-MX]Page</value>
+  </text>
+  <text id="MDM_TOOL_BAR_OF_WORD">
+    <value>[es-MX]of</value>
+  </text>
+  <text id="MDM_SELECT_ALL">
+    <value>[es-MX]Select All</value>
+  </text>
+  <text id="MDM_UNSELECT_ALL">
+    <value>[es-MX]UnSelect All</value>
+  </text>
+  <text id="MDM_SELECT_PAGE">
+    <value>[es-MX]Select Page</value>
+  </text>
+  <text id="MDM_UNSELECT_PAGE">
+    <value>[es-MX]UnSelect Page</value>
+  </text>
+</texts>

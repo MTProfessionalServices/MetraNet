@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+  <text id="TEXT_APPLICATION_TITLE">
+    <value>[ES]MetraOffer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLICATION_WELCOME">
+    <value>[ES]Welcome to [TEXT_APPLICATION_TITLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOG_OUT">
+    <value>[ES]Log Out</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BYE">
+    <value>[ES]Bye!</value>
+    <description></description>
+  </text>
+  <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
+    <value>[ES]No records found.</value>
+    <description>This is the default message when a rowset listing does not return any rows.</description>
+  </text>
+</texts>

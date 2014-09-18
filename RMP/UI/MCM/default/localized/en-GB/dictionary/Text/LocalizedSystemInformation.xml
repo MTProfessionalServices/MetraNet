@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="APPSETTING_DISPLAY_RATE_SCHEDULE_DEPENDENCY_COUNTS">
+    <value>true</value>
+  </text>
+  <text id="PRODUCT_CATALOG_DEFAULT_LOCALIZED_DISPLAY_NAME_SUFFIX">
+    <value><![CDATA[ {%%LANGCODE%%}]]></value>
+  </text>
+</texts>

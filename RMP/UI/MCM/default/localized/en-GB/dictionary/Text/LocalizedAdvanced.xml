@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+  <text id="TEXT_VIEW_ALL_RATES">
+    <value>View All Rates By [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE">
+    <value>View All Rates By [TEXT_KEYTERM_PRICEABLE_ITEM] Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_TITLE">
+    <value>Bulk Subscription Change</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_CHANGE">
+    <value>Bulk Subscription Change</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_PO_SOURCE">
+    <value>Source [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_PO_DESTINATION">
+    <value>Destination [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE">
+    <value>Effective Date</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE_BILLING_CYCLE_RELATIVE">
+    <value>Make subscription change effective on the next billing cycle after this date</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_SELECT_PRODUCT_OFFERING">
+    <value>Select a [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+  </text>
+  <text id="TEXT_ADVANCED_DIALOG_DESCRIPTION">
+    <value>Select the action you wish to perform.</value>
+  </text>
+  <text id="TEXT_VIEW_ALL_RATES_DESCRIPTION">
+    <value>View a page containing all rates in the Product Catalog grouped by [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+  </text>
+  <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE_DESCRIPTION">
+    <value>View a page with all rates grouped by [TEXT_KEYTERM_PRICEABLE_ITEM] Type.</value>
+  </text>
+  <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_DESCRIPTION">
+    <value>Transfer all customer Subscriptions from one [TEXT_KEYTERM_PRODUCT_OFFERING] to another [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+  </text>
+  <text id="TEXT_EDIT_PRICELIST_DESCRIPTION">
+    <value>Add new [TEXT_KEYTERM_PRICE_LISTS] and edit the descriptions of existing [TEXT_KEYTERM_PRICE_LISTS].</value>
+  </text>
+  <text id="TEXT_MANAGE_CALENDARS">
+    <value>Manage Calendars</value>
+  </text>
+  <text id="TEXT_MANAGE_CALENDARS_DESCRIPTION">
+    <value>Create and configure Calendars.</value>
+  </text>
+  <text id="TEXT_MANAGE_HIDDEN_POS">
+    <value>Manage Hidden [TEXT_KEYTERM_PRODUCT_OFFERINGS]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MANAGE_HIDDEN_POS_DESCRIPTION">
+    <value>View [TEXT_KEYTERM_PRODUCT_OFFERINGS] that are hidden from regular MetraOffer use and un-hide them.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_CHARGES">
+    <value>group subscription charges</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTION_CHARGE_GENERATED">
+    <value>How should [TEXT_GROUP_SUBSCRIPTION_CHARGES] be generated?</value>
+    <description></description>
+  </text>
+</texts>

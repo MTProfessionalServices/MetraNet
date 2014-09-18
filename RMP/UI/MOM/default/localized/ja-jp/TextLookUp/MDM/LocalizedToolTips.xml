@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    This file defines the MAM tool tips localization.
+  </description>
+  <text id="TEXT_OK">
+    <value>[JA]OK</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CANCEL">
+    <value>[JA]Cancel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLEAR">
+    <value>[JA]Clear</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT">
+    <value>[JA]Edit</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW">
+    <value>[JA]View</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE">
+    <value>[JA]Delete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD">
+    <value>[JA]Add</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE">
+    <value>[JA]Update</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HELP">
+    <value>[JA]MetraControl Help</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FULLSCREEN">
+    <value>[JA]Toggle Full Screen View</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO">
+    <value>[JA]Find Account</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED">
+    <value>[JA]Advanced Find</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_DOWN">
+    <value>[JA]Show Detailed Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_UP">
+    <value>[JA]Hide Detailed Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSEWINDOW">
+    <value>[JA]Close Account</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_PAYMENT_METHOD">
+    <value>[JA]Add Payment Method</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ENTER">
+    <value>[JA]Enter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO_BACK">
+    <value>[JA]Go Back to Find Results</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY">
+    <value>[JA]Apply</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUCCEED">
+    <value>[JA]Succeed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>[JA]Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NONE">
+    <value>[JA]None</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO">
+    <value>[JA]No</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YES">
+    <value>[JA]Yes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>[JA]Close</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INFO_SUCCEFULLY_ADDED">
+    <value>[JA]The information was successfully added.</value>
+    <description></description>
+  </text>
+</texts>

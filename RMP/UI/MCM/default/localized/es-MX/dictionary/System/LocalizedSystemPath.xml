@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    This file defines the system path information that must be localized.
+  </description>
+  <text id="DEFAULT_LOCALIZED_PATH">
+    <value>[APP_HTTP_PATH]/default/localized/es-mx</value>
+    <description>
+      Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
+    </description>
+  </text>
+</texts>

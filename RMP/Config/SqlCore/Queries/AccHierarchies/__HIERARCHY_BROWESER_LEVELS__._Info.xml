@@ -20,7 +20,7 @@
         </Parameter>
         <Parameter>
             <Name>TYPE_SPACE</Name>
-            <DataType>sqlsubstitution</DataType>
+            <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <SubstitutionSyntaxCheck>system_mps</SubstitutionSyntaxCheck>
             <Description></Description>

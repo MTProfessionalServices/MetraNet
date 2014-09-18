@@ -93,7 +93,9 @@ newid() AS idSourceSess,
       ,rw.c__subscriptionid      AS c__SubscriptionID
 	  ,rw.c_payerstart
 	  ,rw.c_payerend
-	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
+	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' 
+      THEN '1970-01-01 00:00:00' 
+      ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
 	  ,rw.c_unitvalueend
 	  ,rw.c_unitvalue
 	  ,rcr.n_rating_type AS c_RatingType
@@ -108,8 +110,15 @@ newid() AS idSourceSess,
                                    AND rw.c_subscriptionstart   < ui.dt_end AND rw.c_subscriptionend   > ui.dt_start /* interval overlaps with subscription */
                                    AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* interval overlaps with UDRC */
       INNER JOIN #TMP_RC_POID_FOR_RUN po on po.id_po = rw.c__ProductOfferingID
-	  INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-      INNER LOOP JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle WHEN rcr.tx_cycle_mode LIKE 'BCR%' THEN ui.id_usage_cycle WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) ELSE NULL END
+      INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+      INNER LOOP JOIN t_usage_cycle ccl 
+          ON ccl.id_usage_cycle = CASE 
+                                        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+                                        WHEN rcr.tx_cycle_mode LIKE 'BCR%' THEN ui.id_usage_cycle 
+                                        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+            ELSE NULL
+                                  END
+      INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
       INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
                                    AND pci.dt_end BETWEEN ui.dt_start        AND ui.dt_end                             /* rc end falls in this interval */
@@ -118,8 +127,7 @@ newid() AS idSourceSess,
                                    AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
                                    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
                                    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-      INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-	  
+      	  
       where 1=1
       and ui.id_interval = @v_id_interval
       /*and bg.id_billgroup = @v_id_billgroup*/

@@ -70,6 +70,7 @@ ELSE
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
       , AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, :new.vt_end, currentDate) c__IsAllowGenChargeByTrigger
+      ,sub.TX_QUOTING_BATCH
       FROM t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = :new.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start AND pay.vt_start < :new.vt_end AND pay.vt_end > :new.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
@@ -112,7 +113,8 @@ ELSE
     c_BilledThroughDate,
     c_LastIdRun,
     c_MembershipStart,
-    c_MembershipEnd
+    c_MembershipEnd,
+    c__quotebatchid
     FROM tmp_newrw
 	WHERE c__subscriptionid = v_id_sub;
  

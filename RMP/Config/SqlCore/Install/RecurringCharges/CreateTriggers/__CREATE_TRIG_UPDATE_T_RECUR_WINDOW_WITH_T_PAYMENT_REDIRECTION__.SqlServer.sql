@@ -21,30 +21,32 @@ select *  into #tmp_oldrw from t_recur_window trw JOIN #tmp_redir ON trw.c__Acco
 DECLARE @currentDate DATETIME
 SET @currentDate = dbo.metratime(1,'RC');
  
-SELECT orw.c_CycleEffectiveDate
-       ,orw.c_CycleEffectiveStart
-       ,orw.c_CycleEffectiveEnd
-       ,orw.c_SubscriptionStart
-       ,orw.c_SubscriptionEnd
-       ,orw.c_Advance
-       ,orw.c__AccountID
-       ,INSERTED.id_payer AS c__PayingAccount
-       ,orw.c__PriceableItemInstanceID
-       ,orw.c__PriceableItemTemplateID
-       ,orw.c__ProductOfferingID
-       ,inserted.vt_start as c_PayerStart
-       ,INSERTED.vt_end AS c_PayerEnd
-       ,orw.c__SubscriptionID
-       ,orw.c_UnitValueStart
-       ,orw.c_UnitValueEnd
-       ,orw.c_UnitValue
-       ,orw.c_BilledThroughDate
-       ,orw.c_LastIdRun
-       ,orw.c_MembershipStart
-       ,orw.c_MembershipEnd
-       , dbo.AllowInitialArrersCharge(orw.c_Advance, INSERTED.id_payer, orw.c_SubscriptionEnd, @currentDate) AS c__IsAllowGenChargeByTrigger
-
-        INTO #tmp_newrw FROM #tmp_oldrw orw JOIN INSERTED ON orw.c__AccountId = INSERTED.id_payee;
+  SELECT orw.c_CycleEffectiveDate,
+         orw.c_CycleEffectiveStart,
+         orw.c_CycleEffectiveEnd,
+         orw.c_SubscriptionStart,
+         orw.c_SubscriptionEnd,
+         orw.c_Advance,
+         orw.c__AccountID,
+         INSERTED.id_payer AS c__PayingAccount,
+         orw.c__PriceableItemInstanceID,
+         orw.c__PriceableItemTemplateID,
+         orw.c__ProductOfferingID,
+         INSERTED.vt_start AS c_PayerStart,
+         INSERTED.vt_end AS c_PayerEnd,
+         orw.c__SubscriptionID,
+         orw.c_UnitValueStart,
+         orw.c_UnitValueEnd,
+         orw.c_UnitValue,
+         orw.c_BilledThroughDate,
+         orw.c_LastIdRun,
+         orw.c_MembershipStart,
+         orw.c_MembershipEnd,
+         dbo.AllowInitialArrersCharge(orw.c_Advance, INSERTED.id_payer, orw.c_SubscriptionEnd, @currentDate, 0) AS c__IsAllowGenChargeByTrigger 
+         INTO #recur_window_holder
+  FROM   #tmp_oldrw orw
+         JOIN INSERTED
+              ON  orw.c__AccountId = INSERTED.id_payee;
 
 exec MeterPayerChangesFromRecurWindow @currentDate;
 
@@ -79,7 +81,7 @@ INSERT INTO t_recur_window
 	c_LastIdRun,
 	c_MembershipStart,
 	c_MembershipEnd
-	FROM #tmp_newrw;
+	FROM #recur_window_holder;
 
 
 UPDATE t_recur_window
@@ -97,7 +99,7 @@ SET c_CycleEffectiveEnd =
     AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate
 )
 WHERE 1=1
-AND c__PayingAccount in (select c__PayingAccount from #tmp_newrw)
+AND c__PayingAccount in (select c__PayingAccount from #recur_window_holder)
 AND EXISTS 
 (SELECT 1 FROM t_recur_window w2
     WHERE w2.c__SubscriptionId = t_recur_window.c__SubscriptionId 

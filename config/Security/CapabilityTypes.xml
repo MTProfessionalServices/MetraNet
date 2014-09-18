@@ -841,10 +841,10 @@
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
   <compositetype>
-    <name>Manage account configuration sets</name>
-    <description>Manage account configuration sets: Permits to create, update and view of account configuration sets</description>
+    <name>Manage Account Configuration Set</name>
+    <description>Manage Account Configuration Set: Permits to create, update and view of account configuration sets</description>
     <editor></editor>
-    <progid>MetraTech.Auth.Capabilities.ManageAccountConfigurationSetsCapability</progid>
+    <progid>MetraTech.Auth.Capabilities.ManageAccountConfigurationSetCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>

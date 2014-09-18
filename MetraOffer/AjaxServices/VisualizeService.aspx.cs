@@ -15,18 +15,18 @@ using MetraTech.Xml;
 public partial class AjaxServices_VisualizeService : MTListServicePage
 {
   protected void Page_Load(object sender, EventArgs e)
+  {
+    ////parse query name
+    String operation = Request["operation"];
+    if (string.IsNullOrEmpty(operation))
     {
-        //parse query name
-        String operation = Request["operation"];
-         if (string.IsNullOrEmpty(operation))
-        {
-            Logger.LogWarning("No query specified");
-            Response.Write("{\"Items\":[]}");
-            Response.End();
-            return;
-        }
+      Logger.LogWarning("No query specified");
+      Response.Write("{\"Items\":[]}");
+      Response.End();
+      return;
+    }
 
-        Logger.LogInfo("operation : " + operation);
+    Logger.LogInfo("operation : " + operation);
 
     using (new HighResolutionTimer("VisualizeService", 5000))
     {
@@ -160,142 +160,142 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
       }
     }
 
-    }
+  }
 
-    private string SerializeItems(string operation, MTList<SQLRecord> items)
+  private string SerializeItems(string operation, MTList<SQLRecord> items)
+  {
+    string json;
+
+    if (operation.Equals("AnalyticsTopMRR") || operation.Equals("AnalyticsTopMRRGain") ||
+        operation.Equals("AnalyticsTopMRRLoss") || operation.Equals("AnalyticsSingleProductOverTime"))
     {
-      string json;
-
-      if (operation.Equals("AnalyticsTopMRR") || operation.Equals("AnalyticsTopMRRGain") ||
-          operation.Equals("AnalyticsTopMRRLoss") || operation.Equals("AnalyticsSingleProductOverTime"))
-      {
-        json = ConstructJson(operation, items);
-      }
-      else
-      {
-        json = VisualizeService.SerializeItems(items);
-      }
-      return json;
+      json = ConstructJson(operation, items);
     }
-
-    private string ConstructJson(string operation, MTList<SQLRecord> items)
+    else
     {
-      var json = new StringBuilder();
-      string item = string.Empty;
-      //format dates/amounts used as data in client side for formatting or plotting graphs using invaraint culture otherwise culture specific decimal/group seperators mess up with json returned
-      var invariantCulture = CultureInfo.InvariantCulture;
-      string reportingCurrency = GetReportingCurrency();
+      json = VisualizeService.SerializeItems(items);
+    }
+    return json;
+  }
 
-      json.Append("{\"Items\":[");
+  private string ConstructJson(string operation, MTList<SQLRecord> items)
+  {
+    var json = new StringBuilder();
+    string item = string.Empty;
+    //format dates/amounts used as data in client side for formatting or plotting graphs using invaraint culture otherwise culture specific decimal/group seperators mess up with json returned
+    var invariantCulture = CultureInfo.InvariantCulture;
+    string reportingCurrency = GetReportingCurrency();
 
-      for (int i = 0; i < items.Items.Count; i++)
+    json.Append("{\"Items\":[");
+
+    for (int i = 0; i < items.Items.Count; i++)
+    {
+      SQLRecord record = items.Items[i];
+
+      if (i > 0)
       {
-        SQLRecord record = items.Items[i];
-
-        if (i > 0)
-        {
-          json.Append(",");
-        }
-
-        json.Append("{");
-
-        if (record.Fields.Count > 0)
-        {
-          if (operation.Equals("AnalyticsTopMRR") || operation.Equals("AnalyticsTopMRRGain") ||
-              operation.Equals("AnalyticsTopMRRLoss"))
-          {
-            item = string.Format("\"ordernum\":{0},", FormatFieldValue(record.Fields[0]));
-            json.Append(item);
-            item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
-            json.Append(item);
-            item = string.Format("\"productname\":{0},", FormatFieldValue(record.Fields[1]));
-            json.Append(item);
-            item = string.Format("\"month\":{0},", FormatFieldValue(record.Fields[3]));
-            json.Append(item);
-            item = string.Format("\"mrr\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"mrrAsString\":{0},", FormatAmount(record.Fields[4], reportingCurrency));
-            json.Append(item);
-            item = string.Format("\"mrrprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"mrrchange\":{0}", FormatFieldValue(record.Fields[6], invariantCulture));
-            json.Append(item);
-          }
-          else if (operation.Equals("AnalyticsSingleProductOverTime"))
-          {
-            item = string.Format("\"ordernum\":{0},", FormatFieldValue(record.Fields[0]));
-            json.Append(item);
-            item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
-            json.Append(item);
-            item = string.Format("\"productname\":{0},", FormatFieldValue(record.Fields[1]));
-            json.Append(item);
-            item = string.Format("\"month\":{0},", FormatFieldValue(record.Fields[3]));
-            json.Append(item);
-            item = string.Format("\"revenue\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"revenueAsString\":{0},", FormatAmount(record.Fields[4], reportingCurrency));
-            json.Append(item);
-            item = string.Format("\"revenueprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"revenuechange\":{0}", FormatFieldValue(record.Fields[6], invariantCulture));
-            json.Append(item);
-          }
-        }
-        json.Append("}");
+        json.Append(",");
       }
 
-      json.Append("]");
+      json.Append("{");
 
+      if (record.Fields.Count > 0)
+      {
+        if (operation.Equals("AnalyticsTopMRR") || operation.Equals("AnalyticsTopMRRGain") ||
+            operation.Equals("AnalyticsTopMRRLoss"))
+        {
+          item = string.Format("\"ordernum\":{0},", FormatFieldValue(record.Fields[0]));
+          json.Append(item);
+          item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
+          json.Append(item);
+          item = string.Format("\"productname\":{0},", FormatFieldValue(record.Fields[1]));
+          json.Append(item);
+          item = string.Format("\"month\":{0},", FormatFieldValue(record.Fields[3]));
+          json.Append(item);
+          item = string.Format("\"mrr\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"mrrAsString\":{0},", FormatAmount(record.Fields[4], reportingCurrency));
+          json.Append(item);
+          item = string.Format("\"mrrprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"mrrchange\":{0}", FormatFieldValue(record.Fields[6], invariantCulture));
+          json.Append(item);
+        }
+        else if (operation.Equals("AnalyticsSingleProductOverTime"))
+        {
+          item = string.Format("\"ordernum\":{0},", FormatFieldValue(record.Fields[0]));
+          json.Append(item);
+          item = string.Format("\"productcode\":{0},", FormatFieldValue(record.Fields[2]));
+          json.Append(item);
+          item = string.Format("\"productname\":{0},", FormatFieldValue(record.Fields[1]));
+          json.Append(item);
+          item = string.Format("\"month\":{0},", FormatFieldValue(record.Fields[3]));
+          json.Append(item);
+          item = string.Format("\"revenue\":{0},", FormatFieldValue(record.Fields[4], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"revenueAsString\":{0},", FormatAmount(record.Fields[4], reportingCurrency));
+          json.Append(item);
+          item = string.Format("\"revenueprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"revenuechange\":{0}", FormatFieldValue(record.Fields[6], invariantCulture));
+          json.Append(item);
+        }
+      }
       json.Append("}");
-
-      return json.ToString();
     }
-    private string FormatFieldValue(SQLField field, CultureInfo formatCulture = null)
+
+    json.Append("]");
+
+    json.Append("}");
+
+    return json.ToString();
+  }
+  private string FormatFieldValue(SQLField field, CultureInfo formatCulture = null)
+  {
+    if (field.FieldValue == null) return "null";
+    string fieldValue;
+    fieldValue = (formatCulture == null) ? field.FieldValue.ToString() : Convert.ToString(field.FieldValue, formatCulture); // field.ToString();
+
+    // CORE-5487 HtmlEncode the field so XSS tags don't show up in UI.
+    //StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(value));
+    // CORE-5938: Audit log: incorrect character encoding in Details row 
+    var sb = new StringBuilder((fieldValue ?? string.Empty).EncodeForHtml());
+    sb = sb.Replace("\"", "\\\"");
+    //CORE-5320: strip all the new line characters. They are not allowed in jason
+    // Oracle can return them and breeak our ExtJs grid with an ugly "Session Time Out" catch all error message
+    // TODO: need to find other places where JSON is generated and strip new line characters.
+    sb = sb.Replace("\n", "<br />");
+    sb = sb.Replace("\r", "");
+
+    return ((typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType ||
+             typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType))
+             ? string.Format("\"{0}\"", sb)
+             : string.Format("{0}", sb);
+
+  }
+
+  private string FormatAmount(SQLField field, string currency)
+  {
+    return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency));
+  }
+
+  private string GetReportingCurrency()
+  {
+    string reportingCurrency;
+    MTXmlDocument doc = new MTXmlDocument();
+    IMTRcd rcd = new MTRcd();
+    try
     {
-      if (field.FieldValue == null) return "null";
-      string fieldValue;
-      fieldValue = (formatCulture == null) ? field.FieldValue.ToString() : Convert.ToString(field.FieldValue, formatCulture); // field.ToString();
-
-      // CORE-5487 HtmlEncode the field so XSS tags don't show up in UI.
-      //StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(value));
-      // CORE-5938: Audit log: incorrect character encoding in Details row 
-      var sb = new StringBuilder((fieldValue ?? string.Empty).EncodeForHtml());
-      sb = sb.Replace("\"", "\\\"");
-      //CORE-5320: strip all the new line characters. They are not allowed in jason
-      // Oracle can return them and breeak our ExtJs grid with an ugly "Session Time Out" catch all error message
-      // TODO: need to find other places where JSON is generated and strip new line characters.
-      sb = sb.Replace("\n", "<br />");
-      sb = sb.Replace("\r", "");
-
-      return ((typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType ||
-               typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType))
-               ? string.Format("\"{0}\"", sb)
-               : string.Format("{0}", sb);
-
+      string configFile = Path.Combine(rcd.ExtensionDir, @"SystemConfig\config\UsageServer\GenerateAnalyticsDatamart.xml");
+      doc.Load(configFile);
+      reportingCurrency = doc.GetNodeValueAsString("/xmlconfig/PrimaryCurrency", "USD");
     }
-
-    private string FormatAmount(SQLField field, string currency)
+    catch (Exception e)
     {
-      return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency));
+      Logger.LogWarning("Couldnot load GenerateAnalyticsDatamart config file. Using USD as the default reporting currency. Details: {0} " + e.InnerException);
+      reportingCurrency = "USD";
     }
-
-    private string GetReportingCurrency()
-    {
-      string reportingCurrency;
-      MTXmlDocument doc = new MTXmlDocument();
-      IMTRcd rcd = new MTRcd();
-      try
-      {
-        string configFile = Path.Combine(rcd.ExtensionDir, @"SystemConfig\config\UsageServer\GenerateAnalyticsDatamart.xml");
-        doc.Load(configFile);
-        reportingCurrency = doc.GetNodeValueAsString("/xmlconfig/PrimaryCurrency", "USD");
-      }
-      catch (Exception e)
-      {
-        Logger.LogWarning("Couldnot load GenerateAnalyticsDatamart config file. Using USD as the default reporting currency. Details: {0} " + e.InnerException);
-        reportingCurrency = "USD";
-      }
-      return reportingCurrency;
-    }
+    return reportingCurrency;
+  }
 
 }

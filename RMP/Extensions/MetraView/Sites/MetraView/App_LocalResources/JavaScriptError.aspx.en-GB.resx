@@ -117,37 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AvailablePlans.Text" xml:space="preserve">
-    <value>Available Product Offerings</value>
+  <data name="ERROR_TEXT" xml:space="preserve">
+    <value>JavaScript is not enabled!</value>
   </data>
-  <data name="BillAndPayments.Text" xml:space="preserve">
-    <value>Payment Information</value>
-  </data>
-  <data name="btnAddResource1.Text" xml:space="preserve">
-    <value>Add Subscription</value>
-  </data>
-  <data name="CurrentPlan.Text" xml:space="preserve">
-    <value>Current Plan</value>
-  </data>
-  <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>&lt;br /&gt;No Records Found.</value>
-  </data>
-  <data name="HttpUrl" xml:space="preserve">
-    <value>http://</value>
-  </data>
-  <data name="LastPayment.Text" xml:space="preserve">
-    <value>Last Payment</value>
-  </data>
-  <data name="PaymentDue.Text" xml:space="preserve">
-    <value>Payment Due:</value>
-  </data>
-  <data name="PayNow.Text" xml:space="preserve">
-    <value>Make a Payment</value>
-  </data>
-  <data name="Subscriptions.Text" xml:space="preserve">
-    <value>My Subscriptions</value>
-  </data>
-  <data name="TotalAmountDue.Text" xml:space="preserve">
-    <value>Total Amount Due:</value>
+  <data name="HOWTO_TEXT" xml:space="preserve">
+    <value>How to enable JavaScript in your browser</value>
   </data>
 </root>

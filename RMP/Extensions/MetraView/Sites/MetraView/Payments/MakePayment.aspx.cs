@@ -1,31 +1,22 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Script.Serialization;
 using MetraTech.UI.Common;
-using System.ServiceModel;
 using System.Text.RegularExpressions;
 using RCD = MetraTech.Interop.RCD;
-using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.MetraPay;
 using MetraTech.DomainModel.Billing;
 using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.ActivityServices.Common;
-using MetraTech.Debug.Diagnostics;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.Xml;
 using MetraTech;
 
-
 public partial class Payments_MakePayment : MTPage
 {
-  private static string m_gatewayName = null;
+  private static string _mGatewayName;
 
-  public InvoiceReport invoiceReport
+  public InvoiceReport InvoiceReport
   {
     get { return ViewState["InvoiceReport"] as InvoiceReport; }
     set { ViewState["InvoiceReport"] = value; }
@@ -34,121 +25,224 @@ public partial class Payments_MakePayment : MTPage
   protected void Page_Load(object sender, EventArgs e)
   {
     SelectGateway();
-    if (!IsPostBack)
+    if (IsPostBack) return;
+    PopulateTotalAmount();
+    PopulatePaymentMethodDropDown();
+    rcTotalAmountDue.Checked = true;
+
+    dpSchedulePaymentDate.MinValue = MetraTime.Now.AddDays(1).ToUserDateString(UI);
+    rcPayNow.Checked = true;
+    if (ddPaymentMethod.Items.Count > 0)
     {
-      var billManager = new BillManager(UI);
-      PaymentInfo paymentInformation = billManager.PaymentInformation;
-
-      PopulateTotalAmount();
-      PopulatePaymentMethodDropDown();
-      rcTotalAmountDue.Checked = true;
-
-      dpSchedulePaymentDate.MinValue = MetraTime.Now.AddDays(1).ToUserDateString(UI);
-      rcPayNow.Checked = true;
-      if (ddPaymentMethod.Items.Count > 0)
-      {
-        rcExistingPaymentMethod.Checked = true;
-      }
-      else
-      {
-        rcAddCreditCard.Checked = true;
-        // if there is no existing payment method - disable the controls to avoid confusion
-        rcExistingPaymentMethod.Enabled = false;
-        ddPaymentMethod.Enabled = false;
-      }
+      rcExistingPaymentMethod.Checked = true;
+    }
+    else
+    {
+      rcAddCreditCard.Checked = true;
+      // if there is no existing payment method - disable the controls to avoid confusion
+      rcExistingPaymentMethod.Enabled = false;
+      ddPaymentMethod.Enabled = false;
     }
   }
 
   [Serializable]
   private struct ShortPaymentMethodInfo
   {
-    public MetraPayManager.PaymentMethodType MethodType;// credit card or ACH
-    public string Type;// account type (checking/saving) or credit card type (visa/MasterCard)
-    public string Number;//account number of credit card number
+    public MetraPayManager.PaymentMethodType MethodType; // credit card or ACH
+    public string Type; // account type (checking/saving) or credit card type (visa/MasterCard)
+    public string Number; //account number of credit card number
   }
+
+  protected void btnCancel_Click(object sender, EventArgs e)
+  {
+    Response.Redirect(Request.ApplicationPath + "/Bill.aspx");
+  }
+
+  protected void btnNext_Click(object sender, EventArgs e)
+  {
+    try
+    {
+      var paymentData = new MetraPayManager.MakePaymentData();
+      var billManager = new BillManager(UI);
+      var paymentInformation = billManager.PaymentInformation;
+
+      paymentData.Amount = 0;
+      if (rcTotalAmountDue.Checked)
+      {
+        if (paymentInformation != null)
+        {
+          paymentData.Amount = paymentInformation.AmountDue;
+        }
+
+        if (paymentData.Amount <= 0)
+        {
+          throw new Exception((string) GetLocalResourceObject("TEXT_NO_PAYMENT_IS_DUE"));
+        }
+      }
+      else
+      {
+        var amt = tbOtherAmount.Text;
+        if (string.IsNullOrEmpty(amt))
+        {
+          throw new Exception((string) GetLocalResourceObject("TEXT_PAYMENT_AMOUNT_MUST_BE_POSITIVE"));
+        }
+
+        paymentData.Amount = Decimal.Parse(amt);
+
+        if (paymentData.Amount <= 0)
+        {
+          throw new Exception((string) GetLocalResourceObject("TEXT_PAYMENT_AMOUNT_MUST_BE_POSITIVE"));
+        }
+      }
+
+      paymentData.PaymentInstrumentId = null;
+      if (rcExistingPaymentMethod.Checked)
+      {
+        if (ddPaymentMethod.SelectedValue == null)
+        {
+          throw new Exception((string) GetLocalResourceObject("TEXT_SELECT_PAYMENT_METHOD"));
+        }
+        paymentData.PaymentInstrumentId = ddPaymentMethod.SelectedValue;
+        // Restore Method, Number and Type assosicated with paymentMethod info.
+        // it was gingerly saved when populating ddPaymentMethod drop down with items
+        var shortPaymentMethodInfoList = (Dictionary<string, ShortPaymentMethodInfo>) ViewState["ShortPaymentInfoList"];
+        var i = shortPaymentMethodInfoList[ddPaymentMethod.SelectedValue];
+        paymentData.MethodType = i.MethodType;
+        switch (i.MethodType)
+        {
+          case MetraPayManager.PaymentMethodType.CreditCard:
+            paymentData.Method = (string) GetLocalResourceObject("CreditDebitCard");
+            break;
+          case MetraPayManager.PaymentMethodType.ACH:
+            paymentData.Method = (string) GetLocalResourceObject("CheckingSavingsAccount");
+            break;
+          case MetraPayManager.PaymentMethodType.Unknown:
+            paymentData.Method = (string) GetLocalResourceObject("UnknownText");
+            break;
+        }
+        paymentData.Number = i.Number;
+        paymentData.Type = i.Type;
+      }
+      paymentData.PayNow = rcPayNow.Checked;
+      if (!paymentData.PayNow)
+      {
+        if (!DateTime.TryParse(dpSchedulePaymentDate.Text, out paymentData.SchedulePaymentDate))
+        {
+          throw new Exception((string) GetLocalResourceObject("TEXT_INVALID_SCHEDULED_DATE"));
+        }
+        paymentData.SchedulePaymentDate = paymentData.SchedulePaymentDate.FromUserDateToUtc(UI);
+        if (paymentData.SchedulePaymentDate.Date <= MetraTime.Now.Date)
+        {
+          throw new Exception((string) GetLocalResourceObject("TEXT_INVALID_SCHEDULED_DATE"));
+        }
+      }
+      else
+      {
+        paymentData.SchedulePaymentDate = MetraTime.Now;
+      }
+
+      paymentData.Currency = paymentInformation != null ? paymentInformation.Currency : ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Currency;
+      //TODO: Need to use InvoiceDate, but it is not working without invoice
+      //paymentData.InvoiceDate = invoiceReport.InvoiceHeader.IntervalEndDate;
+      //paymentData.InvoiceDate = invoiceReport.InvoiceHeader.InvoiceDate;
+      paymentData.InvoiceDate = MetraTime.Now;
+      if (rcAddCreditCard.Checked)
+      {
+        paymentData.Method = (string) GetLocalResourceObject("CreditDebitCard");
+        paymentData.MethodType = MetraPayManager.PaymentMethodType.CreditCard;
+        Session["MakePaymentData"] = paymentData;
+
+        Response.Redirect(_mGatewayName + "CreditCardAdd.aspx?pay=true", false);
+      }
+      else if (rcAddACHAccount.Checked)
+      {
+        paymentData.Method = (string) GetLocalResourceObject("CheckingSavingsAccount");
+        paymentData.MethodType = MetraPayManager.PaymentMethodType.ACH;
+        Session["MakePaymentData"] = paymentData;
+        Response.Redirect("ACHAdd.aspx?pay=true", false);
+      }
+      else if (rcExistingPaymentMethod.Checked)
+      {
+        Session["MakePaymentData"] = paymentData;
+        Response.Redirect("ReviewPayment.aspx", false);
+      }
+
+    }
+    catch (Exception ex)
+    {
+      SetError(string.Format("{0}: {1}", GetGlobalResourceObject("ErrorMessages", "ERROR"), ex.Message));
+      Logger.LogError(ex.Message);
+    }
+  }
+
+  #region Private methods
 
   private void PopulatePaymentMethodDropDown()
   {
     var billManager = new MetraPayManager(UI);
-    MTList<MetraPaymentMethod> paymentMethods = billManager.GetPaymentMethodSummaries();
-    Dictionary<string, ShortPaymentMethodInfo> shortPaymentMethodInfoList = new Dictionary<string, ShortPaymentMethodInfo>();
-    int priority = int.MaxValue;
-    string PriorityPaymentInstrumentId = null;
-    foreach (MetraPaymentMethod pm in paymentMethods.Items)
+    var paymentMethods = billManager.GetPaymentMethodSummaries();
+    var shortPaymentMethodInfoList = new Dictionary<string, ShortPaymentMethodInfo>();
+    var priority = int.MaxValue;
+    string priorityPaymentInstrumentId = null;
+    foreach (var pm in paymentMethods.Items)
     {
       string info = null;
       if (pm is CreditCardPaymentMethod)
       {
-        CreditCardPaymentMethod ccpm = pm as CreditCardPaymentMethod;
+        var ccpm = pm as CreditCardPaymentMethod;
         // remove *** from the account number
-        string lastFourDigits = Regex.Replace(ccpm.AccountNumber, @"\**", "");
-        string format = (string)GetLocalResourceObject("MSGFormat.CreditCard");
-        info = string.Format(//"{0} card ending in {1}",
-          format,
-          ccpm.CreditCardTypeValueDisplayName,
-          lastFourDigits);
-        ShortPaymentMethodInfo shortPaymentMethodInfo = new ShortPaymentMethodInfo();
-        //shortPaymentMethodInfo.Method = (string)GetLocalResourceObject("CreditDebitCard");
-        shortPaymentMethodInfo.MethodType = MetraPayManager.PaymentMethodType.CreditCard;
-        shortPaymentMethodInfo.Type = ccpm.CreditCardTypeValueDisplayName;
-        shortPaymentMethodInfo.Number = ccpm.AccountNumber;
+        var lastFourDigits = Regex.Replace(ccpm.AccountNumber, @"\**", "");
+        var format = (string)GetLocalResourceObject("MSGFormat.CreditCard");
+        if (format != null) info = string.Format(format, ccpm.CreditCardTypeValueDisplayName, lastFourDigits);
+        var shortPaymentMethodInfo = new ShortPaymentMethodInfo
+        {
+          MethodType = MetraPayManager.PaymentMethodType.CreditCard,
+          Type = ccpm.CreditCardTypeValueDisplayName,
+          Number = ccpm.AccountNumber
+        };
         shortPaymentMethodInfoList.Add(pm.PaymentInstrumentIDString, shortPaymentMethodInfo);
       }
       else if (pm is ACHPaymentMethod)
       {
-        ACHPaymentMethod achpm = pm as ACHPaymentMethod;
+        var achpm = pm as ACHPaymentMethod;
         // remove *** from the account number
-        string lastFourDigits = Regex.Replace(achpm.AccountNumber, @"\**", "");
-        string format = (string)GetLocalResourceObject("MSGFormat.ACH");
-        info = string.Format(//"{0} account in {1}",
-          format,
-          ExtensionMethods.GetLocalizedBankAccountType(achpm.AccountType.ToString()),
-          lastFourDigits);
-        ShortPaymentMethodInfo shortPaymentMethodInfo = new ShortPaymentMethodInfo();
-        //shortPaymentMethodInfo.Method = (string)GetLocalResourceObject("CheckingSavingsAccount");
-        shortPaymentMethodInfo.MethodType = MetraPayManager.PaymentMethodType.ACH;
-        shortPaymentMethodInfo.Type = achpm.AccountType.ToString();
-        shortPaymentMethodInfo.Number = achpm.AccountNumber;
+        var lastFourDigits = Regex.Replace(achpm.AccountNumber, @"\**", "");
+        var format = (string)GetLocalResourceObject("MSGFormat.ACH");
+        if (format != null) info = string.Format(format, ExtensionMethods.GetLocalizedBankAccountType(achpm.AccountType.ToString()), lastFourDigits);
+        var shortPaymentMethodInfo = new ShortPaymentMethodInfo
+        {
+          MethodType = MetraPayManager.PaymentMethodType.ACH,
+          Type = achpm.AccountType.ToString(),
+          Number = achpm.AccountNumber
+        };
         shortPaymentMethodInfoList.Add(pm.PaymentInstrumentIDString, shortPaymentMethodInfo);
       }
-      if (info != null)
-      {
-        ddPaymentMethod.Items.Add(new ListItem(info, pm.PaymentInstrumentIDString));
-        // save the payment instrument id with lowest priority, select it by default
-        if (pm.Priority.HasValue)
-        {
-          if (pm.Priority.Value < priority)
-          {
-            priority = pm.Priority.Value;
-            PriorityPaymentInstrumentId = pm.PaymentInstrumentIDString;
-          }
-        }
-      }      
+      if (info == null) continue;
+      ddPaymentMethod.Items.Add(new ListItem(info, pm.PaymentInstrumentIDString));
+      // save the payment instrument id with lowest priority, select it by default
+      if (!pm.Priority.HasValue || pm.Priority.Value >= priority) continue;
+      priority = pm.Priority.Value;
+      priorityPaymentInstrumentId = pm.PaymentInstrumentIDString;
     }
     // Save ShortPaymentInfoList so that this information can be passed to confirmation page
     ViewState["ShortPaymentInfoList"] = shortPaymentMethodInfoList;
     // select the item with the highest priority in the drop down.
-    if (PriorityPaymentInstrumentId != null)
+    if (priorityPaymentInstrumentId != null)
     {
-      ListItem li = ddPaymentMethod.Items.FindByValue(PriorityPaymentInstrumentId);
+      var li = ddPaymentMethod.Items.FindByValue(priorityPaymentInstrumentId);
       if (li != null) li.Selected = true;
     }
 
-
-    if (paymentMethods.Items.Count == 0)
-    {
-      divExistingMethods.Visible = false;
-    }
-    else { divExistingMethods.Visible = true; }
+    divExistingMethods.Visible = paymentMethods.Items.Count != 0;
   }
 
   private void PopulateTotalAmount()
   {
     var billManager = new BillManager(UI);
-    PaymentInfo paymentInformation = billManager.PaymentInformation;
+    var paymentInformation = billManager.PaymentInformation;
 
-    decimal amountDueDecimal = paymentInformation.AmountDue;
-    string amountDueString = string.Empty;
+    var amountDueDecimal = paymentInformation.AmountDue;
+    var amountDueString = string.Empty;
 
     if (amountDueDecimal <= 0)
     {
@@ -165,212 +259,65 @@ public partial class Payments_MakePayment : MTPage
 
     rcTotalAmountDue.BoxLabel = amountDueString;
 
-    string format = (string)GetLocalResourceObject("rcTotalAmountDue.BoxLabel");
-    if (paymentInformation != null)
+    var format = (string)GetLocalResourceObject("rcTotalAmountDue.BoxLabel");
+    if (paymentInformation != null && format != null)
     {
-      if (paymentInformation.AmountDue > 0)
-      {
-        rcTotalAmountDue.BoxLabel = string.Format(format,  paymentInformation.AmountDueAsString);
-      }
-      else
-      {
-        rcTotalAmountDue.BoxLabel = string.Format(format, 0M.ToDisplayAmount(UI));
-      }
+      rcTotalAmountDue.BoxLabel = string.Format(format, paymentInformation.AmountDue > 0 ? paymentInformation.AmountDueAsString : 0M.ToDisplayAmount(UI));
     }
 
     // CORE-5494 Use appropriate currency symbol after "Pay this Amount".
-    InternalView iv = (InternalView)(UI.Subscriber.SelectedAccount.GetInternalView());
-    LanguageCode langcode = iv.Language ?? LanguageCode.US;
-    string curr = iv.Currency;
-    string zeroAmtWithCurrencySymbol = billManager.GetLocaleTranslator(langcode).GetCurrency(0, curr);
+    var iv = (InternalView)(UI.Subscriber.SelectedAccount.GetInternalView());
+    var langcode = iv.Language ?? LanguageCode.US;
+    var curr = iv.Currency;
+    var zeroAmtWithCurrencySymbol = billManager.GetLocaleTranslator(langcode).GetCurrency(0, curr);
 
     // Find the currency symbol itself.
     if (zeroAmtWithCurrencySymbol[0] != '0')
     {
       // Currency symbol is at beginning of string.
-      int indexFirstZero = zeroAmtWithCurrencySymbol.IndexOf('0');
-      string currencySymbol = zeroAmtWithCurrencySymbol.Substring(0, indexFirstZero);
-      rcOtherAmount.BoxLabel = string.Format("{0}, {1}", (string)GetLocalResourceObject("rcOtherAmount.BoxLabel"), currencySymbol);
+      var indexFirstZero = zeroAmtWithCurrencySymbol.IndexOf('0');
+      var currencySymbol = zeroAmtWithCurrencySymbol.Substring(0, indexFirstZero);
+      rcOtherAmount.BoxLabel = string.Format("{0}, {1}", GetLocalResourceObject("rcOtherAmount.BoxLabel"),
+                                             currencySymbol);
       lbTrailingCurrencySymbol.Text = String.Empty;
     }
     else
     {
       // Currency symbol is at end of string.
-      int indexLastZero = zeroAmtWithCurrencySymbol.LastIndexOf('0');
-      string currencySymbol = zeroAmtWithCurrencySymbol.Substring(indexLastZero + 1);
-      rcOtherAmount.BoxLabel = string.Format("{0}", (string)GetLocalResourceObject("rcOtherAmount.BoxLabel"));
+      var indexLastZero = zeroAmtWithCurrencySymbol.LastIndexOf('0');
+      var currencySymbol = zeroAmtWithCurrencySymbol.Substring(indexLastZero + 1);
+      rcOtherAmount.BoxLabel = string.Format("{0}", GetLocalResourceObject("rcOtherAmount.BoxLabel"));
       lbTrailingCurrencySymbol.Text = currencySymbol;
     }
   }
 
-  protected override void OnPreRender(EventArgs e)
+  /// <summary>
+  /// This is a placeholder for a real gateway selection algorithm if we ever get into a situation
+  /// where we need to choose gateways based on some sort of criteria.
+  /// </summary>
+  /// <returns></returns>
+// ReSharper disable UnusedMethodReturnValue.Local
+  private static string SelectGateway()
+// ReSharper restore UnusedMethodReturnValue.Local
   {
-    base.OnPreRender(e);
-
-    //string format = (string)GetLocalResourceObject("rcTotalAmountDue.BoxLabel");
-    //rcTotalAmountDue.BoxLabel = string.Format(format, invoiceReport.PreviousBalances.CurrentBalanceAsString);
-  }
-
-  protected void btnCancel_Click(object sender, EventArgs e)
-  {
-    Response.Redirect(Request.ApplicationPath + "/Bill.aspx");
-  }
-
-  protected void btnNext_Click(object sender, EventArgs e)
-  {
-    try
-    {
-      //Response.Redirect("/MetraView/");
-      MetraPayManager.MakePaymentData paymentData = new MetraPayManager.MakePaymentData();
-      var billManager = new BillManager(UI);
-      PaymentInfo paymentInformation = billManager.PaymentInformation;
-
-      paymentData.Amount = 0;
-      if (rcTotalAmountDue.Checked)
-      {
-        if (paymentInformation != null)
-        {
-          paymentData.Amount = paymentInformation.AmountDue;
-        }
-
-        if (paymentData.Amount <= 0)
-        {
-          throw new Exception((string)GetLocalResourceObject("TEXT_NO_PAYMENT_IS_DUE"));
-        }
-      }
-      else
-      {
-        string amt = tbOtherAmount.Text;
-        if (string.IsNullOrEmpty(amt))
-        {
-          throw new Exception((string)GetLocalResourceObject("TEXT_PAYMENT_AMOUNT_MUST_BE_POSITIVE"));
-        }
-
-        paymentData.Amount = Decimal.Parse(amt);
-
-        if (paymentData.Amount <= 0)
-        {
-          throw new Exception((string)GetLocalResourceObject("TEXT_PAYMENT_AMOUNT_MUST_BE_POSITIVE"));
-        }
-      }
-
-      paymentData.PaymentInstrumentId = null;
-      if (rcExistingPaymentMethod.Checked)
-      {
-        if (ddPaymentMethod.SelectedValue == null)
-        {
-          throw new Exception((string)GetLocalResourceObject("TEXT_SELECT_PAYMENT_METHOD"));
-        }
-        paymentData.PaymentInstrumentId = ddPaymentMethod.SelectedValue;
-        // Restore Method, Number and Type assosicated with paymentMethod info.
-        // it was gingerly saved when populating ddPaymentMethod drop down with items
-        Dictionary<string, ShortPaymentMethodInfo> shortPaymentMethodInfoList =
-          (Dictionary<string, ShortPaymentMethodInfo>)ViewState["ShortPaymentInfoList"];
-        ShortPaymentMethodInfo i = shortPaymentMethodInfoList[ddPaymentMethod.SelectedValue];
-        paymentData.MethodType = i.MethodType;
-        switch (i.MethodType)
-        {
-          case MetraPayManager.PaymentMethodType.CreditCard:
-            paymentData.Method = (string)GetLocalResourceObject("CreditDebitCard");
-            break;
-          case MetraPayManager.PaymentMethodType.ACH:
-            paymentData.Method = (string)GetLocalResourceObject("CheckingSavingsAccount");
-            break;
-          case MetraPayManager.PaymentMethodType.Unknown:
-            paymentData.Method = (string)GetLocalResourceObject("UnknownText");
-            break;
-          default:
-            break;
-        }
-        paymentData.Number = i.Number;
-        paymentData.Type = i.Type;
-      }
-      paymentData.PayNow = rcPayNow.Checked;
-      if (!paymentData.PayNow)
-      {
-        //string scheduledData = dpSchedulePaymentDate.Text;
-        //paymentData.SchedulePaymentDate = Convert.ToDateTime(scheduledData);
-        //paymentData.SchedulePaymentDate = DateTime.Parse(dpSchedulePaymentDate.Text);
-        if (!DateTime.TryParse(dpSchedulePaymentDate.Text, out paymentData.SchedulePaymentDate))
-        {
-          throw new Exception((string)GetLocalResourceObject("TEXT_INVALID_SCHEDULED_DATE"));
-        }
-        paymentData.SchedulePaymentDate = paymentData.SchedulePaymentDate.FromUserDateToUtc(UI);
-        if (paymentData.SchedulePaymentDate.Date <= MetraTime.Now.Date)
-        {
-          throw new Exception((string)GetLocalResourceObject("TEXT_INVALID_SCHEDULED_DATE"));
-        }
-      }
-      else
-      {
-        paymentData.SchedulePaymentDate = MetraTime.Now;
-      }
-
-      if (paymentInformation != null)
-      {
-        paymentData.Currency = paymentInformation.Currency;
-      }
-      else
-      {
-        paymentData.Currency = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency;
-      }
-      //TODO: Need to use InvoiceDate, but it is not working without invoice
-      //paymentData.InvoiceDate = invoiceReport.InvoiceHeader.IntervalEndDate;
-      //paymentData.InvoiceDate = invoiceReport.InvoiceHeader.InvoiceDate;
-      paymentData.InvoiceDate = MetraTime.Now;
-      if (rcAddCreditCard.Checked)
-      {
-        paymentData.Method = (string)GetLocalResourceObject("CreditDebitCard");
-        paymentData.MethodType = MetraPayManager.PaymentMethodType.CreditCard;
-        Session["MakePaymentData"] = paymentData;
-
-        Response.Redirect(m_gatewayName + "CreditCardAdd.aspx?pay=true", false);
-      }
-      else if (rcAddACHAccount.Checked)
-      {
-        paymentData.Method = (string)GetLocalResourceObject("CheckingSavingsAccount");
-        paymentData.MethodType = MetraPayManager.PaymentMethodType.ACH;
-        Session["MakePaymentData"] = paymentData;
-        Response.Redirect("ACHAdd.aspx?pay=true", false);
-      }
-      else if (rcExistingPaymentMethod.Checked)
-      {
-        //MetraPayManager metraPayManger = new MetraPayManager(UI);
-        //PaymentConfirmationData confirmationData = metraPayManger.MakePayment(paymentData);
-        //Session["PaymentConfirmationData"] = confirmationData;
-        //Response.Redirect("PayFinal.aspx");
-        Session["MakePaymentData"] = paymentData;
-        Response.Redirect("ReviewPayment.aspx", false);
-      }
-
-    }
-    catch (Exception ex)
-    {
-      SetError(string.Format("{0}: {1}", GetGlobalResourceObject("ErrorMessages","ERROR").ToString(),ex.Message));
-      this.Logger.LogError(ex.Message);
-    }
-  }
-  //This is a placeholder for a real gateway selection algorithm if we ever get into a situation
-  //  where we need to choose gateways based on some sort of criteria.
-  private string SelectGateway()
-  {
-    if (m_gatewayName == null)
+    if (_mGatewayName == null)
     {
       try
       {
         RCD.IMTRcd rcd = new RCD.MTRcd();
-        string configFile = Path.Combine(rcd.ExtensionDir, "PaymentSvr\\config\\Gateway\\Gateway.xml");
-        MTXmlDocument doc = new MTXmlDocument();
+        var configFile = Path.Combine(rcd.ExtensionDir, "PaymentSvr\\config\\Gateway\\Gateway.xml");
+        var doc = new MTXmlDocument();
         doc.Load(configFile);
 
-        m_gatewayName = doc.GetNodeValueAsString("/configuration/name", "");
+        _mGatewayName = doc.GetNodeValueAsString("/configuration/name", "");
       }
       catch
       {
-        m_gatewayName = "";
+        _mGatewayName = "";
       }
     }
-    return m_gatewayName;
+    return _mGatewayName;
   }
-}
 
+  #endregion
+}

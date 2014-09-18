@@ -18,6 +18,7 @@ public static class SiteConstants
   public const string SelectedIntervalId = "SelectedIntervalId";
   public const string SelectedIntervalinvoice = "SelectedIntervalinvoice";
   public const string ReportParameters = "ReportParameters";
+  public const string ReportParamsLocalized = "ReportParamsLocalized";
   public const string InvoiceReport = "InvoiceReport";
   public const string DefaultInvoiceReport = "DefaultInvoiceReport";
   public const string Payment = "Payment";

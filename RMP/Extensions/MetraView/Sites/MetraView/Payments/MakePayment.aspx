@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="Payments_MakePayment" CodeFile="MakePayment.aspx.cs" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="Payments_MakePayment" CodeFile="MakePayment.aspx.cs" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Src="../UserControls/PayerInfo.ascx" TagName="PayerInfo" TagPrefix="uc2" %>
 <%@ Register Src="../UserControls/BillAndPayments.ascx" TagName="BillAndPayments" TagPrefix="uc4" %>

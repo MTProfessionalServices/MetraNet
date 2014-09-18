@@ -49,9 +49,8 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Product Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
-						
-                        <MenuItem>
+                        </MenuItem>						
+                        <!--MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_FINANCE_DASHBOARD</LocalizationTag>
@@ -64,8 +63,7 @@
                             <RequiredCapabilities>
                               <Capability>View Data from Analytics Datamart</Capability>
                             </RequiredCapabilities>
-                        </MenuItem>
-						
+                        </MenuItem-->						
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

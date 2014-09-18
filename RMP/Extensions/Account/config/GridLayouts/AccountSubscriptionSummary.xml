@@ -94,7 +94,7 @@
                 <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>30</Width>
+            <Width>60</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>

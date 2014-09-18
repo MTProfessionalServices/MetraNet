@@ -850,5 +850,15 @@
     <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
-  </compositetype>  
+  </compositetype> 
+  <compositetype>
+    <name>View Data from Analytics Datamart</name>
+    <description>View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ViewAnalyticsDatamartDataCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype> 
 </mt_config>

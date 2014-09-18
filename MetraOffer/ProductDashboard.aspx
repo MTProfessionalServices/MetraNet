@@ -12,7 +12,8 @@
   <script type="text/javascript" src="/Res/JavaScript/crossfilter.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/dc.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
-  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script type="text/javascript" src="/Res/JavaScript/d3.v3.min.js"></script>
+  <script  type="text/javascript" src="/Res/JavaScript/d3.tip.js"></script>
 
   <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
@@ -70,109 +71,98 @@
       height: 100%;
     }
     
+    .d3-tip {
+        line-height: 1;
+        font-weight: normal;
+        padding: 12px;
+        background: rgba(255, 255, 204, 0.9);
+        /*color: black;*/
+        border-radius: 2px;
+        z-index: 100;
+        /*font-family: "Helvetica Neue","Arial Black", Arial, sans-serif;*/
     
-
+    }
+    /* Creates a small triangle extender for the tooltip */
+   .d3-tip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color:rgba(255, 255, 204, 0.8);
+      content:"\25BC";
+      position: absolute;
+      text-align: center;
+  }
+  /* Style northward tooltips differently */
+  .d3-tip.n:after {
+      margin: -2px 0 0 0;
+      top: 100%;
+      left: 0;
+  }
+  .d3-tip .ProductCode {
+      font-weight: bold;
+  }
   </style>
   <script type="text/javascript" >
     var demomode = false;
     var currencyFormat = d3.format("$,.0f");
 
-    function visualizeRowChart(op, divid, fnData, fnDim, fnGroup, fnTitle, colors, demodata, headingid, headingtext) {
+    function visualizeRowChart(chartConfig) {
       var data = [];
       var chartWidth = 310;
       var chartHeight = 225;
-      
-  	  d3.json("/MetraNet/MetraOffer/AjaxServices/VisualizeService.aspx?operation=" + op + "&_=" + new Date().getTime(), function (error, json) {
-	    if (error) alert(error);
-	    else {
-	      if (headingid != null) {
-	        d3.select(headingid).text(headingtext);
-	      }
 
-	      if (demomode)
-	        data = demodata;
-	      else
-	        data = json.Items;
+      d3.json("/MetraNet/MetraOffer/AjaxServices/VisualizeService.aspx?operation=" + chartConfig.operation + "&_=" + new Date().getTime(), function (error, json) {
+        if (error) alert(error);
+        else {
+          if (chartConfig.graphTitleId != null) {
+            d3.select(chartConfig.graphTitleId).text(chartConfig.graphTitleText);
+          }
+          
+          data = demomode ? chartConfig.demoData : json.Items;
+          if (data.length == 0) {
+            appendNoDataText(chartConfig.divId, chartWidth, chartHeight, "<%=NoDataText%>");
+            return;
+          }
 
+          var rowChart = dc.rowChart(chartConfig.divId, chartConfig.operation);
+          data.forEach(chartConfig.dataConversionFn);
+          var ndx = crossfilter(data),
+                dimension = ndx.dimension(chartConfig.dimensionFn),
+                group = dimension.group().reduceSum(chartConfig.groupFn);
 
-	      var rowChart = dc.rowChart(divid, op);
+          rowChart.width(chartWidth)
+            .height(chartHeight)
+            .margins({top: 5, left: 10, right: 50, bottom: 20})
+            .dimension(dimension)
+            .renderLabel(false)
+            .group(group)
+            .colors(chartConfig.color)
+            .title(null)
+            .xAxis().ticks(5);
 
-	      data.forEach(fnData);
+          dc.renderAll(chartConfig.operation);
 
-	      var ndx = crossfilter(data),
-                dimension = ndx.dimension(fnDim),
-                group = dimension.group().reduceSum(fnGroup);
+          d3.select(chartConfig.divId + " svg").selectAll(" .axis text").text(function (d) {
+            return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 1 });
+          });
 
-	      rowChart.width(chartWidth)
-	        .height(chartHeight)
-	        .margins({
-	          top: 5,
-	          left: 10,
-	          right: 50,
-	          bottom: 20
-	        })
-	        .dimension(dimension)
-	        .renderLabel(false)
+          // tooltips
+          var toolTip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([6, 0])
+                .html(function (d) {
+                  return chartConfig.toolTipFormatterFn(data[d.key - 1]);
+                });
+          var toolTipSelector = 'div' + chartConfig.divId + '.dc-chart rect';
+          d3.selectAll(toolTipSelector).call(toolTip);
+          d3.selectAll(toolTipSelector).on('mouseover', toolTip.show)
+                                       .on('mouseout', toolTip.hide);
 
-
-	      //.title(fnTitle)
-	        .group(group)
-	        .colors(colors)
-	      //.elasticX(true)
-	        .xAxis().ticks(5);
-
-	      if (fnTitle != null) {
-	        rowChart.title(function (d) {
-	          return formatTitle([], fnTitle, [data[d.key - 1]]);
-	        });
-	      }
-
-
-	      dc.renderAll(op);
-
-	      d3.select(divid + " svg").selectAll(" .axis text").text(function (d) {
-	        return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 1 });
-	      });
-	      
-	      var defs = rowChart.svg().append("defs");
-	      var filter = defs.append("filter")
-              .attr("id", "drop-shadow")
-              .attr("height", "150%")
-              .attr("width", "200%");
-
-	      filter.append("feGaussianBlur")
-              .attr("in", "SourceAlpha")
-              .attr("stdDeviation", 5)
-              .attr("result", "blur");
-
-	      filter.append("feOffset")
-              .attr("in", "blur")
-              .attr("dx", 5)
-              .attr("dy", 5)
-              .attr("result", "offsetBlur");
-
-	      var feMerge = filter.append("feMerge");
-
-	      feMerge.append("feMergeNode")
-              .attr("in", "offsetBlur");
-	      feMerge.append("feMergeNode")
-              .attr("in", "SourceGraphic");
-
-	      if (data.length == 0) {
-	        d3.select(divid + " svg .axis").attr("visibility", "hidden");
-	        d3.select(divid + " svg").append("text")
-	          .attr("x", chartWidth/2)
-	          .attr("y", chartHeight/2)
-	          .style("text-anchor", "middle")
-	          .style("fill", "gray")
-	          .text("<%=NoDataText%>"); 
-	      }
-	      /*rowChart.selectAll("rect")
-	      .style("filter", "url(#drop-shadow)")
-	      .attr("rx", "4px")
-	      .attr("ry", "4px");*/
-	    }
-	  });
+          appendDefs(rowChart);
+        }
+      });
     }
 
   </script>
@@ -219,10 +209,10 @@
       </li>
      
 
-      <li data-row="8" data-col="1" data-sizex="9" data-sizey="8">
+      <li data-row="8" data-col="1" data-sizex="9" data-sizey="8" id="MRRGraphs" style="visibility: hidden">
         <MT:MTPanel ID="pnlTop10MMR" runat="server" Text="Top 10 MRR" Collapsed="False" 
           Collapsible="True" EnableChrome="True" 
-          meta:resourcekey="pnlTop10MMRResource1"  >
+          meta:resourcekey="pnlTop10MMRResource1" >
           <div id="divTop10MRRTotal" style="float:left; padding-left:10px">
                 <h4 align="center" id="MRRTotalGraphTitle"> MRR Total </h4>
             </div>
@@ -235,7 +225,7 @@
         </MT:MTPanel>
       </li>
      
-      <li data-row="17" data-col="1" data-sizex="9" data-sizey="8">
+      <li data-row="17" data-col="1" data-sizex="9" data-sizey="8" id="SubscriptionGraphs" style="visibility: hidden">
         <MT:MTPanel ID="pnlTop10Subs" runat="server" Text="Top 10 Subscriptions" 
           Collapsed="False" Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlTop10SubsResource1" >
@@ -299,8 +289,10 @@
       Ext.getCmp('formPanel_<%=pnlTop10NewCustomers.ClientID%>').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
       Ext.getCmp('formPanel_<%=pnlTop10NewCustomers.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3,8); });
       --%>
-      makeTop10MRRPart();
-      makeTop10SubsPart();
+      if (<%=ShowFinancialData.ToString().ToLower()%>) {
+        makeTop10MRRPart();
+        makeTop10SubsPart();
+      } 
       <%--makeTop10RevenuePart();
       makeTop10UniqueCustomersPart();
       makeTop10NewCustomersPart();
@@ -331,46 +323,44 @@
       };
     }
 
-    function formatTitle(myArray, callback, args)
-    {
-        //execute callback
-        return callback.apply(this, args);
+    function appendNoDataText(divId, chartWidth, chartHeight, txt) {
+      var svg = d3.select(divId).append('svg').attr('width', chartWidth).attr('height', chartHeight);
+      svg.append("text")
+        .attr("x", chartWidth / 2)
+        .attr("y", chartHeight / 2)
+        .style("text-anchor", "middle")
+        .style("fill", "gray")
+        .text(txt);
     }
-     
-    function createMRRTitle(dataItem) {
-      var titleText =  dataItem.productname + String.format(" {0}: {1}", "<%=MrrText%>", dataItem.mrrAsString.replace("&pound", "£"));
-      return titleText;
-    }    
-
-    function createMRRChangeTitle(dataItem) {
-      var perMRRChange = (dataItem.mrrprevious != 0) ? ((dataItem.mrrchange/dataItem.mrrprevious)*100) : 0;
-      var localizedperMRRChange = parseFloat(Math.abs(perMRRChange.toFixed(2))).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-      var titleText = dataItem.productname + String.format(" {0}: {1}", "<%=ChangeText%>", (dataItem.mrrprevious == 0) ? "--" : localizedperMRRChange + "%");
-      return titleText;
-    }    
-
-    function createSubscriptionTitle(dataItem) {
-      var titleText =  dataItem.productname + String.format(" {0}: {1}", "<%=SubscriptionsText%>", dataItem.subscriptions);
-      return titleText;
-    }    
-
-    function createSubscriptionChangeTitle(dataItem) {
-      var perSubscriptionsChange = (dataItem.subscriptionsprevious != 0) ? ((dataItem.subscriptionschange/dataItem.subscriptionsprevious)*100) : 0;
-      var localizedperSubscriptionsChange = parseFloat(Math.abs(perSubscriptionsChange.toFixed(2))).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-      var titleText = dataItem.productname + ((dataItem.subscriptionsprevious == 0) 
-                                             ? String.format(" {0}: {1}", "<%=ChangeText%>", "--") 
-                                             : String.format(((dataItem.subscriptionschange >= 0) ? "<%=SubscriptionsGainText%>" : "<%=SubscriptionsLossText%>"), localizedperSubscriptionsChange + "%", Math.abs(dataItem.subscriptionschange)));
-      return titleText;
-    }    
     
-    <%--
-    function createTop10RevenueTitle(dataItem) {
-      var titleText = dataItem.productname + String.format(" {0}: {1}", "<%=RevenueText%>", dataItem.revenueAsString);
-      return titleText;
+    function appendDefs(rowChart) {
+      var defs = rowChart.svg().append("defs");
+      var filter = defs.append("filter")
+          .attr("id", "drop-shadow")
+          .attr("height", "150%")
+          .attr("width", "200%");
+
+      filter.append("feGaussianBlur")
+          .attr("in", "SourceAlpha")
+          .attr("stdDeviation", 5)
+          .attr("result", "blur");
+
+      filter.append("feOffset")
+          .attr("in", "blur")
+          .attr("dx", 5)
+          .attr("dy", 5)
+          .attr("result", "offsetBlur");
+
+      var feMerge = filter.append("feMerge");
+
+      feMerge.append("feMergeNode")
+          .attr("in", "offsetBlur");
+      feMerge.append("feMergeNode")
+          .attr("in", "SourceGraphic");
     }
-    --%>        
-    
     function makeTop10MRRPart() {
+      document.getElementById('MRRGraphs').style.visibility = "visible";
+      
       var data = [];
       var fnData = function(x) 
       {
@@ -388,24 +378,75 @@
       var fnGroup = function(d) {
         return d.mrr;
       };
-      visualizeRowChart("AnalyticsTopMRR", "#divTop10MRRTotal", fnData, fnDim, fnGroup, createMRRTitle, "#0070c0", data, "#MRRTotalGraphTitle", "<%=MrrTotalGraphTitle%>");
+      var fnMRRToolTipFormatter = function(d) {
+        var html = String.format("<span class=ProductCode>{1} </span><br/><span class=Information>{0}: {2}</span>", "<%=MrrTooltipText%>", d.productname, d.mrrAsString.replace("&pound", "£"));
+        return html;
+      };
+      
+      var top10MRRChartConfig = {
+        operation: "AnalyticsTopMRR",
+        divId: "#divTop10MRRTotal",
+        dataConversionFn: fnData,
+        dimensionFn: fnDim,
+        groupFn: fnGroup,
+        color: "#0070c0",
+        demoData: data,
+        graphTitleId: "#MRRTotalGraphTitle",
+        graphTitleText: "<%=MrrTotalGraphTitle%>",
+        toolTipFormatterFn: fnMRRToolTipFormatter
+      };
+      visualizeRowChart(top10MRRChartConfig);
 
       //MRR GAIN
       fnGroup = function (d) {
         return d.mrrchange;
       };
-      visualizeRowChart("AnalyticsTopMRRGain", "#divTop10MRRGain", fnData, fnDim, fnGroup, createMRRChangeTitle, "#148622", data, "#MRRGainGraphTitle", "<%=MrrGainGraphTitle%>");
+      var fnMRRGainLossToolTipFormatter = function(d) {
+        var perMRRChange = (d.mrrprevious != 0) ? ((d.mrrchange/d.mrrprevious)*100) : 0;
+        var localizedperMRRChange = parseFloat(Math.abs(Math.floor(perMRRChange))).toLocaleString(CURRENT_LOCALE);
+        var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
+        html += (d.mrrprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"))
+                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:middle;'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, perMRRChange<0 ? "down":"up");
+        return html;
+      };
+      var top10MRRGainChartConfig = {
+        operation: "AnalyticsTopMRRGain",
+        divId: "#divTop10MRRGain",
+        dataConversionFn: fnData,
+        dimensionFn: fnDim,
+        groupFn: fnGroup,
+        color: "#148622",
+        demoData: data,
+        graphTitleId: "#MRRGainGraphTitle",
+        graphTitleText: "<%=MrrGainGraphTitle%>",
+        toolTipFormatterFn: fnMRRGainLossToolTipFormatter
+      };
+      visualizeRowChart(top10MRRGainChartConfig);
       
       //MRR LOSS
       fnGroup = function (d) {
         return -(d.mrrchange);
       };
-      visualizeRowChart("AnalyticsTopMRRLoss", "#divTop10MRRLoss", fnData, fnDim, fnGroup, createMRRChangeTitle, "#C00", data,  "#MRRLossGraphTitle", "<%=MrrLossGraphTitle%>");
+      var top10MRRLossChartConfig = {
+        operation: "AnalyticsTopMRRLoss",
+        divId: "#divTop10MRRLoss",
+        dataConversionFn: fnData,
+        dimensionFn: fnDim,
+        groupFn: fnGroup,
+        color: "#C00",
+        demoData: data,
+        graphTitleId: "#MRRLossGraphTitle",
+        graphTitleText: "<%=MrrLossGraphTitle%>",
+        toolTipFormatterFn: fnMRRGainLossToolTipFormatter
+      };
+      visualizeRowChart(top10MRRLossChartConfig);
+      
     }
 
     
 
     function makeTop10SubsPart() {
+      document.getElementById('SubscriptionGraphs').style.visibility = "visible";
       var data = [];
       var fnData = function(x) {
         x.ordernum = +x.ordernum;
@@ -417,24 +458,74 @@
       
       //SUBS TOTAL
       var fnDim = function(d) {
-        return d.ordernum; // d.productname;
+        return d.ordernum; 
       };
       var fnGroup = function(d) {
         return d.subscriptions;
       };
-      visualizeRowChart("AnalyticsTopSubscriptions", "#divTop10SubsTotal", fnData, fnDim, fnGroup, createSubscriptionTitle, "#0070c0", data,  "#TopSubsGraphTitle", "<%=TopSubsGraphTitle%>");
+      var fnSubscriptionsToolTipFormatter = function(d) {
+        var localizedSubscriptions = parseFloat(d.subscriptions).toLocaleString(CURRENT_LOCALE);
+        var html = String.format("<span class=ProductCode>{1} </span><br/><span class=Information>{0}: {2}</span>", "<%=SubscriptionsTooltipText%>", d.productname, localizedSubscriptions);
+        return html;
+      };      
+      var top10SubscriptionsChartConfig = {
+        operation: "AnalyticsTopSubscriptions",
+        divId: "#divTop10SubsTotal",
+        dataConversionFn: fnData,
+        dimensionFn: fnDim,
+        groupFn: fnGroup,
+        color: "#0070c0",
+        demoData: data,
+        graphTitleId: "#TopSubsGraphTitle",
+        graphTitleText: "<%=TopSubsGraphTitle%>",
+        toolTipFormatterFn: fnSubscriptionsToolTipFormatter
+      };
+      visualizeRowChart(top10SubscriptionsChartConfig);
       
       //SUBS GAIN
       fnGroup = function (d) {
         return d.subscriptionschange;
       };
-      visualizeRowChart("AnalyticsTopSubscriptionGain", "#divTop10SubsGain", fnData, fnDim, fnGroup, createSubscriptionChangeTitle, "#148622", data, "#TopSubsGainGraphTitle", "<%=TopSubsGainGraphTitle%>");
+      var fnSubscriptionsGainLossToolTipFormatter = function(d) {
+        var localizedSubscriptions = parseFloat(d.subscriptions).toLocaleString(CURRENT_LOCALE);
+        var perSubscriptionsChange = (d.subscriptionsprevious != 0) ? ((d.subscriptionschange/d.subscriptionsprevious)*100) : 0;
+        var localizedperSubscriptionsChange = parseFloat(Math.abs(Math.floor(perSubscriptionsChange))).toLocaleString(CURRENT_LOCALE);
+        var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
+        html += (d.subscriptionsprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions)
+                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:middle;'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, perSubscriptionsChange<0 ? "down":"up");
+        return html;
+      };
+      var top10SubscriptionsGainChartConfig = {
+        operation: "AnalyticsTopSubscriptionGain",
+        divId: "#divTop10SubsGain",
+        dataConversionFn: fnData,
+        dimensionFn: fnDim,
+        groupFn: fnGroup,
+        color: "#148622",
+        demoData: data,
+        graphTitleId: "#TopSubsGainGraphTitle",
+        graphTitleText: "<%=TopSubsGainGraphTitle%>",
+        toolTipFormatterFn: fnSubscriptionsGainLossToolTipFormatter
+      };      
+      visualizeRowChart(top10SubscriptionsGainChartConfig);
       
       //SUBS LOSS
       fnGroup = function (d) {
         return -(d.subscriptionschange);
       };
-      visualizeRowChart("AnalyticsTopSubscriptionLoss", "#divTop10SubsLoss", fnData, fnDim, fnGroup, createSubscriptionChangeTitle, "#C00", data, "#TopSubsLossGraphTitle", "<%=TopSubsLossGraphTitle%>");
+      var top10SubscriptionsLossChartConfig = {
+        operation: "AnalyticsTopSubscriptionLoss",
+        divId: "#divTop10SubsLoss",
+        dataConversionFn: fnData,
+        dimensionFn: fnDim,
+        groupFn: fnGroup,
+        color: "#C00",
+        demoData: data,
+        graphTitleId: "#TopSubsLossGraphTitle",
+        graphTitleText: "<%=TopSubsLossGraphTitle%>",
+        toolTipFormatterFn: fnSubscriptionsGainLossToolTipFormatter
+      };      
+      visualizeRowChart(top10SubscriptionsLossChartConfig);
 
     }
 

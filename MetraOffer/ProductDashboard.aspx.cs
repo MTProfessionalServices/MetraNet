@@ -1,13 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MetraTech.UI.Common;
-using MetraTech.PageNav.ClientProxies;
-using MetraTech.DomainModel.BaseTypes;
 using MetraTech.UI.Controls;
-using MetraTech.OnlineBill;
-using MetraTech.ActivityServices.Common;
-using MetraTech.DataAccess;
-using System.Web.UI.WebControls;
 
 public partial class ProductDashboard : MTPage
 {
@@ -21,24 +15,25 @@ public partial class ProductDashboard : MTPage
   protected string TopSubsGainGraphTitle;
   protected string TopSubsLossGraphTitle;
   protected string NoDataText;
-  protected string MrrText;
-  protected string ChangeText;
-  protected string SubscriptionsText;
-  protected string SubscriptionsGainText;
-  protected string SubscriptionsLossText;
+  protected string MrrTooltipText;
+  protected string SubscriptionsTooltipText;
   protected string RevenueText;
 
   #endregion
 
+  protected bool ShowFinancialData { get; set; }
+
   protected void Page_Load(object sender, EventArgs e)
   {
+    //if (UI.CoarseCheckCapability("Show Financial Data")) ShowFinancialData = true;
+    ShowFinancialData = true;
+    
     if (!IsPostBack)
     {
       // TODO:  Get data to bind to and place in viewstate
 
       // TODO:  Set binding properties and template on MTGenericForm control
       SetLocalization();
-
     }
   }
 
@@ -103,11 +98,8 @@ public partial class ProductDashboard : MTPage
     TopSubsGainGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN"));
     TopSubsLossGraphTitle = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS"));
     NoDataText = Convert.ToString(GetLocalResourceObject("TEXT_NO_DATA_AVAILABLE"));
-    MrrText = Convert.ToString(GetLocalResourceObject("TEXT_MRR"));
-    ChangeText = Convert.ToString(GetLocalResourceObject("TEXT_CHANGE_TOOLTIP"));
-    SubscriptionsText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
-    SubscriptionsGainText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_GAIN_TOOLTIP"));
-    SubscriptionsLossText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_LOSS_TOOLTIP"));
+    MrrTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_MRR_TOOLTIP"));
+    SubscriptionsTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
     RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP")); 
   }
 }

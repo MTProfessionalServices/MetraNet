@@ -198,18 +198,13 @@
   <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
     <value>{FR}Change</value>
   </data>
-  <data name="TEXT_MRR" xml:space="preserve">
+  <data name="TEXT_MRR_TOOLTIP" xml:space="preserve">
     <value>{FR}MRR</value>
   </data>
   <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
     <value>{FR}Subscriptions</value>
   </data>
-  <data name="TEXT_SUBSCRIPTIONS_GAIN_TOOLTIP" xml:space="preserve">
-    <value>{FR}Increase of {0} or {1} subscriptions</value>
-  </data>
-  <data name="TEXT_SUBSCRIPTIONS_LOSS_TOOLTIP" xml:space="preserve">
-    <value>{FR}Decrease of {0} or {1} subscriptions</value>
-  </data>      
+    
   <data name="TEXT_REVENUE_TOOLTIP" xml:space="preserve">
     <value>{FR}Revenue</value>
   </data>  

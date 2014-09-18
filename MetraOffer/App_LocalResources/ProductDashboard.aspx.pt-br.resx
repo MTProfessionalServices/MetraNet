@@ -195,21 +195,12 @@
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
     <value>{PT-BR}No data found</value>
   </data>  
-  <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
-    <value>{PT-BR}Change</value>
-  </data>
-  <data name="TEXT_MRR" xml:space="preserve">
+  <data name="TEXT_MRR_TOOLTIP" xml:space="preserve">
     <value>{PT-BR}MRR</value>
   </data>
   <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
     <value>{PT-BR}Subscriptions</value>
   </data>
-  <data name="TEXT_SUBSCRIPTIONS_GAIN_TOOLTIP" xml:space="preserve">
-    <value>{PT-BR}Increase of {0} or {1} subscriptions</value>
-  </data>
-  <data name="TEXT_SUBSCRIPTIONS_LOSS_TOOLTIP" xml:space="preserve">
-    <value>{PT-BR}Decrease of {0} or {1} subscriptions</value>
-  </data>  
   <data name="TEXT_REVENUE_TOOLTIP" xml:space="preserve">
     <value>{PT-BR}Revenue</value>
   </data>  

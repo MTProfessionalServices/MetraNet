@@ -10,7 +10,7 @@
     <Width>90%</Width>
     <Expandable>false</Expandable>
     <Buttons>Custom</Buttons>
-    <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
+    <DataSourceURL>/MetraNet/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>true</MultiSelect>
     <SelectionModel>CheckBox</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>

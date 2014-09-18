@@ -6,13 +6,13 @@
         <Value><![CDATA[]]></Value>
     </Title>
     <Exportable>true</Exportable>
-	<!--
+    <!--
 	<Height>400</Height>
 	<Width>720</Width>
 	-->
-	<Height>600</Height>
-	<Width>90%</Width>
-	<Expandable>true</Expandable>
+    <Height>600</Height>
+    <Width>90%</Width>
+    <Expandable>true</Expandable>
     <Buttons>Cancel</Buttons>
     <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
     <AssemblyNameHint>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyNameHint>
@@ -27,7 +27,7 @@
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
-     <NoRecordsText>
+    <NoRecordsText>
         <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
     </NoRecordsText>
@@ -41,7 +41,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath>~/MetraNet/Reporting/js/Reports.js</CustomImplementationFilePath>
+    <CustomImplementationFilePath>~/Reporting/js/Reports.js</CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <SupportExportSelected>true</SupportExportSelected>
     <ShowFilterPanel>true</ShowFilterPanel>

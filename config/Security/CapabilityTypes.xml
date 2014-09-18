@@ -107,7 +107,7 @@
 
 <compositetype>
   <name>Manage Payment Server</name>
-  <description>Manage Payment Server: </description>
+  <description>Manage Payment Server: Controls if the user can view and work with payment server related information </description>
   <editor></editor>
   <progid>MetraTech.Auth.Capabilities.ManagePaymentServerCapability</progid>
   <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>

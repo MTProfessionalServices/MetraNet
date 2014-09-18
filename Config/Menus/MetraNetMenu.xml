@@ -50,7 +50,7 @@
                             <Description>Product Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-						<!--
+						
                         <MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
@@ -61,9 +61,11 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Finance Dashboard</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                              <Capability>View Data from Analytics Datamart</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
-						-->
+						
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

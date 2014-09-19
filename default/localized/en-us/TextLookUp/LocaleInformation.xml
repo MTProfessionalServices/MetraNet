@@ -28,20 +28,6 @@
     <value>false</value>
     <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
   </text>
-  <!--   
-  <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789.: APMapm</value>
-    <description>Chars allowed for a date</description>
-  </text>
-  <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
-    <value>d.M.yyyy</value>
-    <description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar/pupdate.js for more information.</description>
-  </text>
-  <text id="MDM_USE_24HOUR_CLOCK">
-    <value>true</value>
-    <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
-  </text>
-  -->
   <text id="END_OF_DAY">
     <value>11:59:59 PM</value>
     <description>End of day</description>

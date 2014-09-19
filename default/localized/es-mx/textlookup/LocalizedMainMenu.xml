@@ -1,187 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main Menu Options" type="collection">
+  <description>
+    The file defines the localization of the main menu options.
+  </description>
 
-<description>
-The file defines the localization of the main menu options.
-</description>
-
-    <!-- Main Menu Translation -->
-
-    <text id="TEXT_MANUAL_PAYMENT_DIALOG">
-     <value>Paiement manuel</value>
-    </text>
-    
-    <text id="TEXT_VIEW_LAST_ERROR">
-   		<value>Afficher la dernière erreur</value>
-		</text>   
-    
-    <text id="TEXT_ADD_INDEPENDENT_ACCOUNT_DIALOG">
-   		<value>Ajouter un compte indépendant</value>
-		</text>   
-        
-    <text id="TEXT_FOLDER_OWNER">
-   		<value>Administrateur du compte</value>
-		</text>   
-    
-    <text id="TEXT_PAY_FOR_ACCOUNTS">
-   		<value>Payer pour les comptes</value>
-		</text>   
-    
-    <text id="TEXT_OWNED_FOLDERS">
-   		<value>Comptes administrés</value>
-		</text>
-
-   <text id="TEXT_BILL_MANAGER">
-    <value>Affecter des responsables de facturation</value>
-   </text>
-
-  <text id="TEXT_BILL_MANAGEES">
-    <value>Factures gérées en ligne</value>
+  <!-- Main Menu Translation -->
+  <text id="TEXT_MANUAL_PAYMENT_DIALOG">
+    <value>[es-MX]Manual Payment</value>
   </text>
-  
-    <text id="TEXT_MANAGE_ROLES">
-   		<value>Gérer les rôles</value>
-		</text>   
-
-    <text id="TEXT_GROUP_SUBSCRIPTIONS_DIALOG">
-   		<value>Abonnements groupés</value>
-		</text>   
-
-    <text id="TEXT_FIND_ACCOUNT">
-		<value>Recherche</value>
-		</text>   
-		<text id="TEXT_SUMMARY_ACCOUNT_INFO_DIALOG">
-			<value>Synthèse</value>
-		</text>        
-		<text id="TEXT_MAIN_MENU_TAB_SUBSCRIBER">
-			<value>Onglet Compte</value>
-		</text>
-		<text id="TEXT_UPDATE_ACCOUNT_INFO_DIALOG">
-			<value>Infos du compte</value>
-		</text>
-		<text id="TEXT_UPDATE_CONTACT_INFO_DIALOG">
-			<value>Informations de contact</value>
-		</text>      
-		<text id="TEXT_INTERACTIVE_BILL">
-			<value>Facture interactive</value>
-		</text>      
-		<text id="TEXT_PAYMENT_METHODS">
-			<value>Méthodes de paiement</value>
-		</text>    
-		<text id="TEXT_SETUP_SUBSCRIPTIONS">
-			<value>Abonnements</value>
-		</text>     
-		<text id="TEXT_VIEW_RATES">
-			<value>Afficher les prix</value>
-		</text>        
-		<text id="TEXT_ISSUE_CREDIT_DIALOG">
-			<value>Effectuer un ajustement divers</value>
-		</text>
-		<text id="TEXT_ADD_CHARGE_DIALOG">
-			<value>Frais supplémentaires</value>
-		</text>
-		<text id="TEXT_LINK_TO_ADD_CHARGE_DIALOG">
-			<value>Lier à d'autres frais</value>
-		</text>
-		<text id="TEXT_SEND_EMAIL_DIALOG">
-			<value>Envoyer un e-mail</value>
-		</text>
-		<text id="TEXT_CREDIT_REQUESTS_BROWSER">
-			<value>Demandes de crédit</value>
-		</text>
-		<text id="TEXT_MAM_LOG_OUT">
-			<value>Fermer la session</value>
-		</text>
-		<text id="TEXT_SUMMARY">
-			<value>Synthèse</value>
-		</text> 
-	    <text id="TEXT_ADD_UPDATE_CSR">
-			<value>Ajouter/Mettre à jour CSR</value>
-		</text>         
-		<text id="TEXT_MAIN_MENU_TAB_ACTION">
-			<value>Système</value>
-		</text>
-		
-		<text id="TEXT_MAIN_MENU_TAB_FOLDER">
-			<value>Dossier</value>
-		</text>		
-        <text id="TEXT_ADD_ACCOUNT_INFO_DIALOG">
-			<value>Ajouter un compte</value>
-		</text>        
-        <text id="TEXT_EDIT_MAPPING">
-			<value>Modifier des alias</value>
-		</text>
-        <text id="TEXT_GENERATE_PASSWORD">
-			<value>Générer un mot de passe</value>
-		</text>        
-        <text id="TEXT_HOME_DIALOG">
-			<value>Accueil</value>
-		</text>                
-        <text id="TEXT_EDIT_TEMPLATE_DIALOG">
-			<value>Modifier le modèle</value>
-		</text>                		
-    <text id="TEXT_MAM_ABOUT">
-			<value>A propos de</value>
-		</text>       
-    <text id="TEXT_MENU_GENERATE_PASSWORD">
-			<value>Générer un mot de passe</value>      
-		</text>       
-    <text id="TEXT_SUBSCRIBER_LOG">
-			<value>Journal des comptes</value>
-		</text>
-    <text id="TEXT_SUBSCRIBER_LOG_ADD">
-			<value>Remarques</value>
-		</text>           
-    <text id="TEXT_APP_AUDIT_LOG">
-			<value>Journal d'audit d'app.</value>      
-		</text>       
-    <text id="TEXT_PASSWORD">
-			<value>Modifier le mot de passe</value>
-		</text>   
-    <text id="TEXT_ADMINISTRATION">
-			<value>Sécurité</value>
-		</text>   
-    <text id="TEXT_SEP_ACCOUNTS">
-			<value>Comptes</value>
-		</text>   
-    <text id="TEST_SEP_SERVICE_ENDPOINTS">
-			<value>Points limites du service</value>
-		</text>   
-    <text id="TEXT_SEP_ADJUSTMENTS">
-			<value>divers</value>
-		</text>   
-    <text id="TEXT_SEP_LOGS">
-			<value>Journaux</value>
-		</text>   
-    <text id="TEXT_SEP_ACCOUNT_INFORMATION">
-			<value>Informations du compte</value>
-		</text>  
-    <text id="TEXT_SEP_BILL">
-			<value>Facture</value>
-		</text>  
-    <text id="TEXT_SEP_PAYMENT">
-			<value>Paiement</value>
-		</text>  
-    <text id="TEXT_SEP_SUBSCRIPTIONS">
-			<value>Abonnements</value>
-		</text> 
-    <text id="TEXT_SEP_ACCOUNT_ADJUSTMENTS">
-			<value>Ajustements de comptes</value>
-		</text> 
-    <text id="TEXT_SEP_ACCOUNT_LOGS">
-			<value>Journaux de comptes</value>
-		</text> 
-    <text id="TEXT_SEP_ACCOUNT_SECURITY">
-			<value>Sécurité du compte</value>
-		</text> 
-    <text id="TEXT_SEP_TEMPLATE">
-			<value>Modèle</value>
-		</text>                 
-    <text id="TEXT_SEP_CSRS">
-			<value>CSR</value>
-		</text>                 
-    <text id="TEXT_SEP_SECURITY">
-			<value>Sécurité</value>
-		</text>                 
-    
+  <text id="TEXT_VIEW_LAST_ERROR">
+    <value>[es-MX]View Last Error</value>
+  </text>
+  <text id="TEXT_ADD_INDEPENDENT_ACCOUNT_DIALOG">
+    <value>[es-MX]Add Independent Account</value>
+  </text>
+  <text id="TEXT_FOLDER_OWNER">
+    <value>[es-MX]Account Administrator</value>
+  </text>
+  <text id="TEXT_PAY_FOR_ACCOUNTS">
+    <value>[es-MX]Pay for Accounts</value>
+  </text>
+  <text id="TEXT_OWNED_FOLDERS">
+    <value>[es-MX]Administrated Accounts</value>
+  </text>
+  <text id="TEXT_BILL_MANAGER">
+    <value>[es-MX]Assign Bill Managers</value>
+  </text>
+  <text id="TEXT_BILL_MANAGEES">
+    <value>[es-MX]Managed Online Bills</value>
+  </text>
+  <text id="TEXT_MANAGE_ROLES">
+    <value>[es-MX]Manage Roles</value>
+  </text>
+  <text id="TEXT_GROUP_SUBSCRIPTIONS_DIALOG">
+    <value>[es-MX]Group Subscriptions</value>
+  </text>
+  <text id="TEXT_FIND_ACCOUNT">
+    <value>[es-MX]Search</value>
+  </text>
+  <text id="TEXT_SUMMARY_ACCOUNT_INFO_DIALOG">
+    <value>[es-MX]Summary</value>
+  </text>
+  <text id="TEXT_MAIN_MENU_TAB_SUBSCRIBER">
+    <value>[es-MX]Account Tab</value>
+  </text>
+  <text id="TEXT_UPDATE_ACCOUNT_INFO_DIALOG">
+    <value>[es-MX]Account Info</value>
+  </text>
+  <text id="TEXT_UPDATE_CONTACT_INFO_DIALOG">
+    <value>[es-MX]Contact Info</value>
+  </text>
+  <text id="TEXT_INTERACTIVE_BILL">
+    <value>[es-MX]Interactive Bill</value>
+  </text>
+  <text id="TEXT_PAYMENT_METHODS">
+    <value>[es-MX]Payment Methods</value>
+  </text>
+  <text id="TEXT_SETUP_SUBSCRIPTIONS">
+    <value>[es-MX]Subscriptions</value>
+  </text>
+  <text id="TEXT_VIEW_RATES">
+    <value>[es-MX]View Rates</value>
+  </text>
+  <text id="TEXT_ISSUE_CREDIT_DIALOG">
+    <value>[es-MX]Issue Misc. Adjustment</value>
+  </text>
+  <text id="TEXT_ADD_CHARGE_DIALOG">
+    <value>[es-MX]Additional Charge</value>
+  </text>
+  <text id="TEXT_LINK_TO_ADD_CHARGE_DIALOG">
+    <value>[es-MX]Link to Add. Charge</value>
+  </text>
+  <text id="TEXT_SEND_EMAIL_DIALOG">
+    <value>[es-MX]Send E-Mail</value>
+  </text>
+  <text id="TEXT_CREDIT_REQUESTS_BROWSER">
+    <value>[es-MX]Credit Requests</value>
+  </text>
+  <text id="TEXT_MAM_LOG_OUT">
+    <value>[es-MX]Log Out</value>
+  </text>
+  <text id="TEXT_SUMMARY">
+    <value>[es-MX]Summary</value>
+  </text>
+  <text id="TEXT_ADD_UPDATE_CSR">
+    <value>[es-MX]Add/Update CSR</value>
+  </text>
+  <text id="TEXT_MAIN_MENU_TAB_ACTION">
+    <value>[es-MX]System</value>
+  </text>
+  <text id="TEXT_MAIN_MENU_TAB_FOLDER">
+    <value>[es-MX]Folder</value>
+  </text>
+  <text id="TEXT_ADD_ACCOUNT_INFO_DIALOG">
+    <value>[es-MX]Add Account</value>
+  </text>
+  <text id="TEXT_EDIT_MAPPING">
+    <value>[es-MX]Edit Aliases</value>
+  </text>
+  <text id="TEXT_GENERATE_PASSWORD">
+    <value>[es-MX]Generate Password</value>
+  </text>
+  <text id="TEXT_HOME_DIALOG">
+    <value>[es-MX]Home</value>
+  </text>
+  <text id="TEXT_EDIT_TEMPLATE_DIALOG">
+    <value>[es-MX]Edit Template</value>
+  </text>
+  <text id="TEXT_MAM_ABOUT">
+    <value>[es-MX]About</value>
+  </text>
+  <text id="TEXT_MENU_GENERATE_PASSWORD">
+    <value>[es-MX]Generate Password</value>
+  </text>
+  <text id="TEXT_SUBSCRIBER_LOG">
+    <value>[es-MX]Account Log</value>
+  </text>
+  <text id="TEXT_SUBSCRIBER_LOG_ADD">
+    <value>[es-MX]Notes</value>
+  </text>
+  <text id="TEXT_APP_AUDIT_LOG">
+    <value>[es-MX]App. Audit Log</value>
+  </text>
+  <text id="TEXT_PASSWORD">
+    <value>[es-MX]Change Password</value>
+  </text>
+  <text id="TEXT_ADMINISTRATION">
+    <value>[es-MX]Security</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNTS">
+    <value>[es-MX]Accounts</value>
+  </text>
+  <text id="TEST_SEP_SERVICE_ENDPOINTS">
+    <value>[es-MX]Service Endpoints</value>
+  </text>
+  <text id="TEXT_SEP_ADJUSTMENTS">
+    <value>[es-MX]Adjustments</value>
+  </text>
+  <text id="TEXT_SEP_LOGS">
+    <value>[es-MX]Logs</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_INFORMATION">
+    <value>[es-MX]Account Information</value>
+  </text>
+  <text id="TEXT_SEP_BILL">
+    <value>[es-MX]Bill</value>
+  </text>
+  <text id="TEXT_SEP_PAYMENT">
+    <value>[es-MX]Payment</value>
+  </text>
+  <text id="TEXT_SEP_SUBSCRIPTIONS">
+    <value>[es-MX]Subscriptions</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_ADJUSTMENTS">
+    <value>[es-MX]Account Adjustments</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_LOGS">
+    <value>[es-MX]Account Logs</value>
+  </text>
+  <text id="TEXT_SEP_ACCOUNT_SECURITY">
+    <value>[es-MX]Account Security</value>
+  </text>
+  <text id="TEXT_SEP_TEMPLATE">
+    <value>[es-MX]Template</value>
+  </text>
+  <text id="TEXT_SEP_CSRS">
+    <value>[es-MX]CSRs</value>
+  </text>
+  <text id="TEXT_SEP_SECURITY">
+    <value>[es-MX]Security</value>
+  </text>
 </texts>

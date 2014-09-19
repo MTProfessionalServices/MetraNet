@@ -7,8 +7,8 @@
   <relationships>
     <parent></parent>
   </relationships>
-  <parameter_table>metratech.com/udrctiered</parameter_table>
-  <parameter_table>metratech.com/udrctapered</parameter_table>
+  <parameter_table>metratech.com/UDRCTiered</parameter_table>
+  <parameter_table>metratech.com/UDRCTapered</parameter_table>
   <counters></counters>
   <pipeline>
     <service_definition>metratech.com/udrecurringcharge</service_definition>

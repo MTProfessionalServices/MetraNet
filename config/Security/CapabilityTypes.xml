@@ -111,9 +111,9 @@
   <editor></editor>
   <progid>MetraTech.Auth.Capabilities.ManagePaymentServerCapability</progid>
   <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
-  <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
+  <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
-  <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
 </compositetype>
 
 <compositetype>

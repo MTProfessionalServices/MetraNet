@@ -25,8 +25,7 @@ public partial class ProductDashboard : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    //if (UI.CoarseCheckCapability("Show Financial Data")) ShowFinancialData = true;
-    ShowFinancialData = true;
+    ShowFinancialData = UI.CoarseCheckCapability("View Data from Analytics Datamart");
     
     if (!IsPostBack)
     {

@@ -1,38 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Localized Tickeing" type="collection">
   <description>
     The file defines localized string for MAM ticketing functions.
   </description>
-
   <text id="TEXT_MPS_TICKET_FAILED">
     <value>View Interactive Bill -- Error</value>
   </text>
-  
   <text id="TEXT_MPS_TICKET_SUCCESS">
     <value>View Interactive Bill</value>
   </text>
-  
   <text id="TEXT_MPS_TICKET_SESSION_ENDED">
     <value>View Interactive Bill session ended.</value>
   </text>
-  
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_1">
     <value>An error occurred while logging the user in.  This may be due to incorrect credentials or an invalid ticket.</value>
   </text>
-<!--  <text id="TEXT_MPS_TICKET_FAIL_STATUS_2">
-    <value></value>
-  </text> -->
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_3">
     <value>Unable to log in because the account is pending.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_4">
     <value>Unable to log in because the account is inactive.</value>
   </text>
-<!--  <text id="TEXT_MPS_TICKET_FAIL_STATUS_5">
-    <value></value>
-  </text> -->
-  
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_6">
     <value>An error occurred while creating necessary objects.</value>
   </text>

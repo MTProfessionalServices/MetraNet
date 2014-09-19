@@ -4,75 +4,75 @@
 
   <!-- Recurring Charge-->
   <text id="TEXT_CHARGE_IN">
-    <value>Imputer frais</value>
+    <value>[IT]Charge in</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATION">
-    <value>Proration</value>
+    <value>[IT]Proration</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_ON">
-    <value>Prorata</value>
+    <value>[IT]Prorate On</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_LENGTH">
-    <value>Longueur de proration</value>
+    <value>[IT]Proration Length</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_ACTIVATION">
-    <value>Au prorata à l’activation</value>
+    <value>[IT]Prorate on activation</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_INSTANTLY">
-    <value>Au prorata instantanément</value>
+    <value>[IT]Prorate instantly</value>
   </text>
   <text id="TEXT_PRORATE_DEACTIVATION">
-    <value>Au prorata à la date de désactivation</value>
+    <value>[IT]Prorate on the date of deactivation</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_UNSUBSCRIPTION">
-    <value>Au prorata en fonction de la date de désabonnement</value>
+    <value>[IT]Prorate based on unsubscription date</value>
   </text>
   <text id="TEXT_PRORATE_RATE_CHANGE">
-    <value>Au prorata lors des changements de prix</value>
+    <value>[IT]Prorate on rate change</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_BASEDON">
-    <value>Au prorata sur la base de</value>
+    <value>[IT]Prorate based on</value>
     <description></description>
   </text>
   <text id="TEXT_DAYS_IN_PERIOD">
-    <value> jours dans période</value>
+    <value>[IT] days in period</value>
     <description></description>
   </text>
   <text id="TEXT_WHAT_TYPE_REC_CHARGE">
-    <value>Quel type de [TEXT_KEYTERM_RECURRING_CHARGE] voulez-vous créer ?</value>
+    <value>[IT]What type of [TEXT_KEYTERM_RECURRING_CHARGE] would you like to create?</value>
     <description></description>
   </text>
   <text id="TEXT_EXISTING_OR_NEW_REC_CHARGE">
-    <value>Voulez-vous utiliser des [TEXT_KEYTERM_RECURRING_CHARGE] existants ou en ajouter de nouveaux ?</value>
+    <value>[IT]Would you like to use an existing [TEXT_KEYTERM_RECURRING_CHARGE] or add a new one?</value>
     <description></description>
   </text>
   <text id="TEXT_EXISTING_REC_CHARGE">
-    <value>[TEXT_KEYTERM_RECURRING_CHARGES] existants</value>
+    <value>[IT]Existing [TEXT_KEYTERM_RECURRING_CHARGES]</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_NEW_RECURRING_CHARGE">
-    <value>Créer de nouveaux [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>[IT]Create New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
   </text>
   <text id="TEXT_ADD_NEW_RECURRING_CHARGE">
-    <value>Ajouter de nouveaux [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>[IT]Add New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
   </text>
   <text id="TEXT_SUMMARY">
-    <value>Synthèse</value>
+    <value>[IT]Summary</value>
     <description></description>
   </text>
   <text id="TEXT_SUMMARY_DESCRIPTION1">
-    <value>Voici une synthèse des [TEXT_KEYTERM_RECURRING_CHARGE] que vous êtes sur le point de créer.</value>
+    <value>[IT]Here is a summary of the [TEXT_KEYTERM_RECURRING_CHARGE] you are about to create.</value>
     <description></description>
   </text>
   <text id="TEXT_SUMMARY_DESCRIPTION2">
-    <value>Cliquez sur Terminer pour créer ces [TEXT_KEYTERM_RECURRING_CHARGE].</value>
+    <value>[IT]Click Finish to create this [TEXT_KEYTERM_RECURRING_CHARGE].</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING">
@@ -80,87 +80,87 @@
     <description></description>
   </text>
   <text id="TEXT_ADD_RECURRING">
-    <value>Ajouter [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>[IT]Add [TEXT_KEYTERM_RECURRING_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING_CHARGE_TYPE">
-    <value>Type [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] [IT]Type</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING_PERIOD">
-    <value>Période [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] [IT]Period</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT">
-    <value>Sélectionner</value>
+    <value>[IT]Select</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_TYPE">
-    <value>Type [TEXT_SELECT]</value>
+    <value>[TEXT_SELECT] [IT]Type</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_PERIOD">
-    <value>Période[TEXT_SELECT]</value>
+    <value>[TEXT_SELECT] [IT]Period</value>
     <description></description>
   </text>
   <text id="TEXT_NAME_TIP">
-    <value>Formulation abrégée pour [TEXT_KEYTERM_RECURRING_CHARGE] dans l’ [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>[IT]This is a short name for the [TEXT_KEYTERM_RECURRING_CHARGE] in the [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
     <description></description>
   </text>
   <text id="TEXT_DISPLAY_NAME_TIP">
-    <value>Nom des [TEXT_KEYTERM_RECURRING_CHARGE] tel qu’il apparaît dans d’autres applications et pour les abonnés.</value>
+    <value>[IT]The name of the [TEXT_KEYTERM_RECURRING_CHARGE] as it appears in other applications and to subscribers.</value>
     <description></description>
   </text>
   <text id="TEXT_DESCRIPTION_TIP">
-    <value>Description des [TEXT_KEYTERM_RECURRING_CHARGE] utilisée à des fins de référence uniquement.</value>
+    <value>[IT]The description of the [TEXT_KEYTERM_RECURRING_CHARGE] used only for reference.</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCE">
-    <value>Avance</value>
+    <value>[IT]Advance</value>
     <description></description>
   </text>
   <text id="TEXT_ARREARS">
-    <value>Après</value>
+    <value>[IT]Arrears</value>
     <description></description>
   </text>
   <text id="TEXT_ACTUAL">
-    <value>Réelle</value>
+    <value>[IT]Actual</value>
     <description></description>
   </text>
   <text id="TEXT_FIXED">
-    <value>Fixe</value>
+    <value>[IT]Fixed</value>
     <description></description>
   </text>
   <text id="TEXT_PER_SUBSCRIPTION">
-    <value>Une facturation par abonnement</value>
+    <value>[IT]One charge per subscription</value>
     <description></description>
   </text>
   <text id="TEXT_PER_PARTICIPANT">
-    <value>Une facturation par participant</value>
+    <value>[IT]One charge per participant</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_CHARGES">
-    <value>Abonnements groupés</value>
+    <value>[IT]Group Subscriptions</value>
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION">
-    <value>Valeurs d’énumération valides</value>
+    <value>[IT]Valid Enumeration Values</value>
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION_SEPARATOR_HELP">
-    <value>Utilisez un espace en tant que séparateur</value>
+    <value>[IT]Use the space char as separator</value>
     <description></description>
   </text>
   <text id="TEXT_UDRCIntegerUnitValue">
-    <value>Type de nombre entier</value>
+    <value>[IT]Integer Type</value>
     <description></description>
   </text>
   <text id="TEXT_UDRCMinUnitValue">
-    <value>Valeur unitaire minimale</value>
+    <value>[IT]Minimum Unit Value</value>
     <description></description>
   </text>
   <text id="TEXT_UDRCMaxUnitValue">
-    <value>Valeur unitaire maximale</value>
+    <value>[IT]Maximum Unit Value</value>
     <description></description>
   </text>
 </texts>

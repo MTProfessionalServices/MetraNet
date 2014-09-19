@@ -196,7 +196,7 @@
     <value>Miscellaneous Adjustment Issue</value>
   </data>
   <data name="TEXT_MAX_AUTHORIZED_AMOUNT" xml:space="preserve">
-    <value>Max Authorized Amount</value>
+    <value>Authorized Amount Should be</value>
   </data>
   <data name="TEXT_MISCELLANEOUS_ADJUSTMENT" xml:space="preserve">
     <value>Miscellaneous Adjustment</value>

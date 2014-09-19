@@ -23,6 +23,7 @@
       </mtpathcapability>
   </atomictypes>
 </compositetype>
+
 <compositetype>
   <name>Unlimited Capability</name>
   <description>Unlimited Capability: Permits all MetraCare capabilities (super user)</description>
@@ -33,6 +34,7 @@
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
 </compositetype>
+
 <compositetype>
   <name>Manage System Wide Authorization Policies</name>
   <description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</description>
@@ -731,6 +733,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
     <compositetype>
     <name>Approve AccountChanges</name>
     <description>Approve AccountChanges: Allow approving account update changes</description>
@@ -741,6 +744,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
     <compositetype>
     <name>Approve RateUpdates</name>
     <description>Approve RateUpdates: Allow approving rate updates</description>
@@ -751,6 +755,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>ManageAmpDecisions</name>
     <description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</description>
@@ -761,6 +766,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
     <compositetype>
     <name>Approve ProductOfferingChanges</name>
     <description>Approve ProductOfferingChanges: Allow approving product offering changes</description>
@@ -771,6 +777,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
     <compositetype>
     <name>Approve GroupSubscriptionChanges</name>
     <description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</description>
@@ -781,6 +788,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
     <compositetype>
     <name>Approve SubscriptionChanges</name>
     <description>Approve SubscriptionChanges: Allow approving subscription changes</description>
@@ -791,6 +799,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>Manage FLS Files</name>
     <description>Manage FLS Files: Permits viewing and moving FLS files</description>
@@ -801,6 +810,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>View FLS Files</name>
     <description>View FLS files: Permits viewing of FLS files</description>
@@ -811,6 +821,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>View Agreement Template</name>
     <description>View Agreement Template: Permits viewing of Agreement Templates</description>
@@ -821,6 +832,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>Manage Agreement Template</name>
     <description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</description>
@@ -831,6 +843,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>Manage Quoting</name>
     <description>Manage Quoting: Permits to create and update Quoting entity</description>
@@ -841,6 +854,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>View Quoting</name>
     <description>View Quoting: Permits to view Quoting entities</description>
@@ -851,6 +865,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>Manage Account Configuration Set</name>
     <description>Manage Account Configuration Set: Permits to create, update and view of account configuration sets</description>
@@ -861,6 +876,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>View Data from Analytics Datamart</name>
     <description>View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</description>
@@ -871,6 +887,7 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  
   <compositetype>
     <name>Update Runtime Configuration</name>
     <description>Update Runtime Configuration: Permits to update system configuration at runtime</description>
@@ -882,4 +899,14 @@
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype> 
   
+  <compositetype>
+    <name>Manage Usage Processing</name>
+    <description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageUsageProcessingCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype> 
 </mt_config>

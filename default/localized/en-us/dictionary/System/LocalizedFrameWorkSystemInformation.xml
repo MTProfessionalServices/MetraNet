@@ -8,7 +8,7 @@
     <description></description>
   </text>
   <text id="DEFAULT_PATH_SEARCH">
-    <value>/mcm/default/localized/us</value>
+    <value>/mcm/default/localized/en-us</value>
     <description>
       The path defined in the HTML Dialog template file. In this case we keep /mam/ because it is hard code this way in the HTML template file.
       The MDM Renderer process use this string to perform a string search/replace.

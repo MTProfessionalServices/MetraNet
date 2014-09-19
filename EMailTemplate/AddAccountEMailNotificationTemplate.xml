@@ -29,7 +29,7 @@ Customer Service
 ]]></message_body>
     </MailStruct>
     <MailStruct>
-      <language>US</language>
+      <language>GB</language>
 	  <selected>0</selected>
       <default_headers>
         <body_html>0</body_html> <!-- 0:BodyHtmlTrue, 1:BodyHtmlFalse -->
@@ -46,33 +46,6 @@ Dear %%FIRSTNAME%% %%LASTNAME%%,<br />
 Thank you for becoming our customer. Your account was successfully created on %%TIME%%.  <br/><br/>
 
 User Name:  %%USERNAME%% <br />
-
-We welcome you and look forward to providing you with the quality you've come to expect from today's service providers.<br /><br />
-
-If you have any questions or comments, please contact us. You can email us at customer_service@MetraTechCustomerName.com or you can reach us by phone at (800) xxx-xxxx during business hours.<br /><br />
-
-Sincerely,<br />
-Customer Service 
-]]></message_body>
-    </MailStruct>
-    <MailStruct>
-	  <selected>0</selected>
-      <language>US</language>
-      <default_headers>
-        <body_html>0</body_html> <!-- 0:BodyHtmlTrue, 1:BodyHtmlFalse -->
-        <def_from>mail@metratech.com</def_from>
-        <def_to></def_to>
-        <def_subject>Account Activated</def_subject>
-        <def_cc>mail@metratech.com</def_cc>
-        <def_bcc></def_bcc>
-        <def_importance>0</def_importance> <!-- 0:LowPriority, 1:HighPriority -->
-      </default_headers>
-      <message_body>
-  <![CDATA[<br />
-Dear %%FIRSTNAME%% %%LASTNAME%%,<br />
-Thank you for becoming our customer. Your account was successfully created on %%TIME%%.  <br/><br/>
-
-Password:  %%PASSWORD_%% <br /><br />
 
 We welcome you and look forward to providing you with the quality you've come to expect from today's service providers.<br /><br />
 

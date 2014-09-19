@@ -128,7 +128,8 @@ BEGIN
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
               /* rw.c_cycleeffectivestart EQUAL TO v_subscriptionStart , rw.c_cycleeffectiveend EQUAL TO v_subscriptionEnd */
               AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
-              AND v_subscriptionStart      < ui.dt_end AND v_subscriptionEnd      > ui.dt_start
+              /* AddSecond() relates to CORE-8443*/
+              AND v_subscriptionStart <= dbo.AddSecond(ui.dt_end) AND v_subscriptionEnd > ui.dt_start
               AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */  
          INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop         
          INNER JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount AND auc.id_usage_cycle = ui.id_usage_cycle
@@ -142,7 +143,7 @@ BEGIN
          INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
          INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
               AND (
-                      (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                      pci.dt_start  BETWEEN ui.dt_start AND ui.dt_end                          /* Check if rc start falls in this interval */
                       OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
                       OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
                   )
@@ -155,6 +156,8 @@ BEGIN
               AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
          ui.dt_start < currentDate
+         /* We're working only with Bill. interval where subscription starts, except future one */
+         AND v_newSubStart BETWEEN ui.dt_start AND ui.dt_end
          AND v_isEndDateUpdated = '1'
          AND NOT (rw.c_advance = 'N' AND v_newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
@@ -216,7 +219,7 @@ BEGIN
          INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
          INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
               AND (
-                      (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                      pci.dt_start  BETWEEN ui.dt_start AND ui.dt_end                          /* Check if rc start falls in this interval */
                       OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
                       OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
                   )
@@ -286,7 +289,7 @@ BEGIN
          INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
          INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
               AND (
-                      (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                      pci.dt_start  BETWEEN ui.dt_start AND ui.dt_end                          /* Check if rc start falls in this interval */
                       OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
                       OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
                   )
@@ -321,10 +324,16 @@ BEGIN
       AND IsArrearsRecalculation = 0; /* If start date was updated To or From "after EOP date" all PIs should be charged. Don't delete anything. */
   END IF;
 
-  INSERT INTO tmp_backoutArrearsUsages
+  INSERT INTO tmp_unbilledPIs
   SELECT c__SubscriptionID, c__PriceableItemInstanceID, c__PriceableItemTemplateID         
-  FROM tmp_rc_1
-  WHERE c_Advance = 0 AND c_BillingIntervalEnd BETWEEN v_curSubEnd AND v_newSubEnd;
+  FROM   tmp_rc_1
+  WHERE
+         c_Advance = 0 AND c_BillingIntervalEnd BETWEEN v_curSubEnd AND v_newSubEnd
+  UNION ALL
+  SELECT c__SubscriptionID, c__PriceableItemInstanceID, c__PriceableItemTemplateID
+  FROM   tmp_rc_1
+  WHERE
+         c_Advance = 1 AND c_BillingIntervalEnd BETWEEN v_curSubStart AND v_newSubStart;
 
   INSERT INTO tmp_rc
   SELECT c_RCActionType,
@@ -357,17 +366,34 @@ BEGIN
          c__QuoteBatchId
   FROM tmp_rc_1;
 
-  insertChargesIntoSvcTables('%Credit','%Debit');
+  MERGE
+  INTO    tmp_newrw trw
+  USING   (
+            SELECT MAX(dbo.mtminoftwodates(c_RCIntervalEnd, v_newSubEnd)) AS NewBilledThroughDate,
+                   c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__SubscriptionID
+            FROM tmp_rc
+            GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__SubscriptionID
+          ) trc
+  ON      (
+            trw.c__AccountID = trc.c__AccountID
+            AND trw.c__SubscriptionID = trc.c__SubscriptionID
+            AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+            AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+            AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+            AND trw.c__IsAllowGenChargeByTrigger = 1
+          )
+  WHEN MATCHED THEN
+  UPDATE
+  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
 
   UPDATE tmp_newrw rw
-  SET c_BilledThroughDate =
-             CASE 
-                  WHEN rw.c__SubscriptionID IN (SELECT c__SubscriptionID FROM tmp_backoutArrearsUsages)
-                    AND rw.c__PriceableItemInstanceID IN (SELECT c__PriceableItemInstanceID FROM tmp_backoutArrearsUsages)
-                      THEN dbo.mtmindate()
-                  ELSE currentDate
-             END
-  WHERE rw.c__IsAllowGenChargeByTrigger = 1;
+  SET    c_BilledThroughDate = dbo.mtmindate()
+  WHERE
+         rw.c__SubscriptionID IN (SELECT c__SubscriptionID FROM tmp_unbilledPIs)
+         AND rw.c__PriceableItemInstanceID IN (SELECT c__PriceableItemInstanceID FROM tmp_unbilledPIs)
+         AND rw.c__IsAllowGenChargeByTrigger = 1;
+  
+  insertChargesIntoSvcTables('%Credit','%Debit');
 
   /*We can get an no data exception if there are no previous subscriptions; just return in this case.*/   
   EXCEPTION

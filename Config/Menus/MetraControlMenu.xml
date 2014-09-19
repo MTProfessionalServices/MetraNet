@@ -792,6 +792,7 @@
                             <Description></Description>
                             <RequiredCapabilities>
                               <Capability>Manage Usage Intervals And Scheduled Adapters</Capability>
+                              <Capability>Update Runtime Configuration</Capability>
                             </RequiredCapabilities>
                         </MenuItem>                      
                         <MenuItem>
@@ -804,7 +805,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/information.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                               <Capability>Update Runtime Configuration</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>EditNamespaces</ID>
@@ -816,7 +819,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/bricks.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                               <Capability>Update Runtime Configuration</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>MachineRole</ID>
@@ -829,6 +834,7 @@
                             <Icon>/Res/Images/icons/computer_add.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
+                                <Capability>Update Runtime Configuration</Capability>
                                 <CompositeCapability name="Read Business Modeling Entities">
                                     <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
                                 </CompositeCapability>
@@ -844,7 +850,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/database_refresh.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                               <Capability>Update Runtime Configuration</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>

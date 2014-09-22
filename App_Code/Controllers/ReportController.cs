@@ -370,8 +370,8 @@ namespace ASP.Controllers
           Currency = rdr.GetString("am_currency"),
           RevenueCode =  !rdr.IsDBNull("c_RevenueCode") ? rdr.GetString("c_RevenueCode") : "",
           DeferredRevenueCode = !rdr.IsDBNull("c_DeferredRevenueCode") ? rdr.GetString("c_DeferredRevenueCode") : "",
-          StartSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionStart"),
-          EndSubscriptionDate = rdr.GetDateTime("c_RCIntervalSubscriptionEnd"),
+          StartSubscriptionDate = rdr.GetDateTime("SubscriptionStart"),
+          EndSubscriptionDate = rdr.GetDateTime("SubscriptionEnd"),
           ProrationDate = rdr.GetInt32("c_ProratedDays"),
           ProrationAmount = rdr.GetDecimal("c_ProratedDailyRate")
         };

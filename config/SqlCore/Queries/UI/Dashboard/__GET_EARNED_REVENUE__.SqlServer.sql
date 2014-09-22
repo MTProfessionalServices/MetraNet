@@ -5,7 +5,7 @@ SELECT
 	,udrc.c_RCIntervalSubscriptionEnd AS SubscriptionEnd
 	,udrc.c_ProratedIntervalStart
 	,udrc.c_ProratedIntervalEnd
-	,udrc.c_ProratedDays
+	,DATEDIFF(DAY, udrc.c_RCIntervalSubscriptionStart, %%START_DATE%%) AS c_ProratedDays
 	,udrc.c_ProratedDailyRate
 	,udrc_ep.c_IsLiabilityProduct
 	,udrc_ep.c_RevenueCode
@@ -24,14 +24,14 @@ SELECT
  ,frc.c_RCIntervalSubscriptionEnd AS SubscriptionEnd
  ,frc.c_ProratedIntervalStart
  ,frc.c_ProratedIntervalEnd
- ,frc.c_ProratedDays
+ ,DATEDIFF(DAY, frc.c_RCIntervalSubscriptionStart, %%START_DATE%%) AS c_ProratedDays
  ,frc.c_ProratedDailyRate
- ,frc__ep.c_IsLiabilityProduct
- ,frc__ep.c_RevenueCode
- ,frc__ep.c_DeferredRevenueCode
+ ,frc_ep.c_IsLiabilityProduct
+ ,frc_ep.c_RevenueCode
+ ,frc_ep.c_DeferredRevenueCode
 FROM t_pv_FlatRecurringCharge AS frc
 INNER JOIN t_acc_usage AS acc ON frc.id_sess = acc.id_sess
-LEFT JOIN t_ep_recurring AS frc__ep ON frc_ep.id_prop = acc.id_pi_template
+LEFT JOIN t_ep_recurring AS frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE c_RCIntervalSubscriptionStart < %%START_DATE%%
 
 UNION

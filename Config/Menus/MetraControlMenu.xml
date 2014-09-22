@@ -227,7 +227,7 @@
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                             <Capability>Manage Usage Processing</Capability>
+                             <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -241,7 +241,7 @@
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Usage Processing</Capability>
+                             <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -255,7 +255,7 @@
                             <Icon>/Res/Images/icons/page_white_lightning.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                             <Capability>Manage Usage Processing</Capability>
+                           <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -269,7 +269,7 @@
                             <Icon>/Res/Images/icons/page_white_medal.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Usage Processing</Capability>
+                              <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -283,7 +283,7 @@
                             <Icon>/Res/Images/icons/page_white_delete.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                             <Capability>Manage Usage Processing</Capability>
+                             <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -297,7 +297,7 @@
                             <Icon>/Res/Images/icons/page_white_stack.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Usage Processing</Capability>
+                              <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -311,7 +311,7 @@
                             <Icon>/Res/Images/icons/IntervalStateHardClosed.gif</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                            <Capability>Manage Usage Processing</Capability>
+                              <Capability>Manage Usage Processing</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

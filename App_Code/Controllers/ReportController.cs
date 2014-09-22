@@ -131,19 +131,8 @@ namespace ASP.Controllers
 
     public ActionResult RevRec()
     {
-      //using (var context = GetNetMeterContext())
-      //{
-      //  var revRec = (from rec in context.T_pv_FlatRecurringCharge
-      //                select new RevRecModel
-      //                  {
-      //                    Currency = "USD",
-      //                    Amount = (double)(rec.C_ProratedDays * rec.C_ProratedDailyRate)
-      //                  }).ToList();
-      //  return View(revRec);
-      //}
-
       var startDate = new DateTime(2014, 09, 1);
-      var endDate = new DateTime(2015, 10, 1);
+      var endDate = new DateTime(2014, 10, 1);
 
       var paramDictIncremental = new Dictionary<string, object>
         {
@@ -153,7 +142,7 @@ namespace ASP.Controllers
 
       var paramDictDeferred = new Dictionary<string, object>
         {
-          {"%%END_DATE%%", startDate},
+          {"%%END_DATE%%", endDate},
         };
 
       var paramDictEarned = new Dictionary<string, object>
@@ -204,27 +193,45 @@ namespace ASP.Controllers
         var decimalIncrementalEarned = new Dictionary<string, double>();
         var decimalDeferred = new Dictionary<string, double>();
 
-        
+        var calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
 
-        for (var i = 1; i < 14; i++)
+        var calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+
+          var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+
+
+        decimalTotalEarned.Add("1", (double)(calculatedTotalEarned + calculatedIncrementalEarned));
+        decimalIncrementalEarned.Add("1", (double)calculatedIncrementalEarned);
+        decimalDeferred.Add("1", (double)calculatedDeferred);
+
+        for (var i = 2; i < 14; i++)
         {
           var prevMonth = startDate.AddMonths(i - 2);
           var month = startDate.AddMonths(i - 1).AddDays(-1);
           
-          var calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
+          calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
                                                        && x.RevenueCode.Equals(rowGroup.RevenueCode)
                                                        && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
                                                        && x.EndSubscriptionDate > month)
                                            .Select(x => (x.EndSubscriptionDate - month).Days * x.ProrationAmount).Sum();
 
-          var calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(rowGroup.Currency)
+          calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(rowGroup.Currency)
                                                        && x.RevenueCode.Equals(rowGroup.RevenueCode)
                                                        && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
                                                        && x.StartSubscriptionDate >= prevMonth
                                                        && x.StartSubscriptionDate < month)
                                            .Select(x => (month - x.StartSubscriptionDate).Days * x.ProrationAmount).Sum();
 
-          var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
+          calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
                                                        && x.RevenueCode.Equals(rowGroup.RevenueCode)
                                                        && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
                                                        && x.StartSubscriptionDate < prevMonth)

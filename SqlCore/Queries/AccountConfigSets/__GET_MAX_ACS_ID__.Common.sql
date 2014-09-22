@@ -1,0 +1,1 @@
+SELECT MAX(c_CSId) AS MaxId FROM t_be_cor_acs_AccountConfigSet

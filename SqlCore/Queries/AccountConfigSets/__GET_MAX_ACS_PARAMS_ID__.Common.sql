@@ -1,0 +1,1 @@
+SELECT MAX(c_SubscriptionParametersID) AS MaxId FROM t_be_cor_acs_SubParams

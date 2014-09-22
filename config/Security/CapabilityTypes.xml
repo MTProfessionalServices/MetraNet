@@ -527,10 +527,21 @@
 </compositetype>
 
 <compositetype>
-  <name>Manage Usage Intervals And Scheduled Adapters</name>
-  <description>Manage Usage Intervals And Scheduled Adapters: Permits viewing interval information, closing intervals, and running adapters in MetraControl</description>
+  <name>Manage Scheduled Adapters</name>
+  <description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</description>
   <editor></editor>
-  <progid>MetraTech.Auth.Capabilities.OperationsManageIntervalsCapability</progid>
+  <progid>MetraTech.Auth.Capabilities.ManageScheduledAdaptersCapability</progid>
+  <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+  <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+  <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+  <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+</compositetype>
+
+<compositetype>
+  <name>Manage EOP Adapters</name>
+  <description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</description>
+  <editor></editor>
+  <progid>MetraTech.Auth.Capabilities.ManageEOPAdaptersCapability</progid>
   <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>

@@ -30,7 +30,7 @@ public partial class Templates_TemplateHistory : MTPage
       var allTypeString = Convert.ToString(PageNav.Data.Out_StateInitData["AllTypeString"]);
       GridRenderer.AddAccountTypeFilterTemplateHistory(MTFilterGrid1, isAllType, allTypeString);
     }
-    catch (Exception ex)
+    catch (Exception)
     {
       // continue rendering the grid anyway
     }

@@ -407,6 +407,24 @@ namespace ASP.Controllers
       return res;
     }
 
+    public ActionResult DefRevScheduleWidgetReport()
+    {
+      return Json(new []
+        {
+          new { date = DateTime.Parse("2014-08-01"), deferred = 900, earned = 300 },
+          new { date = DateTime.Parse("2014-09-01"), deferred = 800, earned = 400 },
+          new { date = DateTime.Parse("2014-10-01"), deferred = 700, earned = 500 },
+          new { date = DateTime.Parse("2014-11-01"), deferred = 600, earned = 600 },
+          new { date = DateTime.Parse("2014-12-01"), deferred = 500, earned = 700 },
+          new { date = DateTime.Parse("2015-01-01"), deferred = 400, earned = 800 },
+          new { date = DateTime.Parse("2015-02-01"), deferred = 300, earned = 900 },
+          new { date = DateTime.Parse("2015-03-01"), deferred = 200, earned = 1000 },
+          new { date = DateTime.Parse("2015-04-01"), deferred = 100, earned = 1100 },
+          new { date = DateTime.Parse("2015-05-01"), deferred = 0, earned = 1200 }      
+        }, JsonRequestBehavior.AllowGet);
+    }
+
+
     /*public ActionResult Churn()
     {
       Title = "Churn Report";

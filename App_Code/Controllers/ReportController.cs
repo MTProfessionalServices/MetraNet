@@ -132,9 +132,9 @@ namespace ASP.Controllers
     }
 
 
-    public MTList<RevenueRecognitionReportDefinition> RevenueRecognition()
+    public MTList<RevRecModel> RevenueRecognition()
     {
-      var list = new MTList<RevenueRecognitionReportDefinition>();
+      var list = new MTList<RevRecModel>();
 
       return list;
     }

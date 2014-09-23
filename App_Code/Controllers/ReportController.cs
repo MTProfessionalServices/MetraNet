@@ -7,7 +7,9 @@ using MetraNet.DbContext;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
+using MetraTech.DomainModel.ProductCatalog;
 
 namespace ASP.Controllers
 {
@@ -130,15 +132,11 @@ namespace ASP.Controllers
     }
 
 
-    public ActionResult RevenueRecognition()
+    public MTList<RevenueRecognitionReportDefinition> RevenueRecognition()
     {
+      var list = new MTList<RevenueRecognitionReportDefinition>();
 
-      return Json(new
-      {
-        sEcho = "Test",
-        iTotalDisplayRecords = 10,
-        
-      }, JsonRequestBehavior.AllowGet);
+      return list;
     }
 
     public ActionResult RevRec()

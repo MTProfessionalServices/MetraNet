@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.AccountConfigSets.SubscriptionParameters, Core.AccountConfigSets.Entity" table="t_be_cor_acs_SubParams">
+  <class name="Core.AccountConfigSets.SubscriptionParameters, Core.AccountConfigSets.Entity" table="t_be_8857227_subscriptionpa">
     <meta attribute="description">Possible Subscription Parameters for Account Configuration Set</meta>
     <meta attribute="label">SubscriptionParameters</meta>
     <meta attribute="plural-name">SubscriptionParameterss</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
-    <meta attribute="record-history">false</meta>
+    <meta attribute="record-history">true</meta>
     <meta attribute="entity-type">Entity</meta>
     <meta attribute="interface">Core.AccountConfigSets.Interface.ISubscriptionParameters, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
@@ -73,8 +73,8 @@
       <type name="System.Int32, mscorlib" />
     </property>
     <property name="SubscriptionParametersID" column="c_SubscriptionParametersID">
-      <meta attribute="label">POID</meta>
-      <meta attribute="description">Product offering ID</meta>
+      <meta attribute="label">SubscriptionParametersID</meta>
+      <meta attribute="description">Subscription Parameters ID</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -84,7 +84,7 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int64, mscorlib" />
+      <type name="System.Int32, mscorlib" />
     </property>
     <property name="POID" column="c_POID">
       <meta attribute="label">POID</meta>
@@ -98,11 +98,25 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int64, mscorlib" />
+      <type name="System.Int32, mscorlib" />
     </property>
     <property name="SubscriptionStartDate" column="c_SubscriptionStartDate">
       <meta attribute="label">SubscriptionStartDate</meta>
       <meta attribute="description">Subscription Start Date</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="SubscriptionEndDate" column="c_SubscriptionEndDate">
+      <meta attribute="label">SubscriptionEndDate</meta>
+      <meta attribute="description">Subscription End Date</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -142,23 +156,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="SubscriptionEndDate" column="c_SubscriptionEndDate">
-      <meta attribute="label">SubscriptionEndDate</meta>
-      <meta attribute="description">Subscription end date</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
-    </property>
-    <bag name="AccountConfigSets" access="field.camelcase-underscore" inverse="true" cascade="delete">
+    <bag name="AccountConfigSetBMEs" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">SubscriptionParameters_AccountConfigSets</meta>
+      <meta attribute="relationship-name">SubscriptionParameters_AccountConfigSetBMEs</meta>
       <meta attribute="has-join-table">false</meta>
       <meta attribute="is-default">true</meta>
       <meta attribute="is-self-relationship">false</meta>
@@ -166,10 +166,10 @@
       <meta attribute="source-multiplicity">One</meta>
       <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
       <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
-      <meta attribute="source-property-name-for-target">AccountConfigSets</meta>
+      <meta attribute="source-property-name-for-target">AccountConfigSetBMEs</meta>
       <meta attribute="target-multiplicity">Many</meta>
       <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
-      <meta attribute="target-key-column">c_AccountConfigSet_Id</meta>
+      <meta attribute="target-key-column">c_AccountConfigSetBME_Id</meta>
       <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
       <meta attribute="cascade">true</meta>
       <key column="c_SubscriptionParameters_Id" />

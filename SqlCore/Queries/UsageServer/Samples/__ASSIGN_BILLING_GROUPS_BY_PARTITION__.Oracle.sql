@@ -1,6 +1,6 @@
 /*
 ===========================================================
-  Assign billing groups by Namespace
+  Assign billing groups by Partition
 ===========================================================
 */
 /* assigns constraint groups (and the accounts contained in them) to billing groups */
@@ -8,7 +8,7 @@ INSERT INTO t_billgroup_member_tmp (id_materialization, id_acc, tx_name, id_part
 SELECT 
 	%%ID_MATERIALIZATION%%, 
 	cg.id_acc,
-	N'Default',
+	N'Default ' || CAST(tamap.id_acc AS varchar2(10)),
   tamap.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN
@@ -26,7 +26,7 @@ UNION ALL
 SELECT 
   %%ID_MATERIALIZATION%%, 
   cg.id_acc,
-  N'Default',
+  N'Default ' || CAST(t_account_mapper.id_acc AS varchar2(10)),
   t_account_mapper.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN

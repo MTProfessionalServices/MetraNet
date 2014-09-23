@@ -2,13 +2,15 @@
 <Query>
     <Action>Insert</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
             <Name>ID_MATERIALIZATION</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

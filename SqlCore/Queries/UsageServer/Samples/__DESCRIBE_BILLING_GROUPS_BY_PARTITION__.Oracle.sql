@@ -1,6 +1,6 @@
 /*
 ===========================================================
-  Describe billing groups by Namespace
+  Describe billing groups by Partition
 ===========================================================
 */
 INSERT INTO t_billgroup_tmp (
@@ -11,7 +11,7 @@ from (
   SELECT DISTINCT 
     %%ID_MATERIALIZATION%% as id_materialization, 
     tx_name,
-    tx_name || N' Bill Group' as description,
+    concat(tx_name, N' Bill Group') as description,
     id_partition
   FROM t_billgroup_member_tmp
   WHERE id_materialization = %%ID_MATERIALIZATION%%

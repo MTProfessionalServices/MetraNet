@@ -920,4 +920,15 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype> 
+  
+  <compositetype>
+    <name>Manage Intervals</name>
+    <description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageIntervalsCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype>
 </mt_config>

@@ -129,6 +129,18 @@ namespace ASP.Controllers
       }
     }
 
+
+    public ActionResult RevenueRecognition()
+    {
+
+      return Json(new
+      {
+        sEcho = "Test",
+        iTotalDisplayRecords = 10,
+        
+      }, JsonRequestBehavior.AllowGet);
+    }
+
     public ActionResult RevRec()
     {
       var startDate = new DateTime(2014, 09, 1);
@@ -332,6 +344,10 @@ namespace ASP.Controllers
       };
       return new SqlConnection(connString.ToString());
     }
+
+
+
+
 
     private List<SegregatedCharges> GetData(string sqlQueryTag, Dictionary<string, object> paramDict)
     {

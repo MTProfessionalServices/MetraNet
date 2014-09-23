@@ -203,39 +203,30 @@ namespace ASP.Controllers
                                                        && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
                                            .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
 
-          var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
+        var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
                                                        && x.RevenueCode.Equals(rowGroup.RevenueCode)
                                                        && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
-                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
 
 
-        decimalTotalEarned.Add("1", (double)(calculatedTotalEarned + calculatedIncrementalEarned));
+        decimalTotalEarned.Add("1", (double)calculatedTotalEarned);
         decimalIncrementalEarned.Add("1", (double)calculatedIncrementalEarned);
         decimalDeferred.Add("1", (double)calculatedDeferred);
 
-        for (var i = 2; i < 14; i++)
+        for (var i = 1; i < 13; i++)
         {
-          var prevMonth = startDate.AddMonths(i - 2);
-          var month = startDate.AddMonths(i - 1).AddDays(-1);
-          
+          var monthNext = endDate.AddMonths(i).AddDays(-1);
+          var calculatedDeferredPrev = calculatedDeferred;
+
           calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
                                                        && x.RevenueCode.Equals(rowGroup.RevenueCode)
                                                        && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
-                                                       && x.EndSubscriptionDate > month)
-                                           .Select(x => (x.EndSubscriptionDate - month).Days * x.ProrationAmount).Sum();
+                                                       && x.EndSubscriptionDate > monthNext)
+                                           .Select(x => (x.EndSubscriptionDate - monthNext).Days * x.ProrationAmount).Sum();
 
-          calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(rowGroup.Currency)
-                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
-                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
-                                                       && x.StartSubscriptionDate >= prevMonth
-                                                       && x.StartSubscriptionDate < month)
-                                           .Select(x => (month - x.StartSubscriptionDate).Days * x.ProrationAmount).Sum();
+          calculatedIncrementalEarned = calculatedDeferredPrev - calculatedDeferred;
 
-          calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
-                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
-                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
-                                                       && x.StartSubscriptionDate < prevMonth)
-                                           .Select(x => (prevMonth - x.StartSubscriptionDate).Days * x.ProrationAmount).Sum();
+          calculatedTotalEarned = calculatedTotalEarned + calculatedIncrementalEarned;
 
           decimalIncrementalEarned.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedIncrementalEarned);
           decimalDeferred.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedDeferred);
@@ -375,7 +366,7 @@ namespace ASP.Controllers
         var sch = new SegregatedCharges
         {
           Currency = rdr.GetString("am_currency"),
-          RevenueCode =  !rdr.IsDBNull("c_RevenueCode") ? rdr.GetString("c_RevenueCode") : "",
+          RevenueCode = !rdr.IsDBNull("c_RevenueCode") ? rdr.GetString("c_RevenueCode") : "",
           DeferredRevenueCode = !rdr.IsDBNull("c_DeferredRevenueCode") ? rdr.GetString("c_DeferredRevenueCode") : "",
           StartSubscriptionDate = rdr.GetDateTime("SubscriptionStart"),
           EndSubscriptionDate = rdr.GetDateTime("SubscriptionEnd"),
@@ -396,7 +387,7 @@ namespace ASP.Controllers
       res[0] = item.Currency;
       res[1] = item.RevenueCode;
       res[2] = item.DeferredRevenueCode;
-      res[3] = item.RevenuePart; 
+      res[3] = item.RevenuePart;
       res[4] = item.Amount1.ToString("N2");
       res[5] = item.Amount2.ToString("N2");
       res[6] = item.Amount3.ToString("N2");
@@ -416,7 +407,7 @@ namespace ASP.Controllers
 
     public ActionResult DefRevScheduleWidgetReport()
     {
-      return Json(new []
+      return Json(new[]
         {
           new { date = DateTime.Parse("2014-08-01"), deferred = 900, earned = 300 },
           new { date = DateTime.Parse("2014-09-01"), deferred = 800, earned = 400 },

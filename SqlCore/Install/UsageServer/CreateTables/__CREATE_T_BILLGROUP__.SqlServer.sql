@@ -2,7 +2,7 @@
 CREATE TABLE t_billgroup
 (
   id_billgroup INT NOT NULL,                     -- primary key
-  tx_name NVARCHAR(50) NOT NULL,                 -- name of this billing group
+  tx_name NVARCHAR(255) NOT NULL,                 -- name of this billing group
   tx_description NVARCHAR(2048) NULL,            -- description for this billing group
   id_usage_interval INT NOT NULL,                      -- interval associated with this billing group
   id_parent_billgroup  INT NULL,                         -- id of the parent billing group, if this is the materialization of a pull list

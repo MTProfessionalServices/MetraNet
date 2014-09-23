@@ -2,7 +2,7 @@
 CREATE TABLE t_billgroup
 (
   id_billgroup number(10) NOT NULL,                    
-  tx_name NVARCHAR2(50) NOT NULL,                
+  tx_name NVARCHAR2(255) NOT NULL,                
   tx_description NVARCHAR2(2000) NULL,           
   id_usage_interval number(10) NOT NULL,                     
   id_parent_billgroup  number(10) NULL,                         

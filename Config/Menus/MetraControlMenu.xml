@@ -791,8 +791,7 @@
                             <Icon>/Res/Images/icons/cog_edit.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Usage Intervals And Scheduled Adapters</Capability>
-                              <Capability>Update Runtime Configuration</Capability>
+                               <Capability>Update Runtime Configuration</Capability>
                             </RequiredCapabilities>
                         </MenuItem>                      
                         <MenuItem>
@@ -834,10 +833,7 @@
                             <Icon>/Res/Images/icons/computer_add.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                                <Capability>Update Runtime Configuration</Capability>
-                                <CompositeCapability name="Read Business Modeling Entities">
-                                    <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                                </CompositeCapability>
+                                <Capability>Update Runtime Configuration</Capability>                                
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>

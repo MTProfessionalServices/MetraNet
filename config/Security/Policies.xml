@@ -306,8 +306,10 @@
       </ec>
     </as>
   </c>
-  <c name="Manage Usage Intervals And Scheduled Adapters" guid="">
-  </c>  
+  <c name="Manage Scheduled Adapters" guid="">
+  </c>
+  <c name="Manage EOP Adapters" guid="">
+  </c>
 </cs>
 </policy>
 </policies>

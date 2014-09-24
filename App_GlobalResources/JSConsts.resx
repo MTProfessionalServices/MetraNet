@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>m/d/Y</value>
+    <value>n/j/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
     <value>n/j/Y</value>
@@ -132,6 +132,12 @@
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
     <value>n/j/Y g:i:s A</value>
   </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>n/j/Y g:ia</value>
+  </data>
+  <data name="ERR_DATE_FORMAT" xml:space="preserve">
+    <value>m/d/YYYY</value>
+  </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
   </data>
@@ -140,9 +146,6 @@
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplicate</value>
-  </data>
-  <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>mm/dd/YYYY</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Failure</value>
@@ -674,9 +677,6 @@
   </data>
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>Are you sure you want to logout?</value>
-  </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>n/j/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Manage Account</value>

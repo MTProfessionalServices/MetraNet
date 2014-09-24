@@ -55,11 +55,17 @@ public partial class ProductDashboard : MTPage
   {
     string querydir = "..\\Extensions\\SystemConfig\\config\\SqlCore\\Queries\\UI\\Dashboard";
 
-    ConfigureAndLoadGrid(grdRecentOfferingChanges, "__GET_RECENT_OFFERING_CHANGES__", querydir, null);
-    ConfigureAndLoadGrid(grdRecentRateChanges, "__GET_RECENT_RATE_CHANGES__", querydir, null);
+    Dictionary<string, object> paramDictForRecentOfferingChanges = new Dictionary<string, object>();
+    paramDictForRecentOfferingChanges.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy"));
+    ConfigureAndLoadGrid(grdRecentOfferingChanges, "__GET_RECENT_OFFERING_CHANGES__", querydir, paramDictForRecentOfferingChanges);
+
+    Dictionary<string, object> paramDictForRecentRateChanges = new Dictionary<string, object>();
+    paramDictForRecentRateChanges.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy"));
+    ConfigureAndLoadGrid(grdRecentRateChanges, "__GET_RECENT_RATE_CHANGES__", querydir, paramDictForRecentRateChanges);
 
     Dictionary<string, object> paramDict = new Dictionary<string, object>();
     paramDict.Add("%%USERNAME%%", UI.User.UserName);
+    paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy"));
     ConfigureAndLoadGrid(grdMyRecentChanges, "__GET_MY_RECENT_CHANGES__", querydir, paramDict);
   }
 
@@ -85,7 +91,7 @@ public partial class ProductDashboard : MTPage
 
     string qsParam = MetraTech.UI.Common.SQLQueryInfo.Compact(sqi);
     grid.DataSourceURLParams.Add("q", qsParam);
-
+    grid.DataSourceURLParams.Add("batchsize", "100");
   }
 
   private void SetLocalization()

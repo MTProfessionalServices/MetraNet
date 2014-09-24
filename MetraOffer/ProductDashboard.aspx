@@ -175,9 +175,9 @@
         <MT:MTPanel ID="pnlRecentOfferingChanges" runat="server" 
           Text="Recent Offering Changes" Collapsed="False" Collapsible="True" 
           EnableChrome="True" meta:resourcekey="pnlRecentOfferingChangesResource1">
-            <div style="height:228px">
+            <div style="height:228px;margin-left:-10px;margin-right:10px;margin-top:-10px;">
                 <MT:MTFilterGrid ID="grdRecentOfferingChanges" runat="Server" ExtensionName="SystemConfig"
-                    TemplateFileName="Dashboard.RecentOfferingChanges.xml" Width="100%" >
+                    TemplateFileName="Dashboard.RecentOfferingChanges.xml">
                 </MT:MTFilterGrid>
             </div>
         </MT:MTPanel>
@@ -187,7 +187,7 @@
         <MT:MTPanel ID="pnlRecentRateChanges" runat="server" Text="Recent Rate Changes" 
           Collapsed="False" Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlRecentRateChangesResource1" >
-         <div style="height:228px">
+         <div style="height:228px;margin-left:-10px;margin-right:10px;margin-top:-10px;">
                 <MT:MTFilterGrid ID="grdRecentRateChanges" runat="Server" ExtensionName="SystemConfig"
                     TemplateFileName="Dashboard.RecentRateChanges.xml">
                 </MT:MTFilterGrid>
@@ -199,7 +199,7 @@
         <MT:MTPanel ID="pnlMyRecentChanges" runat="server" Text="My Recent Changes" 
           Collapsed="False" Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlMyRecentChangesResource1"  >
-            <div style="height:228px">
+            <div style="height:228px;margin-left:-10px;margin-right:10px;margin-top:-10px;">
                 <MT:MTFilterGrid ID="grdMyRecentChanges" runat="Server" ExtensionName="SystemConfig"
                     TemplateFileName="Dashboard.RecentRateChanges.xml">
                 </MT:MTFilterGrid>

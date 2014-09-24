@@ -21,7 +21,7 @@ public partial class RevRecReport : MTPage
   {
     if (!IsPostBack)
     {
-      var now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+      var now = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
       month1 = now.ToString("MMM yyyy");
       month2 = now.AddMonths(1).ToString("MMM yyyy");
       month3 = now.AddMonths(2).ToString("MMM yyyy");

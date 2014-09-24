@@ -131,18 +131,23 @@ namespace ASP.Controllers
       }
     }
 
-
     public MTList<RevRecModel> RevenueRecognition()
     {
-      var list = new MTList<RevRecModel>();
+      var items = new MTList<RevRecModel>();
 
-      return list;
+      items.TotalRows = 100;
+      items.PageSize = 100;
+      items.CurrentPage = 1;
+      items.Items.AddRange(new List<RevRecModel>());
+
+      return items;
     }
 
     public ActionResult RevRec()
     {
-      var startDate = new DateTime(2014, 09, 1);
-      var endDate = new DateTime(2014, 10, 1);
+      var now = DateTime.Now;
+      var startDate = new DateTime(now.Year, now.Month-1, 1);
+      var endDate = new DateTime(now.Year, now.Month, 1);
 
       var paramDictIncremental = new Dictionary<string, object>
         {
@@ -238,9 +243,10 @@ namespace ASP.Controllers
 
           calculatedTotalEarned = calculatedTotalEarned + calculatedIncrementalEarned;
 
-          decimalIncrementalEarned.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedIncrementalEarned);
-          decimalDeferred.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedDeferred);
-          decimalTotalEarned.Add(i.ToString(CultureInfo.InvariantCulture), (double)calculatedTotalEarned);
+          var key = (i + 1).ToString(CultureInfo.InvariantCulture);
+          decimalIncrementalEarned.Add(key, (double)calculatedIncrementalEarned);
+          decimalDeferred.Add(key, (double)calculatedDeferred);
+          decimalTotalEarned.Add(key, (double)calculatedTotalEarned);
         }
 
         RoundRevRecModel(earnedRow, decimalTotalEarned);
@@ -277,7 +283,6 @@ namespace ASP.Controllers
       revRecModel.Amount12 = calculations["12"];
       revRecModel.Amount13 = calculations["13"];
     }
-
 
     private IEnumerable<SelectListItem> GetProductCodes()
     {
@@ -342,10 +347,6 @@ namespace ASP.Controllers
       };
       return new SqlConnection(connString.ToString());
     }
-
-
-
-
 
     private List<SegregatedCharges> GetData(string sqlQueryTag, Dictionary<string, object> paramDict)
     {
@@ -435,7 +436,6 @@ namespace ASP.Controllers
           new { date = DateTime.Parse("2015-05-01"), deferred = 0, earned = 1200 }      
         }, JsonRequestBehavior.AllowGet);
     }
-
 
     /*public ActionResult Churn()
     {

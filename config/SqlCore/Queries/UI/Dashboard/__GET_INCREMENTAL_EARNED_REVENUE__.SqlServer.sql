@@ -35,6 +35,7 @@ WHERE
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= %%END_DATE%% AND c_RCIntervalSubscriptionEnd >= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%))
 	AND ui.tx_interval_status = 'H'
+	AND udrc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -75,6 +76,7 @@ WHERE
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= %%END_DATE%% AND c_RCIntervalSubscriptionEnd >= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%))
 	AND ui.tx_interval_status = 'H'
+	AND frc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -98,3 +100,4 @@ WHERE
 	c_NRCIntervalSubscriptionStart >= %%START_DATE%%
 	AND c_NRCIntervalSubscriptionStart < %%END_DATE%%
 	AND ui.tx_interval_status = 'H'
+	AND nrc_ep.c_IsLiabilityProduct = 'N'

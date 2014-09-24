@@ -43,6 +43,11 @@ FUNCTION Form_Initialize(EventArg)
 
   If Len(Request.QueryString("ID")) > 0 Then
     Form("IntervalID") = Request.QueryString("ID")
+  End If
+  If FrameWork.CheckCoarseCapability("Manage Intervals") Then
+    mdm_GetDictionary.Add "CanSeeChangeLink", true
+  Else
+    mdm_GetDictionary.Add "CanSeeChangeLink", false
   End If  
   Service.Clear 
   Service.Properties.Add "IntervalID", "string", 0, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE
@@ -87,7 +92,6 @@ FUNCTION Form_Refresh(EventArg)
   Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
   'Service.Properties("Percentage").Value = objInterval.Progress
   Service.Properties("Status").Value = objInterval.Status
-
   if objInterval.IsBlockedForNewAccounts Then
     mdm_GetDictionary().Add "INTERVAL_IS_BLOCKED_TO_NEW_ACCOUNTS", 1
     Service.Properties("IntervalBlockedToUsageFromNewAccountsMessage").Value = "New Accounts Will Not Be Invoiced For This Interval"

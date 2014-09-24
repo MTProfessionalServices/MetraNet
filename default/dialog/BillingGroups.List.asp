@@ -75,6 +75,11 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
         mdm_GetDictionary().Add "SHOW_HARD_CLOSE_INTERVAL_OPTION", 1
       End If
     End If
+
+    If Not FrameWork.CheckCoarseCapability("Manage Intervals") Then
+      mdm_GetDictionary().Add "SHOW_MATERIALIZE_GROUPS_OPTION", 0
+      mdm_GetDictionary().Add "SHOW_HARD_CLOSE_INTERVAL_OPTION", 0
+    End If
     
     If mom_GetDictionary("SHOW_MATERIALIZE_GROUPS_OPTION") = 0 Then
       ' Reset the message

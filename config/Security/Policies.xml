@@ -310,6 +310,8 @@
   </c>
   <c name="Manage EOP Adapters" guid="">
   </c>
+  <c name="Manage Intervals" guid="">
+  </c>
 </cs>
 </policy>
 </policies>

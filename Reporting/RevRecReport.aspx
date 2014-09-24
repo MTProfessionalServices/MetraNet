@@ -41,7 +41,7 @@
     </div>
   </div>
   
-  <%--<MT:MTTitle ID="MTTitle1" Text="Revenue Recognition Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
+  <MT:MTTitle ID="MTTitle1" Text="Revenue Recognition Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <br />
   <div style="position: relative; margin-top: 50px;">
     <MT:MTFilterGrid ID="grdRevRecReport" runat="server" ExtensionName="Reporting" TemplateFileName="RevRecReportGrid"
@@ -54,7 +54,7 @@
       ShowColumnHeaders="True" ShowFilterPanel="false" ShowGridFrame="True" ShowGridHeader="True"
       ShowTopBar="True" TotalProperty="TotalRows">
     </MT:MTFilterGrid>
-  </div>--%>
+  </div>
 
   <script language="javascript" type="text/javascript">
     $(document).ready(function () {

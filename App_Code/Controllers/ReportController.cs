@@ -130,19 +130,7 @@ namespace ASP.Controllers
         return Json(MRRByMonth, JsonRequestBehavior.AllowGet);
       }
     }
-
-    public MTList<RevRecModel> RevenueRecognition()
-    {
-      var items = new MTList<RevRecModel>();
-
-      items.TotalRows = 100;
-      items.PageSize = 100;
-      items.CurrentPage = 1;
-      items.Items.AddRange(new List<RevRecModel>());
-
-      return items;
-    }
-
+    
     public ActionResult RevRec()
     {
       var now = DateTime.Now;

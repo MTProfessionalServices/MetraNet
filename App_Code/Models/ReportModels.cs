@@ -8,6 +8,10 @@ namespace ASP.Models
     public class RevRecModel
     {
         [Required]
+        [Display(Name = "Id")]
+        public int Id { get; set; }
+
+        [Required]
         [Display(Name = "Currency")]
         public string Currency { get; set; }
       

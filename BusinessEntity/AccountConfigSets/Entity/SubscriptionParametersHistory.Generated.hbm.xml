@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="SubscriptionParametersId" column="c_SubscriptionParameters_Id" not-null="true" index="IDX_SubscriptionParameters_h_SubscriptionParametersId">
+    <property name="SubscriptionParametersId" column="c_SubscriptionParameters_Id" not-null="true" index="IDX_SubscriptionParametersId">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />

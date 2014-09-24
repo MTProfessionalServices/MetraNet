@@ -169,7 +169,7 @@ PRIVATE FUNCTION OK_Click(EventArg) ' As Boolean
     If Len(Service.Properties("PayerAccount").value) Then
       If FrameWork.DecodeFieldID(Service.Properties("PayerAccount").value, PayerAccountID) Then
             Dim objYAAC
-            Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), Service.Properties("PAYMENT_STARTDATE").Value)
+            Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), mam_ConvertToSysDate(Service.Properties("PAYMENT_STARTDATE").Value))
             If err.number <> 0 then
               EventArg.Error.Save Err  
               OK_Click = FALSE       

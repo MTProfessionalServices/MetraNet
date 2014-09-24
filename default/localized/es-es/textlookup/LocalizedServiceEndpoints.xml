@@ -1,315 +1,254 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Service Endpoints" type="collection">
   <description>Localized terms that relate to managing service endpoints.  Note that the term "Service Endpoint" is a localized key term.</description>
-
   <text id="TEXT_SE_QUICKINFO">
-    <value>Synthèse  [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+    <value>[ES]Quick [TEXT_KEYTERM_SERVICE_ENDPOINT] Summary</value>
     <description></description>
-	</text>
-  
+  </text>
   <text id="TEXT_SE_ID_MAPPINGS">
-    <value>Mappages Nom/Espace de noms actuels</value>
+    <value>[ES]Current Name/Namespace Mappings</value>
     <description></description>
   </text>
-  
   <text id="TEXT_SE_PROPERTIES">
-    <value>Propriétés</value>
+    <value>[ES]Properties</value>
     <description></description>
   </text>
-  
   <text id="TEXT_SE_ID">
-    <value>ID [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
+    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT] ID</value>
+    <description />
   </text>
-
   <text id="TEXT_SE_ACCOUNT_ID">
-    <value>ID du compte</value>
-    <description/>
+    <value>[ES]Account ID</value>
+    <description />
   </text>
-    
   <text id="TEXT_SE_CORPORATE_ID">
-    <value>ID de l’entreprise</value>
-    <description/>
+    <value>[ES]Corporate ID</value>
+    <description />
   </text>
-
   <text id="TEXT_SE_START_DATE">
-    <value>Date de début</value>
-    <description/>
+    <value>[ES]Start Date</value>
+    <description />
   </text>
-
   <text id="TEXT_SE_END_DATE">
-    <value>Date de fin</value>
-    <description/>
+    <value>[ES]End Date</value>
+    <description />
   </text>
-
   <text id="TEXT_SE_GLOBAL">
-    <value>Paramètres généraux</value>
-    <description/>
+    <value>[ES]Global</value>
+    <description />
   </text>
- 
   <text id="TEXT_SE_LOGIN">
-    <value>Ouvrir une session</value>
-    <description/>
+    <value>[ES]Login</value>
+    <description />
   </text>
-
   <text id="TEXT_SE_NAMESPACE">
-    <value>Espace de nommage</value>
-    <description/>
+    <value>[ES]Namespace</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_CONNECTIONS">
-    <value>Connexions</value>
-    <description/>
+    <value>[ES]Connections</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_EDIT_ID_MAPPINGS">
-    <value>Modifier les mappages Nom/Espace de noms</value>
-    <description/>
+    <value>[ES]Edit Name/Namespace Mappings</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_DYNAMIC_MAIN_MENU_TAB_SERVICE_ENDPOINT">
     <value>[TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
+    <description />
   </text>
-  
   <text id="TEXT_SE_SUMMARY_INFO_DIALOG">
-    <value>Informations [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
+    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT] [ES]Information</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_UPDATE_ID_MAPPINGS">
-    <value>Mappages de noms</value>
-    <description/>
+    <value>[ES]Name Mappings</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_UNABLE_TO_LOAD">
-    <value>Impossible de charger [TEXT_KEYTERM_SERVICE_ENDPOINT].</value>
-    <description/>
-  </text>  
-  
+    <value>[ES]Unable to load [TEXT_KEYTERM_SERVICE_ENDPOINT].</value>
+    <description />
+  </text>
   <text id="TEXT_SE_ADD_MAPPING">
-    <value>Ajouter un mappage</value>
-    <description/>
+    <value>[ES]Add Mapping</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_EXTERNAL_ID">
-    <value>Nom externe</value>
-    <description/>
+    <value>[ES]External Name</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_EXTERNAL_NAMESPACE">
-    <value>Espace de noms externe</value>
-    <description/>
+    <value>[ES]External Namespace</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_NEW_ID_MAPPING">
-    <value>Nouveau mappage Nom/Espace de noms</value>
-    <description/>
+    <value>[ES]New Name/Namespace Mapping</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_REMOVE_MAPPINGS">
-    <value>Supprimer le(s) mappage(s)</value>
-    <description/>
+    <value>[ES]Remove Mapping(s)</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_UPDATE_MAPPING">
-    <value>Modifier le mappage</value>
-    <description/>
+    <value>[ES]Modify Mapping</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_REMOVE">
-    <value>Supprimer</value>
-    <description/>
+    <value>[ES]Remove</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_REMOVE_PROMPT">
-    <value>Cochez les cases à supprimer (situées en regard des mappages), puis cliquez sur le bouton "Supprimer".</value>
-    <description/>
+    <value>[ES]Check the box(es) next to the mapping(s) you wish to remove, then click the "Remove" button.</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_CONNECT_TO_ACCOUNT">
-    <value>Connexion</value>
-    <description/>
+    <value>[ES]Connect</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_EDIT_CONNECTIONS">
-    <value>Modifier les connexions</value>
-    <description/>
+    <value>[ES]Modify Connections</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_ADD_CONNECTION">
+    <value>[ES]Add Connection</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_REMOVE_CONNECTIONS">
+    <value>[ES]Remove Connection(s)</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_NEW_CONNECTION">
+    <value>[ES]New Connection</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_REMOVE_CONNECTION_PROMPT">
+    <value>[ES]Check the box(es) next to the connection(s) you wish to remove, then click the "Remove" button.</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_UPDATE_CONNECTION">
+    <value>[ES]Modify Connection</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_UPDATE_CONNECTION_SUCCESS">
+    <value>[ES]Connection updated successfully.</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_UPDATED_CONNECTION">
+    <value>[ES]Modified Connection</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_CREATE_SERVICE_ENDPOINT">
+    <value>[ES]Create [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_NEW_ENDPOINT">
+    <value>[ES]New [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_NOT_APPLICABLE">
+    <value>[ES]n/a</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_CONNECTED_SERVICE_ENDPOINT">
+    <value>[ES]Connected [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_FIND_SERVICE_ENDPOINT">
+    <value>[ES]Find [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_ENDPOINTS_FOUND">
+    <value>[TEXT_KEYTERM_SERVICE_ENDPOINTS] [ES]Found</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_ENDPOINT_NOT_IN_HIERARCHY_ON_DATE">
+    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT] [ES]does not exist on this date</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_CONNECTED_ACCOUNT">
+    <value>[ES]Connected [TEXT_ACCOUNT]</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_INFO">
+    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT] [ES]Summary</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_RESULTS_ACCOUNTS">
+    <value>[ES]Return a list of accounts connected to service endpoints matching the search criteria.</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_RESULTS_SERVICE_ENDPOINTS">
+    <value>[ES]Return a list of service endpoints matching the search criteria.</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_HIERARCHY_DATE">
+    <value>[ES]Hierarchy Date</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_PRIMARY_ID">
+    <value>[ES]Primary ID</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_EXTENDED_PROPERTIES">
+    <value>[ES]Extended Properties</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_EXTENDED_PROPERTIES_SUCCESS">
+    <value>[ES]Extended properties updated successfully.</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_NO_CONNECTIONS">
+    <value>[ES]No connections.</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_NO_EXTENDED_PROPERTIES">
+    <value>[ES]No extended properties.</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_EFFECTIVE_DATES">
+    <value>[ES]Effective Dates</value>
+    <description />
+  </text>
+  <text id="TEXT_SE_CLOSE_ENDPOINT">
+    <value>[ES]Close [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+    <description />
   </text>
 
-  <text id="TEXT_SE_ADD_CONNECTION">
-    <value>Ajouter une connexion</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_REMOVE_CONNECTIONS">
-    <value>Supprimer la(les) connexion(s)</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_NEW_CONNECTION">
-    <value>Nouvelle connexion</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_REMOVE_CONNECTION_PROMPT">
-    <value>Cochez les cases à supprimer (situées en regard des connexions), puis cliquez sur le bouton "Supprimer".</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_UPDATE_CONNECTION">
-    <value>Modifier la connexion</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_UPDATE_CONNECTION_SUCCESS">
-    <value>La mise à jour de la connexion a abouti.</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_UPDATED_CONNECTION">
-    <value>Connexion modifiée</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_CREATE_SERVICE_ENDPOINT">
-    <value>Créer un [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_NEW_ENDPOINT">
-    <value>Nouveau [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_NOT_APPLICABLE">
-    <value>n/a</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_CONNECTED_SERVICE_ENDPOINT">
-    <value>[TEXT_KEYTERM_SERVICE_ENDPOINTS] connectés</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_FIND_SERVICE_ENDPOINT">
-    <value>Rechercher un [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_ENDPOINTS_FOUND">
-    <value>[TEXT_KEYTERM_SERVICE_ENDPOINTS] trouvé</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_ENDPOINT_NOT_IN_HIERARCHY_ON_DATE">
-    <value>Le [TEXT_KEYTERM_SERVICE_ENDPOINT] n'existe pas à cette date</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_CONNECTED_ACCOUNT">
-    <value>[TEXT_ACCOUNT] connecté</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_INFO">
-    <value>Synthèse du [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_RESULTS_ACCOUNTS">
-    <value>Renvoie une liste de comptes connectés aux noeuds finaux de service correspondant aux critères de recherche.</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_RESULTS_SERVICE_ENDPOINTS">
-    <value>Renvoie la liste des noeuds finaux de service correspondant aux critères de recherche.</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_HIERARCHY_DATE">
-    <value>Date de la hiérarchie</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_PRIMARY_ID">
-    <value>ID principal</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_EXTENDED_PROPERTIES">
-    <value>Propriétés étendues</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_EXTENDED_PROPERTIES_SUCCESS">
-    <value>La mise à jour des propriétés étendues a abouti.</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_NO_CONNECTIONS">
-    <value>Aucune connexion.</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_NO_EXTENDED_PROPERTIES">
-    <value>Aucune propriété étendue.</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_EFFECTIVE_DATES">
-    <value>Dates de validité</value>
-    <description/>
-  </text>
-  
-  <text id="TEXT_SE_CLOSE_ENDPOINT">
-    <value>Fermer le[TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
-  </text>
-  
   <!-- Used in the quickfind dialog -->
   <text id="SEExternalID">
-    <value>Nom du [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
+    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT] Name</value>
+    <description />
   </text>
-  
   <text id="TEXT_SERVICE_END_POINT_ID">
-    <value>ID [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
-    <description/>
+    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT] ID</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_CONNECTION_MOVED_SUCCESSFULLY">
-    <value>La connexion au [TEXT_KEYTERM_SERVICE_ENDPOINT] pour [SE_NAME] a été déplacée vers [SE_MOVE_DESTINATION] avec des dates de validité comprises entre [SE_MOVE_DATE] et [SE_END_DATE].</value>
-    <description/>
+    <value>[ES]The [TEXT_KEYTERM_SERVICE_ENDPOINT] connection for [SE_NAME] was moved successfully to [SE_MOVE_DESTINATION] with effective dates of [SE_MOVE_DATE] to [SE_END_DATE].</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_CONNECTION_CREATED_SUCCESSFULLY">
-    <value>La connexion au [TEXT_KEYTERM_SERVICE_ENDPOINT] pour [SE_NAME] a été ajoutée à [SE_MOVE_DESTINATION] avec des dates de validité comprises entre [SE_MOVE_DATE] et [SE_END_DATE].</value>
-    <description/>
+    <value>[ES]The [TEXT_KEYTERM_SERVICE_ENDPOINT] connection for [SE_NAME] was added to [SE_MOVE_DESTINATION] with effective dates of [SE_MOVE_DATE] to [SE_END_DATE].</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_END_OF_TIME">
-    <value>Fin du délai</value>
-    <description/>
+    <value>[ES]End of Time</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_CONNECTED_ACCOUNT_TYPE">
-    <value>Type de [TEXT_ACCOUNT] connecté</value>
-    <description/>
+    <value>[ES]Connected [TEXT_ACCOUNT] Type</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_REMOVE_CONFIRMATION">
-    <value>Avertissement : la suppression d'une connexion peut causer des problèmes lors de la tentative de renvoi des transactions ayant échoué (associées aux [TEXT_KEYTERM_SERVICE_ENDPOINTS]). Appuyez sur OK pour continuer.</value>
-    <description/>
+    <value>[ES]Warning! Deleting a connection may cause problems when attempting to resubmit failed transactions associated with [TEXT_KEYTERM_SERVICE_ENDPOINTS].  Press OK to continue.</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_CONNECTION_START">
-    <value>Début de connexion</value>
-    <description/>
+    <value>[ES]Connection Start</value>
+    <description />
   </text>
-  
   <text id="TEXT_SE_CONNECTION_END">
-    <value>Fin de connexion</value>
-    <description/>
+    <value>[ES]Connection End</value>
+    <description />
   </text>
 </texts>

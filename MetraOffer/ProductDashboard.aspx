@@ -75,7 +75,7 @@
         line-height: 1;
         font-weight: normal;
         padding: 12px;
-        background: rgba(255, 255, 204, 0.9);
+        background: rgba(211, 211, 211, 0.96);
         /*color: black;*/
         border-radius: 2px;
         z-index: 100;
@@ -89,7 +89,7 @@
       font-size: 10px;
       width: 100%;
       line-height: 1;
-      color:rgba(255, 255, 204, 0.8);
+      color:rgba(211, 211, 211, 0.96);
       content:"\25BC";
       position: absolute;
       text-align: center;
@@ -145,7 +145,7 @@
           dc.renderAll(chartConfig.operation);
 
           d3.select(chartConfig.divId + " svg").selectAll(" .axis text").text(function (d) {
-            return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 1 });
+            return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
           });
 
           // tooltips
@@ -402,11 +402,12 @@
         return d.mrrchange;
       };
       var fnMRRGainLossToolTipFormatter = function(d) {
-        var perMRRChange = (d.mrrprevious != 0) ? ((d.mrrchange/d.mrrprevious)*100) : 0;
-        var localizedperMRRChange = parseFloat(Math.abs(Math.floor(perMRRChange))).toLocaleString(CURRENT_LOCALE);
+        var perMRRChange = (d.mrrprevious != 0) ? ((d.mrrabschange/d.mrrprevious)*100) : 0;
+        var localizedperMRRChange = parseFloat(perMRRChange).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
         var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
         html += (d.mrrprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"))
-                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:middle;'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, perMRRChange<0 ? "down":"up");
+                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, d.mrrchange > 0 ? "up":"down", d.mrrchange > 0 ? "text-bottom":"middle");
+        html += String.format("<div class=Information>{0}: {1} </div>", d.mrrchange > 0 ?  "<%=GainTooltipText%>" : "<%=LossTooltipText%>", d.mrrabschangeAsString);
         return html;
       };
       var top10MRRGainChartConfig = {
@@ -488,11 +489,13 @@
       };
       var fnSubscriptionsGainLossToolTipFormatter = function(d) {
         var localizedSubscriptions = parseFloat(d.subscriptions).toLocaleString(CURRENT_LOCALE);
-        var perSubscriptionsChange = (d.subscriptionsprevious != 0) ? ((d.subscriptionschange/d.subscriptionsprevious)*100) : 0;
-        var localizedperSubscriptionsChange = parseFloat(Math.abs(Math.floor(perSubscriptionsChange))).toLocaleString(CURRENT_LOCALE);
+        var localizedSubscriptionChangeValue = parseFloat(d.subscriptionsabschange).toLocaleString(CURRENT_LOCALE);
+        var perSubscriptionsChange = (d.subscriptionsprevious != 0) ? ((d.subscriptionsabschange/d.subscriptionsprevious)*100) : 0;
+        var localizedperSubscriptionsChange = parseFloat(perSubscriptionsChange).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
         var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
         html += (d.subscriptionsprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions)
-                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:middle;'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, perSubscriptionsChange<0 ? "down":"up");
+                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, d.subscriptionschange > 0 ? "up":"down", d.subscriptionschange > 0 ? "text-bottom":"middle");
+        html += String.format("<div class=Information>{0}: {1} </div>", d.subscriptionschange > 0 ? "<%=GainTooltipText%>" : "<%=LossTooltipText%>", localizedSubscriptionChangeValue);
         return html;
       };
       var top10SubscriptionsGainChartConfig = {

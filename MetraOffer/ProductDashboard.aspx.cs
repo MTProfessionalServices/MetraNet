@@ -17,6 +17,8 @@ public partial class ProductDashboard : MTPage
   protected string NoDataText;
   protected string MrrTooltipText;
   protected string SubscriptionsTooltipText;
+  protected string GainTooltipText;
+  protected string LossTooltipText;  
   protected string RevenueText;
 
   #endregion
@@ -29,9 +31,9 @@ public partial class ProductDashboard : MTPage
     
     if (!IsPostBack)
     {
-      // TODO:  Get data to bind to and place in viewstate
-
-      // TODO:  Set binding properties and template on MTGenericForm control
+      string dateStampForGraph = String.Format("{0} {1}", MetraTech.MetraTime.Now.AddMonths(-1).ToString("MMMM"), MetraTech.MetraTime.Now.AddMonths(-1).Year);
+      pnlTop10MMR.Text = String.Format("{0} {1}", Convert.ToString(GetLocalResourceObject("TEXT_TOP_10_MRR")), dateStampForGraph);
+      pnlTop10Subs.Text = String.Format("{0} {1}", Convert.ToString(GetLocalResourceObject("TEXT_TOP_10_SUBSCRIPTIONS")), dateStampForGraph);
       SetLocalization();
     }
   }
@@ -105,7 +107,9 @@ public partial class ProductDashboard : MTPage
     NoDataText = Convert.ToString(GetLocalResourceObject("TEXT_NO_DATA_AVAILABLE"));
     MrrTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_MRR_TOOLTIP"));
     SubscriptionsTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
-    RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP")); 
+    GainTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_GAIN_TOOLTIP"));
+    LossTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_LOSS_TOOLTIP"));    
+	RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP")); 
   }
 }
 

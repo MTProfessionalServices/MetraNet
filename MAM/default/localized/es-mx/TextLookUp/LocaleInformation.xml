@@ -17,7 +17,7 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789/: APMapm</value>
+    <value>0123456789.: APMapm</value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
@@ -28,20 +28,6 @@
     <value>true</value>
     <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
   </text>
-  <!--
-  <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789.: APMapm</value>
-    <description>Chars allowed for a date</description>
-  </text>
-  <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
-    <value>d.M.yyyy</value>
-    <description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar/pupdate.js for more information.</description>
-  </text>
-  <text id="MDM_USE_24HOUR_CLOCK">
-    <value>true</value>
-    <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
-  </text>
-  -->
   <text id="END_OF_DAY">
     <value>23:59:59</value>
     <description>End of day</description>
@@ -94,15 +80,15 @@
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="TODAY_TEXT">
-    <value>Aujourd\'hui</value>
+    <value>[es-MX]Today</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Aut,Septembre,Octobre,Novembre,Décembre</value>
+    <value>[es-MX]January,February,March,April,May,June,July,August,September,October,November,December</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">
-    <value>Dimanche,Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi</value>
+    <value>[es-MX]Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
     <description>weekdays.</description>
   </text>
   <text id="START_DAY_OF_WEEK">
@@ -110,15 +96,19 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>annule</value>
+    <value>[es-MX]Cancel</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>prochaine mois</value>
+    <value>[es-MX]Next Month</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>mois dernier</value>
+    <value>[es-MX]Previous month</value>
     <description></description>
-  </text>  
+  </text>
+  <text id="DATE_SEPARATOR">
+    <value>/</value>
+    <description>Define the dates separator.</description>
+  </text>
 </texts>

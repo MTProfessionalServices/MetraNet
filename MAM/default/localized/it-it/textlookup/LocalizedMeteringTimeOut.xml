@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="MeteringTimeOut" type="collection">
-
-  
   <text id="TEXT_METERING_TIME_OUT_DO_YOU_WANT_TO_RE_TRY">
-    <value>Voulez-vous réessayer ?</value>
-  </text>  
-  
-  <text id="TEXT_RETRY_COUNTER">
-    <value>Compteur de nouvelles tentatives</value>
-  </text>  
-  
-  <text id="TEXT_METERING_TIME_OUT_MANAGER_TITLE">
-    <value>Gestionnaire de mesure des délais d'attente</value>
-  </text>  
-  
-  <text id="TEXT_METERING_TIME_OUT_OPERATION_TIME_OUT">
-    <value>Le délai de l'opération est écoulé.</value>
-  </text>  
-
-  <text id="TEXT_METERING_TIME_OUT_OPERATION_UPDATE_TIME_OUT">
-    <value>Le délai de la mise à jour est écoulé.</value>
-  </text>    
-  
-  <text id="TEXT_METERING_TIME_OUT_OPERATION_SUCCEEDED">
-    <value>L'opération a été réalisée avec succès.</value>
-  </text>  
-  
-  <text id="TEXT_METERING_TIME_OUT_OPERATION_WILL_BE_EXECUTED_LATED">
-    <value>L'opération sera réalisée ultérieurement.</value>
+    <value>[IT]Do you want to try again ?</value>
   </text>
-  
+  <text id="TEXT_RETRY_COUNTER">
+    <value>[IT]Retry Counter</value>
+  </text>
+  <text id="TEXT_METERING_TIME_OUT_MANAGER_TITLE">
+    <value>[IT]Metering Time-Out Manager</value>
+  </text>
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_TIME_OUT">
+    <value>[IT]The operation timed out.</value>
+  </text>
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_UPDATE_TIME_OUT">
+    <value>[IT]The update timed out.</value>
+  </text>
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_SUCCEEDED">
+    <value>[IT]The operation succeeded.</value>
+  </text>
+  <text id="TEXT_METERING_TIME_OUT_OPERATION_WILL_BE_EXECUTED_LATED">
+    <value>[IT]The operation will be executed later.</value>
+  </text>
   <text id="TEXT_PLEASE_RELOAD_THE_ACCOUNT">
-    <value>Veuillez rechercher et afficher le compte pour continuer à utiliser ce dernier.</value>
-  </text>  
-  
+    <value>[IT]Please Find and Display the Account to continue working with it.</value>
+  </text>
 </texts>

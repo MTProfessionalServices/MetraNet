@@ -8,6 +8,7 @@ FROM (
 	SUM(NVL(ss.MRRPrimaryCurrency, 0.0)) AS MRR, 
 	SUM(NVL(prev.MRRPrimaryCurrency, 0.0)) AS MRRPrevious, 
 	SUM(NVL(ss.MRRPrimaryCurrency, 0.0))-SUM(NVL(prev.MRRPrimaryCurrency, 0.0)) AS MRRChange,
+  ABS(SUM(NVL(ss.MRRPrimaryCurrency, 0.0))-SUM(NVL(prev.MRRPrimaryCurrency, 0.0))) AS MRRAbsChange,
 	SUM(NVL(ss.TotalParticipants, 0.0)) AS Subscriptions, 
 	SUM(NVL(prev.TotalParticipants, 0.0)) AS SubscriptionsPrevious, 
 	SUM(NVL(ss.TotalParticipants, 0.0))-SUM(NVL(prev.TotalParticipants, 0.0)) AS SubscriptionsChange,

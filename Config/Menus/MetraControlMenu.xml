@@ -414,7 +414,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_white_text.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>Manage DataExportFramework</RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ShowDataExportQueueDashboard</ID>
@@ -426,7 +426,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_white_text.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>Manage DataExportFramework</RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -870,7 +870,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/creditcards.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Payment Server</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>

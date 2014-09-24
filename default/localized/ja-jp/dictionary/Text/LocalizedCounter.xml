@@ -2,21 +2,21 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_COUNTER_PARAMETER">
-    <value>[TEXT_KEYTERM_COUNTER] Paramètre</value>
+    <value>[TEXT_KEYTERM_COUNTER] [JA]Parameter</value>
   </text>
   <text id="TEXT_ADD_NEW_COUNTER">
-    <value>Ajouter un nouveau paramètre[TEXT_KEYTERM_COUNTER]</value>
+    <value>[JA]Add New [TEXT_KEYTERM_COUNTER]</value>
   </text>
   <text id="TEXT_COUNTER_EDIT">
-    <value>Modifier[TEXT_KEYTERM_COUNTER]</value>
+    <value>[JA]Edit [TEXT_KEYTERM_COUNTER]</value>
   </text>
   <text id="TEXT_EDIT_COUNTER_PARAMETER">
-    <value>Sélectionner</value>
+    <value>[JA]Select</value>
   </text>
   <text id="TEXT_COUNTER_ARGUMENT">
-    <value>Arguments</value>
+    <value>[JA]Argument</value>
   </text>
   <text id="TEXT_COUNTER_Value">
-    <value>Valeur</value>
+    <value>[JA]Value</value>
   </text>
 </texts>

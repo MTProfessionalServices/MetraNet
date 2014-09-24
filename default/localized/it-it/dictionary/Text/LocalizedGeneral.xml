@@ -123,11 +123,11 @@
     <description></description>
   </text>
   <text id="TEXT_PRICELIST_MAPPING">
-    <value>[TEXT_KEYTERM_PRICE_LIST] [IT] Mapping</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST] [IT]Mapping</value>
     <description></description>
   </text>
   <text id="TEXT_PERSONAL_RATES_ALLOWED">
-    <value>[TEXT_KEYTERM_PERSONAL_RATES] [IT] Allowed</value>
+    <value>[TEXT_KEYTERM_PERSONAL_RATES] [IT]Allowed</value>
     <description></description>
   </text>
 

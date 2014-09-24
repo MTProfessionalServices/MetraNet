@@ -1,7 +1,7 @@
 SELECT * 
 FROM
   (SELECT /* RATE_CHANGE_EVENTS */
-    nm_login || dt_crt || tx_details AS unique_id,
+    sys_guid() AS unique_id,
     am.nm_login AS nm_login,
     a.dt_crt AS dt_crt,
     a.id_entity AS id_sched,
@@ -26,6 +26,6 @@ FROM
     AND d.id_lang_code = 840
   WHERE 1=1
     AND a.id_event in (1400,1401,1402,1403)
-    AND a.dt_crt > GETUTCDATE()-30
+    AND a.dt_crt > %%CURRENT_DATETIME%%-30
   ORDER BY dt_crt DESC)
 WHERE ROWNUM <= 100

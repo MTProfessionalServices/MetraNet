@@ -1,5 +1,5 @@
 SELECT top 100
-  CONCAT(nm_login, dt_crt, tx_details) AS unique_id,
+  NEWID() AS unique_id,
   am.nm_login AS nm_login,
   a.dt_crt AS dt_crt,
   a.id_entity AS id_sched,
@@ -24,7 +24,7 @@ LEFT OUTER JOIN t_description d WITH (nolock)
   AND d.id_lang_code = 840
 WHERE 1=1
   AND a.id_event IN (1400,1401,1402,1403)
-  AND a.dt_crt > DATEADD(day,-30,GETUTCDATE())
+  AND a.dt_crt > DATEADD(day,-30,%%CURRENT_DATETIME%%)
   AND nm_login = '%%USERNAME%%'
 ORDER BY dt_crt DESC
 

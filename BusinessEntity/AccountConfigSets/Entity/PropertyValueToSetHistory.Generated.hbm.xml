@@ -176,7 +176,7 @@
     <create>
 CREATE or REPLACE 
 TRIGGER TRG_PropertyValueToSetHistory
- AFTER INSERT OR UPDATE ON t_be_8857227_propertyvaluet
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_PropValToSet
  REFERENCING NEW AS dataRow 
 FOR EACH ROW 
 UPDATE t_be_8857227_propertyvalue_h
@@ -218,7 +218,7 @@ CAST(dbo.mtmaxdate() AS TIMESTAMP)
   </database-object>
   <database-object>
     <create>CREATE TRIGGER TRG_PropertyValueToSetHistory
- ON t_be_8857227_propertyvaluet
+ ON t_be_cor_acs_PropValToSet
  AFTER INSERT, UPDATE 
 AS 
 SET NOCOUNT ON 

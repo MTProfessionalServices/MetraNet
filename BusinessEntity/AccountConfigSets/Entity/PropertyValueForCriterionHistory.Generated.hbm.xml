@@ -190,7 +190,7 @@
     <create>
 CREATE or REPLACE 
 TRIGGER TRG_PropertyValueForCriterion
- AFTER INSERT OR UPDATE ON t_be_8857227_propertyvaluef
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_PropValForCr
  REFERENCING NEW AS dataRow 
 FOR EACH ROW 
 UPDATE t_be_8857227_propertyvalue_h
@@ -232,7 +232,7 @@ CAST(dbo.mtmaxdate() AS TIMESTAMP)
   </database-object>
   <database-object>
     <create>CREATE TRIGGER TRG_PropertyValueForCriterion
- ON t_be_8857227_propertyvaluef
+ ON t_be_cor_acs_PropValForCr
  AFTER INSERT, UPDATE 
 AS 
 SET NOCOUNT ON 

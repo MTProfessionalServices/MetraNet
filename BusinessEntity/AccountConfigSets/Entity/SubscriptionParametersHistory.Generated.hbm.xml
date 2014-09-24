@@ -204,7 +204,7 @@
     <create>
 CREATE or REPLACE 
 TRIGGER TRG_SubscriptionParametersHis
- AFTER INSERT OR UPDATE ON t_be_8857227_subscriptionpa
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_SubParams
  REFERENCING NEW AS dataRow 
 FOR EACH ROW 
 UPDATE t_be_8857227_subscriptionp_h
@@ -250,7 +250,7 @@ CAST(dbo.mtmaxdate() AS TIMESTAMP)
   </database-object>
   <database-object>
     <create>CREATE TRIGGER TRG_SubscriptionParametersHis
- ON t_be_8857227_subscriptionpa
+ ON t_be_cor_acs_SubParams
  AFTER INSERT, UPDATE 
 AS 
 SET NOCOUNT ON 

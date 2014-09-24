@@ -204,7 +204,7 @@
     <create>
 CREATE or REPLACE 
 TRIGGER TRG_UDRCMetricHistory
- AFTER INSERT OR UPDATE ON t_be_8857227_udrcmetric
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_UDRCMetric
  REFERENCING NEW AS dataRow 
 FOR EACH ROW 
 UPDATE t_be_8857227_udrcmetric_h
@@ -250,7 +250,7 @@ CAST(dbo.mtmaxdate() AS TIMESTAMP)
   </database-object>
   <database-object>
     <create>CREATE TRIGGER TRG_UDRCMetricHistory
- ON t_be_8857227_udrcmetric
+ ON t_be_cor_acs_UDRCMetric
  AFTER INSERT, UPDATE 
 AS 
 SET NOCOUNT ON 

@@ -168,7 +168,7 @@ function fnVisualizeLineChart(objLineChartConfig) {
 
 
 function fnVisualizeLineChart2(objLineChartConfig) {
-
+    d3.select(objLineChartConfig.elementId).selectAll("svg > *").remove();
     var data = objLineChartConfig.data;
     var colordata = objLineChartConfig.colordata;
 

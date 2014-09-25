@@ -56,7 +56,7 @@
     
     function onCancel_<%= GroupSubGrid.ClientID %>()
     {
-      pageNav.Execute("GroupSubscriptionsEvents_Back_ManageGroupSubscriptions_Client", null, null);
+      pageNav.Execute("GroupSubscriptionsEvents_CancelManageGroupSubscriptions_Client", null, null);
     }
 
     function edit(n)

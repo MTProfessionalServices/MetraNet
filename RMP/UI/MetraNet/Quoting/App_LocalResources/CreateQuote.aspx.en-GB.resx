@@ -228,8 +228,8 @@
   <data name="MTbtnCancelResource1.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="MTTitleCreateQuoteResource.Text" xml:space="preserve">
-    <value>Manage Quote</value>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>Create Quote</value>
   </data>
   <data name="REMOVE_ICB" xml:space="preserve">
     <value>Remove ICB</value>
@@ -320,5 +320,8 @@
   </data>
   <data name="DEFAULT_RULE" xml:space="preserve">
     <value>Default rule</value>
+  </data>
+  <data name="TEXT_MANAGE_QUOTE" xml:space="preserve">
+    <value>Manage Quote</value>
   </data>
 </root>

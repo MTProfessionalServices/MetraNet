@@ -64,6 +64,14 @@ public partial class AjaxServices_LoadPriceLists : MTListServicePage
             Response.BinaryWrite(BOM);
         }
 
+        if (PartitionLibrary.IsPartition)
+        {
+          var partitionfilterElement = new MTFilterElement("PLPartitionId",
+                                                           MTFilterElement.OperationType.Equal,
+                                                           PartitionLibrary.PartitionData.PLPartitionId);
+          items.Filters.Add(partitionfilterElement);
+        }
+
         //if there are more records to process than we can process at once, we need to break up into multiple batches
         if ((items.PageSize > MAX_RECORDS_PER_BATCH) && (Page.Request["mode"] == "csv"))
         {

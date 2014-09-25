@@ -188,7 +188,7 @@
     // Custom rendering Template
   var resultTpl = new Ext.XTemplate(
     '<tpl for="."><div class="search-item">',
-    '<h3><img align="middle" src="/ImageHandler/images/Account/{AccountType}/account.gif?State={AccountStatus}&Folder={Folder}">{UserName} ({_AccountID})</h3>',
+    '<h3><img align="middle" src="/ImageHandler/images/Account/{AccountType}/account.gif?State={AccountStatus}&Folder={Folder}" height="16" width="16">{UserName} ({_AccountID})</h3>',
 
     '<tpl if="this.isNull(FirstName)==false && this.isNull(LastName)==false">',
     '{FirstName:htmlEncode} {LastName:htmlEncode}',

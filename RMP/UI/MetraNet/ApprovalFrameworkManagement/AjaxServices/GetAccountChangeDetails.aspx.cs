@@ -94,6 +94,14 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetAccountChangeDe
  	            changeDetailsDisplay.UpdatedValue = newAccount.PayerID.ToString();
  	            items.Items.Add(changeDetailsDisplay);
  	          }
+            if (staleAccount.AncestorAccountID != newAccount.AncestorAccountID)
+            {
+              ChangeDetailsDisplay changeDetailsDisplay = new ChangeDetailsDisplay();
+              changeDetailsDisplay.PropertyName = "AncestorAccountID";
+              changeDetailsDisplay.OldValue = staleAccount.AncestorAccountID.ToString();
+              changeDetailsDisplay.UpdatedValue = newAccount.AncestorAccountID.ToString();
+              items.Items.Add(changeDetailsDisplay);
+            }
 
             // Creating a dictionary here with stale account property --> value as the key --> value pairs
             Dictionary<string, object> staleAccountViewKeyValues = new Dictionary<string, object>();

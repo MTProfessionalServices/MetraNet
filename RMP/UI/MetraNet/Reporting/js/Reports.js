@@ -54,18 +54,6 @@
     return url;
 }
 
-function customReportNameColumnRenderer(value, meta, record, rowIndex, colIndex, store) {
-    var str = "";
-    var url = getCustomReportUrl(value, meta, record, rowIndex, colIndex, store);
-
-    str += String.format("<span><a style='cursor:hand;' id='viewReport_{0}' title='{1}' href='{2};'>{1}</a></span>", 
-        record.data.internalId,
-        record.data.Name, 
-        url);
-
-    return str;
-}
-
 function onReportRequiresParameters(internalId, name, extension, queryName, gridLayoutName) {
     alert("Report \'" + name + "\' requires input parameters, which is not yet supported");
 }

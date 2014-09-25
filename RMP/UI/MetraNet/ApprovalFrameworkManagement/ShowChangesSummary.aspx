@@ -417,7 +417,7 @@
     urlDetails = urlDetails.replace(/%%CHANGE_ID%%/g, id);
     urlDetails = urlDetails.replace(/%%CHANGE_STATE%%/g, currentState);
     
-    urlDetails = urlDetails.replace(/%%CHANGE_TYPE%%/g, changeTypeConfig.GridTitle );
+    urlDetails = urlDetails.replace(/%%CHANGE_TYPE%%/g, (changeTypeConfig != undefined) ? changeTypeConfig.GridTitle : "");
     //frames.document is null in Chrome and Firefox
     if (window.frames['changedetailsframe'].document == null) {
       window.frames['changedetailsframe'].contentWindow.document.location.href = urlDetails;

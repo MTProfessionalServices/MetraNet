@@ -126,7 +126,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_login</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_USER_NAME</LocalizationTag>
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
@@ -137,7 +137,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -162,7 +162,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>dt_crt</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_CHANGE_DATE</LocalizationTag>
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
@@ -173,7 +173,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -198,7 +198,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_sched</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_SCHEDULE_ID</LocalizationTag>
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
@@ -209,7 +209,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -240,7 +240,7 @@
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>280</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -270,7 +270,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>tx_desc</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_CHANGE_DESCRIPTION</LocalizationTag>
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
@@ -281,7 +281,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -306,7 +306,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_pt</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_PRODUCT_TEMPLATE_ID</LocalizationTag>
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
@@ -317,7 +317,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -342,7 +342,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_pt</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_PRODUCT_TEMPLATE_NAME</LocalizationTag>
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
@@ -353,7 +353,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>

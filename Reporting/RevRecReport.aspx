@@ -6,7 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <MT:MTTitle ID="MTTitle1" Text="Revenue Recognition Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <div style="position: relative; margin-top: 50px;">
-    <MT:MTFilterGrid ID="grdRevRecReport" runat="server" ExtensionName="Reporting" TemplateFileName="RevRecReportGrid"
+    <MT:MTFilterGrid ID="grdRevRecReport" runat="server" ExtensionName="SystemConfig" TemplateFileName="RevRecReportGrid"
       ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending" DisplayCount="True"
       EnableColumnConfig="True" EnableFilterConfig="false" EnableLoadSearch="False" EnableSaveSearch="False"
       Expandable="False" ExpansionCssClass="" Exportable="False" FilterColumnWidth="350"

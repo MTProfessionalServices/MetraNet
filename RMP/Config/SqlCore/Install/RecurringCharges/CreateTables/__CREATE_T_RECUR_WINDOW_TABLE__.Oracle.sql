@@ -20,7 +20,8 @@
 	C_BILLEDTHROUGHDATE DATE, 
 	C_LASTIDRUN NUMBER, 
 	C_MEMBERSHIPSTART DATE, 
-	C_MEMBERSHIPEND DATE
+	C_MEMBERSHIPEND DATE,
+        c__QuoteBatchId raw(16) NULL
    );
  
 	insert into t_db_values(parameter,value) values('InstantRc','true');

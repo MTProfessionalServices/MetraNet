@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using MetraTech;
@@ -20,14 +18,10 @@ using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
-using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.DomainModel.ProductView;
 using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
-using MetraTech.UI.Tools;
-using MetraTech.Security.Crypto;
 using RCD = MetraTech.Interop.RCD;
 
 public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
@@ -47,19 +41,19 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-  private bool _creditNotesEnabled = false ;
-  private RCD.IMTRcd rcd = new RCD.MTRcd();
+  private bool _creditNotesEnabled;
+  private readonly RCD.IMTRcd _rcd = new RCD.MTRcd();
   
     protected void Page_Load(object sender, EventArgs e)
     {
-      CreditNoteServiceClient client = new CreditNoteServiceClient();
+      var client = new CreditNoteServiceClient();
       if (client.ClientCredentials != null)
       {
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
 
-      string reportingDir = Path.Combine(rcd.ExtensionDir, "Reporting");
+      string reportingDir = Path.Combine(_rcd.ExtensionDir, "Reporting");
       if (Directory.Exists(reportingDir)) // check if Reporting extension exists
       {
         CreditNotePDFConfiguration config = null;
@@ -226,12 +220,12 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     {
         PipelineMeteringHelper helper = null;
 
-        StringBuilder errorBuilder = new StringBuilder();
+        var errorBuilder = new StringBuilder();
 
         decimal? adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther, totalAmount;
         totalAmount = null;
 
-        bool errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
+        var errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
 
         if (!ConvertToDecimal(adjAmountFldTaxFederal.Text, adjAmountFldTaxFederal.Label, errorBuilder, out taxFederal))
             errorOccurred = true;

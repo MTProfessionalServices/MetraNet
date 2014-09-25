@@ -17,6 +17,7 @@ PROCEDURE creategroupsubscription (
    p_enforce_same_corporation            VARCHAR2,
    p_allow_acc_po_curr_mismatch IN       INTEGER DEFAULT 0,
    p_id_sub													     INTEGER,
+   p_quoting_batch_id                    VARCHAR2,
    p_id_group                   OUT      INTEGER,
    p_status                     OUT      INTEGER,
    p_datemodified               OUT      VARCHAR2
@@ -61,14 +62,14 @@ BEGIN /* business rule checks*/
 
   if (p_desc is null) then
     desctouse := ' ';
-  else 
+  else
     desctouse := p_desc;
   end if;
    INSERT INTO t_group_sub
                (id_group, id_group_ext, tx_name, tx_desc, b_visable,
                 b_supportgroupops, id_usage_cycle, b_proportional,
                 id_discountaccount, id_corporate_account)
-      SELECT seq_t_group_sub.NEXTVAL, p_group_guid, p_name, 
+      SELECT seq_t_group_sub.NEXTVAL, p_group_guid, p_name,
       desctouse, 'N',
              p_supportgroupops, p_usage_cycle, p_proportional,
              p_discountaccount, p_corporateaccount
@@ -85,9 +86,12 @@ BEGIN /* business rule checks*/
                         p_enddate,
                         p_group_guid,
                         p_systemdate,
-                        p_id_sub,
+                        p_id_sub,                        
+                        p_quoting_batch_id,
                         p_status,
-                        p_datemodified
+                        p_datemodified,
+                        0,
+                        0
                        ); /* done*/
 END;
 		

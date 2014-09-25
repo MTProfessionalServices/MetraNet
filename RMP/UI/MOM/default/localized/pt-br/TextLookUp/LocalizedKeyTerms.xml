@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Localized Key Terms" type="collection">
+  <description>Key Terms. When editing through MPM, the Localized Key Terms screen under Applications...MCM should be used.</description>
+
+  <!-- Auth / Auth -->
+  <text id="TEXT_KEYTERM_ROLE">
+    <value>[pt-BR]Role</value>
+    <description>Security Role</description>
+  </text>
+  <text id="TEXT_KEYTERM_ROLES">
+    <value>[pt-BR]Roles</value>
+    <description>Security Roles</description>
+  </text>
+  <text id="TEXT_KEYTERM_CAPABILITY">
+    <value>[pt-BR]Capability</value>
+    <description>Capability</description>
+  </text>
+  <text id="TEXT_KEYTERM_CAPABILITIES">
+    <value>[pt-BR]Capabilities</value>
+    <description>Capabilities</description>
+  </text>
+
+  <!-- Product Offering -->
+  <text id="TEXT_KEYTERM_PRODUCT_OFFERING">
+    <value>[pt-BR]Product Offering</value>
+    <description>Product Offering</description>
+  </text>
+  <text id="TEXT_KEYTERM_PRODUCT_OFFERINGS">
+    <value>[pt-BR]Product Offerings</value>
+    <description>Product Offerings</description>
+  </text>
+
+  <!-- Service Charge -->
+  <text id="TEXT_KEYTERM_SERVICE_CHARGE">
+    <value>[pt-BR]Service Charge</value>
+    <description>Service Charge</description>
+  </text>
+  <text id="TEXT_KEYTERM_SERVICE_CHARGES">
+    <value>[pt-BR]Service Charges</value>
+    <description>Service Charges</description>
+  </text>
+
+  <!-- Priceable Items -->
+  <text id="TEXT_KEYTERM_PRICEABLE_ITEM">
+    <value>[pt-BR]Priceable Item</value>
+    <description>Priceable Item</description>
+  </text>
+  <text id="TEXT_KEYTERM_PRICEABLE_ITEMS">
+    <value>[pt-BR]Priceable Items</value>
+    <description>Priceable Items</description>
+  </text>
+
+  <!-- Usage Charge -->
+  <text id="TEXT_KEYTERM_USAGE_CHARGE">
+    <value>[pt-BR]Usage Charge</value>
+    <description>Usage Charge</description>
+  </text>
+  <text id="TEXT_KEYTERM_USAGE_CHARGES">
+    <value>[pt-BR]Usage Charges</value>
+    <description>Usage Charges</description>
+  </text>
+
+  <!-- Usage Charge (aggregate) -->
+  <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
+    <value>[pt-BR]Usage Charge (Aggregate)</value>
+    <description>Usage Charge (Aggregate)</description>
+  </text>
+  <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
+    <value>[pt-BR]Usage Charges (Aggregate)</value>
+    <description>Usage Charges (Aggregate)</description>
+  </text>
+
+  <!-- Recurring Charge -->
+  <text id="TEXT_KEYTERM_RECURRING_CHARGE">
+    <value>[pt-BR]Recurring Charge</value>
+    <description>Recurring Charge</description>
+  </text>
+  <text id="TEXT_KEYTERM_RECURRING_CHARGES">
+    <value>[pt-BR]Recurring Charges</value>
+    <description>Recurring Charges</description>
+  </text>
+
+  <!-- Non-Recurring Charge -->
+  <text id="TEXT_KEYTERM_NON_RECURRING_CHARGE">
+    <value>[pt-BR]Non-Recurring Charge</value>
+    <description>Non-Recurring Charge</description>
+  </text>
+  <text id="TEXT_KEYTERM_NON_RECURRING_CHARGES">
+    <value>[pt-BR]Non-Recurring Charges</value>
+    <description>Non-Recurring Charges</description>
+  </text>
+
+  <!-- Discounts -->
+  <text id="TEXT_KEYTERM_DISCOUNT">
+    <value>[pt-BR]Discount</value>
+    <description>Discount</description>
+  </text>
+  <text id="TEXT_KEYTERM_DISCOUNTS">
+    <value>[pt-BR]Discounts</value>
+    <description>Discounts</description>
+  </text>
+
+  <!-- Price List -->
+  <text id="TEXT_KEYTERM_PRICE_LIST">
+    <value>[pt-BR]Price List</value>
+    <description>Price List</description>
+  </text>
+  <text id="TEXT_KEYTERM_PRICE_LISTS">
+    <value>[pt-BR]Price Lists</value>
+    <description>Price Lists</description>
+  </text>
+
+  <!-- Rate Schedule -->
+  <text id="TEXT_KEYTERM_RATE_SCHEDULE">
+    <value>[pt-BR]Rate Schedule</value>
+    <description>Rate Schedule</description>
+  </text>
+  <text id="TEXT_KEYTERM_RATE_SCHEDULES">
+    <value>[pt-BR]Rate Schedules</value>
+    <description>Rate Schedules</description>
+  </text>
+
+  <!-- Personal Rate -->
+  <text id="TEXT_KEYTERM_PERSONAL_RATE">
+    <value>[pt-BR]Custom Rate</value>
+    <description>Custom Rate</description>
+  </text>
+  <text id="TEXT_KEYTERM_PERSONAL_RATES">
+    <value>[pt-BR]Custom Rates</value>
+    <description>Custom Rates</description>
+  </text>
+
+  <!-- Counter -->
+  <text id="TEXT_KEYTERM_COUNTER">
+    <value>[pt-BR]Counter</value>
+    <description>Counter</description>
+  </text>
+  <text id="TEXT_KEYTERM_COUNTERS">
+    <value>[pt-BR]Counters</value>
+    <description>Counters</description>
+  </text>
+
+  <!-- Parameter Table -->
+  <text id="TEXT_KEYTERM_PARAMETER_TABLE">
+    <value>[pt-BR]Parameter Table</value>
+    <description>Parameter Table</description>
+  </text>
+  <text id="TEXT_KEYTERM_PARAMETER_TABLES">
+    <value>[pt-BR]Parameter Tables</value>
+    <description>Parameter Tables</description>
+  </text>
+  <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTION">
+    <value>[pt-BR]Group Subscription</value>
+    <description>group subscription</description>
+  </text>
+  <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS">
+    <value>[pt-BR]Group Subscriptions</value>
+    <description>group subscriptions</description>
+  </text>
+  <text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
+    <value>[pt-BR]Corporate Account</value>
+    <description>Corporate Account</description>
+  </text>
+  <text id="PAYER_ACCOUNT">
+    <value>[pt-BR]Payer</value>
+    <description>The paying account</description>
+  </text>
+  <text id="PAYEE_ACCOUNT">
+    <value>[pt-BR]Payee</value>
+    <description>The paying account</description>
+  </text>
+  <text id="INDEPENDENT_ACCOUNT">
+    <value>[pt-BR]Indepdendent account</value>
+    <description>Independent account</description>
+  </text>
+</texts>

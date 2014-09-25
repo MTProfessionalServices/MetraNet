@@ -83,8 +83,8 @@ FUNCTION Form_Refresh(EventArg)
   Service.Properties("TotalBillingGroupAdapterCount").Value = objInterval.TotalBillingGroupAdapterCount + objInterval.TotalIntervalOnlyAdapterCount
   Service.Properties("SucceededAdapterCount").Value = objInterval.SucceededAdapterCount
   Service.Properties("FailedAdapterCount").Value = objInterval.FailedAdapterCount
-  'Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
-  'Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
+  Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
+  Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
   'Service.Properties("Percentage").Value = objInterval.Progress
   Service.Properties("Status").Value = objInterval.Status
 

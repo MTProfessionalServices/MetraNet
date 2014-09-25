@@ -95,12 +95,13 @@ FUNCTION OK_Click(EventArg) ' As Boolean
 
     Form("Role").Save()
 								
-    If(CBool(Err.Number = 0)) then
-        On Error Goto 0
-        OK_Click = TRUE
-    Else        
+    If (Err.Number) Then
         EventArg.Error.Save Err  
         OK_Click = FALSE
+        Err.Clear
+    Else        
+       OK_Click = TRUE
+       Response.Redirect Form.RouteTo
     End If
 END FUNCTION
 

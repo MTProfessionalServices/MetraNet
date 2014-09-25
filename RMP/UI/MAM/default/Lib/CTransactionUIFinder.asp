@@ -266,41 +266,45 @@ CLASS CTransactionUIFinder
     
     PUBLIC FUNCTION InsertPriceAbleItemProperties()
     
-        Dim Prop, strHTML, strPropertiesList, strProperty, strDisplayName, strHTMLTEMPLATE, strMSIXType
+        Dim Prop, strHTML, strPropertiesList, strProperty, strDisplayName, strHTMLTEMPLATE, strMSIXType, propName
         
         RemovePropertyTagged "INPUT"
 
         ' Read As A Collection Of Entry        
         strPropertiesList = FrameWork.Dictionary.GetCollectionAsCSVString(TRANSACTION_FINDER_TEMPLATE_DICTIONARY_PREFIX & ProductViewFQN)
-        If  Len(strPropertiesList)=0Then 
-        
-            For Each Prop in PriceAbleItemProperties
-            
+        If  Len(strPropertiesList) = 0 Then         
+            For Each Prop in PriceAbleItemProperties            
                 strPropertiesList =  strPropertiesList & LCase(Prop.Dn) & ","
             Next
         End If
 
         For Each strProperty In Split(strPropertiesList,",")
-            
-              Set Prop = GetSearchOnProperty(strProperty)
+            Set Prop = GetSearchOnProperty(strProperty)
 
-             If IsValidObject(Prop) Then
+            If IsValidObject(Prop) Then
              
                 If Prop.Core = FALSE Then ' Exclude properties coming from t_acc_usage
                       
                       strDisplayName = Empty
                       ProductView.Tools.GetLocalizedString MAM().CSR("Language").Value,ProductViewFQN & "/" & Prop.dn,strDisplayName
-                      If  Len(strDisplayName)=0 Then strDisplayName = Prop.dn
+                      If Len(strDisplayName) = 0 Then strDisplayName = Prop.dn
     
                       strMSIXType = mdm_ComputeMSIXHandlerPropertyTypeAsString(Prop.DataType)
                       
-                      If strMSIXType=MSIXDEF_TYPE_ENUM Then strMSIXType=MSIXDEF_TYPE_STRING ' Create the property as string because I prefer to reset the type later, This will avoid to log an error...
+                      ' Create the property as string because I prefer to reset the type later, This will avoid to log an error...
+                      If strMSIXType = MSIXDEF_TYPE_ENUM Then strMSIXType = MSIXDEF_TYPE_STRING 
                       
-                      Service.Properties.Add "_" & prop.dn, strMSIXType,IIF(strMSIXType=MSIXDEF_TYPE_STRING,255,0), False, Empty
-                      Service.Properties("_" & prop.dn).Caption = strDisplayName
-                      Service.Properties("_" & prop.dn).Tag = "INPUT"
+                      propName = "_" & prop.dn
+                      If strMSIXType = MSIXDEF_TYPE_TIMESTAMP Then 
+                        Service.Properties.Add propName, MSIXDEF_TYPE_STRING, 255, False, Empty
+                      Else
+                        Service.Properties.Add propName, strMSIXType, IIF(strMSIXType=MSIXDEF_TYPE_STRING, 255, 0), False, Empty
+                      End If
+
+                      Service.Properties(propName).Caption = strDisplayName
+                      Service.Properties(propName).Tag = "INPUT"
     
-                      If Service.Properties("_" & prop.dn).PropertyType=MSIXDEF_TYPE_TIMESTAMP Then
+                      If strMSIXType = MSIXDEF_TYPE_TIMESTAMP Then
                      
                           strHTMLTEMPLATE = ""
                           strHTMLTEMPLATE = strHTMLTEMPLATE & vbNewLine & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''>" & vbNewLine
@@ -309,25 +313,23 @@ CLASS CTransactionUIFinder
                           strHTMLTEMPLATE = strHTMLTEMPLATE & "</TD></TR>" & vbNewLine                  
                           strHTML         = strHTML & strHTMLTEMPLATE
                           
-                          Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = TRUE
-                          
-                      ElseIf Service.Properties("_" & prop.dn).PropertyType=MSIXDEF_TYPE_BOOLEAN Then
+                      ElseIf strMSIXType = MSIXDEF_TYPE_BOOLEAN Then
                           
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><SELECT Class='clsInputBox' Name='[PROPERTYNAME]'></SELECT></TD></TR>" & vbNewLine
-                          Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = TRUE
-                          Service.Properties("_" & prop.dn).Value = Empty
+                          Service.Properties(propName).EnumTypeSupportEmpty = TRUE
+                          Service.Properties(propName).Value = Empty
                                                 
                       ElseIf Len(Prop.EnumNamespace) Then
                       
-                          Service.Properties("_" & prop.dn).SetPropertyType "ENUM", Prop.EnumNamespace, prop.EnumEnumeration
-                          Service.Properties("_" & prop.dn).Value = ""
-                          Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = true 'CORE-6952 Fix so that when not populating enum filters, MSIXProperty.cls does not try to fill in a default value when no value is selected before performing the search
+                          Service.Properties(propName).SetPropertyType "ENUM", Prop.EnumNamespace, prop.EnumEnumeration
+                          Service.Properties(propName).Value = ""
+                          Service.Properties(propName).EnumTypeSupportEmpty = true 'CORE-6952 Fix so that when not populating enum filters, MSIXProperty.cls does not try to fill in a default value when no value is selected before performing the search
 
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><SELECT Class='clsInputBox' Name='[PROPERTYNAME]'></SELECT></TD></TR>" & vbNewLine
                       Else
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><INPUT Size=30 Type='Text' Class='clsInputBox' Name='[PROPERTYNAME]'></TD></TR>" & vbNewLine
                       End If
-                      strHTML = PreProcess(strHTML,Array("PROPERTYNAME","_" & Prop.dn)) & vbNewLine
+                      strHTML = PreProcess(strHTML,Array("PROPERTYNAME",propName)) & vbNewLine
                   End If                      
               End If
         Next
@@ -434,10 +436,10 @@ CLASS CTransactionUIFinder
         Service.Properties("CurrentAccountIsThePayer").AddValidListOfValueFromDictionaryCollection FrameWork.Dictionary(),"ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH"
         Service.Properties("CurrentAccountIsThePayer").Value    = CLng(FrameWork.Dictionary.Item("ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER").Value)
           
-        Service.Properties.Add "StartDate", "TimeStamp",  0, False, Empty
+        Service.Properties.Add "StartDate", "String",  0, False, Empty
         Service.Properties("StartDate").Caption = FrameWork.Dictionary.Item("TEXT_START_DATE").Value
         
-        Service.Properties.Add "EndDate", "TimeStamp", 0, False, Empty
+        Service.Properties.Add "EndDate", "String", 0, False, Empty
         Service.Properties("EndDate").Caption = FrameWork.Dictionary.Item("TEXT_END_DATE").Value 
 
         Service.Properties.Add "BillingInterval", "String", 0, False, Empty

@@ -8,7 +8,7 @@
   <h1>
     <asp:Localize ID="Localize1" meta:resourcekey="AddCC" runat="server">Add Credit Card</asp:Localize></h1>
   <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage"
-    Width="100%" meta:resourcekey="ValidationSummary1Resource1" />
+    Width="100%" />
   <asp:Label ID="lblErrorMessage" runat="server" CssClass="ErrorMessage" Text="Error Messages"
     Visible="False" meta:resourcekey="lblErrorMessageResource1"></asp:Label>
   <!-- BILLING INFORMATION -->
@@ -117,7 +117,7 @@
             </span>
              <div id="divBtnOk" style="display:none">
             <asp:Button OnClick="btnOK_Click" ID="btnOK1" TabIndex="300"
-              runat="server" Text="<%$Resources:Resource,TEXT_OK%>" meta:resourcekey="btnOKResource1" />
+              runat="server" Text="<%$Resources:Resource,TEXT_OK%>" />
               </div>
             <span class="buttonright">
             
@@ -132,7 +132,7 @@
               <!--leftcorner-->
             </span>
              <asp:Button OnClick="btnOK_Click" ID="btnOK" TabIndex="300"
-              runat="server" Text="<%$Resources:Resource,TEXT_OK%>" meta:resourcekey="btnOKResource1" />
+              runat="server" Text="<%$Resources:Resource,TEXT_OK%>" />
             <span class="buttonright">
             
               <!--rightcorner-->
@@ -143,7 +143,7 @@
             <!--leftcorner-->
           </span>
           <asp:Button OnClick="btnCancel_Click" ID="btnCancel" runat="server" CausesValidation="false" TabIndex="400"
-            meta:resourcekey="btnCancelResource1" Text="<%$Resources:Resource,TEXT_CANCEL%>" />
+            Text="<%$Resources:Resource,TEXT_CANCEL%>" />
           <span class="buttonright">
             <!--rightcorner-->
           </span>

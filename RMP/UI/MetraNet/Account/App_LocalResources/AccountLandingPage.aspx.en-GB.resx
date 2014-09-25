@@ -134,10 +134,10 @@
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
     <value>Billing Activity</value>
-  </data>  
+  </data>
   <data name="billingSummaryPanel.Text" xml:space="preserve">
     <value>Invoices and Payments</value>
-  </data>     
+  </data>
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
     <value>This account does not currently have any invoices or payments.</value>
   </data>
@@ -157,36 +157,36 @@
     <value>Start</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value></value>
-  </data>  
- <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
     <value>Add Subscription</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>Create a new subscription to a Product Offering</value>
-  </data>  
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
     <value>Join Group Subscription</value>
-  </data>  
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>Add this account as a member of an existing Group Subscription</value>
-  </data>      
+  </data>
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>Subscription</value>
-  </data>      
+  </data>
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>Group Subscription</value>
-  </data>          
+  </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
     <value>Invoice</value>
-  </data>      
+  </data>
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>Payment</value>
-  </data>            
+  </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
     <value>No Transactions Found for the Current Interval</value>
-  </data>   
+  </data>
   <data name="lblNowCast.Text" xml:space="preserve">
     <value>NowCast</value>
-  </data>  
+  </data>
 </root>

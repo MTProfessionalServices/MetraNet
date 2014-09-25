@@ -203,7 +203,7 @@
 				<EventDrivenDesigner Name="GetPOList_SelectPO" Size="150, 242" Location="430, 304">
 					<EventDrivenDesigner.Designers>
 						<ActivityDesigner Name="mtHandleEventActivity10" Size="130, 41" Location="440, 366" />
-						<ActivityDesigner Name="subscriptionService_GetEligiblePOsForSubscription_ClientActivity1" Size="130, 41" Location="440, 426" />
+						<ActivityDesigner Name="subscriptionService_GetEligiblePOsForSubscriptionByLanguage_ClientActivity1" Size="130, 41" Location="440, 426" />
 						<ActivityDesigner Name="mtEventOutputActivity2" Size="130, 41" Location="440, 486" />
 						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity12" Size="130, 41" ShowPreview="False">
 							<FaultHandlersActivityDesigner.Designers>

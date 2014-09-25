@@ -37,7 +37,8 @@ BEGIN
          trv.vt_end                                                                                 AS c_UnitValueEnd,
          trv.n_value                                                                                AS c_UnitValue,
          currentui.id_interval                                                                      AS c__IntervalID,
-         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID,
+         sub.tx_quoting_batch                                                                       as c__QuoteBatchId
         INTO #tmp_udrc_1
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
@@ -61,7 +62,7 @@ BEGIN
          /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
          INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
               AND (
-                      (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                      pci.dt_start  BETWEEN ui.dt_start AND ui.dt_end                          /* Check if rc start falls in this interval */
                       OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
                       OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
                   )
@@ -70,12 +71,14 @@ BEGIN
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
               AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
               AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+         INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
+         INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE 
         /* Only issue corrections if there's a previous iteration. */
         EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
-        /* Don't meter in the current interval for initial */
+        /* Meter only in 1-st billing interval */
+        AND ui.dt_start <= rw.c_SubscriptionStart
         AND ui.dt_start < @currentDate
         AND rw.c__IsAllowGenChargeByTrigger = 1; 
 
@@ -105,7 +108,8 @@ BEGIN
          c__PriceableItemTemplateID,
          c__ProductOfferingID,
          c__IntervalID,
-         NEWID() AS idSourceSess INTO #tmp_rc
+         NEWID() AS idSourceSess,
+         c__QuoteBatchId INTO #tmp_rc
   FROM   #tmp_udrc_1;
 
   /* If no charges to meter, return immediately */
@@ -113,8 +117,26 @@ BEGIN
 
   EXEC InsertChargesIntoSvcTables;
 
-  UPDATE rw
-  SET    c_BilledThroughDate = @currentDate
-  FROM   #recur_window_holder rw
-  WHERE  rw.c__IsAllowGenChargeByTrigger = 1;
+  IF (@actionType = 'DebitCorrection')
+  BEGIN
+    MERGE
+    INTO    #recur_window_holder trw
+    USING   (
+              SELECT MAX(c_RCIntervalSubscriptionEnd) AS NewBilledThroughDate, c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+              FROM #tmp_rc
+              GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+            ) trc
+    ON      (
+              trw.c__AccountID = trc.c__AccountID
+              AND trw.c__SubscriptionID = trc.c__SubscriptionID
+              AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+              AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+              AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+              AND trw.c__IsAllowGenChargeByTrigger = 1
+            )
+    WHEN MATCHED THEN
+    UPDATE
+    SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
+  END;
+
  END;

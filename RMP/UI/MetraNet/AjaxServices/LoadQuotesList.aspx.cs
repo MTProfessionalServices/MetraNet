@@ -80,9 +80,9 @@ namespace MetraNet.AjaxServices
       //if there are more records to process than we can process at once, we need to break up into multiple batches
       if ((items.PageSize > MaxRecordsPerBatch) && (Page.Request["mode"] == "csv"))
       {
-        int advancePage = (items.PageSize % MaxRecordsPerBatch != 0) ? 1 : 0;
+        int advancePage = (items.PageSize%MaxRecordsPerBatch != 0) ? 1 : 0;
 
-        int numBatches = advancePage + (items.PageSize / MaxRecordsPerBatch);
+        int numBatches = advancePage + (items.PageSize/MaxRecordsPerBatch);
         for (int batchID = 0; batchID < numBatches; batchID++)
         {
           ExtractDataInternal(ref items, batchID + 1, MaxRecordsPerBatch);
@@ -153,7 +153,7 @@ namespace MetraNet.AjaxServices
 
       var ids = client1.InOut_entityInstances.Items.Select(item => item.ForeignKeyProperties[0].Value).ToArray();
       items.TotalRows = ids.Length;
-      var end = items.CurrentPage * items.PageSize;
+      var end = items.CurrentPage*items.PageSize;
       var begin = end - items.PageSize;
       if (end > ids.Length) end = ids.Length;
       for (var i = begin; i < end; i++)
@@ -238,18 +238,7 @@ namespace MetraNet.AjaxServices
 
             if (propertyInstance.PropertyType == MetraTech.BusinessEntity.Core.PropertyType.Decimal)
             {
-              var n = dispalyValue.ToString().IndexOf(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator, StringComparison.Ordinal);
-              if (n == -1)
-              {
-                dispalyValue += CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator + "00";
-              }
-              else
-              {
-                if (dispalyValue.ToString().Length > (n + 3))
-                  dispalyValue = dispalyValue.ToString().Substring(0, n + 3);
-              }
-              if (dispalyValue.ToString().StartsWith(String.Format("0{0}00", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)))
-                dispalyValue = "0";
+              dispalyValue = ProcessDecimalValue(dispalyValue.ToString());
             }
 
             if (propertyInstance.PropertyType == MetraTech.BusinessEntity.Core.PropertyType.String ||
@@ -341,6 +330,17 @@ namespace MetraNet.AjaxServices
       }
       json.Append("\"}");
       return json.ToString();
+    }
+
+    private static object ProcessDecimalValue(string dispalyValue)
+    {
+      var separator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+      dispalyValue = Math.Round(Decimal.Parse(dispalyValue), 2).ToString();
+      if (dispalyValue.StartsWith(String.Format("0{0}00", separator)))
+      {
+        return "0";
+      }
+      return dispalyValue.IndexOf(separator, StringComparison.Ordinal) == -1? dispalyValue + separator + "00" : dispalyValue;
     }
   }
 }

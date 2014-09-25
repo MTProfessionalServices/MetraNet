@@ -91,6 +91,10 @@ namespace MetraNet.Quoting
       if (!IsViewMode)
         MTdpStartDate.Text = MetraTime.Now.Date.ToString();
       //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
+
+      var pageTitle = IsViewMode ? GetLocalResourceObject("TEXT_MANAGE_QUOTE") : GetLocalResourceObject("TEXT_CREATE_QUOTE");
+      if (pageTitle != null)
+        CreateQuoteTitle.Text = pageTitle.ToString();
     }
 
     #region Implementation of ICallbackEventHandler

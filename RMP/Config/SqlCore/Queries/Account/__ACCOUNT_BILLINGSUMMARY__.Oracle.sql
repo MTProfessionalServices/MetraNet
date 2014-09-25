@@ -46,4 +46,3 @@ ON pv.id_usage_interval = au.id_usage_interval
 WHERE 1=1 
 		AND au.id_acc = %%ACCOUNT_ID%%
 ) a WHERE a.n_order <= 10
-ORDER BY 5 asc, 4 asc

@@ -3,7 +3,7 @@
     <Name>Core.UI.UpdateSharedPriceList</Name>
     <AssemblyName>MetraTech.DomainModel.BaseTypes.dll</AssemblyName>
     <ObjectName>MetraTech.DomainModel.BaseTypes.PriceList</ObjectName>
-    <Description>New Page Layout for creating shared pricelist</Description>
+    <Description>New Page Layout for creating shared price list</Description>
     <Pages>
         <PageName>/MetraNet/MetraOffer/PriceLists/UpdateSharedPriceList.aspx</PageName>
     </Pages>

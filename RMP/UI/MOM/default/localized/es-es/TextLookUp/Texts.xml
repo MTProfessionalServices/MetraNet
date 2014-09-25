@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
+    <value>[ES]No data</value>
+  </text>
+  <text id="TEXT_ADD_NAME_SPACE">
+    <value>[ES]Add Name Space</value>
+  </text>
+  <text id="TEXT_NAME_SPACE">
+    <value>[ES]Name Space</value>
+  </text>
+  <text id="TEXT_DESCRIPTION">
+    <value>[ES]Description</value>
+  </text>
+  <text id="TEXT_TYPE">
+    <value>[ES]Type</value>
+  </text>
+  <text id="TEXT_TELL_USER_SYSTEM_ERROR_OCCUR_TRY_LATER">
+    <value>[ES]A system error has occurred. Contact your MAM Administrator.</value>
+  </text>
+  <text id="TEXT_MOM">
+    <value>[ES]MetraTech Operations Manager</value>
+  </text>
+  <text id="TEXT_LOGIN_TITLE">
+    <value>[ES]MetraControl Login</value>
+  </text>
+  <text id="TEXT_USERNAME">
+    <value>[ES]User Name</value>
+  </text>
+  <text id="TEXT_PASSWORD">
+    <value>[ES]Password</value>
+  </text>
+  <text id="TEXT_LOGIN_USERNAME">
+    <value>[ES]User Name</value>
+  </text>
+  <text id="TEXT_LOGIN_PASSWORD">
+    <value>[ES]Password</value>
+  </text>
+  <text id="TEXT_LOGOUT">
+    <value>[ES]Log Out</value>
+  </text>
+  <text id="TEXT_NO_AUTH">
+    <value>[ES]Your session has timed out.  Please login again.</value>
+    <description>Session timeout message</description>
+  </text>
+  <text id="TEXT_JAVASCRIPT_ERROR">
+    <value>[ES]Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
+    <description></description>
+  </text>
+</texts>

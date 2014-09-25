@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+
+  <!-- Recurring Charge-->
+  <text id="TEXT_CHARGE_IN">
+    <value>[IT]Charge in</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATION">
+    <value>[IT]Proration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_ON">
+    <value>[IT]Prorate On</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_LENGTH">
+    <value>[IT]Proration Length</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_ACTIVATION">
+    <value>[IT]Prorate on activation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_INSTANTLY">
+    <value>[IT]Prorate instantly</value>
+  </text>
+  <text id="TEXT_PRORATE_DEACTIVATION">
+    <value>[IT]Prorate on the date of deactivation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_UNSUBSCRIPTION">
+    <value>[IT]Prorate based on unsubscription date</value>
+  </text>
+  <text id="TEXT_PRORATE_RATE_CHANGE">
+    <value>[IT]Prorate on rate change</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_BASEDON">
+    <value>[IT]Prorate based on</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DAYS_IN_PERIOD">
+    <value>[IT] days in period</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_TYPE_REC_CHARGE">
+    <value>[IT]What type of [TEXT_KEYTERM_RECURRING_CHARGE] would you like to create?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXISTING_OR_NEW_REC_CHARGE">
+    <value>[IT]Would you like to use an existing [TEXT_KEYTERM_RECURRING_CHARGE] or add a new one?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXISTING_REC_CHARGE">
+    <value>[IT]Existing [TEXT_KEYTERM_RECURRING_CHARGES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_NEW_RECURRING_CHARGE">
+    <value>[IT]Create New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+  </text>
+  <text id="TEXT_ADD_NEW_RECURRING_CHARGE">
+    <value>[IT]Add New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+  </text>
+  <text id="TEXT_SUMMARY">
+    <value>[IT]Summary</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUMMARY_DESCRIPTION1">
+    <value>[IT]Here is a summary of the [TEXT_KEYTERM_RECURRING_CHARGE] you are about to create.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUMMARY_DESCRIPTION2">
+    <value>[IT]Click Finish to create this [TEXT_KEYTERM_RECURRING_CHARGE].</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RECURRING">
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_RECURRING">
+    <value>[IT]Add [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RECURRING_CHARGE_TYPE">
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] [IT]Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RECURRING_PERIOD">
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] [IT]Period</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECT">
+    <value>[IT]Select</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECT_TYPE">
+    <value>[TEXT_SELECT] [IT]Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECT_PERIOD">
+    <value>[TEXT_SELECT] [IT]Period</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME_TIP">
+    <value>[IT]This is a short name for the [TEXT_KEYTERM_RECURRING_CHARGE] in the [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISPLAY_NAME_TIP">
+    <value>[IT]The name of the [TEXT_KEYTERM_RECURRING_CHARGE] as it appears in other applications and to subscribers.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DESCRIPTION_TIP">
+    <value>[IT]The description of the [TEXT_KEYTERM_RECURRING_CHARGE] used only for reference.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCE">
+    <value>[IT]Advance</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ARREARS">
+    <value>[IT]Arrears</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACTUAL">
+    <value>[IT]Actual</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FIXED">
+    <value>[IT]Fixed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PER_SUBSCRIPTION">
+    <value>[IT]One charge per subscription</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PER_PARTICIPANT">
+    <value>[IT]One charge per participant</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GROUP_CHARGES">
+    <value>[IT]Group Subscriptions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION">
+    <value>[IT]Valid Enumeration Values</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION_SEPARATOR_HELP">
+    <value>[IT]Use the space char as separator</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UDRCIntegerUnitValue">
+    <value>[IT]Integer Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UDRCMinUnitValue">
+    <value>[IT]Minimum Unit Value</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UDRCMaxUnitValue">
+    <value>[IT]Maximum Unit Value</value>
+    <description></description>
+  </text>
+</texts>

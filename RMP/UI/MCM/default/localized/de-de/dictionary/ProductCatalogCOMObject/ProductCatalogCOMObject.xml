@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="ProductCatalogCOMObject" type="collection">
+  <description>
+    This dictionary file contains the ProductCatalog.dll COM Object localization.
+    Generally the Object property name localization!
+  </description>
+
+  <!-- Priceable Items Properties -->
+  <text id="TEXT_PRICEABLE_ITEM_USAGE">
+    <value>[DE]Usage Charge</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_NAME">
+    <value>[DE]Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_DISPLAYNAME">
+    <value>[DE]Display Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_DESCRIPTION">
+    <value>[DE]Description</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_TYPE">
+    <value>[DE]Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_SERVICE_DEFINITION">
+    <value>[DE]Service Definition</value>
+    <description></description>
+  </text>
+</texts>

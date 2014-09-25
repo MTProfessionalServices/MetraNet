@@ -55,6 +55,7 @@ public partial class login : MTPage
     }
     
     Login1.Focus();
+    reasonText.InnerHtml = "";
   }
 
   // Change Password OK Handler
@@ -90,7 +91,7 @@ public partial class login : MTPage
     }
     catch (Exception exp)
     {
-      reasonText.InnerHtml =  Server.HtmlEncode(exp.Message);
+      reasonText.InnerHtml = Server.HtmlEncode(exp.Message).Replace("\r\n", "<br/>");
     }
   }
 

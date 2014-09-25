@@ -102,11 +102,11 @@
 
 		select 
 		/*DATAMART disabled */
-		bpd2.nm_display_name as ProductOfferingName,
-		bp2d2.nm_display_name as PriceableItemName,
-		bp2d2.id_prop as PriceableItemId,
-		bp3d2.nm_display_name as PriceableItemInstanceName,
-		descd2.tx_desc as ViewName,
+		COALESCE (bpd2.nm_display_name, po_default_name.nm_name) as ProductOfferingName,
+		COALESCE (bp2d2.nm_display_name, pi_type.nm_name) as PriceableItemName,
+		pi_type.id_prop as PriceableItemId,
+		COALESCE (bp3d2.nm_display_name, pi_type_instance_props.nm_name) as PriceableItemInstanceName,
+		COALESCE (descd2.tx_desc, pi_type.nm_name) as ViewName,
 		au.id_prod as ProductOfferingId,
 		au.id_pi_instance as PriceableItemInstanceId,
 		au.id_pi_template as PriceableItemTemplateId,
@@ -165,16 +165,22 @@
 		left outer join t_pi_template piTemplated2 on piTemplated2.id_template=au.id_pi_template
 		left outer join t_base_props pi_type_props on pi_type_props.id_prop=piTemplated2.id_pi
 		inner join t_enum_data enumd2 on au.id_view=enumd2.id_enum_data
-		inner join t_description descd2 on au.id_view=descd2.id_desc
+    
+		left outer join t_description descd2 on au.id_view=descd2.id_desc and descd2.id_lang_code=:idLang
+		left outer join t_base_props pi_type on pi_type.id_prop = au.id_pi_template
+    
 		left outer join t_vw_base_props bpd2 on au.id_prod=bpd2.id_prop and bpd2.id_lang_code=:idLang
+		left outer join t_base_props po_default_name on au.id_prod=po_default_name.id_prop
+     
 		left outer join t_vw_base_props bp3d2 on au.id_pi_instance=bp3d2.id_prop and bp3d2.id_lang_code=:idLang
+		left outer join t_base_props pi_type_instance_props on pi_type_instance_props.id_prop = au.id_pi_instance
+    
 		inner join t_account_ancestor s1 on s1.id_descendent=au.id_payee and s1.vt_start <= au.dt_session and s1.vt_end >= au.dt_session
 		where
 	  vh.id_view = vh.id_view_parent
 	  and
 		au.id_acc = :idPayer
-		and
-		descd2.id_lang_code=:idLang
+		
 		and 
 		((au.id_pi_template is null and au.id_parent_sess is null) or (au.id_pi_template is not null and piTemplated2.id_template_parent is null))
 		and
@@ -193,15 +199,15 @@
 		%%CURRENCY%%
 		group by
 		au.id_prod,
-		bpd2.nm_display_name,
-		bp2d2.nm_display_name,
-		bp2d2.id_prop,
-		bp3d2.nm_display_name,
+		COALESCE (bpd2.nm_display_name, po_default_name.nm_name),
+		COALESCE (bp2d2.nm_display_name, pi_type.nm_name),
+		pi_type.id_prop,
+		COALESCE (bp3d2.nm_display_name, pi_type_instance_props.nm_name),
 		au.id_pi_instance,
 		au.id_pi_template,
 		piTemplated2.id_template_parent,
 		au.id_view,
-		descd2.tx_desc,
+		COALESCE (descd2.tx_desc, pi_type.nm_name),
 		pi_type_props.n_kind,
 	  au.am_currency
 		order by

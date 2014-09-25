@@ -1,19 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Unknown</Action>
+    <Action>CreateTable</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters>
-        <Parameter>
-            <Name>NETMETERSTAGE</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>NETMETER</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-    </Parameters>
+    <Parameters></Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

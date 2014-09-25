@@ -1,0 +1,41 @@
+.GridCellAlt{
+	BACKGROUND-COLOR: #EEEEEE;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 10px;
+	FONT-WEIGHT: normal;
+	PADDING-LEFT: 3px;
+	PADDING-RIGHT: 3px;
+}
+.GridCell{
+	BACKGROUND-COLOR: #FFFFFF;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 10px;
+	FONT-WEIGHT: normal;
+	PADDING-LEFT: 3px;
+	PADDING-RIGHT: 3px;
+}
+.GridHeader{
+	text-align: center;
+	/*color: black; 
+	background-color: #CCDEF6; */
+	background-color: #f9f9f9;
+    background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);    
+    FONT:normal 11px/15px arial, tahoma, helvetica, sans-serif;
+    border-right: 1px solid #eee;
+  border-top: 1px solid #d0d0d0;
+    border-left:1px solid #d0d0d0;
+    padding: 4px 3px 4px 5px;
+    
+}
+
+a.GridHeaderA:hover{
+	COLOR : #ADEF8C;
+	text-decoration: none;
+}
+a.GridHeaderA{
+	COLOR : black;
+	text-decoration: none;
+}
+

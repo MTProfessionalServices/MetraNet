@@ -129,20 +129,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="TrueFalse" />
     </property>
-    <property name="CSId" column="c_CSId" not-null="true">
-      <meta attribute="label">CSId</meta>
-      <meta attribute="description">CS id. Should be unique.</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int32, mscorlib" />
-    </property>
     <property name="Description" column="c_Description" length="2000">
       <meta attribute="label">Description</meta>
       <meta attribute="description">Custom description of CS</meta>
@@ -157,20 +143,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="CSCreationDate" column="c_CSCreationDate">
-      <meta attribute="label">CSCreationDate</meta>
-      <meta attribute="description">CS creation date</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
-    </property>
     <property name="Rank" column="c_Rank">
       <meta attribute="label">Rank</meta>
       <meta attribute="description" />
@@ -184,6 +156,34 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AcsId" column="c_AcsId" not-null="true">
+      <meta attribute="label">AcsId</meta>
+      <meta attribute="description">CS id. Should be unique.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AcsCreationDate" column="c_AcsCreationDate">
+      <meta attribute="label">AcsCreationDate</meta>
+      <meta attribute="description">CS creation date</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
     </property>
     <property name="SubscriptionParametersId" column="c_SubscriptionParameters_Id">
       <meta attribute="label" />
@@ -249,10 +249,10 @@ c_accountconfigsetbme_id,
 c_effectivedate, 
 c_effectiveenddate, 
 c_enabled, 
-c_csid, 
 c_description, 
-c_cscreationdate, 
 c_rank, 
+c_acsid, 
+c_acscreationdate, 
 c_subscriptionparameters_id, 
 c__startdate, 
 c__enddate
@@ -268,10 +268,10 @@ VALUES
 :dataRow.c_effectivedate, 
 :dataRow.c_effectiveenddate, 
 :dataRow.c_enabled, 
-:dataRow.c_csid, 
 :dataRow.c_description, 
-:dataRow.c_cscreationdate, 
 :dataRow.c_rank, 
+:dataRow.c_acsid, 
+:dataRow.c_acscreationdate, 
 :dataRow.c_subscriptionparameters_id, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
@@ -301,10 +301,10 @@ c_accountconfigsetbme_id,
 c_effectivedate, 
 c_effectiveenddate, 
 c_enabled, 
-c_csid, 
 c_description, 
-c_cscreationdate, 
 c_rank, 
+c_acsid, 
+c_acscreationdate, 
 c_subscriptionparameters_id, 
 c__startdate, 
 c__enddate
@@ -319,10 +319,10 @@ c_accountconfigsetbme_id,
 c_effectivedate, 
 c_effectiveenddate, 
 c_enabled, 
-c_csid, 
 c_description, 
-c_cscreationdate, 
 c_rank, 
+c_acsid, 
+c_acscreationdate, 
 c_subscriptionparameters_id, 
 c_updatedate, 
 dbo.mtmaxdate()

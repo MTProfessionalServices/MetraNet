@@ -114,20 +114,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="TrueFalse" />
     </property>
-    <property name="CSId" column="c_CSId" not-null="true">
-      <meta attribute="label">CSId</meta>
-      <meta attribute="description">CS id. Should be unique.</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int32, mscorlib" />
-    </property>
     <property name="Description" column="c_Description" length="2000">
       <meta attribute="label">Description</meta>
       <meta attribute="description">Custom description of CS</meta>
@@ -141,20 +127,6 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
-    </property>
-    <property name="CSCreationDate" column="c_CSCreationDate">
-      <meta attribute="label">CSCreationDate</meta>
-      <meta attribute="description">CS creation date</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
     </property>
     <property name="Rank" column="c_Rank">
       <meta attribute="label">Rank</meta>
@@ -170,23 +142,34 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <many-to-one name="SubscriptionParameters" class="Core.AccountConfigSets.SubscriptionParameters, Core.AccountConfigSets.Entity" column="c_SubscriptionParameters_Id" cascade="none">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">SubscriptionParameters_AccountConfigSetBMEs</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
-      <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
-      <meta attribute="source-property-name-for-target">AccountConfigSetBMEs</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
-      <meta attribute="target-key-column">c_AccountConfigSetBME_Id</meta>
-      <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
-      <meta attribute="cascade">true</meta>
-    </many-to-one>
+    <property name="AcsId" column="c_AcsId" not-null="true">
+      <meta attribute="label">AcsId</meta>
+      <meta attribute="description">CS id. Should be unique.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AcsCreationDate" column="c_AcsCreationDate">
+      <meta attribute="label">AcsCreationDate</meta>
+      <meta attribute="description">CS creation date</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
     <bag name="PropertyValueForCriteria" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">AccountConfigSetBME_PropertyValueForCriteria</meta>
@@ -225,5 +208,22 @@
       <key column="c_AccountConfigSetBME_Id" />
       <one-to-many class="Core.AccountConfigSets.PropertyValueToSet, Core.AccountConfigSets.Entity" />
     </bag>
+    <many-to-one name="SubscriptionParameters" class="Core.AccountConfigSets.SubscriptionParameters, Core.AccountConfigSets.Entity" column="c_SubscriptionParameters_Id" cascade="none">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">SubscriptionParameters_AccountConfigSetBMEs</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
+      <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
+      <meta attribute="source-property-name-for-target">AccountConfigSetBMEs</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
+      <meta attribute="target-key-column">c_AccountConfigSetBME_Id</meta>
+      <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
+      <meta attribute="cascade">true</meta>
+    </many-to-one>
   </class>
 </hibernate-mapping>

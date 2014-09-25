@@ -5,7 +5,12 @@ SELECT
 	,udrc.c_RCIntervalSubscriptionEnd AS SubscriptionEnd
 	,udrc.c_ProratedIntervalStart
 	,udrc.c_ProratedIntervalEnd
-	,DATEDIFF(DAY, %%END_DATE%%, udrc.c_RCIntervalSubscriptionEnd)+1 AS c_ProratedDays
+	,c_ProratedDays = CASE 
+					WHEN udrc.c_RCIntervalSubscriptionStart > %%END_DATE%%
+						THEN DATEDIFF(DAY, udrc.c_RCIntervalSubscriptionStart, udrc.c_RCIntervalSubscriptionEnd)+1
+					WHEN udrc.c_RCIntervalSubscriptionStart <= %%END_DATE%%
+						THEN DATEDIFF(DAY, %%END_DATE%%, udrc.c_RCIntervalSubscriptionEnd)+1
+				END
 	,udrc.c_ProratedDailyRate
 	,udrc_ep.c_IsLiabilityProduct
 	,udrc_ep.c_RevenueCode
@@ -28,7 +33,12 @@ SELECT
  ,frc.c_RCIntervalSubscriptionEnd AS SubscriptionEnd
  ,frc.c_ProratedIntervalStart
  ,frc.c_ProratedIntervalEnd
- ,DATEDIFF(DAY, %%END_DATE%%, frc.c_RCIntervalSubscriptionEnd)+1 AS c_ProratedDays
+,c_ProratedDays = CASE 
+					WHEN frc.c_RCIntervalSubscriptionStart > %%END_DATE%%
+						THEN DATEDIFF(DAY, frc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionEnd)+1
+					WHEN frc.c_RCIntervalSubscriptionStart <= %%END_DATE%%
+						THEN DATEDIFF(DAY, %%END_DATE%%, frc.c_RCIntervalSubscriptionEnd)+1
+				END
  ,frc.c_ProratedDailyRate
  ,frc_ep.c_IsLiabilityProduct
  ,frc_ep.c_RevenueCode

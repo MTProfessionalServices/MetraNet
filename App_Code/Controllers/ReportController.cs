@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
-using MetraTech.DomainModel.ProductCatalog;
 
 namespace ASP.Controllers
 {
@@ -435,7 +434,6 @@ namespace ASP.Controllers
           new { date = DateTime.Parse("2015-05-01"), deferred = 0, earned = 1200 }      
         }, JsonRequestBehavior.AllowGet);
     }
-
 
     /*public ActionResult Churn()
     {

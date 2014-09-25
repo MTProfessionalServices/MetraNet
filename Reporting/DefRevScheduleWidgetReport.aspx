@@ -1,14 +1,22 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
   CodeFile="DefRevScheduleWidgetReport.aspx.cs" Inherits="DefRevScheduleWidgetReport" Title="MetraNet - Update Account"
   meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
+<%@ Register TagPrefix="MT" Namespace="MetraTech.UI.Controls" Assembly="MetraTech.UI.Controls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css" />
   <style type="text/css">
 	  #revrec-chart svg { width: 1040px; }
   </style>
-  <h1>Deferred Revenue Schedule Widget</h1>
+  <MT:MTTitle ID="MTTitle1" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <div id="container">
+    <div class="row">
+      <MT:MTPanel runat="server" ID="filterPanel" ClientIDMode="Static">
+      <MT:MTDropDown runat="server" ClientIDMode="Static" ID="accntCycleDd" />
+      <MT:MTDropDown runat="server" ClientIDMode="Static" ID="currencyDd" />
+      <MT:MTButton runat="server" ID="applyBtn" ClientIDMode="Static" EnableViewState="False" OnClientClick="ApplyFilter(); return false;"/>
+      </MT:MTPanel>
+    </div>
     <div class="row">
       <div id="revrec-chart" class="dc-chart">
       </div>
@@ -19,23 +27,27 @@
   <script type="text/javascript" src="/Res/JavaScript/dc.js"></script>
   <script language="javascript" type="text/javascript">
     var mnthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    //var dtFormat = d3.time.format("%Y-%m-%d");
     var revRecChart = dc.barChart("#revrec-chart");
+    var dataQuery = "../Report/DefRevScheduleWidgetReport";
+    var dataSet = [];
 
-    // let's get some data
-    d3.json("../Report/DefRevScheduleWidgetReport", function (csv) {
-    csv.forEach(function (e) {
-      e.jsDate = new Date(parseInt(e.date.substr(6)));
-    });
+    function ApplyFilter() {
+      // let's get some data
+      d3.json(dataQuery, function (data) {
+        data.forEach(function (e) {
+          dataSet.push({jsDate: new Date(parseInt(e.date.substr(6))), deferred: e.deferred, earned: e.earned});
+        });
+        DisplayChart();
+      });
+    }
 
-    //var timeExtent = d3.extent(dataSet, function (d) { return d.date; });
+    function DisplayChart() {
+      var data = crossfilter(dataSet);
 
-    var data = crossfilter(csv);
-
-    var dateDim = data.dimension(function (d) {
-      return d.jsDate;
-    });
-    var revRecByMonth = dateDim.group().reduce(
+      var dateDim = data.dimension(function (d) {
+        return d.jsDate;
+      });
+      var revRecByMonth = dateDim.group().reduce(
                 function (p, v) {
                   p.totalDeferred += v.deferred;
                   p.totalEarned += v.earned;
@@ -53,23 +65,23 @@
                   };
                 }
         );
-      
-    // date ranges
-    var minDate = dateDim.bottom(1)[0].jsDate;
-    var maxDate = dateDim.top(1)[0].jsDate;
 
-    // colors
-    var colorDomain = ["Earned", "Deferred"]
-    var colorRange = ["#b2df8a", "#1f78b4"];
+      // date ranges
+      var minDate = dateDim.bottom(1)[0].jsDate;
+      var maxDate = dateDim.top(1)[0].jsDate;
 
-    revRecChart
+      // colors
+      var colorDomain = ["<%=GetLocalResourceObject("Earned_Caption").ToString() %>", "<%=GetLocalResourceObject("Deferred_Caption").ToString() %>"];
+      var colorRange = ["#b2df8a", "#1f78b4"];
+
+      revRecChart
                 .width(900)
                 .height(400)
                 .margins({ top: 40, right: 50, bottom: 30, left: 60 })
                 .dimension(dateDim)
-                .group(revRecByMonth, "Deferred")
+                .group(revRecByMonth, "<%=GetLocalResourceObject("Deferred_Caption").ToString() %>")
                 .valueAccessor(function (d) { return d.value.totalDeferred; })
-                .stack(revRecByMonth, "Earned", function (d) { return d.value.totalEarned; })
+                .stack(revRecByMonth, "<%=GetLocalResourceObject("Earned_Caption").ToString() %>", function (d) { return d.value.totalEarned; })
                 .colors(d3.scale.ordinal().domain(colorDomain).range(colorRange))
                 .x(d3.time.scale().domain([minDate, maxDate]))
                 .xUnits(d3.time.months)
@@ -80,15 +92,15 @@
                 .legend(dc.legend().x(890).y(50))
                 .title(function (d) {
                   return d.key.getDate() + " " + mnthNames[d.key.getMonth()] + " " + d.key.getFullYear()
-                            + "\nEarned: " + Math.round(d.value.totalEarned)
-                            + "\nDeferred: " + Math.round(d.value.totalDeferred);
+                            + "\n<%=GetLocalResourceObject("Earned_Caption").ToString() %>: " + Math.round(d.value.totalEarned)
+                            + "\n<%=GetLocalResourceObject("Deferred_Caption").ToString() %>: " + Math.round(d.value.totalDeferred);
                 });
 
-    // formatting
-    revRecChart.yAxis().ticks(10);
-    revRecChart.xAxis().tickFormat(function (d) { return d.getDate() + " " + mnthNames[d.getMonth()] + " " + d.getFullYear(); });
+      // formatting
+      revRecChart.yAxis().ticks(10);
+      revRecChart.xAxis().tickFormat(function (d) { return d.getDate() + " " + mnthNames[d.getMonth()] + " " + d.getFullYear(); });
 
-    dc.renderAll();
-  });
+      dc.renderAll();
+    }
   </script>
 </asp:Content>

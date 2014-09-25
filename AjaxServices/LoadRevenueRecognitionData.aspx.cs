@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web.Script.Serialization;
-using ASP.Models;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.UI.Common;
@@ -149,7 +148,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       return data;
     }
 
-    private List<SegregatedCharges> GetData(string sqlQueryTag, Dictionary<string, object> paramDict)
+    private static List<SegregatedCharges> GetData(string sqlQueryTag, Dictionary<string, object> paramDict)
     {
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
@@ -175,22 +174,22 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
 
     private static void RoundRevRecModel(RevRecModel revRecModel, Dictionary<string, double> calculations)
     {
-      revRecModel.Amount1 = calculations["1"];
-      revRecModel.Amount2 = calculations["2"];
-      revRecModel.Amount3 = calculations["3"];
-      revRecModel.Amount4 = calculations["4"];
-      revRecModel.Amount5 = calculations["5"];
-      revRecModel.Amount6 = calculations["6"];
-      revRecModel.Amount7 = calculations["7"];
-      revRecModel.Amount8 = calculations["8"];
-      revRecModel.Amount9 = calculations["9"];
-      revRecModel.Amount10 = calculations["10"];
-      revRecModel.Amount11 = calculations["11"];
-      revRecModel.Amount12 = calculations["12"];
-      revRecModel.Amount13 = calculations["13"];
+      revRecModel.Amount1 = calculations["1"].ToString("N2");
+      revRecModel.Amount2 = calculations["2"].ToString("N2");
+      revRecModel.Amount3 = calculations["3"].ToString("N2");
+      revRecModel.Amount4 = calculations["4"].ToString("N2");
+      revRecModel.Amount5 = calculations["5"].ToString("N2");
+      revRecModel.Amount6 = calculations["6"].ToString("N2");
+      revRecModel.Amount7 = calculations["7"].ToString("N2");
+      revRecModel.Amount8 = calculations["8"].ToString("N2");
+      revRecModel.Amount9 = calculations["9"].ToString("N2");
+      revRecModel.Amount10 = calculations["10"].ToString("N2");
+      revRecModel.Amount11 = calculations["11"].ToString("N2");
+      revRecModel.Amount12 = calculations["12"].ToString("N2");
+      revRecModel.Amount13 = calculations["13"].ToString("N2");
     }
 
-    protected List<SegregatedCharges> ConstructItems(IMTDataReader rdr)
+    protected static List<SegregatedCharges> ConstructItems(IMTDataReader rdr)
     {
       var res = new List<SegregatedCharges>();
 

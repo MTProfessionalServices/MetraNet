@@ -5,7 +5,6 @@
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <MT:MTTitle ID="MTTitle1" Text="Revenue Recognition Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
-  <br />
   <div style="position: relative; margin-top: 50px;">
     <MT:MTFilterGrid ID="grdRevRecReport" runat="server" ExtensionName="Reporting" TemplateFileName="RevRecReportGrid"
       ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending" DisplayCount="True"

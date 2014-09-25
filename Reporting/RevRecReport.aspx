@@ -6,10 +6,10 @@
   TagPrefix="MTCDT" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.dataTables.min.css" />
+  <%--<link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.dataTables.min.css" />
   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
-  <script type="text/javascript" src="/Res/JavaScript/jquery.dataTables.min.js"></script>
-  <div id="container">
+  <script type="text/javascript" src="/Res/JavaScript/jquery.dataTables.min.js"></script>--%>
+  <%--<div id="container">
     <div id="demo">
       <h2>
         Index</h2>
@@ -39,7 +39,7 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div>--%>
   
   <MT:MTTitle ID="MTTitle1" Text="Revenue Recognition Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <br />
@@ -56,7 +56,7 @@
     </MT:MTFilterGrid>
   </div>
 
-  <script language="javascript" type="text/javascript">
+  <%--<script language="javascript" type="text/javascript">
     $(document).ready(function () {
       $('#myDataTable').dataTable({
         "bServerSide": true,
@@ -83,5 +83,5 @@
       ]
       });
     }); 
-  </script>
+  </script>--%>
 </asp:Content>

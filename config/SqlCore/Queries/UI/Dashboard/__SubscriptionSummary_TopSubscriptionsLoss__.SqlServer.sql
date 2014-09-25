@@ -5,6 +5,7 @@ SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.TotalParticipants, 0.0))
 	 SUM(ISNULL(ss.TotalParticipants, 0.0)) AS 'Subscriptions',
 	 SUM(ISNULL(prev.TotalParticipants, 0.0)) AS 'SubscriptionsPrevious', 
 	 SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) AS 'SubscriptionsChange',
+   ABS(SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0))) AS 'SubscriptionsAbsChange',
 	 SUM(ISNULL(ss.NewParticipants, 0.0)) AS 'NewCustomers',
    SUM(ISNULL(prev.NewParticipants, 0.0)) AS 'NewCustomersPrevious', 
 	 SUM(ISNULL(ss.NewParticipants, 0.0))-SUM(ISNULL(prev.NewParticipants, 0.0)) AS 'NewCustomersChange'

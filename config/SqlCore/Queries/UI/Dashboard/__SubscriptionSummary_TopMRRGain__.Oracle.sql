@@ -7,7 +7,8 @@ FROM (
 	ss.Month, 
 	SUM(NVL(ss.MRRPrimaryCurrency, 0.0)) AS MRR, 
 	SUM(NVL(prev.MRRPrimaryCurrency, 0.0)) AS MRRPrevious, 
-	SUM(NVL(ss.MRRPrimaryCurrency, 0.0))-SUM(NVL(prev.MRRPrimaryCurrency, 0.0)) AS MRRChange
+	SUM(NVL(ss.MRRPrimaryCurrency, 0.0))-SUM(NVL(prev.MRRPrimaryCurrency, 0.0)) AS MRRChange,
+  ABS(SUM(NVL(ss.MRRPrimaryCurrency, 0.0))-SUM(NVL(prev.MRRPrimaryCurrency, 0.0))) AS MRRAbsChange
   FROM SubscriptionSummary ss
   INNER JOIN ProductOffering po 
    ON po.ProductOfferingId = ss.ProductOfferingId 

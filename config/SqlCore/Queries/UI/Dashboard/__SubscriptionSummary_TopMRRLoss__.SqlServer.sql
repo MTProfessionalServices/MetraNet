@@ -4,7 +4,8 @@ SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0)
 	ss.Month, 
 	SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0)) as 'MRR', 
 	SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) as 'MRRPrevious', 
-	SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency,0.0)) as 'MRRChange'
+	SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency,0.0)) as 'MRRChange',
+  ABS(SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency,0.0))) as 'MRRAbsChange'
 FROM SubscriptionSummary ss
 INNER JOIN ProductOffering po 
  ON po.ProductOfferingId = ss.ProductOfferingId 

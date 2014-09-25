@@ -8,6 +8,7 @@ FROM (
     SUM(NVL(ss.TotalParticipants, 0.0)) AS Subscriptions,
     SUM(NVL(prev.TotalParticipants, 0.0)) AS SubscriptionsPrevious, 
     SUM(NVL(ss.TotalParticipants, 0.0))-SUM(NVL(prev.TotalParticipants, 0.0)) AS SubscriptionsChange,
+    ABS(SUM(NVL(ss.TotalParticipants, 0.0))-SUM(NVL(prev.TotalParticipants, 0.0))) AS SubscriptionsAbsChange,
     SUM(NVL(ss.NewParticipants, 0.0)) AS NewCustomers, 
     SUM(NVL(prev.NewParticipants, 0.0)) AS NewCustomersPrevious, 
     SUM(NVL(ss.NewParticipants, 0.0))-SUM(NVL(prev.NewParticipants, 0.0)) AS NewCustomersChange

@@ -129,10 +129,10 @@
   <data name="pnlMyRecentChangesResource1.Text" xml:space="preserve">
     <value>{PT-BR}My Recent Changes</value>
   </data>
-  <data name="pnlTop10MMRResource1.Text" xml:space="preserve">
+  <data name="TEXT_TOP_10_MRR" xml:space="preserve">
     <value>{PT-BR}Top 10 MRR</value>
   </data>
-  <data name="pnlTop10SubsResource1.Text" xml:space="preserve">
+  <data name="TEXT_TOP_10_SUBSCRIPTIONS" xml:space="preserve">
     <value>{PT-BR}Top 10 Subscriptions</value>
   </data>
   <data name="pnlTop10RevenueResource1.Text" xml:space="preserve">
@@ -210,4 +210,10 @@
   <data name="VIEW_PO_TEXT" xml:space="preserve">
     <value>{PT-BR}View product offering</value>
   </data>
+  <data name="TEXT_GAIN_TOOLTIP" xml:space="preserve">
+    <value>{PT-BR}Gain</value>
+  </data>
+  <data name="TEXT_LOSS_TOOLTIP" xml:space="preserve">
+    <value>{PT-BR}Loss</value>
+  </data>  
 </root>

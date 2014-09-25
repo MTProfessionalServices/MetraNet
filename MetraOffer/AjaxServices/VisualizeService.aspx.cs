@@ -220,7 +220,11 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           json.Append(item);
           item = string.Format("\"mrrprevious\":{0},", FormatFieldValue(record.Fields[5], invariantCulture));
           json.Append(item);
-          item = string.Format("\"mrrchange\":{0}", FormatFieldValue(record.Fields[6], invariantCulture));
+          item = string.Format("\"mrrchange\":{0},", FormatFieldValue(record.Fields[6], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"mrrabschange\":{0},", FormatFieldValue(record.Fields[7], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"mrrabschangeAsString\":{0}", FormatAmount(record.Fields[7], reportingCurrency));
           json.Append(item);
         }
         else if (operation.Equals("AnalyticsSingleProductOverTime"))

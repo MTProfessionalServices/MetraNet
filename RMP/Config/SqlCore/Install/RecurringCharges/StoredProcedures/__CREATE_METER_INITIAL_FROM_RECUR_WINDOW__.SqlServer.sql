@@ -74,6 +74,7 @@ INTO #tmp_rc
         AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
         /* Meter only in 1-st billing interval */
         AND ui.dt_start <= rw.c_SubscriptionStart
+        AND ui.dt_start < @currentDate
         AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   /* If no charges to meter, return immediately */

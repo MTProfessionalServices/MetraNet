@@ -992,6 +992,7 @@ INTO #tmp_rc
         AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
         /* Meter only in 1-st billing interval */
         AND ui.dt_start <= rw.c_SubscriptionStart
+        AND ui.dt_start < @currentDate
         AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   /* If no charges to meter, return immediately */
@@ -1185,6 +1186,8 @@ BEGIN
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start < @currentDate
+         /* We're working only with Bill. interval where subscription starts, except future one */
+         AND @newSubStart BETWEEN ui.dt_start AND ui.dt_end
          AND @isEndDateUpdated = 1
          AND NOT (rw.c_advance = 'N' AND @newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
@@ -1603,6 +1606,7 @@ BEGIN
         EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
         /* Meter only in 1-st billing interval */
         AND ui.dt_start <= rw.c_SubscriptionStart
+        AND ui.dt_start < @currentDate
         AND rw.c__IsAllowGenChargeByTrigger = 1; 
 
   SELECT @actionType AS c_RCActionType,
@@ -1740,6 +1744,7 @@ BEGIN
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start <= rw.c_SubscriptionStart
+         AND ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   SELECT 'InitialDebit' AS c_RCActionType,

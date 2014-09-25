@@ -465,6 +465,7 @@ BEGIN
     /* Only issue corrections if there's a previous iteration. */
     EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
     AND ui.dt_start <= rw.c_SubscriptionStart
+    AND ui.dt_start < currentDate
     AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   INSERT INTO TMP_RC
@@ -930,6 +931,8 @@ BEGIN
               AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
          ui.dt_start < currentDate
+         /* We're working only with Bill. interval where subscription starts, except future one */
+         AND v_newSubStart BETWEEN ui.dt_start AND ui.dt_end
          AND v_isEndDateUpdated = '1'
          AND NOT (rw.c_advance = 'N' AND v_newSubEnd > ui.dt_end)
          /* Skip if this is an Arrears AND end date update crosses the EOP border (this case will be handled below) */
@@ -1464,6 +1467,7 @@ BEGIN
     AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
     /* Don't meter in the current interval for initial*/
     AND ui.dt_start <= rw.c_SubscriptionStart
+    AND ui.dt_start < currentDate
     AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   MERGE
@@ -1673,6 +1677,7 @@ AS
       AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
     ui.dt_start <= rw.c_SubscriptionStart
+    AND ui.dt_start < currentDate
     AND rw.c__IsAllowGenChargeByTrigger = 1;
 	  
   INSERT INTO TMP_RC

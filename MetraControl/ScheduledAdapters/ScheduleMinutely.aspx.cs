@@ -20,6 +20,12 @@ public partial class ScheduleMinutely : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage Scheduled Adapters"))
+    {
+      Response.End();
+      return;
+    }
+
     ScheduleAdapterServiceClient schedAdapterClient = new ScheduleAdapterServiceClient();
     BaseRecurrencePattern recurPattern;
 

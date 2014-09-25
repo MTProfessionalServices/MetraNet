@@ -19,6 +19,11 @@ public partial class ScheduleManual : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage Scheduled Adapters"))
+    {
+      Response.End();
+      return;
+    }
 
     if (!IsPostBack)
     {

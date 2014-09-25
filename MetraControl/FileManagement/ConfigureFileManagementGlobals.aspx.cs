@@ -15,6 +15,12 @@ public partial class ConfigureFileManagementGlobals : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Read Business Modeling Entities"))
+    {
+      Response.End();
+      return;
+    }
+
     if (!IsPostBack)
     {
       if (!LoadDialogWithConfigInDatabase())

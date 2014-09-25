@@ -78,6 +78,12 @@ public partial class FileManagementTarget : MTPage
   #region  Events
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Read Business Modeling Entities"))
+    {
+      Response.End();
+      return;
+    }
+
     if (!IsPostBack)
     {
       bool isNew = false;

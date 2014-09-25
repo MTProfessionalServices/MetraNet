@@ -127,7 +127,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>RevenueCode</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_REVENUE_CODE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -160,7 +163,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>DeferredRevenueCode</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_DEFERRED_REVENUE_CODE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -193,7 +199,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>RevenuePart</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_REVENUE_PART</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>

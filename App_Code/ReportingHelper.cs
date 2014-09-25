@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ASP.Models;
 using MetraTech.DataAccess;
 
 namespace MetraNet
@@ -110,5 +109,16 @@ namespace MetraNet
       return res;
     }
 
+  }
+
+  public class SegregatedCharges
+  {
+    public string Currency { get; set; }
+    public DateTime StartSubscriptionDate { get; set; }
+    public DateTime EndSubscriptionDate { get; set; }
+    public string RevenueCode { get; set; }
+    public string DeferredRevenueCode { get; set; }
+    public int ProrationDate { get; set; }
+    public decimal ProrationAmount { get; set; }
   }
 }

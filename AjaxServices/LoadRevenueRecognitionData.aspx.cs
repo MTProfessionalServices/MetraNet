@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web.Script.Serialization;
+using MetraNet;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.UI.Common;
@@ -211,15 +212,4 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
 
       return res;
     }
-}
-
-public class SegregatedCharges
-{
-  public string Currency { get; set; }
-  public DateTime StartSubscriptionDate { get; set; }
-  public DateTime EndSubscriptionDate { get; set; }
-  public string RevenueCode { get; set; }
-  public string DeferredRevenueCode { get; set; }
-  public int ProrationDate { get; set; }
-  public decimal ProrationAmount { get; set; }
 }

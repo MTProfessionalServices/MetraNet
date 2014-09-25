@@ -16,7 +16,8 @@ INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_unit_dependent_recurring AS udrc_ep ON udrc_ep.id_prop = acc.id_pi_template
 WHERE 
 	c_RCIntervalSubscriptionStart < %%START_DATE%%
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND udrc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -38,7 +39,8 @@ INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_recurring AS frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE 
 	c_RCIntervalSubscriptionStart < %%START_DATE%%
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND frc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -60,4 +62,5 @@ INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_nonrecurring AS nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 WHERE 
 	c_NRCIntervalSubscriptionStart < %%START_DATE%%
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND nrc_ep.c_IsLiabilityProduct = 'N'

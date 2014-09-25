@@ -5,7 +5,12 @@ SELECT
 	,udrc.c_RCIntervalSubscriptionEnd AS SubscriptionEnd
 	,udrc.c_ProratedIntervalStart
 	,udrc.c_ProratedIntervalEnd
-	,DATEDIFF(DAY, %%END_DATE%%, udrc.c_RCIntervalSubscriptionEnd)+1 AS c_ProratedDays
+	,c_ProratedDays = CASE 
+					WHEN udrc.c_RCIntervalSubscriptionStart > %%END_DATE%%
+						THEN DATEDIFF(DAY, udrc.c_RCIntervalSubscriptionStart, udrc.c_RCIntervalSubscriptionEnd)+1
+					WHEN udrc.c_RCIntervalSubscriptionStart <= %%END_DATE%%
+						THEN DATEDIFF(DAY, %%END_DATE%%, udrc.c_RCIntervalSubscriptionEnd)+1
+				END
 	,udrc.c_ProratedDailyRate
 	,udrc_ep.c_IsLiabilityProduct
 	,udrc_ep.c_RevenueCode
@@ -16,7 +21,8 @@ INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_unit_dependent_recurring AS udrc_ep ON udrc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_RCIntervalSubscriptionEnd >= %%END_DATE%%
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND udrc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -27,7 +33,12 @@ SELECT
  ,frc.c_RCIntervalSubscriptionEnd AS SubscriptionEnd
  ,frc.c_ProratedIntervalStart
  ,frc.c_ProratedIntervalEnd
- ,DATEDIFF(DAY, %%END_DATE%%, frc.c_RCIntervalSubscriptionEnd)+1 AS c_ProratedDays
+,c_ProratedDays = CASE 
+					WHEN frc.c_RCIntervalSubscriptionStart > %%END_DATE%%
+						THEN DATEDIFF(DAY, frc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionEnd)+1
+					WHEN frc.c_RCIntervalSubscriptionStart <= %%END_DATE%%
+						THEN DATEDIFF(DAY, %%END_DATE%%, frc.c_RCIntervalSubscriptionEnd)+1
+				END
  ,frc.c_ProratedDailyRate
  ,frc_ep.c_IsLiabilityProduct
  ,frc_ep.c_RevenueCode
@@ -38,7 +49,8 @@ INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_recurring AS frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_RCIntervalSubscriptionEnd >= %%END_DATE%%
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND frc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -60,4 +72,5 @@ INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_recurring AS nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_NRCIntervalSubscriptionEnd >= %%END_DATE%%
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND nrc_ep.c_IsLiabilityProduct = 'N'

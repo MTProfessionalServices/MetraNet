@@ -34,7 +34,8 @@ WHERE
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= %%END_DATE%% AND c_RCIntervalSubscriptionEnd >= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%))
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND udrc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -74,7 +75,8 @@ WHERE
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= %%END_DATE%% AND c_RCIntervalSubscriptionEnd >= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%))
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND frc_ep.c_IsLiabilityProduct = 'N'
 
 UNION
 
@@ -97,4 +99,5 @@ LEFT JOIN t_ep_nonrecurring AS nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 WHERE
 	c_NRCIntervalSubscriptionStart >= %%START_DATE%%
 	AND c_NRCIntervalSubscriptionStart < %%END_DATE%%
-	AND ui.tx_interval_status = 'H'
+	AND ui.tx_interval_status = 'O'
+	AND nrc_ep.c_IsLiabilityProduct = 'N'

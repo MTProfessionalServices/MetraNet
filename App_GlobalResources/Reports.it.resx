@@ -153,6 +153,9 @@
   <data name="TEXT_DATE_LAST" xml:space="preserve">
     <value>[IT]Date Last</value>
   </data>
+  <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
+    <value>[IT]Deferred revenue code</value>
+  </data>
   <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
     <value>[IT]Discount Name</value>
   </data>
@@ -245,6 +248,12 @@
   </data>
   <data name="TEXT_RC_TYPE" xml:space="preserve">
     <value>[IT]Type of RC</value>
+  </data>
+  <data name="TEXT_REVENUE_CODE" xml:space="preserve">
+    <value>[IT]Revenue code</value>
+  </data>
+  <data name="TEXT_REVENUE_PART" xml:space="preserve">
+    <value>[IT]Revenue Part</value>
   </data>
   <data name="TEXT_STATE" xml:space="preserve">
     <value>[IT]State</value>

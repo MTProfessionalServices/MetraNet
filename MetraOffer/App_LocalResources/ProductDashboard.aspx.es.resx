@@ -119,7 +119,7 @@
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>{ES}Product Dashboard</value>
-  </data>  
+  </data>
   <data name="pnlRecentOfferingChangesResource1.Text" xml:space="preserve">
     <value>{ES}Recent Offering Changes</value>
   </data>
@@ -128,7 +128,7 @@
   </data>
   <data name="pnlMyRecentChangesResource1.Text" xml:space="preserve">
     <value>{ES}My Recent Changes</value>
-  </data>  
+  </data>
   <data name="pnlTop10MMRResource1.Text" xml:space="preserve">
     <value>{ES}Top 10 MRR</value>
   </data>
@@ -143,58 +143,58 @@
   </data>
   <data name="pnlTop10NewCustomersResource1.Text" xml:space="preserve">
     <value>{ES}Top 10 New Customers (Last 30 days)</value>
-  </data>   
+  </data>
   <data name="TEXT_USER_NAME" xml:space="preserve">
     <value>{ES}User Name</value>
-  </data> 
+  </data>
   <data name="TEXT_CHANGE_DATE" xml:space="preserve">
     <value>{ES}Change Date</value>
-  </data> 
+  </data>
   <data name="TEXT_DETAILS" xml:space="preserve">
     <value>{ES}Details</value>
-  </data> 
+  </data>
   <data name="TEXT_PO_ID" xml:space="preserve">
     <value>{ES}PO ID</value>
-  </data> 
+  </data>
   <data name="TEXT_PO_NAME" xml:space="preserve">
     <value>{ES}PO Name</value>
-  </data> 
+  </data>
   <data name="TEXT_CHANGE_DESCRIPTION" xml:space="preserve">
     <value>{ES}Change Description</value>
-  </data> 
+  </data>
   <data name="TEXT_PRODUCT_TEMPLATE_ID" xml:space="preserve">
     <value>{ES}Product Template ID</value>
-  </data> 
+  </data>
   <data name="TEXT_PRODUCT_TEMPLATE_NAME" xml:space="preserve">
     <value>{ES}Product Template Name</value>
-  </data> 
-   <data name="TEXT_SCHEDULE_ID" xml:space="preserve">
+  </data>
+  <data name="TEXT_SCHEDULE_ID" xml:space="preserve">
     <value>{ES}Schedule ID</value>
-  </data> 
+  </data>
   <data name="TEXT_NO_RECORDS" xml:space="preserve">
     <value>{ES}No Records</value>
-  </data>  
+  </data>
   <data name="TEXT_MRR_TOTAL" xml:space="preserve">
     <value>{ES}MRR Total</value>
-  </data>  
+  </data>
   <data name="TEXT_MRR_GAIN" xml:space="preserve">
     <value>{ES}MRR Gain</value>
-  </data> 
+  </data>
   <data name="TEXT_MRR_LOSS" xml:space="preserve">
     <value>{ES}MRR Loss</value>
-  </data> 
+  </data>
   <data name="TEXT_SUBSCRIPTIONS_TOTAL" xml:space="preserve">
     <value>{ES}Subscriptions Total</value>
-  </data>  
+  </data>
   <data name="TEXT_SUBSCRIPTIONS_GAIN" xml:space="preserve">
     <value>{ES}Subscriptions Gain</value>
-  </data>  
+  </data>
   <data name="TEXT_SUBSCRIPTIONS_LOSS" xml:space="preserve">
     <value>{ES}Subscriptions Loss</value>
   </data>
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
     <value>{ES}No data found</value>
-  </data>  
+  </data>
   <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
     <value>{ES}Change</value>
   </data>
@@ -204,8 +204,13 @@
   <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
     <value>{ES}Subscriptions</value>
   </data>
- 
   <data name="TEXT_REVENUE_TOOLTIP" xml:space="preserve">
     <value>{ES}Revenue</value>
-  </data>  
+  </data>
+  <data name="UPDATED_BY_TEXT" xml:space="preserve">
+    <value>{ES}Updated by:</value>
+  </data>
+  <data name="VIEW_PO_TEXT" xml:space="preserve">
+    <value>{ES}View product offering</value>
+  </data>
 </root>

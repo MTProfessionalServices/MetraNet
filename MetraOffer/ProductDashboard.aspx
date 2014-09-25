@@ -270,6 +270,69 @@
     </ul>
   </div>
   <script type="text/javascript">
+    function ViewProductOffering(poId) {
+      var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/ProductOffering.ViewEdit.Frame.asp|ID=" + poId;
+      location.href = targetURL;
+    }  
+    
+    function tx_detailsColRenderer(value, meta, record, rowIndex, colIndex, store) {
+      meta.attr = 'style="white-space:normal"';
+      var str = "";
+      // nm_po
+      // tx_details
+      // tx_desc
+      // dt_crt
+      // nm_login
+      if (record.json.id_po != null) {
+        str += String.format("<span title='Name_{0}'><a style='cursor:auto;' id='viewName_{0}' title='{1}' href='JavaScript:ViewProductOffering({2});'>{3}</a></span><br/>", 
+          record.json.unique_id,
+          "<%=GetLocalResourceObject("VIEW_PO_TEXT")%>",
+          record.json.id_po,
+          record.json.nm_po);
+      }
+      str += String.format("{0}<br/><br/>{1}<br/><br/>{2}<br/>",record.json.tx_desc,record.json.tx_details,record.json.dt_crt);  
+      if (record.json.nm_login != null) {
+        str += String.format("<b>{0} {1}</b><br/>",
+          "<%=GetLocalResourceObject("UPDATED_BY_TEXT")%>",
+          record.json.nm_login);
+      }
+      return str;
+    }
+
+    function tx_detailsRecentChangesColRenderer(value, meta, record, rowIndex, colIndex, store) {
+      meta.attr = 'style="white-space:normal"';
+      var str = "";
+      // tx_details
+      // tx_desc
+      // dt_crt
+      // nm_login
+      str += String.format("{0}<br/><br/>{1}<br/><br/>{2}<br/>",record.json.tx_desc,record.json.tx_details,record.json.dt_crt);  
+      if (record.json.nm_login != null) {
+        str += String.format("<b>{0} {1}</b><br/>",
+          "<%=GetLocalResourceObject("UPDATED_BY_TEXT")%>",
+          record.json.nm_login);
+      }
+      return str;
+    }    
+    
+    // Custom Renderers
+    OverrideRenderer_<%= grdRecentOfferingChanges.ClientID %> = function(cm)
+    {  
+      cm.setRenderer(cm.getIndexById('tx_details'), tx_detailsColRenderer);
+    };
+
+    // Custom Renderers
+    OverrideRenderer_<%= grdRecentRateChanges.ClientID %> = function(cm)
+    {  
+      cm.setRenderer(cm.getIndexById('tx_details'), tx_detailsRecentChangesColRenderer);
+    };
+    
+    // Custom Renderers
+    OverrideRenderer_<%= grdMyRecentChanges.ClientID %> = function(cm)
+    {  
+      cm.setRenderer(cm.getIndexById('tx_details'), tx_detailsRecentChangesColRenderer);
+    };
+        
     Ext.onReady(function () {
       Ext.getCmp('formPanel_<%=pnlRecentOfferingChanges.ClientID%>').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(0), 3, 1); });
       Ext.getCmp('formPanel_<%=pnlRecentOfferingChanges.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(0), 3, 8); });

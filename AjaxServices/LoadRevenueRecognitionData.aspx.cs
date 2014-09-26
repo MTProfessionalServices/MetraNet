@@ -34,30 +34,14 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var startDate = new DateTime(now.Year, now.Month - 1, 1);
       var endDate = new DateTime(now.Year, now.Month, 1);
 
-      var paramDictIncremental = new Dictionary<string, object>
-        {
-          {"%%START_DATE%%", startDate},
-          {"%%END_DATE%%", endDate}
-        };
-
-      var paramDictDeferred = new Dictionary<string, object>
-        {
-          {"%%END_DATE%%", endDate},
-        };
-
-      var paramDictEarned = new Dictionary<string, object>
-        {
-          {"%%START_DATE%%", startDate},
-        };
-
-      var incremental = GetData("__GET_INCREMENTAL_EARNED_REVENUE__", paramDictIncremental);
-      var deferred = GetData("__GET_DEFERRED_REVENUE__", paramDictDeferred);
-      var earned = GetData("__GET_EARNED_REVENUE__", paramDictEarned);
+      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate).ToList();
+      var deferred = ReportingtHelper.GetDeferredRevenue(endDate).ToList();
+      var earned = ReportingtHelper.GetEarnedRevenue(startDate).ToList();
 
       var groups =
         earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })
-              .Union(incremental.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
-              .Union(deferred.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
+              .Concat(incremental.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
+              .Concat(deferred.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
               .Distinct()
               .ToList();
 

@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.Mvc;
 using ASP.Models;
+using MetraNet;
 using MetraNet.DbContext;
 using System.Linq;
 using System.Collections.Generic;
@@ -193,21 +194,60 @@ namespace ASP.Controllers
       return new SqlConnection(connString.ToString());
     }
 
-    public ActionResult DefRevScheduleWidgetReport()
+    public ActionResult DefRevScheduleWidgetReport(string currency="USD")
     {
-      return Json(new[]
+      var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
+      var endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate).ToList();
+      var deferred = ReportingtHelper.GetDeferredRevenue(endDate).ToList();
+      var earned = ReportingtHelper.GetEarnedRevenue(startDate).ToList();
+      var result = new[]
         {
-          new { date = DateTime.Parse("2014-08-01"), deferred = 900, earned = 300 },
-          new { date = DateTime.Parse("2014-09-01"), deferred = 800, earned = 400 },
-          new { date = DateTime.Parse("2014-10-01"), deferred = 700, earned = 500 },
-          new { date = DateTime.Parse("2014-11-01"), deferred = 600, earned = 600 },
-          new { date = DateTime.Parse("2014-12-01"), deferred = 500, earned = 700 },
-          new { date = DateTime.Parse("2015-01-01"), deferred = 400, earned = 800 },
-          new { date = DateTime.Parse("2015-02-01"), deferred = 300, earned = 900 },
-          new { date = DateTime.Parse("2015-03-01"), deferred = 200, earned = 1000 },
-          new { date = DateTime.Parse("2015-04-01"), deferred = 100, earned = 1100 },
-          new { date = DateTime.Parse("2015-05-01"), deferred = 0, earned = 1200 }      
-        }, JsonRequestBehavior.AllowGet);
+          new {date = DateTime.Parse("2014-08-01"), deferred = 900, earned = 300},
+          new {date = DateTime.Parse("2014-09-01"), deferred = 800, earned = 400},
+          new {date = DateTime.Parse("2014-10-01"), deferred = 700, earned = 500},
+          new {date = DateTime.Parse("2014-11-01"), deferred = 600, earned = 600},
+          new {date = DateTime.Parse("2014-12-01"), deferred = 500, earned = 700},
+          new {date = DateTime.Parse("2015-01-01"), deferred = 400, earned = 800},
+          new {date = DateTime.Parse("2015-02-01"), deferred = 300, earned = 900},
+          new {date = DateTime.Parse("2015-03-01"), deferred = 200, earned = 1000},
+          new {date = DateTime.Parse("2015-04-01"), deferred = 100, earned = 1100},
+          new {date = DateTime.Parse("2015-05-01"), deferred = 0, earned = 1200}
+        };
+
+      var decimalTotalEarned = new Dictionary<string, double>();
+      var decimalDeferred = new Dictionary<string, double>();
+      var calculatedDeferred = deferred.Where(x => x.Currency.Equals(currency))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+
+      var calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(currency))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+
+      var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(currency))
+                                          .Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
+
+
+      decimalTotalEarned.Add("1", (double)calculatedTotalEarned);
+      decimalDeferred.Add("1", (double)calculatedDeferred);
+
+      for (var i = 1; i < 13; i++)
+      {
+        var monthNext = endDate.AddMonths(i).AddDays(-1);
+        var calculatedDeferredPrev = calculatedDeferred;
+
+        calculatedDeferred = deferred.Where(x => x.Currency.Equals(currency) && x.EndSubscriptionDate > monthNext)
+                                          .Select(x => (x.EndSubscriptionDate - monthNext).Days * x.ProrationAmount).Sum();
+
+        calculatedIncrementalEarned = calculatedDeferredPrev - calculatedDeferred;
+
+        calculatedTotalEarned = calculatedTotalEarned + calculatedIncrementalEarned;
+
+        var key = (i + 1).ToString(CultureInfo.InvariantCulture);
+        decimalDeferred.Add(key, (double)calculatedDeferred);
+        decimalTotalEarned.Add(key, (double)calculatedTotalEarned);
+      }
+
+      return Json(result, JsonRequestBehavior.AllowGet);
     }
 
     /*public ActionResult Churn()

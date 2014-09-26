@@ -39,6 +39,52 @@ namespace MetraNet
       return GetData<KeyValuePair<string, string>>("__GET_ACCOUNTING_CYCLE_FILTER__", null).ToDictionary(x => x.Key, x => x.Value);
     }
 
+    /// <summary>
+    /// Returns collection of earned charges.
+    /// </summary>
+    /// <param name="startDate">The date we a looking data from.</param>
+    /// <returns></returns>
+    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate)
+    {
+      var paramDict = new Dictionary<string, object>
+        {
+          {"%%START_DATE%%", startDate},
+        };
+
+      return GetData<SegregatedCharges>("__GET_EARNED_REVENUE__", paramDict);
+    }
+
+    /// <summary>
+    /// Returns collection of deferred charges.
+    /// </summary>
+    /// <param name="endDate">The date we a looking data up to.</param>
+    /// <returns></returns>
+    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate)
+    {
+      var paramDict = new Dictionary<string, object>
+        {
+          {"%%END_DATE%%", endDate},
+        };
+
+      return GetData<SegregatedCharges>("__GET_DEFERRED_REVENUE__", paramDict);
+    }
+
+    /// <summary>
+    /// Returns collection of deferred charges.
+    /// </summary>
+    /// <param name="startDate">The date we a looking data from.</param>
+    /// <param name="endDate">The date we a looking data up to.</param>
+    /// <returns></returns>
+    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate)
+    {
+      var paramDict = new Dictionary<string, object>
+        {
+          {"%%START_DATE%%", startDate},
+          {"%%END_DATE%%", endDate}
+        };
+
+      return GetData<SegregatedCharges>("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
+    }
 
     private static IEnumerable<T> GetData<T>(string sqlQueryTag, Dictionary<string, object> paramDict)
     {

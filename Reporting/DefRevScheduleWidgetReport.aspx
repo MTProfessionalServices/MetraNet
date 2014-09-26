@@ -32,8 +32,14 @@
     var dataSet = [];
 
     function ApplyFilter() {
+      var accCycleId = $("#accntCycleDd").val();
+      var currency = $("#currencyDd").val();
+      var queryUrl = dataQuery;
+      if (currency !== '') {
+        queryUrl = queryUrl + '/?currency=' + currency;
+      }
       // let's get some data
-      d3.json(dataQuery, function (data) {
+      d3.json(queryUrl, function (data) {
         data.forEach(function (e) {
           dataSet.push({jsDate: new Date(parseInt(e.date.substr(6))), deferred: e.deferred, earned: e.earned});
         });

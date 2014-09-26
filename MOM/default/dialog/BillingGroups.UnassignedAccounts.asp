@@ -59,6 +59,7 @@ mdm_PVBrowserMain ' invoke the mdm framework
 ' RETURNS       :
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 	  on error resume next  
+    Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
     Dim i      
     Form_Initialize = FALSE
     

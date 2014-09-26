@@ -50,7 +50,6 @@ public iState
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
     Framework.AssertCourseCapability "Manage Scheduled Adapters", EventArg
-
     ProductView.Clear  ' Set all the property of the service to empty or to the default value
    	ProductView.Properties.ClearSelection
     ProductView.Properties.Flags = eMSIX_PROPERTIES_FLAG_PRODUCTVIEW

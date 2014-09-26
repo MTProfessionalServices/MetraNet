@@ -33,6 +33,9 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp"          -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE FILE="../../default/lib/IntervalManagementLibrary.asp" -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
+
 <%
 Form.Version                    = MDM_VERSION     ' Set the dialog version - we are version 2.0.
 Form.ErrorHandler               = FALSE  
@@ -44,6 +47,7 @@ mdm_PVBrowserMain ' invoke the mdm framework
 
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     'BreadCrumb.SetCrumb FrameWork.GetDictionary("TEXT_VIEW_AUDIT_LOG")
+    Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
     ProductView.Clear  ' Set all the property of the service to empty or to the default value
    	ProductView.Properties.ClearSelection
     ProductView.Properties.Flags = eMSIX_PROPERTIES_FLAG_PRODUCTVIEW

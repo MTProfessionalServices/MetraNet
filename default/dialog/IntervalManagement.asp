@@ -40,7 +40,8 @@ mdm_Main
 ' DESCRIPTION:
 ' RETURNS    : Return TRUE / FALSE
 FUNCTION Form_Initialize(EventArg) 
-
+  Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
+  
   If Len(Request.QueryString("ID")) > 0 Then
     Form("IntervalID") = Request.QueryString("ID")
   End If

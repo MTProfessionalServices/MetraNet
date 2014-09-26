@@ -17,7 +17,8 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
     protected void Page_Load(object sender, EventArgs e)
     {
       var items = new MTList<RevRecModel> {TotalRows = 100, PageSize = 100, CurrentPage = 1};
-      var revRec = GetRevRec();
+      SetFilters(items);
+      var revRec = GetRevRec(items);
       items.Items.AddRange(revRec);
 
       //convert adjustments into JSON
@@ -28,15 +29,18 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       Response.Write(json);
     }
 
-    public List<RevRecModel> GetRevRec()
+    public List<RevRecModel> GetRevRec(MTList<RevRecModel> items)
     {
       var now = DateTime.Now;
       var startDate = new DateTime(now.Year, now.Month - 1, 1);
       var endDate = new DateTime(now.Year, now.Month, 1);
 
-      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate).ToList();
-      var deferred = ReportingtHelper.GetDeferredRevenue(endDate).ToList();
-      var earned = ReportingtHelper.GetEarnedRevenue(startDate).ToList();
+      var currencyLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "Currency");
+      var currency = currencyLINQ == null ? "" : currencyLINQ.Value;
+
+      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency).ToList();
+      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency).ToList();
+      var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency).ToList();
 
       var groups =
         earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })

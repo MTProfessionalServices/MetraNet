@@ -194,9 +194,9 @@ namespace ASP.Controllers
     {
       var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
       var endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate).ToList();
-      var deferred = ReportingtHelper.GetDeferredRevenue(endDate).ToList();
-      var earned = ReportingtHelper.GetEarnedRevenue(startDate).ToList();
+      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency).ToList();
+      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency).ToList();
+      var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency).ToList();
       //var result = new[]
       //  {
       //    new {date = DateTime.Parse("2014-08-01"), deferred = 900, earned = 300},
@@ -213,14 +213,11 @@ namespace ASP.Controllers
 
       var decimalTotalEarned = new Dictionary<DateTime, double>();
       var decimalDeferred = new Dictionary<DateTime, double>();
-      var calculatedDeferred = deferred.Where(x => x.Currency.Equals(currency))
-                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+      var calculatedDeferred = deferred.Select(x => x.ProrationDate * x.ProrationAmount).Sum();
 
-      var calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(currency))
-                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+      var calculatedIncrementalEarned = incremental.Select(x => x.ProrationDate * x.ProrationAmount).Sum();
 
-      var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(currency))
-                                          .Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
+      var calculatedTotalEarned = earned.Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
 
 
       decimalTotalEarned.Add(startDate, (double)calculatedTotalEarned);
@@ -231,7 +228,7 @@ namespace ASP.Controllers
         var monthNext = endDate.AddMonths(i).AddDays(-1);
         var calculatedDeferredPrev = calculatedDeferred;
 
-        calculatedDeferred = deferred.Where(x => x.Currency.Equals(currency) && x.EndSubscriptionDate > monthNext)
+        calculatedDeferred = deferred.Where(x => x.EndSubscriptionDate > monthNext)
                                           .Select(x => (x.EndSubscriptionDate - monthNext).Days * x.ProrationAmount).Sum();
 
         calculatedIncrementalEarned = calculatedDeferredPrev - calculatedDeferred;

@@ -198,9 +198,9 @@ namespace ASP.Controllers
     {
       var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
       var endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate).ToList();
-      var deferred = ReportingtHelper.GetDeferredRevenue(endDate).ToList();
-      var earned = ReportingtHelper.GetEarnedRevenue(startDate).ToList();
+      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, "").ToList();
+      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, "").ToList();
+      var earned = ReportingtHelper.GetEarnedRevenue(startDate, "").ToList();
       var result = new[]
         {
           new {date = DateTime.Parse("2014-08-01"), deferred = 900, earned = 300},

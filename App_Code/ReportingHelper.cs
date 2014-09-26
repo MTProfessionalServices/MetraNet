@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MetraTech.DataAccess;
+using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
 
 namespace MetraNet
 {
@@ -43,12 +44,14 @@ namespace MetraNet
     /// Returns collection of earned charges.
     /// </summary>
     /// <param name="startDate">The date we a looking data from.</param>
+    /// <param name="currency"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate)
+    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate, string currency)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%START_DATE%%", startDate},
+          {"%%CURRENCY%%", currency}
         };
 
       return GetData<SegregatedCharges>("__GET_EARNED_REVENUE__", paramDict);
@@ -58,12 +61,14 @@ namespace MetraNet
     /// Returns collection of deferred charges.
     /// </summary>
     /// <param name="endDate">The date we a looking data up to.</param>
+    /// <param name="currency"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate)
+    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate, string currency)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%END_DATE%%", endDate},
+          {"%%CURRENCY%%", currency}
         };
 
       return GetData<SegregatedCharges>("__GET_DEFERRED_REVENUE__", paramDict);
@@ -74,13 +79,15 @@ namespace MetraNet
     /// </summary>
     /// <param name="startDate">The date we a looking data from.</param>
     /// <param name="endDate">The date we a looking data up to.</param>
+    /// <param name="currency"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate)
+    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate, string currency)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%START_DATE%%", startDate},
-          {"%%END_DATE%%", endDate}
+          {"%%END_DATE%%", endDate},
+          {"%%CURRENCY%%", currency}
         };
 
       return GetData<SegregatedCharges>("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);

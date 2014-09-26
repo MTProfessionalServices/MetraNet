@@ -25,6 +25,9 @@ namespace MetraNet
       var paramDictEarned = new Dictionary<string, object>
         {
           {"%%START_DATE%%", DateTime.Today},
+          {"%%CURRENCY%%", ""}, 
+          {"%%REVENUECODE%%", ""}, 
+          {"%%DEFREVENUECODE%%", ""}
         };
 
       var earned = GetData<SegregatedCharges>("__GET_EARNED_REVENUE__", paramDictEarned);
@@ -45,13 +48,17 @@ namespace MetraNet
     /// </summary>
     /// <param name="startDate">The date we a looking data from.</param>
     /// <param name="currency"></param>
+    /// <param name="revenueCode"></param>
+    /// <param name="deferredRevenueCode"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate, string currency)
+    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate, string currency, string revenueCode, string deferredRevenueCode)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%START_DATE%%", startDate},
-          {"%%CURRENCY%%", currency}
+          {"%%CURRENCY%%", currency}, 
+          {"%%REVENUECODE%%", revenueCode}, 
+          {"%%DEFREVENUECODE%%", deferredRevenueCode}
         };
 
       return GetData<SegregatedCharges>("__GET_EARNED_REVENUE__", paramDict);
@@ -62,13 +69,17 @@ namespace MetraNet
     /// </summary>
     /// <param name="endDate">The date we a looking data up to.</param>
     /// <param name="currency"></param>
+    /// <param name="revenueCode"></param>
+    /// <param name="deferredRevenueCode"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate, string currency)
+    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate, string currency, string revenueCode, string deferredRevenueCode)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%END_DATE%%", endDate},
-          {"%%CURRENCY%%", currency}
+          {"%%CURRENCY%%", currency},
+          {"%%REVENUECODE%%", revenueCode}, 
+          {"%%DEFREVENUECODE%%", deferredRevenueCode}
         };
 
       return GetData<SegregatedCharges>("__GET_DEFERRED_REVENUE__", paramDict);
@@ -80,14 +91,18 @@ namespace MetraNet
     /// <param name="startDate">The date we a looking data from.</param>
     /// <param name="endDate">The date we a looking data up to.</param>
     /// <param name="currency"></param>
+    /// <param name="revenueCode"></param>
+    /// <param name="deferredRevenueCode"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate, string currency)
+    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate, string currency, string revenueCode, string deferredRevenueCode)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%START_DATE%%", startDate},
           {"%%END_DATE%%", endDate},
-          {"%%CURRENCY%%", currency}
+          {"%%CURRENCY%%", currency},
+          {"%%REVENUECODE%%", revenueCode}, 
+          {"%%DEFREVENUECODE%%", deferredRevenueCode}
         };
 
       return GetData<SegregatedCharges>("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);

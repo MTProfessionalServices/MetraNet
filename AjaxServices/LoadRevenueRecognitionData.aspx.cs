@@ -36,11 +36,16 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var endDate = new DateTime(now.Year, now.Month, 1);
 
       var currencyLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "Currency");
-      var currency = currencyLINQ == null ? "" : currencyLINQ.Value;
+      var revenueCodeLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "RevenueCode");
+      var deferredRevenueCodeLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "DeferredRevenueCode");
 
-      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency).ToList();
-      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency).ToList();
-      var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency).ToList();
+      var currency = currencyLINQ == null ? "" : currencyLINQ.Value.ToString();
+      var revenueCode = revenueCodeLINQ == null ? "" : revenueCodeLINQ.Value.ToString();
+      var deferredRevenueCode = deferredRevenueCodeLINQ == null ? "" : deferredRevenueCodeLINQ.Value.ToString();
+
+      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency, revenueCode, deferredRevenueCode).ToList();
+      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency, revenueCode, deferredRevenueCode).ToList();
+      var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency, revenueCode, deferredRevenueCode).ToList();
 
       var groups =
         earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })

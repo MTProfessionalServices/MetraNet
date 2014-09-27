@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.AccountConfigSets.PropertyValueForCriterionHistory, Core.AccountConfigSets.Entity" table="t_be_8857227_propertyvalue_h">
+  <class name="Core.AccountConfigSets.PropertyValueForCriterionHistory, Core.AccountConfigSets.Entity" table="t_be_cor_acs_PropValForCr_h">
     <meta attribute="description" />
     <meta attribute="label" />
     <meta attribute="plural-name">PropertyValueForCriterionHistorys</meta>
@@ -193,10 +193,10 @@ TRIGGER TRG_PropertyValueForCriterion
  AFTER INSERT OR UPDATE ON t_be_cor_acs_PropValForCr
  REFERENCING NEW AS dataRow 
 FOR EACH ROW 
-UPDATE t_be_8857227_propertyvalue_h
+UPDATE t_be_cor_acs_PropValForCr_h
  SET c__enddate = :dataRow.c_updatedate 
 WHERE c_PropertyValueForCriterio_Id = :dataRow.c_PropertyValueForCriterio_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
-INSERT INTO t_be_8857227_propertyvalue_h
+INSERT INTO t_be_cor_acs_PropValForCr_h
 ( 
 c_internal_key, 
 c__version, 
@@ -237,10 +237,10 @@ CAST(dbo.mtmaxdate() AS TIMESTAMP)
 AS 
 SET NOCOUNT ON 
 UPDATE history SET c__enddate = ins.c_updatedate 
-FROM t_be_8857227_propertyvalue_h history 
+FROM t_be_cor_acs_PropValForCr_h history 
 INNER JOIN INSERTED ins ON ins.c_PropertyValueForCriterio_Id = history.c_PropertyValueForCriterio_Id
  WHERE history.c__enddate = dbo.mtmaxdate(); 
-INSERT INTO t_be_8857227_propertyvalue_h
+INSERT INTO t_be_cor_acs_PropValForCr_h
 (
 c_internal_key, 
 c__version, 

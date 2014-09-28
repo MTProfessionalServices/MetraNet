@@ -36,11 +36,11 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var endDate = new DateTime(now.Year, now.Month, 1);
 
       var currencyLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "Currency");
-      var currency = currencyLINQ == null ? "" : currencyLINQ.Value;
+      var currency = (string) (currencyLINQ == null ? "" : currencyLINQ.Value);
 
-      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency).ToList();
-      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency).ToList();
-      var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency).ToList();
+      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency, "", "").ToList();
+      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency, "", "").ToList();
+      var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency, "", "").ToList();
 
       var groups =
         earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })
@@ -135,30 +135,6 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       }
 
       return data;
-    }
-
-    private static List<SegregatedCharges> GetData(string sqlQueryTag, Dictionary<string, object> paramDict)
-    {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(sqlQueriesPath, sqlQueryTag))
-        {
-          if (paramDict != null)
-          {
-            foreach (var pair in paramDict)
-            {
-              stmt.AddParam(pair.Key, pair.Value);
-            }
-          }
-
-          using (IMTDataReader reader = stmt.ExecuteReader())
-          {
-
-            return ConstructItems(reader);
-            // get the total rows that would be returned without paging
-          }
-        }
-      }
     }
 
     private static void RoundRevRecModel(RevRecModel revRecModel, Dictionary<string, double> calculations)

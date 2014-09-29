@@ -28,6 +28,8 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp" -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
+
 <%
 
 PRIVATE CONST enum_FT_BULK_CHANGE_ALL                   = 1

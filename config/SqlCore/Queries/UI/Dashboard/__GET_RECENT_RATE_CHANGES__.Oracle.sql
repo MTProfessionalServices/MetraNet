@@ -26,6 +26,6 @@ FROM
     AND d.id_lang_code = 840
   WHERE 1=1
     AND a.id_event in (1400,1401,1402,1403)
-    AND a.dt_crt > %%CURRENT_DATETIME%%-30
+    AND a.dt_crt > TO_DATE('%%CURRENT_DATETIME%%', 'MM/dd/yyyy')-30
   ORDER BY dt_crt DESC)
 WHERE ROWNUM <= 100

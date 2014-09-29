@@ -33,6 +33,8 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp"          -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
+
 <%
 Form.Version                    = MDM_VERSION     ' Set the dialog version - we are version 2.0.
 Form.ErrorHandler               = FALSE 'TRUE  

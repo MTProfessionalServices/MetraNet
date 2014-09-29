@@ -57,8 +57,12 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
     public object Value ;
   }
 
+  private bool ShowFinancialData { get; set; }
+
   protected void Page_Load(object sender, EventArgs e)
   {
+    ShowFinancialData = UI.CoarseCheckCapability("View Data from Analytics Datamart");
+
     //parse query name
     String operation = Request["operation"];
     if (string.IsNullOrEmpty(operation))
@@ -279,10 +283,17 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
             json.Append(item);
             item = string.Format("\"n_invoiceamountAsString\":{0},", FormatCurrencyValueForGraph(record.Fields[billingSummary_InvoiceAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
             json.Append(item);
-            item = string.Format("\"n_mrr_amount\":{0},", FormatFieldValue(record.Fields[billingSummary_MrrAmount_Index], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"n_mrramountAsString\":{0},", FormatCurrencyValueForGraph(record.Fields[billingSummary_MrrAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
-            json.Append(item);
+            if (ShowFinancialData)
+            {
+              item = string.Format("\"n_mrr_amount\":{0},",
+                                   FormatFieldValue(record.Fields[billingSummary_MrrAmount_Index], invariantCulture));
+              json.Append(item);
+              item = string.Format("\"n_mrramountAsString\":{0},",
+                                   FormatCurrencyValueForGraph(record.Fields[billingSummary_MrrAmount_Index],
+                                                               record.Fields[billingSummary_Currency_Index].FieldValue
+                                                                                                           .ToString()));
+              json.Append(item);
+            }
             item = string.Format("\"item_desc\":{0}", FormatFieldValue(record.Fields[billingSummary_ItemDesc_Index]));
             json.Append(item);
             break;

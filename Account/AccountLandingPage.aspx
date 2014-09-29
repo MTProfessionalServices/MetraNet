@@ -479,7 +479,7 @@ white-space:nowrap;
       displayAccountStatusInformation();
       displayBalanceInformation();
       displayFailedTransactionCount(<% =int.Parse(UI.Subscriber["_AccountID"]) %>);
-      displayBillingActivityAndMRR();
+      displayBillingActivityAndMRR(<%=ShowFinancialData.ToString().ToLower()%>);
       resize_to_fit();
     });
     

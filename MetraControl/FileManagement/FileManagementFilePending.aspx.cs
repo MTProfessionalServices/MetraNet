@@ -17,13 +17,12 @@ public partial class MetraControl_FileManagement_File_Pending : MTPage
     
     protected void Page_Load(object sender, EventArgs e)
     {
-      if (!UI.CoarseCheckCapability("Read Business Modeling Entities"))
+      if (!UI.CoarseCheckCapability("Manage FLS Files and View FLS files"))
       {
         Response.End();
         return;
       }
-
-        string customTitle = FileManagementResources.FILE_PENDING_TITLE;
+      string customTitle = FileManagementResources.FILE_PENDING_TITLE;
         stateFilter = EnumHelper.GetDbValueByEnum(EFileState.PENDING).ToString();
         MTTitle1.Text = customTitle;
     }

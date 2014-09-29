@@ -24,13 +24,12 @@ public partial class MetraControl_FileManagement_File : MTPage
     
     protected void Page_Load(object sender, EventArgs e)
     {
-      if (!UI.CoarseCheckCapability("Read Business Modeling Entities"))
+      if (!UI.CoarseCheckCapability("Manage FLS Files and View FLS files"))
       {
         Response.End();
         return;
       }
-
-        stateFilter = EnumHelper.GetDbValueByEnum(EFileState.REJECTED).ToString();
+      stateFilter = EnumHelper.GetDbValueByEnum(EFileState.REJECTED).ToString();
         retryMessage = FileManagementResources.FILE_RETRY_MESSAGE;
         retryHint = FileManagementResources.FILE_RETRY_HINT;
         retryTitle = FileManagementResources.FILE_RETRY_TITLE;

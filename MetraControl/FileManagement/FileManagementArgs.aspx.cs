@@ -100,12 +100,11 @@ public partial class FileManagementArgs : MTPage
   #region Events
   protected void Page_Load(object sender, EventArgs e)
   {
-    if (!UI.CoarseCheckCapability("Read Business Modeling Entities"))
+    if (!UI.CoarseCheckCapability("Manage FLS Files and View FLS files"))
     {
       Response.End();
       return;
     }
-
     if (!IsPostBack) 
     {
 

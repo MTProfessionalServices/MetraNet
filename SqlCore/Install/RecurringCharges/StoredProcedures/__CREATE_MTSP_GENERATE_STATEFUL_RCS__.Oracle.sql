@@ -36,15 +36,10 @@ BEGIN
       'Retrieving RC candidates'
     );
 
-  BEGIN
-     EXECUTE IMMEDIATE 'DROP TABLE t_rec_win_bcp_for_reverse';
-  EXCEPTION
-     WHEN OTHERS THEN
-        IF SQLCODE != -942 THEN
-           RAISE;
-        END IF;
-  END;
-  EXECUTE IMMEDIATE 'CREATE TABLE t_rec_win_bcp_for_reverse AS SELECT c_BilledThroughDate, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__ProductOfferingID, c__SubscriptionID FROM t_recur_window';
+  DELETE FROM t_rec_win_bcp_for_reverse;
+
+  INSERT INTO t_rec_win_bcp_for_reverse
+  SELECT c_BilledThroughDate, c_CycleEffectiveDate, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__ProductOfferingID, c__SubscriptionID FROM t_recur_window;
 
   INSERT
   INTO TMP_RCS

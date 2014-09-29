@@ -20,8 +20,14 @@ INNER JOIN ( --subquery to sum up mrr for active subscriptions in the interval
 		SUM(ISNULL(mrr.MRR,0.0)) AS MRR
 	FROM t_invoice inv WITH(NOLOCK)
 	INNER JOIN t_usage_interval ui WITH(NOLOCK) ON inv.id_interval = ui.id_interval
-	LEFT OUTER JOIN t_sub sub  WITH(NOLOCK) ON (inv.id_acc = sub.id_acc and ((ui.dt_end BETWEEN sub.vt_start and sub.vt_end) OR (ui.dt_start BETWEEN sub.vt_start and sub.vt_end)))  -- active regular subscriptions
-												OR (id_group IN (SELECT id_group FROM t_gsubmember WHERE id_acc = inv.id_acc AND ((ui.dt_end BETWEEN vt_start AND vt_end) OR (ui.dt_start BETWEEN vt_start AND vt_end)))) -- active group subscriptions
+	LEFT OUTER JOIN t_vw_effective_subs sub with(nolock) ON inv.id_acc = sub.id_acc 
+                                                       AND (/*Gets valid subscriptions in the interval and subscriptions which started in the interval month*/
+                                                            (ui.dt_end BETWEEN sub.dt_start and sub.dt_end) OR 
+                                                            /*Gets valid subscriptions in the interval and subscriptions which ended in the interval month*/
+                                                            (ui.dt_start BETWEEN sub.dt_start and sub.dt_end) OR 
+                                                            /*Gets subscriptions that were valid only within the interval month*/
+                                                            (sub.dt_start >= ui.dt_start and sub.dt_end <= ui.dt_end)
+                                                           )
 	LEFT OUTER JOIN SubscriptionsByMonth mrr WITH(NOLOCK) ON sub.id_sub = mrr.SubscriptionId AND datepart(year, ui.dt_end) = mrr.year AND datepart(month, ui.dt_end) = mrr.month -- mrr for the interval month
 	WHERE inv.id_acc = %%ACCOUNT_ID%%
 	GROUP BY inv.id_interval

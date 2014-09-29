@@ -47,7 +47,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     'ProductView.Clear  ' Set all the property of the service to empty or to the default value
     
     
-    
+    Framework.AssertCourseCapability "Update Failed Transactions", EventArg
    	ProductView.Properties.ClearSelection
     ProductView.Properties.Flags = eMSIX_PROPERTIES_FLAG_PRODUCTVIEW
 

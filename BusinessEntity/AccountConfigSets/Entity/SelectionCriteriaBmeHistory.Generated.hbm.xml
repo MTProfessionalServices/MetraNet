@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.AccountConfigSets.PropertyValueToSetHistory, Core.AccountConfigSets.Entity" table="t_be_cor_acs_PropValToSet_h">
+  <class name="Core.AccountConfigSets.SelectionCriteriaBmeHistory, Core.AccountConfigSets.Entity" table="t_be_cor_acs_PropValForCr_h">
     <meta attribute="description" />
     <meta attribute="label" />
-    <meta attribute="plural-name">PropertyValueToSetHistorys</meta>
+    <meta attribute="plural-name">SelectionCriteriaBmeHistorys</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
     <meta attribute="record-history">false</meta>
     <meta attribute="entity-type">History</meta>
-    <meta attribute="interface">Core.AccountConfigSets.Interface.IPropertyValueToSetHistory, Core.Interface</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.ISelectionCriteriaBmeHistory, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <meta attribute="entity-name">Core.AccountConfigSets.PropertyValueToSet</meta>
-    <id name="Id" column="c_PropertyValueToSetHistor_Id">
+    <meta attribute="entity-name">Core.AccountConfigSets.SelectionCriteriaBme</meta>
+    <id name="Id" column="c_SelectionCriteria_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>
     <version name="_Version" column="c__version" />
-    <component class="Core.AccountConfigSets.PropertyValueToSetBusinessKey, Core.AccountConfigSets.Entity" name="PropertyValueToSetBusinessKey">
+    <component class="Core.AccountConfigSets.SelectionCriteriaBmeBusinessKey, Core.AccountConfigSets.Entity" name="SelectionCriteriaBmeBusinessKey">
       <meta attribute="business-key">true</meta>
       <meta attribute="internal-business-key">true</meta>
       <property name="InternalKey" column="c_internal_key" not-null="true">
@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="PropertyValueToSetId" column="c_PropertyValueToSet_Id" not-null="true" index="IDX_PropertyValueToSetId">
+    <property name="SelectionCriteriaBmeId" column="c_SelectionCriteria_Id" not-null="true" index="IDX_SelectionCriteria_Id">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />
@@ -117,7 +117,21 @@
     </property>
     <property name="Value" column="c_Value" length="2000">
       <meta attribute="label">Value</meta>
-      <meta attribute="description">Value</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Condition" column="c_Condition" length="10">
+      <meta attribute="label">Condition</meta>
+      <meta attribute="description">Condition</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -175,24 +189,24 @@
   <database-object>
     <create>
 CREATE or REPLACE 
-TRIGGER TRG_PropertyValueToSetHistory
- AFTER INSERT OR UPDATE ON t_be_cor_acs_PropValToSet
+TRIGGER TRG_SelectionCriteria
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_PropValForCr
  REFERENCING NEW AS dataRow 
 FOR EACH ROW 
-UPDATE t_be_cor_acs_PropValToSet_h
+UPDATE t_be_cor_acs_PropValForCr_h
  SET c__enddate = :dataRow.c_updatedate 
-WHERE c_PropertyValueToSet_Id = :dataRow.c_PropertyValueToSet_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
-INSERT INTO t_be_cor_acs_PropValToSet_h
+WHERE c_SelectionCriteria_Id = :dataRow.c_SelectionCriteria_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
+INSERT INTO t_be_cor_acs_PropValForCr_h
 ( 
 c_internal_key, 
 c__version, 
 c_creationdate, 
 c_updatedate, 
 c_uid, 
-c_propertyvaluetoset_id, 
 c_accountview, 
 c_property, 
 c_value, 
+c_condition, 
 c_accountconfigsetbme_id, 
 c__startdate, 
 c__enddate
@@ -204,10 +218,10 @@ VALUES
 :dataRow.c_creationdate, 
 :dataRow.c_updatedate, 
 :dataRow.c_uid, 
-:dataRow.c_propertyvaluetoset_id, 
 :dataRow.c_accountview, 
 :dataRow.c_property, 
 :dataRow.c_value, 
+:dataRow.c_condition, 
 :dataRow.c_accountconfigsetbme_id, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
@@ -217,26 +231,26 @@ CAST(dbo.mtmaxdate() AS TIMESTAMP)
     <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
   </database-object>
   <database-object>
-    <create>CREATE TRIGGER TRG_PropertyValueToSetHistory
- ON t_be_cor_acs_PropValToSet
+    <create>CREATE TRIGGER TRG_SelectionCriteria
+ ON t_be_cor_acs_PropValForCr
  AFTER INSERT, UPDATE 
 AS 
 SET NOCOUNT ON 
 UPDATE history SET c__enddate = ins.c_updatedate 
-FROM t_be_cor_acs_PropValToSet_h history 
-INNER JOIN INSERTED ins ON ins.c_PropertyValueToSet_Id = history.c_PropertyValueToSet_Id
+FROM t_be_cor_acs_PropValForCr_h history 
+INNER JOIN INSERTED ins ON ins.c_SelectionCriteria_Id = history.c_SelectionCriteria_Id
  WHERE history.c__enddate = dbo.mtmaxdate(); 
-INSERT INTO t_be_cor_acs_PropValToSet_h
+INSERT INTO t_be_cor_acs_PropValForCr_h
 (
 c_internal_key, 
 c__version, 
 c_creationdate, 
 c_updatedate, 
 c_uid, 
-c_propertyvaluetoset_id, 
 c_accountview, 
 c_property, 
 c_value, 
+c_condition, 
 c_accountconfigsetbme_id, 
 c__startdate, 
 c__enddate
@@ -247,10 +261,10 @@ c__version,
 c_creationdate, 
 c_updatedate, 
 c_uid, 
-c_propertyvaluetoset_id, 
 c_accountview, 
 c_property, 
 c_value, 
+c_condition, 
 c_accountconfigsetbme_id, 
 c_updatedate, 
 dbo.mtmaxdate()

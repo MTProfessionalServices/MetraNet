@@ -35,6 +35,11 @@ public partial class DataExportReportManagement_CreateNewReportDefinition : MTPa
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
     if (!IsPostBack)
     {
       try

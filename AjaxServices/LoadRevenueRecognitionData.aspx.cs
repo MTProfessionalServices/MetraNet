@@ -31,9 +31,8 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
 
     public List<RevRecModel> GetRevRec(MTList<RevRecModel> items)
     {
-      var now = DateTime.Now;
-      var startDate = new DateTime(now.Year, now.Month - 1, 1);
-      var endDate = new DateTime(now.Year, now.Month, 1);
+      var startDate = ReportingtHelper.GetCycleStartDate(null);
+      var endDate = ReportingtHelper.GetCycleEndDate(null);
 
       var currencyLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "Currency");
       var currency = (string) (currencyLINQ == null ? "" : currencyLINQ.Value);

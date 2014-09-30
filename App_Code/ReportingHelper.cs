@@ -24,7 +24,7 @@ namespace MetraNet
 
       var paramDictEarned = new Dictionary<string, object>
         {
-          {"%%START_DATE%%", new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)},
+          {"%%START_DATE%%", ""},
           {"%%CURRENCY%%", ""}, 
           {"%%REVENUECODE%%", ""}, 
           {"%%DEFREVENUECODE%%", ""}
@@ -117,6 +117,26 @@ namespace MetraNet
       return GetData<SegregatedCharges>("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
     }
 
+    /// <summary>
+    /// Figure out the start date of an accounting cycle.
+    /// </summary>
+    /// <param name="cycle"></param>
+    /// <returns></returns>
+    public static DateTime GetCycleStartDate(AccountingCycle cycle)
+    {
+      return new DateTime(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month, cycle != null ? cycle.CycleEndDate.Day + 1 : 1);
+    }
+
+    /// <summary>
+    /// Figure out the end date of an accounting cycle.
+    /// </summary>
+    /// <param name="cycle"></param>
+    /// <returns></returns>
+    public static DateTime GetCycleEndDate(AccountingCycle cycle)
+    {
+      return new DateTime(DateTime.Today.Year, DateTime.Today.Month, cycle != null ? cycle.CycleEndDate.Day : 1);
+    }
+
     private static IEnumerable<T> GetData<T>(string sqlQueryTag, Dictionary<string, object> paramDict)
     {
       using (IMTConnection conn = ConnectionManager.CreateConnection())
@@ -203,8 +223,13 @@ namespace MetraNet
       return res;
     }
 
+
+
   }
 
+  /// <summary>
+  /// 
+  /// </summary>
   public class SegregatedCharges
   {
     public string Currency { get; set; }
@@ -214,5 +239,17 @@ namespace MetraNet
     public string DeferredRevenueCode { get; set; }
     public int ProrationDate { get; set; }
     public decimal ProrationAmount { get; set; }
+  }
+
+  /// <summary>
+  /// A value object which reflects BME AccountingCycle.
+  /// </summary>
+  public class AccountingCycle
+  {
+    // Record Id.
+    public Guid AccountingCycleId { get; set; }
+
+    // Date to represent the end day of a cycle.
+    public DateTime CycleEndDate { get; set; }
   }
 }

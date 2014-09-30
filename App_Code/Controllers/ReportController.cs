@@ -190,10 +190,16 @@ namespace ASP.Controllers
       return new SqlConnection(connString.ToString());
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="currency"></param>
+    /// <param name="productId"></param>
+    /// <returns></returns>
     public ActionResult DefRevScheduleWidgetReport(string currency, int productId)
     {
-      var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
-      var endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+      var startDate = ReportingtHelper.GetCycleStartDate(null);
+      var endDate = ReportingtHelper.GetCycleEndDate(null);
       var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency, "", "").ToList();
       var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency, "", "").ToList();
       var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency, "", "").ToList();

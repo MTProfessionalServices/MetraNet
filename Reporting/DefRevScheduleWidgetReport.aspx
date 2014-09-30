@@ -14,6 +14,7 @@
       <MT:MTPanel runat="server" ID="filterPanel" ClientIDMode="Static">
       <MT:MTDropDown runat="server" ClientIDMode="Static" ID="accntCycleDd" />
       <MT:MTDropDown runat="server" ClientIDMode="Static" ID="currencyDd" />
+      <MT:MTDropDown runat="server" ClientIDMode="Static" ID="productDd" />
       <MT:MTButton runat="server" ID="applyBtn" ClientIDMode="Static" EnableViewState="False" OnClientClick="ApplyFilter(); return false;"/>
       </MT:MTPanel>
     </div>

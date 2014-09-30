@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountCycle_Caption" xml:space="preserve">
-    <value>Account Cycle:</value>
+    <value>Account Cycle</value>
   </data>
   <data name="ApplyFilterBtn_Caption" xml:space="preserve">
     <value>Apply Filter</value>
   </data>
   <data name="Currency_Caption" xml:space="preserve">
-    <value>Currency:</value>
+    <value>Currenc</value>
   </data>
   <data name="Deferred_Caption" xml:space="preserve">
     <value>Deferred</value>
@@ -137,6 +137,9 @@
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet - Deferred Revenue Schedule Widget Report</value>
+  </data>
+  <data name="Product_Caption" xml:space="preserve">
+    <value>Product</value>
   </data>
   <data name="REPORT_TITLE" xml:space="preserve">
     <value>Deferred Revenue Schedule Widget Report</value>

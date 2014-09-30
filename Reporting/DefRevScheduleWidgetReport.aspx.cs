@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Web.UI.WebControls;
 using System.Linq;
 using MetraNet;
@@ -13,6 +14,8 @@ public partial class DefRevScheduleWidgetReport : MTPage
     accntCycleDd.Items.AddRange(GetCycles());
     currencyDd.Label = GetLocalResourceObject("Currency_Caption").ToString();
     currencyDd.Items.AddRange(GetCurrencies());
+    productDd.Label = GetLocalResourceObject("Product_Caption").ToString();
+    productDd.Items.AddRange(GetProducts());
     applyBtn.Text = GetLocalResourceObject("ApplyFilterBtn_Caption").ToString();
   }
 
@@ -24,10 +27,13 @@ public partial class DefRevScheduleWidgetReport : MTPage
     return ReportingtHelper.GetAccountingCycles().Select(x => new ListItem(x.Value, x.Key)).ToArray();
   }
 
-
   private static ListItem[] GetCurrencies()
   {
     return ReportingtHelper.GetCurrencies().Select(x => new ListItem(x)).ToArray();
   }
 
+  private static ListItem[] GetProducts()
+  {
+    return ReportingtHelper.GetProducts().Select(x => new ListItem(x.Value, x.Key.ToString(CultureInfo.InvariantCulture))).ToArray();
+  }
 }

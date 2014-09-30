@@ -24,7 +24,7 @@ namespace MetraNet
 
       var paramDictEarned = new Dictionary<string, object>
         {
-          {"%%START_DATE%%", DateTime.Today},
+          {"%%START_DATE%%", new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)},
           {"%%CURRENCY%%", ""}, 
           {"%%REVENUECODE%%", ""}, 
           {"%%DEFREVENUECODE%%", ""}

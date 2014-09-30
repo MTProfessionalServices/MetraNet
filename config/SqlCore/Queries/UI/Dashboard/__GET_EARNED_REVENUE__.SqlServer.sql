@@ -18,7 +18,7 @@ LEFT JOIN t_ep_unit_dependent_recurring AS udrc_ep ON udrc_ep.id_prop = acc.id_p
 INNER JOIN t_pi_template AS pit ON acc.id_pi_template = pit.id_template
 WHERE 
 	c_RCIntervalSubscriptionStart < %%START_DATE%%
-	AND ui.tx_interval_status = 'O'
+	AND ui.tx_interval_status = 'H'
 	AND udrc_ep.c_IsLiabilityProduct = 'N'
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND udrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
@@ -46,7 +46,7 @@ LEFT JOIN t_ep_recurring AS frc_ep ON frc_ep.id_prop = acc.id_pi_template
 INNER JOIN t_pi_template AS pit ON acc.id_pi_template = pit.id_template
 WHERE 
 	c_RCIntervalSubscriptionStart < %%START_DATE%%
-	AND ui.tx_interval_status = 'O'
+	AND ui.tx_interval_status = 'H'
 	AND frc_ep.c_IsLiabilityProduct = 'N'
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND frc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
@@ -74,7 +74,7 @@ LEFT JOIN t_ep_nonrecurring AS nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 INNER JOIN t_pi_template AS pit ON acc.id_pi_template = pit.id_template
 WHERE 
 	c_NRCIntervalSubscriptionStart < %%START_DATE%%
-	AND ui.tx_interval_status = 'O'
+	AND ui.tx_interval_status = 'H'
 	AND nrc_ep.c_IsLiabilityProduct = 'N'
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND nrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'

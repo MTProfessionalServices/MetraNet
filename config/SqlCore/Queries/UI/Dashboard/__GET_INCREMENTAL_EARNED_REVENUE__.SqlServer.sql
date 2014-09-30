@@ -36,7 +36,7 @@ WHERE
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= %%END_DATE%% AND c_RCIntervalSubscriptionEnd >= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%))
-	AND ui.tx_interval_status = 'O'
+	AND ui.tx_interval_status = 'H'
 	AND udrc_ep.c_IsLiabilityProduct = 'N'
   AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND udrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
@@ -82,7 +82,7 @@ WHERE
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= %%END_DATE%% AND c_RCIntervalSubscriptionEnd >= %%END_DATE%%)
 	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= %%END_DATE%%))
-	AND ui.tx_interval_status = 'O'
+	AND ui.tx_interval_status = 'H'
 	AND frc_ep.c_IsLiabilityProduct = 'N'
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND frc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
@@ -111,7 +111,7 @@ INNER JOIN t_pi_template AS pit ON acc.id_pi_template = pit.id_template
 WHERE
 	c_NRCIntervalSubscriptionStart >= %%START_DATE%%
 	AND c_NRCIntervalSubscriptionStart < %%END_DATE%%
-	AND ui.tx_interval_status = 'O'
+	AND ui.tx_interval_status = 'H'
 	AND nrc_ep.c_IsLiabilityProduct = 'N'
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND nrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'

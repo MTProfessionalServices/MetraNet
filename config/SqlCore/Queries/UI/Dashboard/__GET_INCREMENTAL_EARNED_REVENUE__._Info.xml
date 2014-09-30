@@ -19,7 +19,8 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>End date</Description>
-        </Parameter><Parameter>
+        </Parameter>
+        <Parameter>
             <Name>CURRENCY</Name>
             <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>

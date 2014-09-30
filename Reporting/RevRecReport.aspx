@@ -17,4 +17,14 @@
       ShowTopBar="True" TotalProperty="TotalRows">
     </MT:MTFilterGrid>
   </div>
+
+  <script type="text/javascript">
+    $(document).ready(
+      $.ajax({
+        url: "../Report/GetProductsFilter",
+        success: function (res) {
+        }
+      })
+    );
+  </script>
 </asp:Content>

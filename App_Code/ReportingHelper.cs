@@ -44,6 +44,15 @@ namespace MetraNet
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public static IEnumerable<KeyValuePair<int, string>> GetProducts()
+    {
+      return GetData<KeyValuePair<Int32, string>>("__GET_PRODUCTS_FILTER__", null);
+    }
+
+    /// <summary>
     /// Returns collection of earned charges.
     /// </summary>
     /// <param name="startDate">The date we a looking data from.</param>
@@ -124,22 +133,39 @@ namespace MetraNet
 
           using (var reader = stmt.ExecuteReader())
           {
-            var typeName = typeof(T).Name;
+            var typeName = typeof(T).ToString();
             Object result;
             switch (typeName)
             {
-              case "SegregatedCharges":
+              case "MetraNet.SegregatedCharges":
                 result = ExtractSegregatedCharges(reader);
                 break;
-              case "KeyValuePair2":
-              default:
+              case "System.Collections.Generic.KeyValuePair`2[System.String,System.String]":
                 result = ExtractAccountingCycles(reader);
+                break;
+              case "System.Collections.Generic.KeyValuePair`2[System.Int32,System.String]":
+                result = ExtractProduts(reader);
+                break;
+              default:
+                result = null;
                 break;
             }
             return result as IEnumerable<T>;
           }
         }
       }
+    }
+
+    private static IEnumerable<KeyValuePair<Int32, string>> ExtractProduts(IMTDataReader rdr)
+    {
+      var res = new List<KeyValuePair<Int32, string>>();
+
+      while (rdr.Read())
+      {
+        res.Add(new KeyValuePair<int, string>(rdr.GetInt32("id_pi"), rdr.GetString("nm_name")));
+      }
+
+      return res;
     }
 
     private static IEnumerable<SegregatedCharges> ExtractSegregatedCharges(IMTDataReader rdr)

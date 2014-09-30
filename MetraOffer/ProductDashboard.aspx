@@ -78,7 +78,7 @@
         background: rgba(211, 211, 211, 0.96);
         /*color: black;*/
         border-radius: 2px;
-        z-index: 100;
+        z-index: 1000;
         /*font-family: "Helvetica Neue","Arial Black", Arial, sans-serif;*/
     
     }
@@ -442,7 +442,7 @@
         return d.mrr;
       };
       var fnMRRToolTipFormatter = function(d) {
-        var html = String.format("<span class=ProductCode>{1} </span><br/><span class=Information>{0}: {2}</span>", "<%=MrrTooltipText%>", d.productname, d.mrrAsString.replace("&pound", "£"));
+        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information>{0}: {2}</div></div>", "<%=MrrTooltipText%>", d.productname, d.mrrAsString.replace("&pound", "£"));
         return html;
       };
       
@@ -471,7 +471,7 @@
         html += (d.mrrprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"))
                                      : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, d.mrrchange > 0 ? "up":"down", d.mrrchange > 0 ? "text-bottom":"middle");
         html += String.format("<div class=Information>{0}: {1} </div>", d.mrrchange > 0 ?  "<%=GainTooltipText%>" : "<%=LossTooltipText%>", d.mrrabschangeAsString);
-        return html;
+        return String.format("<div style='width:200px;'>{0}</div>", html);
       };
       var top10MRRGainChartConfig = {
         operation: "AnalyticsTopMRRGain",
@@ -529,7 +529,7 @@
       };
       var fnSubscriptionsToolTipFormatter = function(d) {
         var localizedSubscriptions = parseFloat(d.subscriptions).toLocaleString(CURRENT_LOCALE);
-        var html = String.format("<span class=ProductCode>{1} </span><br/><span class=Information>{0}: {2}</span>", "<%=SubscriptionsTooltipText%>", d.productname, localizedSubscriptions);
+        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information>{0}: {2}</div></div>", "<%=SubscriptionsTooltipText%>", d.productname, localizedSubscriptions);
         return html;
       };      
       var top10SubscriptionsChartConfig = {
@@ -559,7 +559,7 @@
         html += (d.subscriptionsprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions)
                                      : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, d.subscriptionschange > 0 ? "up":"down", d.subscriptionschange > 0 ? "text-bottom":"middle");
         html += String.format("<div class=Information>{0}: {1} </div>", d.subscriptionschange > 0 ? "<%=GainTooltipText%>" : "<%=LossTooltipText%>", localizedSubscriptionChangeValue);
-        return html;
+        return String.format("<div style='width:200px;'>{0}</div>", html);
       };
       var top10SubscriptionsGainChartConfig = {
         operation: "AnalyticsTopSubscriptionGain",

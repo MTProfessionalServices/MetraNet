@@ -46,8 +46,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
         earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })
               .Concat(incremental.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
               .Concat(deferred.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
-              .Distinct()
-              .ToList();
+              .Distinct().OrderBy(x=>x.Currency).ThenBy(x=>x.RevenueCode).ThenBy(x=>x.DeferredRevenueCode).ToList();
 
       var data = new List<RevRecModel>();
 

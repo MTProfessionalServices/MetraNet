@@ -55,7 +55,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       {
         var earnedRow = new RevRecModel
         {
-          Id = idRevRec,
+          Id = ++idRevRec,
           Currency = rowGroup.Currency,
           RevenueCode = rowGroup.RevenueCode,
           DeferredRevenueCode = rowGroup.DeferredRevenueCode,
@@ -65,18 +65,18 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
         var incrementalRow = new RevRecModel
         {
           Id = ++idRevRec,
-          Currency = rowGroup.Currency,
+          /*Currency = rowGroup.Currency,
           RevenueCode = rowGroup.RevenueCode,
-          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+          DeferredRevenueCode = rowGroup.DeferredRevenueCode,*/
           RevenuePart = "Incremental"
         };
 
         var deferredRow = new RevRecModel
         {
           Id = ++idRevRec,
-          Currency = rowGroup.Currency,
+          /*Currency = rowGroup.Currency,
           RevenueCode = rowGroup.RevenueCode,
-          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+          DeferredRevenueCode = rowGroup.DeferredRevenueCode,*/
           RevenuePart = "Deferred"
         };
 

@@ -235,7 +235,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount1</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[1]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -268,7 +270,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount2</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[2]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -301,7 +305,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount3</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[3]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -333,8 +339,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount4</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText />
+            <IsColumn>true</IsColumn>            
+            <HeaderText>
+                <Value><![CDATA[4]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -367,7 +375,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount5</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[5]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -400,7 +410,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount6</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[6]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -433,7 +445,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount7</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[7]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -466,7 +480,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount8</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[8]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -499,7 +515,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount9</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[9]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -532,7 +550,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount10</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[10]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -565,7 +585,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount11</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[11]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -598,7 +620,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount12</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[12]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -631,7 +655,9 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount13</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[13]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -660,7 +686,7 @@
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition</ObjectName>
             <ID>ProductId</ID>
-            <DataType>List</DataType>
+            <DataType>Numeric</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>ProductId</DataIndex>
             <IsColumn>false</IsColumn>
@@ -674,7 +700,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

@@ -12,7 +12,7 @@
     <meta attribute="interface">Core.AccountConfigSets.Interface.ISelectionCriteriaBmeHistory, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
     <meta attribute="entity-name">Core.AccountConfigSets.SelectionCriteriaBme</meta>
-    <id name="Id" column="c_SelectionCriteria_Id">
+    <id name="Id" column="c_SelectionCriteria_hist_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>

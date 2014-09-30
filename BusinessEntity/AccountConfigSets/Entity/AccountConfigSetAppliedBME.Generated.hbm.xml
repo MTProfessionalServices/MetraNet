@@ -11,7 +11,7 @@
     <meta attribute="entity-type">Entity</meta>
     <meta attribute="interface">Core.AccountConfigSets.Interface.IAccountConfigSetAppliedBME, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <id name="Id" column="c_AccountConfigSetAppliedBME_Id">
+    <id name="Id" column="c_AccountConfigSetApplied_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>

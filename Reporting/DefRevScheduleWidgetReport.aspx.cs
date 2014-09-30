@@ -15,6 +15,7 @@ public partial class DefRevScheduleWidgetReport : MTPage
     currencyDd.Label = GetLocalResourceObject("Currency_Caption").ToString();
     currencyDd.Items.AddRange(GetCurrencies());
     productDd.Label = GetLocalResourceObject("Product_Caption").ToString();
+    productDd.Items.Add(new ListItem(GetLocalResourceObject("Option_All_Text").ToString(), "0"));
     productDd.Items.AddRange(GetProducts());
     applyBtn.Text = GetLocalResourceObject("ApplyFilterBtn_Caption").ToString();
   }

@@ -190,7 +190,7 @@ namespace ASP.Controllers
       return new SqlConnection(connString.ToString());
     }
 
-    public ActionResult DefRevScheduleWidgetReport(string currency="USD")
+    public ActionResult DefRevScheduleWidgetReport(string currency, int productId)
     {
       var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
       var endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);

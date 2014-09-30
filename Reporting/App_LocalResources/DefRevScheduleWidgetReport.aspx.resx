@@ -135,6 +135,9 @@
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Deferred Revenue Schedule Widget Report</value>
   </data>
+  <data name="Option_All_Text" xml:space="preserve">
+    <value>All</value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet - Deferred Revenue Schedule Widget Report</value>
   </data>

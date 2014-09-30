@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
   CodeFile="DefRevScheduleWidgetReport.aspx.cs" Inherits="DefRevScheduleWidgetReport" Title="MetraNet - Update Account"
-  meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
+  meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" EnableViewState="false"%>
 <%@ Register TagPrefix="MT" Namespace="MetraTech.UI.Controls" Assembly="MetraTech.UI.Controls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -29,26 +29,31 @@
   <script language="javascript" type="text/javascript">
     var mnthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var revRecChart = dc.barChart("#revrec-chart");
-    var dataQuery = "../Report/DefRevScheduleWidgetReport";
-    var dataSet = [];
 
     function ApplyFilter() {
       var accCycleId = $("#accntCycleDd").val();
       var currency = $("#currencyDd").val();
-      var queryUrl = dataQuery;
-      if (currency !== '') {
-        queryUrl = queryUrl + '/?currency=' + currency;
-      }
-      // let's get some data
-      d3.json(queryUrl, function (data) {
-        data.forEach(function (e) {
-          dataSet.push({jsDate: new Date(parseInt(e.date.substr(6))), deferred: e.deferred, earned: e.earned});
-        });
-        DisplayChart();
-      });
+      var productId = $("#productDd").val();
+
+      // let's get some data and draw the bar chart
+      $.ajax({
+        url: '../Report/DefRevScheduleWidgetReport',
+        type: 'GET',
+        cache: false,
+        data: { currency: currency, productId: productId },
+        success: function(data) {
+          data.forEach(function(e) {
+            e.jsDate = new Date(parseInt(e.date.substr(6)));
+          });
+          DisplayChart(data);
+        },
+        error: function (data) {
+          alert("Data retrival error!");
+        }
+      });      
     }
 
-    function DisplayChart() {
+    function DisplayChart(dataSet) {
       var data = crossfilter(dataSet);
 
       var dateDim = data.dimension(function (d) {

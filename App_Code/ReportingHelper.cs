@@ -24,7 +24,7 @@ namespace MetraNet
 
       var paramDictEarned = new Dictionary<string, object>
         {
-          {"%%START_DATE%%", ""},
+          {"%%START_DATE%%", GetCycleStartDate(null)},
           {"%%CURRENCY%%", ""}, 
           {"%%REVENUECODE%%", ""}, 
           {"%%DEFREVENUECODE%%", ""}

@@ -22,16 +22,9 @@ namespace MetraNet
     {
       if (_currencies != null) return _currencies;
 
-      var paramDictEarned = new Dictionary<string, object>
-        {
-          {"%%START_DATE%%", GetCycleStartDate(null)},
-          {"%%CURRENCY%%", ""}, 
-          {"%%REVENUECODE%%", ""}, 
-          {"%%DEFREVENUECODE%%", ""}
-        };
-
-      var earned = GetData<SegregatedCharges>("__GET_EARNED_REVENUE__", paramDictEarned);
-      return _currencies = earned.Select(x => x.Currency).Distinct().ToArray();
+      var charges = GetEarnedRevenue(GetCycleStartDate(null), String.Empty, String.Empty, String.Empty)
+                    .Concat(GetDeferredRevenue(GetCycleEndDate(null), String.Empty, String.Empty, String.Empty));
+      return _currencies = charges.Select(x => x.Currency).Distinct().ToArray();
     }
 
     /// <summary>

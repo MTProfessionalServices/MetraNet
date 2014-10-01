@@ -85,7 +85,7 @@ INNER JOIN t_pi_template AS pit ON acc.id_pi_template = pit.id_template
 WHERE
 	c_NRCIntervalSubscriptionEnd >= %%END_DATE%%
 	AND ui.tx_interval_status = 'H'
-	AND nrc_ep.c_IsLiabilityProduct = 'N'
+	AND (nrc_ep.c_IsLiabilityProduct = 'N' OR nrc_ep.c_IsLiabilityProduct IS NULL)
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND nrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
 	AND nrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'

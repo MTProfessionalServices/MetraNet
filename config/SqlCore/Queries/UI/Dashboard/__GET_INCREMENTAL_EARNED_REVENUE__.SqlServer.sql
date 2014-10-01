@@ -112,7 +112,7 @@ WHERE
 	c_NRCIntervalSubscriptionStart >= %%START_DATE%%
 	AND c_NRCIntervalSubscriptionStart < %%END_DATE%%
 	AND ui.tx_interval_status = 'H'
-	AND nrc_ep.c_IsLiabilityProduct = 'N'
+	AND (nrc_ep.c_IsLiabilityProduct = 'N' OR nrc_ep.c_IsLiabilityProduct IS NULL)
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND nrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
 	AND nrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'

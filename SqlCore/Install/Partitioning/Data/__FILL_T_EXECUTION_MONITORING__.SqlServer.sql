@@ -1,0 +1,1 @@
+INSERT INTO EXECUTION_MONITORING(archival_in_progress , reconciliation_in_progress) VALUES(0,0);

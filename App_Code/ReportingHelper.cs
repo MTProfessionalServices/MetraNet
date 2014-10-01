@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MetraTech.DataAccess;
 using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
+using System.Globalization;
 
 namespace MetraNet
 {
@@ -130,6 +131,142 @@ namespace MetraNet
       return new DateTime(DateTime.Today.Year, DateTime.Today.Month, cycle != null ? cycle.CycleEndDate.Day : 1);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="currency">Currency code</param>
+    /// <param name="revenueCode">Revenue code</param>
+    /// <param name="deferredRevenueCode">Deferred revenue code</param>
+    /// <param name="idRevRec">Start ID for add it into MTFilterGrid</param>
+    /// <returns></returns>
+    public static List<RevRecModel> GetRevRec(string currency, string revenueCode, string deferredRevenueCode, int idRevRec)
+    {
+      var startDate = GetCycleStartDate(null);
+      var endDate = GetCycleEndDate(null);
+
+      var incremental = GetIncrementalEarnedRevenue(startDate, endDate, currency, revenueCode, deferredRevenueCode).ToList();
+      var deferred = GetDeferredRevenue(endDate, currency, revenueCode, deferredRevenueCode).ToList();
+      var earned = GetEarnedRevenue(startDate, currency, revenueCode, deferredRevenueCode).ToList();
+
+      var groups =
+        earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })
+              .Concat(incremental.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
+              .Concat(deferred.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
+              .Distinct().OrderBy(x => x.Currency).ThenBy(x => x.RevenueCode).ThenBy(x => x.DeferredRevenueCode).ToList();
+
+      var data = new List<RevRecModel>();
+
+      foreach (var rowGroup in groups)
+      {
+        var earnedRow = new RevRecModel
+        {
+          Id = ++idRevRec,
+          Currency = rowGroup.Currency,
+          RevenueCode = rowGroup.RevenueCode,
+          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+          RevenuePart = "Earned"
+        };
+
+        var incrementalRow = new RevRecModel
+        {
+          Id = ++idRevRec,
+          RevenuePart = "Incremental"
+        };
+
+        var deferredRow = new RevRecModel
+        {
+          Id = ++idRevRec,
+          RevenuePart = "Deferred"
+        };
+
+        var decimalTotalEarned = new Dictionary<string, double>();
+        var decimalIncrementalEarned = new Dictionary<string, double>();
+        var decimalDeferred = new Dictionary<string, double>();
+
+        var calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+
+        var calculatedIncrementalEarned = incremental.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum();
+
+        var calculatedTotalEarned = earned.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                       && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                       && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode))
+                                           .Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
+
+
+        decimalTotalEarned.Add("1", (double)calculatedTotalEarned);
+        decimalIncrementalEarned.Add("1", (double)calculatedIncrementalEarned);
+        decimalDeferred.Add("1", (double)calculatedDeferred);
+
+        for (var i = 1; i < 13; i++)
+        {
+          var monthNext = endDate.AddMonths(i).AddDays(-1);
+          var calculatedDeferredPrev = calculatedDeferred;
+
+          calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
+                                                   && x.RevenueCode.Equals(rowGroup.RevenueCode)
+                                                   && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
+                                                   && x.EndSubscriptionDate > monthNext)
+                                       .Select(x => new
+                                       {
+                                         sum1 =
+                                                    (x.EndSubscriptionDate > monthNext &&
+                                                     x.StartSubscriptionDate > monthNext)
+                                                      ? (x.EndSubscriptionDate - x.StartSubscriptionDate).Days *
+                                                        x.ProrationAmount
+                                                      : 0,
+                                         sum2 =
+                                                    (x.EndSubscriptionDate > monthNext &&
+                                                     x.StartSubscriptionDate < monthNext)
+                                                      ? (x.EndSubscriptionDate - monthNext).Days * x.ProrationAmount
+                                                      : 0
+                                       }
+            ).Sum(x => x.sum1 + x.sum2);
+
+          calculatedIncrementalEarned = calculatedDeferredPrev - calculatedDeferred;
+
+          calculatedTotalEarned = calculatedTotalEarned + calculatedIncrementalEarned;
+
+          var key = (i + 1).ToString(CultureInfo.InvariantCulture);
+          decimalIncrementalEarned.Add(key, (double)calculatedIncrementalEarned);
+          decimalDeferred.Add(key, (double)calculatedDeferred);
+          decimalTotalEarned.Add(key, (double)calculatedTotalEarned);
+        }
+
+        RoundRevRecModel(earnedRow, decimalTotalEarned);
+        RoundRevRecModel(incrementalRow, decimalIncrementalEarned);
+        RoundRevRecModel(deferredRow, decimalDeferred);
+
+        data.Add(earnedRow);
+        data.Add(incrementalRow);
+        data.Add(deferredRow);
+      }
+
+      return data;
+    }
+
+    private static void RoundRevRecModel(RevRecModel revRecModel, Dictionary<string, double> calculations)
+    {
+      revRecModel.Amount1 = calculations["1"].ToString("N2");
+      revRecModel.Amount2 = calculations["2"].ToString("N2");
+      revRecModel.Amount3 = calculations["3"].ToString("N2");
+      revRecModel.Amount4 = calculations["4"].ToString("N2");
+      revRecModel.Amount5 = calculations["5"].ToString("N2");
+      revRecModel.Amount6 = calculations["6"].ToString("N2");
+      revRecModel.Amount7 = calculations["7"].ToString("N2");
+      revRecModel.Amount8 = calculations["8"].ToString("N2");
+      revRecModel.Amount9 = calculations["9"].ToString("N2");
+      revRecModel.Amount10 = calculations["10"].ToString("N2");
+      revRecModel.Amount11 = calculations["11"].ToString("N2");
+      revRecModel.Amount12 = calculations["12"].ToString("N2");
+      revRecModel.Amount13 = calculations["13"].ToString("N2");
+    }
+
     private static IEnumerable<T> GetData<T>(string sqlQueryTag, Dictionary<string, object> paramDict)
     {
       using (IMTConnection conn = ConnectionManager.CreateConnection())
@@ -215,9 +352,6 @@ namespace MetraNet
 
       return res;
     }
-
-
-
   }
 
   /// <summary>

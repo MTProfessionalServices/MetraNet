@@ -35,7 +35,7 @@ BEGIN
       ,sub.tx_quoting_batch  as c__QuoteBatchId
     INTO #tmp_rc_1      
   FROM   t_usage_interval ui
-         INNER JOIN #tmp_newrw rw
+         INNER JOIN #recur_window_holder rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
               AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
            AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend > ui.dt_start /* next interval overlaps with membership */
@@ -54,7 +54,7 @@ BEGIN
       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
          INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
               AND (
-                      (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                      pci.dt_start  BETWEEN ui.dt_start AND ui.dt_end                          /* Check if rc start falls in this interval */
                       OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
                       OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
                   )
@@ -63,11 +63,11 @@ BEGIN
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
                                    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
                                    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+         INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
-         ui.dt_start < @currentDate
+         ui.dt_start <= rw.c_SubscriptionStart
          AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   SELECT 'InitialDebit' AS c_RCActionType,
@@ -134,16 +134,31 @@ BEGIN
           ON tmp.c__SubscriptionID = rwold.c__SubscriptionID
           AND tmp.c__PriceableItemInstanceID = rwold.c__PriceableItemInstanceID
           AND tmp.c__PriceableItemTemplateID = rwold.c__PriceableItemTemplateID;
-           
+
   /* If no charges to meter, return immediately */
-    IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
+  IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
 
   EXEC InsertChargesIntoSvcTables;
 
-  UPDATE rw
-  SET c_BilledThroughDate = @currentDate
-  FROM #tmp_newrw rw
-  WHERE  rw.c__IsAllowGenChargeByTrigger = 1;
+  MERGE
+  INTO    #recur_window_holder trw
+  USING   (
+            SELECT MAX(c_RCIntervalSubscriptionEnd) AS NewBilledThroughDate, c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+            FROM #tmp_rc
+            WHERE c_RCActionType = 'InitialDebit'
+            GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+          ) trc
+  ON      (
+            trw.c__AccountID = trc.c__AccountID
+            AND trw.c__SubscriptionID = trc.c__SubscriptionID
+            AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+            AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+            AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+            AND trw.c__IsAllowGenChargeByTrigger = 1
+          )
+  WHEN MATCHED THEN
+  UPDATE
+  SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
 
 END;
  

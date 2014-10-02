@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Get</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>p_id_partition</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description>Get a list of completed intervals</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

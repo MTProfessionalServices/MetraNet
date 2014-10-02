@@ -19,12 +19,21 @@
   </div>
 
   <script type="text/javascript">
-    $(document).ready(
+    $('#MainContentIframe').ready(
       $.ajax({
         url: "../Report/GetProductsFilter",
         success: function (res) {
+          var s = $('<select />');
+          s.appendTo('#ext-gen116');
         }
       })
     );
+
+      Ext.onReady(function () {
+        var s = $('<select />');
+
+        //$('#ext-gen118 > tbody:last').append('<tr><td class="ux-datetime-time" width="110" id="ext-gen123"><select /></td>');
+        //s.appendTo('#x-form-el-combo_filter_ProductId_ctl00_ContentPlaceHolder1_grdRevRecReport');
+      });
   </script>
 </asp:Content>

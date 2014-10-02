@@ -10,11 +10,9 @@ using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionRepor
 
 public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
 {
-    private static int idRevRec;
-
     protected void Page_Load(object sender, EventArgs e)
     {
-      var items = new MTList<RevRecModel> {TotalRows = 100, PageSize = 100, CurrentPage = 1};
+      var items = new MTList<RevRecModel>();
       SetFilters(items);
 
       var currencyLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "Currency");
@@ -24,7 +22,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var deferredRevenueCodeLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "DeferredRevenueCode");
       var deferredRevenueCode = (string)(deferredRevenueCodeLINQ == null ? "" : deferredRevenueCodeLINQ.Value);
 
-      var revRec = ReportingtHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, idRevRec);
+      var revRec = ReportingtHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, 0);
       items.Items.AddRange(revRec);
 
       var jss = new JavaScriptSerializer();

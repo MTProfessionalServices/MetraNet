@@ -51,7 +51,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Dim newDate
   newDate = DateSerial(request.QueryString("Year"), request.QueryString("Month"), request.QueryString("Day"))
  
-  Set Form("CurrentState") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), CDate(newDate)).GetAccountStateMgr().GetStateObject()                    
+  Set Form("CurrentState") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_ConvertToSysDate(CDate(newDate))).GetAccountStateMgr().GetStateObject()                    
   Form("Status")  = request.QueryString("Status")                    
   Form("OldDate") = CDate(newDate)
     

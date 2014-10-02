@@ -175,7 +175,7 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
 					If UCase(Form("ReadOnly")) = "TRUE" Then
            	
             On error resume next
-            Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, Session("SecurityAccountID"), mam_GetHierarchyTime())
+            Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, Session("SecurityAccountID"), mam_ConvertToSysDate(mam_GetHierarchyTime()))
             If err.number <> 0 then
               Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
             End If

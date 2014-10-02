@@ -2,23 +2,23 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_APPLICATION_TITLE">
-    <value>MetraOffer</value>
+    <value>[ES]MetraOffer</value>
     <description></description>
   </text>
   <text id="TEXT_APPLICATION_WELCOME">
-    <value>Bienvenue dans [TEXT_APPLICATION_TITLE]</value>
+    <value>[ES]Welcome to [TEXT_APPLICATION_TITLE]</value>
     <description></description>
   </text>
   <text id="TEXT_LOG_OUT">
-    <value>Fermer la session</value>
+    <value>[ES]Log Out</value>
     <description></description>
   </text>
   <text id="TEXT_BYE">
-    <value>Au revoir !</value>
+    <value>[ES]Bye!</value>
     <description></description>
   </text>
   <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
-    <value>Aucun enregistrement trouvé</value>
+    <value>[ES]No records found.</value>
     <description>This is the default message when a rowset listing does not return any rows.</description>
   </text>
 </texts>

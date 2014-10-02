@@ -165,22 +165,6 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   
   id_pricelist_new = objPriceList.id
   
-    ' If this operation is being performed by a tenant user, save TenantId in Extended properties
-  Dim tenantId
-  If Session("isTenantUser") Then
-    tenantId = Session("topLevelAccountId")
-  Else
-    tenantId = 0
-  End If
-  Dim success
-  success = SaveTenantIdForPriceList(objPriceList.ID, tenantId)
-
-  if (Not(success)) then
-      EventArg.Error.Save "Failed to add Tenant Id to new Pricelist"
-      OK_Click = FALSE
-      Exit Function
-  End If
-
   'response.write "Created new pricelist '" & objPriceList.Name & "' with id [" & id_pricelist_new & "]<BR>"
   
   'Create new rateschedules
@@ -218,13 +202,8 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
       EventArg.Error.Save Err
       OK_Click = FALSE
   Else
-        Response.Write "<script language='JavaScript'>"
-        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
-        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
-        Response.Write "} else {"
-        Response.Write "  window.opener.parent.location.href = '/MetraNet/MetraOffer/PriceLists/PriceListsList.aspx';"
-        Response.Write "}"
-        Response.Write "window.close();"
+        Response.Write "<script language=""javascript"" type=""text/javascript"">"
+        Response.Write " window.parent.close();"
         Response.Write "</script>"
         Response.End
 

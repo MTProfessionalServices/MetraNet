@@ -15,7 +15,6 @@ public partial class BE : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    if (!UI.CoarseCheckCapability("Update Runtime Configuration")) Response.End();
     if (!IsPostBack)
     {
       EntitiesList = GetEntities();

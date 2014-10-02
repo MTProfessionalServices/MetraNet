@@ -403,7 +403,7 @@ BEGIN
          c__SubscriptionID,
          c__IntervalID,
          NEWID() AS idSourceSess,
-         c__QuoteBatchId,
+         c__QuoteBatchId
          INTO #tmp_rc
   FROM #tmp_rc_1;
 

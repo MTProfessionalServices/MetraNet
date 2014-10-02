@@ -263,6 +263,7 @@ BEGIN
          rw.c__subscriptionid                                                                       AS c__SubscriptionID,
          currentui.id_interval                                                                      AS c__IntervalID,
          SYS_GUID()                                                                                 AS id_source_sess,
+         null                                                                                       AS c__QuoteBatchId,
          1                                                                                          AS IsArrearsRecalculation
   FROM   t_usage_interval ui
          INNER JOIN TMP_NEWRW rw

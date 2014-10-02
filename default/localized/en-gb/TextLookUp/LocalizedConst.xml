@@ -189,7 +189,7 @@
     <description>owner</description>
   </text>
   <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-    <value>Accounts paid for by </value>
+    <value>Accounts Paid for by </value>
     <description>Accounts Paid for by</description>
   </text>
   <text id="TEXT_MOVING_ACCOUNTS">
@@ -441,7 +441,7 @@
     <description></description>
   </text>
   <text id="TEXT_TIME_FORMAT">
-    <value>(DD/MM/YYYY HH:MM:SS)</value>
+    <value>(DD/MM/YYYY HH:MM:SS PP)</value>
     <description></description>
   </text>
   <text id="TEXT_PERSONAL_PRICELIST">
@@ -652,7 +652,7 @@
     <value>Active</value>
     <description></description>
   </text>
- <text id="TEXT_DISABLED_SUBSCRIPTIONS">
+  <text id="TEXT_DISABLED_SUBSCRIPTIONS">
     <value>Disabled</value>
     <description></description>
   </text>

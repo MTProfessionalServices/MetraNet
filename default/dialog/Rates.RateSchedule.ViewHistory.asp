@@ -141,9 +141,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
     Service.Properties("PriceListName") = FrameWork.GetDictionary("TEXT_ICB_PRICELIST_DISPLAY_NAME")
   end if
   
-  rowset2.SetQueryString("select nm_display_name, nm_name from t_vw_base_props bp join t_language lang on bp.id_lang_code=lang.id_lang_code where id_prop=%%PT_ID%% and lang.tx_lang_code='%%TX_LANG_CODE%%'")
+  rowset2.SetQueryString("select nm_display_name, nm_name from t_base_props where id_prop = %%PT_ID%%")
   rowset2.AddParam "%%PT_ID%%", Clng(Form("PT_ID"))
-  rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
   rowset2.Execute
 
   Service.Properties("ParamTableName") = rowset2.value("nm_display_name")

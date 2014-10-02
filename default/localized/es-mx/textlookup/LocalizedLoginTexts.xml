@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="fred" type="collection">
-
+  <description></description>
+  <text id="TEXT_LOGIN_TITLE">
+    <value>[es-MX]MetraOffer Login</value>
     <description></description>
-
-    <text id="TEXT_LOGIN_TITLE">
-        <value>Ouverture d’une session MetraOffer</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_NO_AUTH">
-        <value>Votre session est arrivée à expiration. Veuillez vous reconnecter.</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_LOGIN_NAME">
-        <value>Nom d’utilisateur</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_LOGIN_PASSWORD">
-        <value>Mot de passe</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_INVALID_LOGIN">
-        <value>Vérifiez votre nom d'utilisateur et votre mot de passe, puis sélectionnez Entrée pour faire une nouvelle tentative.</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_INVALID_BLANK_LOGIN">
-        <value>Le nom d'utilisateur ou le mot de passe doit être renseigné. Réessayez.</value>
-        <description></description>
-    </text> 	  
-                  
+  </text>
+  <text id="TEXT_NO_AUTH">
+    <value>[es-MX]Your session has timed out.  Please Log In again.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOGIN_NAME">
+    <value>[es-MX]User Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOGIN_PASSWORD">
+    <value>[es-MX]Password</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INVALID_LOGIN">
+    <value>[es-MX]Please check your user name and password and select Enter to try again.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INVALID_BLANK_LOGIN">
+    <value>[es-MX]User name or password may not be blank.  Please try again.</value>
+    <description></description>
+  </text>
 </texts>

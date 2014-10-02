@@ -8,7 +8,7 @@ INSERT INTO t_billgroup_member_tmp (id_materialization, id_acc, tx_name, id_part
 SELECT 
 	%%ID_MATERIALIZATION%%, 
 	cg.id_acc,
-	N'Default ' || CAST(tamap.id_acc AS varchar2(10)),
+	tamap.nm_login || N' Default',
   tamap.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN
@@ -26,7 +26,7 @@ UNION ALL
 SELECT 
   %%ID_MATERIALIZATION%%, 
   cg.id_acc,
-  N'Default ' || CAST(t_account_mapper.id_acc AS varchar2(10)),
+  t_account_mapper.nm_login || N' Default',
   t_account_mapper.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN

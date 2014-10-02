@@ -9,13 +9,13 @@ SELECT
 	%%ID_MATERIALIZATION%%, 
 	cg.id_acc,
   CASE av.tx_country
-    WHEN N'Global/CountryName/USA'            THEN N'North America ' || CAST(tamap.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Canada'         THEN N'North America ' || CAST(tamap.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Mexico'         THEN N'North America ' || CAST(tamap.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Argentina'      THEN N'South America ' || CAST(tamap.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Brazil'         THEN N'South America ' || CAST(tamap.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/United Kingdom' THEN N'Europe ' || CAST(tamap.id_acc AS varchar2(10))
-    ELSE N'Default ' || CAST(tamap.id_acc AS varchar2(10)) END,
+    WHEN N'Global/CountryName/USA'            THEN tamap.nm_login || N' North America'
+    WHEN N'Global/CountryName/Canada'         THEN tamap.nm_login || N' North America'
+    WHEN N'Global/CountryName/Mexico'         THEN tamap.nm_login || N' North America'
+    WHEN N'Global/CountryName/Argentina'      THEN tamap.nm_login || N' South America'
+    WHEN N'Global/CountryName/Brazil'         THEN tamap.nm_login || N' South America'
+    WHEN N'Global/CountryName/United Kingdom' THEN tamap.nm_login || N' Europe'
+    ELSE tamap.nm_login || N' Default' END,
   tamap.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN
@@ -45,13 +45,13 @@ SELECT
   %%ID_MATERIALIZATION%%, 
   cg.id_acc,
   CASE av.tx_country
-    WHEN N'Global/CountryName/USA'            THEN N'North America ' || CAST(t_account_mapper.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Canada'         THEN N'North America ' || CAST(t_account_mapper.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Mexico'         THEN N'North America ' || CAST(t_account_mapper.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Argentina'      THEN N'South America ' || CAST(t_account_mapper.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/Brazil'         THEN N'South America ' || CAST(t_account_mapper.id_acc AS varchar2(10))
-    WHEN N'Global/CountryName/United Kingdom' THEN N'Europe ' || CAST(t_account_mapper.id_acc AS varchar2(10))
-    ELSE N'Default ' || CAST(t_account_mapper.id_acc AS varchar2(10)) END,
+    WHEN N'Global/CountryName/USA'            THEN t_account_mapper.nm_login || N' North America'
+    WHEN N'Global/CountryName/Canada'         THEN t_account_mapper.nm_login || N' North America'
+    WHEN N'Global/CountryName/Mexico'         THEN t_account_mapper.nm_login || N' North America'
+    WHEN N'Global/CountryName/Argentina'      THEN t_account_mapper.nm_login || N' South America'
+    WHEN N'Global/CountryName/Brazil'         THEN t_account_mapper.nm_login || N' South America'
+    WHEN N'Global/CountryName/United Kingdom' THEN t_account_mapper.nm_login || N' Europe'
+    ELSE t_account_mapper.nm_login || N' Default' END,
   t_account_mapper.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN

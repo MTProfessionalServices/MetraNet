@@ -8,7 +8,7 @@ INSERT INTO t_billgroup_member_tmp (id_materialization, id_acc, tx_name, id_part
 SELECT 
 	%%ID_MATERIALIZATION%%, 
 	cg.id_acc,
-	N'Default ' + CONVERT(varchar(10), tamap.id_acc),
+	tamap.nm_login + N' Default',
   tamap.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN
@@ -26,7 +26,7 @@ UNION ALL
 SELECT 
   %%ID_MATERIALIZATION%%, 
   cg.id_acc,
-  N'Default ' + CONVERT(varchar(10), t_account_mapper.id_acc),
+  t_account_mapper.nm_login + N' Default',
   t_account_mapper.id_acc
 FROM t_billgroup_constraint_tmp cg
 JOIN
@@ -65,4 +65,3 @@ WHERE amap.id_acc NOT IN
   INNER JOIN t_account_type on t_account.id_type = t_account_type.id_type and t_account_type.name = 'Partition'
   INNER JOIN t_account_mapper on t_account.id_acc = t_account_mapper.id_acc  and t_account_mapper.nm_space = 'mt'
 )
-

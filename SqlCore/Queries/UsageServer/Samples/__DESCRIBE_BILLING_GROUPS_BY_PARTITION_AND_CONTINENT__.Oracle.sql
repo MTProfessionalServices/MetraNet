@@ -12,10 +12,10 @@ from (
     %%ID_MATERIALIZATION%% as id_materialization, 
     tx_name,
     CASE tx_name 
-    WHEN N'North America ' || CAST(id_partition AS varchar2(10)) THEN N'Accounts with Bill-To addresses residing in a North American country in ' || tx_name
-    WHEN N'South America ' || CAST(id_partition AS varchar2(10)) THEN N'Accounts with Bill-To addresses residing in a South American country in ' || tx_name 
-    WHEN N'Europe ' || CAST(id_partition AS varchar2(10)) THEN N'Accounts with Bill-To addresses residing in an European country in ' || tx_name  
-    WHEN N'Default ' || CAST(id_partition AS varchar2(10)) THEN N'Accounts that did not match other billing group rules in ' || tx_name 
+    WHEN partition_name.nm_login || N' North America' THEN N'Accounts with Bill-To addresses residing in a North American country in ' || partition_name.nm_login
+    WHEN partition_name.nm_login || N' South America' THEN N'Accounts with Bill-To addresses residing in a South American country in ' || partition_name.nm_login
+    WHEN partition_name.nm_login || N' Europe' THEN N'Accounts with Bill-To addresses residing in an European country in ' || partition_name.nm_login  
+    WHEN partition_name.nm_login || N' Default' THEN N'Accounts that did not match other billing group rules in ' || partition_name.nm_login 
     WHEN N'North America' THEN N'Accounts with Bill-To addresses residing in a North American country'
     WHEN N'South America' THEN N'Accounts with Bill-To addresses residing in a South American country' 
     WHEN N'Europe' THEN N'Accounts with Bill-To addresses residing in an European country'  
@@ -23,6 +23,7 @@ from (
     END as description,
     id_partition
   FROM t_billgroup_member_tmp
+  LEFT OUTER JOIN t_account_mapper partition_name ON partition_name.id_acc = t_billgroup_member_tmp.id_partition and lower(partition_name.nm_space) = 'mt'
   WHERE id_materialization = %%ID_MATERIALIZATION%%
   order by tx_name
   ) subqry

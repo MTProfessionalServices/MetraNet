@@ -49,7 +49,18 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Dim objUSM
     Set objUSM = mom_GetUsageServerClientObject()
     Dim interval
-    Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
+    'Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
+
+    dim partitionId 
+    partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+    if IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    'show no data if the partition id is empty
+    elseif (partitionId = 1) then
+      Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
+    else
+      Set interval = objUSM.GetUsageIntervalWithoutAccountStatsForPartition(CLng(Form("IntervalID")),partitionId)
+    end if
+
     If CBool(interval.HasBeenMaterialized) Then
       mdm_GetDictionary().Add "MATERIALIZE_TEXT", mom_GetDictionary("TEXT_REMATERIALIZE")
       ' Reset the message

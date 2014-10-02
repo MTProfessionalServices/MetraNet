@@ -339,7 +339,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>Amount4</DataIndex>
-            <IsColumn>true</IsColumn>            
+            <IsColumn>true</IsColumn>
             <HeaderText>
                 <Value><![CDATA[4]]></Value>
             </HeaderText>
@@ -686,7 +686,7 @@
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition</ObjectName>
             <ID>ProductId</ID>
-            <DataType>Numeric</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>ProductId</DataIndex>
             <IsColumn>false</IsColumn>
@@ -700,7 +700,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

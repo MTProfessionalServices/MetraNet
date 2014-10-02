@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MetraTech.DataAccess;
-using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
 using System.Globalization;
+using MetraTech.DataAccess;
+using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
+using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
 
 namespace MetraNet
 {
@@ -32,9 +33,9 @@ namespace MetraNet
     /// 
     /// </summary>
     /// <returns></returns>
-    public static IDictionary<string, string> GetAccountingCycles()
+    public static IEnumerable<AccountingCycle> GetAccountingCycles()
     {
-      return GetData<KeyValuePair<string, string>>("__GET_ACCOUNTING_CYCLE_FILTER__", null).ToDictionary(x => x.Key, x => x.Value);
+      return GetData<AccountingCycle>("__GET_ACCOUNTING_CYCLE_FILTER__", null);
     }
 
     /// <summary>
@@ -118,7 +119,12 @@ namespace MetraNet
     /// <returns></returns>
     public static DateTime GetCycleStartDate(AccountingCycle cycle)
     {
-      return new DateTime(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month, cycle != null ? cycle.CycleEndDate.Day + 1 : 1);
+      var result = DateTime.Today.AddMonths(-1);
+      var theDay = cycle != null ? cycle.EndDate.Day : 1;
+      if (theDay > DateTime.DaysInMonth(result.Year, result.Month))
+        theDay = DateTime.DaysInMonth(result.Year, result.Month);
+      result = new DateTime(result.Year, result.Month, theDay);
+      return result.AddDays(1);
     }
 
     /// <summary>
@@ -128,7 +134,12 @@ namespace MetraNet
     /// <returns></returns>
     public static DateTime GetCycleEndDate(AccountingCycle cycle)
     {
-      return new DateTime(DateTime.Today.Year, DateTime.Today.Month, cycle != null ? cycle.CycleEndDate.Day : 1);
+      var result = DateTime.Today;
+      var theDay = cycle != null ? cycle.EndDate.Day : 1;
+      if (theDay > DateTime.DaysInMonth(result.Year, result.Month))
+        theDay = DateTime.DaysInMonth(result.Year, result.Month);
+      result = new DateTime(result.Year, result.Month, theDay);
+      return result;
     }
 
     /// <summary>
@@ -290,7 +301,7 @@ namespace MetraNet
               case "MetraNet.SegregatedCharges":
                 result = ExtractSegregatedCharges(reader);
                 break;
-              case "System.Collections.Generic.KeyValuePair`2[System.String,System.String]":
+              case "MetraNet.AccountingCycle":
                 result = ExtractAccountingCycles(reader);
                 break;
               case "System.Collections.Generic.KeyValuePair`2[System.Int32,System.String]":
@@ -341,13 +352,21 @@ namespace MetraNet
       return res;
     }
 
-    private static IEnumerable<KeyValuePair<string, string>> ExtractAccountingCycles(IMTDataReader rdr)
+    private static IEnumerable<AccountingCycle> ExtractAccountingCycles(IMTDataReader rdr)
     {
-      var res = new Dictionary<string, string>();
+      var res = new List<AccountingCycle>();
 
       while (rdr.Read())
       {
-        res.Add(rdr.GetGuid("c_AccountingCycle_Id").ToString(), rdr.GetString("c_Name"));
+        var accCycle = new AccountingCycle
+          {
+            Id = rdr.GetGuid("c_AccountingCycle_Id"),
+            EndDate = rdr.GetDateTime("c_Day"),
+            Name = rdr.GetString("c_Name"),
+            CycleType = (UsageCycleType)rdr.GetInt32("c_Cycle"),
+            IsDefault = rdr.GetString("c_IsDefault").ToUpper() == "T"
+          };
+        res.Add(accCycle);
       }
 
       return res;
@@ -374,9 +393,18 @@ namespace MetraNet
   public class AccountingCycle
   {
     // Record Id.
-    public Guid AccountingCycleId { get; set; }
+    public Guid Id { get; set; }
 
     // Date to represent the end day of a cycle.
-    public DateTime CycleEndDate { get; set; }
+    public DateTime EndDate { get; set; }
+
+    // The name of a cycle.
+    public string Name { get; set; }
+
+    // The type of a cycle.
+    public UsageCycleType CycleType { get; set; }
+
+    // Identifies the cycle as default.
+    public bool IsDefault { get; set; }
   }
 }

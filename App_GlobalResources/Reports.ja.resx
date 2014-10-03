@@ -243,6 +243,12 @@
   <data name="TEXT_PO_SUBSCRIBED_TO" xml:space="preserve">
     <value>[JA]PO Subscribed to</value>
   </data>
+  <data name="TEXT_PRICEABLE_ITEM" xml:space="preserve">
+    <value>[JA]Priceable item</value>
+  </data>
+  <data name="TEXT_PRODUCT" xml:space="preserve">
+    <value>[JA]Product</value>
+  </data>
   <data name="TEXT_PRORATION_REASON" xml:space="preserve">
     <value>[JA]Reason for Proration</value>
   </data>

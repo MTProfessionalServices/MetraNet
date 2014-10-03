@@ -243,6 +243,9 @@
   <data name="TEXT_PO_SUBSCRIBED_TO" xml:space="preserve">
     <value>PO assinado para</value>
   </data>
+  <data name="TEXT_PRICEABLE_ITEM" xml:space="preserve">
+    <value>[PT-BR]Priceable item</value>
+  </data>
   <data name="TEXT_PRORATION_REASON" xml:space="preserve">
     <value>Motivo para rateio</value>
   </data>

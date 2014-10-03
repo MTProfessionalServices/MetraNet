@@ -23,8 +23,8 @@ namespace MetraNet
     {
       if (_currencies != null) return _currencies;
 
-      var charges = GetEarnedRevenue(GetCycleStartDate(null), String.Empty, String.Empty, String.Empty)
-                    .Concat(GetDeferredRevenue(GetCycleEndDate(null), String.Empty, String.Empty, String.Empty));
+      var charges = GetEarnedRevenue(GetCycleStartDate(null), String.Empty, String.Empty, String.Empty, null)
+                    .Concat(GetDeferredRevenue(GetCycleEndDate(null), String.Empty, String.Empty, String.Empty, null));
       return _currencies = charges.Select(x => x.Currency).Distinct().ToArray();
     }
 
@@ -53,15 +53,17 @@ namespace MetraNet
     /// <param name="currency"></param>
     /// <param name="revenueCode"></param>
     /// <param name="deferredRevenueCode"></param>
+    /// <param name="productId"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate, string currency, string revenueCode, string deferredRevenueCode)
+    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate, string currency, string revenueCode, string deferredRevenueCode, int? productId)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%START_DATE%%", startDate},
           {"%%CURRENCY%%", currency}, 
           {"%%REVENUECODE%%", revenueCode}, 
-          {"%%DEFREVENUECODE%%", deferredRevenueCode}
+          {"%%DEFREVENUECODE%%", deferredRevenueCode},
+          {"%%PRODUCTID%%", productId}
         };
 
       return GetData<SegregatedCharges>("__GET_EARNED_REVENUE__", paramDict);
@@ -74,15 +76,17 @@ namespace MetraNet
     /// <param name="currency"></param>
     /// <param name="revenueCode"></param>
     /// <param name="deferredRevenueCode"></param>
+    /// <param name="productId"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate, string currency, string revenueCode, string deferredRevenueCode)
+    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate, string currency, string revenueCode, string deferredRevenueCode, int? productId)
     {
       var paramDict = new Dictionary<string, object>
         {
           {"%%END_DATE%%", endDate},
           {"%%CURRENCY%%", currency},
           {"%%REVENUECODE%%", revenueCode}, 
-          {"%%DEFREVENUECODE%%", deferredRevenueCode}
+          {"%%DEFREVENUECODE%%", deferredRevenueCode},
+          {"%%PRODUCTID%%", productId}
         };
 
       return GetData<SegregatedCharges>("__GET_DEFERRED_REVENUE__", paramDict);
@@ -96,8 +100,9 @@ namespace MetraNet
     /// <param name="currency"></param>
     /// <param name="revenueCode"></param>
     /// <param name="deferredRevenueCode"></param>
+    /// <param name="productId"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate, string currency, string revenueCode, string deferredRevenueCode)
+    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate, string currency, string revenueCode, string deferredRevenueCode, int? productId)
     {
       var paramDict = new Dictionary<string, object>
         {
@@ -105,7 +110,8 @@ namespace MetraNet
           {"%%END_DATE%%", endDate},
           {"%%CURRENCY%%", currency},
           {"%%REVENUECODE%%", revenueCode}, 
-          {"%%DEFREVENUECODE%%", deferredRevenueCode}
+          {"%%DEFREVENUECODE%%", deferredRevenueCode},
+          {"%%PRODUCTID%%", productId}
         };
 
       return GetData<SegregatedCharges>("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
@@ -137,16 +143,17 @@ namespace MetraNet
     /// <param name="currency">Currency code</param>
     /// <param name="revenueCode">Revenue code</param>
     /// <param name="deferredRevenueCode">Deferred revenue code</param>
+    /// <param name="productId">Product ID</param>
     /// <param name="idRevRec">Start ID for add it into MTFilterGrid</param>
     /// <returns></returns>
-    public static List<RevRecModel> GetRevRec(string currency, string revenueCode, string deferredRevenueCode, int idRevRec)
+    public static List<RevRecModel> GetRevRec(string currency, string revenueCode, string deferredRevenueCode, int? productId, int idRevRec)
     {
       var startDate = GetCycleStartDate(null);
       var endDate = GetCycleEndDate(null);
 
-      var incremental = GetIncrementalEarnedRevenue(startDate, endDate, currency, revenueCode, deferredRevenueCode).ToList();
-      var deferred = GetDeferredRevenue(endDate, currency, revenueCode, deferredRevenueCode).ToList();
-      var earned = GetEarnedRevenue(startDate, currency, revenueCode, deferredRevenueCode).ToList();
+      var incremental = GetIncrementalEarnedRevenue(startDate, endDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
+      var deferred = GetDeferredRevenue(endDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
+      var earned = GetEarnedRevenue(startDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
 
       var groups =
         earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })
@@ -312,7 +319,7 @@ namespace MetraNet
 
       while (rdr.Read())
       {
-        res.Add(new KeyValuePair<int, string>(rdr.GetInt32("id_pi"), rdr.GetString("nm_name")));
+        res.Add(new KeyValuePair<int, string>(rdr.GetInt32("id_pi_template"), rdr.GetString("nm_name")));
       }
 
       return res;

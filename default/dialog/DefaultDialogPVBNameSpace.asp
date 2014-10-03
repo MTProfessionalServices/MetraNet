@@ -47,7 +47,7 @@ Form.Page.NoRecordUserMessage   = mom_GetDictionary("PRODUCT_VIEW_BROWSER_NO_REC
 mdm_PVBrowserMain ' invoke the mdm framework
 
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
-    Framework.AssertCourseCapability "Manage Usage Processing", EventArg
+    Framework.AssertCourseCapability "Update Runtime Configuration", EventArg
 	  ProductView.Clear  ' Set all the property of the service to empty or to the default value
 	  Form_Initialize = TRUE
 END FUNCTION

@@ -170,6 +170,23 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
+    <many-to-one name="AccConfigSetParamsBme" class="Core.AccountConfigSets.AccConfigSetParamsBme, Core.AccountConfigSets.Entity" column="c_AccConfigSetParamsBme_Id" cascade="none">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">AccConfigSetParamsBme_AccountConfigSetBMEs</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.AccountConfigSets.AccConfigSetParamsBme</meta>
+      <meta attribute="source-key-column">c_AccConfigSetParamsBme_Id</meta>
+      <meta attribute="source-property-name-for-target">AccountConfigSetBMEs</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
+      <meta attribute="target-key-column">c_AccountConfigSetBME_Id</meta>
+      <meta attribute="target-property-name-for-source">AccConfigSetParamsBme</meta>
+      <meta attribute="cascade">true</meta>
+    </many-to-one>
     <bag name="SelectionCriterions" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">AccountConfigSetBME_SelectionCriterions</meta>
@@ -208,22 +225,5 @@
       <key column="c_AccountConfigSetBME_Id" />
       <one-to-many class="Core.AccountConfigSets.PropValueToSetBme, Core.AccountConfigSets.Entity" />
     </bag>
-    <many-to-one name="AccConfigSetParamsBme" class="Core.AccountConfigSets.AccConfigSetParamsBme, Core.AccountConfigSets.Entity" column="c_AccConfigSetParamsBme_Id" cascade="none">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">AccConfigSetParamsBme_AccountConfigSetBMEs</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.AccountConfigSets.AccConfigSetParamsBme</meta>
-      <meta attribute="source-key-column">c_AccConfigSetParamsBme_Id</meta>
-      <meta attribute="source-property-name-for-target">AccountConfigSetBMEs</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
-      <meta attribute="target-key-column">c_AccountConfigSetBME_Id</meta>
-      <meta attribute="target-property-name-for-source">AccConfigSetParamsBme</meta>
-      <meta attribute="cascade">true</meta>
-    </many-to-one>
   </class>
 </hibernate-mapping>

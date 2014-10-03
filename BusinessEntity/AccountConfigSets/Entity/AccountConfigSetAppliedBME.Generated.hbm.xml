@@ -40,7 +40,7 @@
       <meta attribute="encrypted">false</meta>
       <meta attribute="computed">false</meta>
       <meta attribute="computation-type-name" />
-      <meta attribute="record-history">false</meta>
+      <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
@@ -54,7 +54,7 @@
       <meta attribute="encrypted">false</meta>
       <meta attribute="computed">false</meta>
       <meta attribute="computation-type-name" />
-      <meta attribute="record-history">false</meta>
+      <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
@@ -68,7 +68,7 @@
       <meta attribute="encrypted">false</meta>
       <meta attribute="computed">false</meta>
       <meta attribute="computation-type-name" />
-      <meta attribute="record-history">false</meta>
+      <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
@@ -82,7 +82,7 @@
       <meta attribute="encrypted">false</meta>
       <meta attribute="computed">false</meta>
       <meta attribute="computation-type-name" />
-      <meta attribute="record-history">false</meta>
+      <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
@@ -96,7 +96,7 @@
       <meta attribute="encrypted">false</meta>
       <meta attribute="computed">false</meta>
       <meta attribute="computation-type-name" />
-      <meta attribute="record-history">false</meta>
+      <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
@@ -110,7 +110,7 @@
       <meta attribute="encrypted">false</meta>
       <meta attribute="computed">false</meta>
       <meta attribute="computation-type-name" />
-      <meta attribute="record-history">false</meta>
+      <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
@@ -124,9 +124,9 @@
       <meta attribute="encrypted">false</meta>
       <meta attribute="computed">false</meta>
       <meta attribute="computation-type-name" />
-      <meta attribute="record-history">false</meta>
+      <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
-    </property>    
+    </property>
   </class>
 </hibernate-mapping>

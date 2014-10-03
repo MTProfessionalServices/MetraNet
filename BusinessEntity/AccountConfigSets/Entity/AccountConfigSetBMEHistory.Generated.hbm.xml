@@ -253,7 +253,7 @@ c_description,
 c_rank, 
 c_acsid, 
 c_acscreationdate, 
-c_AccConfigSetParamsBme_id, 
+c_accconfigsetparamsbme_id, 
 c__startdate, 
 c__enddate
 ) 
@@ -272,7 +272,7 @@ VALUES
 :dataRow.c_rank, 
 :dataRow.c_acsid, 
 :dataRow.c_acscreationdate, 
-:dataRow.c_AccConfigSetParamsBme_id, 
+:dataRow.c_accconfigsetparamsbme_id, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
 ) 
@@ -305,7 +305,7 @@ c_description,
 c_rank, 
 c_acsid, 
 c_acscreationdate, 
-c_AccConfigSetParamsBme_id, 
+c_accconfigsetparamsbme_id, 
 c__startdate, 
 c__enddate
 )
@@ -323,7 +323,7 @@ c_description,
 c_rank, 
 c_acsid, 
 c_acscreationdate, 
-c_AccConfigSetParamsBme_id, 
+c_accconfigsetparamsbme_id, 
 c_updatedate, 
 dbo.mtmaxdate()
 FROM INSERTED;</create>

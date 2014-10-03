@@ -272,4 +272,94 @@ FROM INSERTED;</create>
     <drop />
     <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
   </database-object>
+  <database-object>
+    <create>
+CREATE or REPLACE 
+TRIGGER TRG_SelectionCriteriaBmeHisto
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_SelectionCriteria
+ REFERENCING NEW AS dataRow 
+FOR EACH ROW 
+UPDATE t_be_cor_acs_PropValForCr_h
+ SET c__enddate = :dataRow.c_updatedate 
+WHERE c_SelectionCriteriaBme_Id = :dataRow.c_SelectionCriteriaBme_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
+INSERT INTO t_be_cor_acs_PropValForCr_h
+( 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_selectioncriteriabme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c__startdate, 
+c__enddate
+) 
+VALUES 
+( 
+:dataRow.c_internal_key, 
+:dataRow.c__version, 
+:dataRow.c_creationdate, 
+:dataRow.c_updatedate, 
+:dataRow.c_uid, 
+:dataRow.c_selectioncriteriabme_id, 
+:dataRow.c_accountview, 
+:dataRow.c_property, 
+:dataRow.c_value, 
+:dataRow.c_condition, 
+:dataRow.c_accountconfigsetbme_id, 
+:dataRow.c_updatedate, 
+CAST(dbo.mtmaxdate() AS TIMESTAMP)
+) 
+</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
+  </database-object>
+  <database-object>
+    <create>CREATE TRIGGER TRG_SelectionCriteriaBmeHisto
+ ON t_be_cor_acs_SelectionCriteria
+ AFTER INSERT, UPDATE 
+AS 
+SET NOCOUNT ON 
+UPDATE history SET c__enddate = ins.c_updatedate 
+FROM t_be_cor_acs_PropValForCr_h history 
+INNER JOIN INSERTED ins ON ins.c_SelectionCriteriaBme_Id = history.c_SelectionCriteriaBme_Id
+ WHERE history.c__enddate = dbo.mtmaxdate(); 
+INSERT INTO t_be_cor_acs_PropValForCr_h
+(
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_selectioncriteriabme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c__startdate, 
+c__enddate
+)
+SELECT 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_selectioncriteriabme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c_updatedate, 
+dbo.mtmaxdate()
+FROM INSERTED;</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
+  </database-object>
 </hibernate-mapping>

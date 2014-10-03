@@ -294,4 +294,98 @@ FROM INSERTED;</create>
     <drop />
     <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
   </database-object>
+  <database-object>
+    <create>
+CREATE or REPLACE 
+TRIGGER TRG_AccConfigSetParamsBmeHist
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_params
+ REFERENCING NEW AS dataRow 
+FOR EACH ROW 
+UPDATE t_be_cor_acs_params_h
+ SET c__enddate = :dataRow.c_updatedate 
+WHERE c_AccConfigSetParamsBme_Id = :dataRow.c_AccConfigSetParamsBme_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
+INSERT INTO t_be_cor_acs_params_h
+( 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_accconfigsetparamsbme_id, 
+c_accconfigsetparamsbmeid, 
+c_poid, 
+c_subscriptionstartdate, 
+c_subscriptionenddate, 
+c_corporateaccountid, 
+c_description, 
+c__startdate, 
+c__enddate
+) 
+VALUES 
+( 
+:dataRow.c_internal_key, 
+:dataRow.c__version, 
+:dataRow.c_creationdate, 
+:dataRow.c_updatedate, 
+:dataRow.c_uid, 
+:dataRow.c_accconfigsetparamsbme_id, 
+:dataRow.c_accconfigsetparamsbmeid, 
+:dataRow.c_poid, 
+:dataRow.c_subscriptionstartdate, 
+:dataRow.c_subscriptionenddate, 
+:dataRow.c_corporateaccountid, 
+:dataRow.c_description, 
+:dataRow.c_updatedate, 
+CAST(dbo.mtmaxdate() AS TIMESTAMP)
+) 
+</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
+  </database-object>
+  <database-object>
+    <create>CREATE TRIGGER TRG_AccConfigSetParamsBmeHist
+ ON t_be_cor_acs_params
+ AFTER INSERT, UPDATE 
+AS 
+SET NOCOUNT ON 
+UPDATE history SET c__enddate = ins.c_updatedate 
+FROM t_be_cor_acs_params_h history 
+INNER JOIN INSERTED ins ON ins.c_AccConfigSetParamsBme_Id = history.c_AccConfigSetParamsBme_Id
+ WHERE history.c__enddate = dbo.mtmaxdate(); 
+INSERT INTO t_be_cor_acs_params_h
+(
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_accconfigsetparamsbme_id, 
+c_accconfigsetparamsbmeid, 
+c_poid, 
+c_subscriptionstartdate, 
+c_subscriptionenddate, 
+c_corporateaccountid, 
+c_description, 
+c__startdate, 
+c__enddate
+)
+SELECT 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_accconfigsetparamsbme_id, 
+c_accconfigsetparamsbmeid, 
+c_poid, 
+c_subscriptionstartdate, 
+c_subscriptionenddate, 
+c_corporateaccountid, 
+c_description, 
+c_updatedate, 
+dbo.mtmaxdate()
+FROM INSERTED;</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
+  </database-object>
 </hibernate-mapping>

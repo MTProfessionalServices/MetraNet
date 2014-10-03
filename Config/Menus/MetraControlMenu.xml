@@ -414,7 +414,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_white_text.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities>Manage DataExportFramework</RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage DataExportFramework</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ShowDataExportQueueDashboard</ID>
@@ -426,7 +428,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_white_text.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities>Manage DataExportFramework</RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage DataExportFramework</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -804,9 +808,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/information.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities>
-                               <Capability>Update Runtime Configuration</Capability>
-                            </RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>EditNamespaces</ID>

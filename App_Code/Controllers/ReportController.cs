@@ -1,5 +1,6 @@
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Threading;
 using System.Web.Mvc;
 using MetraNet;
 using MetraNet.DbContext;
@@ -248,6 +249,23 @@ namespace ASP.Controllers
                     join d in decimalDeferred.AsQueryable() on e.Key equals d.Key
                     select new { date = e.Key, deferred = Math.Round(d.Value), earned = Math.Round(e.Value) }).ToArray();
       return Json(result, JsonRequestBehavior.AllowGet);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="accountCycleId"></param>
+    /// <returns></returns>
+    public ActionResult RevRecReportHeaders(string accountCycleId)
+    {
+      var accCycle = ReportingtHelper.GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountCycleId)));
+      var startDate = ReportingtHelper.GetCycleStartDate(accCycle);
+      var headers = new string[13];
+      for (var i = 0; i < headers.Length; i++)
+      {
+        headers[i] = startDate.AddMonths(i).ToString("d MMM yyyy", Thread.CurrentThread.CurrentUICulture);
+      }
+      return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);
     }
 
     public JsonResult GetProductsFilter()

@@ -19,19 +19,54 @@
     </MT:MTFilterGrid>
   </div>
   <script type="text/javascript">
+    var headers = "<%=TableHeaders %>".split(',');
+    var accCycleId;
+    
     Ext.onReady(function () {
+      accCycleId = $('#accCycle').val();
+      var s = $('<select />');
+      //$('#ext-gen118 > tbody:last').append('<tr><td class="ux-datetime-time" width="110" id="ext-gen123"><select /></td>');
+      //s.appendTo('#x-form-el-combo_filter_ProductId_ctl00_ContentPlaceHolder1_grdRevRecReport');
+
+      DrawHeaders();
+      $(".x-panel-fbar button").on( "click", function() {
+                                    RefreshHeaders();
+                                  });
+    });
+
+    function DrawHeaders() {
       if (grid_grdRevRecReport) {
         var columns = grid_grdRevRecReport.getColumnModel().getColumnsBy(function (c) {
           return c.id.indexOf("Amount") != -1;
         });
         var columnModel = grid_grdRevRecReport.getColumnModel();
-        var i = 1;
+        var i = 0;
         columns.forEach(function (e) {
-          columnModel.setColumnHeader(e.position, "Month " + i.toString());
+          columnModel.setColumnHeader(e.position, headers[i]);
           i++;
         });
       }
-    });
+    }
+    
+    function RefreshHeaders() {
+      var cycle = $('#accCycle').val();
+      if (accCycleId !== cycle) {
+        // let's get new headers
+        $.ajax({
+          url: '../Report/RevRecReportHeaders',
+          type: 'GET',
+          cache: false,
+          data: { accountCycleId: cycle },
+          success: function (data) {
+            accCycleId = cycle;
+            headers = data.headers.split(',');
+            DrawHeaders();
+          },
+          error: function (data) {
+            alert("Data retrival error!");
+          }
+        });      
+
 
 
     Ext.onReady(function () {

@@ -49,7 +49,7 @@
         });
       }
     }
-    
+
     function RefreshHeaders() {
       var cycle = $('#accCycle').val();
       if (accCycleId !== cycle) {
@@ -67,7 +67,10 @@
           error: function (data) {
             alert("Data retrival error!");
           }
-        });      
+        });
+
+      }
+    }  
 
 
 

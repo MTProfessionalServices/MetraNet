@@ -82,27 +82,26 @@
         /*font-family: "Helvetica Neue","Arial Black", Arial, sans-serif;*/
     
     }
-    /* Creates a small triangle extender for the tooltip */
-   .d3-tip:after {
+     /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
       box-sizing: border-box;
       display: inline;
-      font-size: 10px;
+      font-size: 18px;
       width: 100%;
       line-height: 1;
-      color:rgba(211, 211, 211, 0.96);
-      content:"\25BC";
+      color: rgba(211, 211, 211, 0.96);
       position: absolute;
-      text-align: center;
-  }
-  /* Style northward tooltips differently */
-  .d3-tip.n:after {
-      margin: -2px 0 0 0;
-      top: 100%;
-      left: 0;
-  }
-  .d3-tip .ProductCode {
-      font-weight: bold;
-  }
+    }
+    /* Eastward tooltips */
+    .d3-tip.e:after {
+      content: "\25C0";
+      margin: -4px 0 0 0;
+      top: 50%;
+      left: -8px;
+    }
+    .d3-tip .ProductCode {
+        font-weight: bold;
+    }
   </style>
   <script type="text/javascript" >
     var demomode = false;
@@ -144,14 +143,21 @@
 
           dc.renderAll(chartConfig.operation);
 
-          d3.select(chartConfig.divId + " svg").selectAll(" .axis text").text(function (d) {
+          if (chartConfig.hideFractionTicks) {
+            d3.select(chartConfig.divId + " svg").selectAll(".tick")
+              .filter(function(d) { return (Math.floor(d) != d); })
+              .remove();
+          }
+          
+		      d3.select(chartConfig.divId + " svg").selectAll(" .axis text").text(function (d) {
             return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
           });
 
           // tooltips
           var toolTip = d3.tip()
                 .attr('class', 'd3-tip')
-                .offset([6, 0])
+                .offset([0, 10])
+                .direction('e')
                 .html(function (d) {
                   return chartConfig.toolTipFormatterFn(data[d.key - 1]);
                 });
@@ -442,7 +448,7 @@
         return d.mrr;
       };
       var fnMRRToolTipFormatter = function(d) {
-        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information>{0}: {2}</div></div>", "<%=MrrTooltipText%>", d.productname, d.mrrAsString.replace("&pound", "£"));
+        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information style='padding-top:2px'>{0}: {2}</div></div>", "<%=MrrTooltipText%>", d.productname, d.mrrAsString.replace("&pound", "£"));
         return html;
       };
       
@@ -468,8 +474,8 @@
         var perMRRChange = (d.mrrprevious != 0) ? ((d.mrrabschange/d.mrrprevious)*100) : 0;
         var localizedperMRRChange = parseFloat(perMRRChange).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
         var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
-        html += (d.mrrprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"))
-                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, d.mrrchange > 0 ? "up":"down", d.mrrchange > 0 ? "text-bottom":"middle");
+        html += (d.mrrprevious == 0) ? String.format("<div class=Information style='padding-top:2px'>{0}: {1} </div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"))
+                                     : String.format("<div class=Information style='padding-top:2px'>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, d.mrrchange > 0 ? "up":"down", d.mrrchange > 0 ? "text-bottom":"middle");
         html += String.format("<div class=Information>{0}: {1} </div>", d.mrrchange > 0 ?  "<%=GainTooltipText%>" : "<%=LossTooltipText%>", d.mrrabschangeAsString);
         return String.format("<div style='width:200px;'>{0}</div>", html);
       };
@@ -529,7 +535,7 @@
       };
       var fnSubscriptionsToolTipFormatter = function(d) {
         var localizedSubscriptions = parseFloat(d.subscriptions).toLocaleString(CURRENT_LOCALE);
-        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information>{0}: {2}</div></div>", "<%=SubscriptionsTooltipText%>", d.productname, localizedSubscriptions);
+        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information style='padding-top:2px'>{0}: {2}</div></div>", "<%=SubscriptionsTooltipText%>", d.productname, localizedSubscriptions);
         return html;
       };      
       var top10SubscriptionsChartConfig = {
@@ -542,7 +548,8 @@
         demoData: data,
         graphTitleId: "#TopSubsGraphTitle",
         graphTitleText: "<%=TopSubsGraphTitle%>",
-        toolTipFormatterFn: fnSubscriptionsToolTipFormatter
+        hideFractionTicks: true,        
+		    toolTipFormatterFn: fnSubscriptionsToolTipFormatter
       };
       visualizeRowChart(top10SubscriptionsChartConfig);
       
@@ -556,8 +563,8 @@
         var perSubscriptionsChange = (d.subscriptionsprevious != 0) ? ((d.subscriptionsabschange/d.subscriptionsprevious)*100) : 0;
         var localizedperSubscriptionsChange = parseFloat(perSubscriptionsChange).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
         var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
-        html += (d.subscriptionsprevious == 0) ? String.format("<div class=Information>{0}: {1} </div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions)
-                                     : String.format("<div class=Information>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, d.subscriptionschange > 0 ? "up":"down", d.subscriptionschange > 0 ? "text-bottom":"middle");
+        html += (d.subscriptionsprevious == 0) ? String.format("<div class=Information style='padding-top:2px'>{0}: {1} </div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions)
+                                     : String.format("<div class=Information style='padding-top:2px'>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, d.subscriptionschange > 0 ? "up":"down", d.subscriptionschange > 0 ? "text-bottom":"middle");
         html += String.format("<div class=Information>{0}: {1} </div>", d.subscriptionschange > 0 ? "<%=GainTooltipText%>" : "<%=LossTooltipText%>", localizedSubscriptionChangeValue);
         return String.format("<div style='width:200px;'>{0}</div>", html);
       };
@@ -571,7 +578,8 @@
         demoData: data,
         graphTitleId: "#TopSubsGainGraphTitle",
         graphTitleText: "<%=TopSubsGainGraphTitle%>",
-        toolTipFormatterFn: fnSubscriptionsGainLossToolTipFormatter
+        hideFractionTicks: true,
+		    toolTipFormatterFn: fnSubscriptionsGainLossToolTipFormatter
       };      
       visualizeRowChart(top10SubscriptionsGainChartConfig);
       
@@ -589,7 +597,8 @@
         demoData: data,
         graphTitleId: "#TopSubsLossGraphTitle",
         graphTitleText: "<%=TopSubsLossGraphTitle%>",
-        toolTipFormatterFn: fnSubscriptionsGainLossToolTipFormatter
+        hideFractionTicks: true,
+		    toolTipFormatterFn: fnSubscriptionsGainLossToolTipFormatter
       };      
       visualizeRowChart(top10SubscriptionsLossChartConfig);
 

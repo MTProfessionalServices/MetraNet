@@ -696,6 +696,7 @@
         resize: { enabled: false },
         autogrow_cols: true,
         min_rows: 30,
+        min_cols: 9,
       }).data('gridster').disable();
     });
   </script>

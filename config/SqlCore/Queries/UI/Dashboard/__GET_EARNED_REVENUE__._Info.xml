@@ -34,6 +34,13 @@
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
+        <Parameter>
+            <Name>PRODUCTID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Product ID</Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

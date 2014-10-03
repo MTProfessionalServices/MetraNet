@@ -705,7 +705,7 @@
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel>
-                <LocalizationTag>TEXT_PI_TEMPLATE</LocalizationTag>
+                <LocalizationTag>TEXT_PRICEABLE_ITEM</LocalizationTag>
                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </FilterLabel>
             <ElementValue>

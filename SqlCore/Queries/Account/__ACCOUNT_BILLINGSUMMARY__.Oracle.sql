@@ -18,7 +18,14 @@ INNER JOIN ( --subquery to sum up mrr for active subscriptions in the interval
 		SUM(NVL(mrr.MRR,0.0)) AS MRR
 	FROM t_invoice inv 
 	INNER JOIN t_usage_interval ui ON inv.id_interval = ui.id_interval
-	LEFT OUTER JOIN t_vw_effective_subs sub ON inv.id_acc = sub.id_acc 
+	LEFT OUTER JOIN t_payment_redirection pr on inv.id_acc = pr.id_payer AND (/*Gets valid payees in the interval and payees which started in the interval month*/
+                                                        (ui.dt_end BETWEEN pr.vt_start and pr.vt_end) OR 
+                                                        /*Gets valid payees in the interval and payees which ended in the interval month*/
+                                                        (ui.dt_start BETWEEN pr.vt_start and pr.vt_end) OR 
+                                                        /*Gets payees that were valid only within the interval month*/
+                                                        (pr.vt_start >= ui.dt_start and pr.vt_end <= ui.dt_end)
+                                                        )	
+	LEFT OUTER JOIN t_vw_effective_subs sub ON pr.id_payee = sub.id_acc  
                                                        AND (/*Gets valid subscriptions in the interval and subscriptions which started in the interval month*/
                                                             (ui.dt_end BETWEEN sub.dt_start and sub.dt_end) OR 
                                                             /*Gets valid subscriptions in the interval and subscriptions which ended in the interval month*/

@@ -7,6 +7,8 @@
   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>"
   <MT:MTTitle ID="MTTitle1" Text="Revenue Recognition Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <div style="position: relative; margin-top: 50px;">
+    <select id="accCycle" clientidmode="Static" runat="server">
+    </select>
     <MT:MTFilterGrid ID="grdRevRecReport" runat="server" ExtensionName="SystemConfig"
       TemplateFileName="RevRecReportGrid" ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending"
       DisplayCount="True" EnableColumnConfig="True" EnableFilterConfig="false" EnableLoadSearch="False"

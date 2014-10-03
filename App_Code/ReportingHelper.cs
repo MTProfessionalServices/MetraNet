@@ -119,11 +119,9 @@ namespace MetraNet
     /// <returns></returns>
     public static DateTime GetCycleStartDate(AccountingCycle cycle)
     {
-      var result = DateTime.Today.AddMonths(-1);
-      var theDay = cycle != null ? cycle.EndDate.Day : 1;
-      if (theDay > DateTime.DaysInMonth(result.Year, result.Month))
-        theDay = DateTime.DaysInMonth(result.Year, result.Month);
-      result = new DateTime(result.Year, result.Month, theDay);
+      var result = new DateTime(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month, DateTime.DaysInMonth(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month));
+      if (cycle != null && cycle.EndDate.Day < result.Day)
+        result = new DateTime(result.Year, result.Month, cycle.EndDate.Day);
       return result.AddDays(1);
     }
 
@@ -134,11 +132,9 @@ namespace MetraNet
     /// <returns></returns>
     public static DateTime GetCycleEndDate(AccountingCycle cycle)
     {
-      var result = DateTime.Today;
-      var theDay = cycle != null ? cycle.EndDate.Day : 1;
-      if (theDay > DateTime.DaysInMonth(result.Year, result.Month))
-        theDay = DateTime.DaysInMonth(result.Year, result.Month);
-      result = new DateTime(result.Year, result.Month, theDay);
+      var result = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
+      if (cycle != null && cycle.EndDate.Day < result.Day)
+        result = new DateTime(result.Year, result.Month, cycle.EndDate.Day);
       return result;
     }
 

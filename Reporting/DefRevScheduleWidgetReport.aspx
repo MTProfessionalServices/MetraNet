@@ -40,11 +40,11 @@
         url: '../Report/DefRevScheduleWidgetReport',
         type: 'GET',
         cache: false,
-        data: { currency: currency, productId: productId },
+        data: { accountingCycleId: accCycleId, currency: currency, productId: productId },
         success: function(data) {
-          data.forEach(function(e) {
-            e.jsDate = new Date(parseInt(e.date.substr(6)));
-          });
+//          data.forEach(function(e) {
+//            e.jsDate = new Date(parseInt(e.date.substr(6)));
+//          });
           DisplayChart(data);
         },
         error: function (data) {
@@ -54,10 +54,11 @@
     }
 
     function DisplayChart(dataSet) {
-      var data = crossfilter(dataSet);
+      var data = crossfilter(dataSet.rows);
+      var headers = dataSet.headers;
 
       var dateDim = data.dimension(function (d) {
-        return d.jsDate;
+        return d.month;
       });
       var revRecByMonth = dateDim.group().reduce(
                 function (p, v) {
@@ -79,8 +80,8 @@
         );
 
       // date ranges
-      var minDate = dateDim.bottom(1)[0].jsDate;
-      var maxDate = dateDim.top(1)[0].jsDate;
+      var minDate = dateDim.bottom(1)[0].month;
+      var maxDate = dateDim.top(1)[0].month;
 
       // colors
       var colorDomain = ["<%=GetLocalResourceObject("Earned_Caption").ToString() %>", "<%=GetLocalResourceObject("Deferred_Caption").ToString() %>"];
@@ -95,22 +96,22 @@
                 .valueAccessor(function (d) { return d.value.totalDeferred; })
                 .stack(revRecByMonth, "<%=GetLocalResourceObject("Earned_Caption").ToString() %>", function (d) { return d.value.totalEarned; })
                 .colors(d3.scale.ordinal().domain(colorDomain).range(colorRange))
-                .x(d3.time.scale().domain([minDate, maxDate]))
-                .xUnits(d3.time.months)
-				.renderHorizontalGridLines(true)
+                .x(d3.scale.linear().domain([minDate, maxDate]))
+                //.xUnits(d3.)
+				        .renderHorizontalGridLines(true)
                 .centerBar(true)
                 .elasticY(true)
                 .brushOn(false)
                 .legend(dc.legend().x(890).y(50))
                 .title(function (d) {
-                  return d.key.getDate() + " " + mnthNames[d.key.getMonth()] + " " + d.key.getFullYear()
+                  return headers[d.key-1]
                             + "\n<%=GetLocalResourceObject("Earned_Caption").ToString() %>: " + Math.round(d.value.totalEarned)
                             + "\n<%=GetLocalResourceObject("Deferred_Caption").ToString() %>: " + Math.round(d.value.totalDeferred);
                 });
 
       // formatting
       revRecChart.yAxis().ticks(10);
-      revRecChart.xAxis().tickFormat(function (d) { return d.getDate() + " " + mnthNames[d.getMonth()] + " " + d.getFullYear(); });
+      revRecChart.xAxis().tickFormat(function (d) { return headers[d-1]; });
 
       dc.renderAll();
     }

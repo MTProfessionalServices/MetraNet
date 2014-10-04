@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Globalization;
+using System.Threading;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
@@ -125,7 +125,7 @@ namespace MetraNet
     /// <returns></returns>
     public static DateTime GetCycleStartDate(AccountingCycle cycle)
     {
-      var result = new DateTime(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month, DateTime.DaysInMonth(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month));
+      var result = new DateTime(DateTime.Today.AddMonths(-2).Year, DateTime.Today.AddMonths(-2).Month, DateTime.DaysInMonth(DateTime.Today.AddMonths(-2).Year, DateTime.Today.AddMonths(-2).Month));
       if (cycle != null && cycle.EndDate.Day < result.Day)
         result = new DateTime(result.Year, result.Month, cycle.EndDate.Day);
       return result.AddDays(1);
@@ -138,9 +138,9 @@ namespace MetraNet
     /// <returns></returns>
     public static DateTime GetCycleEndDate(AccountingCycle cycle)
     {
-      var result = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
+      var result = new DateTime(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month, DateTime.DaysInMonth(DateTime.Today.AddMonths(-1).Year, DateTime.Today.AddMonths(-1).Month), 23, 59, 59);
       if (cycle != null && cycle.EndDate.Day < result.Day)
-        result = new DateTime(result.Year, result.Month, cycle.EndDate.Day);
+        result = new DateTime(result.Year, result.Month, cycle.EndDate.Day, 23, 59, 59);
       return result;
     }
 
@@ -155,8 +155,30 @@ namespace MetraNet
     /// <returns></returns>
     public static List<RevRecModel> GetRevRec(string currency, string revenueCode, string deferredRevenueCode, int? productId, int idRevRec)
     {
-      var startDate = GetCycleStartDate(null);
-      var endDate = GetCycleEndDate(null);
+      var accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.IsDefault);
+      if (accountingCycle != null)
+        accountingCycle = GetAccountingCycles().FirstOrDefault();
+      var data = new List<RevRecModel>();
+      var revRecData = GetRevRecRawData(accountingCycle, currency, revenueCode, deferredRevenueCode)
+                       .Select(x => x.GetRoundRevRecModel())
+                       .ToList();
+      revRecData.ForEach(x => { x.Id = ++idRevRec; data.Add(x); });
+
+      return data;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="accountingCycle"></param>
+    /// <param name="currency">Currency code</param>
+    /// <param name="revenueCode">Revenue code</param>
+    /// <param name="deferredRevenueCode">Deferred revenue code</param>
+    /// <returns></returns>
+    public static List<RevenueRecognitionReportData> GetRevRecRawData(AccountingCycle accountingCycle, string currency, string revenueCode, string deferredRevenueCode)
+    {
+      var startDate = GetCycleStartDate(accountingCycle);
+      var endDate = GetCycleEndDate(accountingCycle);
 
       var incremental = GetIncrementalEarnedRevenue(startDate, endDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
       var deferred = GetDeferredRevenue(endDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
@@ -168,34 +190,13 @@ namespace MetraNet
               .Concat(deferred.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode }))
               .Distinct().OrderBy(x => x.Currency).ThenBy(x => x.RevenueCode).ThenBy(x => x.DeferredRevenueCode).ToList();
 
-      var data = new List<RevRecModel>();
+      var data = new List<RevenueRecognitionReportData>();
 
       foreach (var rowGroup in groups)
       {
-        var earnedRow = new RevRecModel
-        {
-          Id = ++idRevRec,
-          Currency = rowGroup.Currency,
-          RevenueCode = rowGroup.RevenueCode,
-          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
-          RevenuePart = "Earned"
-        };
-
-        var incrementalRow = new RevRecModel
-        {
-          Id = ++idRevRec,
-          RevenuePart = "Incremental"
-        };
-
-        var deferredRow = new RevRecModel
-        {
-          Id = ++idRevRec,
-          RevenuePart = "Deferred"
-        };
-
-        var decimalTotalEarned = new Dictionary<string, double>();
-        var decimalIncrementalEarned = new Dictionary<string, double>();
-        var decimalDeferred = new Dictionary<string, double>();
+        var decimalTotalEarned = new Dictionary<int, double>();
+        var decimalIncrementalEarned = new Dictionary<int, double>();
+        var decimalDeferred = new Dictionary<int, double>();
 
         var calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
                                                        && x.RevenueCode.Equals(rowGroup.RevenueCode)
@@ -213,9 +214,9 @@ namespace MetraNet
                                            .Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
 
 
-        decimalTotalEarned.Add("1", (double)calculatedTotalEarned);
-        decimalIncrementalEarned.Add("1", (double)calculatedIncrementalEarned);
-        decimalDeferred.Add("1", (double)calculatedDeferred);
+        decimalTotalEarned.Add(1, (double)calculatedTotalEarned);
+        decimalIncrementalEarned.Add(1, (double)calculatedIncrementalEarned);
+        decimalDeferred.Add(1, (double)calculatedDeferred);
 
         for (var i = 1; i < 13; i++)
         {
@@ -246,39 +247,76 @@ namespace MetraNet
 
           calculatedTotalEarned = calculatedTotalEarned + calculatedIncrementalEarned;
 
-          var key = (i + 1).ToString(CultureInfo.InvariantCulture);
-          decimalIncrementalEarned.Add(key, (double)calculatedIncrementalEarned);
-          decimalDeferred.Add(key, (double)calculatedDeferred);
-          decimalTotalEarned.Add(key, (double)calculatedTotalEarned);
+          decimalIncrementalEarned.Add(i+1, (double)calculatedIncrementalEarned);
+          decimalDeferred.Add(i+1, (double)calculatedDeferred);
+          decimalTotalEarned.Add(i+1, (double)calculatedTotalEarned);
         }
+        var earnedRow = new RevenueRecognitionReportData
+        {
+          Currency = rowGroup.Currency,
+          RevenueCode = rowGroup.RevenueCode,
+          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+          RevenuePart = "Earned",
+          ColumnsData = decimalTotalEarned
+        };
 
-        RoundRevRecModel(earnedRow, decimalTotalEarned);
-        RoundRevRecModel(incrementalRow, decimalIncrementalEarned);
-        RoundRevRecModel(deferredRow, decimalDeferred);
+        var incrementalRow = new RevenueRecognitionReportData
+        {
+          RevenuePart = "Incremental",
+          ColumnsData = decimalIncrementalEarned
+        };
+
+        var deferredRow = new RevenueRecognitionReportData
+        {
+          RevenuePart = "Deferred",
+          ColumnsData = decimalDeferred
+        };
 
         data.Add(earnedRow);
         data.Add(incrementalRow);
         data.Add(deferredRow);
       }
-
       return data;
     }
 
-    private static void RoundRevRecModel(RevRecModel revRecModel, Dictionary<string, double> calculations)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="accountingCycleId"></param>
+    /// <returns></returns>
+    public static string[] GetRevRecReportHeaders(string accountingCycleId)
     {
-      revRecModel.Amount1 = calculations["1"].ToString("N2");
-      revRecModel.Amount2 = calculations["2"].ToString("N2");
-      revRecModel.Amount3 = calculations["3"].ToString("N2");
-      revRecModel.Amount4 = calculations["4"].ToString("N2");
-      revRecModel.Amount5 = calculations["5"].ToString("N2");
-      revRecModel.Amount6 = calculations["6"].ToString("N2");
-      revRecModel.Amount7 = calculations["7"].ToString("N2");
-      revRecModel.Amount8 = calculations["8"].ToString("N2");
-      revRecModel.Amount9 = calculations["9"].ToString("N2");
-      revRecModel.Amount10 = calculations["10"].ToString("N2");
-      revRecModel.Amount11 = calculations["11"].ToString("N2");
-      revRecModel.Amount12 = calculations["12"].ToString("N2");
-      revRecModel.Amount13 = calculations["13"].ToString("N2");
+      var accCycle = GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountingCycleId)));
+      var endDate = GetCycleEndDate(accCycle);
+      var accEndDate = accCycle == null ? endDate : accCycle.EndDate;
+      var isEndOfMonth = accEndDate.Day == DateTime.DaysInMonth(accEndDate.Year, accEndDate.Month);
+      var headers = new string[13];
+      for (var i = 0; i < headers.Length; i++)
+      {
+        headers[i] = (isEndOfMonth ? endDate.AddMonths(i).GetLastDayMonth() : endDate.AddMonths(i)).ToString("d MMM yyyy", Thread.CurrentThread.CurrentUICulture);
+      }
+      return headers;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static bool IsLastDayMonth(this DateTime date)
+    {
+      return date.Day == DateTime.DaysInMonth(date.Year, date.Month);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static DateTime GetLastDayMonth(this DateTime date)
+    {
+      return date.Day == DateTime.DaysInMonth(date.Year, date.Month) ? date
+                         : new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month), date.Hour, date.Minute, date.Second, date.Millisecond);
     }
 
     private static IEnumerable<T> GetData<T>(string sqlQueryTag, Dictionary<string, object> paramDict)
@@ -410,4 +448,49 @@ namespace MetraNet
     // Identifies the cycle as default.
     public bool IsDefault { get; set; }
   }
+
+  public class RevenueRecognitionReportData
+  {
+    public string Currency { get; set; }
+
+    public Int32 ProductId { get; set; }
+
+    public string RevenueCode { get; set; }
+
+    public string DeferredRevenueCode { get; set; }
+
+    public string RevenuePart { get; set; }
+
+    /// <summary>
+    /// Amonts by columns:
+    ///    Key - column's Id.
+    ///    Value - amount.
+    /// </summary>
+    public IDictionary<int, double> ColumnsData { get; set; }
+
+    public RevRecModel GetRoundRevRecModel()
+    {
+      return new RevRecModel
+        {
+          Currency = Currency,
+          RevenueCode = RevenueCode,
+          DeferredRevenueCode = DeferredRevenueCode,
+          RevenuePart = RevenuePart,
+          Amount1 = ColumnsData.ContainsKey(1) ? ColumnsData[1].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount2 = ColumnsData.ContainsKey(2) ? ColumnsData[2].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount3 = ColumnsData.ContainsKey(3) ? ColumnsData[3].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount4 = ColumnsData.ContainsKey(4) ? ColumnsData[4].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount5 = ColumnsData.ContainsKey(5) ? ColumnsData[5].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount6 = ColumnsData.ContainsKey(6) ? ColumnsData[6].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount7 = ColumnsData.ContainsKey(7) ? ColumnsData[7].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount8 = ColumnsData.ContainsKey(8) ? ColumnsData[8].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount9 = ColumnsData.ContainsKey(9) ? ColumnsData[9].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount10 = ColumnsData.ContainsKey(10) ? ColumnsData[10].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount11 = ColumnsData.ContainsKey(11) ? ColumnsData[11].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount12 = ColumnsData.ContainsKey(12) ? ColumnsData[12].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty,
+          Amount13 = ColumnsData.ContainsKey(13) ? ColumnsData[13].ToString("N2", Thread.CurrentThread.CurrentUICulture) : String.Empty
+        };
+    }
+  }
+
 }

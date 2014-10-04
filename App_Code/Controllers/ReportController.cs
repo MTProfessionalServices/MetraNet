@@ -1,6 +1,5 @@
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Threading;
 using System.Web.Mvc;
 using MetraNet;
 using MetraNet.DbContext;
@@ -194,61 +193,24 @@ namespace ASP.Controllers
     /// <summary>
     /// 
     /// </summary>
+    /// <param name="accountingCycleId"></param>
     /// <param name="currency"></param>
     /// <param name="productId"></param>
     /// <returns></returns>
-    public ActionResult DefRevScheduleWidgetReport(string currency, int productId)
+    public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, int productId)
     {
-      var startDate = ReportingtHelper.GetCycleStartDate(null);
-      var endDate = ReportingtHelper.GetCycleEndDate(null);
-      var incremental = ReportingtHelper.GetIncrementalEarnedRevenue(startDate, endDate, currency, "", "", null).ToList();
-      var deferred = ReportingtHelper.GetDeferredRevenue(endDate, currency, "", "", null).ToList();
-      var earned = ReportingtHelper.GetEarnedRevenue(startDate, currency, "", "", null).ToList();
-      //var result = new[]
-      //  {
-      //    new {date = DateTime.Parse("2014-08-01"), deferred = 900, earned = 300},
-      //    new {date = DateTime.Parse("2014-09-01"), deferred = 800, earned = 400},
-      //    new {date = DateTime.Parse("2014-10-01"), deferred = 700, earned = 500},
-      //    new {date = DateTime.Parse("2014-11-01"), deferred = 600, earned = 600},
-      //    new {date = DateTime.Parse("2014-12-01"), deferred = 500, earned = 700},
-      //    new {date = DateTime.Parse("2015-01-01"), deferred = 400, earned = 800},
-      //    new {date = DateTime.Parse("2015-02-01"), deferred = 300, earned = 900},
-      //    new {date = DateTime.Parse("2015-03-01"), deferred = 200, earned = 1000},
-      //    new {date = DateTime.Parse("2015-04-01"), deferred = 100, earned = 1100},
-      //    new {date = DateTime.Parse("2015-05-01"), deferred = 0, earned = 1200}
-      //  };
-
-      var decimalTotalEarned = new Dictionary<DateTime, double>();
-      var decimalDeferred = new Dictionary<DateTime, double>();
-      var calculatedDeferred = deferred.Select(x => x.ProrationDate * x.ProrationAmount).Sum();
-
-      var calculatedIncrementalEarned = incremental.Select(x => x.ProrationDate * x.ProrationAmount).Sum();
-
-      var calculatedTotalEarned = earned.Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
-
-
-      decimalTotalEarned.Add(startDate, (double)calculatedTotalEarned);
-      decimalDeferred.Add(startDate, (double)calculatedDeferred);
-
-      for (var i = 1; i < 13; i++)
+      var accCycle = ReportingtHelper.GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountingCycleId)));
+      var revRec = ReportingtHelper.GetRevRecRawData(accCycle, currency, "", "");
+      var data = revRec.First().ColumnsData.Keys.ToDictionary(item => item, item => new double[]{0f,0f});
+      foreach (var revRecItem in revRec.Where(x => x.RevenuePart.Equals("Deferred") || x.RevenuePart.Equals("Earned")))
       {
-        var monthNext = endDate.AddMonths(i).AddDays(-1);
-        var calculatedDeferredPrev = calculatedDeferred;
-
-        calculatedDeferred = deferred.Where(x => x.EndSubscriptionDate > monthNext)
-                                          .Select(x => (x.EndSubscriptionDate - monthNext).Days * x.ProrationAmount).Sum();
-
-        calculatedIncrementalEarned = calculatedDeferredPrev - calculatedDeferred;
-
-        calculatedTotalEarned = calculatedTotalEarned + calculatedIncrementalEarned;
-
-        decimalDeferred.Add(startDate.AddMonths(i), (double)calculatedDeferred);
-        decimalTotalEarned.Add(startDate.AddMonths(i), (double)calculatedTotalEarned);
+        for (var j = 1; j <= data.Count; j++){
+          data[j][Convert.ToInt32(revRecItem.RevenuePart.Equals("Deferred"))] += revRecItem.ColumnsData[j];
+        }
       }
-      var result = (from e in decimalTotalEarned.AsQueryable()
-                    join d in decimalDeferred.AsQueryable() on e.Key equals d.Key
-                    select new { date = e.Key, deferred = Math.Round(d.Value), earned = Math.Round(e.Value) }).ToArray();
-      return Json(result, JsonRequestBehavior.AllowGet);
+      var headers = ReportingtHelper.GetRevRecReportHeaders(accountingCycleId);
+      var result = Enumerable.Range(1, data.Count).Select(x => new { month = x, deferred = Math.Round(data[x][1]), earned = Math.Round(data[x][0]) }).ToArray();
+      return Json(new {rows = result, headers}, JsonRequestBehavior.AllowGet);
     }
 
     /// <summary>
@@ -258,13 +220,7 @@ namespace ASP.Controllers
     /// <returns></returns>
     public ActionResult RevRecReportHeaders(string accountCycleId)
     {
-      var accCycle = ReportingtHelper.GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountCycleId)));
-      var startDate = ReportingtHelper.GetCycleStartDate(accCycle);
-      var headers = new string[13];
-      for (var i = 0; i < headers.Length; i++)
-      {
-        headers[i] = startDate.AddMonths(i).ToString("d MMM yyyy", Thread.CurrentThread.CurrentUICulture);
-      }
+      var headers = ReportingtHelper.GetRevRecReportHeaders(accountCycleId);
       return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);
     }
 

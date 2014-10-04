@@ -14,18 +14,15 @@ public partial class RevRecReport : MTPage
   protected void Page_Load(object sender, EventArgs e)
   {
     if (IsPostBack) return;
-    var startDate = DateTime.Today;
+    var accountCycleId = "";
     foreach (var cycle in ReportingtHelper.GetAccountingCycles())
     {
       accCycle.Items.Add(new ListItem(cycle.Name, cycle.Id.ToString()));
       if(cycle.IsDefault)
-        startDate = ReportingtHelper.GetCycleStartDate(cycle);
+        accountCycleId = cycle.Id.ToString();
     }
-    var headers = new string[13];
-    for(var i = 0; i < headers.Length; i++)
-    {
-      headers[i] = startDate.AddMonths(i).ToString("d MMM yyyy", Thread.CurrentThread.CurrentUICulture);
-    }
-    TableHeaders = String.Join(",", headers);
+    if (String.IsNullOrEmpty(accountCycleId))
+      accountCycleId = accCycle.Items[0].Value;
+    TableHeaders = String.Join(",", ReportingtHelper.GetRevRecReportHeaders(accountCycleId));
   }
 }

@@ -195,12 +195,17 @@ namespace ASP.Controllers
     /// </summary>
     /// <param name="accountingCycleId"></param>
     /// <param name="currency"></param>
+    /// <param name="revenueCode"></param>
+    /// <param name="deferredRevenueCode"></param>
     /// <param name="productId"></param>
     /// <returns></returns>
-    public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, int productId)
+    public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, string revenueCode, string deferredRevenueCode, int productId)
     {
       var accCycle = ReportingtHelper.GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountingCycleId)));
-      var revRec = ReportingtHelper.GetRevRecRawData(accCycle, currency, "", "");
+      var headers = ReportingtHelper.GetRevRecReportHeaders(accountingCycleId);
+      var revRec = ReportingtHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
+      if(revRec.Count == 0)
+        return Json(new { rows = new {}, headers }, JsonRequestBehavior.AllowGet);
       var data = revRec.First().ColumnsData.Keys.ToDictionary(item => item, item => new double[]{0f,0f});
       foreach (var revRecItem in revRec.Where(x => x.RevenuePart.Equals("Deferred") || x.RevenuePart.Equals("Earned")))
       {
@@ -208,7 +213,6 @@ namespace ASP.Controllers
           data[j][Convert.ToInt32(revRecItem.RevenuePart.Equals("Deferred"))] += revRecItem.ColumnsData[j];
         }
       }
-      var headers = ReportingtHelper.GetRevRecReportHeaders(accountingCycleId);
       var result = Enumerable.Range(1, data.Count).Select(x => new { month = x, deferred = Math.Round(data[x][1]), earned = Math.Round(data[x][0]) }).ToArray();
       return Json(new {rows = result, headers}, JsonRequestBehavior.AllowGet);
     }

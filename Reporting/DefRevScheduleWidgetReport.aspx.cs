@@ -22,9 +22,6 @@ public partial class DefRevScheduleWidgetReport : MTPage
 
   private static ListItem[] GetCycles()
   {
-    //return new[] { new ListItem {Text = "Monthly 31", Value = "31Monthly", Selected = true},
-    //                                    new ListItem() {Text = "Monthly 15", Value = "15Monthly"}
-    //                                  };
     return ReportingtHelper.GetAccountingCycles().Select(x => new ListItem(x.Name, x.Id.ToString())).ToArray();
   }
 

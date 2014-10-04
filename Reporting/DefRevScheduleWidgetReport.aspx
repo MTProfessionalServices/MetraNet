@@ -27,7 +27,6 @@
   <script type="text/javascript" src="/Res/JavaScript/crossfilter.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/dc.js"></script>
   <script language="javascript" type="text/javascript">
-    var mnthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var revRecChart = dc.barChart("#revrec-chart");
 
     function ApplyFilter() {
@@ -40,11 +39,8 @@
         url: '../Report/DefRevScheduleWidgetReport',
         type: 'GET',
         cache: false,
-        data: { accountingCycleId: accCycleId, currency: currency, productId: productId },
+        data: { accountingCycleId: accCycleId, currency: currency, revenueCode: "", deferredRevenueCode: "", productId: productId },
         success: function(data) {
-//          data.forEach(function(e) {
-//            e.jsDate = new Date(parseInt(e.date.substr(6)));
-//          });
           DisplayChart(data);
         },
         error: function (data) {
@@ -79,10 +75,6 @@
                 }
         );
 
-      // date ranges
-      var minDate = dateDim.bottom(1)[0].month;
-      var maxDate = dateDim.top(1)[0].month;
-
       // colors
       var colorDomain = ["<%=GetLocalResourceObject("Earned_Caption").ToString() %>", "<%=GetLocalResourceObject("Deferred_Caption").ToString() %>"];
       var colorRange = ["#b2df8a", "#1f78b4"];
@@ -96,8 +88,7 @@
                 .valueAccessor(function (d) { return d.value.totalDeferred; })
                 .stack(revRecByMonth, "<%=GetLocalResourceObject("Earned_Caption").ToString() %>", function (d) { return d.value.totalEarned; })
                 .colors(d3.scale.ordinal().domain(colorDomain).range(colorRange))
-                .x(d3.scale.linear().domain([minDate, maxDate]))
-                //.xUnits(d3.)
+                .x(d3.scale.linear().domain([1, headers.length]))
 				        .renderHorizontalGridLines(true)
                 .centerBar(true)
                 .elasticY(true)

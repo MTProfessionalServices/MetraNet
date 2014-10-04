@@ -159,7 +159,7 @@ namespace MetraNet
       if (accountingCycle != null)
         accountingCycle = GetAccountingCycles().FirstOrDefault();
       var data = new List<RevRecModel>();
-      var revRecData = GetRevRecRawData(accountingCycle, currency, revenueCode, deferredRevenueCode)
+      var revRecData = GetRevRecRawData(accountingCycle, currency, revenueCode, deferredRevenueCode, productId)
                        .Select(x => x.GetRoundRevRecModel())
                        .ToList();
       revRecData.ForEach(x => { x.Id = ++idRevRec; data.Add(x); });
@@ -174,8 +174,9 @@ namespace MetraNet
     /// <param name="currency">Currency code</param>
     /// <param name="revenueCode">Revenue code</param>
     /// <param name="deferredRevenueCode">Deferred revenue code</param>
+    /// <param name="productId"></param>
     /// <returns></returns>
-    public static List<RevenueRecognitionReportData> GetRevRecRawData(AccountingCycle accountingCycle, string currency, string revenueCode, string deferredRevenueCode)
+    public static List<RevenueRecognitionReportData> GetRevRecRawData(AccountingCycle accountingCycle, string currency, string revenueCode, string deferredRevenueCode, int? productId)
     {
       var startDate = GetCycleStartDate(accountingCycle);
       var endDate = GetCycleEndDate(accountingCycle);

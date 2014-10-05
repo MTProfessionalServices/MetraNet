@@ -11,7 +11,7 @@
     <meta attribute="entity-type">Entity</meta>
     <meta attribute="interface">Core.AccountConfigSets.Interface.ISelectionCriteriaBme, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <id name="Id" column="c_SelectionCriteria_Id">
+    <id name="Id" column="c_SelectionCriteriaBme_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>

@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="SelectionCriteriaBmeId" column="c_SelectionCriteria_Id" not-null="true" index="IDX_SelectionCriteria_Id">
+    <property name="SelectionCriteriaBmeId" column="c_SelectionCriteriaBme_Id" not-null="true" index="IDX_SelectionCriteria_Id">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />

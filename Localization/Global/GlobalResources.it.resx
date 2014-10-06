@@ -699,4 +699,83 @@
   <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
     <value>[IT]Could not deserialize JSON {0} into type {1}.</value>
   </data>
+  
+  <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
+    <value>[IT]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
+  </data>
+  <data name="ACS_VALIDATION_AvailableStartDateLessThanStartDateInPo" xml:space="preserve">
+    <value>[IT]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter  StartDate '{1}' less than available StartDate '{2}' of product offering. </value>
+  </data>
+  <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
+    <value>[IT]Incorrect available End date for the current Account Config Set. Available EffectiveEndDate={0} less than system date={1}, so the Account Config Set will never use.</value>
+  </data>
+  <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
+    <value>[IT]Incorrect available date for the current Account Config Set. Available EffectiveDate={0} greater then EffectiveEndDate={1}.</value>
+  </data>
+  <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
+    <value>[IT]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
+  </data>
+  <data name="ACS_VALIDATION_PropertiesToSetHasDuplicates" xml:space="preserve">
+    <value>[IT]The Properties to Set with name '{0}' is found more the one time. The Properties to Set should be unique. </value>
+  </data>
+  <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
+    <value>[IT]The Selection Criteria with name '{0}' is found more the one time. The Selection Criteria should be unique.</value>
+  </data>
+  <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
+    <value>[IT]StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
+  </data>
+  <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
+    <value>[IT]UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
+    <value>[IT]Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
+  </data>
+  <data name="ACS_VALIDATION_UnapleToFindProductOfferingId" xml:space="preserve">
+    <value>[IT]Unable to find Product Offering with id={0}</value>
+  </data>
+  <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
+    <value>[IT]The Account Configuration Set date does not match available '{0}' Product Offering date. Effective date for Configuration Set from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
+    <value>[IT]Unable to add Account Configuration Set due to validation errors.</value>
+  </data>
+  <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
+    <value>[IT]#{0}) Message: '{1}', Component: '{2}'</value>
+  </data>
+  <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
+    <value>[IT]The '{0}' mandatory property is null. The property should be initialized.</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
+    <value>[IT]Unable to find Product Offering with Id='{0}'</value>
+  </data>
+  <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
+    <value>[IT]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
+  </data>
+  <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error on saving AccountConfigSet with Id {0}</value>
+  </data>
+  <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error delete account configuration set</value>
+  </data>
+  <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
+    <value>[IT]Array of Account Configuration Set IDs contains invalid IDs: {0}</value>
+  </data>
+  <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get account configuration set with Id {0}</value>
+  </data>
+  <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get account configuration set list</value>
+  </data>
+  <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get account configuration set applied list</value>
+  </data>
+  <data name="ADD_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error on saving SubscriptionParams with Id {0}</value>
+  </data>
+  <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get subscription parameters with Id {0}</value>
+  </data>
+  <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error update account configuration set</value>
+  </data>
 </root>

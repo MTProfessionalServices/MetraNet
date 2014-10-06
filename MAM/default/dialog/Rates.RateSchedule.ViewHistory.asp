@@ -119,7 +119,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("dt_crt").Caption 	          = FrameWork.GetDictionary("TEXT_AUDIT_DT_CRT")
    
   ProductView.Properties("Time").Sorted               = MTSORT_ORDER_DESCENDING
-  
+  Service.Properties("dt_crt").Format = FrameWork.GetDictionary("DATE_FORMAT") 
+  Service.Properties("Time").Format = FrameWork.GetDictionary("DATE_FORMAT")
   Set Form.Grid.FilterProperty                        = ProductView.Properties("UserName") ' Set the property on which to apply the filter  
 
   '//Get the name of the pricelist and the parameter table for screen display

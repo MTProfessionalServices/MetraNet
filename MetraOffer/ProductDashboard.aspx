@@ -118,7 +118,7 @@
           if (chartConfig.graphTitleId != null) {
             d3.select(chartConfig.graphTitleId).text(chartConfig.graphTitleText);
           }
-          
+
           data = demomode ? chartConfig.demoData : json.Items;
           if (data.length == 0) {
             appendNoDataText(chartConfig.divId, chartWidth, chartHeight, "<%=NoDataText%>");
@@ -133,23 +133,24 @@
 
           rowChart.width(chartWidth)
             .height(chartHeight)
-            .margins({top: 5, left: 10, right: 50, bottom: 20})
+            .margins({ top: 5, left: 10, right: 50, bottom: 20 })
             .dimension(dimension)
             .renderLabel(false)
             .group(group)
             .colors(chartConfig.color)
             .title(null)
             .xAxis().ticks(5);
-
+          
+          rowChart.onClick = function () { return false; };
           dc.renderAll(chartConfig.operation);
 
           if (chartConfig.hideFractionTicks) {
             d3.select(chartConfig.divId + " svg").selectAll(".tick")
-              .filter(function(d) { return (Math.floor(d) != d); })
+              .filter(function (d) { return (Math.floor(d) != d); })
               .remove();
           }
-          
-		      d3.select(chartConfig.divId + " svg").selectAll(" .axis text").text(function (d) {
+
+          d3.select(chartConfig.divId + " svg").selectAll(" .axis text").text(function (d) {
             return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
           });
 
@@ -172,8 +173,9 @@
     }
 
   </script>
-  <MT:MTTitle ID="MTTitle1" Text="Product
-   Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
+    <div class="CaptionBar" style="color: #ddd;font-size: 150%;">
+    <asp:Label ID="MTTitle1" runat="server" meta:resourcekey="MTTitle1Resource1"></asp:Label>
+  </div>
   <br />
   <div class="gridster" width="100%" height="100%">
     <ul width="100%" height="100%" id="gridsterul" style="width: 100%; align: left;">

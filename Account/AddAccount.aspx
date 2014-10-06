@@ -116,7 +116,8 @@ function onValidateUsername()
 }
 
 function onAuthTypeChange(selectField, value) {
-  var el;
+  var el,
+    Ext = window.Ext;
   if (value == '<%=AuthenticationType.MetraNetInternal.ToString()%>') {
     el = Ext.getCmp("<%=tbPassword.ClientID%>");
     if (el != null) { el.enable(); }
@@ -130,6 +131,8 @@ function onAuthTypeChange(selectField, value) {
     if (el != null) { el.enable(); }
     el = Ext.getCmp("<%=tbSecurityAnswer.ClientID%>");
     if (el != null) { el.enable(); }
+    el = Ext.getCmp("<%=btnValidate.ClientID %>"); 
+	  if (el) { el.enable(); }
   } else {
     el = Ext.getCmp("<%=tbPassword.ClientID%>");
     if (el != null) { el.el.dom.value = ""; el.disable(); }
@@ -143,6 +146,8 @@ function onAuthTypeChange(selectField, value) {
     if (el != null) { el.disable(); }
     el = Ext.getCmp("<%=tbSecurityAnswer.ClientID%>");
     if (el != null) { el.disable(); }
+    el = Ext.getCmp("<%=btnValidate.ClientID %>");
+    if (el) { el.disable(); }
   }
 }
 

@@ -19,13 +19,13 @@ SELECT
   inst.b_ignore_deps IgnoreDeps,
   inst.dt_effective EffectiveDate,    
   inst.tx_status Status,
-  run.id_run LastRunID,
+  CASE WHEN cur_run.tx_status = 'InProgress' THEN cur_run.id_run ELSE run.id_run END LastRunID,
   run.tx_type LastRunAction,
-  run.dt_start LastRunStart,
-  run.dt_end LastRunEnd,
-  run.tx_status LastRunStatus,
-  run.tx_detail LastRunDetail,
-  run.tx_machine LastRunMachine,
+  {fn ifnull(run.dt_start, cur_run.dt_start)} LastRunStart, 
+  {fn ifnull(run.dt_end, %%%SYSTEMDATE%%%)} LastRunEnd,
+  {fn ifnull(cur_run.tx_status,run.tx_status)} LastRunStatus,
+  CASE WHEN cur_run.tx_status = 'InProgress' THEN cur_run.tx_detail ELSE run.tx_detail END LastRunDetail,
+  {fn ifnull(run.tx_machine, cur_run.tx_machine)} LastRunMachine, 
   {fn ifnull(batch.total, 0)} LastRunBatches,
   COUNT(dep.id_event) TotalDeps,
   {fn ifnull(warnings.total, 0)} LastRunWarnings,
@@ -34,6 +34,20 @@ FROM t_recevent_inst inst
 INNER JOIN t_recevent evt ON evt.id_event = inst.id_event
 INNER JOIN t_usage_interval ui ON ui.id_interval = inst.id_arg_interval
 LEFT OUTER JOIN %%TMP_BILLGROUP_TABLE%% bgs ON bgs.id_billgroup = inst.id_arg_billgroup
+LEFT OUTER JOIN  
+( 
+	 	  /* finds the current run's ID */ 
+ 	  SELECT  
+ 	    id_instance, 
+ 	    MAX(dt_start) dt_start 
+ 	  FROM t_recevent_run run 
+ 	  where dt_end is null 
+ 	  GROUP BY 
+ 	    id_instance 
+ 	) current_run ON current_run.id_instance = inst.id_instance 
+ 	LEFT OUTER JOIN t_recevent_run cur_run  
+ 	  ON cur_run.dt_start = current_run.dt_start 
+ 	  AND cur_run.id_instance = current_run.id_instance 
 LEFT OUTER JOIN
 (
   /* finds the last run's ID */
@@ -57,7 +71,7 @@ LEFT OUTER JOIN
   WHERE details.tx_type = 'Warning'
   GROUP BY id_run
 ) warnings ON warnings.id_run = run.id_run AND
-              inst.tx_status NOT IN ('ReadyToRun', 'ReadyToReverse')
+              inst.tx_status NOT IN ('ReadyToRun', 'ReadyToReverse', 'InProgress')
 LEFT OUTER JOIN
 (
   /* gets the number of batches associated with the last run */
@@ -107,12 +121,17 @@ GROUP BY
   inst.dt_effective,    
   inst.tx_status,
   run.id_run,
+  cur_run.id_run,
   run.tx_type,
   run.dt_start,
+  cur_run.dt_start,  
   run.dt_end,
   run.tx_status,
+  cur_run.tx_status,  
   run.tx_detail,
+  cur_run.tx_detail,
   run.tx_machine,
+  cur_run.tx_machine,
   batch.total,
   warnings.total
 ORDER BY

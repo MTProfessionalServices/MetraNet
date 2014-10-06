@@ -234,6 +234,12 @@ namespace ASP.Controllers
       return Json(products, JsonRequestBehavior.AllowGet);
     }
 
+    public JsonResult GetAccountingCyclesFilter()
+    {
+      var accountingCycles = ReportingtHelper.GetAccountingCycles();
+      return Json(accountingCycles, JsonRequestBehavior.AllowGet);
+    }
+
     /*public ActionResult Churn()
     {
       Title = "Churn Report";

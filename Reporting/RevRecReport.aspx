@@ -70,13 +70,10 @@
         });
 
       }
-    }  
-
-
+    }
 
     Ext.onReady(function () {
-      $('#ext-gen120').hide();
-      $('#ext-gen123').hide();
+      $('#ext-gen121 td').hide();
       var inpVal = $('#filter_ProductId_grdRevRecReport');
       var select = $("<select/>").width('218px').on('change', function () {
         inpVal.attr('value', this.value);
@@ -89,9 +86,27 @@
             select.append($("<option/>").attr("value", e.Key).text(e.Value));
           });
           var td = $('<td class="ux-datetime-time" width="110" id="customFilter"/>').append(select);
-          $('#ext-gen123').parent().append(td);
+          $('#ext-gen121 tr:first').append(td);
         }
       });
+
+      $('#ext-gen129 td').hide();
+      var inpValCycle = $('#filter_AccountingCycleId_grdRevRecReport');
+      var selectCycle = $("<select/>").width('218px').on('change', function () {
+        inpValCycle.attr('value', this.value);
+      });
+      selectCycle.append($("<option/>"));
+      $.ajax({
+        url: "../Report/GetAccountingCyclesFilter",
+        success: function (res) {
+          res.forEach(function (e) {
+            selectCycle.append($("<option/>").attr("value", e.Key).text(e.Value));
+          });
+          var td = $('<td class="ux-datetime-time" width="110" id="customFilter"/>').append(selectCycle);
+          $('#ext-gen129 tr:first').append(td);
+        }
+      });
+
     });
   </script>
 </asp:Content>

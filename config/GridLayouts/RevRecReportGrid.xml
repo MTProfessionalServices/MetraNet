@@ -686,7 +686,7 @@
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition</ObjectName>
             <ID>ProductId</ID>
-            <DataType>List</DataType>
+            <DataType>Numeric</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>ProductId</DataIndex>
             <IsColumn>false</IsColumn>
@@ -706,6 +706,42 @@
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel>
                 <LocalizationTag>TEXT_PRICEABLE_ITEM</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </FilterLabel>
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition</ObjectName>
+            <ID>AccountingCycleId</ID>
+            <DataType>List</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>AccountingCycleId</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel>
+                <LocalizationTag>TEXT_ACCOUNTING_CYCLE</LocalizationTag>
                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </FilterLabel>
             <ElementValue>

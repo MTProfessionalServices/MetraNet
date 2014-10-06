@@ -289,7 +289,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
           maximumRecordsPerBatch = MAX_RECORDS_PER_BATCH;
         }
       }
-      catch (Exception convertEx)
+      catch 
       {
         Logger.LogWarning("Invalid value for batchsize in query string: " + qsMaxRecordsPerBatch + ", defaulting maximumRecordsPerBatch to " + MAX_RECORDS_PER_BATCH);
         maximumRecordsPerBatch = MAX_RECORDS_PER_BATCH;

@@ -4,7 +4,7 @@
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>"
+  <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
   <MT:MTTitle ID="MTTitle1" Text="Revenue Recognition Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <div style="position: relative; margin-top: 50px;">
     <select id="accCycle" clientidmode="Static" runat="server">

@@ -145,6 +145,20 @@ namespace MetraNet
     }
 
     /// <summary>
+    /// Figure out the end date of next accounting cycle period.
+    /// </summary>
+    /// <param name="currentDate"></param>
+    /// <param name="cycle"></param>
+    /// <returns></returns>
+    public static DateTime GetCycleEndDateNextMonth(DateTime currentDate, AccountingCycle cycle)
+    {
+      var result = new DateTime(currentDate.Year, currentDate.Month, DateTime.DaysInMonth(currentDate.Year, currentDate.Month), 23, 59, 59);
+      if (cycle != null && cycle.EndDate.Day < result.Day)
+        result = new DateTime(result.Year, result.Month, cycle.EndDate.Day, 23, 59, 59);
+      return result.AddDays(1);
+    }
+
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="currency">Currency code</param>
@@ -221,7 +235,7 @@ namespace MetraNet
 
         for (var i = 1; i < 13; i++)
         {
-          var monthNext = endDate.AddMonths(i).AddDays(-1);
+          var monthNext = GetCycleEndDateNextMonth(endDate.AddMonths(i), accountingCycle);
           var calculatedDeferredPrev = calculatedDeferred;
 
           calculatedDeferred = deferred.Where(x => x.Currency.Equals(rowGroup.Currency)
@@ -233,13 +247,13 @@ namespace MetraNet
                                          sum1 =
                                                     (x.EndSubscriptionDate > monthNext &&
                                                      x.StartSubscriptionDate > monthNext)
-                                                      ? (x.EndSubscriptionDate - x.StartSubscriptionDate).Days *
+                                                      ? ((x.EndSubscriptionDate - x.StartSubscriptionDate).Days + 1) *
                                                         x.ProrationAmount
                                                       : 0,
                                          sum2 =
                                                     (x.EndSubscriptionDate > monthNext &&
-                                                     x.StartSubscriptionDate < monthNext)
-                                                      ? (x.EndSubscriptionDate - monthNext).Days * x.ProrationAmount
+                                                     x.StartSubscriptionDate <= monthNext)
+                                                      ? ((x.EndSubscriptionDate - monthNext).Days  + 1)* x.ProrationAmount
                                                       : 0
                                        }
             ).Sum(x => x.sum1 + x.sum2);

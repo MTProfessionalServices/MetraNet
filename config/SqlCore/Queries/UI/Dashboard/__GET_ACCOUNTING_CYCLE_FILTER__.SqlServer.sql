@@ -1,4 +1,5 @@
-SELECT ac.c_Name,
+SELECT DISTINCT
+       ac.c_Name,
        ac.c_AccountingCycle_Id,
        ac.c_Cycle,
        ac.c_Day,

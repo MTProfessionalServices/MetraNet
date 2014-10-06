@@ -135,6 +135,14 @@ PRIVATE FUNCTION MyForm_LoadProductView(EventArg) ' As Boolean
   'end if
   'CLng(Form("IntervalID"))
   
+  Dim partitionId 
+  partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  if Not IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    if Not (partitionId = 1) then
+      objFilter.PartitionId = (partitionId)
+    end if
+  end if
+
   Set ProductView.Properties.RowSet = objUSM.GetUnassignedAccountsForIntervalAsRowset((objFilter))
   
   ProductView.Properties.AddPropertiesFromRowset ProductView.Properties.RowSet

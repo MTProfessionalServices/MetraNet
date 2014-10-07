@@ -100,7 +100,7 @@
         url: "../Report/GetAccountingCyclesFilter",
         success: function (res) {
           res.forEach(function (e) {
-            selectCycle.append($("<option/>").attr("value", e.Key).text(e.Value));
+            selectCycle.append($("<option/>").attr("value", e.Id).text(e.Name));
           });
           var td = $('<td class="ux-datetime-time" width="110" id="customFilter"/>').append(selectCycle);
           $('#ext-gen129 tr:first').append(td);

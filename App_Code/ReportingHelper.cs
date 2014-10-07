@@ -171,13 +171,23 @@ namespace MetraNet
     /// <param name="revenueCode">Revenue code</param>
     /// <param name="deferredRevenueCode">Deferred revenue code</param>
     /// <param name="productId">Product ID</param>
+    /// <param name="AccountingCycleId"></param>
     /// <param name="idRevRec">Start ID for add it into MTFilterGrid</param>
     /// <returns></returns>
-    public static List<RevRecModel> GetRevRec(string currency, string revenueCode, string deferredRevenueCode, int? productId, int idRevRec)
+    public static List<RevRecModel> GetRevRec(string currency, string revenueCode, string deferredRevenueCode, int? productId, string AccountingCycleId, int idRevRec)
     {
-      var accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.IsDefault);
-      if (accountingCycle != null)
-        accountingCycle = GetAccountingCycles().FirstOrDefault();
+      AccountingCycle accountingCycle;
+      if (AccountingCycleId == "")
+      {
+        accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.IsDefault);
+        if (accountingCycle != null)
+          accountingCycle = GetAccountingCycles().FirstOrDefault();
+      }
+      else
+      {
+        accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(new Guid(AccountingCycleId)));
+      }
+
       var data = new List<RevRecModel>();
       var revRecData = GetRevRecRawData(accountingCycle, currency, revenueCode, deferredRevenueCode, productId)
                        .Select(x => x.GetRoundRevRecModel())

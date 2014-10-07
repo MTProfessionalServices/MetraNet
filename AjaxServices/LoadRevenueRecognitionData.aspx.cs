@@ -24,9 +24,9 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var productIdLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "ProductId");
       var productId = (productIdLINQ == null ? (int?) null : Convert.ToInt32(productIdLINQ.Value));
       var AccountingCycleIdLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "AccountingCycleId");
-      var AccountingCycleId = (productIdLINQ == null ? (int?)null : Convert.ToInt32(productIdLINQ.Value));
+      var AccountingCycleId = (string)(AccountingCycleIdLINQ == null ? "" : AccountingCycleIdLINQ.Value);
 
-      var revRec = ReportingtHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, productId, 0);
+      var revRec = ReportingtHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, productId, AccountingCycleId, 0);
       items.Items.AddRange(revRec);
 
       var jss = new JavaScriptSerializer();

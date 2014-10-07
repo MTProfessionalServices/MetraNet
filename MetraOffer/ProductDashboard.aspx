@@ -284,7 +284,8 @@
     }  
     
     function tx_detailsColRenderer(value, meta, record, rowIndex, colIndex, store) {
-      meta.attr = 'style="white-space:normal"';
+      var styles = String.format("style='white-space:normal; {0}'", ((rowIndex % 2) != 0) ? "background: rgb(245, 245, 245);" : "");
+      meta.attr = styles;
       var str = "";
       // nm_po
       // tx_details
@@ -292,15 +293,19 @@
       // dt_crt
       // nm_login
       if (record.json.id_po != null) {
-        str += String.format("<span title='Name_{0}'><a style='cursor:auto;' id='viewName_{0}' title='{1}' href='JavaScript:ViewProductOffering({2});'>{3}</a></span><br/>", 
+        str += String.format("<span title='Name_{0}'><img style='PADDING-RIGHT:5px;' src='/Res/Images/icons/package.png'><a style='cursor:auto;font-weight:bold;' id='viewName_{0}' title='{1}' href='JavaScript:ViewProductOffering({2});'>{3}</a></span><br/>", 
           record.json.unique_id,
           "<%=GetLocalResourceObject("VIEW_PO_TEXT")%>",
           record.json.id_po,
           record.json.nm_po);
       }
-      str += String.format("{0}<br/><br/>{1}<br/><br/>{2}<br/>",record.json.tx_desc,record.json.tx_details,record.json.dt_crt);  
+      str += String.format("{0}<br/><br/>",record.json.tx_desc); 
+      if (record.json.tx_details != null) {
+        str += String.format("{0}<br/><br/>", record.json.tx_details);
+      }
+      str += String.format("<b>{0}</b>",record.json.dt_crt); 
       if (record.json.nm_login != null) {
-        str += String.format("<b>{0} {1}</b><br/>",
+        str += String.format("<b> {0} {1}</b><br/>",
           "<%=GetLocalResourceObject("UPDATED_BY_TEXT")%>",
           record.json.nm_login);
       }
@@ -308,15 +313,20 @@
     }
 
     function tx_detailsRecentChangesColRenderer(value, meta, record, rowIndex, colIndex, store) {
-      meta.attr = 'style="white-space:normal"';
+      var styles = String.format("style='white-space:normal; {0}'", ((rowIndex % 2) != 0) ? "background: rgb(245, 245, 245);" : "");
+      meta.attr = styles;
       var str = "";
       // tx_details
       // tx_desc
       // dt_crt
       // nm_login
-      str += String.format("{0}<br/><br/>{1}<br/><br/>{2}<br/>",record.json.tx_desc,record.json.tx_details,record.json.dt_crt);  
+      str += String.format("{0}<br/><br/>",record.json.tx_desc);
+      if (record.json.tx_details != null) {
+        str += String.format("{0}<br/><br/>", record.json.tx_details);
+      }
+      str += String.format("<b>{0}</b>",record.json.dt_crt);
       if (record.json.nm_login != null) {
-        str += String.format("<b>{0} {1}</b><br/>",
+        str += String.format("<b> {0} {1}</b><br/>",
           "<%=GetLocalResourceObject("UPDATED_BY_TEXT")%>",
           record.json.nm_login);
       }

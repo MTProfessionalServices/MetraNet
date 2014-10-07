@@ -208,7 +208,7 @@
     <value>{FR}Revenue</value>
   </data>
   <data name="UPDATED_BY_TEXT" xml:space="preserve">
-    <value>{FR}Updated by:</value>
+    <value>{FR}by</value>
   </data>
   <data name="VIEW_PO_TEXT" xml:space="preserve">
     <value>{FR}View product offering</value>

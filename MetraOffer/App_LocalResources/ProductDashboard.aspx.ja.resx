@@ -205,7 +205,7 @@
     <value>{JA}Revenue</value>
   </data>
   <data name="UPDATED_BY_TEXT" xml:space="preserve">
-    <value>{JA}Updated by:</value>
+    <value>{JA}by</value>
   </data>
   <data name="VIEW_PO_TEXT" xml:space="preserve">
     <value>{JA}View product offering</value>

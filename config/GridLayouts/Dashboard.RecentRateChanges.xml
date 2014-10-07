@@ -240,7 +240,7 @@
                 <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>280</Width>
+            <Width>278</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>

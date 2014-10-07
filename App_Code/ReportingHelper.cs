@@ -24,8 +24,8 @@ namespace MetraNet
     {
       if (_currencies != null) return _currencies;
 
-      var charges = GetEarnedRevenue(GetCycleStartDate(null), String.Empty, String.Empty, String.Empty, null)
-                    .Concat(GetDeferredRevenue(GetCycleEndDate(null), String.Empty, String.Empty, String.Empty, null));
+      var charges = GetEarnedRevenue(GetCycleStartDate(null), String.Empty, String.Empty, String.Empty, null, "")
+                    .Concat(GetDeferredRevenue(GetCycleEndDate(null), String.Empty, String.Empty, String.Empty, null, ""));
       return _currencies = charges.Select(x => x.Currency).Distinct().ToArray();
     }
 
@@ -55,8 +55,9 @@ namespace MetraNet
     /// <param name="revenueCode"></param>
     /// <param name="deferredRevenueCode"></param>
     /// <param name="productId"></param>
+    /// <param name="AccountingCycleId"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate, string currency, string revenueCode, string deferredRevenueCode, int? productId)
+    public static IEnumerable<SegregatedCharges> GetEarnedRevenue(DateTime startDate, string currency, string revenueCode, string deferredRevenueCode, int? productId, string AccountingCycleId)
     {
       var paramDict = new Dictionary<string, object>
         {
@@ -64,7 +65,8 @@ namespace MetraNet
           {"%%CURRENCY%%", currency}, 
           {"%%REVENUECODE%%", revenueCode}, 
           {"%%DEFREVENUECODE%%", deferredRevenueCode},
-          {"%%PRODUCTID%%", productId}
+          {"%%PRODUCTID%%", productId},
+          {"%%ACCOUNTINGCYCLEID%%", AccountingCycleId}
         };
 
       return GetData<SegregatedCharges>("__GET_EARNED_REVENUE__", paramDict);
@@ -78,8 +80,9 @@ namespace MetraNet
     /// <param name="revenueCode"></param>
     /// <param name="deferredRevenueCode"></param>
     /// <param name="productId"></param>
+    /// <param name="AccountingCycleId"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate, string currency, string revenueCode, string deferredRevenueCode, int? productId)
+    public static IEnumerable<SegregatedCharges> GetDeferredRevenue(DateTime endDate, string currency, string revenueCode, string deferredRevenueCode, int? productId, string AccountingCycleId)
     {
       var paramDict = new Dictionary<string, object>
         {
@@ -87,7 +90,8 @@ namespace MetraNet
           {"%%CURRENCY%%", currency},
           {"%%REVENUECODE%%", revenueCode}, 
           {"%%DEFREVENUECODE%%", deferredRevenueCode},
-          {"%%PRODUCTID%%", productId}
+          {"%%PRODUCTID%%", productId},
+          {"%%ACCOUNTINGCYCLEID%%", AccountingCycleId}
         };
 
       return GetData<SegregatedCharges>("__GET_DEFERRED_REVENUE__", paramDict);
@@ -102,8 +106,9 @@ namespace MetraNet
     /// <param name="revenueCode"></param>
     /// <param name="deferredRevenueCode"></param>
     /// <param name="productId"></param>
+    /// <param name="AccountingCycleId"></param>
     /// <returns></returns>
-    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate, string currency, string revenueCode, string deferredRevenueCode, int? productId)
+    public static IEnumerable<SegregatedCharges> GetIncrementalEarnedRevenue(DateTime startDate, DateTime endDate, string currency, string revenueCode, string deferredRevenueCode, int? productId, string AccountingCycleId)
     {
       var paramDict = new Dictionary<string, object>
         {
@@ -112,7 +117,8 @@ namespace MetraNet
           {"%%CURRENCY%%", currency},
           {"%%REVENUECODE%%", revenueCode}, 
           {"%%DEFREVENUECODE%%", deferredRevenueCode},
-          {"%%PRODUCTID%%", productId}
+          {"%%PRODUCTID%%", productId},
+          {"%%ACCOUNTINGCYCLEID%%", AccountingCycleId}
         };
 
       return GetData<SegregatedCharges>("__GET_INCREMENTAL_EARNED_REVENUE__", paramDict);
@@ -195,9 +201,9 @@ namespace MetraNet
       var startDate = GetCycleStartDate(accountingCycle);
       var endDate = GetCycleEndDate(accountingCycle);
 
-      var incremental = GetIncrementalEarnedRevenue(startDate, endDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
-      var deferred = GetDeferredRevenue(endDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
-      var earned = GetEarnedRevenue(startDate, currency, revenueCode, deferredRevenueCode, productId).ToList();
+      var incremental = GetIncrementalEarnedRevenue(startDate, endDate, currency, revenueCode, deferredRevenueCode, productId, accountingCycle.Id.ToString()).ToList();
+      var deferred = GetDeferredRevenue(endDate, currency, revenueCode, deferredRevenueCode, productId, accountingCycle.Id.ToString()).ToList();
+      var earned = GetEarnedRevenue(startDate, currency, revenueCode, deferredRevenueCode, productId, accountingCycle.Id.ToString()).ToList();
 
       var groups =
         earned.Select(x => new { x.Currency, x.RevenueCode, x.DeferredRevenueCode })

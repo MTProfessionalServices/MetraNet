@@ -23,6 +23,7 @@ WHERE
 	AND udrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
 	AND udrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
+  AND ('%%ACCOUNTINGCYCLEID%%' IS NULL OR '%%ACCOUNTINGCYCLEID%%' IS NOT NULL)
 
 UNION
 

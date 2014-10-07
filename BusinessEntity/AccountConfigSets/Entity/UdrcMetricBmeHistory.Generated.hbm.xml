@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.AccountConfigSets.UdrcBmeHistory, Core.AccountConfigSets.Entity" table="t_be_cor_acs_UdrcBme_h">
+  <class name="Core.AccountConfigSets.UdrcMetricBmeHistory, Core.AccountConfigSets.Entity" table="t_be_cor_acs_UdrcMetricBme_h">
     <meta attribute="description" />
     <meta attribute="label" />
-    <meta attribute="plural-name">UdrcBmeHistorys</meta>
+    <meta attribute="plural-name">UdrcMetricBmeHistorys</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
     <meta attribute="record-history">false</meta>
     <meta attribute="entity-type">History</meta>
-    <meta attribute="interface">Core.AccountConfigSets.Interface.IUdrcBmeHistory, Core.Interface</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.IUdrcMetricBmeHistory, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <meta attribute="entity-name">Core.AccountConfigSets.UdrcBme</meta>
-    <id name="Id" column="c_UdrcBmeHistory_Id">
+    <meta attribute="entity-name">Core.AccountConfigSets.UdrcMetricBme</meta>
+    <id name="Id" column="c_UdrcMetricBmeHistory_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>
     <version name="_Version" column="c__version" />
-    <component class="Core.AccountConfigSets.UdrcBmeBusinessKey, Core.AccountConfigSets.Entity" name="UdrcBmeBusinessKey">
+    <component class="Core.AccountConfigSets.UdrcMetricBmeBusinessKey, Core.AccountConfigSets.Entity" name="UdrcMetricBmeBusinessKey">
       <meta attribute="business-key">true</meta>
       <meta attribute="internal-business-key">true</meta>
       <property name="InternalKey" column="c_internal_key" not-null="true">
@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="UdrcBmeId" column="c_UdrcBme_Id" not-null="true" index="IDX_UdrcBme_h_UdrcBmeId">
+    <property name="UdrcMetricBmeId" column="c_UdrcMetricBme_Id" not-null="true" index="IDX_UdrcMetricBmeId_h">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />
@@ -157,11 +157,11 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Decimal, mscorlib" />
     </property>
-    <property name="AccConfigSetParamsBmeId" column="c_AccConfigSetParamsBme_Id">
-      <meta attribute="label" />
-      <meta attribute="description" />
+    <property name="SubParamsId" column="c_SubParamsId" not-null="true">
+      <meta attribute="label">SubParamsId</meta>
+      <meta attribute="description">Id of AccConfigSetParamsBme related entity</meta>
       <meta attribute="defaultvalue" />
-      <meta attribute="sortable">true</meta>
+      <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>
@@ -169,7 +169,7 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Guid, mscorlib" />
+      <type name="System.Int32, mscorlib" />
     </property>
     <property name="_StartDate" column="c__StartDate" not-null="true">
       <meta attribute="label" />
@@ -203,27 +203,27 @@
   <database-object>
     <create>
 CREATE or REPLACE 
-TRIGGER TRG_UdrcBmeHistory
- AFTER INSERT OR UPDATE ON t_be_cor_acs_UdrcBme
+TRIGGER TRG_UdrcMetricBmeHistory
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_UdrcMetricBme
  REFERENCING NEW AS dataRow 
 FOR EACH ROW 
-UPDATE t_be_cor_acs_UdrcBme_h
+UPDATE t_be_cor_acs_UdrcMetricBme_h
  SET c__enddate = :dataRow.c_updatedate 
-WHERE c_UdrcBme_Id = :dataRow.c_UdrcBme_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
-INSERT INTO t_be_cor_acs_UdrcBme_h
+WHERE c_UdrcMetricBme_Id = :dataRow.c_UdrcMetricBme_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
+INSERT INTO t_be_cor_acs_UdrcMetricBme_h
 ( 
 c_internal_key, 
 c__version, 
 c_creationdate, 
 c_updatedate, 
 c_uid, 
-c_udrcbme_id, 
+c_UdrcMetricBme_id, 
 c_pi_id, 
 c_pi_name, 
 c_startdate, 
 c_enddate, 
 c_value, 
-c_accconfigsetparamsbme_id, 
+c_subparamsid, 
 c__startdate, 
 c__enddate
 ) 
@@ -234,13 +234,13 @@ VALUES
 :dataRow.c_creationdate, 
 :dataRow.c_updatedate, 
 :dataRow.c_uid, 
-:dataRow.c_udrcbme_id, 
+:dataRow.c_UdrcMetricBme_id, 
 :dataRow.c_pi_id, 
 :dataRow.c_pi_name, 
 :dataRow.c_startdate, 
 :dataRow.c_enddate, 
 :dataRow.c_value, 
-:dataRow.c_accconfigsetparamsbme_id, 
+:dataRow.c_subparamsid, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
 ) 
@@ -249,29 +249,29 @@ CAST(dbo.mtmaxdate() AS TIMESTAMP)
     <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
   </database-object>
   <database-object>
-    <create>CREATE TRIGGER TRG_UdrcBmeHistory
- ON t_be_cor_acs_UdrcBme
+    <create>CREATE TRIGGER TRG_UdrcMetricBmeHistory
+ ON t_be_cor_acs_UdrcMetricBme
  AFTER INSERT, UPDATE 
 AS 
 SET NOCOUNT ON 
 UPDATE history SET c__enddate = ins.c_updatedate 
-FROM t_be_cor_acs_UdrcBme_h history 
-INNER JOIN INSERTED ins ON ins.c_UdrcBme_Id = history.c_UdrcBme_Id
+FROM t_be_cor_acs_UdrcMetricBme_h history 
+INNER JOIN INSERTED ins ON ins.c_UdrcMetricBme_Id = history.c_UdrcMetricBme_Id
  WHERE history.c__enddate = dbo.mtmaxdate(); 
-INSERT INTO t_be_cor_acs_UdrcBme_h
+INSERT INTO t_be_cor_acs_UdrcMetricBme_h
 (
 c_internal_key, 
 c__version, 
 c_creationdate, 
 c_updatedate, 
 c_uid, 
-c_udrcbme_id, 
+c_UdrcMetricBme_id, 
 c_pi_id, 
 c_pi_name, 
 c_startdate, 
 c_enddate, 
 c_value, 
-c_accconfigsetparamsbme_id, 
+c_subparamsid, 
 c__startdate, 
 c__enddate
 )
@@ -281,13 +281,13 @@ c__version,
 c_creationdate, 
 c_updatedate, 
 c_uid, 
-c_udrcbme_id, 
+c_UdrcMetricBme_id, 
 c_pi_id, 
 c_pi_name, 
 c_startdate, 
 c_enddate, 
 c_value, 
-c_accconfigsetparamsbme_id, 
+c_subparamsid, 
 c_updatedate, 
 dbo.mtmaxdate()
 FROM INSERTED;</create>

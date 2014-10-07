@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="AccConfigSetParamsBmeId" column="c_AccConfigSetParamsBme_Id" not-null="true" index="IDX_AccConfigSetParamsBme_Id">
+    <property name="AccConfigSetParamsBmeId" column="c_AccConfigSetParamsBme_Id" not-null="true" index="IDX_AccConfigSetParamsBme_h_AccConfigSetParamsBmeId">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />

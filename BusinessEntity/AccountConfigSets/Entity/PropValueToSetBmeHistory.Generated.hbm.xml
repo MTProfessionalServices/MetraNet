@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="PropValueToSetBmeId" column="c_PropValueToSetBme_Id" not-null="true" index="IDX_PropValueToSetBme_Id">
+    <property name="PropValueToSetBmeId" column="c_PropValueToSetBme_Id" not-null="true" index="IDX_PropValueToSetBme_h_PropValueToSetBmeId">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />
@@ -129,11 +129,11 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="AccountConfigSetBMEId" column="c_AccountConfigSetBME_Id">
-      <meta attribute="label" />
-      <meta attribute="description" />
+    <property name="AccountCSId" column="c_AccountCSId" not-null="true">
+      <meta attribute="label">AccountCSId</meta>
+      <meta attribute="description">Id of related AccountConfigSetBME entity</meta>
       <meta attribute="defaultvalue" />
-      <meta attribute="sortable">true</meta>
+      <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>
@@ -141,7 +141,7 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Guid, mscorlib" />
+      <type name="System.Int32, mscorlib" />
     </property>
     <property name="_StartDate" column="c__StartDate" not-null="true">
       <meta attribute="label" />
@@ -193,7 +193,7 @@ c_propvaluetosetbme_id,
 c_accountview, 
 c_property, 
 c_value, 
-c_accountconfigsetbme_id, 
+c_accountcsid, 
 c__startdate, 
 c__enddate
 ) 
@@ -208,7 +208,7 @@ VALUES
 :dataRow.c_accountview, 
 :dataRow.c_property, 
 :dataRow.c_value, 
-:dataRow.c_accountconfigsetbme_id, 
+:dataRow.c_accountcsid, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
 ) 
@@ -237,7 +237,7 @@ c_propvaluetosetbme_id,
 c_accountview, 
 c_property, 
 c_value, 
-c_accountconfigsetbme_id, 
+c_accountcsid, 
 c__startdate, 
 c__enddate
 )
@@ -251,7 +251,7 @@ c_propvaluetosetbme_id,
 c_accountview, 
 c_property, 
 c_value, 
-c_accountconfigsetbme_id, 
+c_accountcsid, 
 c_updatedate, 
 dbo.mtmaxdate()
 FROM INSERTED;</create>

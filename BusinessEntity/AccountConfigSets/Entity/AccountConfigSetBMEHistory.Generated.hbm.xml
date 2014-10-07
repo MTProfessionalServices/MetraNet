@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="AccountConfigSetBMEId" column="c_AccountConfigSetBME_Id" not-null="true" index="IDX_AccountConfigSetBMEId">
+    <property name="AccountConfigSetBMEId" column="c_AccountConfigSetBME_Id" not-null="true" index="IDX_AccountConfigSetBME_h_AccountConfigSetBMEId">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />
@@ -185,11 +185,12 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
-    <property name="AccConfigSetParamsBmeId" column="c_AccConfigSetParamsBme_Id">
-      <meta attribute="label" />
-      <meta attribute="description" />
+    <property name="SubParamsId" column="c_SubParamsId">
+      <meta attribute="label">SubParamsId</meta>
+      <meta attribute="description">Id of AccConfigSetParamsBme related entity
+</meta>
       <meta attribute="defaultvalue" />
-      <meta attribute="sortable">true</meta>
+      <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>
@@ -197,7 +198,7 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Guid, mscorlib" />
+      <type name="System.Int32, mscorlib" />
     </property>
     <property name="_StartDate" column="c__StartDate" not-null="true">
       <meta attribute="label" />
@@ -253,7 +254,7 @@ c_description,
 c_rank, 
 c_acsid, 
 c_acscreationdate, 
-c_accconfigsetparamsbme_id, 
+c_subparamsid, 
 c__startdate, 
 c__enddate
 ) 
@@ -272,7 +273,7 @@ VALUES
 :dataRow.c_rank, 
 :dataRow.c_acsid, 
 :dataRow.c_acscreationdate, 
-:dataRow.c_accconfigsetparamsbme_id, 
+:dataRow.c_subparamsid, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
 ) 
@@ -305,7 +306,7 @@ c_description,
 c_rank, 
 c_acsid, 
 c_acscreationdate, 
-c_accconfigsetparamsbme_id, 
+c_subparamsid, 
 c__startdate, 
 c__enddate
 )
@@ -323,7 +324,7 @@ c_description,
 c_rank, 
 c_acsid, 
 c_acscreationdate, 
-c_accconfigsetparamsbme_id, 
+c_subparamsid, 
 c_updatedate, 
 dbo.mtmaxdate()
 FROM INSERTED;</create>

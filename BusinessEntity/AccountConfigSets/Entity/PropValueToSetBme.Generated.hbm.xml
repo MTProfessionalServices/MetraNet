@@ -114,22 +114,19 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <many-to-one name="AccountConfigSetBME" class="Core.AccountConfigSets.AccountConfigSetBME, Core.AccountConfigSets.Entity" column="c_AccountConfigSetBME_Id" cascade="none">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">AccountConfigSetBME_PropertyValues</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
-      <meta attribute="source-key-column">c_AccountConfigSetBME_Id</meta>
-      <meta attribute="source-property-name-for-target">PropertyValues</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.AccountConfigSets.PropValueToSetBme</meta>
-      <meta attribute="target-key-column">c_PropValueToSetBme_Id</meta>
-      <meta attribute="target-property-name-for-source">AccountConfigSetBME</meta>
-      <meta attribute="cascade">true</meta>
-    </many-to-one>
+    <property name="AccountCSId" column="c_AccountCSId" not-null="true">
+      <meta attribute="label">AccountCSId</meta>
+      <meta attribute="description">Id of related AccountConfigSetBME entity</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
   </class>
 </hibernate-mapping>

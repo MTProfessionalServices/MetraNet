@@ -54,6 +54,9 @@
   <text id="TEXT_BILLING_GROUP">
     <value>[JA]Billing Group</value>
   </text>
+  <text id="TEXT_PARTITION">
+    <value>[JA]Partition</value>
+  </text>    
   <text id="TEXT_INTERVAL">
     <value>[JA]Interval</value>
   </text>

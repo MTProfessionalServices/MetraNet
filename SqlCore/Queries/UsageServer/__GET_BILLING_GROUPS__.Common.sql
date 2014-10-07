@@ -19,7 +19,6 @@ CycleType (for the interval)
 CycleID (for the interval
  =========================================================== */
 SELECT bg.id_billgroup BillingGroupID, 
-  case when (partition_name.nm_login is null) then bg.tx_name else CONCAT(CONCAT(partition_name.nm_login, ' - '), bg.tx_name) end BillingGroupName,
   bg.tx_name Name, 
   bg.tx_description Description,
   (CASE 

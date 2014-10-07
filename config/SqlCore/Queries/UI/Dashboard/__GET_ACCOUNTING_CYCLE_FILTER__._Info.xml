@@ -5,8 +5,7 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters>
-    </Parameters>
+    <Parameters></Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

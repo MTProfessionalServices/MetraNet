@@ -46,7 +46,14 @@
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description>Product ID</Description>
+            <Description>Product Id</Description>
+        </Parameter>
+        <Parameter>
+            <Name>ACCOUNTINGCYCLEID</Name>
+            <DataType>guid</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Accounting Cycle Id</Description>
         </Parameter>
     </Parameters>
     <Description></Description>

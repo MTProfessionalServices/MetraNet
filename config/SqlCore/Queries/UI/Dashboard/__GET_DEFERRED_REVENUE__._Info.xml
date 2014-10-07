@@ -41,6 +41,13 @@
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>Product Id</Description>
         </Parameter>
+        <Parameter>
+            <Name>ACCOUNTINGCYCLEID</Name>
+            <DataType>string</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Accounting Cycle Id</Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

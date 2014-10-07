@@ -54,6 +54,9 @@
   <text id="TEXT_BILLING_GROUP">
     <value>[pt-BR]Billing Group</value>
   </text>
+  <text id="TEXT_PARTITION">
+    <value>[pt-BR]Partition</value>
+  </text>    
   <text id="TEXT_INTERVAL">
     <value>[pt-BR]Interval</value>
   </text>

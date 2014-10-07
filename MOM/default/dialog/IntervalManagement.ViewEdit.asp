@@ -71,6 +71,7 @@ FUNCTION Form_Initialize(EventArg)
 
   Service.Properties.Add "MAIN_DIV_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "NO_PERMISSION_DIV_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "Partition", "string", 0, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE
 
 	Form_Initialize = Form_Refresh(EventArg)
 END FUNCTION
@@ -121,11 +122,16 @@ FUNCTION Form_Refresh(EventArg)
   end if
 
   Service.Properties("BillingGroupId").Value          = bg.BillingGroupID
+  Service.Properties("BillingGroup").Value = bg.Name
+
   If (IsNull(bg.PartitionName) Or IsEmpty(bg.PartitionName)) Then
-    Service.Properties("BillingGroup").Value          = bg.Name 
+     mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 0
+     Service.Properties("Partition").Value = ""
   Else
-    Service.Properties("BillingGroup").Value          = bg.PartitionName + " - " + bg.Name     
+     mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 1    
+     Service.Properties("Partition").Value = bg.PartitionName
   End If
+  
   Service.Properties("BillingGroupMemberCount").Value = bg.MemberCount
   Service.Properties("IntervalOnlyAdapterCount").Value  = bg.IntervalOnlyAdapterCount
   Service.Properties("AdapterCount").Value            = bg.AdapterCount 

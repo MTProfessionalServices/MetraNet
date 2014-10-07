@@ -14,6 +14,8 @@
       <MT:MTPanel runat="server" ID="filterPanel" ClientIDMode="Static">
       <MT:MTDropDown runat="server" ClientIDMode="Static" ID="accntCycleDd" />
       <MT:MTDropDown runat="server" ClientIDMode="Static" ID="currencyDd" />
+      <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="revCodeInp" />
+      <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="defRevCodeInp" />
       <MT:MTDropDown runat="server" ClientIDMode="Static" ID="productDd" />
       <MT:MTButton runat="server" ID="applyBtn" ClientIDMode="Static" EnableViewState="False" OnClientClick="ApplyFilter(); return false;"/>
       </MT:MTPanel>
@@ -28,18 +30,21 @@
   <script type="text/javascript" src="/Res/JavaScript/dc.js"></script>
   <script language="javascript" type="text/javascript">
     var revRecChart = dc.barChart("#revrec-chart");
+    var stackDomain = ["<%=GetLocalResourceObject("Earned_Caption").ToString() %>", "<%=GetLocalResourceObject("Deferred_Caption").ToString() %>"];
 
     function ApplyFilter() {
       var accCycleId = $("#accntCycleDd").val();
       var currency = $("#currencyDd").val();
       var productId = $("#productDd").val();
+      var revOcde = $("#revCodeInp").val();
+      var defRevCode = $("#defRevCodeInp").val();
 
       // let's get some data and draw the bar chart
       $.ajax({
         url: '../Report/DefRevScheduleWidgetReport',
         type: 'GET',
         cache: false,
-        data: { accountingCycleId: accCycleId, currency: currency, revenueCode: "", deferredRevenueCode: "", productId: productId },
+        data: { accountingCycleId: accCycleId, currency: currency, revenueCode: revOcde, deferredRevenueCode: defRevCode, productId: productId },
         success: function(data) {
           DisplayChart(data);
         },
@@ -76,7 +81,6 @@
         );
 
       // colors
-      var colorDomain = ["<%=GetLocalResourceObject("Earned_Caption").ToString() %>", "<%=GetLocalResourceObject("Deferred_Caption").ToString() %>"];
       var colorRange = ["#b2df8a", "#1f78b4"];
 
       revRecChart
@@ -84,10 +88,10 @@
                 .height(400)
                 .margins({ top: 40, right: 50, bottom: 30, left: 60 })
                 .dimension(dateDim)
-                .group(revRecByMonth, "<%=GetLocalResourceObject("Deferred_Caption").ToString() %>")
+                .group(revRecByMonth, stackDomain[1])
                 .valueAccessor(function (d) { return d.value.totalDeferred; })
-                .stack(revRecByMonth, "<%=GetLocalResourceObject("Earned_Caption").ToString() %>", function (d) { return d.value.totalEarned; })
-                .colors(d3.scale.ordinal().domain(colorDomain).range(colorRange))
+                .stack(revRecByMonth, stackDomain[0], function (d) { return d.value.totalEarned; })
+                .colors(d3.scale.ordinal().domain(stackDomain).range(colorRange))
                 .x(d3.scale.linear().domain([1, headers.length]))
 				        .renderHorizontalGridLines(true)
                 .centerBar(true)
@@ -96,8 +100,8 @@
                 .legend(dc.legend().x(890).y(50))
                 .title(function (d) {
                   return headers[d.key-1]
-                            + "\n<%=GetLocalResourceObject("Earned_Caption").ToString() %>: " + Math.round(d.value.totalEarned)
-                            + "\n<%=GetLocalResourceObject("Deferred_Caption").ToString() %>: " + Math.round(d.value.totalDeferred);
+                            + "\n" + stackDomain[0] + " " + Math.round(d.value.totalEarned)
+                            + "\n" + stackDomain[1] + " " + Math.round(d.value.totalDeferred);
                 });
 
       // formatting

@@ -18,7 +18,6 @@
     </MT:MTFilterGrid>
   </div>
   <script type="text/javascript">
-    var headers = "<%=TableHeaders %>".split(',');
     var accCycleId;
 
       function SetTitle() {
@@ -29,14 +28,31 @@
       
     Ext.onReady(function () {
       accCycleId = $('#combo_filter_AccountingCycleId_grdRevRecReport').val();
-      DrawHeaders();
       $(".x-panel-fbar button").on( "click", function() {
                                     RefreshHeaders();
                                     SetTitle();
                                   });
     });
 
-    function DrawHeaders() {
+    function SetHeaders() {
+      var cycle = $('#combo_filter_AccountingCycleId_grdRevRecReport').val();
+      $.ajax({
+        url: '../Report/RevRecReportHeaders',
+        type: 'GET',
+        cache: false,
+        data: { accountCycleId: cycle },
+        success: function(data) {
+          accCycleId = cycle;
+          var headers = data.headers.split(',');
+          DrawHeaders(headers);
+        },
+        error: function(data) {
+          alert("Data retrival error!");
+        }
+      });
+    }
+
+    function DrawHeaders(headers) {
       if (!grid_grdRevRecReport) {
         return;
       }
@@ -54,22 +70,7 @@
     function RefreshHeaders() {
       var cycle = $('#combo_filter_AccountingCycleId_grdRevRecReport').val();
       if (accCycleId !== cycle) {
-        // let's get new headers
-        $.ajax({
-          url: '../Report/RevRecReportHeaders',
-          type: 'GET',
-          cache: false,
-          data: { accountCycleId: cycle },
-          success: function (data) {
-            accCycleId = cycle;
-            headers = data.headers.split(',');
-            DrawHeaders();
-          },
-          error: function (data) {
-            alert("Data retrival error!");
-          }
-        });
-
+        SetHeaders();
       }
     }
 
@@ -104,7 +105,8 @@
           });
           var td = $('<td class="ux-datetime-time" width="110" id="customFilter"/>').append(selectCycle);
           $('#ext-gen129 tr:first').append(td);
-          RefreshHeaders();
+          inpValCycle.val(selectCycle.val());
+          SetHeaders();
           SetTitle();
         }
       });

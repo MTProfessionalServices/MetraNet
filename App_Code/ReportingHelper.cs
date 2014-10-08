@@ -35,7 +35,23 @@ namespace MetraNet
     /// <returns></returns>
     public static IEnumerable<AccountingCycle> GetAccountingCycles()
     {
-      return GetData<AccountingCycle>("__GET_ACCOUNTING_CYCLE_FILTER__", null);
+      var accountingCycles = GetData<AccountingCycle>("__GET_ACCOUNTING_CYCLE_FILTER__", null);
+      if (!accountingCycles.Any())
+      {
+        accountingCycles = accountingCycles.Concat(new[]
+            {
+              new AccountingCycle
+                {
+                  Id = new Guid(),
+                  IsDefault = true,
+                  Name = "Default Monthly 31",
+                  CycleType = UsageCycleType.Monthly,
+                  EndDate = new DateTime(2013, 12, 31)
+                }
+            });
+      }
+
+      return accountingCycles;
     }
 
     /// <summary>

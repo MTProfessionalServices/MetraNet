@@ -1,6 +1,5 @@
 using System;
-using System.Threading;
-using System.Web.UI.WebControls;
+using System.Linq;
 using MetraTech.UI.Common;
 using MetraNet;
 
@@ -14,15 +13,8 @@ public partial class RevRecReport : MTPage
   protected void Page_Load(object sender, EventArgs e)
   {
     if (IsPostBack) return;
-    var accountCycleId = "";
-    foreach (var cycle in ReportingtHelper.GetAccountingCycles())
-    {
-      accCycle.Items.Add(new ListItem(cycle.Name, cycle.Id.ToString()));
-      if(cycle.IsDefault)
-        accountCycleId = cycle.Id.ToString();
-    }
-    if (String.IsNullOrEmpty(accountCycleId))
-      accountCycleId = accCycle.Items[0].Value;
+    var cycle = ReportingtHelper.GetAccountingCycles().FirstOrDefault(x => x.IsDefault);
+    var accountCycleId = cycle == null ? String.Empty : cycle.Id.ToString();
     TableHeaders = String.Join(",", ReportingtHelper.GetRevRecReportHeaders(accountCycleId));
   }
 }

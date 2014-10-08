@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
-  CodeFile="DefRevScheduleWidgetReport.aspx.cs" Inherits="DefRevScheduleWidgetReport" Title="MetraNet - Update Account"
+  CodeFile="DefRevScheduleWidgetReport.aspx.cs" Inherits="DefRevScheduleWidgetReport"
   meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" EnableViewState="false"%>
 <%@ Register TagPrefix="MT" Namespace="MetraTech.UI.Controls" Assembly="MetraTech.UI.Controls" %>
 

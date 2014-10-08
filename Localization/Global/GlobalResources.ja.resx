@@ -568,7 +568,7 @@
     <value>[JA]Unhandled Exception while trying to save shared properties to entity.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
-	<value>[JA]Retrieving shared property from system.</value>
+    <value>[JA]Retrieving shared property from system.</value>
   </data>
   <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
     <value>[JA]Unable to retrieve shared property from system.</value>
@@ -699,7 +699,6 @@
   <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
     <value>[JA]Could not deserialize JSON {0} into type {1}.</value>
   </data>
-  
   <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
     <value>[JA]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
   </data>
@@ -777,5 +776,14 @@
   </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[JA]Error update account configuration set</value>
+  </data>
+  <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
+    <value>[ja] The '{0}' mandatory property should contain at least one item.</value>
+  </data>
+  <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
+    <value>[JA] At least one of the  '{0}' or '{1}' properties should be set.</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
+    <value>[JA] Unable to find subscription property. Details: '{0}'</value>
   </data>
 </root>

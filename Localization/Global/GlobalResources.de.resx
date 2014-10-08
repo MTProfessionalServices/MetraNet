@@ -786,4 +786,7 @@
   <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
     <value>[de] Unable to find subscription property. Details: '{0}'</value>
   </data>
+  <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
+    <value>[DE] Unable to add Account Configuration Set Subscription Params due to validation errors.</value>
+  </data>
 </root>

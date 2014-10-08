@@ -20,12 +20,19 @@
   <script type="text/javascript">
     var headers = "<%=TableHeaders %>".split(',');
     var accCycleId;
-    
+
+      function SetTitle() {
+        var title = "<%=GetLocalResourceObject("MTTitle1Resource1.Text").ToString() %> - " + $('#selAccCycle :selected').text();
+        $('#MTTitle1 div').text(title);
+        top.document.title = "MetraNet - " + title;
+      }
+      
     Ext.onReady(function () {
       accCycleId = $('#combo_filter_AccountingCycleId_grdRevRecReport').val();
       DrawHeaders();
       $(".x-panel-fbar button").on( "click", function() {
                                     RefreshHeaders();
+                                    SetTitle();
                                   });
     });
 
@@ -86,11 +93,8 @@
 
       $('#ext-gen129 td').hide();
       var inpValCycle = $('#combo_filter_AccountingCycleId_grdRevRecReport');
-      var selectCycle = $("<select/>").width('218px').on('change', function () {
+      var selectCycle = $("<select id='selAccCycle'/>").width('218px').on('change', function () {
         inpValCycle.val(this.value);
-        var title = "<%=GetLocalResourceObject("MTTitle1Resource1.Text").ToString() %> - " + this.selectedOptions[0].label;
-        $('#MTTitle1 div').text(title);
-        top.document.title = "MetraNet - " + title;
       });
       $.ajax({
         url: "../Report/GetAccountingCyclesFilter",
@@ -100,6 +104,8 @@
           });
           var td = $('<td class="ux-datetime-time" width="110" id="customFilter"/>').append(selectCycle);
           $('#ext-gen129 tr:first').append(td);
+          RefreshHeaders();
+          SetTitle();
         }
       });
 

@@ -44,9 +44,8 @@ mdm_Main ' invoke the mdm framework
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 
 
-	  Framework.AssertCourseCapability "Update Runtime Configuration", EventArg
-    Service.Clear 	' Set all the property of the service to empty. 
-					        ' The Product view if allocated is cleared too.
+	  Service.Clear 	' Set all the property of the service to empty. 
+		    		        ' The Product view if allocated is cleared too.
                   
   'Service.Properties.Add "ADAPTER_LIST_HTML"      , "string", 20000, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
     Service.Properties.Add "METRANET_VERSION" , "String"     , 255 , False,   ""

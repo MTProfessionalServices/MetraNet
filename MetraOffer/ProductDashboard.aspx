@@ -442,6 +442,7 @@
     function makeTop10MRRPart() {
       document.getElementById('MRRGraphs').style.visibility = "visible";
       
+	  var tooltipDivWidth = 200;
       var data = [];
       var fnData = function(x) 
       {
@@ -460,7 +461,7 @@
         return d.mrr;
       };
       var fnMRRToolTipFormatter = function(d) {
-        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information style='padding-top:2px'>{0}: {2}</div></div>", "<%=MrrTooltipText%>", d.productname, d.mrrAsString.replace("&pound", "£"));
+        var html = String.format("<div style='width:{3}px;'><div class=ProductCode style='width:{3}px; word-wrap:break-word'>{1}</div><div class=Information style='padding-top:2px; width:{3}px; word-wrap:break-word'>{0}: {2}</div></div>", "<%=MrrTooltipText%>", d.productname, d.mrrAsString.replace("&pound", "£"), tooltipDivWidth);
         return html;
       };
       
@@ -485,11 +486,11 @@
       var fnMRRGainLossToolTipFormatter = function(d) {
         var perMRRChange = (d.mrrprevious != 0) ? ((d.mrrabschange/d.mrrprevious)*100) : 0;
         var localizedperMRRChange = parseFloat(perMRRChange).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
-        var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
-        html += (d.mrrprevious == 0) ? String.format("<div class=Information style='padding-top:2px'>{0}: {1} </div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"))
-                                     : String.format("<div class=Information style='padding-top:2px'>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, d.mrrchange > 0 ? "up":"down", d.mrrchange > 0 ? "text-bottom":"middle");
-        html += String.format("<div class=Information>{0}: {1} </div>", d.mrrchange > 0 ?  "<%=GainTooltipText%>" : "<%=LossTooltipText%>", d.mrrabschangeAsString);
-        return String.format("<div style='width:200px;'>{0}</div>", html);
+        var html = String.format("<div class=ProductCode style='width:{1}px; word-wrap:break-word'>{0}</div>", d.productname, tooltipDivWidth);
+        html += (d.mrrprevious == 0) ? String.format("<div class=Information style='padding-top:2px; width:{2}px; word-wrap:break-word'>{0}: {1} </div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), tooltipDivWidth)
+                                     : String.format("<div class=Information style='padding-top:2px; width:{5}px; word-wrap:break-word'>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=MrrTooltipText%>", d.mrrAsString.replace("&pound", "£"), localizedperMRRChange, d.mrrchange > 0 ? "up":"down", d.mrrchange > 0 ? "text-bottom":"middle", tooltipDivWidth);
+        html += String.format("<div class=Information style='width:{2}px; word-wrap:break-word'>{0}: {1} </div>", d.mrrchange > 0 ?  "<%=GainTooltipText%>" : "<%=LossTooltipText%>", d.mrrabschangeAsString, tooltipDivWidth);
+        return String.format("<div style='width:{1}px;'>{0}</div>", html, tooltipDivWidth);
       };
       var top10MRRGainChartConfig = {
         operation: "AnalyticsTopMRRGain",
@@ -529,6 +530,8 @@
 
     function makeTop10SubsPart() {
       document.getElementById('SubscriptionGraphs').style.visibility = "visible";
+
+	  var tooltipDivWidth = 200;
       var data = [];
       var fnData = function(x) {
         x.ordernum = +x.ordernum;
@@ -547,7 +550,7 @@
       };
       var fnSubscriptionsToolTipFormatter = function(d) {
         var localizedSubscriptions = parseFloat(d.subscriptions).toLocaleString(CURRENT_LOCALE);
-        var html = String.format("<div style='width:200px;'><div class=ProductCode>{1}</div><div class=Information style='padding-top:2px'>{0}: {2}</div></div>", "<%=SubscriptionsTooltipText%>", d.productname, localizedSubscriptions);
+        var html = String.format("<div style='width:{3}px;'><div class=ProductCode style='width:{3}px; word-wrap:break-word'>{1}</div><div class=Information style='padding-top:2px; width:{3}px; word-wrap:break-word'>{0}: {2}</div></div>", "<%=SubscriptionsTooltipText%>", d.productname, localizedSubscriptions, tooltipDivWidth);
         return html;
       };      
       var top10SubscriptionsChartConfig = {
@@ -574,11 +577,11 @@
         var localizedSubscriptionChangeValue = parseFloat(d.subscriptionsabschange).toLocaleString(CURRENT_LOCALE);
         var perSubscriptionsChange = (d.subscriptionsprevious != 0) ? ((d.subscriptionsabschange/d.subscriptionsprevious)*100) : 0;
         var localizedperSubscriptionsChange = parseFloat(perSubscriptionsChange).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
-        var html = String.format("<div class=ProductCode>{0}</div>", d.productname);
-        html += (d.subscriptionsprevious == 0) ? String.format("<div class=Information style='padding-top:2px'>{0}: {1} </div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions)
-                                     : String.format("<div class=Information style='padding-top:2px'>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, d.subscriptionschange > 0 ? "up":"down", d.subscriptionschange > 0 ? "text-bottom":"middle");
-        html += String.format("<div class=Information>{0}: {1} </div>", d.subscriptionschange > 0 ? "<%=GainTooltipText%>" : "<%=LossTooltipText%>", localizedSubscriptionChangeValue);
-        return String.format("<div style='width:200px;'>{0}</div>", html);
+        var html = String.format("<div class=ProductCode style='width:{1}px; word-wrap:break-word'>{0}</div>", d.productname, tooltipDivWidth);
+        html += (d.subscriptionsprevious == 0) ? String.format("<div class=Information style='padding-top:2px; width:{2}px; word-wrap:break-word'>{0}: {1} </div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, tooltipDivWidth)
+                                               : String.format("<div class=Information style='padding-top:2px; width:{5}px; word-wrap:break-word'>{0}: {1} <img src='/Res/Images/icons/arrow-{3}.png' style='vertical-align:{4};'/> {2}%</div>", "<%=SubscriptionsTooltipText%>", localizedSubscriptions, localizedperSubscriptionsChange, d.subscriptionschange > 0 ? "up":"down", d.subscriptionschange > 0 ? "text-bottom":"middle", tooltipDivWidth);
+        html += String.format("<div class=Information style='width:{2}px; word-wrap:break-word'>{0}: {1} </div>", d.subscriptionschange > 0 ? "<%=GainTooltipText%>" : "<%=LossTooltipText%>", localizedSubscriptionChangeValue, tooltipDivWidth);
+        return String.format("<div style='width:{1}px;'>{0}</div>", html, tooltipDivWidth);
       };
       var top10SubscriptionsGainChartConfig = {
         operation: "AnalyticsTopSubscriptionGain",

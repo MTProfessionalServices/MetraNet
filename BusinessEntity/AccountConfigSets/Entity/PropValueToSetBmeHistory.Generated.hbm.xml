@@ -73,7 +73,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="PropValueToSetBmeId" column="c_PropValueToSetBme_Id" not-null="true" index="IDX_PropValueToSetBme_h_PropValueToSetBmeId">
+    <property name="PropValueToSetBmeId" column="c_PropValueToSetBme_Id" not-null="true" index="IDX_PropValueToSetBme_Id">
       <meta attribute="label" />
       <meta attribute="description" />
       <meta attribute="defaultvalue" />

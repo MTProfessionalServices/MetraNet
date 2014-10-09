@@ -1,4 +1,6 @@
-SELECT dense_rank () OVER (ORDER BY invoice_date ASC, id_invoice) AS n_order, 
+SELECT a.* FROM (
+SELECT a.*
+FROM (SELECT dense_rank () OVER (ORDER BY invoice_date DESC, id_invoice) AS n_order, 
 		'Invoice' AS nm_type, 
 		inv.id_interval,
 		id_invoice AS id_transaction, 
@@ -38,9 +40,10 @@ INNER JOIN ( --subquery to sum up mrr for active subscriptions in the interval
 	GROUP BY inv.id_interval
 ) TotalMRR ON TotalMRR.id_interval = inv.id_interval 
 WHERE 1=1 AND inv.id_acc = %%ACCOUNT_ID%%
+)a WHERE a.n_order <= 10
 UNION ALL
 SELECT a.*
-FROM (select dense_rank () OVER (order by pv.c_eventdate asc, pv.id_sess) AS n_order, 
+FROM (select dense_rank () OVER (order by pv.c_eventdate DESC, pv.id_sess) AS n_order, 
 		'Payment' AS nm_type, 
 		pv.id_usage_interval AS id_interval, 
 		pv.id_sess AS id_transaction, 
@@ -60,4 +63,5 @@ ON pv.id_usage_interval = au.id_usage_interval
 WHERE 1=1  
 		AND au.id_acc = %%ACCOUNT_ID%%
 ) a WHERE a.n_order <= 10
+) a 
 ORDER BY n_order DESC

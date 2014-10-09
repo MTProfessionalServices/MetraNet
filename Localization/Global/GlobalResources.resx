@@ -706,10 +706,10 @@
     <value>Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter  StartDate '{1}' less than available StartDate '{2}' of product offering. </value>
   </data>
   <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
-    <value>Incorrect available End date for the current Account Config Set. Available EffectiveEndDate={0} less than system date={1}, so the Account Config Set will never use.</value>
+    <value>Incorrect available End date for the current Account Config Set. Available EffectiveEndDate={0} less than system date={1}, so the Account Config Set will never be used.</value>
   </data>
   <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
-    <value>Incorrect available date for the current Account Config Set. Available EffectiveDate={0} greater then EffectiveEndDate={1}.</value>
+    <value>Incorrect available date for the current Account Config Set. Available EffectiveDate={0} is greater then EffectiveEndDate={1}.</value>
   </data>
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
     <value>ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
@@ -724,10 +724,10 @@
     <value>StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
   </data>
   <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
-    <value>UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
+    <value>UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not existed for the PO</value>
   </data>
   <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-    <value>UDRC for PI ID={0} not set!</value>
+    <value>UDRC metric for PI ID={0} is not set!</value>
   </data>
   <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
     <value>Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
@@ -736,7 +736,7 @@
     <value>Unable to find Product Offering with id={0}</value>
   </data>
   <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
-    <value>The Account Configuration Set date does not match available '{0}' Product Offering date. Effective date for Configuration Set from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
+    <value>The Account Configuration Set dates do not match available '{0}' Product Offering dates. Effective dates for Configuration Set from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
   </data>
   <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
     <value>Unable to add Account Configuration Set due to validation errors.</value>
@@ -745,43 +745,43 @@
     <value>#{0}) Message: '{1}', Component: '{2}'</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
-    <value>The '{0}' mandatory property is null. The property should be initialized.</value>
+    <value>The '{0}' is mandatory property and is null. The property should be initialized.</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
     <value>Unable to find Product Offering with Id='{0}'</value>
   </data>
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
-    <value>The '{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is not  belonged to IdPartition='{4}' of Partition account.</value>
+    <value>The '{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering does not  belong to IdPartition='{4}' of Partition account.</value>
   </data>
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>Error on saving AccountConfigSet with Id {0}</value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error delete account configuration set</value>
+    <value>Error on deleting Account Configuration Set</value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
     <value>Array of Account Configuration Set IDs contains invalid IDs: {0}</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error get account configuration set with Id {0}</value>
+    <value>Error on get Account Configuration Set with Id {0}</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
-    <value>Error get account configuration set list</value>
+    <value>Error on get Account Configuration Set list</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
-    <value>Error get account configuration set applied list</value>
+    <value>Error on get Account Configuration Set applied list</value>
   </data>
   <data name="ADD_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
     <value>Error on saving SubscriptionParams with Id {0}</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
-    <value>Error get subscription parameters with Id {0}</value>
+    <value>Error on get Subscription Parameters with Id {0}</value>
   </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error update account configuration set</value>
+    <value>Error on update Account Configuration Set</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
-    <value>The '{0}' mandatory property should contain at least one item.</value>
+    <value>The '{0}' is mandatory property and should contain at least one item.</value>
   </data>
   <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
     <value>At least one of the  '{0}' or '{1}' properties should be set.</value>

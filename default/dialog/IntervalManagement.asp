@@ -109,7 +109,7 @@ FUNCTION Form_Refresh(EventArg)
     Service.Properties("IntervalBlockedToUsageFromNewAccountsMessage").Value = "New Accounts Can Be Invoiced For This Interval"
   end if
   
-  If objInterval.OpenUnassignedAccountsCount>0 AND objInterval.HasBeenMaterialized Then
+  If objInterval.OpenUnassignedAccountsCount>0 AND objInterval.HasBeenMaterialized AND FrameWork.CheckCoarseCapability("Manage Intervals") Then
     mdm_GetDictionary().Add "INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED", 1
   Else
     mdm_GetDictionary().Add "INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED", 0

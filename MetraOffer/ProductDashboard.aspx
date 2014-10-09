@@ -293,7 +293,7 @@
       // dt_crt
       // nm_login
       if (record.json.id_po != null) {
-        str += String.format("<span title='Name_{0}'><img style='PADDING-RIGHT:5px;' src='/Res/Images/icons/package.png'><a style='cursor:auto;font-weight:bold;' id='viewName_{0}' title='{1}' href='JavaScript:ViewProductOffering({2});'>{3}</a></span><br/>", 
+        str += String.format("<span title='Name_{0}'><img style='PADDING-RIGHT:5px; vertical-align:middle' src='/Res/Images/icons/package.png'><a style='cursor:auto;font-weight:bold;' id='viewName_{0}' title='{1}' href='JavaScript:ViewProductOffering({2});'>{3}</a></span><br/>", 
           record.json.unique_id,
           "<%=GetLocalResourceObject("VIEW_PO_TEXT")%>",
           record.json.id_po,
@@ -370,6 +370,7 @@
       Ext.getCmp('formPanel_<%=pnlTop10NewCustomers.ClientID%>').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
       Ext.getCmp('formPanel_<%=pnlTop10NewCustomers.ClientID%>').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3,8); });
       --%>
+      addPeriodsToWidgetTitles();
       if (<%=ShowFinancialData.ToString().ToLower()%>) {
         makeTop10MRRPart();
         makeTop10SubsPart();
@@ -404,6 +405,29 @@
       };
     }
 
+    function addPeriodsToWidgetTitles() {
+      var last30daysSpan = "<span style='font-weight: normal'>&nbsp;<%=Last30DaysText%></span>";
+      var monthNameSpan =  "<span style='font-weight: normal'>&nbsp;<%=DateStampForGraph%></span>";
+      var recentOfferingHeader = $('#formPanel_<%=pnlRecentOfferingChanges.ClientID%> .x-panel-header-text');
+      var recentRateChangeHeader = $('#formPanel_<%=pnlRecentRateChanges.ClientID%> .x-panel-header-text');
+      var myRecentRateChangeHeader = $('#formPanel_<%=pnlMyRecentChanges.ClientID%> .x-panel-header-text');
+      var mrrGraphsPanelHeader = $('#formPanel_<%=pnlTop10MMR.ClientID%> .x-panel-header-text');
+      var subscriptionsGraphsPanelHeader = $('#formPanel_<%=pnlTop10Subs.ClientID%> .x-panel-header-text');
+
+      recentOfferingHeader.css('font-size', '12px');
+      recentRateChangeHeader.css('font-size', '12px');
+      myRecentRateChangeHeader.css('font-size', '12px');
+      mrrGraphsPanelHeader.css('font-size', '12px');
+      subscriptionsGraphsPanelHeader.css('font-size', '12px');
+      
+      $(last30daysSpan).insertAfter(recentOfferingHeader);
+      $(last30daysSpan).insertAfter(recentRateChangeHeader);
+      $(last30daysSpan).insertAfter(myRecentRateChangeHeader);
+      
+      $(monthNameSpan).insertAfter(mrrGraphsPanelHeader);
+      $(monthNameSpan).insertAfter(subscriptionsGraphsPanelHeader);
+    }
+    
     function appendNoDataText(divId, chartWidth, chartHeight, txt) {
       var svg = d3.select(divId).append('svg').attr('width', chartWidth).attr('height', chartHeight);
       svg.append("text")

@@ -20,6 +20,8 @@ public partial class ProductDashboard : MTPage
   protected string GainTooltipText;
   protected string LossTooltipText;  
   protected string RevenueText;
+  protected string Last30DaysText;
+  protected string DateStampForGraph;
 
   #endregion
 
@@ -31,9 +33,6 @@ public partial class ProductDashboard : MTPage
     
     if (!IsPostBack)
     {
-      string dateStampForGraph = String.Format("{0} {1}", MetraTech.MetraTime.Now.AddMonths(-1).ToString("MMMM"), MetraTech.MetraTime.Now.AddMonths(-1).Year);
-      pnlTop10MMR.Text = String.Format("{0} {1}", Convert.ToString(GetLocalResourceObject("TEXT_TOP_10_MRR")), dateStampForGraph);
-      pnlTop10Subs.Text = String.Format("{0} {1}", Convert.ToString(GetLocalResourceObject("TEXT_TOP_10_SUBSCRIPTIONS")), dateStampForGraph);
       SetLocalization();
     }
   }
@@ -109,7 +108,9 @@ public partial class ProductDashboard : MTPage
     SubscriptionsTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
     GainTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_GAIN_TOOLTIP"));
     LossTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_LOSS_TOOLTIP"));    
-	RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP")); 
+  	RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP"));
+    DateStampForGraph = String.Format("{0} {1}", MetraTech.MetraTime.Now.AddMonths(-1).ToString("MMMM"), MetraTech.MetraTime.Now.AddMonths(-1).Year);
+    Last30DaysText = Convert.ToString(GetLocalResourceObject("TEXT_LAST_30_DAYS"));
   }
 }
 

@@ -726,6 +726,9 @@
   <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
     <value>[JA]UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
   </data>
+  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
+    <value>[JA]UDRC for PI ID={0} not set!</value>
+  </data>
   <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
     <value>[JA]Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
   </data>

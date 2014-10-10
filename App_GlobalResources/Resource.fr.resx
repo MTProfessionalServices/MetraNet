@@ -154,7 +154,7 @@
     <value>Ajouter des comptes</value>
   </data>
   <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
-    <value>Ajouter un message de facture</value>
+  <value>Ajouter un message de facture</value>
   </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>Ajouter</value>

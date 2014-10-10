@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="IntervalManagementList.aspx.cs" Inherits="MetraControl_BillingManagement_IntervalManagementList" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="IntervalManagementList.aspx.cs" Inherits="MetraControl_BillingManagement_IntervalManagementList" %>
 <%@ Register TagPrefix="MT" Namespace="MetraTech.UI.Controls" Assembly="MetraTech.UI.Controls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">

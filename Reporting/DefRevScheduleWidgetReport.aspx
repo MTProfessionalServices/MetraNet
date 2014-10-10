@@ -6,7 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css" />
   <style type="text/css">
-	  #revrec-chart svg { width: 1040px; }
+	  #revrec-chart svg { width: 1140px; }
   </style>
   <MT:MTTitle ID="MTTitle1" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <div id="container">
@@ -57,7 +57,6 @@
     function DisplayChart(dataSet) {
       var data = crossfilter(dataSet.rows);
       var headers = dataSet.headers;
-
       var dateDim = data.dimension(function (d) {
         return d.month;
       });
@@ -92,7 +91,7 @@
                 .valueAccessor(function (d) { return d.value.totalDeferred; })
                 .stack(revRecByMonth, stackDomain[0], function (d) { return d.value.totalEarned; })
                 .colors(d3.scale.ordinal().domain(stackDomain).range(colorRange))
-                .x(d3.scale.linear().domain([1, headers.length]))
+                .x(d3.scale.linear().domain([0, dataSet.rows.length+1]))
 				        .renderHorizontalGridLines(true)
                 .centerBar(true)
                 .elasticY(true)

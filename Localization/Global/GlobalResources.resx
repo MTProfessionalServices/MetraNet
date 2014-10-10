@@ -250,7 +250,7 @@
     <value>Error on deleting Account Configuration Set</value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
-    <value>Array of Account Configuration Set IDs contains invalid IDs: {0}</value>
+    <value>Array of Account Configuration Set IDs contains invalid ID: {0}</value>
   </data>
   <data name="DELETED_ENTITY" xml:space="preserve">
     <value>Deleted entity with ID {0} from entity list</value>

@@ -253,7 +253,7 @@
     <value>[pt-br]Error delete account configuration set</value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Array of Account Configuration Set IDs contains invalid IDs: {0}</value>
+    <value>[pt-br]Array of Account Configuration Set IDs contains invalid ID: {0}</value>
   </data>
   <data name="DELETED_ENTITY" xml:space="preserve">
     <value>Entidade excluída com ID {0} da lista de entidades</value>

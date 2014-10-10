@@ -921,6 +921,7 @@ Function WriteTypeSelect(strWizardName)
     'Disable button on the case where start is not the first page
     If Session(strWizardName & "_CreateNew") = "1" Then
       strHTML = strHTML & "<script language=""Javascript"">strOnload += ' document.all.butBack.disabled = true;'</script>" & vbNewline      
+      strHTML = strHTML & "<script language=""Javascript"">strOnload += ' document.all.butBack.style.visibility = ""hidden"";';</script>" & vbNewline      
     End If
             
     'Set current selection

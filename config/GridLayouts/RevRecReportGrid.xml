@@ -722,7 +722,7 @@
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition</ObjectName>
             <ID>AccountingCycleId</ID>
-            <DataType>List</DataType>
+            <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>AccountingCycleId</DataIndex>
             <IsColumn>false</IsColumn>

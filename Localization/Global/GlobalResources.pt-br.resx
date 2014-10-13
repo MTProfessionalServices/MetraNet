@@ -780,6 +780,9 @@
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[pt-br]Error update account configuration set</value>
   </data>
+  <data name="UPDATE_ACCOUNTCONFIGSET_PARAMETERS_EXCEPTION" xml:space="preserve">
+    <value>[pt-br]Error on update Account Configuration Set Parameters</value>
+  </data>
   <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
     <value>Modelo de contrato atualizado com id {0}.</value>
   </data>

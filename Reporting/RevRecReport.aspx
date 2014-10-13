@@ -27,15 +27,13 @@
       }
       
     Ext.onReady(function () {
-      accCycleId = $('#combo_filter_AccountingCycleId_grdRevRecReport').val();
       $(".x-panel-fbar button").on( "click", function() {
                                     RefreshHeaders();
                                     SetTitle();
                                   });
     });
 
-    function SetHeaders() {
-      var cycle = $('#combo_filter_AccountingCycleId_grdRevRecReport').val();
+    function SetHeaders(cycle) {
       $.ajax({
         url: '../Report/RevRecReportHeaders',
         type: 'GET',
@@ -68,15 +66,15 @@
     }
 
     function RefreshHeaders() {
-      var cycle = $('#combo_filter_AccountingCycleId_grdRevRecReport').val();
+      var cycle = $('#filter_AccountingCycleId_grdRevRecReport').val();;
       if (accCycleId !== cycle) {
-        SetHeaders();
+        SetHeaders(cycle);
       }
     }
 
     Ext.onReady(function () {
       $('#ext-gen121 td').hide();
-      var inpVal = $('#filter_ProductId_grdRevRecReport');
+      var inpVal = $('#filter_ProductId_grdRevRecReport-value');
       var select = $("<select/>").width('218px').on('change', function () {
         inpVal.val(this.value);
       });
@@ -92,8 +90,8 @@
         }
       });
 
-      $('#ext-gen129 td').hide();
-      var inpValCycle = $('#combo_filter_AccountingCycleId_grdRevRecReport');
+      var inpValCycle = $('#filter_AccountingCycleId_grdRevRecReport');
+      inpValCycle.hide();
       var selectCycle = $("<select id='selAccCycle'/>").width('218px').on('change', function () {
         inpValCycle.val(this.value);
       });
@@ -103,10 +101,10 @@
           res.forEach(function (e) {
             selectCycle.append($("<option/>").val(e.Id).text(e.Name));
           });
-          var td = $('<td class="ux-datetime-time" width="110" id="customFilter"/>').append(selectCycle);
-          $('#ext-gen129 tr:first').append(td);
+          inpValCycle.parent().append(selectCycle);
           inpValCycle.val(selectCycle.val());
-          SetHeaders();
+          accCycleId = selectCycle.val();
+          SetHeaders(accCycleId);
           SetTitle();
         }
       });

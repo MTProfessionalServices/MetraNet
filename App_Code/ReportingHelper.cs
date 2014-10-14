@@ -174,9 +174,9 @@ namespace MetraNet
     /// <returns></returns>
     public static DateTime GetCycleEndDateNextMonth(DateTime currentDate, AccountingCycle cycle)
     {
-      var result = new DateTime(currentDate.Year, currentDate.Month, DateTime.DaysInMonth(currentDate.Year, currentDate.Month), 23, 59, 59);
+      var result = new DateTime(currentDate.Year, currentDate.Month, DateTime.DaysInMonth(currentDate.Year, currentDate.Month));
       if (cycle != null && cycle.EndDate.Day < result.Day)
-        result = new DateTime(result.Year, result.Month, cycle.EndDate.Day, 23, 59, 59);
+        result = new DateTime(result.Year, result.Month, cycle.EndDate.Day);
       return result.AddDays(1);
     }
 
@@ -195,9 +195,8 @@ namespace MetraNet
       AccountingCycle accountingCycle;
       if (AccountingCycleId == "")
       {
-        accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.IsDefault);
-        if (accountingCycle != null)
-          accountingCycle = GetAccountingCycles().FirstOrDefault();
+        accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.IsDefault) ??
+                          GetAccountingCycles().FirstOrDefault();
       }
       else
       {
@@ -275,20 +274,14 @@ namespace MetraNet
                                                    && x.DeferredRevenueCode.Equals(rowGroup.DeferredRevenueCode)
                                                    && x.EndSubscriptionDate > monthNext)
                                        .Select(x => new
-                                       {
-                                         sum1 =
-                                                    (x.EndSubscriptionDate > monthNext &&
-                                                     x.StartSubscriptionDate > monthNext)
-                                                      ? ((x.EndSubscriptionDate - x.StartSubscriptionDate).Days + 1) *
-                                                        x.ProrationAmount
-                                                      : 0,
-                                         sum2 =
-                                                    (x.EndSubscriptionDate > monthNext &&
-                                                     x.StartSubscriptionDate <= monthNext)
-                                                      ? ((x.EndSubscriptionDate - monthNext).Days  + 1)* x.ProrationAmount
-                                                      : 0
-                                       }
-            ).Sum(x => x.sum1 + x.sum2);
+                                         {
+                                           sum1 = (x.EndSubscriptionDate > monthNext && x.StartSubscriptionDate > monthNext && x.ProrationDate > 1)
+                                                        ? ((x.EndSubscriptionDate - x.StartSubscriptionDate).Days + 1)* x.ProrationAmount : 0,
+                                           sum2 = (x.EndSubscriptionDate > monthNext && x.StartSubscriptionDate <= monthNext && x.ProrationDate > 1)
+                                                        ? ((x.EndSubscriptionDate - monthNext).Days + 1)*x.ProrationAmount : 0,
+                                           sum3 = (x.ProrationDate == 1 && x.StartSubscriptionDate > monthNext ? x.ProrationAmount : 0)
+                                         })
+                                       .Sum(x => x.sum1 + x.sum2 + x.sum3);
 
           calculatedIncrementalEarned = calculatedDeferredPrev - calculatedDeferred;
 

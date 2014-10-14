@@ -1,0 +1,9 @@
+<NotificationEvents>
+	<NotificationEvent>
+		<name>Subscription End Date</name>
+		<type>DataEvent</type>
+		<generatorquery>GENERATE_SUB_END_DATE_RECORDS</generatorquery>
+		<properties>nm_login, vt_end, id_po, id_acc</properties>
+		<consumersquery>__GENERATE_SUB_END_DATE_CONSUMERS__</consumersquery>
+	</NotificationEvent>
+</NotificationEvents>

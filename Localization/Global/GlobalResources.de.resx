@@ -783,6 +783,9 @@
   <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
     <value>[DE]Transaction {0} was already submitted.</value>
   </data>
+  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[DE]Error on termination Account Configuration Set</value>
+  </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[DE]Error update account configuration set</value>
   </data>

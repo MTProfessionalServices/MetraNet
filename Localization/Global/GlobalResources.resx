@@ -252,6 +252,12 @@
   <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
     <value>Array of Account Configuration Set IDs contains invalid ID: {0}</value>
   </data>
+  <data name="DELETE_APPLIED_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>Applied Account Configuration Set cannot be deleted. ID: {0}</value>
+  </data>
+  <data name="DELETE_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>Account Configuration Set of other Partition cannot be deleted. ID: {0}</value>
+  </data>
   <data name="DELETED_ENTITY" xml:space="preserve">
     <value>Deleted entity with ID {0} from entity list</value>
   </data>

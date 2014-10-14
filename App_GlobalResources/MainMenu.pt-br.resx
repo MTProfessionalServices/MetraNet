@@ -675,4 +675,7 @@
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
     <value>Painel de produto</value>
   </data>
+  <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
+    <value>{PT-BR}Notifications</value>
+  </data>    
 </root>

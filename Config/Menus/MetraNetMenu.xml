@@ -49,7 +49,8 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Product Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>						
+                        </MenuItem>	
+                        
                         <!--MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
@@ -64,6 +65,28 @@
                               <Capability>View Data from Analytics Datamart</Capability>
                             </RequiredCapabilities>
                         </MenuItem-->						
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>NotificationsSection</ID>
+                    <Caption>
+                      <LocalizationTag>TEXT_NOTIFICATIONS</LocalizationTag>
+                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>                        
+                    </Caption>
+                    <Description></Description>
+                    <MenuItems>
+                      <MenuItem>
+                            <ID>NotificationsList</ID>
+                            <Caption>
+                              <LocalizationTag>TEXT_NOTIFICATIONS</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Notifications/Notifications.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/grid.png</Icon>
+                            <Description>List of Notifications</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                      </MenuItem>
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

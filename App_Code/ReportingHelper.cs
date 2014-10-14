@@ -35,19 +35,17 @@ namespace MetraNet
     /// <returns></returns>
     public static IEnumerable<AccountingCycle> GetAccountingCycles()
     {
-      var accountingCycles = GetData<AccountingCycle>("__GET_ACCOUNTING_CYCLE_FILTER__", null);
-      if (!accountingCycles.Any())
+      var accountingCycles = GetData<AccountingCycle>("__GET_ACCOUNTING_CYCLE_FILTER__", null).ToList();
+      if (!accountingCycles.Any(x => x.IsDefault))
       {
-        accountingCycles = accountingCycles.Concat(new[]
+        accountingCycles.Add(
+          new AccountingCycle
             {
-              new AccountingCycle
-                {
-                  Id = new Guid(),
-                  IsDefault = true,
-                  Name = "Default Monthly 31",
-                  CycleType = UsageCycleType.Monthly,
-                  EndDate = new DateTime(2013, 12, 31)
-                }
+              Id = new Guid(),
+              IsDefault = true,
+              Name = "Default Monthly 31",
+              CycleType = UsageCycleType.Monthly,
+              EndDate = new DateTime(2013, 12, 31)
             });
       }
 
@@ -192,17 +190,9 @@ namespace MetraNet
     /// <returns></returns>
     public static List<RevRecModel> GetRevRec(string currency, string revenueCode, string deferredRevenueCode, int? productId, string AccountingCycleId, int idRevRec)
     {
-      AccountingCycle accountingCycle;
-      if (AccountingCycleId == "")
-      {
-        accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.IsDefault);
-        if (accountingCycle != null)
-          accountingCycle = GetAccountingCycles().FirstOrDefault();
-      }
-      else
-      {
-        accountingCycle = GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(new Guid(AccountingCycleId)));
-      }
+      AccountingCycle accountingCycle = AccountingCycleId == ""
+                                          ? GetAccountingCycles().FirstOrDefault(x => x.IsDefault)
+                                          : GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(new Guid(AccountingCycleId)));
 
       var data = new List<RevRecModel>();
       var revRecData = GetRevRecRawData(accountingCycle, currency, revenueCode, deferredRevenueCode, productId)

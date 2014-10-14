@@ -84,6 +84,7 @@ public partial class GetData : MTPage
     Response.Buffer = false;
     Response.ContentType = "application/csv";
     Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+    Response.BinaryWrite(BOM);
     int recordsRead = 0;
     int totalRecords = gde.PageSize; //read out the total number of records from pageSize
     if (totalRecords > BATCH_SIZE)

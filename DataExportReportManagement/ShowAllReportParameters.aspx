@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ShowAllReportParameters"
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ShowAllReportParameters"
   Title="Select Report Parameters" Culture="auto" UICulture="auto" CodeFile="ShowAllReportParameters.aspx.cs" meta:resourcekey="PageResource1" %>
 <%@ Import Namespace="MetraTech.UI.Tools" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>

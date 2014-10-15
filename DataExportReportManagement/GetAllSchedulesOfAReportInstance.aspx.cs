@@ -26,6 +26,12 @@ public partial class DataExportReportManagement_GetAllSchedulesOfAReportInstance
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
+
     //ShowAllReportDefinitions.SearchOnLoad = false;
     //ShowAllReportDefinitions.ShowFilterPanel = false;
   }

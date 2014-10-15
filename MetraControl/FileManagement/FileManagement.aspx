@@ -1,4 +1,4 @@
-﻿<%@ Page Title="<%$Resources:Resource,TEXT_TITLE_METRACONTROL%>" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="MetraControl_FileManagement_FileManagement" Codefile="FileManagement.aspx.cs" Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="<%$Resources:Resource,TEXT_TITLE_METRACONTROL%>" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="MetraControl_FileManagement_FileManagement" Codefile="FileManagement.aspx.cs" Culture="auto" UICulture="auto" %>
 
 <%@ Register assembly="MetraTech.UI.Controls" namespace="MetraTech.UI.Controls" tagprefix="MT" %>
 

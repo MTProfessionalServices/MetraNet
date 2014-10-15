@@ -24,5 +24,13 @@ using MetraTech.DataAccess;
 
 public partial class DataExportReportManagement_ShowAllReportDefinitions : MTPage
 {
-  protected void Page_Load(object sender, EventArgs e) {}
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
+
+  }
 }

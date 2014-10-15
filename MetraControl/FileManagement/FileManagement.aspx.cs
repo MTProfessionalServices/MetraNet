@@ -19,7 +19,12 @@ public partial class MetraControl_FileManagement_FileManagement : MTPage
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        rawFilter = Request.QueryString["filter"];
+      if (!UI.CoarseCheckCapability("Manage FLS Files and View FLS files"))
+      {
+        Response.End();
+        return;
+      }
+      rawFilter = Request.QueryString["filter"];
         string customTitle = FileManagementResources.JOB_ALL_TITLE;
 
 		try

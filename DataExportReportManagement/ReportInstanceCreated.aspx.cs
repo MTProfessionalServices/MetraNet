@@ -8,6 +8,11 @@ public partial class DataExportReportManagement_ReportInstanceCreated : MTPage
   
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
     strincomingReportId = Request.QueryString["reportid"];
   }
 

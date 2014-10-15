@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="ConfigureFileManagementGlobals" Title="<%$Resources:Resource,TEXT_TITLE_METRACONTROL%>" Culture="auto" UICulture="auto" CodeFile="ConfigureFileManagementGlobals.aspx.cs" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="ConfigureFileManagementGlobals" Title="<%$Resources:Resource,TEXT_TITLE_METRACONTROL%>" Culture="auto" UICulture="auto" CodeFile="ConfigureFileManagementGlobals.aspx.cs" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">

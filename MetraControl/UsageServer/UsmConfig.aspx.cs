@@ -10,7 +10,7 @@ public partial class MetraControl_UsageServer_UsmConfig : MTPage
     protected void Page_Load(object sender, EventArgs e)
     {
       // Verify the user has permission to view this page
-      if (!UI.CoarseCheckCapability("Manage Usage Intervals And Scheduled Adapters")) Response.End();
+      if (!UI.CoarseCheckCapability("Update Runtime Configuration")) Response.End();
 
       if (!IsPostBack)
       {

@@ -1312,9 +1312,9 @@
     <value>Recent Notifications</value>
   </data>
   <data name="SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>Account {nm_login} participation in subscription to {po_name} will end on {end_date} </value>
+    <value>Account {nm_login} participation in subscription to {po_name} will end on {end_date}<![CDATA[<p><a style='cursor:hand;' id='manage1_{id_acc}' href='JavaScript:getFrameMetraNet().Account.Load({id_acc});'>View...</a></p>]]> </value>
   </data>
   <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>Account {nm_login} participation in subscription to {po_name} will end on {end_date}</value>
+    <value>Account {nm_login} participation in subscription to {po_name} will end on {end_date<![CDATA[<p><a style='cursor:hand;' id='manage1_{id_acc}' href='JavaScript:getFrameMetraNet().Account.Load({id_acc});'>View...</a></p>]]></value>
   </data>
 </root>

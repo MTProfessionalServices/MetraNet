@@ -1308,6 +1308,15 @@
   <data name="FRACTION_DIGITS" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
+    <value>Recent Notifications</value>
+  </data>
+  <data name="SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
+    <value>Account {nm_login} participation in subscription to {po_name} will end on {end_date} </value>
+  </data>
+  <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
+    <value>Account {nm_login} participation in subscription to {po_name} will end on {end_date}</value>
+  </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>{ES}Change Password</value>
   </data>

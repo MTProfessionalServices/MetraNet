@@ -678,7 +678,4 @@
   <data name="TEXT_SEARCH" xml:space="preserve">
     <value>[ES]Search</value>
   </data>
-  <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
-    <value>{ES}Notifications</value>
-  </data>    
 </root>

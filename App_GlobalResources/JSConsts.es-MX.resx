@@ -1317,4 +1317,13 @@
   <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
     <value>Account {nm_login} participation in subscription to {po_name} will end on {end_date}<![CDATA[<p><a style='cursor:hand;' id='manage1_{id_acc}' href='JavaScript:getFrameMetraNet().Account.Load({id_acc});'>View...</a></p>]]></value>
   </data>
+  <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
+    <value>{es-MX}Change Password</value>
+  </data>
+  <data name="TEXT_MY_SECURITY_SETTINGS" xml:space="preserve">
+    <value>{es-MX}My Security Settings</value>
+  </data>
+  <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
+    <value>{es-MX}Notifications</value>
+  </data>
 </root>

@@ -5,7 +5,15 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters></Parameters>
+    <Parameters>
+        <Parameter>
+            <Name>CURRENT_DATETIME</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

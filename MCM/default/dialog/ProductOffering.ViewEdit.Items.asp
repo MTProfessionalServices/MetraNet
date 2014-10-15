@@ -394,16 +394,20 @@ PRIVATE FUNCTION RemovePriceableItem_Click(EventArg)
 		If(IsNumeric(mdm_UIValue("mdmUserCustom")))Then
 		
 			On Error Resume Next
-			COMObject.Instance.RemovePriceableItem(Clng(mdm_UIValue("mdmUserCustom")))
-			If(Err.Number)Then
+			Dim objPI
+      set objPI = COMObject.Instance.GetPriceableItem(Clng(mdm_UIValue("mdmUserCustom")))
+      If not IsEmpty(objPI)  then
+          COMObject.Instance.RemovePriceableItem(Clng(mdm_UIValue("mdmUserCustom")))
+			    If(Err.Number)Then
 		    
-		        EventArg.Error.Save Err
-		        RemovePriceableItem_Click = FALSE
-		        'Err.Clear  Do not clear the error so it can be returned to the MDM error manager
-		    Else
-            mcmTriggerUpdateOfPONavigationPane
-		        RemovePriceableItem_Click = TRUE
-		    End If
+		            EventArg.Error.Save Err
+		            RemovePriceableItem_Click = FALSE
+		            'Err.Clear  Do not clear the error so it can be returned to the MDM error manager
+		        Else
+                mcmTriggerUpdateOfPONavigationPane
+		            RemovePriceableItem_Click = TRUE
+		        End If
+     End if
 		End if
 	End if						 
 END FUNCTION

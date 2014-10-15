@@ -68,7 +68,11 @@ FUNCTION Form_Initialize(EventArg)
   Service.Properties.Add "AUDITHISTORY_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "ADAPTERRUN_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "ACTION_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
-  
+
+  Service.Properties.Add "MAIN_DIV_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "NO_PERMISSION_DIV_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "Partition", "string", 0, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE
+
 	Form_Initialize = Form_Refresh(EventArg)
 END FUNCTION
 
@@ -84,8 +88,50 @@ FUNCTION Form_Refresh(EventArg)
   Set objUSM = mom_GetUsageServerClientObject()
   Set bg = objUSM.GetBillingGroup(Form("BillingGroupID"))  
 
+  dim strShowMainDiv
+  dim strHideMainDiv
+  dim strShowNoPermissionDiv
+  dim strHideNoPermissionDiv
+
+  strShowMainDiv = "<div id='mainDiv'>"
+  strHideMainDiv = "<div id='mainDiv' style='display: none'>"
+  strShowNoPermissionDiv = "<div id='NoPermissionDiv'>"
+  strHideNoPermissionDiv = "<div id='NoPermissionDiv' style='display: none'>"
+
+  dim csrPartitionId
+  csrPartitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  
+  ' Only show billing groups who belong to the same partition as the logged in user if the logged in user is part of a partition.
+  ' If the logged in user is not part of a partition, then show all billing groups to the user
+  if IsEmpty(csrPartitionId) then
+    ' Do not show the bill group to the user because the logged in user's partition is unknown
+    Service.Properties("MAIN_DIV_HTML") = strHideMainDiv
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strShowNoPermissionDiv
+  elseif CLng(csrPartitionId) = 1 then
+    ' Show the bill group to the user because the logged in user is not a member of a partition
+    Service.Properties("MAIN_DIV_HTML") = strShowMainDiv
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strHideNoPermissionDiv
+  elseif CLng(csrPartitionId) = bg.PartitionID then
+    ' Show the bill group to the user because the logged in user belongs to the same partition as this bill group
+    Service.Properties("MAIN_DIV_HTML") = strShowMainDiv 
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strHideNoPermissionDiv
+  else
+    ' By default do not show the bill group
+    Service.Properties("MAIN_DIV_HTML") = strHideMainDiv
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strShowNoPermissionDiv  
+  end if
+
   Service.Properties("BillingGroupId").Value          = bg.BillingGroupID
-  Service.Properties("BillingGroup").Value            = bg.Name
+  Service.Properties("BillingGroup").Value = bg.Name
+
+  If (IsNull(bg.PartitionName) Or IsEmpty(bg.PartitionName)) Then
+     mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 0
+     Service.Properties("Partition").Value = ""
+  Else
+     mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 1    
+     Service.Properties("Partition").Value = bg.PartitionName
+  End If
+  
   Service.Properties("BillingGroupMemberCount").Value = bg.MemberCount
   Service.Properties("IntervalOnlyAdapterCount").Value  = bg.IntervalOnlyAdapterCount
   Service.Properties("AdapterCount").Value            = bg.AdapterCount 

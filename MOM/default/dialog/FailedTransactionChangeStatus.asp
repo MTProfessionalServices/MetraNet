@@ -43,7 +43,8 @@ mdm_Main
 ' RETURNS    :  Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 
-	Service.Clear 	' Set all the property of the service to empty. 
+  Framework.AssertCourseCapability "Update Failed Transactions", EventArg
+  Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.
                   
   Service.Properties.Add "NewStatus", "string", 1, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE

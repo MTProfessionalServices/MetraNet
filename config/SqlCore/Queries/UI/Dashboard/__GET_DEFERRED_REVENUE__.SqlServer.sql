@@ -85,7 +85,7 @@ INNER JOIN t_acc_usage AS acc ON nrc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_nonrecurring AS nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 WHERE
-	c_NRCIntervalSubscriptionEnd >= @endDate
+	c_NRCIntervalSubscriptionStart >= @endDate
 	AND ui.tx_interval_status = 'H'
 	AND (nrc_ep.c_IsLiabilityProduct = 'N' OR nrc_ep.c_IsLiabilityProduct IS NULL)
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'

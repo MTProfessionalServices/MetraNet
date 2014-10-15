@@ -7,8 +7,8 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_LANG</Name>
-            <DataType>int32</DataType>
+            <Name>USERNAME</Name>
+            <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
@@ -21,7 +21,7 @@
             <Description></Description>
         </Parameter>
     </Parameters>
-    <Description>MetraOffer Dashboard SubscriptionSummary Top Monthly Recurring Revenue</Description>
+    <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

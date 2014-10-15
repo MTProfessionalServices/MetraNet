@@ -2,20 +2,20 @@
 <xmlconfig>
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
-    <!--Adapter>
+    <Adapter>
       <Name>GenerateAnalyticsDatamart</Name>
       <DisplayName>Generate and/or Populate Analytics Data Mart</DisplayName>
       <ClassID>MetraTech.UsageServer.Adapters.AnalyticsDatamartAdapter,MetraTech.UsageServer.Adapters</ClassID>
       <ConfigFile>GenerateAnalyticsDatamart.xml</ConfigFile>
       <Description>
       <![CDATA[
-        Generates the and/or populates the Analytics Data Mart
+        Generates and/or populates the Analytics Data Mart
       ]]>
       </Description>
 	  <RecurrencePattern>
 		<SystemCycle>Daily</SystemCycle>
 	  </RecurrencePattern>
-    </Adapter-->
+    </Adapter>
 
         <!--
     <Adapter>

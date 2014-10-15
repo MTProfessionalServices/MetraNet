@@ -102,7 +102,10 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>unique identifier</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText />
+             <HeaderText>
+                <LocalizationTag>TEXT_UNIQUE_IDENTIFIER</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>false</Resizeable>
@@ -135,7 +138,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>user identifier</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+             <HeaderText>
+              <LocalizationTag>TEXT_USER_IDENTIFIER</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -169,7 +175,8 @@
             <DataIndex>name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Name]]></Value>
+             <LocalizationTag>TEXT_NAME</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -204,8 +211,9 @@
             <DataIndex>tax exempt id</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Tax Exempt ID]]></Value>
-            </HeaderText>
+             <LocalizationTag>TEXT_TAX_EXEMPT_ID</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -239,7 +247,8 @@
             <DataIndex>tax exempt expiry date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Tax Excempt Expiry Date]]></Value>
+             <LocalizationTag>TEXT_TAX_EXEMPT_EXPIRY_DATE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -274,7 +283,8 @@
             <DataIndex>city</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[City]]></Value>
+             <LocalizationTag>TEXT_CITY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -309,7 +319,8 @@
             <DataIndex>state</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[State]]></Value>
+             <LocalizationTag>TEXT_STATE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -344,7 +355,8 @@
             <DataIndex>zip</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Zip]]></Value>
+             <LocalizationTag>TEXT_ZIP</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -379,7 +391,8 @@
             <DataIndex>country</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Country]]></Value>
+             <LocalizationTag>TEXT_COUNTRY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

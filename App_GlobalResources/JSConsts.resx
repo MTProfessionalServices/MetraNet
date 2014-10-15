@@ -1308,4 +1308,13 @@
   <data name="FRACTION_DIGITS" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="TEXT_MY_SECURITY_SETTINGS" xml:space="preserve">
+    <value>My Security Settings</value>
+  </data>
+  <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
 </root>

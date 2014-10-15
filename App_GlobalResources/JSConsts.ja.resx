@@ -121,16 +121,22 @@
     <value>Y/m/d</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>Y/n/j</value>
+    <value>Y/m/d</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>Y/n/j G:i:s|Y/n/j</value>
+    <value>Y/m/d G:i:s|Y/m/d</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>n/j/Y G:i:s A</value>
+    <value>Y/m/d G:i:s A</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>Y/n/j G:i:s</value>
+    <value>Y/m/d G:i:s</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>Y/m/d G:ia</value>
+  </data>
+  <data name="ERR_DATE_FORMAT" xml:space="preserve">
+    <value>YYYY/MM/dd</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
@@ -140,9 +146,6 @@
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>複製</value>
-  </data>
-  <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>YYYY/mm/dd</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>失敗</value>
@@ -674,9 +677,6 @@
   </data>
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>ログアウトしますか。</value>
-  </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>Y/n/j g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>アカウントの管理</value>

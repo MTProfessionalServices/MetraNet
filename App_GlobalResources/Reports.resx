@@ -129,6 +129,15 @@
   <data name="TEXT_AMOUNT_IF_NOT_PRORATED" xml:space="preserve">
     <value>Amount would have if it weren't Prorated</value>
   </data>
+  <data name="TEXT_AVERAGE_PAYMENT" xml:space="preserve">
+    <value>Average Payment</value>
+  </data>
+  <data name="TEXT_CARD_TYPE" xml:space="preserve">
+    <value>Card Type</value>
+  </data>
+  <data name="TEXT_CITY" xml:space="preserve">
+    <value>City</value>
+  </data>
   <data name="TEXT_CODE" xml:space="preserve">
     <value>Code</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="TEXT_COUNT" xml:space="preserve">
     <value>Count</value>
+  </data>
+  <data name="TEXT_COUNTRY" xml:space="preserve">
+    <value>Country</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Currency</value>
@@ -189,20 +201,38 @@
   <data name="TEXT_INVOICE_NUMBER" xml:space="preserve">
     <value>Invoice Number</value>
   </data>
+  <data name="TEXT_LAST_TRANSACTION_DATE" xml:space="preserve">
+    <value>Last Transaction Date</value>
+  </data>
+  <data name="TEXT_LAST_TRANSACTION_OF_TYPE" xml:space="preserve">
+    <value>Last Transaction of Type</value>
+  </data>
+  <data name="TEXT_MAXIMUM_PAYMENT" xml:space="preserve">
+    <value>Maximum Payment</value>
+  </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
     <value>Message</value>
   </data>
   <data name="TEXT_METERED" xml:space="preserve">
     <value>Metered</value>
   </data>
+  <data name="TEXT_MINIMUM_PAYMENT" xml:space="preserve">
+    <value>Minimum Payment</value>
+  </data>
   <data name="TEXT_MONETARY_AMOUNT" xml:space="preserve">
     <value>Monetary Amount</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_NAMESPACE" xml:space="preserve">
     <value>Namespace</value>
   </data>
   <data name="TEXT_NON_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
     <value>Non-Compounded PI Template</value>
+  </data>
+  <data name="TEXT_NUMBER_OF_PAYMENTS" xml:space="preserve">
+    <value>Number of Payments</value>
   </data>
   <data name="TEXT_NUM_ADV_RCS_CREDITS_GENERATED" xml:space="preserve">
     <value># of Advanced RCs Credits Generated</value>
@@ -237,6 +267,12 @@
   <data name="TEXT_PAYER" xml:space="preserve">
     <value>Payer</value>
   </data>
+  <data name="TEXT_PAYMENT_CURRENCY" xml:space="preserve">
+    <value>Payment Currency</value>
+  </data>
+  <data name="TEXT_PAYMENT_METHOD" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
   <data name="TEXT_PERCENTAGE" xml:space="preserve">
     <value>Percentage</value>
   </data>
@@ -261,6 +297,9 @@
   <data name="TEXT_REVENUE_PART" xml:space="preserve">
     <value>Revenue Part</value>
   </data>
+  <data name="TEXT_REGISTERED_USERS" xml:space="preserve">
+    <value>Registered Users</value>
+  </data>
   <data name="TEXT_STATE" xml:space="preserve">
     <value>State</value>
   </data>
@@ -270,16 +309,31 @@
   <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
     <value>Tax Amount</value>
   </data>
+  <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
+    <value>Tax Exempt Expiry Date</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
+    <value>Tax Exempt ID</value>
+  </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
     <value>Total</value>
   </data>
   <data name="TEXT_TOTAL_MONETARY_AMOUNT" xml:space="preserve">
     <value>Total Monetary Amount</value>
   </data>
+  <data name="TEXT_UNIQUE_IDENTIFIER" xml:space="preserve">
+    <value>Unique Identifier</value>
+  </data>
+  <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
+    <value>User Identifier</value>
+  </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>View Id</value>
   </data>
   <data name="TEXT_VIEW_NAME" xml:space="preserve">
     <value>View Name</value>
+  </data>
+  <data name="TEXT_ZIP" xml:space="preserve">
+    <value>Zip</value>
   </data>
 </root>

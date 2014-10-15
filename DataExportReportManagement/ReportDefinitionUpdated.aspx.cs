@@ -6,7 +6,12 @@ public partial class DataExportReportManagement_ReportDefinitionUpdated : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
- 
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
+
   }
 
   protected void btnBack_Click(object sender, EventArgs e)

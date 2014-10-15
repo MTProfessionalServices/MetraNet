@@ -660,4 +660,7 @@
   <data name="TEXT_SAVINGS" xml:space="preserve">
     <value>Savings</value>
   </data>
+  <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
+    <value>Create Bill Message</value>
+  </data>
 </root>

@@ -154,7 +154,7 @@
     <value>Aggiungi conti</value>
   </data>
   <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
-    <value>Aggiungi messaggio fattura</value>
+  <value>Aggiungi messaggio fattura</value>
   </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>Aggiungi</value>

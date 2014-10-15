@@ -78,6 +78,11 @@ public partial class FileManagementTarget : MTPage
   #region  Events
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage FLS Files and View FLS files"))
+    {
+      Response.End();
+      return;
+    }
     if (!IsPostBack)
     {
       bool isNew = false;

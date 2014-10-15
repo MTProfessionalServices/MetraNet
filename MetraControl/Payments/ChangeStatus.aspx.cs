@@ -19,6 +19,12 @@ public partial class MetraControl_Payments_ChangeStatus : MTPage
     auth.Initialize(UI.User.UserName, UI.User.NameSpace);
     if (!auth.HasAppLoginCapability(UI.SessionContext as IMTSessionContext, "MCM")) return;
 
+    if (!UI.CoarseCheckCapability("Manage Payment Server"))
+    {
+      Response.End();
+      return;
+    }
+
     if (!IsPostBack)
     {
       // If we get passed FailureIDs on the Form or QueryString we use those,

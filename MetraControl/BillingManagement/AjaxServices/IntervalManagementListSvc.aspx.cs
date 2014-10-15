@@ -45,22 +45,57 @@ public partial class MetraControl_BillingManagement_AjaxServices_IntervalManagem
         switch (statusFilterValue)
         {
           case "Active":
-            client.GetActiveIntervals(ref items);
+            if (PartitionLibrary.PartitionData.isPartitionUser)
+            {
+              client.GetActiveIntervalsForPartition(ref items, PartitionLibrary.PartitionData.PartitionId);
+            }
+            else
+            {
+              client.GetActiveIntervals(ref items);
+            }
             break;
           case "Billable":
-            client.GetBillableIntervals(ref items);
+            if (PartitionLibrary.PartitionData.isPartitionUser)
+            {
+              client.GetBillableIntervalsForPartition(ref items, PartitionLibrary.PartitionData.PartitionId);
+            }
+            else
+            {
+              client.GetBillableIntervals(ref items);
+            }
             break;
           case "Completed":
-            client.GetCompletedIntervals(ref items);
+            if (PartitionLibrary.PartitionData.isPartitionUser)
+            {
+              client.GetCompletedIntervalsForPartition(ref items, PartitionLibrary.PartitionData.PartitionId);
+            }
+            else
+            {
+              client.GetCompletedIntervals(ref items);
+            }
             break;
           default:
-            client.GetIntervals(ref items);
+            if (PartitionLibrary.PartitionData.isPartitionUser)
+            {
+              client.GetIntervalsForPartition(ref items, PartitionLibrary.PartitionData.PartitionId);
+            }
+            else
+            {
+              client.GetIntervals(ref items);
+            }
             break;
         }
       }
       else
       {
-        client.GetIntervals(ref items);
+        if (PartitionLibrary.PartitionData.isPartitionUser)
+        {
+          client.GetIntervalsForPartition(ref items, PartitionLibrary.PartitionData.PartitionId);
+        }
+        else
+        {
+          client.GetIntervals(ref items);
+        }
       }
     }
     catch (Exception ex)

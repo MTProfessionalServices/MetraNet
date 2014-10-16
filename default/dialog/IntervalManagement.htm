@@ -73,14 +73,18 @@
             <TD class="fieldRequired"><MDMLABEL Name="Status"></MDMLABEL></TD>
         </TR>
         <TR>
-            <TD class="fieldRequired" colspan="2">
+          <TD class="fieldRequired" colspan="2">
             #MDMNotIf INTERVAL_IS_BLOCKED_TO_NEW_ACCOUNTS
-			[TEXT_ACCOUNTS_INVOICED] <a title="Block This Interval From Receiving New Accounts To Be Invoiced" href="#" OnClick="window.open('IntervalManagement.ChangeAccountCreationState.asp?MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=450,width=500, resizable=yes, scrollbars=yes, status=yes');">[TEXT_CHANGE]</a>
+            [TEXT_ACCOUNTS_INVOICED]
+              #MDMIf CanSeeChangeLink
+               <a title="Block This Interval From Receiving New Accounts To Be Invoiced" href="#" OnClick="window.open('IntervalManagement.ChangeAccountCreationState.asp?MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=450,width=500, resizable=yes, scrollbars=yes, status=yes');">[TEXT_CHANGE]</a>
+              #MDMENDIF
             #MDMENDIF
+            
             #MDMIf INTERVAL_IS_BLOCKED_TO_NEW_ACCOUNTS
             [TEXT_ACCOUNTS_NOT_INVOICED]
             #MDMENDIF
-            </TD>
+          </TD>
         </TR>                              
     </table>
     </td>

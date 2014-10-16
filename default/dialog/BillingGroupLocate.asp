@@ -42,6 +42,7 @@ mdm_Main
 ' DESCRIPTION:
 ' RETURNS:     Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) 
+Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
 
   ' If we are passed in an interval id store it in the form and clear any old results
   If Len(Request.QueryString("IntervalID")) > 1 Then

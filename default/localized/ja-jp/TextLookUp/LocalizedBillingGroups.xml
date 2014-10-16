@@ -28,7 +28,7 @@
     <value>[JA]Select to view statistics for all billing groups in this interval.</value>
   </text>
   <text id="TEXT_LOCATE_PAYER_DESCRIPTION">
-    <value>[JA]Find a payer\'s billing group for this interval.</value>
+    <value>[JA]Find a payer's billing group for this interval.</value>
   </text>
   <text id="TEXT_MATERIALIZE">
     <value>[JA]Create Billing Groups for Interval</value>

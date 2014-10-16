@@ -59,6 +59,7 @@ mdm_PVBrowserMain ' invoke the mdm framework
 ' RETURNS       :
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 	  on error resume next  
+    Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
     Dim i      
     Form_Initialize = FALSE
     
@@ -134,6 +135,14 @@ PRIVATE FUNCTION MyForm_LoadProductView(EventArg) ' As Boolean
   'end if
   'CLng(Form("IntervalID"))
   
+  Dim partitionId 
+  partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  if Not IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    if Not (partitionId = 1) then
+      objFilter.PartitionId = (partitionId)
+    end if
+  end if
+
   Set ProductView.Properties.RowSet = objUSM.GetUnassignedAccountsForIntervalAsRowset((objFilter))
   
   ProductView.Properties.AddPropertiesFromRowset ProductView.Properties.RowSet
@@ -300,14 +309,14 @@ END FUNCTION
 PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
 
     Dim strEndOfPageHTMLCode, strTmp
-    
-    If Form("Status")<>"HardClosed" AND ProductView.Properties.RowSet.RecordCount>0 Then
-      Form_DisplayEndOfPageAddSelectButtons EventArg, "", FALSE ' No JavaScript, Do not close the form 
-      
+
+  If Form("Status")<>"HardClosed" AND ProductView.Properties.RowSet.RecordCount>0 AND FrameWork.CheckCoarseCapability("Manage Intervals") AND (IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) OR Session("MOM_SESSION_CSR_PARTITION_ID")=1) Then
+      Form_DisplayEndOfPageAddSelectButtons EventArg, "", FALSE ' No JavaScript, Do not close the form
+       
       strTmp = "<div align='center'><BR><button  name='HARDCLOSE' Class='clsButtonXLarge' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>Mark As Hard Closed</button>" & vbNewLine
       strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
-	  
-	  'Only display 'Manually Assign Accounts' if interval has been materialized (otherwise we won't be successful on the next screen)
+	    
+      'Only display 'Manually Assign Accounts' if interval has been materialized (otherwise we won't be successful on the next screen)
       Dim objUSM
       Set objUSM = mom_GetUsageServerClientObject()
 	  Dim interval
@@ -315,8 +324,8 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
 	  If CBool(interval.HasBeenMaterialized) Then
         strTmp = "&nbsp;<button name='CREATEGROUP' Class='clsButtonXLarge' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>Manually Assign Accounts</button>" & vbNewLine
         strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
-      End If
-	Else
+    End If
+  Else
       strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</TABLE><br><div align='center'>" & vbNewLine
 	End If
 	  

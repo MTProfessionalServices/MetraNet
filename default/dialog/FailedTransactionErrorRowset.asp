@@ -34,6 +34,7 @@ mdm_PVBrowserMain
 
 PUBLIC FUNCTION Form_Initialize(EventArg) ' As Boolean
 
+  Framework.AssertCourseCapability "Update Failed Transactions", EventArg
   ProductView.Clear
   
   FrameWork.Dictionary.Add "BATCH_ERROR_DIALOG_TITLE",  FrameWork.Dictionary.Item("TEXT_ERROR_TITLE").Value

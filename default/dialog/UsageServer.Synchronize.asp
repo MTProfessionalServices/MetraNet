@@ -46,7 +46,7 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS		  : Returns TRUE if ok else FALSE
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
-    Framework.AssertCourseCapability "Manage Usage Intervals And Scheduled Adapters", EventArg
+    Framework.AssertCourseCapability "Manage Scheduled Adapters", EventArg
 
     Form_Initialize = TRUE
 

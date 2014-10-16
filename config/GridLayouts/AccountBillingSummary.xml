@@ -36,8 +36,8 @@
     <EnableFilterConfig>false</EnableFilterConfig>
     <Resizeable>false</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField></DefaultSortField>
-    <DefaultSortDirection>Ascending</DefaultSortDirection>
+    <DefaultSortField>dt_transaction</DefaultSortField>
+    <DefaultSortDirection>Descending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>

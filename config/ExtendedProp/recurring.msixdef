@@ -1,14 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <defineservice>
-  <name kind="20">recurring</name>
+    <name kind="20">recurring</name>
     <description>Recurring charges are applied on a regular cycle.</description>
-  <ptype display_name="GL Code">
-    <dn>glcode</dn>
-    <type>string</type>
-    <length>100</length>
-    <required>N</required>
-    <defaultvalue>
-    </defaultvalue>
-    <description>Sample GL Code field</description>
-  </ptype>
+    <ptype display_name="GL Code">
+        <dn>glcode</dn>
+        <type>string</type>
+        <length>100</length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Sample GL Code field</description>
+    </ptype>
+    <ptype display_name="Is Liability Product">
+        <dn>IsLiabilityProduct</dn>
+        <type>boolean</type>
+        <length></length>
+        <required>Y</required>
+        <defaultvalue>F</defaultvalue>
+        <description>Shows is this a liability product</description>
+    </ptype>
+    <ptype display_name="Revenue Code">
+        <dn>RevenueCode</dn>
+        <type>string</type>
+        <length>128</length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Revenue Code for product</description>
+    </ptype>
+    <ptype display_name="Deferred Revenue Code">
+        <dn>DeferredRevenueCode</dn>
+        <type>string</type>
+        <length>128</length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Deferred Revenue Code for product</description>
+    </ptype>
 </defineservice>

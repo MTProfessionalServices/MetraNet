@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">ConfigDriven</meta>
+  <class name="MetraTech.SystemConfig.Reports.AccountingCycle, MetraTech.SystemConfig.Reports.Entity" table="t_be_sys_rep_accountingcycle">
+    <meta attribute="description">Accounting Cycle dictionary for Revenue Recognition report</meta>
+    <meta attribute="label">AccountingCycle</meta>
+    <meta attribute="plural-name">AccountingCycles</meta>
+    <meta attribute="database">NetMeter</meta>
+    <meta attribute="custom-base-class-name" />
+    <meta attribute="record-history">false</meta>
+    <meta attribute="entity-type">Entity</meta>
+    <meta attribute="interface">MetraTech.SystemConfig.Reports.Interface.IAccountingCycle, MetraTech.SystemConfig.Interface</meta>
+    <meta attribute="metranet-entity-association" />
+    <id name="Id" column="c_AccountingCycle_Id">
+      <type name="guid" />
+      <generator class="guid.comb" />
+    </id>
+    <version name="_Version" column="c__version" />
+    <component class="MetraTech.SystemConfig.Reports.AccountingCycleBusinessKey, MetraTech.SystemConfig.Reports.Entity" name="AccountingCycleBusinessKey">
+      <meta attribute="business-key">true</meta>
+      <meta attribute="internal-business-key">true</meta>
+      <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">
+        <meta attribute="label">Internal Business Key</meta>
+        <meta attribute="description" />
+        <meta attribute="defaultvalue" />
+        <meta attribute="sortable">true</meta>
+        <meta attribute="searchable">true</meta>
+        <meta attribute="association-entity" />
+        <meta attribute="encrypted">false</meta>
+        <type name="System.Guid" />
+      </property>
+    </component>
+    <property name="CreationDate" column="c_CreationDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UpdateDate" column="c_UpdateDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UID" column="c_UID">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="Name" column="c_Name" length="255" not-null="true" unique="true">
+      <meta attribute="label">Name</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Cycle" column="c_Cycle" not-null="true">
+      <meta attribute="label">Cycle</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue">Monthly</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle.UsageCycleType, MetraTech.DomainModel.Enums.Generated" />
+    </property>
+    <property name="Day" column="c_Day" not-null="true">
+      <meta attribute="label">Day</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue">1/31/2010 4:04:06 PM</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="IsDefault" column="c_IsDefault" not-null="true">
+      <meta attribute="label">IsDefault</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue">False</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="TrueFalse" />
+    </property>
+    <bag name="AccountingCycleToPartitions" access="field.camelcase-underscore" inverse="true" cascade="delete">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">AccountingCycle_AccountingCycleToPartitions</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">MetraTech.SystemConfig.Reports.AccountingCycle</meta>
+      <meta attribute="source-key-column">c_AccountingCycle_Id</meta>
+      <meta attribute="source-property-name-for-target">AccountingCycleToPartitions</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">MetraTech.SystemConfig.Reports.AccountingCycleToPartition</meta>
+      <meta attribute="target-key-column">c_AccountingCycleToPartiti_Id</meta>
+      <meta attribute="target-property-name-for-source">AccountingCycle</meta>
+      <meta attribute="cascade">true</meta>
+      <key column="c_AccountingCycle_Id" />
+      <one-to-many class="MetraTech.SystemConfig.Reports.AccountingCycleToPartition, MetraTech.SystemConfig.Reports.Entity" />
+    </bag>
+  </class>
+</hibernate-mapping>

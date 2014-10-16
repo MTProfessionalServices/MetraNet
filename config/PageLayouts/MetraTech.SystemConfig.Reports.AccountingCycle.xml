@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PageLayout>
+    <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
+    <Name>MetraTech.SystemConfig.Reports.AccountingCycle</Name>
+    <Tenant>MetraTech</Tenant>
+    <AssemblyName>MetraTech.SystemConfig.Reports.Entity</AssemblyName>
+    <ObjectName>MetraTech.SystemConfig.Reports.AccountingCycle</ObjectName>
+    <Description>Accounting cycle</Description>
+    <Header>
+        <PageTitle>
+            <Value><![CDATA[]]></Value>
+        </PageTitle>
+    </Header>
+    <Help>
+        <Mode>None</Mode>
+        <Name></Name>
+        <URL></URL>
+    </Help>
+    <Sections>
+        <Section>
+            <Title>
+                <Value><![CDATA[Accounting cycle]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.AccountingCycle</ObjectName>
+                            <ID>Name</ID>
+                            <Name>Name</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Cycle name]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.AccountingCycle</ObjectName>
+                            <ID>Cycle</ID>
+                            <Name>Cycle</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Cycle]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.AccountingCycle</ObjectName>
+                            <ID>IsDefault</ID>
+                            <Name>IsDefault</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Is Default]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.AccountingCycle</ObjectName>
+                            <ID>Day</ID>
+                            <Name>Day</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Day]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </Sections>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+</PageLayout>

@@ -26,6 +26,11 @@ public partial class DataExportReportManagement_AdHocReportManagement : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
 
   }
 

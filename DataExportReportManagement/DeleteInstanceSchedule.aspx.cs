@@ -38,7 +38,11 @@ public partial class DataExportReportManagement_DeleteInstanceSchedule : MTPage
   
   protected void Page_Load(object sender, EventArgs e)
   {
-
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
     strincomingIDSchedule = Request.QueryString["idreportinstanceschedule"];
     intincomingIDSchedule = System.Convert.ToInt32(strincomingIDSchedule);
 

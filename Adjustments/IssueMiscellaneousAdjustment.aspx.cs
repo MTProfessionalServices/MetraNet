@@ -574,7 +574,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
     private string GetMaxCapabilityAmount()
     {
-        string amount = "-1";
+        string amount = "";
+        string concop = "";
         IMTSecurity security = new MTSecurityClass();
         var capabilites = UI.SessionContext.SecurityContext.GetCapabilitiesOfType("Apply Adjustments");
 
@@ -582,7 +583,12 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             decimal authAmount = System.Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
             string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
-            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
+            amount = amount + concop +
+               String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"),
+                             cap.GetAtomicDecimalCapability().GetParameter().Test, 
+							 display,
+                             ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+            concop = " , ";
         }
 
         return amount;

@@ -13,7 +13,7 @@ public partial class MetraControl_Payments_PaymentTransactions : MTPage
   {
     //Extra check that user has permission to work with paymenttransactions
     //Eventually would be good to move this to configuration
-    if (!UI.CoarseCheckCapability("Update Failed Transactions"))
+    if (!UI.CoarseCheckCapability("Manage Payment Server"))
       Response.End();
   }
 

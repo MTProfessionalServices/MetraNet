@@ -38,7 +38,7 @@
                             <Description>MetraOffer Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem-->
-						            <!--MenuItem>
+						            <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
@@ -49,9 +49,8 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Product Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem-->
-						<!--
-                        <MenuItem>
+                        </MenuItem>						
+                        <!--MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_FINANCE_DASHBOARD</LocalizationTag>
@@ -61,9 +60,10 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Finance Dashboard</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
-						-->
+                            <RequiredCapabilities>
+                              <Capability>View Data from Analytics Datamart</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem-->						
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

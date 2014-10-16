@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NotificationEventsCollection>
 <NotificationEvents>
 	<NotificationEvent>
 		<name>Subscription End Date</name>
@@ -5,14 +7,13 @@
 		<generatorquery>__GENERATE_SUB_END_DATE_RECORDS__</generatorquery>
 		<properties>nm_login, vt_end, id_po, id_acc</properties>
 		<consumersquery>__GENERATE_SUB_END_DATE_CONSUMERS__</consumersquery>
-	</NotificationEvent>
-  
+	</NotificationEvent>  
   <NotificationEvent>
 		<name>Group Subscription End Date</name>
 		<type>DataEvent</type>
 		<generatorquery>__GENERATE_GROUP_ SUB_END_DATE_RECORDS__</generatorquery>
 		<properties>nm_login, vt_end, id_po, id_acc</properties>
 		<consumersquery>__GENERATE_GROUP_SUB_END_DATE_CONSUMERS__</consumersquery>
-	</NotificationEvent>
-  
+	</NotificationEvent>  
 </NotificationEvents>
+</NotificationEventsCollection>

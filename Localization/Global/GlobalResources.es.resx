@@ -811,6 +811,9 @@
     <value>El código postal era {0}, modificado a {1}. </value>
   </data>
   <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-    <value>[ES] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+    <value>Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+  </data>
+  <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[ES] Can't get account config set with PO from another partition!</value>
   </data>
 </root>

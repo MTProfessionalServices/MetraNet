@@ -813,4 +813,7 @@
   <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
     <value>[es-MX] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
   </data>
+  <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[es-MX] Can't get account config set with PO from another partition!</value>
+  </data>
 </root>

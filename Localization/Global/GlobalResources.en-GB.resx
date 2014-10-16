@@ -142,22 +142,22 @@
     <value>ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryProperty_CantBeEmptyOrNull" xml:space="preserve">
-    <value>[en-GB] The mandatory '{0}' property can't be empty or null. </value>
+    <value> The mandatory '{0}' property can't be empty or null. </value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
     <value>The '{0}' mandatory property is null. The property should be initialized.</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
-    <value>[en-GB] The '{0}' mandatory property should contain at least one item.</value>
+    <value> The '{0}' mandatory property should contain at least one item.</value>
   </data>
   <data name="ACS_VALIDATION_PropertiesToSetHasDuplicates" xml:space="preserve">
-    <value>[en-GB] The Properties to Set with Account View '{0}' and  name '{1}' is found more than one time. The Properties to Set should be unique.</value>
+    <value> The Properties to Set with Account View '{0}' and  name '{1}' is found more than one time. The Properties to Set should be unique.</value>
   </data>
   <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
-    <value>[en-GB] At least one of the  '{0}' or '{1}' properties should be set.</value>
+    <value> At least one of the  '{0}' or '{1}' properties should be set.</value>
   </data>
   <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
-    <value>[en-GB] The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time. The Selection Criteria should be unique.</value>
+    <value> The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time. The Selection Criteria should be unique.</value>
   </data>
   <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
     <value>StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
@@ -166,7 +166,7 @@
     <value>UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
   </data>
   <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
-    <value>[en-GB] Unable to add Account Configuration Set Subscription Params due to validation errors.</value>
+    <value> Unable to add Account Configuration Set Subscription Params due to validation errors.</value>
   </data>
   <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
     <value>Unable to add Account Configuration Set due to validation errors.</value>
@@ -175,10 +175,10 @@
     <value>Unable to find Product Offering with Id='{0}'</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindProductOfferingId" xml:space="preserve">
-    <value>[en-GB] Unable to find Product Offering with id={0}</value>
+    <value> Unable to find Product Offering with id={0}</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
-    <value>[en-GB] Unable to find subscription property. Details: '{0}'</value>
+    <value> Unable to find subscription property. Details: '{0}'</value>
   </data>
   <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
     <value>Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
@@ -196,7 +196,7 @@
     <value>Error on saving SubscriptionParams with Id {0}</value>
   </data>
   <data name="ADDED_ENTITY" xml:space="preserve">
-    <value>[en-GB]Added entity with ID {0} to entity list</value>
+    <value>Added entity with ID {0} to entity list</value>
   </data>
   <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
     <value>Added shared property values.</value>
@@ -241,7 +241,7 @@
     <value>Country was {0}, changed to {1}. </value>
   </data>
   <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>[en-GB]New Agreement Template created successfully with id {0}.</value>
+    <value>New Agreement Template created successfully with id {0}.</value>
   </data>
   <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
     <value>Day Of Month was {0}, changed to {1}. </value>
@@ -262,7 +262,7 @@
     <value>Account Configuration Set of other Partition cannot be deleted. ID: {0}</value>
   </data>
   <data name="DELETED_ENTITY" xml:space="preserve">
-    <value>[en-GB]Deleted entity with ID {0} from entity list</value>
+    <value>Deleted entity with ID {0} from entity list</value>
   </data>
   <data name="END_DATE_WAS" xml:space="preserve">
     <value>End date was {0}, changed to {1}. </value>
@@ -274,19 +274,19 @@
     <value>End Day of Week</value>
   </data>
   <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
-    <value>[en-GB]Entity list already contains entity with id {0}.</value>
+    <value>Entity list already contains entity with id {0}.</value>
   </data>
   <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
-    <value>[en-GB]Entity list does not contain entity with id {0}.</value>
+    <value>Entity list does not contain entity with id {0}.</value>
   </data>
   <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
-    <value>[en-GB]The Effective End Date cannot be earlier than the Effective Start Date.</value>
+    <value>The Effective End Date cannot be earlier than the Effective Start Date.</value>
   </data>
   <data name="EXPIRATION_CHANGED" xml:space="preserve">
     <value>Expiration date was {0}, changed to {1}.</value>
   </data>
   <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>[en-GB]Failed to save agreement template {0}.</value>
+    <value>Failed to save agreement template {0}.</value>
   </data>
   <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
     <value>First Day Of Month was {0}, changed to {1}. </value>
@@ -391,7 +391,7 @@
     <value>Successfully updated account for username '{0}' with id '{1}. ' </value>
   </data>
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
-    <value>[en-GB]Agreement template ID cannot be less than 0.</value>
+    <value>Agreement template ID cannot be less than 0.</value>
   </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>Account cannot be its own bill manager</value>
@@ -793,7 +793,7 @@
     <value>Error on update Account Configuration Set Parameters</value>
   </data>
   <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>[en-GB]Updated Agreement Template with id {0}.</value>
+    <value>Updated Agreement Template with id {0}.</value>
   </data>
   <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
     <value>Successfully updated payment instrument {0} to account {1}. {2} </value>
@@ -802,7 +802,7 @@
     <value>Usage Cycle was {0}, changed to {1}. </value>
   </data>
   <data name="VALUE_CHANGED" xml:space="preserve">
-    <value>[en-GB]{0} was {1}, changed to {2}.</value>
+    <value>{0} was {1}, changed to {2}.</value>
   </data>
   <data name="VOIDING_TIMEOUT" xml:space="preserve">
     <value>Timeout exception while voiding payment for Invoice {0}.</value>
@@ -811,6 +811,9 @@
     <value>Zip code was {0}, changed to {1}. </value>
   </data>
   <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-    <value>[en-GB] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+    <value>Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+  </data>
+  <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>Can't get account config set with PO from another partition!</value>
   </data>
 </root>

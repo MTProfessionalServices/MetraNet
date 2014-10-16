@@ -804,4 +804,7 @@
   <data name="ZIP_CHANGED" xml:space="preserve">
     <value>Zip code was {0}, changed to {1}. </value>
   </data>
+  <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>Can't get account config set with PO from another partition!</value>
+  </data>
 </root>

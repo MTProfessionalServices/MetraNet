@@ -428,31 +428,34 @@ CLASS CTransactionUIFinder
     PUBLIC FUNCTION Initialize()
         Initialize = FALSE
         
-        Service.Properties.Clear
-        FrameWork.Dictionary.Add "ADJUSTMENT_FINDER_PRICE_ABLE_ITEM_SUB_TEMPLATE", "<MDMHTML>"
+       ' If Service.Properties("PriceAbleItem").Value = 0 Then
+          Service.Properties.Clear
+          FrameWork.Dictionary.Add "ADJUSTMENT_FINDER_PRICE_ABLE_ITEM_SUB_TEMPLATE", "<MDMHTML>"
       
-        Service.Properties.Add "CurrentAccountIsThePayer", "Int32",0,TRUE, Empty
-        Service.Properties("CurrentAccountIsThePayer").Caption  = PreProcess(FrameWork.Dictionary.Item("ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_CAPTION").Value  ,Array("SUBSCRIBER","<B>" & MAM().Subscriber("UserName").Value & "</B>") )
-        Service.Properties("CurrentAccountIsThePayer").AddValidListOfValueFromDictionaryCollection FrameWork.Dictionary(),"ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH"
-        Service.Properties("CurrentAccountIsThePayer").Value    = CLng(FrameWork.Dictionary.Item("ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER").Value)
+          Service.Properties.Add "CurrentAccountIsThePayer", "Int32",0,TRUE, Empty
+          Service.Properties("CurrentAccountIsThePayer").Caption  = PreProcess(FrameWork.Dictionary.Item("ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_CAPTION").Value  ,Array("SUBSCRIBER","<B>" & MAM().Subscriber("UserName").Value & "</B>") )
+          Service.Properties("CurrentAccountIsThePayer").AddValidListOfValueFromDictionaryCollection FrameWork.Dictionary(),"ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH"
+          Service.Properties("CurrentAccountIsThePayer").Value    = CLng(FrameWork.Dictionary.Item("ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER").Value)
           
-        Service.Properties.Add "StartDate", "String",  0, False, Empty
-        Service.Properties("StartDate").Caption = FrameWork.Dictionary.Item("TEXT_START_DATE").Value
+          Service.Properties.Add "StartDate", "String",  0, False, Empty
+          Service.Properties("StartDate").Caption = FrameWork.Dictionary.Item("TEXT_START_DATE").Value
         
-        Service.Properties.Add "EndDate", "String", 0, False, Empty
-        Service.Properties("EndDate").Caption = FrameWork.Dictionary.Item("TEXT_END_DATE").Value 
+          Service.Properties.Add "EndDate", "String", 0, False, Empty
+          Service.Properties("EndDate").Caption = FrameWork.Dictionary.Item("TEXT_END_DATE").Value 
 
-        Service.Properties.Add "BillingInterval", "String", 0, False, Empty
-        Service.Properties("BillingInterval").Caption = FrameWork.Dictionary.Item("TEXT_BILLING_INTERVAL").Value 
+          Service.Properties.Add "BillingInterval", "String", 0, False, Empty
+          Service.Properties("BillingInterval").Caption = FrameWork.Dictionary.Item("TEXT_BILLING_INTERVAL").Value 
 
-        Service.Properties.Add "FixedDate", "String", 0, False, Empty
-        Service.Properties("FixedDate").Caption = FrameWork.Dictionary.Item("TEXT_FIXED_DATE").Value 
+          Service.Properties.Add "FixedDate", "String", 0, False, Empty
+          Service.Properties("FixedDate").Caption = FrameWork.Dictionary.Item("TEXT_FIXED_DATE").Value 
                
-        Service.Properties.Add "PeriodOfTime", "String", 0, False, Empty
-        Service.Properties("PeriodOfTime").Caption = FrameWork.Dictionary.Item("TEXT_PERIOD_OF_TIME").Value 
+          Service.Properties.Add "PeriodOfTime", "String", 0, False, Empty
+          Service.Properties("PeriodOfTime").Caption = FrameWork.Dictionary.Item("TEXT_PERIOD_OF_TIME").Value 
         
-        Service.Properties.Add "PriceAbleItem", "Int32" , 0 , TRUE , Empty  
-        Service.Properties("PriceAbleItem").Caption = FrameWork.Dictionary.Item("TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL").Value
+          Service.Properties.Add "PriceAbleItem", "Int32" , 0 , TRUE , Empty  
+          Service.Properties("PriceAbleItem").Caption = FrameWork.Dictionary.Item("TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL").Value
+        'End If 
+
         TransactionUIFinder.SetValidListOfValueAdjustablePriceAbleItem Service.Properties("PriceAbleItem")       
         
         If Service.Properties("PriceAbleItem").EnumType.Entries.Count=0 Then
@@ -470,10 +473,29 @@ CLASS CTransactionUIFinder
           
         Initialize = TRUE
     END FUNCTION
+
+    PUBLIC FUNCTION ReInitialize()
+        ReInitialize = FALSE
+        
+        TransactionUIFinder.SetValidListOfValueAdjustablePriceAbleItem Service.Properties("PriceAbleItem")       
+        
+        If Service.Properties("PriceAbleItem").EnumType.Entries.Count=0 Then
+      
+              EventArg.Error.Description =  FrameWork.Dictionary.Item("MAM_ERROR_1042").Value
+              EventArg.Error.Number      =  1042
+              Form_DisplayErrorMessage EventArg
+              mdm_TerminateDialog
+              Response.End
+        End If        
+        
+        ' Load the interval id
+        Service.Properties.Interval.Load mam_GetSubscriberAccountID()  
+        mdm_pvb_DoToProductViewTheIntervalIDFieldAsEnumType MDM_ACTION_ADD, Service ' Populate the field Interval ID
+          
+        ReInitialize = TRUE
+    END FUNCTION
     
 END CLASS
-
-
 
 Private TransactionUIFinder
 Set TransactionUIFinder = New CTransactionUIFinder

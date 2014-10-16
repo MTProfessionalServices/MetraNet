@@ -816,4 +816,79 @@
   <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[IT] Can't get account config set with PO from another partition!</value>
   </data>
+  <data name="ACS_APPLIED_LIST_UPDATED" xml:space="preserve">
+    <value>[IT]Applied Account Config Sets with IDs: {0} are not eligible for the account any more. Related subscriptions will be terminated.</value>
+  </data>
+  <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
+    <value>[IT]Account Config Sets with ID '{0}' was removed from Applied list.</value>
+  </data>
+  <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
+    <value>[IT]Creation of new subsciptions is finished.</value>
+  </data>
+  <data name="ACS_CREATE_SUB_START" xml:space="preserve">
+    <value>[IT]Starting creation of new subsciptions…</value>
+  </data>
+  <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
+    <value>[IT]Account Config Sets with IDs: {0} are currently eligible for the account and were already applied.</value>
+  </data>
+  <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
+    <value>[IT]New subscriptions wil be created for Eligible Account Config Sets with IDs: {0}.</value>
+  </data>
+  <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
+    <value>[IT]Account '{0}' was loaded.</value>
+  </data>
+  <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
+    <value>[IT]Loading Account with ID {0}…</value>
+  </data>
+  <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
+    <value>[IT]Applied Account Config Sets with IDs: {0} were found for the account.</value>
+  </data>
+  <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
+    <value>[IT]Loading Account Config Sets that were applied for the account…</value>
+  </data>
+  <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
+    <value>[IT]Account Config Sets with IDs: {0} were found as eligible for the account.</value>
+  </data>
+  <data name="ACS_LOAD_ELIGIBLE_ACS_NONUNIQUE_RANK_EXCEPTION" xml:space="preserve">
+    <value>[IT]Some Eligible Account Config Sets have non-unique rank. Wrong Account Config Sets configuration.</value>
+  </data>
+  <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
+    <value>[IT]Loading Account Config Sets that are eligible for the account…</value>
+  </data>
+  <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
+    <value>[IT]Modification of account properties is finished.</value>
+  </data>
+  <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
+    <value>[IT]Starting account properties modification…</value>
+  </data>
+  <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
+    <value>[IT]Fail to modify property '{0}' by ACS {1}. Old value:'{2}'. New value:'{3}'.</value>
+  </data>
+  <data name="ACS_PROP_MODIFIED_SUCCESSFULLY" xml:space="preserve">
+    <value>[IT]Property '{0}' was modified by ACS {1}. Old value:'{2}'. New value:'{3}'.</value>
+  </data>
+  <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
+    <value>[IT]Property '{0}' was not found.</value>
+  </data>
+  <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
+    <value>[IT]Account was subscribed to '{0}'.</value>
+  </data>
+  <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
+    <value>[IT]Unable to subscribe account to '{0}'. Exception: {1}</value>
+  </data>
+  <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
+    <value>[IT]Unable to terminated subscription to {0}. Exception: {1}</value>
+  </data>
+  <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
+    <value>[IT]Subscription to {0} was terminated.</value>
+  </data>
+  <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
+    <value>[IT]Termination of existing subsciptions is finished.</value>
+  </data>
+  <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
+    <value>[IT]Starting termination of existing subsciptions…</value>
+  </data>
+  <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error on applying Account Configuration Sets for account {0}.</value>
+  </data>
 </root>

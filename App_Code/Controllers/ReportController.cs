@@ -1,6 +1,7 @@
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Web.Mvc;
+using MetraNet;
 using MetraNet.DbContext;
 using System.Linq;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ASP.Controllers
   [Authorize]
   public class ReportController : MTController
   {
+
     public JsonResult NewCustomers()
     {
       using (var dbDataMart = GetDatamartContext())
@@ -109,16 +111,16 @@ namespace ASP.Controllers
                               Date = new DateTime(subByMonth.Month.Value.Year, subByMonth.Month.Value.Month, 1),
                               CurrencyCode = sub.FeeCurrency
                             }
-                          into grp
-                          select new
-                            {
-                              grp.Key.Date,
-                              grp.Key.CurrencyCode,
-                              Amount =
-                            grp.Sum(
-                              x =>
-                              x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
-                            }).ToList();
+                            into grp
+                            select new
+                              {
+                                grp.Key.Date,
+                                grp.Key.CurrencyCode,
+                                Amount =
+                              grp.Sum(
+                                x =>
+                                x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
+                              }).ToList();
 
         return Json(MRRByMonth, JsonRequestBehavior.AllowGet);
       }
@@ -126,7 +128,7 @@ namespace ASP.Controllers
 
     private IEnumerable<SelectListItem> GetProductCodes()
     {
-      var list = new List<SelectListItem> {new SelectListItem {Selected = true, Text = "All", Value = "all"}};
+      var list = new List<SelectListItem> { new SelectListItem { Selected = true, Text = "All", Value = "all" } };
 
       using (var dbContext = GetDatamartContext())
       {
@@ -186,6 +188,56 @@ namespace ASP.Controllers
         Password = password
       };
       return new SqlConnection(connString.ToString());
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="accountingCycleId"></param>
+    /// <param name="currency"></param>
+    /// <param name="revenueCode"></param>
+    /// <param name="deferredRevenueCode"></param>
+    /// <param name="productId"></param>
+    /// <returns></returns>
+    public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, string revenueCode, string deferredRevenueCode, int productId)
+    {
+      var accCycle = ReportingtHelper.GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountingCycleId)));
+      var headers = ReportingtHelper.GetRevRecReportHeaders(accountingCycleId);
+      var revRec = ReportingtHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
+      if(revRec.Count == 0)
+        return Json(new { rows = new {}, headers }, JsonRequestBehavior.AllowGet);
+      var data = revRec.First().ColumnsData.Keys.ToDictionary(item => item, item => new double[]{0f,0f});
+      foreach (var revRecItem in revRec.Where(x => x.RevenuePart.Equals("Deferred") || x.RevenuePart.Equals("Earned")))
+      {
+        for (var j = 1; j <= data.Count; j++){
+          data[j][Convert.ToInt32(revRecItem.RevenuePart.Equals("Deferred"))] += revRecItem.ColumnsData[j];
+        }
+      }
+      var result = Enumerable.Range(1, data.Count).Select(x => new { month = x, deferred = Math.Round(data[x][1]), earned = Math.Round(data[x][0]) }).ToArray();
+      return Json(new {rows = result, headers}, JsonRequestBehavior.AllowGet);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="accountCycleId"></param>
+    /// <returns></returns>
+    public ActionResult RevRecReportHeaders(string accountCycleId)
+    {
+      var headers = ReportingtHelper.GetRevRecReportHeaders(accountCycleId);
+      return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);
+    }
+
+    public JsonResult GetProductsFilter()
+    {
+      var products = ReportingtHelper.GetProducts();
+      return Json(products, JsonRequestBehavior.AllowGet);
+    }
+
+    public JsonResult GetAccountingCyclesFilter()
+    {
+      var accountingCycles = ReportingtHelper.GetAccountingCycles();
+      return Json(accountingCycles, JsonRequestBehavior.AllowGet);
     }
 
     /*public ActionResult Churn()
@@ -446,3 +498,4 @@ namespace ASP.Controllers
 
   }
 }
+

@@ -1,1 +1,0 @@
-create global temporary table sum_rcs_by_month(x clob) on commit delete rows

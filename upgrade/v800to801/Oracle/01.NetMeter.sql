@@ -7,7 +7,76 @@ ALTER TABLE tmp_rc ADD (c__quotebatchid RAW(16));
 
 ALTER TABLE t_recur_window ADD (c__quotebatchid RAW(16));
 
-ALTER TABLE tmp_oldrw ADD (c__quotebatchid RAW(16));
+/* *** start ADDS c__QuoteBatchId column to TMP_OLDRW  *** */ 
+CREATE TABLE TMP_OLDRW_BACKUP AS
+SELECT *
+FROM TMP_OLDRW;
+/
+
+DROP TABLE TMP_OLDRW;
+/
+
+CREATE TABLE TMP_OLDRW ( C_CYCLEEFFECTIVEDATE, 
+       C_CYCLEEFFECTIVESTART, 
+       C_CYCLEEFFECTIVEEND, 
+       C_SUBSCRIPTIONSTART, 
+       C_SUBSCRIPTIONEND, 
+       C_ADVANCE, 
+       C__ACCOUNTID, 
+       C__PAYINGACCOUNT, 
+       C__PRICEABLEITEMINSTANCEID, 
+       C__PRICEABLEITEMTEMPLATEID, 
+       C__PRODUCTOFFERINGID, 
+       C_PAYERSTART, 
+       C_PAYEREND, 
+       C__SUBSCRIPTIONID, 
+       C_UNITVALUESTART, 
+       C_UNITVALUEEND, 
+       C_UNITVALUE, 
+       C_BILLEDTHROUGHDATE, 
+       C_LASTIDRUN, 
+       C_MEMBERSHIPSTART, 
+       C_MEMBERSHIPEND,
+       c__QuoteBatchId, 
+       ID_PAYER, 
+       ID_PAYEE, 
+       VT_START, 
+       VT_END) AS
+SELECT C_CYCLEEFFECTIVEDATE, 
+       C_CYCLEEFFECTIVESTART, 
+       C_CYCLEEFFECTIVEEND, 
+       C_SUBSCRIPTIONSTART, 
+       C_SUBSCRIPTIONEND, 
+       C_ADVANCE, 
+       C__ACCOUNTID, 
+       C__PAYINGACCOUNT, 
+       C__PRICEABLEITEMINSTANCEID, 
+       C__PRICEABLEITEMTEMPLATEID, 
+       C__PRODUCTOFFERINGID, 
+       C_PAYERSTART, 
+       C_PAYEREND, 
+       C__SUBSCRIPTIONID, 
+       C_UNITVALUESTART, 
+       C_UNITVALUEEND, 
+       C_UNITVALUE, 
+       C_BILLEDTHROUGHDATE, 
+       C_LASTIDRUN, 
+       C_MEMBERSHIPSTART, 
+       C_MEMBERSHIPEND,
+       0, 
+       ID_PAYER, 
+       ID_PAYEE, 
+       VT_START, 
+       VT_END
+FROM TMP_OLDRW_BACKUP;
+/
+
+UPDATE TMP_OLDRW SET c__QuoteBatchId = NULL;
+/
+
+ALTER TABLE TMP_OLDRW MODIFY c__QuoteBatchId raw(16);
+DROP TABLE TMP_OLDRW_BACKUP;
+/* *** end ADDS c__QuoteBatchId column to TMP_OLDRW  *** */ 
 
 /* *** start ADDS c__QuoteBatchId column to TMP_OLDRW  *** */ 
 CREATE TABLE TMP_OLDRW_BACKUP AS

@@ -575,7 +575,7 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim strEndOfPageHTMLCode, strTmp
     
     strTmp = strTmp & "</TABLE>"   
-    strTmp = strTmp & "<BR><BR><CENTER><button  name='butBack' Class='clsButtonMedium' onclick='document.location.href=""[ADJUSTMENT_FINDER_DIALOG]?PriceAbleItemTemplateID=" & TransactionUIFinder.SelectedPriceAbleItemTemplateID & """;'>" & FrameWork.Dictionary.Item("TEXT_BACK") & "</button></CENTER>" & vbNewLine    
+    strTmp = strTmp & "<BR><BR><CENTER><button  name='butBack' Class='clsButtonMedium' onclick='document.location.href=""[ADJUSTMENT_FINDER_DIALOG]?PriceAbleItemTemplateID=" & TransactionUIFinder.SelectedPriceAbleItemTemplateID & """; return false;'>" & FrameWork.Dictionary.Item("TEXT_BACK") & "</button></CENTER>" & vbNewLine    
     strTmp = strTmp & "</FORM></BODY>"
     
     EventArg.HTMLRendered = FrameWork.Dictionary.PreProcess(strTmp)

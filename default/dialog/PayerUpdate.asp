@@ -142,7 +142,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
   	      Call PaymentMgr.PayForAccount(Form("AccountID"), CDate(mam_ConvertToSysDate(Service.Properties("StartDate"))), CDate(mam_NormalDateFormat(strEndDate)))
         Else
     		  ' Payer is the same so just do ChangePaymentEffectiveDate
-          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(mam_NormalDateFormat(Form("OldStartDate"))), CDate(mam_NormalDateFormat(Form("OldEndDate"))), CDate(Service.Properties("StartDate")&""), CDate(mam_NormalDateFormat(strEndDate))
+          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(mam_NormalDateFormat(Form("OldStartDate"))), CDate(mam_NormalDateFormat(Form("OldEndDate"))), CDate(mam_ConvertToSysDate(Service.Properties("StartDate"))), CDate(mam_NormalDateFormat(strEndDate))
         End If
         
   		Else

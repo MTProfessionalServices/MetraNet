@@ -28,6 +28,7 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp" -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
 <%
 
 
@@ -44,6 +45,7 @@ mdm_Main ' invoke the mdm framework
 ' DESCRIPTION :
 ' RETURNS     : Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
+  Framework.AssertCourseCapability "Manage Usage Processing", EventArg
 
 	Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.

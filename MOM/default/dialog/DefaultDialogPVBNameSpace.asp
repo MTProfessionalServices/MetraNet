@@ -36,6 +36,8 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp"          -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
+
 <%
 
 Form.Page.MaxRow                = CLng(mom_GetDictionary("PV_ROW_PER_PAGE"))
@@ -45,7 +47,7 @@ Form.Page.NoRecordUserMessage   = mom_GetDictionary("PRODUCT_VIEW_BROWSER_NO_REC
 mdm_PVBrowserMain ' invoke the mdm framework
 
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
-    
+    Framework.AssertCourseCapability "Update Runtime Configuration", EventArg
 	  ProductView.Clear  ' Set all the property of the service to empty or to the default value
 	  Form_Initialize = TRUE
 END FUNCTION

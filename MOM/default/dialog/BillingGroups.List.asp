@@ -49,7 +49,18 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Dim objUSM
     Set objUSM = mom_GetUsageServerClientObject()
     Dim interval
-    Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
+    'Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
+
+    dim partitionId 
+    partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+    if IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    'show no data if the partition id is empty
+    elseif (partitionId = 1) then
+      Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
+    else
+      Set interval = objUSM.GetUsageIntervalWithoutAccountStatsForPartition(CLng(Form("IntervalID")),partitionId)
+    end if
+
     If CBool(interval.HasBeenMaterialized) Then
       mdm_GetDictionary().Add "MATERIALIZE_TEXT", mom_GetDictionary("TEXT_REMATERIALIZE")
       ' Reset the message
@@ -74,6 +85,11 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
         mdm_GetDictionary().Add "SHOW_MATERIALIZE_GROUPS_OPTION", 0
         mdm_GetDictionary().Add "SHOW_HARD_CLOSE_INTERVAL_OPTION", 1
       End If
+    End If
+
+    If Not FrameWork.CheckCoarseCapability("Manage Intervals") Then
+      mdm_GetDictionary().Add "SHOW_MATERIALIZE_GROUPS_OPTION", 0
+      mdm_GetDictionary().Add "SHOW_HARD_CLOSE_INTERVAL_OPTION", 0
     End If
     
     If mom_GetDictionary("SHOW_MATERIALIZE_GROUPS_OPTION") = 0 Then
@@ -124,7 +140,17 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   '  ///   
   '  ///   Sorted by:  Name ASC
   '  /// </returns>   
-  Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsRowset(CLng(Form("IntervalID")), CBool(Form("ShowAllBillingGroups")))
+
+  dim partitionId 
+  partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  if IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    'show no bill groups if the partition id is empty
+  elseif (partitionId = 1) then
+    Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsRowset(CLng(Form("IntervalID")), CBool(Form("ShowAllBillingGroups")))  
+  else
+    Set ProductView.Properties.RowSet = objUSM.GetBillingGroupsForPartitionRowset(CLng(Form("IntervalID")), CLng(partitionId), CBool(Form("ShowAllBillingGroups")))
+  end if
+
   ProductView.Properties.AddPropertiesFromRowset ProductView.Properties.RowSet
   ProductView.Properties.ClearSelection
 '	ProductView.Properties.SelectAll  
@@ -171,7 +197,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
 
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "<td width='250px' class='" & Form.Grid.CellClass & "' align='left'>"
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "<b><a target='ticketFrame' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & ProductView.Properties("BillingGroupID") & "&ID=" & Form("IntervalID") & _
-                                                      "'>" & ProductView.Properties("Name") & "</a></b><br>" & ProductView.Properties("Description") 
+                                                      "'>" & ProductView.Properties("Name") & "</a></b><br>" 
+      If Not (IsNull(ProductView.Properties("partition_name")) Or IsEmpty(ProductView.Properties("partition_name"))) then
+        EventArg.HTMLRendered = EventArg.HTMLRendered & mom_GetDictionary("TEXT_PARTITION") & ": " & ProductView.Properties("partition_name") & "<br>"
+      End If
+      EventArg.HTMLRendered = EventArg.HTMLRendered & ProductView.Properties("Description") 
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
             
       Form_DisplayCell = TRUE   

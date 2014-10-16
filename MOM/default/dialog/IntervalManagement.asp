@@ -40,9 +40,15 @@ mdm_Main
 ' DESCRIPTION:
 ' RETURNS    : Return TRUE / FALSE
 FUNCTION Form_Initialize(EventArg) 
-
+  Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
+  
   If Len(Request.QueryString("ID")) > 0 Then
     Form("IntervalID") = Request.QueryString("ID")
+  End If
+  If FrameWork.CheckCoarseCapability("Manage Intervals") Then
+    mdm_GetDictionary.Add "CanSeeChangeLink", true
+  Else
+    mdm_GetDictionary.Add "CanSeeChangeLink", false
   End If  
   Service.Clear 
   Service.Properties.Add "IntervalID", "string", 0, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE
@@ -72,9 +78,17 @@ FUNCTION Form_Refresh(EventArg)
 
   Dim objUSM, objInterval
   Set objUSM = mom_GetUsageServerClientObject()
-  'Set objInterval = objUSM.GetUsageInterval(Form("IntervalID"))
-  Set objInterval = objUSM.GetUsageIntervalWithoutAccountStats(Form("IntervalID"))
 
+  dim partitionId 
+  partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  if IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    'show no data if the partition id is empty
+  elseif (partitionId = 1) then
+    Set objInterval = objUSM.GetUsageIntervalWithoutAccountStats(Form("IntervalID"))
+  else
+    Set objInterval = objUSM.GetUsageIntervalWithoutAccountStatsForPartition(Form("IntervalID"),partitionId)
+  end if
+  
   Service.Properties("IntervalID").Value = CStr(objInterval.IntervalID)
   Service.Properties("IntervalType").Value = GetBillingGroupCycleType(objInterval.CycleType)
   Service.Properties("IntervalStartDateTime").Value = CDate(objInterval.StartDate)
@@ -87,7 +101,6 @@ FUNCTION Form_Refresh(EventArg)
   Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
   'Service.Properties("Percentage").Value = objInterval.Progress
   Service.Properties("Status").Value = objInterval.Status
-
   if objInterval.IsBlockedForNewAccounts Then
     mdm_GetDictionary().Add "INTERVAL_IS_BLOCKED_TO_NEW_ACCOUNTS", 1
     Service.Properties("IntervalBlockedToUsageFromNewAccountsMessage").Value = "New Accounts Will Not Be Invoiced For This Interval"
@@ -96,7 +109,7 @@ FUNCTION Form_Refresh(EventArg)
     Service.Properties("IntervalBlockedToUsageFromNewAccountsMessage").Value = "New Accounts Can Be Invoiced For This Interval"
   end if
   
-  If objInterval.OpenUnassignedAccountsCount>0 AND objInterval.HasBeenMaterialized Then
+  If objInterval.OpenUnassignedAccountsCount>0 AND objInterval.HasBeenMaterialized AND FrameWork.CheckCoarseCapability("Manage Intervals") AND (IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) OR Session("MOM_SESSION_CSR_PARTITION_ID")=1) Then
     mdm_GetDictionary().Add "INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED", 1
   Else
     mdm_GetDictionary().Add "INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED", 0

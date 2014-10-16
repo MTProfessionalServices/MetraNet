@@ -41,7 +41,7 @@ mdm_PVBrowserMain ' invoke the mdm framework
 ' DESCRIPTION: 
 ' RETURNS:     Return TRUE if ok else FALSE
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
-
+Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
     Form.Modal = TRUE
 
     ProductView.Clear 

@@ -37,6 +37,7 @@ mdm_Main
 
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
+  Framework.AssertCourseCapability "Update Failed Transactions", EventArg
   Service.Properties.Add "Message",      MSIXDEF_TYPE_STRING, 0, FALSE, EMPTY
   Service.Properties.Add "MessageTitle", MSIXDEF_TYPE_STRING, 0, FALSE, EMPTY
   Service.Properties.Add "Title",        MSIXDEF_TYPE_STRING, 0, FALSE, EMPTY

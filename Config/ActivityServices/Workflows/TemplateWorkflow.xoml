@@ -1,332 +1,333 @@
-﻿<ns0:TemplateWorkflow PageStateGuid="00000000-0000-0000-0000-000000000000" InitialStateName="StartTemplateWorkflow" x:Name="TemplateWorkflow"  DynamicUpdateCondition="{x:Null}" CompletedStateName="EndTemplateWorkflow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns1="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns2="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities" xmlns:ns0="clr-namespace:MetraCareWorkflowLibrary;Assembly=MetraCareWorkflowLibrary">
+﻿<ns0:TemplateWorkflow GroupIDs="{p1:Null}" ApplyDefaultSecurityString="{p1:Null}" AccountTypes="{p1:Null}" ApplyPropertiesList="{p1:Null}" AccountTemplatePropertiesList="{p1:Null}" EffectiveTime="0001-01-01T00:00:00.0000000" ProductOfferingsList="{p1:Null}" ApplyEndConflictingSubscriptionsString="{p1:Null}" AccountTemplateInstance="{p1:Null}" TemplateResultsList="{p1:Null}" NumRetries="0" ProductOfferingIDs="{p1:Null}" SessionId="{p1:Null}" CompletedStateName="EndTemplateWorkflow" InitialStateName="StartTemplateWorkflow" ApplyTemplateScope="CURRENT_FOLDER" PageStateGuid="00000000-0000-0000-0000-000000000000" ApplyStartDateString="{p1:Null}" POID="{p1:Null}" MoveAccountsString="{p1:Null}" EndConflictingSubscriptions="False" ApplySubscriptionsList="{p1:Null}" DetailsList="{p1:Null}" x:Name="TemplateWorkflow" GroupID="{x:Null}" InheritParentProperties="False" TempAccount="{x:Null}" SelectedAccountType="{x:Null}" ApplyPropertiesString="{x:Null}" ApplyAllDescendentsString="{x:Null}" MovedTypes="{x:Null}" DynamicUpdateCondition="{x:Null}" InheritParentTemplateString="{x:Null}" ApplyEndDateString="{x:Null}" ApplyStartNextBillingPeriodString="{x:Null}" AccountIdentifier="{x:Null}" TemplateList="{x:Null}" ApplyEndNextBillingPeriodString="{x:Null}" ApplySubscriptionsString="{x:Null}" GroupSubscriptionList="{x:Null}" SessionIdInstance="0" AccountTemplateInstanceSubscriptionList="{x:Null}" SubscriptionDates="{x:Null}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns1="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns2="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraCareWorkflowLibrary;Assembly=MetraCareWorkflowLibrary, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75">
 	<StateActivity x:Name="StartTemplateWorkflow">
 		<EventDrivenActivity x:Name="Start_TemplateWorkflow">
-			<ns2:MTHandleEventActivity EventName="Start_TemplateWorkflow" x:Name="mtHandleEventActivity1" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity1" EventName="Start_TemplateWorkflow" />
 			<SetStateActivity x:Name="setStateActivity1" TargetStateName="TemplateSummary" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="StartMove_TemplateWorkflow">
-			<ns2:MTHandleEventActivity EventName="StartMove_TemplateWorkflow" x:Name="mtHandleEventActivity32" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity32" EventName="StartMove_TemplateWorkflow" />
 			<CodeActivity x:Name="SetMovedTypes" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SetMovedTypes_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity23" TargetStateName="TemplateSummary" />
 		</EventDrivenActivity>
 	</StateActivity>
 	<StateActivity x:Name="EndTemplateWorkflow" />
 	<EventDrivenActivity x:Name="SetStateEventHandler">
-		<ns2:MTHandleEventActivity EventName="SetStateEvent" x:Name="mtHandleEventActivity0" />
-		<ns2:MTSetPageStateActivity x:Name="mtSetPageStateActivity0" StateGuid="{ActivityBind TemplateWorkflow,Path=PageStateGuid}" />
+		<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity0" EventName="SetStateEvent" />
+		<ns1:MTSetPageStateActivity x:Name="mtSetPageStateActivity0" StateGuid="{ActivityBind TemplateWorkflow,Path=PageStateGuid}" />
 		<FaultHandlersActivity x:Name="faultHandlersActivity0">
-			<FaultHandlerActivity x:Name="faultHandlerActivity0" FaultType="{x:Type p10:Exception}" xmlns:p10="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-				<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity0" Exception="{ActivityBind faultHandlerActivity0,Path=Fault}" />
+			<FaultHandlerActivity x:Name="faultHandlerActivity0" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+				<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity0" Exception="{ActivityBind faultHandlerActivity0,Path=Fault}" />
 			</FaultHandlerActivity>
 		</FaultHandlersActivity>
 	</EventDrivenActivity>
-	<ns2:MTPageStateActivity x:Name="TemplateSummary" PageName="/MetraNet/Templates/TemplateSummary.aspx">
+	<ns1:MTPageStateActivity x:Name="TemplateSummary" PageName="/MetraNet/Templates/TemplateSummary.aspx">
 		<StateInitializationActivity x:Name="Init_TemplateSummary">
 			<CodeActivity x:Name="InitTempAccount" ExecuteCode="{ActivityBind TemplateWorkflow,Path=InitTempAccount_ExecuteCode}" />
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity1" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity1" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity10">
-				<FaultHandlerActivity x:Name="faultHandlerActivity10" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity10" Exception="{ActivityBind faultHandlerActivity10,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity10" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity10" Exception="{ActivityBind faultHandlerActivity10,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="Add_TemplateSummary">
-			<ns2:MTHandleEventActivity EventName="Add_TemplateSummary" x:Name="mtHandleEventActivity2" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity2" EventName="Add_TemplateSummary" />
 			<SetStateActivity x:Name="setStateActivity2" TargetStateName="AddTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity13">
-				<FaultHandlerActivity x:Name="faultHandlerActivity13" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity13" Exception="{ActivityBind faultHandlerActivity13,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity13" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity13" Exception="{ActivityBind faultHandlerActivity13,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Edit_TemplateSummary">
-			<ns2:MTHandleEventActivity EventName="Edit_TemplateSummary" x:Name="mtHandleEventActivity7" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity7" EventName="Edit_TemplateSummary" />
 			<CodeActivity x:Name="SetDefaults2" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SetDefaultTemplateValues_ExecuteCode}" />
-			<ns1:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity Out_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" x:Name="accountTemplateService_GetTemplateDefForAccountType_ClientActivity1" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_inheritAnscestorProperties="{ActivityBind TemplateWorkflow,Path=InheritParentProperties}" />
+			<ns2:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_inheritAnscestorProperties="{ActivityBind TemplateWorkflow,Path=InheritParentProperties}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" Out_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" x:Name="accountTemplateService_GetTemplateDefForAccountType_ClientActivity1" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
 			<CodeActivity x:Name="NewTempAccount2" ExecuteCode="{ActivityBind TemplateWorkflow,Path=NewTempAccount_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity7" TargetStateName="EditTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity11">
-				<FaultHandlerActivity x:Name="faultHandlerActivity11" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity11" Exception="{ActivityBind faultHandlerActivity11,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity11" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity11" Exception="{ActivityBind faultHandlerActivity11,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Apply_TemplateSummary">
-			<ns2:MTHandleEventActivity EventName="Apply_TemplateSummary" x:Name="mtHandleEventActivity8" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity8" EventName="Apply_TemplateSummary" />
 			<CodeActivity x:Name="SetDefaults3" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SetDefaultTemplateValues_ExecuteCode}" />
-			<ns1:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity Out_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" x:Name="accountTemplateService_GetTemplateDefForAccountType_ClientActivity3" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_inheritAnscestorProperties="{ActivityBind TemplateWorkflow,Path=InheritParentProperties}" />
+			<ns2:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_inheritAnscestorProperties="{ActivityBind TemplateWorkflow,Path=InheritParentProperties}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" Out_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" x:Name="accountTemplateService_GetTemplateDefForAccountType_ClientActivity3" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
 			<CodeActivity x:Name="NewTempAccount3" ExecuteCode="{ActivityBind TemplateWorkflow,Path=NewTempAccount_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity8" TargetStateName="ApplyTemplate" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="GetTemplateList_TemplateSummary">
-			<ns2:MTHandleEventActivity EventName="GetTemplateList_TemplateSummary" x:Name="mtHandleEventActivity16" />
-			<ns1:AccountTemplateService_GetTemplatesForOwner_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" x:Name="accountTemplateService_GetTemplatesForOwner_ClientActivity1" InOut_templateDefs="{ActivityBind TemplateWorkflow,Path=TemplateList}" />
-			<ns2:MTEventOutputActivity EventName="GetTemplateList_TemplateSummary" x:Name="mtEventOutputActivity1" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity16" EventName="GetTemplateList_TemplateSummary" />
+			<ns2:AccountTemplateService_GetTemplatesForOwner_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" x:Name="accountTemplateService_GetTemplatesForOwner_ClientActivity1" InOut_templateDefs="{ActivityBind TemplateWorkflow,Path=TemplateList}" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity1" EventName="GetTemplateList_TemplateSummary" />			
 			<FaultHandlersActivity x:Name="faultHandlersActivity2">
-				<FaultHandlerActivity x:Name="faultHandlerActivity2" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity2" Exception="{ActivityBind faultHandlerActivity2,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity2" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity2" Exception="{ActivityBind faultHandlerActivity2,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Cancel_TemplateSummary">
-			<ns2:MTHandleEventActivity EventName="Cancel_TemplateSummary" x:Name="mtHandleEventActivity9" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity9" EventName="Cancel_TemplateSummary" />
 			<SetStateActivity x:Name="setStateActivity10" TargetStateName="Dashboard" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Delete_TemplateSummary">
-			<ns2:MTHandleEventActivity EventName="Delete_TemplateSummary" x:Name="mtHandleEventActivity14" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity14" EventName="Delete_TemplateSummary" />
 			<CodeActivity x:Name="SetDefaultValuesForDelete" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SetDefaultTemplateValues_ExecuteCode}" />
-			<ns1:AccountTemplateService_DeleteAccountTemplate_ClientActivity In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" x:Name="accountTemplateService_DeleteAccountTemplate_ClientActivity1" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
+			<ns2:AccountTemplateService_DeleteAccountTemplate_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" x:Name="accountTemplateService_DeleteAccountTemplate_ClientActivity1" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity12">
-				<FaultHandlerActivity x:Name="faultHandlerActivity12" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity12" Exception="{ActivityBind faultHandlerActivity12,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity12" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity12" Exception="{ActivityBind faultHandlerActivity12,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="ViewHistory_TemplateSummary">
-			<ns2:MTHandleEventActivity EventName="ViewHistory_TemplateSummary" x:Name="mtHandleEventActivity20" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity20" EventName="ViewHistory_TemplateSummary" />
 			<CodeActivity x:Name="ClearSessionId" ExecuteCode="{ActivityBind TemplateWorkflow,Path=ClearSessionId_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity16" TargetStateName="TemplateHistory" />
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="EditTemplate" PageName="/MetraNet/Templates/EditTemplate.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="EditTemplate" PageName="/MetraNet/Templates/EditTemplate.aspx">
 		<StateInitializationActivity x:Name="Init_EditTemplate">
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity2" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity2" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity4">
-				<FaultHandlerActivity x:Name="faultHandlerActivity4" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity4" Exception="{ActivityBind faultHandlerActivity4,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity4" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity4" Exception="{ActivityBind faultHandlerActivity4,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="GetSubscriptionsList_EditTemplate">
-			<ns2:MTHandleEventActivity EventName="GetSubscriptionsList_EditTemplate" x:Name="mtHandleEventActivity17" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity17" EventName="GetSubscriptionsList_EditTemplate" />
 			<CodeActivity x:Name="GetSubscriptionsList" ExecuteCode="{ActivityBind TemplateWorkflow,Path=GetSubscriptionsList_ExecuteCode}" />
-			<ns2:MTEventOutputActivity EventName="GetSubscriptionsList_EditTemplate" x:Name="mtEventOutputActivity6" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity6" EventName="GetSubscriptionsList_EditTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity5">
-				<FaultHandlerActivity x:Name="faultHandlerActivity5" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity5" Exception="{ActivityBind faultHandlerActivity5,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity5" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity5" Exception="{ActivityBind faultHandlerActivity5,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="OK_EditTemplate">
-			<ns2:MTHandleEventActivity EventName="OK_EditTemplate" x:Name="mtHandleEventActivity5" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity5" EventName="OK_EditTemplate" />
 			<CodeActivity x:Name="PopulateAccountTemplateInstance" ExecuteCode="{ActivityBind TemplateWorkflow,Path=PopulateAccountTemplateInstance_ExecuteCode}" />
-			<ns1:AccountTemplateService_SaveAccountTemplate_ClientActivity In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" x:Name="accountTemplateService_SaveAccountTemplate_ClientActivity1" InOut_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
+			<ns2:AccountTemplateService_SaveAccountTemplate_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" x:Name="accountTemplateService_SaveAccountTemplate_ClientActivity1" InOut_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" />
 			<SetStateActivity x:Name="setStateActivity5" TargetStateName="TemplateSummary" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity6">
-				<FaultHandlerActivity x:Name="faultHandlerActivity6" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity6" Exception="{ActivityBind faultHandlerActivity6,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity6" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity6" Exception="{ActivityBind faultHandlerActivity6,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Cancel_EditTemplate">
-			<ns2:MTHandleEventActivity EventName="Cancel_EditTemplate" x:Name="mtHandleEventActivity6" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity6" EventName="Cancel_EditTemplate" />
 			<SetStateActivity x:Name="setStateActivity6" TargetStateName="TemplateSummary" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="AddSubscription_EditTemplate">
-			<ns2:MTHandleEventActivity EventName="AddSubscription_EditTemplate" x:Name="mtHandleEventActivity18" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity18" EventName="AddSubscription_EditTemplate" />
 			<CodeActivity x:Name="SyncSubscriptions" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SyncSubscriptions_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity17" TargetStateName="SelectSubscriptions" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="AddGroupSubscription_EditTemplate">
-			<ns2:MTHandleEventActivity EventName="AddGroupSubscription_EditTemplate" x:Name="mtHandleEventActivity28" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity28" EventName="AddGroupSubscription_EditTemplate" />
 			<CodeActivity x:Name="SyncSubscriptions0" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SyncSubscriptions_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity18" TargetStateName="SelectGroupSubscriptions" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="DeleteSubscription_EditTemplate">
-			<ns2:MTHandleEventActivity EventName="DeleteSubscription_EditTemplate" x:Name="mtHandleEventActivity29" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity29" EventName="DeleteSubscription_EditTemplate" />
 			<CodeActivity x:Name="DeleteSubscriptionFromTemplate" ExecuteCode="{ActivityBind TemplateWorkflow,Path=DeleteSubscriptionFromTemplate_ExecuteCode}" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity20">
-				<FaultHandlerActivity x:Name="faultHandlerActivity20" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity20" Exception="{ActivityBind faultHandlerActivity20,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity20" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity20" Exception="{ActivityBind faultHandlerActivity20,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="SaveAndApply_EditTemplate">
-			<ns2:MTHandleEventActivity EventName="SaveAndApply_EditTemplate" x:Name="mtHandleEventActivity33" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity33" EventName="SaveAndApply_EditTemplate" />
 			<CodeActivity x:Name="PopulateAccountTemplateInstance2" ExecuteCode="{ActivityBind TemplateWorkflow,Path=PopulateAccountTemplateInstance_ExecuteCode}" />
-			<ns1:AccountTemplateService_SaveAccountTemplate_ClientActivity In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" x:Name="accountTemplateService_SaveAccountTemplate_ClientActivity2" InOut_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
+			<ns2:AccountTemplateService_SaveAccountTemplate_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" x:Name="accountTemplateService_SaveAccountTemplate_ClientActivity2" InOut_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" />
 			<SetStateActivity x:Name="setStateActivity24" TargetStateName="ApplyTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity21">
-				<FaultHandlerActivity x:Name="faultHandlerActivity21" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity21" Exception="{ActivityBind faultHandlerActivity21,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity21" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity21" Exception="{ActivityBind faultHandlerActivity21,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="AddTemplate" PageName="/MetraNet/Templates/AddTemplate.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="AddTemplate" PageName="/MetraNet/Templates/AddTemplate.aspx">
 		<StateInitializationActivity x:Name="Init_AddTemplate">
-			<CodeActivity x:Name="GetPossibleAccountTypesActivity" ExecuteCode="{ActivityBind TemplateWorkflow,Path=GetPossibleAccountTypesActivity_ExecuteCode}" />
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity3" />
+    <CodeActivity x:Name="GetPossibleAccountTypesActivity" ExecuteCode="{ActivityBind TemplateWorkflow,Path=GetPossibleAccountTypesActivity_ExecuteCode}" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity3" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity3">
-				<FaultHandlerActivity x:Name="faultHandlerActivity3" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity3" Exception="{ActivityBind faultHandlerActivity3,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity3" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity3" Exception="{ActivityBind faultHandlerActivity3,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="OK_AddTemplate">
-			<ns2:MTHandleEventActivity EventName="OK_AddTemplate" x:Name="mtHandleEventActivity3" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity3" EventName="OK_AddTemplate" />
 			<CodeActivity x:Name="SetDefaults1" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SetDefaultTemplateValues_ExecuteCode}" />
-			<ns1:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity Out_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" x:Name="accountTemplateService_GetTemplateDefForAccountType_ClientActivity2" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_inheritAnscestorProperties="{ActivityBind TemplateWorkflow,Path=InheritParentProperties}" />
+			<ns2:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_inheritAnscestorProperties="{ActivityBind TemplateWorkflow,Path=InheritParentProperties}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" Out_template="{ActivityBind TemplateWorkflow,Path=AccountTemplateInstance}" x:Name="accountTemplateService_GetTemplateDefForAccountType_ClientActivity2" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
 			<CodeActivity x:Name="InitNewAccount" ExecuteCode="{ActivityBind TemplateWorkflow,Path=InitNewAccount_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity3" TargetStateName="EditTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity9">
-				<FaultHandlerActivity x:Name="faultHandlerActivity9" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity9" Exception="{ActivityBind faultHandlerActivity9,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity9" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity9" Exception="{ActivityBind faultHandlerActivity9,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Cancel_AddTemplate">
-			<ns2:MTHandleEventActivity EventName="Cancel_AddTemplate" x:Name="mtHandleEventActivity4" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity4" EventName="Cancel_AddTemplate" />
 			<SetStateActivity x:Name="setStateActivity4" TargetStateName="TemplateSummary" />
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="ApplyTemplate" PageName="/MetraNet/Templates/ApplyTemplate.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="ApplyTemplate" PageName="/MetraNet/Templates/ApplyTemplate.aspx">
 		<StateInitializationActivity x:Name="Init_ApplyTemplate">
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity5" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity5" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity16">
-				<FaultHandlerActivity x:Name="faultHandlerActivity16" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity16" Exception="{ActivityBind faultHandlerActivity16,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity16" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity16" Exception="{ActivityBind faultHandlerActivity16,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="OK_ApplyTemplate">
-			<ns2:MTHandleEventActivity EventName="OK_ApplyTemplate" x:Name="mtHandleEventActivity10" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity10" EventName="OK_ApplyTemplate" />
 			<CodeActivity x:Name="SetDefaultsBeforeApply" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SetDefaultsBeforeApply_ExecuteCode}" />
-			<ns1:AccountTemplateService_ApplyAccountTemplate_ClientActivity In_propNames="{ActivityBind TemplateWorkflow,Path=ApplyPropertiesList}" Out_sessionId="{ActivityBind TemplateWorkflow,Path=SessionIdInstance}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_subscriptions="{ActivityBind TemplateWorkflow,Path=ApplySubscriptionsList}" In_subscriptionDates="{ActivityBind TemplateWorkflow,Path=SubscriptionDates}" In_endConflictingSubscriptions="{ActivityBind TemplateWorkflow,Path=EndConflictingSubscriptions}" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" x:Name="accountTemplateService_ApplyAccountTemplate_ClientActivity1" In_templateScope="{ActivityBind TemplateWorkflow,Path=ApplyTemplateScope}" />
+			<ns2:AccountTemplateService_ApplyAccountTemplate_ClientActivity In_subscriptionDates="{ActivityBind TemplateWorkflow,Path=SubscriptionDates}" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_propNames="{ActivityBind TemplateWorkflow,Path=ApplyPropertiesList}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" Out_sessionId="{ActivityBind TemplateWorkflow,Path=SessionIdInstance}" In_endConflictingSubscriptions="{ActivityBind TemplateWorkflow,Path=EndConflictingSubscriptions}" In_subscriptions="{ActivityBind TemplateWorkflow,Path=ApplySubscriptionsList}" In_templateScope="{ActivityBind TemplateWorkflow,Path=ApplyTemplateScope}" x:Name="accountTemplateService_ApplyAccountTemplate_ClientActivity1" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
 			<CodeActivity x:Name="ClearTypeFromMovedAccountList" ExecuteCode="{ActivityBind TemplateWorkflow,Path=ClearTypeFromMovedAccountList_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity11" TargetStateName="TemplateHistory" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity17">
-				<FaultHandlerActivity x:Name="faultHandlerActivity17" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity17" Exception="{ActivityBind faultHandlerActivity17,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity17" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity17" Exception="{ActivityBind faultHandlerActivity17,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Cancel_ApplyTemplate">
-			<ns2:MTHandleEventActivity EventName="Cancel_ApplyTemplate" x:Name="mtHandleEventActivity11" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity11" EventName="Cancel_ApplyTemplate" />
 			<SetStateActivity x:Name="setStateActivity12" TargetStateName="TemplateSummary" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="GetSubscriptionsList_ApplyTemplate">
-			<ns2:MTHandleEventActivity EventName="GetSubscriptionsList_ApplyTemplate" x:Name="mtHandleEventActivity30" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity30" EventName="GetSubscriptionsList_ApplyTemplate" />
 			<CodeActivity x:Name="GetSubscriptionsList2" ExecuteCode="{ActivityBind TemplateWorkflow,Path=GetSubscriptionsList_ExecuteCode}" />
-			<ns2:MTEventOutputActivity EventName="GetSubscriptionsList_ApplyTemplate" x:Name="mtEventOutputActivity7" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity7" EventName="GetSubscriptionsList_ApplyTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity14">
-				<FaultHandlerActivity x:Name="faultHandlerActivity14" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity14" Exception="{ActivityBind faultHandlerActivity5,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity14" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity14" Exception="{ActivityBind faultHandlerActivity5,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="GetPropertiesList_ApplyTemplate">
-			<ns2:MTHandleEventActivity EventName="GetPropertiesList_ApplyTemplate" x:Name="mtHandleEventActivity31" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity31" EventName="GetPropertiesList_ApplyTemplate" />
 			<CodeActivity x:Name="GetPropertiesList" ExecuteCode="{ActivityBind TemplateWorkflow,Path=GetPropertiesList_ExecuteCode}" />
-			<ns2:MTEventOutputActivity EventName="GetPropertiesList_ApplyTemplate" x:Name="mtEventOutputActivity8" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity8" EventName="GetPropertiesList_ApplyTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity15">
-				<FaultHandlerActivity x:Name="faultHandlerActivity15" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity15" Exception="{ActivityBind faultHandlerActivity15,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity15" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity15" Exception="{ActivityBind faultHandlerActivity15,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="Dashboard" PageName="/MetraNet/Welcome.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="Dashboard" PageName="/MetraNet/Welcome.aspx">
 		<StateInitializationActivity x:Name="Init_Dashboard">
 			<SetStateActivity x:Name="setStateActivity9" TargetStateName="EndTemplateWorkflow" />
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity4" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity4" />
 		</StateInitializationActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="TemplateResults" PageName="/MetraNet/Templates/TemplateResults.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="TemplateResults" PageName="/MetraNet/Templates/TemplateResults.aspx">
 		<StateInitializationActivity x:Name="Init_TemplateResults">
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity6" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity6" />
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="Back_TemplateResults">
-			<ns2:MTHandleEventActivity EventName="Back_TemplateResults" x:Name="mtHandleEventActivity12" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity12" EventName="Back_TemplateResults" />
 			<CodeActivity x:Name="ClearSessionId2" ExecuteCode="{ActivityBind TemplateWorkflow,Path=ClearSessionId_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity13" TargetStateName="TemplateHistory" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="GetTemplateDetails_TemplateResults">
-			<ns2:MTHandleEventActivity EventName="GetTemplateDetails_TemplateResults" x:Name="mtHandleEventActivity21" />
-			<ns1:AccountTemplateService_GetTemplateSessionDetails_ClientActivity x:Name="accountTemplateService_GetTemplateSessionDetails_ClientActivity1" In_sessionId="{ActivityBind TemplateWorkflow,Path=SessionIdInstance}" InOut_details="{ActivityBind TemplateWorkflow,Path=DetailsList}" />
-			<ns2:MTEventOutputActivity EventName="GetTemplateDetails_TemplateResults" x:Name="mtEventOutputActivity3" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity21" EventName="GetTemplateDetails_TemplateResults" />
+			<ns2:AccountTemplateService_GetTemplateSessionDetails_ClientActivity InOut_details="{ActivityBind TemplateWorkflow,Path=DetailsList}" In_sessionId="{ActivityBind TemplateWorkflow,Path=SessionIdInstance}" x:Name="accountTemplateService_GetTemplateSessionDetails_ClientActivity1" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity3" EventName="GetTemplateDetails_TemplateResults" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity18">
-				<FaultHandlerActivity x:Name="faultHandlerActivity18" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity18" Exception="{ActivityBind faultHandlerActivity18,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity18" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity18" Exception="{ActivityBind faultHandlerActivity18,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="TemplateHistory" PageName="/MetraNet/Templates/TemplateHistory.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="TemplateHistory" PageName="/MetraNet/Templates/TemplateHistory.aspx">
 		<StateInitializationActivity x:Name="Init_TemplateHistory">
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity7" />
+			<CodeActivity x:Name="IsAllTypes" ExecuteCode="{ActivityBind TemplateWorkflow,Path=IsAllTypes_ExecuteCode}" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity7" />
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="TemplateResults_TemplateHistory">
-			<ns2:MTHandleEventActivity EventName="TemplateResults_TemplateHistory" x:Name="mtHandleEventActivity13" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity13" EventName="TemplateResults_TemplateHistory" />
 			<CodeActivity x:Name="GetTemplateResults" ExecuteCode="{ActivityBind TemplateWorkflow,Path=GetTemplateResults_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity14" TargetStateName="TemplateResults" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity19">
-				<FaultHandlerActivity x:Name="faultHandlerActivity19" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity19" Exception="{ActivityBind faultHandlerActivity19,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity19" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity19" Exception="{ActivityBind faultHandlerActivity19,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Cancel_TemplateHistory">
-			<ns2:MTHandleEventActivity EventName="Cancel_TemplateHistory" x:Name="mtHandleEventActivity19" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity19" EventName="Cancel_TemplateHistory" />
 			<SetStateActivity x:Name="setStateActivity15" TargetStateName="TemplateSummary" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="GetTemplateResults_TemplateHistory">
-			<ns2:MTHandleEventActivity EventName="GetTemplateResults_TemplateHistory" x:Name="mtHandleEventActivity15" />
-			<ns1:AccountTemplateService_GetAccountTemplateSessions_ClientActivity InOut_sessions="{ActivityBind TemplateWorkflow,Path=TemplateResultsList}" x:Name="accountTemplateService_GetAccountTemplateSessions_ClientActivity1" />
-			<ns2:MTEventOutputActivity EventName="GetTemplateResults_TemplateHistory" x:Name="mtEventOutputActivity2" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity15" EventName="GetTemplateResults_TemplateHistory" />
+			<ns2:AccountTemplateService_GetAccountTemplateSessions_ClientActivity InOut_sessions="{ActivityBind TemplateWorkflow,Path=TemplateResultsList}" x:Name="accountTemplateService_GetAccountTemplateSessions_ClientActivity1" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity2" EventName="GetTemplateResults_TemplateHistory" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity1">
-				<FaultHandlerActivity x:Name="faultHandlerActivity1" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity1" Exception="{ActivityBind faultHandlerActivity1,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity1" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity1" Exception="{ActivityBind faultHandlerActivity1,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="SelectSubscriptions" PageName="/MetraNet/Templates/SelectSubscriptions.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="SelectSubscriptions" PageName="/MetraNet/Templates/SelectSubscriptions.aspx">
 		<StateInitializationActivity x:Name="Init_SelectSubscriptions">
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity8" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity8" />
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="GetSubscriptionsList_SelectSubscriptions">
-			<ns2:MTHandleEventActivity EventName="GetSubscriptionsList_SelectSubscriptions" x:Name="mtHandleEventActivity22" />
-			<ns1:AccountTemplateService_GetEligiblePOsForAccountType_ClientActivity In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" x:Name="accountTemplateService_GetEligiblePOsForAccountType_ClientActivity1" InOut_productOfferings="{ActivityBind TemplateWorkflow,Path=ProductOfferingsList}" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
-			<ns2:MTEventOutputActivity EventName="GetSubscriptionsList_SelectSubscriptions" x:Name="mtEventOutputActivity4" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity22" EventName="GetSubscriptionsList_SelectSubscriptions" />
+			<ns2:AccountTemplateService_GetEligiblePOsForAccountType_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" InOut_productOfferings="{ActivityBind TemplateWorkflow,Path=ProductOfferingsList}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" x:Name="accountTemplateService_GetEligiblePOsForAccountType_ClientActivity1" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity4" EventName="GetSubscriptionsList_SelectSubscriptions" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="OK_SelectSubscriptions">
-			<ns2:MTHandleEventActivity EventName="OK_SelectSubscriptions" x:Name="mtHandleEventActivity24" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity24" EventName="OK_SelectSubscriptions" />
 			<CodeActivity x:Name="SelectSubscriptionsActivity" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SelectSubscriptionsActivity_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity19" TargetStateName="EditTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity8">
-				<FaultHandlerActivity x:Name="faultHandlerActivity8" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity8" Exception="{ActivityBind faultHandlerActivity8,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity8" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity8" Exception="{ActivityBind faultHandlerActivity8,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Cancel_SelectSubscriptions">
-			<ns2:MTHandleEventActivity EventName="Cancel_SelectSubscriptions" x:Name="mtHandleEventActivity26" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity26" EventName="Cancel_SelectSubscriptions" />
 			<SetStateActivity x:Name="setStateActivity21" TargetStateName="EditTemplate" />
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="SelectGroupSubscriptions" PageName="/MetraNet/Templates/SelectGroupSubscriptions.aspx">
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="SelectGroupSubscriptions" PageName="/MetraNet/Templates/SelectGroupSubscriptions.aspx">
 		<StateInitializationActivity x:Name="Init_SelectGroupSubscriptions">
-			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity9" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity9" />
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="GetGroupSubscriptionsList_SelectGroupSubscriptions">
-			<ns2:MTHandleEventActivity EventName="GetGroupSubscriptionsList_SelectGroupSubscriptions" x:Name="mtHandleEventActivity23" />
-			<ns1:AccountTemplateService_GetEligibleGroupSubsForAccountType_ClientActivity In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" x:Name="accountTemplateService_GetEligibleGroupSubsForAccountType_ClientActivity1" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" InOut_groupSubs="{ActivityBind TemplateWorkflow,Path=GroupSubscriptionList}" />
-			<ns2:MTEventOutputActivity EventName="GetGroupSubscriptionsList_SelectGroupSubscriptions" x:Name="mtEventOutputActivity5" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity23" EventName="GetGroupSubscriptionsList_SelectGroupSubscriptions" />
+			<ns2:AccountTemplateService_GetEligibleGroupSubsForAccountType_ClientActivity In_templateOwner="{ActivityBind TemplateWorkflow,Path=AccountIdentifier}" In_accountType="{ActivityBind TemplateWorkflow,Path=SelectedAccountType}" InOut_groupSubs="{ActivityBind TemplateWorkflow,Path=GroupSubscriptionList}" x:Name="accountTemplateService_GetEligibleGroupSubsForAccountType_ClientActivity1" In_effectiveDate="{ActivityBind TemplateWorkflow,Path=EffectiveTime}" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity5" EventName="GetGroupSubscriptionsList_SelectGroupSubscriptions" />
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="OK_SelectGroupSubscriptions">
-			<ns2:MTHandleEventActivity EventName="OK_SelectGroupSubscriptions" x:Name="mtHandleEventActivity25" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity25" EventName="OK_SelectGroupSubscriptions" />
 			<CodeActivity x:Name="SelectGroupSubscriptionsActivity" ExecuteCode="{ActivityBind TemplateWorkflow,Path=SelectGroupSubscriptionsActivity_ExecuteCode}" />
 			<SetStateActivity x:Name="setStateActivity20" TargetStateName="EditTemplate" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity7">
-				<FaultHandlerActivity x:Name="faultHandlerActivity7" FaultType="{x:Type p12:Exception}" xmlns:p12="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity7" Exception="{ActivityBind faultHandlerActivity7,Path=Fault}" />
+				<FaultHandlerActivity x:Name="faultHandlerActivity7" FaultType="{x:Type p14:Exception}" xmlns:p14="clr-namespace:System;Assembly=mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity7" Exception="{ActivityBind faultHandlerActivity7,Path=Fault}" />
 				</FaultHandlerActivity>
 			</FaultHandlersActivity>
 		</EventDrivenActivity>
 		<EventDrivenActivity x:Name="Cancel_SelectGroupSubscriptions">
-			<ns2:MTHandleEventActivity EventName="Cancel_SelectGroupSubscriptions" x:Name="mtHandleEventActivity27" />
+			<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity27" EventName="Cancel_SelectGroupSubscriptions" />
 			<SetStateActivity x:Name="setStateActivity22" TargetStateName="EditTemplate" />
 		</EventDrivenActivity>
-	</ns2:MTPageStateActivity>
+	</ns1:MTPageStateActivity>
 </ns0:TemplateWorkflow>

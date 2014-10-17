@@ -68,6 +68,7 @@ BEGIN
          INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
   WHERE
          ui.dt_start <= rw.c_SubscriptionStart
+         AND ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1;
 
   SELECT 'InitialDebit' AS c_RCActionType,

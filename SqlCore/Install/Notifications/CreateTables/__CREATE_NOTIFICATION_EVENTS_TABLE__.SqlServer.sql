@@ -1,4 +1,4 @@
-CREATE TABLE t_Notification_Events
+CREATE TABLE t_notification_events
 (
 	id_notification_event int NOT NULL,
 	id_notification_event_type int NOT NULL,

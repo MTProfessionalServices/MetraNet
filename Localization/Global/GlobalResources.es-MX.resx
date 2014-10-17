@@ -820,7 +820,7 @@
     <value>[es-MX]Applied Account Config Sets with IDs: {0} are not eligible for the account any more. Related subscriptions will be terminated.</value>
   </data>
   <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
-    <value>[es-MX]Account Config Sets with ID '{0}' was removed from Applied list.</value>
+    <value>[es-MX]Account Config Sets with IDs {0} were removed from Applied list.</value>
   </data>
   <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
     <value>[es-MX]Creation of new subsciptions is finished.</value>
@@ -832,7 +832,7 @@
     <value>[es-MX]Account Config Sets with IDs: {0} are currently eligible for the account and were already applied.</value>
   </data>
   <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
-    <value>[es-MX]New subscriptions wil be created for Eligible Account Config Sets with IDs: {0}.</value>
+    <value>[es-MX]New subscriptions will be created for Eligible Account Config Sets with IDs: {0}.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
     <value>[es-MX]Account '{0}' was loaded.</value>
@@ -877,7 +877,7 @@
     <value>[es-MX]Unable to subscribe account to '{0}'. Exception: {1}</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[es-MX]Unable to terminated subscription to {0}. Exception: {1}</value>
+    <value>[es-MX]Unable to terminated subscription with ID {0}. Exception: {1}</value>
   </data>
   <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
     <value>[es-MX]Subscription to {0} was terminated.</value>

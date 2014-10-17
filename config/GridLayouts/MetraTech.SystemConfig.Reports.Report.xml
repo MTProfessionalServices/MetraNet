@@ -41,7 +41,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath>\MetraNet\Reporting\js\Reports.js</CustomImplementationFilePath>
+    <CustomImplementationFilePath>/MetraNet/Reporting/js/Reports.js</CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <SupportExportSelected>true</SupportExportSelected>
     <ShowFilterPanel>true</ShowFilterPanel>
@@ -147,7 +147,7 @@
             <DataIndex>Name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText />
-            <Formatter>customReportNameColumnRenderer</Formatter>
+            <Formatter>CustomReportNameColumnRenderer</Formatter>
             <Width>200</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>true</PreventSortable>

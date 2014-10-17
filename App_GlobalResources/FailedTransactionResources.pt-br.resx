@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,209 +59,209 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Transações com falha</value>
-  </data>
-  <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>Nenhum registro encontrado.</value>
-  </data>
-  <data name="TEXT_AVERAGE_AGE_DAYS" xml:space="preserve">
-    <value>Idade&lt;br&gt;Média (dias)</value>
-  </data>
-  <data name="TEXT_BATCH_ID" xml:space="preserve">
-    <value>ID do lote</value>
-  </data>
-  <data name="TEXT_CASE_NUMBER" xml:space="preserve">
-    <value>Número do caso</value>
-  </data>
-  <data name="TEXT_CHANGE_ALL_STATUSES" xml:space="preserve">
-    <value>Alterar todos os status</value>
-  </data>
-  <data name="TEXT_CHANGE_STATUS" xml:space="preserve">
-    <value>Alterar status</value>
-  </data>
-  <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
-    <value>Alterar caso / Status de transação com falha</value>
-  </data>
-  <data name="TEXT_CODE" xml:space="preserve">
-    <value>Código</value>
-  </data>
-  <data name="TEXT_CODE_MESSAGE" xml:space="preserve">
-    <value>Mensagem de código</value>
-  </data>
-  <data name="TEXT_COMPOUND_SESSION_ID" xml:space="preserve">
-    <value>ID da sessão composta</value>
-  </data>
-  <data name="TEXT_CORRECTED" xml:space="preserve">
-    <value>Corrigido</value>
-  </data>
-  <data name="TEXT_COUNT" xml:space="preserve">
-    <value>Contagem</value>
-  </data>
-  <data name="TEXT_DELETED" xml:space="preserve">
-    <value>Excluído</value>
-  </data>
-  <data name="TEXT_DISMISSED" xml:space="preserve">
-    <value>Rejeitado</value>
-  </data>
-  <data name="TEXT_ERROR_MESSAGE" xml:space="preserve">
-    <value>Mensagem de erro</value>
-  </data>
-  <data name="TEXT_ERROR_TYPE_EXAMPLE" xml:space="preserve">
-    <value>Tipo de erro (exemplo)</value>
-  </data>
-  <data name="TEXT_ERROR_TYPE_FAILURE_SUMMARY" xml:space="preserve">
-    <value>Pagador - Resumo da falha do tipo de erro</value>
-  </data>
-  <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
-    <value>Resumo da falha do estágio e plugin</value>
-  </data>
-  <data name="TEXT_FAILURE_TIME" xml:space="preserve">
-    <value>Hora da falha</value>
-  </data>
-  <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>Resumo por tipo de erro</value>
-  </data>
-  <data name="TEXT_GRID_TITLE_INTERVAL_TYPE" xml:space="preserve">
-    <value>Transações com falha (incluindo tipo de intervalo)</value>
-  </data>
-  <data name="TEXT_GRID_TITLE_INTERVAL_TYPE_FAILURE_SUMMARY" xml:space="preserve">
-    <value>Resumo de falhas do tipo de intervalo</value>
-  </data>
-  <data name="TEXT_INTERVAL_FAILURE_SUMMARY" xml:space="preserve">
-    <value>Pagador - Resumo da falha do intervalo</value>
-  </data>
-  <data name="TEXT_IS_CHILD" xml:space="preserve">
-    <value>é filho</value>
-  </data>
-  <data name="TEXT_MAXIMUM_AGE_DAYS" xml:space="preserve">
-    <value>Idade&lt;br&gt;Máxima (dias)</value>
-  </data>
-  <data name="TEXT_MINIMUM_AGE_DAYS" xml:space="preserve">
-    <value>Idade&lt;br&gt;Mínima (dias)</value>
-  </data>
-  <data name="TEXT_NO" xml:space="preserve">
-    <value>Não</value>
-  </data>
-  <data name="TEXT_OPEN" xml:space="preserve">
-    <value>Abrir</value>
-  </data>
-  <data name="TEXT_PAYER" xml:space="preserve">
-    <value>Pagador</value>
-  </data>
-  <data name="TEXT_PLUGIN" xml:space="preserve">
-    <value>Plugin</value>
-  </data>
-  <data name="TEXT_POSSIBLE_ACCOUNT_ID" xml:space="preserve">
-    <value>ID da possível conta</value>
-  </data>
-  <data name="TEXT_POSSIBLE_PAYER_ACCOUNT_ID" xml:space="preserve">
-    <value>ID da possível conta do pagador</value>
-  </data>
-  <data name="TEXT_RESUBMIT" xml:space="preserve">
-    <value>Reenviar</value>
-  </data>
-  <data name="TEXT_RESUBMIT_ALL" xml:space="preserve">
-    <value>Reenviar tudo</value>
-  </data>
-  <data name="TEXT_RESUBMITTED" xml:space="preserve">
-    <value>Reenviado</value>
-  </data>
-  <data name="TEXT_SERVICE" xml:space="preserve">
-    <value>Serviço</value>
-  </data>
-  <data name="TEXT_SESSION_ID" xml:space="preserve">
-    <value>ID da sessão</value>
-  </data>
-  <data name="TEXT_STAGE" xml:space="preserve">
-    <value>Estágio</value>
-  </data>
-  <data name="TEXT_STATE_REASON_CODE" xml:space="preserve">
-    <value>Código de motivo de estado</value>
-  </data>
-  <data name="TEXT_STATUS" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="TEXT_UCYCLE_TYPE" xml:space="preserve">
-    <value>Tipo de ciclo de utilização</value>
-  </data>
-  <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
-    <value>Valor do ciclo de utilização</value>
-  </data>
-  <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-    <value>Sob investigação</value>
-  </data>
-  <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>ID exclusivo</value>
-  </data>
-  <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>Ciclo de utilização&lt;br&gt;Tipo</value>
-  </data>
-  <data name="TEXT_USAGE_CYCLE_TYPE_VALUE" xml:space="preserve">
-    <value>Valor do tipo de ciclo de utilização</value>
-  </data>
-  <data name="TEXT_USAGE_CYCLE_VALUE" xml:space="preserve">
-    <value>Ciclo de utilização&lt;br&gt;Valor</value>
-  </data>
-  <data name="TEXT_YES" xml:space="preserve">
-    <value>Sim</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Transações com falha</value>
+    </data>
+    <data name="NO_RECORDS_TEXT" xml:space="preserve">
+        <value>Nenhum registro encontrado.</value>
+    </data>
+    <data name="TEXT_AVERAGE_AGE_DAYS" xml:space="preserve">
+        <value>Idade&lt;br&gt;Média (dias)</value>
+    </data>
+    <data name="TEXT_BATCH_ID" xml:space="preserve">
+        <value>ID do lote</value>
+    </data>
+    <data name="TEXT_CASE_NUMBER" xml:space="preserve">
+        <value>Número do caso</value>
+    </data>
+    <data name="TEXT_CHANGE_ALL_STATUSES" xml:space="preserve">
+        <value>Alterar todos os status</value>
+    </data>
+    <data name="TEXT_CHANGE_STATUS" xml:space="preserve">
+        <value>Alterar status</value>
+    </data>
+    <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
+        <value>Alterar caso / Status de transação com falha</value>
+    </data>
+    <data name="TEXT_CODE" xml:space="preserve">
+        <value>Código</value>
+    </data>
+    <data name="TEXT_CODE_MESSAGE" xml:space="preserve">
+        <value>Mensagem de código</value>
+    </data>
+    <data name="TEXT_COMPOUND_SESSION_ID" xml:space="preserve">
+        <value>ID da sessão composta</value>
+    </data>
+    <data name="TEXT_CORRECTED" xml:space="preserve">
+        <value>Corrigido</value>
+    </data>
+    <data name="TEXT_COUNT" xml:space="preserve">
+        <value>Contagem</value>
+    </data>
+    <data name="TEXT_DELETED" xml:space="preserve">
+        <value>Excluído</value>
+    </data>
+    <data name="TEXT_DISMISSED" xml:space="preserve">
+        <value>Rejeitado</value>
+    </data>
+    <data name="TEXT_ERROR_MESSAGE" xml:space="preserve">
+        <value>Mensagem de erro</value>
+    </data>
+    <data name="TEXT_ERROR_TYPE_EXAMPLE" xml:space="preserve">
+        <value>Tipo de erro (exemplo)</value>
+    </data>
+    <data name="TEXT_ERROR_TYPE_FAILURE_SUMMARY" xml:space="preserve">
+        <value>Pagador - Resumo da falha do tipo de erro</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
+        <value>Resumo da falha do estágio e plugin</value>
+    </data>
+    <data name="TEXT_FAILURE_TIME" xml:space="preserve">
+        <value>Hora da falha</value>
+    </data>
+    <data name="TEXT_GRID_TITLE" xml:space="preserve">
+        <value>Resumo por tipo de erro</value>
+    </data>
+    <data name="TEXT_GRID_TITLE_INTERVAL_TYPE" xml:space="preserve">
+        <value>Transações com falha (incluindo tipo de intervalo)</value>
+    </data>
+    <data name="TEXT_GRID_TITLE_INTERVAL_TYPE_FAILURE_SUMMARY" xml:space="preserve">
+        <value>Resumo de falhas do tipo de intervalo</value>
+    </data>
+    <data name="TEXT_INTERVAL_FAILURE_SUMMARY" xml:space="preserve">
+        <value>Pagador - Resumo da falha do intervalo</value>
+    </data>
+    <data name="TEXT_IS_CHILD" xml:space="preserve">
+        <value>é filho</value>
+    </data>
+    <data name="TEXT_MAXIMUM_AGE_DAYS" xml:space="preserve">
+        <value>Idade&lt;br&gt;Máxima (dias)</value>
+    </data>
+    <data name="TEXT_MINIMUM_AGE_DAYS" xml:space="preserve">
+        <value>Idade&lt;br&gt;Mínima (dias)</value>
+    </data>
+    <data name="TEXT_NO" xml:space="preserve">
+        <value>Não</value>
+    </data>
+    <data name="TEXT_OPEN" xml:space="preserve">
+        <value>Abrir</value>
+    </data>
+    <data name="TEXT_PAYER" xml:space="preserve">
+        <value>Pagador</value>
+    </data>
+    <data name="TEXT_PLUGIN" xml:space="preserve">
+        <value>Plugin</value>
+    </data>
+    <data name="TEXT_POSSIBLE_ACCOUNT_ID" xml:space="preserve">
+        <value>ID da possível conta</value>
+    </data>
+    <data name="TEXT_POSSIBLE_PAYER_ACCOUNT_ID" xml:space="preserve">
+        <value>ID da possível conta do pagador</value>
+    </data>
+    <data name="TEXT_RESUBMIT" xml:space="preserve">
+        <value>Reenviar</value>
+    </data>
+    <data name="TEXT_RESUBMIT_ALL" xml:space="preserve">
+        <value>Reenviar tudo</value>
+    </data>
+    <data name="TEXT_RESUBMITTED" xml:space="preserve">
+        <value>Reenviado</value>
+    </data>
+    <data name="TEXT_SERVICE" xml:space="preserve">
+        <value>Serviço</value>
+    </data>
+    <data name="TEXT_SESSION_ID" xml:space="preserve">
+        <value>ID da sessão</value>
+    </data>
+    <data name="TEXT_STAGE" xml:space="preserve">
+        <value>Estágio</value>
+    </data>
+    <data name="TEXT_STATE_REASON_CODE" xml:space="preserve">
+        <value>Código de motivo de estado</value>
+    </data>
+    <data name="TEXT_STATUS" xml:space="preserve">
+        <value>Estado</value>
+    </data>
+    <data name="TEXT_UCYCLE_TYPE" xml:space="preserve">
+        <value>Tipo de ciclo de utilização</value>
+    </data>
+    <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
+        <value>Valor do ciclo de utilização</value>
+    </data>
+    <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+        <value>Sob investigação</value>
+    </data>
+    <data name="TEXT_UNIQUE_ID" xml:space="preserve">
+        <value>ID exclusivo</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
+        <value>Ciclo de utilização&lt;br&gt;Tipo</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_TYPE_VALUE" xml:space="preserve">
+        <value>Valor do tipo de ciclo de utilização</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_VALUE" xml:space="preserve">
+        <value>Ciclo de utilização&lt;br&gt;Valor</value>
+    </data>
+    <data name="TEXT_YES" xml:space="preserve">
+        <value>Sim</value>
+    </data>
 </root>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,161 +59,161 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="ApplyToPanel.Text" xml:space="preserve">
-    <value>Appliquer un modèle à</value>
-  </data>
-  <data name="cbEndConflictingSubscriptions1.BoxLabel" xml:space="preserve">
-    <value>Résilier les abonnements conflictuels</value>
-  </data>
-  <data name="cbEndNextBillingPeriodResource1.BoxLabel" xml:space="preserve">
-    <value>Prochaine fin de période de facturation du payeur après cette date</value>
-  </data>
-  <data name="cbStartNextBillingPeriodResource1.BoxLabel" xml:space="preserve">
-    <value>Prochain début de période de facturation du payeur après cette date</value>
-  </data>
-  <data name="DISPLAY_NAME" xml:space="preserve">
-    <value>Nom d’affichage</value>
-  </data>
-  <data name="END_DATE" xml:space="preserve">
-    <value>Date de fin</value>
-  </data>
-  <data name="EndDateResource1.Label" xml:space="preserve">
-    <value>Date de fin des abonnements</value>
-  </data>
-  <data name="ERROR_NO_DESCENDANTS" xml:space="preserve">
-    <value>AVERTISSEMENT : AUCUN descendant pour appliquer ce modèle.</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Abonnements</value>
-  </data>
-  <data name="GRID_TITLE_PROPERTIES" xml:space="preserve">
-    <value>Propriétés</value>
-  </data>
-  <data name="GROUP_ID" xml:space="preserve">
-    <value>ID du groupe</value>
-  </data>
-  <data name="GROUP_SUB_NAME" xml:space="preserve">
-    <value>Nom de l’abonnement groupé</value>
-  </data>
-  <data name="IS_GROUP" xml:space="preserve">
-    <value>Est Groupe</value>
-  </data>
-  <data name="KEY" xml:space="preserve">
-    <value>Nom de la propriété</value>
-  </data>
-  <data name="lblAppyTemplateTo.Label" xml:space="preserve">
-    <value>Appliquer un modèle à</value>
-  </data>
-  <data name="MTGenericFormAccountTemplateResource1.TabIndex" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="MTGenericFormPropertiesResource1.TabIndex" xml:space="preserve">
-    <value>500</value>
-  </data>
-  <data name="MTTitle1Resource1" xml:space="preserve">
-    <value>Modèle du compte</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Appliquer un modèle aux comptes existants</value>
-  </data>
-  <data name="NAME" xml:space="preserve">
-    <value>Nom</value>
-  </data>
-  <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>Aucun enregistrement trouvé.</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="PO_DISPLAY_NAME" xml:space="preserve">
-    <value>Nom de l’abonnement</value>
-  </data>
-  <data name="PO_ID" xml:space="preserve">
-    <value>ID de l’offre produit</value>
-  </data>
-  <data name="radAll.BoxLabel" xml:space="preserve">
-    <value>Tous les descendants</value>
-  </data>
-  <data name="radDirect.BoxLabel" xml:space="preserve">
-    <value>Descendants directs</value>
-  </data>
-  <data name="START_DATE" xml:space="preserve">
-    <value>Date de début</value>
-  </data>
-  <data name="StartDateResource1.Label" xml:space="preserve">
-    <value>Date de début des abonnements</value>
-  </data>
-  <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-    <value>Période d’abonnement</value>
-  </data>
-  <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>Type de compte</value>
-  </data>
-  <data name="TEXT_APPLY_DEFAULT_SECURITY" xml:space="preserve">
-    <value>Appliquer la sécurité par défaut</value>
-  </data>
-  <data name="TEXT_OWNER_ACCOUNT" xml:space="preserve">
-    <value>Compte du propriétaire</value>
-  </data>
-  <data name="VALUE" xml:space="preserve">
-    <value>Valeur de la propriété</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ApplyToPanel.Text" xml:space="preserve">
+        <value>Appliquer un modèle à</value>
+    </data>
+    <data name="cbEndConflictingSubscriptions1.BoxLabel" xml:space="preserve">
+        <value>Résilier les abonnements conflictuels</value>
+    </data>
+    <data name="cbEndNextBillingPeriodResource1.BoxLabel" xml:space="preserve">
+        <value>Prochaine fin de période de facturation du payeur après cette date</value>
+    </data>
+    <data name="cbStartNextBillingPeriodResource1.BoxLabel" xml:space="preserve">
+        <value>Prochain début de période de facturation du payeur après cette date</value>
+    </data>
+    <data name="DISPLAY_NAME" xml:space="preserve">
+        <value>Nom d’affichage</value>
+    </data>
+    <data name="END_DATE" xml:space="preserve">
+        <value>Date de fin</value>
+    </data>
+    <data name="EndDateResource1.Label" xml:space="preserve">
+        <value>Date de fin des abonnements</value>
+    </data>
+    <data name="ERROR_NO_DESCENDANTS" xml:space="preserve">
+        <value>AVERTISSEMENT : AUCUN descendant pour appliquer ce modèle.</value>
+    </data>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Abonnements</value>
+    </data>
+    <data name="GRID_TITLE_PROPERTIES" xml:space="preserve">
+        <value>Propriétés</value>
+    </data>
+    <data name="GROUP_ID" xml:space="preserve">
+        <value>ID du groupe</value>
+    </data>
+    <data name="GROUP_SUB_NAME" xml:space="preserve">
+        <value>Nom de l’abonnement groupé</value>
+    </data>
+    <data name="IS_GROUP" xml:space="preserve">
+        <value>Est Groupe</value>
+    </data>
+    <data name="KEY" xml:space="preserve">
+        <value>Nom de la propriété</value>
+    </data>
+    <data name="lblAppyTemplateTo.Label" xml:space="preserve">
+        <value>Appliquer un modèle à</value>
+    </data>
+    <data name="MTGenericFormAccountTemplateResource1.TabIndex" xml:space="preserve">
+        <value>10</value>
+    </data>
+    <data name="MTGenericFormPropertiesResource1.TabIndex" xml:space="preserve">
+        <value>500</value>
+    </data>
+    <data name="MTTitle1Resource1" xml:space="preserve">
+        <value>Modèle du compte</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Appliquer un modèle aux comptes existants</value>
+    </data>
+    <data name="NAME" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+    <data name="NO_RECORDS_TEXT" xml:space="preserve">
+        <value>Aucun enregistrement trouvé.</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="PO_DISPLAY_NAME" xml:space="preserve">
+        <value>Nom de l’abonnement</value>
+    </data>
+    <data name="PO_ID" xml:space="preserve">
+        <value>ID de l’offre produit</value>
+    </data>
+    <data name="radAll.BoxLabel" xml:space="preserve">
+        <value>Tous les descendants</value>
+    </data>
+    <data name="radDirect.BoxLabel" xml:space="preserve">
+        <value>Descendants directs</value>
+    </data>
+    <data name="START_DATE" xml:space="preserve">
+        <value>Date de début</value>
+    </data>
+    <data name="StartDateResource1.Label" xml:space="preserve">
+        <value>Date de début des abonnements</value>
+    </data>
+    <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
+        <value>Période d’abonnement</value>
+    </data>
+    <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
+        <value>Type de compte</value>
+    </data>
+    <data name="TEXT_APPLY_DEFAULT_SECURITY" xml:space="preserve">
+        <value>Appliquer la sécurité par défaut</value>
+    </data>
+    <data name="TEXT_OWNER_ACCOUNT" xml:space="preserve">
+        <value>Compte du propriétaire</value>
+    </data>
+    <data name="VALUE" xml:space="preserve">
+        <value>Valeur de la propriété</value>
+    </data>
 </root>

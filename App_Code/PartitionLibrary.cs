@@ -136,6 +136,11 @@ public class PartitionLibrary
     gdel.ElementValue = filtertype.ToUpper() == "PL"? partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture)
                                                     : (filtertype.ToUpper() != "PO" ? partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture)
                                                                                     : partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture));
+
+    if (gdel.ElementValue == "1")
+    {
+      gdel.ElementValue = "";
+    }
   }
 
   public static void SetupFilterGridForMaster(MetraTech.UI.Controls.MTFilterGrid grid, string masterLocalizedText)

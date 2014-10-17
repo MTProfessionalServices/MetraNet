@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,206 +59,206 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="INDEPENDENT_ACCOUNT" xml:space="preserve">
-    <value>Compte indépendant</value>
-  </data>
-  <data name="PAYEE_ACCOUNT" xml:space="preserve">
-    <value>Bénéficiaire</value>
-  </data>
-  <data name="PAYER_ACCOUNT" xml:space="preserve">
-    <value>Payeur</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>Prix personnalisés</value>
-  </data>
-  <data name="TEXT_KEYTERM_ACCOUNT_TYPE" xml:space="preserve">
-    <value>Type de compte</value>
-  </data>
-  <data name="TEXT_KEYTERM_ACCOUNT_TYPES" xml:space="preserve">
-    <value>Types de comptes</value>
-  </data>
-  <data name="TEXT_KEYTERM_CAPABILITIES" xml:space="preserve">
-    <value>Fonctionnalités</value>
-  </data>
-  <data name="TEXT_KEYTERM_CAPABILITY" xml:space="preserve">
-    <value>Fonctionnalité</value>
-  </data>
-  <data name="TEXT_KEYTERM_CORPORATE_ACCOUNT" xml:space="preserve">
-    <value>Compte d’entreprise</value>
-  </data>
-  <data name="TEXT_KEYTERM_COUNTER" xml:space="preserve">
-    <value>Compteur</value>
-  </data>
-  <data name="TEXT_KEYTERM_COUNTERS" xml:space="preserve">
-    <value>Compteurs</value>
-  </data>
-  <data name="TEXT_KEYTERM_DISCOUNT" xml:space="preserve">
-    <value>Remise</value>
-  </data>
-  <data name="TEXT_KEYTERM_DISCOUNTS" xml:space="preserve">
-    <value>Remises</value>
-  </data>
-  <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>Abonnement groupé</value>
-  </data>
-  <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS" xml:space="preserve">
-    <value>Abonnements groupés</value>
-  </data>
-  <data name="TEXT_KEYTERM_NON_RECURRING_CHARGE" xml:space="preserve">
-    <value>Frais non récurrents</value>
-  </data>
-  <data name="TEXT_KEYTERM_NON_RECURRING_CHARGES" xml:space="preserve">
-    <value>Frais non récurrents</value>
-  </data>
-  <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>Tarif non partagé</value>
-  </data>
-  <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>Tarifs non partagés</value>
-  </data>
-  <data name="TEXT_KEYTERM_PARAMETER_TABLE" xml:space="preserve">
-    <value>Tableau des paramètres</value>
-  </data>
-  <data name="TEXT_KEYTERM_PARAMETER_TABLES" xml:space="preserve">
-    <value>Tableaux des paramètres</value>
-  </data>
-  <data name="TEXT_KEYTERM_PERSONAL_RATE" xml:space="preserve">
-    <value>Prix personnalisé</value>
-  </data>
-  <data name="TEXT_KEYTERM_PRICE_LIST" xml:space="preserve">
-    <value>Tarif</value>
-  </data>
-  <data name="TEXT_KEYTERM_PRICE_LISTS" xml:space="preserve">
-    <value>Tarifs</value>
-  </data>
-  <data name="TEXT_KEYTERM_PRICEABLE_ITEM" xml:space="preserve">
-    <value>Élément à prix</value>
-  </data>
-  <data name="TEXT_KEYTERM_PRICEABLE_ITEMS" xml:space="preserve">
-    <value>Éléments à prix</value>
-  </data>
-  <data name="TEXT_KEYTERM_PRODUCT_OFFERING" xml:space="preserve">
-    <value>Offre produit</value>
-  </data>
-  <data name="TEXT_KEYTERM_PRODUCT_OFFERINGS" xml:space="preserve">
-    <value>Offres produit</value>
-  </data>
-  <data name="TEXT_KEYTERM_RATE_SCHEDULE" xml:space="preserve">
-    <value>Échelle tarifaire</value>
-  </data>
-  <data name="TEXT_KEYTERM_RATE_SCHEDULES" xml:space="preserve">
-    <value>Échelles tarifaires</value>
-  </data>
-  <data name="TEXT_KEYTERM_REBILL_NAME" xml:space="preserve">
-    <value>Réaffectation</value>
-  </data>
-  <data name="TEXT_KEYTERM_REBILL_VERB" xml:space="preserve">
-    <value>Réaffecter</value>
-  </data>
-  <data name="TEXT_KEYTERM_RECURRING_CHARGE" xml:space="preserve">
-    <value>Frais récurrents</value>
-  </data>
-  <data name="TEXT_KEYTERM_RECURRING_CHARGES" xml:space="preserve">
-    <value>Frais récurrents</value>
-  </data>
-  <data name="TEXT_KEYTERM_ROLE" xml:space="preserve">
-    <value>Rôle</value>
-  </data>
-  <data name="TEXT_KEYTERM_ROLES" xml:space="preserve">
-    <value>Rôles</value>
-  </data>
-  <data name="TEXT_KEYTERM_SERVICE_CHARGE" xml:space="preserve">
-    <value>Frais de service</value>
-  </data>
-  <data name="TEXT_KEYTERM_SERVICE_CHARGES" xml:space="preserve">
-    <value>Frais de service</value>
-  </data>
-  <data name="TEXT_KEYTERM_SERVICE_ENDPOINT" xml:space="preserve">
-    <value>Point limite du service</value>
-  </data>
-  <data name="TEXT_KEYTERM_SERVICE_ENDPOINTS" xml:space="preserve">
-    <value>Points limites du service</value>
-  </data>
-  <data name="TEXT_KEYTERM_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>Tarif partagé</value>
-  </data>
-  <data name="TEXT_KEYTERM_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>Tarifs partagés</value>
-  </data>
-  <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE" xml:space="preserve">
-    <value>Frais récurrents dépendant de l’unité</value>
-  </data>
-  <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES" xml:space="preserve">
-    <value>Frais récurrents dépendant de l’unité</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGE" xml:space="preserve">
-    <value>Frais d’utilisation</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE" xml:space="preserve">
-    <value>Frais d’utilisation (Consolidés)</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGES" xml:space="preserve">
-    <value>Frais d’utilisation</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
-    <value>Frais d’utilisation (Consolidés)</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="INDEPENDENT_ACCOUNT" xml:space="preserve">
+        <value>Compte indépendant</value>
+    </data>
+    <data name="PAYEE_ACCOUNT" xml:space="preserve">
+        <value>Bénéficiaire</value>
+    </data>
+    <data name="PAYER_ACCOUNT" xml:space="preserve">
+        <value>Payeur</value>
+    </data>
+    <data name="String1" xml:space="preserve">
+        <value>Prix personnalisés</value>
+    </data>
+    <data name="TEXT_KEYTERM_ACCOUNT_TYPE" xml:space="preserve">
+        <value>Type de compte</value>
+    </data>
+    <data name="TEXT_KEYTERM_ACCOUNT_TYPES" xml:space="preserve">
+        <value>Types de comptes</value>
+    </data>
+    <data name="TEXT_KEYTERM_CAPABILITIES" xml:space="preserve">
+        <value>Fonctionnalités</value>
+    </data>
+    <data name="TEXT_KEYTERM_CAPABILITY" xml:space="preserve">
+        <value>Fonctionnalité</value>
+    </data>
+    <data name="TEXT_KEYTERM_CORPORATE_ACCOUNT" xml:space="preserve">
+        <value>Compte d’entreprise</value>
+    </data>
+    <data name="TEXT_KEYTERM_COUNTER" xml:space="preserve">
+        <value>Compteur</value>
+    </data>
+    <data name="TEXT_KEYTERM_COUNTERS" xml:space="preserve">
+        <value>Compteurs</value>
+    </data>
+    <data name="TEXT_KEYTERM_DISCOUNT" xml:space="preserve">
+        <value>Remise</value>
+    </data>
+    <data name="TEXT_KEYTERM_DISCOUNTS" xml:space="preserve">
+        <value>Remises</value>
+    </data>
+    <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTION" xml:space="preserve">
+        <value>Abonnement groupé</value>
+    </data>
+    <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS" xml:space="preserve">
+        <value>Abonnements groupés</value>
+    </data>
+    <data name="TEXT_KEYTERM_NON_RECURRING_CHARGE" xml:space="preserve">
+        <value>Frais non récurrents</value>
+    </data>
+    <data name="TEXT_KEYTERM_NON_RECURRING_CHARGES" xml:space="preserve">
+        <value>Frais non récurrents</value>
+    </data>
+    <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LIST" xml:space="preserve">
+        <value>Tarif non partagé</value>
+    </data>
+    <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS" xml:space="preserve">
+        <value>Tarifs non partagés</value>
+    </data>
+    <data name="TEXT_KEYTERM_PARAMETER_TABLE" xml:space="preserve">
+        <value>Tableau des paramètres</value>
+    </data>
+    <data name="TEXT_KEYTERM_PARAMETER_TABLES" xml:space="preserve">
+        <value>Tableaux des paramètres</value>
+    </data>
+    <data name="TEXT_KEYTERM_PERSONAL_RATE" xml:space="preserve">
+        <value>Prix personnalisé</value>
+    </data>
+    <data name="TEXT_KEYTERM_PRICE_LIST" xml:space="preserve">
+        <value>Tarif</value>
+    </data>
+    <data name="TEXT_KEYTERM_PRICE_LISTS" xml:space="preserve">
+        <value>Tarifs</value>
+    </data>
+    <data name="TEXT_KEYTERM_PRICEABLE_ITEM" xml:space="preserve">
+        <value>Élément à prix</value>
+    </data>
+    <data name="TEXT_KEYTERM_PRICEABLE_ITEMS" xml:space="preserve">
+        <value>Éléments à prix</value>
+    </data>
+    <data name="TEXT_KEYTERM_PRODUCT_OFFERING" xml:space="preserve">
+        <value>Offre produit</value>
+    </data>
+    <data name="TEXT_KEYTERM_PRODUCT_OFFERINGS" xml:space="preserve">
+        <value>Offres produit</value>
+    </data>
+    <data name="TEXT_KEYTERM_RATE_SCHEDULE" xml:space="preserve">
+        <value>Échelle tarifaire</value>
+    </data>
+    <data name="TEXT_KEYTERM_RATE_SCHEDULES" xml:space="preserve">
+        <value>Échelles tarifaires</value>
+    </data>
+    <data name="TEXT_KEYTERM_REBILL_NAME" xml:space="preserve">
+        <value>Réaffectation</value>
+    </data>
+    <data name="TEXT_KEYTERM_REBILL_VERB" xml:space="preserve">
+        <value>Réaffecter</value>
+    </data>
+    <data name="TEXT_KEYTERM_RECURRING_CHARGE" xml:space="preserve">
+        <value>Frais récurrents</value>
+    </data>
+    <data name="TEXT_KEYTERM_RECURRING_CHARGES" xml:space="preserve">
+        <value>Frais récurrents</value>
+    </data>
+    <data name="TEXT_KEYTERM_ROLE" xml:space="preserve">
+        <value>Rôle</value>
+    </data>
+    <data name="TEXT_KEYTERM_ROLES" xml:space="preserve">
+        <value>Rôles</value>
+    </data>
+    <data name="TEXT_KEYTERM_SERVICE_CHARGE" xml:space="preserve">
+        <value>Frais de service</value>
+    </data>
+    <data name="TEXT_KEYTERM_SERVICE_CHARGES" xml:space="preserve">
+        <value>Frais de service</value>
+    </data>
+    <data name="TEXT_KEYTERM_SERVICE_ENDPOINT" xml:space="preserve">
+        <value>Point limite du service</value>
+    </data>
+    <data name="TEXT_KEYTERM_SERVICE_ENDPOINTS" xml:space="preserve">
+        <value>Points limites du service</value>
+    </data>
+    <data name="TEXT_KEYTERM_SHARED_PRICE_LIST" xml:space="preserve">
+        <value>Tarif partagé</value>
+    </data>
+    <data name="TEXT_KEYTERM_SHARED_PRICE_LISTS" xml:space="preserve">
+        <value>Tarifs partagés</value>
+    </data>
+    <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE" xml:space="preserve">
+        <value>Frais récurrents dépendant de l’unité</value>
+    </data>
+    <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES" xml:space="preserve">
+        <value>Frais récurrents dépendant de l’unité</value>
+    </data>
+    <data name="TEXT_KEYTERM_USAGE_CHARGE" xml:space="preserve">
+        <value>Frais d’utilisation</value>
+    </data>
+    <data name="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE" xml:space="preserve">
+        <value>Frais d’utilisation (Consolidés)</value>
+    </data>
+    <data name="TEXT_KEYTERM_USAGE_CHARGES" xml:space="preserve">
+        <value>Frais d’utilisation</value>
+    </data>
+    <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
+        <value>Frais d’utilisation (Consolidés)</value>
+    </data>
 </root>

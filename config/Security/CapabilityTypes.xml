@@ -945,7 +945,7 @@
     <name>Manage System User Reports</name>
     <description>Manage System User Reports: Allow managing/Assigning User Reports through UI</description>
     <editor></editor>
-    <progid>MetraTech.Auth.Capabilities.ManageSystemUserReportssCapability</progid>
+    <progid>MetraTech.Auth.Capabilities.ManageSystemUserReportsCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>

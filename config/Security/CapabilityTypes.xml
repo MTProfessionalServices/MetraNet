@@ -931,4 +931,25 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  <compositetype>
+    <name>Manage Bill Message</name>
+    <description>Manage Bill Message: Allow managing/assigning Bill Message through UI</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageBillMessageCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype>
+  <compositetype>
+    <name>Manage System User Reports</name>
+    <description>Manage System User Reports: Allow managing/Assigning User Reports through UI</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageSystemUserReportssCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype>
+  
 </mt_config>

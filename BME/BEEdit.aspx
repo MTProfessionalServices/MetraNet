@@ -47,4 +47,5 @@
   <asp:HiddenField runat="server" ID="hfDeniedProperties"/>
   <div id="divPanelRender" style="display: none; width: 250px;"></div>
   <script type="text/javascript" src="BEEdit.aspx.js"></script>
+  <script type="text/javascript" src="/Res/ux/jpath/jpath.js?v=6.5"></script>
 </asp:Content>

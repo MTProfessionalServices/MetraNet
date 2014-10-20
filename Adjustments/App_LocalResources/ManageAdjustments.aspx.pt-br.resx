@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,131 +59,131 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Gerenciar ajustes</value>
-  </data>
-  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>Gerenciar ajustes</value>
-  </data>
-  <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>Nenhum registro encontrado.</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="TEXT_ADJUSTMENT_AMOUNT" xml:space="preserve">
-    <value>Valor do ajuste</value>
-  </data>
-  <data name="TEXT_ADJUSTMENT_CREATE_DATE" xml:space="preserve">
-    <value>Data de criação do ajuste</value>
-  </data>
-  <data name="TEXT_ADJUSTMENT_DESCRIPTION" xml:space="preserve">
-    <value>Descrição do ajuste</value>
-  </data>
-  <data name="TEXT_ADJUSTMENT_STATUS" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="TEXT_APPROVE" xml:space="preserve">
-    <value>Aprovar os selecionados</value>
-  </data>
-  <data name="TEXT_APPROVE_ALL" xml:space="preserve">
-    <value>Aprovar tudo</value>
-  </data>
-  <data name="TEXT_DELETE" xml:space="preserve">
-    <value>Excluir selecionados</value>
-  </data>
-  <data name="TEXT_DELETE_ALL" xml:space="preserve">
-    <value>Excluir tudo</value>
-  </data>
-  <data name="TEXT_PARENT_SESSION_ID" xml:space="preserve">
-    <value>ID da sessão pai</value>
-  </data>
-  <data name="TEXT_PENDING_POSTBILL_AMT" xml:space="preserve">
-    <value>Valor de ajuste pós-faturamento pendente</value>
-  </data>
-  <data name="TEXT_PENDING_PREBILL_AMT" xml:space="preserve">
-    <value>Valor de ajuste pré-faturamento pendente</value>
-  </data>
-  <data name="TEXT_PI_DISPNAME" xml:space="preserve">
-    <value>Item cobrável</value>
-  </data>
-  <data name="TEXT_POSTBILL_ADJ_AMT" xml:space="preserve">
-    <value>Valor do ajuste pós-faturamento</value>
-  </data>
-  <data name="TEXT_PREBILL_ADJ_AMT" xml:space="preserve">
-    <value>Valor de ajuste pré-faturamento</value>
-  </data>
-  <data name="TEXT_SESSION_ID" xml:space="preserve">
-    <value>ID da sessão</value>
-  </data>
-  <data name="TEXT_STATUS_APPROVED" xml:space="preserve">
-    <value>Aprovado</value>
-  </data>
-  <data name="TEXT_STATUS_PENDING" xml:space="preserve">
-    <value>Pendente</value>
-  </data>
-  <data name="TEXT_USERNAME_PAYEE" xml:space="preserve">
-    <value>Nome de usuário do favorecido</value>
-  </data>
-  <data name="TEXT_USERNAME_PAYER" xml:space="preserve">
-    <value>Nome de usuário do pagador</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Gerenciar ajustes</value>
+    </data>
+    <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+        <value>Gerenciar ajustes</value>
+    </data>
+    <data name="NO_RECORDS_TEXT" xml:space="preserve">
+        <value>Nenhum registro encontrado.</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="TEXT_ADJUSTMENT_AMOUNT" xml:space="preserve">
+        <value>Valor do ajuste</value>
+    </data>
+    <data name="TEXT_ADJUSTMENT_CREATE_DATE" xml:space="preserve">
+        <value>Data de criação do ajuste</value>
+    </data>
+    <data name="TEXT_ADJUSTMENT_DESCRIPTION" xml:space="preserve">
+        <value>Descrição do ajuste</value>
+    </data>
+    <data name="TEXT_ADJUSTMENT_STATUS" xml:space="preserve">
+        <value>Estado</value>
+    </data>
+    <data name="TEXT_APPROVE" xml:space="preserve">
+        <value>Aprovar os selecionados</value>
+    </data>
+    <data name="TEXT_APPROVE_ALL" xml:space="preserve">
+        <value>Aprovar tudo</value>
+    </data>
+    <data name="TEXT_DELETE" xml:space="preserve">
+        <value>Excluir selecionados</value>
+    </data>
+    <data name="TEXT_DELETE_ALL" xml:space="preserve">
+        <value>Excluir tudo</value>
+    </data>
+    <data name="TEXT_PARENT_SESSION_ID" xml:space="preserve">
+        <value>ID da sessão pai</value>
+    </data>
+    <data name="TEXT_PENDING_POSTBILL_AMT" xml:space="preserve">
+        <value>Valor de ajuste pós-faturamento pendente</value>
+    </data>
+    <data name="TEXT_PENDING_PREBILL_AMT" xml:space="preserve">
+        <value>Valor de ajuste pré-faturamento pendente</value>
+    </data>
+    <data name="TEXT_PI_DISPNAME" xml:space="preserve">
+        <value>Item cobrável</value>
+    </data>
+    <data name="TEXT_POSTBILL_ADJ_AMT" xml:space="preserve">
+        <value>Valor do ajuste pós-faturamento</value>
+    </data>
+    <data name="TEXT_PREBILL_ADJ_AMT" xml:space="preserve">
+        <value>Valor de ajuste pré-faturamento</value>
+    </data>
+    <data name="TEXT_SESSION_ID" xml:space="preserve">
+        <value>ID da sessão</value>
+    </data>
+    <data name="TEXT_STATUS_APPROVED" xml:space="preserve">
+        <value>Aprovado</value>
+    </data>
+    <data name="TEXT_STATUS_PENDING" xml:space="preserve">
+        <value>Pendente</value>
+    </data>
+    <data name="TEXT_USERNAME_PAYEE" xml:space="preserve">
+        <value>Nome de usuário do favorecido</value>
+    </data>
+    <data name="TEXT_USERNAME_PAYER" xml:space="preserve">
+        <value>Nome de usuário do pagador</value>
+    </data>
 </root>

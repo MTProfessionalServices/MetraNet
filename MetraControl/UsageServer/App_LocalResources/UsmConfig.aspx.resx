@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,332 +59,332 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="AnnuallyCheckBoxResource2.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AnnuallyCheckBoxResource2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AnnuallyTextBoxResource2.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AnnuallyTextBoxResource2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AutoRunEopCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AutoRunEopCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AutoSoftCloseResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AutoSoftCloseResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BiWeeklyCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BiWeeklyCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BiWeeklyTextBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BiWeeklyTextBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BlockIntervalsCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BlockIntervalsCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="CancelButtonResource1.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="CancelButtonResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="DailyCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="DailyCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="DailyTextBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="DailyTextBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelAnnuallyResource1.Text" xml:space="preserve">
-    <value>Annually</value>
-  </data>
-  <data name="LabelAnnuallyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelAutoRunEopInfoResource1.Text" xml:space="preserve">
-    <value>Once a Billing Group has been Soft Closed, either automatically or manually, the platform will automatically start running End of Period adapters.</value>
-  </data>
-  <data name="LabelAutoRunEopInfoResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelAutoRunEopResource1.Text" xml:space="preserve">
-    <value>Automatically Run End of Period Adapters on Soft Closed Billing Groups</value>
-  </data>
-  <data name="LabelAutoRunEopResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelAutoSoftCloseResource1.Text" xml:space="preserve">
-    <value>Automatically create Soft Close Billing Groups for:</value>
-  </data>
-  <data name="LabelAutoSoftCloseResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelAutoSoftCloseTitleResource1.Text" xml:space="preserve">
-    <value>Automatically Soft Close the Billing Groups of Expired Usage Intervals.</value>
-  </data>
-  <data name="LabelAutoSoftCloseTitleResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelBiWeeklyResource1.Text" xml:space="preserve">
-    <value>Bi-weekly</value>
-  </data>
-  <data name="LabelBiWeeklyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelBlockIntervalsResource1.Text" xml:space="preserve">
-    <value>When automatically closing intervals, block the intervals to new accounts.</value>
-  </data>
-  <data name="LabelBlockIntervalsResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelDailyResource1.Text" xml:space="preserve">
-    <value>Daily</value>
-  </data>
-  <data name="LabelDailyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelDaysAfterResource1.Text" xml:space="preserve">
-    <value>day(s) after interval expires.</value>
-  </data>
-  <data name="LabelDaysAfterResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelEachNightResource1.Text" xml:space="preserve">
-    <value>Each night the platform will check for intervals that have ended and, using the grace period configuration below, automatically create billing groups and change their state to Soft Closed.</value>
-  </data>
-  <data name="LabelEachNightResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelIntervalsResource1.Text" xml:space="preserve">
-    <value>intervals</value>
-  </data>
-  <data name="LabelIntervalsResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelMonthlyResource1.Text" xml:space="preserve">
-    <value>Monthly</value>
-  </data>
-  <data name="LabelMonthlyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelQuarterlyResource1.Text" xml:space="preserve">
-    <value>Quarterly</value>
-  </data>
-  <data name="LabelQuarterlyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelRunScheduledAdaptersInfoResource1.Text" xml:space="preserve">
-    <value>The platform will periodically run configured scheduled adapters.  Note: If this setting is not selected, all scheduled adapters will need to be run manually.</value>
-  </data>
-  <data name="LabelRunScheduledAdaptersInfoResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelRunScheduledAdaptersResource1.Text" xml:space="preserve">
-    <value>Run Scheduled Adapters</value>
-  </data>
-  <data name="LabelRunScheduledAdaptersResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelSemiAnnuallyResource1.Text" xml:space="preserve">
-    <value>Semi-annually</value>
-  </data>
-  <data name="LabelSemiAnnuallyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelSemiMonthlyResource1.Text" xml:space="preserve">
-    <value>Semi-monthly</value>
-  </data>
-  <data name="LabelSemiMonthlyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LabelWeeklyResource1.Text" xml:space="preserve">
-    <value>Weekly</value>
-  </data>
-  <data name="LabelWeeklyResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MonthlyCheckBoxResource2.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MonthlyCheckBoxResource2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MonthlyTextBoxResource2.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MonthlyTextBoxResource2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MTLabel1Resource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MTLabel1Resource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MTPanel1Resource1.GroupingText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MTPanel1Resource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Usage Server Maintenance</value>
-  </data>
-  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="QuarterlyCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="QuarterlyCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="QuarterlyTextBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="QuarterlyTextBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RunSchedAdaptersCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RunSchedAdaptersCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SaveConfigButtonResource1.Text" xml:space="preserve">
-    <value>Save Configuration</value>
-  </data>
-  <data name="SaveConfigButtonResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiAnnuallyCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiAnnuallyCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiAnnuallyTextBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiAnnuallyTextBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiMonthlyCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiMonthlyCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiMonthlyTextBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SemiMonthlyTextBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ValidationSummary1Resource1.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ValidationSummary1Resource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="WeeklyCheckBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="WeeklyCheckBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="WeeklyTextBoxResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="WeeklyTextBoxResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>USM Configuration</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AnnuallyCheckBoxResource2.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="AnnuallyCheckBoxResource2.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="AnnuallyTextBoxResource2.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="AnnuallyTextBoxResource2.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="AutoRunEopCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="AutoRunEopCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="AutoSoftCloseResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="AutoSoftCloseResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="BiWeeklyCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="BiWeeklyCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="BiWeeklyTextBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="BiWeeklyTextBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="BlockIntervalsCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="BlockIntervalsCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="CancelButtonResource1.Text" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="CancelButtonResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="DailyCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="DailyCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="DailyTextBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="DailyTextBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelAnnuallyResource1.Text" xml:space="preserve">
+        <value>Annually</value>
+    </data>
+    <data name="LabelAnnuallyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelAutoRunEopInfoResource1.Text" xml:space="preserve">
+        <value>Once a Billing Group has been Soft Closed, either automatically or manually, the platform will automatically start running End of Period adapters.</value>
+    </data>
+    <data name="LabelAutoRunEopInfoResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelAutoRunEopResource1.Text" xml:space="preserve">
+        <value>Automatically Run End of Period Adapters on Soft Closed Billing Groups</value>
+    </data>
+    <data name="LabelAutoRunEopResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelAutoSoftCloseResource1.Text" xml:space="preserve">
+        <value>Automatically create Soft Close Billing Groups for:</value>
+    </data>
+    <data name="LabelAutoSoftCloseResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelAutoSoftCloseTitleResource1.Text" xml:space="preserve">
+        <value>Automatically Soft Close the Billing Groups of Expired Usage Intervals.</value>
+    </data>
+    <data name="LabelAutoSoftCloseTitleResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelBiWeeklyResource1.Text" xml:space="preserve">
+        <value>Bi-weekly</value>
+    </data>
+    <data name="LabelBiWeeklyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelBlockIntervalsResource1.Text" xml:space="preserve">
+        <value>When automatically closing intervals, block the intervals to new accounts.</value>
+    </data>
+    <data name="LabelBlockIntervalsResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelDailyResource1.Text" xml:space="preserve">
+        <value>Daily</value>
+    </data>
+    <data name="LabelDailyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelDaysAfterResource1.Text" xml:space="preserve">
+        <value>day(s) after interval expires.</value>
+    </data>
+    <data name="LabelDaysAfterResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelEachNightResource1.Text" xml:space="preserve">
+        <value>Each night the platform will check for intervals that have ended and, using the grace period configuration below, automatically create billing groups and change their state to Soft Closed.</value>
+    </data>
+    <data name="LabelEachNightResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelIntervalsResource1.Text" xml:space="preserve">
+        <value>intervals</value>
+    </data>
+    <data name="LabelIntervalsResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelMonthlyResource1.Text" xml:space="preserve">
+        <value>Monthly</value>
+    </data>
+    <data name="LabelMonthlyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelQuarterlyResource1.Text" xml:space="preserve">
+        <value>Quarterly</value>
+    </data>
+    <data name="LabelQuarterlyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelRunScheduledAdaptersInfoResource1.Text" xml:space="preserve">
+        <value>The platform will periodically run configured scheduled adapters.  Note: If this setting is not selected, all scheduled adapters will need to be run manually.</value>
+    </data>
+    <data name="LabelRunScheduledAdaptersInfoResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelRunScheduledAdaptersResource1.Text" xml:space="preserve">
+        <value>Run Scheduled Adapters</value>
+    </data>
+    <data name="LabelRunScheduledAdaptersResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelSemiAnnuallyResource1.Text" xml:space="preserve">
+        <value>Semi-annually</value>
+    </data>
+    <data name="LabelSemiAnnuallyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelSemiMonthlyResource1.Text" xml:space="preserve">
+        <value>Semi-monthly</value>
+    </data>
+    <data name="LabelSemiMonthlyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="LabelWeeklyResource1.Text" xml:space="preserve">
+        <value>Weekly</value>
+    </data>
+    <data name="LabelWeeklyResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MonthlyCheckBoxResource2.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MonthlyCheckBoxResource2.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MonthlyTextBoxResource2.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MonthlyTextBoxResource2.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTLabel1Resource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTLabel1Resource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTPanel1Resource1.GroupingText" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTPanel1Resource1.Text" xml:space="preserve">
+        <value>USM Configuration</value>
+    </data>
+    <data name="MTPanel1Resource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Usage Server Maintenance</value>
+    </data>
+    <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="QuarterlyCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="QuarterlyCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="QuarterlyTextBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="QuarterlyTextBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="RunSchedAdaptersCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="RunSchedAdaptersCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SaveConfigButtonResource1.Text" xml:space="preserve">
+        <value>Save Configuration</value>
+    </data>
+    <data name="SaveConfigButtonResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiAnnuallyCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiAnnuallyCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiAnnuallyTextBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiAnnuallyTextBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiMonthlyCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiMonthlyCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiMonthlyTextBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="SemiMonthlyTextBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ValidationSummary1Resource1.HeaderText" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ValidationSummary1Resource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="WeeklyCheckBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="WeeklyCheckBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="WeeklyTextBoxResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="WeeklyTextBoxResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
 </root>

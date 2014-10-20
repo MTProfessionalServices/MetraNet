@@ -1308,4 +1308,7 @@
   <data name="FRACTION_DIGITS" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="TEXT_ALL" xml:space="preserve">
+    <value>All</value>
+  </data>
 </root>

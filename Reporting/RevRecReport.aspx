@@ -78,7 +78,7 @@
       var select = $("<select/>").width('218px').on('change', function () {
         inpVal.val(this.value);
       });
-      select.append($("<option/>"));
+      select.append($("<option/>").text(TEXT_ALL).val(''));
       $.ajax({
         url: "../Report/GetProductsFilter",
         success: function (res) {

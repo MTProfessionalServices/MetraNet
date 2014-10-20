@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Serialization;
-using MetraNet;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
+using MetraTech.Presentation.Reports;
 using MetraTech.UI.Common;
 using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
 
@@ -29,7 +29,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var AccountingCycleIdLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "AccountingCycleId");
       var AccountingCycleId = (AccountingCycleIdLINQ == null ? "" : AccountingCycleIdLINQ.Value.ToString().Replace("%", ""));
 
-      var revRec = ReportingtHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, productId, AccountingCycleId, 0);
+      var revRec = DeferredRevenueHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, productId, AccountingCycleId, 0);
       items.Items.AddRange(revRec);
 
       var jss = new JavaScriptSerializer();

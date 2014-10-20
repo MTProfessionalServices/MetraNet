@@ -64,6 +64,7 @@ AS
       AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
     ui.dt_start <= rw.c_SubscriptionStart
+    AND ui.dt_start < currentDate
     AND rw.c__IsAllowGenChargeByTrigger = 1;
 	  
   INSERT INTO TMP_RC

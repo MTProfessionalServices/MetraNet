@@ -79,6 +79,7 @@ BEGIN
         EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
         /* Meter only in 1-st billing interval */
         AND ui.dt_start <= rw.c_SubscriptionStart
+        AND ui.dt_start < @currentDate
         AND rw.c__IsAllowGenChargeByTrigger = 1; 
 
   SELECT @actionType AS c_RCActionType,

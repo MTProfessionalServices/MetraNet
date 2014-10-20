@@ -1,25 +1,26 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.AccountConfigSets.UDRCMetric, Core.AccountConfigSets.Entity" table="t_be_cor_acs_UDRCMetric">
-    <meta attribute="description">Table for UDRCs for Account Config Set</meta>
-    <meta attribute="label">UDRCMetric</meta>
-    <meta attribute="plural-name">UDRCMetrics</meta>
+  <class name="Core.AccountConfigSets.PropValueToSetBmeHistory, Core.AccountConfigSets.Entity" table="t_be_cor_acs_PropValToSet_h">
+    <meta attribute="description" />
+    <meta attribute="label" />
+    <meta attribute="plural-name">PropValueToSetBmeHistorys</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
     <meta attribute="record-history">false</meta>
-    <meta attribute="entity-type">Entity</meta>
-    <meta attribute="interface">Core.AccountConfigSets.Interface.IUDRCMetric, Core.Interface</meta>
+    <meta attribute="entity-type">History</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.IPropValueToSetBmeHistory, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <id name="Id" column="c_UDRCMetric_Id">
+    <meta attribute="entity-name">Core.AccountConfigSets.PropValueToSetBme</meta>
+    <id name="Id" column="c_PropValueToSetBmeHistor_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>
     <version name="_Version" column="c__version" />
-    <component class="Core.AccountConfigSets.UDRCMetricBusinessKey, Core.AccountConfigSets.Entity" name="UDRCMetricBusinessKey">
+    <component class="Core.AccountConfigSets.PropValueToSetBmeBusinessKey, Core.AccountConfigSets.Entity" name="PropValueToSetBmeBusinessKey">
       <meta attribute="business-key">true</meta>
       <meta attribute="internal-business-key">true</meta>
-      <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">
+      <property name="InternalKey" column="c_internal_key" not-null="true">
         <meta attribute="label">Internal Business Key</meta>
         <meta attribute="description" />
         <meta attribute="defaultvalue" />
@@ -72,11 +73,11 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="PI_Id" column="c_PI_Id">
-      <meta attribute="label">PI_Id</meta>
-      <meta attribute="description">Priceable item identity</meta>
+    <property name="PropValueToSetBmeId" column="c_PropValueToSetBme_Id" not-null="true" index="IDX_PropValueToSetBme_Id">
+      <meta attribute="label" />
+      <meta attribute="description" />
       <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
+      <meta attribute="sortable">true</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>
@@ -84,11 +85,11 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int32, mscorlib" />
+      <type name="System.Guid, mscorlib" />
     </property>
-    <property name="PI_Name" column="c_PI_Name" length="255">
-      <meta attribute="label">PI_Name</meta>
-      <meta attribute="description">Priceable item name</meta>
+    <property name="AccountView" column="c_AccountView" length="255">
+      <meta attribute="label">AccountView</meta>
+      <meta attribute="description">AccountView</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -100,9 +101,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="StartDate" column="c_StartDate">
-      <meta attribute="label">StartDate</meta>
-      <meta attribute="description" />
+    <property name="Property" column="c_Property" length="255">
+      <meta attribute="label">Property</meta>
+      <meta attribute="description">Property</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -112,25 +113,11 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
+      <type name="System.String, mscorlib" />
     </property>
-    <property name="EndDate" column="c_EndDate">
-      <meta attribute="label">EndDate</meta>
-      <meta attribute="description" />
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
-    </property>
-    <property name="Value" column="c_Value" precision="22" scale="10">
+    <property name="Value" column="c_Value" length="2000">
       <meta attribute="label">Value</meta>
-      <meta attribute="description" />
+      <meta attribute="description">Value</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -140,24 +127,135 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Decimal, mscorlib" />
+      <type name="System.String, mscorlib" />
     </property>
-    <many-to-one name="SubscriptionParameters" class="Core.AccountConfigSets.SubscriptionParameters, Core.AccountConfigSets.Entity" column="c_SubscriptionParameters_Id" cascade="none">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">SubscriptionParameters_UDRCMetrics</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.AccountConfigSets.SubscriptionParameters</meta>
-      <meta attribute="source-key-column">c_SubscriptionParameters_Id</meta>
-      <meta attribute="source-property-name-for-target">UDRCMetrics</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.AccountConfigSets.UDRCMetric</meta>
-      <meta attribute="target-key-column">c_UDRCMetric_Id</meta>
-      <meta attribute="target-property-name-for-source">SubscriptionParameters</meta>
-      <meta attribute="cascade">true</meta>
-    </many-to-one>
+    <property name="AccountCSId" column="c_AccountCSId" not-null="true">
+      <meta attribute="label">AccountCSId</meta>
+      <meta attribute="description">Id of related AccountConfigSetBME entity</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="_StartDate" column="c__StartDate" not-null="true">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue">1/1/0001 12:00:00 AM</meta>
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="_EndDate" column="c__EndDate" not-null="true">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue">12/31/9999 11:59:59 PM</meta>
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
   </class>
+  <database-object>
+    <create>
+CREATE or REPLACE 
+TRIGGER TRG_PropValueToSetBmeHistory
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_PropValToSet
+ REFERENCING NEW AS dataRow 
+FOR EACH ROW 
+UPDATE t_be_cor_acs_PropValToSet_h
+ SET c__enddate = :dataRow.c_updatedate 
+WHERE c_PropValueToSetBme_Id = :dataRow.c_PropValueToSetBme_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
+INSERT INTO t_be_cor_acs_PropValToSet_h
+( 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_propvaluetosetbme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_accountcsid, 
+c__startdate, 
+c__enddate
+) 
+VALUES 
+( 
+:dataRow.c_internal_key, 
+:dataRow.c__version, 
+:dataRow.c_creationdate, 
+:dataRow.c_updatedate, 
+:dataRow.c_uid, 
+:dataRow.c_propvaluetosetbme_id, 
+:dataRow.c_accountview, 
+:dataRow.c_property, 
+:dataRow.c_value, 
+:dataRow.c_accountcsid, 
+:dataRow.c_updatedate, 
+CAST(dbo.mtmaxdate() AS TIMESTAMP)
+) 
+</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
+  </database-object>
+  <database-object>
+    <create>CREATE TRIGGER TRG_PropValueToSetBmeHistory
+ ON t_be_cor_acs_PropValToSet
+ AFTER INSERT, UPDATE 
+AS 
+SET NOCOUNT ON 
+UPDATE history SET c__enddate = ins.c_updatedate 
+FROM t_be_cor_acs_PropValToSet_h history 
+INNER JOIN INSERTED ins ON ins.c_PropValueToSetBme_Id = history.c_PropValueToSetBme_Id
+ WHERE history.c__enddate = dbo.mtmaxdate(); 
+INSERT INTO t_be_cor_acs_PropValToSet_h
+(
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_propvaluetosetbme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_accountcsid, 
+c__startdate, 
+c__enddate
+)
+SELECT 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_propvaluetosetbme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_accountcsid, 
+c_updatedate, 
+dbo.mtmaxdate()
+FROM INSERTED;</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
+  </database-object>
 </hibernate-mapping>

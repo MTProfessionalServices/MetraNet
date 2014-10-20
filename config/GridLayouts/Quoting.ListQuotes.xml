@@ -37,7 +37,7 @@
     <EnableFilterConfig>true</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField>IdQuote</DefaultSortField>
+    <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
@@ -95,7 +95,7 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -131,7 +131,7 @@
             <Width>75</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -566,8 +566,8 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
+                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
                             <ID>QuoteIdentifier</ID>
                             <Name>QuoteIdentifier</Name>
                         </Field>

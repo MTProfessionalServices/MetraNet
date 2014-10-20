@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">ConfigDriven</meta>
+  <class name="Core.AccountConfigSets.SelectionCriteriaBmeHistory, Core.AccountConfigSets.Entity" table="t_be_cor_acs_PropValForCr_h">
+    <meta attribute="description" />
+    <meta attribute="label" />
+    <meta attribute="plural-name">SelectionCriteriaBmeHistorys</meta>
+    <meta attribute="database">NetMeter</meta>
+    <meta attribute="custom-base-class-name" />
+    <meta attribute="record-history">false</meta>
+    <meta attribute="entity-type">History</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.ISelectionCriteriaBmeHistory, Core.Interface</meta>
+    <meta attribute="metranet-entity-association" />
+    <meta attribute="entity-name">Core.AccountConfigSets.SelectionCriteriaBme</meta>
+    <id name="Id" column="c_SelectionCriteria_hist_Id">
+      <type name="guid" />
+      <generator class="guid.comb" />
+    </id>
+    <version name="_Version" column="c__version" />
+    <component class="Core.AccountConfigSets.SelectionCriteriaBmeBusinessKey, Core.AccountConfigSets.Entity" name="SelectionCriteriaBmeBusinessKey">
+      <meta attribute="business-key">true</meta>
+      <meta attribute="internal-business-key">true</meta>
+      <property name="InternalKey" column="c_internal_key" not-null="true">
+        <meta attribute="label">Internal Business Key</meta>
+        <meta attribute="description" />
+        <meta attribute="defaultvalue" />
+        <meta attribute="sortable">true</meta>
+        <meta attribute="searchable">true</meta>
+        <meta attribute="association-entity" />
+        <meta attribute="encrypted">false</meta>
+        <type name="System.Guid" />
+      </property>
+    </component>
+    <property name="CreationDate" column="c_CreationDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UpdateDate" column="c_UpdateDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UID" column="c_UID">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="SelectionCriteriaBmeId" column="c_SelectionCriteriaBme_Id" not-null="true" index="IDX_SelectionCriteria_Id">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Guid, mscorlib" />
+    </property>
+    <property name="AccountView" column="c_AccountView" length="255">
+      <meta attribute="label">AccountView</meta>
+      <meta attribute="description">AccountView</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Property" column="c_Property" length="255">
+      <meta attribute="label">Property</meta>
+      <meta attribute="description">Property</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Value" column="c_Value" length="2000">
+      <meta attribute="label">Value</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Condition" column="c_Condition" length="10">
+      <meta attribute="label">Condition</meta>
+      <meta attribute="description">Condition</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="AccountConfigSetBMEId" column="c_AccountConfigSetBME_Id">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Guid, mscorlib" />
+    </property>
+    <property name="_StartDate" column="c__StartDate" not-null="true">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue">1/1/0001 12:00:00 AM</meta>
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="_EndDate" column="c__EndDate" not-null="true">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue">12/31/9999 11:59:59 PM</meta>
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+  </class>
+  <database-object>
+    <create>
+CREATE or REPLACE 
+TRIGGER TRG_SelectionCriteria
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_PropValForCr
+ REFERENCING NEW AS dataRow 
+FOR EACH ROW 
+UPDATE t_be_cor_acs_PropValForCr_h
+ SET c__enddate = :dataRow.c_updatedate 
+WHERE c_SelectionCriteria_Id = :dataRow.c_SelectionCriteria_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
+INSERT INTO t_be_cor_acs_PropValForCr_h
+( 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c__startdate, 
+c__enddate
+) 
+VALUES 
+( 
+:dataRow.c_internal_key, 
+:dataRow.c__version, 
+:dataRow.c_creationdate, 
+:dataRow.c_updatedate, 
+:dataRow.c_uid, 
+:dataRow.c_accountview, 
+:dataRow.c_property, 
+:dataRow.c_value, 
+:dataRow.c_condition, 
+:dataRow.c_accountconfigsetbme_id, 
+:dataRow.c_updatedate, 
+CAST(dbo.mtmaxdate() AS TIMESTAMP)
+) 
+</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
+  </database-object>
+  <database-object>
+    <create>CREATE TRIGGER TRG_SelectionCriteria
+ ON t_be_cor_acs_PropValForCr
+ AFTER INSERT, UPDATE 
+AS 
+SET NOCOUNT ON 
+UPDATE history SET c__enddate = ins.c_updatedate 
+FROM t_be_cor_acs_PropValForCr_h history 
+INNER JOIN INSERTED ins ON ins.c_SelectionCriteria_Id = history.c_SelectionCriteria_Id
+ WHERE history.c__enddate = dbo.mtmaxdate(); 
+INSERT INTO t_be_cor_acs_PropValForCr_h
+(
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c__startdate, 
+c__enddate
+)
+SELECT 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c_updatedate, 
+dbo.mtmaxdate()
+FROM INSERTED;</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
+  </database-object>
+  <database-object>
+    <create>
+CREATE or REPLACE 
+TRIGGER TRG_SelectionCriteriaBmeHisto
+ AFTER INSERT OR UPDATE ON t_be_cor_acs_SelectionCriteria
+ REFERENCING NEW AS dataRow 
+FOR EACH ROW 
+UPDATE t_be_cor_acs_PropValForCr_h
+ SET c__enddate = :dataRow.c_updatedate 
+WHERE c_SelectionCriteriaBme_Id = :dataRow.c_SelectionCriteriaBme_Id AND c__enddate = CAST(dbo.mtmaxdate() AS TIMESTAMP); 
+INSERT INTO t_be_cor_acs_PropValForCr_h
+( 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_selectioncriteriabme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c__startdate, 
+c__enddate
+) 
+VALUES 
+( 
+:dataRow.c_internal_key, 
+:dataRow.c__version, 
+:dataRow.c_creationdate, 
+:dataRow.c_updatedate, 
+:dataRow.c_uid, 
+:dataRow.c_selectioncriteriabme_id, 
+:dataRow.c_accountview, 
+:dataRow.c_property, 
+:dataRow.c_value, 
+:dataRow.c_condition, 
+:dataRow.c_accountconfigsetbme_id, 
+:dataRow.c_updatedate, 
+CAST(dbo.mtmaxdate() AS TIMESTAMP)
+) 
+</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
+  </database-object>
+  <database-object>
+    <create>CREATE TRIGGER TRG_SelectionCriteriaBmeHisto
+ ON t_be_cor_acs_SelectionCriteria
+ AFTER INSERT, UPDATE 
+AS 
+SET NOCOUNT ON 
+UPDATE history SET c__enddate = ins.c_updatedate 
+FROM t_be_cor_acs_PropValForCr_h history 
+INNER JOIN INSERTED ins ON ins.c_SelectionCriteriaBme_Id = history.c_SelectionCriteriaBme_Id
+ WHERE history.c__enddate = dbo.mtmaxdate(); 
+INSERT INTO t_be_cor_acs_PropValForCr_h
+(
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_selectioncriteriabme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c__startdate, 
+c__enddate
+)
+SELECT 
+c_internal_key, 
+c__version, 
+c_creationdate, 
+c_updatedate, 
+c_uid, 
+c_selectioncriteriabme_id, 
+c_accountview, 
+c_property, 
+c_value, 
+c_condition, 
+c_accountconfigsetbme_id, 
+c_updatedate, 
+dbo.mtmaxdate()
+FROM INSERTED;</create>
+    <drop />
+    <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
+  </database-object>
+</hibernate-mapping>

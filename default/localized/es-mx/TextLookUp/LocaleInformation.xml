@@ -17,7 +17,7 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789.: APMapm</value>
+    <value>0123456789/: APMapm</value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
@@ -25,11 +25,11 @@
     <description>Special date format used by JavaScript based calendar widget. See MDM/Common/Widgets/Calendar for more information.</description>
   </text>
   <text id="MDM_USE_24HOUR_CLOCK">
-    <value>true</value>
+    <value>false</value>
     <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
   </text>
   <text id="END_OF_DAY">
-    <value>23:59:59</value>
+    <value>11:59:59 PM</value>
     <description>End of day</description>
   </text>
   <text id="DATE_FORMAT">
@@ -49,7 +49,7 @@
     <description>The time format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>dd/mm/yyyy H:mm:ss</value>
+    <value>dd/mm/yyyy hh:mm:ss AMPM</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">

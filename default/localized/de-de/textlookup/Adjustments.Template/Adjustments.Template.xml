@@ -5,40 +5,20 @@
     for the Dialog Transaction Finder (Adjustment.Finder.asp)
   </description>
   <!--
-      Id attribute syntax:
-      TransactionFinder.Template:[ProductView-FQN](Index)
-    -->
+    Id attribute syntax:
+    TransactionFinder.Template:[ProductView-FQN](Index)
+  -->
   <!-- metratech.com/audioconfcall -->
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(1)">
-    <value>[DE]ConferenceID</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(2)">
-    <value>[DE]ConferenceName</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(3)">
-    <value>[DE]ConferenceSubject</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(4)">
-    <value>[DE]OrganizationName</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(5)">
-    <value>[DE]ServiceLevel</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(6)">
-    <value>[DE]ScheduledStartTime</value>
-  </text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(1)"><value>ConferenceID</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(2)"><value>ConferenceName</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(3)"><value>ConferenceSubject</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(4)"><value>OrganizationName</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(5)"><value>ServiceLevel</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(6)"><value>ScheduledStartTime</value></text>
 
   <!-- metratech.com/songdownloads -->
-  <text id="TransactionFinder.Template:metratech.com/songdownloads(1)">
-    <value>[DE]songs</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/songdownloads(2)">
-    <value>mp3bytes</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/songdownloads(3)">
-    <value>wavbytes</value>
-  </text>
-  <text id="TransactionFinder.Template:metratech.com/songdownloads(4)">
-    <value>TotalSongs</value>
-  </text>
+  <text id="TransactionFinder.Template:metratech.com/songdownloads(1)"><value>songs</value></text>
+  <text id="TransactionFinder.Template:metratech.com/songdownloads(2)"><value>mp3bytes</value></text>
+  <text id="TransactionFinder.Template:metratech.com/songdownloads(3)"><value>wavbytes</value></text>
+  <text id="TransactionFinder.Template:metratech.com/songdownloads(4)"><value>TotalSongs</value></text>
 </texts>

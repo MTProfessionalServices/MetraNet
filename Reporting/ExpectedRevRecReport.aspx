@@ -1,13 +1,13 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" meta:resourcekey="PageResource1" 
-  CodeFile="RevRecReport.aspx.cs" Inherits="RevRecReport" Culture="auto" UICulture="auto" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
+  CodeFile="ExpectedRevRecReport.aspx.cs" Inherits="ExpectedRevRecReport" Culture="auto" UICulture="auto" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
   <MT:MTTitle ID="MTTitle1" runat="server" ClientIDMode="Static" meta:resourcekey="MTTitle1Resource1"/>
   <div style="position: relative; margin-top: 50px;">
-    <MT:MTFilterGrid ID="grdRevRecReport" runat="server" ExtensionName="SystemConfig"
-      TemplateFileName="RevRecReportGrid" ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending"
+    <MT:MTFilterGrid ID="grdExpectedRevRecReport" runat="server" ExtensionName="SystemConfig"
+      TemplateFileName="ExpectedRevRecReportGrid" ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending"
       DisplayCount="True" EnableColumnConfig="True" EnableFilterConfig="false" EnableLoadSearch="False"
       EnableSaveSearch="False" Expandable="False" ExpansionCssClass="" Exportable="False"
       FilterColumnWidth="350" FilterInputWidth="0" FilterLabelWidth="0" FilterPanelCollapsed="False"
@@ -51,13 +51,13 @@
     }
 
     function DrawHeaders(headers) {
-      if (!grid_grdRevRecReport) {
+      if (!grid_grdExpectedRevRecReport) {
         return;
       }
-      var columns = grid_grdRevRecReport.getColumnModel().getColumnsBy(function (c) {
+      var columns = grid_grdExpectedRevRecReport.getColumnModel().getColumnsBy(function (c) {
           return c.id.indexOf("Amount") != -1;
         });
-        var columnModel = grid_grdRevRecReport.getColumnModel();
+        var columnModel = grid_grdExpectedRevRecReport.getColumnModel();
         var i = 0;
         columns.forEach(function (e) {
           columnModel.setColumnHeader(e.position, headers[i]);
@@ -66,7 +66,7 @@
     }
 
     function RefreshHeaders() {
-      var cycle = $('#filter_AccountingCycleId_grdRevRecReport').val();;
+      var cycle = $('#filter_AccountingCycleId_grdExpectedRevRecReport').val();;
       if (accCycleId !== cycle) {
         SetHeaders(cycle);
       }
@@ -74,11 +74,11 @@
 
     Ext.onReady(function () {
       $('#ext-gen121 td').hide();
-      var inpVal = $('#filter_ProductId_grdRevRecReport-value');
+      var inpVal = $('#filter_ProductId_grdExpectedRevRecReport-value');
       var select = $("<select/>").width('218px').on('change', function () {
         inpVal.val(this.value);
       });
-      select.append($("<option/>").text(TEXT_ALL).val(''));
+      select.append($("<option/>"));
       $.ajax({
         url: "../Report/GetProductsFilter",
         success: function (res) {
@@ -90,7 +90,7 @@
         }
       });
 
-      var inpValCycle = $('#filter_AccountingCycleId_grdRevRecReport');
+      var inpValCycle = $('#filter_AccountingCycleId_grdExpectedRevRecReport');
       inpValCycle.hide();
       var selectCycle = $("<select id='selAccCycle'/>").width('218px').on('change', function () {
         inpValCycle.val(this.value);

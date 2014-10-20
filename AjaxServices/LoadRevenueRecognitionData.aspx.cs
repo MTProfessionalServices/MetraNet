@@ -12,6 +12,9 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+      if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+        Response.End();
+
       var items = new MTList<RevRecModel>();
       SetFilters(items);
 

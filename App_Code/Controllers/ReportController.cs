@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Web.Mvc;
 using MetraNet;
 using MetraNet.DbContext;
+using MetraTech.UI.Common;
 using System.Linq;
 using System.Collections.Generic;
 using System;
@@ -201,6 +202,8 @@ namespace ASP.Controllers
     /// <returns></returns>
     public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, string revenueCode, string deferredRevenueCode, int productId)
     {
+      if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+        Response.End();
       var accCycle = ReportingtHelper.GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountingCycleId)));
       var headers = ReportingtHelper.GetRevRecReportHeaders(accountingCycleId);
       var revRec = ReportingtHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
@@ -224,6 +227,8 @@ namespace ASP.Controllers
     /// <returns></returns>
     public ActionResult RevRecReportHeaders(string accountCycleId)
     {
+      if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+        Response.End();
       var headers = ReportingtHelper.GetRevRecReportHeaders(accountCycleId);
       return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);
     }

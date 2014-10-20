@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,110 +59,110 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="ACTIONS" xml:space="preserve">
-    <value>Actions</value>
-  </data>
-  <data name="ALL_DESCENDANTS" xml:space="preserve">
-    <value>Tous les descendants</value>
-  </data>
-  <data name="CURRENT_NODE" xml:space="preserve">
-    <value>Nœud actuel</value>
-  </data>
-  <data name="DIRECT_DESCENDANTS" xml:space="preserve">
-    <value>Descendants directs</value>
-  </data>
-  <data name="EffectiveEndDate" xml:space="preserve">
-    <value>Date de fin de validité</value>
-  </data>
-  <data name="EffectiveStartDate" xml:space="preserve">
-    <value>Date de début de validité</value>
-  </data>
-  <data name="ErrorAddGroupSubMember" xml:space="preserve">
-    <value>Erreur lors de l’ajout des membres de l’abonnement groupé.</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Comptes</value>
-  </data>
-  <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>Abonnement groupé</value>
-  </data>
-  <data name="lblAddGroupSubMembersTitleResource1" xml:space="preserve">
-    <value>Période de validité de l’abonnement groupé</value>
-  </data>
-  <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Messages d’erreur</value>
-  </data>
-  <data name="MTTitle1.Text" xml:space="preserve">
-    <value>Ajouter des membres à l’abonnement groupé {0}</value>
-  </data>
-  <data name="REMOVE_ACCOUNT" xml:space="preserve">
-    <value>Supprimer le compte</value>
-  </data>
-  <data name="SELECT_ACCOUNTS" xml:space="preserve">
-    <value>Sélectionner des comptes</value>
-  </data>
-  <data name="SELECTION" xml:space="preserve">
-    <value>Sélection</value>
-  </data>
-  <data name="USERNAME" xml:space="preserve">
-    <value>Nom d’utilisateur</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ACTIONS" xml:space="preserve">
+        <value>Actions</value>
+    </data>
+    <data name="ALL_DESCENDANTS" xml:space="preserve">
+        <value>Tous les descendants</value>
+    </data>
+    <data name="CURRENT_NODE" xml:space="preserve">
+        <value>Nœud actuel</value>
+    </data>
+    <data name="DIRECT_DESCENDANTS" xml:space="preserve">
+        <value>Descendants directs</value>
+    </data>
+    <data name="EffectiveEndDate" xml:space="preserve">
+        <value>Date de fin de validité</value>
+    </data>
+    <data name="EffectiveStartDate" xml:space="preserve">
+        <value>Date de début de validité</value>
+    </data>
+    <data name="ErrorAddGroupSubMember" xml:space="preserve">
+        <value>Erreur lors de l’ajout des membres de l’abonnement groupé.</value>
+    </data>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Comptes</value>
+    </data>
+    <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
+        <value>Abonnement groupé</value>
+    </data>
+    <data name="lblAddGroupSubMembersTitleResource1" xml:space="preserve">
+        <value>Période de validité de l’abonnement groupé</value>
+    </data>
+    <data name="lblErrorMessageResource1.Text" xml:space="preserve">
+        <value>Messages d’erreur</value>
+    </data>
+    <data name="MTTitle1.Text" xml:space="preserve">
+        <value>Ajouter des membres à l’abonnement groupé {0}</value>
+    </data>
+    <data name="REMOVE_ACCOUNT" xml:space="preserve">
+        <value>Supprimer le compte</value>
+    </data>
+    <data name="SELECT_ACCOUNTS" xml:space="preserve">
+        <value>Sélectionner des comptes</value>
+    </data>
+    <data name="SELECTION" xml:space="preserve">
+        <value>Sélection</value>
+    </data>
+    <data name="USERNAME" xml:space="preserve">
+        <value>Nom d’utilisateur</value>
+    </data>
 </root>

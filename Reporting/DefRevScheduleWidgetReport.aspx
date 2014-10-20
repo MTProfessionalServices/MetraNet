@@ -12,12 +12,12 @@
   <div id="container">
     <div class="row">
       <MT:MTPanel runat="server" ID="filterPanel" ClientIDMode="Static">
-      <MT:MTDropDown runat="server" ClientIDMode="Static" ID="accntCycleDd" />
-      <MT:MTDropDown runat="server" ClientIDMode="Static" ID="currencyDd" />
-      <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="revCodeInp" />
-      <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="defRevCodeInp" />
-      <MT:MTDropDown runat="server" ClientIDMode="Static" ID="productDd" />
-      <MT:MTButton runat="server" ID="applyBtn" ClientIDMode="Static" EnableViewState="False" OnClientClick="ApplyFilter(); return false;"/>
+        <MT:MTDropDown runat="server" ClientIDMode="Static" ID="accntCycleDd" TabIndex="1" />
+        <MT:MTDropDown runat="server" ClientIDMode="Static" ID="currencyDd" TabIndex="2" />
+        <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="revCodeInp" TabIndex="3" />
+        <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="defRevCodeInp" TabIndex="4" />
+        <MT:MTDropDown runat="server" ClientIDMode="Static" ID="productDd" TabIndex="5" />
+        <MT:MTButton runat="server" ID="applyBtn" ClientIDMode="Static" EnableViewState="False" TabIndex="6" OnClientClick="ApplyFilter(); return false;" />
       </MT:MTPanel>
     </div>
     <div class="row">

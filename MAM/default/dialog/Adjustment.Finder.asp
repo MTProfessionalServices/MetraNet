@@ -66,8 +66,8 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   PriceAbleItem_Click EventArg ' Force to clean some stuff
   
   ' Set the default date value
-  Service.Properties("StartDate").Value                   = mam_FormatDate(CDate(FrameWork.RemoveTime(FrameWork.MetraTimeGMTBeginOfCurrentMonth())), mam_GetDictionary("DATE_FORMAT"))
-  Service.Properties("EndDate").Value                     = mam_FormatDate(CDate(FrameWork.RemoveTime(FrameWork.MetraTimeGMTEndOfCurrentMonth()) & " " & FrameWork.Dictionary.Item("END_OF_DAY").Value), mam_GetDictionary("DATE_FORMAT"))
+  Service.Properties("StartDate") = mam_FormatDate(CDate(FrameWork.RemoveTime(FrameWork.MetraTimeGMTBeginOfCurrentMonth())), mam_GetDictionary("DATE_FORMAT"))
+  Service.Properties("EndDate") = mam_FormatDate(CDate(FrameWork.RemoveTime(FrameWork.MetraTimeGMTEndOfCurrentMonth()) & " " & FrameWork.Dictionary.Item("END_OF_DAY").Value), mam_GetDictionary("DATE_FORMAT"))
 
   Service.Properties.Add "FixedPeriod", "int32", 0, False, Empty
   Service.Properties("FixedPeriod").Value = 0

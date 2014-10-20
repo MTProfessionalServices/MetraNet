@@ -225,14 +225,13 @@ CLASS CTransactionUIFinder
         
         Set SessSlice = mdm_CreateObject("MTHierarchyReports.RootSessionSlice")
         
-        If len(Service.Properties("mdmIntervalID").Value)>0  Then
-        
-            Set TimeSlice         = CreateObject("MTHierarchyReports.UsageIntervalSlice")
-            TimeSlice.IntervalID  = Service.Properties("mdmIntervalID").Value
+        If len(Service.Properties("mdmIntervalID").Value)>0 Then        
+            Set TimeSlice = CreateObject("MTHierarchyReports.UsageIntervalSlice")
+            TimeSlice.IntervalID = Service.Properties("mdmIntervalID").Value
         Else
-            Set TimeSlice                                 = CreateObject("MTHierarchyReports.DateRangeSlice")
-            TimeSlice.Begin                               = CDate(Service.Properties("StartDate").Value)
-            TimeSlice.End                                 = CDate(Service.Properties("EndDate").Value)
+            Set TimeSlice = CreateObject("MTHierarchyReports.DateRangeSlice")
+            TimeSlice.Begin = CDate(mam_NormalDateFormat(Service.Properties("StartDate")))
+            TimeSlice.End = CDate(mam_NormalDateFormat(Service.Properties("EndDate")))
         End If
         
         If Service.Properties("CurrentAccountIsThePayer").Value = ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_PAYER Then

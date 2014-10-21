@@ -10,7 +10,7 @@
     <Width>100%</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
-    <DataSourceURL></DataSourceURL>
+    <DataSourceURL>../AjaxServices/LoadExpectedRevRecData.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
@@ -42,6 +42,12 @@
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <SubGrid></SubGrid>
+    <DataBinder>
+        <ServicePath>/MetraNet/AjaxServices/GetData.aspx</ServicePath>
+        <OutPropertyName></OutPropertyName>
+        <Operation>__Client</Operation>
+    </DataBinder>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -85,7 +91,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Currency</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -118,7 +127,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>RevenueCode</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_REVENUE_CODE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -151,7 +163,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>DeferredRevenueCode</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_DEFERRED_REVENUE_CODE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -184,7 +199,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>RevenuePart</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_REVENUE_PART</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -660,7 +678,10 @@
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationTag>TEXT_PRICEABLE_ITEM</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>
@@ -693,7 +714,10 @@
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationTag>TEXT_ACCOUNTING_CYCLE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>
@@ -707,5 +731,4 @@
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons></ToolbarButtons>
-    <SubGrid></SubGrid>
 </GridLayout>

@@ -15,7 +15,7 @@ SELECT
   gsubmember.vt_end varEndDate,
   sub.id_po varPOID,
   tbp.nm_name varPOInternalName,
-  t_po.c_POPartitionId varPartitionID
+  t_po.c_POPartitionId id_Partition
 FROM t_gsubmember gsubmember
   INNER JOIN t_sub sub ON gsubmember.id_group=sub.id_group
   INNER JOIN t_vw_base_props tbp ON sub.id_po = tbp.id_prop AND tbp.id_lang_code = @LANGUAGE_CODE

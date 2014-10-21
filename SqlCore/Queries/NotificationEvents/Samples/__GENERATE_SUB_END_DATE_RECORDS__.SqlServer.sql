@@ -17,7 +17,7 @@ SELECT
   sub.vt_end varEndDate,
   sub.id_po varPOID,
   tbp.nm_name varPOInternalName,
-  t_po.c_POPartitionId varPartitionID
+  t_po.c_POPartitionId id_Partition
 FROM t_sub sub
   INNER JOIN t_vw_base_props tbp ON sub.id_po = tbp.id_prop AND tbp.id_lang_code = @LANGUAGE_CODE
   INNER JOIN t_po ON sub.id_po = t_po.id_po
@@ -29,7 +29,7 @@ WHERE sub.vt_end <= @MAX_SUB_END_DATE
   AND sub.vt_end >= @LAST_NOTIFY_FROM
   AND sub.id_group IS NULL  
 UNION
-SELECT sq.varSubType, sq.varAccount, sq.varLoginName,sq.varEndDate, sq.varPOID, sq.varPOInternalName, sq.varPartitionID
+SELECT sq.varSubType, sq.varAccount, sq.varLoginName,sq.varEndDate, sq.varPOID, sq.varPOInternalName, sq.id_Partition
 FROM(
        SELECT
          'SUB' varSubType,
@@ -42,7 +42,7 @@ FROM(
          sub.vt_end varEndDate,
          sub.id_po varPOID,
          tbp.nm_name varPOInternalName,
-         t_po.c_POPartitionId varPartitionID
+         t_po.c_POPartitionId id_Partition
        FROM t_sub sub
          INNER JOIN t_po ON sub.id_po = t_po.id_po
          LEFT OUTER JOIN t_account_mapper partition_owner ON partition_owner.id_acc = t_po.c_POPartitionId and partition_owner.nm_space = 'mt' and partition_owner.id_acc != 1
@@ -60,4 +60,4 @@ FROM(
          AND CAST(tsh2.dt_crt AS DATE) <= CAST(tsh.dt_crt AS DATE)
          AND tsh2.vt_end > @MAX_SUB_END_DATE
          AND tsh2.vt_end <> tsh.vt_end) sq
-GROUP BY sq.varSubType, sq.varAccount, sq.varLoginName, sq.varEndDate, sq.varPOID, sq.varPOInternalName, sq.varPartitionID
+GROUP BY sq.varSubType, sq.varAccount, sq.varLoginName, sq.varEndDate, sq.varPOID, sq.varPOInternalName, sq.id_Partition

@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using System.Web.UI.WebControls;
 using System.Linq;
-using MetraNet;
+using MetraTech.Presentation.Reports;
 using MetraTech.UI.Common;
 
 public partial class DefRevScheduleWidgetReport : MTPage
@@ -27,16 +27,16 @@ public partial class DefRevScheduleWidgetReport : MTPage
 
   private static ListItem[] GetCycles()
   {
-    return ReportingtHelper.GetAccountingCycles().Select(x => new ListItem(x.Name, x.Id.ToString())).ToArray();
+    return DeferredRevenueHelper.GetAccountingCyclesWithDefault().Select(x => new ListItem(x.Name, x.Id.ToString())).ToArray();
   }
 
   private static ListItem[] GetCurrencies()
   {
-    return ReportingtHelper.GetCurrencies().Select(x => new ListItem(x)).ToArray();
+    return DeferredRevenueHelper.GetCurrencies().Select(x => new ListItem(x)).ToArray();
   }
 
   private static ListItem[] GetProducts()
   {
-    return ReportingtHelper.GetProducts().Select(x => new ListItem(x.Value, x.Key.ToString(CultureInfo.InvariantCulture))).ToArray();
+    return DeferredRevenueHelper.GetProducts().Select(x => new ListItem(x.Value, x.Key.ToString(CultureInfo.InvariantCulture))).ToArray();
   }
 }

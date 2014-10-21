@@ -1,11 +1,9 @@
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Web.Mvc;
-using MetraNet;
 using MetraNet.DbContext;
-using MetraTech.UI.Common;
+using MetraTech.DataAccess;
+using MetraTech.Presentation.Reports;
 using System.Linq;
-using System.Collections.Generic;
 using System;
 
 namespace ASP.Controllers
@@ -13,7 +11,10 @@ namespace ASP.Controllers
   [Authorize]
   public class ReportController : MTController
   {
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public JsonResult NewCustomers()
     {
       using (var dbDataMart = GetDatamartContext())
@@ -33,6 +34,10 @@ namespace ASP.Controllers
       }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public JsonResult Revenue()
     {
       using (var context = GetNetMeterContext())
@@ -57,44 +62,14 @@ namespace ASP.Controllers
                            })
                            .OrderBy(i => i.Date).ThenBy(i => i.Currency)
                            .ToList();
-        //var result = new[] {new {Date = new DateTime(2013, 2, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "USD", Amount = 307678},
-        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "EUR", Amount = 28678},
-        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "YEN", Amount = 7078},
-        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "USD", Amount = 312678},
-        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "EUR", Amount = 29678},
-        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "YEN", Amount = 7678},
-        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "USD", Amount = 309678},
-        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "EUR", Amount = 32678},
-        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "YEN", Amount = 7478},
-        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "USD", Amount = 307978},
-        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 10, 1), Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 10, 1), Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 10, 1), Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 11, 1), Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 11, 1), Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 11, 1), Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "USD", Amount = 402678},
-        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "EUR", Amount = 62678},
-        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "YEN", Amount = 9678}
-        //                   };
         return Json(result, JsonRequestBehavior.AllowGet);
       }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public JsonResult MRRByProduct()
     {
       using (var dbDataMart = GetDatamartContext())
@@ -127,68 +102,20 @@ namespace ASP.Controllers
       }
     }
 
-    private IEnumerable<SelectListItem> GetProductCodes()
-    {
-      var list = new List<SelectListItem> { new SelectListItem { Selected = true, Text = "All", Value = "all" } };
-
-      using (var dbContext = GetDatamartContext())
-      {
-        var products =
-          (from subByMonth in dbContext.SubscriptionsByMonth
-           join sub in dbContext.SubscriptionTable on subByMonth.SubscriptionId equals sub.SubscriptionId
-           where
-             subByMonth.Month.HasValue &&
-             subByMonth.Month >= DateTime.Today.AddMonths(-13) &&
-             subByMonth.Month <= DateTime.Now
-           select sub.ProductCode).Distinct().OrderBy(x => x).ToList();
-
-        list.AddRange(products.Select(productCode => new SelectListItem { Text = productCode, Value = productCode }));
-      }
-      return list;
-    }
-
-    private IEnumerable<SelectListItem> GetTerritoryCodes()
-    {
-      var list = new List<SelectListItem> { new SelectListItem { Selected = true, Text = "All", Value = "all" } };
-
-      using (var dbContext = GetDatamartContext())
-      {
-        var codes =
-          (from st in dbContext.SubscriptionTable
-           join c in dbContext.Customer on st.AccountId equals c.AccountId
-           where
-             st.StartDate.HasValue &&
-             st.StartDate.Value >= DateTime.Today.AddMonths(-13) &&
-             st.StartDate.Value <= DateTime.Now
-           select c.Territorycode).Distinct().OrderBy(x => x).ToList();
-
-        list.AddRange(codes.Select(code => new SelectListItem { Text = code, Value = code }));
-      }
-      return list;
-    }
-
     private static DataMart GetDatamartContext()
     {
-      return new DataMart(GetDefaultDatabaseConnection("localhost", "AnalyticsDatamart", "nmdbo", "MetraTech1"));
+      return new DataMart(GetDefaultDatabaseConnection("AnalyticsDatamart"));
     }
 
     private static NetMeter GetNetMeterContext()
     {
-      return new NetMeter(GetDefaultDatabaseConnection("localhost", "NetMeter", "nmdbo", "MetraTech1"));
+      return new NetMeter(GetDefaultDatabaseConnection("NetMeter"));
     }
 
-    private static DbConnection GetDefaultDatabaseConnection(string serverName, string dbName, string userName, string password)
+    private static DbConnection GetDefaultDatabaseConnection(string dbName)
     {
-      //var connectionInfo = new ConnectionInfo("NetMeter"){ Catalog = "Subscriptiondatamart" };
-      //return ConnectionBase.GetDbConnection(connectionInfo, false);
-      var connString = new SqlConnectionStringBuilder
-      {
-        DataSource = serverName,
-        InitialCatalog = dbName,
-        UserID = userName,
-        Password = password
-      };
-      return new SqlConnection(connString.ToString());
+      var connectionInfo = new ConnectionInfo("NetMeter"){ Catalog = dbName };
+      return ConnectionBase.GetDbConnection(connectionInfo, false);
     }
 
     /// <summary>
@@ -204,9 +131,9 @@ namespace ASP.Controllers
     {
       if (!UI.CoarseCheckCapability("Create CSR Accounts"))
         Response.End();
-      var accCycle = ReportingtHelper.GetAccountingCycles().SingleOrDefault(x => x.Id.Equals(Guid.Parse(accountingCycleId)));
-      var headers = ReportingtHelper.GetRevRecReportHeaders(accountingCycleId);
-      var revRec = ReportingtHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
+      var accCycle = DeferredRevenueHelper.GetAccountingCycle(accountingCycleId);
+      var headers = DeferredRevenueHelper.GetRevRecReportHeaders(accountingCycleId);
+      var revRec = DeferredRevenueHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
       if(revRec.Count == 0)
         return Json(new { rows = new {}, headers }, JsonRequestBehavior.AllowGet);
       var data = revRec.First().ColumnsData.Keys.ToDictionary(item => item, item => new double[]{0f,0f});
@@ -229,19 +156,19 @@ namespace ASP.Controllers
     {
       if (!UI.CoarseCheckCapability("Create CSR Accounts"))
         Response.End();
-      var headers = ReportingtHelper.GetRevRecReportHeaders(accountCycleId);
+      var headers = DeferredRevenueHelper.GetRevRecReportHeaders(accountCycleId);
       return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);
     }
 
     public JsonResult GetProductsFilter()
     {
-      var products = ReportingtHelper.GetProducts();
+      var products = DeferredRevenueHelper.GetProducts();
       return Json(products, JsonRequestBehavior.AllowGet);
     }
 
     public JsonResult GetAccountingCyclesFilter()
     {
-      var accountingCycles = ReportingtHelper.GetAccountingCycles();
+      var accountingCycles = DeferredRevenueHelper.GetAccountingCyclesWithDefault();
       return Json(accountingCycles, JsonRequestBehavior.AllowGet);
     }
 

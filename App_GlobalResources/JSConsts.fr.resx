@@ -1308,7 +1308,4 @@
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
     <value>Créer une relation</value>
   </data>
-  <data name="TEXT_ALL" xml:space="preserve">
-    <value>[FR]All</value>
-  </data>
 </root>

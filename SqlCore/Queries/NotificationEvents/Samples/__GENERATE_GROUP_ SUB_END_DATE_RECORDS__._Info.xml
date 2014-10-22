@@ -27,13 +27,6 @@
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>Language code.</Description>
         </Parameter>
-        <Parameter>
-            <Name>NOTIFICATION_DAYS</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description>Number of days before the subscription expires.</Description>
-        </Parameter>
     </Parameters>
     <Description>Sample query that generates end date notification events for group subscriptions.</Description>
     <ConversionAudit>

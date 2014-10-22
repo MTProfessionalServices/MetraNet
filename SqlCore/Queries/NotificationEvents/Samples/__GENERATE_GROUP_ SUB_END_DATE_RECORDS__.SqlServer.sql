@@ -1,11 +1,13 @@
+DECLARE @NOTIFICATION_DAYS int
 DECLARE @LAST_NOTIFY_FROM DateTime
 DECLARE @MAX_SUB_END_DATE DateTime
 
+SET @NOTIFICATION_DAYS = 10 /*Number of days before the subscription expires*/
 SET @MAX_SUB_END_DATE = DATEADD(DAY, DATEDIFF(day, 0, @CURRENT_RUN_DATE), @NOTIFICATION_DAYS) + '23:59:59'
 SET @LAST_NOTIFY_FROM = DATEADD(D, @NOTIFICATION_DAYS, @LAST_RUN_DATE) 
 
 SELECT
-  'GROUP' varSubType,
+  'GROUPSUB' varSubType,
   gsubmember.id_acc varAccount,
   varLoginName = 
   CASE 

@@ -9,7 +9,7 @@
 	</NotificationEvent>  
   <NotificationEvent>
 		<name>Group Subscription End Date</name>
-		<generatorquery>__GENERATE_GROUP_ SUB_END_DATE_RECORDS__</generatorquery>
+		<generatorquery>__GENERATE_GROUP_SUB_END_DATE_RECORDS__</generatorquery>
 		<properties>varSubType, varAccount, varEndDate, varDisplayName, varPOInternalName, id_partition</properties>
 		<consumersquery>__GENERATE_GROUP_SUB_END_DATE_CONSUMERS__</consumersquery>
 	</NotificationEvent>  

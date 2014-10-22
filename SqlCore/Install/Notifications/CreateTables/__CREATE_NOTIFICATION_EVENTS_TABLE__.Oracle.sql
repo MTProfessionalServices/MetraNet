@@ -2,7 +2,7 @@ CREATE TABLE t_notification_events
 (
 	id_notification_event number(10) NOT NULL,
 	id_notification_event_type number(10) NOT NULL,
-	notification_event_prop_values xmltype NOT NULL,
+	notification_event_prop_values nvarchar2(4000) NOT NULL,
 	id_partition number(10) NULL,
 	dt_crt date NOT NULL,
   CONSTRAINT PK_t_Notification_Events PRIMARY KEY (id_notification_event),

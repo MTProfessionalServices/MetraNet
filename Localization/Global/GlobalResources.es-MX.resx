@@ -870,6 +870,9 @@
   <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
     <value>[es-MX]Property '{0}' was not found.</value>
   </data>
+  <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
+    <value>[es-MX]Fail to modify views of Account ID {0}.</value>
+  </data>
   <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
     <value>[es-MX]Account was subscribed to '{0}'.</value>
   </data>

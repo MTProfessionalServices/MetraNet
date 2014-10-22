@@ -190,6 +190,16 @@ namespace ASP.Controllers
       return Json(accountingCycles, JsonRequestBehavior.AllowGet);
     }
 
+    /// <summary>
+    /// AJAX method to obtain a list of currencies.
+    /// </summary>
+    /// <returns></returns>
+    public JsonResult GetCurrencyFilter()
+    {
+      var products = RevenueReportsHelper.GetCurrencies();
+      return Json(products, JsonRequestBehavior.AllowGet);
+    }
+
     /*public ActionResult Churn()
     {
       Title = "Churn Report";

@@ -2,7 +2,7 @@
   CodeFile="Notifications.aspx.cs" Inherits="Notifications" Title="Notifications" Culture="auto" UICulture="auto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  <div id="recentNotificationsContainer" style="width: 400px; padding: 10px;"></div>
+  <div id="recentNotificationsContainer" style="width: 700px; padding: 10px;"></div>
   
   <script type="text/javascript">
     Ext.onReady(function () {
@@ -13,8 +13,8 @@
           renderTo: 'recentNotificationsContainer',
           listeners: {
             render: function (panel) {
-              var SubEnding = 'SubscriptionEnding';
-              var GSubEnding = 'GroupSubscriptionEnding';
+              var SubEnding = 'Subscription End Date';
+              var GSubEnding = 'Group Subscription End Date';
               var recentNotificationTpl = new Ext.XTemplate(
           '<tpl for="Items">',
                 "<tpl if=", '"', "notificationType==", "'", SubEnding, "'", '"', '>',
@@ -28,6 +28,7 @@
               Ext.Ajax.request({
                 url: '/MetraNet/Notifications/AjaxServices/GetNotifications.aspx',
                 timeout: 10000,
+                pageSize:100,
                 params: {},
                 success: function (response) {
                   recentNotificationTpl.overwrite(this.body, Ext.decode(response.responseText));

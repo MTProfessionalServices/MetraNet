@@ -1312,10 +1312,10 @@
     <value>Recent Notifications</value>
   </data>
   <data name="SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[es-ES]Account {nm_login} has subscription to {po_name}  that will end on {end_date}<![CDATA[<p><a style='cursor:hand;' id='manage1_{id_acc}' href='JavaScript:getFrameMetraNet().Account.Load({id_acc});'>View...</a></p>]]> </value>
+    <value>[es-ES]Account {nm_login} has subscription to {varPOInternalName}  that will end on {varEndDate}<![CDATA[<p><a style='cursor:hand;' id='manage1_{id_acc}' href='JavaScript:getFrameMetraNet().Account.Load({id_acc});'>View...</a></p>]]> </value>
   </data>
   <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[es-ES]Account {nm_login} participation in subscription to {po_name} will end on {end_date}<![CDATA[<p><a style='cursor:hand;' id='manage1_{id_acc}' href='JavaScript:getFrameMetraNet().Account.Load({id_acc});'>View...</a></p>]]></value>
+    <value>[es-ES]Account {nm_login} participation in subscription to {varPOInternalName} will end on {varEndDate}<![CDATA[<p><a style='cursor:hand;' id='manage1_{id_acc}' href='JavaScript:getFrameMetraNet().Account.Load({id_acc});'>View...</a></p>]]></value>
   </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>{ES}Change Password</value>

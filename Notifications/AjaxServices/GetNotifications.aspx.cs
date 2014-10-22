@@ -7,22 +7,51 @@ using MetraTech.UI.Common;
 
 public partial class Notifications_AjaxServices_NotificationService : MTListServicePage
 {
-    protected void Page_Load(object sender, EventArgs e)
+  private const int MAX_RECORDS_PER_BATCH = 100;
+
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    Logger.LogInfo("Getting list of Notifications");
+    int pageSize = Convert.ToInt32(Request.Params["pageSize"]);
+    int currentPage = Convert.ToInt32(Request.Params["currentPage"]);
+
+    using (new HighResolutionTimer("NotificationService", 10000))
     {
-
-      Logger.LogInfo("Getting list of Notifications");
-
-      using (new HighResolutionTimer("NotificationService", 5000))
+      try
       {
-          string json =  "{\"Items\":[" +
-                         "{\"notificationType\":\"SubscriptionEnding\",\"notificationDate\":\"10/14/14\",\"nm_login\":\"demo\",\"po_name\":\"OrderCookiesPO\",\"end_date\":\"10/31/14\",\"id_acc\":123}," +
-                         "{\"notificationType\":\"GroupSubscriptionEnding\",\"notificationDate\":\"10/14/14\",\"nm_login\":\"demo\",\"po_name\":\"OrderCookiesPO_group_sub\",\"end_date\":\"10/31/14\",\"id_acc\":123}," +
-                         "{\"notificationType\":\"SubscriptionEnding\",\"notificationDate\":\"10/10/14\",\"nm_login\":\"demo\",\"po_name\":\"FashionSalePO\",\"end_date\":\"10/16/14\",\"id_acc\":123}" +
-                         "]}";
+        MTList<SQLRecord> listOfNotificationEvents = new MTList<SQLRecord>();
 
-          Logger.LogInfo("Returning " + json);
-          Response.Write(json);
+        listOfNotificationEvents.PageSize = (pageSize == 0) ? MAX_RECORDS_PER_BATCH : pageSize;
+        listOfNotificationEvents.CurrentPage = (currentPage == 0) ? 1 : currentPage;
+
+        NotificationService.GetNotificationEvents(ref listOfNotificationEvents, UI.User.AccountId);
+
+        if (listOfNotificationEvents.Items.Count == 0)
+        {
+          Response.Write("{\"Items\":[]}");
           Response.End();
+          return;
+        }
+
+        string json = VisualizeService.SerializeItems(listOfNotificationEvents);
+        Logger.LogInfo("Returning " + json);
+        Response.Write(json);
+        Response.End();
+      }
+      catch (ThreadAbortException ex)
+      {
+        //Looks like Response.End is deprecated/changed
+        //Might have a lot of unhandled exceptions in product from when we call response.end
+        //http://support.microsoft.com/kb/312629
+        //Logger.LogError("Thread Abort Exception: {0} {1}", ex.Message, ex.ToString());
+        Logger.LogInfo("Handled Exception from Response.Write() {0} ", ex.Message);
+      }
+      catch (Exception ex)
+      {
+        Logger.LogError("Exception: {0} {1}", ex.Message, ex.ToString());
+        Response.Write("{\"Items\":[]}");
+        Response.End();
       }
     }
+  }
 }

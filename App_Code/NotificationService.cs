@@ -1,0 +1,122 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Xml.Linq;
+using MetraTech;
+using MetraTech.ActivityServices.Common;
+using MetraTech.DataAccess;
+using MetraTech.UI.Common;
+
+
+/// <summary>
+/// This class is responsible for getting all notifications for the logged in user.
+/// </summary>
+public class NotificationService
+{
+  private const string _sqlQueriesPath = @"..\config\SqlCore\Queries\NotificationEvents";
+  private static readonly Logger _logger = new Logger(String.Format("[{0}]", typeof(NotificationService)));
+
+  public static void GetNotificationEvents(ref MTList<SQLRecord> notificationEvents, int accountID)
+  {
+    _logger.LogDebug("Getting notification events for {0}", accountID);
+
+    MTList<SQLRecord> notificationEventPropValues = new MTList<SQLRecord>();
+    GetNotificationEventPropertyValuesXml(ref notificationEventPropValues, accountID);
+
+    PopulateNotificationEvents(notificationEventPropValues, notificationEvents);
+  }
+
+
+  private static void PopulateNotificationEvents(MTList<SQLRecord> notificationEventPropValues, MTList<SQLRecord> notificationEvents)
+  {
+    _logger.LogDebug("Populate notification event data from xml");
+
+    SQLRecord record;
+    foreach (SQLRecord item in notificationEventPropValues.Items)
+    {
+      record = new SQLRecord();
+      foreach (SQLField field in item.Fields)
+      {
+        if (field.FieldName.Equals("notification_event_prop_values"))
+        {
+          record.Fields.AddRange(GetFieldsFromXml(field.FieldValue));
+        }
+        else
+        {
+          record.Fields.Add(field);
+        }
+      }
+      notificationEvents.Items.Add(record);
+    }
+  }
+
+
+  private static List<SQLField> GetFieldsFromXml(object xml)
+  {
+    SQLField field;
+    List<SQLField> propertyFields = new List<SQLField>();
+    XElement propertyNameElement, propertyValueElement, propertyTypeElement;
+
+    string notificationEventPropValuesXml = Convert.ToString(xml).Replace("\\\"", "\"");
+    XDocument propValuesXml = XDocument.Parse(notificationEventPropValuesXml, LoadOptions.None);
+
+    foreach (XElement prop in propValuesXml.Root.Elements("NotificationEventPropertyTypeValueMapper"))
+    {
+      propertyNameElement = prop.Element("NotificationEventProperty");
+      propertyValueElement = prop.Element("NotificationEventPropertyValue");
+      propertyTypeElement = prop.Element("NotificationEventPropertyType");
+
+      field = new SQLField { FieldDataType = typeof(string), FieldName = (propertyNameElement != null) ? propertyNameElement.Value : ""};
+
+      if (propertyTypeElement != null)
+      {
+        if (propertyTypeElement.Value.ToLower().Contains("date"))
+        {
+          field.FieldValue = Convert.ToDateTime(propertyValueElement.Value).ToString("d");
+        }
+        else
+        {
+          field.FieldValue = propertyValueElement.Value;
+        }
+      }
+      propertyFields.Add(field);
+    }
+    return propertyFields;
+  }
+
+  private static void GetNotificationEventPropertyValuesXml(ref MTList<SQLRecord> notificationEventPropValuesXml, int accountID)
+  {
+    using (IMTConnection conn = ConnectionManager.CreateConnection())
+    {
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(_sqlQueriesPath, "__GET_NOTIFICATION_EVENTS_FOR_LOGGED_IN_USER__"))
+      {
+        stmt.AddParam("%%ID_ACC%%", accountID);
+        using (IMTDataReader reader = stmt.ExecuteReader())
+        {
+          ConstructItems(reader, ref notificationEventPropValuesXml);
+        }
+      }
+    }
+  }
+
+  private static void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)
+  {
+    items.Items.Clear();
+
+    while (rdr.Read())
+    {
+      var record = new SQLRecord();
+      for (int i = 0; i < rdr.FieldCount; i++)
+      {
+        var field = new SQLField { FieldDataType = rdr.GetType(i), FieldName = rdr.GetName(i) };
+
+        if (!rdr.IsDBNull(i))
+        {
+          field.FieldValue = rdr.GetValue(i);
+        }
+        record.Fields.Add(field);
+      }
+      items.Items.Add(record);
+    }
+  }
+
+}

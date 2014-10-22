@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using MetraTech;
 using MetraTech.ActivityServices.Common;
@@ -58,22 +59,23 @@ public class NotificationService
   {
     SQLField field;
     List<SQLField> propertyFields = new List<SQLField>();
-    XElement propertyNameElement, propertyValueElement, propertyTypeElement;
+    XElement propertyNameElement, propertyValueElement;
+    XAttribute propertyTypeAttribute;
 
     string notificationEventPropValuesXml = Convert.ToString(xml).Replace("\\\"", "\"");
     XDocument propValuesXml = XDocument.Parse(notificationEventPropValuesXml, LoadOptions.None);
 
     foreach (XElement prop in propValuesXml.Root.Elements("NotificationEventPropertyTypeValueMapper"))
     {
-      propertyNameElement = prop.Element("NotificationEventProperty");
-      propertyValueElement = prop.Element("NotificationEventPropertyValue");
-      propertyTypeElement = prop.Element("NotificationEventPropertyType");
+      propertyNameElement = prop.Element("Property");
+      propertyValueElement = prop.Element("Value");
 
-      field = new SQLField { FieldDataType = typeof(string), FieldName = (propertyNameElement != null) ? propertyNameElement.Value : ""};
-
-      if (propertyTypeElement != null)
+      if (propertyNameElement != null && propertyValueElement != null)
       {
-        if (propertyTypeElement.Value.ToLower().Contains("date"))
+        propertyTypeAttribute = propertyValueElement.Attributes().FirstOrDefault(x => (x.Value.ToLower().Contains("date")));
+        
+        field = new SQLField { FieldDataType = typeof(string), FieldName = (propertyNameElement != null) ? propertyNameElement.Value : ""};
+        if (propertyTypeAttribute != null)
         {
           field.FieldValue = Convert.ToDateTime(propertyValueElement.Value).ToString("d");
         }
@@ -81,8 +83,9 @@ public class NotificationService
         {
           field.FieldValue = propertyValueElement.Value;
         }
+        
+        propertyFields.Add(field);
       }
-      propertyFields.Add(field);
     }
     return propertyFields;
   }

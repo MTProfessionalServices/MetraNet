@@ -27,6 +27,13 @@
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>Account ID</Description>
         </Parameter>
+        <Parameter>
+            <Name>DtCrt</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Date created</Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

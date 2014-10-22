@@ -36,7 +36,7 @@
       var accCycleId = $("#accntCycleDd").val();
       var currency = $("#currencyDd").val();
       var productId = $("#productDd").val();
-      var revOcde = $("#revCodeInp").val();
+      var revCode = $("#revCodeInp").val();
       var defRevCode = $("#defRevCodeInp").val();
 
       // let's get some data and draw the bar chart
@@ -44,11 +44,11 @@
         url: '../Report/DefRevScheduleWidgetReport',
         type: 'GET',
         cache: false,
-        data: { accountingCycleId: accCycleId, currency: currency, revenueCode: revOcde, deferredRevenueCode: defRevCode, productId: productId },
+        data: { accountingCycleId: accCycleId, currency: currency, revenueCode: revCode, deferredRevenueCode: defRevCode, productId: productId },
         success: function(data) {
           DisplayChart(data);
         },
-        error: function (data) {
+        error: function () {
           alert("Data retrival error!");
         }
       });      

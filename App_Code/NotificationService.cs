@@ -20,6 +20,10 @@ public class NotificationService
     _logger.LogDebug("Getting notification events for {0}", accountID);
 
     MTList<SQLRecord> notificationEventPropValues = new MTList<SQLRecord>();
+    notificationEventPropValues.PageSize = notificationEvents.PageSize;
+    notificationEventPropValues.CurrentPage = notificationEvents.CurrentPage;
+    notificationEventPropValues.SortCriteria = notificationEvents.SortCriteria;
+
     GetNotificationEventPropertyValuesXml(ref notificationEventPropValues, accountID);
 
     PopulateNotificationEvents(notificationEventPropValues, notificationEvents);
@@ -90,9 +94,15 @@ public class NotificationService
       using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(_sqlQueriesPath, "__GET_NOTIFICATION_EVENTS_FOR_LOGGED_IN_USER__"))
       {
         stmt.AddParam("%%ID_ACC%%", accountID);
-        using (IMTDataReader reader = stmt.ExecuteReader())
+        using (IMTPreparedFilterSortStatement filterSortStmt =
+            conn.CreatePreparedFilterSortStatement(stmt.Query))
         {
-          ConstructItems(reader, ref notificationEventPropValuesXml);
+          MTListFilterSort.ApplyFilterSortCriteria(filterSortStmt, notificationEventPropValuesXml);
+          using (IMTDataReader reader = filterSortStmt.ExecuteReader())
+          {
+            ConstructItems(reader, ref notificationEventPropValuesXml);
+          }
+          notificationEventPropValuesXml.TotalRows = filterSortStmt.TotalRows;
         }
       }
     }

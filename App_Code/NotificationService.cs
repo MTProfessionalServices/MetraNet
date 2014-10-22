@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using MetraTech;
 using MetraTech.ActivityServices.Common;
@@ -20,6 +21,10 @@ public class NotificationService
     _logger.LogDebug("Getting notification events for {0}", accountID);
 
     MTList<SQLRecord> notificationEventPropValues = new MTList<SQLRecord>();
+    notificationEventPropValues.PageSize = notificationEvents.PageSize;
+    notificationEventPropValues.CurrentPage = notificationEvents.CurrentPage;
+    notificationEventPropValues.SortCriteria = notificationEvents.SortCriteria;
+
     GetNotificationEventPropertyValuesXml(ref notificationEventPropValues, accountID);
 
     PopulateNotificationEvents(notificationEventPropValues, notificationEvents);
@@ -54,22 +59,23 @@ public class NotificationService
   {
     SQLField field;
     List<SQLField> propertyFields = new List<SQLField>();
-    XElement propertyNameElement, propertyValueElement, propertyTypeElement;
+    XElement propertyNameElement, propertyValueElement;
+    XAttribute propertyTypeAttribute;
 
     string notificationEventPropValuesXml = Convert.ToString(xml).Replace("\\\"", "\"");
     XDocument propValuesXml = XDocument.Parse(notificationEventPropValuesXml, LoadOptions.None);
 
     foreach (XElement prop in propValuesXml.Root.Elements("NotificationEventPropertyTypeValueMapper"))
     {
-      propertyNameElement = prop.Element("NotificationEventProperty");
-      propertyValueElement = prop.Element("NotificationEventPropertyValue");
-      propertyTypeElement = prop.Element("NotificationEventPropertyType");
+      propertyNameElement = prop.Element("Property");
+      propertyValueElement = prop.Element("Value");
 
-      field = new SQLField { FieldDataType = typeof(string), FieldName = (propertyNameElement != null) ? propertyNameElement.Value : ""};
-
-      if (propertyTypeElement != null)
+      if (propertyNameElement != null && propertyValueElement != null)
       {
-        if (propertyTypeElement.Value.ToLower().Contains("date"))
+        propertyTypeAttribute = propertyValueElement.Attributes().FirstOrDefault(x => (x.Value.ToLower().Contains("date")));
+        
+        field = new SQLField { FieldDataType = typeof(string), FieldName = (propertyNameElement != null) ? propertyNameElement.Value : ""};
+        if (propertyTypeAttribute != null)
         {
           field.FieldValue = Convert.ToDateTime(propertyValueElement.Value).ToString("d");
         }
@@ -77,8 +83,9 @@ public class NotificationService
         {
           field.FieldValue = propertyValueElement.Value;
         }
+        
+        propertyFields.Add(field);
       }
-      propertyFields.Add(field);
     }
     return propertyFields;
   }
@@ -90,9 +97,15 @@ public class NotificationService
       using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(_sqlQueriesPath, "__GET_NOTIFICATION_EVENTS_FOR_LOGGED_IN_USER__"))
       {
         stmt.AddParam("%%ID_ACC%%", accountID);
-        using (IMTDataReader reader = stmt.ExecuteReader())
+        using (IMTPreparedFilterSortStatement filterSortStmt =
+            conn.CreatePreparedFilterSortStatement(stmt.Query))
         {
-          ConstructItems(reader, ref notificationEventPropValuesXml);
+          MTListFilterSort.ApplyFilterSortCriteria(filterSortStmt, notificationEventPropValuesXml);
+          using (IMTDataReader reader = filterSortStmt.ExecuteReader())
+          {
+            ConstructItems(reader, ref notificationEventPropValuesXml);
+          }
+          notificationEventPropValuesXml.TotalRows = filterSortStmt.TotalRows;
         }
       }
     }

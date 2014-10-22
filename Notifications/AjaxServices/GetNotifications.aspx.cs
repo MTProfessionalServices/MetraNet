@@ -21,9 +21,10 @@ public partial class Notifications_AjaxServices_NotificationService : MTListServ
       {
         MTList<SQLRecord> listOfNotificationEvents = new MTList<SQLRecord>();
 
+        listOfNotificationEvents.SortCriteria.Add(new SortCriteria("dt_crt", SortType.Descending));
         listOfNotificationEvents.PageSize = (pageSize == 0) ? MAX_RECORDS_PER_BATCH : pageSize;
         listOfNotificationEvents.CurrentPage = (currentPage == 0) ? 1 : currentPage;
-
+        
         NotificationService.GetNotificationEvents(ref listOfNotificationEvents, UI.User.AccountId);
 
         if (listOfNotificationEvents.Items.Count == 0)

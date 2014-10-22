@@ -17,10 +17,10 @@
               var GSubEnding = 'Group Subscription End Date';
               var recentNotificationTpl = new Ext.XTemplate(
           '<tpl for="Items">',
-                "<tpl if=", '"', "notificationType==", "'", SubEnding, "'", '"', '>',
+                "<tpl if=", '"', "notification_event_name==", "'", SubEnding, "'", '"', '>',
                     '<p><div id="recentSubscriptiponList"><i>' + SUBSCRIPTION_ENDING_TEMPLATE + '</i></div></p>',
                 '</tpl>',
-                "<tpl if=", '"', "notificationType==", "'", GSubEnding, "'", '"', '>',
+                "<tpl if=", '"', "notification_event_name==", "'", GSubEnding, "'", '"', '>',
                   '<p><div id="recentGroupSubscriptionList"><i>' + GROUP_SUBSCRIPTION_ENDING_TEMPLATE + '</i></div></p>',
                '</tpl>',
           '</tpl>'

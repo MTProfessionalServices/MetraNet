@@ -1,5 +1,4 @@
 SELECT 
-	consumers.id_not_evnt_consumer as 'id',
 	eventTypes.notification_event_name,
 	events.notification_event_prop_values,
 	events.dt_crt 

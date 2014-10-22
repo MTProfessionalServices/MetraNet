@@ -29,7 +29,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var AccountingCycleIdLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "AccountingCycleId");
       var AccountingCycleId = (AccountingCycleIdLINQ == null ? "" : AccountingCycleIdLINQ.Value.ToString().Replace("%", ""));
 
-      var revRec = DeferredRevenueHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, productId, AccountingCycleId, 0);
+      var revRec = new DeferredRevenueHelper().GetRevRec(currency, revenueCode, deferredRevenueCode, productId, AccountingCycleId, 0);
       items.Items.AddRange(revRec);
 
       var jss = new JavaScriptSerializer();

@@ -11,6 +11,13 @@ namespace ASP.Controllers
   [Authorize]
   public class ReportController : MTController
   {
+    private DeferredRevenueHelper _revenueReportsHelper;
+
+    private DeferredRevenueHelper RevenueReportsHelper
+    {
+      get { return _revenueReportsHelper ?? (_revenueReportsHelper = new DeferredRevenueHelper()); }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -131,24 +138,27 @@ namespace ASP.Controllers
     {
       if (!UI.CoarseCheckCapability("Create CSR Accounts"))
         Response.End();
-      var accCycle = DeferredRevenueHelper.GetAccountingCycle(accountingCycleId);
-      var headers = DeferredRevenueHelper.GetRevRecReportHeaders(accountingCycleId);
-      var revRec = DeferredRevenueHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
+      var accCycle = RevenueReportsHelper.GetAccountingCycle(accountingCycleId);
+      var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountingCycleId);
+      var revRec = RevenueReportsHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
+      var result = new {rows = Enumerable.Range(1, headers.Length).Select(x => new {month = x, deferred = 0d, earned = 0d}).ToArray()
+                        ,headers};
       if(revRec.Count == 0)
-        return Json(new { rows = new {}, headers }, JsonRequestBehavior.AllowGet);
-      var data = revRec.First().ColumnsData.Keys.ToDictionary(item => item, item => new double[]{0f,0f});
+        return Json(result, JsonRequestBehavior.AllowGet);
+      var data = revRec.First().ColumnsData.Keys.ToDictionary(item => item, item => new []{0d,0d});
       foreach (var revRecItem in revRec.Where(x => x.RevenuePart.Equals("Deferred") || x.RevenuePart.Equals("Earned")))
       {
         for (var j = 1; j <= data.Count; j++){
           data[j][Convert.ToInt32(revRecItem.RevenuePart.Equals("Deferred"))] += revRecItem.ColumnsData[j];
         }
       }
-      var result = Enumerable.Range(1, data.Count).Select(x => new { month = x, deferred = Math.Round(data[x][1]), earned = Math.Round(data[x][0]) }).ToArray();
-      return Json(new {rows = result, headers}, JsonRequestBehavior.AllowGet);
+      result = new {rows = Enumerable.Range(1, data.Count).Select(x => new { month = x, deferred = Math.Round(data[x][1]), earned = Math.Round(data[x][0]) }).ToArray()
+                    ,headers};
+      return Json(result, JsonRequestBehavior.AllowGet);
     }
 
     /// <summary>
-    /// 
+    /// AJAX method to obtain an array of columns' headers.
     /// </summary>
     /// <param name="accountCycleId"></param>
     /// <returns></returns>
@@ -156,19 +166,27 @@ namespace ASP.Controllers
     {
       if (!UI.CoarseCheckCapability("Create CSR Accounts"))
         Response.End();
-      var headers = DeferredRevenueHelper.GetRevRecReportHeaders(accountCycleId);
+      var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountCycleId);
       return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);
     }
 
+    /// <summary>
+    /// AJAX method to obtain a list of products.
+    /// </summary>
+    /// <returns></returns>
     public JsonResult GetProductsFilter()
     {
-      var products = DeferredRevenueHelper.GetProducts();
+      var products = RevenueReportsHelper.GetProducts();
       return Json(products, JsonRequestBehavior.AllowGet);
     }
 
+    /// <summary>
+    /// AJAX method to obtain a list of accounting cycles.
+    /// </summary>
+    /// <returns></returns>
     public JsonResult GetAccountingCyclesFilter()
     {
-      var accountingCycles = DeferredRevenueHelper.GetAccountingCyclesWithDefault();
+      var accountingCycles = RevenueReportsHelper.GetAccountingCyclesWithDefault();
       return Json(accountingCycles, JsonRequestBehavior.AllowGet);
     }
 

@@ -7,6 +7,13 @@ using MetraTech.UI.Common;
 
 public partial class DefRevScheduleWidgetReport : MTPage
 {
+  private DeferredRevenueHelper _revenueReportsHelper;
+
+  private DeferredRevenueHelper RevenueReportsHelper
+  {
+    get { return _revenueReportsHelper ?? (_revenueReportsHelper = new DeferredRevenueHelper()); }
+  }
+
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!UI.CoarseCheckCapability("Create CSR Accounts"))
@@ -25,18 +32,18 @@ public partial class DefRevScheduleWidgetReport : MTPage
     applyBtn.Text = GetLocalResourceObject("ApplyFilterBtn_Caption").ToString();
   }
 
-  private static ListItem[] GetCycles()
+  private ListItem[] GetCycles()
   {
-    return DeferredRevenueHelper.GetAccountingCyclesWithDefault().Select(x => new ListItem(x.Name, x.Id.ToString())).ToArray();
+    return RevenueReportsHelper.GetAccountingCyclesWithDefault().Select(x => new ListItem(x.Name, x.Id.ToString())).ToArray();
   }
 
-  private static ListItem[] GetCurrencies()
+  private ListItem[] GetCurrencies()
   {
-    return DeferredRevenueHelper.GetCurrencies().Select(x => new ListItem(x)).ToArray();
+    return RevenueReportsHelper.GetCurrencies().Select(x => new ListItem(x)).ToArray();
   }
 
-  private static ListItem[] GetProducts()
+  private ListItem[] GetProducts()
   {
-    return DeferredRevenueHelper.GetProducts().Select(x => new ListItem(x.Value, x.Key.ToString(CultureInfo.InvariantCulture))).ToArray();
+    return RevenueReportsHelper.GetProducts().Select(x => new ListItem(x.Value, x.Key.ToString(CultureInfo.InvariantCulture))).ToArray();
   }
 }

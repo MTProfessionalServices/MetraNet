@@ -826,7 +826,7 @@
     <value>[DE]Creation of new subscriptions is finished.</value>
   </data>
   <data name="ACS_CREATE_SUB_START" xml:space="preserve">
-    <value>[DE]Starting creation of new subscriptions…</value>
+    <value>[DE]Starting creation of new subscriptions...</value>
   </data>
   <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
     <value>[DE]Account Config Sets with IDs: {0} will be skipped. They are currently eligible for the account and were already applied.</value>
@@ -838,13 +838,13 @@
     <value>[DE]Account '{0}' was loaded.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
-    <value>[DE]Loading Account with ID {0}…</value>
+    <value>[DE]Loading Account with ID {0}...</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
     <value>[DE]Applied Account Config Sets with IDs: {0} were found for the account.</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
-    <value>[DE]Loading Account Config Sets that were applied for the account…</value>
+    <value>[DE]Loading Account Config Sets that were applied for the account...</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
     <value>[DE]Account Config Sets with IDs: {0} were found as eligible for the account.</value>
@@ -853,13 +853,13 @@
     <value>[DE]Some Eligible Account Config Sets have non-unique rank. Wrong Account Config Sets configuration.</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
-    <value>[DE]Loading Account Config Sets that are eligible for the account…</value>
+    <value>[DE]Loading Account Config Sets that are eligible for the account...</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
     <value>[DE]Modification of account properties is finished.</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
-    <value>[DE]Starting account properties modification…</value>
+    <value>[DE]Starting account properties modification...</value>
   </data>
   <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
     <value>[DE]Fail to modify property '{0}' by ACS {1}. Old value:'{2}'. New value:'{3}'.</value>
@@ -889,7 +889,7 @@
     <value>[DE]Termination of existing subscriptions is finished.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
-    <value>[DE]Starting termination of existing subscriptions…</value>
+    <value>[DE]Starting termination of existing subscriptions...</value>
   </data>
   <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
     <value>[DE]Error on applying Account Configuration Sets for account {0}.</value>

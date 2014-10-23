@@ -7,4 +7,4 @@ INSERT INTO [t_Notification_Event_Consumers]
            (:NotificationEventConsumerID
            ,:NotificationEventID
            ,:AccountID,
-           ,:DtCrt)
+           ,:CreateDate)

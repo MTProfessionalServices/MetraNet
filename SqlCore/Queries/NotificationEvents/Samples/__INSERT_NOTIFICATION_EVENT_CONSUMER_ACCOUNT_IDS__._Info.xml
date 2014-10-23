@@ -28,7 +28,7 @@
             <Description>Account ID</Description>
         </Parameter>
         <Parameter>
-            <Name>DtCrt</Name>
+            <Name>CreateDate</Name>
             <DataType>timestamp</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>

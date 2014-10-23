@@ -21,6 +21,20 @@
                         </entry>
                     </entries>
                 </enum>
+                <enum name="SystemReportCapabilities">
+                    <description>List of MetraNet Capabilities used for System Reports access</description>
+                    <entries>
+                        <entry name="Manage System User Reports">
+                            <value>0</value>
+                        </entry>
+                        <entry name="Manage DataExportFramework">
+                            <value>1</value>
+                        </entry>
+                        <entry name="View Data from Analytics Datamart">
+                            <value>2</value>
+                        </entry>
+                    </entries>
+                </enum>
             </enums>
         </enum_space>
     </enum_spaces>

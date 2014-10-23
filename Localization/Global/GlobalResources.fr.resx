@@ -138,6 +138,9 @@
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
     <value>[FR]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
   </data>
+    <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
+        <value>[FR] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+    </data>
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
     <value>[FR]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
     <value>[FR] The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time (count = {2}). The Selection Criteria should be unique.</value>
   </data>
+    <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
+        <value>[FR]UDRC for PI ID={0} not set!</value>
+    </data>
   <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
     <value>[FR]StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
   </data>
@@ -189,6 +195,9 @@
   <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
     <value>[FR]#{0}) Message: '{1}', Component: '{2}'</value>
   </data>
+    <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
+        <value>[FR]Fail to modify views of Account ID {0}.</value>
+    </data>
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[FR]Error on saving AccountConfigSet with Id {0}</value>
   </data>
@@ -219,6 +228,9 @@
   <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
     <value>Le compte ascendant était {0}, remplacé par {1}. </value>
   </data>
+    <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
+        <value>[FR]Error on applying Account Configuration Sets for account {0}.</value>
+    </data>
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>La transaction {0} est de type {1}, mais a généré une exception AlreadySettledException</value>
   </data>
@@ -309,6 +321,9 @@
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
     <value>[FR]Error get account configuration set applied list</value>
   </data>
+    <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>[FR] Can't get account config set with PO from another partition!</value>
+    </data>
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>Aucune réponse reçue de {0}.</value>
   </data>
@@ -393,6 +408,9 @@
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
     <value>L'ID de modèle d'accord ne peut pas être inférieur à 0.</value>
   </data>
+    <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>[FR]Error on termination Account Configuration Set</value>
+    </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>Le compte ne peut pas être son propre responsable des factures</value>
   </data>
@@ -738,9 +756,6 @@
   <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
     <value>Impossible de récupérer la caractéristique de spécifications dans le système.</value>
   </data>
-  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-    <value>[FR]UDRC for PI ID={0} not set!</value>
-  </data>
   <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
     <value>Une erreur s'est produite </value>
   </data>
@@ -782,9 +797,6 @@
   </data>
   <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
     <value>La transaction {0} a déjà été envoyée.</value>
-  </data>
-  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[FR]Error on termination Account Configuration Set</value>
   </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[FR]Error update account configuration set</value>
@@ -874,10 +886,10 @@
     <value>[FR]Fail to modify views of Account ID {0}.</value>
   </data>
   <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
-    <value>[FR]Account was subscribed to '{0}'.</value>
+    <value>[FR] Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>[FR]Unable to subscribe account to '{0}'. Exception: {1}</value>
+    <value>[FR] Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
     <value>[FR]Unable to terminated subscription with ID {0}. Exception: {1}</value>
@@ -893,5 +905,23 @@
   </data>
   <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
     <value>[FR]Error on applying Account Configuration Sets for account {0}.</value>
+  </data>
+  <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
+    <value>[FR] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
+    <value>[FR] Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
+    <value>[FR] Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
+    <value>[FR] Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
+  </data>
+  <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
+    <value>[FR] {0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
+  </data>
+  <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
+    <value>[FR] Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
   </data>
 </root>

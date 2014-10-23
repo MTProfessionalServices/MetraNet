@@ -36,6 +36,12 @@ public partial class ReportsTree : MTPage
   #region Events
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage System User Reports"))
+    {
+      SetError(Resources.ErrorMessages.ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY);
+      pnlReport.Visible = false;
+    }
+
     if (!IsPostBack)
     {
       RefererUrl = Encrypt(Request.Url.ToString());

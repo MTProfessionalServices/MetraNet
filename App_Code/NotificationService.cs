@@ -65,7 +65,7 @@ public class NotificationService
     string notificationEventPropValuesXml = Convert.ToString(xml).Replace("\\\"", "\"");
     XDocument propValuesXml = XDocument.Parse(notificationEventPropValuesXml, LoadOptions.None);
 
-    foreach (XElement prop in propValuesXml.Root.Elements("NotificationEventPropertyTypeValueMapper"))
+    foreach (XElement prop in propValuesXml.Root.Elements("NotificationEventPropertyValueMap"))
     {
       propertyNameElement = prop.Element("Property");
       propertyValueElement = prop.Element("Value");

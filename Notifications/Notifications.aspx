@@ -51,7 +51,7 @@
             recentNotificationTpl.append(panel.body, Ext.decode(response.responseText));
             var link = document.createElement("a");
             link.href = 'JavaScript:fetchData(mypanel, recentNotificationTpl);';
-            link.text = TEXT_MORE;
+            link.text = "'" + TEXT_MORE + "'";
             panel.body.dom.appendChild(link);
             pageno++;
           } 

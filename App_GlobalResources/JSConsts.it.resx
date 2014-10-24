@@ -1326,4 +1326,8 @@
   <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
     <value>{IT}Notifications</value>
   </data>
+  <data name="TEXT_MORE" xml:space="preserve">
+    <value>[IT]More ...</value>
+  </data>
+
 </root>

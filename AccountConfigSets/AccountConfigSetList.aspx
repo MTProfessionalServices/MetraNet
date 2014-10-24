@@ -37,10 +37,10 @@
 
      
       // Edit ACS
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"ManageAccountConfigSet.aspx?mode=EDIT&acsId={1}\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"ManageAccountConfigSet.aspx?mode=EDIT&acsId={0}\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
 
       // View ACS      
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageAccountConfigSet.aspx?mode=VIEW&acsId={1}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{2}\" alt=\"{2}\"/></a>", entityId, String.escape(textView));
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageAccountConfigSet.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{2}\" alt=\"{2}\"/></a>", entityId, String.escape(textView));
       
       // Delete ACS     
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textDelete));
@@ -51,15 +51,10 @@
       return str;
     }
 
-//    function onNew_<%= AccountConfigSetListGrid.ClientID %>() {
-//      var accountsFilterValue = "<%= AccountsFilterValue %>";
-//      document.location.href = String.format("CreateQuote.aspx{0}", accountsFilterValue == "ALL" ? "" : "?Accounts=ONE");
-//    }
-    
-    function onEdit(entityId) {
-    //  alert("Does not implement");
+    function onNew_<%= AccountConfigSetListGrid.ClientID %>() {      
+      document.location.href = "ManageAccountConfigSet.aspx?mode=ADD";
     }
-
+    
     function onDelete(entityId) {
       top.Ext.MessageBox.show({
         title: textDelete,

@@ -320,6 +320,78 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
+            <ID>SelectionCriteriaString</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>SelectionCriteriaString</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText>
+                <LocalizationTag>ACS_SELECTIONSCRITERIA</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
+            <ID>PropertiesToSetString</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>PropertiesToSetString</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText>
+                <LocalizationTag>ACS_PROPERTIESTOSET</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
     </Elements>
     <ExpanderTemplate>
         <Section>
@@ -330,10 +402,20 @@
             <Name></Name>
             <Columns>
                 <Column>
-                    <Fields></Fields>
-                </Column>
-                <Column>
-                    <Fields></Fields>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename></AssemblyFilename>
+                            <ObjectName></ObjectName>
+                            <ID>SelectionCriteriaString</ID>
+                            <Name>SelectionCriteriaString</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename></AssemblyFilename>
+                            <ObjectName></ObjectName>
+                            <ID>PropertiesToSetString</ID>
+                            <Name>PropertiesToSetString</Name>
+                        </Field>
+                    </Fields>
                 </Column>
             </Columns>
             <ToolbarButtons></ToolbarButtons>
@@ -342,27 +424,47 @@
     <GridButtons></GridButtons>
     <ToolbarButtons>
         <Button>
-            <ButtonID>Detele</ButtonID>
+            <ButtonID>Add</ButtonID>
             <ButtonText>
-                <Value><![CDATA[]]></Value>
+                <LocalizationTag>CREATE_ACS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <Value><![CDATA[]]></Value>
+                <LocalizationTag>CREATE_ACS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities>
+                <Capability>Manage Account Configuration Set</Capability>
+            </RequiredCapabilities>
+            <JSHandlerFunction>onNew</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>Detele</ButtonID>
+            <ButtonText>
+                <LocalizationTag>DELETE_ACS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>DELETE_ACS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </ToolTip>
             <IconClass>remove</IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
+            <Capability>Manage Account Configuration Set</Capability>
             <JSHandlerFunction>onDeleteBulk</JSHandlerFunction>
         </Button>
         <Button>
             <ButtonID>Terminate</ButtonID>
             <ButtonText>
-                <Value><![CDATA[]]></Value>
+                <LocalizationTag>TERMINATE_ACS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <Value><![CDATA[]]></Value>
+                <LocalizationTag>TERMINATE_ACS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </ToolTip>
-            <IconClass></IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
+            <IconClass>stop</IconClass>
+            <Capability>Manage Account Configuration Set</Capability>
             <JSHandlerFunction>onTerminateBulk</JSHandlerFunction>
         </Button>
     </ToolbarButtons>

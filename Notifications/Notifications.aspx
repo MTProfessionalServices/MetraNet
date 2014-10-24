@@ -44,16 +44,20 @@
       Ext.Ajax.request({
         url: '/MetraNet/Notifications/AjaxServices/GetNotifications.aspx',
         timeout: 10000,
-        params: {pageSize : 100, currentPage : pageno},
+        params: { pageSize: 100, currentPage: pageno },
         success: function (response) {
-          recentNotificationTpl.overwrite(panel.body, Ext.decode(response.responseText));
           if (response.responseText.length > 12) {
+            panel.body.dom.removeChild(panel.body.dom.lastChild);
+            recentNotificationTpl.append(panel.body, Ext.decode(response.responseText));
             var link = document.createElement("a");
             link.href = 'JavaScript:fetchData(mypanel, recentNotificationTpl);';
             link.text = 'More...';
             panel.body.dom.appendChild(link);
             pageno++;
-          }
+          } 
+          else
+            panel.body.dom.removeChild(panel.body.dom.lastChild);
+            
           mypanel = panel;
         },
         failure: function () {

@@ -68,8 +68,8 @@ WHERE
 										)
 								)
 								)
-						)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+						)
 		  ))
 
 UNION
@@ -142,8 +142,8 @@ WHERE
 										)
 								)
 								)
-						)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+						)
 		  ))
 
 UNION
@@ -199,6 +199,6 @@ WHERE
 										)
 								)
 								)
-						)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+						)
 		  ))

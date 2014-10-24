@@ -124,9 +124,9 @@
     <value>[JA]All</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[JA]MetraNet -Expected Revenue Summary Report</value>
+    <value>[JA]MetraNet -Expected Revenue Report</value>
   </data>
   <data name="REPORT_TITLE" xml:space="preserve">
-    <value>[JA]Expected Revenue Summary Report</value>
+    <value>[JA]Expected Revenue Report</value>
   </data>
 </root>

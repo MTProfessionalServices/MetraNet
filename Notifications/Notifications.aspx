@@ -18,15 +18,15 @@
           renderTo: 'recentNotificationsContainer',
           listeners: {
             render: function (panel) {
-              var SubEnding = 'Subscription Ending';
-              var GSubEnding = 'Group Subscription Ending';
+              var SubEnding = 'Subscription End Date';
+              var GSubEnding = 'Group Subscription End Date';
               recentNotificationTpl = new Ext.XTemplate(
                   '<tpl for="Items">',
                   "<tpl if=", '"', "notification_event_name==", "'", SubEnding, "'", '"', '>',
-                  '<p><div id="recentSubscriptiponList"><i>' + SUBSCRIPTION_ENDING_TEMPLATE + '</i></div></p>',
+                  '<p><div id="recentSubscriptiponList">' + SUBSCRIPTION_ENDING_TEMPLATE + '</div></p>',
                   '</tpl>',
                   "<tpl if=", '"', "notification_event_name==", "'", GSubEnding, "'", '"', '>',
-                  '<p><div id="recentGroupSubscriptionList"><i>' + GROUP_SUBSCRIPTION_ENDING_TEMPLATE + '</i></div></p>',
+                  '<p><div id="recentGroupSubscriptionList">' + GROUP_SUBSCRIPTION_ENDING_TEMPLATE + '</div></p>',
                   '</tpl>',
                   '</tpl>'
                   );

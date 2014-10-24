@@ -137,10 +137,7 @@
   </data>
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
     <value>[DE]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
-  </data>
-    <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-        <value>[DE] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
-    </data>
+  </data>    
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
     <value>[DE]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
   </data>
@@ -194,10 +191,7 @@
   </data>
   <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
     <value>[DE]#{0}) Message: '{1}', Component: '{2}'</value>
-  </data>
-    <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
-        <value>[DE]Fail to modify views of Account ID {0}.</value>
-    </data>
+  </data>    
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[DE]Error on saving AccountConfigSet with Id {0}</value>
   </data>
@@ -227,10 +221,7 @@
   </data>
   <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
     <value>Vorgängerkonto war {0}, geändert in {1}. </value>
-  </data>
-    <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
-        <value>[DE]Error on applying Account Configuration Sets for account {0}.</value>
-    </data>
+  </data>    
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>[DE]Transaction {0} is of type {1}, but got a AlreadySettledException</value>
   </data>
@@ -320,10 +311,7 @@
   </data>
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
     <value>[DE]Error get account configuration set applied list</value>
-  </data>
-    <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[DE] Can't get account config set with PO from another partition!</value>
-    </data>
+  </data>   
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>[DE]Got no response from {0}.</value>
   </data>
@@ -408,9 +396,9 @@
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
     <value>[DE]Agreement template ID cannot be less than 0.</value>
   </data>
-    <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[DE]Error on termination Account Configuration Set</value>
-    </data>
+  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[DE]Error on termination Account Configuration Set</value>
+  </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>Das Konto kann nicht der eigene Rechnungsmanager sein.</value>
   </data>

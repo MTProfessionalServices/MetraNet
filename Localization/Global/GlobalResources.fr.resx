@@ -138,9 +138,9 @@
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
     <value>[FR]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
   </data>
-    <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-        <value>[FR] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
-    </data>
+  <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
+    <value>[FR] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+  </data>
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
     <value>[FR]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
   </data>
@@ -162,9 +162,9 @@
   <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
     <value>[FR] The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time (count = {2}). The Selection Criteria should be unique.</value>
   </data>
-    <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-        <value>[FR]UDRC for PI ID={0} not set!</value>
-    </data>
+  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
+    <value>[FR]UDRC for PI ID={0} not set!</value>
+  </data>
   <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
     <value>[FR]StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
   </data>
@@ -194,10 +194,7 @@
   </data>
   <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
     <value>[FR]#{0}) Message: '{1}', Component: '{2}'</value>
-  </data>
-    <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
-        <value>[FR]Fail to modify views of Account ID {0}.</value>
-    </data>
+  </data>    
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[FR]Error on saving AccountConfigSet with Id {0}</value>
   </data>
@@ -227,10 +224,7 @@
   </data>
   <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
     <value>Le compte ascendant était {0}, remplacé par {1}. </value>
-  </data>
-    <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
-        <value>[FR]Error on applying Account Configuration Sets for account {0}.</value>
-    </data>
+  </data>    
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>La transaction {0} est de type {1}, mais a généré une exception AlreadySettledException</value>
   </data>
@@ -320,10 +314,7 @@
   </data>
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
     <value>[FR]Error get account configuration set applied list</value>
-  </data>
-    <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[FR] Can't get account config set with PO from another partition!</value>
-    </data>
+  </data>    
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>Aucune réponse reçue de {0}.</value>
   </data>
@@ -821,10 +812,7 @@
   </data>
   <data name="ZIP_CHANGED" xml:space="preserve">
     <value>Le code postal était {0}, remplacé par {1}. </value>
-  </data>
-  <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-    <value>[FR] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
-  </data>
+  </data>  
   <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[FR] Can't get account config set with PO from another partition!</value>
   </data>

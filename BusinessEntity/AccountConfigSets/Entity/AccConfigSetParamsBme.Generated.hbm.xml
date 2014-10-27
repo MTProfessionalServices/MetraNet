@@ -156,5 +156,19 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
+    <property name="GroupSubscriptionName" column="c_GroupSubscriptionName" length="255">
+      <meta attribute="label">GroupSubscriptionName</meta>
+      <meta attribute="description">Property should be set if ACS is creating Group Subscription.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
   </class>
 </hibernate-mapping>

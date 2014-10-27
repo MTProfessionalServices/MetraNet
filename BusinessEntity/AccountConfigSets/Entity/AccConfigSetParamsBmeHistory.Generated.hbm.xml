@@ -171,6 +171,20 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
+    <property name="GroupSubscriptionName" column="c_GroupSubscriptionName" length="255">
+      <meta attribute="label">GroupSubscriptionName</meta>
+      <meta attribute="description">Property should be set if ACS is creating Group Subscription.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
     <property name="_StartDate" column="c__StartDate" not-null="true">
       <meta attribute="label" />
       <meta attribute="description" />
@@ -318,6 +332,7 @@ c_subscriptionstartdate,
 c_subscriptionenddate, 
 c_corporateaccountid, 
 c_description, 
+c_groupsubscriptionname, 
 c__startdate, 
 c__enddate
 ) 
@@ -335,6 +350,7 @@ VALUES
 :dataRow.c_subscriptionenddate, 
 :dataRow.c_corporateaccountid, 
 :dataRow.c_description, 
+:dataRow.c_groupsubscriptionname, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
 ) 
@@ -366,6 +382,7 @@ c_subscriptionstartdate,
 c_subscriptionenddate, 
 c_corporateaccountid, 
 c_description, 
+c_groupsubscriptionname, 
 c__startdate, 
 c__enddate
 )
@@ -382,6 +399,7 @@ c_subscriptionstartdate,
 c_subscriptionenddate, 
 c_corporateaccountid, 
 c_description, 
+c_groupsubscriptionname, 
 c_updatedate, 
 dbo.mtmaxdate()
 FROM INSERTED;</create>

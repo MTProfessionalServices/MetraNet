@@ -8,7 +8,7 @@ public partial class RevRecReport : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
-    if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+    if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
       Response.End();
   }
 }

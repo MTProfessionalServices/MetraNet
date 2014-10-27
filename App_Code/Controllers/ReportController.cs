@@ -136,7 +136,7 @@ namespace ASP.Controllers
     /// <returns></returns>
     public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, string revenueCode, string deferredRevenueCode, int productId)
     {
-      if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+      if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
         Response.End();
       var accCycle = RevenueReportsHelper.GetAccountingCycle(accountingCycleId);
       var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountingCycleId);
@@ -164,7 +164,7 @@ namespace ASP.Controllers
     /// <returns></returns>
     public ActionResult RevRecReportHeaders(string accountCycleId)
     {
-      if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+      if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
         Response.End();
       var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountCycleId);
       return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);

@@ -9,6 +9,9 @@ public partial class DefRevScheduleWidgetReport : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+      Response.End();
+
     if (IsPostBack) return;
     accntCycleDd.Label = GetGlobalResourceObject("Reports", "TEXT_ACCOUNTING_CYCLE").ToString();
     accntCycleDd.Items.AddRange(GetCycles());

@@ -117,16 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplyFilterBtn_Caption" xml:space="preserve">
+    <value>[FR]Apply Filter</value>
+  </data>
+  <data name="Deferred_Caption" xml:space="preserve">
+    <value>[FR]Deferred</value>
+  </data>
+  <data name="Earned_Caption" xml:space="preserve">
+    <value>[FR]Earned</value>
+  </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Deferred Revenue Summary Report</value>
+    <value>[FR]Deferred Revenue Summary Graph</value>
   </data>
   <data name="Option_All_Text" xml:space="preserve">
-    <value>All</value>
+    <value>[FR]All</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Deferred Revenue Summary Report</value>
+    <value>[FR]MetraNet - Deferred Revenue Summary Graph</value>
   </data>
   <data name="REPORT_TITLE" xml:space="preserve">
-    <value>Deferred Revenue Summary Report</value>
+    <value>[FR]Deferred Revenue Summary Graph</value>
   </data>
 </root>

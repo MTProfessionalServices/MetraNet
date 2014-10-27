@@ -128,5 +128,33 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
+    <property name="CorporateAccountId" column="c_CorporateAccountId">
+      <meta attribute="label">CorporateAccountId</meta>
+      <meta attribute="description">Corporate Account Id For Group Subscription</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="GroupId" column="c_GroupId">
+      <meta attribute="label">GroupId</meta>
+      <meta attribute="description">Group Subscription Id in case it's Group Subscription</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
   </class>
 </hibernate-mapping>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,221 +59,221 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="adjAmountFldResource1.Label" xml:space="preserve">
-    <value>Valor</value>
-  </data>
-  <data name="adjAmountFldResource1.MaxLength" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjAmountFldResource1.MinLength" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjDatePickerResource1.Label" xml:space="preserve">
-    <value>Data do ajuste</value>
-  </data>
-  <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>Descrição interna</value>
-  </data>
-  <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
-    <value>Descrição de fatura</value>
-  </data>
-  <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjDescriptionTextBoxResource2.MaxLength" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjDescriptionTextBoxResource1.MinLength" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjDescriptionTextBoxResource2.MinLength" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnCancelResource1.ServerSide" xml:space="preserve">
-    <value>True</value>
-  </data>
-  <data name="btnOKResource1.ServerSide" xml:space="preserve">
-    <value>True</value>
-  </data>
-  <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
-    <value>Emitir nota de crédito para esse ajuste</value>
-  </data>
-  <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>Comentário</value>
-  </data>
-  <data name="ddBillingPeriod1.Label" xml:space="preserve">
-    <value>Período de faturamento</value>
-  </data>
-  <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>Modelo de nota de crédito para usar</value>
-  </data>
-  <data name="ddReasonCodeResource1.AllowBlank" xml:space="preserve">
-    <value>False</value>
-  </data>
-  <data name="ddReasonCodeResource1.HideLabel" xml:space="preserve">
-    <value>False</value>
-  </data>
-  <data name="ddReasonCodeResource1.Label" xml:space="preserve">
-    <value>Código do motivo</value>
-  </data>
-  <data name="ddReasonCodeResource1.ReadOnly" xml:space="preserve">
-    <value>False</value>
-  </data>
-  <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>Emitir ajuste diverso</value>
-  </data>
-  <data name="MTPanel2Resource1.Text" xml:space="preserve">
-    <value>Emitir nota de crédito para esse ajuste</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="TEXT_CREATED" xml:space="preserve">
-    <value>O ajuste diverso foi criado com sucesso.</value>
-  </data>
-  <data name="TEXT_CREATED_TITLE" xml:space="preserve">
-    <value>Ajuste diverso criado.</value>
-  </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Problema com ajuste diverso</value>
-  </data>
-  <data name="TEXT_MAX_AUTHORIZED_AMOUNT" xml:space="preserve">
-    <value>Valor máximo autorizado</value>
-  </data>
-  <data name="TEXT_MISCELLANEOUS_ADJUSTMENT" xml:space="preserve">
-    <value>Ajuste diverso</value>
-  </data>
-  <data name="TEXT_PENDING" xml:space="preserve">
-    <value>Um ajuste diverso pendente foi criado, pois um valor maior que o valor autorizado foi especificado.</value>
-  </data>
-  <data name="TEXT_PENDING_TITLE" xml:space="preserve">
-    <value>Um ajuste diverso pendente foi criado.</value>
-  </data>
-  <data name="TEXT_PROCESSING_ERROR" xml:space="preserve">
-    <value>Sua solicitação não pode ser processada devido aos seguintes erros:</value>
-  </data>
-  <data name="TEXT_THROUGH" xml:space="preserve">
-    <value>Através</value>
-  </data>
-  <data name="TEXT_UNLIMITED" xml:space="preserve">
-    <value>Ilimitado</value>
-  </data>
-  <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
-    <value>Imposto do condado</value>
-  </data>
-  <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjAmountFldResourceTaxCounty.MinLenght" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
-    <value>Imposto federal</value>
-  </data>
-  <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjAmountFldResourceTaxFederal.MinLenght" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
-    <value>Imposto local</value>
-  </data>
-  <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjAmountFldResourceTaxLocal.MinLenght" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
-    <value>Outros impostos</value>
-  </data>
-  <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjAmountFldResourceTaxOther.MinLenght" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
-    <value>Imposto estadual</value>
-  </data>
-  <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjAmountFldResourceTaxState.MinLenght" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjAmountFldResourceTaxTota.MaxLenght" xml:space="preserve">
-    <value>-1</value>
-  </data>
-  <data name="adjAmountFldResourceTaxTota.MinLenght" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
-    <value>Ajuste total sendo emitido</value>
-  </data>
-  <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
-    <value>Foi criada uma nota de crédito para esse ajuste diverso.</value>
-  </data>
-  <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
-    <value>Uma nota de crédito para esse ajuste diverso será criada quando esse ajuste diverso for aprovado.</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="adjAmountFldResource1.Label" xml:space="preserve">
+        <value>Valor</value>
+    </data>
+    <data name="adjAmountFldResource1.MaxLength" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjAmountFldResource1.MinLength" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
+        <value>Imposto do condado</value>
+    </data>
+    <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjAmountFldResourceTaxCounty.MinLenght" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
+        <value>Imposto federal</value>
+    </data>
+    <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjAmountFldResourceTaxFederal.MinLenght" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
+        <value>Imposto local</value>
+    </data>
+    <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjAmountFldResourceTaxLocal.MinLenght" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
+        <value>Outros impostos</value>
+    </data>
+    <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjAmountFldResourceTaxOther.MinLenght" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
+        <value>Imposto estadual</value>
+    </data>
+    <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjAmountFldResourceTaxState.MinLenght" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjAmountFldResourceTaxTota.MaxLenght" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjAmountFldResourceTaxTota.MinLenght" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
+        <value>Ajuste total sendo emitido</value>
+    </data>
+    <data name="adjDatePickerResource1.Label" xml:space="preserve">
+        <value>Data do ajuste</value>
+    </data>
+    <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
+        <value>Descrição interna</value>
+    </data>
+    <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjDescriptionTextBoxResource1.MinLength" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
+        <value>Descrição de fatura</value>
+    </data>
+    <data name="adjDescriptionTextBoxResource2.MaxLength" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="adjDescriptionTextBoxResource2.MinLength" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="btnCancelResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnOKResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
+        <value>Emitir nota de crédito para esse ajuste</value>
+    </data>
+    <data name="CommentTextBoxResource1.Label" xml:space="preserve">
+        <value>Comentário</value>
+    </data>
+    <data name="ddBillingPeriod1.Label" xml:space="preserve">
+        <value>Período de faturamento</value>
+    </data>
+    <data name="ddReasonCodeResource1.AllowBlank" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddReasonCodeResource1.HideLabel" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddReasonCodeResource1.Label" xml:space="preserve">
+        <value>Código do motivo</value>
+    </data>
+    <data name="ddReasonCodeResource1.ReadOnly" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
+        <value>Modelo de nota de crédito para usar</value>
+    </data>
+    <data name="MTPanel1Resource1.Text" xml:space="preserve">
+        <value>Emitir ajuste diverso</value>
+    </data>
+    <data name="MTPanel2Resource1.Text" xml:space="preserve">
+        <value>Emitir nota de crédito para esse ajuste</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="TEXT_CREATED" xml:space="preserve">
+        <value>O ajuste diverso foi criado com sucesso.</value>
+    </data>
+    <data name="TEXT_CREATED_TITLE" xml:space="preserve">
+        <value>Ajuste diverso criado.</value>
+    </data>
+    <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
+        <value>Foi criada uma nota de crédito para esse ajuste diverso.</value>
+    </data>
+    <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
+        <value>Uma nota de crédito para esse ajuste diverso será criada quando esse ajuste diverso for aprovado.</value>
+    </data>
+    <data name="TEXT_DESCRIPTION" xml:space="preserve">
+        <value>Problema com ajuste diverso</value>
+    </data>
+    <data name="TEXT_MAX_AUTHORIZED_AMOUNT" xml:space="preserve">
+        <value>Valor máximo autorizado</value>
+    </data>
+    <data name="TEXT_MISCELLANEOUS_ADJUSTMENT" xml:space="preserve">
+        <value>Ajuste diverso</value>
+    </data>
+    <data name="TEXT_PENDING" xml:space="preserve">
+        <value>Um ajuste diverso pendente foi criado, pois um valor maior que o valor autorizado foi especificado.</value>
+    </data>
+    <data name="TEXT_PENDING_TITLE" xml:space="preserve">
+        <value>Um ajuste diverso pendente foi criado.</value>
+    </data>
+    <data name="TEXT_PROCESSING_ERROR" xml:space="preserve">
+        <value>Sua solicitação não pode ser processada devido aos seguintes erros:</value>
+    </data>
+    <data name="TEXT_THROUGH" xml:space="preserve">
+        <value>Através</value>
+    </data>
+    <data name="TEXT_UNLIMITED" xml:space="preserve">
+        <value>Ilimitado</value>
+    </data>
 </root>

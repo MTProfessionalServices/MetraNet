@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,167 +59,167 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="cbApplyTemplateResource1.BoxLabel" xml:space="preserve">
-    <value>Aplicar modelo</value>
-  </data>
-  <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
-    <value>Faturável</value>
-  </data>
-  <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
-    <value>Isenção de imposto</value>
-  </data>
-  <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
-    <value>Ciclos de faturamento</value>
-  </data>
-  <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
-    <value>Site da marca</value>
-  </data>
-  <data name="ddCurrencyResource1.Label" xml:space="preserve">
-    <value>Moeda</value>
-  </data>
-  <data name="ddLanguageResource1.Label" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="ddPaperInvoiceResource1.Label" xml:space="preserve">
-    <value>Fatura em papel</value>
-  </data>
-  <data name="ddPriceListResource1.Label" xml:space="preserve">
-    <value>Lista de preços</value>
-  </data>
-  <data name="ddSecurityQuestionResource1.Label" xml:space="preserve">
-    <value>Pergunta de segurança</value>
-  </data>
-  <data name="ddStatusReasonResource1.Label" xml:space="preserve">
-    <value>Motivo do status</value>
-  </data>
-  <data name="ddTimeZoneResource1.Label" xml:space="preserve">
-    <value>Fuso horário</value>
-  </data>
-  <data name="LblEndDayOfMonth" xml:space="preserve">
-    <value>Dia final do mês</value>
-  </data>
-  <data name="LblEndDayOfWeek" xml:space="preserve">
-    <value>Dia final da semana</value>
-  </data>
-  <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Mensagens de erro</value>
-  </data>
-  <data name="LblFirstEndDayOfMonth" xml:space="preserve">
-    <value>1º dia final do mês</value>
-  </data>
-  <data name="LblSecondEndDayOfMonth" xml:space="preserve">
-    <value>2º dia final do mês</value>
-  </data>
-  <data name="LblSelectInterval" xml:space="preserve">
-    <value>Selecionar intervalo</value>
-  </data>
-  <data name="LblStartDay" xml:space="preserve">
-    <value>Data de início</value>
-  </data>
-  <data name="lblStartMonth" xml:space="preserve">
-    <value>Mês de início</value>
-  </data>
-  <data name="ListItemResource1.Text" xml:space="preserve">
-    <value>Nenhum</value>
-  </data>
-  <data name="ListItemResource2.Text" xml:space="preserve">
-    <value>Inglês (EUA)</value>
-  </data>
-  <data name="MTSection2Resource1.Text" xml:space="preserve">
-    <value>Informações de login</value>
-  </data>
-  <data name="MTSection3Resource1.Text" xml:space="preserve">
-    <value>Informações de conta</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Atualizar conta</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
-    <value>Conta pai</value>
-  </data>
-  <data name="tbOtherResource1.Label" xml:space="preserve">
-    <value>Outro</value>
-  </data>
-  <data name="tbPayerResource1.Label" xml:space="preserve">
-    <value>Pagador</value>
-  </data>
-  <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
-    <value>Resposta de segurança</value>
-  </data>
-  <data name="tbStartDateResource1.Label" xml:space="preserve">
-    <value>Data de início da conta</value>
-  </data>
-  <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-    <value>ID de isenção de imposto</value>
-  </data>
-  <data name="tbUserNameResource1.Label" xml:space="preserve">
-    <value>Nome do usuário</value>
-  </data>
-  <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>Pergunta de segurança personalizada</value>
-  </data>
-  <data name="tbAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>Tipo de autenticação</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="cbApplyTemplateResource1.BoxLabel" xml:space="preserve">
+        <value>Aplicar modelo</value>
+    </data>
+    <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
+        <value>Faturável</value>
+    </data>
+    <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
+        <value>Isenção de imposto</value>
+    </data>
+    <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
+        <value>Ciclos de faturamento</value>
+    </data>
+    <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
+        <value>Site da marca</value>
+    </data>
+    <data name="ddCurrencyResource1.Label" xml:space="preserve">
+        <value>Moeda</value>
+    </data>
+    <data name="ddLanguageResource1.Label" xml:space="preserve">
+        <value>Idioma</value>
+    </data>
+    <data name="ddPaperInvoiceResource1.Label" xml:space="preserve">
+        <value>Fatura em papel</value>
+    </data>
+    <data name="ddPriceListResource1.Label" xml:space="preserve">
+        <value>Lista de preços</value>
+    </data>
+    <data name="ddSecurityQuestionResource1.Label" xml:space="preserve">
+        <value>Pergunta de segurança</value>
+    </data>
+    <data name="ddStatusReasonResource1.Label" xml:space="preserve">
+        <value>Motivo do status</value>
+    </data>
+    <data name="ddTimeZoneResource1.Label" xml:space="preserve">
+        <value>Fuso horário</value>
+    </data>
+    <data name="LblEndDayOfMonth" xml:space="preserve">
+        <value>Dia final do mês</value>
+    </data>
+    <data name="LblEndDayOfWeek" xml:space="preserve">
+        <value>Dia final da semana</value>
+    </data>
+    <data name="lblErrorMessageResource1.Text" xml:space="preserve">
+        <value>Mensagens de erro</value>
+    </data>
+    <data name="LblFirstEndDayOfMonth" xml:space="preserve">
+        <value>1º dia final do mês</value>
+    </data>
+    <data name="LblSecondEndDayOfMonth" xml:space="preserve">
+        <value>2º dia final do mês</value>
+    </data>
+    <data name="LblSelectInterval" xml:space="preserve">
+        <value>Selecionar intervalo</value>
+    </data>
+    <data name="LblStartDay" xml:space="preserve">
+        <value>Data de início</value>
+    </data>
+    <data name="lblStartMonth" xml:space="preserve">
+        <value>Mês de início</value>
+    </data>
+    <data name="ListItemResource1.Text" xml:space="preserve">
+        <value>Nenhum</value>
+    </data>
+    <data name="ListItemResource2.Text" xml:space="preserve">
+        <value>Inglês (EUA)</value>
+    </data>
+    <data name="MTSection2Resource1.Text" xml:space="preserve">
+        <value>Informações de login</value>
+    </data>
+    <data name="MTSection3Resource1.Text" xml:space="preserve">
+        <value>Informações de conta</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Atualizar conta</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
+        <value>Conta pai</value>
+    </data>
+    <data name="tbAuthenticationTypeResource1.Label" xml:space="preserve">
+        <value>Tipo de autenticação</value>
+    </data>
+    <data name="tbOtherResource1.Label" xml:space="preserve">
+        <value>Outro</value>
+    </data>
+    <data name="tbPayerResource1.Label" xml:space="preserve">
+        <value>Pagador</value>
+    </data>
+    <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
+        <value>Resposta de segurança</value>
+    </data>
+    <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
+        <value>Pergunta de segurança personalizada</value>
+    </data>
+    <data name="tbStartDateResource1.Label" xml:space="preserve">
+        <value>Data de início da conta</value>
+    </data>
+    <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
+        <value>ID de isenção de imposto</value>
+    </data>
+    <data name="tbUserNameResource1.Label" xml:space="preserve">
+        <value>Nome do usuário</value>
+    </data>
 </root>

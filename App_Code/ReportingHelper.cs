@@ -251,9 +251,9 @@ namespace MetraNet
                                            .Select(x => x.ProrationDate * x.ProrationAmount).Sum() + calculatedIncrementalEarned;
 
 
-        decimalTotalEarned.Add(1, (double)calculatedTotalEarned);
-        decimalIncrementalEarned.Add(1, (double)calculatedIncrementalEarned);
         decimalDeferred.Add(1, (double)calculatedDeferred);
+        decimalIncrementalEarned.Add(1, (double)calculatedIncrementalEarned);
+        decimalTotalEarned.Add(1, (double)calculatedTotalEarned);
 
         for (var i = 1; i < 13; i++)
         {
@@ -278,34 +278,39 @@ namespace MetraNet
 
           calculatedTotalEarned = calculatedTotalEarned + calculatedIncrementalEarned;
 
+
+          decimalDeferred.Add(i + 1, (double)calculatedDeferred);
           decimalIncrementalEarned.Add(i+1, (double)calculatedIncrementalEarned);
-          decimalDeferred.Add(i+1, (double)calculatedDeferred);
           decimalTotalEarned.Add(i+1, (double)calculatedTotalEarned);
         }
+
+        var deferredRow = new RevenueRecognitionReportData
+        {
+          Currency = rowGroup.Currency,
+          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
+          RevenuePart = "Deferred",
+          ColumnsData = decimalDeferred
+        };
+
         var earnedRow = new RevenueRecognitionReportData
         {
           Currency = rowGroup.Currency,
           RevenueCode = rowGroup.RevenueCode,
-          DeferredRevenueCode = rowGroup.DeferredRevenueCode,
           RevenuePart = "Earned",
           ColumnsData = decimalTotalEarned
         };
 
         var incrementalRow = new RevenueRecognitionReportData
         {
+          Currency = rowGroup.Currency,
+          RevenueCode = rowGroup.RevenueCode,
           RevenuePart = "Incremental",
           ColumnsData = decimalIncrementalEarned
         };
 
-        var deferredRow = new RevenueRecognitionReportData
-        {
-          RevenuePart = "Deferred",
-          ColumnsData = decimalDeferred
-        };
-
-        data.Add(earnedRow);
-        data.Add(incrementalRow);
         data.Add(deferredRow);
+        data.Add(incrementalRow);
+        data.Add(earnedRow);
       }
       return data;
     }

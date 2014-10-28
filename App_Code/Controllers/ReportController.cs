@@ -138,9 +138,8 @@ namespace ASP.Controllers
     {
       if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
         Response.End();
-      var accCycle = RevenueReportsHelper.GetAccountingCycle(accountingCycleId);
       var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountingCycleId);
-      var revRec = RevenueReportsHelper.GetRevRecRawData(accCycle, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
+      var revRec = RevenueReportsHelper.GetRevRecRawDataForWidget(accountingCycleId, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
       var result = new {rows = Enumerable.Range(1, headers.Length).Select(x => new {month = x, deferred = 0d, earned = 0d}).ToArray()
                         ,headers};
       if(revRec.Count == 0)

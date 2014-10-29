@@ -86,11 +86,14 @@
             var categories = {};
             var nodes = [];
             var items = data.Items;
+            var accCapabilities= <%=AccCapabilities%>;
+            
             Ext.each(items, function(item) {
               var category = item.Category;
               var subCategory = item.SubCategory;
               var name = item.Name;
               var description = item.Description;
+              var capability = item.ReqdCapability;
               if (!description) {
                 description = name;
               }
@@ -111,9 +114,15 @@
                   cat.subs[subCategory] = { 'Name': subCategory, 'expanded': false, 'Description': '', 'children': [] };
                   cat.children.push(cat.subs[subCategory]);
                 }
-                cat.subs[subCategory].children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                
+                if (capabilityCheck(capability, accCapabilities)) {
+                  cat.subs[subCategory].children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                }
+
               } else {
-                cat.children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                if (capabilityCheck(capability, accCapabilities)) {
+                  cat.children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                }
               }
             });
             return nodes;
@@ -121,6 +130,18 @@
         })
       });
     });
+     
+    function capabilityCheck(capCheck, capList) {
+      if ((capCheck == "") || (capCheck == null))
+        return true;
+      
+      for (var j = 0; j < capList.length; j++) 
+      {
+        if ((capList[j].match(capCheck)) || ( capList[j] =="Unlimited Capability"))
+          return true;
+      }
+      return false;
+    }
   
   </script>
 </asp:Content>

@@ -24,7 +24,7 @@
     var textEdit = '<%=GetGlobalResourceObject("JSConsts", "TEXT_EDIT")%>';
     var textDelete = '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE")%>';
     var textTerminate = '<%=GetGlobalResourceObject("JSConsts", "TEXT_TERMINATE")%>';
-    var textView = '<%=GetGlobalResourceObject("JSConsts", "TEXT_VIEW")%>';
+    var textView = '<%=GetGlobalResourceObject("JSConsts", "TEXT_VIEW")%>';    
     
     OverrideRenderer_<%=AccountConfigSetListGrid.ClientID%> = function(cm) {
       cm.setRenderer(cm.getIndexById('Actions'), actionsColumnRenderer);
@@ -33,20 +33,19 @@
     function actionsColumnRenderer(value, meta, record) {
       var str = "";
       var entityId = record.data.AcsId;
-      var status = String.format("{0}", record.data.Status);
-
-     
+      
       // Edit ACS
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"ManageAccountConfigSet.aspx?mode=EDIT&acsId={0}\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
 
       // View ACS      
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageAccountConfigSet.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{2}\" alt=\"{2}\"/></a>", entityId, String.escape(textView));
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageAccountConfigSet.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textView));
       
       // Delete ACS     
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textDelete));
       
+      if(record.data.Enabled)
       // Terminate ACS     
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onTerminate('{0}')\"><img src=\"/Res/Images/icons/stop.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textTerminate));
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onTerminate('{0}')\"><img src=\"/Res/Images/icons/stop2.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textTerminate));
       
       return str;
     }
@@ -78,7 +77,7 @@
 
     function onTerminate(entityId) {
       top.Ext.MessageBox.show({
-        title: textDelete,
+        title: textTerminate,
         msg: String.format('<%=GetGlobalResourceObject("JSConsts", "TEXT_TERMINATE_MESSAGE")%>', entityId),
         buttons: window.Ext.MessageBox.OKCANCEL,
         fn: function(btn) {
@@ -134,8 +133,8 @@
       }
 
       top.Ext.MessageBox.show({
-        title: textDelete,
-        msg: '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE_SELECTED_ROWS")%>',
+        title: textTerminate,
+        msg: '<%=GetGlobalResourceObject("JSConsts", "TEXT_TERMINATE_SELECTED_ROWS")%>',
         buttons: window.Ext.MessageBox.OKCANCEL,
         fn: function(btn) {
           if (btn == 'ok') {

@@ -23,7 +23,7 @@ namespace MetraNet.AccountConfigSets
 
     protected override void OnLoadComplete(EventArgs e)
     {
-      //        QuoteListGrid.DataSourceURL = @"../AjaxServices/LoadAccountConfigSetList.aspx";
+      AccountConfigSetListGrid.DataSourceURL = @"../AjaxServices/LoadAccountConfigSetList.aspx";
     }
 
     #region Implementation of ICallbackEventHandler
@@ -118,7 +118,12 @@ namespace MetraNet.AccountConfigSets
       {
         Logger.LogError(ex.Detail.ErrorMessages[0]);
         result = new {result = "error", errorMessage = ex.Detail.ErrorMessages[0]};
-      }     
+      }
+      catch (FaultException<MASPartialSuccessFaultDetail> ex)
+      {
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+      }
       return result;
     }
 
@@ -139,6 +144,11 @@ namespace MetraNet.AccountConfigSets
         }
       }
       catch (FaultException<MASBasicFaultDetail> ex)
+      {
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+      }
+      catch (FaultException<MASPartialSuccessFaultDetail> ex)
       {
         Logger.LogError(ex.Detail.ErrorMessages[0]);
         result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };

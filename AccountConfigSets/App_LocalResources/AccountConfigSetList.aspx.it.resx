@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="AccountConfigSetTitle.Text" xml:space="preserve">
-        <value>OnBoard Templates List</value>
+        <value>OnBoard Templates</value>
     </data>
     <data name="ACS_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -145,16 +145,16 @@
         <value>Selection Criteria</value>
     </data>
     <data name="CREATE_ACS" xml:space="preserve">
-        <value>Add OnBoard Template</value>
+        <value>Add</value>
     </data>
     <data name="CREATION_DATE" xml:space="preserve">
         <value>Creation date</value>
     </data>
     <data name="DELETE_ACS" xml:space="preserve">
-        <value>Delete OnBoard Template</value>
+        <value>Delete</value>
     </data>
     <data name="EDIT_ACS" xml:space="preserve">
-        <value>Edit OnBoard Template</value>
+        <value>Edit</value>
     </data>
     <data name="MOVE_RANK_DOWN" xml:space="preserve">
         <value>Move down</value>
@@ -166,12 +166,12 @@
         <value>MetraNet - OnBoard Templates</value>
     </data>
     <data name="TERMINATE_ACS" xml:space="preserve">
-        <value>Terminate OnBoard Template</value>
+        <value>Terminate</value>
     </data>
     <data name="TEXT_ACTIONS" xml:space="preserve">
         <value>Actions</value>
     </data>
     <data name="VIEW_ACS" xml:space="preserve">
-        <value>View OnBoard Template</value>
+        <value>View</value>
     </data>
 </root>

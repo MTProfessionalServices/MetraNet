@@ -20,11 +20,11 @@
             <Description>Notification Event Type.</Description>
         </Parameter>
         <Parameter>
-            <Name>NotificationEventPropertyValues</Name>
-            <DataType>unknown</DataType>
+            <Name>NotificationEventPropValues</Name>
+            <DataType>string</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description>xml blob that represents all notification event property values.</Description>
+            <Description>xml string that represents all notification event property values.</Description>
         </Parameter>
         <Parameter>
             <Name>PartitionID</Name>

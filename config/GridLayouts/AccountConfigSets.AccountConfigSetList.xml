@@ -334,7 +334,7 @@
                 <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>300</Width>
+            <Width>100</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -370,7 +370,7 @@
                 <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>300</Width>
+            <Width>100</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>

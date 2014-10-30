@@ -7,4 +7,11 @@ public partial class Notifications : MTPage
     {
 
     }
+    protected override void OnLoadComplete(EventArgs e)
+    {
+        NotificationsGrid.DataSourceURL =
+          @"/MetraNet/Notifications/AjaxServices/GetNotifications.aspx";
+
+    }
+
 }

@@ -127,7 +127,7 @@
         </Daily>
       </RecurrencePattern>
     </Adapter>
-    <Adapter>
+   <!-- <Adapter>
       <Name>CleanupNotificationEventsAdapter</Name>
       <DisplayName>Cleanup Notification Events Adapter</DisplayName>
       <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
@@ -141,7 +141,7 @@
            <DaysOfMonth>Second Saturday</DaysOfMonth>
         </Monthly>
       </RecurrencePattern>
-    </Adapter>
+    </Adapter> -->
   </ScheduledAdapters>
   <EndOfPeriodAdapters>
     <Adapter>

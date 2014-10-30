@@ -32,7 +32,7 @@ WHERE sub.vt_end <= @MAX_SUB_END_DATE
   AND sub.vt_end >= @LAST_NOTIFY_FROM
   AND sub.id_group IS NULL
    /* if the end date for the subscription was set within @SUBSCRIPTION_WINDOW, then don’t warn about it */
-  AND tsh.dt_crt <= DATEADD(d, -@SUBSCRIPTION_WINDOW, @CURRENT_RUN_DATE)
+  AND tsh.dt_crt <= DATEADD(d, -@SUBSCRIPTION_WINDOW, sub.vt_end)
 UNION
 SELECT sq.varSubType, sq.varAccount, sq.varLoginName,sq.varEndDate, sq.varPOID, sq.varPOInternalName, sq.id_Partition
 FROM(
@@ -62,7 +62,7 @@ FROM(
          AND sub.id_group IS NULL 
          AND tsh.dt_crt <= @LAST_NOTIFY_FROM
           /* if the end date for the subscription was set within @SUBSCRIPTION_WINDOW, then don’t warn about it */
-         AND tsh.dt_crt <= DATEADD(d, -@SUBSCRIPTION_WINDOW, @CURRENT_RUN_DATE)
+         AND tsh.dt_crt <= DATEADD(d, -@SUBSCRIPTION_WINDOW, sub.vt_end)
          AND tsh.dt_crt >= @LAST_RUN_DATE         
          AND CAST(tsh2.dt_crt AS DATE) <= CAST(tsh.dt_crt AS DATE)
          AND tsh2.vt_end > @MAX_SUB_END_DATE

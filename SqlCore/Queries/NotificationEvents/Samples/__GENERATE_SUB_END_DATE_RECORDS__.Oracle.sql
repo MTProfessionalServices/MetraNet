@@ -27,7 +27,7 @@ WHERE sub.vt_end <= :CURRENT_RUN_DATE + constants.NOTIFICATION_DAYS
   AND sub.vt_end >= :LAST_RUN_DATE + constants.NOTIFICATION_DAYS
   AND sub.id_group IS NULL
    /* if the end date for the subscription was set within SUBSCRIPTION_WINDOW, then don’t warn about it */
-  AND tsh.dt_crt <= :CURRENT_RUN_DATE - constants.SUBSCRIPTION_WINDOW    
+  AND tsh.dt_crt <= sub.vt_end - constants.SUBSCRIPTION_WINDOW    
 UNION
 SELECT sq.varSubType, sq.varAccount, sq.varLoginName,sq.varEndDate, sq.varPOID, sq.varPOInternalName, sq.id_Partition
 FROM(
@@ -56,9 +56,9 @@ FROM(
          AND sub.id_group IS NULL 
          AND tsh.dt_crt <= :LAST_RUN_DATE + constants.NOTIFICATION_DAYS
           /* if the end date for the subscription was set within SUBSCRIPTION_WINDOW, then don’t warn about it */
-         AND tsh.dt_crt <= :CURRENT_RUN_DATE - constants.SUBSCRIPTION_WINDOW
+         AND tsh.dt_crt <= sub.vt_end - constants.SUBSCRIPTION_WINDOW
          AND tsh.dt_crt >= :LAST_RUN_DATE         
-         AND CAST(tsh2.dt_crt AS DATE) <= CAST(tsh.dt_crt AS DATE) 
+         AND CAST(tsh2.dt_crt AS DATE) <= CAST(tsh.dt_crt AS DATE)  
          AND tsh2.vt_end > :CURRENT_RUN_DATE + constants.NOTIFICATION_DAYS
          AND tsh2.vt_end <> tsh.vt_end) sq         
 GROUP BY sq.varSubType, sq.varAccount, sq.varLoginName, sq.varEndDate, sq.varPOID, sq.varPOInternalName, sq.id_Partition

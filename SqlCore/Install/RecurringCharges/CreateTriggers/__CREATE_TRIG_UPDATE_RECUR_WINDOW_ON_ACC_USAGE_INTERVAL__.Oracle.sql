@@ -28,7 +28,7 @@ create or replace TRIGGER trg_recur_win_acc_usage_int AFTER INSERT OR DELETE OR 
           NVL(rv.vt_start, dbo.mtmindate()) c_UnitValueStart,
           NVL(rv.vt_end, dbo.mtmaxdate()) c_UnitValueEnd,
           rv.n_value c_UnitValue ,
-          metratime(1,'RC') c_BilledThroughDate ,
+          dbo.mtmindate() c_BilledThroughDate ,
           -1 c_LastIdRun ,
           dbo.mtmindate() c_MembershipStart ,
           dbo.mtmaxdate() c_MembershipEnd,

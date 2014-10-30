@@ -1,6 +1,6 @@
 SELECT ui.id_interval,
-       TO_CHAR(dt_start, 'mm/dd/yyyy') dt_start,
-       TO_CHAR(dt_end, 'mm/dd/yyyy') dt_end,
+       dt_start,
+       dt_end,
        ut.id_cycle_type as id_cycle_type
 FROM   
   t_usage_interval ui

@@ -26,7 +26,7 @@ public class VisualizeService
                              Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
   {
     var ciDbServer = new ConnectionInfo(connectionInfo) {Catalog = catalog};
-    logger.LogInfo("Connection Ifno:" + connectionInfo);
+    logger.LogInfo("Connection Info:" + connectionInfo);
 
     using (var conn = ConnectionManager.CreateConnection(ciDbServer))
     {
@@ -185,7 +185,7 @@ public class VisualizeService
           while (reader.Read())
           {
             items[count] = new ListItem();
-            items[count].Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), reader.GetValue("dt_end"));
+            items[count].Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), Convert.ToDateTime(reader.GetValue("dt_end")).ToString("d"));
             items[count].Value = reader.GetValue("id_interval").ToString();
             if (count == 0) items[count].Selected = true;
 

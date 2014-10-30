@@ -31,7 +31,7 @@ INSERT INTO t_recur_window
       , IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
       , IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
       , rv.n_value AS c_UnitValue
-      , dbo.metratime(1,'RC') as c_BilledThroughDate
+      , dbo.MTMinDate() as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
@@ -71,7 +71,7 @@ SELECT
       , IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
       , IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
       , rv.n_value AS c_UnitValue
-      , dbo.metratime(1,'RC') as c_BilledThroughDate
+      , dbo.MTMinDate() as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
@@ -115,7 +115,7 @@ SELECT
       , IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
       , IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
       , rv.n_value AS c_UnitValue
-      , dbo.metratime(1,'RC') as c_BilledThroughDate
+      , dbo.MTMinDate() as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , grm.vt_start AS c_MembershipStart
       , grm.vt_end AS c_MembershipEnd

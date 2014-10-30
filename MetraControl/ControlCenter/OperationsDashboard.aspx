@@ -218,7 +218,7 @@
                                             <td class="label">
                                                 <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" Width="80" />
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: bottom">
                                                 <MT:MTLabel ID="txtBillCloseSynopisBillGroups" runat="server" />
                                             </td>
                                         </tr>
@@ -839,38 +839,42 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
             
             chart
-                    .margins({top: 10, right: 10, bottom: 75, left: 50})
-					.width(310)
-					.height(220)
-                    .dimension(statusDimension)
-					.transitionDuration(0)
-                    .group(countGroup)
-//                    .xAxisPadding(15)
-                    .gap(10)
-                    .x(d3.scale.ordinal().domain(["<%=OpenWord%>", "<%=UnderInvestigationWord%>", "<%=FixedWord%>", "<%=UnguidedWord%>"]))
-					.xUnits(dc.units.ordinal)
-                    .centerBar(false)
-                    .brushOn(false)
-					.renderHorizontalGridLines(true)
-                    .title(function(d){ return d.key + ": " + numberFormat(d.value);} )
-                  .renderlet(function(chartRen) {
-                     var colors =d3.scale.ordinal().domain(["<%=OpenWord%>", "<%=UnderInvestigationWord%>", "<%=FixedWord%>", "<%=UnguidedWord%>"])
-                                      .range(['#00B0F0','#0070C0','#148622','#FFC000']);
-                    chart.selectAll('rect.bar').each(function(d){
-                                d3.select(this).attr("style", "fill: " + colors(d.x)); });
+              .margins({top: 10, right: 10, bottom: 75, left: 40})
+			        .width(310)
+			        .height(220)
+              .dimension(statusDimension)
+			        .transitionDuration(0)
+              .group(countGroup)
+  //          .xAxisPadding(15)
+              .gap(10)
+              .x(d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"]))
+			        .xUnits(dc.units.ordinal)
+              .centerBar(false)
+              .brushOn(false)
+			        .renderHorizontalGridLines(true)
+              .title(function(d){ return LocalizeTickText(d.key) + ": " + FormatNumber(d.value);} )
+              .renderlet(function(chartRen) {
+                          var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
+                                            .range(['#00B0F0','#0070C0','#148622','#FFC000']);
+                          chart.selectAll('rect.bar').each(function(d) {
+                            d3.select(this).attr("style", "fill: " + colors(d.x));
+                          });
 
-                        // rotate x-axis ticks
-                      chartRen.selectAll("g.x text")
-                        .style("text-anchor", "start")
-                        .attr('dx', '.3em')
-                        .attr('dy', '1em')
-                        .attr('transform', "rotate(45)");
-                    })
+                          // rotate x-axis ticks
+                          chartRen.selectAll("g.x text")
+                            .style("text-anchor", "start")
+                            .attr('dx', '.3em')
+                            .attr('dy', '1em')
+                            .attr('transform', "rotate(45)");
+              })
             ;
             chart.yAxis().tickSize(0).tickFormat(function(v) { return (v == Math.round(v)) ? v : ""; });
             chart.xAxis().outerTickSize(0);
+            chart.xAxis().tickFormat(function(x) {
+               return LocalizeTickText(x);
+            });            
             dc.renderAll();
-            }
+          }
         });
 
 
@@ -897,13 +901,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                          d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","tblclshasvalue");
                     }
 
-                      d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(type);
-                      d3.select("#<%=txtBillCloseSynopisBillGroups.ClientID%>").text(billgroups);
-                      d3.select("#<%=txtBillCloseSynopisStart.ClientID%>").text(start);
-                      d3.select("#<%=txtBillCloseSynopisEnd.ClientID%>").text(end);
-                      d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").text(daysuntilrun); 
-                      d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").style("cursor","pointer");
-                      d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + billCloseInterval;});
+                    d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(LocalizeTypeText(type));
+                    d3.select("#<%=txtBillCloseSynopisBillGroups.ClientID%>").text(billgroups);
+                    d3.select("#<%=txtBillCloseSynopisStart.ClientID%>").text(RenderDate(start, DATE_FORMAT));
+                    d3.select("#<%=txtBillCloseSynopisEnd.ClientID%>").text(RenderDate(end, DATE_FORMAT));
+                    d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").text(daysuntilrun); 
+                    d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").style("cursor","pointer");
+                    d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + billCloseInterval;});
                                                 
 
                 }
@@ -943,8 +947,40 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
    }
 
-    </script>
-    <script type="text/javascript">
+   function LocalizeTickText(text) {
+      var localizedTickText = '';
+      if (text == 'Open')
+        localizedTickText = '<%=OpenWord%>';
+      else if (text == 'Under Investigation')
+        localizedTickText = '<%=UnderInvestigationWord%>';
+      else if (text == 'Fixed')
+        localizedTickText = '<%=FixedWord%>';
+      else if (text == 'Unguided')
+        localizedTickText = '<%=UnguidedWord%>';
+      return localizedTickText;
+   }
+   
+   function LocalizeTypeText(text) {
+     var localizedTypeText = '';
+     if (text == 'M5')
+       localizedTypeText = '<%=TypeM5Text%>';
+     else if (text == 'M12')
+       localizedTypeText = '<%=TypeM12Text%>';
+     else if (text == 'M19')
+       localizedTypeText = '<%=TypeM19Text%>';
+      else if (text == 'M26')
+        localizedTypeText = '<%=TypeM26Text%>';
+     else if (text == 'EOM')
+        localizedTypeText = '<%=TypeEOMText%>';
+     return localizedTypeText;
+
+   }    
+   
+   function FormatNumber(d) {
+    return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
+   }
+   </script>
+   <script type="text/javascript">
         var gridster;
 
         $(function () {

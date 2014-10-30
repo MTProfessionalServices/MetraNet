@@ -138,6 +138,9 @@
     <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
         <value>[es-MX]New subscriptions will be created for Eligible Account Config Sets with IDs: {0}.</value>
     </data>
+    <data name="ACS_EXCHANGE_RANKS_EXCEPTION" xml:space="preserve">
+        <value>[es-MX]Error on exchanging ranks of Account Configuration Sets with Id {0} and {1}</value>
+    </data>
     <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
         <value>[es-MX] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
     </data>

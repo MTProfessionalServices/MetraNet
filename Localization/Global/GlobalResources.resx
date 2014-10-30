@@ -246,6 +246,12 @@
     <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
         <value>Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
     </data>
+    <data name="ACS_VALIDATION_GroupSab_GroupName_NOT_SET" xml:space="preserve">
+        <value>The Corporate Account with ID '{0}' is set, but Group Subscription Name - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    </data>
+    <data name="ACS_VALIDATION_GroupSub_CorporateAccountId_NOT_SET" xml:space="preserve">
+        <value>The '{0}' Group Subscription Name is set, but CorporateAccountId - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    </data>
     <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
         <value>ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
     </data>
@@ -285,11 +291,17 @@
     <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
         <value>Unable to find Product Offering with Id='{0}'</value>
     </data>
+    <data name="ACS_VALIDATION_UnableToFindProductOfferingId" xml:space="preserve">
+        <value>Unable to find Product Offering with id={0}</value>
+    </data>
     <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
         <value>Unable to find subscription property. Details: '{0}'</value>
     </data>
     <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
         <value>Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
+    </data>
+    <data name="ACS_VALIDATION_UnapleToFindProductOfferingId" xml:space="preserve">
+        <value>Unable to find Product Offering with id={0}</value>
     </data>
     <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
         <value>#{0}) Message: '{1}', Component: '{2}'</value>

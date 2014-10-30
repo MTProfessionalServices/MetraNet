@@ -246,6 +246,12 @@
     <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
         <value>[DE] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
     </data>
+    <data name="ACS_VALIDATION_GroupSab_GroupName_NOT_SET" xml:space="preserve">
+        <value>[DE] The Corporate Account with ID '{0}' is set, but Group Subscription Name - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    </data>
+    <data name="ACS_VALIDATION_GroupSub_CorporateAccountId_NOT_SET" xml:space="preserve">
+        <value>[DE] The '{0}' Group Subscription Name is set, but CorporateAccountId - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    </data>
     <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
         <value>[DE]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
     </data>

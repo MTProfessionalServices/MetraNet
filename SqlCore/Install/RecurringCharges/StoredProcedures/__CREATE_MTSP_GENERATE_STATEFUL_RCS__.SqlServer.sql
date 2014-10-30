@@ -503,6 +503,7 @@ where c_unitvalue is not null;
 
                   INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting UDRC RCs');
 
+END;
     /** UPDATE THE BILLED THROUGH DATE TO THE END OF THE ADVANCED CHARGE 
 			 ** (IN CASE THE END THE SUB BEFORE THE END OF THE MONTH)
 			 ** THIS WILL MAKE SURE THE CREDIT IS CORRECT AND MAKE SURE THERE ARE NOT CHARGES 
@@ -513,7 +514,6 @@ where c_unitvalue is not null;
 			SET trw.c_BilledThroughDate = trc.c_RCIntervalSubscriptionEnd
 			FROM t_recur_window trw
 			INNER JOIN #tmp_rc trc ON trc.c_RCActionType = 'Advance' AND trw.c__AccountID = trc.c__AccountID AND trw.c__SubscriptionID = trc.c__SubscriptionID
-END;
 
  END;
 

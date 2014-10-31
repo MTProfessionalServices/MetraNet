@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.AccountConfigSets.AccountConfigSetAppliedBME, Core.AccountConfigSets.Entity" table="t_be_cor_acs_AccountCSApplyed">
-    <meta attribute="description">Applied AccountConfigSet</meta>
-    <meta attribute="label">AccountConfigSetAppliedBME</meta>
-    <meta attribute="plural-name">AccountConfigSetAppliedBMEs</meta>
+  <class name="Core.AccountConfigSets.AcsAppliedSubscriptionsBme, Core.AccountConfigSets.Entity" table="t_be_cor_acs_AppliedSubs">
+    <meta attribute="description">Applied Subscriptions by AccountConfigSet</meta>
+    <meta attribute="label">AcsAppliedSubscriptionsBme</meta>
+    <meta attribute="plural-name">AcsAppliedSubscriptionsBmes</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
     <meta attribute="record-history">false</meta>
     <meta attribute="entity-type">Entity</meta>
-    <meta attribute="interface">Core.AccountConfigSets.Interface.IAccountConfigSetAppliedBME, Core.Interface</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.IAcsAppliedSubscriptionsBme, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <id name="Id" column="c_AccountConfigSetApplied_Id">
+    <id name="Id" column="c_AcsAppliedSubscriptions_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>
     <version name="_Version" column="c__version" />
-    <component class="Core.AccountConfigSets.AccountConfigSetAppliedBMEBusinessKey, Core.AccountConfigSets.Entity" name="AccountConfigSetAppliedBMEBusinessKey">
+    <component class="Core.AccountConfigSets.AcsAppliedSubscriptionsBmeBusinessKey, Core.AccountConfigSets.Entity" name="AcsAppliedSubscriptionsBmeBusinessKey">
       <meta attribute="business-key">true</meta>
       <meta attribute="internal-business-key">true</meta>
       <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">

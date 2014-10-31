@@ -33,7 +33,7 @@ WHERE c_RCIntervalSubscriptionStart <= %%START_DATE%%
 			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
-						cycl.c_IsDefault = 'T' 
+						cycl.c_IsDefault = 1 
 						AND (cyclto.c_AccountId IS NOT NULL
 								OR
 								(cyclto.c_AccountId IS NULL
@@ -43,12 +43,12 @@ WHERE c_RCIntervalSubscriptionStart <= %%START_DATE%%
 										  FROM t_be_sys_rep_accountingcycle iNcycl
 										  INNER JOIN t_be_sys_rep_accountingcycl iNcyclto ON iNcycl.c_AccountingCycle_Id = iNcyclto.c_AccountingCycle_Id
 										  INNER JOIN t_account_ancestor iNtanc ON iNtanc.id_ancestor = iNcyclto.c_AccountId
-										  WHERE iNcycl.c_IsDefault = 'F'
+										  WHERE iNcycl.c_IsDefault = 0
 										  AND iNtanc.id_descendent = acc.id_payee
 										)
 								)
 								)
-		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+		  			OR (cycl.c_IsDefault = 0 AND cyclto.c_AccountId IS NOT NULL)
 						)
 		  ))
 
@@ -89,7 +89,7 @@ WHERE c_RCIntervalSubscriptionStart <= %%START_DATE%%
 			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
-						cycl.c_IsDefault = 'T' 
+						cycl.c_IsDefault = 1 
 						AND (cyclto.c_AccountId IS NOT NULL
 								OR
 								(cyclto.c_AccountId IS NULL
@@ -99,12 +99,12 @@ WHERE c_RCIntervalSubscriptionStart <= %%START_DATE%%
 										  FROM t_be_sys_rep_accountingcycle iNcycl
 										  INNER JOIN t_be_sys_rep_accountingcycl iNcyclto ON iNcycl.c_AccountingCycle_Id = iNcyclto.c_AccountingCycle_Id
 										  INNER JOIN t_account_ancestor iNtanc ON iNtanc.id_ancestor = iNcyclto.c_AccountId
-										  WHERE iNcycl.c_IsDefault = 'F'
+										  WHERE iNcycl.c_IsDefault = 0
 										  AND iNtanc.id_descendent = acc.id_payee
 										)
 								)
 								)
-		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+		  			OR (cycl.c_IsDefault = 0 AND cyclto.c_AccountId IS NOT NULL)
 						)
 		  ))
 
@@ -146,7 +146,7 @@ WHERE
 			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
-						cycl.c_IsDefault = 'T' 
+						cycl.c_IsDefault = 1 
 						AND (cyclto.c_AccountId IS NOT NULL
 								OR
 								(cyclto.c_AccountId IS NULL
@@ -156,11 +156,11 @@ WHERE
 										  FROM t_be_sys_rep_accountingcycle iNcycl
 										  INNER JOIN t_be_sys_rep_accountingcycl iNcyclto ON iNcycl.c_AccountingCycle_Id = iNcyclto.c_AccountingCycle_Id
 										  INNER JOIN t_account_ancestor iNtanc ON iNtanc.id_ancestor = iNcyclto.c_AccountId
-										  WHERE iNcycl.c_IsDefault = 'F'
+										  WHERE iNcycl.c_IsDefault = 0
 										  AND iNtanc.id_descendent = acc.id_payee
 										)
 								)
 								)
-		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+		  			OR (cycl.c_IsDefault = 0 AND cyclto.c_AccountId IS NOT NULL)
 						)
 		  ))

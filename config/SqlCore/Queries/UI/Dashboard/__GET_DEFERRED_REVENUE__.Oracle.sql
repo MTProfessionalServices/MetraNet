@@ -18,11 +18,11 @@ LEFT JOIN t_ep_unit_dependent_recurring udrc_ep ON udrc_ep.id_prop = acc.id_pi_t
 WHERE ui.tx_interval_status = 'H'
 	AND udrc.c_RCIntervalSubscriptionStart > %%END_DATE%%
 	AND udrc_ep.c_IsLiabilityProduct = 'N'
-	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
-	AND udrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
-	AND udrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
+	AND acc.am_currency like '%%%CURRENCY%%%'
+	AND udrc_ep.c_RevenueCode like '%%%REVENUECODE%%%'
+	AND udrc_ep.c_DeferredRevenueCode like '%%%DEFREVENUECODE%%%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
-	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
+	/*AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 			OR
 			EXISTS (
 				SELECT 1
@@ -49,7 +49,7 @@ WHERE ui.tx_interval_status = 'H'
 								)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
 						)
-		  ))
+		  ))*/
 
 UNION
 
@@ -73,11 +73,11 @@ LEFT JOIN t_ep_recurring frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE ui.tx_interval_status = 'H'
 	AND frc.c_RCIntervalSubscriptionStart > %%END_DATE%%
 	AND frc_ep.c_IsLiabilityProduct = 'N'
-	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
-	AND frc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
-	AND frc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
+	AND acc.am_currency like '%%%CURRENCY%%%'
+	AND frc_ep.c_RevenueCode like '%%%REVENUECODE%%%'
+	AND frc_ep.c_DeferredRevenueCode like '%%%DEFREVENUECODE%%%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
-	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
+	/*AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 			OR
 			EXISTS (
 				SELECT 1
@@ -104,7 +104,7 @@ WHERE ui.tx_interval_status = 'H'
 								)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
 						)
-		  ))
+		  ))*/
 
 UNION
 
@@ -128,11 +128,11 @@ LEFT JOIN t_ep_nonrecurring nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 WHERE ui.tx_interval_status = 'H'
 	AND nrc.c_NRCIntervalSubscriptionStart > %%END_DATE%%
 	AND (nrc_ep.c_IsLiabilityProduct = 'N' OR nrc_ep.c_IsLiabilityProduct IS NULL)
-	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
-	AND nrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
-	AND nrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
+	AND acc.am_currency like '%%%CURRENCY%%%'
+	AND nrc_ep.c_RevenueCode like '%%%REVENUECODE%%%'
+	AND nrc_ep.c_DeferredRevenueCode like '%%%DEFREVENUECODE%%%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
-	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
+	/*AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 			OR
 			EXISTS (
 				SELECT 1
@@ -152,11 +152,11 @@ WHERE ui.tx_interval_status = 'H'
 										  FROM t_be_sys_rep_accountingcycle iNcycl
 										  INNER JOIN t_be_sys_rep_accountingcycl iNcyclto ON iNcycl.c_AccountingCycle_Id = iNcyclto.c_AccountingCycle_Id
 										  INNER JOIN t_account_ancestor iNtanc ON iNtanc.id_ancestor = iNcyclto.c_AccountId
-										  WHERE iNcycl.c_IsDefault = 'F'
+										  WHERE iNcycl.c_IsDefault = 0
 										  AND iNtanc.id_descendent = acc.id_payee
 										)
 								)
 								)
-		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+		  			OR (cycl.c_IsDefault = 0 AND cyclto.c_AccountId IS NOT NULL)
 						)
-		  ))
+		  ))*/

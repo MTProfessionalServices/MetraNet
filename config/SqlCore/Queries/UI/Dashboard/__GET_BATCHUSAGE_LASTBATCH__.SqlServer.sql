@@ -33,3 +33,4 @@ SELECT @currentBatchID AS BATCHID,
            'PM', ' PM'
        ) AS [TIME],
        DATEDIFF(MINUTE, @previousBatch, @currentBatch) AS [TIME DIFF]
+       WHERE @currentBatchID IS NOT NULL

@@ -15,7 +15,7 @@ select
 
 FROM
 
-(SELECT to_char(dt_end, 'dd mm yyyy') AS end_date 
+(SELECT dt_end AS end_date 
 from t_usage_interval
 where id_interval = %%ID_USAGE_INTERVAL%%
 ) sub1,
@@ -29,7 +29,7 @@ and re.tx_type = 'EndofPeriod'
 ) sub2,
 
 /* First Adapter Run */
-(SELECT to_char(rer.dt_start - 5/24, 'mon dd yyyy hh:miAM') as EOP_Start_Time
+(SELECT (rer.dt_start - 5/24) as EOP_Start_Time
 FROM t_recevent_run rer
 join t_recevent_inst rei on  rei.id_instance = rer.id_instance
 join t_recevent re on re.id_event = rei.id_event
@@ -40,7 +40,7 @@ and ROWNUM=1
 order by rer.dt_start asc) sub3,
 
 /* time of last EOP adapter / checkpoint run  - adjusted */
-(SELECT to_char(rer.dt_start - 5/24, 'mon dd yyyy hh:miAM') as last_adapter_run_time
+(SELECT (rer.dt_start - 5/24) as last_adapter_run_time
 FROM t_recevent_run rer
 join t_recevent_inst rei on rei.id_instance = rer.id_instance
 join t_recevent re on re.id_event = rei.id_event

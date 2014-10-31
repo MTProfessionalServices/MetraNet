@@ -45,12 +45,19 @@ namespace MetraNet.AccountConfigSets
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
 
+      //GetAccountViews();
       ParseRequest();
 
       if (IsPostBack) return;
       if (!IsViewMode)
         MTdpStartDate.Text = MetraTime.Now.Date.ToString();
       //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();     
+    }
+
+    private void GetAccountViews()
+    {
+      var accountViews = Account.GetAllViews();
+
     }
 
     #region Implementation of ICallbackEventHandler
@@ -221,21 +228,30 @@ namespace MetraNet.AccountConfigSets
       {
         AcsId = CurrentAccountConfigSetId,
         AcsCreationDate = MetraTime.Now
-      };            
-      
-      CurrentAccountConfigSet.Rank = Convert.ToInt32(MTtbRank.Text);
+      };
+
+      CurrentAccountConfigSet.Rank = String.IsNullOrEmpty(MTtbRank.Text) ? 0 : Convert.ToInt32(MTtbRank.Text);
       CurrentAccountConfigSet.Enabled = MTcbAcsEnabled.Checked;
       CurrentAccountConfigSet.EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text);
       CurrentAccountConfigSet.EffectiveEndDate = String.IsNullOrEmpty(MTdpEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpEndDate.Text);
       CurrentAccountConfigSet.Description = MTtbAcsDescription.Text;
       CurrentAccountConfigSet.PropertiesToSet = GetPropertyValues(HiddenPropertiesToSet.Value);
       CurrentAccountConfigSet.SelectionCriteria = GetPropertyValues(HiddenSelectionCriteria.Value);
-      CurrentAccountConfigSet.SubscriptionParamsId = Convert.ToInt32(MTtbSubParamId.Text);
+      CurrentAccountConfigSet.SubscriptionParamsId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);  
     }
 
     private List<AccountConfigSetPropertyValue> GetPropertyValues(string value)
     {
-      return new List<AccountConfigSetPropertyValue>();
+      var propertyValueList = new List<AccountConfigSetPropertyValue>();
+      if (!string.IsNullOrEmpty(value))
+      {
+        var propertyValueStrArray = value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
+        
+        propertyValueList.AddRange(propertyValueStrArray.Select(propertyValueStr => propertyValueStr.EndsWith("}") ? propertyValueStr : propertyValueStr + "}")
+          .Select(propertyValueStr1 => ExtendedJavaScriptConverter<AccountConfigSetPropertyValue>.GetSerializer().Deserialize<AccountConfigSetPropertyValue>(propertyValueStr1)));
+      }
+
+      return propertyValueList;
     }
 
     private void ValidateRequest()
@@ -301,8 +317,11 @@ namespace MetraNet.AccountConfigSets
           break;
         case "EDIT":
           CurrentAccountConfigSetId = Convert.ToInt32(Request["acsId"]);
-          LoadAccountConfigSet();
-          LoadAccountConfigSetToControls();
+          if (!IsPostBack)
+          {
+            LoadAccountConfigSet();
+            LoadAccountConfigSetToControls();
+          }
 
           MTbtnUpdateAccountConfigSet.Visible = true;
           title = GetLocalResourceObject("TEXT_MANAGE_ACCOUNTCONFIGSET");
@@ -345,11 +364,13 @@ namespace MetraNet.AccountConfigSets
     {
       MTtbAcsDescription.Text = CurrentAccountConfigSet.Description;
       MTtbRank.Text = CurrentAccountConfigSet.Rank.ToString();
+      MTcbAcsEnabled.Checked = CurrentAccountConfigSet.Enabled;
       MTdpStartDate.Text = CurrentAccountConfigSet.EffectiveDate.ToString("d");
       MTdpEndDate.Text = CurrentAccountConfigSet.EffectiveEndDate.ToString("d");
 
       MTtbAcsDescription.ReadOnly = IsViewMode;
       MTtbRank.ReadOnly = IsViewMode;
+      MTcbAcsEnabled.ReadOnly = IsViewMode;
       MTdpStartDate.ReadOnly = IsViewMode;
       MTdpEndDate.ReadOnly = IsViewMode;
 
@@ -367,16 +388,17 @@ namespace MetraNet.AccountConfigSets
         MTtbGroupSubscriptionName.Text = CurrentAccountConfigSet.SubscriptionParams.GroupSubscriptionName;
         HiddenUDRCs.Value = EncodeUDRCsForHiddenControl();
 
-        MTtbSubParamsDescription.ReadOnly = IsViewMode;
-        MTtbSubParamsPo.ReadOnly = IsViewMode;
-        MTdpSubParamsStartDate.ReadOnly = IsViewMode;
-        MTdpSubParamsEndDate.ReadOnly = IsViewMode;
-        MTisCorpAccountId.ReadOnly = IsViewMode;
-        MTtbGroupSubscriptionName.ReadOnly = IsViewMode;
+        MTtbSubParamId.ReadOnly = IsViewMode;
+        //MTtbSubParamsPo.ReadOnly = IsViewMode;
+        //MTdpSubParamsStartDate.ReadOnly = IsViewMode;
+        //MTdpSubParamsEndDate.ReadOnly = IsViewMode;
+        //MTisCorpAccountId.ReadOnly = IsViewMode;
+        //MTtbGroupSubscriptionName.ReadOnly = IsViewMode;
       }
       else
       {
         MTPanelSubscriptionParameters.Collapsed = true;
+        MTtbSubParamId.ReadOnly = IsViewMode;
 
         MTtbSubParamsDescription.Visible = false;
         MTtbSubParamsPo.Visible = false;

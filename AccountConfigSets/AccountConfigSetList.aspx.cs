@@ -122,7 +122,10 @@ namespace MetraNet.AccountConfigSets
       catch (FaultException<MASPartialSuccessFaultDetail> ex)
       {
         Logger.LogError(ex.Detail.ErrorMessages[0]);
-        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+        var errorMessageStr = "";
+        foreach (var mes in ex.Detail.ErrorMessages)
+          errorMessageStr += "; " + mes;
+        result = new { result = "error", errorMessage = errorMessageStr.Substring(2, errorMessageStr.Length) };
       }
       return result;
     }
@@ -151,7 +154,10 @@ namespace MetraNet.AccountConfigSets
       catch (FaultException<MASPartialSuccessFaultDetail> ex)
       {
         Logger.LogError(ex.Detail.ErrorMessages[0]);
-        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+        var errorMessageStr = "";
+        foreach (var mes in ex.Detail.ErrorMessages)
+          errorMessageStr += "; " + mes;
+        result = new { result = "error", errorMessage = errorMessageStr.Substring(2, errorMessageStr.Length) };
       }
       return result;
     }

@@ -9,22 +9,25 @@
   <br />
   <MT:MTPanel ID="MTPanelAccountConfigSetParameters" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="panelAccountConfigSetParameters">
-    <div id="leftColumn1" class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbAcsDescription" AllowBlank="True" 
+    <div>
+    <MT:MTTextBoxControl ID="MTtbAcsDescription" AllowBlank="True" ControlWidth="560"
         LabelWidth="120" runat="server" meta:resourcekey="tbAcsDescriptionResource"/>
-      <MT:MTTextBoxControl ID="MTtbRank" AllowBlank="True" LabelWidth="120" runat="server"
-       meta:resourcekey="tbRankResource"/>
-      
     </div>
-    <div id="rightColumn1" class="RightColumn">
-      <MT:MTCheckBoxControl ID="MTcbAcsEnabled" runat="server" LabelWidth="120"
+    <div>
+    <div id="leftColumn1" class="LeftColumn">
+      <MT:MTTextBoxControl ID="MTtbRank" AllowBlank="True" LabelWidth="120" runat="server"
+       meta:resourcekey="tbRankResource" Text="0"/>
+      <MT:MTCheckBoxControl ID="MTcbAcsEnabled" runat="server" LabelWidth="120" ReadOnly="False"
         meta:resourcekey="cbAcsEnabledResource"/>
+    </div>
+    <div id="rightColumn1" class="RightColumn">      
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
         Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
       <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpEndDate"
         Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
+    </div>
     </div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelCriteria" runat="server" Collapsible="True" Collapsed="False"
@@ -57,21 +60,21 @@
       </div>
     </div>--%>
     <div id="leftColumn2" class="LeftColumn">
-       <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="true"
+       <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="False"
         LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsId"/>
-       <MT:MTTextBoxControl ID="MTtbSubParamsDescription" AllowBlank="True" 
+       <MT:MTTextBoxControl ID="MTtbSubParamsDescription" AllowBlank="True" ReadOnly="True" 
         LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsDescriptionResource"/>
-       <MT:MTTextBoxControl ID="MTtbSubParamsPo" AllowBlank="True" 
+       <MT:MTTextBoxControl ID="MTtbSubParamsPo" AllowBlank="True" ReadOnly="True"
         LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsPoResource"/>
-      <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate"
-        Label="Start date" LabelWidth="120" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="False"
+      <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
+        Label="Start date" LabelWidth="120" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="True"
         runat="server"></MT:MTDatePicker>
       <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
-        Label="End date" LabelWidth="120" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="False"
+        Label="End date" LabelWidth="120" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="True"
         runat="server"></MT:MTDatePicker>
-      <MT:MTInlineSearch ID="MTisCorpAccountId" AllowBlank="True" 
+      <MT:MTInlineSearch ID="MTisCorpAccountId" AllowBlank="True" ReadOnly="True"
         LabelWidth="120" runat="server" meta:resourcekey="isCorpAccountIdResource"/>
-      <MT:MTTextBoxControl ID="MTtbGroupSubscriptionName" AllowBlank="True" 
+      <MT:MTTextBoxControl ID="MTtbGroupSubscriptionName" AllowBlank="True" ReadOnly="True"
         LabelWidth="120" runat="server" meta:resourcekey="tbGroupSubscriptionNameResource"/>
     </div>
     <div id="PlaceHolderUDRCGrid" class="RightColumn">
@@ -107,18 +110,80 @@
   <input id="HiddenSelectionCriteria" runat="server" type="hidden" />
   <input id="HiddenPropertiesToSet" runat="server" type="hidden" />  
   <input id="HiddenUDRCs" runat="server" type="hidden" />
-  <%-- General--%>
-  <script language="javascript" type="text/javascript">
+  <input id="HiddenAccountViews" runat="server" type="hidden" />
+  <input id="HiddenPis" runat="server" type="hidden" />
+    <%-- General--%>
+    <script language="javascript" type="text/javascript">
 
-  function getUpdateApprove()
-  {                
-      return confirm('<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_ACS_MESSAGE")%>');        
-  }
+    function getUpdateApprove()
+    {  
+        var confirmResult = confirm('<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_ACS_MESSAGE")%>');
+        if(confirmResult)
+           getDataGrids();
 
-    var GRID_HEIGHT = 300;
-    var ACTIONS_COLUMN_HEIGHT = 40;
-    var NAME_COLUMN_HEIGHT = 100;
-    var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
+        return confirmResult;
+    }
+
+      var GRID_HEIGHT = 280;
+      var ACTIONS_COLUMN_HEIGHT = 40;
+      var NAME_COLUMN_HEIGHT = 100;
+      var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
+
+      Ext.onReady(function () {
+        selectionCriteriaGrid.render(window.Ext.get('PlaceHolderSelectionCriteria'));
+        propertiesToSetGrid.render(window.Ext.get('PlaceHolderPropertiesToSet'));   
+        udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));  
+      });
+
+      function loadFromPostback(hidden, store, data, dataDetails) {
+        var hiddenItems = window.Ext.get(hidden).dom;
+        if (hiddenItems.value.length > 0)
+          dataDetails = window.Ext.decode(hiddenItems.value);
+        store.loadData(data);
+      }
+
+      window.onload = function () {
+        var hiddenSelectionCriteria = window.Ext.get("<%=HiddenSelectionCriteria.ClientID %>").dom;
+        if (hiddenSelectionCriteria.value.length > 0)
+          selectionCriteriaData.propertyValue = window.Ext.decode(hiddenSelectionCriteria.value);
+        addPropertyValues(selectionCriteriaData.propertyValue, selectionCriteriaStore);
+      
+        var hiddenPropertiesToSet = window.Ext.get("<%=HiddenPropertiesToSet.ClientID %>").dom;
+        if (hiddenPropertiesToSet.value.length > 0)
+          propertiesToSetData.propertyValue = window.Ext.decode(hiddenPropertiesToSet.value);
+        addPropertyValues(propertiesToSetData.propertyValue, propertiesToSetStore);
+
+//        var hiddenPi = window.Ext.get("<%=HiddenPis.ClientID %>").dom;
+//        if (hiddenPi.value.length > 0)
+//          piData.pi = window.Ext.decode(hiddenPi.value);      
+//        addItemToPIs(piData.pi);
+
+        var hiddenUDRCs = window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom;
+        if (hiddenUDRCs.value.length > 0)
+          udrcData.UDRCs = window.Ext.decode(hiddenUDRCs.value);
+        //window.udrcStore.loadData(udrcData);
+        addUDRCs(udrcData.UDRCs);
+      };    
+
+      function getDataGrids() {
+        var result = getSelectionCriteria() && getPropertiesToSet();
+      
+        return result;
+      }
+
+      function ReceiveServerData(value) {
+        if (typeof value !== 'string' || value === '') {
+          return;
+        }
+        var response = JSON.parse(value);
+        if (response.result !== 'ok') {
+          window.Ext.UI.SystemError(response.errorMessage);
+        }   
+        //addItemToPIs(response.items);  
+      }
+      </script>
+    <%-- PropertyValue--%>
+    <script language="javascript" type="text/javascript">
 
     var propertyValueRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record      
       { name: 'AccountView' },
@@ -128,77 +193,21 @@
     ]);
 
     function addPropertyValues(items, store) {
+      if (items == null || store == null)
+        return;
+
       for (var i = 0; i < items.length; i++) {
         var myNewRecord = new propertyValueRecord({
           AccountView: items[i].AccountView,
           Property: items[i].Property,
           Value: items[i].Value,
-          CriterionId: items[i].CriterionId          
+          CriterionId: items[i].CriterionId
         });
         store.add(myNewRecord);
       }
     }
-    
-    Ext.onReady(function () {
-      selectionCriteriaGrid.render(window.Ext.get('PlaceHolderSelectionCriteria'));
-//      poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));     
-    });
 
-        function loadFromPostback(hidden, store, data, dataDetails) {
-          var hiddenItems = window.Ext.get(hidden).dom;
-          if (hiddenItems.value.length > 0)
-            dataDetails = window.Ext.decode(hiddenItems.value);
-          store.loadData(data);
-        }
-
-    window.onload = function () {
-      var hiddenSelectionCriteria = window.Ext.get("<%=HiddenSelectionCriteria.ClientID %>").dom;
-      if (hiddenSelectionCriteria.value.length > 0)
-        selectionCriteriaData.selectionCriterion = window.Ext.decode(hiddenSelectionCriteria.value);
-      addPropertyValues(selectionCriteriaData.selectionCriterion, selectionCriteriaStore);
-
-//      var hiddenSelectionCriteria = window.Ext.get("<%=HiddenSelectionCriteria.ClientID %>").dom;
-//      if (hiddenSelectionCriteria.value.length > 0)
-//        selectionCriteriaData.selectionCriterion = window.Ext.decode(hiddenSelectionCriteria.value);
-//      addPropertyValues(selectionCriteriaData.selectionCriterion, selectionCriteriaStore);
-
-    };    
-
-    function getDataGrids() {
-      var result = getSelectionCriteria();
-      if (result) {
-        var btnOk = window.Ext.getCmp('ctl00_ContentPlaceHolder1_MTbtnGenerateQuote');
-        btnOk.setDisabled(true);
-      }
-      return result;
-    }
-
-    function ReceiveServerData(value) {
-      if (typeof value !== 'string' || value === '') {
-        return;
-      }
-      var response = JSON.parse(value);
-      if (response.result !== 'ok') {
-        window.Ext.UI.SystemError(response.errorMessage);
-      }
-
-     // addItemToPIs(response.items);
-    }
-    
-//    var ConditionSignData = new Ext.data.ArrayStore({
-//                  id: 0,
-//                  fields: ['value', 'sign'],
-//                  data: [
-//                          ['Equal', '='],
-//                          ['NotEqual', '<>'],
-//                          ['Greater', '>'],
-//                          ['GreaterEqual', '>='],
-//                          ['Less', '<'],
-//                          ['LessEqual', '<='],
-//                          //['Default', '<%=GetLocalResourceObject("DEFAULT_RULE")%>'],
-//                        ]
-//                });
-var form_addPropertyValue = new Ext.form.FormPanel();
+    var form_addPropertyValue = new Ext.form.FormPanel();
     var AddPropertyValueWindow = new Ext.Window();
 
     function AddPropertyValue(type, accountView, property, value, criterionId, mode) {
@@ -276,10 +285,16 @@ var form_addPropertyValue = new Ext.form.FormPanel();
       var windowTitle = '';
       if (type == 'SelectionCriteria') 
         if(mode == 'new')
-          windowTitle = '<%=GetLocalResourceObject("ADD_SELECTION_CRITERIA")%>';
+          windowTitle = '<%=GetLocalResourceObject("ADD_SELECTION_CRITERION")%>';
         else
-          windowTitle = '<%=GetLocalResourceObject("EDIT_SELECTION_CRITERIA")%>';
-            
+          windowTitle = '<%=GetLocalResourceObject("EDIT_SELECTIONCRITERION")%>';
+
+      if (type == 'PropertyToSet') 
+        if(mode == 'new')
+          windowTitle = '<%=GetLocalResourceObject("ADD_PROPERTY_TO_SET")%>';
+        else
+          windowTitle = '<%=GetLocalResourceObject("EDIT_PROPERTY_TO_SET")%>'; 
+               
       AddPropertyValueWindow = new Ext.Window({
         title: windowTitle,
         width: 400,
@@ -332,8 +347,12 @@ var form_addPropertyValue = new Ext.form.FormPanel();
         
         if (foundOldCriterionId > -1) //remove already existed item for update case
           {
-            if (type == 'SelectionCriteria') 
-              removeSelectionCriterion(oldCriterionId);            
+            if (type == 'SelectionCriteria')
+              removeSelectionCriterion(oldCriterionId);
+
+            if (type == 'PropertyToSet') {
+              removePropertyToSet(oldCriterionId);
+            }         
           }
 
         var foundNewCriterionId = selectionCriteriaStore.find('CriterionId', newCriterionId);
@@ -350,6 +369,10 @@ var form_addPropertyValue = new Ext.form.FormPanel();
             selectionCriteriaStore.add(newPropertyValueRecord);
           }
 
+          if (type == 'PropertyToSet') {
+            propertiesToSetStore.add(newPropertyValueRecord);
+          }
+
           AddPropertyValueWindow.destroy();
           AddPropertyValueWindow.rendered = false;
         }
@@ -363,552 +386,358 @@ var form_addPropertyValue = new Ext.form.FormPanel();
     }
 
   </script>
-  <%-- SelectionCriteria Grid--%>
-  <script language="javascript" type="text/javascript">
+    <%-- SelectionCriteria Grid--%>
+    <script language="javascript" type="text/javascript">
 
-    var selectionCriteriaData = { selectionCriteria: [] };
+      var selectionCriteriaData = { propertyValue: [] };
 
-    var selectionCriteriaStore = new Ext.data.GroupingStore({
-      root: 'selectionCriteria',
-      fields: propertyValueRecord.fields,
-      groupField: 'AccountView'
-    });
-
-    var selectionCriteriaToolBar = null;
-    if (!isViewMode) {
-      selectionCriteriaToolBar = new Ext.Toolbar([
-        { iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("ADD_SELECTION_CRITERIA")%>', handler: onSelectionCriterionAdd }
-        ]);
-    }
-
-    // create the Grid
-    var textAccountView = '<%=GetLocalResourceObject("ACCOUNTVIEW")%>';
-    var textProperty = '<%=GetLocalResourceObject("PROPERTY")%>';
-    var textValue = '<%=GetLocalResourceObject("VALUE")%>';
-    var textSelectionCriteriaActions = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
-    var textSelectionCriteriaGridTitle = '<%=GetLocalResourceObject("SELECTION_CRITERIA_GRID_TITLE")%>';
-
-    var selectionCriteriaColumns = [
-      { header: '', hidden: true, dataIndex: 'CriterionId' },
-      { header: textAccountView, hidden: true, dataIndex: 'AccountView' },
-      { header: textProperty, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Property' },
-      { header: textValue, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Value' }
-    ];
-
-    if (!isViewMode)
-      selectionCriteriaColumns.push({ header: textSelectionCriteriaActions, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: selectionCriteriaActionsRenderer });
-
-    var selectionCriteriaGrid = new Ext.grid.EditorGridPanel({
-      ds: selectionCriteriaStore,
-      columns: selectionCriteriaColumns,
-      tbar: selectionCriteriaToolBar,
-      stripeRows: true,
-      height: GRID_HEIGHT,
-      width: 345,
-      iconCls: 'icon-grid',
-      frame: true,
-      title: textSelectionCriteriaGridTitle,
-      view: new Ext.grid.GroupingView({
-        forceFit: true,
-        // custom grouping text template to display the number of items per group
-        groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "<%=GetLocalResourceObject("ITEMS")%>" : "<%=GetLocalResourceObject("ITEM")%>"]})'
-      })
-    });
-
-    function selectionCriteriaActionsRenderer(value, meta, record) {     
-      var str = String.format(
-        "<a style='cursor:hand;' id='deleteSelectionCriterion_{0}' title='{1}' href='JavaScript:removeSelectionCriterion(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
-        record.data.CriterionId, '<%=GetLocalResourceObject("REMOVE_SELECTIONCRITERION")%>');
-      str += String.format(
-        "<a style='cursor:hand;' id='updateSelectionCriterion_{0}' title='{4}' href='JavaScript:editSelectionCriterion(\"{0}\",\"{1}\",\"{2}\",\"{3}\");'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",
-        record.data.AccountView, record.data.Property, record.data.Value, record.data.CriterionId, '<%=GetLocalResourceObject("EDIT_SELECTIONCRITERION")%>');
-      return str;
-    }
-
-    function onSelectionCriterionAdd() {
-      AddPropertyValue('SelectionCriteria', '', '', '', '', 'new');
-    }     
-
-    function removeSelectionCriterion(accId) {
-      var idx = selectionCriteriaStore.find('CriterionId', accId);
-      selectionCriteriaStore.remove(selectionCriteriaStore.getAt(idx));
-    }
-
-    function editSelectionCriterion(accountView, property, value, criterionId) {
-      AddPropertyValue('SelectionCriteria', accountView, property, value, criterionId, 'edit')
-    }
-
-    function getSelectionCriteria() {
-      var records = selectionCriteriaStore.data.items;
-      if (records.length == 0) {
-        window.Ext.Msg.show({
-          title: window.TEXT_ERROR,
-          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS, //todo
-          buttons: window.Ext.Msg.OK,
-          icon: window.Ext.MessageBox.ERROR
-        });
-        return false;
-      }
-
-      selectionCriteriaStore.selectionCriteria.length = 0;
-      for (var i = 0; i < records.length; i++) {
-        var record = {
-          'AccountView': records[i].data.AccountView,
-          'Property': records[i].data.Property,
-          'Value': records[i].data.Value,
-          'CriterionId': records[i].data.CriterionId
-        };
-        selectionCriteriaData.selectionCriteria.push(record);        
-      }
-
-      window.Ext.get("<%=HiddenSelectionCriteria.ClientID %>").dom.value = selectionCriteriaData.selectionCriteria.length > 0 ? window.Ext.encode(selectionCriteriaData.selectionCriteria) : "";
-
-      return true;
-    }
-  </script>
-  
-  <%-- PropertyesToSet Grid-- %>
-  <script language="javascript" type="text/javascript">
-
-    var selectionCriteriaData = { selectionCriteria: [] };
-
-    var selectionCriteriaStore = new Ext.data.GroupingStore({
-      root: 'selectionCriteria',
-      fields: propertyValueRecord.fields,
-      groupField: 'AccountView'
-    });
-
-    var selectionCriteriaToolBar = null;
-    if (!isViewMode) {
-      selectionCriteriaToolBar = new Ext.Toolbar([
-        { iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("ADD_SELECTION_CRITERIA")%>', handler: onSelectionCriterionAdd }
-        ]);
-    }
-
-    // create the Grid
-    var textAccountView = '<%=GetLocalResourceObject("ACCOUNTVIEW")%>';
-    var textProperty = '<%=GetLocalResourceObject("PROPERTY")%>';
-    var textValue = '<%=GetLocalResourceObject("VALUE")%>';
-    var textSelectionCriteriaActions = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
-    var textSelectionCriteriaGridTitle = '<%=GetLocalResourceObject("SELECTION_CRITERIA_GRID_TITLE")%>';
-
-    var selectionCriteriaColumns = [
-      { header: '', hidden: true, dataIndex: 'CriterionId' },
-      { header: textAccountView, hidden: true, dataIndex: 'AccountView' },
-      { header: textProperty, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Property' },
-      { header: textValue, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Value' }
-    ];
-
-    if (!isViewMode)
-      selectionCriteriaColumns.push({ header: textSelectionCriteriaActions, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: selectionCriteriaActionsRenderer });
-
-    var selectionCriteriaGrid = new Ext.grid.EditorGridPanel({
-      ds: selectionCriteriaStore,
-      columns: selectionCriteriaColumns,
-      tbar: selectionCriteriaToolBar,
-      stripeRows: true,
-      height: GRID_HEIGHT,
-      width: 345,
-      iconCls: 'icon-grid',
-      frame: true,
-      title: textSelectionCriteriaGridTitle,
-      view: new Ext.grid.GroupingView({
-        forceFit: true,
-        // custom grouping text template to display the number of items per group
-        groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "<%=GetLocalResourceObject("ITEMS")%>" : "<%=GetLocalResourceObject("ITEM")%>"]})'
-      })
-    });
-
-    function selectionCriteriaActionsRenderer(value, meta, record) {
-      var str = String.format(
-        "<a style='cursor:hand;' id='deleteSelectionCriterion_{0}' title='{1}' href='JavaScript:removeSelectionCriterion(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
-        record.data.CriterionId, '<%=GetLocalResourceObject("REMOVE_SELECTIONCRITERION")%>');
-      str += String.format(
-        "<a style='cursor:hand;' id='updateSelectionCriterion_{0}' title='{4}' href='JavaScript:editSelectionCriterion(\"{0}\",\"{1}\",\"{2}\",\"{3}\");'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",
-        record.data.AccountView, record.data.Property, record.data.Value, record.data.CriterionId, '<%=GetLocalResourceObject("EDIT_SELECTIONCRITERION")%>');
-      return str;
-    }
-
-    function onSelectionCriterionAdd() {
-      AddPropertyValue('SelectionCriteria', '', '', '', '');
-    }
-
-    function removeSelectionCriterion(accId) {
-      var idx = selectionCriteriaStore.find('CriterionId', accId);
-      selectionCriteriaStore.remove(selectionCriteriaStore.getAt(idx));
-    }
-
-    function editSelectionCriterion(accountView, property, value, criterionId) {
-      AddPropertyValue('SelectionCriteria', accountView, property, value, criterionId)
-    }
-
-    function getSelectionCriteria() {
-      var records = selectionCriteriaStore.data.items;
-      if (records.length == 0) {
-        window.Ext.Msg.show({
-          title: window.TEXT_ERROR,
-          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS, //todo
-          buttons: window.Ext.Msg.OK,
-          icon: window.Ext.MessageBox.ERROR
-        });
-        return false;
-      }
-
-      selectionCriteriaStore.selectionCriteria.length = 0;
-      for (var i = 0; i < records.length; i++) {
-        var record = {
-          'AccountView': records[i].data.AccountView,
-          'Property': records[i].data.Property,
-          'Value': records[i].data.Value,
-          'CriterionId': records[i].data.CriterionId
-        };
-        selectionCriteriaData.selectionCriteria.push(record);
-      }
-
-      window.Ext.get("<%=HiddenSelectionCriteria.ClientID %>").dom.value = selectionCriteriaData.selectionCriteria.length > 0 ? window.Ext.encode(selectionCriteriaData.selectionCriteria) : "";
-
-      return true;
-    }
-  </script>
-
-  <%--UDRC PI Grid--%>
-  <%--<script language="javascript" type="text/javascript">
-    var piUDRCData = { piUDRC: [] };
-
-    // create the data store
-    var piUDRCStore = new Ext.data.GroupingStore({
-      root: 'piUDRC',
-      fields: piRecord.fields,
-      groupField: 'ProductOfferingName'
-    });
-
-    // create the Grid
-    var textPoId = '<%=GetLocalResourceObject("POID")%>';
-    var textPiId = '<%=GetLocalResourceObject("PIID")%>';
-    var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
-    var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
-    var textPiWithUDRCAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
-    var textPiWithUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_PI_GRID_TITLE")%>';
-
-    var piWithAllowUDRCColumns = [
-      { header: textPoName, hidden: true, dataIndex: 'ProductOfferingName' },
-      { header: textPiName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' }
-    ];
-    if (!isViewMode)
-      piWithAllowUDRCColumns.push({ header: textPiWithUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer });
-
-    var piWithAllowUDRCGrid = new Ext.grid.GridPanel({
-      ds: piUDRCStore,
-      columns: piWithAllowUDRCColumns,
-      stripeRows: true,
-      height: GRID_HEIGHT,
-      width: 345,
-      iconCls: 'icon-grid',
-      frame: true,
-      title: textPiWithUDRCGridTitle,
-      view: new Ext.grid.GroupingView({
-        forceFit: true,
-        // custom grouping text template to display the number of items per group
-        groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
-      })
-    });
-
-    var textUDRCAdd = '<%=GetLocalResourceObject("ADD_UDRC")%>';
-
-    function piWithAllowUDRCActionsRenderer(value, meta, record) {
-      var str = String.format(
-            "<a style='cursor:hand;' id='addUDRC_{0}_{1}' title='{2}' href='JavaScript:addUDRC({0},{1});'><img src='/Res/Images/icons/coins_add.png' alt='{2}' /></a>",
-            record.data.ProductOfferingId, record.data.PriceableItemId, textUDRCAdd);
-      return str;
-    }
-
-    var form_addUDRC = new Ext.form.FormPanel();
-    var AddUDRCWindow = new Ext.Window();
-
-    function addUDRC(poId, piId) {
-
-      if (AddUDRCWindow.rendered)
-        return;
-
-      form_addUDRC = new Ext.form.FormPanel();
-      AddUDRCWindow = new Ext.Window();
-
-      var idx = poStore.find('ProductOfferingId', poId);
-      var poName = poStore.getAt(idx).data.Name;
-      idx = piUDRCStore.find('PriceableItemId', piId);
-      var piName = piUDRCStore.getAt(idx).data.Name;
-
-      form_addUDRC = new Ext.FormPanel({
-        baseCls: 'x-plain',
-        labelWidth: 70,
-        defaultType: 'textfield',
-
-        items: [{
-          readOnly: true,
-          fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
-          id: 'form_addUDRC_POName',
-          name: 'form_addUDRC_POName',
-          value: poName,
-          allowBlank: false,
-          anchor: '100%'
-        },
-          {
-            xtype: 'hidden',
-            hideLabel: true,
-            id: 'form_addUDRC_POId',
-            name: 'form_addUDRC_POId',
-            value: poId
-          },
-          {
-            readOnly: true,
-            fieldLabel: '<%=GetLocalResourceObject("PINAME")%>',
-            id: 'form_addUDRC_PIName',
-            name: 'form_addUDRC_PIName',
-            value: piName,
-            allowBlank: false,
-            anchor: '100%'
-          },
-          {
-            xtype: 'hidden',
-            hideLabel: true,
-            id: 'form_addUDRC_PIId',
-            name: 'form_addUDRC_PIId',
-            value: piId
-          },
-        //////////
-          {
-          xtype: 'numberfield',
-          allowDecimals: true,
-          allowBlank: false,
-          allowNegative: false,
-          fieldLabel: '<%=GetLocalResourceObject("TEXT_VALUE")%>',
-          id: 'form_addUDRC_Value',
-          name: 'form_addUDRC_Value',
-          anchor: '100%',
-          value: 0,
-          tabIndex: 0
-        },
-          {
-            xtype: 'datefield',
-            fieldLabel: '<%=GetLocalResourceObject("TEXT_START_DATE")%>',
-            //format:DATE_FORMAT,
-            //altFormats:DATE_TIME_FORMAT,
-            //value: '%%MIN_DATE%%', 
-            id: 'form_addUDRC_StartDate',
-            name: 'form_addUDRC_StartDate',
-            allowBlank: true,
-            //disabled:%%FIRST_ITEM%%,
-            anchor: '100%'
-          },
-          {
-            xtype: 'datefield',
-            fieldLabel: '<%=GetLocalResourceObject("TEXT_END_DATE")%>',
-            //format:DATE_FORMAT,
-            altFormats: DATE_TIME_FORMAT,
-            //value: '%%MAX_DATE%%', 
-            id: 'form_addUDRC_EndDate',
-            name: 'form_addUDRC_EndDate',
-            allowBlank: true,
-            //disabled:%%FIRST_ITEM%%,
-            anchor: '100%'
-          }]
+      var selectionCriteriaStore = new Ext.data.GroupingStore({
+        root: 'propertyValue',
+        fields: propertyValueRecord.fields,
+        groupField: 'AccountView'
       });
 
-      AddUDRCWindow = new Ext.Window({
-        title: '<%=GetLocalResourceObject("TEXT_ADD_UDRC")%>',
-        width: 400,
-        height: 250,
-        minWidth: 100,
-        minHeight: 100,
-        layout: 'fit',
-        plain: true,
-        bodyStyle: 'padding:5px;',
-        buttonAlign: 'center',
-        items: form_addUDRC,
-        closable: true,
-        resizeable: true,
-        maximizable: false,
-        closeAction: 'close',
+      var selectionCriteriaToolBar = null;
+      if (!isViewMode) {
+        selectionCriteriaToolBar = new Ext.Toolbar([
+          { iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("ADD_SELECTION_CRITERIA")%>', handler: onSelectionCriterionAdd }
+          ]);
+      }
 
-        buttons: [{
-          text: '<%=GetLocalResourceObject("TEXT_OK")%>',
-          handler: onOK_AddUDRC
-        },
-                  {
-                    text: '<%=GetLocalResourceObject("TEXT_CANCEL")%>',
-                    handler: onCancel_AddUDRC
-                  }]
+      // create the Grid
+      var textAccountView = '<%=GetLocalResourceObject("ACCOUNTVIEW")%>';
+      var textProperty = '<%=GetLocalResourceObject("PROPERTY")%>';
+      var textValue = '<%=GetLocalResourceObject("VALUE")%>';
+      var textSelectionCriteriaActions = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
+      var textSelectionCriteriaGridTitle = '<%=GetLocalResourceObject("SELECTION_CRITERIA_GRID_TITLE")%>';
+
+      var selectionCriteriaColumns = [
+        { header: '', hidden: true, dataIndex: 'CriterionId' },
+        { header: textAccountView, hidden: true, dataIndex: 'AccountView' },
+        { header: textProperty, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Property' },
+        { header: textValue, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Value' }
+      ];
+
+      if (!isViewMode)
+        selectionCriteriaColumns.push({ header: textSelectionCriteriaActions, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: selectionCriteriaActionsRenderer });
+
+      var selectionCriteriaGrid = new Ext.grid.EditorGridPanel({
+        ds: selectionCriteriaStore,
+        columns: selectionCriteriaColumns,
+        tbar: selectionCriteriaToolBar,
+        stripeRows: true,
+        height: GRID_HEIGHT,
+        width: 345,
+        iconCls: 'icon-grid',
+        frame: true,
+        title: textSelectionCriteriaGridTitle,
+        view: new Ext.grid.GroupingView({
+          forceFit: true,
+          // custom grouping text template to display the number of items per group
+          groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "<%=GetLocalResourceObject("ITEMS")%>" : "<%=GetLocalResourceObject("ITEM")%>"]})'
+        })
       });
 
-      AddUDRCWindow.show();
-    }
-
-    function onOK_AddUDRC() {
-
-      var isValidForm = form_addUDRC.getForm().isValid();
-
-      if (!(isValidForm == true))
-        Ext.Msg.alert('Failed', 'Wrong input');
-      else {
-
-        var startDate = form_addUDRC.items.get('form_addUDRC_StartDate').value;
-        var endDate = form_addUDRC.items.get('form_addUDRC_EndDate').value;
-
-
-          var recordId = form_addUDRC.items.get('form_addUDRC_POId').value + "_" +
-              form_addUDRC.items.get('form_addUDRC_PIId').value + "_" +
-              form_addUDRC.items.get('form_addUDRC_StartDate').value + "_" +
-              form_addUDRC.items.get('form_addUDRC_EndDate').value;
-
-          var groupId = '<%=GetLocalResourceObject("PONAME")%>' + ": " +
-              form_addUDRC.items.get('form_addUDRC_POName').value + "; " +
-              '<%=GetLocalResourceObject("PINAME")%>' + ": " +
-              form_addUDRC.items.get('form_addUDRC_PIName').value;
-
-          var found = udrcStore.find('RecordId', recordId);
-          if (found == -1) {
-            var newUDRCRecord = new udrcRecord({
-              ProductOfferingId: form_addUDRC.items.get('form_addUDRC_POId').value,
-              PriceableItemId: form_addUDRC.items.get('form_addUDRC_PIId').value,
-              Value: form_addUDRC.items.get('form_addUDRC_Value').value,
-              StartDate: startDate,
-              EndDate: endDate,
-              RecordId: recordId,
-              GroupId: groupId
-            });
-
-            udrcStore.add(newUDRCRecord);
-
-            AddUDRCWindow.destroy();
-            AddUDRCWindow.rendered = false;
-          }
+      function selectionCriteriaActionsRenderer(value, meta, record) {     
+        var str = String.format(
+          "<a style='cursor:hand;' id='deleteSelectionCriterion_{0}' title='{1}' href='JavaScript:removeSelectionCriterion(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
+          record.data.CriterionId, '<%=GetLocalResourceObject("REMOVE_SELECTIONCRITERION")%>');
+        str += String.format(
+          "<a style='cursor:hand;' id='updateSelectionCriterion_{0}' title='{4}' href='JavaScript:editSelectionCriterion(\"{0}\",\"{1}\",\"{2}\",\"{3}\");'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",
+          record.data.AccountView, record.data.Property, record.data.Value, record.data.CriterionId, '<%=GetLocalResourceObject("EDIT_SELECTIONCRITERION")%>');
+        return str;
       }
-    }
 
-    function onCancel_AddUDRC() {
-      form_addUDRC.getForm().reset({});
-      AddUDRCWindow.destroy();
-      AddUDRCWindow.rendered = false;
-    }
+      function onSelectionCriterionAdd() {
+        AddPropertyValue('SelectionCriteria', '', '', '', '', 'new');
+      }     
 
-  </script>--%>
-  <%-- UDRC Grid--%>
-  <%--<script language="javascript" type="text/javascript">
-    var udrcData = { UDRCs: [] };
+      function removeSelectionCriterion(accId) {
+        var idx = selectionCriteriaStore.find('CriterionId', accId);
+        selectionCriteriaStore.remove(selectionCriteriaStore.getAt(idx));
+      }
 
-    var udrcRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-        {name: 'PriceableItemId' },
-        { name: 'ProductOfferingId' },
-        { name: 'Value' },
-        { name: 'StartDate' },
-        { name: 'EndDate' },
-        { name: 'RecordId' },
-        { name: 'GroupId' }
+      function editSelectionCriterion(accountView, property, value, criterionId) {
+        AddPropertyValue('SelectionCriteria', accountView, property, value, criterionId, 'edit')
+      }
+
+      function getSelectionCriteria() {
+        var records = selectionCriteriaStore.data.items;
+        if (records.length == 0) {
+          window.Ext.Msg.show({
+            title: window.TEXT_ERROR,
+            msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS, //todo
+            buttons: window.Ext.Msg.OK,
+            icon: window.Ext.MessageBox.ERROR
+          });
+          return false;
+        }
+
+        selectionCriteriaData.propertyValue.length = 0;
+        for (var i = 0; i < records.length; i++) {
+          var record = {
+            'AccountView': records[i].data.AccountView,
+            'Property': records[i].data.Property,
+            'Value': records[i].data.Value,
+            'CriterionId': records[i].data.CriterionId
+          };
+          selectionCriteriaData.propertyValue.push(record);        
+        }
+
+        window.Ext.get("<%=HiddenSelectionCriteria.ClientID %>").dom.value = selectionCriteriaData.propertyValue.length > 0 ? window.Ext.encode(selectionCriteriaData.propertyValue) : "";
+
+        return true;
+      }
+    </script>  
+    <%-- PropertiesToSet Grid--%>
+    <script language="javascript" type="text/javascript">
+
+      var propertiesToSetData = { propertyValue: [] };
+
+      var propertiesToSetStore = new Ext.data.GroupingStore({
+        root: 'propertyValue',
+        fields: propertyValueRecord.fields,
+        groupField: 'AccountView'
+      });
+
+      var propertiesToSetToolBar = null;
+      if (!isViewMode) {
+        propertiesToSetToolBar = new Ext.Toolbar([
+          { iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("ADD_PROPERTY_TO_SET")%>', handler: onPropertiesToSetAdd }
+          ]);
+      }
+
+      // create the Grid
+      var textAccountView = '<%=GetLocalResourceObject("ACCOUNTVIEW")%>';
+      var textProperty = '<%=GetLocalResourceObject("PROPERTY")%>';
+      var textValue = '<%=GetLocalResourceObject("VALUE")%>';
+      var textPropertiesToSetActions = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
+      var textPropertiesToSetGridTitle = '<%=GetLocalResourceObject("PROPERTY_TO_SET_GRID_TITLE")%>';
+
+      var propertiesToSetColumns = [
+        { header: '', hidden: true, dataIndex: 'CriterionId' },
+        { header: textAccountView, hidden: true, dataIndex: 'AccountView' },
+        { header: textProperty, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Property' },
+        { header: textValue, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Value' }
+      ];
+
+      if (!isViewMode)
+        propertiesToSetColumns.push({ header: textPropertiesToSetGridTitle, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: propertiesToSetActionsRenderer });
+
+      var propertiesToSetGrid = new Ext.grid.EditorGridPanel({
+        ds: propertiesToSetStore,
+        columns: propertiesToSetColumns,
+        tbar: propertiesToSetToolBar,
+        stripeRows: true,
+        height: GRID_HEIGHT,
+        width: 345,
+        iconCls: 'icon-grid',
+        frame: true,
+        title: textPropertiesToSetGridTitle,
+        view: new Ext.grid.GroupingView({
+          forceFit: true,
+          // custom grouping text template to display the number of items per group
+          groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "<%=GetLocalResourceObject("ITEMS")%>" : "<%=GetLocalResourceObject("ITEM")%>"]})'
+        })
+      });
+
+      function propertiesToSetActionsRenderer(value, meta, record) {     
+        var str = String.format(
+          "<a style='cursor:hand;' id='deletePropertyToSet_{0}' title='{1}' href='JavaScript:removePropertyToSet(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
+          record.data.CriterionId, '<%=GetLocalResourceObject("REMOVE_SELECTIONCRITERION")%>');
+        str += String.format(
+          "<a style='cursor:hand;' id='updatePropertyToSet_{0}' title='{4}' href='JavaScript:editPropertyToSet(\"{0}\",\"{1}\",\"{2}\",\"{3}\");'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",
+          record.data.AccountView, record.data.Property, record.data.Value, record.data.CriterionId, '<%=GetLocalResourceObject("EDIT_SELECTIONCRITERION")%>');
+        return str;
+      }
+
+      function onPropertiesToSetAdd() {
+        AddPropertyValue('PropertyToSet', '', '', '', '', 'new');
+      }
+
+      function removePropertyToSet(accId) {
+        var idx = propertiesToSetStore.find('CriterionId', accId);
+        propertiesToSetStore.remove(propertiesToSetStore.getAt(idx));
+      }
+
+      function editPropertyToSet(accountView, property, value, criterionId) {
+        AddPropertyValue('PropertyToSet', accountView, property, value, criterionId, 'edit')
+      }
+
+      function getPropertiesToSet() {
+        var records = propertiesToSetStore.data.items;
+
+        propertiesToSetData.propertyValue.length = 0;
+        for (var i = 0; i < records.length; i++) {
+          var record = {
+            'AccountView': records[i].data.AccountView,
+            'Property': records[i].data.Property,
+            'Value': records[i].data.Value,
+            'CriterionId': records[i].data.CriterionId
+          };
+          propertiesToSetData.propertyValue.push(record);        
+        }
+
+        window.Ext.get("<%=HiddenPropertiesToSet.ClientID %>").dom.value = propertiesToSetData.propertyValue.length > 0 ? window.Ext.encode(propertiesToSetData.propertyValue) : "";
+
+        return true;
+      }
+    </script>
+
+    <%-- UDRC Grid--%>
+    <script language="javascript" type="text/javascript">
+      var udrcData = { UDRCs: [] };
+
+      var udrcRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
+          { name: 'PriceableItemId' },          
+          { name: 'Value' },
+          { name: 'StartDate' },
+          { name: 'EndDate' },
+          { name: 'RecordId' }
+      ]);
+
+      // create the data store
+      var udrcStore = new Ext.data.GroupingStore({
+        root: 'UDRCs',
+        fields: udrcRecord.fields,
+        groupField: 'PriceableItemId'
+      });
+
+      function addUDRCs(items) {
+        for (var i = 0; i < items.length; i++) {
+          var myNewRecord = new udrcRecord({            
+            PriceableItemId: items[i].PriceableItemId,
+            Value: items[i].Value,
+            StartDate: items[i].StartDate,
+            EndDate: items[i].EndDate,
+            RecordId: items[i].RecordId
+          });
+          udrcStore.add(myNewRecord);
+        }
+      }
+
+      // create the Grid
+      var textPoId = '<%=GetLocalResourceObject("POID")%>';
+      var textPiId = '<%=GetLocalResourceObject("PIID")%>';
+      var textValue = '<%=GetLocalResourceObject("TEXT_VALUE")%>';
+      var textStartDate = '<%=GetLocalResourceObject("TEXT_START_DATE")%>';
+      var textEndDate = '<%=GetLocalResourceObject("TEXT_END_DATE")%>';
+      var textUDRCAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
+      var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
+
+      var udrcColumns = [
+        { hidden: true, header: ' ', dataIndex: 'PriceableItemId' },
+        { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
+        { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
+        { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' }
+      ];
+      //if (!isViewMode)
+      //  udrcColumns.push({ header: textUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer });
+
+      var udrcGrid = new Ext.grid.GridPanel({
+        ds: udrcStore,
+        columns: udrcColumns,
+        stripeRows: true,
+        height: GRID_HEIGHT-50,
+        width: 345,
+        iconCls: 'icon-grid',
+        frame: true,
+        title: textUDRCGridTitle,
+        view: new Ext.grid.GroupingView({
+          forceFit: true,
+          // custom grouping text template to display the number of items per group
+          groupTextTpl: 'PI{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
+        })
+      });
+
+//      function UdrcActionsRenderer(value, meta, record) {
+//        var str = String.format(
+//          "<a style='cursor:hand;' id='deleteICB_{0}' title='{1}' href='JavaScript:removeUDRC(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
+//          record.data.RecordId, '<%=GetLocalResourceObject("REMOVE_UDRC")%>');
+//        return str;
+//      }
+
+//      function removeUDRC(recordId) {
+//        var idx = udrcStore.find('RecordId', recordId);
+//        udrcStore.remove(udrcStore.getAt(idx));
+//      }
+
+//      function getUDRCs() {
+
+//        var recordsUDRCPi = piUDRCStore.data.items;
+//        var isAllUDRCSet = true;
+//        for (var i = 0; i < recordsUDRCPi.length; i++) {
+//          var idx = udrcStore.find('ProductOfferingId', recordsUDRCPi[i].data.ProductOfferingId);
+//          if (idx == -1) {
+//            isAllUDRCSet = false;
+//            break;
+//          }
+//          idx = udrcStore.find('PriceableItemId', recordsUDRCPi[i].data.PriceableItemId);
+//          if (idx == -1) {
+//            isAllUDRCSet = false;
+//            break;
+//          }
+//        }
+
+//        if (!isAllUDRCSet) {
+//          window.Ext.Msg.show({
+//            title: window.TEXT_ERROR,
+//            msg: '<%=GetLocalResourceObject("TEXT_MISSED_UDRC")%>',
+//            buttons: window.Ext.Msg.OK,
+//            icon: window.Ext.MessageBox.ERROR
+//          });
+//          return false;
+//        }
+
+//        var records = udrcStore.data.items;
+//        udrcData.UDRCs.length = 0;
+//        for (var i = 0; i < records.length; i++)
+//          udrcData.UDRCs.push(records[i].data);
+
+//        window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom.value = udrcData.UDRCs.length > 0 ? window.Ext.encode(udrcData.UDRCs) : "";
+//        return true;
+//      }
+    </script>
+
+   <%-- <%-- Product Offering Grid--
+  <script language="javascript" type="text/javascript">
+    var piData = { pi: [] };
+
+    var piRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record      
+      { name: 'PriceableItemId' },
+      { name: 'Name' },
+      { name: 'DisplayName' }
     ]);
 
-    // create the data store
-    var udrcStore = new Ext.data.GroupingStore({
-      root: 'UDRCs',
-      fields: udrcRecord.fields,
-      groupField: 'GroupId'
+    var piStore = new Ext.data.GroupingStore({
+      root: 'pi',
+      fields: piRecord,
+      groupField: 'PriceableItemId'
     });
 
-    function addUDRCs(items) {
+    function addItemToPIs(items) {
       for (var i = 0; i < items.length; i++) {
-        var myNewRecord = new udrcRecord({
-          ProductOfferingId: items[i].ProductOfferingId,
-          PriceableItemId: items[i].PriceableItemId,
-          Value: items[i].Value,
-          StartDate: items[i].StartDate,
-          EndDate: items[i].EndDate,
-          RecordId: items[i].RecordId,
-          GroupId: items[i].GroupId
+        var piId = items[i].PriceableItemId;                
+        
+        var myNewRecord = new piRecord({                    
+          PriceableItemId: piId,
+          Name: items[i].Name,
+          DisplayName: items[i].DisplayName,          
         });
-        udrcStore.add(myNewRecord);
+
+        piStore.add(myNewRecord);        
       }
     }
 
-    // create the Grid
-    var textPoId = '<%=GetLocalResourceObject("POID")%>';
-    var textPiId = '<%=GetLocalResourceObject("PIID")%>';
-    var textValue = '<%=GetLocalResourceObject("TEXT_VALUE")%>';
-    var textStartDate = '<%=GetLocalResourceObject("TEXT_START_DATE")%>';
-    var textEndDate = '<%=GetLocalResourceObject("TEXT_END_DATE")%>';
-    var textUDRCAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
-    var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
-
-    var udrcColumns = [
-      { hidden: true, header: ' ', dataIndex: 'GroupId' },
-      { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
-      { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
-      { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' }
-    ];
-    if (!isViewMode)
-      udrcColumns.push({ header: textUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer });
-
-    var udrcGrid = new Ext.grid.GridPanel({
-      ds: udrcStore,
-      columns: udrcColumns,
-      stripeRows: true,
-      height: GRID_HEIGHT,
-      width: 345,
-      iconCls: 'icon-grid',
-      frame: true,
-      title: textUDRCGridTitle,
-      view: new Ext.grid.GroupingView({
-        forceFit: true,
-        // custom grouping text template to display the number of items per group
-        groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
-      })
-    });
-
-    function UdrcActionsRenderer(value, meta, record) {
-      var str = String.format(
-        "<a style='cursor:hand;' id='deleteICB_{0}' title='{1}' href='JavaScript:removeUDRC(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
-        record.data.RecordId, '<%=GetLocalResourceObject("REMOVE_UDRC")%>');
-      return str;
-    }
-
-    function removeUDRC(recordId) {
-      var idx = udrcStore.find('RecordId', recordId);
-      udrcStore.remove(udrcStore.getAt(idx));
-    }
-
-    function getUDRCs() {
-
-      var recordsUDRCPi = piUDRCStore.data.items;
-      var isAllUDRCSet = true;
-      for (var i = 0; i < recordsUDRCPi.length; i++) {
-        var idx = udrcStore.find('ProductOfferingId', recordsUDRCPi[i].data.ProductOfferingId);
-        if (idx == -1) {
-          isAllUDRCSet = false;
-          break;
-        }
-        idx = udrcStore.find('PriceableItemId', recordsUDRCPi[i].data.PriceableItemId);
-        if (idx == -1) {
-          isAllUDRCSet = false;
-          break;
-        }
-      }
-
-      if (!isAllUDRCSet) {
-        window.Ext.Msg.show({
-          title: window.TEXT_ERROR,
-          msg: '<%=GetLocalResourceObject("TEXT_MISSED_UDRC")%>',
-          buttons: window.Ext.Msg.OK,
-          icon: window.Ext.MessageBox.ERROR
-        });
-        return false;
-      }
-
-      var records = udrcStore.data.items;
-      udrcData.UDRCs.length = 0;
+    function getPoIds() {
+      records = piStore.data.items;
+      piData.pi.length = 0;
       for (var i = 0; i < records.length; i++)
-        udrcData.UDRCs.push(records[i].data);
+        piData.pi.push(records[i].data);
 
-      window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom.value = udrcData.UDRCs.length > 0 ? window.Ext.encode(udrcData.UDRCs) : "";
+      window.Ext.get("<%=HiddenPis.ClientID %>").dom.value = piData.pi.length > 0 ? window.Ext.encode(piData.pi) : "";
       return true;
-    }
-  </script>--%>
-  
+    }    
+  </script>
+  --%>
 </asp:Content>

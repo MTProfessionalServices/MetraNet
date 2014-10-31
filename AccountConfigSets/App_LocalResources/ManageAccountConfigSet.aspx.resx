@@ -222,6 +222,9 @@
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
     <value>Group Subscription Name</value>
   </data>
+  <data name="tbSubParamsId.Label" xml:space="preserve">
+    <value>Subscription Params Id</value>
+  </data>
   <data name="ACCOUNTVIEW" xml:space="preserve">
     <value>Account View</value>
   </data>
@@ -234,11 +237,14 @@
   <data name="ITEM" xml:space="preserve">
     <value>Item</value>
   </data>
-    <data name="ITEMS" xml:space="preserve">
+  <data name="ITEMS" xml:space="preserve">
     <value>Items</value>
   </data>
   <data name="SELECTION_CRITERIA_GRID_TITLE" xml:space="preserve">
     <value>Selection Criteria</value>
+  </data>
+  <data name="PROPERTY_TO_SET_GRID_TITLE" xml:space="preserve">
+    <value>Properties To Set</value>
   </data>
   <data name="REMOVE_SELECTIONCRITERION" xml:space="preserve">
     <value>Remove Selection Criterion</value>
@@ -249,10 +255,19 @@
   <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
     <value>Add Property To Set</value>
   </data>
+  <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
+    <value>Edit Property To Set</value>
+  </data>
   <data name="ADD_SELECTION_CRITERIA" xml:space="preserve">
     <value>Add Selection Criteria</value>
   </data>
+  <data name="ADD_SELECTION_CRITERION" xml:space="preserve">
+    <value>Add Selection Criterion</value>
+  </data>
   <data name="EDIT_SELECTION_CRITERIA" xml:space="preserve">
     <value>Edit Selection Criteria</value>
+  </data>
+  <data name="UDRC_GRID_TITLE" xml:space="preserve">
+    <value>UDRC metrics</value>
   </data>
 </root>

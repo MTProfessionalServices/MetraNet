@@ -380,6 +380,7 @@ namespace MetraNet.AccountConfigSets
       if (CurrentAccountConfigSet.SubscriptionParams != null)
       {
         MTPanelSubscriptionParameters.Collapsed = false;
+        MTtbSubParamId.Text = CurrentAccountConfigSet.SubscriptionParams.AccountConfigSetParametersId.ToString();
         MTtbSubParamsDescription.Text = CurrentAccountConfigSet.SubscriptionParams.Description;
         MTtbSubParamsPo.Text = CurrentAccountConfigSet.SubscriptionParams.ProductOfferingId.ToString();
         MTdpSubParamsStartDate.Text = CurrentAccountConfigSet.SubscriptionParams.StartDate.ToString("d");
@@ -406,6 +407,8 @@ namespace MetraNet.AccountConfigSets
         MTdpSubParamsEndDate.Visible = false;
         MTisCorpAccountId.Visible = false;
         MTtbGroupSubscriptionName.Visible = false;
+
+        MTPanelSubscriptionParameters.Visible = !IsViewMode;
       }
     }
 

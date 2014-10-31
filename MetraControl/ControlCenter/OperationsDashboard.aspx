@@ -382,7 +382,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         var chart = dc.barChart("#div30DayAging","30DayAging");
            
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=ft30dayaging&curTime=" + new Date().getTime(), function (error, data) {
-            if (error) console.log("Error:" + error.valueOf());
+            if (error) console.log("Error:" + error);
             else {
             data.Items.forEach(function (d) {
                 d.fixed_count = +d.fixed_count;
@@ -474,7 +474,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         //Overage Days
 
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=ftoverxdays&threshold=<%=failedUdrCleanupThreshold%>&curTime=" + new Date().getTime(), function (error, json) {
-            if (error) console.log("Error:" + error.valueOf());
+            if (error) console.log("Error:" + error);
             else {
                 var overXDaysData = json["Items"];
                 if (overXDaysData[0]["count_over_set_days"] != null) {
@@ -504,7 +504,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         var minDate = new Date();
         minDate.setDate(maxDate.getDate() - 30);
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=batchusage30day&curTime=" + new Date().getTime(), function (error, data) {
-            if (error) console.log("Error:" + error.valueOf());
+            if (error) console.log("Error:" + error);
             else {
             data.Items.forEach(function (d) {
                 d.udr_count = +d.udr_count;
@@ -559,7 +559,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
         //Recent Batch
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=getlastbatch&curTime=" + new Date().getTime(), function (error, json) {
-            if (error) console.log("Error:" + error.valueOf());
+            if (error) console.log("Error:" + error);
             else {
                 var lastBatchInfo = json["Items"];
                 if (lastBatchInfo[0] != null) {
@@ -593,84 +593,81 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
 
     function makeActiveBillRunsPart() {
-      
-        var objActiveBillRunLineChartConfig = {
-            width: 450,
-            height: 200,
-            margin: { left: 40, top: 20, right: 20, bottom: 20 },
-            yAxis: {"Label":"<%=DurationWord%>","IgnoreColumns": ["adapter"]},
-            xAxis: {"Label":"<%=AdapterWord%>","Column":"rownumber"},
-            parentElementId: "#divActiveBillRun",
-            elementId: "#svgActiveBillRun",
-            chartTitle: "<%=CurrentVs3MonthAverageText%>",
-            colordata:{
-                "duration":"#148622",
-                "average":"#FFC000"
-            }
-        };
-
-        var activeBillRunInterval = d3.select("#<%=ddActiveBillRun.ClientID %>").node().value;
-        var ajaxReqStr = "/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=activebillrun&intervalid=" + activeBillRunInterval + "&curTime=" + new Date().getTime();
-
-        d3.json(ajaxReqStr, function (error, json) {
-            if (error)
-                console.log(error.valueOf);
-            else {
-                objActiveBillRunLineChartConfig.data = json["Items"];
-                fnVisualizeLineChart2(objActiveBillRunLineChartConfig);
-            }
-        });
-
-        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=activebillrunsummary&intervalid=" + activeBillRunInterval + "&curTime=" + new Date().getTime(), function (error, json) {
-            if (error)
-                console.log(error.valueOf);
-            else {
-                var activebillrunsummary = json["Items"];
-                if (activebillrunsummary[0] != null) {
-                    var successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
-                    var failed = activebillrunsummary[0]["eop_failed_adapter_count"];
-                    var waiting = activebillrunsummary[0]["eop_nyr_adapter_count"];
-                    var ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
-                    var variance = activebillrunsummary[0]["variance"];
-                    var earliesteta = activebillrunsummary[0]["earliest_eta"];
-                 }
-
-                  if(failed == 0){
-                        d3.select("#tdFailedAdapters").attr("class","tblclszerovalue");
-                     }
-                    else{
-                         d3.select("#tdFailedAdapters").attr("class","tblclshasvalue");
-                    }
-
-                     d3.select("#<%=txtFailedAdapters.ClientID%>").text(failed);
-                      d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
-                      d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
-                      d3.select("#<%=txtReady.ClientID%>").text(ready);
-                      d3.select("#<%=txtVariance.ClientID%>").text(variance);
-                      d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
-
-                      d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor","pointer");
-                      d3.select("#<%=txtFailedAdapters.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval;});
-            }
-        });
-
-        var legenddata = [
-          {
-            "x_axis": 40,
-            "y_axis": 10,
-            "color": "#FFC000",
-                "text": "<%=ThreeMonthAverageText%>"
-          },
-          {
-            "x_axis": 40,
-            "y_axis": 20,
-             "color": "#148622",
-                "text": "<%=CurrentRunText%>"
+      var objActiveBillRunLineChartConfig = {
+          width: 450,
+          height: 200,
+          margin: { left: 40, top: 20, right: 20, bottom: 20 },
+          yAxis: {"Label":"<%=DurationWord%>","IgnoreColumns": ["adapter"]},
+          xAxis: {"Label":"<%=AdapterWord%>","Column":"rownumber"},
+          parentElementId: "#divActiveBillRun",
+          elementId: "#svgActiveBillRun",
+          chartTitle: "<%=CurrentVs3MonthAverageText%>",
+          colordata:{
+              "duration":"#148622",
+              "average":"#FFC000"
           }
-        ];
+      };
+      var activeBillRunInterval = d3.select("#<%=ddActiveBillRun.ClientID %>").node().value;
+      var ajaxReqStr = "/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=activebillrun&intervalid=" + activeBillRunInterval + "&curTime=" + new Date().getTime();
 
-        CreateLegend(legenddata,d3.select("#svgActiveBillRunLegend"));
-    }
+      d3.json(ajaxReqStr, function (error, json) {
+          if (error)
+              console.log(error);
+          else {
+              objActiveBillRunLineChartConfig.data = json["Items"];
+              fnVisualizeLineChart2(objActiveBillRunLineChartConfig);
+          }
+      });
+      d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=activebillrunsummary&intervalid=" + activeBillRunInterval + "&curTime=" + new Date().getTime(), function (error, json) {
+      if (error) {
+        console.log(error);
+      } else {
+        var activebillrunsummary = json["Items"];
+        var successful, failed, waiting, ready, variance, earliesteta;
+        if (activebillrunsummary[0] != null) {
+          successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
+          failed = activebillrunsummary[0]["eop_failed_adapter_count"];
+          waiting = activebillrunsummary[0]["eop_nyr_adapter_count"];
+          ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
+          variance = activebillrunsummary[0]["varianceAsString"];
+          earliesteta = activebillrunsummary[0]["earliest_eta"];
+        }
+
+        if (failed == 0) {
+          d3.select("#tdFailedAdapters").attr("class", "tblclszerovalue");
+        } else {
+          d3.select("#tdFailedAdapters").attr("class", "tblclshasvalue");
+        }
+
+        d3.select("#<%=txtFailedAdapters.ClientID%>").text(failed);
+        d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
+        d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
+        d3.select("#<%=txtReady.ClientID%>").text(ready);
+        d3.select("#<%=txtVariance.ClientID%>").text(variance);
+        d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
+
+        d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor", "pointer");
+        d3.select("#<%=txtFailedAdapters.ClientID%>").on("click", function() { window.location = "/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval; });
+      }
+    });
+
+    var legenddata = [
+      {
+        "x_axis": 40,
+        "y_axis": 10,
+        "color": "#FFC000",
+            "text": "<%=ThreeMonthAverageText%>"
+      },
+      {
+        "x_axis": 40,
+        "y_axis": 20,
+          "color": "#148622",
+            "text": "<%=CurrentRunText%>"
+      }
+    ];
+
+    CreateLegend(legenddata,d3.select("#svgActiveBillRunLegend"));
+   }
 
      function makePricingEnginePart() {
         var ndx;
@@ -682,7 +679,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 		maxDate.setMonth(maxDate.getMonth() - 10);
 		minDate.setMonth(minDate.getYear() + 10);
 		d3.json("/MetraNet/AjaxServices/PricingEngineDashboardService.aspx?curTime=" + new Date().getTime(), function (error, json) {
-            if (error) console.log("Error:" + error.valueOf());
+            if (error) console.log("Error:" + error);
             else {
             json.Items.forEach(function (d) {
                 d.pipe_q = +d.pipe_q;
@@ -786,7 +783,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			
             setInterval(function() {
 		d3.json("/MetraNet/AjaxServices/PricingEngineDashboardService.aspx?curTime=" + new Date().getTime(), function (error, json) {
-            if (error) console.log("Error:" + error.valueOf());
+            if (error) console.log("Error:" + error);
             else {
             json.Items.forEach(function (d) {
                 d.pipe_q = +d.pipe_q;
@@ -826,7 +823,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=billclosedetails&intervalid=" + billCloseInterval + "&curTime=" + new Date().getTime(), function (error, json) {
             if (error)
-                console.log(error.valueOf);
+                console.log(error);
             else {
                 
             json.Items.forEach(function (d) {
@@ -882,7 +879,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=billclosesummary&intervalid=" + billCloseInterval + "&curTime=" + new Date().getTime(), function (error, json) {
             if (error)
-                console.log(error.valueOf);
+                console.log(error);
             else {
                 var billCloseSummary = json["Items"];
                

@@ -238,19 +238,19 @@
     <value>[IT]Duration</value>
   </data>
   <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>[IT]Earliest ETA</value>
+    <value>[IT]Earliest ETA:</value>
   </data>
   <data name="TEXT_READY" xml:space="preserve">
-    <value>[IT]Ready</value>
+    <value>[IT]Ready:</value>
   </data>
   <data name="TEXT_SUCCESSFUL" xml:space="preserve">
-    <value>[IT]Successful</value>
+    <value>[IT]Successful:</value>
   </data>
   <data name="TEXT_VARIANCE" xml:space="preserve">
-    <value>[IT]Variance</value>
+    <value>[IT]Variance:</value>
   </data>
   <data name="TEXT_WAITING" xml:space="preserve">
-    <value>[IT]Waiting</value>
+    <value>[IT]Waiting:</value>
   </data>
   <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
     <value>[IT]Bill Groups:</value>

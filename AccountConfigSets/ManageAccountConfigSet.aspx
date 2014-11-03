@@ -110,6 +110,7 @@
   <input id="HiddenSelectionCriteria" runat="server" type="hidden" />
   <input id="HiddenPropertiesToSet" runat="server" type="hidden" />  
   <input id="HiddenUDRCs" runat="server" type="hidden" />
+  <input id="HiddenAccountViewPropertyData" runat="server" type="hidden" />
   <input id="HiddenAccountViews" runat="server" type="hidden" />
   <input id="HiddenPis" runat="server" type="hidden" />
     <%-- General--%>
@@ -153,15 +154,19 @@
           propertiesToSetData.propertyValue = window.Ext.decode(hiddenPropertiesToSet.value);
         addPropertyValues(propertiesToSetData.propertyValue, propertiesToSetStore);
 
-//        var hiddenPi = window.Ext.get("<%=HiddenPis.ClientID %>").dom;
-//        if (hiddenPi.value.length > 0)
-//          piData.pi = window.Ext.decode(hiddenPi.value);      
-//        addItemToPIs(piData.pi);
+        var hiddenAccountViewsData = window.Ext.get("<%=HiddenAccountViews.ClientID %>").dom;
+        if (hiddenAccountViewsData.value.length > 0)
+          accountViewData.accountView = window.Ext.decode(hiddenAccountViewsData.value);      
+        addAccountView(accountViewData.accountView, accountViewStore);
+
+        var hiddenAccountViewPropertyData = window.Ext.get("<%=HiddenAccountViewPropertyData.ClientID %>").dom;
+        if (hiddenAccountViewPropertyData.value.length > 0)
+          accountViewPropertyMetadataData.accountViewPropertyMetadata = window.Ext.decode(hiddenAccountViewPropertyData.value);      
+        addAccountViewPropertyMetadata(accountViewPropertyMetadataData.accountViewPropertyMetadata, accountViewPropertyMetadataStore);
 
         var hiddenUDRCs = window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom;
         if (hiddenUDRCs.value.length > 0)
-          udrcData.UDRCs = window.Ext.decode(hiddenUDRCs.value);
-        //window.udrcStore.loadData(udrcData);
+          udrcData.UDRCs = window.Ext.decode(hiddenUDRCs.value);        
         addUDRCs(udrcData.UDRCs);
       };    
 
@@ -185,7 +190,61 @@
     <%-- PropertyValue--%>
     <script language="javascript" type="text/javascript">
 
-    var propertyValueRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record      
+    var accountViewRecord = Ext.data.Record.create([
+      { name: 'AccountView' }
+    ]);
+
+    var accountViewData = { accountView: [] };
+
+    var accountViewStore = new Ext.data.ArrayStore({
+      root: 'accountView',
+      fields: accountViewRecord.fields
+    });
+
+    function addAccountView(items, store) {
+      if (items == null || store == null)
+        return;
+
+      for (var i = 0; i < items.length; i++) {
+        var myNewRecord = new accountViewRecord({
+          AccountView: items[i].AccountView            
+        });
+        store.add(myNewRecord);
+      }
+    }
+
+    var accountViewPropertyMetadataRecord = Ext.data.Record.create([
+      { name: 'AccountView' },
+      { name: 'PropertyName' },
+      { name: 'TypeName' },
+      { name: 'MaxLength' },
+      { name: 'Id' }
+    ]);
+
+    var accountViewPropertyMetadataData = { accountViewPropertyMetadata: [] };
+
+    var accountViewPropertyMetadataStore = new Ext.data.ArrayStore({
+      root: 'accountViewPropertyMetadata',
+      fields: accountViewPropertyMetadataRecord.fields
+    });
+
+    function addAccountViewPropertyMetadata(items, store) {
+      if (items == null || store == null)
+        return;
+
+      for (var i = 0; i < items.length; i++) {
+        var myNewRecord = new accountViewPropertyMetadataRecord({
+          AccountView: items[i].AccountView,
+          PropertyName: items[i].PropertyName,
+          TypeName: items[i].TypeName,
+          MaxLength: items[i].MaxLength,
+          Id: items[i].Id
+        });
+        store.add(myNewRecord);
+      }
+    }
+
+    var propertyValueRecord = Ext.data.Record.create([
       { name: 'AccountView' },
       { name: 'Property' },
       { name: 'Value' },
@@ -223,7 +282,7 @@
         labelWidth: 70,
         defaultType: 'textfield',
 
-        items: [          
+        items: [
           {
             xtype: 'hidden',
             hideLabel: true,
@@ -247,26 +306,66 @@
           },
         //////////
           {
-            xtype: 'textfield',
-            allowBlank: false,
-            inputType: "text",
-            fieldLabel: '<%=GetLocalResourceObject("ACCOUNTVIEW")%>',
-            id: 'form_addPropertyValue_AccountView',
-            name: 'form_addPropertyValue_AccountView',
-            anchor: '100%',            
-            tabIndex: 10,
-            value: accountView
-          },
+          xtype: 'combo',
+          fieldLabel: '<%=GetLocalResourceObject("ACCOUNTVIEW")%>',
+          id: 'form_addPropertyValue_AccountView',
+          name: 'form_addPropertyValue_AccountView',
+          anchor: '100%',
+          mode: 'local',
+          allowBlank: false,
+          autoSelect: true,
+          forceSelection: true,
+          store: accountViewStore,
+          displayField: 'AccountView',
+          valueField: 'AccountView',
+          value: accountView,
+          tabIndex: 10,
+          listeners: {
+            select: {
+              fn: function (combo, value) {
+                var comboProperty = Ext.getCmp('form_addPropertyValue_Property');
+                comboProperty.clearValue();
+                comboProperty.store.filter('AccountView', combo.getValue());
+              }
+            }
+          }
+        },
           {
-            xtype: 'textfield',
-            allowBlank: false,
-            inputType: "text",
+            xtype: 'combo',
             fieldLabel: '<%=GetLocalResourceObject("PROPERTY")%>',
             id: 'form_addPropertyValue_Property',
             name: 'form_addPropertyValue_Property',
             anchor: '100%',
+            mode: 'local',
+            allowBlank: false,
+            autoSelect: true,
+            forceSelection: true,
+            store: accountViewPropertyMetadataStore,
+            displayField: 'PropertyName',
+            valueField: 'PropertyName',
+            value: property,
             tabIndex: 20,
-            value: property
+            listeners: {
+              select: {
+                fn: function (comboPropertyValue, value) {
+                  var textfieldValue = Ext.getCmp('form_addPropertyValue_Value');
+                  var comboAccountView = Ext.getCmp('form_addPropertyValue_AccountView');
+                  var accountViewValue = comboAccountView.getValue();
+                  var propertyNameValue = comboPropertyValue.getValue();
+
+                  var idx = accountViewPropertyMetadataStore.find('Id', accountViewValue + '-' + propertyNameValue);
+                  if (idx > -1) {
+                    var accountViewMetaDataItem = accountViewPropertyMetadataStore.getAt(idx);
+                    if (accountViewMetaDataItem.get('MaxLength') > 0 )
+                      textfieldValue.maxLength = accountViewMetaDataItem.get('MaxLength');
+                    else
+                      textfieldValue.maxLength = Number.MAX_VALUE;                    
+                  }
+                  else
+                    textfieldValue.maxLength = Number.MAX_VALUE;
+                }
+              }
+            }
           },
           {
             xtype: 'textfield',
@@ -324,14 +423,14 @@
       });
 
       AddPropertyValueWindow.show();
-    }
+    }    
 
     function onOK_AddPropertyValue() {
 
       var isValidForm = form_addPropertyValue.getForm().isValid();
 
       if (!(isValidForm == true))
-        Ext.Msg.alert('Failed', 'Wrong input');
+        Ext.Msg.alert('<%=GetLocalResourceObject("TEXT_FAILED")%>', '<%=GetLocalResourceObject("TEXT_WRONG_INPUT")%>');
       else {
 
         var accountView = form_addPropertyValue.items.get('form_addPropertyValue_AccountView').getValue();
@@ -449,7 +548,7 @@
       }
 
       function onSelectionCriterionAdd() {
-        AddPropertyValue('SelectionCriteria', '', '', '', '', 'new');
+        AddPropertyValue('SelectionCriteria', 'metratech.com/contact', '', '', '', 'new');
       }     
 
       function removeSelectionCriterion(accId) {
@@ -463,15 +562,15 @@
 
       function getSelectionCriteria() {
         var records = selectionCriteriaStore.data.items;
-        if (records.length == 0) {
-          window.Ext.Msg.show({
-            title: window.TEXT_ERROR,
-            msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS, //todo
-            buttons: window.Ext.Msg.OK,
-            icon: window.Ext.MessageBox.ERROR
-          });
-          return false;
-        }
+//        if (records.length == 0) {
+//          window.Ext.Msg.show({
+//            title: window.TEXT_ERROR,
+//            msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS, //todo
+//            buttons: window.Ext.Msg.OK,
+//            icon: window.Ext.MessageBox.ERROR
+//          });
+//          return false;
+//        }
 
         selectionCriteriaData.propertyValue.length = 0;
         for (var i = 0; i < records.length; i++) {
@@ -544,15 +643,15 @@
       function propertiesToSetActionsRenderer(value, meta, record) {     
         var str = String.format(
           "<a style='cursor:hand;' id='deletePropertyToSet_{0}' title='{1}' href='JavaScript:removePropertyToSet(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
-          record.data.CriterionId, '<%=GetLocalResourceObject("REMOVE_SELECTIONCRITERION")%>');
+          record.data.CriterionId, '<%=GetLocalResourceObject("REMOVE_PROPERTY_TO_SET")%>');
         str += String.format(
           "<a style='cursor:hand;' id='updatePropertyToSet_{0}' title='{4}' href='JavaScript:editPropertyToSet(\"{0}\",\"{1}\",\"{2}\",\"{3}\");'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",
-          record.data.AccountView, record.data.Property, record.data.Value, record.data.CriterionId, '<%=GetLocalResourceObject("EDIT_SELECTIONCRITERION")%>');
+          record.data.AccountView, record.data.Property, record.data.Value, record.data.CriterionId, '<%=GetLocalResourceObject("EDIT_PROPERTY_TO_SET")%>');
         return str;
       }
 
       function onPropertiesToSetAdd() {
-        AddPropertyValue('PropertyToSet', '', '', '', '', 'new');
+        AddPropertyValue('PropertyToSet', 'metratech.com/contact', '', '', '', 'new');
       }
 
       function removePropertyToSet(accId) {

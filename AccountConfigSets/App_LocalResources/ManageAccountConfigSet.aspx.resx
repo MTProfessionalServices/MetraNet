@@ -252,6 +252,12 @@
   <data name="EDIT_SELECTIONCRITERION" xml:space="preserve">
     <value>Edit Selection Criterion</value>
   </data>
+  <data name="REMOVE_PROPERTY_TO_SET" xml:space="preserve">
+    <value>Remove Selection Criterion</value>
+  </data>
+  <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
+    <value>Edit Selection Criterion</value>
+  </data>
   <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
     <value>Add Property To Set</value>
   </data>
@@ -270,4 +276,11 @@
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
     <value>UDRC metrics</value>
   </data>
+  <data name="TEXT_FAILED" xml:space="preserve">
+    <value>Failed. Wrong input!</value>
+  </data>
+  <data name="TEXT_WRONG_INPUT" xml:space="preserve">
+    <value>Most likely length of value more then availible for selected property</value>
+  </data>
+  
 </root>

@@ -138,7 +138,7 @@
         buttons: window.Ext.MessageBox.OKCANCEL,
         fn: function(btn) {
           if (btn == 'ok') {
-            window.CallServer(JSON.stringify({ action: 'teminateBulk', entityIds: entityIds }));
+            window.CallServer(JSON.stringify({ action: 'terminateBulk', entityIds: entityIds }));
           }
         },
         animEl: 'elId',

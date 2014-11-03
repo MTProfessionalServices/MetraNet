@@ -54,7 +54,7 @@ namespace MetraNet.AccountConfigSets
             }
           case "deleteBulk":
             {
-              var ids = value["entityIds"].Split(new[] {','});
+              var ids = value["entityIds"].Split(new[] { ',' });
               entityIds.AddRange(ids.Select(s => int.Parse(s, CultureInfo.InvariantCulture)));
               result = DeleteAcs(entityIds);
               break;
@@ -69,16 +69,16 @@ namespace MetraNet.AccountConfigSets
           case "terminateOne":
             {
               entityIds.Add(int.Parse(value["entityId"], CultureInfo.InvariantCulture));
-              result = TerminateAcs(entityIds); 
+              result = TerminateAcs(entityIds);
               break;
             }
         }
-        
+
       }
       catch (Exception ex)
       {
         Logger.LogError(ex.Message);
-        result = new {result = "error", errorMessage = ex.Message};
+        result = new { result = "error", errorMessage = ex.Message };
       }
 
       if (result != null)
@@ -111,13 +111,13 @@ namespace MetraNet.AccountConfigSets
             client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
           }
           client.DeleteAccountConfigSet(entityIds.ToArray());
-          result = new {result = "ok"};
+          result = new { result = "ok" };
         }
       }
       catch (FaultException<MASBasicFaultDetail> ex)
       {
         Logger.LogError(ex.Detail.ErrorMessages[0]);
-        result = new {result = "error", errorMessage = ex.Detail.ErrorMessages[0]};
+        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
       }
       catch (FaultException<MASPartialSuccessFaultDetail> ex)
       {
@@ -125,7 +125,7 @@ namespace MetraNet.AccountConfigSets
         var errorMessageStr = "";
         foreach (var mes in ex.Detail.ErrorMessages)
           errorMessageStr += "; " + mes;
-        result = new { result = "error", errorMessage = errorMessageStr.Substring(2, errorMessageStr.Length) };
+        result = new { result = "error", errorMessage = errorMessageStr.Substring(2, errorMessageStr.Length - 2) };
       }
       return result;
     }
@@ -157,7 +157,7 @@ namespace MetraNet.AccountConfigSets
         var errorMessageStr = "";
         foreach (var mes in ex.Detail.ErrorMessages)
           errorMessageStr += "; " + mes;
-        result = new { result = "error", errorMessage = errorMessageStr.Substring(2, errorMessageStr.Length) };
+        result = new { result = "error", errorMessage = errorMessageStr.Substring(2, errorMessageStr.Length - 2) };
       }
       return result;
     }

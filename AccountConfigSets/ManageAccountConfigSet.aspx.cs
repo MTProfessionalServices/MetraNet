@@ -14,11 +14,70 @@ using MetraTech.UI.Common;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.UI;
+using MetraTech.Debug.Diagnostics;
 
 namespace MetraNet.AccountConfigSets
 {
   public partial class ManageAccountConfigSet : MTPage, ICallbackEventHandler
   {
+    public class AccountViewPropertyData
+    {
+      public string AccountView { get; set; }
+      public string PropertyName { get; set; }
+      public string TypeName { get; set; }
+      public Type TypeObj { get; set; }      
+      public int MaxLength { get; set; }
+
+      public string Id 
+      { 
+        get { return String.Format("{0}-{1}", AccountView, PropertyName); } 
+        set {} 
+      }
+    }
+
+    private List<AccountViewPropertyData> GetAccountViews(out List<string> AccountViewNames)
+    {
+      using (new HighResolutionTimer("GetAccountViews"))
+      {
+        var accountViews = Account.GetAllViews();
+
+        AccountViewNames = new List<string>(0);
+        var result = new List<AccountViewPropertyData>(0);
+        foreach (var aw in accountViews)
+        {
+          AccountViewNames.Add(aw.ViewName);
+          foreach (var propInfo in aw.GetProperties())
+          {
+            if (propInfo.Name.StartsWith("Is") || propInfo.Name.EndsWith("Dirty") ||
+                propInfo.Name.EndsWith("DisplayName") || propInfo.Name.EndsWith("ViewName"))
+              continue;
+            var t = Nullable.GetUnderlyingType(propInfo.PropertyType) ?? propInfo.PropertyType;
+            var newAccountViewPropertyData = new AccountViewPropertyData
+              {
+                AccountView = aw.ViewName,
+                PropertyName = propInfo.Name,
+                TypeName = t.Name,
+                MaxLength = aw.GetPropertyLength(propInfo.Name)
+              };
+            result.Add(newAccountViewPropertyData);
+          }
+        }
+        return result.OrderBy(aw => aw.Id).ToList();
+      }
+    }
+
+    public List<AccountViewPropertyData> AccountViewPropertiesData
+    {
+      get { return Session["AccountViewPropertiesData"] as List<AccountViewPropertyData>; }
+      set { Session["AccountViewPropertiesData"] = value; }
+    }
+
+    public List<string> AccountViews
+    {
+      get { return Session["AccountViews"] as List<string>; }
+      set { Session["AccountViews"] = value; }
+    }
+
     public List<AccountConfigSetPropertyValue> SelectionCriteria
     {
       get { return Session["SelectionCriteria"] as List<AccountConfigSetPropertyValue>; }
@@ -52,12 +111,6 @@ namespace MetraNet.AccountConfigSets
       if (!IsViewMode)
         MTdpStartDate.Text = MetraTime.Now.Date.ToString();
       //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();     
-    }
-
-    private void GetAccountViews()
-    {
-      var accountViews = Account.GetAllViews();
-
     }
 
     #region Implementation of ICallbackEventHandler
@@ -237,7 +290,7 @@ namespace MetraNet.AccountConfigSets
       CurrentAccountConfigSet.Description = MTtbAcsDescription.Text;
       CurrentAccountConfigSet.PropertiesToSet = GetPropertyValues(HiddenPropertiesToSet.Value);
       CurrentAccountConfigSet.SelectionCriteria = GetPropertyValues(HiddenSelectionCriteria.Value);
-      CurrentAccountConfigSet.SubscriptionParamsId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);  
+      CurrentAccountConfigSet.SubscriptionParamsId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);
     }
 
     private List<AccountConfigSetPropertyValue> GetPropertyValues(string value)
@@ -246,7 +299,7 @@ namespace MetraNet.AccountConfigSets
       if (!string.IsNullOrEmpty(value))
       {
         var propertyValueStrArray = value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
-        
+
         propertyValueList.AddRange(propertyValueStrArray.Select(propertyValueStr => propertyValueStr.EndsWith("}") ? propertyValueStr : propertyValueStr + "}")
           .Select(propertyValueStr1 => ExtendedJavaScriptConverter<AccountConfigSetPropertyValue>.GetSerializer().Deserialize<AccountConfigSetPropertyValue>(propertyValueStr1)));
       }
@@ -286,7 +339,7 @@ namespace MetraNet.AccountConfigSets
     }
 
     private void InvokeUpdateAccountConfigSet(AccountConfigSet acs)
-    {     
+    {
       using (var client = new AccountConfigurationSetServiceClient())
       {
         if (client.ClientCredentials != null)
@@ -295,7 +348,20 @@ namespace MetraNet.AccountConfigSets
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
         client.UpdateAccountConfigSet(acs);
-      }      
+      }
+    }
+
+    private void InvokeGetAccountConfigSet()
+    {
+      using (var qsc = new AccountConfigurationSetServiceClient())
+      {
+        if (qsc.ClientCredentials != null)
+        {
+          qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+          qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
+        qsc.GetAccountConfigSet(CurrentAccountConfigSetId, out CurrentAccountConfigSet);
+      }
     }
 
     private void ParseRequest()
@@ -306,7 +372,7 @@ namespace MetraNet.AccountConfigSets
       {
         case "VIEW":
           CurrentAccountConfigSetId = Convert.ToInt32(Request["acsId"]);
-          LoadAccountConfigSet();
+          InvokeGetAccountConfigSet();
           LoadAccountConfigSetToControls();
 
           MTbtnGoToUpdateAccountConfigSet.Visible = true;
@@ -319,7 +385,7 @@ namespace MetraNet.AccountConfigSets
           CurrentAccountConfigSetId = Convert.ToInt32(Request["acsId"]);
           if (!IsPostBack)
           {
-            LoadAccountConfigSet();
+            InvokeGetAccountConfigSet();
             LoadAccountConfigSetToControls();
           }
 
@@ -344,22 +410,15 @@ namespace MetraNet.AccountConfigSets
     private void NewAccountConfigSet()
     {
       if (IsPostBack || IsViewMode) return;
-      
-    }
 
-    private void LoadAccountConfigSet()
-    {
-      using (var qsc = new AccountConfigurationSetServiceClient())
-      {
-        if (qsc.ClientCredentials != null)
-        {
-          qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
-          qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-        }
-        qsc.GetAccountConfigSet(CurrentAccountConfigSetId, out CurrentAccountConfigSet);
-      }
-    }
+      List<string> accountViews;
+      AccountViewPropertiesData = GetAccountViews(out accountViews);
+      AccountViews = accountViews;
 
+      HiddenAccountViewPropertyData.Value = EncodeAccountViewPropertiesDataForHiddenControl(AccountViewPropertiesData);
+      HiddenAccountViews.Value = EncodeAccountViewForHiddenControl(AccountViews);
+    }
+   
     private void LoadAccountConfigSetToControls()
     {
       MTtbAcsDescription.Text = CurrentAccountConfigSet.Description;
@@ -410,6 +469,38 @@ namespace MetraNet.AccountConfigSets
 
         MTPanelSubscriptionParameters.Visible = !IsViewMode;
       }
+
+      if (!IsViewMode)
+      {
+        List<string> accountViews;
+        AccountViewPropertiesData = GetAccountViews(out accountViews);
+        AccountViews = accountViews;
+
+        HiddenAccountViewPropertyData.Value = EncodeAccountViewPropertiesDataForHiddenControl(AccountViewPropertiesData);
+        HiddenAccountViews.Value = EncodeAccountViewForHiddenControl(AccountViews);
+      }
+    }
+
+    private string EncodeAccountViewPropertiesDataForHiddenControl(List<AccountViewPropertyData> values)
+    {
+      if (values.Count == 0)
+        return String.Empty;
+      const string accountStr = "{5}'AccountView': '{0}', 'PropertyName': '{1}', 'TypeName': '{2}', 'MaxLength': '{3}', 'Id': '{4}'{6}";
+
+      var hiddenValue = values.Aggregate("[", (current, val) => current + string.Format(CultureInfo.CurrentCulture, accountStr, val.AccountView, val.PropertyName, val.TypeName, val.MaxLength, val.Id,"{", "},"));
+      hiddenValue = hiddenValue.Substring(0, hiddenValue.Length - 1);
+      return hiddenValue + "]";
+    }
+
+    private string EncodeAccountViewForHiddenControl(List<string> values)
+    {
+      if (values.Count == 0)
+        return String.Empty;
+      const string accountStr = "{1}'AccountView': '{0}'{2}";
+
+      var hiddenValue = values.Aggregate("[", (current, val) => current + string.Format(CultureInfo.CurrentCulture, accountStr, val, "{", "},"));
+      hiddenValue = hiddenValue.Substring(0, hiddenValue.Length - 1);
+      return hiddenValue + "]";
     }
 
     private string EncodePropertyValueForHiddenControl(List<AccountConfigSetPropertyValue> values)
@@ -462,6 +553,8 @@ namespace MetraNet.AccountConfigSets
 
       return hiddenUdrcsValue + "]";
     }
+
+
   }
 
   public class ExtendedJavaScriptConverter<T> : JavaScriptConverter where T : new()

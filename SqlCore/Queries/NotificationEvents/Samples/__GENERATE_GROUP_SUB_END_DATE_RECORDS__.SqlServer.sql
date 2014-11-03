@@ -3,7 +3,7 @@ DECLARE @LAST_NOTIFY_FROM DateTime
 DECLARE @MAX_SUB_END_DATE DateTime
 
 SET @NOTIFICATION_DAYS = 10 /*Number of days before the subscription expires*/
-SET @MAX_SUB_END_DATE = DATEADD(DAY, DATEDIFF(day, 0, @CURRENT_RUN_DATE), @NOTIFICATION_DAYS) + '23:59:59'
+SET @MAX_SUB_END_DATE = DATEADD(D, @NOTIFICATION_DAYS, @CURRENT_RUN_DATE) 
 SET @LAST_NOTIFY_FROM = DATEADD(D, @NOTIFICATION_DAYS, @LAST_RUN_DATE) 
 
 SELECT
@@ -27,4 +27,4 @@ FROM t_gsubmember gsubmember
   LEFT OUTER JOIN t_account_mapper tmap_for_nonpartitioned_account ON tmap_for_nonpartitioned_account.id_acc = gsubmember.id_acc and tmap_for_nonpartitioned_account.nm_space = 'mt'
   LEFT OUTER JOIN t_account_mapper tmap_for_partitioned_account ON tmap_for_partitioned_account.id_acc = gsubmember.id_acc and tmap_for_partitioned_account.nm_space = LOWER (partition_owner.nm_login)  
 WHERE gsubmember.vt_end <= @MAX_SUB_END_DATE 
-  AND gsubmember.vt_end >= @LAST_NOTIFY_FROM
+  AND gsubmember.vt_end > @LAST_NOTIFY_FROM

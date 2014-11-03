@@ -8,14 +8,14 @@
     <Parameters>
         <Parameter>
             <Name>NotificationEventConsumerID</Name>
-            <DataType>int32</DataType>
+            <DataType>int64</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>PK for consumer notification event table.</Description>
         </Parameter>
         <Parameter>
             <Name>NotificationEventID</Name>
-            <DataType>int32</DataType>
+            <DataType>int64</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>ID for notification event</Description>

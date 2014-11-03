@@ -7,7 +7,7 @@
     <Parameters>
         <Parameter>
             <Name>NotificationEventID</Name>
-            <DataType>int32</DataType>
+            <DataType>int64</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>Unique key that identifies the notification event.</Description>

@@ -1,6 +1,6 @@
 CREATE TABLE t_notification_events
 (
-	id_notification_event int NOT NULL,
+	id_notification_event bigint NOT NULL,
 	id_notification_event_type int NOT NULL,
 	notification_event_prop_values nvarchar(4000) NOT NULL,
 	id_partition int NULL,

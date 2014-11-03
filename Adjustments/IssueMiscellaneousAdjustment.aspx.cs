@@ -78,13 +78,17 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 = adjAmountFldTaxOther.DecimalPrecision
               = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits.ToString();
 
+            
+          if (!UI.SessionContext.SecurityContext.IsSuperUser())
+          {
+            lblMaxAmount.Text = GetMaxCapabilityAmount();
+          }
+          else
+          {
             string maxAdjAmount = String.Format("{0} {1}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), GetLocalResourceObject("TEXT_UNLIMITED"));
-            if (!UI.SessionContext.SecurityContext.IsSuperUser())
-            {
-                maxAdjAmount = GetMaxCapabilityAmount();
-            }
-
-            lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount, ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+            lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount,
+                                              ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+          }
 
           if (_creditNotesEnabled)
           {
@@ -515,7 +519,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             string max = GetMaxCapabilityAmount();
             string[] data = max.Split(' ');
-            int last = data.Length - 1;
+            int last = data.Length - 2;
             // Build expression to have the DataTable evaluation based on the adjustment amount allowed
             // != not supported and needs to be passed as <>
             string op = data[last - 1];

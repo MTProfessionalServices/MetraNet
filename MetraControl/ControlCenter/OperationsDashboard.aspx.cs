@@ -85,7 +85,7 @@ public partial class OperationsDashboard : MTPage
   {
     lblOverXDays.Text = String.Format("{0} {1} {2}:", GetLocalResourceObject("TEXT_OVER"), failedUdrCleanupThreshold,
                                       GetLocalResourceObject("TEXT_DAYS"));
-    lblLastBatch.Text = Convert.ToString(GetLocalResourceObject("TEXT_LAST_BATCH"));
+    lblLastBatch.Text = String.Format("{0}:", GetLocalResourceObject("TEXT_LAST_BATCH"));
     lblFailedAdapters.Text = Convert.ToString(GetLocalResourceObject("pnlFailedAdapters.Text"));
     lblSuccessful.Text = Convert.ToString(GetLocalResourceObject("TEXT_SUCCESSFUL"));
     lblReady.Text = Convert.ToString(GetLocalResourceObject("TEXT_READY"));

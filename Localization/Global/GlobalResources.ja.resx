@@ -120,6 +120,7 @@
   <data name="ACOUNT_STATE_WAS" xml:space="preserve">
     <value>お客様の登録状況が {0} から {1} に変更されました。 </value>
   </data>
+
   <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
     <value>[JA]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
   </data>
@@ -137,6 +138,9 @@
   </data>
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
     <value>[JA]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
+  </data>
+  <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
+    <value>[JA] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
   </data>
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
     <value>[JA]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
@@ -158,6 +162,9 @@
   </data>
   <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
     <value>[JA] The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time. The Selection Criteria should be unique.</value>
+  </data>
+  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
+    <value>[JA]UDRC for PI ID={0} not set!</value>
   </data>
   <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
     <value>[JA]StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
@@ -188,7 +195,7 @@
   </data>
   <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
     <value>[JA]#{0}) Message: '{1}', Component: '{2}'</value>
-  </data>
+  </data>    
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[JA]Error on saving AccountConfigSet with Id {0}</value>
   </data>
@@ -218,7 +225,7 @@
   </data>
   <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
     <value>親アカウントが {0} から {1} に変更されました。 </value>
-  </data>
+  </data>    
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>[JA]Transaction {0} is of type {1}, but got a AlreadySettledException</value>
   </data>
@@ -308,7 +315,7 @@
   </data>
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
     <value>[JA]Error get account configuration set applied list</value>
-  </data>
+  </data>    
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>[JA]Got no response from {0}.</value>
   </data>
@@ -392,6 +399,9 @@
   </data>
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
     <value>[JA]Agreement template ID cannot be less than 0.</value>
+  </data>
+  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[JA]Error on termination Account Configuration Set</value>
   </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>アカウント管理者</value>
@@ -738,9 +748,6 @@
   <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
     <value>[JA]Unable to retrieve specification characteristic from system.</value>
   </data>
-  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-    <value>[JA]UDRC for PI ID={0} not set!</value>
-  </data>
   <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
     <value>[JA]An exception occurred </value>
   </data>
@@ -783,9 +790,6 @@
   <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
     <value>[JA]Transaction {0} was already submitted.</value>
   </data>
-  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[JA]Error on termination Account Configuration Set</value>
-  </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[JA]Error update account configuration set</value>
   </data>
@@ -810,9 +814,6 @@
   <data name="ZIP_CHANGED" xml:space="preserve">
     <value>郵便番号が {0} から {1} に変更されました。 </value>
   </data>
-  <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-    <value>[JA] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
-  </data>
   <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[JA] Can't get account config set with PO from another partition!</value>
   </data>
@@ -820,31 +821,31 @@
     <value>[JA]Applied Account Config Sets with IDs: {0} are not eligible for the account any more. Related subscriptions will be terminated.</value>
   </data>
   <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
-    <value>[JA]Account Config Sets with ID '{0}' was removed from Applied list.</value>
+    <value>[JA]Account Config Sets with IDs {0} were removed from Applied list.</value>
   </data>
   <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
-    <value>[JA]Creation of new subsciptions is finished.</value>
+    <value>[JA]Creation of new subscriptions is finished.</value>
   </data>
   <data name="ACS_CREATE_SUB_START" xml:space="preserve">
-    <value>[JA]Starting creation of new subsciptions…</value>
+    <value>[JA]Starting creation of new subscriptions...</value>
   </data>
   <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
-    <value>[JA]Account Config Sets with IDs: {0} are currently eligible for the account and were already applied.</value>
+    <value>[JA]Account Config Sets with IDs: {0} will be skipped. They are currently eligible for the account and were already applied.</value>
   </data>
   <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
-    <value>[JA]New subscriptions wil be created for Eligible Account Config Sets with IDs: {0}.</value>
+    <value>[JA]New subscriptions will be created for Eligible Account Config Sets with IDs: {0}.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
     <value>[JA]Account '{0}' was loaded.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
-    <value>[JA]Loading Account with ID {0}…</value>
+    <value>[JA]Loading Account with ID {0}...</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
     <value>[JA]Applied Account Config Sets with IDs: {0} were found for the account.</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
-    <value>[JA]Loading Account Config Sets that were applied for the account…</value>
+    <value>[JA]Loading Account Config Sets that were applied for the account...</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
     <value>[JA]Account Config Sets with IDs: {0} were found as eligible for the account.</value>
@@ -853,13 +854,13 @@
     <value>[JA]Some Eligible Account Config Sets have non-unique rank. Wrong Account Config Sets configuration.</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
-    <value>[JA]Loading Account Config Sets that are eligible for the account…</value>
+    <value>[JA]Loading Account Config Sets that are eligible for the account...</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
     <value>[JA]Modification of account properties is finished.</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
-    <value>[JA]Starting account properties modification…</value>
+    <value>[JA]Starting account properties modification...</value>
   </data>
   <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
     <value>[JA]Fail to modify property '{0}' by ACS {1}. Old value:'{2}'. New value:'{3}'.</value>
@@ -870,25 +871,46 @@
   <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
     <value>[JA]Property '{0}' was not found.</value>
   </data>
+  <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
+    <value>[JA]Fail to modify views of Account ID {0}.</value>
+  </data>
   <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
-    <value>[JA]Account was subscribed to '{0}'.</value>
+    <value>[JA] Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>[JA]Unable to subscribe account to '{0}'. Exception: {1}</value>
+    <value>[JA] Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[JA]Unable to terminated subscription to {0}. Exception: {1}</value>
+    <value>[JA]Unable to terminated subscription with ID {0}. Exception: {1}</value>
   </data>
   <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
     <value>[JA]Subscription to {0} was terminated.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
-    <value>[JA]Termination of existing subsciptions is finished.</value>
+    <value>[JA]Termination of existing subscriptions is finished.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
-    <value>[JA]Starting termination of existing subsciptions…</value>
+    <value>[JA]Starting termination of existing subscriptions...</value>
   </data>
   <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
     <value>[JA]Error on applying Account Configuration Sets for account {0}.</value>
+  </data>
+  <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
+    <value>[JA] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
+    <value>[JA] Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
+    <value>[JA] Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
+    <value>[JA] Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
+  </data>
+  <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
+    <value>[JA] {0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
+  </data>
+  <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
+    <value>[JA] Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
   </data>
 </root>

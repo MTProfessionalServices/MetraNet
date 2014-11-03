@@ -137,7 +137,7 @@
   </data>
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
     <value>[ES]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
-  </data>
+  </data>    
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
     <value>[ES]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
   </data>
@@ -158,6 +158,9 @@
   </data>
   <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
     <value>[ES] The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time (count = {2}). The Selection Criteria should be unique.</value>
+  </data>
+  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
+    <value>[ES]UDRC for PI ID={0} not set!</value>
   </data>
   <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
     <value>[ES]StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
@@ -188,7 +191,7 @@
   </data>
   <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
     <value>[ES]#{0}) Message: '{1}', Component: '{2}'</value>
-  </data>
+  </data>    
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[ES]Error on saving AccountConfigSet with Id {0}</value>
   </data>
@@ -218,7 +221,7 @@
   </data>
   <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
     <value>La cuenta del ascendiente era {0}, modificada a {1}. </value>
-  </data>
+  </data>    
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>[ES]Transaction {0} is of type {1}, but got a AlreadySettledException</value>
   </data>
@@ -308,7 +311,7 @@
   </data>
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
     <value>[ES]Error get account configuration set applied list</value>
-  </data>
+  </data>    
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>[ES]Got no response from {0}.</value>
   </data>
@@ -392,6 +395,9 @@
   </data>
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
     <value>[ES]Agreement template ID cannot be less than 0.</value>
+  </data>
+  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[ES]Error on termination Account Configuration Set</value>
   </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>Una cuenta no puede ser su propio gestor de facturación</value>
@@ -738,9 +744,6 @@
   <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
     <value>[ES]Unable to retrieve specification characteristic from system.</value>
   </data>
-  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-    <value>[ES]UDRC for PI ID={0} not set!</value>
-  </data>
   <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
     <value>[ES]An exception occurred </value>
   </data>
@@ -783,9 +786,6 @@
   <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
     <value>[ES]Transaction {0} was already submitted.</value>
   </data>
-  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[ES]Error on termination Account Configuration Set</value>
-  </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>[ES]Error update account configuration set</value>
   </data>
@@ -820,31 +820,31 @@
     <value>[ES]Applied Account Config Sets with IDs: {0} are not eligible for the account any more. Related subscriptions will be terminated.</value>
   </data>
   <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
-    <value>[ES]Account Config Sets with ID '{0}' was removed from Applied list.</value>
+    <value>[ES]Account Config Sets with IDs {0} were removed from Applied list.</value>
   </data>
   <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
-    <value>[ES]Creation of new subsciptions is finished.</value>
+    <value>[ES]Creation of new subscriptions is finished.</value>
   </data>
   <data name="ACS_CREATE_SUB_START" xml:space="preserve">
-    <value>[ES]Starting creation of new subsciptions…</value>
+    <value>[ES]Starting creation of new subscriptions...</value>
   </data>
   <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
-    <value>[ES]Account Config Sets with IDs: {0} are currently eligible for the account and were already applied.</value>
+    <value>[ES]Account Config Sets with IDs: {0} will be skipped. They are currently eligible for the account and were already applied.</value>
   </data>
   <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
-    <value>[ES]New subscriptions wil be created for Eligible Account Config Sets with IDs: {0}.</value>
+    <value>[ES]New subscriptions will be created for Eligible Account Config Sets with IDs: {0}.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
     <value>[ES]Account '{0}' was loaded.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
-    <value>[ES]Loading Account with ID {0}…</value>
+    <value>[ES]Loading Account with ID {0}...</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
     <value>[ES]Applied Account Config Sets with IDs: {0} were found for the account.</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
-    <value>[ES]Loading Account Config Sets that were applied for the account…</value>
+    <value>[ES]Loading Account Config Sets that were applied for the account...</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
     <value>[ES]Account Config Sets with IDs: {0} were found as eligible for the account.</value>
@@ -853,13 +853,13 @@
     <value>[ES]Some Eligible Account Config Sets have non-unique rank. Wrong Account Config Sets configuration.</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
-    <value>[ES]Loading Account Config Sets that are eligible for the account…</value>
+    <value>[ES]Loading Account Config Sets that are eligible for the account...</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
     <value>[ES]Modification of account properties is finished.</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
-    <value>[ES]Starting account properties modification…</value>
+    <value>[ES]Starting account properties modification...</value>
   </data>
   <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
     <value>[ES]Fail to modify property '{0}' by ACS {1}. Old value:'{2}'. New value:'{3}'.</value>
@@ -870,25 +870,46 @@
   <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
     <value>[ES]Property '{0}' was not found.</value>
   </data>
+  <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
+    <value>[ES]Fail to modify views of Account ID {0}.</value>
+  </data>
   <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
-    <value>[ES]Account was subscribed to '{0}'.</value>
+    <value>[ES] Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>[ES]Unable to subscribe account to '{0}'. Exception: {1}</value>
+    <value>[ES] Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[ES]Unable to terminated subscription to {0}. Exception: {1}</value>
+    <value>[ES]Unable to terminated subscription with ID {0}. Exception: {1}</value>
   </data>
   <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
     <value>[ES]Subscription to {0} was terminated.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
-    <value>[ES]Termination of existing subsciptions is finished.</value>
+    <value>[ES]Termination of existing subscriptions is finished.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
-    <value>[ES]Starting termination of existing subsciptions…</value>
+    <value>[ES]Starting termination of existing subscriptions...</value>
   </data>
   <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
     <value>[ES]Error on applying Account Configuration Sets for account {0}.</value>
+  </data>
+  <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
+    <value>[ES] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
+    <value>[ES] Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
+    <value>[ES] Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
+  </data>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
+    <value>[ES] Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
+  </data>
+  <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
+    <value>[ES] {0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
+  </data>
+  <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
+    <value>[ES] Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
   </data>
 </root>

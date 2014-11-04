@@ -5,7 +5,9 @@ using System.Xml.Linq;
 using MetraTech;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
+using MetraTech.NotificationEvents.EventHandler.Entities;
 using MetraTech.UI.Common;
+using MetraTech.NotificationEvents.EventHandler;
 
 
 /// <summary>
@@ -15,6 +17,11 @@ public class NotificationService
 {
   private const string _sqlQueriesPath = @"..\config\SqlCore\Queries\NotificationEvents";
   private static readonly Logger _logger = new Logger(String.Format("[{0}]", typeof(NotificationService)));
+
+  public static List<NotificationEventMetaDataDB> GetExisitingNotificationEventNames()
+  {
+    return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaData();
+  }
 
   public static void GetNotificationEvents(ref MTList<SQLRecord> notificationEvents, int accountID)
   {

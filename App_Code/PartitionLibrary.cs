@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -45,6 +46,11 @@ public class PartitionLibrary
   public static bool IsPartition
   {
     get { return PartitionData.isPartitionUser; }
+  }
+
+  public static Dictionary<string, Int32> RetrieveAllPartitions()
+  {
+    return AccountIdentifierResolver.GetAllPartitions();
   }
 
   public static PartitionData RetrievePartitionInformation(int? accId = 0)

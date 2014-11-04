@@ -678,4 +678,10 @@
     <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
         <value>Exibir fatura online</value>
     </data>
+    <data name="TEXT_CREATE_ACS" xml:space="preserve">
+    <value>Add OnBoard Template</value>
+  </data>
+  <data name="TEXT_AccountConfigSetsSubParams_LIST" xml:space="preserve">
+    <value>Sub. Params For OnBoard Templates</value>
+  </data>
 </root>

@@ -25,13 +25,13 @@ namespace MetraNet.AccountConfigSets
       public string AccountView { get; set; }
       public string PropertyName { get; set; }
       public string TypeName { get; set; }
-      public Type TypeObj { get; set; }      
+      public Type TypeObj { get; set; }
       public int MaxLength { get; set; }
 
-      public string Id 
-      { 
-        get { return String.Format("{0}-{1}", AccountView, PropertyName); } 
-        set {} 
+      public string Id
+      {
+        get { return String.Format("{0}-{1}", AccountView, PropertyName); }
+        set { }
       }
     }
 
@@ -91,12 +91,14 @@ namespace MetraNet.AccountConfigSets
     }
 
     protected AccountConfigSet CurrentAccountConfigSet;
+    protected AccountConfigSet CurrentAccountConfigSetSubParams;
 
     private string _mode;
 
     public bool IsViewMode { get { return _mode == "VIEW"; } }
 
     protected int CurrentAccountConfigSetId;
+    protected int CurrentAccountConfigSetSubParamsId;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -236,6 +238,16 @@ namespace MetraNet.AccountConfigSets
       {
         SetError(exp.Message);
       }
+    }
+
+    protected void btnSelectSubParams_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnRemoveSubParams_Click(object sender, EventArgs e)
+    {
+
     }
 
     protected void btnGoToUpdateAccountConfigSet_Click(object sender, EventArgs e)
@@ -417,8 +429,10 @@ namespace MetraNet.AccountConfigSets
 
       HiddenAccountViewPropertyData.Value = EncodeAccountViewPropertiesDataForHiddenControl(AccountViewPropertiesData);
       HiddenAccountViews.Value = EncodeAccountViewForHiddenControl(AccountViews);
+
+      MTPanelSubscriptionParameters.Visible = IsViewMode;
     }
-   
+
     private void LoadAccountConfigSetToControls()
     {
       MTtbAcsDescription.Text = CurrentAccountConfigSet.Description;
@@ -487,7 +501,7 @@ namespace MetraNet.AccountConfigSets
         return String.Empty;
       const string accountStr = "{5}'AccountView': '{0}', 'PropertyName': '{1}', 'TypeName': '{2}', 'MaxLength': '{3}', 'Id': '{4}'{6}";
 
-      var hiddenValue = values.Aggregate("[", (current, val) => current + string.Format(CultureInfo.CurrentCulture, accountStr, val.AccountView, val.PropertyName, val.TypeName, val.MaxLength, val.Id,"{", "},"));
+      var hiddenValue = values.Aggregate("[", (current, val) => current + string.Format(CultureInfo.CurrentCulture, accountStr, val.AccountView, val.PropertyName, val.TypeName, val.MaxLength, val.Id, "{", "},"));
       hiddenValue = hiddenValue.Substring(0, hiddenValue.Length - 1);
       return hiddenValue + "]";
     }

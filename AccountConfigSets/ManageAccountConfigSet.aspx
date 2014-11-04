@@ -11,12 +11,12 @@
     meta:resourcekey="panelAccountConfigSetParameters">
     <div>
     <MT:MTTextBoxControl ID="MTtbAcsDescription" AllowBlank="True" ControlWidth="560"
-        LabelWidth="120" runat="server" meta:resourcekey="tbAcsDescriptionResource"/>
+        LabelWidth="120" MaxLength="200" runat="server" meta:resourcekey="tbAcsDescriptionResource"/>
     </div>
     <div>
     <div id="leftColumn1" class="LeftColumn">
       <MT:MTTextBoxControl ID="MTtbRank" AllowBlank="True" LabelWidth="120" runat="server"
-       meta:resourcekey="tbRankResource" Text="0"/>
+       meta:resourcekey="tbRankResource" Text="1" MaxLength="15" />
       <MT:MTCheckBoxControl ID="MTcbAcsEnabled" runat="server" LabelWidth="120" ReadOnly="False"
         meta:resourcekey="cbAcsEnabledResource"/>
     </div>
@@ -37,31 +37,31 @@
     <div id="PlaceHolderPropertiesToSet" class="RightColumn">
     </div>
   </MT:MTPanel>
-  <MT:MTPanel ID="MTPanelSubscriptionParameters" runat="server" Collapsible="True"
-    Collapsed="True" meta:resourcekey="panelSubscriptionParametersResource">
-    <%--div style="width: 720px" class="x-panel-btns x-panel-btns-center">
-      <div style="text-align: center; width: 25%; margin: auto;">
+  <MT:MTPanel ID="MTPanelManageSubscriptionParameters" runat="server" Collapsible="True"
+    meta:resourcekey="panelManageSubscriptionParametersResource">
+    <div  class="LeftColumn">
+      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="False"
+          LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsId"/>
+    </div>   
+    <div  class="RightColumn">      
         <table>
           <tr>            
             <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnSelectSubParams" runat="server" OnClientClick="return getDataGrids();"
-                OnClick="btnAddAccountConfigSet_Click" TabIndex="150" meta:resourcekey="btnAddAccountConfigSetResource" />
+              <MT:MTButton ID="MTbtnSelectSubParams" runat="server" OnClientClick="return selectSubParams();"
+                OnClick="btnSelectSubParams_Click" TabIndex="150" meta:resourcekey="btnSelectSubParamsResource" />
             </td>
             <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnRemoveSubParams" runat="server" OnClientClick="return getConvertApprove();"
-                OnClick="btnUpdateAccountConfigSet_Click" Visible="False" TabIndex="150" meta:resourcekey="btnUpdateAccountConfigSetResource" />
-            </td>
-            <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTButton3" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
-                TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
-            </td>
+              <MT:MTButton ID="MTbtnRemoveSubParams" runat="server" OnClientClick="return removeSubParams();"
+                OnClick="btnRemoveSubParams_Click" Visible="True" TabIndex="150" meta:resourcekey="btnRemoveSubParamsResource" />
+            </td>            
           </tr>
-        </table>
-      </div>
-    </div>--%>
-    <div id="leftColumn2" class="LeftColumn">
-       <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="False"
-        LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsId"/>
+        </table>      
+    </div>  
+    
+    </MT:MTPanel>
+  <MT:MTPanel ID="MTPanelSubscriptionParameters" runat="server" Collapsible="True"
+    Collapsed="True" meta:resourcekey="panelSubscriptionParametersResource">    
+    <div id="leftColumn2" class="LeftColumn">      
        <MT:MTTextBoxControl ID="MTtbSubParamsDescription" AllowBlank="True" ReadOnly="True" 
         LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsDescriptionResource"/>
        <MT:MTTextBoxControl ID="MTtbSubParamsPo" AllowBlank="True" ReadOnly="True"
@@ -133,7 +133,8 @@
       Ext.onReady(function () {
         selectionCriteriaGrid.render(window.Ext.get('PlaceHolderSelectionCriteria'));
         propertiesToSetGrid.render(window.Ext.get('PlaceHolderPropertiesToSet'));   
-        udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));  
+        if(udrcStore.getCount()>0)
+           udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));  
       });
 
       function loadFromPostback(hidden, store, data, dataDetails) {
@@ -631,7 +632,7 @@
       ];
 
       if (!isViewMode)
-        propertiesToSetColumns.push({ header: textPropertiesToSetGridTitle, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: propertiesToSetActionsRenderer });
+        propertiesToSetColumns.push({ header: textPropertiesToSetActions, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: propertiesToSetActionsRenderer });
 
       var propertiesToSetGrid = new Ext.grid.EditorGridPanel({
         ds: propertiesToSetStore,
@@ -693,7 +694,6 @@
         return true;
       }
     </script>
-
     <%-- UDRC Grid--%>
     <script language="javascript" type="text/javascript">
       var udrcData = { UDRCs: [] };
@@ -809,45 +809,53 @@
 //      }
     </script>
 
-   <%-- <%-- Product Offering Grid--
+    <%-- Subscription Parameters--%>
   <script language="javascript" type="text/javascript">
-    var piData = { pi: [] };
 
-    var piRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record      
-      { name: 'PriceableItemId' },
-      { name: 'Name' },
-      { name: 'DisplayName' }
-    ]);
-
-    var piStore = new Ext.data.GroupingStore({
-      root: 'pi',
-      fields: piRecord,
-      groupField: 'PriceableItemId'
-    });
-
-    function addItemToPIs(items) {
-      for (var i = 0; i < items.length; i++) {
-        var piId = items[i].PriceableItemId;                
-        
-        var myNewRecord = new piRecord({                    
-          PriceableItemId: piId,
-          Name: items[i].Name,
-          DisplayName: items[i].DisplayName,          
-        });
-
-        piStore.add(myNewRecord);        
-      }
+    function selectSubParams() {
+      ShowSubParamsSelector('addSubParamsCallback', 'Frame');
     }
 
-    function getPoIds() {
-      records = piStore.data.items;
-      piData.pi.length = 0;
-      for (var i = 0; i < records.length; i++)
-        piData.pi.push(records[i].data);
+    //this will be called when accts are selected
+    function addSubParamsCallback(ids) {      
+      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;        
+      //window.CallServer(JSON.stringify({ poIds: poData.poIds }));
+//      subParamsSelectorWin2.hide();
+//      subParamsSelectorWin2 = null;
+    }
 
-      window.Ext.get("<%=HiddenPis.ClientID %>").dom.value = piData.pi.length > 0 ? window.Ext.encode(piData.pi) : "";
-      return true;
-    }    
+    function ShowSubParamsSelector(functionName, target) {
+      if (window.subParamsSelectorWin2 == null || window.subParamsSelectorWin2 == undefined ||
+        target != window.lastTarget2 || functionName != window.lastFunctionName2) {
+        window.subParamsSelectorWin2 = new top.Ext.Window({
+          title: '<%=GetLocalResourceObject("SELECT_SUBPARAMS")%>',
+          width: 700,
+          height: 500,
+          minWidth: 300,
+          minHeight: 200,
+          layout: 'fit',
+          plain: true,
+          bodyStyle: 'padding:5px;',
+          buttonAlign: 'center',
+          collapsible: true,
+          resizeable: true,
+          maximizable: false,
+          closable: true,
+          closeAction: 'close',
+          html: '<iframe id="subParamsSelectorWin2" src="/MetraNet/AccountConfigSets/AccountConfigSetSubscriptionParamsList.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
+        });
+      }
+      if (window.subParamsSelectorWin2 != null) {
+        window.subParamsSelectorWin2.hide();
+      }
+      window.lastTarget2 = target;
+      window.lastFunctionName2 = functionName;
+      window.subParamsSelectorWin2.show();
+
+      window.subParamsSelectorWin2.on('close', function () {
+        window.subParamsSelectorWin2 = null;
+      });
+    }
+
   </script>
-  --%>
 </asp:Content>

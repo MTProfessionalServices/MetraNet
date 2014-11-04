@@ -677,5 +677,11 @@
   </data>
   <data name="TEXT_SEARCH" xml:space="preserve">
     <value>Search</value>
+    <data name="TEXT_CREATE_ACS" xml:space="preserve">
+    <value>Add OnBoard Template</value>
+  </data>
+  <data name="TEXT_AccountConfigSetsSubParams_LIST" xml:space="preserve">
+    <value>Sub. Params For OnBoard Templates</value>
+  </data>
   </data>
 </root>

@@ -19,21 +19,18 @@ from t_usage_interval ui
 where ui.id_interval = @id_interval)
 
 (select 'Open' as [Status], COUNT(*) as [Count] from t_failed_transaction ft
-join t_acc_usage_cycle cycle on cycle.id_acc = ft.id_PossiblePayeeID
-where ft.State = 'N' 
-and cycle.id_usage_cycle = @interval_type
+inner join t_acc_usage_cycle cycle on cycle.id_acc = ft.id_PossiblePayeeID
+where ft.State = 'N' and cycle.id_usage_cycle = @interval_type
 and (ft.dt_FailureTime >= @interval_start and ft.dt_FailureTime <= @interval_end))
 Union (
 select 'Under Investigation' as [Status], COUNT(*) as [Count] from t_failed_transaction ft
-join t_acc_usage_cycle cycle on cycle.id_acc = ft.id_PossiblePayeeID
-where ft.State = 'I'
-and cycle.id_usage_cycle = @interval_type
+left outer join t_acc_usage_cycle cycle on cycle.id_acc = ft.id_PossiblePayeeID
+where ft.State = 'I' and (cycle.id_usage_cycle = @interval_type or ft.id_PossiblePayerID = -1)
 and (ft.dt_FailureTime >= @interval_start and ft.dt_FailureTime <= @interval_end))
 Union (
 select 'Fixed' as [Status], COUNT(*) as [Count]   from t_failed_transaction ft
-join t_acc_usage_cycle cycle on cycle.id_acc = ft.id_PossiblePayeeID
-where ft.State = 'R'
-and cycle.id_usage_cycle = @interval_type
+left outer join t_acc_usage_cycle cycle on cycle.id_acc = ft.id_PossiblePayeeID
+where ft.State = 'R' and (cycle.id_usage_cycle = @interval_type or ft.id_PossiblePayerID = -1)
 and (ft.dt_FailureTime >= @interval_start and ft.dt_FailureTime <= @interval_end))
 Union (
 select 'Unguided' as [Status], COUNT(*) as [Count]  from t_failed_transaction ft

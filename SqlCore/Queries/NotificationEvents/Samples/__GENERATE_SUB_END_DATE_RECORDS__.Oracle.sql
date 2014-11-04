@@ -1,7 +1,7 @@
 WITH 
 constants AS ( SELECT 
     10 AS NOTIFICATION_DAYS, /*Number of days before the subscription expires*/
-    20 AS SUBSCRIPTION_WINDOW
+    90 AS SUBSCRIPTION_WINDOW /*Number of days between the date of subscription creation/update and its expiration*/
     FROM DUAL
 )
 SELECT

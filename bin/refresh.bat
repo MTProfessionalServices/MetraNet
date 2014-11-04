@@ -134,6 +134,8 @@ copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Application.dll %ROOTDIR%\MetraTech\UI\M
 copy %MTOUTDIR%\%VERSION%\bin\EntityFramework.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.CreditNotes.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.NotificationEvents.EventHandler.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
+
 IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\da MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\da
 IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\de MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\de
 IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\en MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\en

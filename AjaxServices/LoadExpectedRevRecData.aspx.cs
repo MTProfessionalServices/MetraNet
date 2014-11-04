@@ -8,12 +8,13 @@ using MetraTech.Presentation.Reports;
 using MetraTech.UI.Common;
 using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
 
-public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
+public partial class AjaxServices_LoadExpectedRevRecData : MTListServicePage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
       Response.End();
+
     try
     {
       var items = new MTList<RevRecModel>();
@@ -30,7 +31,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
       var accountingCycleIdLinq = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "AccountingCycleId");
       var accountingCycleId = (accountingCycleIdLinq == null ? "" : accountingCycleIdLinq.Value.ToString().Replace("%", ""));
 
-      var revRec = new DeferredRevenueHelper().GetRevRec(currency, revenueCode, deferredRevenueCode, productId, accountingCycleId, 0);
+      var revRec = new DeferredRevenueHelper().GetExpectedRevRec(currency, revenueCode, deferredRevenueCode, productId, accountingCycleId, 0);
       items.Items.AddRange(revRec);
       if (Page.Request["mode"] == "csv")
       {
@@ -49,7 +50,7 @@ public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
         Response.Write(json);
       }
     }
-    catch(Exception ex)
+    catch (Exception ex)
     {
       Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
       throw;

@@ -349,7 +349,7 @@
     <value>This discount is applied to the \"amount\" associated with the Decision Type.  Any fields that are derived from \"amount\" are then recalculated.&lt;br/&gt;&lt;br/&gt;The discount might be applied to only a portion of the amount if your Decision Type aggregates usage. &lt;br/&gt;&lt;br/&gt;Example: The range start is \"500 minutes\" and the total is currently \"400 minutes\".  The Decision processes a record with \"300 minutes\".  \"100 minutes\" fall outside the range and \"200 minutes\" fall inside the range.  If the discount is 5%, then \"amount\" is decreased by 0.05 x (200/300).</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-        <value></value>
+    <value />
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
     <value>This new rate is applied by setting the \"amount\" associated with the Decision Type to this new value.  Any fields that are derived from \"amount\" are then recalculated.&lt;br/&gt;Example:  After the range is met, \"the toll cost is $0.75\" or \"the call costs $1, regardless of the number of minutes\".</value>

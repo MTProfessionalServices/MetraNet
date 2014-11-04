@@ -349,7 +349,7 @@
         <value>Cette remise s’applique au \"montant\" associé au type de décision.  Toute zone dérivée de la zone \"montant\" est ensuite recalculée.&lt;br/&gt;&lt;br/&gt;La remise peut s’appliquer uniquement à une partie du montant si votre type de décision inclut l’agrégation de l’utilisation. &lt;br/&gt;&lt;br/&gt;Exemple : le début de la plage est \"500 minutes\" et le total actuel est égal à \"400 minutes\".  La décision traite un enregistrement comportant \"300 minutes\".  \"100 minutes\" est hors de la plage et \"200 minutes\" est dans la plage.  Si la remise est de 5 %, le \"montant\" est réduit de 0,05 x (200/300).</value>
     </data>
     <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-        <value></value>
+    <value />
     </data>
     <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
         <value>Ce nouveau prix s’applique via la définition de la zone \"montant\" associée au type de décision en spécifiant la nouvelle valeur. Toutes les zones dérivées de la zone \"montant\" sont ensuite recalculées.&lt;br/&gt;Exemple :  une fois la plage atteinte, \"le coût de l’appel est 0,75 $\" ou \"l’appel coûte 1 $, quel que soit le nombre de minutes\".</value>

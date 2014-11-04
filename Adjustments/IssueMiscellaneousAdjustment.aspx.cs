@@ -514,28 +514,45 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
     private bool IsAllowedCreate(decimal totalAmount)
     {
-        bool allowed = false;
-        if (!UI.SessionContext.SecurityContext.IsSuperUser())
+      var allowed = true;
+      if (!UI.SessionContext.SecurityContext.IsSuperUser())
+      {
+        var conditions = GetMaxCapabilityAmount().Split(',');
+        for (var i = 0; allowed && i < conditions.Length; i++)
         {
-            string max = GetMaxCapabilityAmount();
-            string[] data = max.Split(' ');
-            int last = data.Length - 2;
-            // Build expression to have the DataTable evaluation based on the adjustment amount allowed
-            // != not supported and needs to be passed as <>
-            string op = data[last - 1];
-            if (op.Equals("!="))
-                op = "<>";
-            string expr = String.Format("{0}{1}{2}", totalAmount.ToString(CultureInfo.InvariantCulture), op, Convert.ToDecimal(data[last]).ToString(CultureInfo.InvariantCulture));
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("col1", typeof(bool), expr);
-            dataTable.Rows.Add(new object[] { });
-            object result = dataTable.Rows[0][0];
-            allowed = System.Convert.ToBoolean(result);
+          Func<decimal, decimal, bool> expression;
+          string[] data = conditions[i].Trim().Split(' ');
+          string op = data[data.Length - 3];
+          switch (op)
+          {
+            case "=":
+              expression = (x, y) => x == y;
+              break;
+            case "<>":
+            case "!=":
+              expression = (x, y) => x != y;
+              break;
+            case ">":
+              expression = (x, y) => x > y;
+              break;
+            case ">=":
+              expression = (x, y) => x >= y;
+              break;
+            case "<":
+              expression = (x, y) => x < y;
+              break;
+            case "<=":
+              expression = (x, y) => x <= y;
+              break;
+            default:
+              expression = (x, y) => false;
+              break;
+          }
+          allowed = expression(totalAmount, Convert.ToDecimal(data[data.Length - 2]));
         }
-        else
-            allowed = true;
+      }
 
-        return allowed;
+      return allowed;
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)

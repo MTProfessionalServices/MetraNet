@@ -564,9 +564,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 var lastBatchInfo = json["Items"];
                 if (lastBatchInfo[0] != null) {
                     var timediff = lastBatchInfo[0]["time diff"];
-                      var lastbatchdate = lastBatchInfo[0]["date"];
-                     var lastbatchtime = lastBatchInfo[0]["time"];
-                     var lastbatchid = lastBatchInfo[0]["batchid"];
+                    var lastbatchdatetime = lastBatchInfo[0]["datetime"];
+                    var lastbatchid = lastBatchInfo[0]["batchid"];
                   
                      var valueClass = "clshasvalue";
 
@@ -580,7 +579,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                   var txtLastBatch = d3.select("#<%=txtLastBatch.ClientID%>");
                   
 
-                  txtLastBatch.text(lastbatchdate + " " +  lastbatchtime)
+                  txtLastBatch.text(RenderDate(lastbatchdatetime, DATE_TIME_RENDERER))
                             .style("cursor","pointer")
                             .attr("class",valueClass)
                             .on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
@@ -843,7 +842,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			        .transitionDuration(0)
               .group(countGroup)
   //          .xAxisPadding(15)
-              .gap(10)
+              .gap(17)
               .x(d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"]))
 			        .xUnits(dc.units.ordinal)
               .centerBar(false)

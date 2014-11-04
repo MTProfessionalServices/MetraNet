@@ -842,7 +842,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			        .transitionDuration(0)
               .group(countGroup)
   //          .xAxisPadding(15)
-              .gap(10)
+              .gap(17)
               .x(d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"]))
 			        .xUnits(dc.units.ordinal)
               .centerBar(false)

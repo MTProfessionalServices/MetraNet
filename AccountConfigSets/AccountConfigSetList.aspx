@@ -101,6 +101,12 @@
 
       if (entityIds.length == 0)
       {
+         top.Ext.Msg.show({
+                         title:TEXT_ERROR_MSG,
+                         msg: TEXT_ERROR_SELECT,
+                         buttons: Ext.Msg.OK,               
+                         icon: Ext.MessageBox.ERROR
+                     });                   
         return;
       }
 
@@ -129,6 +135,12 @@
 
       if (entityIds.length == 0)
       {
+         top.Ext.Msg.show({
+                         title:TEXT_ERROR_MSG,
+                         msg: TEXT_ERROR_SELECT,
+                         buttons: Ext.Msg.OK,               
+                         icon: Ext.MessageBox.ERROR
+                     }); 
         return;
       }
 

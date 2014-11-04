@@ -442,19 +442,28 @@
 
         var newCriterionId = accountView + "-" + property;
 
-        var foundOldCriterionId = selectionCriteriaStore.find('CriterionId', oldCriterionId);
+        var foundOldCriterionId = -1;
+        if (type == 'SelectionCriteria')
+          foundOldCriterionId = selectionCriteriaStore.find('CriterionId', oldCriterionId);
+
+        if (type == 'PropertyToSet')
+          foundOldCriterionId = propertiesToSetStore.find('CriterionId', oldCriterionId);
         
         if (foundOldCriterionId > -1) //remove already existed item for update case
           {
             if (type == 'SelectionCriteria')
               removeSelectionCriterion(oldCriterionId);
 
-            if (type == 'PropertyToSet') {
-              removePropertyToSet(oldCriterionId);
-            }         
+            if (type == 'PropertyToSet') 
+              removePropertyToSet(oldCriterionId);                     
           }
 
-        var foundNewCriterionId = selectionCriteriaStore.find('CriterionId', newCriterionId);
+        var foundNewCriterionId = -1;
+        if (type == 'SelectionCriteria')
+          foundNewCriterionId = selectionCriteriaStore.find('CriterionId', oldCriterionId);
+
+        if (type == 'PropertyToSet')
+          foundNewCriterionId = propertiesToSetStore.find('CriterionId', oldCriterionId);
 
         if (foundNewCriterionId == -1) {  //add new item          
           var newPropertyValueRecord = new propertyValueRecord({
@@ -523,6 +532,7 @@
       var selectionCriteriaGrid = new Ext.grid.EditorGridPanel({
         ds: selectionCriteriaStore,
         columns: selectionCriteriaColumns,
+        enableHdMenu : false,
         tbar: selectionCriteriaToolBar,
         stripeRows: true,
         height: GRID_HEIGHT,
@@ -625,7 +635,8 @@
 
       var propertiesToSetGrid = new Ext.grid.EditorGridPanel({
         ds: propertiesToSetStore,
-        columns: propertiesToSetColumns,
+        columns: propertiesToSetColumns,        
+        enableHdMenu : false,
         tbar: propertiesToSetToolBar,
         stripeRows: true,
         height: GRID_HEIGHT,

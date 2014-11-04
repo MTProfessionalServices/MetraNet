@@ -1,11 +1,9 @@
 SELECT s1.BATCHID,
-       s1."DATE",
-       s1."TIME",
+       s1."DATETIME",
        TRUNC((s1.LastRunDate - s2.PrevRunDate) * 24 * 60)
 FROM   (
            SELECT id_batch AS BATCHID,
-                  to_char(dt_crt, 'MON DD') AS "DATE",
-                  to_char(dt_crt, 'FMHH:MI PM') AS "TIME",
+                  dt_crt AS "DATETIME",                  
                   dt_crt AS LastRunDate
            FROM   t_batch
            WHERE  (n_completed + n_failed + n_dismissed) > 0

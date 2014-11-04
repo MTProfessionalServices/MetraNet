@@ -24,7 +24,10 @@
     var textEdit = '<%=GetGlobalResourceObject("JSConsts", "TEXT_EDIT")%>';
     var textDelete = '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE")%>';
     var textTerminate = '<%=GetGlobalResourceObject("JSConsts", "TEXT_TERMINATE")%>';
-    var textView = '<%=GetGlobalResourceObject("JSConsts", "TEXT_VIEW")%>';    
+    var textView = '<%=GetGlobalResourceObject("JSConsts", "TEXT_VIEW")%>';
+    var textRankUp = '<%=GetLocalResourceObject("MOVE_RANK_UP")%>';
+    var textRankDown = '<%=GetLocalResourceObject("MOVE_RANK_DOWN")%>';
+    var emptyElement = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
     
     OverrideRenderer_<%=AccountConfigSetListGrid.ClientID%> = function(cm) {
       cm.setRenderer(cm.getIndexById('Actions'), actionsColumnRenderer);
@@ -42,11 +45,34 @@
       
       // Delete ACS     
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textDelete));
+
+      if (record.data.Enabled)
+        // Terminate ACS
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onTerminate('{0}')\"><img src=\"/Res/Images/icons/stop2.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textTerminate));
+      else
+        str += emptyElement;
       
-      if(record.data.Enabled)
-      // Terminate ACS     
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onTerminate('{0}')\"><img src=\"/Res/Images/icons/stop2.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textTerminate));
-      
+      // Rank Up & Down
+      var indexOfRecord = record.store.indexOfId(record.id);
+
+      var prevRecord = record.store.getAt(indexOfRecord - 1);
+      if (prevRecord == null || prevRecord == undefined) {
+        str += emptyElement;
+      } else {
+        var prevEntityId = prevRecord.data.AcsId;
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"rankUp\" href=\"javascript:onExchangeRanks('{0}','{1}')\"><img src=\"/Res/Images/icons/arrow-up.png\" title=\"{2}\" alt=\"{2}\"/></a>",
+          entityId, prevEntityId, String.escape(textRankUp));
+      }
+
+      var nextRecord = record.store.getAt(indexOfRecord + 1);
+      if (nextRecord == null || nextRecord == undefined) {
+        str += emptyElement;
+      } else {
+        var nextEntityId = nextRecord.data.AcsId;
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"rankDown\" href=\"javascript:onExchangeRanks('{0}','{1}')\"><img src=\"/Res/Images/icons/arrow-down.png\" title=\"{2}\" alt=\"{2}\"/></a>",
+          entityId, nextEntityId, String.escape(textRankDown));
+      }
+
       return str;
     }
 
@@ -54,6 +80,10 @@
       document.location.href = "ManageAccountConfigSet.aspx?mode=ADD";
     }
     
+    function onExchangeRanks(entityId1, entityId2) {
+      window.CallServer(JSON.stringify({ action: 'exchangeRanks', entityId1: entityId1, entityId2: entityId2 }));
+    }
+
     function onDelete(entityId) {
       top.Ext.MessageBox.show({
         title: textDelete,

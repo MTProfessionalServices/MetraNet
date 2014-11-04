@@ -72,6 +72,13 @@ namespace MetraNet.AccountConfigSets
               result = TerminateAcs(entityIds);
               break;
             }
+          case "exchangeRanks":
+            {
+              var entityId1 = int.Parse(value["entityId1"], CultureInfo.InvariantCulture);
+              var entityId2 = int.Parse(value["entityId2"], CultureInfo.InvariantCulture);
+              result = ExchangeRanks(entityId1, entityId2);
+              break;
+            }
         }
 
       }
@@ -96,6 +103,31 @@ namespace MetraNet.AccountConfigSets
     public string GetCallbackResult()
     {
       return _callbackResult;
+    }
+
+    private object ExchangeRanks(int acsId1, int acsId2)
+    {
+      object result;
+      try
+      {
+        using (var client = new AccountConfigurationSetServiceClient())
+        {
+          if (client.ClientCredentials != null)
+          {
+            client.ClientCredentials.UserName.UserName = UI.User.UserName;
+            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          }
+          client.ExchangeRanks(acsId1, acsId2);
+          result = new { result = "ok" };
+        }
+      }
+      catch (FaultException<MASBasicFaultDetail> ex)
+      {
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+      }
+
+      return result;
     }
 
     private object DeleteAcs(IEnumerable<int> entityIds)

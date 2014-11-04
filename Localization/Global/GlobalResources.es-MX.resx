@@ -255,6 +255,9 @@
     <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
         <value>[es-MX]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
     </data>
+    <data name="ACS_VALIDATION_INVALID_RANK_VALUE" xml:space="preserve">
+        <value>[es-MX]Rank should be &gt; 0. Rank value: {0}.</value>
+    </data>
     <data name="ACS_VALIDATION_MandatoryProperty_CantBeEmptyOrNull" xml:space="preserve">
         <value>[es-MX] The mandatory '{0}' property can't be empty or null. </value>
     </data>

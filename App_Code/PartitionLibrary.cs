@@ -110,7 +110,7 @@ public class PartitionLibrary
     if (forSubscription)
       partitionData = RetrievePartitionInformation(UI.Subscriber.SelectedAccount._AccountID);
     else
-      partitionData = (PartitionData)UI.User.GetData("PartitionData");
+      partitionData = (PartitionData) UI.User.GetData("PartitionData");
 
     var filterElementName = "POPartitionId";
     if (filtertype.ToUpper() != "PO")
@@ -121,25 +121,32 @@ public class PartitionLibrary
     {
       throw new ApplicationException(
         string.Format("Can't find element named {1} on the FilterGrid layout. Has the layout '{0}' been tampered with?",
-          grid.TemplateFileName, filterElementName));
+                      grid.TemplateFileName, filterElementName));
     }
 
     if (partitionData.isPartitionUser)
     {
       grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, partitionData.PartitionName);
-      gdel.FilterReadOnly = true;
     }
-    else
-      gdel.FilterReadOnly = false;
 
     gdel.FilterHideable = true;
-    gdel.ElementValue = filtertype.ToUpper() == "PL"? partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture)
-                                                    : (filtertype.ToUpper() != "PO" ? partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture)
-                                                                                    : partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture));
 
-    if (gdel.ElementValue == "1")
+    if (partitionData.isPartitionUser || forSubscription)
     {
-      gdel.ElementValue = "";
+      gdel.FilterReadOnly = true;
+      gdel.FilterOperation = MTFilterOperation.Equal;
+      gdel.ElementValue = filtertype.ToUpper() == "PL"
+                            ? partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture)
+                            : (filtertype.ToUpper() != "PO"
+                                 ? partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture)
+                                 : partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture));
+    }
+    else
+    {
+      gdel.FilterReadOnly = false;
+      // List all (partition and non-partition) product offerings except Master PO for non-partition system user
+      gdel.FilterOperation = MTFilterOperation.NotEqual;
+      gdel.ElementValue = "0";
     }
   }
 

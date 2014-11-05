@@ -31,7 +31,7 @@ public class NotificationService
     notificationEventPropValues.PageSize = notificationEvents.PageSize;
     notificationEventPropValues.CurrentPage = notificationEvents.CurrentPage;
     notificationEventPropValues.SortCriteria = notificationEvents.SortCriteria;
-
+    notificationEventPropValues.Filters = notificationEvents.Filters;
     GetNotificationEventPropertyValuesXml(ref notificationEventPropValues, accountID);
 
     PopulateNotificationEvents(notificationEventPropValues, notificationEvents);

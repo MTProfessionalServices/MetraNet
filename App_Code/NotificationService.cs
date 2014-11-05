@@ -59,6 +59,7 @@ public class NotificationService
       }
       notificationEvents.Items.Add(record);
     }
+    notificationEvents.TotalRows = notificationEventPropValues.TotalRows;
   }
 
 

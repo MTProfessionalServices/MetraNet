@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Debug.Diagnostics;
@@ -7,13 +6,17 @@ using MetraTech.UI.Common;
 
 public partial class Notifications_AjaxServices_NotificationService : MTListServicePage
 {
-  private const int MAX_RECORDS_PER_BATCH = 100;
+  private string PrependTotalRowsToJson(int totalRows, String json)
+  {
+    if (String.IsNullOrEmpty(json))
+      return json;
+
+    return json.Replace("{\"Items\":", "{\"TotalRows\":" + totalRows + ",\"Items\":");
+  }
 
   protected void Page_Load(object sender, EventArgs e)
   {
     Logger.LogInfo("Getting list of Notifications");
-    int pageSize = Convert.ToInt32(Request.Params["pageSize"]);
-    int currentPage = Convert.ToInt32(Request.Params["currentPage"]);
 
     using (new HighResolutionTimer("NotificationService", 10000))
     {
@@ -22,11 +25,9 @@ public partial class Notifications_AjaxServices_NotificationService : MTListServ
         MTList<SQLRecord> listOfNotificationEvents = new MTList<SQLRecord>();
 
         listOfNotificationEvents.SortCriteria.Add(new SortCriteria("dt_crt", SortType.Descending));
-        listOfNotificationEvents.PageSize = (pageSize == 0) ? MAX_RECORDS_PER_BATCH : pageSize;
-        listOfNotificationEvents.CurrentPage = (currentPage == 0) ? 1 : currentPage;
-        
-        NotificationService.GetNotificationEvents(ref listOfNotificationEvents, UI.User.AccountId);
+        SetPaging(listOfNotificationEvents);
 
+        NotificationService.GetNotificationEvents(ref listOfNotificationEvents, UI.User.AccountId);
         if (listOfNotificationEvents.Items.Count == 0)
         {
           Response.Write("{\"Items\":[]}");
@@ -35,6 +36,8 @@ public partial class Notifications_AjaxServices_NotificationService : MTListServ
         }
 
         string json = VisualizeService.SerializeItems(listOfNotificationEvents);
+        json = PrependTotalRowsToJson(listOfNotificationEvents.TotalRows, json);
+
         Logger.LogInfo("Returning " + json);
         Response.Write(json);
         Response.End();

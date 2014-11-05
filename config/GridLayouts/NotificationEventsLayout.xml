@@ -5,7 +5,7 @@
         <LocalizationTag>GRID_TITLE</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
     </Title>
-    <Exportable>true</Exportable>
+    <Exportable>false</Exportable>
     <Height>400</Height>
     <Width>1030</Width>
     <Expandable>false</Expandable>
@@ -28,7 +28,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[]]></Value>
+        <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
+        <ResourceClassKey>Notifications\App_LocalResources\Notifications.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>

@@ -121,7 +121,7 @@
     <value>[JA]Date</value>
   </data>
   <data name="TEXT_NOTIFICATIONS_EVENT_TYPE" xml:space="preserve">
-    <value>[JA]Notifications event type</value>
+    <value>[JA]Type</value>
   </data>
   <data name="TEXT_NOTIFICATION_BODY" xml:space="preserve">
     <value>[JA]Notification</value>

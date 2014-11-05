@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="NO_RECORDS_TEXT" xml:space="preserve">
+    <value>[pt-BR]No records found.</value>
+  </data>
   <data name="TEXT_DATE" xml:space="preserve">
     <value>[pt-BR]Date</value>
   </data>

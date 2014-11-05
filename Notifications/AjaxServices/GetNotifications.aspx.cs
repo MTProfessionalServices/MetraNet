@@ -24,7 +24,8 @@ public partial class Notifications_AjaxServices_NotificationService : MTListServ
       {
         MTList<SQLRecord> listOfNotificationEvents = new MTList<SQLRecord>();
 
-        listOfNotificationEvents.SortCriteria.Add(new SortCriteria("dt_crt", SortType.Descending));
+        SetFilters(listOfNotificationEvents);
+        SetSorting(listOfNotificationEvents);
         SetPaging(listOfNotificationEvents);
 
         NotificationService.GetNotificationEvents(ref listOfNotificationEvents, UI.User.AccountId);

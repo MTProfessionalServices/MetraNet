@@ -409,10 +409,10 @@
                             <Icon>/Res/Images/Icons/add.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                                <Capability>Manage Account Configuration Set</Capability>
+                                <Capability>Manage OnBoard Templates</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
-						            <MenuItem>
+                        <MenuItem>
                             <ID>AccountConfigSetList</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_AccountConfigSets_LIST</LocalizationTag>
@@ -423,7 +423,7 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-								                  <Capability>Manage Account Configuration Set</Capability>                                
+                                <Capability>Manage OnBoard Templates</Capability>                                
                             </RequiredCapabilities>
                         </MenuItem>
                         <!-- <MenuItem>
@@ -437,7 +437,7 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-								                  <Capability>Manage Account Configuration Set</Capability>                                
+                                <Capability>Manage OnBoard Templates</Capability>                                
                             </RequiredCapabilities>
                         </MenuItem> -->
                     </MenuItems>

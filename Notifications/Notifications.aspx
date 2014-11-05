@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <div class="widget" data-row="6" data-col="1" data-sizex="8" data-sizey="3">
-  <MT:MTFilterGrid ID="NotificationsGrid" runat="server" TemplateFileName="NotificationEventsLayout.xml" ExtensionName="Account" Width="900"></MT:MTFilterGrid>
+  <MT:MTFilterGrid ID="NotificationsGrid" runat="server" TemplateFileName="NotificationEventsLayout.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
     <script type="text/javascript">
     var recentNotificationTpl;
@@ -23,7 +23,7 @@
         template = GROUP_SUBSCRIPTION_ENDING_TEMPLATE;
               recentNotificationTpl = new Ext.XTemplate(
               "<tpl>",
-                  '<p><div id="recennotification">' + template + '</div></p>',
+                  '<div id="recennotification">' + template + '</div>',
               '</tpl>'
                   );
       return recentNotificationTpl.applyTemplate(record.json);

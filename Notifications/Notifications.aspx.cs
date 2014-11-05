@@ -6,17 +6,29 @@ using MetraTech.UI.Controls;
 
 public partial class Notifications : MTPage
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
+  protected void Page_Load(object sender, EventArgs e)
+  {
 
-    }
-    protected override void OnLoadComplete(EventArgs e)
+  }
+
+  protected override void OnLoadComplete(EventArgs e)
+  {
+    NotificationsGrid.DataSourceURL =
+      @"/MetraNet/Notifications/AjaxServices/GetNotifications.aspx";
+    PopulateNotificationTypesDropDown();
+
+    // For Partition users, suppress the partition filter
+    if (PartitionLibrary.IsPartition)
     {
-        NotificationsGrid.DataSourceURL =
-            @"/MetraNet/Notifications/AjaxServices/GetNotifications.aspx";
-        PopulateNotificationTypesDropDown();
-        PopulatePartitionsDropDown();
+      NotificationsGrid.FindElementByID("id_partition").DefaultFilter = false;
+      NotificationsGrid.FindElementByID("id_partition").Filterable = false;
     }
+    else
+    {
+      PopulatePartitionsDropDown();
+    }
+
+  }
 
   protected void PopulateNotificationTypesDropDown()
   {
@@ -31,6 +43,7 @@ public partial class Notifications : MTPage
     }
 
   }
+
   protected void PopulatePartitionsDropDown()
   {
     Dictionary<string, Int32> partitions = PartitionLibrary.RetrieveAllPartitions();

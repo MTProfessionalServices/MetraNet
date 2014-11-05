@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="AccountConfigSetSubscriptionParamsList.aspx.cs" Inherits="MetraNet.AccountConfigSets.AccountConfigSetSubscriptionParamsList" Title="MetraNet - SubscriptionParamst for OnBoard templates" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
-
+<%@ Reference Page="~/AccountConfigSets/ManageAccountConfigSet.aspx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
   <MT:MTTitle ID="AccountConfigSetListTitle" Text="OnBoard Templates List" runat="server" meta:resourcekey="AccountConfigSetTitle" /><br />
@@ -26,7 +26,8 @@
       document.location.href = "ManageAccountConfigSetSubscriptionParams.aspx?mode=ADD";
     }
     
-    onOK_<%=AccountConfigSetListGrid.ClientID %> = function(){
+    onOK_<%=AccountConfigSetListGrid.ClientID %> = function()
+    {
      
       var records = grid_<%=AccountConfigSetListGrid.ClientID %>.getSelectionModel().getSelections();
       var ids = "";
@@ -46,7 +47,8 @@
           if(window.getFrameMetraNet().MainContentIframe.ticketFrame)
           {
             if(window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage)
-            {           
+            {
+           
               window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids);
             }
             else
@@ -66,14 +68,18 @@
         Ext.UI.msg(TEXT_ERROR_MSG, TEXT_CALLBACK_MSG_1 + TEXT_CALLBACK_MSG_2);      
       }
      
-      if(window.getFrameMetraNet().subParamsSelectorWin2 != null)
+      if(window.getFrameMetraNet().accountSelectorWin != null)
       {
-        window.getFrameMetraNet().subParamsSelectorWin2.hide();
-        window.getFrameMetraNet().subParamsSelectorWin2.close();
+        window.getFrameMetraNet().accountSelectorWin.close();
       }
-      
-      window.getFrameMetraNet().subParamsSelectorWin2 = null;
-    };
+
+      if(window.getFrameMetraNet().accountSelectorWin2 != null)
+      {
+        window.getFrameMetraNet().accountSelectorWin2.close();
+      }      
+      window.getFrameMetraNet().accountSelectorWin = null;
+      window.getFrameMetraNet().accountSelectorWin2 = null;           
+    };  
 
   </script>
 </asp:Content>

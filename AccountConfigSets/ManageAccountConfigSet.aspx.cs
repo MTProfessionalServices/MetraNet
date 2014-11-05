@@ -91,7 +91,7 @@ namespace MetraNet.AccountConfigSets
     }
 
     protected AccountConfigSet CurrentAccountConfigSet;
-    protected AccountConfigSet CurrentAccountConfigSetSubParams;
+    protected AccountConfigSetParameters CurrentAccountConfigSetSubParams;
 
     private string _mode;
 
@@ -127,16 +127,26 @@ namespace MetraNet.AccountConfigSets
     {
       object result;
       var serializer = new JavaScriptSerializer();
-      var value = serializer.Deserialize<Dictionary<string, string[]>>(eventArgument);
-      try
+      var value = serializer.Deserialize<Dictionary<string, string>>(eventArgument);
+      if (value["subParamsId"] == "-")
+        {
+          int? items = null;
+          result = new { result = "ok", items };
+        }         
+      else
       {
-        result = GetPriceableItemsResult(value["poIds"]);
+        try
+        {
+          CurrentAccountConfigSetSubParamsId = Convert.ToInt32(value["subParamsId"]);
+          result = GetSubscriptionParametersResult(CurrentAccountConfigSetSubParamsId);
+        }
+        catch (Exception ex)
+        {
+          Logger.LogError(ex.Message);
+          result = new { result = "error", errorMessage = ex.Message };
+        }
       }
-      catch (Exception ex)
-      {
-        Logger.LogError(ex.Message);
-        result = new { result = "error", errorMessage = ex.Message };
-      }
+
       if (result != null)
       {
         _callbackResult = serializer.Serialize(result);
@@ -152,6 +162,42 @@ namespace MetraNet.AccountConfigSets
     public string GetCallbackResult()
     {
       return _callbackResult;
+    }
+
+    private object GetSubscriptionParametersResult(int subParamsId)
+    {
+      object result;
+
+      try
+      {
+        InvokeGetAccountConfigParametersSet();
+        if (CurrentAccountConfigSetSubParams.AccountConfigSetParametersId <= 0)
+        {
+          int? items = null;
+          result = new { result = "ok", items };
+        }
+        else
+        {
+          var items = new
+              {
+                CurrentAccountConfigSetSubParams.AccountConfigSetParametersId,
+                CurrentAccountConfigSetSubParams.CorporateAccountId,
+                CurrentAccountConfigSetSubParams.Description,
+                EndDate = CurrentAccountConfigSetSubParams.EndDate.ToString("d"),
+                CurrentAccountConfigSetSubParams.GroupSubscriptionName,
+                CurrentAccountConfigSetSubParams.ProductOfferingId,
+                StartDate = CurrentAccountConfigSetSubParams.StartDate.ToString("d"),
+                UDRC = EncodeUDRCsForHiddenControl(CurrentAccountConfigSetSubParams)
+              };
+          result = new { result = "ok", items };
+        }
+      }
+      catch (FaultException<MASBasicFaultDetail> ex)
+      {
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+      }
+      return result;
     }
 
     private object GetPriceableItemsResult(IEnumerable<string> poIds)
@@ -240,16 +286,6 @@ namespace MetraNet.AccountConfigSets
       }
     }
 
-    protected void btnSelectSubParams_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void btnRemoveSubParams_Click(object sender, EventArgs e)
-    {
-
-    }
-
     protected void btnGoToUpdateAccountConfigSet_Click(object sender, EventArgs e)
     {
       var redirectPath = String.Format(@"/MetraNet/AccountConfigSets/ManageAccountConfigSet.aspx?mode=EDIT&acsId={0}", CurrentAccountConfigSetId);
@@ -302,7 +338,10 @@ namespace MetraNet.AccountConfigSets
       CurrentAccountConfigSet.Description = MTtbAcsDescription.Text;
       CurrentAccountConfigSet.PropertiesToSet = GetPropertyValues(HiddenPropertiesToSet.Value);
       CurrentAccountConfigSet.SelectionCriteria = GetPropertyValues(HiddenSelectionCriteria.Value);
-      CurrentAccountConfigSet.SubscriptionParamsId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);
+      var subParamId = 0;
+      if (MTtbSubParamId.Text != "-")
+        subParamId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);
+      CurrentAccountConfigSet.SubscriptionParamsId = subParamId;
     }
 
     private List<AccountConfigSetPropertyValue> GetPropertyValues(string value)
@@ -376,6 +415,26 @@ namespace MetraNet.AccountConfigSets
       }
     }
 
+    private void InvokeGetAccountConfigParametersSet()
+    {
+      using (var qsc = new AccountConfigurationSetServiceClient())
+      {
+        if (qsc.ClientCredentials != null)
+        {
+          qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+          qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
+        try
+        {
+          qsc.GetAccountConfigSetSubscriptionParams(CurrentAccountConfigSetSubParamsId, out CurrentAccountConfigSetSubParams);
+        }
+        catch (Exception e)
+        {
+          CurrentAccountConfigSetSubParams = new AccountConfigSetParameters();
+        }
+      }
+    }
+
     private void ParseRequest()
     {
       _mode = Request["mode"];
@@ -430,7 +489,6 @@ namespace MetraNet.AccountConfigSets
       HiddenAccountViewPropertyData.Value = EncodeAccountViewPropertiesDataForHiddenControl(AccountViewPropertiesData);
       HiddenAccountViews.Value = EncodeAccountViewForHiddenControl(AccountViews);
 
-      MTPanelSubscriptionParameters.Visible = IsViewMode;
     }
 
     private void LoadAccountConfigSetToControls()
@@ -460,28 +518,11 @@ namespace MetraNet.AccountConfigSets
         MTdpSubParamsEndDate.Text = CurrentAccountConfigSet.SubscriptionParams.EndDate.ToString("d");
         MTisCorpAccountId.Text = CurrentAccountConfigSet.SubscriptionParams.CorporateAccountId.ToString();
         MTtbGroupSubscriptionName.Text = CurrentAccountConfigSet.SubscriptionParams.GroupSubscriptionName;
-        HiddenUDRCs.Value = EncodeUDRCsForHiddenControl();
-
-        MTtbSubParamId.ReadOnly = IsViewMode;
-        //MTtbSubParamsPo.ReadOnly = IsViewMode;
-        //MTdpSubParamsStartDate.ReadOnly = IsViewMode;
-        //MTdpSubParamsEndDate.ReadOnly = IsViewMode;
-        //MTisCorpAccountId.ReadOnly = IsViewMode;
-        //MTtbGroupSubscriptionName.ReadOnly = IsViewMode;
+        HiddenUDRCs.Value = EncodeUDRCsForHiddenControl(CurrentAccountConfigSet.SubscriptionParams);        
       }
       else
       {
         MTPanelSubscriptionParameters.Collapsed = true;
-        MTtbSubParamId.ReadOnly = IsViewMode;
-
-        MTtbSubParamsDescription.Visible = false;
-        MTtbSubParamsPo.Visible = false;
-        MTdpSubParamsStartDate.Visible = false;
-        MTdpSubParamsEndDate.Visible = false;
-        MTisCorpAccountId.Visible = false;
-        MTtbGroupSubscriptionName.Visible = false;
-
-        MTPanelSubscriptionParameters.Visible = !IsViewMode;
       }
 
       if (!IsViewMode)
@@ -492,6 +533,10 @@ namespace MetraNet.AccountConfigSets
 
         HiddenAccountViewPropertyData.Value = EncodeAccountViewPropertiesDataForHiddenControl(AccountViewPropertiesData);
         HiddenAccountViews.Value = EncodeAccountViewForHiddenControl(AccountViews);
+      }
+      else
+      {
+        MTPanelManageSubscriptionParameters.Visible = false;
       }
     }
 
@@ -528,22 +573,22 @@ namespace MetraNet.AccountConfigSets
       return hiddenValue + "]";
     }
 
-    private string EncodeUDRCsForHiddenControl()
+    private string EncodeUDRCsForHiddenControl(AccountConfigSetParameters subParams)
     {
       const string udrcStr = "{5}'PriceableItemId':{0},'Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{6}";
       const string recodrIdStr = "{0}_{1}_{2}";
 
-      if (CurrentAccountConfigSet.SubscriptionParams == null)
+      if (subParams == null)
         return String.Empty;
 
-      if (CurrentAccountConfigSet.SubscriptionParams.UdrcValues == null)
+      if (subParams.UdrcValues == null)
         return String.Empty;
 
-      if (CurrentAccountConfigSet.SubscriptionParams.UdrcValues.Count == 0)
+      if (subParams.UdrcValues.Count == 0)
         return String.Empty;
 
       var hiddenUdrcsValue = "[";
-      foreach (var udrc in CurrentAccountConfigSet.SubscriptionParams.UdrcValues)
+      foreach (var udrc in subParams.UdrcValues)
       {
         var recordId = string.Format(
           CultureInfo.CurrentCulture,

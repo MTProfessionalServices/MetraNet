@@ -38,44 +38,31 @@
     </div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelManageSubscriptionParameters" runat="server" Collapsible="True"
-    meta:resourcekey="panelManageSubscriptionParametersResource">
+    meta:resourcekey="panelManageSubscriptionParametersResource">    
     <div  class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="False"
-          LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsId"/>
+      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
+          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>
     </div>   
-    <div  class="RightColumn">      
-        <table>
-          <tr>            
-            <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnSelectSubParams" runat="server" OnClientClick="return selectSubParams();"
-                OnClick="btnSelectSubParams_Click" TabIndex="150" meta:resourcekey="btnSelectSubParamsResource" />
-            </td>
-            <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnRemoveSubParams" runat="server" OnClientClick="return removeSubParams();"
-                OnClick="btnRemoveSubParams_Click" Visible="True" TabIndex="150" meta:resourcekey="btnRemoveSubParamsResource" />
-            </td>            
-          </tr>
-        </table>      
-    </div>  
-    
+    <div id = "PlaceHolderSubParamsToolBar" class="RightColumn">                 
+    </div>      
     </MT:MTPanel>
   <MT:MTPanel ID="MTPanelSubscriptionParameters" runat="server" Collapsible="True"
     Collapsed="True" meta:resourcekey="panelSubscriptionParametersResource">    
     <div id="leftColumn2" class="LeftColumn">      
        <MT:MTTextBoxControl ID="MTtbSubParamsDescription" AllowBlank="True" ReadOnly="True" 
-        LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsDescriptionResource"/>
+        LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsDescriptionResource"/>
        <MT:MTTextBoxControl ID="MTtbSubParamsPo" AllowBlank="True" ReadOnly="True"
-        LabelWidth="120" runat="server" meta:resourcekey="tbSubParamsPoResource"/>
-      <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
-        Label="Start date" LabelWidth="120" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="True"
-        runat="server"></MT:MTDatePicker>
-      <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
-        Label="End date" LabelWidth="120" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="True"
-        runat="server"></MT:MTDatePicker>
-      <MT:MTInlineSearch ID="MTisCorpAccountId" AllowBlank="True" ReadOnly="True"
-        LabelWidth="120" runat="server" meta:resourcekey="isCorpAccountIdResource"/>
+        LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsPoResource"/>
+      <MT:MTTextBoxControl AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
+        LabelWidth="135" Text = "-" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="True"
+        runat="server"></MT:MTTextBoxControl>
+      <MT:MTTextBoxControl AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
+        LabelWidth="135" Text = "-" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="True"
+        runat="server"></MT:MTTextBoxControl>
+      <MT:MTTextBoxControl ID="MTisCorpAccountId" AllowBlank="True" ReadOnly="True"
+        LabelWidth="135" runat="server" Text = "-" meta:resourcekey="isCorpAccountIdResource"/>
       <MT:MTTextBoxControl ID="MTtbGroupSubscriptionName" AllowBlank="True" ReadOnly="True"
-        LabelWidth="120" runat="server" meta:resourcekey="tbGroupSubscriptionNameResource"/>
+        LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbGroupSubscriptionNameResource"/>
     </div>
     <div id="PlaceHolderUDRCGrid" class="RightColumn">
     </div>
@@ -132,9 +119,11 @@
 
       Ext.onReady(function () {
         selectionCriteriaGrid.render(window.Ext.get('PlaceHolderSelectionCriteria'));
-        propertiesToSetGrid.render(window.Ext.get('PlaceHolderPropertiesToSet'));   
+        propertiesToSetGrid.render(window.Ext.get('PlaceHolderPropertiesToSet'));  
+        if(subParamsToolBar!= null)
+          subParamsToolBar.render(window.Ext.get('PlaceHolderSubParamsToolBar'));   
         if(udrcStore.getCount()>0)
-           udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));  
+          udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));          
       });
 
       function loadFromPostback(hidden, store, data, dataDetails) {
@@ -176,18 +165,7 @@
       
         return result;
       }
-
-      function ReceiveServerData(value) {
-        if (typeof value !== 'string' || value === '') {
-          return;
-        }
-        var response = JSON.parse(value);
-        if (response.result !== 'ok') {
-          window.Ext.UI.SystemError(response.errorMessage);
-        }   
-        //addItemToPIs(response.items);  
-      }
-      </script>
+    </script>
     <%-- PropertyValue--%>
     <script language="javascript" type="text/javascript">
 
@@ -327,6 +305,8 @@
                 var comboProperty = Ext.getCmp('form_addPropertyValue_Property');
                 comboProperty.clearValue();
                 comboProperty.store.filter('AccountView', combo.getValue());
+                lastOptions = comboProperty.store.lastOptions;                
+                comboProperty.store.reload(lastOptions);
               }
             }
           }
@@ -559,7 +539,7 @@
       }
 
       function onSelectionCriterionAdd() {
-        AddPropertyValue('SelectionCriteria', 'metratech.com/contact', '', '', '', 'new');
+        AddPropertyValue('SelectionCriteria', '', '', '', '', 'new');
       }     
 
       function removeSelectionCriterion(accId) {
@@ -663,7 +643,7 @@
       }
 
       function onPropertiesToSetAdd() {
-        AddPropertyValue('PropertyToSet', 'metratech.com/contact', '', '', '', 'new');
+        AddPropertyValue('PropertyToSet', '', '', '', '', 'new');
       }
 
       function removePropertyToSet(accId) {
@@ -759,73 +739,77 @@
           groupTextTpl: 'PI{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
         })
       });
-
-//      function UdrcActionsRenderer(value, meta, record) {
-//        var str = String.format(
-//          "<a style='cursor:hand;' id='deleteICB_{0}' title='{1}' href='JavaScript:removeUDRC(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
-//          record.data.RecordId, '<%=GetLocalResourceObject("REMOVE_UDRC")%>');
-//        return str;
-//      }
-
-//      function removeUDRC(recordId) {
-//        var idx = udrcStore.find('RecordId', recordId);
-//        udrcStore.remove(udrcStore.getAt(idx));
-//      }
-
-//      function getUDRCs() {
-
-//        var recordsUDRCPi = piUDRCStore.data.items;
-//        var isAllUDRCSet = true;
-//        for (var i = 0; i < recordsUDRCPi.length; i++) {
-//          var idx = udrcStore.find('ProductOfferingId', recordsUDRCPi[i].data.ProductOfferingId);
-//          if (idx == -1) {
-//            isAllUDRCSet = false;
-//            break;
-//          }
-//          idx = udrcStore.find('PriceableItemId', recordsUDRCPi[i].data.PriceableItemId);
-//          if (idx == -1) {
-//            isAllUDRCSet = false;
-//            break;
-//          }
-//        }
-
-//        if (!isAllUDRCSet) {
-//          window.Ext.Msg.show({
-//            title: window.TEXT_ERROR,
-//            msg: '<%=GetLocalResourceObject("TEXT_MISSED_UDRC")%>',
-//            buttons: window.Ext.Msg.OK,
-//            icon: window.Ext.MessageBox.ERROR
-//          });
-//          return false;
-//        }
-
-//        var records = udrcStore.data.items;
-//        udrcData.UDRCs.length = 0;
-//        for (var i = 0; i < records.length; i++)
-//          udrcData.UDRCs.push(records[i].data);
-
-//        window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom.value = udrcData.UDRCs.length > 0 ? window.Ext.encode(udrcData.UDRCs) : "";
-//        return true;
-//      }
     </script>
-
     <%-- Subscription Parameters--%>
   <script language="javascript" type="text/javascript">
+
+    var subParamsToolBar = isViewMode ? null : new Ext.Toolbar([
+    { iconCls: 'add', id: 'AddSubParams', text: '<%=GetLocalResourceObject("btnSelectSubParamsResource.Text")%>', handler: selectSubParams },
+    { iconCls: 'delete', id: 'RemoveSubParams', text: '<%=GetLocalResourceObject("btnRemoveSubParamsResource.Text")%>', handler: removeSubParams }
+    ]);
 
     function selectSubParams() {
       ShowSubParamsSelector('addSubParamsCallback', 'Frame');
     }
 
-    //this will be called when accts are selected
+    function removeSubParams() {
+      var ids = '-';
+      loadEmptySubParamsToControls();
+    }
+
+    function ReceiveServerData(value) {
+      if (typeof value !== 'string' || value === '') {
+        return;
+      }
+      var response = JSON.parse(value);
+      if (response.result !== 'ok') {
+        window.Ext.UI.SystemError(response.errorMessage);
+      }
+      loadSubParamsToControls(response.items);
+    }
+
+    function loadEmptySubParamsToControls() {
+
+      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = '-';
+      window.Ext.get("<%=MTtbSubParamsDescription.ClientID %>").dom.value = '-';
+      window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value = '-';
+      window.Ext.get("<%=MTdpSubParamsStartDate.ClientID %>").dom.value = '-';
+      window.Ext.get("<%=MTdpSubParamsEndDate.ClientID %>").dom.value = '-';
+      window.Ext.get("<%=MTisCorpAccountId.ClientID %>").dom.value = '-';
+      window.Ext.get("<%=MTtbGroupSubscriptionName.ClientID %>").dom.value = '-';
+
+      udrcStore.removeAll();      
+    }
+
+    function loadSubParamsToControls(subParams) {
+      if (subParams == null)
+        return;
+
+      window.Ext.get("<%=MTtbSubParamsDescription.ClientID %>").dom.value = subParams.Description;
+      window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value = subParams.ProductOfferingId;
+      window.Ext.get("<%=MTdpSubParamsStartDate.ClientID %>").dom.value = subParams.StartDate;
+      window.Ext.get("<%=MTdpSubParamsEndDate.ClientID %>").dom.value = subParams.EndDate;
+      window.Ext.get("<%=MTisCorpAccountId.ClientID %>").dom.value = subParams.CorporateAccountId;
+      window.Ext.get("<%=MTtbGroupSubscriptionName.ClientID %>").dom.value = subParams.GroupSubscriptionName;
+
+      if (subParams.UDRC != null) {        
+        if (subParams.UDRC.length > 0)
+          udrcData.UDRCs = window.Ext.decode(subParams.UDRC);
+        addUDRCs(udrcData.UDRCs);
+
+        udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
+      }
+      
+    }; 
+    
     function addSubParamsCallback(ids) {      
-      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;        
-      //window.CallServer(JSON.stringify({ poIds: poData.poIds }));
-//      subParamsSelectorWin2.hide();
-//      subParamsSelectorWin2 = null;
+      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
+      window.CallServer(JSON.stringify({ subParamsId: ids }));
+      subParamsSelectorWin2.hide();      
     }
 
     function ShowSubParamsSelector(functionName, target) {
-      if (window.subParamsSelectorWin2 == null || window.subParamsSelectorWin2 == undefined ||
+      if (window.subParamsSelectorWin2 == null || window.poSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
         window.subParamsSelectorWin2 = new top.Ext.Window({
           title: '<%=GetLocalResourceObject("SELECT_SUBPARAMS")%>',
@@ -854,8 +838,7 @@
 
       window.subParamsSelectorWin2.on('close', function () {
         window.subParamsSelectorWin2 = null;
-      });
+      });      
     }
-
   </script>
 </asp:Content>

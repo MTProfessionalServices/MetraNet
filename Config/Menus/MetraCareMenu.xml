@@ -426,6 +426,20 @@
                                 <Capability>Manage OnBoard Templates</Capability>                                
                             </RequiredCapabilities>
                         </MenuItem>
+                        <MenuItem>
+                            <ID>ManageSubscriptionParameters</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_CREATE_ACS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/AccountConfigSets/ManageSubscriptionParameters.aspx?mode=ADD</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/add.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage OnBoard Templates</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
                         <!-- <MenuItem>
                             <ID>AccountConfigSetSubParamsList</ID>
                             <Caption>

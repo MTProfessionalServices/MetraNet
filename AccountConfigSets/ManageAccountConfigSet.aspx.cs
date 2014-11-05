@@ -13,7 +13,6 @@ using MetraTech.Basic.Exception;
 using MetraTech.UI.Common;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.UI;
 using MetraTech.Debug.Diagnostics;
 
 namespace MetraNet.AccountConfigSets

@@ -14,6 +14,7 @@
     }
 
     function replaceTemplates(value, meta, record, rowIndex, colIndex, store) {
+      meta.attr = "style='white-space:normal;'";
       var SubEnding = 'Subscription End Date';
       var GSubEnding = 'Group Subscription End Date';
       var template = '';

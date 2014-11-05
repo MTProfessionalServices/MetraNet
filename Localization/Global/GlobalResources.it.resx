@@ -120,6 +120,102 @@
   <data name="ACOUNT_STATE_WAS" xml:space="preserve">
     <value>Lo stato del conto era {0} ed è stato modificato in {1}. </value>
   </data>
+  <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
+    <value>[IT]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
+  </data>
+  <data name="ACS_VALIDATION_AvailableStartDateLessThanStartDateInPo" xml:space="preserve">
+    <value>[IT]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter  StartDate '{1}' less than available StartDate '{2}' of product offering. </value>
+  </data>
+  <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
+    <value>[IT]The Account Configuration Set date does not match available '{0}' Product Offering date. Effective date for Configuration Set from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
+  </data>
+  <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
+    <value>[IT]Incorrect available End date for the current Account Config Set. Available EffectiveEndDate={0} less than system date={1}, so the Account Config Set will never use.</value>
+  </data>
+  <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
+    <value>[IT]Incorrect available date for the current Account Config Set. Available EffectiveDate={0} greater then EffectiveEndDate={1}.</value>
+  </data>
+  <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
+    <value>[IT]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
+  </data>
+  <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
+    <value>[IT] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+  </data>
+  <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
+    <value>[IT]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
+  </data>
+  <data name="ACS_VALIDATION_MandatoryProperty_CantBeEmptyOrNull" xml:space="preserve">
+    <value>[IT] The mandatory '{0}' property can't be empty or null. </value>
+  </data>
+  <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
+    <value>[IT]The '{0}' mandatory property is null. The property should be initialized.</value>
+  </data>
+  <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
+    <value>[IT] The '{0}' mandatory property should contain at least one item.</value>
+  </data>
+  <data name="ACS_VALIDATION_PropertiesToSetHasDuplicates" xml:space="preserve">
+    <value>[IT] The Properties to Set with Account View '{0}' and  name '{1}' is found more than one time (count = {2}). The Properties to Set should be unique.</value>
+  </data>
+  <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
+    <value>[IT] At least one of the  '{0}' or '{1}' properties should be set.</value>
+  </data>
+  <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
+    <value>[IT] The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time (count = {2}). The Selection Criteria should be unique.</value>
+  </data>
+  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
+    <value>[IT]UDRC for PI ID={0} not set!</value>
+  </data>
+  <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
+    <value>[IT]StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
+  </data>
+  <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
+    <value>[IT]UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
+    <value>[IT] Unable to add Account Configuration Set Subscription Params due to validation errors.</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
+    <value>[IT]Unable to add Account Configuration Set due to validation errors.</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
+    <value>[IT]Unable to find Product Offering with Id='{0}'</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToFindProductOfferingId" xml:space="preserve">
+    <value>[IT] Unable to find Product Offering with id={0}</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
+    <value>[IT] Unable to find subscription property. Details: '{0}'</value>
+  </data>
+  <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
+    <value>[IT]Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
+  </data>
+  <data name="ACS_VALIDATION_UnapleToFindProductOfferingId" xml:space="preserve">
+    <value>[IT]Unable to find Product Offering with id={0}</value>
+  </data>
+  <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
+    <value>[IT]#{0}) Message: '{1}', Component: '{2}'</value>
+  </data>    
+  <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error on saving AccountConfigSet with Id {0}</value>
+  </data>
+  <data name="ADD_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error on saving SubscriptionParams with Id {0}</value>
+  </data>
+  <data name="ADDED_ENTITY" xml:space="preserve">
+    <value>[IT]Added entity with ID {0} to entity list</value>
+  </data>
+  <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
+    <value>[IT]Added shared property values.</value>
+  </data>
+  <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[IT]Added specification characteristic values.</value>
+  </data>
+  <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
+    <value>[IT]Adding shared property values.</value>
+  </data>
+  <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[IT]Adding specification characteristic values.</value>
+  </data>
   <data name="ANCESTOR_ACOUNT_ID_WAS" xml:space="preserve">
     <value>L'ID del conto di origine era {0} ed è stato modificato in {1}. </value>
   </data>
@@ -128,7 +224,7 @@
   </data>
   <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
     <value>Il conto di origine era {0} ed è stato modificato in {1}. </value>
-  </data>
+  </data>    
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>[IT]Transaction {0} is of type {1}, but got a AlreadySettledException</value>
   </data>
@@ -144,14 +240,35 @@
   <data name="CITY_CHANGED" xml:space="preserve">
     <value>La città era {0} ed è stata modificata in {1}. </value>
   </data>
+  <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
+    <value>[IT]Could not deserialize JSON {0} into type {1}.</value>
+  </data>
   <data name="COUNTRY_CHANGED" xml:space="preserve">
     <value>Il paese era {0} ed è stato modificato in {1}. </value>
+  </data>
+  <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+    <value>[IT]New Agreement Template created successfully with id {0}.</value>
   </data>
   <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
     <value>Il giorno del mese era {0} ed è stato modificato in {1}. </value>
   </data>
   <data name="DAY_OF_WEEK_WAS" xml:space="preserve">
     <value>Il giorno della settimana era {0} ed è stato modificato in {1}. </value>
+  </data>
+  <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error delete account configuration set</value>
+  </data>
+  <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
+    <value>[IT]Array of Account Configuration Set IDs contains invalid ID: {0}</value>
+  </data>
+  <data name="DELETE_APPLIED_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Applied Account Configuration Set cannot be deleted. ID: {0}</value>
+  </data>
+  <data name="DELETE_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Account Configuration Set of other Partition cannot be deleted. ID: {0}</value>
+  </data>
+  <data name="DELETED_ENTITY" xml:space="preserve">
+    <value>[IT]Deleted entity with ID {0} from entity list</value>
   </data>
   <data name="END_DATE_WAS" xml:space="preserve">
     <value>La data di fine era {0} ed è stata modificata in {1}. </value>
@@ -162,8 +279,20 @@
   <data name="END_DAY_OF_WEEK" xml:space="preserve">
     <value>Ultimo giorno della settimana</value>
   </data>
+  <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
+    <value>[IT]Entity list already contains entity with id {0}.</value>
+  </data>
+  <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
+    <value>[IT]Entity list does not contain entity with id {0}.</value>
+  </data>
+  <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
+    <value>[IT]The Effective End Date cannot be earlier than the Effective Start Date.</value>
+  </data>
   <data name="EXPIRATION_CHANGED" xml:space="preserve">
     <value>La data di scadenza era {0} ed è stata modificata in {1}.</value>
+  </data>
+  <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
+    <value>[IT]Failed to save agreement template {0}.</value>
   </data>
   <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
     <value>Il primo giorno del mese era {0} ed è stato modificato in {1}. </value>
@@ -174,38 +303,23 @@
   <data name="FIRST_NAME_CHANGED" xml:space="preserve">
     <value>Il nome era {0} ed è stato modificato in {1}. </value>
   </data>
-  <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
-    <value>[IT]Agreement template ID cannot be less than 0.</value>
+  <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get account configuration set with Id {0}</value>
+  </data>
+  <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get account configuration set list</value>
+  </data>
+  <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get subscription parameters with Id {0}</value>
+  </data>
+  <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error get account configuration set applied list</value>
+  </data>    
+  <data name="GOT_NO_RESPONSE" xml:space="preserve">
+    <value>[IT]Got no response from {0}.</value>
   </data>
   <data name="LAST_NAME_CHANGED" xml:space="preserve">
     <value>Il cognome era {0} ed è stato modificato in {1}.</value>
-  </data>
-  <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>[IT]New Agreement Template created successfully with id {0}.</value>
-  </data>
-  <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>[IT]Failed to save agreement template {0}.</value>
-  </data>
-  <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>[IT]Updated Agreement Template with id {0}.</value>
-  </data>
-  <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
-    <value>[IT]Entity list already contains entity with id {0}.</value>
-  </data>
-  <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
-    <value>[IT]Entity list does not contain entity with id {0}.</value>
-  </data>
-  <data name="ADDED_ENTITY" xml:space="preserve">
-    <value>[IT]Added entity with ID {0} to entity list</value>
-  </data>
-  <data name="DELETED_ENTITY" xml:space="preserve">
-    <value>[IT]Deleted entity with ID {0} from entity list</value>
-  </data>
-  <data name="VALUE_CHANGED" xml:space="preserve">
-    <value>[IT]{0} was {1}, changed to {2}.</value>
-  </data>
-  <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
-    <value>[IT]The Effective End Date cannot be earlier than the Effective Start Date.</value>
   </data>
   <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
     <value>L'addebito max per ciclo era {0} ed è stato modificato in {1}. </value>
@@ -282,6 +396,12 @@
   <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
     <value>Aggiornamento del conto del nome utente '{0}' con ID '{1} riuscito. ' </value>
   </data>
+  <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
+    <value>[IT]Agreement template ID cannot be less than 0.</value>
+  </data>
+    <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>[IT]Error on termination Account Configuration Set</value>
+    </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>Il conto non può corrispondere al responsabile della fatturazione</value>
   </data>
@@ -297,6 +417,15 @@
   <data name="TEXT_APPROVING_NS_CHARGES" xml:space="preserve">
     <value>Approvazione degli addebiti non standard rilevanti in corso</value>
   </data>
+  <data name="TEXT_BADLY_FORMATTED_FILTER" xml:space="preserve">
+    <value>[IT]Filter value string has bad format: {0}</value>
+  </data>
+  <data name="TEXT_BADLY_FORMATTED_PARAMETERS" xml:space="preserve">
+    <value>[IT]The request contained badly formatted parameters.</value>
+  </data>
+  <data name="TEXT_BADLY_FORMATTED_SORT" xml:space="preserve">
+    <value>[IT]Sort value string has bad format: {0}</value>
+  </data>
   <data name="TEXT_BILL_MANAGER_CORPORATION" xml:space="preserve">
     <value>Il responsabile della fatturazione e la fatturazione devono appartenere alla stessa organizzazione</value>
   </data>
@@ -309,6 +438,21 @@
   <data name="TEXT_CANNOT_ADD_BILL_MANAGER" xml:space="preserve">
     <value>Impossibile aggiungere il responsabile della fatturazione al sistema</value>
   </data>
+  <data name="TEXT_CANNOT_DELETE_SHARED_PROPERTY_IN_USE" xml:space="preserve">
+    <value>[IT]Cannot remove shared property because it is in use.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SHARED_PROPERTIES" xml:space="preserve">
+    <value>[IT]Unable to retrieve shared properties from system.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SHARED_PROPERTY_VALUES" xml:space="preserve">
+    <value>[IT]Cannot retrieve shared property values from system.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
+    <value>[IT]Cannot retrieve specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
+    <value>[IT]Unable to retrieve specification characteristics from system.</value>
+  </data>
   <data name="TEXT_CANNOT_REMOVE_BILL_MANAGEES" xml:space="preserve">
     <value>Impossibile rimuovere gestore fatturazione.</value>
   </data>
@@ -318,11 +462,128 @@
   <data name="TEXT_CANNOT_RETRIEVE_DATA" xml:space="preserve">
     <value>Impossibile recuperare i dati di gestione della fatturazione</value>
   </data>
+  <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
+    <value>[IT]Cannot remove specification characteristic because it is in use.</value>
+  </data>
+  <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
+    <value>[IT]Could not create template.</value>
+  </data>
+  <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
+    <value>[IT]Could not create WebRequest for {0}.</value>
+  </data>
+  <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
+    <value>[IT]Could not display list of templates.</value>
+  </data>
+  <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
+    <value>[IT]Could not find template {0}.</value>
+  </data>
+  <data name="TEXT_CANT_LOAD_TEMPLATE" xml:space="preserve">
+    <value>[IT]Could not load template {0}.</value>
+  </data>
+  <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
+    <value>[IT]Could not load template list.</value>
+  </data>
+  <data name="TEXT_CANT_SAVE_TEMPLATE" xml:space="preserve">
+    <value>[IT]Could not save template {0}.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_DELETE_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]An error occurred deleting shared property from system.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
+    <value>[IT]An error occurred deleting specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
+    <value>[IT]Could not retrieve localization data.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[IT]Could not retrieved specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_CREATE_SHARED_PROPERTY_FAILED" xml:space="preserve">
+    <value>[IT]Failed creating shared property.</value>
+  </data>
+  <data name="TEXT_CREATE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
+    <value>[IT]Failed creating entries in shared property value map for shared property and values.</value>
+  </data>
+  <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Created shared property.</value>
+  </data>
+  <data name="TEXT_CREATED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+    <value>[IT]Created entries in shared property value map for shared property and values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC" xml:space="preserve">
+    <value>[IT]Created specification characteristic.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
+    <value>[IT]Failed Created specification characteristic.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[IT]Created entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+    <value>[IT]Failed creating entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_CREATING_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Creating shared property.</value>
+  </data>
+  <data name="TEXT_CREATING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+    <value>[IT]Creating entries in shared property value map for shared property and values.</value>
+  </data>
+  <data name="TEXT_CREATING_SPEC" xml:space="preserve">
+    <value>[IT]Creating specification characteristic.</value>
+  </data>
+  <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[IT]Creating entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
+    <value>[IT]A data access exception occurred </value>
+  </data>
+  <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
+    <value>[IT]DataException while trying to save shared properties to entity.</value>
+  </data>
+  <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Deleted shared property from system.</value>
+  </data>
+  <data name="TEXT_DELETED_SPEC" xml:space="preserve">
+    <value>[IT]Deleted specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_DELETING_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Deleting shared property from system.</value>
+  </data>
+  <data name="TEXT_DELETING_SPEC" xml:space="preserve">
+    <value>[IT]Deleting specification characteristic from system.</value>
+  </data>
   <data name="TEXT_DENIED_NS_CHARGES" xml:space="preserve">
     <value>Addebiti non standard rilevanti rifiutati</value>
   </data>
   <data name="TEXT_DENYING_NS_CHARGES" xml:space="preserve">
     <value>Rifiuto degli addebiti non standard rilevanti in corso</value>
+  </data>
+  <data name="TEXT_EXCEPTION_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
+    <value>[IT]Unhandled Exception while trying to save shared properties to entity.</value>
+  </data>
+  <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+    <value>[IT]Unhandled Exception while trying to save specification characteristics to entity.</value>
+  </data>
+  <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
+    <value>[IT]The file completed processing.</value>
+  </data>
+  <data name="TEXT_FILE_PENDING" xml:space="preserve">
+    <value>[IT]The file is pending.</value>
+  </data>
+  <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
+    <value>[IT]The file is being processed.</value>
+  </data>
+  <data name="TEXT_FILE_REJECTED" xml:space="preserve">
+    <value>[IT]The file was rejected.</value>
+  </data>
+  <data name="TEXT_INVALID_OP_IN_FILTER" xml:space="preserve">
+    <value>[IT]Filter value string contains an invalid operation: {0}</value>
+  </data>
+  <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
+    <value>[IT]A load data exception occurred </value>
+  </data>
+  <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+    <value>[IT]MASBasicException while trying to save specification characteristics to entity.</value>
   </data>
   <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
     <value>Nessun addebito in attesa di approvazione.</value>
@@ -336,8 +597,134 @@
   <data name="TEXT_NO_SESSION_IDS" xml:space="preserve">
     <value>Nessun ID sessione fornito per l'approvazione.</value>
   </data>
+  <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
+    <value>[IT]No mapping values to delete.</value>
+  </data>
+  <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
+    <value>[IT]Processed localization data.</value>
+  </data>
+  <data name="TEXT_REMOVE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
+    <value>[IT]Failed Removing entries in shared property value map for shared property and values.</value>
+  </data>
   <data name="TEXT_REMOVED_BILL_MANAGER" xml:space="preserve">
     <value>Responsabile fatturazione rimosso</value>
+  </data>
+  <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
+    <value>[IT]Removed shared property from entity.</value>
+  </data>
+  <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+    <value>[IT]Removed shared property from entity with entity type: </value>
+  </data>
+  <data name="TEXT_REMOVED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+    <value>[IT]Removed entries in shared property value map for shared property and values.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>[IT]Removed specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[IT]Removed entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+    <value>[IT]Failed Removing entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
+    <value>[IT]Removing shared property from entity.</value>
+  </data>
+  <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+    <value>[IT]Removing shared property from entity with entity type: </value>
+  </data>
+  <data name="TEXT_REMOVING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+    <value>[IT]Removing entries in shared property value map for shared property and values.</value>
+  </data>
+  <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>[IT]Removing specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[IT]Removing entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
+    <value>[IT]Request ID {0} does not match template ID {1}.</value>
+  </data>
+  <data name="TEXT_RETRIEVED" xml:space="preserve">
+    <value>[IT]specification characteristics retrieved from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
+    <value>[IT]Retrieved details for file </value>
+  </data>
+  <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
+    <value>[IT]Retrieved a list of failed filenames </value>
+  </data>
+  <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
+    <value>[IT]Retrieved localization data.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
+    <value>[IT]Retrieved shared properties for entity.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+    <value>[IT]Retrieved shared properties for entity with entity type: </value>
+  </data>
+  <data name="TEXT_RETRIEVED_SHARED_PROPERTY_VALUES" xml:space="preserve">
+    <value>[IT]Retrieved shared property values from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
+    <value>[IT]Retrieved specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[IT]Retrieved specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
+    <value>[IT]Retrieved specification characteristics for entity.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
+    <value>[IT]Retrieving details for filename </value>
+  </data>
+  <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
+    <value>[IT]Retrieving a list of failed filenames </value>
+  </data>
+  <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
+    <value>[IT]Retrieved localization from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
+    <value>[IT]Retrieving shared properties for entity.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+    <value>[IT]Retrieving shared properties for entity with entity type: </value>
+  </data>
+  <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Retrieving shared property from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SHARED_PROPERTY_VALUES" xml:space="preserve">
+    <value>[IT]Retrieving shared property values from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
+    <value>[IT]Retrieving specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[IT]Retrieving specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
+    <value>[IT]Retrieving specification characteristics for entity.</value>
+  </data>
+  <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
+    <value>[IT]An unknown error occurred.  Please have the system administrator review your logs.</value>
+  </data>
+  <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>[IT]Saved the specification characteristic value.</value>
+  </data>
+  <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
+    <value>[IT]An error occurred saving the sepcification characteristic value.</value>
+  </data>
+  <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>[IT]Saving specification characteristic value to system.</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTY_VALUE_MAPPING_IN_USE" xml:space="preserve">
+    <value>[IT]Mapping cannot be deleted because it is in use.</value>
+  </data>
+  <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
+    <value>[IT]Cannot update the sepcification characteristic value because it is in use.</value>
+  </data>
+  <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
+    <value>[IT]Mapping cannot be deleted because it is in use.</value>
   </data>
   <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
     <value>Impossibile approvare gli addebiti non standard in sospeso.</value>
@@ -347,6 +734,48 @@
   </data>
   <data name="TEXT_UNABLE_TO_PROCESS" xml:space="preserve">
     <value>La richiesta non è stata elaborata a causa dei seguenti errori:</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_REMOVE_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
+    <value>[IT]An error occurred removing shared property from entity.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>[IT]An error occurred removing specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Unable to retrieve shared property from system.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
+    <value>[IT]Unable to retrieve specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
+    <value>[IT]An exception occurred </value>
+  </data>
+  <data name="TEXT_UPDATED_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Updated shared property.</value>
+  </data>
+  <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
+    <value>[IT]Updated specification characteristic.</value>
+  </data>
+  <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>[IT]Updated the specification characteristic value.</value>
+  </data>
+  <data name="TEXT_UPDATED_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Updated values for shared property.</value>
+  </data>
+  <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
+    <value>[IT]Updated specification characteristic values for specification characteristic.</value>
+  </data>
+  <data name="TEXT_UPDATING_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Updating shared property.</value>
+  </data>
+  <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
+    <value>[IT]Updating specification characteristic.</value>
+  </data>
+  <data name="TEXT_UPDATING_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
+    <value>[IT]Updating values for shared property.</value>
+  </data>
+  <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
+    <value>[IT]Updating values for specification characteristic.</value>
   </data>
   <data name="TIMEOUT_EXCEPTION" xml:space="preserve">
     <value>[IT]Method timed out</value>
@@ -360,11 +789,23 @@
   <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
     <value>[IT]Transaction {0} was already submitted.</value>
   </data>
+  <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error update account configuration set</value>
+  </data>
+  <data name="UPDATE_ACCOUNTCONFIGSET_PARAMETERS_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error on update Account Configuration Set Parameters</value>
+  </data>
+  <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+    <value>[IT]Updated Agreement Template with id {0}.</value>
+  </data>
   <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
     <value>Aggiornamento dello strumento di pagamento {0} per il conto {1} riuscito. {2} </value>
   </data>
   <data name="USAGE_CYCLE_WAS" xml:space="preserve">
     <value>Il ciclo di utilizzo era {0} ed è stato modificato in {1}. </value>
+  </data>
+  <data name="VALUE_CHANGED" xml:space="preserve">
+    <value>[IT]{0} was {1}, changed to {2}.</value>
   </data>
   <data name="VOIDING_TIMEOUT" xml:space="preserve">
     <value>[IT]Timeout exception while voiding payment for Invoice {0}.</value>
@@ -372,331 +813,103 @@
   <data name="ZIP_CHANGED" xml:space="preserve">
     <value>Il codice postale era {0} ed è stato modificato in {1}. </value>
   </data>
-  <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>[IT]MASBasicException while trying to save specification characteristics to entity.</value>
+  <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+    <value>[IT] Can't get account config set with PO from another partition!</value>
   </data>
-  <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>[IT]Unhandled Exception while trying to save specification characteristics to entity.</value>
+  <data name="ACS_APPLIED_LIST_UPDATED" xml:space="preserve">
+    <value>[IT]Applied Account Config Sets with IDs: {0} are not eligible for the account any more. Related subscriptions will be terminated.</value>
   </data>
-  <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
-    <value>[IT]An unknown error occurred.  Please have the system administrator review your logs.</value>
+  <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
+    <value>[IT]Account Config Sets with IDs {0} were removed from Applied list.</value>
   </data>
-  <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
-    <value>[IT]Updating specification characteristic.</value>
+  <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
+    <value>[IT]Creation of new subscriptions is finished.</value>
   </data>
-  <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
-    <value>[IT]Could not retrieve localization data.</value>
+  <data name="ACS_CREATE_SUB_START" xml:space="preserve">
+    <value>[IT]Starting creation of new subscriptions...</value>
   </data>
-  <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
-    <value>[IT]Retrieved localization data.</value>
+  <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
+    <value>[IT]Account Config Sets with IDs: {0} will be skipped. They are currently eligible for the account and were already applied.</value>
   </data>
-  <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
-    <value>[IT]Processed localization data.</value>
+  <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
+    <value>[IT]New subscriptions will be created for Eligible Account Config Sets with IDs: {0}.</value>
   </data>
-  <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
-    <value>[IT]Updating values for specification characteristic.</value>
+  <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
+    <value>[IT]Account '{0}' was loaded.</value>
   </data>
-  <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
-    <value>[IT]Updated specification characteristic values for specification characteristic.</value>
+  <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
+    <value>[IT]Loading Account with ID {0}...</value>
   </data>
-  <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
-    <value>[IT]Updated specification characteristic.</value>
+  <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
+    <value>[IT]Applied Account Config Sets with IDs: {0} were found for the account.</value>
   </data>
-  <data name="TEXT_CREATING_SPEC" xml:space="preserve">
-    <value>[IT]Creating specification characteristic.</value>
+  <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
+    <value>[IT]Loading Account Config Sets that were applied for the account...</value>
   </data>
-  <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[IT]Adding specification characteristic values.</value>
+  <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
+    <value>[IT]Account Config Sets with IDs: {0} were found as eligible for the account.</value>
   </data>
-  <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[IT]Added specification characteristic values.</value>
+  <data name="ACS_LOAD_ELIGIBLE_ACS_NONUNIQUE_RANK_EXCEPTION" xml:space="preserve">
+    <value>[IT]Some Eligible Account Config Sets have non-unique rank. Wrong Account Config Sets configuration.</value>
   </data>
-  <data name="TEXT_CREATED_SPEC" xml:space="preserve">
-    <value>[IT]Created specification characteristic.</value>
+  <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
+    <value>[IT]Loading Account Config Sets that are eligible for the account...</value>
   </data>
-  <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
-    <value>[IT]Failed Created specification characteristic.</value>
+  <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
+    <value>[IT]Modification of account properties is finished.</value>
   </data>
-  <data name="TEXT_RETRIEVED" xml:space="preserve">
-    <value>[IT]specification characteristics retrieved from system.</value>
+  <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
+    <value>[IT]Starting account properties modification...</value>
   </data>
-  <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
-    <value>[IT]Unable to retrieve specification characteristics from system.</value>
+  <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
+    <value>[IT]Fail to modify property '{0}' by ACS {1}. Old value:'{2}'. New value:'{3}'.</value>
   </data>
-  <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
-    <value>[IT]Retrieving specification characteristic from system.</value>
+  <data name="ACS_PROP_MODIFIED_SUCCESSFULLY" xml:space="preserve">
+    <value>[IT]Property '{0}' was modified by ACS {1}. Old value:'{2}'. New value:'{3}'.</value>
   </data>
-  <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
-    <value>[IT]Retrieved specification characteristic from system.</value>
+  <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
+    <value>[IT]Property '{0}' was not found.</value>
   </data>
-  <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
-    <value>[IT]Retrieved localization from system.</value>
+  <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
+    <value>[IT]Fail to modify views of Account ID {0}.</value>
   </data>
-  <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
-    <value>[IT]Unable to retrieve specification characteristic from system.</value>
+  <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
+    <value>[IT] Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
   </data>
-  <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[IT]Retrieving specification characteristic values from system.</value>
+  <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
+    <value>[IT] Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
   </data>
-  <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[IT]Retrieved specification characteristic values from system.</value>
+  <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
+    <value>[IT]Unable to terminated subscription with ID {0}. Exception: {1}</value>
   </data>
-  <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
-    <value>[IT]Cannot retrieve specification characteristic values from system.</value>
+  <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
+    <value>[IT]Subscription to {0} was terminated.</value>
   </data>
-  <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>[IT]Removing specification characteristic from entity.</value>
+  <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
+    <value>[IT]Termination of existing subscriptions is finished.</value>
   </data>
-  <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
-    <value>[IT]Cannot remove specification characteristic because it is in use.</value>
+  <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
+    <value>[IT]Starting termination of existing subscriptions...</value>
   </data>
-  <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>[IT]Removed specification characteristic from entity.</value>
+  <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
+    <value>[IT]Error on applying Account Configuration Sets for account {0}.</value>
   </data>
-  <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>[IT]An error occurred removing specification characteristic from entity.</value>
+  <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
+    <value>[IT] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
   </data>
-  <data name="TEXT_DELETING_SPEC" xml:space="preserve">
-    <value>[IT]Deleting specification characteristic from system.</value>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
+    <value>[IT] Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
   </data>
-  <data name="TEXT_DELETED_SPEC" xml:space="preserve">
-    <value>[IT]Deleted specification characteristic from system.</value>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
+    <value>[IT] Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
   </data>
-  <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
-    <value>[IT]An error occurred deleting specification characteristic from system.</value>
+  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
+    <value>[IT] Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
   </data>
-  <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>[IT]Retrieving specification characteristics for entity.</value>
+  <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
+    <value>[IT] {0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
   </data>
-  <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>[IT]Retrieved specification characteristics for entity.</value>
-  </data>
-  <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[IT]Could not retrieved specification characteristic values from system.</value>
-  </data>
-  <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>[IT]Saving specification characteristic value to system.</value>
-  </data>
-  <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
-    <value>[IT]Cannot update the sepcification characteristic value because it is in use.</value>
-  </data>
-  <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>[IT]Updated the specification characteristic value.</value>
-  </data>
-  <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>[IT]Saved the specification characteristic value.</value>
-  </data>
-  <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
-    <value>[IT]An error occurred saving the sepcification characteristic value.</value>
-  </data>
-  <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[IT]Creating entries in spec val map for specification characteristic and values.</value>
-  </data>
-  <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[IT]Created entries in spec val map for specification characteristic and values.</value>
-  </data>
-  <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-    <value>[IT]Failed creating entries in spec val map for specification characteristic and values.</value>
-  </data>
-  <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[IT]Removing entries in spec val map for specification characteristic and values.</value>
-  </data>
-  <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[IT]Removed entries in spec val map for specification characteristic and values.</value>
-  </data>
-  <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-    <value>[IT]Failed Removing entries in spec val map for specification characteristic and values.</value>
-  </data>
-  <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
-    <value>[IT]No mapping values to delete.</value>
-  </data>
-  <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
-    <value>[IT]Mapping cannot be deleted because it is in use.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
-    <value>[IT]Retrieving details for filename </value>
-  </data>
-  <data name="TEXT_FILE_REJECTED" xml:space="preserve">
-    <value>[IT]The file was rejected.</value>
-  </data>
-  <data name="TEXT_FILE_PENDING" xml:space="preserve">
-    <value>[IT]The file is pending.</value>
-  </data>
-  <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
-    <value>[IT]The file is being processed.</value>
-  </data>
-  <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
-    <value>[IT]The file completed processing.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
-    <value>[IT]Retrieved details for file </value>
-  </data>
-  <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
-    <value>[IT]A load data exception occurred </value>
-  </data>
-  <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
-    <value>[IT]A data access exception occurred </value>
-  </data>
-  <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
-    <value>[IT]An exception occurred </value>
-  </data>
-  <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
-    <value>[IT]Retrieving a list of failed filenames </value>
-  </data>
-  <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
-    <value>[IT]Retrieved a list of failed filenames </value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>[IT]Retrieving shared properties for entity.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[IT]Retrieving shared properties for entity with entity type: </value>
-  </data>
-  <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>[IT]Retrieved shared properties for entity.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[IT]Retrieved shared properties for entity with entity type: </value>
-  </data>
-  <data name="TEXT_CANNOT_GET_SHARED_PROPERTIES" xml:space="preserve">
-    <value>[IT]Unable to retrieve shared properties from system.</value>
-  </data>
-  <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>[IT]DataException while trying to save shared properties to entity.</value>
-  </data>
-  <data name="TEXT_EXCEPTION_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>[IT]Unhandled Exception while trying to save shared properties to entity.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
-	<value>[IT]Retrieving shared property from system.</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Unable to retrieve shared property from system.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[IT]Retrieved shared property values from system.</value>
-  </data>
-  <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>[IT]Removing shared property from entity.</value>
-  </data>
-  <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[IT]Removing shared property from entity with entity type: </value>
-  </data>
-  <data name="TEXT_UNABLE_TO_REMOVE_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>[IT]An error occurred removing shared property from entity.</value>
-  </data>
-  <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>[IT]Removed shared property from entity.</value>
-  </data>
-  <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[IT]Removed shared property from entity with entity type: </value>
-  </data>
-  <data name="TEXT_DELETING_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Deleting shared property from system.</value>
-  </data>
-  <data name="TEXT_CANNOT_DELETE_SHARED_PROPERTY_IN_USE" xml:space="preserve">
-    <value>[IT]Cannot remove shared property because it is in use.</value>
-  </data>
-  <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Deleted shared property from system.</value>
-  </data>
-  <data name="TEXT_COULD_NOT_DELETE_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]An error occurred deleting shared property from system.</value>
-  </data>
-  <data name="TEXT_CREATING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[IT]Creating entries in shared property value map for shared property and values.</value>
-  </data>
-  <data name="TEXT_CREATED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[IT]Created entries in shared property value map for shared property and values.</value>
-  </data>
-  <data name="TEXT_CREATE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>[IT]Failed creating entries in shared property value map for shared property and values.</value>
-  </data>
-  <data name="TEXT_REMOVING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[IT]Removing entries in shared property value map for shared property and values.</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTY_VALUE_MAPPING_IN_USE" xml:space="preserve">
-    <value>[IT]Mapping cannot be deleted because it is in use.</value>
-  </data>
-  <data name="TEXT_REMOVED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[IT]Removed entries in shared property value map for shared property and values.</value>
-  </data>
-  <data name="TEXT_REMOVE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>[IT]Failed Removing entries in shared property value map for shared property and values.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[IT]Retrieving shared property values from system.</value>
-  </data>
-  <data name="TEXT_CANNOT_GET_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[IT]Cannot retrieve shared property values from system.</value>
-  </data>
-  <data name="TEXT_UPDATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Updating shared property.</value>
-  </data>
-  <data name="TEXT_UPDATING_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Updating values for shared property.</value>
-  </data>
-  <data name="TEXT_UPDATED_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Updated values for shared property.</value>
-  </data>
-  <data name="TEXT_UPDATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Updated shared property.</value>
-  </data>
-  <data name="TEXT_CREATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Creating shared property.</value>
-  </data>
-  <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[IT]Adding shared property values.</value>
-  </data>
-  <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[IT]Added shared property values.</value>
-  </data>
-  <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>[IT]Created shared property.</value>
-  </data>
-  <data name="TEXT_CREATE_SHARED_PROPERTY_FAILED" xml:space="preserve">
-    <value>[IT]Failed creating shared property.</value>
-  </data>
-  <data name="TEXT_BADLY_FORMATTED_FILTER" xml:space="preserve">
-    <value>[IT]Filter value string has bad format: {0}</value>
-  </data>
-  <data name="TEXT_INVALID_OP_IN_FILTER" xml:space="preserve">
-    <value>[IT]Filter value string contains an invalid operation: {0}</value>
-  </data>
-  <data name="TEXT_BADLY_FORMATTED_SORT" xml:space="preserve">
-    <value>[IT]Sort value string has bad format: {0}</value>
-  </data>
-  <data name="TEXT_BADLY_FORMATTED_PARAMETERS" xml:space="preserve">
-    <value>[IT]The request contained badly formatted parameters.</value>
-  </data>
-  <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
-    <value>[IT]Could not find template {0}.</value>
-  </data>
-  <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
-    <value>[IT]Request ID {0} does not match template ID {1}.</value>
-  </data>
-  <data name="TEXT_CANT_LOAD_TEMPLATE" xml:space="preserve">
-    <value>[IT]Could not load template {0}.</value>
-  </data>
-  <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
-    <value>[IT]Could not create template.</value>
-  </data>
-  <data name="TEXT_CANT_SAVE_TEMPLATE" xml:space="preserve">
-    <value>[IT]Could not save template {0}.</value>
-  </data>
-  <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
-    <value>[IT]Could not load template list.</value>
-  </data>
-  <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
-    <value>[IT]Could not display list of templates.</value>
-  </data>
-  <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
-    <value>[IT]Could not create WebRequest for {0}.</value>
-  </data>
-  <data name="GOT_NO_RESPONSE" xml:space="preserve">
-    <value>[IT]Got no response from {0}.</value>
-  </data>
-  <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
-    <value>[IT]Could not deserialize JSON {0} into type {1}.</value>
+  <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
+    <value>[IT] Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
   </data>
 </root>

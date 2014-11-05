@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,119 +59,119 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="ddAccountLinksResource1.AllowBlank" xml:space="preserve">
-    <value>False</value>
-  </data>
-  <data name="ddAccountLinksResource1.ControlHeight" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.ControlWidth" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.EnumSpace" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.EnumType" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.HideLabel" xml:space="preserve">
-    <value>False</value>
-  </data>
-  <data name="ddAccountLinksResource1.InlineScript" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.Label" xml:space="preserve">
-    <value>Selecionar fatura</value>
-  </data>
-  <data name="ddAccountLinksResource1.LabelSeparator" xml:space="preserve">
-    <value>:</value>
-  </data>
-  <data name="ddAccountLinksResource1.LabelWidth" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.Listeners" xml:space="preserve">
-    <value>{ 'select' : { fn: this.onChange, scope: this } }</value>
-  </data>
-  <data name="ddAccountLinksResource1.ListWidth" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.OptionalExtConfig" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="ddAccountLinksResource1.ReadOnly" xml:space="preserve">
-    <value>False</value>
-  </data>
-  <data name="ddAccountLinksResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="lblAccountLinksResource1.Text" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="lblAccountLinksResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraView</value>
-  </data>
-  <data name="TEXT_REDIRECT_MESSAGE" xml:space="preserve">
-    <value>Use a opção do menu Selecionar Fatura para navegar na fatura.</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ddAccountLinksResource1.AllowBlank" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddAccountLinksResource1.ControlHeight" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.ControlWidth" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.EnumSpace" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.EnumType" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.HideLabel" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddAccountLinksResource1.InlineScript" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.Label" xml:space="preserve">
+        <value>Selecionar fatura</value>
+    </data>
+    <data name="ddAccountLinksResource1.LabelSeparator" xml:space="preserve">
+        <value>:</value>
+    </data>
+    <data name="ddAccountLinksResource1.LabelWidth" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.Listeners" xml:space="preserve">
+        <value>{ 'select' : { fn: this.onChange, scope: this } }</value>
+    </data>
+    <data name="ddAccountLinksResource1.ListWidth" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.OptionalExtConfig" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="ddAccountLinksResource1.ReadOnly" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddAccountLinksResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="lblAccountLinksResource1.Text" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="lblAccountLinksResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraView</value>
+    </data>
+    <data name="TEXT_REDIRECT_MESSAGE" xml:space="preserve">
+        <value>Use a opção do menu Selecionar Fatura para navegar na fatura.</value>
+    </data>
 </root>

@@ -684,4 +684,10 @@
     <value>Sub. Params For OnBoard Templates</value>
   </data>
   </data>
+  <data name="TEXT_AccountConfigSets" xml:space="preserve">
+    <value>[DE]Manage OnBoard Templates</value>
+  </data>
+  <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
+    <value>[DE]OnBoard Templates List</value>
+  </data>
 </root>

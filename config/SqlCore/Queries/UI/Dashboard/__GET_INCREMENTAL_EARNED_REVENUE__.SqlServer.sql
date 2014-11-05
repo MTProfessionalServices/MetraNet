@@ -43,7 +43,34 @@ WHERE
 	AND udrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
 	AND udrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
-	AND ('%%ACCOUNTINGCYCLEID%%' IS NULL OR '%%ACCOUNTINGCYCLEID%%' IS NOT NULL)
+	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
+			OR
+			EXISTS (
+				SELECT 1
+			  FROM t_be_sys_rep_accountingcycle cycl
+			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
+			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
+			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  AND tanc.id_descendent = acc.id_payee
+			  AND (
+						cycl.c_IsDefault = 'T' 
+						AND (cyclto.c_AccountId IS NOT NULL
+								OR
+								(cyclto.c_AccountId IS NULL
+									AND
+									NOT EXISTS (
+											SELECT 1
+										  FROM t_be_sys_rep_accountingcycle iNcycl
+										  INNER JOIN t_be_sys_rep_accountingcycl iNcyclto ON iNcycl.c_AccountingCycle_Id = iNcyclto.c_AccountingCycle_Id
+										  INNER JOIN t_account_ancestor iNtanc ON iNtanc.id_ancestor = iNcyclto.c_AccountId
+										  WHERE iNcycl.c_IsDefault = 'F'
+										  AND iNtanc.id_descendent = acc.id_payee
+										)
+								)
+								)
+		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+						)
+		  ))
 
 UNION
 
@@ -90,6 +117,34 @@ WHERE
 	AND frc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
 	AND frc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
+	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
+			OR
+			EXISTS (
+				SELECT 1
+			  FROM t_be_sys_rep_accountingcycle cycl
+			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
+			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
+			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  AND tanc.id_descendent = acc.id_payee
+			  AND (
+						cycl.c_IsDefault = 'T' 
+						AND (cyclto.c_AccountId IS NOT NULL
+								OR
+								(cyclto.c_AccountId IS NULL
+									AND
+									NOT EXISTS (
+											SELECT 1
+										  FROM t_be_sys_rep_accountingcycle iNcycl
+										  INNER JOIN t_be_sys_rep_accountingcycl iNcyclto ON iNcycl.c_AccountingCycle_Id = iNcyclto.c_AccountingCycle_Id
+										  INNER JOIN t_account_ancestor iNtanc ON iNtanc.id_ancestor = iNcyclto.c_AccountId
+										  WHERE iNcycl.c_IsDefault = 'F'
+										  AND iNtanc.id_descendent = acc.id_payee
+										)
+								)
+								)
+		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+						)
+		  ))
 
 UNION
 
@@ -119,3 +174,31 @@ WHERE
 	AND nrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
 	AND nrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
+	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
+			OR
+			EXISTS (
+				SELECT 1
+			  FROM t_be_sys_rep_accountingcycle cycl
+			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
+			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
+			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  AND tanc.id_descendent = acc.id_payee
+			  AND (
+						cycl.c_IsDefault = 'T' 
+						AND (cyclto.c_AccountId IS NOT NULL
+								OR
+								(cyclto.c_AccountId IS NULL
+									AND
+									NOT EXISTS (
+											SELECT 1
+										  FROM t_be_sys_rep_accountingcycle iNcycl
+										  INNER JOIN t_be_sys_rep_accountingcycl iNcyclto ON iNcycl.c_AccountingCycle_Id = iNcyclto.c_AccountingCycle_Id
+										  INNER JOIN t_account_ancestor iNtanc ON iNtanc.id_ancestor = iNcyclto.c_AccountId
+										  WHERE iNcycl.c_IsDefault = 'F'
+										  AND iNtanc.id_descendent = acc.id_payee
+										)
+								)
+								)
+		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+						)
+		  ))

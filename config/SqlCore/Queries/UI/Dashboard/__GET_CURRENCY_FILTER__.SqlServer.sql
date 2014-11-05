@@ -1,0 +1,1 @@
+SELECT DISTINCT nm_currency_code FROM t_pricelist

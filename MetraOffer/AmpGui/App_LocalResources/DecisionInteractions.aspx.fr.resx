@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,111 +59,111 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="AllDecisionsAccessToUsageRecord.Text" xml:space="preserve">
-    <value>Countable – This Decision Type will process all qualified usage records regardless of any previous Decision application. Subsequent Decisions, regardless of their domain, will not be impacted by the usage records processed by a Decision of this Decision Type.</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnSaveAndContinueResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ddParamTableResource1.AllowBlank" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ddParamTableResource1.HideLabel" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ddParamTableResource1.MaxLength" type="System.Int32, mscorlib">
-    <value>-1</value>
-  </data>
-  <data name="ddParamTableResource1.MinLength" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="ddParamTableResource1.ReadOnly" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="DecisionApportionQuestion.Text" xml:space="preserve">
-    <value>What is the domain of this Decision Type?  (This affects how usage records are processed by multiple Decisions.)</value>
-  </data>
-  <data name="ExclusiveAccessToConsumedUsage.Text" xml:space="preserve">
-    <value>Ratable – This Decision Type will not process any portion of a usage record that was processed by a previous Ratable domain Decision. Subsequent Ratable domain Decisions will not process any portion of a usage record that was processed by a Decision of this Decision Type.</value>
-  </data>
-  <data name="IntroInfo.Text" xml:space="preserve">
-    <value>If you have more than one configured Decision, consider how the Decisions might interact.</value>
-  </data>
-  <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Interactions</value>
-  </data>
-  <data name="ListItemResource1.Value" xml:space="preserve">
-    <value>ExclusiveAccessToConsumedUsage</value>
-  </data>
-  <data name="ListItemResource2.Value" xml:space="preserve">
-    <value>AllDecisionsAccessToUsageRecord</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <data name="AllDecisionsAccessToUsageRecord.Text" xml:space="preserve">
+        <value>Countable – This Decision Type will process all qualified usage records regardless of any previous Decision application. Subsequent Decisions, regardless of their domain, will not be impacted by the usage records processed by a Decision of this Decision Type.</value>
+    </data>
+    <data name="btnBackResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnContinueResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnSaveAndContinueResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="ddParamTableResource1.AllowBlank" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddParamTableResource1.HideLabel" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="ddParamTableResource1.MaxLength" xml:space="preserve">
+        <value>-1</value>
+    </data>
+    <data name="ddParamTableResource1.MinLength" xml:space="preserve">
+        <value>0</value>
+    </data>
+    <data name="ddParamTableResource1.ReadOnly" xml:space="preserve">
+        <value>False</value>
+    </data>
+    <data name="DecisionApportionQuestion.Text" xml:space="preserve">
+        <value>What is the domain of this Decision Type?  (This affects how usage records are processed by multiple Decisions.)</value>
+    </data>
+    <data name="ExclusiveAccessToConsumedUsage.Text" xml:space="preserve">
+        <value>Ratable – This Decision Type will not process any portion of a usage record that was processed by a previous Ratable domain Decision. Subsequent Ratable domain Decisions will not process any portion of a usage record that was processed by a Decision of this Decision Type.</value>
+    </data>
+    <data name="IntroInfo.Text" xml:space="preserve">
+        <value>If you have more than one configured Decision, consider how the Decisions might interact.</value>
+    </data>
+    <data name="lblTitleResource1.Text" xml:space="preserve">
+        <value>Decision Interactions</value>
+    </data>
+    <data name="ListItemResource1.Value" xml:space="preserve">
+        <value>ExclusiveAccessToConsumedUsage</value>
+    </data>
+    <data name="ListItemResource2.Value" xml:space="preserve">
+        <value>AllDecisionsAccessToUsageRecord</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
 </root>

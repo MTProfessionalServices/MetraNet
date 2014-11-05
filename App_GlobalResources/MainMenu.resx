@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>Account</value>
+  </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Account Details</value>
   </data>
@@ -154,6 +157,9 @@
     <value>Add New Report Parameters</value>
   </data>
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>Add Partition</value>
+  </data>
+  <data name="TEXT_ADD_TENANT" xml:space="preserve">
     <value>Add Partition</value>
   </data>
   <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
@@ -230,6 +236,9 @@
   </data>
   <data name="TEXT_BILL_MANAGER" xml:space="preserve">
     <value>Bill Managers</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>Bill Messages</value>
   </data>
   <data name="TEXT_BILLABLE_INTERVALS" xml:space="preserve">
     <value>Billable Intervals</value>
@@ -342,6 +351,9 @@
   <data name="TEXT_FILES_IN_PAST_WEEK" xml:space="preserve">
     <value>Jobs in the Past Week</value>
   </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>Finance Dashboard</value>
+  </data>
   <data name="TEXT_FOLDER_OWNER" xml:space="preserve">
     <value>Account Administrator</value>
   </data>
@@ -377,6 +389,9 @@
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
     <value>Decision Types</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>Manage Bill Messages</value>
   </data>
   <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
     <value>Manage BillSoft Exemptions</value>
@@ -459,6 +474,9 @@
   <data name="TEXT_OPEN_FAILED_TRANSACTIONS" xml:space="preserve">
     <value>Open</value>
   </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>Operations Dashboard</value>
+  </data>
   <data name="TEXT_ORPHAN_ADJUSTMENTS" xml:space="preserve">
     <value>Orphan Adjustments</value>
   </data>
@@ -495,6 +513,9 @@
   <data name="TEXT_PRICEABLE_ITEMS" xml:space="preserve">
     <value>Priceable Items</value>
   </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>Product Dashboard</value>
+  </data>
   <data name="TEXT_QUEUE_ADHOC_REPORT_FOR_EXECUTION" xml:space="preserve">
     <value>Queue AdHoc Report For Execution</value>
   </data>
@@ -515,6 +536,9 @@
   </data>
   <data name="TEXT_RELATIONSHIPS" xml:space="preserve">
     <value>Relationships</value>
+  </data>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>Reports</value>
   </data>
   <data name="TEXT_RESUBMITTED_FAILED_TRANSACTIONS" xml:space="preserve">
     <value>Resubmitted</value>
@@ -542,6 +566,9 @@
   </data>
   <data name="TEXT_SCHEDULED_ADAPTERS" xml:space="preserve">
     <value>Scheduled Adapters</value>
+  </data>
+  <data name="TEXT_SEARCH" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="TEXT_SECURITY" xml:space="preserve">
     <value>Security</value>
@@ -627,6 +654,12 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Update Existing Report Definition</value>
   </data>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Calculation Decision Details</value>
+  </data>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>Usage Processing</value>
+  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Usage Server Maintenance</value>
   </data>
@@ -645,37 +678,10 @@
   <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
     <value>View Online Bill</value>
   </data>
-  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>Usage Calculation Decision Details</value>
+  <data name="TEXT_AccountConfigSets" xml:space="preserve">
+    <value>Manage OnBoard Templates</value>
   </data>
-  <data name="TEXT_ADD_TENANT" xml:space="preserve">
-    <value>Add Partition</value>
-  </data>
-  <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>Reports</value>
-  </data>
-  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>Usage Processing</value>
-  </data>
-  <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>Account</value>
-  </data>
-  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>Bill Messages</value>
-  </data>
-  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>Finance Dashboard</value>
-  </data>
-  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>Manage Bill Messages</value>
-  </data>
-  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>Operations Dashboard</value>
-  </data>
-  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>Product Dashboard</value>
-  </data>
-  <data name="TEXT_SEARCH" xml:space="preserve">
-    <value>Search</value>
+  <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
+    <value>OnBoard Templates List</value>
   </data>
 </root>

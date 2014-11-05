@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,158 +59,158 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
-    <value>Use cycle enforced by the product offering</value>
-  </data>
-  <data name="CorporateAccount" xml:space="preserve">
-    <value>Corporate Account</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="DiscDisRadioButton1.BoxLabel" xml:space="preserve">
-    <value>proportional</value>
-  </data>
-  <data name="DiscDisRadioButton2.BoxLabel" xml:space="preserve">
-    <value>full amount to one account</value>
-  </data>
-  <data name="EndDate" xml:space="preserve">
-    <value>End Date</value>
-  </data>
-  <data name="ERROR_START_DATE" xml:space="preserve">
-    <value>Invalid start date</value>
-  </data>
-  <data name="ErrorAddGroupSub" xml:space="preserve">
-    <value>Error while adding group subscription.</value>
-  </data>
-  <data name="ErrorGrpDis" xml:space="preserve">
-    <value>Please select a group discount account.</value>
-  </data>
-  <data name="ErrorSelectAccount" xml:space="preserve">
-    <value>Please select a different account that has the same cycle as the PO.</value>
-  </data>
-  <data name="GroupName" xml:space="preserve">
-    <value>Group Name</value>
-  </data>
-  <data name="GroupSubscriptionProperties" xml:space="preserve">
-    <value>Details</value>
-  </data>
-  <data name="GrpDiscAcct.Text" xml:space="preserve">
-    <value>Account for group discount</value>
-  </data>
-  <data name="lblEBCRWarningResource1.Text" xml:space="preserve">
-    <value>Changing this start date may adversely affect billing cycle aligned charges contained in the associated Product Offering.</value>
-  </data>
-  <data name="LblEnforced.Text" xml:space="preserve">
-    <value>Use cycle enforced by the product offering</value>
-  </data>
-  <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Error Messages</value>
-  </data>
-  <data name="MTAccountsPanel.Text" xml:space="preserve">
-    <value>Select Account</value>
-  </data>
-  <data name="MTDiscDistResource1.Text" xml:space="preserve">
-    <value>Discount Distribution:  Full amount to one account</value>
-  </data>
-  <data name="MTSection1Resource1.Text" xml:space="preserve">
-    <value>Discount and Aggregate Rates Counter Configuration</value>
-  </data>
-  <data name="MTSection2Resource1.Text" xml:space="preserve">
-    <value>Discount Configuration</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Group Subscription Details</value>
-  </data>
-  <data name="MTUsageCyclePanel.Text" xml:space="preserve">
-    <value>Usage Cycle Configuration</value>
-  </data>
-  <data name="NoSharedCountersBoxLabel.BoxLabel" xml:space="preserve">
-    <value>Do not use shared counters</value>
-  </data>
-  <data name="OfferingEndDate" xml:space="preserve">
-    <value>Offering End Date</value>
-  </data>
-  <data name="OfferingStartDate" xml:space="preserve">
-    <value>Offering Start Date</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraCare</value>
-  </data>
-  <data name="ProductOffering" xml:space="preserve">
-    <value>Product Offering</value>
-  </data>
-  <data name="ProductOfferingHeader" xml:space="preserve">
-    <value>Product Offering Properties</value>
-  </data>
-  <data name="SearchAccount.Label" xml:space="preserve">
-    <value>Account for usage cycle</value>
-  </data>
-  <data name="SharedCountersBoxLabel.BoxLabel" xml:space="preserve">
-    <value>Use shared counters</value>
-  </data>
-  <data name="StartDate" xml:space="preserve">
-    <value>Start Date</value>
-  </data>
-  <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
-    <value>Properties</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
+        <value>Use cycle enforced by the product offering</value>
+    </data>
+    <data name="CorporateAccount" xml:space="preserve">
+        <value>Corporate Account</value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="DiscDisRadioButton1.BoxLabel" xml:space="preserve">
+        <value>proportional</value>
+    </data>
+    <data name="DiscDisRadioButton2.BoxLabel" xml:space="preserve">
+        <value>full amount to one account</value>
+    </data>
+    <data name="EndDate" xml:space="preserve">
+        <value>End Date</value>
+    </data>
+    <data name="ERROR_START_DATE" xml:space="preserve">
+        <value>Invalid start date</value>
+    </data>
+    <data name="ErrorAddGroupSub" xml:space="preserve">
+        <value>Error while adding group subscription.</value>
+    </data>
+    <data name="ErrorGrpDis" xml:space="preserve">
+        <value>Please select a group discount account.</value>
+    </data>
+    <data name="ErrorSelectAccount" xml:space="preserve">
+        <value>Please select a different account that has the same cycle as the PO.</value>
+    </data>
+    <data name="GroupName" xml:space="preserve">
+        <value>Group Name</value>
+    </data>
+    <data name="GroupSubscriptionProperties" xml:space="preserve">
+        <value>Details</value>
+    </data>
+    <data name="GrpDiscAcct.Text" xml:space="preserve">
+        <value>Account for group discount</value>
+    </data>
+    <data name="lblEBCRWarningResource1.Text" xml:space="preserve">
+        <value>Changing this start date may adversely affect billing cycle aligned charges contained in the associated Product Offering.</value>
+    </data>
+    <data name="LblEnforced.Text" xml:space="preserve">
+        <value>Use cycle enforced by the product offering</value>
+    </data>
+    <data name="lblErrorMessageResource1.Text" xml:space="preserve">
+        <value>Error Messages</value>
+    </data>
+    <data name="MTAccountsPanel.Text" xml:space="preserve">
+        <value>Select Account</value>
+    </data>
+    <data name="MTDiscDistResource1.Text" xml:space="preserve">
+        <value>Discount Distribution:  Full amount to one account</value>
+    </data>
+    <data name="MTSection1Resource1.Text" xml:space="preserve">
+        <value>Discount and Aggregate Rates Counter Configuration</value>
+    </data>
+    <data name="MTSection2Resource1.Text" xml:space="preserve">
+        <value>Discount Configuration</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Group Subscription Details</value>
+    </data>
+    <data name="MTUsageCyclePanel.Text" xml:space="preserve">
+        <value>Usage Cycle Configuration</value>
+    </data>
+    <data name="NoSharedCountersBoxLabel.BoxLabel" xml:space="preserve">
+        <value>Do not use shared counters</value>
+    </data>
+    <data name="OfferingEndDate" xml:space="preserve">
+        <value>Offering End Date</value>
+    </data>
+    <data name="OfferingStartDate" xml:space="preserve">
+        <value>Offering Start Date</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraCare</value>
+    </data>
+    <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
+        <value>Properties</value>
+    </data>
+    <data name="ProductOffering" xml:space="preserve">
+        <value>Product Offering</value>
+    </data>
+    <data name="ProductOfferingHeader" xml:space="preserve">
+        <value>Product Offering Properties</value>
+    </data>
+    <data name="SearchAccount.Label" xml:space="preserve">
+        <value>Account for usage cycle</value>
+    </data>
+    <data name="SharedCountersBoxLabel.BoxLabel" xml:space="preserve">
+        <value>Use shared counters</value>
+    </data>
+    <data name="StartDate" xml:space="preserve">
+        <value>Start Date</value>
+    </data>
 </root>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MetraTech.NotificationEvents.EventHandler.Entities;
 using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
@@ -47,6 +48,8 @@ public partial class Notifications : MTPage
   protected void PopulatePartitionsDropDown()
   {
     Dictionary<string, Int32> partitions = PartitionLibrary.RetrieveAllPartitions();
+    partitions = partitions.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+    partitions.Add("Non-Partitioned", 1);
     foreach (string pname in partitions.Keys)
     {
       Int32 val;

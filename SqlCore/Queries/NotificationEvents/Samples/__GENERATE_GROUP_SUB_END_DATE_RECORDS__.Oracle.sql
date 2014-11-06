@@ -1,6 +1,9 @@
+/*NOTE:Notifications will be generated only for subscriptions which end by (CURRENT_RUN_DATE + NOTIFICATION_DAYS) to the nearest second.
+ So if NOTIFICATION_DAYS =10 and CURRENT_RUN_DATE = '05-NOV-2014 13:30:56' , then notifications will be generated for all the subscriptions
+ with the vt_end before 15-NOV-2014 13:30:56*/
 WITH 
 constants AS ( SELECT 
-    10 AS NOTIFICATION_DAYS
+    10 AS NOTIFICATION_DAYS /*Number of days before the subscription expires*/
     FROM DUAL
 )
 SELECT

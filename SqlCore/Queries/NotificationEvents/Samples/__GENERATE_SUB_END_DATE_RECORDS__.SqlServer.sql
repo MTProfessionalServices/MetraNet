@@ -1,3 +1,6 @@
+/*NOTE:Notifications will be generated only for subscriptions which end by (CURRENT_RUN_DATE + NOTIFICATION_DAYS) to the nearest second.
+ So if NOTIFICATION_DAYS =10 and CURRENT_RUN_DATE = '05-NOV-2014 13:30:56' , then notifications will be generated for all the subscriptions
+ with the vt_end before 15-NOV-2014 13:30:56*/
 DECLARE @NOTIFICATION_DAYS int
 DECLARE @SUBSCRIPTION_WINDOW int
 DECLARE @LAST_NOTIFY_FROM DateTime

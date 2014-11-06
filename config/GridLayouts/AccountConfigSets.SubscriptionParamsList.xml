@@ -8,7 +8,7 @@
     <Exportable>true</Exportable>
     <Height>0</Height>
     <Width>75%</Width>
-    <Expandable>true</Expandable>
+    <Expandable>false</Expandable>
     <Buttons>OK</Buttons>
     <DataSourceURL>../AjaxServices/LoadAccountConfigSetSubscriptionParams.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
@@ -323,22 +323,5 @@
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
-    <ToolbarButtons>
-        <Button>
-            <ButtonID>Add</ButtonID>
-            <ButtonText>
-                <LocalizationTag>CREATE_ACS</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>CREATE_ACS</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </ToolTip>
-            <IconClass>add</IconClass>
-            <RequiredCapabilities>
-                <Capability>Manage OnBoard Templates</Capability>
-            </RequiredCapabilities>
-            <JSHandlerFunction>onNew</JSHandlerFunction>
-        </Button>
-    </ToolbarButtons>
+    <ToolbarButtons></ToolbarButtons>
 </GridLayout>

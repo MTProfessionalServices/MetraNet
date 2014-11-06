@@ -50,7 +50,19 @@ WHERE
 								)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
 						)
-		  ))
+		  )
+      OR
+      ('00000000-0000-0000-0000-000000000000' = '%%ACCOUNTINGCYCLEID%%'
+      AND 
+      NOT EXISTS (
+          SELECT 1
+          FROM t_be_sys_rep_accountingcycle icycl
+          INNER JOIN t_be_sys_rep_accountingcycl icyclto ON icycl.c_AccountingCycle_Id = icyclto.c_AccountingCycle_Id
+          INNER JOIN t_account_ancestor itanc ON itanc.id_ancestor = icyclto.c_AccountId
+          WHERE itanc.id_descendent = acc.id_payee
+          )
+      )
+      )
 
 UNION
 
@@ -106,7 +118,19 @@ WHERE
 								)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
 						)
-		  ))
+		  )
+      OR
+      ('00000000-0000-0000-0000-000000000000' = '%%ACCOUNTINGCYCLEID%%'
+      AND 
+      NOT EXISTS (
+          SELECT 1
+          FROM t_be_sys_rep_accountingcycle icycl
+          INNER JOIN t_be_sys_rep_accountingcycl icyclto ON icycl.c_AccountingCycle_Id = icyclto.c_AccountingCycle_Id
+          INNER JOIN t_account_ancestor itanc ON itanc.id_ancestor = icyclto.c_AccountId
+          WHERE itanc.id_descendent = acc.id_payee
+          )
+      )
+      )
 
 UNION
 
@@ -162,4 +186,16 @@ WHERE
 								)
 		  			OR (cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
 						)
-		  ))
+		  )
+      OR
+      ('00000000-0000-0000-0000-000000000000' = '%%ACCOUNTINGCYCLEID%%'
+      AND 
+      NOT EXISTS (
+          SELECT 1
+          FROM t_be_sys_rep_accountingcycle icycl
+          INNER JOIN t_be_sys_rep_accountingcycl icyclto ON icycl.c_AccountingCycle_Id = icyclto.c_AccountingCycle_Id
+          INNER JOIN t_account_ancestor itanc ON itanc.id_ancestor = icyclto.c_AccountId
+          WHERE itanc.id_descendent = acc.id_payee
+          )
+      )
+      )

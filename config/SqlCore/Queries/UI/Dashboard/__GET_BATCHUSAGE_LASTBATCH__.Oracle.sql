@@ -1,6 +1,6 @@
 SELECT s1.BATCHID,
        s1."DATETIME",
-       TRUNC((s1.LastRunDate - s2.PrevRunDate) * 24 * 60)
+       TRUNC((s1.LastRunDate - s2.PrevRunDate) * 24 * 60) "TIME DIFF"
 FROM   (
            SELECT id_batch AS BATCHID,
                   dt_crt AS "DATETIME",                  

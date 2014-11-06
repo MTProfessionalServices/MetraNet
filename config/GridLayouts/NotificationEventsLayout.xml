@@ -89,7 +89,7 @@
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>notification_event_name</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_NOTIFICATIONS_EVENT_TYPE</LocalizationTag>
                 <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
@@ -104,6 +104,42 @@
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>localized_event_name</ID>
+            <DataType>List</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>localized_event_name</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_NOTIFICATIONS_EVENT_TYPE</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>180</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

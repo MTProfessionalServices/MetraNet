@@ -28,7 +28,7 @@ public partial class Notifications_AjaxServices_NotificationService : MTListServ
         SetSorting(listOfNotificationEvents);
         SetPaging(listOfNotificationEvents);
 
-        NotificationService.GetNotificationEvents(ref listOfNotificationEvents, UI.User.AccountId);
+        NotificationService.GetNotificationEvents(ref listOfNotificationEvents, UI.User.AccountId, UI.SessionContext.LanguageID);
         if (listOfNotificationEvents.Items.Count == 0)
         {
           Response.Write("{\"Items\":[]}");

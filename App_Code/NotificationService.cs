@@ -23,6 +23,11 @@ public class NotificationService
     return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaData();
   }
 
+  public static List<NotificationEventMetaDataDB> GetExisitingNotificationEventNamesLocalized(int langcode)
+  {
+    return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaDataLocalized(langcode);
+  }
+
   public static void GetNotificationEvents(ref MTList<SQLRecord> notificationEvents, int accountID, int langID)
   {
     _logger.LogDebug("Getting notification events for {0}", accountID);

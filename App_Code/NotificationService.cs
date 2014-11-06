@@ -23,7 +23,7 @@ public class NotificationService
     return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaData();
   }
 
-  public static void GetNotificationEvents(ref MTList<SQLRecord> notificationEvents, int accountID)
+  public static void GetNotificationEvents(ref MTList<SQLRecord> notificationEvents, int accountID, int langID)
   {
     _logger.LogDebug("Getting notification events for {0}", accountID);
 
@@ -32,7 +32,7 @@ public class NotificationService
     notificationEventPropValues.CurrentPage = notificationEvents.CurrentPage;
     notificationEventPropValues.SortCriteria = notificationEvents.SortCriteria;
     notificationEventPropValues.Filters = notificationEvents.Filters;
-    GetNotificationEventPropertyValuesXml(ref notificationEventPropValues, accountID);
+    GetNotificationEventPropertyValuesXml(ref notificationEventPropValues, accountID, langID);
 
     PopulateNotificationEvents(notificationEventPropValues, notificationEvents);
   }
@@ -98,13 +98,14 @@ public class NotificationService
     return propertyFields;
   }
 
-  private static void GetNotificationEventPropertyValuesXml(ref MTList<SQLRecord> notificationEventPropValuesXml, int accountID)
+  private static void GetNotificationEventPropertyValuesXml(ref MTList<SQLRecord> notificationEventPropValuesXml, int accountID, int langID)
   {
     using (IMTConnection conn = ConnectionManager.CreateConnection())
     {
       using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(_sqlQueriesPath, "__GET_NOTIFICATION_EVENTS_FOR_LOGGED_IN_USER__"))
       {
         stmt.AddParam("%%ID_ACC%%", accountID);
+        stmt.AddParam("%%ID_LANG%%", langID);
         using (IMTPreparedFilterSortStatement filterSortStmt =
             conn.CreatePreparedFilterSortStatement(stmt.Query))
         {

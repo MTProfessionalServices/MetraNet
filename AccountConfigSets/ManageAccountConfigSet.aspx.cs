@@ -263,6 +263,7 @@ namespace MetraNet.AccountConfigSets
 
     #endregion
 
+    #region Buttons click handlers
     protected void btnAddAccountConfigSet_Click(object sender, EventArgs e)
     {
       try
@@ -321,41 +322,9 @@ namespace MetraNet.AccountConfigSets
     {
       return string.Format(@"/MetraNet/AccountConfigSets/AccountConfigSetList.aspx");
     }
+    #endregion
 
-    private void SetCurrentAccountConfigSet()
-    {
-      CurrentAccountConfigSet = new AccountConfigSet
-      {
-        AcsId = CurrentAccountConfigSetId,
-        AcsCreationDate = MetraTime.Now
-      };
-
-      CurrentAccountConfigSet.Rank = String.IsNullOrEmpty(MTtbRank.Text) ? 0 : Convert.ToInt32(MTtbRank.Text);
-      CurrentAccountConfigSet.Enabled = MTcbAcsEnabled.Checked;
-      CurrentAccountConfigSet.EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text);
-      CurrentAccountConfigSet.EffectiveEndDate = String.IsNullOrEmpty(MTdpEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpEndDate.Text);
-      CurrentAccountConfigSet.Description = MTtbAcsDescription.Text;
-      CurrentAccountConfigSet.PropertiesToSet = GetPropertyValues(HiddenPropertiesToSet.Value);
-      CurrentAccountConfigSet.SelectionCriteria = GetPropertyValues(HiddenSelectionCriteria.Value);
-      var subParamId = 0;
-      if (MTtbSubParamId.Text != "-")
-        subParamId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);
-      CurrentAccountConfigSet.SubscriptionParamsId = subParamId;
-    }
-
-    private List<AccountConfigSetPropertyValue> GetPropertyValues(string value)
-    {
-      var propertyValueList = new List<AccountConfigSetPropertyValue>();
-      if (!string.IsNullOrEmpty(value))
-      {
-        var propertyValueStrArray = value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
-
-        propertyValueList.AddRange(propertyValueStrArray.Select(propertyValueStr => propertyValueStr.EndsWith("}") ? propertyValueStr : propertyValueStr + "}")
-          .Select(propertyValueStr1 => ExtendedJavaScriptConverter<AccountConfigSetPropertyValue>.GetSerializer().Deserialize<AccountConfigSetPropertyValue>(propertyValueStr1)));
-      }
-
-      return propertyValueList;
-    }
+    #region Invoke WCF clients
 
     private void ValidateRequest()
     {
@@ -434,6 +403,49 @@ namespace MetraNet.AccountConfigSets
       }
     }
 
+    #endregion
+
+    #region Set server side data from controls
+
+    private void SetCurrentAccountConfigSet()
+    {
+      CurrentAccountConfigSet = new AccountConfigSet
+      {
+        AcsId = CurrentAccountConfigSetId,
+        AcsCreationDate = MetraTime.Now
+      };
+
+      CurrentAccountConfigSet.Rank = String.IsNullOrEmpty(MTtbRank.Text) ? 0 : Convert.ToInt32(MTtbRank.Text);
+      CurrentAccountConfigSet.Enabled = MTcbAcsEnabled.Checked;
+      CurrentAccountConfigSet.EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text);
+      CurrentAccountConfigSet.EffectiveEndDate = String.IsNullOrEmpty(MTdpEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpEndDate.Text);
+      CurrentAccountConfigSet.Description = MTtbAcsDescription.Text;
+      CurrentAccountConfigSet.PropertiesToSet = GetPropertyValues(HiddenPropertiesToSet.Value);
+      CurrentAccountConfigSet.SelectionCriteria = GetPropertyValues(HiddenSelectionCriteria.Value);
+      var subParamId = 0;
+      if (MTtbSubParamId.Text != "-")
+        subParamId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);
+      CurrentAccountConfigSet.SubscriptionParamsId = subParamId;
+    }
+
+    private List<AccountConfigSetPropertyValue> GetPropertyValues(string value)
+    {
+      var propertyValueList = new List<AccountConfigSetPropertyValue>();
+      if (!string.IsNullOrEmpty(value))
+      {
+        var propertyValueStrArray = value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
+
+        propertyValueList.AddRange(propertyValueStrArray.Select(propertyValueStr => propertyValueStr.EndsWith("}") ? propertyValueStr : propertyValueStr + "}")
+          .Select(propertyValueStr1 => ExtendedJavaScriptConverter<AccountConfigSetPropertyValue>.GetSerializer().Deserialize<AccountConfigSetPropertyValue>(propertyValueStr1)));
+      }
+
+      return propertyValueList;
+    }
+
+    #endregion
+
+    #region Process request
+
     private void ParseRequest()
     {
       _mode = Request["mode"];
@@ -476,7 +488,7 @@ namespace MetraNet.AccountConfigSets
           break;
       }
     }
-
+        
     private void NewAccountConfigSet()
     {
       if (IsPostBack || IsViewMode) return;
@@ -612,7 +624,7 @@ namespace MetraNet.AccountConfigSets
       return hiddenUdrcsValue + "]";
     }
 
-
+    #endregion
   }
 
   public class ExtendedJavaScriptConverter<T> : JavaScriptConverter where T : new()

@@ -690,4 +690,7 @@
   <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
     <value>OnBoard Templates List</value>
   </data>
+    <data name="TEXT_CREATE_ACS_SUB_PARAMS" xml:space="preserve">
+    <value>Add Sub. Params</value>
+  </data>
 </root>

@@ -15,7 +15,7 @@
     </div>
     <div>
     <div id="leftColumn1" class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbRank" AllowBlank="True" LabelWidth="120" runat="server"
+      <MT:MTNumberField ID="MTtbRank" AllowBlank="True" LabelWidth="120" runat="server"
        meta:resourcekey="tbRankResource" Text="1" MaxLength="15" />
       <MT:MTCheckBoxControl ID="MTcbAcsEnabled" runat="server" LabelWidth="120" ReadOnly="False"
         meta:resourcekey="cbAcsEnabledResource"/>
@@ -105,8 +105,27 @@
 
     function getUpdateApprove()
     {  
-        var confirmResult = confirm('<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_ACS_MESSAGE")%>');
-        if(confirmResult)
+        var confirmResult = true;
+//      top.Ext.MessageBox.show({
+//          title: '<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_QUESTION")%>',
+//          msg: String.format('<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_ACS_MESSAGE")%>', entityId),
+//          buttons: window.Ext.MessageBox.OKCANCEL,
+//          fn: function(btn) {
+//            if (btn == 'ok') {
+//              confirmResult = true;
+//            }
+//          },
+//          animEl: 'elId',
+//          icon: window.Ext.MessageBox.QUESTION
+//        });
+//      
+//        var dlg = top.Ext.MessageBox.getDialog();
+//	      var buttons = dlg.buttons;
+//	      for (i = 0; i < buttons.length; i++) {
+//        buttons[i].addClass('custom-class');
+//       }
+
+//        if(confirmResult)
            getDataGrids();
 
         return confirmResult;
@@ -378,7 +397,7 @@
       AddPropertyValueWindow = new Ext.Window({
         title: windowTitle,
         width: 400,
-        height: 250,
+        height: 150,
         minWidth: 100,
         minHeight: 100,
         layout: 'fit',
@@ -813,8 +832,8 @@
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
         window.subParamsSelectorWin2 = new top.Ext.Window({
           title: '<%=GetLocalResourceObject("SELECT_SUBPARAMS")%>',
-          width: 700,
-          height: 500,
+          width: 800,
+          height: 600,
           minWidth: 300,
           minHeight: 200,
           layout: 'fit',

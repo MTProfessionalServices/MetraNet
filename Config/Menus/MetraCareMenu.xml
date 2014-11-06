@@ -426,10 +426,10 @@
                                 <Capability>Manage OnBoard Templates</Capability>                                
                             </RequiredCapabilities>
                         </MenuItem>
-                        <!-- <MenuItem>
+                        <MenuItem>
                             <ID>ManageSubscriptionParameters</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_CREATE_ACS</LocalizationTag>
+                                <LocalizationTag>TEXT_CREATE_ACS_SUB_PARAMS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>/MetraNet/AccountConfigSets/ManageSubscriptionParameters.aspx?mode=ADD</Link>
@@ -439,7 +439,7 @@
                             <RequiredCapabilities>
                                 <Capability>Manage OnBoard Templates</Capability>
                             </RequiredCapabilities>
-                        </MenuItem> -->
+                        </MenuItem> 
                         <!-- <MenuItem>
                             <ID>AccountConfigSetSubParamsList</ID>
                             <Caption>
@@ -453,7 +453,7 @@
                             <RequiredCapabilities>
                                 <Capability>Manage OnBoard Templates</Capability>                                
                             </RequiredCapabilities>
-                        </MenuItem> -->
+                        </MenuItem>  -->
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

@@ -253,10 +253,10 @@
     <value>Edit Selection Criterion</value>
   </data>
   <data name="REMOVE_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Remove Selection Criterion</value>
+    <value>Remove Property To Set</value>
   </data>
   <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Edit Selection Criterion</value>
+    <value>Edit Property To Set</value>
   </data>
   <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
     <value>Add Property To Set</value>
@@ -290,5 +290,8 @@
   </data>
   <data name="SELECT_SUBPARAMS" xml:space="preserve">
     <value>Select Subscription Parameters</value>
+  </data>
+  <data name="TEXT_UPDATE_QUESTION" xml:space="preserve">
+    <value>Are you sure?</value>
   </data>
 </root>

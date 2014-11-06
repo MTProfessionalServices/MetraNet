@@ -51,6 +51,24 @@
     <SubGrid></SubGrid>
     <Elements>
         <Element>
+            <RecordElement>false</RecordElement>
+            <ID>Actions</ID>
+            <DataIndex>actions</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>50</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Filterable>false</Filterable>
+        </Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
             <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
@@ -318,7 +336,7 @@
             </ToolTip>
             <IconClass>add</IconClass>
             <RequiredCapabilities>
-                <Capability>Manage Account Configuration Set</Capability>
+                <Capability>Manage OnBoard Templates</Capability>
             </RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>

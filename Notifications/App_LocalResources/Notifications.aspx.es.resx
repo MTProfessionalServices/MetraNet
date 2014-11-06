@@ -132,4 +132,7 @@
   <data name="TEXT_PARTITION" xml:space="preserve">
     <value>[ES]Partition</value>
   </data>
+  <data name="TEXT_PARTITION_ID" xml:space="preserve">
+    <value>[ES]Partition ID</value>
+  </data>
 </root>

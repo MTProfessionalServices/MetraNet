@@ -426,7 +426,7 @@
                                 <Capability>Manage OnBoard Templates</Capability>                                
                             </RequiredCapabilities>
                         </MenuItem>
-                        <MenuItem>
+                        <!-- <MenuItem>
                             <ID>ManageSubscriptionParameters</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_CREATE_ACS</LocalizationTag>
@@ -439,7 +439,7 @@
                             <RequiredCapabilities>
                                 <Capability>Manage OnBoard Templates</Capability>
                             </RequiredCapabilities>
-                        </MenuItem>
+                        </MenuItem> -->
                         <!-- <MenuItem>
                             <ID>AccountConfigSetSubParamsList</ID>
                             <Caption>

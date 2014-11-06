@@ -1,0 +1,2 @@
+select  id_notification_event_type, tx_desc As notification_event_name from t_enum_data join t_notification_event_types on nm_enum_data = 'UI/NotificationEventType/'||notification_event_name join t_description on id_enum_data = id_desc
+where id_lang_code = @ID_LANG_CODE

@@ -64,7 +64,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
@@ -193,10 +193,10 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>id_partition</ID>
+            <ID>partition_name</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>id_partition</DataIndex>
+            <DataIndex>partition_name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_PARTITION</LocalizationTag>
@@ -211,11 +211,50 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>id_partition</ID>
+            <DataType>List</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>id_partition</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_PARTITION_ID</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>false</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel>
+                <LocalizationTag>TEXT_PARTITION</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>

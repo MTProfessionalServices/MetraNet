@@ -6,7 +6,7 @@
     </Implementations>
     <Parameters>
           <Parameter>
-            <Name>ID_LANG</Name>
+            <Name>ID_LANG_OCDE</Name>
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>

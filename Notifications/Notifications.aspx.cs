@@ -38,7 +38,7 @@ public partial class Notifications : MTPage
     foreach (NotificationEventMetaDataDB nmdb in notificaitonTypes)
     {
       var dropDownItem = new MTFilterDropdownItem();
-      dropDownItem.Key = nmdb.NotificationEventName;
+      dropDownItem.Key = nmdb.NotificationEventMetaDataID.ToString();
       dropDownItem.Value = nmdb.NotificationEventName;
       NotificationsGrid.FindElementByID("notification_event_name").FilterDropdownItems.Add(dropDownItem);
     }

@@ -2,25 +2,17 @@
 <Query>
     <Action>Get</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+        <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
-        <Parameter>
-            <Name>ID_ACC</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
+          <Parameter>
             <Name>ID_LANG</Name>
             <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
+            <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
-    </Parameters>
+</Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

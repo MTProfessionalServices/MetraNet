@@ -20,14 +20,6 @@
       <Value>[es-MX]Interval Statistics</Value>
     </locale_entry>
     <locale_entry>
-      <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/Manage DataExportFramework</Name>
-      <Value>[es-MX]Manage DataExportFramework</Value>
-    </locale_entry>
-    <locale_entry>
-      <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/Manage System User Reports</Name>
-      <Value>[es-MX]Manage System User Reports</Value>
-    </locale_entry>
-    <locale_entry>
       <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
       <Value>[es-MX]View Data from Analytics Datamart</Value>
     </locale_entry>

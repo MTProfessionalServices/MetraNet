@@ -3,14 +3,6 @@
     <language_code>es</language_code>
     <locale_space name="MetraTech.MetraNet.Reporting">
         <locale_entry>
-            <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/Manage DataExportFramework</Name>
-            <Value>[ES]Manage DataExportFramework</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/Manage System User Reports</Name>
-            <Value>[ES]Manage System User Reports</Value>
-        </locale_entry>
-        <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
             <Value>[ES]View Data from Analytics Datamart</Value>
         </locale_entry>

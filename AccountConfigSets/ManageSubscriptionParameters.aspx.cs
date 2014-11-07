@@ -507,8 +507,9 @@ namespace MetraNet.AccountConfigSets
 
     private string GetRedirectPath()
     {
-      return string.Format(@"/MetraNet/AccountConfigSets/AccountConfigSeList.aspx");
+      return string.Format(@"/MetraNet/AccountConfigSets/AccountConfigSetList.aspx");
     }
+
     #endregion
   }
 

@@ -691,6 +691,6 @@
     <value>Sub. Params For OnBoard Templates</value>
   </data>
   <data name="TEXT_CREATE_ACS_SUB_PARAMS" xml:space="preserve">
-    <value>Add Sub. Params</value>
+    <value>Add Subscription Parameters</value>
   </data>
 </root>

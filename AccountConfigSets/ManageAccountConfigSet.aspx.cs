@@ -403,6 +403,31 @@ namespace MetraNet.AccountConfigSets
       }
     }
 
+    private string GetPoName(int poId)
+    {
+      var res = String.Empty;
+      try
+      {
+        using (var client = new ProductOfferingServiceClient())
+        {
+          if (client.ClientCredentials != null)
+          {
+            client.ClientCredentials.UserName.UserName = UI.User.UserName;
+            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          }
+          ProductOffering po;
+          client.GetProductOffering(new PCIdentifier(poId), out po);
+          if (po != null)
+            res = po.DisplayName;
+        }
+      }
+      catch (Exception)
+      {
+
+      }
+      return res;
+    }
+
     #endregion
 
     #region Set server side data from controls
@@ -523,13 +548,16 @@ namespace MetraNet.AccountConfigSets
       {
         MTPanelSubscriptionParameters.Collapsed = false;
         MTtbSubParamId.Text = CurrentAccountConfigSet.SubscriptionParams.AccountConfigSetParametersId.ToString();
-        MTtbSubParamsDescription.Text = CurrentAccountConfigSet.SubscriptionParams.Description;
-        MTtbSubParamsPo.Text = CurrentAccountConfigSet.SubscriptionParams.ProductOfferingId.ToString();
+        MTtbSubParamsDescription.Text = CurrentAccountConfigSet.SubscriptionParams.Description;        
         MTdpSubParamsStartDate.Text = CurrentAccountConfigSet.SubscriptionParams.StartDate.ToString("d");
         MTdpSubParamsEndDate.Text = CurrentAccountConfigSet.SubscriptionParams.EndDate.ToString("d");
         MTisCorpAccountId.Text = CurrentAccountConfigSet.SubscriptionParams.CorporateAccountId.ToString();
         MTtbGroupSubscriptionName.Text = CurrentAccountConfigSet.SubscriptionParams.GroupSubscriptionName;
-        HiddenUDRCs.Value = EncodeUDRCsForHiddenControl(CurrentAccountConfigSet.SubscriptionParams);        
+        HiddenUDRCs.Value = EncodeUDRCsForHiddenControl(CurrentAccountConfigSet.SubscriptionParams);
+
+        var poStrTpl = "{0} ({1})";
+        MTtbSubParamsPo.Text = String.Format(poStrTpl, CurrentAccountConfigSet.SubscriptionParams.ProductOfferingId.ToString(),
+          GetPoName(CurrentAccountConfigSet.SubscriptionParams.ProductOfferingId));
       }
       else
       {

@@ -475,10 +475,12 @@
 
           if (type == 'SelectionCriteria') {
             selectionCriteriaStore.add(newPropertyValueRecord);
+            //selectionCriteriaStore.sort('AccountView');
           }
 
           if (type == 'PropertyToSet') {
             propertiesToSetStore.add(newPropertyValueRecord);
+            //propertiesToSetStore.sort('AccountView');
           }
 
           AddPropertyValueWindow.destroy();
@@ -502,7 +504,11 @@
       var selectionCriteriaStore = new Ext.data.GroupingStore({
         root: 'propertyValue',
         fields: propertyValueRecord.fields,
-        groupField: 'AccountView'
+        groupField: 'AccountView',
+        sortInfo: {
+          field: 'AccountView',
+          direction: 'ASC' 
+        }
       });
 
       var selectionCriteriaToolBar = null;
@@ -606,7 +612,11 @@
       var propertiesToSetStore = new Ext.data.GroupingStore({
         root: 'propertyValue',
         fields: propertyValueRecord.fields,
-        groupField: 'AccountView'
+        groupField: 'AccountView',
+        sortInfo: {
+          field: 'AccountView',
+          direction: 'ASC' 
+        }
       });
 
       var propertiesToSetToolBar = null;
@@ -811,6 +821,8 @@
       window.Ext.get("<%=MTisCorpAccountId.ClientID %>").dom.value = subParams.CorporateAccountId;
       window.Ext.get("<%=MTtbGroupSubscriptionName.ClientID %>").dom.value = subParams.GroupSubscriptionName;
 
+      udrcStore.removeAll();      
+
       if (subParams.UDRC != null) {        
         if (subParams.UDRC.length > 0)
           udrcData.UDRCs = window.Ext.decode(subParams.UDRC);
@@ -821,9 +833,10 @@
       
     }; 
     
-    function addSubParamsCallback(ids) {      
+    function addSubParamsCallback(ids) {
       window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
-      window.CallServer(JSON.stringify({ subParamsId: ids }));
+      if (ids!='' && ids!=null)
+        window.CallServer(JSON.stringify({ subParamsId: ids }));
       subParamsSelectorWin2.hide();      
     }
 

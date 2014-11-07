@@ -127,21 +127,6 @@
         </Daily>
       </RecurrencePattern>
     </Adapter>
-   <!-- <Adapter>
-      <Name>CleanupNotificationEventsAdapter</Name>
-      <DisplayName>Cleanup Notification Events Adapter</DisplayName>
-      <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
-      <ConfigFile>CleanupNotificationEventsAdapter.xml</ConfigFile>
-      <Description>Cleanup notification events.</Description>
-      <RecurrencePattern>
-        <Monthly>
-           <Start>1/1/2014 12:00:00 AM</Start>
-           <Interval>1</Interval>
-           <Times>12:00 AM</Times>
-           <DaysOfMonth>Second Saturday</DaysOfMonth>
-        </Monthly>
-      </RecurrencePattern>
-    </Adapter> -->
   </ScheduledAdapters>
   <EndOfPeriodAdapters>
     <Adapter>

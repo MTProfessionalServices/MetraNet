@@ -33,7 +33,7 @@ public partial class Notifications : MTPage
 
   protected void PopulateNotificationTypesDropDown()
   {
-    List<NotificationEventMetaDataDB> notificaitonTypes = NotificationService.GetExisitingNotificationEventNamesLocalized(UI.SessionContext.LanguageID);
+    List<NotificationEventMetaDataDB> notificaitonTypes = NotificationService.GetExisitingNotificationEventNames(UI.SessionContext.LanguageID);
 
     foreach (NotificationEventMetaDataDB nmdb in notificaitonTypes)
     {

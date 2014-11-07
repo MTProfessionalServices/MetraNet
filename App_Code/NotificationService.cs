@@ -18,15 +18,11 @@ public class NotificationService
   private const string _sqlQueriesPath = @"..\config\SqlCore\Queries\NotificationEvents";
   private static readonly Logger _logger = new Logger(String.Format("[{0}]", typeof(NotificationService)));
 
-  public static List<NotificationEventMetaDataDB> GetExisitingNotificationEventNames()
+  public static List<NotificationEventMetaDataDB> GetExisitingNotificationEventNames(int langcode = -1)
   {
-    return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaData();
+    return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaData(langcode);
   }
 
-  public static List<NotificationEventMetaDataDB> GetExisitingNotificationEventNamesLocalized(int langcode)
-  {
-    return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaDataLocalized(langcode);
-  }
 
   public static void GetNotificationEvents(ref MTList<SQLRecord> notificationEvents, int accountID, int langID)
   {

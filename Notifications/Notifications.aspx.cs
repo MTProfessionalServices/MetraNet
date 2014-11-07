@@ -40,7 +40,7 @@ public partial class Notifications : MTPage
       var dropDownItem = new MTFilterDropdownItem();
       dropDownItem.Key = nmdb.NotificationEventName;
       dropDownItem.Value = nmdb.NotificationEventName;
-      NotificationsGrid.FindElementByID("notification_event_name").FilterDropdownItems.Add(dropDownItem);
+      NotificationsGrid.FindElementByID("localized_event_name").FilterDropdownItems.Add(dropDownItem);
     }
 
   }

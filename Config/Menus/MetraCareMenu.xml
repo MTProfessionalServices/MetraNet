@@ -398,21 +398,21 @@
                     </Caption>
                     <Description></Description>
                     <MenuItems>
-                        <!-- <MenuItem>
+                        <MenuItem>
                             <ID>CreateQuote</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_CREATE_QUOTE</LocalizationTag>
+                                <LocalizationTag>TEXT_CREATE_ACS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/Quoting/CreateQuote.aspx</Link>
+                            <Link>/MetraNet/AccountConfigSets/ManageAccountConfigSet.aspx?mode=ADD</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/add.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                                <Capability>Manage Account Configuration Set</Capability>
+                                <Capability>Manage OnBoard Templates</Capability>
                             </RequiredCapabilities>
-                        </MenuItem> -->
-						            <MenuItem>
+                        </MenuItem>
+                        <MenuItem>
                             <ID>AccountConfigSetList</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_AccountConfigSets_LIST</LocalizationTag>
@@ -423,9 +423,37 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-								                  <Capability>Manage Account Configuration Set</Capability>                                
+                                <Capability>Manage OnBoard Templates</Capability>                                
                             </RequiredCapabilities>
                         </MenuItem>
+                        <!-- <MenuItem>
+                            <ID>ManageSubscriptionParameters</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_CREATE_ACS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/AccountConfigSets/ManageSubscriptionParameters.aspx?mode=ADD</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/add.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage OnBoard Templates</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem> -->
+                        <!-- <MenuItem>
+                            <ID>AccountConfigSetSubParamsList</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_AccountConfigSetsSubParams_LIST</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/AccountConfigSets/AccountConfigSetSubscriptionParamsList.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/report.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage OnBoard Templates</Capability>                                
+                            </RequiredCapabilities>
+                        </MenuItem> -->
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

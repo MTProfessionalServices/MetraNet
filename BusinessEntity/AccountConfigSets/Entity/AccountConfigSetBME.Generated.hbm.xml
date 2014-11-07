@@ -128,7 +128,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="Rank" column="c_Rank">
+    <property name="Rank" column="c_Rank" not-null="true" unique="true">
       <meta attribute="label">Rank</meta>
       <meta attribute="description" />
       <meta attribute="defaultvalue" />

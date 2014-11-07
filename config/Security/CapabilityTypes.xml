@@ -878,10 +878,10 @@
   </compositetype>
   
   <compositetype>
-    <name>Manage Account Configuration Set</name>
-    <description>Manage Account Configuration Set: Permits to create, update and view of account configuration sets</description>
+    <name>Manage OnBoard Templates</name>
+    <description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</description>
     <editor></editor>
-    <progid>MetraTech.Auth.Capabilities.ManageAccountConfigurationSetCapability</progid>
+    <progid>MetraTech.Auth.Capabilities.ManageOnBoardTemplatesCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>

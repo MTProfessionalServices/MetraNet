@@ -292,6 +292,7 @@ Title="MetraNet - Manage Subscription Parameters" %>
     var piWithAllowUDRCGrid = new Ext.grid.GridPanel({
       ds: piUDRCStore,
       columns: piWithAllowUDRCColumns,
+      enableHdMenu: false,
       stripeRows: true,
       height: GRID_HEIGHT,
       width: 345,
@@ -507,6 +508,7 @@ Title="MetraNet - Manage Subscription Parameters" %>
     var udrcGrid = new Ext.grid.GridPanel({
       ds: udrcStore,
       columns: udrcColumns,
+      enableHdMenu: false,
       stripeRows: true,
       height: GRID_HEIGHT,
       width: 345,

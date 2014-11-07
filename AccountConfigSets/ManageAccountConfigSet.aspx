@@ -756,6 +756,7 @@
       var udrcGrid = new Ext.grid.GridPanel({
         ds: udrcStore,
         columns: udrcColumns,
+        enableHdMenu: false,
         stripeRows: true,
         height: GRID_HEIGHT-50,
         width: 345,

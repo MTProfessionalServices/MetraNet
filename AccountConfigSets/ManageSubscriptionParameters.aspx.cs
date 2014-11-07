@@ -179,7 +179,7 @@ namespace MetraNet.AccountConfigSets
         {
           qsc.GetAccountConfigSetSubscriptionParams(CurrentAccountConfigSetSubParamsId, out CurrentAccountConfigSetSubscriptionParams);
         }
-        catch (Exception e)
+        catch (Exception)
         {
           CurrentAccountConfigSetSubscriptionParams = new AccountConfigSetParameters();
         }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmlconfig>   
+	<name>VertexServerConfig</name>      
+	<description>Vertex Server config values used by the server socket to configure itself.</description>
+	<configdata>        
+		<VertexPath>C:\VertexTaxQSeriesInstallation\cfg</VertexPath>
+		<VertexDefaultConfig>TEST1</VertexDefaultConfig>
+    <MaxParallelism>64</MaxParallelism>
+  </configdata>    
+</xmlconfig>

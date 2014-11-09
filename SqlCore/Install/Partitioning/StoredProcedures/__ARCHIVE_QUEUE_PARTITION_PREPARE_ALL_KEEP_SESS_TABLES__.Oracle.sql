@@ -78,6 +78,7 @@ BEGIN
 			END IF;
 		END;
 
+    DBMS_OUTPUT.ENABLE(1000000);
 		rows_to_archive := (old_part_row_count + pres_part_row_count) - kept_row_count;
 		DBMS_OUTPUT.put_line ('<' || rows_to_archive || '> rows should be archived from "' || v_tab_name || '" table.');
 

@@ -45,6 +45,7 @@ BEGIN
         END IF;
     END;
 	
+  DBMS_OUTPUT.ENABLE(1000000);
 	DBMS_OUTPUT.PUT_LINE('	Preparing "' || table_with_sess_to_keep || '" for EXCHANGE PARTITION operation...');
     /* Create temp table for storing sessions that should not be deleted */
     sqlCommand :=  'CREATE TABLE ' || table_with_sess_to_keep

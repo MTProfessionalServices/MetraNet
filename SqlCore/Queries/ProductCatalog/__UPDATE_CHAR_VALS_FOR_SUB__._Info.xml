@@ -2,7 +2,8 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
@@ -27,8 +28,8 @@
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Config\Queries\ProductCatalog\CommonQueries.xml</CommonQuerySourceFile>
-        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
-        <OracleQuerySourceFile></OracleQuerySourceFile>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Config\Queries\ProductCatalog\SQLServer.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\Config\Queries\ProductCatalog\Oracle.xml</OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

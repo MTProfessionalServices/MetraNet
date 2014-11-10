@@ -16,14 +16,17 @@
   <script type="text/javascript" src="/Res/Ext/examples/ux/treegrid/TreeGridColumns.js"></script>
   <script type="text/javascript" src="/Res/Ext/examples/ux/treegrid/TreeGrid.js"></script>
 
-  <MT:MTTitle ID="MTTitle1" Text="Reports" runat="server" meta:resourcekey="MTTitle1Resource1" />
+  <MT:MTTitle ID="MTTitle1" Text="Reports" runat="server" meta:resourcekey="MTTitle1Resource1" /><br />
+  
+  <MT:MTPanel ID="pnlReport" Width="880" runat="server" Collapsible="False" Text="List of Reports" meta:resourcekey="MTPanel1Resource1">
   <div id="treeDIV" style="width: 100%; padding: 10px">
   </div>
   <div style="padding: 10px">
     <MT:MTLabel ID="LblcurrentEntityName" runat="server" Font-Bold="true" Font-Size="Medium" />
   </div>
   <a style="padding:10px" href="/MetraNet/BME/BEList.aspx?Name=MetraTech.SystemConfig.Reports.Report&Extension=MetraTech.SystemConfig&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.SystemConfig.Reports.Report"><asp:Label ID="ManageReports" runat="server" Text="Manage Reports" meta:resourcekey="ManageReports"></asp:Label></a>
-	
+	  </MT:MTPanel>
+
   <script type="text/javascript">
     var referer ='<%=RefererUrl%>';
 
@@ -83,11 +86,14 @@
             var categories = {};
             var nodes = [];
             var items = data.Items;
+            var accCapabilities= <%=AccCapabilities%>;
+            
             Ext.each(items, function(item) {
               var category = item.Category;
               var subCategory = item.SubCategory;
               var name = item.Name;
               var description = item.Description;
+              var capability = item.ReqdCapability;
               if (!description) {
                 description = name;
               }
@@ -108,9 +114,15 @@
                   cat.subs[subCategory] = { 'Name': subCategory, 'expanded': false, 'Description': '', 'children': [] };
                   cat.children.push(cat.subs[subCategory]);
                 }
-                cat.subs[subCategory].children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                
+                if (capabilityCheck(capability, accCapabilities)) {
+                  cat.subs[subCategory].children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                }
+
               } else {
-                cat.children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                if (capabilityCheck(capability, accCapabilities)) {
+                  cat.children.push({ 'leaf': true, 'Name': name, 'Description': description, 'thehref': href, 'href': href });
+                }
               }
             });
             return nodes;
@@ -118,6 +130,18 @@
         })
       });
     });
+     
+    function capabilityCheck(capCheck, capList) {
+      if ((capCheck == "") || (capCheck == null))
+        return true;
+      
+      for (var j = 0; j < capList.length; j++) 
+      {
+        if ((capList[j].match(capCheck)) || ( capList[j] =="Unlimited Capability"))
+          return true;
+      }
+      return false;
+    }
   
   </script>
 </asp:Content>

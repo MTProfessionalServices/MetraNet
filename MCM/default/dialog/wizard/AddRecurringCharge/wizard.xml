@@ -10,7 +10,7 @@
     <back><![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button Name="butBack"  [BACK_BUTTON_STATE] onClick="javascript:WizardBack();" class="clsWizardButton">&lt; Back</button></td>
+          <td><button Name="butBack" Id="butBack" [BACK_BUTTON_STATE] onClick="javascript:WizardBack();" class="clsWizardButton">&lt; Back</button></td>
         </tr>
       </table>
     ]]></back>

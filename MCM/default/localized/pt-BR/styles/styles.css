@@ -759,8 +759,8 @@ TH
   
   .clsButtonBlueSmall {
     width: 50px; 
-    height: 24px;
-    /*background-color: transparent;
+    /*height: 24px;
+    background-color: transparent;
     background-image: url(../images/buttonbluesmall.gif);
   	background-repeat : no-repeat;	
     border: 0;
@@ -773,8 +773,8 @@ TH
   
   .clsButtonBlueMedium {
     width: 77px; 
-    height: 24px;
-    /*background-color: transparent;
+    /*height: 24px;
+    background-color: transparent;
     background-image: url(../images/buttonbluemedium.gif);
   	background-repeat : no-repeat;	
     border: 0;
@@ -800,8 +800,8 @@ TH
   }    
   .clsButtonBlueXLarge {
     width: 150px; 
-    height: 24px;
-    /*background-color: transparent;
+    /*height: 24px;
+    background-color: transparent;
     background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
   	background-repeat : repeat-x scroll 0pt;	
     border: 0;

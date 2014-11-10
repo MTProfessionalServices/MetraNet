@@ -96,7 +96,7 @@
 		<!-- Allocation size of partition database log file in megabytes. -->
 		<LogSize>25</LogSize>
 		<!-- Storage locations for partition databases.  Used in round robin fashion. -->
-		<StoragePaths>
+    <StoragePaths>
 		  <!-- Paths for SQL Server			 -->
 		  <Path>C:\datafiles\01</Path>
 		  <Path>C:\datafiles\02</Path>

@@ -14,76 +14,58 @@
     // Event Handlers
     
     onOK_<%=POForQuoteGrid.ClientID %> = function()
-  {
+    {
      
-    var records = grid_<%=POForQuoteGrid.ClientID %>.getSelectionModel().getSelections();
-    var ids = "";
-    for(var i=0; i < records.length; i++)
-    {
-      if(i > 0)
+      var records = grid_<%=POForQuoteGrid.ClientID %>.getSelectionModel().getSelections();
+      var ids = "";
+      for(var i=0; i < records.length; i++)
       {
-        ids += ",";
-      }
-      ids += records[i].data.PoId;
-    }
-
-    try
-    {
-      if(window.getFrameMetraNet().MainContentIframe)
-      {
-        if(window.getFrameMetraNet().MainContentIframe.ticketFrame)
+        if(i > 0)
         {
-          if(window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage)
+          ids += ",";
+        }
+        ids += records[i].data.PoId;
+      }
+
+      try
+      {
+        if(window.getFrameMetraNet().MainContentIframe)
+        {
+          if(window.getFrameMetraNet().MainContentIframe.ticketFrame)
           {
+            if(window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage)
+            {
            
-            window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids, records);
+              window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids, records);
+            }
+            else
+            {            
+              window.getFrameMetraNet().MainContentIframe.ticketFrame.<%= CallbackFunction %>(ids, records);
+            }
           }
           else
-          {            
-            window.getFrameMetraNet().MainContentIframe.ticketFrame.<%= CallbackFunction %>(ids, records);
+          {
+             window.getFrameMetraNet().MainContentIframe.<%= CallbackFunction %>(ids, records);
           }
         }
-        else
-        {
-           window.getFrameMetraNet().MainContentIframe.<%= CallbackFunction %>(ids, records);
-        }
       }
-    }
-    catch(e)
-    {
-      //Ext.UI.msg("Error", "Couldn't find <%= CallbackFunction %> method.");      
-      Ext.UI.msg(TEXT_ERROR_MSG, TEXT_CALLBACK_MSG_1 + TEXT_CALLBACK_MSG_2);      
-    }
-     
-    if(window.getFrameMetraNet().accountSelectorWin != null)
-    {
-      window.getFrameMetraNet().accountSelectorWin.hide();
-    }
-
-    if(window.getFrameMetraNet().accountSelectorWin2 != null)
-    {
-      window.getFrameMetraNet().accountSelectorWin2.hide();
-    }
-      
-    window.getFrameMetraNet().accountSelectorWin = null;
-    window.getFrameMetraNet().accountSelectorWin2 = null;
-     
-      
-  };
-    
-    function onCancel_<%= POForQuoteGrid.ClientID %>() {
-      if(window.getFrameMetraNet().poSelectorWin != null)
+      catch(e)
       {
-        window.getFrameMetraNet().poSelectorWin.hide();
+        //Ext.UI.msg("Error", "Couldn't find <%= CallbackFunction %> method.");      
+        Ext.UI.msg(TEXT_ERROR_MSG, TEXT_CALLBACK_MSG_1 + TEXT_CALLBACK_MSG_2);      
+      }
+     
+      if(window.getFrameMetraNet().accountSelectorWin != null)
+      {
+        window.getFrameMetraNet().accountSelectorWin.close();
       }
 
-      if(window.getFrameMetraNet().poSelectorWin2 != null)
+      if(window.getFrameMetraNet().accountSelectorWin2 != null)
       {
-        window.getFrameMetraNet().poSelectorWin2.hide();
-      }
-      
-      window.getFrameMetraNet().poSelectorWin = null;
-      window.getFrameMetraNet().poSelectorWin2 = null;
-      }
+        window.getFrameMetraNet().accountSelectorWin2.close();
+      }      
+      window.getFrameMetraNet().accountSelectorWin = null;
+      window.getFrameMetraNet().accountSelectorWin2 = null;           
+    };        
   </script>
 </asp:Content>

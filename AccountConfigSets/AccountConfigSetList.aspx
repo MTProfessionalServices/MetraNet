@@ -25,6 +25,9 @@
     var textDelete = '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE")%>';
     var textTerminate = '<%=GetGlobalResourceObject("JSConsts", "TEXT_TERMINATE")%>';
     var textView = '<%=GetGlobalResourceObject("JSConsts", "TEXT_VIEW")%>';
+    var textRankUp = '<%=GetLocalResourceObject("MOVE_RANK_UP")%>';
+    var textRankDown = '<%=GetLocalResourceObject("MOVE_RANK_DOWN")%>';
+    var emptyElement = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
     
     OverrideRenderer_<%=AccountConfigSetListGrid.ClientID%> = function(cm) {
       cm.setRenderer(cm.getIndexById('Actions'), actionsColumnRenderer);
@@ -33,21 +36,43 @@
     function actionsColumnRenderer(value, meta, record) {
       var str = "";
       var entityId = record.data.AcsId;
-      var status = String.format("{0}", record.data.Status);
-
-     
+      
       // Edit ACS
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"ManageAccountConfigSet.aspx?mode=EDIT&acsId={0}\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
 
       // View ACS      
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageAccountConfigSet.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{2}\" alt=\"{2}\"/></a>", entityId, String.escape(textView));
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageAccountConfigSet.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textView));
       
       // Delete ACS     
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textDelete));
+
+      if (record.data.Enabled)
+        // Terminate ACS
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onTerminate('{0}')\"><img src=\"/Res/Images/icons/stop2.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textTerminate));
+      else
+        str += emptyElement;
       
-      // Terminate ACS     
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onTerminate('{0}')\"><img src=\"/Res/Images/icons/stop.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textTerminate));
-      
+      // Rank Up & Down
+      var indexOfRecord = record.store.indexOfId(record.id);
+
+      var prevRecord = record.store.getAt(indexOfRecord - 1);
+      if (prevRecord == null || prevRecord == undefined) {
+        str += emptyElement;
+      } else {
+        var prevEntityId = prevRecord.data.AcsId;
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"rankUp\" href=\"javascript:onExchangeRanks('{0}','{1}')\"><img src=\"/Res/Images/icons/arrow-up.png\" title=\"{2}\" alt=\"{2}\"/></a>",
+          entityId, prevEntityId, String.escape(textRankUp));
+      }
+
+      var nextRecord = record.store.getAt(indexOfRecord + 1);
+      if (nextRecord == null || nextRecord == undefined) {
+        str += emptyElement;
+      } else {
+        var nextEntityId = nextRecord.data.AcsId;
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"rankDown\" href=\"javascript:onExchangeRanks('{0}','{1}')\"><img src=\"/Res/Images/icons/arrow-down.png\" title=\"{2}\" alt=\"{2}\"/></a>",
+          entityId, nextEntityId, String.escape(textRankDown));
+      }
+
       return str;
     }
 
@@ -55,6 +80,10 @@
       document.location.href = "ManageAccountConfigSet.aspx?mode=ADD";
     }
     
+    function onExchangeRanks(entityId1, entityId2) {
+      window.CallServer(JSON.stringify({ action: 'exchangeRanks', entityId1: entityId1, entityId2: entityId2 }));
+    }
+
     function onDelete(entityId) {
       top.Ext.MessageBox.show({
         title: textDelete,
@@ -78,7 +107,7 @@
 
     function onTerminate(entityId) {
       top.Ext.MessageBox.show({
-        title: textDelete,
+        title: textTerminate,
         msg: String.format('<%=GetGlobalResourceObject("JSConsts", "TEXT_TERMINATE_MESSAGE")%>', entityId),
         buttons: window.Ext.MessageBox.OKCANCEL,
         fn: function(btn) {
@@ -102,6 +131,12 @@
 
       if (entityIds.length == 0)
       {
+         top.Ext.Msg.show({
+                         title:TEXT_ERROR_MSG,
+                         msg: TEXT_ERROR_SELECT,
+                         buttons: Ext.Msg.OK,               
+                         icon: Ext.MessageBox.ERROR
+                     });                   
         return;
       }
 
@@ -130,16 +165,22 @@
 
       if (entityIds.length == 0)
       {
+         top.Ext.Msg.show({
+                         title:TEXT_ERROR_MSG,
+                         msg: TEXT_ERROR_SELECT,
+                         buttons: Ext.Msg.OK,               
+                         icon: Ext.MessageBox.ERROR
+                     }); 
         return;
       }
 
       top.Ext.MessageBox.show({
-        title: textDelete,
-        msg: '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE_SELECTED_ROWS")%>',
+        title: textTerminate,
+        msg: '<%=GetGlobalResourceObject("JSConsts", "TEXT_TERMINATE_SELECTED_ROWS")%>',
         buttons: window.Ext.MessageBox.OKCANCEL,
         fn: function(btn) {
           if (btn == 'ok') {
-            window.CallServer(JSON.stringify({ action: 'teminateBulk', entityIds: entityIds }));
+            window.CallServer(JSON.stringify({ action: 'terminateBulk', entityIds: entityIds }));
           }
         },
         animEl: 'elId',

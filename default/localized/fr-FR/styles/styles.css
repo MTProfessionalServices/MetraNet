@@ -758,8 +758,8 @@ TH
   */
   
   .clsButtonBlueSmall {
-    width: 50px; 
-    height: 24px;
+    width: 60px; 
+    height: AUTO;
     /*background-color: transparent;
     background-image: url(../images/buttonbluesmall.gif);
   	background-repeat : no-repeat;	
@@ -773,7 +773,7 @@ TH
   
   .clsButtonBlueMedium {
     width: 77px; 
-    height: 24px;
+    height: AUTO;
     /*background-color: transparent;
     background-image: url(../images/buttonbluemedium.gif);
   	background-repeat : no-repeat;	
@@ -782,7 +782,8 @@ TH
    	font-size: 11px;
   	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
-    cursor:hand;  */  
+    cursor:hand;  */ 
+	padding-left:22px; 
   }
           
   .clsButtonBlueLarge {
@@ -800,7 +801,7 @@ TH
   }    
   .clsButtonBlueXLarge {
     width: 150px; 
-    height: 24px;
+    height: 44px;
     /*background-color: transparent;
     background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
   	background-repeat : repeat-x scroll 0pt;	

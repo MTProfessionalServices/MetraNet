@@ -2,27 +2,29 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+         <Implementation>SqlServer</Implementation>
+         <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_MESSAGE</Name>
-            <DataType>int32</DataType>
+            <Name>LOCK</Name>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>/**/</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>ID_ORIGINAL_MESSAGE</Name>
-            <DataType>int32</DataType>
+            <Name>ID_MESSAGES</Name>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>10, 11</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Config\Queries\Pipeline\CommonQueries.xml</CommonQuerySourceFile>
+        <CommonQuerySourceFile>R:\Config\Queries\ServiceBase\CommonQueries.xml</CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

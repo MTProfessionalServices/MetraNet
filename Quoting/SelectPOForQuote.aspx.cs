@@ -87,7 +87,7 @@ namespace MetraNet.Quoting
       POForQuoteGrid.DataBinder.Arguments.Add(arg);
 
       const string inputfiltertype = "PO";
-      PartitionLibrary.SetupFilterGridForPartition(POForQuoteGrid, inputfiltertype);
+      PartitionLibrary.SetupFilterGridForPartition(POForQuoteGrid, inputfiltertype, true);
 
       base.OnLoadComplete(e);
     }

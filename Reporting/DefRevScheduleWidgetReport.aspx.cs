@@ -2,14 +2,21 @@ using System;
 using System.Globalization;
 using System.Web.UI.WebControls;
 using System.Linq;
-using MetraNet;
+using MetraTech.Presentation.Reports;
 using MetraTech.UI.Common;
 
 public partial class DefRevScheduleWidgetReport : MTPage
 {
+  private DeferredRevenueHelper _revenueReportsHelper;
+
+  private DeferredRevenueHelper RevenueReportsHelper
+  {
+    get { return _revenueReportsHelper ?? (_revenueReportsHelper = new DeferredRevenueHelper()); }
+  }
+
   protected void Page_Load(object sender, EventArgs e)
   {
-    if (!UI.CoarseCheckCapability("Create CSR Accounts"))
+    if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
       Response.End();
 
     if (IsPostBack) return;
@@ -25,18 +32,18 @@ public partial class DefRevScheduleWidgetReport : MTPage
     applyBtn.Text = GetLocalResourceObject("ApplyFilterBtn_Caption").ToString();
   }
 
-  private static ListItem[] GetCycles()
+  private ListItem[] GetCycles()
   {
-    return ReportingtHelper.GetAccountingCycles().Select(x => new ListItem(x.Name, x.Id.ToString())).ToArray();
+    return RevenueReportsHelper.GetAccountingCyclesWithDefault().Select(x => new ListItem(x.Name, x.Id.ToString())).ToArray();
   }
 
-  private static ListItem[] GetCurrencies()
+  private ListItem[] GetCurrencies()
   {
-    return ReportingtHelper.GetCurrencies().Select(x => new ListItem(x)).ToArray();
+    return RevenueReportsHelper.GetCurrencies().Select(x => new ListItem(x)).ToArray();
   }
 
-  private static ListItem[] GetProducts()
+  private ListItem[] GetProducts()
   {
-    return ReportingtHelper.GetProducts().Select(x => new ListItem(x.Value, x.Key.ToString(CultureInfo.InvariantCulture))).ToArray();
+    return RevenueReportsHelper.GetProducts().Select(x => new ListItem(x.Value, x.Key.ToString(CultureInfo.InvariantCulture))).ToArray();
   }
 }

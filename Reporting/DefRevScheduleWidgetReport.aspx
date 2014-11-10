@@ -14,8 +14,8 @@
       <MT:MTPanel runat="server" ID="filterPanel" ClientIDMode="Static">
         <MT:MTDropDown runat="server" ClientIDMode="Static" ID="accntCycleDd" TabIndex="1" />
         <MT:MTDropDown runat="server" ClientIDMode="Static" ID="currencyDd" TabIndex="2" />
-        <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="revCodeInp" TabIndex="3" />
-        <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="defRevCodeInp" TabIndex="4" />
+        <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="revCodeInp" AllowBlank="True" TabIndex="3" />
+        <MT:MTTextBoxControl  runat="server" ClientIDMode="Static" ID="defRevCodeInp" AllowBlank="True" TabIndex="4" />
         <MT:MTDropDown runat="server" ClientIDMode="Static" ID="productDd" TabIndex="5" />
         <MT:MTButton runat="server" ID="applyBtn" ClientIDMode="Static" EnableViewState="False" TabIndex="6" OnClientClick="ApplyFilter(); return false;" />
       </MT:MTPanel>
@@ -36,7 +36,7 @@
       var accCycleId = $("#accntCycleDd").val();
       var currency = $("#currencyDd").val();
       var productId = $("#productDd").val();
-      var revOcde = $("#revCodeInp").val();
+      var revCode = $("#revCodeInp").val();
       var defRevCode = $("#defRevCodeInp").val();
 
       // let's get some data and draw the bar chart
@@ -44,11 +44,11 @@
         url: '../Report/DefRevScheduleWidgetReport',
         type: 'GET',
         cache: false,
-        data: { accountingCycleId: accCycleId, currency: currency, revenueCode: revOcde, deferredRevenueCode: defRevCode, productId: productId },
+        data: { accountingCycleId: accCycleId, currency: currency, revenueCode: revCode, deferredRevenueCode: defRevCode, productId: productId },
         success: function(data) {
           DisplayChart(data);
         },
-        error: function (data) {
+        error: function () {
           alert("Data retrival error!");
         }
       });      

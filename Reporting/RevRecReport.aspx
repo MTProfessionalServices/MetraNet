@@ -78,7 +78,7 @@
       var select = $("<select/>").width('218px').on('change', function () {
         inpVal.val(this.value);
       });
-      select.append($("<option/>"));
+      select.append($("<option/>").text('<%=GetLocalResourceObject("Option_All_Text").ToString()%>').val(''));
       $.ajax({
         url: "../Report/GetProductsFilter",
         success: function (res) {
@@ -106,6 +106,23 @@
           accCycleId = selectCycle.val();
           SetHeaders(accCycleId);
           SetTitle();
+        }
+      });
+      
+      var inpValCurrency = $('#filter_Currency_grdRevRecReport');
+      inpValCurrency.hide();
+      var selectCurrency = $("<select id='selCurrency'/>").width('218px').on('change', function () {
+        inpValCurrency.val(this.value);
+      });
+      selectCurrency.append($("<option/>").text('<%=GetLocalResourceObject("Option_All_Text").ToString()%>').val(''));
+      $.ajax({
+        url: "../Report/GetCurrencyFilter",
+        success: function (res) {
+          res.forEach(function (e) {
+            selectCurrency.append($("<option/>").val(e).text(e));
+          });
+          inpValCurrency.parent().append(selectCurrency);
+          inpValCurrency.val(selectCurrency.val());
         }
       });
 

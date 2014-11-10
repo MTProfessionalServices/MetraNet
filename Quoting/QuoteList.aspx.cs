@@ -115,7 +115,12 @@ namespace MetraNet.Quoting
       {
         Logger.LogError(ex.Detail.ErrorMessages[0]);
         result = new {result = "error", errorMessage = ex.Detail.ErrorMessages[0]};
-      }     
+      }
+      catch (FaultException<MASPartialSuccessFaultDetail> ex)
+      {
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+      }
       return result;
     }
 

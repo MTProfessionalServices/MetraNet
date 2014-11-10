@@ -2,63 +2,84 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Serialization;
-using MetraNet;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
+using MetraTech.Presentation.Reports;
 using MetraTech.UI.Common;
 using RevRecModel = MetraTech.DomainModel.ProductCatalog.RevenueRecognitionReportDefinition;
 
 public partial class AjaxServices_LoadRevenueRecognitionData : MTListServicePage
 {
-    protected void Page_Load(object sender, EventArgs e)
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
+      Response.End();
+    try
     {
-      if (!UI.CoarseCheckCapability("Create CSR Accounts"))
-        Response.End();
-
       var items = new MTList<RevRecModel>();
       SetFilters(items);
 
-      var currencyLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "Currency");
-      var currency = (string)(currencyLINQ == null ? "" : currencyLINQ.Value);
-      var revenueCodeLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "RevenueCode");
-      var revenueCode = (string)(revenueCodeLINQ == null ? "" : revenueCodeLINQ.Value);
-      var deferredRevenueCodeLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "DeferredRevenueCode");
-      var deferredRevenueCode = (string)(deferredRevenueCodeLINQ == null ? "" : deferredRevenueCodeLINQ.Value);
-      var productIdLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "ProductId");
-      var productId = (productIdLINQ == null ? (int?) null : Convert.ToInt32(productIdLINQ.Value));
-      var AccountingCycleIdLINQ = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "AccountingCycleId");
-      var AccountingCycleId = (AccountingCycleIdLINQ == null ? "" : AccountingCycleIdLINQ.Value.ToString().Replace("%", ""));
+      var currencyLinq = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "Currency");
+      var currency = (string)(currencyLinq == null ? "" : currencyLinq.Value);
+      var revenueCodeLinq = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "RevenueCode");
+      var revenueCode = (string)(revenueCodeLinq == null ? "" : revenueCodeLinq.Value);
+      var deferredRevenueCodeLinq = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "DeferredRevenueCode");
+      var deferredRevenueCode = (string)(deferredRevenueCodeLinq == null ? "" : deferredRevenueCodeLinq.Value);
+      var productIdLinq = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "ProductId");
+      var productId = (productIdLinq == null ? (int?)null : Convert.ToInt32(productIdLinq.Value));
+      var accountingCycleIdLinq = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "AccountingCycleId");
+      var accountingCycleId = (accountingCycleIdLinq == null ? "" : accountingCycleIdLinq.Value.ToString().Replace("%", ""));
 
-      var revRec = ReportingtHelper.GetRevRec(currency, revenueCode, deferredRevenueCode, productId, AccountingCycleId, 0);
+      var revRec = new DeferredRevenueHelper().GetRevRec(currency, revenueCode, deferredRevenueCode, productId, accountingCycleId, 0);
       items.Items.AddRange(revRec);
-
-      var jss = new JavaScriptSerializer();
-      var json = jss.Serialize(items);
-      json = FixJsonDate(json);
-      json = FixJsonBigInt(json);
-      Response.Write(json);
-    }
-
-    protected static List<SegregatedCharges> ConstructItems(IMTDataReader rdr)
-    {
-      var res = new List<SegregatedCharges>();
-
-      while (rdr.Read())
+      if (Page.Request["mode"] == "csv")
       {
-        var sch = new SegregatedCharges
-        {
-          Currency = rdr.GetString("am_currency"),
-          RevenueCode = !rdr.IsDBNull("c_RevenueCode") ? rdr.GetString("c_RevenueCode") : "",
-          DeferredRevenueCode = !rdr.IsDBNull("c_DeferredRevenueCode") ? rdr.GetString("c_DeferredRevenueCode") : "",
-          StartSubscriptionDate = rdr.GetDateTime("SubscriptionStart"),
-          EndSubscriptionDate = rdr.GetDateTime("SubscriptionEnd"),
-          ProrationDate = rdr.GetInt32("c_ProratedDays"),
-          ProrationAmount = rdr.GetDecimal("c_ProratedDailyRate")
-        };
-
-        res.Add(sch);
+        Response.BufferOutput = false;
+        Response.ContentType = "application/csv";
+        Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+        Response.BinaryWrite(BOM);
+        var strCsv = ConvertObjectToCSV(items, true);
+        Response.Write(strCsv);
       }
-
-      return res;
+      else
+      {
+        var json = new JavaScriptSerializer().Serialize(items);
+        json = FixJsonDate(json);
+        json = FixJsonBigInt(json);
+        Response.Write(json);
+      }
     }
+    catch(Exception ex)
+    {
+      Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
+      throw;
+    }
+    finally
+    {
+      Response.End();
+    }
+  }
+
+  protected static List<SegregatedCharges> ConstructItems(IMTDataReader rdr)
+  {
+    var res = new List<SegregatedCharges>();
+
+    while (rdr.Read())
+    {
+      var sch = new SegregatedCharges
+      {
+        Currency = rdr.GetString("am_currency"),
+        RevenueCode = !rdr.IsDBNull("c_RevenueCode") ? rdr.GetString("c_RevenueCode") : "",
+        DeferredRevenueCode = !rdr.IsDBNull("c_DeferredRevenueCode") ? rdr.GetString("c_DeferredRevenueCode") : "",
+        StartSubscriptionDate = rdr.GetDateTime("SubscriptionStart"),
+        EndSubscriptionDate = rdr.GetDateTime("SubscriptionEnd"),
+        ProrationDate = rdr.GetInt32("c_ProratedDays"),
+        ProrationAmount = rdr.GetDecimal("c_ProratedDailyRate")
+      };
+
+      res.Add(sch);
+    }
+
+    return res;
+  }
 }

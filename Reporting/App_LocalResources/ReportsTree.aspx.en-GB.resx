@@ -123,4 +123,7 @@
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Reports</value>
   </data>
+  <data name="MTPanel1Resource1.Text" xml:space="preserve">
+    <value>List of Reports</value>
+  </data>
 </root>

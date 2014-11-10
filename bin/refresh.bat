@@ -165,4 +165,5 @@ REM copy %MTOUTDIR%\%VERSION%\bin\Ajax* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 REM copy %MTOUTDIR%\%VERSION%\bin\Microsoft.* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
 copy %MTOUTDIR%\%VERSION%\bin\EasyNetQ.Management.Client.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Presentation.* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 REM Pause

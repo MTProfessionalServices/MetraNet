@@ -799,7 +799,7 @@
     <value>Effacer des membres du groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
-    <value>Désabonner des membres de l'abonnement de groupe</value>
+        <value>Désabonner des membres de l’abonnement de groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
     <value>Mettre à jour les membres du groupe</value>
@@ -1307,6 +1307,18 @@
   </data>
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
     <value>Créer une relation</value>
+  </data>
+    <data name="TEXT_TERMINATE" xml:space="preserve">
+    <value>Terminate</value>
+  </data>
+  <data name="TEXT_TERMINATE_SELECTED_ROWS" xml:space="preserve">
+    <value>Are you sure you want to terminate selected rows?</value>
+  </data>
+  <data name="TEXT_UPDATE_ACS_MESSAGE" xml:space="preserve">
+    <value>Are you sure that you want to update OnBoard template?</value>
+  </data>
+  <data name="TEXT_TERMINATE_MESSAGE" xml:space="preserve">
+    <value>Are you sure you want to terminate {0}?</value>
   </data>
   <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
     <value>Recent Notifications</value>

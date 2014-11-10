@@ -157,10 +157,10 @@
     <value>Edit</value>
   </data>
   <data name="MOVE_RANK_DOWN" xml:space="preserve">
-    <value>[PT-BR]Rank down</value>
+    <value>Rank down</value>
   </data>
   <data name="MOVE_RANK_UP" xml:space="preserve">
-    <value>[PT-BR]Rank up</value>
+    <value>Rank up</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet - OnBoard Templates</value>

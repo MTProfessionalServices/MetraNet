@@ -118,105 +118,105 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnAddAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Add</value>
+    <value>[FR]Add</value>
   </data>
   <data name="btnGoToUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Edit</value>
+    <value>[FR]Edit</value>
   </data>
   <data name="btnUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Update</value>
+    <value>[FR]Update</value>
   </data>
   <data name="dpSubParamsEndDateResource.Text" xml:space="preserve">
-    <value>Subscription End Date</value>
+    <value>[FR]Subscription End Date</value>
   </data>
   <data name="dpSubParamsStartDateResource.Text" xml:space="preserve">
-    <value>Subscription Start Date</value>
+    <value>[FR]Subscription Start Date</value>
   </data>
   <data name="isCorpAccountIdResource.Label" xml:space="preserve">
-    <value>Corporate Account</value>
+    <value>[FR]Corporate Account</value>
   </data>
   <data name="ITEM" xml:space="preserve">
-    <value>Item</value>
+    <value>[FR]Item</value>
   </data>
   <data name="ITEMS" xml:space="preserve">
-    <value>Items</value>
+    <value>[FR]Items</value>
   </data>
   <data name="manageSubscriptionParameterTitle.Text" xml:space="preserve">
-    <value>Manage Subscription Parameters</value>
+    <value>[FR]Manage Subscription Parameters</value>
   </data>
   <data name="MTbtnCancelResource.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>[FR]Cancel</value>
   </data>
   <data name="MTPanelUDRCResource.Text" xml:space="preserve">
-    <value>UDRC Metrics</value>
+    <value>[FR]UDRC Metrics</value>
   </data>
   <data name="panelAccountConfigSetParametersResource.Text" xml:space="preserve">
-    <value>Subscription Parameters Settings</value>
+    <value>[FR]Subscription Parameters Settings</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Template Subscription Parameters</value>
+    <value>[FR]Template Subscription Parameters</value>
   </data>
   <data name="PIID" xml:space="preserve">
-    <value>Priсeable Item Id</value>
+    <value>[FR]Priсeable Item Id</value>
   </data>
   <data name="PINAME" xml:space="preserve">
-    <value>Priсeable Item Name</value>
+    <value>[FR]Priсeable Item Name</value>
   </data>
   <data name="REMOVE_UDRC" xml:space="preserve">
-    <value>Remove UDRC Metric</value>
+    <value>[FR]Remove UDRC Metric</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
-    <value>Group Subscription Name</value>
+    <value>[FR]Group Subscription Name</value>
   </data>
   <data name="tbSubParamsDescriptionResource.Label" xml:space="preserve">
-    <value>Description</value>
+    <value>[FR]Description</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
-    <value>Sub. Parameters Id</value>
+    <value>[FR]Sub. Parameters Id</value>
   </data>
   <data name="tbSubParamsPoNameResource.Label" xml:space="preserve">
-    <value>Product Offering Name</value>
+    <value>[FR]Product Offering Name</value>
   </data>
   <data name="tbSubParamsPoResource.Label" xml:space="preserve">
-    <value>Product Offering</value>
+    <value>[FR]Product Offering</value>
   </data>
   <data name="TEXT_ADD_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>Add Subscription Parameters</value>
+    <value>[FR]Add Subscription Parameters</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
-    <value>Add UDRC Metric</value>
+    <value>[FR]Add UDRC Metric</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>[FR]Cancel</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>End Date</value>
+    <value>[FR]End Date</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>Manage Subscription Parameters</value>
+    <value>[FR]Manage Subscription Parameters</value>
   </data>
   <data name="TEXT_MISSED_PO" xml:space="preserve">
-    <value> Product offering should be selected!</value>
+    <value>[FR] Product offering should be selected!</value>
   </data>
   <data name="TEXT_MISSED_UDRC" xml:space="preserve">
-    <value>UDRC metrics set not for all Priceable Items</value>
+    <value>[FR]UDRC metrics set not for all Priceable Items</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
-    <value>OK</value>
+    <value>[FR]OK</value>
   </data>
   <data name="TEXT_SELECT_POS" xml:space="preserve">
-    <value>Select Product Offering</value>
+    <value>[FR]Select Product Offering</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>Start Date</value>
+    <value>[FR]Start Date</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
-    <value>Value</value>
+    <value>[FR]Value</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value>UDRC Metrics For Pricable Items</value>
+    <value>[FR]UDRC Metrics For Priceable Items</value>
   </data>
   <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
-    <value>UDRC Priсeable Items</value>
+    <value>[FR]UDRC Priсeable Items</value>
   </data>
 </root>

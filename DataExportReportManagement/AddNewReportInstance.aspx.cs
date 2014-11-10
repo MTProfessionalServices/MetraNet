@@ -128,7 +128,19 @@ public partial class DataExportReportManagement_AddNewReportInstance : MTPage
       }
         
       string reportdestination = exportreportinstance.ReportDestination;
-      
+
+      if (reportdistributiontype == "Disk")
+      {
+        if (reportdestination.Length > 2)
+        {
+          string slash = "\\";
+          if (reportdestination.Substring(reportdestination.Length - 1) != slash)
+          {
+            reportdestination = reportdestination + '\\';
+          }
+        }
+      }
+
       string reportexecutiontype;
       if (exportreportinstance.ReportExecutionType == ReportExecutionTypeEnum.EOP)
       {

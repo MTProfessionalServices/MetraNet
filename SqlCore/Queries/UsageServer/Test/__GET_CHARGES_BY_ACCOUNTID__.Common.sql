@@ -8,6 +8,7 @@ SELECT
 	,pv.nm_name ProductView
 	,au.amount Amount
 	,au.am_currency Currency
+    ,au.dt_session SessionDate
 FROM
 	t_acc_usage au
 	,t_prod_view pv

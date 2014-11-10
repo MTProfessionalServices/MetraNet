@@ -96,15 +96,15 @@
 		<!-- Allocation size of partition database log file in megabytes. -->
 		<LogSize>25</LogSize>
 		<!-- Storage locations for partition databases.  Used in round robin fashion. -->
-		<StoragePaths>
-		  <!-- Paths for SQL Server			 -->
-		  <Path>C:\datafiles\01</Path>
-		  <Path>C:\datafiles\02</Path>
-		  <!-- Paths for Oracle DB on Remote Oracle Server			
-			<Path>/u01/netmeter/</Path>
-			<Path>/u02/netmeter/</Path>	
-		  -->
-		</StoragePaths>
+    <StoragePaths>
+    <!-- Paths for SQL Server -->
+    <Path>C:\datafiles\01</Path>
+    <Path>C:\datafiles\02</Path>
+    <!-- Paths for Oracle DB on Remote Oracle Server
+    <Path>/u01/netmeter/</Path>
+    <Path>/u02/netmeter/</Path>
+    -->
+    </StoragePaths>
 	</Partitions>
 	
 	<BillingGroups>

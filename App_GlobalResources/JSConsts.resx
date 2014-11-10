@@ -255,7 +255,7 @@
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
     <value>Account Type</value>
   </data>
-  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+  <data name="TEXT_ACCOUNT_UPDATE" xml:space="preserve">
     <value>Account Updates</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">

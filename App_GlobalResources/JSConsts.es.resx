@@ -294,7 +294,7 @@
   <data name="TEXT_RATE_UPDATE" xml:space="preserve">
     <value>[ES]Rate Update</value>
   </data>
-  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+  <data name="TEXT_ACCOUNT_UPDATE" xml:space="preserve">
     <value>[ES]Account Updates</value>
   </data>
   <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">

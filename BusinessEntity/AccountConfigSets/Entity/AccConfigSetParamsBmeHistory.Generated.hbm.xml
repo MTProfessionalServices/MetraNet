@@ -87,62 +87,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Guid, mscorlib" />
     </property>
-    <property name="AccConfigSetParamsBmeID" column="c_AccConfigSetParamsBmeID">
-      <meta attribute="label">AccConfigSetParamsBmeID</meta>
-      <meta attribute="description">Subscription Parameters ID</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int32, mscorlib" />
-    </property>
-    <property name="POID" column="c_POID">
-      <meta attribute="label">POID</meta>
-      <meta attribute="description">Product offering ID</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int32, mscorlib" />
-    </property>
-    <property name="SubscriptionStartDate" column="c_SubscriptionStartDate">
-      <meta attribute="label">SubscriptionStartDate</meta>
-      <meta attribute="description">Subscription Start Date</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
-    </property>
-    <property name="SubscriptionEndDate" column="c_SubscriptionEndDate">
-      <meta attribute="label">SubscriptionEndDate</meta>
-      <meta attribute="description">Subscription End Date</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
-    </property>
     <property name="CorporateAccountId" column="c_CorporateAccountId">
       <meta attribute="label">CorporateAccountId</meta>
       <meta attribute="description">Corporate Account Id For Group Subscription</meta>
@@ -170,6 +114,76 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
+    </property>
+    <property name="GroupSubscriptionName" column="c_GroupSubscriptionName" length="255">
+      <meta attribute="label">GroupSubscriptionName</meta>
+      <meta attribute="description">Property should be set if ACS is creating Group Subscription.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="ProductOfferingId" column="c_ProductOfferingId">
+      <meta attribute="label">ProductOfferingId</meta>
+      <meta attribute="description">Product offering ID</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="EndDate" column="c_EndDate">
+      <meta attribute="label">EndDate</meta>
+      <meta attribute="description">Subscription End Date</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="StartDate" column="c_StartDate">
+      <meta attribute="label">StartDate</meta>
+      <meta attribute="description">Subscription Start Date</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="AccountConfigSetParametersId" column="c_AccountConfigSetParametersId">
+      <meta attribute="label">AccountConfigSetParametersId</meta>
+      <meta attribute="description">Subscription Parameters ID</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
     </property>
     <property name="_StartDate" column="c__StartDate" not-null="true">
       <meta attribute="label" />
@@ -312,12 +326,13 @@ c_creationdate,
 c_updatedate, 
 c_uid, 
 c_accconfigsetparamsbme_id, 
-c_accconfigsetparamsbmeid, 
-c_poid, 
-c_subscriptionstartdate, 
-c_subscriptionenddate, 
 c_corporateaccountid, 
 c_description, 
+c_groupsubscriptionname, 
+c_productofferingid, 
+c_enddate, 
+c_startdate, 
+c_accountconfigsetparametersid, 
 c__startdate, 
 c__enddate
 ) 
@@ -329,12 +344,13 @@ VALUES
 :dataRow.c_updatedate, 
 :dataRow.c_uid, 
 :dataRow.c_accconfigsetparamsbme_id, 
-:dataRow.c_accconfigsetparamsbmeid, 
-:dataRow.c_poid, 
-:dataRow.c_subscriptionstartdate, 
-:dataRow.c_subscriptionenddate, 
 :dataRow.c_corporateaccountid, 
 :dataRow.c_description, 
+:dataRow.c_groupsubscriptionname, 
+:dataRow.c_productofferingid, 
+:dataRow.c_enddate, 
+:dataRow.c_startdate, 
+:dataRow.c_accountconfigsetparametersid, 
 :dataRow.c_updatedate, 
 CAST(dbo.mtmaxdate() AS TIMESTAMP)
 ) 
@@ -360,12 +376,13 @@ c_creationdate,
 c_updatedate, 
 c_uid, 
 c_accconfigsetparamsbme_id, 
-c_accconfigsetparamsbmeid, 
-c_poid, 
-c_subscriptionstartdate, 
-c_subscriptionenddate, 
 c_corporateaccountid, 
 c_description, 
+c_groupsubscriptionname, 
+c_productofferingid, 
+c_enddate, 
+c_startdate, 
+c_accountconfigsetparametersid, 
 c__startdate, 
 c__enddate
 )
@@ -376,12 +393,13 @@ c_creationdate,
 c_updatedate, 
 c_uid, 
 c_accconfigsetparamsbme_id, 
-c_accconfigsetparamsbmeid, 
-c_poid, 
-c_subscriptionstartdate, 
-c_subscriptionenddate, 
 c_corporateaccountid, 
 c_description, 
+c_groupsubscriptionname, 
+c_productofferingid, 
+c_enddate, 
+c_startdate, 
+c_accountconfigsetparametersid, 
 c_updatedate, 
 dbo.mtmaxdate()
 FROM INSERTED;</create>

@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>AccountConfigSets.AccountConfigSetList</Name>
+    <Name>AccountConfigSets.SubscriptionParamsList</Name>
     <Title>
         <LocalizationTag>AccountConfigSetTitle.Text</LocalizationTag>
-        <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+        <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>0</Height>
     <Width>75%</Width>
     <Expandable>true</Expandable>
-    <Buttons>None</Buttons>
-    <DataSourceURL>../AjaxServices/LoadAccountConfigSetList.aspx</DataSourceURL>
-    <MultiSelect>true</MultiSelect>
+    <Buttons>OK</Buttons>
+    <DataSourceURL>../AjaxServices/LoadAccountConfigSetSubscriptionParams.aspx</DataSourceURL>
+    <MultiSelect>false</MultiSelect>
     <SelectionModel>CheckBox</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
-    <Description>AccountConfigSet list</Description>
+    <Description>AccountConfigSet SubParams list</Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
@@ -37,14 +37,14 @@
     <EnableFilterConfig>true</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField>Rank</DefaultSortField>
+    <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-    <CustomOverrideJavascriptIncludes>\MetraNet\AccountConfigSets\AccountConfigSetList.aspx</CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <DataBinder>
-        <ServicePath>/MetraNet/AjaxServices/LoadAccountConfigSetList.aspx</ServicePath>
+        <ServicePath>/MetraNet/AjaxServices/LoadAccountConfigSetSubscriptionParams.aspx</ServicePath>
         <OutPropertyName>acsList</OutPropertyName>
         <Operation>AccountConfigurationSetService_GetAccountConfigSetList_Client</Operation>
     </DataBinder>
@@ -60,7 +60,7 @@
                 <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>130</Width>
+            <Width>50</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -71,15 +71,15 @@
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>AcsId</ID>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
+            <ID>AccountConfigSetParametersId</ID>
             <DataType>Numeric</DataType>
             <IsIdentity>true</IsIdentity>
-            <DataIndex>AcsId</DataIndex>
+            <DataIndex>AccountConfigSetParametersId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>ACS_ID</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>40</Width>
@@ -107,7 +107,7 @@
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
             <ID>Description</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -115,10 +115,10 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>ACS_DESCRIPTION</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>350</Width>
+            <Width>200</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -143,15 +143,15 @@
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>EffectiveDate</ID>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
+            <ID>StartDate</ID>
             <DataType>Date</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>EffectiveDate</DataIndex>
+            <DataIndex>StartDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>ACS_EFFECTIVE_DATE</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>80</Width>
@@ -179,15 +179,15 @@
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>EffectiveEndDate</ID>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
+            <ID>EndDate</ID>
             <DataType>Date</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>EffectiveEndDate</DataIndex>
+            <DataIndex>EndDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>ACS_EFFECTIVE_END_DATE</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>80</Width>
@@ -215,51 +215,51 @@
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>Enabled</ID>
-            <DataType>Boolean</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>Enabled</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>ACS_ENABLED</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>60</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>Rank</ID>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
+            <ID>ProductOfferingId</ID>
             <DataType>Numeric</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>Rank</DataIndex>
+            <DataIndex>ProductOfferingId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>ACS_RANK</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+                <LocalizationTag>ACS_PO_ID</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>40</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
+            <ID>CorporateAccountId</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>CorporateAccountId</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>ACS_CORPORATE_ACCOUNT</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>60</Width>
@@ -287,18 +287,18 @@
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>AcsCreationDate</ID>
-            <DataType>Date</DataType>
+            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSetParameters</ObjectName>
+            <ID>GroupSubscriptionName</ID>
+            <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>AcsCreationDate</DataIndex>
+            <DataIndex>GroupSubscriptionName</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>CREATION_DATE</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+                <LocalizationTag>ACS_GSUBNAME</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetSubscriptionParamsList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>80</Width>
+            <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -307,78 +307,6 @@
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>SelectionCriteriaString</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>SelectionCriteriaString</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText>
-                <LocalizationTag>ACS_SELECTIONSCRITERIA</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>100</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.AccountConfigurationSets.AccountConfigSet</ObjectName>
-            <ID>PropertiesToSetString</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>PropertiesToSetString</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText>
-                <LocalizationTag>ACS_PROPERTIESTOSET</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>100</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -393,34 +321,7 @@
             <DropdownItems></DropdownItems>
         </Element>
     </Elements>
-    <ExpanderTemplate>
-        <Section>
-            <Title>
-                <Value><![CDATA[]]></Value>
-            </Title>
-            <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
-            <Columns>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>SelectionCriteriaString</ID>
-                            <Name>SelectionCriteriaString</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>PropertiesToSetString</ID>
-                            <Name>PropertiesToSetString</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-            </Columns>
-            <ToolbarButtons></ToolbarButtons>
-        </Section>
-    </ExpanderTemplate>
+    <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons>
         <Button>
@@ -438,34 +339,6 @@
                 <Capability>Manage OnBoard Templates</Capability>
             </RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
-        </Button>
-        <Button>
-            <ButtonID>Detele</ButtonID>
-            <ButtonText>
-                <LocalizationTag>DELETE_ACS</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>DELETE_ACS</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </ToolTip>
-            <IconClass>remove</IconClass>
-            <Capability>Manage OnBoard Templates</Capability>
-            <JSHandlerFunction>onDeleteBulk</JSHandlerFunction>
-        </Button>
-        <Button>
-            <ButtonID>Terminate</ButtonID>
-            <ButtonText>
-                <LocalizationTag>TERMINATE_ACS</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>TERMINATE_ACS</LocalizationTag>
-                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
-            </ToolTip>
-            <IconClass>stop</IconClass>
-            <Capability>Manage OnBoard Templates</Capability>
-            <JSHandlerFunction>onTerminateBulk</JSHandlerFunction>
         </Button>
     </ToolbarButtons>
 </GridLayout>

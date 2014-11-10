@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mt_config>
+  <language_code>de</language_code>
+  <locale_space name="MetraTech.MetraNet.Reporting">
+    <locale_entry>
+      <Name>MetraTech.MetraNet.Reporting/ReportType/Basic</Name>
+      <Value>[DE]Basic</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>MetraTech.MetraNet.Reporting/ReportType/Configured</Name>
+      <Value>[DE]Configured</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>MetraTech.MetraNet.Reporting/ReportType/Custom</Name>
+      <Value>[DE]Custom</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>MetraTech.MetraNet.Reporting/ReportType/IntervalStatistics</Name>
+      <Value>[DE]IntervalStatistics</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
+      <Value>[DE]View Data from Analytics Datamart</Value>
+    </locale_entry>
+  </locale_space>
+</mt_config>

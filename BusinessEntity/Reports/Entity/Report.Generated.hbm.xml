@@ -118,20 +118,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="Security" column="c_Security" length="255">
-      <meta attribute="label">Security</meta>
-      <meta attribute="description">Capabilities required to access to this report</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
     <property name="Category" column="c_Category" length="100">
       <meta attribute="label">Category</meta>
       <meta attribute="description">The category that the report belongs to. High-level, Operations, Finance, Product Management, Customer Management, etc.</meta>
@@ -218,6 +204,20 @@ Custom: The URL is invoked (you're on your own)</meta>
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="MetraTech.DomainModel.Enums.SystemConfig.MetraTech_MetraNet_Reporting.ReportType, MetraTech.DomainModel.Enums.Generated" />
+    </property>
+    <property name="ReqdCapability" column="c_ReqdCapability">
+      <meta attribute="label">ReqdCapability</meta>
+      <meta attribute="description">Required MetraNet Capability to perform this system report. If there is no capability specified then there is no capability check performed.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="MetraTech.DomainModel.Enums.SystemConfig.MetraTech_MetraNet_Reporting.SystemReportCapabilities, MetraTech.DomainModel.Enums.Generated" />
     </property>
   </class>
 </hibernate-mapping>

@@ -87,7 +87,7 @@ Title="MetraNet - Manage Subscription Parameters" %>
 
   function getUpdateApprove()
   {                
-      return confirm('<%=GetGlobalResourceObject("JSConsts", "TEXT_CONVERT_MESSAGE")%>');        
+      return true;        
   }
 
     var GRID_HEIGHT = 300;
@@ -133,8 +133,8 @@ Title="MetraNet - Manage Subscription Parameters" %>
     window.onload = function () {      
       var hiddenPi = window.Ext.get("<%=HiddenPis.ClientID %>").dom;
       if (hiddenPi.value.length > 0)
-        piData.pi = window.Ext.decode(hiddenPi.value);      
-      addItemToPIs(piData.pi);
+        piUDRCData.pi = window.Ext.decode(hiddenPi.value);      
+      addItemToPIs(piUDRCData.pi);
 
       var hiddenUDRCs = window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom;
       if (hiddenUDRCs.value.length > 0)
@@ -561,6 +561,13 @@ Title="MetraNet - Manage Subscription Parameters" %>
         udrcData.UDRCs.push(records[i].data);
 
       window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom.value = udrcData.UDRCs.length > 0 ? window.Ext.encode(udrcData.UDRCs) : "";
+
+      records = piUDRCStore.data.items;
+      piUDRCData.piUDRC.length = 0;
+      for (var i = 0; i < records.length; i++)
+        piUDRCData.piUDRC.push(records[i].data);
+
+      window.Ext.get("<%=HiddenPis.ClientID %>").dom.value = piUDRCData.piUDRC.length > 0 ? window.Ext.encode(piUDRCData.piUDRC) : "";
       return true;
     }
   </script>

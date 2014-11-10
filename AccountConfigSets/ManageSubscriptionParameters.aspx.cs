@@ -133,7 +133,7 @@ namespace MetraNet.AccountConfigSets
       CurrentAccountConfigSetSubscriptionParams.ProductOfferingId = String.IsNullOrEmpty(MTtbSubParamsPo.Text) ? 0 : Convert.ToInt32(MTtbSubParamsPo.Text);
       CurrentAccountConfigSetSubscriptionParams.StartDate = Convert.ToDateTime(MTdpSubParamsStartDate.Text);
       CurrentAccountConfigSetSubscriptionParams.EndDate = String.IsNullOrEmpty(MTdpSubParamsEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpSubParamsEndDate.Text);
-      CurrentAccountConfigSetSubscriptionParams.CorporateAccountId = String.IsNullOrEmpty(MTisCorpAccountId.Text) ? 0 : Convert.ToInt32(MTisCorpAccountId.Text);
+      CurrentAccountConfigSetSubscriptionParams.CorporateAccountId = String.IsNullOrEmpty(MTisCorpAccountId.AccountID) ? 0 : Convert.ToInt32(MTisCorpAccountId.AccountID);
       CurrentAccountConfigSetSubscriptionParams.GroupSubscriptionName = MTtbGroupSubscriptionName.Text;
 
       CurrentAccountConfigSetSubscriptionParams.UdrcValues = GetUdrcValues();

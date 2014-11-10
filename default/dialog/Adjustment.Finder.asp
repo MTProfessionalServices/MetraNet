@@ -90,17 +90,22 @@ PUBLIC FUNCTION PriceAbleItem_Click(EventArg) ' As Boolean
 END FUNCTION
 
 PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean
-    
+ 
     Dim lngPriceAbleItemTemplateID, strPriceAbleItemTemplateName
-    
+  
     lngPriceAbleItemTemplateID    = Service.Properties("PriceAbleItem").Value
-    
+  
     If lngPriceAbleItemTemplateID>0 Then
     
-        strPriceAbleItemTemplateName  = Service.Properties("PriceAbleItem").EnumType.Entries.ItemByValue(lngPriceAbleItemTemplateID).Name    
+        strPriceAbleItemTemplateName  = Service.Properties("PriceAbleItem").EnumType.Entries.ItemByValue(lngPriceAbleItemTemplateID).Name   
+
+        If Not TransactionUIFinder.ReInitialize() Then 
+        End If
+
         If(TransactionUIFinder.InitializePriceAbleItem(strPriceAbleItemTemplateName,lngPriceAbleItemTemplateID,Service.Properties("StartDate").Value,Service.Properties("EndDate").Value,TRUE))Then        
         End If
     End If    
+   
     Form_Refresh = TRUE
 END FUNCTION
 

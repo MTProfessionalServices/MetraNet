@@ -306,4 +306,7 @@
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
     <value>Name of product offering must be unique</value>
   </data>
+  <data name="ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY" xml:space="preserve">
+    <value>Access denied, insufficient capability</value>
+  </data>
 </root>

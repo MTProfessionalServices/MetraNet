@@ -517,13 +517,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var dateDimension = ndx.dimension(dc.pluck('dd'));
             var batchGroup = dateDimension.group().reduceSum(dc.pluck('batch_count'));
             var udrGroup = dateDimension.group().reduceSum(dc.pluck('udr_count'));
-
+            
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
                     .height(255)
                     .width(410)
-                    .x(d3.time.scale().domain([minDate, maxDate]))
+                    .x(d3.time.scale().domain([minDate, maxDate.setDate(maxDate.getDate()+1)]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
@@ -988,7 +988,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 resize: { enabled: false },
 				autogrow_cols: true,
 				min_rows: 30,
-            }).data('gridster');
+            }).data('gridster').disable();
         });
     </script>
 </asp:Content>

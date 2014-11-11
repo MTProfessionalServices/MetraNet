@@ -22,7 +22,7 @@
         Generates and/or populates the Analytics Data Mart
       ]]>
       </Description>
-      <LocalizedDisplayDescription>
+      <LocalizedDescriptions>
         <item lang="FR">[FR] <![CDATA[
         Generates and/or populates the Analytics Data Mart
       ]]>
@@ -55,7 +55,7 @@
         Generates and/or populates the Analytics Data Mart
       ]]>
       </item>
-      </LocalizedDisplayDescription>
+      </LocalizedDescriptions>
 	  <RecurrencePattern>
 		<SystemCycle>Daily</SystemCycle>
 	  </RecurrencePattern>
@@ -82,7 +82,7 @@
        	This adapter is responsible for populating Materialized Views configured in DEFERRED mode
         ]]>
       </Description>
-      <LocalizedDisplayDescription>
+      <LocalizedDescriptions>
         <item lang="FR">[FR] <![CDATA[
        	This adapter is responsible for populating Materialized Views configured in DEFERRED mode
         ]]>
@@ -115,7 +115,7 @@
        	This adapter is responsible for populating Materialized Views configured in DEFERRED mode
         ]]>
       </item>
-      </LocalizedDisplayDescription>
+      </LocalizedDescriptions>
       <RecurrencePattern>
         <IntervalInMinutes>300</IntervalInMinutes>
       </RecurrencePattern>
@@ -151,7 +151,7 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
@@ -256,7 +256,7 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <SystemCycle>Daily</SystemCycle>
             </RecurrencePattern>
@@ -284,7 +284,7 @@
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.
       </Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
@@ -325,7 +325,7 @@
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.
       </item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <SystemCycle>Daily</SystemCycle>
             </RecurrencePattern>
@@ -351,7 +351,7 @@
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
@@ -392,7 +392,7 @@
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <SystemCycle>Daily</SystemCycle>
             </RecurrencePattern>
@@ -415,7 +415,7 @@
             <ConfigFile>PipelineFailoverAdapter.xml</ConfigFile>
             <ActivationDate>10/1/2002 00:00:00</ActivationDate>
             <Description>Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</item>
               <item lang="IT">[IT] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</item>
               <item lang="ES">[ES] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</item>
@@ -424,7 +424,7 @@
               <item lang="pt-br">[pt-BR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</item>
               <item lang="en-GB">[en-GB] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</item>
               <item lang="JA">[JA] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <IntervalInMinutes>60</IntervalInMinutes>
             </RecurrencePattern>
@@ -446,7 +446,7 @@
 			<ConfigFile>CleanupAdapter.xml</ConfigFile>
 			<ActivationDate>10/1/2002 00:00:00</ActivationDate>
 			<Description>Cleanup and void failed transactions.</Description>
-      <LocalizedDisplayDescription>
+      <LocalizedDescriptions>
         <item lang="FR">[FR] Cleanup and void failed transactions.</item>
         <item lang="IT">[IT] Cleanup and void failed transactions.</item>
         <item lang="ES">[ES] Cleanup and void failed transactions.</item>
@@ -455,7 +455,7 @@
         <item lang="pt-br">[pt-BR] Cleanup and void failed transactions.</item>
         <item lang="en-GB">[en-GB] Cleanup and void failed transactions.</item>
         <item lang="JA">[JA] Cleanup and void failed transactions.</item>
-      </LocalizedDisplayDescription>
+      </LocalizedDescriptions>
 			<RecurrencePattern>
 				<IntervalInMinutes>60</IntervalInMinutes>
 			</RecurrencePattern>
@@ -478,7 +478,7 @@
             <ClassID>MetraTech.UsageServer.Adapters.DeletePendingNonStandardChargesAdapter,MetraTech.UsageServer.Adapters</ClassID>
             <ConfigFile>DeletePendingNonStandardChargesAdapter.xml</ConfigFile>
             <Description>MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] MetraTech standard adapter deleting unmanaged pending non standard charges</item>
               <item lang="IT">[IT] MetraTech standard adapter deleting unmanaged pending non standard charges</item>
               <item lang="ES">[ES] MetraTech standard adapter deleting unmanaged pending non standard charges</item>
@@ -487,7 +487,7 @@
               <item lang="pt-br">[pt-BR] MetraTech standard adapter deleting unmanaged pending non standard charges</item>
               <item lang="en-GB">[en-GB] MetraTech standard adapter deleting unmanaged pending non standard charges</item>
               <item lang="JA">[JA] MetraTech standard adapter deleting unmanaged pending non standard charges</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -514,7 +514,7 @@
               MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.
             </Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.
             </item>
@@ -539,7 +539,7 @@
               <item lang="JA">[JA] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.
             </item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -568,7 +568,7 @@
         remetering usage date for these priceable items for this interval to
         the second pass service along with the appropriate aggregate counters.
       </Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] 
         MetraTech standard adapter to process aggregate rating for aggregate
         rated priceable items for this interval. This is accomplished by
@@ -617,7 +617,7 @@
         remetering usage date for these priceable items for this interval to
         the second pass service along with the appropriate aggregate counters.
       </item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -642,7 +642,7 @@
             <ClassID>MetraTech.AR.Adapters.PayerChangeAdapter,MetraTech.AR.Adapters</ClassID>
             <ConfigFile>PayerChangeAdapter.xml</ConfigFile>
             <Description>Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</item>
               <item lang="IT">[IT] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</item>
               <item lang="ES">[ES] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</item>
@@ -651,7 +651,7 @@
               <item lang="pt-br">[pt-BR] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</item>
               <item lang="en-GB">[en-GB] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</item>
               <item lang="JA">[JA] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -680,7 +680,7 @@
                 <DependsOn>PayerChange</DependsOn>
             </Dependencies>
             <Description>This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</item>
               <item lang="IT">[IT] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</item>
               <item lang="ES">[ES] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</item>
@@ -689,7 +689,7 @@
               <item lang="pt-br">[pt-BR] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</item>
               <item lang="en-GB">[en-GB] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</item>
               <item lang="JA">[JA] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
         </Checkpoint>
         <!-- Materialized Views EOP adapter
 	<Adapter>
@@ -711,7 +711,7 @@
 		This adapter is responsible for populating Materialized Views configured in DEFERRED mode
         ]]>
       </Description>
-      <LocalizedDisplayDescription>
+      <LocalizedDescriptions>
         <item lang="FR">[FR] 
         <![CDATA[
 		This adapter is responsible for populating Materialized Views configured in DEFERRED mode
@@ -752,7 +752,7 @@
 		This adapter is responsible for populating Materialized Views configured in DEFERRED mode
         ]]>
       </item>
-      </LocalizedDisplayDescription>
+      </LocalizedDescriptions>
       <RecurrencePattern>
          <UsageCycleType>All</UsageCycleType>
       </RecurrencePattern>
@@ -778,7 +778,7 @@
             <ClassID>MetraTech.UsageServer.Adapters.InvoiceAdapter,MetraTech.UsageServer.Adapters</ClassID>
             <ConfigFile>CreateInvoices.xml</ConfigFile>
             <Description>MetraTech standard adapter for generating invoices.</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] MetraTech standard adapter for generating invoices.</item>
               <item lang="IT">[IT] MetraTech standard adapter for generating invoices.</item>
               <item lang="ES">[ES] MetraTech standard adapter for generating invoices.</item>
@@ -787,7 +787,7 @@
               <item lang="pt-br">[pt-BR] MetraTech standard adapter for generating invoices.</item>
               <item lang="en-GB">[en-GB] MetraTech standard adapter for generating invoices.</item>
               <item lang="JA">[JA] MetraTech standard adapter for generating invoices.</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -814,7 +814,7 @@
             <ClassID>MetraTech.UsageServer.Adapters.EmailAdapter,MetraTech.UsageServer.Adapters</ClassID>
             <ConfigFile>EmailAdapterConfig.xml</ConfigFile>
             <Description>Adapter to send emails</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] Adapter to send emails</item>
               <item lang="IT">[IT] Adapter to send emails</item>
               <item lang="ES">[ES] Adapter to send emails</item>
@@ -823,7 +823,7 @@
               <item lang="pt-br">[pt-BR] Adapter to send emails</item>
               <item lang="en-GB">[en-GB] Adapter to send emails</item>
               <item lang="JA">[JA] Adapter to send emails</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -855,7 +855,7 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
@@ -920,7 +920,7 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -944,7 +944,7 @@
             <ClassID>MetraTech.Adjustments.Adapters.DeleteAdjustments,MetraTech.Adjustments.Adapters</ClassID>
             <ConfigFile>DeleteAdjustments.xml</ConfigFile>
             <Description>MetraTech standard adapter deleting pending adjustments</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] MetraTech standard adapter deleting pending adjustments</item>
               <item lang="IT">[IT] MetraTech standard adapter deleting pending adjustments</item>
               <item lang="ES">[ES] MetraTech standard adapter deleting pending adjustments</item>
@@ -953,7 +953,7 @@
               <item lang="pt-br">[pt-BR] MetraTech standard adapter deleting pending adjustments</item>
               <item lang="en-GB">[en-GB] MetraTech standard adapter deleting pending adjustments</item>
               <item lang="JA">[JA] MetraTech standard adapter deleting pending adjustments</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -978,7 +978,7 @@
                 <DependsOn>AllEOP</DependsOn>
             </Dependencies>
             <Description>This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-            <LocalizedDisplayDescription>
+            <LocalizedDescriptions>
               <item lang="FR">[FR] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</item>
               <item lang="IT">[IT] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</item>
               <item lang="ES">[ES] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</item>
@@ -987,7 +987,7 @@
               <item lang="pt-br">[pt-BR] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</item>
               <item lang="en-GB">[en-GB] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</item>
               <item lang="JA">[JA] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</item>
-            </LocalizedDisplayDescription>
+            </LocalizedDescriptions>
         </Checkpoint>
     </EndOfPeriodAdapters>
 </xmlconfig>

@@ -238,19 +238,19 @@
     <value>Duration</value>
   </data>
   <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>Earliest ETA</value>
+    <value>Earliest ETA:</value>
   </data>
   <data name="TEXT_READY" xml:space="preserve">
-    <value>Ready</value>
+    <value>Ready:</value>
   </data>
   <data name="TEXT_SUCCESSFUL" xml:space="preserve">
-    <value>Successful</value>
+    <value>Successful:</value>
   </data>
   <data name="TEXT_VARIANCE" xml:space="preserve">
-    <value>Variance</value>
+    <value>Variance:</value>
   </data>
   <data name="TEXT_WAITING" xml:space="preserve">
-    <value>Waiting</value>
+    <value>Waiting:</value>
   </data>
   <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
     <value>Bill Groups:</value>
@@ -297,4 +297,19 @@
   <data name="DATE_FORMAT_JS" xml:space="preserve">
     <value>%d/%m/%Y %X</value>
   </data>
+  <data name="TEXT_TYPE_EOM" xml:space="preserve">
+    <value>EOM</value>
+  </data>
+  <data name="TEXT_TYPE_M12" xml:space="preserve">
+    <value>M12</value>
+  </data>
+  <data name="TEXT_TYPE_M19" xml:space="preserve">
+    <value>M19</value>
+  </data>
+  <data name="TEXT_TYPE_M26" xml:space="preserve">
+    <value>M26</value>
+  </data>
+  <data name="TEXT_TYPE_M5" xml:space="preserve">
+    <value>M5</value>
+  </data>    
 </root>

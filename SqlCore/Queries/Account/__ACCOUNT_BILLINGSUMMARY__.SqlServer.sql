@@ -20,21 +20,8 @@ INNER JOIN ( --subquery to sum up mrr for active subscriptions in the interval
 		SUM(ISNULL(mrr.MRR,0.0)) AS MRR
 	FROM t_invoice inv WITH(NOLOCK)
 	INNER JOIN t_usage_interval ui WITH(NOLOCK) ON inv.id_interval = ui.id_interval
-	LEFT OUTER JOIN t_payment_redirection pr on inv.id_acc = pr.id_payer AND (/*Gets valid payees in the interval and payees which started in the interval month*/
-                                                        (ui.dt_end BETWEEN pr.vt_start and pr.vt_end) OR 
-                                                        /*Gets valid payees in the interval and payees which ended in the interval month*/
-                                                        (ui.dt_start BETWEEN pr.vt_start and pr.vt_end) OR 
-                                                        /*Gets payees that were valid only within the interval month*/
-                                                        (pr.vt_start >= ui.dt_start and pr.vt_end <= ui.dt_end)
-                                                        )	
-	LEFT OUTER JOIN t_vw_effective_subs sub with(nolock) ON pr.id_payee = sub.id_acc  
-                                                       AND (/*Gets valid subscriptions in the interval and subscriptions which started in the interval month*/
-                                                            (ui.dt_end BETWEEN sub.dt_start and sub.dt_end) OR 
-                                                            /*Gets valid subscriptions in the interval and subscriptions which ended in the interval month*/
-                                                            (ui.dt_start BETWEEN sub.dt_start and sub.dt_end) OR 
-                                                            /*Gets subscriptions that were valid only within the interval month*/
-                                                            (sub.dt_start >= ui.dt_start and sub.dt_end <= ui.dt_end)
-                                                           )
+	LEFT OUTER JOIN t_payment_redirection pr on inv.id_acc = pr.id_payer
+	LEFT OUTER JOIN t_vw_effective_subs sub with(nolock) ON pr.id_payee = sub.id_acc
 	LEFT OUTER JOIN SubscriptionsByMonth mrr WITH(NOLOCK) ON sub.id_sub = mrr.SubscriptionId AND datepart(year, ui.dt_end) = mrr.year AND datepart(month, ui.dt_end) = mrr.month -- mrr for the interval month
 	WHERE inv.id_acc = %%ACCOUNT_ID%%
 	GROUP BY inv.id_interval

@@ -120,4 +120,10 @@
   <data name="RunScheduledAdapterMTTitle.Text" xml:space="preserve">
     <value>Run Scheduled Adapters</value>
   </data>
+  <data name="RUN_SCHEDULED_ADAPTER_GRID_TITLE" xml:space="preserve">
+    <value>Scheduled Adapters List</value>
+  </data>
+  <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
+    <value>No Records Found</value>
+  </data>
 </root>

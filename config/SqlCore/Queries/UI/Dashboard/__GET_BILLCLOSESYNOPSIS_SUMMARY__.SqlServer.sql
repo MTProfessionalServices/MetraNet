@@ -13,8 +13,8 @@ select CASE DAY(ui.dt_end)
       END as [Type],
       @BillGroupCount as [BillGroups],
       ui.id_interval as [IntervalID],
-      CONVERT(VARCHAR(10), ui.dt_start, 101) as [Start],
-      CONVERT(VARCHAR(10), ui.dt_end, 101) as [End],
+      ui.dt_start as [Start],
+      ui.dt_end as [End],
       tx_interval_status [Interval_Status], DATEDIFF(day, GETUTCDATE(),
       ui.dt_end)+1 as [Days_Until_Run]
       from t_usage_interval ui

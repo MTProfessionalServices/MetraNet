@@ -64,7 +64,7 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Finance Dashboard</Description>
                             <RequiredCapabilities>
-                              <Capability>View Data from Analytics Datamart</Capability>
+                              <Capability>View Summary Financial Information</Capability>
                             </RequiredCapabilities>
                         </MenuItem-->						
                     </MenuItems>

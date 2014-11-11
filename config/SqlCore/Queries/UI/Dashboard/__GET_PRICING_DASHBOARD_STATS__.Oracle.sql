@@ -14,19 +14,27 @@ count(1) as c_count
 from mvm_scheduled_tasks tsks
 where 1=1
 and tsks.is_scheduled = 1
-and tsks.mvm_scheduled_dt <= SYSDATE
+and tsks.mvm_scheduled_dt <= GETUTCDATE
 union all
 select /* we do not treat resubmits special */
 'pipeline_wait_seconds' as c_category,
-nvl(avg(extract(day from nvl(m.dt_assigned, GETUTCDATE()) - m.dt_crt)*60*60*24),0.0) as c_count
+ROUND(NVL( avg(case when m.dt_crt > m.dt_assigned then 0 else EXTRACT (DAY FROM (m.dt_assigned - m.dt_crt))*24*60*60+
+                                                        EXTRACT (HOUR FROM (m.dt_assigned - m.dt_crt))*60*60+
+                                                        EXTRACT (MINUTE FROM (m.dt_assigned - m.dt_crt))*60+
+                                                        EXTRACT (SECOND FROM (m.dt_assigned - m.dt_crt)) end) , 0.0), 2) as c_count
+
 from t_message m
 where 1=1
 and nvl(m.dt_assigned, GETUTCDATE()) between (GETUTCDATE() - (1/(60*24))) and GETUTCDATE()
 union all
 select /* we do not treat resubmits special */
 'pipeline_seconds' as c_category,
-nvl(avg(extract(day from m.dt_completed - m.dt_assigned) *60*60*24),0.0) as c_count
+ROUND(NVL( avg(EXTRACT (DAY FROM (m.dt_completed - m.dt_assigned))*24*60*60+
+         EXTRACT (HOUR FROM (m.dt_completed - m.dt_assigned))*60*60+
+         EXTRACT (MINUTE FROM (m.dt_completed - m.dt_assigned))*60+
+         EXTRACT (SECOND FROM (m.dt_completed - m.dt_assigned))) , 0.0), 2) as c_count
+
 from t_message m
 where 1=1
-and m.dt_completed between (SYSDATE - (1/(60*24))) and SYSDATE
+and m.dt_completed between (GETUTCDATE - (1/(60*24))) and GETUTCDATE
 

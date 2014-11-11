@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
     <Description>Report Instance Details</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/DeleteExistingReportInstance.aspx</PageName>
+        <PageName>~/DataExportReportManagement/DeleteExistingReportInstance.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

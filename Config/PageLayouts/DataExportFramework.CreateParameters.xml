@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportParameters</ObjectName>
     <Description>Create Report Parameters</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/AddNewReportParameters.aspx</PageName>
+        <PageName>~/DataExportReportManagement/AddNewReportParameters.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
     <Description>Report Instance Details</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/AddNewReportInstance.aspx</PageName>
+        <PageName>~/DataExportReportManagement/AddNewReportInstance.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

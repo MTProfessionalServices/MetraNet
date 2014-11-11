@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportDefinition</ObjectName>
     <Description>This feature lets you initiate a report at any time regardless of report schedule. It's useful to test new report definitions, before you define report instances.</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/QueueAdHocReports.aspx</PageName>
+        <PageName>~/DataExportReportManagement/QueueAdHocReports.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

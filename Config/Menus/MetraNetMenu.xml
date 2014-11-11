@@ -28,7 +28,7 @@
                                 <Capability>Manage System User Reports</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
-                        <!--MenuItem>
+                        <MenuItem>
                             <ID>ReportsMetraControlDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_OPERATIONS_DASHBOARD</LocalizationTag>
@@ -39,7 +39,7 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>MetraOffer Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem-->
+                        </MenuItem>
 						            <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>

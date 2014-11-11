@@ -33,10 +33,10 @@ public partial class AjaxServices_PricingEngineDashboardService : MTListServiceP
       if ((MetraTech.MetraTime.Now - last).TotalSeconds > 5)
       {
         var msgCount = 0;
-        var schedulerCount = 0;
-        var pipelineWaitCount = 0;
-        var pipelineWaitSeconds = 0;
-        var pipelineSeconds = 0;
+        decimal schedulerCount = 0;
+        decimal pipelineWaitCount = 0;
+        decimal pipelineWaitSeconds = 0;
+        decimal pipelineSeconds = 0;
         try
         {
           var sads = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSetClass();
@@ -61,19 +61,19 @@ public partial class AjaxServices_PricingEngineDashboardService : MTListServiceP
               {
                 if (rdr.GetString("c_category").Equals("pipeline_wait_count"))
                 {
-                  pipelineWaitCount = rdr.GetInt32("c_count");
+                  pipelineWaitCount = rdr.GetDecimal("c_count");
                 }
                 else if (rdr.GetString("c_category").Equals("scheduler_wait_count"))
                 {
-                  schedulerCount = rdr.GetInt32("c_count");
+                  schedulerCount = rdr.GetDecimal("c_count");
                 }
                 else if (rdr.GetString("c_category").Equals("pipeline_wait_seconds"))
                 {
-                  pipelineWaitSeconds = rdr.GetInt32("c_count");
+                  pipelineWaitSeconds = rdr.GetDecimal("c_count");
                 }
                 else if (rdr.GetString("c_category").Equals("pipeline_seconds"))
                 {
-                  pipelineSeconds = rdr.GetInt32("c_count");
+                  pipelineSeconds = rdr.GetDecimal("c_count");
                 }
               }
             }

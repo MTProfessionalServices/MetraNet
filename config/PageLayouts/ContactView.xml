@@ -5,11 +5,11 @@
     <ObjectName>MetraTech.DomainModel.AccountTypes.ContactView</ObjectName>
     <Description>The page layout for contact information in MetraCare's Add Account, Update Account, and Contact Information pages.</Description>
     <Pages>
-        <PageName>/MetraNet/Account/AddAccount.aspx</PageName>
-        <PageName>/MetraNet/Account/UpdateAccount.aspx</PageName>
-        <PageName>/MetraNet/Account/AddSystemUser.aspx</PageName>
-        <PageName>/MetraNet/Account/UpdateSystemAccount.aspx</PageName>
-        <PageName>/MetraNet/Account/ContactUpdate.aspx</PageName>
+        <PageName>~/Account/AddAccount.aspx</PageName>
+        <PageName>~/Account/UpdateAccount.aspx</PageName>
+        <PageName>~/Account/AddSystemUser.aspx</PageName>
+        <PageName>~/Account/UpdateSystemAccount.aspx</PageName>
+        <PageName>~/Account/ContactUpdate.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.AccountTypes.Container</ObjectName>
     <Description>The page layout for adding or updating a Container account in MetraCare.</Description>
     <Pages>
-        <PageName>/MetraNet/Account/GenericAccountSummary.aspx</PageName>
+        <PageName>~/Account/GenericAccountSummary.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

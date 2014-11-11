@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportSchedule</ObjectName>
     <Description>web page where you have full control over scheduling each report instance.</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/AddReportInstanceScheduleMaster.aspx</PageName>
+        <PageName>~/DataExportReportManagement/AddReportInstanceScheduleMaster.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

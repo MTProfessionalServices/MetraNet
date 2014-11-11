@@ -5,8 +5,8 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportSchedule</ObjectName>
     <Description>Web page to schedule reports monthly.</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/CreateScheduleReportInstanceMonthly.aspx</PageName>
-        <PageName>/MetraNet/DataExportReportManagement/UpdateScheduleReportInstanceMonthly.aspx</PageName>
+        <PageName>~/DataExportReportManagement/CreateScheduleReportInstanceMonthly.aspx</PageName>
+        <PageName>~/DataExportReportManagement/UpdateScheduleReportInstanceMonthly.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

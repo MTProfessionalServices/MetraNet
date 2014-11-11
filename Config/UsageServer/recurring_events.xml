@@ -4,9 +4,29 @@
 	<Adapter>
 	<Name>QueueScheduledExportReports</Name>
 	<DisplayName>Queue Scheduled Export Reports</DisplayName>
+      <LocalizedDisplayNames>
+        <item lang="FR">[FR] Queue Scheduled Export Reports</item>
+        <item lang="IT">[IT] Queue Scheduled Export Reports</item>
+        <item lang="ES">[ES] Queue Scheduled Export Reports</item>
+        <item lang="DE">[DE] Queue Scheduled Export Reports</item>
+        <item lang="es-MX">[es-MX] Queue Scheduled Export Reports</item>
+        <item lang="pt-br">[pt-BR] Queue Scheduled Export Reports</item>
+        <item lang="en-GB">[en-GB] Queue Scheduled Export Reports</item>
+        <item lang="JA">[JA] Queue Scheduled Export Reports</item>
+      </LocalizedDisplayNames>
 	<ClassID>MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter.QueueScheduledReportsAdapter, MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter</ClassID>
 	<ConfigFile>QueueScheduledExportReports.xml</ConfigFile>
 	<Description>This scheduled BPA kick off reports</Description>
+      <LocalizedDisplayDescription>
+        <item lang="FR">[FR] This scheduled BPA kick off reports</item>
+        <item lang="IT">[IT] This scheduled BPA kick off reports</item>
+        <item lang="ES">[ES] This scheduled BPA kick off reports</item>
+        <item lang="DE">[DE] This scheduled BPA kick off reports</item>
+        <item lang="es-MX">[es-MX] This scheduled BPA kick off reports</item>
+        <item lang="pt-br">[pt-BR] This scheduled BPA kick off reports</item>
+        <item lang="en-GB">[en-GB] This scheduled BPA kick off reports</item>
+        <item lang="JA">[JA] This scheduled BPA kick off reports</item>
+      </LocalizedDisplayDescription>
       <RecurrencePattern>
 		<SystemCycle>Daily</SystemCycle>        
       </RecurrencePattern>
@@ -17,9 +37,29 @@
     <Adapter>
       <Name>QueueEOP</Name>
       <DisplayName>Queue EOP Export Reports</DisplayName>
+      <LocalizedDisplayNames>
+        <item lang="FR">[FR] Queue EOP Export Reports</item>
+        <item lang="IT">[IT] Queue EOP Export Reports</item>
+        <item lang="ES">[ES] Queue EOP Export Reports</item>
+        <item lang="DE">[DE] Queue EOP Export Reports</item>
+        <item lang="es-MX">[es-MX] Queue EOP Export Reports</item>
+        <item lang="pt-br">[pt-BR] Queue EOP Export Reports</item>
+        <item lang="en-GB">[en-GB] Queue EOP Export Reports</item>
+        <item lang="JA">[JA] Queue EOP Export Reports</item>
+      </LocalizedDisplayNames>
       <ClassID>MetraTech.DataExportFramework.Adapters.EOPQueueReports.EOPQueueReports, MetraTech.DataExportFramework.Adapters.EOPQueueReports</ClassID>
       <ConfigFile>QueueEOPExportReports.xml</ConfigFile>
       <Description>Start Generating EOP Export Reports</Description>
+      <LocalizedDisplayDescription>
+        <item lang="FR">[FR] Start Generating EOP Export Reports</item>
+        <item lang="IT">[IT] Start Generating EOP Export Reports</item>
+        <item lang="ES">[ES] Start Generating EOP Export Reports</item>
+        <item lang="DE">[DE] Start Generating EOP Export Reports</item>
+        <item lang="es-MX">[es-MX] Start Generating EOP Export Reports</item>
+        <item lang="pt-br">[pt-BR] Start Generating EOP Export Reports</item>
+        <item lang="en-GB">[en-GB] Start Generating EOP Export Reports</item>
+        <item lang="JA">[JA] Start Generating EOP Export Reports</item>
+      </LocalizedDisplayDescription>
       <RecurrencePattern>
         <UsageCycleType>All</UsageCycleType>
       </RecurrencePattern>

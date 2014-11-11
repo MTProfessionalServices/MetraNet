@@ -951,5 +951,15 @@
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
+  <compositetype>
+    <name>View Summary Financial Information</name>
+    <description>View Summary Financial Information: Allow viewing financial information through UI</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ViewSummaryFinancialInformationCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype>
   
 </mt_config>

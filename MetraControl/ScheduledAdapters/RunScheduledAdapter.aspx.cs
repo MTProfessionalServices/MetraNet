@@ -12,17 +12,41 @@ namespace MetraNet.MetraControl.ScheduledAdapters
   {
     protected void Page_Load(object sender, EventArgs e)
     {
+      if (IsPostBack) return;
+
       if (!UI.CoarseCheckCapability("Manage Scheduled Adapters"))
       {
         Response.End();
       }
 
-      if (!IsPostBack)
+      var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
+      var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
+      Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
+
+      RunScheduledAdapterMTTitle.Text = GetResourceString("TEXT_RUN_SCHEDULED_ADAPTER", "MainMenu");
+    }
+
+    private void RunAdapters(IEnumerable<int> eventIds)
+    {
+      var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
+
+      foreach (var instanceId in eventIds.Select(usmClient.InstantiateScheduledEvent))
       {
-        var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
-        var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
-        Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
+        usmClient.SubmitEventForExecution(instanceId, "");
       }
+      usmClient.NotifyServiceOfSubmittedEvents();
+    }
+
+    private string GetResourceString(string resourceKey, string className = null)
+    {
+      var res = className == null
+                  ? GetLocalResourceObject(resourceKey)
+                  : GetGlobalResourceObject(className, resourceKey);
+      if (res == null)
+        throw new NullReferenceException(
+          String.Format("Resource Key '{0}' not found in Resources Class '{1}'", resourceKey, className));
+
+      return res.ToString();
     }
 
     #region Implementation of ICallbackEventHandler
@@ -54,7 +78,7 @@ namespace MetraNet.MetraControl.ScheduledAdapters
               result = new
                 {
                   result = "ok",
-                  message = String.Format("Events with IDs {0} were submitted for execution.", idsString)
+                  message = String.Format(GetResourceString("ADAPTERS_WERE_SUBMITTED"), idsString)
                 };
               break;
             }
@@ -70,17 +94,6 @@ namespace MetraNet.MetraControl.ScheduledAdapters
       {
         _callbackResult = serializer.Serialize(result);
       }
-    }
-
-    private void RunAdapters(IEnumerable<int> eventIds)
-    {
-      var usmClient = new MetraTech.UsageServer.Client {SessionContext = UI.User.SessionContext};
-
-      foreach (var instanceId in eventIds.Select(usmClient.InstantiateScheduledEvent))
-      {
-        usmClient.SubmitEventForExecution(instanceId, "");
-      }
-      usmClient.NotifyServiceOfSubmittedEvents();
     }
 
     /// <summary>

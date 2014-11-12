@@ -2,18 +2,22 @@
 <%@ Register TagPrefix="MT" Namespace="MetraTech.UI.Controls" Assembly="MetraTech.UI.Controls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <MT:MTTitle ID="RunScheduledAdapterMTTitle" runat="server" meta:resourcekey="RunScheduledAdapterMTTitle" />  
+  <MT:MTTitle ID="RunScheduledAdapterMTTitle" runat="server" />  
   <MT:MTFilterGrid ID="RunScheduledAdapterGrid" runat="server" TemplateFileName="RunScheduledAdapterGrid" ExtensionName="Core" />
   
   <script type="text/javascript">
-
+    
+    var textSuccess = '<%=GetGlobalResourceObject("JSConsts", "SUCCESS")%>';
+    var titleNoSelection = '<%=GetGlobalResourceObject("JSConsts", "TEXT_NO_SELECTION")%>';
+    var textNoSelection = '<%=GetGlobalResourceObject("JSConsts", "TEXT_ERROR_SELECT")%>';
+    
     function onRun_<%= RunScheduledAdapterGrid.ClientID %>() {
       var eventIds = GetEventIds();
 
       if (eventIds.length == 0) {
         top.Ext.Msg.show({
-          title: 'Warning',
-          msg: 'No adapters were selected for execution',
+          title: titleNoSelection,
+          msg: textNoSelection,
           buttons: Ext.Msg.OK,
           icon: Ext.MessageBox.WARNING
         });
@@ -50,7 +54,7 @@
       var response = JSON.parse(value);
       if (response.result == 'ok') {
         top.Ext.MessageBox.show({
-          title: 'Success',
+          title: textSuccess,
           msg: response.message,
           buttons: window.Ext.MessageBox.OK,
           icon: window.Ext.MessageBox.INFO

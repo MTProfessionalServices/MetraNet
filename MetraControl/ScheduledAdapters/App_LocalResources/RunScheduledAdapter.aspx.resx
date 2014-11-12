@@ -117,14 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RunScheduledAdapterMTTitle.Text" xml:space="preserve">
-    <value>Run Scheduled Adapters</value>
+  <data name="ADAPTERS_WERE_SUBMITTED" xml:space="preserve">
+    <value>Events with IDs {0} were submitted for execution</value>
   </data>
-  <data name="RUN_SCHEDULED_ADAPTER_GRID_TITLE" xml:space="preserve">
-    <value>Scheduled Adapters List</value>
-  </data>
-  <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>No Records Found</value>
+  <data name="ADAPTER_INSTANCE_START_DATE" xml:space="preserve">
+    <value>Start Date For New Instance</value>
   </data>
   <data name="RUN_ADAPTER_BUTTON_TEXT" xml:space="preserve">
     <value>Run</value>

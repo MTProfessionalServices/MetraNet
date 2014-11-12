@@ -4341,3 +4341,10 @@ COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.SUBSCRIPTIONREVPRIMARYCURRENCY    IS 'The 
 COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.DAYSINMONTH                       IS 'The number of days in the month.'
 ;
 
+COMMENT ON TABLE t_recevent_localize 				IS 'The t_recevent_localize table contains the localized DisplayName and DEscription of t_recevent table for the languages supported by the MetraTech platform.(Package:Pipeline) ';
+COMMENT ON COLUMN t_recevent_localize.id_desc 		IS 'Localize identifier. This is foreign key to t_recevent';
+COMMENT ON COLUMN t_recevent_localize.id_lang_code 	IS 'Language identifier displayed on the MetraNet Presentation Server';
+COMMENT ON COLUMN t_recevent_localize.tx_name 		IS 'The localized DisplayName';
+COMMENT ON COLUMN t_recevent_localize.tx_desc 		IS 'The localized DEscription';
+
+

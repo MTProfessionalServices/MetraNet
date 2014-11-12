@@ -2,12 +2,12 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>RunScheduledAdapterGrid</Name>
     <Title>
-        <LocalizationTag>RUN_SCHEDULED_ADAPTER_GRID_TITLE</LocalizationTag>
-        <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+        <LocalizationTag>TEXT_SCHEDULED_ADAPTERS</LocalizationTag>
+        <ResourceClassKey>MainMenu</ResourceClassKey>
     </Title>
     <Exportable>false</Exportable>
     <Height>420</Height>
-    <Width>720</Width>
+    <Width>850</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
@@ -28,8 +28,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-        <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+        <LocalizationTag>NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>JSConsts</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -85,7 +85,7 @@
             <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_event</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag></LocalizationTag>
                 <ResourceClassKey></ResourceClassKey>
@@ -123,11 +123,11 @@
             <DataIndex>tx_display_name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_ADAPTER_NAME</LocalizationTag>
+                <ResourceClassKey>Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>260</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -153,17 +153,17 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>tx_name</ID>
+            <ID>instancelastargenddate</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>tx_name</DataIndex>
+            <DataIndex>instancelastargenddate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>ADAPTER_INSTANCE_START_DATE</LocalizationTag>
+                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>150</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -195,11 +195,11 @@
             <DataIndex>tx_desc</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>JSConsts</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>400</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -225,11 +225,11 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>instancelastargenddate</ID>
+            <ID>tx_name</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>instancelastargenddate</DataIndex>
-            <IsColumn>true</IsColumn>
+            <DataIndex>tx_name</DataIndex>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag></LocalizationTag>
                 <ResourceClassKey></ResourceClassKey>

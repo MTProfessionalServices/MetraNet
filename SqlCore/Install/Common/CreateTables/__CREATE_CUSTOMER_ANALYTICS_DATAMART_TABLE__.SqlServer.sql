@@ -31,4 +31,6 @@ CREATE TABLE Customer
 			HierarchyCountry nvarchar(100) NULL,
 			HierarchyEmail nvarchar(100) NULL,
 			HierarchyPhone nvarchar(40) NULL,
+			StartDate datetime NULL,
+			EndDate datetime NULL,
 			CONSTRAINT PK_Customer PRIMARY KEY CLUSTERED(InstanceId, MetraNetId));

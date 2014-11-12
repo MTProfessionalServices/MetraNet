@@ -218,10 +218,13 @@ pav.c_state as HierarchyState,
 pav.c_zip as HierarchyZipCode,
 substring(ted3.nm_enum_data,20,100) as HierarchyCountry,
 pav.c_email as HierarchyEmail,
-pav.c_phonenumber as HierarchyPhone
+pav.c_phonenumber as HierarchyPhone,
+c.dt_crt as StartDate,
+case when state.status != 'AC' then state.vt_start else state.vt_end end as EndDate
 into #tmp_all_customers
 from #tmp_accs r with(nolock)
 inner join t_account c with(nolock) on c.id_acc = r.id_descendent
+inner join t_account_state state with(nolock) on state.id_acc = c.id_acc
 inner join t_account_type ct with(nolock) on ct.id_type = c.id_type
 inner join t_account_mapper cam with(nolock) on cam.id_acc = c.id_acc and cam.nm_space not in ('ar')
 left outer join t_av_internal cavi with(nolock) on cavi.id_acc = c.id_acc
@@ -275,7 +278,9 @@ insert into Customer
 		HierarchyZipCode,
 		HierarchyCountry,
 		HierarchyEmail,
-		HierarchyPhone)
+		HierarchyPhone,
+		StartDate,
+		EndDate)
 select
 		InstanceId,
 		MetraNetId,
@@ -307,7 +312,9 @@ select
 		HierarchyZipCode,
 		HierarchyCountry,
 		HierarchyEmail,
-		HierarchyPhone
+		HierarchyPhone,
+		StartDate,
+		EndDate
 from (select *, 
 		DENSE_RANK() OVER (PARTITION BY MetraNetId, HierarchyMetraNetId ORDER BY ExternalIdSpace, HierarchyExternalIdSpace) as [priority_col]		
 		FROM #tmp_all_customers) a

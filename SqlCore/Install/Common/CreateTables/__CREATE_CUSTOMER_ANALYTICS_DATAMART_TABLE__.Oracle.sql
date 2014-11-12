@@ -30,4 +30,6 @@ CREATE TABLE Customer
 			HierarchyCountry NVARCHAR2(100) NULL,
 			HierarchyEmail NVARCHAR2(100) NULL,
 			HierarchyPhone NVARCHAR2(40) NULL,
+			StartDate DATE NULL,
+			EndDate DATE NULL,
 			CONSTRAINT PK_Customer PRIMARY KEY(InstanceId, MetraNetId));

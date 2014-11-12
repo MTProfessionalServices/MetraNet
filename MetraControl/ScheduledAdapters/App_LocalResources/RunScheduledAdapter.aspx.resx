@@ -126,4 +126,10 @@
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
     <value>No Records Found</value>
   </data>
+  <data name="RUN_ADAPTER_BUTTON_TEXT" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="RUN_ADAPTER_TOOL_TIP" xml:space="preserve">
+    <value>Run Selected Adapters</value>
+  </data>
 </root>

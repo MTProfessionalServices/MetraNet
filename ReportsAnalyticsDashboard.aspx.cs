@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using MetraTech.UI.Common;
 
 public partial class ReportsAnalyticsDashboard : MTPage
@@ -19,6 +20,14 @@ public partial class ReportsAnalyticsDashboard : MTPage
 
     startMonthMRR = GetJSDate(startMonthAndHalfForMRR);
     endMonthMRR = GetJSDate(endMonthAndHalfForMRR);
+  }
+
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    if (!Page.IsPostBack)
+    {
+      spnSelectCurrency.InnerText = Convert.ToString(GetLocalResourceObject("SELECT_CURRENCY"));
+    }
   }
 
   private long GetJSDate(DateTime date)

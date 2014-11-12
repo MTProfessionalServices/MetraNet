@@ -64,17 +64,17 @@ Title="MetraNet - Manage Subscription Parameters" %>
                 OnClick="btnAddAccountConfigSet_Click" Visible="False" TabIndex="150" meta:resourcekey="btnAddAccountConfigSetResource" />
             </td>
             <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnUpdateAccountConfigSet" runat="server" OnClientClick="return getUpdateApprove();"
+              <MT:MTButton ID="MTbtnUpdateAccountConfigSet" runat="server" OnClientClick="return getDataGrids();"
                 OnClick="btnUpdateAccountConfigSet_Click" Visible="False" TabIndex="160" meta:resourcekey="btnUpdateAccountConfigSetResource" />
             </td>
             <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnGoToUpdateAccountConfigSet" runat="server" 
                 OnClick="btnGoToUpdateAccountConfigSet_Click" Visible="False" TabIndex="170" meta:resourcekey="btnGoToUpdateAccountConfigSetResource" />
             </td>
-            <%--<td class="x-panel-btn-td">
+            <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
                 TabIndex="180" meta:resourcekey="MTbtnCancelResource" />
-            </td>--%>
+            </td>
           </tr>
         </table>
       </div>
@@ -90,7 +90,7 @@ Title="MetraNet - Manage Subscription Parameters" %>
       return true;        
   }
 
-    var GRID_HEIGHT = 300;
+    var GRID_HEIGHT = 200;
     var ACTIONS_COLUMN_HEIGHT = 25;
     var NAME_COLUMN_HEIGHT = 255;
     var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
@@ -106,21 +106,14 @@ Title="MetraNet - Manage Subscription Parameters" %>
     ]);
     
     Ext.onReady(function () {
-      //UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
-      if(isViewMode)
-      {
-      udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid_ViewMode'));
-      }
-      else
-      {
+
       if(poToolBar!= null)
           poToolBar.render(window.Ext.get('PlaceHolderSelectPoToolBar'));
       if(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid')!=null)
       {
       piWithAllowUDRCGrid.render(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid'));
       udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
-      }
-      }
+      }      
     });
 
     //    function loadFromPostback(hidden, store, data, dataDetails) {

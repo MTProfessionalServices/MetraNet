@@ -32,12 +32,12 @@
       var str = "";
       var entityId = record.data.AccountConfigSetParametersId;
       
-//      // Edit ACS
-//      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"ManageSubscriptionParameters.aspx?mode=EDIT&acsId={0}\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
+      // Edit ACS
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"ManageSubscriptionParameters.aspx?mode=EDIT&acsId={0}\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
 
-//      // View ACS      
-//      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageSubscriptionParameters.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textView));
-//      
+      // View ACS      
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageSubscriptionParameters.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textView));
+      
       return str;
     }
 

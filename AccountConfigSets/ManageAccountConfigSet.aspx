@@ -708,7 +708,8 @@
       var udrcData = { UDRCs: [] };
 
       var udrcRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-          { name: 'PriceableItemId' },          
+          { name: 'PriceableItemId' },
+          { name: 'PriceableItemName' },          
           { name: 'Value' },
           { name: 'StartDate' },
           { name: 'EndDate' },
@@ -719,13 +720,14 @@
       var udrcStore = new Ext.data.GroupingStore({
         root: 'UDRCs',
         fields: udrcRecord.fields,
-        groupField: 'PriceableItemId'
+        groupField: 'PriceableItemName'
       });
 
       function addUDRCs(items) {
         for (var i = 0; i < items.length; i++) {
-          var myNewRecord = new udrcRecord({            
+          var myNewRecord = new udrcRecord({
             PriceableItemId: items[i].PriceableItemId,
+            PriceableItemName: items[i].PriceableItemName,
             Value: items[i].Value,
             StartDate: items[i].StartDate,
             EndDate: items[i].EndDate,
@@ -745,7 +747,7 @@
       var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
 
       var udrcColumns = [
-        { hidden: true, header: ' ', dataIndex: 'PriceableItemId' },
+        { hidden: true, header: ' ', dataIndex: 'PriceableItemName' },
         { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
         { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
         { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' }
@@ -766,7 +768,7 @@
         view: new Ext.grid.GroupingView({
           forceFit: true,
           // custom grouping text template to display the number of items per group
-          groupTextTpl: 'PI{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
+          groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "<%=GetLocalResourceObject("ITEMS")%>" : "<%=GetLocalResourceObject("ITEM")%>"]})'
         })
       });
     </script>

@@ -44,7 +44,12 @@
           }
           else
           {
+          if(window.getFrameMetraNet().subParamsSelectorWin2){
+             window.getFrameMetraNet().subParamsSelectorWin2.<%= CallbackFunction %>(ids);
+             }
+          else{
              window.getFrameMetraNet().MainContentIframe.<%= CallbackFunction %>(ids);
+             }
           }
         }
       }

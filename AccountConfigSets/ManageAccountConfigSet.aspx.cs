@@ -99,6 +99,8 @@ namespace MetraNet.AccountConfigSets
     protected int CurrentAccountConfigSetId;
     protected int CurrentAccountConfigSetSubParamsId;
 
+    protected Dictionary<int, string> PiNames;
+
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
@@ -614,7 +616,19 @@ namespace MetraNet.AccountConfigSets
 
     private string EncodeUDRCsForHiddenControl(AccountConfigSetParameters subParams)
     {
-      const string udrcStr = "{5}'PriceableItemId':{0},'Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{6}";
+
+      var pis = GetPriceableItemsForPOs(new string[] { subParams.ProductOfferingId.ToString() });
+
+      PiNames = new Dictionary<int, string>();
+
+      var hiddenPisValue = "[";
+      foreach (var pi in pis.Items)
+      {
+        if (!PiNames.ContainsKey(Convert.ToInt32(pi.ID)))
+          PiNames.Add(Convert.ToInt32(pi.ID), pi.Name);
+      }
+
+      const string udrcStr = "{6}'PriceableItemId':{0},'PriceableItemName':'{5}','Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{7}";
       const string recodrIdStr = "{0}_{1}_{2}";
 
       if (subParams == null)
@@ -636,7 +650,8 @@ namespace MetraNet.AccountConfigSets
           udrc.StartDate.ToString("d"),
           udrc.EndDate.ToString("d")
           );
-
+        string piName = "";
+        PiNames.TryGetValue(udrc.UDRC_Id, out piName);
         hiddenUdrcsValue += string.Format(
           CultureInfo.CurrentCulture,
           udrcStr,
@@ -645,6 +660,7 @@ namespace MetraNet.AccountConfigSets
           udrc.StartDate.ToString("d"),
           udrc.EndDate.ToString("d"),
           recordId,
+          piName,
           "{", "},");
       }
       hiddenUdrcsValue = hiddenUdrcsValue.Substring(0, hiddenUdrcsValue.Length - 1);

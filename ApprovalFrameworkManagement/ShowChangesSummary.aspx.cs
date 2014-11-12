@@ -233,21 +233,33 @@ public partial class ApprovalFrameworkManagement_ShowChangesSummary : MTPage
 
     public string GenerateJavascriptForChangeTypeConfiguration(ApprovalsConfiguration approvalConfiguration)
     {
-      /*
-        var changeTypesConfiguration = {};
-        changeTypesConfiguration['AccountUpdate']     = {WebpageForView: '/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewAccountChangeDetails.aspx?changeId={ChangeId}' };
-        changeTypesConfiguration['ProductOfferingUpdate']     = {WebpageForView: '/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewProductOfferingChangeDetails.aspx?changeId={ChangeId}' };
-        changeTypesConfiguration['RateUpdate']  = {WebpageForView: '/MetraNet/TicketToMamNoMenu.aspx?URL=/MAM/default/dialog/gotoRuleEditorViewDifference.asp|APPROVAL_ID={ChangeId}' };
-      */
+      var sb = new StringBuilder();
+      sb.Append("var changeTypesConfiguration = {};" + Environment.NewLine);
 
-
-      StringBuilder sb = new StringBuilder();
-      sb.Append("var changeTypesConfiguration = {};" + System.Environment.NewLine);
-
-      foreach (ChangeTypeConfiguration changeConfiguration in approvalConfiguration.Values)
+      foreach (var changeConfiguration in approvalConfiguration.Values)
       {
-        if (changeConfiguration.LocalizationTag != null)
-          sb.Append(string.Format("changeTypesConfiguration['{0}'] = {{WebpageForView: '{1}', WebpageForEdit: '{2}', GridTitle: '{3}' }};" + System.Environment.NewLine, changeConfiguration.Name, TranslateApprovalsUrl(changeConfiguration.WebpageForView != null ? changeConfiguration.WebpageForView.URL : ""), changeConfiguration.WebpageForEdit != null ? changeConfiguration.WebpageForEdit.URL : "", changeConfiguration != null ? GetGlobalResourceObject("JSConsts", changeConfiguration.LocalizationTag) : ""));
+        if (changeConfiguration.LocalizationTag == null) continue;
+
+        var safeChangeConfigName = changeConfiguration.Name.Replace("'", "\\'");
+        var safeApprovalsUrl = TranslateApprovalsUrl(changeConfiguration.WebpageForView != null
+                                                       ? changeConfiguration.WebpageForView.URL
+                                                       : "").Replace("'", "\\'");
+        var safeWebpageForEdit = changeConfiguration.WebpageForEdit != null
+                                   ? changeConfiguration.WebpageForEdit.URL
+                                   : "".Replace("'", "\\'");
+        var gridTitle = GetGlobalResourceObject("JSConsts", changeConfiguration.LocalizationTag);
+        if (gridTitle == null)
+        {
+          throw new NullReferenceException(
+            String.Format("LocalizationTag '{0}' not found in Global Resources for localization 'JSConsts'",
+                          changeConfiguration.LocalizationTag));
+        }
+        var safeGridTitle = gridTitle.ToString().Replace("'", "\\'");
+
+        sb.Append(
+          string.Format(
+            "changeTypesConfiguration['{0}'] = {{WebpageForView: '{1}', WebpageForEdit: '{2}', GridTitle: '{3}' }};{4}",
+            safeChangeConfigName, safeApprovalsUrl, safeWebpageForEdit, safeGridTitle, Environment.NewLine));
       }
 
       return sb.ToString();

@@ -294,7 +294,7 @@
   <data name="TEXT_RATE_UPDATE" xml:space="preserve">
     <value>[JA]Rate Update</value>
   </data>
-  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+  <data name="TEXT_ACCOUNT_UPDATE" xml:space="preserve">
     <value>[JA]Account Updates</value>
   </data>
   <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
@@ -1319,5 +1319,26 @@
   </data>
   <data name="TEXT_TERMINATE_MESSAGE" xml:space="preserve">
     <value>Are you sure you want to terminate {0}?</value>
+  </data>
+  <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
+    <value>Recent Notifications</value>
+  </data>
+  <data name="SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
+    <value>[JA]Account {varloginname} has subscription to {varpointernalname} that will end on {varenddate}&lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
+  </data>
+  <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
+    <value>[JA]Account {varloginname} participation in subscription to {varpointernalname} will end on {varenddate} &lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
+  </data>
+  <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
+    <value>{JA}Change Password</value>
+  </data>
+  <data name="TEXT_MY_SECURITY_SETTINGS" xml:space="preserve">
+    <value>{JA}My Security Settings</value>
+  </data>
+  <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
+    <value>{JA}Notifications</value>
+  </data>
+  <data name="TEXT_MORE" xml:space="preserve">
+    <value>[JA]More ...</value>
   </data>
 </root>

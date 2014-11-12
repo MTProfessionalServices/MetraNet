@@ -162,7 +162,7 @@
                                 <LocalizationTag>TEXT_RUN_SCHEDULED_ADAPTER</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.asp</Link>
+                            <Link>/MetraNet/MetraControl/ScheduledAdapters/RunScheduledAdapter.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/hourglass_go.png</Icon>
                             <Description></Description>

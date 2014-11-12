@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GetNotificationEndpoints.aspx.cs" Inherits="Notifications_AjaxServices_GetNotificationEndpoints"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GetNotifications.aspx.cs" Inherits="Notifications_AjaxServices_NotificationService" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

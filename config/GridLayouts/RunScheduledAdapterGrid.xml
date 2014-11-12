@@ -5,20 +5,20 @@
         <LocalizationTag>RUN_SCHEDULED_ADAPTER_GRID_TITLE</LocalizationTag>
         <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
     </Title>
-    <Exportable>true</Exportable>
-    <Height>400</Height>
+    <Exportable>false</Exportable>
+    <Height>420</Height>
     <Width>720</Width>
-    <Expandable>true</Expandable>
+    <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
-    <MultiSelect>false</MultiSelect>
+    <MultiSelect>true</MultiSelect>
     <SelectionModel>CheckBox</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
-    <PageSize>10</PageSize>
+    <PageSize>14</PageSize>
     <Description>Grid displays list of available Scheduled Adapters for "Run Scheduled Adapters" page.</Description>
     <ExpansionCssClass></ExpansionCssClass>
-    <ShowFilterPanel>true</ShowFilterPanel>
+    <ShowFilterPanel>false</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
@@ -33,11 +33,11 @@
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
-    <EnableColumnConfig>true</EnableColumnConfig>
-    <EnableFilterConfig>true</EnableFilterConfig>
+    <EnableColumnConfig>false</EnableColumnConfig>
+    <EnableFilterConfig>false</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField></DefaultSortField>
+    <DefaultSortField>tx_display_name</DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
@@ -260,5 +260,22 @@
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
-    <ToolbarButtons></ToolbarButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>Run</ButtonID>
+            <ButtonText>
+                <LocalizationTag>RUN_ADAPTER_BUTTON_TEXT</LocalizationTag>
+                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>RUN_ADAPTER_TOOL_TIP</LocalizationTag>
+                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities>
+                <Capability>Manage Scheduled Adapters</Capability>
+            </RequiredCapabilities>
+            <JSHandlerFunction>onRun</JSHandlerFunction>
+        </Button>
+    </ToolbarButtons>
 </GridLayout>

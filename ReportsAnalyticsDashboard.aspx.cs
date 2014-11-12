@@ -5,8 +5,17 @@ public partial class ReportsAnalyticsDashboard : MTPage
 {
   protected long previousMonth, firstMonth;
   protected long startMonthMRR, endMonthMRR;
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    if (!UI.CoarseCheckCapability("View Summary Financial Information"))
+    {
+      SetError(Resources.ErrorMessages.ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY);
+      Response.Write(Resources.ErrorMessages.ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY);
+      Response.End();
+    }
+  }
 
-  public ReportsAnalyticsDashboard()
+public ReportsAnalyticsDashboard()
   {
     var previousMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-1).AddDays(1 - DateTime.Today.Day + 15);
     var firstMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-13).AddDays(1 - DateTime.Today.Day - 15);

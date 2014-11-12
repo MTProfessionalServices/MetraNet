@@ -669,7 +669,8 @@ insert into SubscriptionsByMonth
 	SubscriptionRevenue,
 	SubscriptionRevPrimaryCurrency,
 	DaysInMonth,
-	DaysActiveInMonth
+	DaysActiveInMonth,
+	ReportingCurrency
 )
 select cMonth.InstanceId,
 	cMonth.SubscriptionId,
@@ -693,7 +694,8 @@ select cMonth.InstanceId,
 	0 as SubscriptionRevenue,
 	0*(case when @p_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevPrimaryCurrency,
 	cMonth.DaysInMonth,
-	cMonth.DaysActiveInMonth
+	cMonth.DaysActiveInMonth,
+	@p_nm_currency
 from #sum_rcs_by_month cMonth
 left outer join #sum_rcs_by_month pMonth on  cMonth.InstanceId = pMonth.InstanceId
 										 and cMonth.SubscriptionId = pMonth.SubscriptionId

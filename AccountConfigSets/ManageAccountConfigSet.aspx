@@ -22,10 +22,10 @@
     </div>
     <div id="rightColumn1" class="RightColumn">      
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
-        Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpStartDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
       <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpEndDate"
-        Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpEndDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
     </div>
     </div>

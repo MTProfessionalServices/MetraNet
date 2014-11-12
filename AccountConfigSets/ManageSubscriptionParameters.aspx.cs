@@ -102,7 +102,7 @@ namespace MetraNet.AccountConfigSets
 
     private void LoadAccountConfigSetSubParamsToControls()
     {
-      MTtbSubParamId.Text = CurrentAccountConfigSetSubscriptionParams.AccountConfigSetParametersId.ToString();
+      //MTtbSubParamId.Text = CurrentAccountConfigSetSubscriptionParams.AccountConfigSetParametersId.ToString();
       MTtbSubParamsDescription.Text = CurrentAccountConfigSetSubscriptionParams.Description;
       MTtbSubParamsPo.Text = CurrentAccountConfigSetSubscriptionParams.ProductOfferingId.ToString();
       MTdpSubParamsStartDate.Text = CurrentAccountConfigSetSubscriptionParams.StartDate.ToString("d");
@@ -113,7 +113,7 @@ namespace MetraNet.AccountConfigSets
 
       MTtbSubParamsPoName.Text = GetPoName(CurrentAccountConfigSetSubscriptionParams.ProductOfferingId);
 
-      MTtbSubParamId.ReadOnly = IsViewMode;
+      //MTtbSubParamId.ReadOnly = IsViewMode;
       MTtbSubParamsDescription.ReadOnly = IsViewMode;
       MTtbSubParamsPo.ReadOnly = IsViewMode;
       MTdpSubParamsStartDate.ReadOnly = IsViewMode;

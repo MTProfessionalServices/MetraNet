@@ -679,10 +679,10 @@
     <value>Afficher la facture en ligne</value>
   </data>
   <data name="TEXT_CREATE_ACS" xml:space="preserve">
-    <value>Add OnBoard Template</value>
+    <value>[FR]Add OnBoard Template</value>
   </data>
   <data name="TEXT_AccountConfigSetsSubParams_LIST" xml:space="preserve">
-    <value>Sub. Params For OnBoard Templates</value>
+    <value>[FR]Sub. Params For OnBoard Templates</value>
   </data>
   <data name="TEXT_AccountConfigSets" xml:space="preserve">
     <value>[FR]Manage OnBoard Templates</value>
@@ -691,6 +691,6 @@
     <value>[FR]OnBoard Templates List</value>
   </data>
     <data name="TEXT_CREATE_ACS_SUB_PARAMS" xml:space="preserve">
-    <value>Add Sub. Params</value>
+    <value>[FR]Add Subscription Parameters</value>
   </data>
 </root>

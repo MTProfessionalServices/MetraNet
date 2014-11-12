@@ -195,10 +195,10 @@
   <data name="btnAddAccountConfigSetResource.Text" xml:space="preserve">
     <value>[FR]Add</value>
   </data>
-  <data name="dpStartDateResource.Text" xml:space="preserve">
+  <data name="dpStartDateResource.Label" xml:space="preserve">
     <value>[FR]Template Effective Date</value>
   </data>
-  <data name="dpEndDateResource.Text" xml:space="preserve">
+  <data name="dpEndDateResource.Label" xml:space="preserve">
     <value>[FR]Template Effective End Date</value>
   </data>
   <data name="tbAcsDescriptionResource.Label" xml:space="preserve">

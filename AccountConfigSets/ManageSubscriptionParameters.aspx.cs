@@ -102,7 +102,7 @@ namespace MetraNet.AccountConfigSets
 
     private void LoadAccountConfigSetSubParamsToControls()
     {
-      MTtbSubParamId.Text = CurrentAccountConfigSetSubscriptionParams.AccountConfigSetParametersId.ToString();
+      //MTtbSubParamId.Text = CurrentAccountConfigSetSubscriptionParams.AccountConfigSetParametersId.ToString();
       MTtbSubParamsDescription.Text = CurrentAccountConfigSetSubscriptionParams.Description;
       MTtbSubParamsPo.Text = CurrentAccountConfigSetSubscriptionParams.ProductOfferingId.ToString();
       MTdpSubParamsStartDate.Text = CurrentAccountConfigSetSubscriptionParams.StartDate.ToString("d");

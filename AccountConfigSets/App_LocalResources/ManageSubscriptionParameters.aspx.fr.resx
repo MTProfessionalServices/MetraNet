@@ -126,10 +126,10 @@
   <data name="btnUpdateAccountConfigSetResource.Text" xml:space="preserve">
     <value>[FR]Update</value>
   </data>
-  <data name="dpSubParamsEndDateResource.Text" xml:space="preserve">
+  <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
     <value>[FR]Subscription End Date</value>
   </data>
-  <data name="dpSubParamsStartDateResource.Text" xml:space="preserve">
+  <data name="dpSubParamsStartDateResource.Label" xml:space="preserve">
     <value>[FR]Subscription Start Date</value>
   </data>
   <data name="isCorpAccountIdResource.Label" xml:space="preserve">

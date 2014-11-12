@@ -13,13 +13,11 @@ Title="MetraNet - Manage Subscription Parameters" %>
     </div>
     <div>
     <div id="leftColumn1" class="LeftColumn">    
-      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
-          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>  
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate"
-        Label="Start date" LabelWidth="120" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
       <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
-        Label="End date" LabelWidth="120" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
     </div>
     <div id="rightColumn1" class="RightColumn">      
@@ -185,28 +183,30 @@ Title="MetraNet - Manage Subscription Parameters" %>
       piUDRCStore.removeAll();
       udrcStore.removeAll();
 
-      for (var i = 0; i < items.length; i++) {
-        var piId = items[i].PriceableItemId;
-        var displayName = items[i].DisplayName;
-        var recordId = piId + '_' + displayName;
-        var piKind = items[i].PIKind;        
-        var ratingType = items[i].RatingType;
+      if (items != null) {
+        for (var i = 0; i < items.length; i++) {
+          var piId = items[i].PriceableItemId;
+          var displayName = items[i].DisplayName;
+          var recordId = piId + '_' + displayName;
+          var piKind = items[i].PIKind;
+          var ratingType = items[i].RatingType;
 
-        var myNewRecord = new piRecord({
-          PriceableItemId: piId,
-          Name: items[i].Name,
-          DisplayName: displayName,
-          PIKind: piKind,          
-          RatingType: ratingType,
-          RecordId: recordId
-        });
+          var myNewRecord = new piRecord({
+            PriceableItemId: piId,
+            Name: items[i].Name,
+            DisplayName: displayName,
+            PIKind: piKind,
+            RatingType: ratingType,
+            RecordId: recordId
+          });
 
-        var isUDRC = (piKind == 25) || (piKind == 'UnitDependentRecurring');
-        
-        if (isUDRC) { //UDRC pi
+          var isUDRC = (piKind == 25) || (piKind == 'UnitDependentRecurring');
+
+          if (isUDRC) { //UDRC pi
             piUDRCStore.add(myNewRecord);
           }
-       }      
+        }
+      }      
     }
     
     function onPoAdd() {

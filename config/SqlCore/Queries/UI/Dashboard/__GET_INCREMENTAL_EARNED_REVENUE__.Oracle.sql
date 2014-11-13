@@ -6,20 +6,20 @@ SELECT
 	,udrc.c_ProratedIntervalStart
 	,udrc.c_ProratedIntervalEnd
 	,(CASE 
-						WHEN c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							THEN TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') - TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-						WHEN c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
+						WHEN c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							THEN TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+						WHEN c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
 							THEN c_RCIntervalSubscriptionEnd - c_RCIntervalSubscriptionStart + 1
-						WHEN c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionStart <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							THEN TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') - c_RCIntervalSubscriptionStart
-						WHEN c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							THEN TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') - TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
+						WHEN c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionStart <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							THEN TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - c_RCIntervalSubscriptionStart
+						WHEN c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							THEN TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
 				   END) c_ProratedDays
 	,udrc.c_ProratedDailyRate
 	,udrc_ep.c_IsLiabilityProduct
@@ -31,15 +31,15 @@ INNER JOIN t_acc_usage acc ON udrc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_unit_dependent_recurring udrc_ep ON udrc_ep.id_prop = acc.id_pi_template
 WHERE
-	((c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd'))
-	OR (c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd'))
-	OR (c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionStart <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd'))
-	OR (c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')))
+	((c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS'))
+	OR (c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS'))
+	OR (c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionStart <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS'))
+	OR (c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')))
 	AND ui.tx_interval_status = 'H'
 	AND udrc_ep.c_IsLiabilityProduct = 'N'
-  AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
-	AND udrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
-	AND udrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
+  AND acc.am_currency like '%%%CURRENCY%%%'
+	AND udrc_ep.c_RevenueCode like '%%%REVENUECODE%%%'
+	AND udrc_ep.c_DeferredRevenueCode like '%%%DEFREVENUECODE%%%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
 	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 			OR
@@ -92,20 +92,20 @@ SELECT
 	,frc.c_ProratedIntervalStart
 	,frc.c_ProratedIntervalEnd
 	,(CASE 
-						WHEN c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							THEN TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') - TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-						WHEN c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
+						WHEN c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							THEN TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+						WHEN c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
 							THEN c_RCIntervalSubscriptionEnd - c_RCIntervalSubscriptionStart + 1
-						WHEN c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionStart <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							THEN TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') - c_RCIntervalSubscriptionStart
-						WHEN c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
-							AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')
-							THEN TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') - TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
+						WHEN c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionStart <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							THEN TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - c_RCIntervalSubscriptionStart
+						WHEN c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
+							THEN TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
 				   END) c_ProratedDays
 	,frc.c_ProratedDailyRate
 	,frc_ep.c_IsLiabilityProduct
@@ -117,15 +117,15 @@ INNER JOIN t_acc_usage acc ON frc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_recurring frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE
-	((c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd'))
-	OR (c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd'))
-	OR (c_RCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionStart <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd'))
-	OR (c_RCIntervalSubscriptionStart <= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd') AND c_RCIntervalSubscriptionEnd <= TO_DATE(%%END_DATE%%, 'yyyy/mm/dd')))
+	((c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS'))
+	OR (c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS'))
+	OR (c_RCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionStart <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS'))
+	OR (c_RCIntervalSubscriptionStart <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') AND c_RCIntervalSubscriptionEnd <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')))
 	AND ui.tx_interval_status = 'H'
 	AND frc_ep.c_IsLiabilityProduct = 'N'
-	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
-	AND frc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
-	AND frc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
+	AND acc.am_currency like '%%%CURRENCY%%%'
+	AND frc_ep.c_RevenueCode like '%%%REVENUECODE%%%'
+	AND frc_ep.c_DeferredRevenueCode like '%%%DEFREVENUECODE%%%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
 	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 			OR
@@ -187,12 +187,12 @@ INNER JOIN t_acc_usage acc ON nrc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_nonrecurring nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 WHERE
-	c_NRCIntervalSubscriptionStart >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
+	c_NRCIntervalSubscriptionStart >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
 	AND ui.tx_interval_status = 'H'
 	AND (nrc_ep.c_IsLiabilityProduct = 'N' OR nrc_ep.c_IsLiabilityProduct IS NULL)
-	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
-	AND nrc_ep.c_RevenueCode like '%' + '%%REVENUECODE%%' + '%'
-	AND nrc_ep.c_DeferredRevenueCode like '%' + '%%DEFREVENUECODE%%' + '%'
+	AND acc.am_currency like '%%%CURRENCY%%%'
+	AND nrc_ep.c_RevenueCode like '%%%REVENUECODE%%%'
+	AND nrc_ep.c_DeferredRevenueCode like '%%%DEFREVENUECODE%%%'
 	AND (%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
 	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 			OR
@@ -253,7 +253,7 @@ FROM t_pv_NonStandardCharge nsc
 INNER JOIN t_acc_usage acc ON nsc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval ui ON acc.id_usage_interval = ui.id_interval
 WHERE
-	nsc.c_IssueTime >= TO_DATE(%%START_DATE%%, 'yyyy/mm/dd')
+	nsc.c_IssueTime >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
 	AND ui.tx_interval_status = 'H'
 	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 			OR

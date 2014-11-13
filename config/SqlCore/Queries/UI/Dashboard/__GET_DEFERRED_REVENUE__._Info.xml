@@ -10,7 +10,7 @@
             <Name>END_DATE</Name>
             <DataType>timestamp</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>2014-10-31 23:59:59</SubstitutionSyntaxCheck>
             <Description>End date</Description>
         </Parameter>
         <Parameter>

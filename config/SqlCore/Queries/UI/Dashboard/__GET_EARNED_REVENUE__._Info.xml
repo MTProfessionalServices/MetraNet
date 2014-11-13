@@ -10,7 +10,7 @@
             <Name>START_DATE</Name>
             <DataType>timestamp</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>2014-10-01 00:00:00</SubstitutionSyntaxCheck>
             <Description>Start date</Description>
         </Parameter>
         <Parameter>

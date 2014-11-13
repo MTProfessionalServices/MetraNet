@@ -432,5 +432,11 @@
 				
 				alter table t_account add constraint fk1_t_account
 				foreign key (id_type) references t_account_type(id_type)
+				
+				ALTER TABLE [t_recevent_localize] WITH CHECK ADD CONSTRAINT [FK1_LOCALIZE_TO_T_RECEVENT] 
+				FOREIGN KEY([id_local]) REFERENCES [t_recevent] ([id_event])
+					
+				ALTER TABLE [t_recevent_localize] WITH CHECK ADD CONSTRAINT [FK2_LOCALIZE_TO_T_LANGUAGE] 
+				FOREIGN KEY([id_lang_code]) REFERENCES [t_language] ([id_lang_code])
 
 				

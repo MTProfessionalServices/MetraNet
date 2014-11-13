@@ -620,12 +620,10 @@ namespace MetraNet.AccountConfigSets
       var pis = GetPriceableItemsForPOs(new string[] { subParams.ProductOfferingId.ToString() });
 
       PiNames = new Dictionary<int, string>();
-
-      var hiddenPisValue = "[";
-      foreach (var pi in pis.Items)
+      
+      foreach (var pi in pis.Items.Where(pi => !PiNames.ContainsKey(Convert.ToInt32(pi.ID))))
       {
-        if (!PiNames.ContainsKey(Convert.ToInt32(pi.ID)))
-          PiNames.Add(Convert.ToInt32(pi.ID), pi.Name);
+        PiNames.Add(Convert.ToInt32(pi.ID), pi.Name);
       }
 
       const string udrcStr = "{6}'PriceableItemId':{0},'PriceableItemName':'{5}','Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{7}";

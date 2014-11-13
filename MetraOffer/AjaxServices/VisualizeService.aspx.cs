@@ -16,7 +16,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
-	  bool showFinancialData = UI.CoarseCheckCapability("View Data from Analytics Datamart");
+    bool showFinancialData = UI.CoarseCheckCapability("View Summary Financial Information");
 
     ////parse query name
     String operation = Request["operation"];

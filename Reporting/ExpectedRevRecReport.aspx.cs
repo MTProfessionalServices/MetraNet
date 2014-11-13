@@ -8,7 +8,7 @@ public partial class ExpectedRevRecReport : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
-    if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
+    if (!UI.CoarseCheckCapability("View Summary Financial Information"))
       Response.End();
   }
 }

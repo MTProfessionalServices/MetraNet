@@ -136,7 +136,7 @@ namespace ASP.Controllers
     /// <returns></returns>
     public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, string revenueCode, string deferredRevenueCode, int productId)
     {
-      if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
+      if (!UI.CoarseCheckCapability("View Summary Financial Information"))
         Response.End();
       var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountingCycleId);
       var revRec = RevenueReportsHelper.GetRevRecRawDataForWidget(accountingCycleId, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
@@ -163,7 +163,7 @@ namespace ASP.Controllers
     /// <returns></returns>
     public ActionResult RevRecReportHeaders(string accountCycleId)
     {
-      if (!UI.CoarseCheckCapability("View Data from Analytics Datamart"))
+      if (!UI.CoarseCheckCapability("View Summary Financial Information"))
         Response.End();
       var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountCycleId);
       return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);

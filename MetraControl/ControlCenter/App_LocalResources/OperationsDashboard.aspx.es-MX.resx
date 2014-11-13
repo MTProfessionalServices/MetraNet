@@ -295,7 +295,7 @@
     <value>[es-MX]days back</value>
   </data>
   <data name="DATE_FORMAT_JS" xml:space="preserve">
-    <value>%d/%m/%Y %X</value>
+    <value>%d/%m/%Y %I:%M:%S %p</value>
   </data>
   <data name="TEXT_TYPE_EOM" xml:space="preserve">
     <value>{es}EOM</value>

@@ -510,6 +510,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.udr_count = +d.udr_count;
                 d.batch_count = +d.batch_count;
                 d.day_no = +d.day_no;
+                if (d.calendardate.search(".m.") != -1) {
+                  d.calendardate = d.calendardate.split('.').join("").toUpperCase();
+                }
                 d.dd = dateFormat.parse(d.calendardate);
             });
             var ndx = crossfilter(data.Items);

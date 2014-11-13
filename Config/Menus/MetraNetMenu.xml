@@ -53,7 +53,7 @@
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>	
                         
-                        <!--MenuItem>
+                        <MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_FINANCE_DASHBOARD</LocalizationTag>
@@ -66,7 +66,7 @@
                             <RequiredCapabilities>
                               <Capability>View Summary Financial Information</Capability>
                             </RequiredCapabilities>
-                        </MenuItem-->						
+                        </MenuItem>						
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

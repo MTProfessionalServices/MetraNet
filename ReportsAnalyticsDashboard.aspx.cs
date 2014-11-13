@@ -6,6 +6,7 @@ public partial class ReportsAnalyticsDashboard : MTPage
 {
   protected long previousMonth, firstMonth;
   protected long startMonthMRR, endMonthMRR;
+
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!UI.CoarseCheckCapability("View Summary Financial Information"))
@@ -13,6 +14,11 @@ public partial class ReportsAnalyticsDashboard : MTPage
       SetError(Resources.ErrorMessages.ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY);
       Response.Write(Resources.ErrorMessages.ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY);
       Response.End();
+    }
+
+    if (!Page.IsPostBack)
+    {
+      spnSelectCurrency.InnerText = Convert.ToString(GetLocalResourceObject("SELECT_CURRENCY"));
     }
   }
 
@@ -29,14 +35,6 @@ public ReportsAnalyticsDashboard()
 
     startMonthMRR = GetJSDate(startMonthAndHalfForMRR);
     endMonthMRR = GetJSDate(endMonthAndHalfForMRR);
-  }
-
-  protected void Page_Load(object sender, EventArgs e)
-  {
-    if (!Page.IsPostBack)
-    {
-      spnSelectCurrency.InnerText = Convert.ToString(GetLocalResourceObject("SELECT_CURRENCY"));
-    }
   }
 
   private long GetJSDate(DateTime date)

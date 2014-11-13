@@ -2,23 +2,23 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>RunScheduledAdapterGrid</Name>
     <Title>
-        <LocalizationTag>RUN_SCHEDULED_ADAPTER_GRID_TITLE</LocalizationTag>
-        <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+        <LocalizationTag>TEXT_SCHEDULED_ADAPTERS</LocalizationTag>
+        <ResourceClassKey>MainMenu</ResourceClassKey>
     </Title>
-    <Exportable>true</Exportable>
-    <Height>400</Height>
-    <Width>720</Width>
-    <Expandable>true</Expandable>
+    <Exportable>false</Exportable>
+    <Height>420</Height>
+    <Width>850</Width>
+    <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
-    <MultiSelect>false</MultiSelect>
+    <MultiSelect>true</MultiSelect>
     <SelectionModel>CheckBox</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
-    <PageSize>10</PageSize>
+    <PageSize>14</PageSize>
     <Description>Grid displays list of available Scheduled Adapters for "Run Scheduled Adapters" page.</Description>
     <ExpansionCssClass></ExpansionCssClass>
-    <ShowFilterPanel>true</ShowFilterPanel>
+    <ShowFilterPanel>false</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
@@ -28,16 +28,16 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-        <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+        <LocalizationTag>NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>JSConsts</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
-    <EnableColumnConfig>true</EnableColumnConfig>
-    <EnableFilterConfig>true</EnableFilterConfig>
+    <EnableColumnConfig>false</EnableColumnConfig>
+    <EnableFilterConfig>false</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField></DefaultSortField>
+    <DefaultSortField>tx_display_name</DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
@@ -85,7 +85,7 @@
             <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_event</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag></LocalizationTag>
                 <ResourceClassKey></ResourceClassKey>
@@ -123,83 +123,11 @@
             <DataIndex>tx_display_name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_ADAPTER_NAME</LocalizationTag>
+                <ResourceClassKey>Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>tx_name</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>tx_name</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>tx_desc</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>tx_desc</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>260</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -231,6 +159,78 @@
             <DataIndex>instancelastargenddate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
+                <LocalizationTag>ADAPTER_INSTANCE_START_DATE</LocalizationTag>
+                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>150</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>tx_desc</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>tx_desc</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>JSConsts</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>400</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>tx_name</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>tx_name</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText>
                 <LocalizationTag></LocalizationTag>
                 <ResourceClassKey></ResourceClassKey>
             </HeaderText>
@@ -260,5 +260,22 @@
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
-    <ToolbarButtons></ToolbarButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>Run</ButtonID>
+            <ButtonText>
+                <LocalizationTag>RUN_ADAPTER_BUTTON_TEXT</LocalizationTag>
+                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>RUN_ADAPTER_TOOL_TIP</LocalizationTag>
+                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities>
+                <Capability>Manage Scheduled Adapters</Capability>
+            </RequiredCapabilities>
+            <JSHandlerFunction>onRun</JSHandlerFunction>
+        </Button>
+    </ToolbarButtons>
 </GridLayout>

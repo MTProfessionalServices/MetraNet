@@ -141,4 +141,10 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valor</value>
     </data>
+    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+        <value>Currently there are no parameters assigned to this report definition</value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Currently Assigned Report Parameters</value>
+    </data>
 </root>

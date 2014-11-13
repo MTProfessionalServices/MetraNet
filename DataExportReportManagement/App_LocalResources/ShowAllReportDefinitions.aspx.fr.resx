@@ -126,8 +126,14 @@
     <data name="MyGrid1Resource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
+    <data name="NO_RECORDS_FOUND" xml:space="preserve">
+        <value>[FR] No Report Definitions found...</value>
+    </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Afficher toutes les définitions de rapport</value>
+    </data>
+    <data name="TEXT_ACTIONS" xml:space="preserve">
+        <value>[FR] Actions</value>
     </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -143,5 +149,8 @@
     </data>
     <data name="TEXT_DEF_SHOW_ALL_REPORT_DEFINITIONS" xml:space="preserve">
         <value>Définitions de rapport</value>
+    </data>
+    <data name="TITLE_SHOW_ALL" xml:space="preserve">
+        <value>[FR] Show All Report Definitions</value>
     </data>
 </root>

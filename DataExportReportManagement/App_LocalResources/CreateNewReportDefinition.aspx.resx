@@ -159,4 +159,7 @@
     <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Report Title</value>
     </data>
+    <data name="TEXT_ID_REPORT" xml:space="preserve">
+        <value>ID Report</value>
+    </data>
 </root>

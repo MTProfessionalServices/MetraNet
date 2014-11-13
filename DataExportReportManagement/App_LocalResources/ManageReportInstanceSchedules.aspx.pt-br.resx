@@ -138,4 +138,10 @@
     <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
         <value>Tipo de agenda</value>
     </data>
+    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+        <value>No schedule found for this instance </value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Report Instance Schedule</value>
+    </data>
 </root>

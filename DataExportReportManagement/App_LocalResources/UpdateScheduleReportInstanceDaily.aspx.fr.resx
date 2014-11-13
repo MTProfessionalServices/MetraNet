@@ -142,6 +142,9 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Mettre à jour le calendrier de rapports quotidien</value>
     </data>
+    <data name="TEXT_DAILY_SCHEDULE" xml:space="preserve">
+        <value>[FR]Daily Report Schedule</value>
+    </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>

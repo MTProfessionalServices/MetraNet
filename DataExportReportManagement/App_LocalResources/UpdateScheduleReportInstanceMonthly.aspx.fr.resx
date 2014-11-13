@@ -331,4 +331,13 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valeur</value>
     </data>
+    <data name="TEXT_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
+        <value>[FR]Execute day of Monthly Schedule </value>
+    </data>
+    <data name="TEXT_EXECUTE_TIME_OF_MONTHLY" xml:space="preserve">
+        <value>[FR]Execute Time of Monthly Schedule</value>
+    </data>
+    <data name="TEXT_SKIP_THE_FOLLOWING_MONTH" xml:space="preserve">
+        <value>[FR]Skip The Following Months</value>
+    </data>
 </root>

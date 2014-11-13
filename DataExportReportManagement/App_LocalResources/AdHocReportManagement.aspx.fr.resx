@@ -129,10 +129,16 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Rapports ad hoc</value>
     </data>
+    <data name="TEXT_ACTIONS" xml:space="preserve">
+        <value>[FR]Actions</value>
+    </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>
     <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Titre du rapport</value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>[FR]Show All Report Definitions</value>
     </data>
 </root>

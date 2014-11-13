@@ -1,4 +1,4 @@
-DECLARE @endDate datetime = CAST(CAST(DATEADD(DAY, 1, %%END_DATE%%)AS DATE) AS DATETIME)
+DECLARE @endDate datetime = CAST(CAST(DATEADD(DAY, 1, '%%END_DATE%%')AS DATE) AS DATETIME)
 
 SELECT 
 	acc.am_currency
@@ -8,20 +8,20 @@ SELECT
 	,udrc.c_ProratedIntervalStart
 	,udrc.c_ProratedIntervalEnd
 	,c_ProratedDays = CASE 
-						WHEN c_RCIntervalSubscriptionStart <= %%START_DATE%%
+						WHEN c_RCIntervalSubscriptionStart <= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionEnd >= @endDate
-							THEN DATEDIFF(DAY, %%START_DATE%%, @endDate)
-						WHEN c_RCIntervalSubscriptionStart >= %%START_DATE%%
+							THEN DATEDIFF(DAY, '%%START_DATE%%', @endDate)
+						WHEN c_RCIntervalSubscriptionStart >= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionEnd <= @endDate
 							THEN DATEDIFF(DAY, c_RCIntervalSubscriptionStart, c_RCIntervalSubscriptionEnd)+1
-						WHEN c_RCIntervalSubscriptionStart >= %%START_DATE%%
+						WHEN c_RCIntervalSubscriptionStart >= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionStart <= @endDate
 							AND c_RCIntervalSubscriptionEnd >= @endDate
 							THEN DATEDIFF(DAY, c_RCIntervalSubscriptionStart, @endDate)
-						WHEN c_RCIntervalSubscriptionStart <= %%START_DATE%%
-							AND c_RCIntervalSubscriptionEnd >= %%START_DATE%%
+						WHEN c_RCIntervalSubscriptionStart <= '%%START_DATE%%'
+							AND c_RCIntervalSubscriptionEnd >= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionEnd <= @endDate
-							THEN DATEDIFF(DAY, %%START_DATE%%, @endDate)
+							THEN DATEDIFF(DAY, '%%START_DATE%%', @endDate)
 				   END
 	,udrc.c_ProratedDailyRate
 	,udrc_ep.c_IsLiabilityProduct
@@ -33,10 +33,10 @@ INNER JOIN t_acc_usage AS acc ON udrc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_unit_dependent_recurring AS udrc_ep ON udrc_ep.id_prop = acc.id_pi_template
 WHERE
-	((c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= @endDate)
-	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= @endDate)
-	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= @endDate AND c_RCIntervalSubscriptionEnd >= @endDate)
-	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= @endDate))
+	((c_RCIntervalSubscriptionStart <= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd >= @endDate)
+	OR (c_RCIntervalSubscriptionStart >= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd <= @endDate)
+	OR (c_RCIntervalSubscriptionStart >= '%%START_DATE%%' AND c_RCIntervalSubscriptionStart <= @endDate AND c_RCIntervalSubscriptionEnd >= @endDate)
+	OR (c_RCIntervalSubscriptionStart <= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd >= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd <= @endDate))
 	AND ui.tx_interval_status = 'H'
 	AND udrc_ep.c_IsLiabilityProduct = 'N'
   AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
@@ -94,20 +94,20 @@ SELECT
 	,frc.c_ProratedIntervalStart
 	,frc.c_ProratedIntervalEnd
 	,c_ProratedDays = CASE 
-						WHEN c_RCIntervalSubscriptionStart <= %%START_DATE%%
+						WHEN c_RCIntervalSubscriptionStart <= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionEnd >= @endDate
-							THEN DATEDIFF(DAY, %%START_DATE%%, @endDate)
-						WHEN c_RCIntervalSubscriptionStart >= %%START_DATE%%
+							THEN DATEDIFF(DAY, '%%START_DATE%%', @endDate)
+						WHEN c_RCIntervalSubscriptionStart >= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionEnd <= @endDate
 							THEN DATEDIFF(DAY, c_RCIntervalSubscriptionStart, c_RCIntervalSubscriptionEnd)+1
-						WHEN c_RCIntervalSubscriptionStart >= %%START_DATE%%
+						WHEN c_RCIntervalSubscriptionStart >= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionStart <= @endDate
 							AND c_RCIntervalSubscriptionEnd >= @endDate
 							THEN DATEDIFF(DAY, c_RCIntervalSubscriptionStart, @endDate)
-						WHEN c_RCIntervalSubscriptionStart <= %%START_DATE%%
-							AND c_RCIntervalSubscriptionEnd >= %%START_DATE%%
+						WHEN c_RCIntervalSubscriptionStart <= '%%START_DATE%%'
+							AND c_RCIntervalSubscriptionEnd >= '%%START_DATE%%'
 							AND c_RCIntervalSubscriptionEnd <= @endDate
-							THEN DATEDIFF(DAY, %%START_DATE%%, @endDate)
+							THEN DATEDIFF(DAY, '%%START_DATE%%', @endDate)
 				   END
 	,frc.c_ProratedDailyRate
 	,frc_ep.c_IsLiabilityProduct
@@ -119,10 +119,10 @@ INNER JOIN t_acc_usage AS acc ON frc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_recurring AS frc_ep ON frc_ep.id_prop = acc.id_pi_template
 WHERE
-	((c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= @endDate)
-	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= @endDate)
-	OR (c_RCIntervalSubscriptionStart >= %%START_DATE%% AND c_RCIntervalSubscriptionStart <= @endDate AND c_RCIntervalSubscriptionEnd >= @endDate)
-	OR (c_RCIntervalSubscriptionStart <= %%START_DATE%% AND c_RCIntervalSubscriptionEnd >= %%START_DATE%% AND c_RCIntervalSubscriptionEnd <= @endDate))
+	((c_RCIntervalSubscriptionStart <= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd >= @endDate)
+	OR (c_RCIntervalSubscriptionStart >= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd <= @endDate)
+	OR (c_RCIntervalSubscriptionStart >= '%%START_DATE%%' AND c_RCIntervalSubscriptionStart <= @endDate AND c_RCIntervalSubscriptionEnd >= @endDate)
+	OR (c_RCIntervalSubscriptionStart <= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd >= '%%START_DATE%%' AND c_RCIntervalSubscriptionEnd <= @endDate))
 	AND ui.tx_interval_status = 'H'
 	AND frc_ep.c_IsLiabilityProduct = 'N'
 	AND acc.am_currency like '%' + '%%CURRENCY%%' + '%'
@@ -190,7 +190,7 @@ INNER JOIN t_acc_usage AS acc ON nrc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN t_ep_nonrecurring AS nrc_ep ON nrc_ep.id_prop = acc.id_pi_template
 WHERE
-	c_NRCIntervalSubscriptionStart >= %%START_DATE%%
+	c_NRCIntervalSubscriptionStart >= '%%START_DATE%%'
 	AND c_NRCIntervalSubscriptionStart < @endDate
 	AND ui.tx_interval_status = 'H'
 	AND (nrc_ep.c_IsLiabilityProduct = 'N' OR nrc_ep.c_IsLiabilityProduct IS NULL)
@@ -257,7 +257,7 @@ FROM t_pv_NonStandardCharge AS nsc
 INNER JOIN t_acc_usage AS acc ON nsc.id_sess = acc.id_sess
 INNER JOIN t_usage_interval AS ui ON acc.id_usage_interval = ui.id_interval
 WHERE
-	nsc.c_IssueTime >= %%START_DATE%%
+	nsc.c_IssueTime >= '%%START_DATE%%'
 	AND nsc.c_IssueTime < @endDate
 	AND ui.tx_interval_status = 'H'
 	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)

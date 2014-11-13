@@ -1,4 +1,4 @@
-DECLARE @endDate datetime = CAST(CAST(DATEADD(DAY, 1, %%END_DATE%%)AS DATE) AS DATETIME)
+DECLARE @endDate datetime = CAST(CAST(DATEADD(DAY, 1, '%%END_DATE%%')AS DATE) AS DATETIME)
 
 SELECT 
   acc.am_currency

@@ -8,7 +8,8 @@
     <Description>Billing Server machine configuration</Description>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>TEXT_MACHINE_NAME</LocalizationTag>
+            <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -22,6 +23,7 @@
                 <Value><![CDATA[]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -33,13 +35,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_MACHINE_IDENTIFIER</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>Core.MR.Entity</AssemblyFilename>
@@ -49,17 +56,23 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

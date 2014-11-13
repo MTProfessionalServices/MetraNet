@@ -324,8 +324,7 @@
                 var comboProperty = Ext.getCmp('form_addPropertyValue_Property');
                 comboProperty.clearValue();
                 comboProperty.store.filter('AccountView', combo.getValue());
-                lastOptions = comboProperty.store.lastOptions;                
-                comboProperty.store.reload(lastOptions);
+                lastOptions = comboProperty.store.lastOptions;                               
               }
             }
           }

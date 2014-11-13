@@ -9,7 +9,8 @@
     </Pages>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>PageResource1.Title</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -20,7 +21,8 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Report Instance Details ]]></Value>
+                <LocalizationTag>TEXT_REPORT_INSTANCE_DETAILS</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Name></Name>
@@ -35,6 +37,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -42,7 +45,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_DESCRIPTION</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -55,6 +58,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -62,7 +66,7 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_ACTIVATION_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -75,6 +79,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -82,7 +87,7 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_DEACTIVATION_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -95,6 +100,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
@@ -102,7 +108,7 @@
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_EXECUTION_TYPE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -115,6 +121,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
@@ -122,7 +129,7 @@
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_TYPE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -135,6 +142,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>true</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -142,7 +150,7 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_LAST_RUN_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -159,6 +167,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -166,7 +175,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_FILE_NAME</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -179,6 +188,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -186,7 +196,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_COMPRESS_OUTPUT_FILE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -199,6 +209,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -206,7 +217,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_COMPRESS_THRESHOLD</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -219,6 +230,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -226,7 +238,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_OUTPUT_EXEC_PARAMETERS</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -239,6 +251,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -246,7 +259,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_USE_QUOTED_IDENTIFIERS</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -259,6 +272,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>true</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -266,7 +280,7 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_NEXT_RUN_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -278,7 +292,8 @@
         </Section>
         <Section>
             <Title>
-                <Value><![CDATA[Export File Destination]]></Value>
+                <LocalizationTag>TEXT_EXPORT_FILE_DESTINATION</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Name></Name>
@@ -293,13 +308,15 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Output File Distribution Method ]]></Value>
+                                <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_FILE_NAME</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -312,13 +329,15 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Report Destination]]></Value>
+                                <LocalizationTag>TEXT_REPORT_DESTINATION</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -331,13 +350,15 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[FTP Access User]]></Value>
+                                <LocalizationTag>TEXT_FTP_USER</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -350,13 +371,15 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTPasswordMeter</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[FTP Access Password]]></Value>
+                                <LocalizationTag>TEXT_FTP_ACCESS_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -373,13 +396,15 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Generate Control File]]></Value>
+                                <LocalizationTag>TEXT_GENERATE_CONTROL_FILE</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -392,13 +417,15 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Control File Location]]></Value>
+                                <LocalizationTag>TEXT_CONTROL_FILE_LOCATION</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />

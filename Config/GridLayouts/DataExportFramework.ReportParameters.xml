@@ -2,7 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>DataExportFramework.ReportParameters</Name>
     <Title>
-        <Value><![CDATA[Parameters Available for Assignment]]></Value>
+        <LocalizationTag>TEXT_TITLE</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAllReportParameters.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -27,7 +28,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[There are no parameters available for assignment to this report]]></Value>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAllReportParameters.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -161,7 +163,8 @@
         <Button>
             <ButtonID>OK</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Assign Report Parameters]]></Value>
+                <LocalizationTag>TEXT_OK</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[Add Report Parameter]]></Value>
@@ -175,7 +178,8 @@
         <Button>
             <ButtonID>Cancel</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Back]]></Value>
+                <LocalizationTag>TEXT_BACK</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>
@@ -191,7 +195,8 @@
         <Button>
             <ButtonID>CreateNewParameter</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Create New Parameter]]></Value>
+                <LocalizationTag>TEXT_CREATE_NEW_PARAMETER</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>

@@ -195,4 +195,22 @@
   <text id="TEXT_EXCEPTION">
     <value>[es-MX]Exception</value>
   </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_CASE_NUMBER">
+    <value>[es-MX]Case Number</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_CASE_STATUS">
+    <value>[es-MX]Case Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_ID">
+    <value>[es-MX]Failed Transaction Id</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_SERVICE_ERROR">
+    <value>[es-MX]Service With Error</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_ERROR_MESSAGE">
+    <value>[es-MX]Error Message</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS">
+    <value>[es-MX]Status</value>
+  </text>
 </texts>

@@ -206,14 +206,14 @@
                                                 &nbsp;
                                             </td>
                                         </tr>
-                                        <tr>
+                                       <%-- <tr>
                                             <td class="label">
                                                 <MT:MTLabel ID="lblBillCloseSynopisType" runat="server" meta:resourcekey="lblBillCloseSynopisTypeResource" Text="Type:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisType" runat="server" />
                                             </td>
-                                        </tr>
+                                        </tr>--%>
                                         <tr>
                                             <td class="label">
                                                 <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" Width="80" />
@@ -886,7 +886,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 var billCloseSummary = json["Items"];
                
                 if (billCloseSummary[0] != null) {
-                    var type = billCloseSummary[0]["type"];
+                  //var type = billCloseSummary[0]["type"];
                     var billgroups = billCloseSummary[0]["billgroups"];
                     var start = billCloseSummary[0]["start"];
                     var end = billCloseSummary[0]["end"];
@@ -900,7 +900,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                          d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","tblclshasvalue");
                     }
 
-                    d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(LocalizeTypeText(type));
+                 <%--   d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(LocalizeTypeText(type));--%>
                     d3.select("#<%=txtBillCloseSynopisBillGroups.ClientID%>").text(billgroups);
                     d3.select("#<%=txtBillCloseSynopisStart.ClientID%>").text(RenderDate(start, DATE_FORMAT));
                     d3.select("#<%=txtBillCloseSynopisEnd.ClientID%>").text(RenderDate(end, DATE_FORMAT));
@@ -959,7 +959,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
       return localizedTickText;
    }
    
-   function LocalizeTypeText(text) {
+  <%-- function LocalizeTypeText(text) {
      var localizedTypeText = '';
      if (text == 'M5')
        localizedTypeText = '<%=TypeM5Text%>';
@@ -973,7 +973,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         localizedTypeText = '<%=TypeEOMText%>';
      return localizedTypeText;
 
-   }    
+   }   --%> 
    
    function FormatNumber(d) {
     return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });

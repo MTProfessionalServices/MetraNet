@@ -258,8 +258,8 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td width="70%">
-                                    <svg id="divBillCloseSynopsis"></svg>
+                                <td width="70%" style="vertical-align:top">
+                                    <svg height="100%" id="divBillCloseSynopsis"></svg>
                                 </td>
                             </tr>
                         </table>
@@ -862,8 +862,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                           // rotate x-axis ticks
                           chartRen.selectAll("g.x text")
                             .style("text-anchor", "start")
-                            .attr('dx', '.3em')
-                            .attr('dy', '1em')
+                            .attr('dx', '.1em')
+                            .attr('dy', '.5em')
                             .attr('transform', "rotate(45)");
               })
             ;

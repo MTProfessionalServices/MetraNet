@@ -41,13 +41,15 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
       {
         var items = new MTList<SQLRecord>();
         var paramDict = new Dictionary<string, object>();
+        var previousMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-1).AddDays(1 - DateTime.Today.Day + 15);
+        var firstMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-13).AddDays(1 - DateTime.Today.Day - 15);
 
-        switch (operation.ToLower())
+        paramDict.Add("%%FROM_DATE%%", firstMonthAndHalf);
+        paramDict.Add("%%TO_DATE%%", previousMonthAndHalf);
+
+        if (operation.ToLower().Equals("revenuereport") || operation.ToLower().Equals("mrrreport") ) 
         {
-          case "revenuereport":
-          case "mrrreport":
             paramDict.Add("%%ID_LANG_CODE%%", UI.SessionContext.LanguageID);
-            break;
         }
         GetData(_queryDict[operation], paramDict, ref items);
 

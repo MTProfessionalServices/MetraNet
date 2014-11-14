@@ -279,4 +279,7 @@
   <text id="TEXT_FAILED_TRANSACTIONS_MAKE_BULK_CHANGE">
     <value>[es-MX]Make Bulk Change</value>
   </text>
+  <text id="TEXT_REFRESH">
+    <value>[es-MX]Refresh</value>
+  </text>  
 </texts>

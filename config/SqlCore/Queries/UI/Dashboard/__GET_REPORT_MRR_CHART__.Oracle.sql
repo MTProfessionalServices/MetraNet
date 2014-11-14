@@ -4,6 +4,6 @@ SELECT
        SUM(sm.MrrPrimaryCurrency) as Amount,
 			 NVL(lc.tx_desc, sm.ReportingCurrency) as LocalizedCurrency
 FROM SubscriptionsByMonth sm
-WHERE TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY') >= add_months(GETUTCDATE(), -13)
-  AND TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY') <= GETUTCDATE()
+WHERE TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY') >= %%FROM_DATE%%
+  AND TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY') <= %%TO_DATE%%
 GROUP BY TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY'), sm.ReportingCurrency

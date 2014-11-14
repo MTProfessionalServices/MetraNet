@@ -7,11 +7,11 @@
        --  WHEN 26 THEN 'M26'
        --  ELSE 'EOM'
      -- END AS "type",
-      (select COUNT(*) from t_billgroup_materialization where id_usage_interval = %%ID_USAGE_INTERVAL%%) as BillGroups,
+      (SELECT COUNT(*) FROM t_billgroup_materialization WHERE id_usage_interval = %%ID_USAGE_INTERVAL%%) AS BillGroups,
       ui.id_interval AS IntervalID,
       ui.dt_start AS "start",
       ui.dt_end AS "end",
       tx_interval_status AS Interval_Status, 
-      TRUNC(ui.dt_end - GETUTCDATE()) + 1 AS Days_Until_Run
-      from t_usage_interval ui
-      where ui.id_interval = %%ID_USAGE_INTERVAL%%
+      TRUNC(ui.dt_end - GETUTCDATE()) AS Days_Until_Run
+  FROM t_usage_interval ui
+  WHERE ui.id_interval = %%ID_USAGE_INTERVAL%%

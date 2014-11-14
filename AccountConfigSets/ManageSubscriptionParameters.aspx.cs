@@ -47,9 +47,7 @@ namespace MetraNet.AccountConfigSets
 
       ParseRequest();
 
-      if (IsPostBack) return;
-      if (!IsViewMode)
-        MTdpSubParamsStartDate.Text = MetraTime.Now.Date.ToString();
+      if (IsPostBack) return;      
     }
 
     private void ParseRequest()
@@ -97,7 +95,8 @@ namespace MetraNet.AccountConfigSets
 
     private void NewAccountConfigSetSubParams()
     {
-      if (IsPostBack || IsViewMode) return;
+      if (IsPostBack || IsViewMode) return;      
+      MTdpSubParamsStartDate.Text = MetraTime.Now.Date.ToString();
     }
 
     private void LoadAccountConfigSetSubParamsToControls()

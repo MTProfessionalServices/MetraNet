@@ -111,8 +111,7 @@ namespace MetraNet.AccountConfigSets
       ParseRequest();
 
       if (IsPostBack) return;
-      if (!IsViewMode)
-        MTdpStartDate.Text = MetraTime.Now.Date.ToString();
+      
       //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();     
     }
 
@@ -519,6 +518,8 @@ namespace MetraNet.AccountConfigSets
     private void NewAccountConfigSet()
     {
       if (IsPostBack || IsViewMode) return;
+      
+      MTdpStartDate.Text = MetraTime.Now.Date.ToString();
 
       List<string> accountViews;
       AccountViewPropertiesData = GetAccountViews(out accountViews);

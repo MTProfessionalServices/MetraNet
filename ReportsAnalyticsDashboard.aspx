@@ -26,7 +26,7 @@
     font: bold 11px tahoma,arial,verdana,sans-serif;
   }
    .x-panel-bwrap,.x-panel-body, 
-   #formPanel_<%=pnlBilling.ClientID%>
+   #formPanel_<%=pnlBillings.ClientID%>
    #formPanel_<%=pnlMRR.ClientID%>
    #formPanel_<%=pnlNewCustomers.ClientID%>
    {
@@ -90,19 +90,19 @@
   <div class="gridster" width="100%" height="100%">
     <ul width="100%" height="100%" id="gridsterul" style="width: 100%; align: left;">
     <li data-row="1" data-col="1" data-sizex="3" data-sizey="8" height="100%" >
-      <MT:MTPanel ID="pnlBilling" runat="server" Text="Billing" Collapsed="False" 
+      <MT:MTPanel ID="pnlBillings" runat="server" Text="Billings" Collapsed="False" 
           Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlBillingResource1" >
         <div class="remaining-graphs span8">
           <div>
-            <div id="divRevenueChartDd" style="visibility: hidden">
+            <div id="divBillingsChartDd" style="visibility: hidden">
               <span id="spnSelectCurrency" runat="server"></span>
-              <select id="selRevenueCurrency" style="width: 100px;"></select>
+              <select id="selBillingsCurrency" style="width: 100px;"></select>
             </div>
           </div>
           <br/>
           <div class="row-fluid">
-            <div id="RevenueChart" class="pie-graph span4 dc-chart" style="float: none !important;">
+            <div id="BillingsChart" class="pie-graph span4 dc-chart" style="float: none !important;">
             </div>
           </div>
         </div>  
@@ -141,21 +141,193 @@
   <script type="text/javascript">
       
     var ToolTipDivWidth = 150;
-    var RevenueChartId = "#RevenueChart";
-    var RevenueChartDdDivId = "#divRevenueChartDd";
-    var RevenueChartDdId = "#selRevenueCurrency";
+    var BillingsChartId = "#BillingsChart";
+    var BillingsChartDdDivId = "#divBillingsChartDd";
+    var BillingsChartDdId = "#selBillingsCurrency";
     var MRRChartId = "#MRRChart";
     var NewCustomersChartId = "#NewCustomersChart";
-    var RevenueJSONData;      
+    var BillingsJSONData;      
 
     var Margin = {top: 10,right: 50,bottom: 30,left: 55},
         Width = 920 - Margin.left - Margin.right,
         Height = 340 - Margin.top - Margin.bottom,
         PreviousMonth = getUTCDate(new Date(<%= previousMonth %>)),
         FirstMonth = getUTCDate(new Date(<%= firstMonth %>));
-          
 
-    function populateCurrencyDd(JSONData, selectId, currencyFieldName, localizedCurrencyFieldName) {
+    function getUTCDate(dateForConvert) {
+      return new Date(dateForConvert.getUTCFullYear(), dateForConvert.getUTCMonth(), dateForConvert.getUTCDate(),dateForConvert.getUTCHours(), dateForConvert.getUTCMinutes(), dateForConvert.getUTCSeconds());
+    }
+
+    function getBillings() {
+      $.ajax({
+        type: 'GET',
+        async: true,
+        timeout: 10000,
+        dataType: 'json',
+        url: 'AjaxServices/VisualizeService.aspx?operation=RevenueReport&_=' + new Date().getTime(),
+        success: function(data) {
+          BillingsJSONData = data.Items;
+          if (BillingsJSONData.length == 0) {
+            appendNoDataText(BillingsChartId, BillingsChartDdDivId);
+            return;
+          }
+          populateCurrencyDd(BillingsJSONData, BillingsChartDdDivId, BillingsChartDdId, "currency", "localizedCurrency");
+          renderBillingsChart(BillingsChartId, BillingsChartDdId, BillingsJSONData);
+        },
+        error: function () {
+          console.log("Billings - Error getting Data");
+        }
+      });
+    };
+
+    function renderBillingsChart(divId, ddId, JSONData) {
+      var billingsChart = dc.barChart(divId);
+      var currentCurrency = $( ddId + " option:selected" ).val();
+      var currentCurrencyLocalized = $( ddId + " option:selected" ).text();
+      
+      var ndx = crossfilter(JSONData),
+          runDimension = ndx.dimension(function(d) {return new Date(Date.parse(d.date)); }),
+          currencyGroup = runDimension.group().reduceSum(function(d) {if (d.currency == currentCurrency) return d.amount;return 0;});
+      
+      billingsChart.width(Width)
+        .height(Height)
+        .margins(Margin)
+        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
+        .round(d3.time.month.round)
+        .xUnits(d3.time.months)
+        .brushOn(false)
+        .elasticY(true)
+        .dimension(runDimension)
+        .group(currencyGroup, currentCurrency)
+        .barPadding(0.1)
+        .outerPadding(0.05)
+        .transitionDuration(1500)
+        .centerBar(true)
+        .gap(15)
+        .legend(dc.legend().x(770).y(0))
+        .xAxis().tickFormat(d3.time.format("%b-%Y"));
+      billingsChart.render();
+
+      setLocalizedAxesAndLegend(divId, currentCurrencyLocalized);
+      setTooltips(divId, currentCurrency, JSONData, getBillingsChartTooltipHtml);
+    }
+
+    function getMRR() {
+      $.ajax({
+        type: 'GET',
+        async: true,
+        dataType: 'json',
+        timeout: 10000,
+        url: 'AjaxServices/VisualizeService.aspx?operation=MRRReport&_=' + new Date().getTime(),
+        success: function(data) {
+          var mrrJSONData = data.Items;
+          if (mrrJSONData.length == 0) {
+            appendNoDataText(MRRChartId, null);
+            return;
+          }          
+          renderMRRChart(MRRChartId , mrrJSONData);
+        },
+        error: function() {
+          console.log("MRRReport - Error getting Data");
+        }
+      });
+    };
+
+    function renderMRRChart(divId, JSONData) {
+
+      var currentCurrency = JSONData[0].currency;
+      var currentCurrencyLocalized = JSONData[0].localizedCurrency;
+      
+      var mrrChart = dc.barChart(divId);
+      var ndx = crossfilter(JSONData);
+
+      var mrrValue = ndx.dimension(function(d) {
+        return new Date(Date.parse(d.date));
+      });
+      
+      var currencyGroup = mrrValue.group().reduceSum(function(d) {
+        if (d.currency == currentCurrency) return d.amount;
+        return 0;
+      });
+
+      mrrChart.width(Width)
+        .height(Height)
+        .dimension(mrrValue)
+        .group(currencyGroup, currentCurrency)
+        .transitionDuration(350)
+        .margins(Margin)
+        .centerBar(true)
+        .gap(10)
+        .round(d3.time.month.round)
+        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
+        .brushOn(false)
+        .elasticY(true)
+        .xUnits(d3.time.months)
+        .legend(dc.legend().x(770).y(0))
+        .xAxis().tickFormat(d3.time.format("%b-%Y"));
+      mrrChart.render();
+      
+      setLocalizedAxesAndLegend(divId, currentCurrencyLocalized);
+      setTooltips(divId, currentCurrency, JSONData, getMRRChartTooltipHtml);
+    }
+
+    function getNewCustomers() {
+      $.ajax({
+        type: 'GET',
+        async: true,
+        dataType: 'json',
+        timeout: 10000,
+        url: 'AjaxServices/VisualizeService.aspx?operation=NewCustomersReport&_=' + new Date().getTime(),
+        success: function (data) {
+          var newCustomersJSONData = data.Items;
+          if (newCustomersJSONData.length == 0) {
+            appendNoDataText(NewCustomersChartId, null);
+            return;
+          }  
+          renderNewCustomersChart(NewCustomersChartId, newCustomersJSONData);
+        },
+        error: function () {
+          console.log("NewCustomersReport - Error getting Data");
+        }
+      });
+    };
+
+    function renderNewCustomersChart(divId, JSONData) {
+
+      var newCustomersChart = dc.barChart(divId);
+      var ndx = crossfilter(JSONData);
+
+      var startValue = ndx.dimension(function(d) {
+        return new Date(Date.parse(d.date));
+      });
+      //var startValueGroup = startValue.group();
+      var customersCountGroup = startValue.group().reduceSum(function(d) {
+        return d.customersCount;
+      });
+
+      newCustomersChart.width(Width)
+        .height(Height)
+        .dimension(startValue)
+        .group(customersCountGroup, "New Customers")
+        .transitionDuration(1000)
+        .margins(Margin)
+        .centerBar(true)
+        .gap(15)
+        .round(d3.time.month.round)
+        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
+        .brushOn(false)
+        //.title(function(d){return d.value;})
+        .xUnits(d3.time.months)
+        .legend(dc.legend().x(770).y(0))
+        .elasticY(true)
+        .xAxis().tickFormat(d3.time.format("%b-%Y"));
+          
+      newCustomersChart.render();
+      setLocalizedAxesAndLegend(divId, "<%=Convert.ToString(GetLocalResourceObject("TEXT_NEW_CUSTOMERS_LEGEND"))%>");
+      setTooltips(divId, null, JSONData, getNewCustomersChartTooltipHtml);
+    }
+
+    function populateCurrencyDd(JSONData, selectDivId, selectId, currencyFieldName, localizedCurrencyFieldName) {
       
       var currencies = [];
       var localizedCurrencies = [];
@@ -173,58 +345,20 @@
                                               text:localizedCurrencies[i][1]
                                               }));
       }
-      d3.select(RevenueChartDdDivId).style("visibility", "visible");
+      d3.select(selectDivId).style("visibility", "visible");
     }
 
-   Ext.onReady(function () {
-
-      $(RevenueChartDdId).change(function() {
-        $(RevenueChartDdId +  " option:selected" ).val();
-        renderRevenueChart(RevenueChartId, RevenueChartDdId, RevenueJSONData);
-      });
-
-      getRevenue();
-      getMRR();
-      getNewCustomers();
-      setWidgetTitles();
-    });
     
     function setWidgetTitles() {
-      var billingPanelHeader = $('#formPanel_<%=pnlBilling.ClientID%> .x-panel-header-text');
+      var billingsPanelHeader = $('#formPanel_<%=pnlBillings.ClientID%> .x-panel-header-text');
       var mrrPanelHeader = $('#formPanel_<%=pnlMRR.ClientID%> .x-panel-header-text');
       var newCustomersPanelHeader = $('#formPanel_<%=pnlNewCustomers.ClientID%> .x-panel-header-text');
       
-      billingPanelHeader.css('font-size', '12px');
+      billingsPanelHeader.css('font-size', '12px');
       mrrPanelHeader.css('font-size', '12px');
       newCustomersPanelHeader.css('font-size', '12px');
     }
-
-    function getUTCDate(dateForConvert) {
-      return new Date(dateForConvert.getUTCFullYear(), dateForConvert.getUTCMonth(), dateForConvert.getUTCDate(),dateForConvert.getUTCHours(), dateForConvert.getUTCMinutes(), dateForConvert.getUTCSeconds());
-    }
-
-    function getRevenue() {
-      $.ajax({
-        type: 'GET',
-        async: true,
-        timeout: 10000,
-        dataType: 'json',
-        url: 'AjaxServices/VisualizeService.aspx?operation=RevenueReport&_=' + new Date().getTime(),
-        success: function(data) {
-          RevenueJSONData = data.Items;
-          if (RevenueJSONData.length == 0) {
-            appendNoDataText(RevenueChartId, RevenueChartDdDivId);
-            return;
-          }
-          populateCurrencyDd(RevenueJSONData, RevenueChartDdId, "currency", "localizedCurrency");
-          renderRevenueChart(RevenueChartId, RevenueChartDdId, RevenueJSONData);
-        },
-        error: function () {
-          console.log("RevenueReport - Error getting Data");
-        }
-      });
-    };
-
+    
     function appendNoDataText(divId, ddDivId) {
       var svg = d3.select(divId).append('svg').attr('width', Width).attr('height', Height);
       svg.append("text")
@@ -238,64 +372,32 @@
       }
     }
 
-    function renderRevenueChart(divId, ddId, JSONData) {
-      var revenueChart = dc.barChart(divId);
-      var currentCurrency = $( ddId + " option:selected" ).val();
-      var currentCurrencyLocalized = $( ddId + " option:selected" ).text();
-      
-      var ndx = crossfilter(JSONData),
-          runDimension = ndx.dimension(function(d) {return new Date(Date.parse(d.date)); }),
-          currencyGroup = runDimension.group().reduceSum(function(d) {if (d.currency == currentCurrency) return d.amount;return 0;});
-      
-      revenueChart.width(Width)
-        .height(Height)
-        .margins(Margin)
-        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
-        .round(d3.time.month.round)
-        .xUnits(d3.time.months)
-        .brushOn(false)
-        .elasticY(true)
-        .dimension(runDimension)
-        .group(currencyGroup, currentCurrency)
-        .barPadding(0.1)
-        .outerPadding(0.05)
-        .transitionDuration(1500)
-        .centerBar(true)
-        .gap(15)
-        .legend(dc.legend().x(800).y(0))
-        .xAxis().tickFormat(d3.time.format("%b-%Y"));
-      revenueChart.render();
-      
-      d3.select(divId + " svg").selectAll(" .axis text").text(function (d) {
-        return localizeRevenueChartAxes(d);
-      });
-      d3.select(divId + " svg").selectAll(" .dc-legend text").text(function(d) {
-        return currentCurrencyLocalized;
-      });
-      
+    function setTooltips(divId, currentCurrency, JSONData, htmlFormatFunction) {
       // tooltips
       var toolTip = d3.tip()
-            .attr('class', 'd3-tip')
-            .offset([0, 10])
-            .direction('e')
-            .html(function (d) {
-              return getRevenueChartTooltipHtml(JSONData, d, currentCurrency);
-            });
+        .attr('class', 'd3-tip')
+        .offset([0, 10])
+        .direction('e')
+        .html(function(d) {
+          return htmlFormatFunction(JSONData, d, currentCurrency);
+        });
       var toolTipSelector = 'div' + divId + '.dc-chart rect';
+
       d3.selectAll(toolTipSelector).call(toolTip);
       d3.selectAll(toolTipSelector).on('mouseover', toolTip.show)
-                                    .on('mouseout', toolTip.hide);
-      
+                                   .on('mouseout', toolTip.hide);
     }
 
-    function getRevenueChartTooltipHtml(JSONData, d, currentCurrency) {
-      if (d.data == null) return null;
-      var currentItem = getDataItem(JSONData, d.data.key, currentCurrency);
-      var html = (currentItem != null) ? String.format("<div style='width:{0}px;'><div class=Period>{1}</div><div>{2}</div></div>", ToolTipDivWidth, currentItem.period, currentItem.amountAsString) : null;
-      return html;
+    function setLocalizedAxesAndLegend(divId, legendText) {
+      d3.select(divId + " svg").selectAll(" .axis text").text(function (d) {
+        return localizeChartAxes(d);
+      });
+      d3.select(divId + " svg").selectAll(" .dc-legend text").text(function(d) {
+        return legendText;
+      });
+
     }
-    
-    function localizeRevenueChartAxes(d) {
+    function localizeChartAxes(d) {
        var tickDate = new Date(Date.parse(d));
         var month = tickDate.getMonth();
         var year = tickDate.getFullYear();
@@ -309,7 +411,7 @@
 
     function getDataItem(JSONData, key, currentCurrency) {
       for (var i = 0; i < JSONData.length; i++) {
-        if ((((new Date(Date.parse(JSONData[i].date))) - key) == 0) && JSONData[i].currency == currentCurrency)  {
+        if ((((new Date(Date.parse(JSONData[i].date))) - key) == 0) && (currentCurrency == null ||  (JSONData[i].currency == currentCurrency)))  {
           return JSONData[i];
         }
       }
@@ -360,113 +462,41 @@
       return tickText;
     }
     
-    function getMRR() {
-      $.ajax({
-        type: 'GET',
-        async: true,
-        dataType: 'json',
-        timeout: 10000,
-        url: 'AjaxServices/VisualizeService.aspx?operation=MRRReport&_=' + new Date().getTime(),
-        success: function(data) {
-          var mrrJSONData = data.Items;
-          if (mrrJSONData.length == 0) {
-            appendNoDataText(MRRChartId, null);
-            return;
-          }          
-          renderMRRChart(MRRChartId , mrrJSONData);
-        },
-        error: function() {
-          console.log("MRRReport - Error getting Data");
-        }
-      });
-    };
-
-    function renderMRRChart(divId, data) {
-
-      var currentCurrency = data[0].currency;
-      
-      var mrrChart = dc.barChart(divId);
-      var ndx = crossfilter(data);
-
-      var mrrValue = ndx.dimension(function(d) {
-        return new Date(Date.parse(d.date));
-      });
-      
-      var currencyGroup = mrrValue.group().reduceSum(function(d) {
-        if (d.currency == currentCurrency) return d.amount;
-        return 0;
-      });
-
-      mrrChart.width(Width)
-        .height(Height)
-        .dimension(mrrValue)
-        .group(currencyGroup, currentCurrency)
-        .transitionDuration(350)
-        .margins(Margin)
-        .centerBar(true)
-        .gap(10)
-        .round(d3.time.month.round)
-        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
-        .brushOn(false)
-        .title(function(d){return d.value;})
-        .elasticY(true)
-        .xUnits(d3.time.months)
-        .legend(dc.legend().x(800).y(0))
-        .xAxis().tickFormat(d3.time.format("%b-%Y"));
-          
-      mrrChart.render();
+    function getBillingsChartTooltipHtml(JSONData, d, currentCurrency) {
+      if (d.data == null) return null;
+      var currentItem = getDataItem(JSONData, d.data.key, currentCurrency);
+      var html = (currentItem != null) ? String.format("<div style='width:{0}px;'><div class=Period>{1}</div>{2}: {3}</div></div>", ToolTipDivWidth, currentItem.period, "<%=Convert.ToString(GetLocalResourceObject("TEXT_BILLINGS_TOOLTIP"))%>", currentItem.amountAsString) : null;
+      return html;
     }
 
-    function getNewCustomers() {
-      $.ajax({
-        type: 'GET',
-        async: true,
-        dataType: 'json',
-        timeout: 10000,
-        url: 'AjaxServices/VisualizeService.aspx?operation=NewCustomersReport&_=' + new Date().getTime(),
-        success: function (data) {
-          var newCustomersJSONData = data.Items;
-          if (newCustomersJSONData.length == 0) {
-            appendNoDataText(NewCustomersChartId, null);
-            return;
-          }  
-          renderNewCustomersChart(NewCustomersChartId, newCustomersJSONData);
-        },
-        error: function () {
-          console.log("NewCustomersReport - Error getting Data");
-        }
-      });
-    };
-
-    function renderNewCustomersChart(divId, JSONData) {
-
-      var newCustomersChart = dc.barChart(divId);
-      var ndx = crossfilter(JSONData);
-
-      var startValue = ndx.dimension(function(d) {
-        return new Date(Date.parse(d.date));
-      });
-      var startValueGroup = startValue.group();
-
-      newCustomersChart.width(Width)
-        .height(Height)
-        .dimension(startValue)
-        .group(startValueGroup, "New Customers")
-        .transitionDuration(1000)
-        .margins(Margin)
-        .centerBar(true)
-        .gap(15)
-        .round(d3.time.month.round)
-        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
-        .brushOn(false)
-        .title(function(d){return d.value;})
-        .xUnits(d3.time.months)
-        .legend(dc.legend().x(680).y(0))
-        .elasticY(true)
-        .xAxis().tickFormat(d3.time.format("%b-%Y"));
-          
-      newCustomersChart.render();
+    function getMRRChartTooltipHtml(JSONData, d, currentCurrency) {
+      if (d.data == null) return null;
+      var currentItem = getDataItem(JSONData, d.data.key, currentCurrency);
+      var html = (currentItem != null) ? String.format("<div style='width:{0}px;'><div class=Period>{1}</div><div>{2}: {3}</div></div>", ToolTipDivWidth, currentItem.period, "<%=Convert.ToString(GetLocalResourceObject("TEXT_MRR_TOOLTIP"))%>", currentItem.amountAsString) : null;
+      return html;
     }
+
+    function getNewCustomersChartTooltipHtml(JSONData, d) {
+      if (d.data == null) return null;
+      var currentItem = getDataItem(JSONData, d.data.key, null);
+      var html = (currentItem != null) ? String.format("<div style='width:{0}px;'><div class=Period>{1}</div><div>{2}: {3}</div></div>", ToolTipDivWidth, currentItem.period, "<%=Convert.ToString(GetLocalResourceObject("TEXT_NEW_CUSTOMERS_TOOLTIP"))%>", currentItem.customersCount) : null;
+      return html;
+    }
+    
+    Ext.onReady(function () {
+
+      $(BillingsChartDdId).change(function() {
+        $(BillingsChartDdId +  " option:selected" ).val();
+        renderBillingsChart(BillingsChartId, BillingsChartDdId, BillingsJSONData);
+      });
+
+      getBillings();
+      getMRR();
+      getNewCustomers();
+      setWidgetTitles();
+    });
+
+
     var gridster;
 
     $(function () {

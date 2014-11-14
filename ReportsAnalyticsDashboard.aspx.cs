@@ -17,7 +17,7 @@ public partial class ReportsAnalyticsDashboard : MTPage
 
     if (!Page.IsPostBack)
     {
-      spnSelectCurrency.InnerText = Convert.ToString(GetLocalResourceObject("SELECT_CURRENCY"));
+      spnSelectCurrency.InnerText = string.Format("{0}:", GetLocalResourceObject("SELECT_CURRENCY"));
     }
   }
 

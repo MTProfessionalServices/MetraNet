@@ -157,7 +157,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
       if (record.Fields.Count > 0)
       {
-        if (operation.Equals("RevenueReport"))
+        if (operation.Equals("RevenueReport") || operation.Equals("MRRReport"))
         {
           item = string.Format("\"date\":{0},", FormatFieldValue(record.Fields[0], invariantCulture));
           json.Append(item);
@@ -172,15 +172,11 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           item = string.Format("\"period\":{0}", FormatDateTime(record.Fields[0], "Y"));
           json.Append(item);
         }
-        else if (operation.Equals("MRRReport"))
+        else if (operation.Equals("NewCustomersReport"))
         {
           item = string.Format("\"date\":{0},", FormatFieldValue(record.Fields[0], invariantCulture));
           json.Append(item);
-          item = string.Format("\"currency\":{0},", FormatFieldValue(record.Fields[1]));
-          json.Append(item);
-          item = string.Format("\"amount\":{0},", FormatFieldValue(record.Fields[2], invariantCulture));
-          json.Append(item);
-          item = string.Format("\"amountAsString\":{0},", FormatAmount(record.Fields[2], Convert.ToString(record.Fields[1].FieldValue)));
+          item = string.Format("\"customersCount\":{0},", FormatFieldValue(record.Fields[1]));
           json.Append(item);
           item = string.Format("\"period\":{0}", FormatDateTime(record.Fields[0], "Y"));
           json.Append(item);

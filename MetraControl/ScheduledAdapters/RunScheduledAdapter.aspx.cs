@@ -13,11 +13,7 @@ namespace MetraNet.MetraControl.ScheduledAdapters
     protected void Page_Load(object sender, EventArgs e)
     {
       if (IsPostBack) return;
-
-      if (!UI.CoarseCheckCapability("Manage Scheduled Adapters"))
-      {
-        Response.End();
-      }
+      if (!UI.CoarseCheckCapability("Manage Scheduled Adapters")) Response.End();
 
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";

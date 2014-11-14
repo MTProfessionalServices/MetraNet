@@ -281,5 +281,11 @@
   </text>
   <text id="TEXT_REFRESH">
     <value>[FR]Refresh</value>
-  </text>  
+  </text>
+  <text id="TEXT_PARENT_TRANSACTIONS_ID">
+    <value>[FR]Parent Transaction Id</value>
+  </text>
+  <text id="TEXT_PARENT_TRANSACTION">
+    <value>[FR]Parent</value>
+  </text>
 </texts>

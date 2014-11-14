@@ -130,9 +130,21 @@
     <value>{FR}New Customers</value>
   </data>
   <data name="SELECT_CURRENCY" xml:space="preserve">
-    <value>{FR}Select Currency:</value>
+    <value>{FR}Select Currency</value>
   </data>
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
     <value>{FR}No data found</value>
-  </data>  
+  </data>
+  <data name="TEXT_NEW_CUSTOMERS_LEGEND" xml:space="preserve">
+    <value>{FR}New Customers</value>
+  </data>
+  <data name="TEXT_BILLINGS_TOOLTIP" xml:space="preserve">
+    <value>{FR}Amount</value>
+  </data>
+  <data name="TEXT_MRR_TOOLTIP" xml:space="preserve">
+    <value>{FR}MRR</value>
+  </data>
+  <data name="TEXT_NEW_CUSTOMERS_TOOLTIP" xml:space="preserve">
+    <value>{FR}New Customers</value>
+  </data>
 </root>

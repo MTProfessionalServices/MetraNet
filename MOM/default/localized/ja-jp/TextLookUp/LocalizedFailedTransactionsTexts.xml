@@ -213,4 +213,55 @@
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS">
     <value>[JA]Status</value>
   </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
+    <value>[JA]Open</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">
+    <value>[JA]Under Investigation</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">
+    <value>[JA]Reason Code</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT">
+    <value>[JA]Corrected - Pending Resubmit</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT_NOW">
+    <value>[JA]Resubmit Now</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
+    <value>[JA]Dismissed</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE2">
+    <value>[JA]Reason Code</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_COMMENT">
+    <value>[JA]Comment</value>
+  </text>
+  <text id="TEXT_VIEW_AUDIT_TRAIL">
+    <value>[JA]View Audit Trail</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_REQUIRED_FIELDS">
+    <value>[JA]Check For Required Fields</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_PROPERTY">
+    <value>[JA]Property</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_TYPE">
+    <value>[JA]Type</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_LENGTH">
+    <value>[JA]Length</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_REQUIRED">
+    <value>[JA]Required</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS1">
+    <value>[JA]Metered Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS2">
+    <value>[JA]Meter Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_VALUE">
+    <value>[JA]Value</value>
+  </text>  
 </texts>

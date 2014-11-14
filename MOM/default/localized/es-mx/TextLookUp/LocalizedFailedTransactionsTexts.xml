@@ -213,4 +213,55 @@
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS">
     <value>[es-MX]Status</value>
   </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
+    <value>[es-MX]Open</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">
+    <value>[es-MX]Under Investigation</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">
+    <value>[es-MX]Reason Code</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT">
+    <value>[es-MX]Corrected - Pending Resubmit</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT_NOW">
+    <value>[es-MX]Resubmit Now</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
+    <value>[es-MX]Dismissed</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE2">
+    <value>[es-MX]Reason Code</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_COMMENT">
+    <value>[es-MX]Comment</value>
+  </text>
+  <text id="TEXT_VIEW_AUDIT_TRAIL">
+    <value>[es-MX]View Audit Trail</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_REQUIRED_FIELDS">
+    <value>[es-MX]Check For Required Fields</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_PROPERTY">
+    <value>[es-MX]Property</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_TYPE">
+    <value>[es-MX]Type</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_LENGTH">
+    <value>[es-MX]Length</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_REQUIRED">
+    <value>[es-MX]Required</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS1">
+    <value>[es-MX]Metered Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS2">
+    <value>[es-MX]Meter Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_VALUE">
+    <value>[es-MX]Value</value>
+  </text>
 </texts>

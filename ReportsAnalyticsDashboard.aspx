@@ -351,12 +351,19 @@
     
     function setWidgetTitles() {
       var billingsPanelHeader = $('#formPanel_<%=pnlBillings.ClientID%> .x-panel-header-text');
+      var billingsPanelToggleButton = $('#formPanel_<%=pnlBillings.ClientID%> .x-tool-toggle');
       var mrrPanelHeader = $('#formPanel_<%=pnlMRR.ClientID%> .x-panel-header-text');
+      var mrrPanelToggleButton = $('#formPanel_<%=pnlMRR.ClientID%> .x-tool-toggle');
       var newCustomersPanelHeader = $('#formPanel_<%=pnlNewCustomers.ClientID%> .x-panel-header-text');
+      var newCustomersPanelToggleButton = $('#formPanel_<%=pnlNewCustomers.ClientID%> .x-tool-toggle');
       
       billingsPanelHeader.css('font-size', '12px');
       mrrPanelHeader.css('font-size', '12px');
       newCustomersPanelHeader.css('font-size', '12px');
+
+      billingsPanelToggleButton.css('visibility', 'hidden');
+      mrrPanelToggleButton.css('visibility', 'hidden');
+      newCustomersPanelToggleButton.css('visibility', 'hidden');
     }
     
     function appendNoDataText(divId, ddDivId) {

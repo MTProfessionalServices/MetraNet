@@ -10,7 +10,7 @@
 <!-- Title Bar -->
 <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
  <TR>
-  <TD Class="CaptionBar" nowrap>Change Case/Failed Transaction Status</TD>
+  <TD Class="CaptionBar" nowrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_CHANGE_STATUS">Change Case/Failed Transaction Status</LABEL></TD>
  </TR>
 </TABLE>
 <BR>
@@ -22,56 +22,54 @@
     <TD width="32">&nbsp;</TD> 
     <td nowrap class="captionEWRequired" style="vertical-align: text-top;"><MDMLABEL Name='NewStatus' Type='Caption'></MDMLABEL>:&nbsp;</td>
     <td>                  <table class="clsDialogEditTable" cellspacing="1" cellpadding="2" width="100%">
-
-                     <tr id="state0">
-                        <td align="center" valign="top" class="TableCell">
-                           <input type="radio" name="NewStatus" value="N">
-                        </td>
-                        <td align="left" class="TableCell">
-                           <strong>Open</strong><br>This case/failed transaction is currently unresolved.
-                        </td>
-                     </tr>
-                     <tr id="state1">
-                        <td align="center" valign="top" class="TableCell">
-                           <input type="radio" name="NewStatus" value="I">
-                        </td>
-                        <td align="left" class="TableCell">
-                           <strong>Under Investigation</strong><br>This case/failed transaction is currently unresolved but is being investigated.<BR><BR>
-                           Reason Code:
-                                  <SELECT class="clsInputBox" name="InvestigationReasonCode" onClick="document.all.NewStatus[1].checked=true;"></SELECT>
-                           
-                        </td>
-                     </tr>
-                     <tr id="state2">
-                        <td align="center" valign="top" class="TableCell">
-                           <input type="radio" name="NewStatus" value="C">
-                        </td>
-                        <td align="left" class="TableCell">
-                                <strong>Corrected - Pending Resubmit</strong><br>This case/failed transaction has been resolved and is ready to be resubmitted to the system for processing.<BR>
-                                <input type="checkbox" name="ResubmitNow">Resubmit Now
-                       </td>
-                     </tr>
-                     <tr id="state3">
-                        <td align="center" valign="top" class="TableCell">
-                           <input type="radio" name="NewStatus" value="P">
-                        </td>
-                        <td align="left" class="TableCell">
-                                <strong>Dismissed</strong><br>This case/failed transaction cannot be resolved or it is not cost effective to do so.<BR><BR>
-                           Reason Code:
-                                  <SELECT class="clsInputBox" name="DismissedReasonCode" onClick="document.all.NewStatus[3].checked=true;">
-
-                                  </SELECT>
-                        </td>
-                     </tr>                                     
+      <tr id="state0">
+        <td align="center" valign="top" class="TableCell">
+            <input type="radio" name="NewStatus" value="N">
+        </td>
+        <td align="left" class="TableCell">
+          <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_OPEN">Open</LABEL></strong><br>
+          <LABEL NAME="TEXT_FAILED_TRANSACTIONS_OPEN_DESCRIPTION">This case/failed transaction is currently unresolved.</LABEL>
+        </td>
+      </tr>
+      <tr id="state1">
+        <td align="center" valign="top" class="TableCell">
+            <input type="radio" name="NewStatus" value="I">
+        </td>
+        <td align="left" class="TableCell">
+          <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">Under Investigation</LABEL></strong><br>
+          <LABEL NAME="TEXT_FAILED_TRANSACTIONS_INVESTIGATION_DESCRIPTION">This case/failed transaction is currently unresolved but is being investigated.</LABEL><BR><BR>
+          <LABEL NAME="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">Reason Code</LABEL>:
+          <SELECT class="clsInputBox" name="InvestigationReasonCode" onClick="document.all.NewStatus[1].checked=true;"></SELECT>
+        </td>
+      </tr>
+      <tr id="state2">
+        <td align="center" valign="top" class="TableCell">
+            <input type="radio" name="NewStatus" value="C">
+        </td>
+        <td align="left" class="TableCell">
+          <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT">Corrected - Pending Resubmit</LABEL></strong><br>
+          <LABEL NAME="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT_DESCRIPTION">This case/failed transaction has been resolved and is ready to be resubmitted to the system for processing.</LABEL><BR>
+          <input type="checkbox" name="ResubmitNow"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_RESUBMIT_NOW">Resubmit Now</LABEL>
+        </td>
+      </tr>
+      <tr id="state3">
+        <td align="center" valign="top" class="TableCell">
+            <input type="radio" name="NewStatus" value="P">
+        </td>
+        <td align="left" class="TableCell">
+          <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_DISMISSED">Dismissed</LABEL></strong><br>
+          <LABEL NAME="TEXT_FAILED_TRANSACTIONS_DISMISSED_DESCRIPTION">This case/failed transaction cannot be resolved or it is not cost effective to do so.</LABEL><BR><BR>
+          <LABEL NAME="TEXT_FAILED_TRANSACTIONS_REASONE_CODE2">Reason Code</LABEL>:
+          <SELECT class="clsInputBox" name="DismissedReasonCode" onClick="document.all.NewStatus[3].checked=true;">
+          </SELECT>
+        </td>
+      </tr>                                     
 
 </TABLE>
 
-
-
-
  <TR>
     <TD width="32">&nbsp;</TD> 
-    <td class="captionEWRequired" style="vertical-align: text-top;">Comment:&nbsp;</td>
+    <td class="captionEWRequired" style="vertical-align: text-top;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_COMMENT">Comment</LABEL>:&nbsp;</td>
     <TD class="fieldRequired"><TEXTAREA class="clsInputBox" cols=49 rows=4 name="Comment"></TEXTAREA></TD>
  </TR>
 
@@ -80,9 +78,11 @@
 
 <!-- Buttons -->
 <div align="center">
-<button OnClick="mdm_RefreshDialog(this)" name="ok" Class="clsOkButton"><MDMLABEL Name="TEXT_OK"></MDMLABEL></button>
-<button onclick="mdm_RefreshDialog(this)" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CANCEL"></MDMLABEL></button>
+  <button OnClick="mdm_RefreshDialog(this)" name="ok" Class="clsOkButton"><MDMLABEL Name="TEXT_OK"></MDMLABEL></button>
+  <button onclick="mdm_RefreshDialog(this)" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CANCEL"></MDMLABEL></button>
 </div>
+
+</center>
 </FORM>
 </BODY>
 </HTML>

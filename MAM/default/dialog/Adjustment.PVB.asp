@@ -315,14 +315,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             PreProcessor.Add "COLUMN_NAME"                , Form.Grid.SelectedProperty.Name
             PreProcessor.Add "VALUE"                      , "" & Form.Grid.SelectedProperty.Value
             EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>"  & Framework.Format(ProductView.Properties.RowSet.Value("timestamp"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value) & "</td>"  & vbNewLine & PreProcessor.Process("<input type=hidden name='_ST_[COLUMN_NAME][ID]' Value='[VALUE]'>") & vbNewLine
-        Case 68
-            Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 
-            
-            PreProcessor.Clear
-            PreProcessor.Add "ID"                         , ProductView.Properties.Rowset.Value("SessionID")            
-            PreProcessor.Add "COLUMN_NAME"                , Form.Grid.SelectedProperty.Name
-            PreProcessor.Add "VALUE"                      , "" & Form.Grid.SelectedProperty.Value
-            EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>"  & Framework.Format(ProductView.Properties.RowSet.Value("c_ordertime"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value) & "</td>"  & vbNewLine & PreProcessor.Process("<input type=hidden name='_ST_[COLUMN_NAME][ID]' Value='[VALUE]'>") & vbNewLine
+        
         Case Else
         
             Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 

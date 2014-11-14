@@ -20,8 +20,8 @@
       <Value>Estatísticas do intervalo</Value>
     </locale_entry>
     <locale_entry>
-      <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
-      <Value>View Data from Analytics Datamart</Value>
+      <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
+      <Value>View Summary Financial Information</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

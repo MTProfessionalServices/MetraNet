@@ -20,8 +20,8 @@
       <Value>[es-MX]Interval Statistics</Value>
     </locale_entry>
     <locale_entry>
-      <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
-      <Value>[es-MX]View Data from Analytics Datamart</Value>
+      <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
+      <Value>[es-MX]View Summary Financial Information</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

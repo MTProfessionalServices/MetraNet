@@ -290,7 +290,6 @@
 </policies>
 </principal>
 
-
 <principal type="role" name = "Partition Operations Manager">
 <description>Partition Operations Manager
 </description>
@@ -314,7 +313,6 @@
 </policy>
 </policies>
 </principal>
-
 
 <principal type="role" name = "Finance Staff">
 <description>Finance User: Authorizes a finance user to view account, product catalog and finance information
@@ -346,26 +344,21 @@
   </c>  
   <c name="View Summary Financial Information" guid="">
   </c>
- c name="Write Business Modeling Entities" guid="">
+ <c name="Write Business Modeling Entities" guid="">
   <as>
       <ec>
         <v>MetraTech.SystemConfig</v>
       </ec>
     </as>
   </c>
-
   <c name="Manage System User Reports" guid="">
   </c>
     <c name="Impersonation" guid="">
   </c>
-
 </cs>
 </policy>
 </policies>
 </principal>
-
-
-
 
 <principal type="account" name = "demo" namespace = "mt">
 <policies>
@@ -454,12 +447,6 @@
 </policies>
 </principal>
 
-<!--
-
-
--->
-
-
 <principal type="account" name = "csr_folder">
 <policies>
   <policy type="d">
@@ -480,8 +467,6 @@
   </policy>
 </policies>
 </principal>
-
-
 
 <principal type="account" name = "mps_folder">
 <policies>

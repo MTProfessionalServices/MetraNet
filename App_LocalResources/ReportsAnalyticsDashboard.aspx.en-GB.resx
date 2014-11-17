@@ -135,9 +135,6 @@
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
     <value>No data found</value>
   </data>
-  <data name="TEXT_NEW_CUSTOMERS_LEGEND" xml:space="preserve">
-    <value>New Customers</value>
-  </data>
   <data name="TEXT_BILLINGS_TOOLTIP" xml:space="preserve">
     <value>Amount</value>
   </data>

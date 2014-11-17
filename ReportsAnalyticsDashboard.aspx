@@ -147,6 +147,7 @@
     var MRRChartId = "#MRRChart";
     var NewCustomersChartId = "#NewCustomersChart";
     var BillingsJSONData;      
+    var BillingsChart = dc.barChart(BillingsChartId);
 
     var Margin = {top: 10,right: 50,bottom: 30,left: 55},
         Width = 920 - Margin.left - Margin.right,
@@ -179,17 +180,16 @@
         }
       });
     };
-
+    
     function renderBillingsChart(divId, ddId, JSONData) {
-      var billingsChart = dc.barChart(divId);
+      
       var currentCurrency = $( ddId + " option:selected" ).val();
-      var currentCurrencyLocalized = $( ddId + " option:selected" ).text();
       
       var ndx = crossfilter(JSONData),
           runDimension = ndx.dimension(function(d) {return new Date(Date.parse(d.date)); }),
           currencyGroup = runDimension.group().reduceSum(function(d) {if (d.currency == currentCurrency) return d.amount;return 0;});
       
-      billingsChart.width(Width)
+      BillingsChart.width(Width)
         .height(Height)
         .margins(Margin)
         .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
@@ -204,11 +204,10 @@
         .transitionDuration(1500)
         .centerBar(true)
         .gap(15)
-        .legend(dc.legend().x(770).y(0))
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
-      billingsChart.render();
+      BillingsChart.render();
 
-      setLocalizedAxesAndLegend(divId, currentCurrencyLocalized);
+      setLocalizedAxes(divId);
       setTooltips(divId, currentCurrency, JSONData, getBillingsChartTooltipHtml);
     }
 
@@ -236,7 +235,6 @@
     function renderMRRChart(divId, JSONData) {
 
       var currentCurrency = JSONData[0].currency;
-      var currentCurrencyLocalized = JSONData[0].localizedCurrency;
       
       var mrrChart = dc.barChart(divId);
       var ndx = crossfilter(JSONData);
@@ -263,11 +261,10 @@
         .brushOn(false)
         .elasticY(true)
         .xUnits(d3.time.months)
-        .legend(dc.legend().x(770).y(0))
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
       mrrChart.render();
       
-      setLocalizedAxesAndLegend(divId, currentCurrencyLocalized);
+      setLocalizedAxes(divId);
       setTooltips(divId, currentCurrency, JSONData, getMRRChartTooltipHtml);
     }
 
@@ -316,14 +313,12 @@
         .round(d3.time.month.round)
         .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
         .brushOn(false)
-        //.title(function(d){return d.value;})
         .xUnits(d3.time.months)
-        .legend(dc.legend().x(770).y(0))
         .elasticY(true)
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
           
       newCustomersChart.render();
-      setLocalizedAxesAndLegend(divId, "<%=Convert.ToString(GetLocalResourceObject("TEXT_NEW_CUSTOMERS_LEGEND"))%>");
+      setLocalizedAxes(divId);
       setTooltips(divId, null, JSONData, getNewCustomersChartTooltipHtml);
     }
 
@@ -395,15 +390,12 @@
                                    .on('mouseout', toolTip.hide);
     }
 
-    function setLocalizedAxesAndLegend(divId, legendText) {
+    function setLocalizedAxes(divId) {
       d3.select(divId + " svg").selectAll(" .axis text").text(function (d) {
         return localizeChartAxes(d);
       });
-      d3.select(divId + " svg").selectAll(" .dc-legend text").text(function(d) {
-        return legendText;
-      });
-
     }
+    
     function localizeChartAxes(d) {
        var tickDate = new Date(Date.parse(d));
         var month = tickDate.getMonth();
@@ -412,7 +404,7 @@
         if (Object.prototype.toString.call(d) === "[object Date]") {
           return getLocalizedTickText(month, year);  
         } else {
-          return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });;
+          return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
         }
     }
 
@@ -486,7 +478,7 @@
     function getNewCustomersChartTooltipHtml(JSONData, d) {
       if (d.data == null) return null;
       var currentItem = getDataItem(JSONData, d.data.key, null);
-      var html = (currentItem != null) ? String.format("<div style='width:{0}px;'><div class=Period>{1}</div><div>{2}: {3}</div></div>", ToolTipDivWidth, currentItem.period, "<%=Convert.ToString(GetLocalResourceObject("TEXT_NEW_CUSTOMERS_TOOLTIP"))%>", currentItem.customersCount) : null;
+      var html = (currentItem != null) ? String.format("<div style='width:{0}px;'><div class=Period>{1}</div><div>{2}: {3}</div></div>", ToolTipDivWidth, currentItem.period, "<%=Convert.ToString(GetLocalResourceObject("TEXT_NEW_CUSTOMERS_TOOLTIP"))%>", parseFloat(currentItem.customersCount).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 })) : null;
       return html;
     }
     

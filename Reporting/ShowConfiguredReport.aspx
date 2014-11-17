@@ -8,7 +8,7 @@
 
   <MT:MTFilterGrid ID="MTFilterGridReport" runat="server" ExtensionName="Reporting" 
     TemplateFileName="" ButtonAlignment="Center" 
-    Buttons="None" DefaultSortDirection="Ascending" DisplayCount="True" 
+    Buttons="Back" DefaultSortDirection="Ascending" DisplayCount="True" 
     EnableColumnConfig="True" EnableFilterConfig="True" EnableLoadSearch="False" 
     EnableSaveSearch="False" Expandable="False" ExpansionCssClass="" 
     Exportable="False" FilterColumnWidth="350" FilterInputWidth="220" 
@@ -20,4 +20,10 @@
     ShowFilterPanel="True" ShowGridFrame="True" ShowGridHeader="True" 
     ShowTopBar="True" TotalProperty="TotalRows" NoRecordsText="No records found" />
 
+   <script type="text/javascript">
+  	function onBack_<%= MTFilterGridReport.ClientID%>()
+    {
+      document.location.href = '<%=ReturnUrl %>';         
+    }
+  	</script>
 </asp:Content>

@@ -21,10 +21,10 @@ public partial class ReportsAnalyticsDashboard : MTPage
     }
   }
 
-public ReportsAnalyticsDashboard()
+  public ReportsAnalyticsDashboard()
   {
     var previousMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-1).AddDays(1 - DateTime.Today.Day + 15);
-    var firstMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-13).AddDays(1 - DateTime.Today.Day - 15);
+    var firstMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-25).AddDays(1 - DateTime.Today.Day - 15);
 
     previousMonth = GetJSDate(previousMonthAndHalf);
     firstMonth = GetJSDate(firstMonthAndHalf);

@@ -58,12 +58,6 @@
       <Length>255</Length>
     </FieldMetadata>
     <FieldMetadata>
-      <Name>c_Security</Name>
-      <Type>String</Type>
-      <isRequired>false</isRequired>
-      <Length>255</Length>
-    </FieldMetadata>
-    <FieldMetadata>
       <Name>c_Category</Name>
       <Type>String</Type>
       <isRequired>false</isRequired>
@@ -95,6 +89,12 @@
     </FieldMetadata>
     <FieldMetadata>
       <Name>c_Type</Name>
+      <Type>Enum</Type>
+      <isRequired>false</isRequired>
+      <Length>255</Length>
+    </FieldMetadata>
+    <FieldMetadata>
+      <Name>c_ReqdCapability</Name>
       <Type>Enum</Type>
       <isRequired>false</isRequired>
       <Length>255</Length>

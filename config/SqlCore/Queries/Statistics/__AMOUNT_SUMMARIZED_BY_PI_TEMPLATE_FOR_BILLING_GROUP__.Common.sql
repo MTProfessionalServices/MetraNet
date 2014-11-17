@@ -1,5 +1,7 @@
 
-				select bp.nm_name "PI Template", 
+				select 
+                  dbo.GenGuid() "ID",
+                  bp.nm_name "PI Template", 
 				  count(*) "# Transactions Affected",
 				  am_currency Currency, 
 				  SUM({fn ifnull(au.Amount, 0.0)}) "Monetary Amount" 
@@ -16,5 +18,5 @@
 	    		and (bp.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 	    		and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 				group by bp.nm_name,am_currency
-				order by bp.nm_name
+
 			 

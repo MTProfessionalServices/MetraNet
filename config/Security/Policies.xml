@@ -346,7 +346,7 @@
   </c>  
   <c name="View Summary Financial Information" guid="">
   </c>
- c name="Write Business Modeling Entities" guid="">
+ <c name="Read Business Modeling Entities" guid="">
   <as>
       <ec>
         <v>MetraTech.SystemConfig</v>

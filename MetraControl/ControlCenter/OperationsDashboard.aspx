@@ -702,7 +702,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var pipeQGroup = dateDimension.group().reduceSum(dc.pluck('pipe_q'));
             var msgqQGroup = dateDimension.group().reduceSum(dc.pluck('msgq_q'));
             var schedulerQGroup = dateDimension.group().reduceSum(dc.pluck('scheduler_q'));
-			var colors = d3.scale.ordinal().domain([0,1,2]).range(['#00B0F0','#0070C0','#148622']);
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
                     .margins({top: 5, right: 5, bottom: 64, left: 5})
@@ -721,21 +720,20 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(pipeQGroup, "<%=pipelineQueueText%>")
-                                .colors(colors(0))
+                                .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(msgqQGroup, "<%=rampQueueText%>")
-                                .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(schedulerQGroup, "<%=schedulerQueueText%>")
-                                .colors(colors(2))
+                                .colors('#148622')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                     ]);
@@ -748,7 +746,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var rampBacklogGroup = dateDimension.group().reduceSum(dc.pluck('ramp_backlog'));
             var rampGroup = dateDimension.group().reduceSum(dc.pluck('ramp'));
             var composite2 = dc.compositeChart("#divPricingBacklog");
-			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
                     .margins({top: 5, right: 5, bottom: 64, left: 5})
 					.height(255)
@@ -765,14 +762,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeBacklogGroup, "<%=pipelineWaitDurationText%>")
-                                .colors(colors(0))
+                                .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeGroup, "<%=pipelineProcessingDurationText%>")
-                                .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
                     ])
@@ -854,7 +850,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
               .title(function(d){ return LocalizeTickText(d.key) + ": " + FormatNumber(d.value);} )
               .renderlet(function(chartRen) {
                           var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
-                                            .range(['#00B0F0','#0070C0','#148622','#FFC000']);
+                                            .range(['deepskyblue','#0070C0','#148622','#FFC000']);
                           chart.selectAll('rect.bar').each(function(d) {
                             d3.select(this).attr("style", "fill: " + colors(d.x));
                           });

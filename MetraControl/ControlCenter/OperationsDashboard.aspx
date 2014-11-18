@@ -138,19 +138,13 @@
                                 <td colspan="2">
                                     <table>
                                         <tr>
-                                            <td class="label">
-                                                <MT:MTLabel ID="lblVariance" runat="server" Text="Variance:" />
-                                            </td>
-                                            <td>
+                                            <td colspan="2" style="text-align: left">
                                                 <MT:MTLabel ID="txtVariance" runat="server" />
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="label">
-                                                <MT:MTLabel ID="lblEarliestETA" runat="server" Text="Earliest ETA:" />
-                                            </td>
-                                            <td>
-                                                <MT:MTLabel ID="txtEarliestETA" runat="server" />
+                                            <td colspan="2" style="text-align: left">
+                                                <MT:MTLabel ID="txtEarliestETA" runat="server" /><br/><br/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -625,7 +619,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         console.log(error);
       } else {
         var activebillrunsummary = json["Items"];
-        var successful, failed, waiting, ready, variance, earliesteta;
+        var successful, failed, waiting, ready, variance, earliesteta, etaoffset;
         if (activebillrunsummary[0] != null) {
           successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
           failed = activebillrunsummary[0]["eop_failed_adapter_count"];
@@ -633,6 +627,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
           ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
           variance = activebillrunsummary[0]["varianceAsString"];
           earliesteta = activebillrunsummary[0]["earliest_eta"];
+          etaoffset = activebillrunsummary[0]["eta_offset"];
         }
 
         if (failed == 0) {
@@ -645,9 +640,16 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
         d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
         d3.select("#<%=txtReady.ClientID%>").text(ready);
-        d3.select("#<%=txtVariance.ClientID%>").text(variance);
-        d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
 
+        var varianceAsFloat = parseFloat(variance);
+        var textVariance = "";
+        if (!isNaN(varianceAsFloat)) {
+          if (Math.abs(varianceAsFloat) <= .5) textVariance = '<%=GetLocalResourceObject("TEXT_VARIANCE_SAME_MESSAGE")%>';
+          else if (varianceAsFloat < 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_SLOWER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+          else if (varianceAsFloat > 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', varianceAsFloat.toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+        }
+        d3.select("#<%=txtVariance.ClientID%>").text(textVariance);
+        d3.select("#<%=txtEarliestETA.ClientID%>").text(String.format('<%=GetLocalResourceObject("TEXT_EARLIEST_ETA")%>', failed + waiting + ready, etaoffset, earliesteta));
         d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor", "pointer");
         d3.select("#<%=txtFailedAdapters.ClientID%>").on("click", function() { window.location = "/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval; });
       }

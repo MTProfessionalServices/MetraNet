@@ -79,8 +79,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
 	rowset.Init "queries\mom"
   rowset.SetQueryTag("__GET_SCHEDULED_ADAPTER_LIST__")
-  'rowset.SetQueryString("select evt.id_event as 'EventId', evt.tx_display_name as 'DisplayName', evt.tx_desc as 'Description', sch.id_cycle_type, sch.id_cycle, uct.tx_desc as 'ScheduledCycleName', sch.n_minutes as 'ScheduledCycleMinutes' from t_recevent evt left join t_recevent_schedule sch on evt.id_event=sch.id_event left join t_usage_cycle_type uct on uct.id_cycle_type=sch.id_cycle_type where evt.tx_type = 'Scheduled' AND   evt.dt_activated <= %%%SYSTEMDATE%%% AND (evt.dt_deactivated IS NULL OR %%%SYSTEMDATE%%% < evt.dt_deactivated)")
-	rowset.Execute
+  rowset.AddParam "%%idLangcode%%", Session("FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME").LanguageId
+  rowset.Execute
   
   if false then
       dim objUSMInstances

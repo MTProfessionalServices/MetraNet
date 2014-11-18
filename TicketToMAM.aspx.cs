@@ -1,4 +1,5 @@
 using System;
+using MetraTech.DomainModel.Enums;
 using MetraTech.UI.Common;
 using MetraTech.Security;
 using MetraTech.SecurityFramework;
@@ -40,7 +41,9 @@ public partial class UserControls_ticketToMAM : MTPage
     HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
     var auth = new Auth();
-    auth.Initialize(UI.User.UserName, UI.User.NameSpace);
+    auth.Initialize(UI.User.UserName, UI.User.NameSpace, UI.User.UserName,
+                    "MetraNet", Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)));
+
     var accountId = UI.Subscriber.SelectedAccount == null ? 0 : int.Parse(UI.Subscriber["_AccountID"]);
     URL = auth.CreateEntryPoint("mam", "system_user", accountId, gotoURL, false, true);
   }

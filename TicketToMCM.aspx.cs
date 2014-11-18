@@ -1,4 +1,5 @@
 using System;
+using MetraTech.DomainModel.Enums;
 using MetraTech.UI.Common;
 using MetraTech.Security;
 using MetraTech.SecurityFramework;
@@ -41,7 +42,9 @@ public partial class UserControls_ticketToMCM : MTPage
     HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
     var auth = new Auth();
-    auth.Initialize(UI.User.UserName, UI.User.NameSpace);
+    auth.Initialize(UI.User.UserName, UI.User.NameSpace, UI.User.UserName,
+                    "MetraNet", Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)));
+
     URL = auth.CreateEntryPoint("mcm", "system_user", 0, gotoURL, false, true);
 
     if (Request.QueryString["Redirect"] == null || Request.QueryString["Redirect"].ToUpper() != "TRUE") return;

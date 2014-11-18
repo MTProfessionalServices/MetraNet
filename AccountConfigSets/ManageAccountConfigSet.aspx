@@ -843,7 +843,7 @@
     }
 
     function ShowSubParamsSelector(functionName, target) {
-      if (window.subParamsSelectorWin2 == null || window.poSelectorWin2 === undefined ||
+      if (window.subParamsSelectorWin2 == null || window.subParamsSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
         window.subParamsSelectorWin2 = new top.Ext.Window({
           title: '<%=GetLocalResourceObject("SELECT_SUBPARAMS")%>',

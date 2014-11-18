@@ -26,50 +26,39 @@
         ids += records[i].data.ProductOfferingId;
       }
 
-      try
-      {
-        if(window.getFrameMetraNet().MainContentIframe)
+      var mainFrame = window.getFrameMetraNet().MainContentIframe;
+      var subpFrame = window.getFrameMetraNet().subParamsSelectorWin2;
+      
+      try {       
+        if (mainFrame)
         {
-          if(window.getFrameMetraNet().MainContentIframe.ticketFrame)
-          {
-            if(window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage)
-            {
-           
-              window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids);
+          if (mainFrame.ticketFrame) {
+            if (mainFrame.ticketFrame.fmeTemplatePage) {
+              mainFrame.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids);
+            } else {
+              mainFrame.ticketFrame.<%= CallbackFunction %>(ids);
             }
-            else
-            {            
-              window.getFrameMetraNet().MainContentIframe.ticketFrame.<%= CallbackFunction %>(ids);
+          } else {
+            if (subpFrame) {
+              if (subpFrame.contentWindow)
+                subpFrame.contentWindow.<%= CallbackFunction %>(ids);
+              else
+                subpFrame.<%= CallbackFunction %>(ids);
+            } else {
+              mainFrame.<%= CallbackFunction %>(ids);
             }
-          }
-          else
-          {
-          if(window.getFrameMetraNet().subParamsSelectorWin2){
-             window.getFrameMetraNet().subParamsSelectorWin2.<%= CallbackFunction %>(ids);
-             }
-          else{
-             window.getFrameMetraNet().MainContentIframe.<%= CallbackFunction %>(ids);
-             }
           }
         }
       }
       catch(e)
       {
         //Ext.UI.msg("Error", "Couldn't find <%= CallbackFunction %> method.");      
-        Ext.UI.msg(TEXT_ERROR_MSG, TEXT_CALLBACK_MSG_1 + TEXT_CALLBACK_MSG_2);      
-      }
-     
-      if(window.getFrameMetraNet().accountSelectorWin != null)
-      {
-        window.getFrameMetraNet().accountSelectorWin.close();
+        window.Ext.UI.msg(window.TEXT_ERROR_MSG, window.TEXT_CALLBACK_MSG_1 + window.TEXT_CALLBACK_MSG_2);      
       }
 
-      if(window.getFrameMetraNet().accountSelectorWin2 != null)
-      {
-        window.getFrameMetraNet().accountSelectorWin2.close();
-      }      
-      window.getFrameMetraNet().accountSelectorWin = null;
-      window.getFrameMetraNet().accountSelectorWin2 = null;           
+      if (subpFrame != null) {
+        subpFrame.close();
+      }
     };        
   </script>
 </asp:Content>

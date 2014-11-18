@@ -6,7 +6,7 @@
 <FORM name='mdm'>
 <!-- The title of the dialog-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%" >
-<tr><td Class='CaptionBar' nowrap>Backout Step 3: <MDMLABEL Name="Title"></MDMLABEL></td></tr>
+<tr><td Class='CaptionBar' nowrap><MDMLABEL NAME="TEXT_Step3_TITLE">Backout Step 3 </MDMLABEL><MDMLABEL Name="Title"></MDMLABEL></td></tr>
 </table>
 <br>
 
@@ -16,19 +16,19 @@
   <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0">
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Step 3 Status:&nbsp;</TD>
+      <TD class="captionEWRequired" ><MDMLABEL NAME="TEXT_Step3_Status">Step 3 Status:</MDMLABEL>&nbsp;</TD>
       <TD class="fieldRequired"><MDMLABEL Name="StatusMessage"></MDMLABEL></TD>
    </TR>
    <TR><TD colspan='3'>&nbsp;</TD></TR>
    
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Rerun Id:&nbsp;</TD>
+      <TD class="captionEWRequired" ><MDMLABEL NAME="TEXT_Rerun_Id">Rerun Id:</MDMLABEL>&nbsp;</TD>
       <TD class="fieldRequired"><MDMLABEL Name="ReRunId"></MDMLABEL></TD>
    </TR>   
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Comment:&nbsp;</TD>
+      <TD class="captionEWRequired" ><MDMLABEL NAME="TEXT_Comment">Comment:</MDMLABEL>&nbsp;</TD>
       <TD class="fieldRequired"><MDMLABEL Name="Comment"></MDMLABEL></TD>
    </TR>
    <TR><TD colspan='3'>&nbsp;</TD></TR>
@@ -61,7 +61,7 @@
 <!-- Dialog Buttons -->
 <br><br>
 <div align="center">
-  <button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this); return false;">Done</button>&nbsp;&nbsp;&nbsp;
+  <button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this); return false;"><MDMLABEL NAME="TEXT_Done">Done</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
 </div>
 </form>
 </body>

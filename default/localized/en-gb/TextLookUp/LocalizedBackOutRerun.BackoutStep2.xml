@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_Step2_TITLE">
+    <value>Backout Step 2: Results Of Identify and Analyze</value>
+  </text>
+  <text id="TEXT_Step2_Status">
+    <value>Step 2 Status:</value>
+  </text>
+  <text id="TEXT_Analyze_Complete">
+    <value>Analyze Complete</value>
+  </text>
+  <text id="TEXT_Identify_Complete">
+    <value>Identify Complete</value>
+  </text>
+  <text id="TEXT_Reanalyze">
+    <value>Reanalyze</value>
+  </text>
+  <text id="TEXT_Rerun_Id">
+    <value>Rerun Id:</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>Comment:</value>
+  </text>
+  <text id="TEXT_Items_To_Be_Backed_Out">
+    <value>Items To Be Backed Out</value>
+  </text>
+  <text id="TEXT_Transactions">
+    <value>Transactions:</value>
+  </text>
+  <text id="TEXT_Failed_Transactions">
+    <value>Failed Transactions:</value>
+  </text>  
+  <text id="TEXT_Items_That_Can_t_Be_Backed_Out">
+    <value>Items That Can't Be Backed Out</value>
+  </text>  
+  <text id="TEXT_Database_Transactions_In_Hard_Closed_Billing_Groups">
+    <value>Database Transactions In Hard Closed Billing Groups:</value>
+  </text>    
+  <text id="TEXT_Transactions_Vetoed_After_Analysis">
+    <value>Transactions Vetoed After Analysis:</value>
+  </text>
+  <text id="TEXT_Synchronously_Metered_Transactions">
+    <value>Synchronously Metered Transactions:</value>
+  </text>
+  <text id="TEXT_Summary_Of_Database_Transactions_Being_Backed_Out">
+    <value>Summary Of Database Transactions Being Backed Out</value>
+  </text>  
+  <text id="TEXT_Reanalyze">
+    <value>Reanalyze</value>
+  </text>
+  
+</texts>

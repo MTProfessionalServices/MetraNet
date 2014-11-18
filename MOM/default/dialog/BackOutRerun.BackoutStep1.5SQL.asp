@@ -113,7 +113,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 
     objReRun.Synchronous = mom_GetBackoutRerunSynchronousOperationSetting
 
-    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = "Identify Complete<BR>Analyze In Progress"
+    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = mom_GetDictionary("TEXT_Identify_Complete_Analyze_In_Progress") 
     m_strStep = "MTBillingReRun.Analyze"
     objReRun.Analyze "Reanalyze"
     If Not CheckError() Then Exit Function

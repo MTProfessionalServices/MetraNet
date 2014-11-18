@@ -1,12 +1,12 @@
 <HTML>
 <HEAD>
   <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
-  <title>Backout Step 2: Results Of Identify & Analyze</MDMLABEL></title>                 
+  <title><MDMLABEL NAME="TEXT_Step2_TITLE">Backout Step 2: Results Of Identify & Analyze</MDMLABEL></title>                 
 </HEAD>
 <body onLoad="SizeWindow();">
 <FORM name='mdm'>
 <TABLE border="0" cellpadding="1" cellspacing="0" width="100%"s>
-<tr><td Class='CaptionBar' nowrap>Backout Step 2: Results Of Identify & Analyze</td></tr>
+<tr><td Class='CaptionBar' nowrap><MDMLABEL NAME="TEXT_Step2_TITLE">Backout Step 2: Results Of Identify & Analyze</MDMLABEL></td></tr>
 </TABLE>
 <br>
 <div style="margin:3">
@@ -19,24 +19,28 @@
   <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0">
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" style="vertical-align:top;">Step 2 Status:&nbsp;</TD>
+      <TD class="captionEWRequired" style="vertical-align:top;"><MDMLABEL NAME="TEXT_Step2_Status">Step 2 Status:</MDMLABEL>&nbsp;</TD>
       <TD class="fieldRequired">
-        Identify Complete<BR>Analyze Complete
+        <MDMLABEL NAME="TEXT_Identify_Complete">Identify Complete</MDMLABEL>
+        <BR>
+        <MDMLABEL NAME="TEXT_Analyze_Complete">Analyze Complete</MDMLABEL>
         </TD>
         <TD>
-        &nbsp;&nbsp;&nbsp;<button class='clsButtonBlueMedium' Title='Reanalyze to determine if these records can still be backed out.' onclick='mdm_RefreshDialogUserCustom(this,"<MDMLABEL Name="ReRunId"></MDMLABEL>"); return false;' name='Reanalyze'>Reanalyze</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class='clsButtonBlueMedium' Title='Reanalyze to determine if these records can still be backed out.' onclick='mdm_RefreshDialogUserCustom(this,"<MDMLABEL Name="ReRunId"></MDMLABEL>"); return false;' name='Reanalyze'>
+        <MDMLABEL NAME="TEXT_Reanalyze">Reanalyze</MDMLABEL></button>
       </TD>
    </TR>
    <TR><TD colspan='3'>&nbsp;</TD></TR>
    
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Rerun Id:&nbsp;</TD>
+      <TD class="captionEWRequired" ><MDMLABEL NAME="TEXT_Rerun_Id">Rerun Id:</MDMLABEL>&nbsp;</TD>
       <TD class="fieldRequired"><MDMLABEL Name="ReRunId"></MDMLABEL></TD>
    </TR>   
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Comment:&nbsp;</TD>
+      <TD class="captionEWRequired" ><MDMLABEL NAME="TEXT_Comment">Comment:</MDMLABEL>&nbsp;</TD>      
       <TD class="fieldRequired"><MDMLABEL Name="Comment"></MDMLABEL></TD>
    </TR>
    <TR><TD colspan='3'>&nbsp;</TD></TR>
@@ -48,17 +52,19 @@
  <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0">
     <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD width="200px" colspan="2" class="captionEWRequired" style="text-align:left;border-bottom: thin solid Black;"  >Items To Be Backed Out</TD>
+      <TD width="200px" colspan="2" class="captionEWRequired" style="text-align:left;border-bottom: thin solid Black;"  >
+      <MDMLABEL NAME="TEXT_Items_To_Be_Backed_Out">Items To Be Backed Out</MDMLABEL>
+      </TD>
    </TR>  
 
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Transactions:&nbsp;</TD>
+      <TD class="captionEWRequired" ><MDMLABEL NAME="TEXT_Transactions">Transactions:</MDMLABEL>&nbsp;</TD>
       <TD class="fieldRequired" style="text-align:right;"><MDMLABEL Name="SummaryNumberOfDatabaseSessionsToBackout"></MDMLABEL></TD>
    </TR>   
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Failed Transactions:&nbsp;</TD>
+      <TD class="captionEWRequired" ><MDMLABEL NAME="TEXT_Failed_Transactions">Failed Transactions:</MDMLABEL>&nbsp;</TD>      
       <TD class="fieldRequired" style="text-align:right;"><MDMLABEL Name="SummaryNumberOfFailedTransactionToBackout"></MDMLABEL></TD>
    </TR>
    <TR><TD colspan='3'>&nbsp;</TD></TR>   
@@ -67,19 +73,23 @@
 <TD valign="top">
   <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0">
     <TR>
-      <TD width="250px" colspan="2" class="captionEWRequired" style="text-align:left;border-bottom: thin solid Black;" nowrap >Items That Can't Be Backed Out</TD>
+      <TD width="250px" colspan="2" class="captionEWRequired" style="text-align:left;border-bottom: thin solid Black;" nowrap >
+      <MDMLABEL NAME="TEXT_Items_That_Can_t_Be_Backed_Out">Items That Can't Be Backed Out</MDMLABEL></TD>
    </TR>  
    
    <TR>
-      <td class="captionEWRequired" width="300px" style="word-wrap:normal;">Database Transactions In Hard Closed Billing Groups:&nbsp;</td>
+      <td class="captionEWRequired" width="300px" style="word-wrap:normal;">
+      <MDMLABEL NAME="TEXT_Database_Transactions_In_Hard_Closed_Billing_Groups">Database Transactions In Hard Closed Billing Groups:</MDMLABEL>&nbsp;</td>
       <TD class="fieldRequired" style="text-align:right;"><MDMLABEL Name="SummaryNumberOfDatabaseSessionsInHardClosedIntervals"></MDMLABEL></TD>
    </TR>   
    <TR>
-      <td class="captionEWRequired" width="300px" style="word-wrap:normal;">Transactions Vetoed After Analysis:&nbsp;</td>
+      <td class="captionEWRequired" width="300px" style="word-wrap:normal;">
+      <MDMLABEL NAME="TEXT_Transactions_Vetoed_After_Analysis">Transactions Vetoed After Analysis:</MDMLABEL>&nbsp;</td> 
       <TD class="fieldRequired" style="text-align:right;"><MDMLABEL Name="SummaryNumberOfTransactionsVetoedByAdapters"></MDMLABEL></TD>
    </TR>   
    <TR>
-      <td class="captionEWRequired" width="300px" style="word-wrap:normal;">Synchronously Metered Transactions:&nbsp;</td>
+      <td class="captionEWRequired" width="300px" style="word-wrap:normal;">
+      <MDMLABEL NAME="TEXT_Synchronously_Metered_Transactions">Synchronously Metered Transactions:</MDMLABEL>&nbsp;</td>      
       <TD class="fieldRequired" style="text-align:right;"><MDMLABEL Name="SummaryNumberOfSynchronouslyMeteredTransactionsThatWontBeBackedOut"></MDMLABEL></TD>
    </TR>   
    
@@ -90,6 +100,6 @@
 </TABLE>
 <br>
 <TABLE border="0" cellpadding="1" cellspacing="0" width="100%"s>
-<tr><td Class='CaptionBar' nowrap>Summary Of Database Transactions Being Backed Out</td></tr>
+<tr><td Class='CaptionBar' nowrap><MDMLABEL NAME="TEXT_Summary_Of_Database_Transactions_Being_Backed_Out">Summary Of Database Transactions Being Backed Out</MDMLABEL></td></tr>
 </TABLE>
 

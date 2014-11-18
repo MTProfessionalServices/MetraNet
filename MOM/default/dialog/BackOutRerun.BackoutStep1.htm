@@ -15,14 +15,14 @@
   <FORM name="mdm">
 
   <!-- Title -->
-  <div class="CaptionBar">Backout Transactions</div>
-
+  <div class="CaptionBar"><MDMLABEL NAME="TEXT_BACKOUT_TRANSACTIONS">Backout Transactions</MDMLABEL></div>
+  
   <!-- Rerun Description -->
-  <div class="clsStandardTitle">Enter a description for the rerun you are about to create.</div>
+  <div class="clsStandardTitle"><LABEL NAME="TEXT_Enter_a_description_for_the_rerun_you_are_about_to_create">Enter a description for the rerun you are about to create.</LABEL></div>
   <div id="DivDescription">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr>
-        <td class="captionEWRequired" style="vertical-align:top;">Description:&nbsp;&nbsp;</td>
+        <td class="captionEWRequired" style="vertical-align:top;"><LABEL NAME="TEXT_Description">Description:</LABEL>&nbsp;&nbsp;</td>
         <td><textarea cols="52" rows="4" name="description" class="required"></textarea></td>
       </tr>
     </table>
@@ -30,20 +30,20 @@
   <br>
   
   <!-- Identification method -->
-  <div class="clsStandardTitle">How will you identify the transactions to be rerun?</div>
+  <div class="clsStandardTitle"><LABEL NAME="TEXT_How_will_you_identify">How will you identify the transactions to be rerun?</LABEL></div>
   <div id="DivSelectionMethod">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr>
         <td class="captionEW" nowrap>&nbsp;</td>  
-        <td><input type="radio" name="SelectionMethod" value="IDS" onClick="UpdateDivBasedOnSelectionMethod();">I know the Session ID(s).</td>
+        <td><input type="radio" name="SelectionMethod" value="IDS" onClick="UpdateDivBasedOnSelectionMethod();"><LABEL NAME="TEXT_I_know_the_Session_ID">I know the Session ID(s).</LABEL></td>
       </tr>
       <tr>
         <td class="captionEW" nowrap>&nbsp;</td>  
-        <td><input type="radio" name="SelectionMethod" value="FILTER" onClick="UpdateDivBasedOnSelectionMethod();">I will create a user defined filter based on selected criteria.</td>
+        <td><input type="radio" name="SelectionMethod" value="FILTER" onClick="UpdateDivBasedOnSelectionMethod();"><LABEL NAME="TEXT_I_will_create_a_user_defined_filter_based_on_selected_criteria">I will create a user defined filter based on selected criteria.</LABEL></td>
       </tr>
       <tr>
         <td class="captionEW" nowrap>&nbsp;</td>  
-        <td><input type="radio" name="SelectionMethod" value="SQL" onClick="UpdateDivBasedOnSelectionMethod();">I will use SQL directly to identify the records to be backed out.</td>
+        <td><input type="radio" name="SelectionMethod" value="SQL" onClick="UpdateDivBasedOnSelectionMethod();"><LABEL NAME="TEXT_I_will_use_SQL_directly_to_identify_the_records_to_be_backed_out">I will use SQL directly to identify the records to be backed out.</LABEL></td>
       </tr>
     </table>
   </div>
@@ -51,13 +51,14 @@
    
   <!-- Session ID(s) --> 
   <div id="DivSessionID" style="display:none;">
-    <div class="clsStandardTitle">Please enter the Session ID(s).</div>
+    <div class="clsStandardTitle"><LABEL NAME="TEXT_Please_enter_the_Session_ID">Please enter the Session ID(s).</LABEL></div>
     <div class="clsNote" style="margin-left: 10px;"><br>
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
-          <td class="captionEWRequired" style="vertical-align:top;" nowrap>Session ID(s):&nbsp;&nbsp;</td>
+          <td class="captionEWRequired" style="vertical-align:top;" nowrap><LABEL NAME="TEXT_Session_ID">Session ID(s):</LABEL>&nbsp;&nbsp;</td>
           <td><textarea cols="80" rows="8" name="SessionIDs" class="required"></textarea></td>
-          <td><span style='background-color:#ffffcc;width:200px;border:solid black 1px;padding:5px;'><img src="/mom/default/localized/en-us/images/Menu/menu_link_help.gif">&nbsp;&nbsp;<b>Enter Session IDs separated by spaces or carriage returns using the following format:</b><br><br>wKgB2eQEaKfQV2h2ks87fw== wfKevB2eQEisQV2h2keWlfw==<br></span></td>
+          <td><span style='background-color:#ffffcc;width:200px;border:solid black 1px;padding:5px;'><img src="/mom/default/localized/en-us/images/Menu/menu_link_help.gif">
+          &nbsp;&nbsp;<b><LABEL NAME="TEXT_Enter_Session_IDs_separated_by_spaces_or_carriage_returns_using_the_following_format">Enter Session IDs separated by spaces or carriage returns using the following format:</LABEL></b>wKgB2eQEaKfQV2h2ks87fw== wfKevB2eQEisQV2h2keWlfw==<br></span></td>
         </tr>
       </table>
       <br>
@@ -66,40 +67,41 @@
 
   <!-- User defined dynamic filter -->  
   <div id="DivUserDefined" style="display:block;">  
-    <div class="clsStandardTitle" width="100%">Transaction Selection Criteria:</div>
+    <div class="clsStandardTitle" width="100%"><LABEL NAME="TEXT_Transaction_Selection_Criteria">Transaction Selection Criteria:</LABEL></div>
     <div class="clsNote" style="margin-left: 10px;"><br>
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
-          <td class="captionEW" nowrap>Begin Timestamp:&nbsp;&nbsp;</td>
+          <td class="captionEW" nowrap><LABEL NAME="TEXT_Begin_Timestamp">Begin Timestamp:</LABEL>&nbsp;&nbsp;</td>
           <td nowrap><input type="text" name="BeginDatetime" size="25" class="clsInputBox">
           <a href="#" onClick="getCalendarForStartDate(document.mdm.BeginDatetime);return false"><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>       
           </td>
         </tr>  
         <tr>
-          <td class="captionEW" nowrap>End Timestamp:&nbsp;&nbsp;</td>
+          <td class="captionEW" nowrap><LABEL NAME="TEXT_End_Timestamp">End Timestamp:</LABEL></td>
           <td nowrap><input type="text" name="EndDatetime" size="25" class="clsInputBox">
           <a href="#" onClick="getCalendarForEndDate(document.mdm.EndDatetime);return false"><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
           </td>
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><i>Uses Processed Timestamp</i></td>    
+          <td><i><LABEL NAME="TEXT_Uses_Processed_Timestamp">Uses Processed Timestamp</LABEL></i></td>    
           <td>&nbsp;</td><td>&nbsp;</td>
         </tr>
         <tr>
           <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
-          <td class="captionEW" nowrap>Batch ID:&nbsp;&nbsp;</td><td><input type="text" name="BatchID" size="25" class="clsInputBox"></td>
+          <td class="captionEW" nowrap><LABEL NAME="TEXT_Batch_ID">Batch ID:</LABEL>&nbsp;&nbsp;</td><td><input type="text" name="BatchID" size="25" class="clsInputBox"></td>
         </tr>
         <tr>
-          <td class="captionEW" nowrap>Interval ID:&nbsp;&nbsp;</td><td><input type="text" name="IntervalID" size="25" class="clsInputBox"></td>
+          <td class="captionEW" nowrap><LABEL NAME="TEXT_Interval_ID">Interval ID:</LABEL>&nbsp;&nbsp;</td><td><input type="text" name="IntervalID" size="25" class="clsInputBox"></td>
         </tr>
         <tr>
           <td colspan="8"><br><br><br><br><br><br><br><hr style="color:black;height:1px;width:95%;right:5px;"><br></td>
         </tr>
         </table>
         <table border="0" cellpadding="0" cellspacing="0" width="100%">      
+        
          <!-- Dynamic dialog properties inserted here -->
         <DYNAMIC_FILTER/>
         <tr>
@@ -109,9 +111,9 @@
            <td colspan="8" style="background-color:#dbdbdb;border:solid 1px black;text-align:center;">
              <br>
              <!-- Add filter property buttons -->
-             <button class="clsButtonBlueXXLarge" name="AddProductProperty" onclick="mdm_RefreshDialog(this); return false;">Add Product View Property</button>&nbsp;&nbsp;
-             <button class="clsButtonBlueXXLarge" name="AddServiceProperty" onclick="mdm_RefreshDialog(this); return false;">Add Service Definition Property</button>&nbsp;&nbsp;
-             <button class="clsButtonBlueXXLarge" name="AddAccountProperty" onclick="mdm_RefreshDialog(this); return false;">Add Account Property</button>
+             <button class="clsButtonBlueXXLarge" name="AddProductProperty" onclick="mdm_RefreshDialog(this); return false;"><LABEL NAME="TEXT_Add_Product_View_Property">Add Product View Property</LABEL></button>&nbsp;&nbsp;
+             <button class="clsButtonBlueXXLarge" name="AddServiceProperty" onclick="mdm_RefreshDialog(this); return false;"><LABEL NAME="TEXT_Add_Service_Definition_Property">Add Service Definition Property</LABEL></button>&nbsp;&nbsp;
+             <button class="clsButtonBlueXXLarge" name="AddAccountProperty" onclick="mdm_RefreshDialog(this); return false;"><LABEL NAME="TEXT_Add_Account_Property">Add Account Property</LABEL></button>
              <br><br>
            </td>
         </tr>
@@ -121,7 +123,9 @@
 
  <!-- Use SQL -->
 <div id="DivSQL" style="display:none;">
-  <div class="clsNote" style="margin-left: 10px;padding-left:20px"><br>You have chosen to use SQL to identify the records to be backed out. To complete this process you will need to have direct access to the database in order to execute the appropriate queries.<br><br><b>Step 1:</b><br>Click 'Next Step: Identify & Analyze' below to create a rerun to populate<br><br><b>Step 2:</b><br>Use a separate tool such as Microsoft Query Analyzer or Oracle SQL Plus to login to the database and update the rerun table with session ids to be backed out or resubmitted<br><br><b>Step 3:</b><br> Return to these screens to review the summary information representing the transactions you inserted. Use the 'Reanalyze' button on the top of the 'Identify & Analyze' screen to update the summary information if you wind up returning to the previous step to add more sessions to or remove sessions from the rerun table.<br><br></div>
+  <div class="clsNote" style="margin-left: 10px;padding-left:20px"><br>
+  <LABEL NAME="TEXT_You_have_chosen_to_use_SQL">You have chosen to use SQL to identify the records to be backed out. To complete this process you will need to have direct access to the database in order to execute the appropriate queries.<br><br><b>Step 1:</b><br>Click 'Next Step: Identify & Analyze' below to create a rerun to populate<br><br><b>Step 2:</b><br>Use a separate tool such as Microsoft Query Analyzer or Oracle SQL Plus to login to the database and update the rerun table with session ids to be backed out or resubmitted<br><br><b>Step 3:</b><br> Return to these screens to review the summary information representing the transactions you inserted. Use the 'Reanalyze' button on the top of the 'Identify & Analyze' screen to update the summary information if you wind up returning to the previous step to add more sessions to or remove sessions from the rerun table.</LABEL>
+  <br><br></div>
 </div>
 
 <script = "JavaScript1.2">
@@ -161,7 +165,7 @@ UpdateDivBasedOnSelectionMethod();
 <br><br><br>
 <!-- Dialog Buttons -->
 <div align="center">
-  <button name="OK" class="clsButtonXXXLarge" onClick="mdm_RefreshDialog(this); return false;">Next Step: Identify & Analyze&nbsp;<IMG valign="middle" border="0" src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif"></button>&nbsp;&nbsp;&nbsp;
+  <button name="OK" class="clsButtonXXXLarge" onClick="mdm_RefreshDialog(this); return false;"><LABEL NAME="TEXT_Next_Step_Identify_Analyze">Next Step: Identify & Analyze</LABEL>&nbsp;<IMG valign="middle" border="0" src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif"></button>&nbsp;&nbsp;&nbsp;
   <button name="CANCEL" class="clsOKButton" onClick="mdm_RefreshDialog(this); return false;"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
 </div>
 

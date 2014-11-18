@@ -6,7 +6,7 @@
 <FORM name='mdm'>
 <!-- The title of the dialog-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%" >
-<tr><td Class='CaptionBar' nowrap>Identify Sessions Using SQL</td></tr>
+<tr><td Class='CaptionBar' nowrap><MDMLABEL NAME="TEXT_Identify_Sessions_Using_SQL">Identify Sessions Using SQL</MDMLABEL></td></tr>
 </table>
 <br>
 
@@ -16,11 +16,21 @@
   <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0">
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="fieldRequired" xstyle="font-size:14pt">An empty table with the name <b>t_rerun_session_<MDMLABEL Name="ReRunId"></MDMLABEL></b> has just been created in the database. The <MDMLABEL Name="ReRunId"></MDMLABEL> in the table name is the current rerun id.</TD>
+      <TD class="fieldRequired" xstyle="font-size:14pt">
+      <MDMLABEL NAME="TEXT_An_empty_table_with_the_name_t_rerun_session_">An empty table with the name <b>t_rerun_session_</MDMLABEL>
+      <MDMLABEL Name="ReRunId"></MDMLABEL></b>
+      <MDMLABEL NAME="TEXT_has_just_been_created_in_the_database_The"> has just been created in the database. The</MDMLABEL>       
+      <MDMLABEL Name="ReRunId"></MDMLABEL>
+      <MDMLABEL NAME="TEXT_in_the_table_name_is_the_current_rerun_id"> in the table name is the current rerun id.</MDMLABEL> 
+      </TD>
    </TR>   
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="fieldRequired"><br>You will now need to access the database directly and execute the SQL necessary to populate this table, t_rerun_session_<MDMLABEL Name="ReRunId"></MDMLABEL>, with the session ids you wish to backout or resubmit.<br><br>Once you have populated the table with the session ids, select 'Next Step: Analyze' below to proceed to the 'Identify & Analyze' page where you can review what is going to be backed out and resubmitted before any action is taken on these sessions.</TD>
+      <TD class="fieldRequired"><br>
+      <MDMLABEL NAME="TEXT_You_will_now_need_to_access_the_database_directly">You will now need to access the database directly and execute the SQL necessary to populate this table, t_rerun_session_</MDMLABEL>       
+      <MDMLABEL Name="ReRunId"></MDMLABEL>
+      <MDMLABEL NAME="TEXT_with_the_session_ids_you_wish">, with the session ids you wish to backout or resubmit.<br><br>Once you have populated the table with the session ids, select 'Next Step: Analyze' below to proceed to the 'Identify & Analyze' page where you can review what is going to be backed out and resubmitted before any action is taken on these sessions.</MDMLABEL> 
+      </TD>
    </TR>
  </TABLE>
 </TABLE>
@@ -28,18 +38,21 @@
 <!-- Dialog Buttons -->
 
 <div align="center">
-  <button name="OK" class="clsButtonXLarge" onClick="mdm_RefreshDialog(this); return false;" ID="Button1">Next Step: Analyze&nbsp;<IMG valign=middle border=0 src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif"></button>&nbsp;&nbsp;&nbsp;
+  <button name="OK" class="clsButtonXLarge" onClick="mdm_RefreshDialog(this); return false;" ID="Button1"><MDMLABEL NAME="TEXT_Next_Step_Analyze">Next Step: Analyze</MDMLABEL>&nbsp;<IMG valign=middle border=0 src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif"></button>&nbsp;&nbsp;&nbsp;
 
 </div>
 <br><br>
 <HR>
 <br><br>
-<h2>Examples</h2>
-		Essentially you are just inserting the session ids of the transactions you wish to backout but the ids have to be inserted in a particular way. In addition, the query for inserting failed transaction ids is different from the query for inserting successful transaction ids.<br><br>If you make a mistake, no problem. As long as you haven't deleted or resubmitted the transactions, even if you have proceed to the next page (the Identify & Analyze page) and discover you have made a mistake, you can update the <b>t_rerun_session_<MDMLABEL Name="ReRunId"></MDMLABEL></b> table by adding or deleting records with out starting over as long as you select 'Reanalyze' at the top of the next page to update the summary information before continuing on to actually delete or resubmit the transactions.
+<h2><MDMLABEL NAME="TEXT_Examples">Examples</MDMLABEL></h2>
+		<MDMLABEL NAME="TEXT_Essentially_you_are_just">Essentially you are just inserting the session ids of the transactions you wish to backout but the ids have to be inserted in a particular way. In addition, the query for inserting failed transaction ids is different from the query for inserting successful transaction ids.<br><br>If you make a mistake, no problem. As long as you haven't deleted or resubmitted the transactions, even if you have proceed to the next page (the Identify & Analyze page) and discover you have made a mistake, you can update the <b>t_rerun_session_</MDMLABEL>    
+    <MDMLABEL Name="ReRunId"></MDMLABEL></b>
+    <MDMLABEL NAME="TEXT_table_by_adding_or"> table by adding or deleting records with out starting over as long as you select 'Reanalyze' at the top of the next page to update the summary information before continuing on to actually delete or resubmit the transactions.</MDMLABEL>    
 		<br>
 		<br>
-<h3>Usage Transaction Example</h3>	
-For example, if the following query selecting usage for account 137 that was processed before February 2005 represented the sessions you wanted to backout<br><br>
+<h3><MDMLABEL NAME="TEXT_Usage_Transaction_Example">Usage Transaction Example</MDMLABEL></h3>	
+<MDMLABEL NAME="TEXT_For_Example">For example, if the following query selecting usage for account 137 that was processed before February 2005 represented the sessions you wanted to backout</MDMLABEL>
+<br><br>
 		<table width="99%" bgcolor="#000000" cellpadding="3" cellspacing="1" ID="Table1">
 			<tr bgcolor="#eeeeee">
 				<td width="100%" bgcolor="#eeeeee">
@@ -49,7 +62,8 @@ For example, if the following query selecting usage for account 137 that was pro
 			</tr>
 		</table>
 <br>		
-Then you would execute the following query to insert these same records into the rerun table<br><br>
+<MDMLABEL NAME="TEXT_Then_you_would_execute">Then you would execute the following query to insert these same records into the rerun table</MDMLABEL>
+<br><br>
 		<table width="99%" bgcolor="#000000" cellpadding="3" cellspacing="1" ID="Table2">
 			<tr bgcolor="#eeeeee">
 				<td width="100%" bgcolor="#eeeeee">
@@ -102,8 +116,9 @@ and <b>au.id_acc=137 and au.dt_session<'2005-02-01'</b>
 
 <br>
 <br>
-<h3>Failed Transaction Example</h3>	
-For example, if the following query selecting failed transactions that are new, happened in a service whose name ends with 'testservice' and were metered before February 2005 represented the sessions you wanted to backout<br><br>
+<h3><MDMLABEL NAME="TEXT_Failed_Transaction_Example">Failed Transaction Example</MDMLABEL></h3>	
+<MDMLABEL NAME="TEXT_Failed_Transaction_Example_Content">For example, if the following query selecting failed transactions that are new, happened in a service whose name ends with 'testservice' and were metered before February 2005 represented the sessions you wanted to backout</MDMLABEL>
+<br><br>
 		<table width="99%" bgcolor="#000000" cellpadding="3" cellspacing="1" ID="Table3">
 			<tr bgcolor="#eeeeee">
 				<td width="100%" bgcolor="#eeeeee">
@@ -112,8 +127,9 @@ For example, if the following query selecting failed transactions that are new, 
 				</td>
 			</tr>
 		</table>
-<br>		
-Then you would execute the following query to insert these same records into the rerun table<br><br>
+<br>
+<MDMLABEL NAME="TEXT_Then_you_would_execute_the_following_query">Then you would execute the following query to insert these same records into the rerun table</MDMLABEL>		
+<br><br>
 		<table width="99%" bgcolor="#000000" cellpadding="3" cellspacing="1" ID="Table4">
 			<tr bgcolor="#eeeeee">
 				<td width="100%" bgcolor="#eeeeee">

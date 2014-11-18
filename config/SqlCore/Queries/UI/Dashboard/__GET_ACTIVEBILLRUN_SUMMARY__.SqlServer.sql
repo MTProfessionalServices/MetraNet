@@ -10,21 +10,89 @@ DECLARE @lastEOPAdapterName VARCHAR(50)
 DECLARE @lastEOPAdapterDuration INT
 DECLARE @lastEOPAdapterStatus VARCHAR(25)
 DECLARE @start_time DATETIME
-DECLARE @Varience FLOAT
+DECLARE @Variance FLOAT
 DECLARE @ETAoffset INT
+DECLARE @ETAoffsetHours FLOAT
 DECLARE @EarliestETA DATETIME
-
-set @Varience = (SELECT CAST(RAND() * 10 AS INT) + round(RAND(), 2) AS [RandomNumber]
-)
-set @ETAoffset = (SELECT CAST(RAND() * 10 AS INT))
-set @EarliestETA = DATEADD(HOUR, 20 + @ETAoffset, GETDATE())
-
+DECLARE @EOP_Interval_run_time FLOAT
+DECLARE @Past_three_month_average FLOAT
 
 SET @EOP_Interval = %%ID_USAGE_INTERVAL%% --change to your interval variable
 SET @EOP_End_Date = (
 SELECT dt_end AS dt_end from t_usage_interval
 where id_interval = @EOP_Interval
 )
+
+--get sum of all run times for successful adapters that have run so far for current EOP Interval (in seconds)
+SET @EOP_Interval_run_time = (SELECT sum(datediff(second, rer.dt_start, rer.dt_end))
+  FROM [dbo].[t_recevent_inst] rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+Where id_arg_interval = @EOP_Interval
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and rei.tx_status = 'Succeeded') + 0.0
+
+-- get the three month average total run time (in seconds) for all EOP adapters in past hard closed intervals that match the bill cycle of the current EOP Interval
+SET @Past_three_month_average = (SELECT case when count(distinct rei.id_arg_interval) != 0 then sum(datediff(second, rer.dt_start, rer.dt_end) + 0.0) / count(distinct rei.id_arg_interval) else 0 end
+  FROM [dbo].[t_recevent_inst] rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+WHERE id_arg_interval in (
+select ui.id_interval
+from t_usage_interval ui
+where ui.tx_interval_status = 'H'
+and ui.dt_end > dateadd(month, -3, getdate())
+and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = @EOP_Interval))
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and tx_name in (
+-- These are the adapters that have successfully run so far for the current EOP interval
+SELECT tx_name
+  FROM [dbo].[t_recevent_inst] rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+Where id_arg_interval = @EOP_Interval
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and rei.tx_status = 'Succeeded'
+)) + 0.0
+
+-- compute Variance based on @EOP_Interval_run_time compared to @Past_three_month_average
+set @Variance = case when @Past_three_month_average != 0.0 then ROUND(((@EOP_Interval_run_time - @Past_three_month_average) * 100.0/ @Past_three_month_average),2) else 0.0 end;
+
+-- get the three month average total run time (in seconds) of all adapters that have not yet successfully run for the current EOP adapter
+SET @ETAoffset = (SELECT case when count(distinct rei.id_arg_interval) != 0 then sum(datediff(second, rer.dt_start, rer.dt_end)) / count(distinct rei.id_arg_interval) else 0 end
+  FROM [dbo].[t_recevent_inst] rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+WHERE id_arg_interval in (
+select ui.id_interval
+from t_usage_interval ui
+where ui.tx_interval_status = 'H'
+and ui.dt_end > dateadd(month, -3, getdate())
+and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = @EOP_Interval))
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and tx_name not in (
+-- These are the adapters that have successfully run so far for the current EOP interval
+SELECT tx_name
+  FROM [dbo].[t_recevent_inst] rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+Where id_arg_interval = @EOP_Interval
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and rei.tx_status = 'Succeeded'
+))
+
+-- Convert the ETAoffset from seconds to hours
+set @ETAoffsetHours = ROUND(((@ETAoffset + 0.0) / 3600.0), 3)
+
+-- Compute the @EarliestETA
+set @EarliestETA = DATEADD(SECOND, @ETAoffset, GETUTCDATE())
+
+
 --get count of all EOP Adapters
 SET @EOPadapterCount  = (
 select count(*) as EOP_adaptet_Count
@@ -133,6 +201,8 @@ select
 ,@lastEOPAdapterName as last_eop_adapter_name
 ,@lastEOPAdapterDuration as last_eop_adapter_duration
 ,@lastEOPAdapterStatus as last_eop_adapter_status
-,@Varience as Variance, @EarliestETA as [earliest_eta];
+,@Variance as Variance
+,@EarliestETA as earliest_eta
+,@ETAoffsetHours as eta_offset;
 
 

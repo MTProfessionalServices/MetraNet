@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NotificationEventsMetaDataCollection>
 <NotificationEvents>
-	<NotificationEvent>
+<NotificationEvent>
 		<name>Subscription End Date</name>
 		<generatorquery>__GENERATE_SUB_END_DATE_RECORDS__</generatorquery>
 		<properties>nm_login, id_acc, varEndDate, varSubType, nm_display_name, varPOInternalName, id_partition</properties>
@@ -12,6 +12,18 @@
 		<generatorquery>__GENERATE_GROUP_SUB_END_DATE_RECORDS__</generatorquery>
 		<properties>varSubType, varAccount, varEndDate, varDisplayName, varPOInternalName, id_partition</properties>
 		<consumersquery>__GENERATE_GROUP_SUB_END_DATE_CONSUMERS__</consumersquery>
-	</NotificationEvent>  
+	</NotificationEvent> 
+	<NotificationEvent>
+		<name>Failed Adapters</name>
+		<generatorquery>__GENERATE_FAILED_ADAPTERS_RECORDS__</generatorquery>
+		<properties>tx_name, id_instance, id_run, tx_detail, id_partition</properties>
+		<consumersquery>__GENERATE_FAILED_ADAPTERS_CONSUMERS__</consumersquery>
+	</NotificationEvent>    
+  <NotificationEvent>
+		<name>Demo Notification Event</name>
+		<generatorquery>__GENERATE_DEMO_NOTIFICATION_EVENT_RECORDS__</generatorquery>
+		<properties>not_event_timestamp, id_partition</properties>
+		<consumersquery>__GENERATE_DEMO_NOTIFICATION_EVENT_CONSUMERS__</consumersquery>
+	</NotificationEvent> 
 </NotificationEvents>
 </NotificationEventsMetaDataCollection>

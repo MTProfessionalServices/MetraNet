@@ -36,7 +36,11 @@
         </locale_entry>
         <locale_entry>
             <Name>UI/NotificationEventType/Demo Notification Event</Name>
-            <Value>{fr}Demo Notification Event</Value>
+            <Value>événement de notification démo</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>UI/NotificationEventType/Failed Adapters</Name>
+            <Value>Adaptateurs Défaillants</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/NotificationEventType/Group Subscription End Date</Name>

@@ -36,7 +36,11 @@
         </locale_entry>
         <locale_entry>
             <Name>UI/NotificationEventType/Demo Notification Event</Name>
-            <Value>{ja}Demo Notification Event</Value>
+            <Value>デモ通知イベント</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>UI/NotificationEventType/Failed Adapters</Name>
+            <Value>失敗したアダプタ</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/NotificationEventType/Group Subscription End Date</Name>

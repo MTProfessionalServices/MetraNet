@@ -1341,4 +1341,10 @@
   <data name="TEXT_MORE" xml:space="preserve">
     <value>[DE]More ...</value>
   </data>
+  <data name="FAILED_ADAPTERS_TEMPLATE" xml:space="preserve">
+    <value>[de]Adapter {tx_name}, instance id {id_instance} for run {id_run} has failed with the error {tx_detail}.</value>
+  </data>
+  <data name="DEMO_NOTIFICATION_EVENT_TEMPLATE" xml:space="preserve">
+    <value>[DE]Demo event successfully generated on {currenttimestamp}.</value>
+  </data>
 </root>

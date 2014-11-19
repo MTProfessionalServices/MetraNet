@@ -17,11 +17,14 @@
       meta.attr = "style='white-space:normal;'";
       var SubEnding = 'Subscription End Date';
       var GSubEnding = 'Group Subscription End Date';
+      var DemoNotificationEvent = 'Demo Notification Event';
       var template = '';
       if (record.json.notification_event_name == SubEnding)
         template = SUBSCRIPTION_ENDING_TEMPLATE;
       else if (record.json.notification_event_name == GSubEnding)
         template = GROUP_SUBSCRIPTION_ENDING_TEMPLATE;
+      else if  (record.json.notification_event_name == DemoNotificationEvent)
+        template  = DEMO_NOTIFICATION_EVENT_TEMPLATE;
               recentNotificationTpl = new Ext.XTemplate(
               "<tpl>",
                   '<div id="recennotification">' + template + '</div>',

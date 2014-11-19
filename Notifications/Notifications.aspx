@@ -18,13 +18,16 @@
       var SubEnding = 'Subscription End Date';
       var GSubEnding = 'Group Subscription End Date';
       var DemoNotificationEvent = 'Demo Notification Event';
+      var FailedAdapters = 'Failed Adapters';
       var template = '';
       if (record.json.notification_event_name == SubEnding)
         template = SUBSCRIPTION_ENDING_TEMPLATE;
       else if (record.json.notification_event_name == GSubEnding)
         template = GROUP_SUBSCRIPTION_ENDING_TEMPLATE;
       else if  (record.json.notification_event_name == DemoNotificationEvent)
-        template  = DEMO_NOTIFICATION_EVENT_TEMPLATE;
+        template = DEMO_NOTIFICATION_EVENT_TEMPLATE;
+      else if (record.json.notification_event_name == FailedAdapters)
+        template = FAILED_ADAPTERS_TEMPLATE;
               recentNotificationTpl = new Ext.XTemplate(
               "<tpl>",
                   '<div id="recennotification">' + template + '</div>',

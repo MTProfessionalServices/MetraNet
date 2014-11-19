@@ -90,8 +90,6 @@ public partial class OperationsDashboard : MTPage
     lblSuccessful.Text = Convert.ToString(GetLocalResourceObject("TEXT_SUCCESSFUL"));
     lblReady.Text = Convert.ToString(GetLocalResourceObject("TEXT_READY"));
     lblWaiting.Text = Convert.ToString(GetLocalResourceObject("TEXT_WAITING"));
-    lblVariance.Text = Convert.ToString(GetLocalResourceObject("TEXT_VARIANCE"));
-    lblEarliestETA.Text = Convert.ToString(GetLocalResourceObject("TEXT_EARLIEST_ETA"));
 
     DurationWord = Convert.ToString(GetLocalResourceObject("TEXT_DURATION"));
     AdapterWord = Convert.ToString(GetLocalResourceObject("TEXT_ADAPTER"));

@@ -138,19 +138,13 @@
                                 <td colspan="2">
                                     <table>
                                         <tr>
-                                            <td class="label">
-                                                <MT:MTLabel ID="lblVariance" runat="server" Text="Variance:" />
-                                            </td>
-                                            <td>
+                                            <td colspan="2" style="text-align: left">
                                                 <MT:MTLabel ID="txtVariance" runat="server" />
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="label">
-                                                <MT:MTLabel ID="lblEarliestETA" runat="server" Text="Earliest ETA:" />
-                                            </td>
-                                            <td>
-                                                <MT:MTLabel ID="txtEarliestETA" runat="server" />
+                                            <td colspan="2" style="text-align: left">
+                                                <MT:MTLabel ID="txtEarliestETA" runat="server" /><br/><br/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -625,7 +619,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         console.log(error);
       } else {
         var activebillrunsummary = json["Items"];
-        var successful, failed, waiting, ready, variance, earliesteta;
+        var successful, failed, waiting, ready, variance, earliesteta, etaoffset;
         if (activebillrunsummary[0] != null) {
           successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
           failed = activebillrunsummary[0]["eop_failed_adapter_count"];
@@ -633,6 +627,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
           ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
           variance = activebillrunsummary[0]["varianceAsString"];
           earliesteta = activebillrunsummary[0]["earliest_eta"];
+          etaoffset = activebillrunsummary[0]["eta_offset"];
         }
 
         if (failed == 0) {
@@ -645,9 +640,16 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
         d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
         d3.select("#<%=txtReady.ClientID%>").text(ready);
-        d3.select("#<%=txtVariance.ClientID%>").text(variance);
-        d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
 
+        var varianceAsFloat = parseFloat(variance);
+        var textVariance = "";
+        if (!isNaN(varianceAsFloat)) {
+          if (Math.abs(varianceAsFloat) <= .5) textVariance = '<%=GetLocalResourceObject("TEXT_VARIANCE_SAME_MESSAGE")%>';
+          else if (varianceAsFloat > 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_SLOWER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+          else if (varianceAsFloat < 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+        }
+        d3.select("#<%=txtVariance.ClientID%>").text(textVariance);
+        d3.select("#<%=txtEarliestETA.ClientID%>").text(String.format('<%=GetLocalResourceObject("TEXT_EARLIEST_ETA")%>', failed + waiting + ready, etaoffset, earliesteta));
         d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor", "pointer");
         d3.select("#<%=txtFailedAdapters.ClientID%>").on("click", function() { window.location = "/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval; });
       }
@@ -702,7 +704,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var pipeQGroup = dateDimension.group().reduceSum(dc.pluck('pipe_q'));
             var msgqQGroup = dateDimension.group().reduceSum(dc.pluck('msgq_q'));
             var schedulerQGroup = dateDimension.group().reduceSum(dc.pluck('scheduler_q'));
-			var colors = d3.scale.ordinal().domain([0,1,2]).range(['#00B0F0','#0070C0','#148622']);
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
                     .margins({top: 5, right: 5, bottom: 64, left: 5})
@@ -721,21 +722,20 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(pipeQGroup, "<%=pipelineQueueText%>")
-                                .colors(colors(0))
+                                .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(msgqQGroup, "<%=rampQueueText%>")
-                                .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(schedulerQGroup, "<%=schedulerQueueText%>")
-                                .colors(colors(2))
+                                .colors('#148622')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                     ]);
@@ -748,7 +748,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var rampBacklogGroup = dateDimension.group().reduceSum(dc.pluck('ramp_backlog'));
             var rampGroup = dateDimension.group().reduceSum(dc.pluck('ramp'));
             var composite2 = dc.compositeChart("#divPricingBacklog");
-			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
                     .margins({top: 5, right: 5, bottom: 64, left: 5})
 					.height(255)
@@ -765,14 +764,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeBacklogGroup, "<%=pipelineWaitDurationText%>")
-                                .colors(colors(0))
+                                .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeGroup, "<%=pipelineProcessingDurationText%>")
-                                .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
                     ])
@@ -854,7 +852,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
               .title(function(d){ return LocalizeTickText(d.key) + ": " + FormatNumber(d.value);} )
               .renderlet(function(chartRen) {
                           var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
-                                            .range(['#00B0F0','#0070C0','#148622','#FFC000']);
+                                            .range(['deepskyblue','#0070C0','#148622','#FFC000']);
                           chart.selectAll('rect.bar').each(function(d) {
                             d3.select(this).attr("style", "fill: " + colors(d.x));
                           });

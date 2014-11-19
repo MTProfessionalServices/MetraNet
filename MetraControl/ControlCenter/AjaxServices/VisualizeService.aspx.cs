@@ -159,11 +159,17 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           json.Append(item);
           item = string.Format("\"last_eop_adapter_status\":{0},", FormatFieldValue(record.Fields[11]));
           json.Append(item);
-          item = string.Format("\"varianceAsString\":\"{0}\",", FormatFieldValue(record.Fields[12]));
+          double variance = 0.0;
+          if (record.Fields[12] != null && record.Fields[12].FieldValue != null && !String.IsNullOrEmpty(record.Fields[12].FieldValue.ToString()))
+          {
+            variance = Double.Parse(record.Fields[12].FieldValue.ToString(), CultureInfo.CurrentCulture);
+          }
+          item = string.Format("\"varianceAsString\":\"{0}\",", variance.ToString("G", CultureInfo.CreateSpecificCulture("en-US")));
           json.Append(item);
-          item = string.Format("\"earliest_eta\":\"{0}\"", string.Format("{0} {1}", Convert.ToDateTime(record.Fields[13].FieldValue).ToString("d"), Convert.ToDateTime(record.Fields[13].FieldValue).ToString("hh:mm:ss")));
+          item = string.Format("\"earliest_eta\":\"{0}\",", string.Format("{0} {1}", Convert.ToDateTime(record.Fields[13].FieldValue).ToString("d"), Convert.ToDateTime(record.Fields[13].FieldValue).ToString("HH:mm:ss")));
           json.Append(item);
-
+          item = string.Format("\"eta_offset\":\"{0}\"", Double.Parse(FormatFieldValue(record.Fields[14])));
+          json.Append(item);
         }
       }
       json.Append("}");

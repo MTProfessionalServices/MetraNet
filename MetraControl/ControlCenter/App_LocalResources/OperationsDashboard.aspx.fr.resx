@@ -210,9 +210,6 @@
     <data name="TEXT_DURATION" xml:space="preserve">
         <value>Durée</value>
     </data>
-    <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-        <value>ETA le plus proche:</value>
-    </data>
     <data name="TEXT_END" xml:space="preserve">
         <value>Fin</value>
     </data>
@@ -291,9 +288,6 @@
     <data name="TEXT_UNGUIDED" xml:space="preserve">
         <value>Sans guide</value>
     </data>
-    <data name="TEXT_VARIANCE" xml:space="preserve">
-        <value>Écart:</value>
-    </data>
     <data name="TEXT_WAITING" xml:space="preserve">
         <value>En attente:</value>
     </data>
@@ -311,5 +305,17 @@
   </data>
   <data name="TEXT_TYPE_M5" xml:space="preserve">
     <value>{fr}M5</value>
-  </data>      
+  </data>
+  <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
+    <value>{fr}Average run time of remaining {0} adapters is {1} hours (Earliest ETA: {2})</value>
+  </data>
+  <data name="TEXT_VARIANCE_FASTER_MESSAGE" xml:space="preserve">
+    <value>{fr}Adapters are running about {0} % faster compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_VARIANCE_SAME_MESSAGE" xml:space="preserve">
+    <value>{fr}Adapters are running about the same compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_VARIANCE_SLOWER_MESSAGE" xml:space="preserve">
+    <value>{fr}Adapters are running about {0} % slower compared to previous runs for this interval</value>
+  </data>
 </root>

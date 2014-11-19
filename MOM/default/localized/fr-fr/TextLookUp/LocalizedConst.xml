@@ -28,6 +28,38 @@
     <value>[FR]Batch ID</value>
     <description></description>
   </text>
+  <text id="TEXT_Comment1">
+    <value>[FR]Comment</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RerunId1">
+    <value>[FR]RerunId</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Filter1">
+    <value>[FR]Filter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Tag1">
+    <value>[FR]Tag</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LastAction1">
+    <value>[FR]Last Action</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Action1">
+    <value>[FR]Action</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Time1">
+    <value>[FR]Time</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UserName1">
+    <value>[FR]User Name</value>
+    <description></description>
+  </text>
   <text id="TEXT_How_will_you_identify_the_transactions_to_be_rerun">
     <value>[FR][How will you identify the transactions to be rerun?]</value>
     <description></description>
@@ -106,6 +138,22 @@
   </text>
   <text id="TEXT_Are_you_sure_you_wish">
     <value>[FR]Are you sure you wish to permanently delete these records?\nClick OK to continue and delete these records</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_Rerun_History">
+    <value>[FR]Backout/Rerun History</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_EVENTS1">
+    <value>[FR]No events have been recorded for this backout.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resume_Backout">
+    <value>[FR]Resume Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon_Backout">
+    <value>[FR]Abandon Backout</value>
     <description></description>
   </text>
 </texts>

@@ -102,7 +102,15 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("UserName").Selected    = i : i=i+1
   ProductView.Properties("Comment").Selected     = i : i=i+1
   
-  ProductView.Properties.CancelLocalization
+  ProductView.Properties("RerunId").Caption     = mom_GetDictionary("TEXT_RerunId1")
+  ProductView.Properties("Filter").Caption      = mom_GetDictionary("TEXT_Filter1")
+  ProductView.Properties("Tag").Caption         = mom_GetDictionary("TEXT_Tag1")
+  ProductView.Properties("LastAction").Caption  = mom_GetDictionary("TEXT_LastAction1")
+  ProductView.Properties("Time").Caption        = mom_GetDictionary("TEXT_Time1")  
+  ProductView.Properties("UserName").Caption    = mom_GetDictionary("TEXT_UserName1")
+  ProductView.Properties("Comment").Caption     = mom_GetDictionary("TEXT_Comment1")
+
+  'ProductView.Properties.CancelLocalization
  
   ' REQUIRED because we must generate the property type info in javascript. When the user change the property which he
   ' wants to use to do a filter we use the type of the property (JAVASCRIPT code) to show 2 textbox if it is a date
@@ -141,11 +149,15 @@ PRIVATE FUNCTION Form_DisplayDetailRow(EventArg) ' As Boolean
     EventArg.HTMLRendered = EventArg.HTMLRendered & "<TABLE width='100%' border=0 cellpadding=1 cellspacing=0>" & vbNewLine
     
     'id_rerun dt_action   tx_action   id_acc   tx_comment  
-    EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='5'>Backout/Rerun History</td></tr>"    
-    EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left'>Time</td><td align='left'>Action</td><td align='left'>Comment</td><td align='left'>User</td></tr>"    
+    EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='5'>" 
+    EventArg.HTMLRendered = EventArg.HTMLRendered & mom_GetDictionary("TEXT_Backout_Rerun_History") & "</td></tr>"    
+    EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left'>"
+    EventArg.HTMLRendered = EventArg.HTMLRendered & mom_GetDictionary("TEXT_Time1") & "</td><td align='left'>"
+    EventArg.HTMLRendered = EventArg.HTMLRendered & mom_GetDictionary("TEXT_Action1") & "</td><td align='left'>" 
+    EventArg.HTMLRendered = EventArg.HTMLRendered & mom_GetDictionary("TEXT_Comment1") & "</td><td align='left'>" & mom_GetDictionary("TEXT_UserName1") & "</td></tr>"    
 
     if rowset.eof then
-      EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableDetailCell'><td colspan='4'>No events have been recorded for this backout.</td></tr>"
+      EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableDetailCell'><td colspan='4'>" & mom_GetDictionary("TEXT_NO_EVENTS1") & "</td></tr>"
     else  
       do while not rowset.eof 
           dim sToolTip
@@ -165,11 +177,11 @@ PRIVATE FUNCTION Form_DisplayDetailRow(EventArg) ' As Boolean
     Select Case UCase(rowset.Value("Action"))        
       Case "CREATE"
       Case "END IDENTIFY"
-          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton("Resume Backout","Analyze",lngReRunId)          
-          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton("Abandon Backout","Abandon",lngReRunId)          
+          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton(mom_GetDictionary("TEXT_Resume_Backout"),"Analyze",lngReRunId)          
+          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton(mom_GetDictionary("TEXT_Abandon_Backout"),"Abandon",lngReRunId)          
       Case "END ANALYZE"
-          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton("Resume Backout","Analyze",lngReRunId)          
-          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton("Abandon Backout","Abandon",lngReRunId)          
+          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton(mom_GetDictionary("TEXT_Resume_Backout"),"Analyze",lngReRunId)          
+          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton(mom_GetDictionary("TEXT_Abandon_Backout"),"Abandon",lngReRunId)          
       'For these cases, do nothing
       Case "END BACKOUT/DELETE"
       Case "END BACKOUT/RESUBMIT"
@@ -179,8 +191,8 @@ PRIVATE FUNCTION Form_DisplayDetailRow(EventArg) ' As Boolean
 
       Case else
           EventArg.HTMLRendered = EventArg.HTMLRendered & "<div class='clsError'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" & mom_GetDictionary("TEXT_BACK_OUT_OPERATION_IS_NOT_COMPLETE") & "<br><br>"
-          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton("Resume Backout","Analyze",lngReRunId)          
-          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton("Abandon Backout","Abandon",lngReRunId) & "</div>"
+          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton(mom_GetDictionary("TEXT_Resume_Backout"),"Analyze",lngReRunId)          
+          EventArg.HTMLRendered = EventArg.HTMLRendered & GetHTMLCodeForButton(mom_GetDictionary("TEXT_Abandon_Backout"),"Abandon",lngReRunId) & "</div>"
        
     End Select    
     EventArg.HTMLRendered = EventArg.HTMLRendered & "<br><br></td>" & vbNewLine

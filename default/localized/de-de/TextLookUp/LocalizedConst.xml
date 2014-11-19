@@ -144,6 +144,14 @@
     <value>Backout/Rerun History</value>
     <description></description>
   </text>
+  <text id="TEXT_Backout">
+    <value>Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismiss">
+    <value>Dismiss</value>
+    <description></description>
+  </text>
   <text id="TEXT_NO_EVENTS1">
     <value>No events have been recorded for this backout.</value>
     <description></description>
@@ -154,6 +162,118 @@
   </text>
   <text id="TEXT_Abandon_Backout">
     <value>Abandon Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_History">
+    <value>Batch History</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EventName">
+    <value>Event Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Details">
+    <value>Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_User">
+    <value>User</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>No audit events have been recorded for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_Backout_Rerun_List">
+    <value>Batch Backout/Rerun List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>No audit events have been recorded for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_backouts">
+    <value>No backouts exist explicitly for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resume_Backout">
+    <value>Resume Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon">
+    <value>Abandon</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete">
+    <value>Delete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit">
+    <value>Resubmit</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Completed">
+    <value>Mark As Completed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Failed">
+    <value>Mark As Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_View_Failed_Transactions">
+    <value>View Failed Transactions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Remove_Title">
+    <value>Remove this backout from the system. The backout was started but no records were ever backedout.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit_the_records">
+    <value>Resubmit the records that were backed out.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete_the_records">
+    <value>Delete The Records That Were Backedout. These records will no longer be able to be resubmited</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAMESPACE">
+    <value>Namespace</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME">
+    <value>Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Source">
+    <value>Source</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Sequence">
+    <value>Sequence</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Completed">
+    <value>Completed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Failed">
+    <value>Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismissed">
+    <value>Dismissed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Expected">
+    <value>Expected</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Creation">
+    <value>Creation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Click_To_View">
+    <value>Click To View List Of Failed Transactions For This Batch</value>
     <description></description>
   </text>
 </texts>

@@ -179,21 +179,18 @@ public class VisualizeService
 
         using (var reader = stmt.ExecuteReader())
         {
-          var items = new ListItem[MaxDdCount];
+          var items = new ListItem();
           int count = 0;
 
           while (reader.Read())
           {
-            items[count] = new ListItem();
-            items[count].Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), Convert.ToDateTime(reader.GetValue("dt_end")).ToString("d"));
-            items[count].Value = reader.GetValue("id_interval").ToString();
-            if (count == 0) items[count].Selected = true;
-
+            ListItem item =  new ListItem();
+            item.Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), Convert.ToDateTime(reader.GetValue("dt_end")).ToString("d"));
+            item.Value = reader.GetValue("id_interval").ToString();
             foreach (MTDropDown dd in ddIntervalsList)
             {
-              dd.Items.Add(items[count]);  
+              dd.Items.Add(item);  
             }
-            count = count + 1;
           }
         }
       }

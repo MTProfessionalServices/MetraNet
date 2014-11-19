@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mt_config>
+    <language_code>es</language_code>
+    <locale_space name="metratech.com/Events">
+        <locale_entry>
+            <Name>metratech.com/Events/Action/Execute</Name>
+            <Value>[ES] Execute</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Events/Action/Reverse</Name>
+            <Value>[ES] Reverse</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Events/Status/Failed</Name>
+            <Value>[ES] Failed</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Events/Status/NotYetRun</Name>
+            <Value>[ES] NotYetRun</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Events/Status/ReadyToRun</Name>
+            <Value>[ES] ReadyToRun</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Events/Status/Succeeded</Name>
+            <Value>[ES] Succeeded</Value>
+        </locale_entry>
+    </locale_space>
+</mt_config>

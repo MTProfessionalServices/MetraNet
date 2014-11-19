@@ -7,7 +7,6 @@ r.tx_name
 ,rr.dt_start 
 ,rr.dt_end 
 ,rr.tx_detail 
-,id_partition = 1 
 FROM t_recevent r 
 join t_recevent_inst ri ON ri.id_event = r.id_event 
 left join t_recevent_run rr ON rr.id_instance = ri.id_instance 

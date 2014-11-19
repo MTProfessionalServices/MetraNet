@@ -1,0 +1,1 @@
+SELECT CURRENT_TIMESTAMP as currentTimeStamp from dual

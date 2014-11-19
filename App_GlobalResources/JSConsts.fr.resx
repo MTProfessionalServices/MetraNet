@@ -799,7 +799,7 @@
     <value>Effacer des membres du groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
-        <value>Désabonner des membres de l’abonnement de groupe</value>
+    <value>Désabonner des membres de l’abonnement de groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
     <value>Mettre à jour les membres du groupe</value>
@@ -1308,7 +1308,7 @@
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
     <value>Créer une relation</value>
   </data>
-    <data name="TEXT_TERMINATE" xml:space="preserve">
+  <data name="TEXT_TERMINATE" xml:space="preserve">
     <value>Terminate</value>
   </data>
   <data name="TEXT_TERMINATE_SELECTED_ROWS" xml:space="preserve">
@@ -1340,5 +1340,11 @@
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
     <value>[fr]More ...</value>
+  </data>
+  <data name="FAILED_ADAPTERS_TEMPLATE" xml:space="preserve">
+    <value>[FR]Adapter {tx_name}, instance id {id_instance} for run {id_run} has failed with the error {tx_detail}.</value>
+  </data>
+  <data name="DEMO_NOTIFICATION_EVENT_TEMPLATE" xml:space="preserve">
+    <value>[FR]Demo event successfully generated on {currenttimestamp}.</value>
   </data>
 </root>

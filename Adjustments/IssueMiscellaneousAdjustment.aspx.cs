@@ -517,7 +517,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
       var allowed = true;
       if (!UI.SessionContext.SecurityContext.IsSuperUser())
       {
-        var conditions = GetMaxCapabilityAmount().Split(',');
+        var conditions = GetMaxCapabilityAmount().Split(';');
         for (var i = 0; allowed && i < conditions.Length; i++)
         {
           Func<decimal, decimal, bool> expression;
@@ -609,7 +609,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                              cap.GetAtomicDecimalCapability().GetParameter().Test, 
 							 display,
                              ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
-            concop = " , ";
+            concop = "; ";
         }
 
         return amount;

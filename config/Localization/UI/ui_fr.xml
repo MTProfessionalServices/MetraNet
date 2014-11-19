@@ -35,12 +35,20 @@
             <Value>Parenthèse</Value>
         </locale_entry>
         <locale_entry>
+            <Name>UI/NotificationEventType/Demo Notification Event</Name>
+            <Value>{fr}Demo Notification Event</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>UI/NotificationEventType/Group Subscription End Date</Name>
             <Value>{fr} Group Subscription End Date</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/NotificationEventType/Subscription End Date</Name>
             <Value>{fr} Subscription End Date</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>UI/NotificationEvetnType/Demo Notification Event</Name>
+            <Value>{fr}Demo Notification Event</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/ReportType/Chart</Name>

@@ -35,12 +35,20 @@
             <Value>かっこ</Value>
         </locale_entry>
         <locale_entry>
+            <Name>UI/NotificationEventType/Demo Notification Event</Name>
+            <Value>{ja}Demo Notification Event</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>UI/NotificationEventType/Group Subscription End Date</Name>
             <Value>{jp} Group Subscription End Date</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/NotificationEventType/Subscription End Date</Name>
             <Value>{jp} Subscription End Date</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>UI/NotificationEvetnType/Demo Notification Event</Name>
+            <Value>{ja}Demo Notification Event</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/ReportType/Chart</Name>

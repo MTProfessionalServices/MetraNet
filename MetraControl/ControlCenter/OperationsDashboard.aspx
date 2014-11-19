@@ -645,8 +645,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         var textVariance = "";
         if (!isNaN(varianceAsFloat)) {
           if (Math.abs(varianceAsFloat) <= .5) textVariance = '<%=GetLocalResourceObject("TEXT_VARIANCE_SAME_MESSAGE")%>';
-          else if (varianceAsFloat < 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_SLOWER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
-          else if (varianceAsFloat > 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', varianceAsFloat.toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+          else if (varianceAsFloat > 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_SLOWER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+          else if (varianceAsFloat < 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
         }
         d3.select("#<%=txtVariance.ClientID%>").text(textVariance);
         d3.select("#<%=txtEarliestETA.ClientID%>").text(String.format('<%=GetLocalResourceObject("TEXT_EARLIEST_ETA")%>', failed + waiting + ready, etaoffset, earliesteta));

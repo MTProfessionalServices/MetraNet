@@ -28,10 +28,9 @@
 
       var mainFrame = window.getFrameMetraNet().MainContentIframe;
       var subpFrame = window.getFrameMetraNet().subParamsSelectorWin2;
-      
-      try {       
-        if (mainFrame)
-        {
+
+      try {
+        if (mainFrame) {
           if (mainFrame.ticketFrame) {
             if (mainFrame.ticketFrame.fmeTemplatePage) {
               mainFrame.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids);
@@ -49,11 +48,8 @@
             }
           }
         }
-      }
-      catch(e)
-      {
-        //Ext.UI.msg("Error", "Couldn't find <%= CallbackFunction %> method.");      
-        window.Ext.UI.msg(window.TEXT_ERROR_MSG, window.TEXT_CALLBACK_MSG_1 + window.TEXT_CALLBACK_MSG_2);      
+      } catch(e) {
+        window.Ext.UI.msg(window.TEXT_ERROR_MSG, window.TEXT_CALLBACK_MSG_1 + " <%= CallbackFunction %> " + window.TEXT_CALLBACK_MSG_2);
       }
 
       if (subpFrame != null) {

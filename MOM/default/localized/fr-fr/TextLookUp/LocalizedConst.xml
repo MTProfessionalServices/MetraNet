@@ -144,6 +144,14 @@
     <value>[FR]Backout/Rerun History</value>
     <description></description>
   </text>
+  <text id="TEXT_Backout">
+    <value>[FR]Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismiss">
+    <value>[FR]Dismiss</value>
+    <description></description>
+  </text>
   <text id="TEXT_NO_EVENTS1">
     <value>[FR]No events have been recorded for this backout.</value>
     <description></description>
@@ -154,6 +162,118 @@
   </text>
   <text id="TEXT_Abandon_Backout">
     <value>[FR]Abandon Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_History">
+    <value>[FR]Batch History</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EventName">
+    <value>[FR]Event Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Details">
+    <value>[FR]Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_User">
+    <value>[FR]User</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>[FR]No audit events have been recorded for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_Backout_Rerun_List">
+    <value>[FR]Batch Backout/Rerun List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>[FR]No audit events have been recorded for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_backouts">
+    <value>[FR]No backouts exist explicitly for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resume_Backout">
+    <value>[FR]Resume Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon">
+    <value>[FR]Abandon</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete">
+    <value>[FR]Delete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit">
+    <value>[FR]Resubmit</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Completed">
+    <value>[FR]Mark As Completed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Failed">
+    <value>[FR]Mark As Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_View_Failed_Transactions">
+    <value>[FR]View Failed Transactions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Remove_Title">
+    <value>[FR]Remove this backout from the system. The backout was started but no records were ever backedout.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit_the_records">
+    <value>[FR]Resubmit the records that were backed out.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete_the_records">
+    <value>[FR]Delete The Records That Were Backedout. These records will no longer be able to be resubmited</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAMESPACE">
+    <value>[FR]Namespace</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME">
+    <value>[FR]Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Source">
+    <value>[FR]Source</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Sequence">
+    <value>[FR]Sequence</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Completed">
+    <value>[FR]Completed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Failed">
+    <value>[FR]Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismissed">
+    <value>[FR]Dismissed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Expected">
+    <value>[FR]Expected</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Creation">
+    <value>[FR]Creation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Click_To_View">
+    <value>[FR]Click To View List Of Failed Transactions For This Batch</value>
     <description></description>
   </text>
 </texts>

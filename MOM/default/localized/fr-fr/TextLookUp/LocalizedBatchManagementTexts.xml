@@ -72,4 +72,52 @@
   <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION">
     <value>[FR]This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value>
   </text>
+  <text id="TEXT_Namespace">
+    <value>[FR]Namespace</value>
+  </text>
+  <text id="TEXT_Name">
+    <value>[FR]Name</value>
+  </text>
+  <text id="TEXT_Sequence">
+    <value>[FR]Sequence</value>
+  </text>
+  <text id="TEXT_Source">
+    <value>[FR]Source</value>
+  </text>
+  <text id="TEXT_Created">
+    <value>[FR]Created</value>
+  </text>
+  <text id="TEXT_First_Transaction">
+    <value>[FR]First Transaction</value>
+  </text>
+  <text id="TEXT_Most_Recent_Transaction">
+    <value>[FR]Most Recent Transaction</value>
+  </text>
+  <text id="TEXT_Internal_Batch_Id">
+    <value>[FR]Internal Batch Id</value>
+  </text>
+  <text id="TEXT_Status">
+    <value>[FR]Status</value>
+  </text>
+  <text id="TEXT_Expected">
+    <value>[FR]Expected</value>
+  </text>
+  <text id="TEXT_Completed">
+    <value>[FR]Completed</value>
+  </text>
+  <text id="TEXT_Failed">
+    <value>[FR]Failed</value>
+  </text>
+  <text id="TEXT_Dismissed">
+    <value>[FR]Dismissed</value>
+  </text>
+  <text id="TEXT_Difference">
+    <value>[FR]Difference</value>
+  </text>
+  <text id="TEXT_View_Statistics">
+    <value>[FR]View Statistics</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>[FR]Comment</value>
+  </text>
 </texts>

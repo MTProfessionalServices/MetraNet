@@ -61,7 +61,7 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    ShowFinancialData = UI.CoarseCheckCapability("View Summary Financial Information");
+    ShowFinancialData = true; //UI.CoarseCheckCapability("View Summary Financial Information");
 
     //parse query name
     String operation = Request["operation"];

@@ -1,6 +1,6 @@
 select
 	dbo.GenGuid() "ID",
-	bg.tx_name "Partition",
+	COALESCE(pam.nm_login, 'Non-Partitioned') "Partition",
 	am_currency "Currency", 
 	count(*) "# Transactions",
 	sum(NVL(au.Amount, 0.0)) "Total Amount",
@@ -18,10 +18,11 @@ inner join t_pi_template pit on pit.id_template = au.id_pi_template
 join t_billgroup_member bgm on au.id_acc = bgm.id_acc
 join t_billgroup bg on bgm.id_root_billgroup = bg.id_billgroup
                        and bg.id_billgroup = %%ID_BILLINGGROUP%%
+left outer join t_account_mapper pam on pam.id_acc = bg.id_partition
 where au.id_usage_interval = %%ID_INTERVAL%%
   and id_lang_code = %%ID_LANG_CODE%%
   and pit.id_template_parent is null	
   and (bp.n_kind <> 15 or upper(ed.nm_enum_data) NOT LIKE '%_TEMP')
   and (bp.n_kind <> 40 or upper(ed.nm_enum_data) NOT LIKE '%_TEMP')
-group by bg.tx_name, am_currency
+group by COALESCE(pam.nm_login, 'Non-Partitioned'), am_currency
 

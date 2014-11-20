@@ -207,19 +207,5 @@
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onDelete</JSHandlerFunction>
         </Button>
-        <Button>
-            <ButtonID>BulkUpdate</ButtonID>
-            <ButtonText>
-                <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ToolTip>
-            <IconClass>bulkupdate</IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onBulkUpdate</JSHandlerFunction>
-        </Button>
     </ToolbarButtons>
 </GridLayout>

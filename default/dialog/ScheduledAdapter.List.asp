@@ -79,7 +79,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
 	rowset.Init "queries\mom"
   rowset.SetQueryTag("__GET_SCHEDULED_ADAPTER_LIST__")
-  rowset.AddParam "%%idLangcode%%", Session("FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME").LanguageId
+  rowset.AddParam "%%ID_LANG_CODE%%", Session("FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME").LanguageId
   rowset.Execute
   
   if false then

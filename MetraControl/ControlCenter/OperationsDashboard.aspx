@@ -19,9 +19,12 @@
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dashboard.css">
     <link rel="stylesheet" type="text/css" href="Styles/OperationsDashboard.css">
 
-    <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
-    <br />
-    <div class="gridster" width="100%" height="100%">
+
+    <div class="CaptionBar" style="color: #ddd;font-size: 150%;">
+    <asp:Label ID="Label1" runat="server" meta:resourcekey="MTTitle1Resource1">Operations Dashboard</asp:Label>
+  </div>    
+  <br />
+  <div class="gridster" width="100%" height="100%">
 	<ul width="100%" height="100%" id="gridsterul" style="width:100%; text-align:left;">
             <li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
                 <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" meta:resourcekey="pnlFailedTransactionsQueueResource"

@@ -5,6 +5,7 @@ using MetraTech.UI.Common;
 public partial class ReportsAnalyticsDashboard : MTPage
 {
   protected long previousMonth, firstMonth;
+  protected string DateStampForGraph;
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -23,12 +24,15 @@ public partial class ReportsAnalyticsDashboard : MTPage
 
   public ReportsAnalyticsDashboard()
   {
+    //the same date range is set in VisualizeService.aspx.cs; any change made here should be done there too
     var previousMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-1).AddDays(1 - DateTime.Today.Day + 15);
     var firstMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-25).AddDays(1 - DateTime.Today.Day - 15);
 
     previousMonth = GetJSDate(previousMonthAndHalf);
     firstMonth = GetJSDate(firstMonthAndHalf);
 
+    DateStampForGraph = string.Format("{0} - {1}", firstMonthAndHalf.AddMonths(1).ToString("Y"),
+                                      previousMonthAndHalf.ToString("Y"));
   }
 
   private long GetJSDate(DateTime date)

@@ -244,8 +244,7 @@
       });
       
       var currencyGroup = mrrValue.group().reduceSum(function(d) {
-        if (d.currency == currentCurrency) return d.amount;
-        return 0;
+        if (d.currency == currentCurrency) return d.amount; else return 0;
       });
 
       mrrChart.width(Width)
@@ -345,6 +344,7 @@
 
     
     function setWidgetTitles() {
+      var dateStampForGraph =  "<span style='font-weight: normal'>&nbsp;<%=DateStampForGraph%></span>";
       var billingsPanelHeader = $('#formPanel_<%=pnlBillings.ClientID%> .x-panel-header-text');
       var billingsPanelToggleButton = $('#formPanel_<%=pnlBillings.ClientID%> .x-tool-toggle');
       var mrrPanelHeader = $('#formPanel_<%=pnlMRR.ClientID%> .x-panel-header-text');
@@ -359,6 +359,10 @@
       billingsPanelToggleButton.css('visibility', 'hidden');
       mrrPanelToggleButton.css('visibility', 'hidden');
       newCustomersPanelToggleButton.css('visibility', 'hidden');
+      
+      $(dateStampForGraph).insertAfter(billingsPanelHeader);
+      $(dateStampForGraph).insertAfter(mrrPanelHeader);
+      $(dateStampForGraph).insertAfter(newCustomersPanelHeader);
     }
     
     function appendNoDataText(divId, ddDivId) {

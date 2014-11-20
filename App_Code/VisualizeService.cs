@@ -165,9 +165,19 @@ public class VisualizeService
 
   public static void ConfigureAndLoadIntervalDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
   {
+    ConfigureAndLoadIntervalDropDownsInternal("__GET_AVAILABLE_INTERVALS__", ddIntervalsList, paramDict);
+  }
+
+  public static void ConfigureAndLoadSoftClosedIntervalDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
+  {
+    ConfigureAndLoadIntervalDropDownsInternal("__GET_SOFT_CLOSED_INTERVALS__", ddIntervalsList, paramDict);
+  }
+
+  private static void ConfigureAndLoadIntervalDropDownsInternal(string query, List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
+  {
     using (var conn = ConnectionManager.CreateConnection())
     {
-      using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, "__GET_AVAILABLE_INTERVALS__"))
+      using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, query))
       {
         if (paramDict != null)
         {
@@ -179,9 +189,6 @@ public class VisualizeService
 
         using (var reader = stmt.ExecuteReader())
         {
-          var items = new ListItem();
-          int count = 0;
-
           while (reader.Read())
           {
             ListItem item =  new ListItem();

@@ -619,8 +619,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         console.log(error);
       } else {
         var activebillrunsummary = json["Items"];
-        var successful, failed, waiting, ready, variance, earliesteta, etaoffset;
+        var total, successful, failed, waiting, ready, variance, earliesteta, etaoffset;
         if (activebillrunsummary[0] != null) {
+          total = activebillrunsummary[0]["eop_adapter_count"];
           successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
           failed = activebillrunsummary[0]["eop_failed_adapter_count"];
           waiting = activebillrunsummary[0]["eop_nyr_adapter_count"];
@@ -649,7 +650,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
           else if (varianceAsFloat < 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
         }
         d3.select("#<%=txtVariance.ClientID%>").text(textVariance);
-        d3.select("#<%=txtEarliestETA.ClientID%>").text(String.format('<%=GetLocalResourceObject("TEXT_EARLIEST_ETA")%>', failed + waiting + ready, etaoffset, earliesteta));
+        d3.select("#<%=txtEarliestETA.ClientID%>").text(String.format('<%=GetLocalResourceObject("TEXT_EARLIEST_ETA")%>', total - successful, etaoffset, earliesteta));
         d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor", "pointer");
         d3.select("#<%=txtFailedAdapters.ClientID%>").on("click", function() { window.location = "/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval; });
       }

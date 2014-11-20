@@ -282,4 +282,7 @@
   <data name="TEXT_VIEW_NAME" xml:space="preserve">
     <value>[DE]View Name</value>
   </data>
+  <data name="TEXT_PARTITION" xml:space="preserve">
+    <value>[DE]Partition</value>
+  </data>  
 </root>

@@ -285,4 +285,7 @@
   <data name="TEXT_VIEW_NAME" xml:space="preserve">
     <value>[JA]View Name</value>
   </data>
+  <data name="TEXT_PARTITION" xml:space="preserve">
+    <value>[JA]Partition</value>
+  </data>  
 </root>

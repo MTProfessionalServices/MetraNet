@@ -73,10 +73,9 @@ public partial class ShowConfiguredReport : MTPage
       param.FieldValue = intervalId;
       sqi.Params.Add(param);
 
-            // Add Language (hardcoded for now until I can figure out how to map .Net Locale to MT language codes
       SQLQueryParam paramLang = new SQLQueryParam();
       paramLang.FieldName = "%%ID_LANG_CODE%%";
-            paramLang.FieldValue = 840;
+      paramLang.FieldValue = UI.User.SessionContext.LanguageID;  
       sqi.Params.Add(paramLang);
     }
 
@@ -93,6 +92,7 @@ public partial class ShowConfiguredReport : MTPage
     MTFilterGridReport.DataSourceURLParams.Clear();
     MTFilterGridReport.DataSourceURLParams.Add("q", qsParam);
 
+    PartitionLibrary.SetupFilterGridForPartitionSystemUser(MTFilterGridReport, "Partition", false);
     base.OnLoadComplete(e);
   }
 

@@ -336,4 +336,7 @@
     <data name="TEXT_ZIP" xml:space="preserve">
         <value>CEP</value>
     </data>
+    <data name="TEXT_PARTITION" xml:space="preserve">
+      <value>Divisória</value>
+    </data>    
 </root>

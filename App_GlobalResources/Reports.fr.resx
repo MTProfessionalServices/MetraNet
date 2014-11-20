@@ -339,4 +339,7 @@
     <data name="TEXT_ZIP" xml:space="preserve">
         <value>Code postal</value>
     </data>
+    <data name="TEXT_PARTITION" xml:space="preserve">
+        <value>Partition</value>
+    </data>
 </root>

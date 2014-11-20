@@ -276,4 +276,12 @@
     <value>[FR]Click To View List Of Failed Transactions For This Batch</value>
     <description></description>
   </text>
+  <text id="TEXT_Property">
+    <value>[FR]Property</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Value">
+    <value>[FR]Value</value>
+    <description></description>
+  </text>
 </texts>

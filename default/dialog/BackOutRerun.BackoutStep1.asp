@@ -149,7 +149,7 @@ FUNCTION DynamicCapabilites(EventArg)
       strHTML = strHTML & "<tr>"
       strHTML = strHTML & "  <td nowrap align='right'>" & mom_GetDictionary("TEXT_Product_View") & "&nbsp;<select onchange=""mdm_RefreshDialogUserCustom('RefreshPV','" & nCount & "');"" name='ProductDefinition" & nCount & "' class='clsInputBox'></select></td>"
       If Service.Properties("ProductProperty" & nCount).Tag <> "HIDE_VALUE" Then
-        strHTML = strHTML & "  <td nowrap>&nbsp;&nbsp;Property:&nbsp;<select onchange=""mdm_RefreshDialogUserCustom('RefreshPVProperty','" & nCount & "');""  name='ProductProperty" & nCount & "' class='clsInputBox'></select></td>"
+        strHTML = strHTML & "  <td nowrap>&nbsp;&nbsp;" & mom_GetDictionary("TEXT_Property") & ":&nbsp;<select onchange=""mdm_RefreshDialogUserCustom('RefreshPVProperty','" & nCount & "');""  name='ProductProperty" & nCount & "' class='clsInputBox'></select></td>"
       End If     
       If Service.Properties("ProductPropertyValue" & nCount).Tag = "HIDE_VALUE" Then                    
           strHTML = strHTML & "  <td nowrap>&nbsp;</td>"      
@@ -158,15 +158,15 @@ FUNCTION DynamicCapabilites(EventArg)
       End If    
       Select Case Service.Properties("ProductPropertyValue" & nCount).PropertyType
         Case "ENUM"
-          strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<select name='ProductPropertyValue" & nCount & "' class='clsInputBox'></td>" 
+          strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<select name='ProductPropertyValue" & nCount & "' class='clsInputBox'></td>" 
         Case "TIMESTAMP"
-          strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<input type=text' name='ProductPropertyValue" & nCount & "' size='25' class='clsInputBox'>" 
+          strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<input type=text' name='ProductPropertyValue" & nCount & "' size='25' class='clsInputBox'>" 
           strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.ProductPropertyValue" & nCount & ",'',false);return false""><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"
         Case Else
           If Service.Properties("ProductPropertyValue" & nCount).Tag = "HIDE_VALUE" Then
             strHTML = strHTML & "  <td nowrap>&nbsp;</td>"           
           Else
-            strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<input type=text' name='ProductPropertyValue" & nCount & "' size='25' class='clsInputBox'></td>" 
+            strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<input type=text' name='ProductPropertyValue" & nCount & "' size='25' class='clsInputBox'></td>" 
           End If  
       End Select 
       strHTML = strHTML & "	 <td nowrap><button onclick='mdm_RefreshDialogUserCustom(this,""" & nCount & """);' name='RemovePV' Class='clsButtonBlueSmall'>" & mom_GetDictionary("TEXT_Remove") & "</button></td>"
@@ -181,7 +181,7 @@ FUNCTION DynamicCapabilites(EventArg)
       strHTML = strHTML & "<tr>"
       strHTML = strHTML & "  <td nowrap align='right'>" & mom_GetDictionary("TEXT_Service_Definition") & "&nbsp;<select onchange=""mdm_RefreshDialogUserCustom('RefreshSD','" & nCount & "');""  name='ServiceDefinition" & nCount & "' class='clsInputBox'></select></td>"
       If Service.Properties("ServiceProperty" & nCount).Tag <> "HIDE_VALUE" Then
-        strHTML = strHTML & "  <td nowrap>&nbsp;&nbsp;Property:&nbsp;<select onchange=""mdm_RefreshDialogUserCustom('RefreshSDProperty','" & nCount & "');"" name='ServiceProperty" & nCount & "' class='clsInputBox'></td>"
+        strHTML = strHTML & "  <td nowrap>&nbsp;&nbsp;" & mom_GetDictionary("TEXT_Property") & ":&nbsp;<select onchange=""mdm_RefreshDialogUserCustom('RefreshSDProperty','" & nCount & "');"" name='ServiceProperty" & nCount & "' class='clsInputBox'></td>"
       End If  
       If Service.Properties("ServicePropertyValue" & nCount).Tag = "HIDE_VALUE" Then                    
           strHTML = strHTML & "  <td nowrap>&nbsp;</td>"      
@@ -191,15 +191,15 @@ FUNCTION DynamicCapabilites(EventArg)
 
       Select Case Service.Properties("ServicePropertyValue" & nCount).PropertyType
         Case "ENUM"
-          strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<select name='ServicePropertyValue" & nCount & "' class='clsInputBox'></td>" 
+          strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<select name='ServicePropertyValue" & nCount & "' class='clsInputBox'></td>" 
         Case "TIMESTAMP"
-          strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<input type=text' name='ServicePropertyValue" & nCount & "' size='25' class='clsInputBox'>" 
+          strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<input type=text' name='ServicePropertyValue" & nCount & "' size='25' class='clsInputBox'>" 
           strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.ServicePropertyValue" & nCount & ", '', false);return false""><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"
         Case Else
           If Service.Properties("ServicePropertyValue" & nCount).Tag = "HIDE_VALUE" Then
             strHTML = strHTML & "  <td nowrap>&nbsp;</td>"           
           Else
-            strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<input type=text' name='ServicePropertyValue" & nCount & "' size='25' class='clsInputBox'></td>" 
+            strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<input type=text' name='ServicePropertyValue" & nCount & "' size='25' class='clsInputBox'></td>" 
           End If
       End Select  
       strHTML = strHTML & "	 <td nowrap><button onclick='mdm_RefreshDialogUserCustom(this,""" & nCount & """);' name='RemoveSD' Class='clsButtonBlueSmall'>" & mom_GetDictionary("TEXT_Remove") & "</button></td>"      
@@ -220,12 +220,12 @@ FUNCTION DynamicCapabilites(EventArg)
         strHTML = strHTML & "  <td nowrap><select name='AccountOperator" & nCount & "' class='clsInputBox'></td>"
         Select Case Service.Properties("AccountValue" & nCount).PropertyType
           Case "ENUM"
-            strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<select name='AccountValue" & nCount & "' class='clsInputBox'></td>" 
+            strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<select name='AccountValue" & nCount & "' class='clsInputBox'></td>" 
           Case "TIMESTAMP"
-            strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<input type='text' name='AccountValue" & nCount & "' size='25' class='clsInputBox'>" 
+            strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<input type='text' name='AccountValue" & nCount & "' size='25' class='clsInputBox'>" 
             strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.AccountValue" & nCount & ", '', false);return false""><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"            
           Case Else
-            strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<input type='text' name='AccountValue" & nCount & "' size='25' class='clsInputBox'></td>"  
+            strHTML = strHTML & "  <td nowrap>" & mom_GetDictionary("TEXT_Value") & " (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<input type='text' name='AccountValue" & nCount & "' size='25' class='clsInputBox'></td>"  
         End Select 
       End If
       strHTML = strHTML & "	 <td nowrap><button onclick='mdm_RefreshDialogUserCustom(this,""" & nCount & """);' name='RemoveAccount' Class='clsButtonBlueSmall'>" & mom_GetDictionary("TEXT_Remove") & "</button></td>"

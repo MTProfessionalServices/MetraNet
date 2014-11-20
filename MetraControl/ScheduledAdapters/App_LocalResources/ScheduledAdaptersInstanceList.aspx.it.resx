@@ -116,6 +116,9 @@
     <data name="EffectiveDate" xml:space="preserve">
         <value>[IT] Effective Date</value>
     </data>
+    <data name="GridTitle" xml:space="preserve">
+        <value>[IT] Scheduled Adapter Instances</value>
+    </data>
     <data name="IgnoreDeps" xml:space="preserve">
         <value>[IT] Ignore Deps</value>
     </data>

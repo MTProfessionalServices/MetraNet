@@ -11,6 +11,12 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
+		<Parameter>
+            <Name>ID_LANGUAGE</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

@@ -1,43 +1,4 @@
-DECLARE EOP_Interval_run_time as FLOAT;
-DECLARE Past_three_month_average as FLOAT;
-begin
-
-/*This is the total run time (in seconds) for the adapters that have already run successfully for the current interval*/
-SELECT NVL(sum((rer.dt_start - rer.dt_end) * 86400),0.0) into EOP_Interval_run_time
-  FROM t_recevent_inst rei
-  join t_recevent re on re.id_event = rei.id_event
-  left join t_recevent_run rer on rer.id_instance = rei.id_instance
-Where id_arg_interval = %%ID_USAGE_INTERVAL%%
-and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
-and rei.tx_status = 'Succeeded'
-
-/*This is the 3 month average run time (in seconds) for the adapters that have already run successfully for the current interval*/
-SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_start - rer.dt_end) * 86400) / count(distinct rei.id_arg_interval) else 0.0 end into Past_three_month_average
-  FROM t_recevent_inst rei
-  join t_recevent re on re.id_event = rei.id_event
-  left join t_recevent_run rer on rer.id_instance = rei.id_instance
-WHERE id_arg_interval in (
-select ui.id_interval
-from t_usage_interval ui
-where ui.tx_interval_status = 'H'
-and ui.dt_end > add_months(GETUTCDATE(),-3)
-and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
-and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
-and tx_name in (
--- These are the adapters that have successfully run so far for the current EOP interval
-SELECT tx_name
-  FROM t_recevent_inst rei
-  join t_recevent re on re.id_event = rei.id_event
-  left join t_recevent_run rer on rer.id_instance = rei.id_instance
-Where id_arg_interval = %%ID_USAGE_INTERVAL%%
-and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
-and rei.tx_status = 'Succeeded'));
-
 SELECT 
-
 %%ID_USAGE_INTERVAL%% AS id_interval
 , (
     SELECT dt_end AS end_date 
@@ -138,11 +99,97 @@ SELECT
                   )
   ) AS last_eop_adapter_status
 , (
-SELECT 
-  case when Past_three_month_average != 0.0 then
-    ROUND((
+SELECT
+  case when
+        /*Past_three_month_average*/
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_start - rer.dt_end) * 86400) / count(distinct rei.id_arg_interval) else 0.0 end
+  FROM t_recevent_inst rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+WHERE id_arg_interval in (
+select ui.id_interval
+from t_usage_interval ui
+where ui.tx_interval_status = 'H'
+and ui.dt_end > add_months(GETUTCDATE(),-3)
+and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and tx_name in (
+-- These are the adapters that have successfully run so far for the current EOP interval
+SELECT tx_name
+  FROM t_recevent_inst rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+Where id_arg_interval = %%ID_USAGE_INTERVAL%%
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and rei.tx_status = 'Succeeded')
+        )
+  != 0.0 then
+    ROUND(
       (
-        (EOP_Interval_run_time - Past_three_month_average) *  (100 / Past_three_month_average)
+        (/*EOP_Interval_run_time*/
+(SELECT NVL(sum((rer.dt_start - rer.dt_end) * 86400),0.0)
+  FROM t_recevent_inst rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+Where id_arg_interval = %%ID_USAGE_INTERVAL%%
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and rei.tx_status = 'Succeeded')
+
+        - 
+        
+        /*Past_three_month_average*/
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_start - rer.dt_end) * 86400) / count(distinct rei.id_arg_interval) else 0.0 end
+  FROM t_recevent_inst rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+WHERE id_arg_interval in (
+select ui.id_interval
+from t_usage_interval ui
+where ui.tx_interval_status = 'H'
+and ui.dt_end > add_months(GETUTCDATE(),-3)
+and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and tx_name in (
+-- These are the adapters that have successfully run so far for the current EOP interval
+SELECT tx_name
+  FROM t_recevent_inst rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+Where id_arg_interval = %%ID_USAGE_INTERVAL%%
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and rei.tx_status = 'Succeeded'))
+        ) *  
+        
+        (100 / 
+        /*Past_three_month_average*/
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_start - rer.dt_end) * 86400) / count(distinct rei.id_arg_interval) else 0.0 end
+  FROM t_recevent_inst rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+WHERE id_arg_interval in (
+select ui.id_interval
+from t_usage_interval ui
+where ui.tx_interval_status = 'H'
+and ui.dt_end > add_months(GETUTCDATE(),-3)
+and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and tx_name in (
+-- These are the adapters that have successfully run so far for the current EOP interval
+SELECT tx_name
+  FROM t_recevent_inst rei
+  join t_recevent re on re.id_event = rei.id_event
+  left join t_recevent_run rer on rer.id_instance = rei.id_instance
+Where id_arg_interval = %%ID_USAGE_INTERVAL%%
+and rer.tx_type = 'Execute'
+and tx_detail not like 'Manually changed status%'
+and rei.tx_status = 'Succeeded'))        
+        )
       ) , 2) /*round off the Variance to 2 decimal places*/
   else 
     0.0 
@@ -203,6 +250,4 @@ and tx_detail not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded'
 )
 ), 3) AS "eta_offset"
-FROM DUAL;
-
-end;
+FROM DUAL

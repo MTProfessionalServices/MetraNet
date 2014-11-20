@@ -85,14 +85,13 @@ public partial class GetData : MTPage
     Response.ContentType = "application/csv";
     Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
     Response.BinaryWrite(BOM);
-
     int recordsRead = 0;
     int totalRecords = gde.PageSize; //read out the total number of records from pageSize
     if (totalRecords > BATCH_SIZE)
       gde.PageSize = BATCH_SIZE;    //set it to the size of each batch; originally it was set to the total number of records
 
-    StringBuilder sb = new StringBuilder();
-
+    var sb = new StringBuilder();
+    sb.AppendLine("sep=,");
     //break up into multiple requests
     do
     {

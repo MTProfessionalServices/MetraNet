@@ -24,7 +24,7 @@
     {
       grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().getSelections()
       var managerIds = GetManagerIds();
-      if (manageeIds.length == 0)
+      if (managerIds.length == 0)
         {
            top.Ext.Msg.show({
                            title:TEXT_ERROR_MSG,

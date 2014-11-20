@@ -69,7 +69,11 @@
                 <QueryColumns>
                     <QueryColumn>
                         <Name>ID</Name>
-                        <Type>System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                        <Type>System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+    	            <QueryColumn>
+                        <Name>Partition</Name>
+                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
                         <Name>PI Template</Name>
@@ -103,8 +107,7 @@
             <DataIndex>id</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <Value><![CDATA[ID]]></Value>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -129,6 +132,42 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
+       <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>partition</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>partition</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                 <LocalizationTag>TEXT_PARTITION</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>	
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
@@ -139,7 +178,8 @@
             <DataIndex>pi template</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[PI Template]]></Value>
+                <LocalizationTag>TEXT_PI_TEMPLATE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -174,7 +214,8 @@
             <DataIndex># transactions affected</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Transaction Count]]></Value>
+                <LocalizationTag>TEXT_NUM_TRANS_AFFECTED</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -209,7 +250,8 @@
             <DataIndex>currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Currency]]></Value>
+                <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -244,7 +286,8 @@
             <DataIndex>monetary amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Monetary Amount]]></Value>
+                <LocalizationTag>TEXT_MONETARY_AMOUNT</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

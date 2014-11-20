@@ -41,11 +41,16 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
       {
         var items = new MTList<SQLRecord>();
         var paramDict = new Dictionary<string, object>();
-        var previousMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-1).AddDays(1 - DateTime.Today.Day + 15);
-        var firstMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-13).AddDays(1 - DateTime.Today.Day - 15);
 
-        paramDict.Add("%%FROM_DATE%%", firstMonthAndHalf);
-        paramDict.Add("%%TO_DATE%%", previousMonthAndHalf);
+        //the same date range is set in ReportsAnalyticsDashboard.aspx.cs; any change made here should be done there too
+        var firstMonthAndHalf = DateTime.Now.ToUniversalTime().AddMonths(-25).AddDays(1 - DateTime.Today.Day - 15);
+        var firstDayOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToUniversalTime().Date;
+
+        var monthAfterFirstMonthAndHalf = firstMonthAndHalf.AddMonths(1);
+        var firstDayOfFirstMonth = new DateTime(monthAfterFirstMonthAndHalf.Year, monthAfterFirstMonthAndHalf.Month, 1).ToUniversalTime().Date;
+
+        paramDict.Add("%%FROM_DATE%%", firstDayOfFirstMonth);
+        paramDict.Add("%%TO_DATE%%", firstDayOfCurrentMonth);
 
         if (operation.ToLower().Equals("revenuereport") || operation.ToLower().Equals("mrrreport") ) 
         {

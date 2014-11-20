@@ -1,7 +1,7 @@
      
         select evt.id_event EventId, 
-		        COALESCE((select tx_name from t_recevent_localize	where id_lang_code = %%idLangcode%% and id_local = evt.id_event),  evt.tx_display_name) DisplayName,
-				COALESCE((select tx_desc from t_recevent_localize	where id_lang_code = %%idLangcode%% and id_local = evt.id_event),  evt.tx_desc) Description,				
+		        COALESCE((select tx_name from t_recevent_localize	where id_lang_code = %%ID_LANG_CODE%% and id_local = evt.id_event),  evt.tx_display_name) DisplayName,
+				COALESCE((select tx_desc from t_recevent_localize	where id_lang_code = %%ID_LANG_CODE%% and id_local = evt.id_event),  evt.tx_desc) Description,				
 				sch.interval_type as IntervalType, 
 				sch.interval as Interval,
 				sch.execution_times as ExecutionTimes,

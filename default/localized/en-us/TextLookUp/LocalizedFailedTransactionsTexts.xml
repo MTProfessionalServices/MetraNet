@@ -288,4 +288,7 @@
   <text id="TEXT_PARENT_TRANSACTION">
     <value>Parent</value>
   </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_AUDIT_HISTORY">
+    <value>Audit History For Failed Transaction Case Number</value>
+  </text>
 </texts>

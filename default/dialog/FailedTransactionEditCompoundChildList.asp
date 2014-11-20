@@ -127,9 +127,12 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   end if
   
   mdm_GetDictionary().Add "FAILED_TRANSACTION_CHILD_TYPE_SELECT", sHTML
-    
+  
+  Dim serviceFailedTransaction
+  Set serviceFailedTransaction = Session("FailedTransaction_Compound_Parent")
+  
   Dim Rowset
-  Set Rowset = Session("FailedTransaction_Compound_Parent").GetChildrenAsRowset(Form("ChildServiceName"), True, mdm_GetDictionary.Item("TEXT_FAILED_TRANSACTION_FAILURE_ID").Value)
+  Set Rowset = serviceFailedTransaction.GetChildrenAsRowset(Form("ChildServiceName"), True, mdm_GetDictionary.Item("TEXT_FAILED_TRANSACTION_FAILURE_ID").Value)
   
   If IsValidObject(Rowset) Then
   

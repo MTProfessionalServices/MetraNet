@@ -484,6 +484,7 @@ from t_usage_interval tui
 inner join t_pv_flatrecurringcharge pv on tui.id_interval = pv.id_usage_interval
 inner join t_acc_usage au on au.id_usage_interval = pv.id_usage_interval and au.id_sess = pv.id_sess
 inner join my_pis svc on svc.id_po = au.id_prod and svc.id_pi_template = au.id_pi_template and svc.id_pi_instance = au.id_pi_instance and svc.id_acc = au.id_payee
+						and svc.id_sub = pv.c__SubscriptionID
 where 1=1
 and au.amount <> 0.0
 union all
@@ -509,6 +510,7 @@ from t_usage_interval tui
 inner join t_pv_udrecurringcharge pv on tui.id_interval = pv.id_usage_interval
 inner join t_acc_usage au on au.id_usage_interval = pv.id_usage_interval and au.id_sess = pv.id_sess
 inner join my_pis svc on svc.id_po = au.id_prod and svc.id_pi_template = au.id_pi_template and svc.id_pi_instance = au.id_pi_instance and svc.id_acc = au.id_payee
+						and svc.id_sub = pv.c__SubscriptionID
 where 1=1
 and au.amount <> 0.0
 ) A
@@ -632,7 +634,7 @@ rcs.OldRate,
 rcs.OldProratedDailyRate,
 rcs.OldSubscriptionStartDate,
 rcs.OldSubscriptionEndDate,
-case when months_between(rcs.enddate, rcs.startdate) = months.num then extract(day from rcs.enddate) - case when months.num = 0 then (extract(day from rcs.startdate) - 1) else 0 end
+case when months_between(trunc(rcs.enddate,'mon'), trunc(rcs.startdate,'mon')) = months.num then extract(day from rcs.enddate) - case when months.num = 0 then (extract(day from rcs.startdate) - 1) else 0 end
 	 else case when extract(month from add_months(rcs.startdate, months.num)) in (4,6,9,11) then 30
 	           when extract(month from add_months(rcs.startdate, months.num)) = 2 then case when mod(extract(year from add_months(rcs.startdate, months.num)), 400) = 0 then 29
 																					  when mod(extract(year from add_months(rcs.startdate, months.num)), 100) = 0 then 28
@@ -646,7 +648,7 @@ case when months_between(rcs.enddate, rcs.startdate) = months.num then extract(d
 			end
 end as Days
 from all_rcs_linked rcs
-inner join months on months.num between 0 and months_between(rcs.enddate, rcs.startdate)
+inner join months on months.num between 0 and months_between(trunc(rcs.enddate,'mon'), trunc(rcs.startdate,'mon'))
 where 1=1
 ) a;
 

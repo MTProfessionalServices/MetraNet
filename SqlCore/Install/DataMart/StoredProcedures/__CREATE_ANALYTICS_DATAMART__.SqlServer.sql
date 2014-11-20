@@ -458,6 +458,7 @@ from t_usage_interval tui with(nolock)
 inner join t_pv_flatrecurringcharge pv with(nolock) on tui.id_interval = pv.id_usage_interval
 inner join t_acc_usage au with(nolock) on au.id_usage_interval = pv.id_usage_interval and au.id_sess = pv.id_sess
 inner join my_pis svc with(nolock) on svc.id_po = au.id_prod and svc.id_pi_template = au.id_pi_template and svc.id_pi_instance = au.id_pi_instance and svc.id_acc = au.id_payee
+									and svc.id_sub = pv.c__SubscriptionID
 where 1=1
 and au.amount <> 0.0
 union all
@@ -483,6 +484,7 @@ from t_usage_interval tui with(nolock)
 inner join t_pv_udrecurringcharge pv with(nolock) on tui.id_interval = pv.id_usage_interval
 inner join t_acc_usage au with(nolock) on au.id_usage_interval = pv.id_usage_interval and au.id_sess = pv.id_sess
 inner join my_pis svc with(nolock) on svc.id_po = au.id_prod and svc.id_pi_template = au.id_pi_template and svc.id_pi_instance = au.id_pi_instance and svc.id_acc = au.id_payee
+									and svc.id_sub = pv.c__SubscriptionID
 where 1=1
 and au.amount <> 0.0
 ) A

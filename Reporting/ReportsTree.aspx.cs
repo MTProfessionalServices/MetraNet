@@ -74,6 +74,7 @@ public partial class ReportsTree : MTPage
     if (Request.QueryString["IntervalID"] != null)
     {
       IntervalID = Convert.ToString(Request.QueryString["IntervalID"]);
+      ManageReports.Visible = false;
     }
     if (Request.QueryString["ReportType"] != null)
     {

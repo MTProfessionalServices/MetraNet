@@ -209,7 +209,7 @@ FUNCTION getRecurringEventRunHTML
             if sStatusCode="Failed" or sStatusCode="Running" or sStatusCode="Succeeded" then
             end if
 
-            if not isNull(rowset.value("LastRunAction")) then
+             '// if not isNull(rowset.value("LastRunAction")) then
               if sStatusCode="InProgress" then
                 sTime = rowset.value("LastRunStart")
               else
@@ -230,11 +230,11 @@ FUNCTION getRecurringEventRunHTML
                 sLastRunDetail = "The run generated " & rowset.value("LastRunWarnings") & " warnings." & vbNewLine & rowset.value("LastRunDetail")
               end if  
               sLastRunResultHTML = "<A href=""#"" title=""" & sLastRunDetail & vbNewLine & "Click To View Run Details"" onclick=""window.open('AdapterManagement.RunDetails.List.asp?RunId=" & rowset.value("LastRunId") & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&AdapterName=" & server.urlencode("<img alt='" & sToolTip & "' border='0' height='16' src= '" & sIcon & "' align='absmiddle' width='16'>&nbsp;" & rowset.value("EventDisplayName")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & sLastRunStatus & "</A>"
-            else
-              sTime = "&nbsp;"
-              sLastRunActionHTML = "&nbsp;"
-              sLastRunResultHTML = "&nbsp;"
-            end if
+           ' else
+            '  sTime = "&nbsp;"
+            '  sLastRunActionHTML = "&nbsp;"
+             ' sLastRunResultHTML = "&nbsp;"
+          '//  end if
                         
             if false then
             if CLng(rowset.value("BatchCount"))>0 then

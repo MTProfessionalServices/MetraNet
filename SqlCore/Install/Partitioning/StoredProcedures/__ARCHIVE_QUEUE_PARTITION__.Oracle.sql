@@ -86,6 +86,7 @@ BEGIN
     ELSE
         v_meter_tablespace_name := prtn_GetMeterPartFileGroupName();
 
+        /* Adding a commit before calling the proc again to fix ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired */
         COMMIT;
         
         arch_q_p_apply_next_partition(

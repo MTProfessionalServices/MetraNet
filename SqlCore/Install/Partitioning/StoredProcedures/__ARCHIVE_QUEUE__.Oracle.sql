@@ -42,6 +42,7 @@ BEGIN
         RETURN;
     END IF;
     
+    /* Adding a commit before calling the proc again to fix ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired */
     COMMIT;
 
 	archive_queue_partition(

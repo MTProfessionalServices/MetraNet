@@ -1,7 +1,7 @@
 
 				select
 				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
-                  COALESCE(partition_name,'Non-Partitioned') Partition,
+                  COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				  bp.nm_name "PI Template",
 				  case c_NRCEventType 
 				    when 0 then 'Unknown' 
@@ -20,7 +20,7 @@
                 left outer join vw_bus_partition_accounts bpt on bpt.id_acc = au.id_acc
 				where au.id_usage_interval=%%ID_INTERVAL%%
 				  and id_lang_code=%%ID_LANG_CODE%%
-				group by COALESCE(partition_name,'Non-Partitioned'),
+				group by partition_name,
 				  case c_NRCEventType 
 				    when 0 then 'Unknown' 
 				    when 1 then 'SUBSCRIPTION'

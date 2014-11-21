@@ -1,6 +1,6 @@
 select 
     dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/ 
-    COALESCE(partition_name,'Non-Partitioned') Partition,
+    COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
   concat(mapClient.nm_login, concat(mapClient.nm_space, avi.c_TaxExemptEndDate)) "Unique identifier",
 	mapClient.nm_login "UserIdentifier",
 	NVL(avcClient.c_FirstName + ' ','') + NVL(avcClient.c_LastName,'') "Name",

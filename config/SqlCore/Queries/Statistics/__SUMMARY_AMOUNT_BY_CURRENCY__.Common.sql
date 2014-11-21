@@ -1,7 +1,7 @@
 
 				select 
 		  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/	
-		  COALESCE(partition_name,'Non-Partitioned') Partition,	
+		  COALESCE(partition_name, N'Non-Partitioned') "PARTITION",	
           case bp.n_kind 
 		  when 10 then 'Usage'
 	          when 15 then 'Aggregate Rating' 
@@ -23,4 +23,4 @@
           and (bp.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
           and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
           and bp.n_kind in (10,15,20,25,30,40) 
-				group by COALESCE(partition_name,'Non-Partitioned'),bp.n_kind,am_currency
+				group by partition_name,bp.n_kind,am_currency

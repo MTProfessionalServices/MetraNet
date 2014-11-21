@@ -1,7 +1,7 @@
 
 				  select 
 				    dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
-                    COALESCE(partition_name,'Non-Partitioned') Partition,
+                    COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				    nm_name "PI Template",
 				    count(c_advance) "# of Adv RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",
@@ -24,7 +24,7 @@
 				    and amount < 0.0
 				    and au.id_usage_interval=%%ID_INTERVAL%%
 				    and id_lang_code=%%ID_LANG_CODE%%
-				  group by COALESCE(partition_name,'Non-Partitioned'),am_currency,nm_name,c_prorateddays,
+				  group by partition_name,am_currency,nm_name,c_prorateddays,
 				    case 
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=1 then 'BOTH'
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=0 then 'SUBSCRIPTION'
@@ -34,7 +34,7 @@
 			  UNION ALL
 				  select 
 					   dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
-                       COALESCE(partition_name,'Non-Partitioned') Partition,
+                       COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				    nm_name "PI Template",
 				    count(c_advance) "# of Adv RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",
@@ -57,7 +57,7 @@
 				    and amount < 0.0
 				    and au.id_usage_interval=%%ID_INTERVAL%%
 				    and id_lang_code=%%ID_LANG_CODE%%
-				  group by COALESCE(partition_name,'Non-Partitioned'),am_currency,nm_name,c_prorateddays,
+				  group by partition_name,am_currency,nm_name,c_prorateddays,
 				    case 
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=1 then 'BOTH'
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=0 then 'SUBSCRIPTION'

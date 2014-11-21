@@ -1,7 +1,7 @@
 
 				select
 				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/	
-		  		  COALESCE(partition_name,'Non-Partitioned') Partition,       
+		  		  COALESCE(partition_name, N'Non-Partitioned') "PARTITION",       
 				  count(*) "# of invoices",
 				  tx_desc "Invoice Method",
 				  namespace "Namespace",
@@ -15,4 +15,4 @@
 				where id_payer_interval=%%ID_INTERVAL%%
 				  and (id_lang_code=%%ID_LANG_CODE%% 
 				       or id_lang_code is null)
-				group by COALESCE(partition_name,'Non-Partitioned'),invoice_currency,tx_Desc,namespace
+				group by partition_name,invoice_currency,tx_Desc,namespace

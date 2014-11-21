@@ -1,7 +1,7 @@
 
 				select
 				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/	
-		  		  COALESCE(partition_name,'Non-Partitioned') Partition,
+		  		  COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				  sub.tx_name "Group Subscription",
 				  bpd2.nm_name "PO Subscribed to",
 				  bp3d2.nm_name "Discount Name",
@@ -24,4 +24,4 @@
 				  and piTemplated2.id_template_parent is null	
 	    		and (bp3d2.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 	    		and (bp3d2.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
-				group by COALESCE(partition_name,'Non-Partitioned'),sub.tx_name, bpd2.nm_name, bp3d2.nm_name, am_currency 
+				group by partition_name,sub.tx_name, bpd2.nm_name, bp3d2.nm_name, am_currency 

@@ -1,7 +1,7 @@
 
 				select 
 				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
-                  COALESCE(partition_name,'Non-Partitioned') Partition,
+                  COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				  bp.nm_name "COMPOUNDED PI TEMPLATE",
 				  count(*) "# Transactions Affected",
 				  am_currency Currency,
@@ -22,5 +22,5 @@
 				  and piTemplated2.id_template_parent is null	
           and (bp.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
   	    	and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
-				group by COALESCE(partition_name,'Non-Partitioned'),bp.nm_name,am_currency
+				group by partition_name,bp.nm_name,am_currency
 

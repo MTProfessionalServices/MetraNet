@@ -1,6 +1,6 @@
 SELECT  
  		dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/	
-		COALESCE(partition_name,'Non-Partitioned') Partition,
+		COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
         TRAIL.DECISION_UNIQUE_ID,
         TRAIL.ID_USAGE_INTERVAL,
         TRAIL.END_DATE,

@@ -1,7 +1,7 @@
 
 				select 
           dbo.GenGuid() "ID",
-          COALESCE(pam.nm_login, 'Non-Partitioned') "Partition",
+          COALESCE(pam.nm_login, N'Non-Partitioned') "Partition",
           bp.nm_name "PI Template", 
 				  count(*) "# Transactions Affected",
 				  am_currency Currency, 
@@ -20,4 +20,4 @@
 				  and piTemplated2.id_template_parent is null	
 	    		and (bp.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 	    		and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
-				group by COALESCE(pam.nm_login, 'Non-Partitioned'), bp.nm_name,am_currency		 
+				group by pam.nm_login, bp.nm_name,am_currency		 

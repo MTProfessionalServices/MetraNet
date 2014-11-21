@@ -1,7 +1,7 @@
 
 				SELECT
 				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
-          		  COALESCE(partition_name, 'Non-Partitioned') Partition,
+          		  COALESCE(partition_name, 'Non-Partitioned') "PARTITION",
 				  CASE 
 				    when c_advance = 1 and sum(amount) >= 0.0 THEN 'Advance'
 				    when c_advance = 0 THEN 'Arrears' 	
@@ -19,11 +19,11 @@
           	    left outer join vw_bus_partition_accounts bpt on bpt.id_acc = au.id_acc
 				where au.id_usage_interval = %%ID_INTERVAL%%
 				  and id_lang_code = %%ID_LANG_CODE%%
-				group by COALESCE(partition_name,'Non-Partitioned'),c_advance, au.am_currency
+				group by partition_name,c_advance, au.am_currency
 				UNION ALL
 				select
 					dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/  
-                    COALESCE(partition_name, 'Non-Partitioned') Partition,
+                    COALESCE(partition_name, 'Non-Partitioned') "PARTITION",
 				  case 
 				    when c_advance = 1 and sum(amount) >= 0.0 THEN 'Advance udrc'
 				    when c_advance = 0 THEN 'Arrears' 	
@@ -40,5 +40,5 @@
           	    left outer join vw_bus_partition_accounts bpt on bpt.id_acc = au.id_acc
 				where au.id_usage_interval = %%ID_INTERVAL%%
 				  and id_lang_code = %%ID_LANG_CODE%%
-				group by COALESCE(partition_name,'Non-Partitioned'),c_advance, au.am_currency
+				group by partition_name,c_advance, au.am_currency
 			 

@@ -38,12 +38,10 @@
     </div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelManageSubscriptionParameters" runat="server" Collapsible="True"
-    meta:resourcekey="panelManageSubscriptionParametersResource">    
-    <div  class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
-          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>
-    </div>   
-    <div id = "PlaceHolderSubParamsToolBar" class="RightColumn">                 
+    meta:resourcekey="panelManageSubscriptionParametersResource">              
+      <%--<MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
+          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>--%>      
+    <div id = "PlaceHolderSubParamsToolBar" class="LeftColumn">                 
     </div>      
     </MT:MTPanel>
   <MT:MTPanel ID="MTPanelSubscriptionParameters" runat="server" Collapsible="True"
@@ -53,7 +51,7 @@
         LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsDescriptionResource"/>
        <MT:MTTextBoxControl ID="MTtbSubParamsPo" AllowBlank="True" ReadOnly="True"
         LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsPoResource"/>
-      <MT:MTTextBoxControl AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
+      <MT:MTTextBoxControl AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
         LabelWidth="135" Text = "-" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="True"
         runat="server"></MT:MTTextBoxControl>
       <MT:MTTextBoxControl AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
@@ -94,6 +92,7 @@
       </div>
     </div>
   </div>
+  <input id="MTtbSubParamId" runat="server" type="hidden" />
   <input id="HiddenSelectionCriteria" runat="server" type="hidden" />
   <input id="HiddenPropertiesToSet" runat="server" type="hidden" />  
   <input id="HiddenUDRCs" runat="server" type="hidden" />

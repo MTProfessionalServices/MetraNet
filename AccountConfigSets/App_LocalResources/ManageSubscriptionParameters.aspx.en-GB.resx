@@ -151,10 +151,10 @@
     <value>UDRC Metrics</value>
   </data>
   <data name="panelAccountConfigSetParametersResource.Text" xml:space="preserve">
-    <value>Subscription Parameters Settings</value>
+    <value>Model Information</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Template Subscription Parameters</value>
+    <value>Product Offering Information</value>
   </data>
   <data name="PIID" xml:space="preserve">
     <value>Priсeable Item Id</value>
@@ -181,7 +181,7 @@
     <value>Product Offering</value>
   </data>
   <data name="TEXT_ADD_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>Add Subscription Parameters</value>
+    <value>Add Model</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
     <value>Add UDRC Metric</value>

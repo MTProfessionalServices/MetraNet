@@ -47,9 +47,7 @@ namespace MetraNet.AccountConfigSets
 
       ParseRequest();
 
-      if (IsPostBack) return;
-      if (!IsViewMode)
-        MTdpSubParamsStartDate.Text = MetraTime.Now.Date.ToString();
+      if (IsPostBack) return;      
     }
 
     private void ParseRequest()
@@ -97,25 +95,27 @@ namespace MetraNet.AccountConfigSets
 
     private void NewAccountConfigSetSubParams()
     {
-      if (IsPostBack || IsViewMode) return;
+      if (IsPostBack || IsViewMode) return;      
+      MTdpSubParamsStartDate.Text = MetraTime.Now.Date.ToString();
     }
 
     private void LoadAccountConfigSetSubParamsToControls()
     {
-      MTtbSubParamId.Text = CurrentAccountConfigSetSubscriptionParams.AccountConfigSetParametersId.ToString();
+      //MTtbSubParamId.Text = CurrentAccountConfigSetSubscriptionParams.AccountConfigSetParametersId.ToString();
       MTtbSubParamsDescription.Text = CurrentAccountConfigSetSubscriptionParams.Description;
       MTtbSubParamsPo.Text = CurrentAccountConfigSetSubscriptionParams.ProductOfferingId.ToString();
       MTdpSubParamsStartDate.Text = CurrentAccountConfigSetSubscriptionParams.StartDate.ToString("d");
       MTdpSubParamsEndDate.Text = CurrentAccountConfigSetSubscriptionParams.EndDate.ToString("d");
       MTisCorpAccountId.Text = CurrentAccountConfigSetSubscriptionParams.CorporateAccountId.ToString();
-      MTtbGroupSubscriptionName.Text = CurrentAccountConfigSetSubscriptionParams.GroupSubscriptionName;
+      MTtbGroupSubscriptionName.Text = CurrentAccountConfigSetSubscriptionParams.GroupSubscriptionName;      
+      HiddenPis.Value = EncodePisForHiddenControl(new int[] { CurrentAccountConfigSetSubscriptionParams.ProductOfferingId });
       HiddenUDRCs.Value = EncodeUDRCsForHiddenControl();
 
       MTtbSubParamsPoName.Text = GetPoName(CurrentAccountConfigSetSubscriptionParams.ProductOfferingId);
 
-      MTtbSubParamId.ReadOnly = IsViewMode;
+      
       MTtbSubParamsDescription.ReadOnly = IsViewMode;
-      MTtbSubParamsPo.ReadOnly = IsViewMode;
+      
       MTdpSubParamsStartDate.ReadOnly = IsViewMode;
       MTdpSubParamsEndDate.ReadOnly = IsViewMode;
       MTisCorpAccountId.ReadOnly = IsViewMode;
@@ -413,7 +413,7 @@ namespace MetraNet.AccountConfigSets
 
     private string EncodeUDRCsForHiddenControl()
     {
-      const string udrcStr = "{5}'PriceableItemId':{0},'Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{6}";
+      const string udrcStr = "{6}'PriceableItemId':{0},'PriceableItemName':'{5}','Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{7}";
       const string recodrIdStr = "{0}_{1}_{2}";
 
       if (CurrentAccountConfigSetSubscriptionParams == null)
@@ -435,7 +435,8 @@ namespace MetraNet.AccountConfigSets
           udrc.StartDate.ToString("d"),
           udrc.EndDate.ToString("d")
           );
-
+        string piName = "";
+        PiNames.TryGetValue(udrc.UDRC_Id, out piName);
         hiddenUdrcsValue += string.Format(
           CultureInfo.CurrentCulture,
           udrcStr,
@@ -444,6 +445,7 @@ namespace MetraNet.AccountConfigSets
           udrc.StartDate.ToString("d"),
           udrc.EndDate.ToString("d"),
           recordId,
+          piName,
           "{", "},");
       }
       hiddenUdrcsValue = hiddenUdrcsValue.Substring(0, hiddenUdrcsValue.Length - 1);
@@ -457,11 +459,10 @@ namespace MetraNet.AccountConfigSets
       try
       {
         Page.Validate();
-        ValidateRequest();
-        var redirectPath = GetRedirectPath();
+        ValidateRequest();        
 
         InvokeAddAccountConfigSetSubscriptionParams(CurrentAccountConfigSetSubscriptionParams);
-        Response.Redirect(redirectPath, false);
+        Response.Redirect(GetRedirectPath(), false);
       }
       catch (MASBasicException exp)
       {
@@ -488,7 +489,7 @@ namespace MetraNet.AccountConfigSets
         var redirectPath = GetRedirectPath();
 
         InvokeUpdateAccountConfigSetSubscriptionParams(CurrentAccountConfigSetSubscriptionParams);
-        Response.Redirect(redirectPath, false);
+        Response.Redirect(GetRedirectPath(), false);       
       }
       catch (MASBasicException exp)
       {
@@ -501,13 +502,13 @@ namespace MetraNet.AccountConfigSets
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
-    {
+    {      
       Response.Redirect(GetRedirectPath(), false);
     }
 
     private string GetRedirectPath()
     {
-      return string.Format(@"/MetraNet/AccountConfigSets/AccountConfigSetList.aspx");
+      return string.Format(@"/MetraNet/AccountConfigSets/AccountConfigSetSubscriptionParamsList.aspx?t=Frame&f=addSubParamsCallback");
     }
 
     #endregion

@@ -22,10 +22,10 @@
     </div>
     <div id="rightColumn1" class="RightColumn">      
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
-        Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpStartDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
       <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpEndDate"
-        Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpEndDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
     </div>
     </div>
@@ -38,12 +38,10 @@
     </div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelManageSubscriptionParameters" runat="server" Collapsible="True"
-    meta:resourcekey="panelManageSubscriptionParametersResource">    
-    <div  class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
-          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>
-    </div>   
-    <div id = "PlaceHolderSubParamsToolBar" class="RightColumn">                 
+    meta:resourcekey="panelManageSubscriptionParametersResource">              
+      <%--<MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
+          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>--%>      
+    <div id = "PlaceHolderSubParamsToolBar" class="LeftColumn">                 
     </div>      
     </MT:MTPanel>
   <MT:MTPanel ID="MTPanelSubscriptionParameters" runat="server" Collapsible="True"
@@ -53,7 +51,7 @@
         LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsDescriptionResource"/>
        <MT:MTTextBoxControl ID="MTtbSubParamsPo" AllowBlank="True" ReadOnly="True"
         LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsPoResource"/>
-      <MT:MTTextBoxControl AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
+      <MT:MTTextBoxControl AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
         LabelWidth="135" Text = "-" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="True"
         runat="server"></MT:MTTextBoxControl>
       <MT:MTTextBoxControl AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
@@ -94,6 +92,7 @@
       </div>
     </div>
   </div>
+  <input id="MTtbSubParamId" runat="server" type="hidden" />
   <input id="HiddenSelectionCriteria" runat="server" type="hidden" />
   <input id="HiddenPropertiesToSet" runat="server" type="hidden" />  
   <input id="HiddenUDRCs" runat="server" type="hidden" />
@@ -324,8 +323,7 @@
                 var comboProperty = Ext.getCmp('form_addPropertyValue_Property');
                 comboProperty.clearValue();
                 comboProperty.store.filter('AccountView', combo.getValue());
-                lastOptions = comboProperty.store.lastOptions;                
-                comboProperty.store.reload(lastOptions);
+                lastOptions = comboProperty.store.lastOptions;                               
               }
             }
           }
@@ -708,7 +706,8 @@
       var udrcData = { UDRCs: [] };
 
       var udrcRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-          { name: 'PriceableItemId' },          
+          { name: 'PriceableItemId' },
+          { name: 'PriceableItemName' },          
           { name: 'Value' },
           { name: 'StartDate' },
           { name: 'EndDate' },
@@ -719,13 +718,14 @@
       var udrcStore = new Ext.data.GroupingStore({
         root: 'UDRCs',
         fields: udrcRecord.fields,
-        groupField: 'PriceableItemId'
+        groupField: 'PriceableItemName'
       });
 
       function addUDRCs(items) {
         for (var i = 0; i < items.length; i++) {
-          var myNewRecord = new udrcRecord({            
+          var myNewRecord = new udrcRecord({
             PriceableItemId: items[i].PriceableItemId,
+            PriceableItemName: items[i].PriceableItemName,
             Value: items[i].Value,
             StartDate: items[i].StartDate,
             EndDate: items[i].EndDate,
@@ -745,7 +745,7 @@
       var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
 
       var udrcColumns = [
-        { hidden: true, header: ' ', dataIndex: 'PriceableItemId' },
+        { hidden: true, header: ' ', dataIndex: 'PriceableItemName' },
         { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
         { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
         { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' }
@@ -766,7 +766,7 @@
         view: new Ext.grid.GroupingView({
           forceFit: true,
           // custom grouping text template to display the number of items per group
-          groupTextTpl: 'PI{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
+          groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "<%=GetLocalResourceObject("ITEMS")%>" : "<%=GetLocalResourceObject("ITEM")%>"]})'
         })
       });
     </script>
@@ -834,15 +834,8 @@
       
     }; 
     
-    function addSubParamsCallback(ids) {
-      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
-      if (ids!='' && ids!=null)
-        window.CallServer(JSON.stringify({ subParamsId: ids }));
-      subParamsSelectorWin2.hide();      
-    }
-
     function ShowSubParamsSelector(functionName, target) {
-      if (window.subParamsSelectorWin2 == null || window.poSelectorWin2 === undefined ||
+      if (window.subParamsSelectorWin2 == null || window.subParamsSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
         window.subParamsSelectorWin2 = new top.Ext.Window({
           title: '<%=GetLocalResourceObject("SELECT_SUBPARAMS")%>',
@@ -868,10 +861,21 @@
       window.lastTarget2 = target;
       window.lastFunctionName2 = functionName;
       window.subParamsSelectorWin2.show();
+      window.subParamsSelectorWin2.on('close', closeFrame);
+    }
 
-      window.subParamsSelectorWin2.on('close', function () {
-        window.subParamsSelectorWin2 = null;
-      });      
+    function addSubParamsCallback(ids) {
+      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
+      if (ids != '' && ids != null)
+        window.CallServer(JSON.stringify({ subParamsId: ids }));
+      window.subParamsSelectorWin2.hide();
+      window.subParamsSelectorWin2.close();
+    }
+
+    function closeFrame() {
+      window.getFrameMetraNet().Ext.getDom("subParamsSelectorWin2").contentWindow = null;
+      window.getFrameMetraNet().frames["subParamsSelectorWin2"] = null;
+      window.subParamsSelectorWin2 = null;
     }
   </script>
 </asp:Content>

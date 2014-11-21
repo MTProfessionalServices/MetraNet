@@ -330,6 +330,9 @@
     <data name="TEXT_CORRECT_ERRORS" xml:space="preserve">
         <value>Corrigez les erreurs et réessayez.</value>
     </data>
+    <data name="TEXT_CREATE_NEW_PARAMETER" xml:space="preserve">
+        <value>[FR]Create New Parameter</value>
+    </data>
     <data name="TEXT_CREATOR_ID" xml:space="preserve">
         <value>ID de créateur</value>
     </data>
@@ -428,6 +431,12 @@
     </data>
     <data name="TEXT_MACHINE_IDENTIFIER" xml:space="preserve">
         <value>ID de la machine</value>
+    </data>
+    <data name="TEXT_MACHINE_NAME" xml:space="preserve">
+        <value>[FR]Machine</value>
+    </data>
+    <data name="TEXT_MACHINE_ROLE_NAME" xml:space="preserve">
+        <value>[FR]Machine Role</value>
     </data>
     <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
         <value>Gérer les abonnements groupés</value>

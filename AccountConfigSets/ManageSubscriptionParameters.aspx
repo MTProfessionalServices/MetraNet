@@ -13,13 +13,11 @@ Title="MetraNet - Manage Subscription Parameters" %>
     </div>
     <div>
     <div id="leftColumn1" class="LeftColumn">    
-      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
-          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>  
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate"
-        Label="Start date" LabelWidth="120" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
       <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
-        Label="End date" LabelWidth="120" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpSubParamsEndDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
     </div>
     <div id="rightColumn1" class="RightColumn">      
@@ -64,17 +62,17 @@ Title="MetraNet - Manage Subscription Parameters" %>
                 OnClick="btnAddAccountConfigSet_Click" Visible="False" TabIndex="150" meta:resourcekey="btnAddAccountConfigSetResource" />
             </td>
             <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnUpdateAccountConfigSet" runat="server" OnClientClick="return getUpdateApprove();"
+              <MT:MTButton ID="MTbtnUpdateAccountConfigSet" runat="server" OnClientClick="return getDataGrids();"
                 OnClick="btnUpdateAccountConfigSet_Click" Visible="False" TabIndex="160" meta:resourcekey="btnUpdateAccountConfigSetResource" />
             </td>
             <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnGoToUpdateAccountConfigSet" runat="server" 
                 OnClick="btnGoToUpdateAccountConfigSet_Click" Visible="False" TabIndex="170" meta:resourcekey="btnGoToUpdateAccountConfigSetResource" />
             </td>
-            <%--<td class="x-panel-btn-td">
+            <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
                 TabIndex="180" meta:resourcekey="MTbtnCancelResource" />
-            </td>--%>
+            </td>
           </tr>
         </table>
       </div>
@@ -90,7 +88,7 @@ Title="MetraNet - Manage Subscription Parameters" %>
       return true;        
   }
 
-    var GRID_HEIGHT = 300;
+    var GRID_HEIGHT = 200;
     var ACTIONS_COLUMN_HEIGHT = 25;
     var NAME_COLUMN_HEIGHT = 255;
     var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
@@ -106,21 +104,14 @@ Title="MetraNet - Manage Subscription Parameters" %>
     ]);
     
     Ext.onReady(function () {
-      //UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
-      if(isViewMode)
-      {
-      udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid_ViewMode'));
-      }
-      else
-      {
+
       if(poToolBar!= null)
           poToolBar.render(window.Ext.get('PlaceHolderSelectPoToolBar'));
       if(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid')!=null)
       {
       piWithAllowUDRCGrid.render(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid'));
       udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
-      }
-      }
+      }      
     });
 
     //    function loadFromPostback(hidden, store, data, dataDetails) {
@@ -180,42 +171,36 @@ Title="MetraNet - Manage Subscription Parameters" %>
       window.Ext.get("<%=MTtbSubParamsPoName.ClientID %>").dom.value = poName;      
     };
 
-    function addPoCallback(ids, records) {
-      if (window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value != ids) {
-        window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value = ids;
-        window.CallServer(JSON.stringify({ poId: ids }));
-      }
-      poSelectorWin2.hide();
-    }
-
     function addItemToPIs(items) {
       piUDRCStore.removeAll();
       udrcStore.removeAll();
 
-      for (var i = 0; i < items.length; i++) {
-        var piId = items[i].PriceableItemId;
-        var displayName = items[i].DisplayName;
-        var recordId = piId + '_' + displayName;
-        var piKind = items[i].PIKind;        
-        var ratingType = items[i].RatingType;
+      if (items != null) {
+        for (var i = 0; i < items.length; i++) {
+          var piId = items[i].PriceableItemId;
+          var displayName = items[i].DisplayName;
+          var recordId = piId + '_' + displayName;
+          var piKind = items[i].PIKind;
+          var ratingType = items[i].RatingType;
 
-        var myNewRecord = new piRecord({
-          PriceableItemId: piId,
-          Name: items[i].Name,
-          DisplayName: displayName,
-          PIKind: piKind,          
-          RatingType: ratingType,
-          RecordId: recordId
-        });
+          var myNewRecord = new piRecord({
+            PriceableItemId: piId,
+            Name: items[i].Name,
+            DisplayName: displayName,
+            PIKind: piKind,
+            RatingType: ratingType,
+            RecordId: recordId
+          });
 
-        var isUDRC = (piKind == 25) || (piKind == 'UnitDependentRecurring');
-        
-        if (isUDRC) { //UDRC pi
+          var isUDRC = (piKind == 25) || (piKind == 'UnitDependentRecurring');
+
+          if (isUDRC) { //UDRC pi
             piUDRCStore.add(myNewRecord);
           }
-       }      
+        }
+      }      
     }
-    
+
     function onPoAdd() {
       ShowMultiPoSelector('addPoCallback', 'Frame');
     }
@@ -238,21 +223,33 @@ Title="MetraNet - Manage Subscription Parameters" %>
           maximizable: false,
           closable: true,
           closeAction: 'close',
-          html: '<iframe id="poSelectorWindow2" src="/MetraNet/AccountConfigSets/SelectPoForSubscriptionParameters.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
+          html: '<iframe id="poSelectorWin2" src="/MetraNet/AccountConfigSets/SelectPoForSubscriptionParameters.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
         });
       }
-      if (window.poSelectorWin != null) {
-        window.poSelectorWin.hide();
+      if (window.poSelectorWin2 != null) {
+        window.poSelectorWin2.hide();
       }
       window.lastTarget2 = target;
       window.lastFunctionName2 = functionName;
       window.poSelectorWin2.show();
-
-      window.poSelectorWin2.on('close', function () {
-        window.poSelectorWin2 = null;
-      });
+      window.poSelectorWin2.on('close', closeFrame);
     }
 
+    function addPoCallback(ids) {
+      if (window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value != ids) {
+        window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value = ids;
+        window.CallServer(JSON.stringify({ poId: ids }));
+      }
+      window.poSelectorWin2.hide();
+      window.poSelectorWin2.close();
+    }
+
+    function closeFrame() {
+      window.getFrameMetraNet().Ext.getDom("poSelectorWin2").contentWindow = null;
+      window.getFrameMetraNet().frames["poSelectorWin2"] = null;
+      window.poSelectorWin2 = null;
+    }
+    
     function getPo() {
       var poId = window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value;
       if ((poId == null) || (poId == '') || (poId === undefined)){

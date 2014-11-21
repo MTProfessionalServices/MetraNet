@@ -159,4 +159,22 @@
     <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Titre du rapport</value>
     </data>
+    <data name="TEXT_ID_REPORT" xml:space="preserve">
+        <value>[FR]ID Report</value>
+    </data>
+  <data name="MTSection2Resource1.Text" xml:space="preserve">
+    <value>[FR]Report Definition Details</value>
+  </data>  
+  <data name="chkPreventAdhocExecutionResource1.BoxLabel" xml:space="preserve">
+    <value>[FR]Prevent Adhoc Execution</value>
+  </data>
+  <data name="ddQueryTagListResource1.Label" xml:space="preserve">
+    <value>[FR]Query Tag</value>
+  </data>
+  <data name="tbReportDescriptionResource1.Label" xml:space="preserve">
+    <value>[FR]Description</value>
+  </data>
+  <data name="tbReportTitleResource1.Label" xml:space="preserve">
+    <value>[FR]Report Title</value>
+  </data>
 </root>

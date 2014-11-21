@@ -178,4 +178,19 @@
     <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
         <value>Atualizar definição de relatório existente</value>
     </data>
+  <data name="chkPreventAdhocExecutionResource1.BoxLabel" xml:space="preserve">
+    <value>Prevent Adhoc Execution</value>
+  </data>
+  <data name="ddQueryTagListResource1.Label" xml:space="preserve">
+    <value>Query Tag</value>
+  </data>
+  <data name="tbReportDescriptionResource1.Label" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="tbReportTitleResource1.Label" xml:space="preserve">
+    <value>Report Title</value>
+  </data>
+  <data name="MTSection2Resource1.Text" xml:space="preserve">
+    <value>Report Definition Details</value>
+  </data>
 </root>

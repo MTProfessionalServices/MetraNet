@@ -276,14 +276,19 @@
         // Menus can be built/referenced by using nested menu config objects
         menu : {
           items: [{
-              text: 'Change Password',
+              text: TEXT_CHANGE_PASSWORD,
               icon: '/Res/Images/icons/lock_edit.png',
               handler: function() { Ext.UI.LoadPage('/MetraNet/ChangePassword.aspx'); }
             },{
-              text: 'My Security Settings',
+              text: TEXT_MY_SECURITY_SETTINGS,
               icon: '/Res/Images/icons/key_go.png',
               handler: function() { Ext.UI.LoadPage('/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=CSR_DEFAULT_POLICY'); }
-            }]
+            },{
+              text: TEXT_NOTIFICATIONS,
+              icon: '/Res/Images/icons/email.png',
+              handler: function() { Ext.UI.LoadPage('/MetraNet/Notifications/Notifications.aspx'); }
+            }
+          ]
         }
       }),
        

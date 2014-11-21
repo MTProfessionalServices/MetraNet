@@ -126,10 +126,10 @@
   <data name="btnUpdateAccountConfigSetResource.Text" xml:space="preserve">
     <value>[FR]Update</value>
   </data>
-  <data name="dpSubParamsEndDateResource.Text" xml:space="preserve">
+  <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
     <value>[FR]Subscription End Date</value>
   </data>
-  <data name="dpSubParamsStartDateResource.Text" xml:space="preserve">
+  <data name="dpSubParamsStartDateResource.Label" xml:space="preserve">
     <value>[FR]Subscription Start Date</value>
   </data>
   <data name="isCorpAccountIdResource.Label" xml:space="preserve">
@@ -151,10 +151,10 @@
     <value>[FR]UDRC Metrics</value>
   </data>
   <data name="panelAccountConfigSetParametersResource.Text" xml:space="preserve">
-    <value>[FR]Subscription Parameters Settings</value>
+    <value>[FR]Model Information</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>[FR]Template Subscription Parameters</value>
+    <value>[FR]Product Offering Information</value>
   </data>
   <data name="PIID" xml:space="preserve">
     <value>[FR]Priсeable Item Id</value>
@@ -181,7 +181,7 @@
     <value>[FR]Product Offering</value>
   </data>
   <data name="TEXT_ADD_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>[FR]Add Subscription Parameters</value>
+    <value>[FR]Add Model</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
     <value>[FR]Add UDRC Metric</value>

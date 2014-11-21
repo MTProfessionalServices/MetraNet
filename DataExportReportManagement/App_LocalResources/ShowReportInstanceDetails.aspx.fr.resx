@@ -403,4 +403,7 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valeur</value>
     </data>
+    <data name="TEXT_REPORT_INSTANCE_DETAILS" xml:space="preserve">
+        <value>[FR]Report Instance Details </value>
+    </data>
 </root>

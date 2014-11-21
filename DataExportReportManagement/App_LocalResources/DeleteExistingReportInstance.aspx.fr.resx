@@ -402,4 +402,7 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valeur</value>
     </data>
+    <data name="TEXT_DELETE_REPORT_INSTANCE" xml:space="preserve">
+        <value>[FR]Delete Report Instance </value>
+    </data>
 </root>

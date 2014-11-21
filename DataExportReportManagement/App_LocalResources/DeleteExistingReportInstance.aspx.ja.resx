@@ -402,4 +402,7 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>値</value>
     </data>
+    <data name="TEXT_DELETE_REPORT_INSTANCE" xml:space="preserve">
+        <value>Delete Report Instance </value>
+    </data>
 </root>

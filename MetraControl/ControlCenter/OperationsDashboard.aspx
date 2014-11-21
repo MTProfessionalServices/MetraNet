@@ -695,6 +695,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
+                if (d.date.search(".m.") != -1) {
+                  d.date = d.date.split('.').join("").toUpperCase();
+                }
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > maxDate) maxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;
@@ -719,29 +722,29 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 					.renderHorizontalGridLines(true)
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
- 					.title("<%=pipelineQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
-					.title("<%=rampQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
-					.title("<%=schedulerQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
+ 					.title("<%=pipelineQueueText%>", function(d){ return FormatNumber(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
+					.title("<%=rampQueueText%>", function(d){ return FormatNumber(d.value) + " " + "<%=rampQueueToolTipText%>"; })
+					.title("<%=schedulerQueueText%>", function(d){ return FormatNumber(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                    .compose([
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(pipeQGroup, "<%=pipelineQueueText%>")
                                 .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(msgqQGroup, "<%=rampQueueText%>")
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=rampQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(schedulerQGroup, "<%=schedulerQueueText%>")
                                 .colors('#148622')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                     ]);
             composite1.xAxis().tickSize(0,0).tickFormat("");
             composite1.yAxis().tickSize(0,0).tickFormat("");
@@ -762,21 +765,21 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
 					.renderHorizontalGridLines(true)
-					.title("<%=pipelineWaitDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
-          .title("<%=pipelineProcessingDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })   
+					.title("<%=pipelineWaitDurationText%>", function(d){ return FormatNumber(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
+          .title("<%=pipelineProcessingDurationText%>", function(d){ return FormatNumber(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })   
                     .compose([
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeBacklogGroup, "<%=pipelineWaitDurationText%>")
                                 .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeGroup, "<%=pipelineProcessingDurationText%>")
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
                     ])
 			;
 
@@ -795,6 +798,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
+                if (d.date.search(".m.") != -1) {
+                  d.date = d.date.split('.').join("").toUpperCase();
+                }
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > realMaxDate) realMaxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;

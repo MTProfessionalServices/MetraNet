@@ -834,13 +834,6 @@
       
     }; 
     
-    function addSubParamsCallback(ids) {
-      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
-      if (ids!='' && ids!=null)
-        window.CallServer(JSON.stringify({ subParamsId: ids }));
-      subParamsSelectorWin2.hide();      
-    }
-
     function ShowSubParamsSelector(functionName, target) {
       if (window.subParamsSelectorWin2 == null || window.subParamsSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
@@ -868,10 +861,21 @@
       window.lastTarget2 = target;
       window.lastFunctionName2 = functionName;
       window.subParamsSelectorWin2.show();
+      window.subParamsSelectorWin2.on('close', closeFrame);
+    }
 
-      window.subParamsSelectorWin2.on('close', function () {
-        window.subParamsSelectorWin2 = null;
-      });      
+    function addSubParamsCallback(ids) {
+      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
+      if (ids != '' && ids != null)
+        window.CallServer(JSON.stringify({ subParamsId: ids }));
+      window.subParamsSelectorWin2.hide();
+      window.subParamsSelectorWin2.close();
+    }
+
+    function closeFrame() {
+      window.getFrameMetraNet().Ext.getDom("subParamsSelectorWin2").contentWindow = null;
+      window.getFrameMetraNet().frames["subParamsSelectorWin2"] = null;
+      window.subParamsSelectorWin2 = null;
     }
   </script>
 </asp:Content>

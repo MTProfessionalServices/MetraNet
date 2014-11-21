@@ -18,6 +18,6 @@ SELECT
       ui.dt_start AS [Start],
       ui.dt_end AS [End],
       tx_interval_status [Interval_Status], 
-      DATEDIFF(day, GETUTCDATE(), ui.dt_end) AS [Days_Until_Run]
+      DATEDIFF(day, GETDATE(), ui.dt_end) AS [Days_Until_Run]             
 FROM t_usage_interval ui
 WHERE ui.id_interval = @id_interval;

@@ -16,7 +16,7 @@
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
-    <Description>AccountConfigSet SubParams list</Description>
+    <Description>OnBoard Template SubParams list</Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
@@ -323,5 +323,22 @@
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
-    <ToolbarButtons></ToolbarButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>Add</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_CREATE_ACS_SUB_PARAMS</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>CREATE_ACS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities>
+                <Capability>Manage OnBoard Templates</Capability>
+            </RequiredCapabilities>
+            <JSHandlerFunction>onNew</JSHandlerFunction>
+        </Button>
+    </ToolbarButtons>
 </GridLayout>

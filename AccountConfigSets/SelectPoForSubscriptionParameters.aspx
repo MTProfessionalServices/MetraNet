@@ -14,7 +14,6 @@
     
     onOK_<%=POListGrid.ClientID %> = function()
     {
-     
       var records = grid_<%=POListGrid.ClientID %>.getSelectionModel().getSelections();
       var ids = "";
       for(var i=0; i < records.length; i++)
@@ -26,10 +25,9 @@
         ids += records[i].data.ProductOfferingId;
       }
 
-      var mainFrame = window.getFrameMetraNet().MainContentIframe;
-      var subpFrame = window.getFrameMetraNet().subParamsSelectorWin2;
-
       try {
+        var mainFrame = window.getFrameMetraNet().MainContentIframe;
+        var subpFrame = window.getFrameMetraNet().Ext.getDom("subParamsSelectorWin2");
         if (mainFrame) {
           if (mainFrame.ticketFrame) {
             if (mainFrame.ticketFrame.fmeTemplatePage) {
@@ -39,9 +37,9 @@
             }
           } else {
             if (subpFrame) {
-              if (subpFrame.contentWindow)
+              if (subpFrame.contentWindow) 
                 subpFrame.contentWindow.<%= CallbackFunction %>(ids);
-              else
+               else 
                 subpFrame.<%= CallbackFunction %>(ids);
             } else {
               mainFrame.<%= CallbackFunction %>(ids);
@@ -50,10 +48,6 @@
         }
       } catch(e) {
         window.Ext.UI.msg(window.TEXT_ERROR_MSG, window.TEXT_CALLBACK_MSG_1 + " <%= CallbackFunction %> " + window.TEXT_CALLBACK_MSG_2);
-      }
-
-      if (subpFrame != null) {
-        subpFrame.close();
       }
     };        
   </script>

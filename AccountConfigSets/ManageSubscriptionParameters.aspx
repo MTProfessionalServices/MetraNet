@@ -171,14 +171,6 @@ Title="MetraNet - Manage Subscription Parameters" %>
       window.Ext.get("<%=MTtbSubParamsPoName.ClientID %>").dom.value = poName;      
     };
 
-    function addPoCallback(ids, records) {
-      if (window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value != ids) {
-        window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value = ids;
-        window.CallServer(JSON.stringify({ poId: ids }));
-      }
-      poSelectorWin2.hide();
-    }
-
     function addItemToPIs(items) {
       piUDRCStore.removeAll();
       udrcStore.removeAll();
@@ -208,7 +200,7 @@ Title="MetraNet - Manage Subscription Parameters" %>
         }
       }      
     }
-    
+
     function onPoAdd() {
       ShowMultiPoSelector('addPoCallback', 'Frame');
     }
@@ -231,21 +223,33 @@ Title="MetraNet - Manage Subscription Parameters" %>
           maximizable: false,
           closable: true,
           closeAction: 'close',
-          html: '<iframe id="poSelectorWindow2" src="/MetraNet/AccountConfigSets/SelectPoForSubscriptionParameters.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
+          html: '<iframe id="poSelectorWin2" src="/MetraNet/AccountConfigSets/SelectPoForSubscriptionParameters.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
         });
       }
-      if (window.poSelectorWin != null) {
-        window.poSelectorWin.hide();
+      if (window.poSelectorWin2 != null) {
+        window.poSelectorWin2.hide();
       }
       window.lastTarget2 = target;
       window.lastFunctionName2 = functionName;
       window.poSelectorWin2.show();
-
-      window.poSelectorWin2.on('close', function () {
-        window.poSelectorWin2 = null;
-      });
+      window.poSelectorWin2.on('close', closeFrame);
     }
 
+    function addPoCallback(ids) {
+      if (window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value != ids) {
+        window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value = ids;
+        window.CallServer(JSON.stringify({ poId: ids }));
+      }
+      window.poSelectorWin2.hide();
+      window.poSelectorWin2.close();
+    }
+
+    function closeFrame() {
+      window.getFrameMetraNet().Ext.getDom("poSelectorWin2").contentWindow = null;
+      window.getFrameMetraNet().frames["poSelectorWin2"] = null;
+      window.poSelectorWin2 = null;
+    }
+    
     function getPo() {
       var poId = window.Ext.get("<%=MTtbSubParamsPo.ClientID %>").dom.value;
       if ((poId == null) || (poId == '') || (poId === undefined)){

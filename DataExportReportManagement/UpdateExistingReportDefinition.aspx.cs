@@ -26,7 +26,7 @@ using MetraTech.UI.MetraNet.App_Code;
 
 
 
-public partial class DataExportReportManagement_UpdateExistingReportDefinition :  MTPage
+public partial class DataExportReportManagement_UpdateExistingReportDefinition : MTPage
 {
   public ExportReportDefinition exportreportdefinition
   {
@@ -70,18 +70,18 @@ public partial class DataExportReportManagement_UpdateExistingReportDefinition :
       exportreportdefinition = new ExportReportDefinition();
 
       MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
-      MTGenericForm1.RenderObjectType = exportreportdefinition.GetType(); 
+      MTGenericForm1.RenderObjectType = exportreportdefinition.GetType();
       MTGenericForm1.RenderObjectInstanceName = "exportreportdefinition";
       MTGenericForm1.TemplateName = "DataExportFramework.ReportDefinition";
       MTGenericForm1.ReadOnly = false;
 
-      exportreportdefinition.ReportType = "Query";  
+      exportreportdefinition.ReportType = "Query";
 
       //Gather the Existing Report Definition Details
 
       try
       {
-            GetExistingReportDefinition();
+        GetExistingReportDefinition();
       }
 
       catch (Exception ex)
@@ -105,107 +105,106 @@ public partial class DataExportReportManagement_UpdateExistingReportDefinition :
     }
   }
 
-    protected void btnOK_Click(object sender, EventArgs e)
+  protected void btnOK_Click(object sender, EventArgs e)
+  {
+    if (!this.MTDataBinder1.Unbind())
     {
-      if (!this.MTDataBinder1.Unbind())
-      {
-        this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-      }
+      this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
+    }
 
-      //Initialize some read only values 
-      exportreportdefinition.ReportType = "Query";      
-      exportreportdefinition.ReportDefinitionSource = "Query";
-      int preventadhocexec = 0;
+    //Initialize some read only values 
+    exportreportdefinition.ReportType = "Query";
+    exportreportdefinition.ReportDefinitionSource = "Query";
+    int preventadhocexec = 0;
 
-      if (!exportreportdefinition.bPreventAdhocExecution)
+    if (!exportreportdefinition.bPreventAdhocExecution)
+    {
+      preventadhocexec = 0;
+    }
+    else
+    {
+      preventadhocexec = 1;
+    }
+
+    DataExportReportManagementServiceClient client = null;
+
+    try
+    {
+      client = new DataExportReportManagementServiceClient();
+
+      client.ClientCredentials.UserName.UserName = UI.User.UserName;
+      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+
+
+      if (strincomingAction == "Update")
       {
-        preventadhocexec = 0;
+        client.UpdateReportDefinition(intincomingReportID, exportreportdefinition.ReportDefinitionSource, exportreportdefinition.ReportDescription,
+    exportreportdefinition.ReportQueryTag, exportreportdefinition.ReportType, preventadhocexec);
       }
       else
       {
-        preventadhocexec = 1;
+        client.DeleteExistingReportDefinition(intincomingReportID);
       }
 
-      DataExportReportManagementServiceClient client = null;
+      client.Close();
 
-      try
+      if (strincomingAction == "Update")
       {
-        client = new DataExportReportManagementServiceClient();
-
-        client.ClientCredentials.UserName.UserName = UI.User.UserName;
-        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-
-        if (strincomingAction == "Update")
-        {
-          client.UpdateReportDefinition(intincomingReportID, exportreportdefinition.ReportDefinitionSource, exportreportdefinition.ReportDescription,
-			exportreportdefinition.ReportQueryTag, exportreportdefinition.ReportType, preventadhocexec);
-        }
-        else
-        {
-          client.DeleteExistingReportDefinition(intincomingReportID);
-        }
-
-        client.Close();
-
-        if (strincomingAction == "Update")
-
-        { 
-          Response.Redirect("ReportDefinitionUpdated.aspx", false); 
-        }
-        else
-        {
-          Response.Redirect("ReportDefinitionDeleted.aspx" , false); 
-        }
-                
+        Response.Redirect("ReportDefinitionUpdated.aspx", false);
       }
-
-      catch (Exception ex)
+      else
       {
-        SetError(ex.Message);
-        this.Logger.LogError(ex.Message);
-        client.Abort();
+        Response.Redirect("ReportDefinitionDeleted.aspx", false);
       }
 
     }
 
-    protected void GetExistingReportDefinition()
+    catch (Exception ex)
     {
-      DataExportReportManagementServiceClient client = null;
-
-      try
-      {
-        client = new DataExportReportManagementServiceClient();
-
-        client.ClientCredentials.UserName.UserName = UI.User.UserName;
-        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-        //int IDReport = intincomingReportID;  
-        ExportReportDefinition exportReportDefinition;
-        client.GetAReportDef(intincomingReportID, out exportReportDefinition);
-        exportreportdefinition = (ExportReportDefinition)exportReportDefinition;
-        client.Close();
-
-      }
-
-      catch (Exception ex)
-      {
-        this.Logger.LogError(ex.Message);
-        client.Abort();
-        throw;
-      }
+      SetError(ex.Message);
+      this.Logger.LogError(ex.Message);
+      client.Abort();
     }
 
+  }
 
+  protected void GetExistingReportDefinition()
+  {
+    DataExportReportManagementServiceClient client = null;
 
-    protected void btnCancel_Click(object sender, EventArgs e)
+    try
     {
-      Response.Redirect("ShowAllReportDefinitions.aspx", false);
-      //Response.Redirect("UpdateExistingReportDefinition.aspx?reportid="+strincomingReportId, false);
+      client = new DataExportReportManagementServiceClient();
+
+      client.ClientCredentials.UserName.UserName = UI.User.UserName;
+      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+
+      //int IDReport = intincomingReportID;  
+      ExportReportDefinition exportReportDefinition;
+      client.GetAReportDef(intincomingReportID, out exportReportDefinition);
+      exportreportdefinition = (ExportReportDefinition)exportReportDefinition;
+      client.Close();
+
     }
 
-    protected void btnManageReportParameters_Click(object sender, EventArgs e)
+    catch (Exception ex)
     {
-      Response.Redirect("ShowAssignedReportParameters.aspx?reportid=" + strincomingReportId, false);
+      this.Logger.LogError(ex.Message);
+      client.Abort();
+      throw;
     }
   }
+
+
+
+  protected void btnCancel_Click(object sender, EventArgs e)
+  {
+    Response.Redirect("ShowAllReportDefinitions.aspx", false);
+    //Response.Redirect("UpdateExistingReportDefinition.aspx?reportid="+strincomingReportId, false);
+  }
+
+  protected void btnManageReportParameters_Click(object sender, EventArgs e)
+  {
+    Response.Redirect("ShowAssignedReportParameters.aspx?reportid=" + strincomingReportId, false);
+  }
+}

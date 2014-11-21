@@ -189,148 +189,7 @@
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
         <value>Update Report Instance</value>
-    </data>
-    <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>Show Report Instance</value>
-    </data>
-    <data name="pmFTPPasswordResource1.ControlHeight" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="pmFTPPasswordResource1.ControlWidth" xml:space="preserve">
-        <value>200</value>
-    </data>
-    <data name="pmFTPPasswordResource1.InlineScript" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="pmFTPPasswordResource1.Label" xml:space="preserve">
-        <value>FTP Access Password</value>
-    </data>
-    <data name="pmFTPPasswordResource1.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="pmFTPPasswordResource1.LabelWidth" xml:space="preserve">
-        <value>120</value>
-    </data>
-    <data name="pmFTPPasswordResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Max Length = 50</value>
-    </data>
-    <data name="pmFTPPasswordResource1.Text" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="pmFTPPasswordResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbControlFileLocationResource1.ControlHeight" xml:space="preserve">
-        <value>18</value>
-    </data>
-    <data name="tbControlFileLocationResource1.ControlWidth" xml:space="preserve">
-        <value>200</value>
-    </data>
-    <data name="tbControlFileLocationResource1.InlineScript" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbControlFileLocationResource1.Label" xml:space="preserve">
-        <value>Control File Location</value>
-    </data>
-    <data name="tbControlFileLocationResource1.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="tbControlFileLocationResource1.LabelWidth" xml:space="preserve">
-        <value>120</value>
-    </data>
-    <data name="tbControlFileLocationResource1.MaxLength" xml:space="preserve">
-        <value>-1</value>
-    </data>
-    <data name="tbControlFileLocationResource1.MinLength" xml:space="preserve">
-        <value>0</value>
-    </data>
-    <data name="tbControlFileLocationResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Max Length = 50</value>
-    </data>
-    <data name="tbControlFileLocationResource1.Text" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbControlFileLocationResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbControlFileLocationResource1.ValidationRegex" xml:space="preserve">
-        <value>null</value>
-    </data>
-    <data name="tbFTPUserResource1.ControlHeight" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbFTPUserResource1.ControlWidth" xml:space="preserve">
-        <value>200</value>
-    </data>
-    <data name="tbFTPUserResource1.InlineScript" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbFTPUserResource1.Label" xml:space="preserve">
-        <value>FTP Access User</value>
-    </data>
-    <data name="tbFTPUserResource1.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="tbFTPUserResource1.LabelWidth" xml:space="preserve">
-        <value>120</value>
-    </data>
-    <data name="tbFTPUserResource1.MaxLength" xml:space="preserve">
-        <value>-1</value>
-    </data>
-    <data name="tbFTPUserResource1.MinLength" xml:space="preserve">
-        <value>0</value>
-    </data>
-    <data name="tbFTPUserResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Max Length = 50</value>
-    </data>
-    <data name="tbFTPUserResource1.Text" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbFTPUserResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbFTPUserResource1.ValidationRegex" xml:space="preserve">
-        <value>null</value>
-    </data>
-    <data name="tbReportDestinationResource1.ControlHeight" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbReportDestinationResource1.ControlWidth" xml:space="preserve">
-        <value>200</value>
-    </data>
-    <data name="tbReportDestinationResource1.InlineScript" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbReportDestinationResource1.Label" xml:space="preserve">
-        <value>Report Destination</value>
-    </data>
-    <data name="tbReportDestinationResource1.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="tbReportDestinationResource1.LabelWidth" xml:space="preserve">
-        <value>120</value>
-    </data>
-    <data name="tbReportDestinationResource1.MaxLength" xml:space="preserve">
-        <value>-1</value>
-    </data>
-    <data name="tbReportDestinationResource1.MinLength" xml:space="preserve">
-        <value>0</value>
-    </data>
-    <data name="tbReportDestinationResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Max Length = 50</value>
-    </data>
-    <data name="tbReportDestinationResource1.Text" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbReportDestinationResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="tbReportDestinationResource1.ValidationRegex" xml:space="preserve">
-        <value>null</value>
-    </data>
+    </data>    
     <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
         <value>Activation Date</value>
     </data>
@@ -405,5 +264,8 @@
     </data>
     <data name="TEXT_REPORT_INSTANCE_DETAILS" xml:space="preserve">
         <value>Report Instance Details </value>
+    </data>
+    <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
+        <value>Delete Report Instance</value>
     </data>
 </root>

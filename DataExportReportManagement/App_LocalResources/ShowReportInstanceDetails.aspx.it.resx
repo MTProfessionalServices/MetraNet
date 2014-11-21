@@ -406,4 +406,7 @@
     <data name="TEXT_REPORT_INSTANCE_DETAILS" xml:space="preserve">
         <value>Report Instance Details </value>
     </data>
+  <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
+        <value>Delete Report Instance</value>
+    </data>
 </root>

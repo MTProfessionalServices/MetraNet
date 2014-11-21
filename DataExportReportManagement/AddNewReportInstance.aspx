@@ -10,7 +10,7 @@
 
 
 <!-- From Add Parameters Template -->
-  <MTCDT:MTGenericForm ID="MTGenericForm1" runat="server" DataBinderInstanceName="MTDataBinder1" meta:resourcekey="MTGenericForm1Resource1"></MTCDT:MTGenericForm>
+  <MTCDT:MTGenericForm ID="MTGenericForm1" runat="server" DataBinderInstanceName="MTDataBinder1"></MTCDT:MTGenericForm>
         
        
       <div  class="x-panel-btns-ct">
@@ -20,13 +20,12 @@
         <tr>
           <td  class="x-panel-btn-td">
             <MT:MTButton ID="btnOK"  OnClientClick="return ValidateForm();" runat="server" 
-              Text="<%$ Resources:Resource,TEXT_OK %>" OnClick="btnOK_Click" TabIndex="150" 
-              meta:resourcekey="btnOKResource1" />      
+              Text="<%$ Resources:Resource,TEXT_OK %>" OnClick="btnOK_Click" TabIndex="150"/>      
           </td>
           <td  class="x-panel-btn-td">
             <MT:MTButton ID="btnCancel" runat="server" 
               Text="<%$ Resources:Resource,TEXT_CANCEL %>" OnClick="btnCancel_Click" 
-              CausesValidation="False" TabIndex="160" meta:resourcekey="btnCancelResource1" />
+              CausesValidation="False" TabIndex="160"/>
           </td>
         </tr>
       </table> 

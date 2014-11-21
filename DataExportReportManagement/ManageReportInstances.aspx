@@ -26,26 +26,31 @@
     TotalProperty="TotalRows"></MT:MTFilterGrid>
 
   <script language="javascript" type="text/javascript">
-
+    var textEdit_Report_Definition = '<%=GetGlobalResourceObject("JSConsts", "TEXT_Edit_Report_Instance")%>';
+    var textManage_Report_Instances = '<%=GetGlobalResourceObject("JSConsts", "TEXT_Manage_Report_Instance_Schedule")%>';
+    var textManage_Report_Parameters = '<%=GetGlobalResourceObject("JSConsts", "TEXT_Manage_Report__InstanceParameters")%>';
+    var textDelete_Report = '<%=GetGlobalResourceObject("JSConsts", "TEXT_Delete_Report_Instance")%>';
+    var textDelete = '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE")%>';
+    
     OverrideRenderer_<%= MyGrid1.ClientID %> = function(cm)
-  {
-    cm.setRenderer(cm.getIndexById('IDReportInstance'), idreportinstanceColRenderer); 
+    {
+      cm.setRenderer(cm.getIndexById('IDReportInstance'), idreportinstanceColRenderer); 
 
-  }
+    }
   
   function idreportinstanceColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
     var str = "";
     var strincomingReportId = escape('<%= Utils.EncodeForHtml(strincomingReportId) %>');
     
-  str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:editreportinstance(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/database_edit.png' alt='{2}' /></a>", record.data.IDReportInstance,strincomingReportId, "Edit Report Instance");
+    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:editreportinstance(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/database_edit.png' alt='{2}' /></a>", record.data.IDReportInstance,strincomingReportId, textEdit_Report_Definition);
 
-  str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:editreportinstanceschedule(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/application_view_list.png' alt='{2}' /></a>", record.data.IDReportInstance, strincomingReportId, "Manage Report Instance Schedule"); 
+    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:editreportinstanceschedule(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/application_view_list.png' alt='{2}' /></a>", record.data.IDReportInstance, strincomingReportId, textManage_Report_Instances); 
   
-  str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:editreportinstanceparametervalues(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/application_form_edit.png' alt='{2}' /></a>", record.data.IDReportInstance,strincomingReportId, "Edit Instance Parameter Values");
+    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:editreportinstanceparametervalues(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/application_form_edit.png' alt='{2}' /></a>", record.data.IDReportInstance,strincomingReportId, textManage_Report_Parameters);
   
-  str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:deletereportinstance(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/database_delete.png' alt='{2}' /></a>", record.data.IDReportInstance,strincomingReportId, "Delete Report Instance");
-  return str;
+    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:deletereportinstance(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/database_delete.png' alt='{2}' /></a>", record.data.IDReportInstance,strincomingReportId, textDelete_Report);
+    return str;
   }
   
   
@@ -67,17 +72,24 @@
   
   function deletereportinstance(IDReportInstance, strincomingReportId)
   {
-       var retVal = confirm("Do you want to continue ?");
-
-   if( retVal == true ){
+    top.Ext.MessageBox.show({
+        title: textDelete,
+        msg: String.format('<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE_MESSAGE")%>'),
+        buttons: window.Ext.MessageBox.OKCANCEL,
+        fn: function(btn) {
+          if (btn == 'ok') {
+            location.href = '/MetraNet/DataExportReportManagement/DeleteExistingReportInstance.aspx?idreportinstance='+ IDReportInstance + '&idreport=' +strincomingReportId + '&action=Delete';
+          }
+        },
+        animEl: 'elId',
+        icon: window.Ext.MessageBox.QUESTION
+      });
       
-      //location.href = '/MetraNet/DataExportReportManagement/ShowReportInstanceDetails.aspx?idreportinstance='+ IDReportInstance + '&idreport=' +strincomingReportId + '&action=Delete';
-        location.href = '/MetraNet/DataExportReportManagement/DeleteExistingReportInstance.aspx?idreportinstance='+ IDReportInstance + '&idreport=' +strincomingReportId + '&action=Delete';
-   }
-   else
-   {
-      //location.href = '/MetraNet/DataExportReportManagement/ManageReportInstances.aspx?reportid=' + strincomingReportId;
-   }
+      var dlg = top.Ext.MessageBox.getDialog();
+	    var buttons = dlg.buttons;
+	    for (i = 0; i < buttons.length; i++) {
+      buttons[i].addClass('custom-class');
+     }      
   }  
   
 

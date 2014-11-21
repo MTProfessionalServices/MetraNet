@@ -210,4 +210,13 @@
     <data name="TEXT_TITLE" xml:space="preserve">
         <value>[FR]Add New Report Instance</value>
     </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>[FR]Add New Report Instance</value>
+  </data>
+  <data name="btnCancelResource1.Text" xml:space="preserve">
+    <value>[FR]Cancel</value>
+  </data>
+  <data name="btnOKResource1.Text" xml:space="preserve">
+    <value>[FR]OK</value>
+  </data>
 </root>

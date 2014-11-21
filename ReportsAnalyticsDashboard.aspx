@@ -510,8 +510,8 @@
         helper: 'clone',
         resize: { enabled: false },
         autogrow_cols: true,
-        min_rows: 30,
-        min_cols: 9,
+        min_rows: 3,
+        min_cols: 1,
       }).data('gridster').disable();
     });
   </script>

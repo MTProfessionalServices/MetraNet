@@ -146,6 +146,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
   {
     var json = new StringBuilder();
     string item = string.Empty;
+    string period = string.Empty;
     //format dates/amounts used as data in client side for formatting or plotting graphs using invaraint culture otherwise culture specific decimal/group seperators mess up with json returned
     var invariantCulture = CultureInfo.InvariantCulture;
 
@@ -164,6 +165,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
       if (record.Fields.Count > 0)
       {
+        period = string.Format("\"{0} {1}\"", Convert.ToDateTime(record.Fields[0].FieldValue).ToString("MMMM"), Convert.ToDateTime(record.Fields[0].FieldValue).ToString("yyyy"));
         if (operation.Equals("RevenueReport") || operation.Equals("MRRReport"))
         {
           item = string.Format("\"date\":{0},", FormatFieldValue(record.Fields[0], invariantCulture));
@@ -176,7 +178,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           json.Append(item);
           item = string.Format("\"localizedCurrency\":{0},", FormatFieldValue(record.Fields[3]));
           json.Append(item);
-          item = string.Format("\"period\":{0}", FormatDateTime(record.Fields[0], "Y"));
+          item = string.Format("\"period\":{0}", period);
           json.Append(item);
         }
         else if (operation.Equals("NewCustomersReport"))
@@ -185,7 +187,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           json.Append(item);
           item = string.Format("\"customersCount\":{0},", FormatFieldValue(record.Fields[1]));
           json.Append(item);
-          item = string.Format("\"period\":{0}", FormatDateTime(record.Fields[0], "Y"));
+          item = string.Format("\"period\":{0}", period);
           json.Append(item);
         }
       }

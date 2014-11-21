@@ -56,6 +56,8 @@ BEGIN
         NULL
       );
     
+    COMMIT;
+    
     EXCEPTION
       WHEN OTHERS THEN
         arch_q_p_rollback_next_prtn(

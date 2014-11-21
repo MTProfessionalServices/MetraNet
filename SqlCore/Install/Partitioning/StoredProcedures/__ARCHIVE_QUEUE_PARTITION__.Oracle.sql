@@ -86,6 +86,8 @@ BEGIN
     ELSE
         v_meter_tablespace_name := prtn_GetMeterPartFileGroupName();
 
+        COMMIT;
+        
         arch_q_p_apply_next_partition(
             p_new_current_id_partition => v_new_current_id_partition,
             p_current_time => v_current_time,

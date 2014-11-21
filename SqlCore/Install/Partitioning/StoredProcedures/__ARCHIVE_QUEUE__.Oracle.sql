@@ -41,6 +41,8 @@ BEGIN
         dbms_output.put_line('Partitioning is not enabled, so can not execute archive_queue sp.');
         RETURN;
     END IF;
+    
+    COMMIT;
 
 	archive_queue_partition(
 		P_UPDATE_STATS => p_update_stats,

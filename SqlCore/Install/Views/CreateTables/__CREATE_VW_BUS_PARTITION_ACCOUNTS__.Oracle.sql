@@ -11,7 +11,7 @@ AS
               am.nm_space partition_namespace 
   FROM        t_account a
         INNER JOIN t_account_type at ON a.id_type = at.id_type 
-        INNER JOIN t_account_ancestor aa ON a.id_acc = aa.id_ancestor and aa.vt_end = '2038-01-01 00:00:00.000'
+        INNER JOIN t_account_ancestor aa ON a.id_acc = aa.id_ancestor and aa.vt_end >= TO_DATE('2038-01-01', 'YYYY-MM-DD')
         INNER JOIN t_account_mapper am on am.id_acc = a.id_acc
   WHERE       at.name = 'Partition'
 

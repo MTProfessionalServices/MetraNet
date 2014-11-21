@@ -1,6 +1,6 @@
 select
 	dbo.GenGuid() "ID",
-	COALESCE(pam.nm_login, 'Non-Partitioned') "Partition",
+	COALESCE(pam.nm_login, N'Non-Partitioned') "PARTITION",
 	am_currency "Currency", 
 	case bp.n_kind
 		when 10 then 'Usage'
@@ -32,4 +32,4 @@ where au.id_usage_interval = %%ID_INTERVAL%%
   and pit.id_template_parent is null	
   and (bp.n_kind <> 15 or upper(ed.nm_enum_data) NOT LIKE '%_TEMP')
   and (bp.n_kind <> 40 or upper(ed.nm_enum_data) NOT LIKE '%_TEMP')
-group by COALESCE(pam.nm_login, 'Non-Partitioned'), am_currency, bp.n_kind
+group by pam.nm_login, am_currency, bp.n_kind

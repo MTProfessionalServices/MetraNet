@@ -1,6 +1,6 @@
 select
 	dbo.GenGuid() "ID",
-	COALESCE(pam.nm_login, 'Non-Partitioned') "Partition",
+	COALESCE(pam.nm_login, N'Non-Partitioned') "PARTITION",
 	inv.invoice_currency "Currency",
 	count(*) "# Invoices",
 	sum({fn ifnull(inv.invoice_amount, 0.0)})  "Total Amount",
@@ -13,5 +13,5 @@ join t_billgroup bg on bgm.id_root_billgroup = bg.id_billgroup
                        and bg.id_billgroup = %%ID_BILLINGGROUP%%
 left outer join t_account_mapper pam on pam.id_acc = bg.id_partition                      
 where id_interval = %%ID_INTERVAL%%
-group by COALESCE(pam.nm_login, 'Non-Partitioned'), inv.invoice_currency
+group by pam.nm_login, inv.invoice_currency
 

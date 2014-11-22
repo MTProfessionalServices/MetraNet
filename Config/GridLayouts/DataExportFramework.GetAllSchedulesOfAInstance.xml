@@ -138,5 +138,45 @@
             <JSHandlerFunction>back</JSHandlerFunction>
         </Button>
     </GridButtons>
-    <ToolbarButtons></ToolbarButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>AddDailySchedule</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_Daily_Schedule</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <Value><![CDATA[]]></Value>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>adddailyschedule1</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>AddWeeklySchedule</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_Weekly_Schedule</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <Value><![CDATA[]]></Value>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>addweeklyschedule1</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>AddMonthlySchedule</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_Monthly_Schedule</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <Value><![CDATA[]]></Value>
+            </ToolTip>
+            <IconClass></IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>addmonthlyschedule1</JSHandlerFunction>
+        </Button>
+    </ToolbarButtons>
 </GridLayout>

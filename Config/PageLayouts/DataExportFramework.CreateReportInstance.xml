@@ -340,7 +340,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[FTP Access Password]]></Value>
+                                <LocalizationTag>TEXT_FTP_ACCESS_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />

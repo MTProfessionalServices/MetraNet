@@ -292,8 +292,8 @@
         </Section>
         <Section>
             <Title>
-                <LocalizationTag>TEXT_EXPORT_FILE_DESTINATION</LocalizationTag>
-                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
+                <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_TYPE</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Name></Name>
@@ -336,8 +336,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <LocalizationTag>TEXT_REPORT_DESTINATION</LocalizationTag>
-                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
+                                <LocalizationTag>TEXT_DEF_DESTINATION</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -357,8 +357,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <LocalizationTag>TEXT_FTP_USER</LocalizationTag>
-                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
+                                <LocalizationTag>TEXT_DEF_USER_NAME</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -378,8 +378,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <LocalizationTag>TEXT_FTP_ACCESS_PASSWORD</LocalizationTag>
-                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
+                                <LocalizationTag>TEXT_DEF_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -403,8 +403,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <LocalizationTag>TEXT_GENERATE_CONTROL_FILE</LocalizationTag>
-                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
+                                <LocalizationTag>TEXT_DEF_GENERATE_CONTROL_FILE</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -424,8 +424,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <LocalizationTag>TEXT_CONTROL_FILE_LOCATION</LocalizationTag>
-                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
+                                <LocalizationTag>TEXT_DEF_CONTROL_FILE_DESTINATION</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />

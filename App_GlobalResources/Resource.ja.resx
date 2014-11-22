@@ -672,4 +672,13 @@
     <data name="updateSubscription" xml:space="preserve">
         <value>[JA]Subscription Update</value>
     </data>
+  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
+    <value>[JA]Not Yet Run</value>
+  </data>
+  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
+    <value>[JA]Ready To Reverse</value>
+  </data>
+  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
+    <value>[JA]Ready To Run</value>
+  </data>
 </root>

@@ -117,76 +117,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-    <data name="btnCancelResource1.ServerSide" xml:space="preserve">
-        <value>True</value>
-    </data>
-    <data name="btnCancelResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="btnManageInstanceParameterValuesResource1.ServerSide" xml:space="preserve">
-        <value>True</value>
-    </data>
-    <data name="btnManageInstanceParameterValuesResource1.Text" xml:space="preserve">
-        <value>Manage Instance Parameter Values</value>
-    </data>
-    <data name="btnManageInstanceParameterValuesResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="btnOKResource1.ServerSide" xml:space="preserve">
-        <value>True</value>
-    </data>
-    <data name="btnOKResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.BoxLabel" xml:space="preserve">
-        <value>Generate Control File</value>
-    </data>
-    <data name="chkGenerateControlFileResource1.Checked" xml:space="preserve">
-        <value>False</value>
-    </data>
-    <data name="chkGenerateControlFileResource1.ControlHeight" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.ControlWidth" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.InlineScript" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.Label" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="chkGenerateControlFileResource1.LabelWidth" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.OptionalExtConfig" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.Text" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="chkGenerateControlFileResource1.Value" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="ddDistributionTypeResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
-        <value>10</value>
-    </data>
-    <data name="MTSection2Resource1.GroupingText" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="MTSection2Resource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />    
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
         <value>Update Report Instance</value>
     </data>    

@@ -116,38 +116,14 @@
     </resheader>
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="lblShowAssignedReportParametersTitleResource1.Text" xml:space="preserve">
-        <value>Assigned Report Parameters</value>
-    </data>
-    <data name="lblShowAssignedReportParametersTitleResource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>Assigned Report Parameters</value>
-    </data>
-    <data name="TEXT_Assign_Parameters" xml:space="preserve">
-        <value>Assign Parameters</value>
-    </data>
-    <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
-        <value>Description</value>
-    </data>
-    <data name="TEXT_DEF_NAME" xml:space="preserve">
-        <value>Name</value>
-    </data>
-    <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
-        <value>Parameter ID</value>
-    </data>
-    <data name="TEXT_DEF_VALUE" xml:space="preserve">
-        <value>Value</value>
-    </data>
-    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-        <value>Currently there are no parameters assigned to this report definition</value>
-    </data>
-    <data name="TEXT_TITLE" xml:space="preserve">
-        <value>Currently Assigned Report Parameters</value>
-    </data>
+    </resheader>      
+  <data name="btnBackResource1.Text" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>Report Parameter Deleted</value>
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>The Report Parameter was unassigned successfully from the report.</value>
+  </data>
 </root>

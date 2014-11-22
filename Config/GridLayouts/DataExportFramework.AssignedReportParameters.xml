@@ -132,7 +132,8 @@
             <DataIndex>IDParameter</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Action]]></Value>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -178,7 +179,8 @@
         <Button>
             <ButtonID>assignreportparameter1</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Assign Parameters]]></Value>
+                <LocalizationTag>TEXT_Assign_Parameters</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAssignedReportParameters.aspx</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>

@@ -43,8 +43,7 @@
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <SubGrid></SubGrid>
     <Title>
-        <LocalizationTag>TEXT_MACHINE_NAME</LocalizationTag>
-        <ResourceClassKey>Resource</ResourceClassKey>
+        <Value><![CDATA[]]></Value>
     </Title>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
@@ -175,7 +174,31 @@
             <Filterable>false</Filterable>
         </Element>
     </Elements>
-    <ExpanderTemplate></ExpanderTemplate>
+    <ExpanderTemplate>
+        <Section>
+            <Title>
+                <Value><![CDATA[]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename></AssemblyFilename>
+                            <ObjectName></ObjectName>
+                            <ID>internalId</ID>
+                            <Name>internalId</Name>
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields></Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons>
         <Button>

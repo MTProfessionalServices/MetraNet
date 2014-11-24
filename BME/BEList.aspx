@@ -7,7 +7,7 @@
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Src="../UserControls/BreadCrumb.ascx" TagName="BreadCrumb" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  <MT:MTTitle ID="MTTitle1" Text="BE" runat="server" meta:resourcekey="MTTitle1Resource1" />
+  <MT:MTTitle ID="MTTitle1" Text="BE" runat="server"/>
   <uc1:BreadCrumb ID="BreadCrumb1" runat="server" />
   <div style="width: 810px">
     <MT:MTFilterGrid ID="BMEGrid" runat="Server">
@@ -69,33 +69,33 @@
        if(!subGrid)
        {
 
-                var id = record.data.internalId;
+              var id = record.data.internalId;
 
-                if(record.data.Name == undefined)
-                {
-                 Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data[record.fields.items[1].name];               
-                }
-                else
-                {
-                 Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data.Name;                    
-                }   
+              if(record.data.Name == undefined)
+              {
+                Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data[record.fields.items[1].name];               
+              }
+              else
+              {
+                Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data.Name;                    
+              }   
                  
-                Ext.get("<%=LblcurrentEntityName.ClientID %>").dom.innerHTML = TITLE_RELATIONSHIPS_FOR + " " + Ext.util.Format.htmlEncode(Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value);               
+              Ext.get("<%=LblcurrentEntityName.ClientID %>").dom.innerHTML = TITLE_RELATIONSHIPS_FOR + " " + Ext.util.Format.htmlEncode(Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value);               
        
-                var tabs = new Ext.TabPanel({
-                      renderTo: 'relship_grid',
-                      activeTab : 0,
-                      width:820,
-                      height:450,
-                      deferredRender: false,                      
-                      autoTabs : true,                                                                                         
-                      listeners: 
+              var tabs = new Ext.TabPanel({
+                    renderTo: 'relship_grid',
+                    activeTab : 0,
+                    width:820,
+                    height:450,
+                    deferredRender: false,                      
+                    autoTabs : true,                                                                                         
+                    listeners: 
+                    {
+                      'tabchange': function(tp, p)
                       {
-                        'tabchange': function(tp, p)
-                        {
-                        tp.doLayout();
-                        }
-                      }                                                    
+                      tp.doLayout();
+                      }
+                    }                                                    
               });                                    
 
 
@@ -720,5 +720,6 @@
       });
     }
   </script>
-  <div id='confirmBulkUpdateWindow_<%=BMEGrid.ClientID %>'></div>
+  <div id='confirmBulkUpdateWindow_<%=BMEGrid.ClientID %>'>
+  </div>
 </asp:Content>

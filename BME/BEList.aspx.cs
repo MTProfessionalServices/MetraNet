@@ -6,8 +6,10 @@ using MetraTech.BusinessEntity.Core;
 using MetraTech.BusinessEntity.DataAccess.Metadata;
 using MetraTech.BusinessEntity.Service.ClientProxies;
 using MetraTech.SecurityFramework;
+using MetraTech.UI.CDT;
 using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
+using MetraTech.UI.Controls.CDT;
 using MetraTech.UI.Tools;
 using System.Linq;
 
@@ -119,6 +121,16 @@ public partial class BEList : MTPage
   #endregion
 
   #region Events
+
+  private string GetBMELocalizedName(string bmename)
+  {
+    var BMEInstanceForm = new MTGenericForm();
+    PageLayout layout = BMEInstanceForm.GetPageLayoutByName(BEName);
+    if (layout == null)
+      return bmename;
+    return layout.Header.PageTitle.GetValue();
+  }
+
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
@@ -133,7 +145,7 @@ public partial class BEList : MTPage
 
       BEName = Server.HtmlEncode(Request.QueryString["Name"]);
 
-      MTTitle1.Text = BEName.Substring(BEName.LastIndexOf("."));
+      MTTitle1.Text = GetBMELocalizedName(BEName);
 
       BMEGrid.IsRelationshipCase = IsRelationshipCase;
       var jsConstsLimitDownSearch = GetGlobalResourceObject("JSConsts", "TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE");
@@ -179,19 +191,15 @@ public partial class BEList : MTPage
     ChildGrid = String.IsNullOrEmpty(Request["ChildGrid"]) ? "false" : Request["ChildGrid"];
     Unrelated = String.IsNullOrEmpty(Request["Unrelated"]) ? "false" : Request["Unrelated"];
     RelshipType = String.IsNullOrEmpty(Request["RelshipType"]) ? "false" : Request["RelshipType"];
-    Entity entity = null;
+    Entity entity = GetEntity();
+    
+    BMEGrid.Title = MTTitle1.Text;
 
-    if (String.IsNullOrEmpty(BMEGrid.Title))
+    if (ChildGrid != "true")
     {
-      entity = GetEntity();
-      BMEGrid.Title = Server.HtmlEncode(entity.GetLocalizedLabel());
-
-      if (ChildGrid != "true")
-      {
-        WriteRelationshipsToHiddenFields(entity);
-      }
+      WriteRelationshipsToHiddenFields(entity);
     }
-
+    
     MTTitle1.Text = BMEGrid.Title;
 
     SetAdditionalArgumentsForGrid();
@@ -308,13 +316,26 @@ public partial class BEList : MTPage
     BMEGrid.ToolbarButtons.Add(gridButton1);
   }
 
+  private string GetLocalizaedRelationType(string relshipType)
+  {
+    switch (relshipType)
+    {
+      case "One--One": return Resources.Resource.TEXT_ONE + "--" + Resources.Resource.TEXT_ONE;
+      case "Many--Many": return Resources.Resource.TEXT_MANY + "--" + Resources.Resource.TEXT_MANY;
+      case "One--Many": return Resources.Resource.TEXT_ONE + "--" + Resources.Resource.TEXT_MANY;
+      case "Many--One": return Resources.Resource.TEXT_MANY + "--" + Resources.Resource.TEXT_ONE;
+      default: return relshipType;
+    }
+  }
+
   private void SetChildGrid(Entity entity)
   {
     CurrentSourceEntityName = String.IsNullOrEmpty(Request["CurrentSrcEntityName"]) ? null : Request["CurrentSrcEntityName"];
     MTTitle1.Visible = false;
     BreadCrumb1.Visible = false;
     //SECENG: CORE-4803 Cross-Site Request Forgery vulnerability in MetraNet
-    BMEGrid.Title = string.Concat(Resources.Resource.TEXT_RELATIONSHIP, " (", Utils.EncodeForHtml(RelshipType), ") ");
+    var relationTypeLocalizaed = GetLocalizaedRelationType(RelshipType);
+    BMEGrid.Title = string.Concat(Resources.Resource.TEXT_RELATIONSHIP, " (", Utils.EncodeForHtml(relationTypeLocalizaed), ") ");
 
     if (entity != null)  //hide Add button for 1-to-1 end entity. 
     {
@@ -386,6 +407,8 @@ public partial class BEList : MTPage
       targetRelationshipType.Value = string.Concat(targetRelationshipType.Value, ",", rs.End2.Multiplicity);
 
       relatedEntityTypeFullName.Value = string.Concat(relatedEntityTypeFullName.Value, ",", Utils.EncodeForHtmlAttribute(rs.End2.EntityTypeName));
+      //relatedEntityTypeFullName.Value = string.Concat(Utils.EncodeForHtmlAttribute(GetBMELocalizedName(relatedEntityTypeFullName.Value)), ",", Utils.EncodeForHtmlAttribute(GetBMELocalizedName(rs.End2.EntityTypeName)));
+
       relatedEntityTypeName.Value = string.Concat(relatedEntityTypeName.Value, ",", Utils.EncodeForHtmlAttribute(rs.End2.EntityTypeName.Split('.').Last()));
 
       if (RelshipType == "false")

@@ -340,4 +340,10 @@
     <data name="TEXT_SKIP_THE_FOLLOWING_MONTH" xml:space="preserve">
         <value>Skip The Following Months</value>
     </data>
+  <data name="TEXT_Delete_Monthly_Report_Schedule" xml:space="preserve">
+        <value>Delete Monthly Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Monthly_Report_Schedule" xml:space="preserve">
+        <value>Update Monthly Report Schedule</value>
+    </data>
 </root>

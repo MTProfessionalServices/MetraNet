@@ -71,6 +71,8 @@ PRIVATE FUNCTION Form_Export_Transform(EventArg) ' As Boolean
   
   Response.ContentType = "application/csv"
   Response.AddHeader "Content-Disposition", "attachment; filename=export.csv"
+  Response.Write "sep=,"
+  Response.Write vbNewLine
 
   ' Load XSL template
   Dim fso, fs, strXSL, templateXSLFile
@@ -178,10 +180,12 @@ PRIVATE FUNCTION inheritedForm_Export(EventArg) ' As Boolean
     Server.ScriptTimeout = 60 * 5    ' Start at 5 min.
     start = now
     
+    Response.Clear();
     Response.Buffer = TRUE
     Response.ContentType = "application/csv"
     Response.AddHeader "Content-Disposition", "attachment; filename=export.csv"
-
+    Response.Write "sep=,"
+    Response.Write vbNewLine
     ' Generate the column caption
     For i = 1 To ProductView.Properties.Count
 

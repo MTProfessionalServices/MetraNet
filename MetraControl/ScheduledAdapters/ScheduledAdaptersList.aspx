@@ -65,8 +65,8 @@
     
     function DisplayNameRenderer(value, meta, record) {
       var displayNameText = String.format("<img src='/Res/Images/adapter_scheduled.gif' align='absmiddle' border='0'><strong>{0}</strong>", record.data.displayname);
-      var displayNameLink = String.format("ScheduledAdaptersInstanceList.aspx?ID={0}&AdapterName={1}", record.data.eventid, encodeURIComponent(displayNameText));
-      var link = String.format("<a href='{0}'>{1}</a>", displayNameLink, displayNameText);
+      var displayNameLink = String.format("ScheduledAdaptersInstanceList.aspx?ID={0}&AdapterName={1}", record.data.eventid, encodeURIComponent(btoa(displayNameText)));
+      var link = String.format("<a href=\"{0}\">{1}</a>", displayNameLink, displayNameText);
       return link;
     }
     

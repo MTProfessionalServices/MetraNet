@@ -23,13 +23,7 @@ AS
 	*/
 	
 	SET NOCOUNT ON
-
-	WHILE ( (select TOP 1 reconciliation_in_progress  from t_execution_monitoring)=1)
-       WAITFOR DELAY '00:00:02';
-
-    update t_execution_monitoring set archival_in_progress = 1
-BEGIN
-Begin Try	
+	
 	IF dbo.IsSystemPartitioned() = 1
 	    EXEC archive_queue_partition
 	         @update_stats = @update_stats,
@@ -41,15 +35,4 @@ Begin Try
 	         @update_stats = @update_stats,
 	         @sampling_ratio = @sampling_ratio,
 	         @result = @result OUTPUT
-End Try
-Begin Catch
-SELECT
-             ERROR_NUMBER() AS ErrorNumber
-            ,ERROR_SEVERITY() AS ErrorSeverity
-            ,ERROR_STATE() AS ErrorState
-            ,ERROR_PROCEDURE() AS ErrorProcedure
-            ,ERROR_LINE() AS ErrorLine
-            ,ERROR_MESSAGE() AS ErrorMessage;
- End Catch
-End
-    update t_execution_monitoring set archival_in_progress = 0
+

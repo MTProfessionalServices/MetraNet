@@ -181,7 +181,7 @@
     <value>Product Offering</value>
   </data>
   <data name="TEXT_ADD_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>Add Model</value>
+    <value>Add Subscription Model</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
     <value>Add UDRC Metric</value>

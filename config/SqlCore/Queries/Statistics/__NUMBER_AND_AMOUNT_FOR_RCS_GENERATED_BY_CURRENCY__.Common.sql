@@ -1,7 +1,7 @@
 
 				SELECT
 				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
-          		  COALESCE(partition_name, 'Non-Partitioned') "PARTITION",
+          		  COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				  CASE 
 				    when c_advance = 1 and sum(amount) >= 0.0 THEN 'Advance'
 				    when c_advance = 0 THEN 'Arrears' 	
@@ -23,7 +23,7 @@
 				UNION ALL
 				select
 					dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/  
-                    COALESCE(partition_name, 'Non-Partitioned') "PARTITION",
+                    COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				  case 
 				    when c_advance = 1 and sum(amount) >= 0.0 THEN 'Advance udrc'
 				    when c_advance = 0 THEN 'Arrears' 	

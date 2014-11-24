@@ -35,26 +35,6 @@
             <Value>Parentesi</Value>
         </locale_entry>
         <locale_entry>
-            <Name>UI/NotificationEventType/Demo Notification Event</Name>
-            <Value>evento di notifica demo</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>UI/NotificationEventType/Failed Adapters</Name>
-            <Value>Adattatori Falliti</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>UI/NotificationEventType/Group Subscription End Date</Name>
-            <Value>{it} Group Subscription End Date</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>UI/NotificationEventType/Subscription End Date</Name>
-            <Value>{it} Subscription End Date</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>UI/NotificationEvetnType/Demo Notification Event</Name>
-            <Value>{it}Demo Notification Event</Value>
-        </locale_entry>
-        <locale_entry>
             <Name>UI/ReportType/Chart</Name>
             <Value>Grafico</Value>
         </locale_entry>

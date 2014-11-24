@@ -127,7 +127,7 @@
         <value>Factures et paiements</value>
     </data>
     <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
-        <value>d’exp.</value>
+        <value>Date</value>
     </data>
     <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
         <value>Abonnement groupé</value>

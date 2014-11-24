@@ -1,4 +1,4 @@
-CREATE PROCEDURE archive_queue(
+alter PROCEDURE archive_queue(
     @update_stats    CHAR(1) = 'N',
     @sampling_ratio  VARCHAR(3) = '30',
     @current_time    DATETIME = NULL,

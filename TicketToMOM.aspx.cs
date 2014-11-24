@@ -24,6 +24,10 @@ public partial class UserControls_ticketToMOM : MTPage
     try
     {
       gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "language=" + Session["MTSelectedLanguage"];
+
+      if (Request.QueryString["ReturnUrl"] != null)
+        gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "ReturnUrl=" + Session["ReturnUrl"];
+
       var input = new ApiInput(gotoURL);
       SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
     }

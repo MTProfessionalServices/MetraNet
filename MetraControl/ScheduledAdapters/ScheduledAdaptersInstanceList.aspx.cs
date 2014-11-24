@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MetraTech.DomainModel.Enums;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_Events;
+using System.Text;
 
 public partial class MetraControl_ScheduledAdapters_ScheduledAdaptersInstanceList : MTPage
 {
@@ -22,18 +23,29 @@ public partial class MetraControl_ScheduledAdapters_ScheduledAdaptersInstanceLis
     get; private set;
   }
 
+  public string AdapterNameBase64
+  {
+    get; private set;
+  }
+
   protected override void OnLoad(EventArgs e)
   {
-    IdAdapter = Request["ID"];
-    AdapterName = Request["AdapterName"];
+    IdAdapter = Request["ID"] ?? String.Empty;
 
-    if (IdAdapter == null)
-      IdAdapter = String.Empty;
+    AdapterNameBase64 = Request["AdapterName"];
 
-    if (AdapterName == null)
-      AdapterName = String.Empty;
+    if (AdapterNameBase64 != null)
+    {
+      AdapterName = Encoding.UTF8.GetString(Convert.FromBase64String(AdapterNameBase64));
+    }
+    else
+    {
+      AdapterNameBase64
+        = AdapterName
+          = String.Empty;
+    }
 
-    lblTitle.Text = String.Format("{0} <a href=\"../../../../MOM/default/dialog/ScheduledAdapter.List.asp\" title=\"Return To Adapter List\">{1}</a>"
+    lblTitle.Text = String.Format("{0} <a href=\"ScheduledAdaptersList.aspx\" title=\"Return To Adapter List\">{1}</a>"
       , GetLocalResourceObject("PageTitle"), AdapterName);
 
     base.OnLoad(e);

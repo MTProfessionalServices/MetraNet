@@ -188,4 +188,20 @@
     <value>[ES]This [TEXT_KEYTERM_PRODUCT_OFFERING] currently has an update pending approval.</value>
     <description></description>
   </text>
+  <text id="TEXT_GENERAL_TAB">
+    <value>[ES]General</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PROPERTIES_TAB">
+    <value>[ES]Properties</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INCLUDED_ITEMS_TAB">
+    <value>[ES]Included Items</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_RESTRICTIONS_TAB">
+    <value>[ES]Subscription Restrictions</value>
+    <description></description>
+  </text>
 </texts>

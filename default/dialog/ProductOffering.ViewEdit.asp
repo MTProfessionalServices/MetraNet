@@ -69,18 +69,20 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   'response.write("MDM Properties count [" & COMObject.Properties.count &"]<BR>")
   'response.end
   
+  COMObject.Properties.Add "EffDate_StartDate",  "String", 0,   FALSE, Empty    
+  COMObject.Properties.Add "EffDate_EndDate",  "String", 0,   FALSE, Empty    
+  COMObject.Properties.Add "AvDate_StartDate",  "String", 0,   FALSE, Empty    
+  COMObject.Properties.Add "AvDate_EndDate",  "String", 0,   FALSE, Empty    
+  COMObject.Properties.Add "CURRENCYCODE", "String",  256, FALSE, TRUE
+  COMObject.Properties.Add "POPartitionId", "String",  256, FALSE, TRUE
+
   COMObject.Properties("SelfUnSubscribable").Caption        = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_SELFUNSUBSCRIBABLE")
   COMObject.Properties("SelfSubscribable").Caption          = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_SELFSUBSCRIBABLE")
-  COMObject.Properties("EffectiveDate__StartDate").Caption   = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE")
-  COMObject.Properties("EffectiveDate__EndDate").Caption     = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE")
-  COMObject.Properties("AvailabilityDate__StartDate").Caption = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE")
-  COMObject.Properties("AvailabilityDate__EndDate").Caption  = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE")
-    
-
-  COMObject.Properties.Add "CURRENCYCODE", "String",  256, FALSE, TRUE
+  COMObject.Properties("EffDate_StartDate") = mdm_format(COMObject.Properties("EffectiveDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("EffDate_EndDate") = mdm_format(COMObject.Properties("EffectiveDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("AvDate_StartDate") = mdm_format(COMObject.Properties("AvailabilityDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("AvDate_EndDate") = mdm_format(COMObject.Properties("AvailabilityDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
   COMObject.Properties("CURRENCYCODE") = COMObject.Instance.GetCurrencyCode()
-
-  COMObject.Properties.Add "POPartitionId", "String",  256, FALSE, TRUE
   COMObject.Properties("POPartitionId") = "100"//COMObject.Instance.GetCurrencyCode()
 
 
@@ -100,12 +102,12 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
   ' Dynamically Add Tabs to template
   Dim strTabs  
-  gObjMTTabs.AddTab "General", "/mcm/default/dialog/ProductOffering.ViewEdit.asp?ID=" & FORM("ID") & "&Tab=0"
+  gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_GENERAL_TAB"), "/mcm/default/dialog/ProductOffering.ViewEdit.asp?ID=" & FORM("ID") & "&Tab=0"
 
   If Not(Session("isPartitionUser")) Then
-  gObjMTTabs.AddTab "Properties", "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=1"
-  gObjMTTabs.AddTab "Included Items", "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=2"
-  gObjMTTabs.AddTab "Subscription Restrictions", "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
+  gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_PROPERTIES_TAB"), "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=1"
+  gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_INCLUDED_ITEMS_TAB"), "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=2"
+  gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_SUBSCRIPTION_RESTRICTIONS_TAB"), "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
   End If    
   gObjMTTabs.Tab          = Clng(Request.QueryString("Tab"))		  
   strTabs                 = gObjMTTabs.DrawTabMenu(g_int_TAB_TOP)

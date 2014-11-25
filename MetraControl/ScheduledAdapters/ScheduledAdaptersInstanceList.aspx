@@ -19,7 +19,7 @@
 <script type="text/javascript">
   OverrideRenderer_<%= ScheduledAdaptertGrid.ClientID %> = function(cm) {
     cm.setRenderer(cm.getIndexById('instanceid'), iDColRenderer);
-  }
+  };
 
   function iDColRenderer(value, meta, record, rowIndex, colIndex, store)
   {

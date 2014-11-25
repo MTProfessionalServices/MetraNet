@@ -16,7 +16,7 @@
     });
 
   function goBack() {
-    window.getFrameMetraNet().MainContentIframe.location.href = 'ScheduledAdaptersList.aspx'; ;
+    window.getFrameMetraNet().MainContentIframe.location.href = 'ScheduledAdaptersList.aspx';
     return false;
   }
 

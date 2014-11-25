@@ -7,9 +7,12 @@ using MetraTech.UI.Controls;
 
 public partial class Notifications : MTPage
 {
+  protected Dictionary<string, string> NotificationEventsTemplates;
+  protected string hiddenOut = "";
   protected void Page_Load(object sender, EventArgs e)
   {
-
+    NotificationEventsTemplates =
+      NotificationService.GetExisitingNotificationEventsTemplates(UI.SessionContext.LanguageID);
   }
 
   protected override void OnLoadComplete(EventArgs e)
@@ -29,6 +32,21 @@ public partial class Notifications : MTPage
       PopulatePartitionsDropDown();
     }
 
+  }
+  
+  protected string defineJavaScriptDictionary()
+  {
+    string outstr= "var hashtable = {};\n";
+    foreach (string notname in NotificationEventsTemplates.Keys)
+    {
+      outstr += "hashtable[\"";
+      string tmp ="";
+      outstr += notname;
+      outstr += "\"] = \"";
+      NotificationEventsTemplates.TryGetValue(notname, out tmp);
+      outstr += tmp+"\";\n";
+    }
+    return outstr;
   }
 
   protected void PopulateNotificationTypesDropDown()

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>Percent Unconditional Discount</name>
+  <description>Unconditional Percent discount calculated against one target</description>
+  <item_type>discount</item_type>
+  <relationships>
+    <parent></parent>
+  </relationships>
+  <parameter_table>metratech.com/PercentDiscount_NoCond</parameter_table>
+  <counters>
+    <cpd>
+      <name>Target</name>
+      <display_name>Counter used to distribute discount</display_name>
+      <service_property>c_Target</service_property>
+      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+    </cpd>
+  </counters>
+  <pipeline>
+    <service_definition>metratech.com/PercentDiscount_NoCond</service_definition>
+    <product_view>metratech.com/PercentDiscount_NoCond</product_view>
+  </pipeline>
+</priceable_item>

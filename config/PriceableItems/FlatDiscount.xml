@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priceable_item>
+  <name>Flat Discount</name>
+  <description>Flat discount based on 1 qualifer</description>
+  <item_type>discount</item_type>
+  <relationships>
+    <parent></parent>
+  </relationships>
+  <parameter_table>metratech.com/FlatDiscount</parameter_table>
+  <counters>
+    <cpd>
+      <name>Qualifier</name>
+      <display_name>Counter used to qualify for discount</display_name>
+      <service_property>c_FlatRateQualifier</service_property>
+      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+    </cpd>
+  </counters>
+  <pipeline>
+    <service_definition>metratech.com/FlatDiscount</service_definition>
+    <product_view>metratech.com/FlatDiscount</product_view>
+  </pipeline>
+</priceable_item>

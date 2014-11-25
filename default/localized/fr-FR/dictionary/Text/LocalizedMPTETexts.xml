@@ -382,7 +382,7 @@
     <description></description>
   </text>
   <text id="TEXT_NULL_END_DATE_TYPE">
-    <value>Date de fin du cycle</value>
+    <value>[FR]No end date</value>
     <description></description>
   </text>
   <text id="TEXT_ABSOLUTE_DATE_TYPE">

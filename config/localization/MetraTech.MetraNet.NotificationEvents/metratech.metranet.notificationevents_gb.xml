@@ -3,20 +3,20 @@
     <language_code>gb</language_code>
     <locale_space name="MetraTech.MetraNet.NotificationEvents">
         <locale_entry>
-            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/DEMO_NOTIFICATION_EVENT_TEMPLATE</Name>
+            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/Demo Notification Event</Name>
             <Value>Demo event successfully generated on {currenttimestamp}.</Value>
         </locale_entry>
         <locale_entry>
-            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/FAILED_ADAPTERS_TEMPLATE</Name>
+            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/Failed Adapters</Name>
             <Value>Adapter {tx_name}, instance id {id_instance} for run {id_run} has failed with the error {tx_detail}.</Value>
         </locale_entry>
         <locale_entry>
-            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/GROUP_SUBSCRIPTION_ENDING_TEMPLATE</Name>
-            <Value>Account {varloginname} participation in subscription to {varpointernalname} will end on {varenddate} &amp;lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&amp;gt; View...&amp;lt;/a&amp;gt;</Value>
+            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/Group Subscription End Date</Name>
+            <Value>Account {varloginname} participation in subscription to {varpointernalname} will end on {varenddate} <![CDATA[<a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'> View...</a>]]></Value>
         </locale_entry>
         <locale_entry>
-            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/SUBSCRIPTION_ENDING_TEMPLATE</Name>
-            <Value>Account {varloginname} has subscription to {varpointernalname} that will end on {varenddate}&amp;lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&amp;gt; View...&amp;lt;/a&amp;gt;</Value>
+            <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventTemplate/Subscription End Date</Name>
+            <Value>Account {varloginname} has subscription to {varpointernalname} that will end on {varenddate}<![CDATA[<a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'> View...</a>]]></Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.NotificationEvents/NotificationEventType/Demo Notification Event</Name>

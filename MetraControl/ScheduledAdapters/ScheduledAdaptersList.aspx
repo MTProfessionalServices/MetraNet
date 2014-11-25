@@ -75,13 +75,10 @@
     }
 
     function getCorrectTime(time) {
-      var d = new Date();
-      var res = time.match(/(\d+)(?::(\d\d))?\s*(p?)/);
-      d.setHours(parseInt(res[1]) + (res[3] ? 12 : 0));
-      d.setMinutes(parseInt(res[2]) || 0);
-      d.setSeconds(0);
+      var d = new Date("01/01/2001, " + time);
+      var res = d.toLocaleTimeString(CURRENT_LOCALE, "hh:mm:ss");
 
-      return d.toLocaleTimeString(CURRENT_LOCALE, { hour12: false });
+      return res;
     }
 
   </script>

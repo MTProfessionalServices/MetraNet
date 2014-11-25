@@ -231,7 +231,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
   			    Form_DisplayCell = TRUE
   	     Case else
             'In the case of embedded symbols, escape out the HTML
-            EventArg.HTMLRendered = "<td Class='" & Form.Grid.CellClass & "'>" & Server.HTMLEncode(Form.Grid.SelectedProperty.Value) & "</td>"
+            If (IsDate(Form.Grid.SelectedProperty.Value)) Then 
+              EventArg.HTMLRendered = "<td Class='" & Form.Grid.CellClass & "'>" & Server.HTMLEncode(mom_FormatDateTime(Form.Grid.SelectedProperty.Value, "")) & "</td>"
+            Else
+              EventArg.HTMLRendered = "<td Class='" & Form.Grid.CellClass & "'>" & Server.HTMLEncode(Form.Grid.SelectedProperty.Value) & "</td>"
+            End If
             Form_DisplayCell = TRUE 'Inherited("Form_DisplayCell(EventArg)")
       End Select
      end if

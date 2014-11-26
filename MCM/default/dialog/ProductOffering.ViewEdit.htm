@@ -85,12 +85,12 @@ if (parent.ProductOfferingSelected)
 <!-- Extended Properties -->
 <!--<div style="border-bottom: 2 solid #000066;">Extended Properties &nbsp;&nbsp; <a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 8px;">Add new extended property here</a></div>-->
 <fieldset style="padding: 20 10 10 10;">
-<legend style="font-weight: normal;">Extended Properties</LEGEND>
+<legend style="font-weight: normal;"><MDMLABEL Name="TEXT_EXTENDED_PROPERTIES">Extended Properties</MDMLABEL></LEGEND>
 
-<MDMGrid Name="ExtendedProperties">Extended Properties</MDMGrid>
+<MDMGrid Name="ExtendedProperties"><MDMLABEL Name="TEXT_EXTENDED_PROPERTIES">Extended Properties</MDMLABEL></MDMGrid>
 <br>
 <center>
-<img src='..\localized\en-us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;">What are extended properties?</a>
+<img src='..\localized\en-us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;"><MDMLABEL Name="TEXT_WHAT_IS_EXTENDED_PROPERTIES">What are extended properties?</MDMLABEL></a>
 </center>
 
 </FIELDSET>
@@ -105,12 +105,12 @@ if (parent.ProductOfferingSelected)
       &nbsp;&nbsp;<button class="clsButtonSmall" name="EDIT" onClick="javascript:window.open('[PRODUCT_OFFERING_EDIT_DIALOG]?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]', '_blank', 'height=100,width=100,resizable=yes,scrollbars=yes');return false;"><MDMLABEL Name="TEXT_EDIT">Edit</MDMLABEL></button><br>
       <BR>
       <fieldset >
-      <legend>Other Actions</legend>
+      <legend><MDMLABEL Name="TEXT_OTHER_ACTIONS">Other Actions</MDMLABEL></legend>
       <BR>
-			&nbsp;&nbsp;<button class="clsButtonBlueSmall" name="HIDE" onClick="javascript:window.open('[PRODUCTOFFERING_DELETE_DIALOG]?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]','_blank', 'height=250,width=250,resizable=yes,scrollbars=yes');;return false;"><MDMLABEL Name="TEXT_DELETE">Rudi</MDMLABEL></button>
+			&nbsp;&nbsp;<button class="clsButtonBlueSmall" name="HIDE" onClick="javascript:window.open('[PRODUCTOFFERING_DELETE_DIALOG]?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]','_blank', 'height=250,width=250,resizable=yes,scrollbars=yes');;return false;"><MDMLABEL Name="TEXT_DELETE">Delete</MDMLABEL></button>
       &nbsp;&nbsp;<button class="clsButtonBlueSmall" name="HIDE" onClick="javascript:window.open('[HIDEUNHIDE_POPUP_DIALOG]?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&Hide=TRUE&Parameters=MDMReload|TRUE', '_blank', 'height=100,width=100,resizable=yes,scrollbars=yes');;return false;"><MDMLABEL Name="TEXT_HIDE">Hide</MDMLABEL></button>      
-      &nbsp;&nbsp;<button class="clsButtonBlueXXLarge" name="CHECK" onClick="javascript:window.open('checkPOConfiguration.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&mdmReload=TRUE', '_blank', 'height=500,width=650,resizable=yes,scrollbars=yes');;return false;">Check Configuration</button>    
-      &nbsp;&nbsp;<button class="clsButtonBlueXXLarge" title="Change the price list mappings for one or more items in this product offering." name="POPRICELISTMAP" onClick="javascript:window.open('PriceListMapping.Edit.ProductOffering.Bulk.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&mdmReload=TRUE', '_blank', 'height=500,width=850,resizable=yes,scrollbars=yes');;return false;">Update Price List Mappings</button>
+      &nbsp;&nbsp;<button class="clsButtonBlueXXLarge" name="CHECK" onClick="javascript:window.open('checkPOConfiguration.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&mdmReload=TRUE', '_blank', 'height=500,width=650,resizable=yes,scrollbars=yes');;return false;"><MDMLABEL Name="TEXT_CHECK_CONFIGURATION">Check Configuration</MDMLABEL></button>    
+      &nbsp;&nbsp;<button class="clsButtonBlueXXLarge" title="Change the price list mappings for one or more items in this product offering." name="POPRICELISTMAP" onClick="javascript:window.open('PriceListMapping.Edit.ProductOffering.Bulk.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&mdmReload=TRUE', '_blank', 'height=500,width=850,resizable=yes,scrollbars=yes');;return false;"><MDMLABEL Name="TEXT_UPDATE_PL_MAPPINGS">Update Price List Mappings</MDMLABEL></button>
       <BR>&nbsp;
       </fieldset>
 </div>

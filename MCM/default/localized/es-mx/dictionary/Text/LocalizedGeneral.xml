@@ -192,4 +192,24 @@
     <value>[es-MX]The * wildcard can only be used either at the end of the search string or at the beginning and the end.\nExamples:\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
+  <text id="TEXT_EXTENDED_PROPERTIES">
+    <value>[es-MX]Extended Properties</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_IS_EXTENDED_PROPERTIES">
+    <value>[es-MX]What are extended properties?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OTHER_ACTIONS">
+    <value>[es-MX]Other Actions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHECK_CONFIGURATION">
+    <value>[es-MX]Check Configuration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_MAPPINGS">
+    <value>[es-MX]Update Price List Mappings</value>
+    <description></description>
+  </text>
 </texts>

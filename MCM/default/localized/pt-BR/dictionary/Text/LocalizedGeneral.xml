@@ -192,4 +192,24 @@
     <value>O curinga * pode ser usado penas no final da string de pesquisa ou no início e no final.\nExemplos:\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
+  <text id="TEXT_EXTENDED_PROPERTIES">
+    <value>[pt-BR]Extended Properties</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_IS_EXTENDED_PROPERTIES">
+    <value>[pt-BR]What are extended properties?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OTHER_ACTIONS">
+    <value>[pt-BR]Other Actions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHECK_CONFIGURATION">
+    <value>[pt-BR]Check Configuration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_MAPPINGS">
+    <value>[pt-BR]Update Price List Mappings</value>
+    <description></description>
+  </text>
 </texts>

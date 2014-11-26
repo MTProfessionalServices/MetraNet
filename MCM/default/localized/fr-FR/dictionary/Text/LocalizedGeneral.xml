@@ -192,4 +192,24 @@
     <value>Le caractère générique * ne peut être utilisé qu’à la fin de la chaîne de recherche ou au début et  à la fin de celle-ci.\nExemples :\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
+  <text id="TEXT_EXTENDED_PROPERTIES">
+    <value>[FR]Extended Properties</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_IS_EXTENDED_PROPERTIES">
+    <value>[FR]What are extended properties?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OTHER_ACTIONS">
+    <value>[FR]Other Actions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHECK_CONFIGURATION">
+    <value>[FR]Check Configuration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_MAPPINGS">
+    <value>[FR]Update Price List Mappings</value>
+    <description></description>
+  </text>
 </texts>

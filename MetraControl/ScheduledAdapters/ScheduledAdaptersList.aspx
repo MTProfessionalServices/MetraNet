@@ -26,7 +26,7 @@
         StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_MONTH")%>', record.data.interval, getCorrectTime(record.data.executiontimes), record.data.daysofmonth);
         break;
       case "weekly":
-        StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_WEEK")%>', record.data.interval, getCorrectTime(record.data.executiontimes), record.data.daysofweek);
+        StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_WEEK")%>', record.data.interval, getCorrectTime(record.data.executiontimes), getCorrectWeekDay(record.data.daysofweek));
         break;
       case "minutely":
         StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_MINUTES")%>', record.data.interval);
@@ -78,6 +78,31 @@
       var d = new Date("01/01/2001, " + time);
       var res = d.toLocaleTimeString(CURRENT_LOCALE, "hh:mm:ss");
 
+      return res;
+    }
+
+    //Getting localize week days
+    function getCorrectWeekDay(enWeekDays) {
+      
+      var dayList = enWeekDays.split(',');
+      var res = "";
+      for (var i = 0; i < dayList.length; i++) {
+        
+        var d = new Date("01/01/2001");
+        
+        //looking for a match of the day
+        for (var j = 0; j < 7; j++) {
+          //if match found exit the loop 
+          if (d.toLocaleString("en-US", { weekday: 'short' }) == dayList[i].replace(" ", "")) {
+            break;
+          }
+          d.setDate(d.getDate() + 1);
+        }
+        //if we have several day we separated by commas
+        if (res.length > 1) res += ',';
+        //localize week day
+        res += d.toLocaleString(CURRENT_LOCALE, { weekday: 'short' });
+      }
       return res;
     }
 

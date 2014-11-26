@@ -31,8 +31,7 @@ public partial class ReportsAnalyticsDashboard : MTPage
     previousMonth = GetJSDate(previousMonthAndHalf);
     firstMonth = GetJSDate(firstMonthAndHalf);
 
-    DateStampForGraph = string.Format("{0} - {1}", firstMonthAndHalf.AddMonths(1).ToString("Y"),
-                                      previousMonthAndHalf.ToString("Y"));
+    DateStampForGraph = string.Format("{0} {1} - {2} {3}", firstMonthAndHalf.AddMonths(1).ToString("MMMM"), firstMonthAndHalf.Year, previousMonthAndHalf.ToString("MMMM"), previousMonthAndHalf.Year);
   }
 
   private long GetJSDate(DateTime date)

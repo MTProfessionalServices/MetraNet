@@ -1,21 +1,21 @@
 <HTML>
 <HEAD>
   <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
-  <title>Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</title>                 
+  <title><MDMLABEL name="TEXT_CREATE_COPY_OF_PL">Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</MDMLABEL></title>
 </HEAD>
 <BODY onLoad="SizeWindow();">
 <FORM name='mdm'>
 #MDMNotIf PLDeleteErrorMode
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<td Class='CaptionBar' nowrap>Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</td>
+		<td Class='CaptionBar' nowrap><MDMLABEL name="TEXT_CREATE_COPY_OF_PL">Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</MDMLABEL></td>
 	</tr>
 </table>
 <br>
 #MDMEndIf
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td Class='captionEWRequired' nowrap>Original Pricelist Name:&nbsp;&nbsp;</td>
+    <td Class='captionEWRequired' nowrap><MDMLABEL name="TEXT_ORIGINAL_PL_NAME">Original Pricelist Name:</MDMLABEL>&nbsp;&nbsp;</td>
     <td Class='clsStandardText' nowrap><INPUT Name='OriginalName' size="50" class='clsInputBox' Type='Text'></td>
   </tr>
   <tr>
@@ -24,11 +24,11 @@
   </tr>
   <tr><td>&nbsp;</td></tr>
   <tr>
-    <td Class='captionEWRequired' nowrap>New Pricelist Name:&nbsp;&nbsp;</td>
+    <td Class='captionEWRequired' nowrap><MDMLABEL Name="TEXT_PL_NAME">New Pricelist Name</MDMLABEL>:&nbsp;&nbsp;</td>
     <td Class='clsStandardText' nowrap><INPUT Name='NewName' size="50" class='clsInputBox' Type='Text'></td>
   </tr>
   <tr>
-    <td Class='captionEW' style='vertical-align: top;' nowrap >New Pricelist Description:&nbsp;&nbsp;</td>
+    <td Class='captionEW' style='vertical-align: top;' nowrap ><MDMLABEL Name="TEXT_PL_DESCRIPTION">New Pricelist Description</MDMLABEL>:&nbsp;&nbsp;</td>
     <td Class='clsStandardText' nowrap><TEXTAREA class='clsInputBox' name='NewDescription' cols='50' rows='4'></TEXTAREA></td>
   </tr>
   <tr><td>&nbsp;</td></tr>
@@ -37,7 +37,7 @@
     <td colspan="2" align="center" valign="baseline">
        <input type='checkbox' name='ChangeCurrencyOnNewPricelist' onClick='handleCurrencySelectionChange();'>
        <span id="NewCurrencyInformation" name="NewCurrencyInformation">
-       Change to currency of the new pricelist from <MDMLABEL Name="OriginalCurrency" Type="Value">Currency</MDMLABEL> to <SELECT name="NewCurrency" class="clsInputBox"></SELECT>
+       <MDMLABEL Name="TEXT_CHANGE_CURRENCY_TO">Change to currency of the new pricelist from </MDMLABEL> <MDMLABEL Name="OriginalCurrency" Type="Value">Currency</MDMLABEL> <MDMLABEL Name="TEXT_TO"> to </MDMLABEL> <SELECT name="NewCurrency" class="clsInputBox"></SELECT>
        </span>
     </td>
   </tr>
@@ -64,7 +64,7 @@
 <table align='center' border="0" cellpadding="2" cellspacing="0" width="90%">
 <tr>
 	<td align='center'>
-  	<button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this);">Create</button>&nbsp;&nbsp;&nbsp;
+  	<button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CREATE'>Create</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
   	<button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
 	</td>
 </tr>

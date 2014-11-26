@@ -2,7 +2,7 @@
 <texts id="Main" type="collection">
   <description>This is the name to display on the screen for a particular language code.</description>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_US">
-    <value>[es-MX]English</value>
+    <value>[es-MX]English (US)</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_DE">
@@ -19,6 +19,26 @@
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_JP">
     <value>[es-MX]Japanese</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_ES-MX">
+    <value>Mexican</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_ES">
+    <value>Spanish</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_PT-BR">
+    <value>Brazilian</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_DA">
+    <value>Danish</value>
+    <description></description>
+  </text>
+  <text id="LANGUAGECODE_DISPLAYINFORMATION_GB">
+    <value>English (UK)</value>
     <description></description>
   </text>
 </texts>

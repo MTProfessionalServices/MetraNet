@@ -337,7 +337,7 @@ function fnVisualizeLineChart2(objLineChartConfig) {
           .attr("fill","#00B0F0")
           .style("fill-opacity", "0.3")
           .style("stroke-opacity", "0.6")
-          .append("title").text(function (d) { return "(" + d.name + " : " + d.y_axis +")";});
+          .append("title").text(function (d) { return  d.name + " : " + d.y_axis +" Seconds";});
     return this;
 }
 

@@ -123,6 +123,9 @@
   <data name="ADAPTER_INSTANCE_START_DATE" xml:space="preserve">
     <value>[IT]Start Date For New Instance</value>
   </data>
+  <data name="CANCEL_BUTTON_TEXT" xml:space="preserve">
+    <value>[IT] Cancel</value>
+  </data>
   <data name="RUN_ADAPTER_BUTTON_TEXT" xml:space="preserve">
     <value>[IT]Run</value>
   </data>

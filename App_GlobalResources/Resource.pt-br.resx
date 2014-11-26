@@ -702,4 +702,13 @@
     <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
         <value>Data de início da vigência</value>
     </data>
+    <data name="TEXT_ADD_RATES_FOR_PT" xml:space="preserve">
+        <value>[pt-BR]Add Rates For Additional Parameter Tables</value>
+    </data>
+    <data name="TEXT_UPDATE_PL" xml:space="preserve">
+        <value>[pt-BR]Update Price List</value>
+    </data>
+    <data name="TEXT_UPDATE_SHARED_PL" xml:space="preserve">
+        <value>[pt-BR]Update Shared Price List</value>
+    </data>
 </root>

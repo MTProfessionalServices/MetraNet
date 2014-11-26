@@ -645,46 +645,61 @@
   <data name="TEXT_URL" xml:space="preserve">
         <value>Url</value>
     </data>
-  <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
+    <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
         <value>Use Standard Inclusive Tax Calculation</value>
     </data>
-  <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
+    <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
         <value>Validation error.  Please try again.</value>
     </data>
-  <data name="TEXT_VALUE" xml:space="preserve">
+    <data name="TEXT_VALUE" xml:space="preserve">
         <value>Value</value>
     </data>
-  <data name="TEXT_WAITING_FOR_UPDATE" xml:space="preserve">
+    <data name="TEXT_WAITING_FOR_UPDATE" xml:space="preserve">
         <value>Waiting for update...</value>
     </data>
-  <data name="TEXT_WIDGET_PATH" xml:space="preserve">
+    <data name="TEXT_WIDGET_PATH" xml:space="preserve">
         <value>Widget Path</value>
     </data>
-  <data name="TEXT_WIDGET_TYPE" xml:space="preserve">
+    <data name="TEXT_WIDGET_TYPE" xml:space="preserve">
         <value>Widget Type</value>
     </data>
-  <data name="TEXT_WIDTH" xml:space="preserve">
+    <data name="TEXT_WIDTH" xml:space="preserve">
         <value>Width</value>
     </data>
-  <data name="TEXT_YES" xml:space="preserve">
+    <data name="TEXT_YES" xml:space="preserve">
         <value>Yes</value>
     </data>
-  <data name="updateSubscription" xml:space="preserve">
+    <data name="updateSubscription" xml:space="preserve">
         <value>Subscription Update</value>
     </data>
-  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
-    <value>Not Yet Run</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
-    <value>Ready To Reverse</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
-    <value>Ready To Run</value>
-  </data>
-  <data name="TEXT_ONE" xml:space="preserve">
+    <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
+        <value>Not Yet Run</value>
+    </data>
+    <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
+        <value>Ready To Reverse</value>
+    </data>
+    <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
+        <value>Ready To Run</value>
+    </data>
+    <data name="TEXT_ONE" xml:space="preserve">
         <value>One</value>
     </data>
-  <data name="TEXT_MANY" xml:space="preserve">
+    <data name="TEXT_MANY" xml:space="preserve">
         <value>Many</value>
+    </data>
+    <data name="TEXT_COPY_PO" xml:space="preserve">
+      <value>Copy Existing Product Offering</value>
+    </data>
+    <data name="TEXT_CURRENCY" xml:space="preserve">
+        <value>Currency</value>
+    </data>
+    <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
+        <value>Display name</value>
+    </data>
+    <data name="TEXT_PARTITION_ID" xml:space="preserve">
+        <value>Partition Id</value>
+    </data>
+    <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
+        <value>Effective Start Date</value>
     </data>
 </root>

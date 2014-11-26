@@ -681,10 +681,25 @@
     <data name="updateSubscription" xml:space="preserve">
         <value>Mise à jour de l’abonnement</value>
     </data>
-  <data name="TEXT_ONE" xml:space="preserve">
+    <data name="TEXT_ONE" xml:space="preserve">
         <value>[FR]One</value>
     </data>
-  <data name="TEXT_MANY" xml:space="preserve">
+    <data name="TEXT_MANY" xml:space="preserve">
         <value>[FR]Many</value>
+    </data>
+    <data name="TEXT_COPY_PO" xml:space="preserve">
+        <value>[FR]Copy Existing Product Offering</value>
+    </data>
+    <data name="TEXT_CURRENCY" xml:space="preserve">
+        <value>Devise</value>
+    </data>
+    <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
+        <value>Nom d’affichage</value>
+    </data>
+    <data name="TEXT_PARTITION_ID" xml:space="preserve">
+        <value>ID de partition</value>
+    </data>
+    <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
+        <value>Date de début de validité</value>
     </data>
 </root>

@@ -1324,10 +1324,10 @@
     <value>Recent Notifications</value>
   </data>
   <data name="SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[JA]Account {varloginname} has subscription to {varpointernalname} that will end on {varenddate}&lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
+    <value>[JA]Account {loginname} has subscription to {pointernalname} that will end on {enddate}&lt;a style='cursor: pointer;' id='manage1_{account}' href='JavaScript:getFrameMetraNet().Account.Load({account});'&gt; View...&lt;/a&gt;</value>
   </data>
   <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[JA]Account {varloginname} participation in subscription to {varpointernalname} will end on {varenddate} &lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
+    <value>[JA]Account {loginname} participation in subscription to {pointernalname} will end on {enddate} &lt;a style='cursor: pointer;' id='manage1_{account}' href='JavaScript:getFrameMetraNet().Account.Load({account});'&gt; View...&lt;/a&gt;</value>
   </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>{JA}Change Password</value>

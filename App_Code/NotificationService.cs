@@ -8,6 +8,7 @@ using MetraTech.DataAccess;
 using MetraTech.NotificationEvents.EventHandler.Entities;
 using MetraTech.UI.Common;
 using MetraTech.NotificationEvents.EventHandler;
+using MetraTech.NotificationEvents.EventHandler.DataAccess;
 
 
 /// <summary>

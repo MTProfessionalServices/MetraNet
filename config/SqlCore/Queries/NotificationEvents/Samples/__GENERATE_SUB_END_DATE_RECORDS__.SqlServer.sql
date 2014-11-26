@@ -6,10 +6,10 @@ DECLARE @SUBSCRIPTION_WINDOW int
 DECLARE @LAST_NOTIFY_FROM DateTime
 DECLARE @MAX_SUB_END_DATE DateTime
 
-SET @NOTIFICATION_DAYS = 120 /*Number of days before the subscription expires*/
-SET @SUBSCRIPTION_WINDOW = 0 /*Number of days between the date of subscription creation/update and its expiration*/
+SET @NOTIFICATION_DAYS = 10 /*Number of days before the subscription expires*/
+SET @SUBSCRIPTION_WINDOW = 90 /*Number of days between the date of subscription creation/update and its expiration*/
 SET @MAX_SUB_END_DATE = DATEADD(D, @NOTIFICATION_DAYS, @CURRENT_RUN_DATE) 
-SET @LAST_NOTIFY_FROM = DATEADD(D, -@NOTIFICATION_DAYS, @LAST_RUN_DATE) 
+SET @LAST_NOTIFY_FROM = DATEADD(D, @NOTIFICATION_DAYS, @LAST_RUN_DATE) 
 
 SELECT
   'SUB' SubType,

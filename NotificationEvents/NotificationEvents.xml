@@ -4,13 +4,13 @@
 <NotificationEvent>
 		<name>Subscription End Date</name>
 		<generatorquery>__GENERATE_SUB_END_DATE_RECORDS__</generatorquery>
-		<properties>nm_login, id_acc, varEndDate, varSubType, nm_display_name, varPOInternalName, id_partition</properties>
+		<properties>nm_login, id_acc, EndDate, SubType, nm_display_name, POInternalName, id_partition</properties>
 		<consumersquery>__GENERATE_SUB_END_DATE_CONSUMERS__</consumersquery>
 	</NotificationEvent>  
   <NotificationEvent>
 		<name>Group Subscription End Date</name>
 		<generatorquery>__GENERATE_GROUP_SUB_END_DATE_RECORDS__</generatorquery>
-		<properties>varSubType, varAccount, varEndDate, varDisplayName, varPOInternalName, id_partition</properties>
+		<properties>SubType, Account, EndDate, DisplayName, POInternalName, id_partition</properties>
 		<consumersquery>__GENERATE_GROUP_SUB_END_DATE_CONSUMERS__</consumersquery>
 	</NotificationEvent> 
 	<NotificationEvent>

@@ -420,15 +420,3 @@
 					
 					alter table t_localized_items add constraint FK_LOCALIZE_TO_T_LANGUAGE
 					foreign key(id_lang_code) references t_language (id_lang_code);
-					
-					alter table t_localized_items add constraint FK_LOCALIZE_TO_T_RECEVENT
-					foreign key(id_item) references t_recevent(id_event);
-					
-					alter table t_localized_items add constraint FK_LOCAL_TO_COMP_CAPAB_TYPE
-					foreign key(id_item) references t_composite_capability_type(id_cap_type);
-					
-					alter table t_localized_items add constraint FK_LOCAL_TO_ATOMIC_CAPAB_TYPE
-					foreign key(id_item) references t_atomic_capability_type(id_cap_type);
-
-					alter table t_localized_items add constraint FK_LOCAL_TO_ROLE
-					foreign key(id_item) references t_role(id_role);

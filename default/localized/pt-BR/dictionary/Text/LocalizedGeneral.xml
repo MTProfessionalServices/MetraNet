@@ -268,4 +268,36 @@
     <value>[pt-BR]Import From Excel</value>
     <description></description>
   </text>
+  <text id="TEXT_BULK_UPDATE">
+    <value>[pt-BR]Bulk Update</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_INFO">
+    <value>[pt-BR]Update Price List Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_ALLOW_PERS_RATES_INFO">
+    <value>[pt-BR]Update 'Allow Personal Rates' Information</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>[pt-BR]Price List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
+    <value>[pt-BR]Do not allow Personal Rates to be set</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
+    <value>[pt-BR]Do not allow Personal Rates to be set</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_MAPPINGS">
+    <value>[pt-BR]Update Selected Price List Mappings</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>[pt-BR]Close</value>
+    <description></description>
+  </text>
 </texts>

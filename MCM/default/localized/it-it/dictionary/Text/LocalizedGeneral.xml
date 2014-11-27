@@ -300,4 +300,20 @@
     <value>[IT]Close</value>
     <description></description>
   </text>
+  <text id="TEXT_GENERAL_TAB">
+    <value>[IT]General</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMEETR_TABL_MAPPINGS_TAB">
+    <value>[IT]Parameter Table Mappings</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COUNTERS_TAB">
+    <value>[IT]Counters</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OVERVIEW_TAB">
+    <value>[IT]Overview</value>
+    <description></description>
+  </text>
 </texts>

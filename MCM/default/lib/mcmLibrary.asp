@@ -318,15 +318,15 @@ PRIVATE FUNCTION mcmDrawTabsForPriceableItem(sPriceableItemName,iPriceableItemKi
     
     ' Dynamically Add Tabs to template
     if mcmPriceableItemHasCustomOverviewScreen(sPriceableItemName) then
-      gObjMTTabs.AddTab "Overview" , "/mcm/default/dialog/PriceAbleItem.Usage.ViewEdit.Overview.asp?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=0"
+      gObjMTTabs.AddTab Framework.GetDictionary("TEXT_OVERVIEW_TAB"), "/mcm/default/dialog/PriceAbleItem.Usage.ViewEdit.Overview.asp?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=0"
     else
       iSelectedTab = iSelectedTab - 1
     end if
     
-    gObjMTTabs.AddTab "General", Framework.GetDictionary("PRICEABLE_ITEM_" & sTypeLinkName & "_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=1"
-    gObjMTTabs.AddTab "Parameter Table Mappings", Framework.GetDictionary("PRICEABLE_ITEM_PARAMTABLE_MAPPINGS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
+    gObjMTTabs.AddTab Framework.GetDictionary("TEXT_GENERAL_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_" & sTypeLinkName & "_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=1"
+    gObjMTTabs.AddTab Framework.GetDictionary("TEXT_PARAMEETR_TABL_MAPPINGS_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_PARAMTABLE_MAPPINGS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
     if iPriceableItemKind=40 then
-      gObjMTTabs.AddTab "Counters", Framework.GetDictionary("PRICEABLE_ITEM_DISCOUNT_COUNTERS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
+      gObjMTTabs.AddTab Framework.GetDictionary("TEXT_COUNTERS_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_DISCOUNT_COUNTERS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
     end if    
     gObjMTTabs.Tab = iSelectedTab
     

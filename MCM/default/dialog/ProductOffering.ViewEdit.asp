@@ -225,6 +225,11 @@ PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean
         
     End If
     
+    COMObject.Properties("EffDate_StartDate") = mdm_format(COMObject.Properties("EffectiveDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+    COMObject.Properties("EffDate_EndDate") = mdm_format(COMObject.Properties("EffectiveDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+    COMObject.Properties("AvDate_StartDate") = mdm_format(COMObject.Properties("AvailabilityDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+    COMObject.Properties("AvDate_EndDate") = mdm_format(COMObject.Properties("AvailabilityDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  
     Form_Refresh = TRUE
     
 END FUNCTION

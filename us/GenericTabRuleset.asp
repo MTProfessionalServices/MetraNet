@@ -1583,9 +1583,9 @@ PUBLIC FUNCTION Main
 
               
               <input type="button" class="clsButtonBlueMedium" name="EditAsXML" value="<%=FrameWork.GetDictionary("TEXT_MPTE_EDIT_AS_XML_BTN")%>" title="<%=Framework.Dictionary.Item("TEXT_MPTE_EDIT_AS_XML_BTN").Description%>"   onClick="javascript:OpenDialogWindow('gotoPopup.asp?loadpage=GenericTabRuleSetExport.asp', '');">
-              <input type="button" class="clsButtonBlueXLarge" name="ExportToExcel" value="Export To Excel" title="Export To Excel"   onClick="javascript:SubmitForm('ExportExcel');">
+              <input type="button" class="clsButtonBlueXLarge" name="ExportToExcel" value="<%=FrameWork.GetDictionary("TEXT_EXPORT_TO_EXCEL")%>" title="<%=FrameWork.GetDictionary("TEXT_EXPORT_TO_EXCEL")%>"   onClick="javascript:SubmitForm('ExportExcel');">
               <input type="hidden" name="ImportExportAction" value="Export">
-	            <input type="button" class="clsButtonBlueXLarge" name="ImportFromExcel" value="Import From Excel" title="Import From Excel"   onClick="javascript:OpenDialogWindow('gotoPopup.asp?loadpage=GenericTabRuleSetExportImportExcel.asp', '');">
+	            <input type="button" class="clsButtonBlueXLarge" name="ImportFromExcel" value="<%=FrameWork.GetDictionary("TEXT_IMPORT_FROM_EXCEL")%>" title="<%=FrameWork.GetDictionary("TEXT_IMPORT_FROM_EXCEL")%>"   onClick="javascript:OpenDialogWindow('gotoPopup.asp?loadpage=GenericTabRuleSetExportImportExcel.asp', '');">
 	        <% end if%>
 		      <% else %>
 		         <input type="button" class="clsButtonBlueSmall" name="Close" value="<%=FrameWork.GetDictionary("TEXT_MPTE_CLOSE_BTN")%>" onClick="javascript:returnToCallerApp();">

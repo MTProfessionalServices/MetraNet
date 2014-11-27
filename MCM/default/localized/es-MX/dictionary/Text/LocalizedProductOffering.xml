@@ -48,7 +48,7 @@
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_PRICELIST_MAPPINGS_CANNOT_BE_MODIFIED">
-    <value><![CDATA[[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore the price list mappings cannot be updated. <br />However, whether or not a user is allowed to enter [TEXT_KEYTERM_PERSONAL_RATES] for a subscriber can be updated.]]></value>
+    <value><![CDATA[[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore the price list mappings cannot be updated. <br />[es-MX]However, whether or not a user is allowed to enter [TEXT_KEYTERM_PERSONAL_RATES] for a subscriber can be updated.]]></value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_NEW_PRODUCT_OFFERING">

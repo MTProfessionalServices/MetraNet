@@ -439,17 +439,3 @@
 				
 				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK2_LOCALIZE_TO_T_LANGUAGE] 
 				FOREIGN KEY([id_lang_code]) REFERENCES [t_language] ([id_lang_code])
-				
-				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK3_LOCALIZE_TO_T_RECEVENT] 
-				FOREIGN KEY([id_ietm]) REFERENCES [t_recevent] ([id_event])
-				
-				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK4_LOCALIZE_TO_T_COMPOSITE_CAPABILITY_TYPE] 
-				FOREIGN KEY([id_item]) REFERENCES [t_composite_capability_type ] ( [id_cap_type])
-				
-				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK5_LOCALIZE_TO_T_ATOMIC_CAPABILITY_TYPE] 
-				FOREIGN KEY([id_item]) REFERENCES [t_atomic_capability_type] ([id_cap_type])
-
-				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK5_LOCALIZE_TO_T_ROLE] 
-				FOREIGN KEY([id_item]) REFERENCES [t_role] ([id_role])
-
-				

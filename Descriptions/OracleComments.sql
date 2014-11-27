@@ -4341,10 +4341,15 @@ COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.SUBSCRIPTIONREVPRIMARYCURRENCY    IS 'The 
 COMMENT ON COLUMN SUBSCRIPTIONSUMMARY.DAYSINMONTH                       IS 'The number of days in the month.'
 ;
 
-COMMENT ON TABLE t_recevent_localize 				IS 'The t_recevent_localize table contains the localized DisplayName and DEscription of t_recevent table for the languages supported by the MetraTech platform.(Package:Pipeline) ';
-COMMENT ON COLUMN t_recevent_localize.id_desc 		IS 'Localize identifier. This is foreign key to t_recevent';
-COMMENT ON COLUMN t_recevent_localize.id_lang_code 	IS 'Language identifier displayed on the MetraNet Presentation Server';
-COMMENT ON COLUMN t_recevent_localize.tx_name 		IS 'The localized DisplayName';
-COMMENT ON COLUMN t_recevent_localize.tx_desc 		IS 'The localized DEscription';
+COMMENT ON TABLE t_localized_items 					IS  'The t_localized_items table contains the localized DisplayName and Description of entyties (for example t_recevent, t_composite_capability_type, t_atomic_capability_type tables) for the languages supported by the MetraTech platform.(Package:Pipeline) ';
+COMMENT ON COLUMN t_localized_items.id_local_type 	IS	'Composite key: This is foreign key to t_localized_items_type.';
+COMMENT ON COLUMN t_localized_items.id_item			IS	'Composite key: Localize identifier. This is foreign key to t_recevent and other tables (see constraints)';
+COMMENT ON COLUMN t_recevent_localize.id_lang_code	IS	'Composite key: Language identifier displayed on the MetraNet Presentation Server';
+COMMENT ON COLUMN t_recevent_localize.tx_name 		IS 	'The localized DisplayName';
+COMMENT ON COLUMN t_recevent_localize.tx_desc 		IS 	'The localized DEscription';
+
+COMMENT ON TABLE t_localized_items_type							IS  'Dictionary table for t_localized_items.id_local_type colum. Contains id localization type and their description';
+COMMENT ON COLUMN t_localized_items_type.id_local_type 			IS	'Primary key.';
+COMMENT ON COLUMN t_localized_items_type.local_type_description	IS	'Description type';
 
 

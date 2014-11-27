@@ -413,10 +413,22 @@
 					
 					alter table t_account add constraint fk1_t_account
 					foreign key (id_type) references t_account_type(id_type);
+										
+					/* foreign keys for T_LOCALIZED_ITEMS table */
+					alter table t_localized_items add constraint FK_LOCAL_TO_LOCAL_ITEMS_TYPE
+					foreign key(id_local_type) references t_localized_items_type(id_local_type);
 					
-					alter table t_recevent_localize add constraint FK1_LOCALIZE_TO_T_RECEVENT
-					foreign key (id_local) references t_recevent(id_event);
+					alter table t_localized_items add constraint FK_LOCALIZE_TO_T_LANGUAGE
+					foreign key(id_lang_code) references t_language (id_lang_code);
 					
-					alter table t_recevent_localize add constraint FK2_LOCALIZE_TO_T_LANGUAGE
-					foreign key (id_lang_code) references t_language(id_lang_code);
+					alter table t_localized_items add constraint FK_LOCALIZE_TO_T_RECEVENT
+					foreign key(id_item) references t_recevent(id_event);
+					
+					alter table t_localized_items add constraint FK_LOCAL_TO_COMP_CAPAB_TYPE
+					foreign key(id_item) references t_composite_capability_type(id_cap_type);
+					
+					alter table t_localized_items add constraint FK_LOCAL_TO_ATOMIC_CAPAB_TYPE
+					foreign key(id_item) references t_atomic_capability_type(id_cap_type);
 
+					alter table t_localized_items add constraint FK_LOCAL_TO_ROLE
+					foreign key(id_item) references t_role(id_role);

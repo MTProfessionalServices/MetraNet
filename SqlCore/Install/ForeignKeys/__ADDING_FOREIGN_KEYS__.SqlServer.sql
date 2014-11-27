@@ -424,7 +424,7 @@
 				foreign key (id_prod_view_prop) references t_prod_view_prop (id_prod_view_prop)
 				
 				-- foreign keys for account types
-        alter table t_acctype_descendenttype_map add constraint fk1_t_acctype_descendenttype_map
+				alter table t_acctype_descendenttype_map add constraint fk1_t_acctype_descendenttype_map
 				foreign key (id_type) references t_account_type (id_type)
 				
 				alter table t_acctype_descendenttype_map add constraint fk2_t_acctype_descendenttype_map
@@ -433,10 +433,23 @@
 				alter table t_account add constraint fk1_t_account
 				foreign key (id_type) references t_account_type(id_type)
 				
-				ALTER TABLE [t_recevent_localize] WITH CHECK ADD CONSTRAINT [FK1_LOCALIZE_TO_T_RECEVENT] 
-				FOREIGN KEY([id_local]) REFERENCES [t_recevent] ([id_event])
-					
-				ALTER TABLE [t_recevent_localize] WITH CHECK ADD CONSTRAINT [FK2_LOCALIZE_TO_T_LANGUAGE] 
+				/* foreign keys for T_LOCALIZED_ITEMS table */
+				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK1_LOCALIZE_TO_T_LOCALIZED_ITEMS_TYPE] 
+				FOREIGN KEY([id_local_type]) REFERENCES [t_localized_items_type] ([id_local_type])
+				
+				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK2_LOCALIZE_TO_T_LANGUAGE] 
 				FOREIGN KEY([id_lang_code]) REFERENCES [t_language] ([id_lang_code])
+				
+				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK3_LOCALIZE_TO_T_RECEVENT] 
+				FOREIGN KEY([id_ietm]) REFERENCES [t_recevent] ([id_event])
+				
+				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK4_LOCALIZE_TO_T_COMPOSITE_CAPABILITY_TYPE] 
+				FOREIGN KEY([id_item]) REFERENCES [t_composite_capability_type ] ( [id_cap_type])
+				
+				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK5_LOCALIZE_TO_T_ATOMIC_CAPABILITY_TYPE] 
+				FOREIGN KEY([id_item]) REFERENCES [t_atomic_capability_type] ([id_cap_type])
+
+				ALTER TABLE [t_localized_items] WITH CHECK ADD CONSTRAINT [FK5_LOCALIZE_TO_T_ROLE] 
+				FOREIGN KEY([id_item]) REFERENCES [t_role] ([id_role])
 
 				

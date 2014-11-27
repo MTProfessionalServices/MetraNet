@@ -212,4 +212,60 @@
     <value>[es-MX]Update Price List Mappings</value>
     <description></description>
   </text>
+  <text id="TEXT_COPY">
+    <value>[es-MX]Copy</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_RATES">
+    <value>[es-MX]Add Rates For Additional Parameter Tables</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_SUBSCR_AND_ASSOCIATIONS">
+    <value>[es-MX]View Subscriptions and Default Pricelist Associations</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHANGES_POTENTIALLY_AFFECT1">
+    <value><![CDATA[&nbsp;&nbsp;[es-MX]Changes to these rate schedules potentially affect <b>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHANGES_POTENTIALLY_AFFECT2">
+    <value><![CDATA[</b> [es-MX]subscribers.&nbsp;&nbsp;]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_RATE_SCHEDULES">
+    <value><![CDATA[<span style='font-weight:normal;'><b>[es-MX]There are currently no rate schedules on this price list for this parameter table.</b><BR><BR> Use the 'New Rate Schedule' button above to create one or use this button to automatically create a default rate schedule that would always be in effect (no start date and no end date):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>[es-MX]Create Default Rate Schedule</button><BR></span>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE">
+    <value><![CDATA[[es-MX]Parameter Table: <b>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_STORED_ON_PO">
+    <value><![CDATA[</b><br>[es-MX]Rates are stored on the Product Offering's non-shared price list.<br>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_STORED_ON_SHARED_PL">
+    <value><![CDATA[</b><br>[es-MX]Rates are stored on the shared price list '<b>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_RATE_SCHEDULE_TITLE">
+    <value>[es-MX]Create a new rate schedule and copy the rates from this rate schedule</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_RATE_SCHEDULE">
+    <value>[es-MX]New Rate Schedule From This One</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>[es-MX]View History</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXPORT_TO_EXCEL">
+    <value>[es-MX]Export To Excel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_FROM_EXCEL">
+    <value>[es-MX]Import From Excel</value>
+    <description></description>
+  </text>
 </texts>

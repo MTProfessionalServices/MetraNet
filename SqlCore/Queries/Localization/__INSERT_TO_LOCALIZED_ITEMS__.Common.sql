@@ -5,8 +5,8 @@ INSERT INTO t_localized_items
            ,tx_name
            ,tx_desc)
 VALUES
-           (1  /*Adapter type*/ 
-		   ,%%ID_EVENT%%
+           (%%LOCALIZED_TYPE%% 
+		   ,%%ID_PARENT%%
            ,%%ID_LANG%%
            ,'%%LOCALIZE_DISPLAY_NAME%%'
            ,'%%LOCALIZE_DESCRIPTION%%');

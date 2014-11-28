@@ -5,8 +5,14 @@
         <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
+		<Parameter>
+            <Name>LOCALIZED_TYPE</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
         <Parameter>
-            <Name>ID_EVENT</Name>
+            <Name>ID_PARENT</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>

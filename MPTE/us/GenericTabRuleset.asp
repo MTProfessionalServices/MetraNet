@@ -1044,7 +1044,6 @@ end sub
 '   Return Value: none
 '-----------------------------------------------------------------------------
 function writeNumberOutput()
- ' Localize this
   writeNumberOutput = FrameWork.GetDictionary("TEXT_MPTE_TOTAL") & mobjRuleSet.count & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_RULES")
   if mbolFilterAvailable then
     writeNumberOutput = writeNumberOutput & "&nbsp;&nbsp;-&nbsp;&nbsp;" & mintFilteredOut & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_RULES") & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_FILTERED")  

@@ -677,4 +677,44 @@
     <value>[JA]View Pending Change</value>
     <description></description>
   </text>
+  <text id="TEXT_CALENDAR_DAY">
+    <value>[JA]Calendar Day</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_PERIOD">
+    <value>[JA]Calendar Period</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_CONFIGURATION">
+    <value>[JA]Calendar Configuration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_EDITOR">
+    <value>[JA]Ruleset Editor</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_CHANGES">
+    <value>[JA]Ruleset Changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_FROM_EXCEL">
+    <value>[JA]Import From Excel File</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOCATION_OF_EXCEL">
+    <value>[JA]Location of Excel file to import</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TABULAR_RULESET_EDITOR">
+    <value>[JA]Tabular Ruleset Editor - Define Filter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_NEW_CALENDAR">
+    <value>[JA]Create New Calendar</value>
+    <description></description>
+  </text>        
+  <text id="TEXT_SET_CHARGE_AMOUNT">
+    <value>[JA]Set Charge Amount</value>
+    <description></description>
+  </text>
 </texts>

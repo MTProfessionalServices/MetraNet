@@ -448,11 +448,11 @@ end if
 
 <html>
   <head>
-	  <title>Tabular Ruleset Editor - Define Filter</title>
-	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
+	  <title><%=FrameWork.GetDictionary("TEXT_TABULAR_RULESET_EDITOR")%></title>
+	  <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">
- 	<% Response.Write (session("stylesheet1"))%>   
+ 	  <% Response.Write (session("stylesheet1"))%>   
     <% Response.Write (session("stylesheet2"))%>
     <% Response.Write (session("stylesheet3"))%>   
 	

@@ -118,6 +118,31 @@ Function GetDayConfiguration(CalendarDay, strDayType)
 	GetDayConfiguration = strHTML
 End Function
 
+Function GetDayName(intDayIndex)
+	Select Case intDayIndex
+		Case 0
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_SUNDAY")
+		Case 1
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_MONDAY")
+		Case 2
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_TUESDAY")
+		Case 3
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_WEDNESDAY")
+		Case 4
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_THURSDAY")
+		Case 5
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_FRIDAY")
+		Case 6
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_SATURDAY")
+		Case 7
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_DEFAULTWEEKDAY")
+		Case 8
+			GetDayName = FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_DEFAULTWEEKEND")
+		Case else
+			GetDayName = "Not a valid weekday"
+	End Select	
+End Function
+
 '----------------------------------------------------------------------------
 ' PAGE PROCESSING STARTS
 '----------------------------------------------------------------------------
@@ -303,7 +328,7 @@ end if
 		if UCase(newDay) = "TRUE" then
 			response.write GetTitle(FrameWork.GetDictionary("TEXT_MPTE_ADDWEEKDAY"))
 		else	
-			response.write GetTitle(objDay.GetDayofWeekAsString)
+      response.write GetTitle(GetDayName(objDay.DayofWeek))
 		end if
 	end if
 	

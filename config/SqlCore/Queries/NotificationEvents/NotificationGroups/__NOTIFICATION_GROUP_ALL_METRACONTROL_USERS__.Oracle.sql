@@ -9,5 +9,5 @@ FROM
   LEFT OUTER JOIN t_account acc ON acc.id_acc = accancestor.id_ancestor AND acc.id_type = 9
 WHERE 1=1 
   AND prp.policy_type = 'A'
-  AND etc.param_value = (select id_enum_data from t_enum_data nm where nm.nm_enum_data = 'Global/Application/MAM')
+  AND etc.param_value = (select id_enum_data from t_enum_data nm where nm.nm_enum_data = 'Global/Application/MOM')
   AND prp.id_acc IS NOT NULL

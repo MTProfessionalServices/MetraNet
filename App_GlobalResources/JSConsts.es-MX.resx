@@ -1380,4 +1380,7 @@
   <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
     <value>No parameter was selected. Please select at least one parameter for assignment</value>
   </data>
+  <data name="TEXT_VIEW_LOG" xml:space="preserve">
+    <value>[es-MX]View Log</value>
+  </data>
 </root>

@@ -6,7 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <MT:MTTitle ID="MTTitle1" Text="Scheduled Adapters Event List" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <br />
-  <MT:MTFilterGrid runat="Server" ID="ScheduledAdaptersListGrid" ExtensionName="SystemConfig"
+  <MT:MTFilterGrid runat="Server" ID="ScheduledAdaptersListGrid" ExtensionName="Core"
     TemplateFileName="ScheduledAdaptersList.xml" />
   <script type="text/javascript">
     var StrScheduleName = "";
@@ -90,10 +90,10 @@
         
         var d = new Date("01/01/2001");
         
-        //looking for a match of the day
+        //looking for a match of the day in en-US culture                                                     
         for (var j = 0; j < 7; j++) {
           //if match found exit the loop 
-          if (d.toLocaleString("en-US", { weekday: 'short' }) == dayList[i].replace(" ", "")) {
+          if (d.toLocaleString("en-US", { weekday: 'short' }).localeCompare(dayList[i].replace(" ", "")) == 0) {
             break;
           }
           d.setDate(d.getDate() + 1);

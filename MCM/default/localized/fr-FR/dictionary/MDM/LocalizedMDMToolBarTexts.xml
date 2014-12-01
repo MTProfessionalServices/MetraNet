@@ -5,7 +5,7 @@
     <description></description>
   </text>
   <text id="RESET_TOOL_TIP">
-    <value>RÃ©initialiser</value>
+    <value>Réinitialiser</value>
     <description></description>
   </text>
   <text id="NEXT_PAGE_TOOL_TIP">
@@ -13,15 +13,15 @@
     <description></description>
   </text>
   <text id="PREVIOUS_PAGE_TOOL_TIP">
-    <value>Page prÃ©cÃ©dente</value>
+    <value>Page précédente</value>
     <description></description>
   </text>
   <text id="FIRST_PAGE_TOOL_TIP">
-    <value>PremiÃ¨re page</value>
+    <value>Première page</value>
     <description></description>
   </text>
   <text id="LAST_PAGE_TOOL_TIP">
-    <value>DerniÃ¨re page</value>
+    <value>Dernière page</value>
     <description></description>
   </text>
   <text id="REFRESH_PAGE_TOOL_TIP">
@@ -39,15 +39,18 @@
     <value>sur</value>
   </text>
   <text id="MDM_SELECT_ALL">
-    <value>SÃ©lectionner tout</value>
+    <value>Sélectionner tout</value>
   </text>
   <text id="MDM_UNSELECT_ALL">
-    <value>DÃ©sÃ©lectionner tout</value>
+    <value>Désélectionner tout</value>
   </text>
   <text id="MDM_SELECT_PAGE">
-    <value>SÃ©lectionner la page</value>
+    <value>Sélectionner la page</value>
   </text>
   <text id="MDM_UNSELECT_PAGE">
-    <value>DÃ©sÃ©lectionner la page</value>
+    <value>Désélectionner la page</value>
+  </text>
+  <text id="MDM_DATETIME_BETWEEN">
+    <value>[FR]Between</value>
   </text>
 </texts>

@@ -13,27 +13,27 @@
 		
 			 
 		<text id="NEXT_PAGE_TOOL_TIP">
-				<value>PrÃ³xima pÃ¡gina</value>
+				<value>Próxima página</value>
 				<description></description>
 		</text>
 
 		<text id="PREVIOUS_PAGE_TOOL_TIP">
-				<value>PÃ¡gina anterior</value>
+				<value>Página anterior</value>
 				<description></description>
 		</text>
 
 		<text id="FIRST_PAGE_TOOL_TIP">
-				<value>Primeira pÃ¡gina</value>
+				<value>Primeira página</value>
 				<description></description>
 		</text>
 
 		<text id="LAST_PAGE_TOOL_TIP">
-				<value>Ãšltima pÃ¡gina</value>
+				<value>Última página</value>
 				<description></description>
 		</text>
 
 		<text id="REFRESH_PAGE_TOOL_TIP">
-				<value>Atualizar pÃ¡gina</value>
+				<value>Atualizar página</value>
 				<description></description>
 		</text>
 
@@ -43,7 +43,7 @@
 		</text>
 
 	 <text id="MDM_TOOL_BAR_PAGE_WORD">
-			<value>PÃ¡gina</value>
+			<value>Página</value>
 		</text> 	
 		<text id="MDM_TOOL_BAR_OF_WORD">
 			<value>de</value>
@@ -56,10 +56,12 @@
 			<value>Desmarcar tudo</value>
     </text>             
     <text id="MDM_SELECT_PAGE">
-			<value>Selecionar pÃ¡gina</value>
+			<value>Selecionar página</value>
     </text>             
     <text id="MDM_UNSELECT_PAGE">
-			<value>Desmarcar pÃ¡gina</value>
+			<value>Desmarcar página</value>
     </text>                 
-    
+    <text id="MDM_DATETIME_BETWEEN">
+        <value>[pt-BR]Between</value>
+    </text>
 </texts>

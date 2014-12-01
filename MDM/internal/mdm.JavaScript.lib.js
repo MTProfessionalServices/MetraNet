@@ -581,9 +581,9 @@ function mdm_GetDisabledImageName(pathImage){
     mdm_PopulateFilterOperatorComboBox(strColumnType);
     mdm_SetFilterFieldsOperator(obj);
   }
-  function mdm_PopulateFilterOperatorComboBox(strColumnType){
+  function mdm_PopulateFilterOperatorComboBox(strColumnType) {
       if(strColumnType=="TIMESTAMP"){
-         mdm_AddToOptionList(document.getElementById("mdmPVBFilterOperator"),'BETWEEN','Between');
+        mdm_AddToOptionList(document.getElementById("mdmPVBFilterOperator"), 'BETWEEN', document.getElementById("HiddenBetween").value);
       }
       if(strColumnType=="STRING"){
           mdm_AddToOptionList(document.getElementById("mdmPVBFilterOperator"),'LIKE','=*');

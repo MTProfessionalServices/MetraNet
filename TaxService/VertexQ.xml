@@ -3,8 +3,8 @@
 	<name>VertexServerConfig</name>      
 	<description>Vertex Server config values used by the server socket to configure itself.</description>
 	<configdata>        
-		<VertexPath>C:\VertexTaxQSeriesInstallation\cfg</VertexPath>
-		<VertexDefaultConfig>TEST1</VertexDefaultConfig>
+		<VertexPath>C:\Program Files (x86)\Vertex\Vertex Communications Tax Q Series 2.02\cfg</VertexPath>
+		<VertexDefaultConfig>test</VertexDefaultConfig>
     <MaxParallelism>64</MaxParallelism>
   </configdata>    
 </xmlconfig>

@@ -169,16 +169,22 @@
   <data name="btnRunAdaptersLater.Text" xml:space="preserve">
     <value>[DE]Run Adapter Later</value>
   </data>
-  <data name="btnReverseAdapters.Text" xml:space="preserve">
-    <value>[DE]Reverse Adapter</value>
+  <data name="btnRevertAdapters.Text" xml:space="preserve">
+    <value>[DE]Revert Adapter</value>
   </data>
-  <data name="btnReverseAdaptersLater.Text" xml:space="preserve">
-    <value>[DE]Reverse Adapter Later</value>
+  <data name="btnRevertAdaptersLater.Text" xml:space="preserve">
+    <value>[DE]Revert Adapter Later</value>
   </data>
   <data name="btnCancelSubmittedAction.Text" xml:space="preserve">
     <value>[DE]Cancel Submitted Action</value>
   </data>
   <data name="ViewRunDetails" xml:space="preserve">
     <value>[DE]View Run Details</value>
+  </data>
+  <data name="SecondPlural" xml:space="preserve">
+    <value>[DE]seconds</value>
+  </data>
+  <data name="SecondSingular" xml:space="preserve">
+    <value>[DE]second</value>
   </data>
 </root>

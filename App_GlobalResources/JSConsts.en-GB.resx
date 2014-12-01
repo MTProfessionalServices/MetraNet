@@ -388,7 +388,7 @@
     <value>Created On</value>
   </data>
   <data name="TEXT_CREDIT" xml:space="preserve">
-    <value>[en-GB]Credit</value>
+    <value>Credit</value>
   </data>
   <data name="TEXT_CURRENT" xml:space="preserve">
     <value>Current</value>
@@ -424,10 +424,10 @@
     <value>Are you sure you want to delete the {0} template?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
-    <value>[en-GB]Are you sure you want to remove {0} from the template?</value>
+    <value>Are you sure you want to remove {0} from the template?</value>
   </data>
   <data name="TEXT_DELETED" xml:space="preserve">
-    <value>[en-GB]Deleted</value>
+    <value>Deleted</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
@@ -475,7 +475,7 @@
     <value>Edit Template</value>
   </data>
   <data name="TEXT_EMPTY" xml:space="preserve">
-    <value>[en-GB]None</value>
+    <value>None</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
     <value>End Date</value>
@@ -541,7 +541,7 @@
     <value>Please make a selection.</value>
   </data>
   <data name="TEXT_ERROR_UNKNOWN" xml:space="preserve">
-    <value>[en-GB]Something bad happened while executing </value>
+    <value>Something bad happened while executing </value>
   </data>
   <data name="TEXT_EXPORT" xml:space="preserve">
     <value>Export</value>
@@ -721,7 +721,7 @@
     <value>Please make a selection to add to the current remittance details.</value>
   </data>
   <data name="TEXT_NONE" xml:space="preserve">
-    <value>[en-GB]None</value>
+    <value>None</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
     <value>OK</value>
@@ -733,7 +733,7 @@
     <value>Load Saved Search</value>
   </data>
   <data name="TEXT_OTHER" xml:space="preserve">
-    <value>[en-GB]Other</value>
+    <value>Other</value>
   </data>
   <data name="TEXT_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
     <value>The passwords do not match</value>
@@ -790,7 +790,7 @@
     <value>Remove Group Subscription</value>
   </data>
   <data name="TEXT_REMOVE_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
-    <value>[en-GB]Please select accounts to be removed from the list</value>
+    <value>Please select accounts to be removed from the list</value>
   </data>
   <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
     <value>Are you sure you want to remove the selected relationship(s)?</value>
@@ -856,7 +856,7 @@
     <value>Ship-To</value>
   </data>
   <data name="TEXT_SMALL_BALANCE_WRITE_OFF" xml:space="preserve">
-    <value>[en-GB]Small Balance Write Off</value>
+    <value>Small Balance Write Off</value>
   </data>
   <data name="TEXT_SPACER" xml:space="preserve">
     <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
@@ -889,7 +889,7 @@
     <value>Not all rows have been returned because the result set is too large.  Please modify your search to see more results.</value>
   </data>
   <data name="TEXT_TOPNOTE" xml:space="preserve">
-    <value>[en-GB]TopNote</value>
+    <value>TopNote</value>
   </data>
   <data name="TEXT_TRANSACTION_OPEN" xml:space="preserve">
     <value>Open</value>
@@ -898,19 +898,19 @@
     <value>UDRC Values</value>
   </data>
   <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-    <value>[en-GB]Under Investigation</value>
+    <value>Under Investigation</value>
   </data>
   <data name="TEXT_UNKNOWN_STATUS" xml:space="preserve">
-    <value>[en-GB]Unknown Status</value>
+    <value>Unknown Status</value>
   </data>
   <data name="TEXT_UNSUBSCRIBE" xml:space="preserve">
-    <value>[en-GB]Unsubscribe</value>
+    <value>Unsubscribe</value>
   </data>
   <data name="TEXT_UPDATE" xml:space="preserve">
-    <value>[en-GB]Update</value>
+    <value>Update</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>[en-GB]There are validation errors on this page. Please fill in the required fields.</value>
+    <value>There are validation errors on this page. Please fill in the required fields.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Value</value>
@@ -967,7 +967,7 @@
     <value>View</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>[en-GB]A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record. &lt;br/&gt; For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. </value>
+    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record. &lt;br/&gt; For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. </value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
     <value>A Decision Type must be associated with a Parameter Table, which provides a way to customize key values of the Decision Type.  For example, you may want the 'number of free minutes' to be editable rather than a fixed value.  Before a Decision Type is configured, its associated Parameter Table must be created using the Integrated Configuration Environment (ICE).</value>
@@ -1186,7 +1186,7 @@
     <value>The Condition for Execution is a freeform MVM expression that is evaluated when the directive is about to be executed.  If the expression evaluates to 1, execution of the directive goes forth; if it evaluates to something other than 1, the directive is NOT executed.  This field applies to Table Inclusion, Field Population, and Procedure Execution.</value>
   </data>
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
-    <value>[en-GB]Start Date can't be greater than End Date</value>
+    <value>Start Date can't be greater than End Date</value>
   </data>
   <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
     <value>Hard Closed</value>
@@ -1352,5 +1352,32 @@
   </data>
   <data name="TEXT_Delete_Report" xml:space="preserve">
     <value>Delete Report</value>
+  </data>
+  <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
+    <value>Edit Report Instance</value>
+  </data>
+  <data name="TEXT_Manage_Report_Instance_Schedule" xml:space="preserve">
+    <value>Manage Report Instance Schedule</value>
+  </data>
+  <data name="TEXT_Manage_Report__InstanceParameters" xml:space="preserve">
+    <value>Edit Instance Parameter Values</value>
+  </data>
+  <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
+    <value>Delete Report Instance</value>
+  </data>
+  <data name="TEXT_Delete_Queue_AdHoc_Reports" xml:space="preserve">
+    <value>Delete Queue AdHoc Reports</value>
+  </data>
+  <data name="TEXT_Update_Report_Instance_Schedule" xml:space="preserve">
+    <value>Update Report Instance Schedule</value>
+  </data>
+  <data name="TEXT_Delete_Report_Instance_Schedule" xml:space="preserve">
+    <value>Delete Report Instance Schedule</value>
+  </data>
+  <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
+    <value>Delete Report Parameter</value>
+  </data>
+  <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
+    <value>No parameter was selected. Please select at least one parameter for assignment</value>
   </data>
 </root>

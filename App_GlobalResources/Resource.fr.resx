@@ -126,6 +126,15 @@
     <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
         <value>Comptes</value>
     </data>
+    <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
+        <value>[FR]Not Yet Run</value>
+    </data>
+    <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
+        <value>[FR]Ready To Reverse</value>
+    </data>
+    <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
+        <value>[FR]Ready To Run</value>
+    </data>
     <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
         <value>ajouter une catégorie</value>
     </data>
@@ -208,7 +217,7 @@
         <value>modifier</value>
     </data>
     <data name="TEXT_ACTIONS" xml:space="preserve">
-        <value>Actions</value>
+        <value>[FR]Actions</value>
     </data>
     <data name="TEXT_ADD" xml:space="preserve">
         <value>Ajouter des comptes</value>
@@ -672,13 +681,40 @@
     <data name="updateSubscription" xml:space="preserve">
         <value>Mise à jour de l’abonnement</value>
     </data>
-  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
-    <value>[FR]Not Yet Run</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
-    <value>[FR]Ready To Reverse</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
-    <value>[FR]Ready To Run</value>
-  </data>
+    <data name="TEXT_ONE" xml:space="preserve">
+        <value>[FR]One</value>
+    </data>
+    <data name="TEXT_MANY" xml:space="preserve">
+        <value>[FR]Many</value>
+    </data>
+    <data name="TEXT_COPY_PO" xml:space="preserve">
+        <value>[FR]Copy Existing Product Offering</value>
+    </data>
+    <data name="TEXT_CURRENCY" xml:space="preserve">
+        <value>Devise</value>
+    </data>
+    <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
+        <value>Nom d’affichage</value>
+    </data>
+    <data name="TEXT_PARTITION_ID" xml:space="preserve">
+        <value>ID de partition</value>
+    </data>
+    <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
+        <value>Date de début de validité</value>
+    </data>
+    <data name="TEXT_ADD_RATES_FOR_PT" xml:space="preserve">
+        <value>[FR]Add Rates For Additional Parameter Tables</value>
+    </data>
+    <data name="TEXT_UPDATE_PL" xml:space="preserve">
+        <value>[FR]Update Price List</value>
+    </data>
+    <data name="TEXT_UPDATE_SHARED_PL" xml:space="preserve">
+        <value>[FR]Update Shared Price List</value>
+    </data>
+    <data name="TEXT_CREATE_SHARED_PL" xml:space="preserve">
+        <value>[FR]Create Shared Price List</value>
+    </data>
+    <data name="TEXT_ADD_PL" xml:space="preserve">
+        <value>[FR]Add Price List</value>
+    </data>
 </root>

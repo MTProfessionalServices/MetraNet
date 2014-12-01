@@ -280,10 +280,10 @@
     <value>Most likely length of the value more than available for the selected property</value>
   </data>
   <data name="panelManageSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Apply folliwing Subscription Model</value>
+    <value>Apply following Subscription Model</value>
   </data>
   <data name="btnSelectSubParamsResource.Text" xml:space="preserve">
-    <value>Select Subscription Params</value>
+    <value>Select Model</value>
   </data>
   <data name="btnRemoveSubParamsResource.Text" xml:space="preserve">
     <value>Remove Model</value>

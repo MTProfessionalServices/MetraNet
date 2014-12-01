@@ -171,4 +171,7 @@
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
         <value>[FR]Jobs in the Queue</value>
     </data>
+  <data name="lblShowExportQueueDashboardDetailsTitleResource1.Text" xml:space="preserve">
+    <value>[FR]Data Export Framework Work Queue</value>
+  </data>
 </root>

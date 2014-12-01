@@ -129,6 +129,9 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Gérer le calendrier des instances de rapport</value>
     </data>
+    <data name="TEXT_Daily_Schedule" xml:space="preserve">
+        <value>[FR]Daily Schedule</value>
+    </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>
@@ -138,10 +141,16 @@
     <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
         <value>Type de calendrier</value>
     </data>
+    <data name="TEXT_Monthly_Schedule" xml:space="preserve">
+        <value>[FR] Monthly Schedule</value>
+    </data>
     <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
         <value>[FR]No schedule found for this instance </value>
     </data>
     <data name="TEXT_TITLE" xml:space="preserve">
         <value>[FR]Report Instance Schedule</value>
+    </data>
+    <data name="TEXT_Weekly_Schedule" xml:space="preserve">
+        <value>[FR]Weekly Schedule</value>
     </data>
 </root>

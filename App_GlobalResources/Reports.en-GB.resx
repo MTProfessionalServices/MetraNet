@@ -157,7 +157,7 @@
     <value>Date Last</value>
   </data>
   <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
-    <value>[EN-GB]Deferred revenue code</value>
+    <value>Deferred revenue code</value>
   </data>
   <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
     <value>Discount Name</value>
@@ -247,7 +247,7 @@
     <value>PO Subscribed to</value>
   </data>
   <data name="TEXT_PRICEABLE_ITEM" xml:space="preserve">
-    <value>[EN-GB]Priceable item</value>
+    <value>Priceable item</value>
   </data>
   <data name="TEXT_PRORATION_REASON" xml:space="preserve">
     <value>Reason for Proration</value>
@@ -256,10 +256,10 @@
     <value>Type of RC</value>
   </data>
   <data name="TEXT_REVENUE_CODE" xml:space="preserve">
-    <value>[EN-GB]Revenue code</value>
+    <value>Revenue code</value>
   </data>
   <data name="TEXT_REVENUE_PART" xml:space="preserve">
-    <value>[EN-GB]Revenue Part</value>
+    <value>Revenue Part</value>
   </data>
   <data name="TEXT_STATE" xml:space="preserve">
     <value>State</value>

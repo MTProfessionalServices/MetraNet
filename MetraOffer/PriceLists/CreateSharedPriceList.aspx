@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<MT:MTTitle ID="MTTitle1" Text="Create Shared Price List" runat="server"/>
+<MT:MTTitle ID="MTTitle1" Text="<%$ Resources:Resource,TEXT_CREATE_SHARED_PL %>" runat="server"/>
   <br /><br />
 
 <div style="width:810px">

@@ -175,4 +175,10 @@
     <data name="TEXT_WEEKLY_SCHEDULE" xml:space="preserve">
         <value>[FR]Weekly Schedule</value>
     </data>
+  <data name="TEXT_Delete_Weekly_Report_Schedule" xml:space="preserve">
+        <value>[FR]Delete Weekly Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Weekly_Report_Schedule" xml:space="preserve">
+        <value>[FR]Update Weekly Report Schedule</value>
+    </data>
 </root>

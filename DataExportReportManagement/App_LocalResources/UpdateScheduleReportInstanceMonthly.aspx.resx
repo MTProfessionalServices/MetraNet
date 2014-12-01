@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,285 +59,291 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-    <data name="btnCancelResource1.ServerSide" xml:space="preserve">
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnCancelResource1.ServerSide" xml:space="preserve">
         <value>True</value>
     </data>
-    <data name="btnCancelResource1.ToolTip" xml:space="preserve">
+  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="btnOKResource1.ServerSide" xml:space="preserve">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
         <value>True</value>
     </data>
-    <data name="btnOKResource1.ToolTip" xml:space="preserve">
+  <data name="btnOKResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
+  <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
         <value>10</value>
     </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
         <value>Update Monthly Report Schedule</value>
     </data>
-    <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="PageResource1.Title" xml:space="preserve">
+  <data name="PageResource1.Title" xml:space="preserve">
         <value>Update Monthly Report Schedule</value>
     </data>
-    <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
+  <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
         <value>Activation Date</value>
     </data>
-    <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
+  <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
         <value>Compress Report</value>
     </data>
-    <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
+  <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
         <value>Compress Threshold</value>
     </data>
-    <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
+  <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
         <value>Control File Destination</value>
     </data>
-    <data name="TEXT_DEF_CREATE_NEW_REPORT_DEFINITION" xml:space="preserve">
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_DEFINITION" xml:space="preserve">
         <value>Create New Report Definition</value>
     </data>
-    <data name="TEXT_DEF_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
         <value>Create New Report Instance</value>
     </data>
-    <data name="TEXT_DEF_CREATE_NEW_REPORT_PARAMETER" xml:space="preserve">
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_PARAMETER" xml:space="preserve">
         <value>Create New Report Parameter</value>
     </data>
-    <data name="TEXT_DEF_CREATE_NEW_REPORT_SCHEDULE" xml:space="preserve">
+  <data name="TEXT_DEF_CREATE_NEW_REPORT_SCHEDULE" xml:space="preserve">
         <value>Create New Instance Schedule</value>
     </data>
-    <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
+  <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
         <value>Deactivation Date</value>
     </data>
-    <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
+  <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
         <value>Delivery Method</value>
     </data>
-    <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>
-    <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
+  <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
         <value>Destination</value>
     </data>
-    <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
         <value>Execute Day</value>
     </data>
-    <data name="TEXT_DEF_EXECUTE_DAY1" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTE_DAY1" xml:space="preserve">
         <value>Execute Day</value>
     </data>
-    <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
         <value>Execute End Time (HH:MM)</value>
     </data>
-    <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
         <value>Execute First Day of Month</value>
     </data>
-    <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
         <value>Execute Last Day of Month</value>
     </data>
-    <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
         <value>Execute Start Time (HH:MM)</value>
     </data>
-    <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
         <value>Execute Time (HH:MM)</value>
     </data>
-    <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
+  <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
         <value>Execution Type</value>
     </data>
-    <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
+  <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
         <value>Generate Control File</value>
     </data>
-    <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
+  <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
         <value>Instance ID</value>
     </data>
-    <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
+  <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
         <value>Last Run Date</value>
     </data>
-    <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
+  <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
         <value>Manage Report Parameters</value>
     </data>
-    <data name="TEXT_DEF_MONTH_APRIL" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_APRIL" xml:space="preserve">
         <value>April</value>
     </data>
-    <data name="TEXT_DEF_MONTH_AUGUST" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_AUGUST" xml:space="preserve">
         <value>August</value>
     </data>
-    <data name="TEXT_DEF_MONTH_DECEMBER" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_DECEMBER" xml:space="preserve">
         <value>December</value>
     </data>
-    <data name="TEXT_DEF_MONTH_FEBRUARY" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_FEBRUARY" xml:space="preserve">
         <value>February</value>
     </data>
-    <data name="TEXT_DEF_MONTH_JANUARY" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_JANUARY" xml:space="preserve">
         <value>January</value>
     </data>
-    <data name="TEXT_DEF_MONTH_JULY" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_JULY" xml:space="preserve">
         <value>July</value>
     </data>
-    <data name="TEXT_DEF_MONTH_JUNE" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_JUNE" xml:space="preserve">
         <value>June</value>
     </data>
-    <data name="TEXT_DEF_MONTH_MARCH" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_MARCH" xml:space="preserve">
         <value>March</value>
     </data>
-    <data name="TEXT_DEF_MONTH_MAY" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_MAY" xml:space="preserve">
         <value>May</value>
     </data>
-    <data name="TEXT_DEF_MONTH_NOVEMBER" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_NOVEMBER" xml:space="preserve">
         <value>November</value>
     </data>
-    <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
         <value>October</value>
     </data>
-    <data name="TEXT_DEF_MONTH_SEPTEMBER" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_SEPTEMBER" xml:space="preserve">
         <value>September</value>
     </data>
-    <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
+  <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
         <value>Month to Date</value>
     </data>
-    <data name="TEXT_DEF_NAME" xml:space="preserve">
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
         <value>Name</value>
     </data>
-    <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
+  <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
         <value>Next Run Date</value>
     </data>
-    <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
+  <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
         <value>Write Exec Parameters to Output</value>
     </data>
-    <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
+  <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
         <value>Parameter ID</value>
     </data>
-    <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
+  <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
         <value>FTP Password</value>
     </data>
-    <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
+  <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
         <value>Prevent Adhoc Execution</value>
     </data>
-    <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
+  <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
         <value>Query Tag</value>
     </data>
-    <data name="TEXT_DEF_REPEAT_HOURS" xml:space="preserve">
+  <data name="TEXT_DEF_REPEAT_HOURS" xml:space="preserve">
         <value>Repeat Hours</value>
     </data>
-    <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
+  <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
         <value>Report ID</value>
     </data>
-    <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
+  <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
         <value>Output File Name</value>
     </data>
-    <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
+  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
         <value>Output Type</value>
     </data>
-    <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
+  <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Report Title</value>
     </data>
-    <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
+  <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
         <value>Schedule ID</value>
     </data>
-    <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
+  <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
         <value>Schedule Type</value>
     </data>
-    <data name="TEXT_DEF_SHOW_ALL_REPORT_DEFINITIONS" xml:space="preserve">
+  <data name="TEXT_DEF_SHOW_ALL_REPORT_DEFINITIONS" xml:space="preserve">
         <value>Report Definitions</value>
     </data>
-    <data name="TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH" xml:space="preserve">
+  <data name="TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH" xml:space="preserve">
         <value>Skip First Day of Month</value>
     </data>
-    <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
+  <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
         <value>Skip Last Day of Month</value>
     </data>
-    <data name="TEXT_DEF_UPDATE_DAILY_SCHEDULE" xml:space="preserve">
+  <data name="TEXT_DEF_UPDATE_DAILY_SCHEDULE" xml:space="preserve">
         <value>Update Daily Schedule</value>
     </data>
-    <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
+  <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
         <value>Update Existing Report Definition</value>
     </data>
-    <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_INSTANCE" xml:space="preserve">
+  <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_INSTANCE" xml:space="preserve">
         <value>Update Existing Report Instance</value>
     </data>
-    <data name="TEXT_DEF_UPDATE_INSTANCE_PARAMETER_VALUE" xml:space="preserve">
+  <data name="TEXT_DEF_UPDATE_INSTANCE_PARAMETER_VALUE" xml:space="preserve">
         <value>Update Instance Parameter Value</value>
     </data>
-    <data name="TEXT_DEF_UPDATE_MONTHLY_SCHEDULE" xml:space="preserve">
+  <data name="TEXT_DEF_UPDATE_MONTHLY_SCHEDULE" xml:space="preserve">
         <value>Update Monthly Schedule</value>
     </data>
-    <data name="TEXT_DEF_UPDATE_WEEKLY_SCHEDULE" xml:space="preserve">
+  <data name="TEXT_DEF_UPDATE_WEEKLY_SCHEDULE" xml:space="preserve">
         <value>Update Weekly Schedule</value>
     </data>
-    <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
+  <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
         <value>Use Quoted Identifiers</value>
     </data>
-    <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
+  <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
         <value>FTP User Name</value>
     </data>
-    <data name="TEXT_DEF_VALUE" xml:space="preserve">
+  <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Value</value>
     </data>
-    <data name="TEXT_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
+  <data name="TEXT_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
         <value>Execute day of Monthly Schedule </value>
     </data>
-    <data name="TEXT_EXECUTE_TIME_OF_MONTHLY" xml:space="preserve">
+  <data name="TEXT_EXECUTE_TIME_OF_MONTHLY" xml:space="preserve">
         <value>Execute Time of Monthly Schedule</value>
     </data>
-    <data name="TEXT_SKIP_THE_FOLLOWING_MONTH" xml:space="preserve">
+  <data name="TEXT_SKIP_THE_FOLLOWING_MONTH" xml:space="preserve">
         <value>Skip The Following Months</value>
+    </data>
+  <data name="TEXT_Delete_Monthly_Report_Schedule" xml:space="preserve">
+        <value>Delete Monthly Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Monthly_Report_Schedule" xml:space="preserve">
+        <value>Update Monthly Report Schedule</value>
     </data>
 </root>

@@ -672,13 +672,49 @@
     <data name="updateSubscription" xml:space="preserve">
         <value>[JA]Subscription Update</value>
     </data>
-  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
-    <value>[JA]Not Yet Run</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
-    <value>[JA]Ready To Reverse</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
-    <value>[JA]Ready To Run</value>
-  </data>
+    <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
+        <value>[JA]Not Yet Run</value>
+    </data>
+    <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
+        <value>[JA]Ready To Reverse</value>
+    </data>
+    <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
+        <value>[JA]Ready To Run</value>
+    </data>
+    <data name="TEXT_ONE" xml:space="preserve">
+        <value>[JA]One</value>
+    </data>
+    <data name="TEXT_MANY" xml:space="preserve">
+        <value>[JA]Many</value>
+    </data>
+    <data name="TEXT_COPY_PO" xml:space="preserve">
+        <value>[JA]Copy Existing Product Offering</value>
+    </data>
+    <data name="TEXT_CURRENCY" xml:space="preserve">
+        <value>[JA]Currency</value>
+    </data>
+    <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
+        <value>[JA]Display name</value>
+    </data>
+    <data name="TEXT_PARTITION_ID" xml:space="preserve">
+        <value>[JA]Partition Id</value>
+    </data>
+    <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
+        <value>[JA]Effective Start Date</value>
+    </data>
+    <data name="TEXT_ADD_RATES_FOR_PT" xml:space="preserve">
+        <value>[JA]Add Rates For Additional Parameter Tables</value>
+    </data>
+    <data name="TEXT_UPDATE_PL" xml:space="preserve">
+        <value>[JA]Update Price List</value>
+    </data>
+    <data name="TEXT_UPDATE_SHARED_PL" xml:space="preserve">
+        <value>[JA]Update Shared Price List</value>
+    </data>
+    <data name="TEXT_CREATE_SHARED_PL" xml:space="preserve">
+        <value>[JA]Create Shared Price List</value>
+    </data>
+    <data name="TEXT_ADD_PL" xml:space="preserve">
+        <value>[JA]Add Price List</value>
+    </data>
 </root>

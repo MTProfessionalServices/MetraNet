@@ -19,13 +19,12 @@
 <script type="text/javascript">
   OverrideRenderer_<%= ScheduledAdaptertGrid.ClientID %> = function(cm) {
     cm.setRenderer(cm.getIndexById('instanceid'), iDColRenderer);
-  }
+  };
 
   function iDColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
-    var str = "";
-    str += String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp?ID={0}&ReturnUrl={1}'>{0}</a>", value, encodeURIComponent("ScheduledAdapter.Instance.List.asp?AdapterName=<%=AdapterName%>&ID=<%=IdAdapter%>")); 
-    return str;
+   return String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp?ID={0}&ReturnUrl={1}'>{0}</a>"
+              , value, encodeURIComponent("/MetraNet/MetraControl/ScheduledAdaptersInstanceList.aspx?AdapterName=<%=AdapterNameBase64%>&ID=<%=IdAdapter%>")); 
   }
 
   </script>

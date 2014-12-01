@@ -137,6 +137,11 @@ white-space:nowrap;
 {
   font-weight:bolder;
 }
+
+.dc-chart rect.bar {
+  cursor: default !important;
+}
+  
 </style>
   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/jquery.gridster.min.js"></script>

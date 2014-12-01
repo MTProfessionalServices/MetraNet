@@ -41,10 +41,7 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label>
-                                <LocalizationTag>TEXT_NAME</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
-                            </Label>
+                            <Label />
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -62,10 +59,7 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label>
-                                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
-                            </Label>
+                            <Label />
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>

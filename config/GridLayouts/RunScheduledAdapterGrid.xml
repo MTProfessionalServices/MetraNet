@@ -6,10 +6,10 @@
         <ResourceClassKey>MainMenu</ResourceClassKey>
     </Title>
     <Exportable>false</Exportable>
-    <Height>420</Height>
-    <Width>850</Width>
+    <Height>550</Height>
+    <Width>100%</Width>
     <Expandable>false</Expandable>
-    <Buttons>None</Buttons>
+    <Buttons>Custom</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>true</MultiSelect>
     <SelectionModel>CheckBox</SelectionModel>
@@ -18,11 +18,11 @@
     <PageSize>14</PageSize>
     <Description>Grid displays list of available Scheduled Adapters for "Run Scheduled Adapters" page.</Description>
     <ExpansionCssClass></ExpansionCssClass>
-    <ShowFilterPanel>false</ShowFilterPanel>
+    <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
-    <ShowTopBar>true</ShowTopBar>
+    <ShowTopBar>false</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
     <ShowGridFrame>true</ShowGridFrame>
     <ShowGridHeader>true</ShowGridHeader>
@@ -33,16 +33,16 @@
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
-    <EnableColumnConfig>false</EnableColumnConfig>
-    <EnableFilterConfig>false</EnableFilterConfig>
-    <Resizeable>true</Resizeable>
+    <EnableColumnConfig>true</EnableColumnConfig>
+    <EnableFilterConfig>true</EnableFilterConfig>
+    <Resizeable>false</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField>tx_display_name</DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes>MetraNet/MetraControl/ScheduledAdapters/RunScheduledAdapter.aspx</CustomOverrideJavascriptIncludes>
     <SubGrid></SubGrid>
     <URLParameters>
         <URLParameter>
@@ -86,10 +86,7 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_event</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -135,7 +132,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -154,7 +151,7 @@
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>instancelastargenddate</ID>
-            <DataType>String</DataType>
+            <DataType>Date</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>instancelastargenddate</DataIndex>
             <IsColumn>true</IsColumn>
@@ -171,7 +168,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -199,7 +196,7 @@
                 <ResourceClassKey>JSConsts</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>400</Width>
+            <Width>600</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -207,7 +204,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -230,10 +227,7 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>tx_name</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -259,23 +253,37 @@
         </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
-    <GridButtons></GridButtons>
-    <ToolbarButtons>
+    <GridButtons>
         <Button>
             <ButtonID>Run</ButtonID>
             <ButtonText>
                 <LocalizationTag>RUN_ADAPTER_BUTTON_TEXT</LocalizationTag>
-                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+                <ResourceClassKey>MetraControl/ScheduledAdapters/App_LocalResources/RunScheduledAdapter.aspx</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <LocalizationTag>RUN_ADAPTER_TOOL_TIP</LocalizationTag>
-                <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
+                <LocalizationTag>RUN_ADAPTER_BUTTON_TEXT</LocalizationTag>
+                <ResourceClassKey>MetraControl/ScheduledAdapters/App_LocalResources/RunScheduledAdapter.aspx</ResourceClassKey>
             </ToolTip>
-            <IconClass>add</IconClass>
+            <IconClass></IconClass>
             <RequiredCapabilities>
                 <Capability>Manage Scheduled Adapters</Capability>
             </RequiredCapabilities>
             <JSHandlerFunction>onRun</JSHandlerFunction>
         </Button>
-    </ToolbarButtons>
+        <Button>
+            <ButtonID>Cancel</ButtonID>
+            <ButtonText>
+                <LocalizationTag>CANCEL_BUTTON_TEXT</LocalizationTag>
+                <ResourceClassKey>MetraControl/ScheduledAdapters/App_LocalResources/RunScheduledAdapter.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>CANCEL_ADAPTER_BUTTON_TEXT</LocalizationTag>
+                <ResourceClassKey>MetraControl/ScheduledAdapters/App_LocalResources/RunScheduledAdapter.aspx</ResourceClassKey>
+            </ToolTip>
+            <IconClass></IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onCancel</JSHandlerFunction>
+        </Button>
+    </GridButtons>
+    <ToolbarButtons></ToolbarButtons>
 </GridLayout>

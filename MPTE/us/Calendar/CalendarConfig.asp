@@ -516,9 +516,12 @@ session("HelpContext")  = "gotoCalendar.hlp.htm"
 Function Main ' We will put the HTML writing in a function so we can catch unknown errors
 
 %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
 <html>
   <head>
-    <title>Calendar Configuration</title>
+    <title><%=FrameWork.GetDictionary("TEXT_CALENDAR_CONFIGURATION")%></title>
 		<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">

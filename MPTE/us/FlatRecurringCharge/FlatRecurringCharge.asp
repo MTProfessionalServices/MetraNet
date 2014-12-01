@@ -146,7 +146,7 @@ end if
 %>
 <html>
   <head>
-    <title>Set Charge Amount</title>
+    <title><%=FrameWork.GetDictionary("TEXT_SET_CHARGE_AMOUNT")%></title>
 		<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mt_config>
+    <language_code>jp</language_code>
+     <locale_space name="Notification_EventType_FailedAdapters">
+        <locale_entry>
+            <Name>Notification/EventType/Failed Adapters</Name>
+            <Value>失敗したアダプタ</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>Notification/Template/Failed Adapters</Name>
+            <Value>[de]Adapter {tx_name}, instance id {id_instance} for run {id_run} has failed with the error {tx_detail}.</Value>
+        </locale_entry>
+     </locale_space>
+</mt_config>

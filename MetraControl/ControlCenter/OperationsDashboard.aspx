@@ -512,12 +512,14 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 }
                 d.dd = dateFormat.parse(d.calendardate);
             });
+            
             var ndx = crossfilter(data.Items);
             var all = ndx.groupAll();
             var dateDimension = ndx.dimension(dc.pluck('dd'));
             var batchGroup = dateDimension.group().reduceSum(dc.pluck('batch_count'));
             var udrGroup = dateDimension.group().reduceSum(dc.pluck('udr_count'));
-            
+            var options = { weekday: 'long', month: 'long', day: 'numeric' };
+
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
@@ -529,22 +531,22 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .renderHorizontalGridLines(true)
                     .brushOn(false)
-                    .title("<%=UDRsWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
-                    .title("<%=BatchesWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=BatchesWord%>";})
+                    .title("<%=UDRsWord%>", function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";})
+                    .title("<%=BatchesWord%>", function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";})
                     .compose([
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(udrGroup, "<%=UDRsWord%>")
                                 //.colors('#0070C0')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
+                                .title(function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";})
                         ,
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(batchGroup, "<%=BatchesWord%>")
                                 .colors('#148622')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
+                                .title(function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";})
                     ])
                     ;
             composite.xAxis().tickSize(0,0).tickFormat("");

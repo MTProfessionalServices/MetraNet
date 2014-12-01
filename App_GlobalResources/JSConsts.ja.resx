@@ -1323,12 +1323,6 @@
   <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
     <value>Recent Notifications</value>
   </data>
-  <data name="SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[JA]Account {varloginname} has subscription to {varpointernalname} that will end on {varenddate}&lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
-  </data>
-  <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[JA]Account {varloginname} participation in subscription to {varpointernalname} will end on {varenddate} &lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
-  </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>{JA}Change Password</value>
   </data>
@@ -1340,11 +1334,5 @@
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
     <value>[JA]More ...</value>
-  </data>
-  <data name="FAILED_ADAPTERS_TEMPLATE" xml:space="preserve">
-    <value>[JA]Adapter {tx_name}, instance id {id_instance} for run {id_run} has failed with the error {tx_detail}.</value>
-  </data>
-  <data name="DEMO_NOTIFICATION_EVENT_TEMPLATE" xml:space="preserve">
-    <value>[JA]Demo event successfully generated on {currenttimestamp}.</value>
   </data>
 </root>

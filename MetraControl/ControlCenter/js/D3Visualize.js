@@ -215,7 +215,7 @@ function fnVisualizeLineChart2(objLineChartConfig) {
         var colorData = {
             name: name,
             values: data.map(function (d) {
-                var dataObj = { x_axis: d[X_AXIS_COLUMN], y_axis: +d[name] , name : name};
+                var dataObj = { x_axis: d[X_AXIS_COLUMN], y_axis: +d[name] , name : d.adapter};
                 return dataObj;
             }
                )
@@ -337,7 +337,7 @@ function fnVisualizeLineChart2(objLineChartConfig) {
           .attr("fill","#00B0F0")
           .style("fill-opacity", "0.3")
           .style("stroke-opacity", "0.6")
-          .append("title").text(function (d) { return "(" + d.name + " : " + d.y_axis +")";});
+          .append("title").text(function (d) { return  d.name + " : " + d.y_axis +" Seconds";});
     return this;
 }
 

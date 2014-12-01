@@ -139,7 +139,7 @@
         <value>[JA]New subscriptions will be created for Eligible OnBoard Templates with IDs: {0}.</value>
     </data>
     <data name="ACS_EXCHANGE_RANKS_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error on exchanging ranks of Account Configuration Sets with Id {0} and {1}</value>
+        <value>[JA]Error on exchanging ranks of OnBoard Templates with Id {0} and {1}</value>
     </data>
     <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
         <value>[JA] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
@@ -229,16 +229,16 @@
         <value>[JA]Starting termination of existing subscriptions...</value>
     </data>
     <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
-        <value>[JA]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
+        <value>[JA]Unable to add '{0}' product offering to OnBoard Template due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
     </data>
     <data name="ACS_VALIDATION_AvailableStartDateLessThanStartDateInPo" xml:space="preserve">
-        <value>[JA]Unable to subscribe '{0}' product offering to account configuration set  due to subscription parameter  StartDate '{1}' less than available StartDate '{2}' of product offering. </value>
+        <value>[JA]Unable to add '{0}' product offering to OnBoard Template due to subscription parameter  StartDate '{1}' less than available StartDate '{2}' of product offering. </value>
     </data>
     <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
-        <value>[JA]The Account Configuration Set date does not match available '{0}' Product Offering date. Effective date for Configuration Set from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
+        <value>[JA]The OnBoard Template date does not match available '{0}' Product Offering date. Effective date for OnBoard Template from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
     </data>
     <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
-        <value>[JA]Incorrect available End date for the current OnBoard Template. Available EffectiveEndDate={0} less than system date={1}, so the Account Config Set will never use.</value>
+        <value>[JA]Incorrect available End date for the current OnBoard Template. Available EffectiveEndDate={0} less than system date={1}, so the OnBoard Template will never use.</value>
     </data>
     <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
         <value>[JA]Incorrect available date for the current OnBoard Template. Available EffectiveDate={0} greater then EffectiveEndDate={1}.</value>
@@ -289,10 +289,10 @@
         <value>[JA]UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
     </data>
     <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
-        <value>[JA] Unable to add Account Configuration Set Subscription Params due to validation errors.</value>
+        <value>[JA] Unable to add OnBoard Template Subscription Params due to validation errors.</value>
     </data>
     <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
-        <value>[JA]Unable to add Account Configuration Set due to validation errors.</value>
+        <value>[JA]Unable to add OnBoard Template due to validation errors.</value>
     </data>
     <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
         <value>[JA]Unable to find Product Offering with Id='{0}'</value>
@@ -346,7 +346,7 @@
         <value>親アカウントが {0} から {1} に変更されました。 </value>
     </data>
     <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error on applying Account Configuration Sets for account {0}.</value>
+        <value>[JA]Error on applying OnBoard Templates for account {0}.</value>
     </data>
     <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
         <value>[JA]Transaction {0} is of type {1}, but got a AlreadySettledException</value>
@@ -379,16 +379,16 @@
         <value>曜日が {0} から {1} に変更されました。 </value>
     </data>
     <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error delete account configuration set</value>
+        <value>[JA]Error delete OnBoard Template</value>
     </data>
     <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
-        <value>[JA]Array of Account Configuration Set IDs contains invalid ID: {0}</value>
+        <value>[JA]Array of OnBoard Template IDs contains invalid ID: {0}</value>
     </data>
     <data name="DELETE_APPLIED_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[JA]Applied Account Configuration Set cannot be deleted. ID: {0}</value>
+        <value>[JA]Applied OnBoard Template cannot be deleted. ID: {0}</value>
     </data>
     <data name="DELETE_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[JA]Account Configuration Set of other Partition cannot be deleted. ID: {0}</value>
+        <value>[JA]OnBoard Template of other Partition cannot be deleted. ID: {0}</value>
     </data>
     <data name="DELETED_ENTITY" xml:space="preserve">
         <value>[JA]Deleted entity with ID {0} from entity list</value>
@@ -427,16 +427,16 @@
         <value>最初の名前は{1}に変更{0}であった​​。</value>
     </data>
     <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error get account configuration set with Id {0}</value>
+        <value>[JA]Error get OnBoard Template with Id {0}</value>
     </data>
     <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error get account configuration set list</value>
+        <value>[JA]Error get OnBoard Template list</value>
     </data>
     <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
         <value>[JA]Error get subscription parameters with Id {0}</value>
     </data>
     <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error get account configuration set applied list</value>
+        <value>[JA]Error get OnBoard Template applied list</value>
     </data>
     <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
         <value>[JA] Can't get OnBoard Template with PO from another partition!</value>
@@ -526,7 +526,7 @@
         <value>[JA]Agreement template ID cannot be less than 0.</value>
     </data>
     <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error on termination Account Configuration Set</value>
+        <value>[JA]Error on termination OnBoard Template</value>
     </data>
     <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
         <value>アカウント管理者</value>
@@ -916,10 +916,10 @@
         <value>[JA]Transaction {0} was already submitted.</value>
     </data>
     <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error update account configuration set</value>
+        <value>[JA]Error update OnBoard Template</value>
     </data>
     <data name="UPDATE_ACCOUNTCONFIGSET_PARAMETERS_EXCEPTION" xml:space="preserve">
-        <value>[JA]Error on update Account Configuration Set Parameters</value>
+        <value>[JA]Error on update OnBoard Template Parameters</value>
     </data>
     <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
         <value>[JA]Updated Agreement Template with id {0}.</value>

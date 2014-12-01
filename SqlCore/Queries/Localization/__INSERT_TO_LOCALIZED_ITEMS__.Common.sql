@@ -1,10 +1,12 @@
-INSERT INTO t_recevent_localize
-           (id_local
+INSERT INTO t_localized_items
+           (id_local_type
+		   ,id_item
            ,id_lang_code
            ,tx_name
            ,tx_desc)
 VALUES
-           (%%ID_EVENT%%
+           (%%LOCALIZED_TYPE%% 
+		   ,%%ID_PARENT%%
            ,%%ID_LANG%%
            ,'%%LOCALIZE_DISPLAY_NAME%%'
            ,'%%LOCALIZE_DESCRIPTION%%');

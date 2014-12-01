@@ -5,40 +5,25 @@
         <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
-		<Parameter>
+        <Parameter>
             <Name>LOCALIZED_TYPE</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
             <Name>ID_PARENT</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-		 <Parameter>
-            <Name>ID_ITEM_SECOND_KEY</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>ID_LANG</Name>
-            <DataType>int32</DataType>
+            <Name>ADD_WHERE</Name>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-		<Parameter>
-            <Name>LOCALIZE_DISPLAY_NAME</Name>
-            <DataType>String</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-		<Parameter>
-            <Name>LOCALIZE_DESCRIPTION</Name>
-            <DataType>String</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>AND id_item_second_key &gt; 0</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

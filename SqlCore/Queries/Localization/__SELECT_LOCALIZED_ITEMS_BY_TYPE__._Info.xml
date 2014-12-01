@@ -17,6 +17,13 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
+		<Parameter>
+            <Name>ADD_WHERE</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>AND id_item_second_key &gt; 0</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
 	</Parameters>
     <Description></Description>
     <ConversionAudit>

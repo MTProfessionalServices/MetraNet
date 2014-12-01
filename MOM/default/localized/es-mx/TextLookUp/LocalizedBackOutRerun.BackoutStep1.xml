@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BACKOUT_TRANSACTIONS">
-    <value>Backout Transactions Localized</value>
+    <value>Backout Transactions</value>
   </text>
   <text id="TEXT_Enter_a_description_for_the_rerun_you_are_about_to_create">
     <value>Enter a description for the rerun you are about to create.</value>

@@ -22,9 +22,14 @@
    
     .dc-chart g.row text {
     fill: black;
-    cursor: pointer;
+    /*cursor: pointer;*/
     font: bold 11px tahoma,arial,verdana,sans-serif;
   }
+  
+  .dc-chart rect.bar {
+    cursor: default !important;
+  }
+
    .x-panel-bwrap,.x-panel-body, 
    #formPanel_<%=pnlBillings.ClientID%>
    #formPanel_<%=pnlMRR.ClientID%>
@@ -188,7 +193,7 @@
       var ndx = crossfilter(JSONData),
           runDimension = ndx.dimension(function(d) {return new Date(Date.parse(d.date)); }),
           currencyGroup = runDimension.group().reduceSum(function(d) {if (d.currency == currentCurrency) return d.amount;return 0;});
-      
+
       BillingsChart.width(Width)
         .height(Height)
         .margins(Margin)
@@ -336,7 +341,7 @@
       {
         $(selectId).append($('<option>', {
                                               value: localizedCurrencies[i][0],
-                                              text:localizedCurrencies[i][1]
+                                              html:localizedCurrencies[i][1]
                                               }));
       }
       d3.select(selectDivId).style("visibility", "visible");

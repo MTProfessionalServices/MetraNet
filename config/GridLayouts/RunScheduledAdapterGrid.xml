@@ -18,7 +18,7 @@
     <PageSize>14</PageSize>
     <Description>Grid displays list of available Scheduled Adapters for "Run Scheduled Adapters" page.</Description>
     <ExpansionCssClass></ExpansionCssClass>
-    <ShowFilterPanel>false</ShowFilterPanel>
+    <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
@@ -33,8 +33,8 @@
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
-    <EnableColumnConfig>false</EnableColumnConfig>
-    <EnableFilterConfig>false</EnableFilterConfig>
+    <EnableColumnConfig>true</EnableColumnConfig>
+    <EnableFilterConfig>true</EnableFilterConfig>
     <Resizeable>false</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField>tx_display_name</DefaultSortField>
@@ -132,7 +132,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -151,7 +151,7 @@
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>instancelastargenddate</ID>
-            <DataType>String</DataType>
+            <DataType>Date</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>instancelastargenddate</DataIndex>
             <IsColumn>true</IsColumn>
@@ -168,7 +168,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -204,7 +204,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

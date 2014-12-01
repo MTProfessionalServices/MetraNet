@@ -1,32 +1,63 @@
-SELECT 
+SELECT
 'Open' as Status, 
-COUNT(*) as Count
+COUNT(*) + (
+-- Add in the under investigation transactions with unknown payer id
+SELECT
+COUNT(*) 
+FROM t_failed_transaction ft
+JOIN t_usage_interval ui ON ui.id_interval = %%ID_USAGE_INTERVAL%%
+WHERE ft.State = 'N' AND ft.id_PossiblePayerID = -1
+AND (ft.dt_FailureTime >= ui.dt_start AND ft.dt_FailureTime <= ui.dt_end)
+)as Count
 FROM t_failed_transaction ft
 JOIN t_acc_usage_cycle cycle ON cycle.id_acc = ft.id_PossiblePayeeID
-JOIN t_usage_interval ui ON cycle.id_usage_cycle = ui.id_usage_cycle
-WHERE ft.State = 'N' AND  ui.id_interval = %%ID_USAGE_INTERVAL%%
+JOIN t_usage_interval ui ON cycle.id_usage_cycle = ui.id_usage_cycle and ui.id_interval = %%ID_USAGE_INTERVAL%%
+WHERE ft.State = 'N' 
+AND cycle.id_usage_cycle is not null
 AND (ft.dt_FailureTime >= ui.dt_start AND ft.dt_FailureTime <= ui.dt_end)
+GROUP BY 1
 
 UNION
 
 SELECT
 'Under Investigation' as Status, 
-COUNT(*) as Count 
+COUNT(*) + (
+-- Add in the under investigation transactions with unknown payer id
+SELECT
+COUNT(*) 
 FROM t_failed_transaction ft
-LEFT OUTER JOIN t_acc_usage_cycle cycle ON cycle.id_acc = ft.id_PossiblePayeeID
-LEFT OUTER JOIN t_usage_interval ui ON cycle.id_usage_cycle = ui.id_usage_cycle or ui.id_interval = %%ID_USAGE_INTERVAL%% 
-WHERE ft.State = 'I' AND (cycle.id_usage_cycle is not null OR ft.id_PossiblePayerID = -1)
+JOIN t_usage_interval ui ON ui.id_interval = %%ID_USAGE_INTERVAL%%
+WHERE ft.State = 'I' AND ft.id_PossiblePayerID = -1
 AND (ft.dt_FailureTime >= ui.dt_start AND ft.dt_FailureTime <= ui.dt_end)
+)as Count
+FROM t_failed_transaction ft
+JOIN t_acc_usage_cycle cycle ON cycle.id_acc = ft.id_PossiblePayeeID
+JOIN t_usage_interval ui ON cycle.id_usage_cycle = ui.id_usage_cycle and ui.id_interval = %%ID_USAGE_INTERVAL%%
+WHERE ft.State = 'I' 
+AND cycle.id_usage_cycle is not null
+AND (ft.dt_FailureTime >= ui.dt_start AND ft.dt_FailureTime <= ui.dt_end)
+GROUP BY 1
 
 UNION
 
-SELECT 'Fixed' AS Status,
-COUNT(*) AS Count
+SELECT
+'Fixed' as Status, 
+COUNT(*) + (
+-- Add in the under investigation transactions with unknown payer id
+SELECT
+COUNT(*) 
 FROM t_failed_transaction ft
-LEFT OUTER JOIN t_acc_usage_cycle cycle ON cycle.id_acc = ft.id_PossiblePayeeID
-LEFT OUTER JOIN t_usage_interval ui ON cycle.id_usage_cycle = ui.id_usage_cycle or ui.id_interval = %%ID_USAGE_INTERVAL%% 
-WHERE ft.State = 'R' AND  (cycle.id_usage_cycle is not null OR ft.id_PossiblePayerID = -1)
+JOIN t_usage_interval ui ON ui.id_interval = %%ID_USAGE_INTERVAL%%
+WHERE ft.State = 'R' AND ft.id_PossiblePayerID = -1
 AND (ft.dt_FailureTime >= ui.dt_start AND ft.dt_FailureTime <= ui.dt_end)
+)as Count
+FROM t_failed_transaction ft
+JOIN t_acc_usage_cycle cycle ON cycle.id_acc = ft.id_PossiblePayeeID
+JOIN t_usage_interval ui ON cycle.id_usage_cycle = ui.id_usage_cycle and ui.id_interval = %%ID_USAGE_INTERVAL%%
+WHERE ft.State = 'R' 
+AND cycle.id_usage_cycle is not null
+AND (ft.dt_FailureTime >= ui.dt_start AND ft.dt_FailureTime <= ui.dt_end)
+GROUP BY 1
 
 UNION
 

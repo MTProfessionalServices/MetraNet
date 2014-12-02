@@ -289,7 +289,8 @@
 // Custom Renderers
 OverrideRenderer_<%= grdPendingBillClose.ClientID %> = function(cm)
 {   
-  cm.setRenderer(cm.getIndexById('id_interval'), IntervalStatusLinkRenderer);
+  cm.setRenderer(cm.getIndexById('id_interval'), IntervalIdLinkRenderer);
+  cm.setRenderer(cm.getIndexById('tx_interval_status'), IntervalStatusRenderer);
 };
 OverrideRenderer_<%= grdFailedAdapters.ClientID %> = function(cm)
 {   
@@ -317,14 +318,23 @@ AdapterStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, st
   return str;
 };      
 
-IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
+IntervalIdLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
 {
   var str = "";
   str += String.format("<a style='cursor:hand;' href='/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp|ID={0}", record.data.id_interval);
   str += String.format("**ReturnUrl=%2FMetraNet%2FMetraControl%2FControlCenter%2FOperationsDashboard%2Easpx'>{0}</a>", value);
   
   return str;
-};      
+};
+
+IntervalStatusRenderer = function(value, meta, record, rowIndex, colIndex, store) {
+  var str = "";
+  if (value == "O")
+  {
+    str += '<%=GetLocalResourceObject("TEXT_INTERVAL_STATUS_OPEN").ToString()%>';
+  }
+  return str;
+};
     </script>
     <script type="text/javascript">
         Ext.onReady(function () {

@@ -292,30 +292,33 @@
     <value>%d/%m/%Y %X</value>
   </data>
   <data name="TEXT_TYPE_EOM" xml:space="preserve">
-    <value>{es}EOM</value>
+    <value>[ES]EOM</value>
   </data>
   <data name="TEXT_TYPE_M12" xml:space="preserve">
-    <value>{es}M12</value>
+    <value>[ES]M12</value>
   </data>
   <data name="TEXT_TYPE_M19" xml:space="preserve">
-    <value>{es}M19</value>
+    <value>[ES]M19</value>
   </data>
   <data name="TEXT_TYPE_M26" xml:space="preserve">
-    <value>{es}M26</value>
+    <value>[ES]M26</value>
   </data>
   <data name="TEXT_TYPE_M5" xml:space="preserve">
-    <value>{es}M5</value>
+    <value>[ES]M5</value>
   </data>
   <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>{es}Average run time of remaining {0} adapters is {1} hours (Earliest ETA: {2})</value>
+    <value>[ES]Average run time of remaining {0} adapters is {1} hours (Earliest ETA: {2})</value>
   </data>
   <data name="TEXT_VARIANCE_FASTER_MESSAGE" xml:space="preserve">
-    <value>{es}Adapters are running about {0} % faster compared to previous runs for this interval</value>
+    <value>[ES]Adapters are running about {0} % faster compared to previous runs for this interval</value>
   </data>
   <data name="TEXT_VARIANCE_SAME_MESSAGE" xml:space="preserve">
-    <value>{es}Adapters are running about the same compared to previous runs for this interval</value>
+    <value>[ES]Adapters are running about the same compared to previous runs for this interval</value>
   </data>
   <data name="TEXT_VARIANCE_SLOWER_MESSAGE" xml:space="preserve">
-    <value>{es}Adapters are running about {0} % slower compared to previous runs for this interval</value>
+    <value>[ES]Adapters are running about {0} % slower compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_INTERVAL_STATUS_OPEN" xml:space="preserve">
+    <value>[ES]Open</value>
   </data>
 </root>

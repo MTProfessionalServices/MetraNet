@@ -7,15 +7,13 @@ constants AS ( SELECT
     90 AS SUBSCRIPTION_WINDOW /*Number of days between the date of subscription creation/update and its expiration*/
     FROM DUAL
 )
-SELECT
-  'SUB' SubType,
-  sub.id_acc Account,  
+SELECT 
+  sub.id_acc AccountID,  
   CASE 
     WHEN tmap_for_partitioned_acc.nm_login IS NULL THEN tmap_for_nonpartitioned_acc.nm_login
     ELSE tmap_for_partitioned_acc.nm_login
   END LoginName,
-  sub.vt_end EndDate,
-  sub.id_po POID,
+  sub.vt_end EndDate,  
   tbp.nm_name POInternalName,
   t_po.c_POPartitionId id_Partition
 FROM constants, t_sub sub
@@ -32,17 +30,15 @@ WHERE sub.vt_end <= :CURRENT_RUN_DATE + constants.NOTIFICATION_DAYS
    /* if the end date for the subscription was set within SUBSCRIPTION_WINDOW, then don’t warn about it */
   AND tsh.dt_crt <= sub.vt_end - constants.SUBSCRIPTION_WINDOW    
 UNION
-SELECT sq.SubType, sq.Account, sq.LoginName,sq.EndDate, sq.POID, sq.POInternalName, sq.id_Partition
+SELECT sq.AccountID, sq.LoginName, sq.EndDate, sq.POInternalName, sq.id_Partition
 FROM(
-       SELECT
-         'SUB' SubType,
-         sub.id_acc Account,         
+       SELECT         
+         sub.id_acc AccountID,         
          CASE 
           WHEN tmap_for_partitioned_acc.nm_login IS NULL THEN tmap_for_nonpartitioned_acc.nm_login
           ELSE tmap_for_partitioned_acc.nm_login
          END LoginName,
-         sub.vt_end EndDate,
-         sub.id_po POID,
+         sub.vt_end EndDate,         
          tbp.nm_name POInternalName,
          t_po.c_POPartitionId id_Partition
        FROM constants, t_sub sub
@@ -64,4 +60,4 @@ FROM(
          AND CAST(tsh2.dt_crt AS DATE) <= CAST(tsh.dt_crt AS DATE)  
          AND tsh2.vt_end > :CURRENT_RUN_DATE + constants.NOTIFICATION_DAYS
          AND tsh2.vt_end <> tsh.vt_end) sq         
-GROUP BY sq.SubType, sq.Account, sq.LoginName, sq.EndDate, sq.POID, sq.POInternalName, sq.id_Partition
+GROUP BY sq.AccountID, sq.LoginName, sq.EndDate, sq.POInternalName, sq.id_Partition

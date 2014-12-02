@@ -10,16 +10,14 @@ SET @MAX_SUB_END_DATE = DATEADD(D, @NOTIFICATION_DAYS, @CURRENT_RUN_DATE)
 SET @LAST_NOTIFY_FROM = DATEADD(D, @NOTIFICATION_DAYS, @LAST_RUN_DATE) 
 
 SELECT
-  'GROUPSUB' varSubType,
-  gsubmember.id_acc varAccount,
-  varLoginName = 
+  gsubmember.id_acc AccountID,
+  LoginName = 
   CASE 
     WHEN tmap_for_partitioned_account.nm_login IS NULL THEN tmap_for_nonpartitioned_account.nm_login
     ELSE tmap_for_partitioned_account.nm_login
   END,
-  gsubmember.vt_end varEndDate,
-  sub.id_po varPOID,
-  tbp.nm_name varPOInternalName,
+  gsubmember.vt_end EndDate,  
+  tbp.nm_name POInternalName,
   t_po.c_POPartitionId id_Partition
 FROM t_gsubmember gsubmember
   INNER JOIN t_sub sub ON gsubmember.id_group=sub.id_group

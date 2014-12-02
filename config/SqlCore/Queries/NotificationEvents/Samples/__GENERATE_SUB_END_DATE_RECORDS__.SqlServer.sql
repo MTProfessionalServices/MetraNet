@@ -12,15 +12,13 @@ SET @MAX_SUB_END_DATE = DATEADD(D, @NOTIFICATION_DAYS, @CURRENT_RUN_DATE)
 SET @LAST_NOTIFY_FROM = DATEADD(D, @NOTIFICATION_DAYS, @LAST_RUN_DATE) 
 
 SELECT
-  'SUB' SubType,
-  sub.id_acc Account,
+  sub.id_acc AccountID,
   LoginName = 
   CASE 
     WHEN tmap_for_partitioned_account.nm_login IS NULL THEN tmap_for_nonpartitioned_account.nm_login
     ELSE tmap_for_partitioned_account.nm_login
   END,
   sub.vt_end EndDate,
-  sub.id_po POID,
   tbp.nm_name POInternalName,
   t_po.c_POPartitionId id_Partition
 FROM t_sub sub
@@ -37,18 +35,16 @@ WHERE sub.vt_end <= @MAX_SUB_END_DATE
    /* if the end date for the subscription was set within @SUBSCRIPTION_WINDOW, then don’t warn about it */
   AND tsh.dt_crt <= DATEADD(d, -@SUBSCRIPTION_WINDOW, sub.vt_end)
 UNION
-SELECT sq.SubType, sq.Account, sq.LoginName,sq.EndDate, sq.POID, sq.POInternalName, sq.id_Partition
+SELECT sq.AccountID, sq.LoginName, sq.EndDate, sq.POInternalName, sq.id_Partition
 FROM(
-       SELECT
-         'SUB' SubType,
-         sub.id_acc Account,
+       SELECT         
+         sub.id_acc AccountID,
          LoginName = 
          CASE 
           WHEN tmap_for_partitioned_account.nm_login IS NULL THEN tmap_for_nonpartitioned_account.nm_login
           ELSE tmap_for_partitioned_account.nm_login
          END,
          sub.vt_end EndDate,
-         sub.id_po POID,
          tbp.nm_name POInternalName,
          t_po.c_POPartitionId id_Partition
        FROM t_sub sub
@@ -70,4 +66,4 @@ FROM(
          AND CAST(tsh2.dt_crt AS DATE) <= CAST(tsh.dt_crt AS DATE)
          AND tsh2.vt_end > @MAX_SUB_END_DATE
          AND tsh2.vt_end <> tsh.vt_end) sq
-GROUP BY sq.SubType, sq.Account, sq.LoginName, sq.EndDate, sq.POID, sq.POInternalName, sq.id_Partition
+GROUP BY sq.AccountID, sq.LoginName, sq.EndDate, sq.POInternalName, sq.id_Partition

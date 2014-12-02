@@ -318,4 +318,7 @@
   <data name="TEXT_VARIANCE_SLOWER_MESSAGE" xml:space="preserve">
     <value>Adapters are running about {0} % slower compared to previous runs for this interval</value>
   </data>
+  <data name="TEXT_INTERVAL_STATUS_OPEN" xml:space="preserve">
+    <value>Open</value>
+  </data>
 </root>

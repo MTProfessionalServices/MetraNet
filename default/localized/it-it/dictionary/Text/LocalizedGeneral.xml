@@ -208,6 +208,10 @@
     <value>[IT]Check Configuration</value>
     <description></description>
   </text>
+  <text id="TEXT_Change_the_price_list">
+    <value>[IT]Change the price list mappings for one or more items in this product offering.</value>
+    <description></description>
+  </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
     <value>[IT]Update Price List Mappings</value>
     <description></description>

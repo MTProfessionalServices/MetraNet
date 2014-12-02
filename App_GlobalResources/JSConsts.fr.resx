@@ -799,7 +799,7 @@
     <value>Effacer des membres du groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
-        <value>Désabonner des membres de l’abonnement de groupe</value>
+    <value>Désabonner des membres de l’abonnement de groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
     <value>Mettre à jour les membres du groupe</value>
@@ -1379,5 +1379,8 @@
   </data>
   <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
     <value>[FR]No parameter was selected. Please select at least one parameter for assignment</value>
+  </data>
+  <data name="TEXT_VIEW_LOG" xml:space="preserve">
+    <value>[FR]View Log</value>
   </data>
 </root>

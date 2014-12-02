@@ -1341,7 +1341,6 @@
   <data name="TEXT_MORE" xml:space="preserve">
     <value>More ...</value>
   </data>
-
   <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
     <value>Edit Report Definition</value>
   </data>
@@ -1354,7 +1353,6 @@
   <data name="TEXT_Delete_Report" xml:space="preserve">
     <value>Delete Report</value>
   </data>
-
   <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
     <value>Edit Report Instance</value>
   </data>
@@ -1379,7 +1377,10 @@
   <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
     <value>Delete Report Parameter</value>
   </data>
-<data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
+  <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
     <value>No parameter was selected. Please select at least one parameter for assignment</value>
+  </data>
+  <data name="TEXT_VIEW_LOG" xml:space="preserve">
+    <value>View Log</value>
   </data>
 </root>

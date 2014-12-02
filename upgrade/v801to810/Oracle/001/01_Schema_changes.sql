@@ -24,31 +24,54 @@ BEGIN
 END;
 /
 
-CREATE TABLE t_recevent_localize
+CREATE TABLE t_localized_items
 (
-	id_local int NOT NULL, 		 /* Localize identifier. This is foreign key to t_recevent */
-	id_lang_code int NOT NULL,  /* Language identifier displayed on the MetraNet Presentation Server */
-	tx_name VARCHAR2(255) NULL,  /* The localized DisplayName */
-	tx_desc VARCHAR2(2048) NULL, /* The localized Description */
-CONSTRAINT PK_t_recevent_localize PRIMARY KEY (id_local, id_lang_code)
+	id_local_type int NOT NULL,     			/* Composite key: This is foreign key to t_localized_items_type.*/
+	id_item int NOT NULL,						/* Composite key: Localize identifier. This is foreign key to t_recevent and other tables*/
+	id_item_second_key int default -1 NOT NULL,	/* Composite key: Second localize identifier. This is foreign key, for example, to t_compositor (it is atomoc capability) and other tables with composite PK. In case second key is not used set -1 as default value */
+	id_lang_code int NOT NULL,      			/* Composite key: Language identifier displayed on the MetraNet Presentation Server */
+	tx_name NVARCHAR2(255) NULL,   				/* The localized DisplayName */
+	tx_desc NVARCHAR2(2000) NULL,  				/* The localized Description */
+CONSTRAINT PK_t_localized_items PRIMARY KEY (id_local_type, id_item, id_item_second_key, id_lang_code)
 )
 /
 
-alter table t_recevent_localize add constraint FK1_LOCALIZE_TO_T_RECEVENT
-			foreign key (id_local) references t_recevent(id_event);
+COMMENT ON TABLE  t_localized_items 						IS  'The t_localized_items table contains the localized DisplayName and Description of entyties (for example t_recevent, t_composite_capability_type, t_atomic_capability_type tables) for the languages supported by the MetraTech platform.(Package:Pipeline) ';
 /
-					
-alter table t_recevent_localize add constraint FK2_LOCALIZE_TO_T_LANGUAGE
-			foreign key (id_lang_code) references t_language(id_lang_code);
+COMMENT ON COLUMN t_localized_items.id_local_type 			IS	'Composite key: This is foreign key to t_localized_items_type.';
+/
+COMMENT ON COLUMN t_localized_items.id_item					IS	'Composite key: Localize identifier. This is foreign key to t_recevent and other tables (see constraints)';
+/
+COMMENT ON COLUMN t_localized_items.id_item_second_key 		IS 'Composite key: Second localize identifier. This is foreign key, for example, to t_compositor (it is atomoc capability) and other tables with composite PK. In case second key is not used set -1 as default value';
+/
+COMMENT ON COLUMN t_localized_items.id_lang_code			IS	'Composite key: Language identifier displayed on the MetraNet Presentation Server';
+/
+COMMENT ON COLUMN t_localized_items.tx_name 				IS 	'The localized DisplayName';
+/
+COMMENT ON COLUMN t_localized_items.tx_desc 				IS 	'The localized DEscription';
 /
 
-COMMENT ON TABLE t_recevent_localize 				IS 'The t_recevent_localize table contains the localized DisplayName and DEscription of t_recevent table for the languages supported by the MetraTech platform.(Package:Pipeline) ';
+CREATE TABLE t_localized_items_type
+(
+	id_local_type int NOT NULL,     	/* PK, where '1' - Localization type for Recurring Adapters,
+													 '2' - 'Localization type for Composite Capability,
+													 '3' - 'Localization type for Atomic Capability */	
+	local_type_description NVARCHAR2(255) NOT NULL,	/* The type description */
+CONSTRAINT PK_t_localized_items_type PRIMARY KEY (id_local_type)
+)
 /
-COMMENT ON COLUMN t_recevent_localize.id_desc 		IS 'Localize identifier. This is foreign key to t_recevent';
+COMMENT ON TABLE t_localized_items_type							IS  'Dictionary table for t_localized_items.id_local_type colum. Contains id localization type and their description';
 /
-COMMENT ON COLUMN t_recevent_localize.id_lang_code 	IS 'Language identifier displayed on the MetraNet Presentation Server';
+COMMENT ON COLUMN t_localized_items_type.id_local_type 			IS	'Primary key.';
 /
-COMMENT ON COLUMN t_recevent_localize.tx_name 		IS 'The localized DisplayName';
+COMMENT ON COLUMN t_localized_items_type.local_type_description	IS	'Description type';
 /
-COMMENT ON COLUMN t_recevent_localize.tx_desc 		IS 'The localized DEscription';
+
+
+alter table t_localized_items add constraint FK_LOCAL_TO_LOCAL_ITEMS_TYPE
+					foreign key(id_local_type) references t_localized_items_type(id_local_type);
+/
+					
+alter table t_localized_items add constraint FK_LOCALIZE_TO_T_LANGUAGE
+					foreign key(id_lang_code) references t_language (id_lang_code);
 /

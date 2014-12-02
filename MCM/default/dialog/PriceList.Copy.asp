@@ -210,4 +210,21 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
         OK_Click = TRUE
   End If 
 END FUNCTION
+
+' FUNCTION 		    : Cancel_Click
+' PARAMETERS		  :
+' DESCRIPTION 		:
+' RETURNS		      : Return TRUE if ok else FALSE
+PRIVATE FUNCTION Cancel_Click(EventArg) ' As Boolean
+
+  
+        Response.Write "<script language=""javascript"" type=""text/javascript"">"
+        Response.Write " window.parent.close();"
+        Response.Write "</script>"
+        Response.End
+
+        Cancel_Click = TRUE
+
+END FUNCTION
+
 %>

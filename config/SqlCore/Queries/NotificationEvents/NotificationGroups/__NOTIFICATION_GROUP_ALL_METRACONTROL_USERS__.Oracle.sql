@@ -1,6 +1,6 @@
 SELECT 		
 	prp.id_acc, 
-	acc.id_acc AS 'id_partition' 
+	acc.id_acc AS id_Partition
 FROM     
   T_PRINCIPAL_POLICY prp     
   INNER JOIN t_capability_instance ci ON prp.ID_POLICY = CI.ID_POLICY    

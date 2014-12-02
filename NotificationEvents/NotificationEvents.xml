@@ -4,25 +4,25 @@
     <NotificationEvent>
       <name>Subscription End Date</name>
       <generatorquery>__GENERATE_SUB_END_DATE_RECORDS__</generatorquery>
-      <properties>nm_login, id_acc, EndDate, SubType, nm_display_name, POInternalName, id_partition</properties>
+      <properties>LoginName, AccountID, EndDate, POInternalName, id_Partition</properties>
       <consumersquery>__NOTIFICATION_GROUP_ALL_METRACARE_USERS__</consumersquery>
     </NotificationEvent>  
     <NotificationEvent>
       <name>Group Subscription End Date</name>
       <generatorquery>__GENERATE_GROUP_SUB_END_DATE_RECORDS__</generatorquery>
-      <properties>SubType, Account, EndDate, DisplayName, POInternalName, id_partition</properties>
+      <properties>LoginName, AccountID, EndDate, POInternalName, id_Partition</properties>
       <consumersquery>__NOTIFICATION_GROUP_ALL_METRACARE_USERS__</consumersquery>
     </NotificationEvent> 
     <NotificationEvent>
       <name>Failed Adapters</name>
       <generatorquery>__GENERATE_FAILED_ADAPTERS_RECORDS__</generatorquery>
-      <properties>tx_name, id_instance, id_run, tx_detail, id_partition</properties>
+      <properties>AdapterName, InstanceID, RunID, IntervalID, ErrorDetail, id_Partition</properties>
       <consumersquery>__NOTIFICATION_GROUP_ALL_METRACARE_USERS__</consumersquery>
     </NotificationEvent>    
     <NotificationEvent>
       <name>Demo Notification Event</name>
       <generatorquery>__GENERATE_DEMO_NOTIFICATION_EVENT_RECORDS__</generatorquery>
-      <properties>not_event_timestamp, id_partition</properties>
+      <properties>EventTimestamp, id_Partition</properties>
       <consumersquery>__NOTIFICATION_GROUP_ALL_METRACARE_USERS__</consumersquery>
     </NotificationEvent> 
   </NotificationEvents>

@@ -321,4 +321,7 @@
   <data name="TEXT_INTERVAL_STATUS_OPEN" xml:space="preserve">
     <value>[DE]Open</value>
   </data>
+  <data name="TEXT_RUNNING_ADAPTER_STATUS_IN_PROGRESS" xml:space="preserve">
+    <value>[DE]In Progress</value>
+  </data>
 </root>

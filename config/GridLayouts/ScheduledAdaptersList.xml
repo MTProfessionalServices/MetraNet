@@ -2,8 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>ScheduledAdaptersList</Name>
     <Title>
-        <LocalizationTag>GRID_TITLE</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <LocalizationTag>TEXT_GRID_TITLE</LocalizationTag>
+        <ResourceClassKey>MetraControl/ScheduledAdapters/App_LocalResources/ScheduledAdaptersList.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -439,7 +439,7 @@
                 <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
                 <ResourceClassKey>MetraControl/ScheduledAdapters/App_LocalResources/ScheduledAdaptersList.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>HTMLContentRenderer</Formatter>
             <Width>550</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>

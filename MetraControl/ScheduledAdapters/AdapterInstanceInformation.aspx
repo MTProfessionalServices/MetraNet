@@ -145,7 +145,7 @@
       if (value.len == 0) {
         value = "<%=GetLocalResourceObject("ViewRunDetails").ToString() %>";
       }
-      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0});return false;'>{1}</a>", record.data.id_run, value);
+      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\");return false;'>{2}</a>", record.data.id_run, record.data.tx_status, value);
     }
       
     function DateStartColRenderer(value, meta, record, rowIndex, colIndex, store)
@@ -159,7 +159,7 @@
         auditHistoryWin = new Ext.Window({
             title: '<%=DisplayName %>'+'&nbsp;&mdash;&nbsp;<%=GetLocalResourceObject("AdapterInstanceAuditHistoryGrid.Title").ToString() %>',
             modal: 'true',
-            applyTo:'history-win',
+            applyTo:'auditHistory-win',
             layout:'fit',
             //width:650,
             height:420,
@@ -168,7 +168,7 @@
             plain: true,
             buttonAlign: 'center',
             items: [{
-                applyTo:'history-win-body',
+                applyTo:'auditHistory-win-body',
                 border: false,
                 layout:'fit',
                 bodyPadding: 0,
@@ -178,7 +178,7 @@
             buttons: [{
               text: TEXT_CLOSE,
               handler: function() {
-                laterWin.hide();
+                auditHistoryWin.hide();
               }
             }]
         });
@@ -186,8 +186,22 @@
       auditHistoryWin.show(this);  
     }
     
-    function ShowRunDetails(runId) {
+    function ShowRunDetails(runId, runStatus) {
       //window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.RunDetails.List.asp?RunId='+runId+'&AdapterName='+adapterName+additionalParameters,'', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes');
+      var runDetails = GetInstanceRunDetails(runId);
+      var windowHeight = grid_RunDetailsGrid.height + 70;
+      var batchMessage = "";
+      if (runDetails.BatchCount > 0) {
+        batchMessage = String.format("<a href='#' onclick=\"window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/BatchManagement.List.asp?Filter=AdapterRun&RerunId={0}','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')\">{1}</a>", runId, "<%=GetLocalResourceObject("BatchDetails").ToString() %>");
+        windowHeight += 20;
+      }
+      if (runStatus == "Failed") {
+        batchMessage += String.format("<br><a href='#' onclick=\"window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.RunDetails.FailedAccount.List.asp?BillingGroupID={0}&IntervalID={1}&PopulateFromAdapterRun={2}','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')\">{3}</a>", "<%=BillingGroupId %>", "<%=IntervalId %>", runId, "<%=GetLocalResourceObject("FailedAccounts").ToString() %>");
+        windowHeight += 20;
+      }
+      if (batchMessage.length > 0) {
+        Ext.fly("butchCountMessage").dom.innerHTML = batchMessage;
+      }
       if(!runDetailsWin) {
         runDetailsWin = new Ext.Window({
             title: '<%=DisplayName %>'+'&nbsp;&mdash;&nbsp;<%=GetLocalResourceObject("AdapterInstanceRunDetailsGrid.Title").ToString() %>',
@@ -195,7 +209,7 @@
             applyTo:'runDetails-win',
             layout:'fit',
             //width:650,
-            height:420,
+            height:windowHeight,
             closeAction:'hide',
             anchor:'100%',
             plain: true,
@@ -211,12 +225,26 @@
             buttons: [{
               text: TEXT_CLOSE,
               handler: function() {
-                laterWin.hide();
+                runDetailsWin.hide();
               }
             }]
         });
       }
       runDetailsWin.show(this);  
+    }
+    
+    function GetInstanceRunDetails(runId) {
+      var result = { Urlparam_q: "", BatchCount: 0 };
+      Ext.Ajax.request({
+        url: "/MetraNet/Adapter/GetRunDetails",
+        params: "runId="+ runId,
+        success: function(response) {
+          result = Ext.util.JSON.decode(response.responseText);
+          grid_RunDetailsGrid.store.baseParams.urlparam_q = result.Urlparam_q;
+          grid_RunDetailsGrid.store.load();
+        }
+      });
+      return result;
     }
     
     function GetDurationMessage(dateStart, dateEnd) {

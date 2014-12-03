@@ -36,8 +36,8 @@
     <EnableFilterConfig>false</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField>id_run</DefaultSortField>
-    <DefaultSortDirection>Ascending</DefaultSortDirection>
+    <DefaultSortField>dt_start</DefaultSortField>
+    <DefaultSortDirection>Descending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
@@ -56,42 +56,6 @@
                     </QueryParameter>
                 </QueryParameters>
                 <QueryColumns>
-                    <QueryColumn>
-                        <Name>id_run</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>id_instance</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>tx_type</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>id_reversed_run</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>tx_machine</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>dt_start</Name>
-                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>dt_end</Name>
-                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>tx_status</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>tx_detail</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
                 </QueryColumns>
             </SQLQuery>
         </URLParameter>
@@ -284,7 +248,7 @@
             <ObjectName></ObjectName>
             <ID>id_run</ID>
             <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
+            <IsIdentity>true</IsIdentity>
             <DataIndex>id_run</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>

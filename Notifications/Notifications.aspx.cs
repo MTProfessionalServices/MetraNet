@@ -66,13 +66,17 @@ public partial class Notifications : MTPage
   protected void PopulatePartitionsDropDown()
   {
     Dictionary<string, Int32> partitions = PartitionLibrary.RetrieveAllPartitions();
-    partitions = partitions.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-    partitions.Add("Non-Partitioned", 1);
+    partitions = partitions.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+    var dropDownItem = new MTFilterDropdownItem();
+    dropDownItem.Key = "" + 1;
+    dropDownItem.Value = "Non-Partitioned";
+    NotificationsGrid.FindElementByID("id_partition").FilterDropdownItems.Add(dropDownItem);
+
     foreach (string pname in partitions.Keys)
     {
       Int32 val;
       partitions.TryGetValue(pname, out val);
-      var dropDownItem = new MTFilterDropdownItem();
+      dropDownItem = new MTFilterDropdownItem();
       dropDownItem.Key = "" + val;
       dropDownItem.Value = pname;
       NotificationsGrid.FindElementByID("id_partition").FilterDropdownItems.Add(dropDownItem);

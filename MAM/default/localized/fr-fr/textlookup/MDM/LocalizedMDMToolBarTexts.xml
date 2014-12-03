@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Toolbar Texts" type="collection">
-	 
-	 
 		<text id="GO_TOOL_TIP">
 				<value>Aller</value>
 				<description></description>
 		</text>
 		<text id="RESET_TOOL_TIP">
-				<value>Réinitialiser</value>
+				<value>RÃ©initialiser</value>
 				<description></description>
 		</text>
 		
@@ -18,17 +16,17 @@
 		</text>
 
 		<text id="PREVIOUS_PAGE_TOOL_TIP">
-				<value>Page précédente</value>
+				<value>Page prÃ©cÃ©dente</value>
 				<description></description>
 		</text>
 
 		<text id="FIRST_PAGE_TOOL_TIP">
-				<value>Première page</value>
+				<value>PremiÃ¨re page</value>
 				<description></description>
 		</text>
 
 		<text id="LAST_PAGE_TOOL_TIP">
-				<value>Dernière page</value>
+				<value>DerniÃ¨re page</value>
 				<description></description>
 		</text>
 
@@ -36,32 +34,29 @@
 				<value>Actualiser la page</value>
 				<description></description>
 		</text>
-
 		<text id="EXPORT_PAGE_TOOL_TIP">
 				<value>Exporter</value>
 				<description></description>
 		</text>
-
 	 <text id="MDM_TOOL_BAR_PAGE_WORD">
 			<value>Page</value>
 		</text> 	
 		<text id="MDM_TOOL_BAR_OF_WORD">
 			<value>sur</value>
     </text> 
-    
     <text id="MDM_SELECT_ALL">
-			<value>Sélectionner tout</value>
+			<value>SÃ©lectionner tout</value>
     </text>     
     <text id="MDM_UNSELECT_ALL">
-			<value>Désélectionner tout</value>
+			<value>DÃ©sÃ©lectionner tout</value>
     </text>             
     <text id="MDM_SELECT_PAGE">
-			<value>Sélectionner la page</value>
+			<value>SÃ©lectionner la page</value>
     </text>             
     <text id="MDM_UNSELECT_PAGE">
-			<value>Désélectionner la page</value>
-    </text>                 
-    <text id="MDM_DATETIME_BETWEEN">
-        <value>[es-MX]Between</value>
+			<value>DÃ©sÃ©lectionner la page</value>
     </text>
+    <text id="MDM_DATETIME_BETWEEN">
+      <value>[FR]Between</value>
+    </text>    
 </texts>

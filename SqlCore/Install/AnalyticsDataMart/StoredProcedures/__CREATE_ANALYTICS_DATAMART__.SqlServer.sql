@@ -17,13 +17,8 @@ end;
 TRUNCATE TABLE Customer;
 TRUNCATE TABLE SalesRep;
 TRUNCATE TABLE SubscriptionsByMonth;
-/* [TODO:] need to be implemented */
-/*TRUNCATE TABLE Subscription; 
-TRUNCATE TABLE SubscriptionPrice; */
 TRUNCATE TABLE SubscriptionUnits;
 TRUNCATE TABLE SubscriptionSummary;
-/* [TODO:] need to be implemented */
-/*TRUNCATE TABLE Counters;*/
 TRUNCATE TABLE CurrencyExchangeMonthly;
 TRUNCATE TABLE ProductOffering;
 TRUNCATE TABLE SubscriptionParticipants;
@@ -49,8 +44,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating Customers DataMart');
 end;
 
-/* TODO: info */
-/* TODO: run incrementally instead of drop/recreate each time for usage etc. */
 /* customers datamart */
 ;with root_accts as
 (
@@ -358,7 +351,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating CurrencyExchangeMonthly DataMart');
 end;
 
-/* TODO: change name of table */
 select
 @p_nm_instance as InstanceId,
 vt_start as StartDate,
@@ -642,10 +634,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Created index for exchange rates');
 end;
 
-/* TODO: renewals */
-/* TODO: churn */
-/* TODO: cancellations */
-/* TODO: subscription revenue */
 insert into SubscriptionsByMonth
 (	InstanceId,
 	SubscriptionId,
@@ -836,8 +824,6 @@ begin
   INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating SubscriptionParticipants DataMart');
 end;
 
-/*get total number of subscriptions for all product offerings, not just product offerings with recurring charges*/
-
 select 
 @p_nm_instance as InstanceId,
 datepart(month,@p_dt_now) as [Month],
@@ -895,17 +881,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'SubscriptionParticipants rows: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
-/* TODO: churn/renewal/cancellations */
-/* TODO: projections */
-
-/* TODO: subscription */
-/* TODO: subscription price */
-
-/* TODO: priceable items */
-/* TODO: recurring charges */
-/* TODO: non recurring charges */
-/* TODO: counters */
-/* TODO: revrec */
 
 if (@p_id_run is not null)
 begin

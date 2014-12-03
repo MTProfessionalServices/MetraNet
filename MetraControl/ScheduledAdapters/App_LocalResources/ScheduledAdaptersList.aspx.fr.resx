@@ -135,6 +135,9 @@
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
     <value>[FR] Adapters</value>
   </data>
+  <data name="TEXT_GRID_TITLE" xml:space="preserve">
+    <value>[FR] Scheduled Adapters</value>
+  </data>
   <data name="TEXT_ISPAUSED" xml:space="preserve">
     <value>[FR] Next Run</value>
   </data>

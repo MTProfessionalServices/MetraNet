@@ -8,6 +8,11 @@
   <br />
   <MT:MTFilterGrid runat="Server" ID="ScheduledAdaptersListGrid" ExtensionName="Core"
     TemplateFileName="ScheduledAdaptersList.xml" />
+  <style type="text/css">
+    td div {
+      white-space: inherit !important;
+    }
+  </style>
   <script type="text/javascript">
     var StrScheduleName = "";
     OverrideRenderer_<%= ScheduledAdaptersListGrid.ClientID %> = function(cm) {
@@ -64,7 +69,7 @@
     }
     
     function DisplayNameRenderer(value, meta, record) {
-      var displayNameText = String.format("<img src='/Res/Images/adapter_scheduled.gif' align='absmiddle' border='0'><strong>{0}</strong>", record.data.displayname);
+      var displayNameText = String.format("<img src='/Res/Images/adapter_scheduled.gif' align='absmiddle' border='0'><b>{0}</b>", record.data.displayname);
       var displayNameLink = String.format("ScheduledAdaptersInstanceList.aspx?ID={0}&AdapterName={1}", record.data.eventid, encodeURIComponent(btoa(displayNameText)));
       var link = String.format("<a href=\"{0}\">{1}</a>", displayNameLink, displayNameText);
       return link;

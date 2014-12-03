@@ -2,7 +2,7 @@ SELECT
 	eventTypes.notification_event_name,
 	events.notification_event_prop_values,
 	events.dt_crt,
-  events.id_partition,
+  ISNULL(events.id_partition, 1) as id_partition,
 	events.id_notification_event,
 	ISNULL(eventnamedesc.tx_desc, eventTypes.notification_event_name)  as 'localized_event_name',
   tamap.nm_login partition_name 

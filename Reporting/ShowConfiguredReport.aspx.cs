@@ -72,11 +72,6 @@ public partial class ShowConfiguredReport : MTPage
       param.FieldName = "%%ID_INTERVAL%%";
       param.FieldValue = intervalId;
       sqi.Params.Add(param);
-
-      SQLQueryParam paramLang = new SQLQueryParam();
-      paramLang.FieldName = "%%ID_LANG_CODE%%";
-      paramLang.FieldValue = UI.User.SessionContext.LanguageID;  
-      sqi.Params.Add(paramLang);
     }
 
     if (!string.IsNullOrEmpty(Request["BillGroupId"]))
@@ -87,6 +82,11 @@ public partial class ShowConfiguredReport : MTPage
       param.FieldValue = billGroupId;
       sqi.Params.Add(param);
     }
+
+    SQLQueryParam paramLang = new SQLQueryParam();
+    paramLang.FieldName = "%%ID_LANG_CODE%%";
+    paramLang.FieldValue = UI.User.SessionContext.LanguageID;
+    sqi.Params.Add(paramLang);
 
     string qsParam = SQLQueryInfo.Compact(sqi);
     MTFilterGridReport.DataSourceURLParams.Clear();

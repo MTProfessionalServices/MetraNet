@@ -337,6 +337,33 @@ function fnVisualizeLineChart2(objLineChartConfig) {
           .attr("fill","#00B0F0")
           .style("fill-opacity", "0.3")
           .style("stroke-opacity", "0.6")
+          .on("mouseover", function(d, i) {
+          var dpX = d3.select(this).attr('cx');
+          var dpY = d3.select(this).attr('cy');
+          d3.select(this).attr("r", "5").style("fill-opacity", "0.8")
+          .style("stroke-opacity", "0.8");
+          svg.append("svg:line")
+                    .attr("x1", dpX)
+                    .attr("y1", dpY)
+                    .attr("x2", 0)
+                    .attr("y2", dpY)
+                    .style("stroke-dasharray", ("5, 4"))
+                    .style("stroke-opacity", 0.9)
+                    .style("stroke","gray").attr("class","mylegend");
+          svg.append("svg:line")
+                    .attr("x1", dpX)
+                    .attr("y1", dpY)
+                    .attr("x2", dpX)
+                    .attr("y2", height)
+                    .style("stroke-dasharray", ("5, 4"))
+                    .style("stroke-opacity", 0.9)
+                    .style("stroke","gray").attr("class","mylegend");
+          })
+          .on('mouseout', function(d, i) {
+            d3.select(this).attr("r", "3").style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6");
+            d3.selectAll(".mylegend").remove();
+          })
           .append("title").text(function (d) { return  d.name + " : " + d.y_axis +" Seconds";});
     return this;
 }

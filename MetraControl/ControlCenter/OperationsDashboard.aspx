@@ -438,7 +438,8 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                     .title("<%=UnderInvestigationWord%>", function(d){ return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=UnderInvestigationWord%>";})
 					          .renderlet(function (_chart) {
 						          function setStyle(selection, keyName) {
-							          selection.style("fill", function (d) {
+							          selection.style("cursor","default")
+							                   .style("fill", function (d) {
 								          if (d[keyName] == "<%=OpenWord%>")
 								              return "#0070C0";
 								          else if (d[keyName] == "<%=UnderInvestigationWord%>")
@@ -899,7 +900,7 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                           var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
                                             .range(['deepskyblue','#0070C0','#148622','#FFC000']);
                           chart.selectAll('rect.bar').each(function(d) {
-                            d3.select(this).attr("style", "fill: " + colors(d.x));
+                            d3.select(this).attr("style", "fill: " + colors(d.x)).style("cursor","default");
                           });
 
                           // rotate x-axis ticks

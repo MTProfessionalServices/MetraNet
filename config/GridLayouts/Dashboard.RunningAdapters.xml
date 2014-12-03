@@ -43,7 +43,7 @@
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <SubGrid></SubGrid>
-        <!--URLParameter>
+    <!--URLParameter>
             <ParameterName>q</ParameterName>
             <SQLQuery>
                 <QueryName>__GET_RUNNING_ADAPTERS__</QueryName>
@@ -229,7 +229,7 @@
                 <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>100</Width>
+            <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -265,7 +265,7 @@
                 <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>99</Width>
+            <Width>135</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -301,7 +301,7 @@
                 <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>100</Width>
+            <Width>125</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>

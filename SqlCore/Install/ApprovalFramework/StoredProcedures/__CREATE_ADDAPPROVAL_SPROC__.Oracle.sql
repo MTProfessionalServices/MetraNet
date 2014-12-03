@@ -9,6 +9,7 @@ PROCEDURE AddApproval(
     UniqueItemId                VARCHAR2,
     user_comment                VARCHAR2 DEFAULT '',
     CurrentState                VARCHAR,
+    PartitionId                 NUMBER DEFAULT 1,
     AllowMultiplePendingChanges NUMBER,
     IdApproval OUT INT,
     Status OUT INT )
@@ -34,10 +35,10 @@ BEGIN
     END;
   END IF;
   INSERT INTO t_approvals (id_approval, c_SubmittedDate, c_SubmitterId, c_ChangeType, c_ChangeDetails, c_ApproverId, c_ChangeLastModifiedDate,
-        c_ItemDisplayName, c_UniqueItemId, c_Comment, c_CurrentState)
+        c_ItemDisplayName, c_UniqueItemId, c_Comment, c_CurrentState, c_PartitionId)
       VALUES
       (SEQ_T_APPROVAL.NextVal, SubmittedDate, SubmitterId, ChangeType, ChangeDetails, NULL, NULL, ItemDisplayName,
-        UniqueItemId, user_comment, CurrentState);
+        UniqueItemId, user_comment, CurrentState, PartitionId);
   SQLError    := SQLCODE;
   IF SQLError <> 0 THEN
     BEGIN

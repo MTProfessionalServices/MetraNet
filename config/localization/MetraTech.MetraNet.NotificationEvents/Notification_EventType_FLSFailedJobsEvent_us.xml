@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
     <language_code>us</language_code>
-    <locale_space name="Notification_EventType_SubscriptionEndDate">
+    <locale_space name="Notification_EventType_FLSFailedJobsEvent">
         <locale_entry>
             <Name>Notification/EventType/FLS Failed Jobs Event</Name>
             <Value>FLS Failed Jobs Event</Value>

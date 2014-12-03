@@ -8,7 +8,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Notification/Template/FLS Rejected Files Event</Name>
-            <Value>[fr]{Name} has been rejected by File Landing Service {State} {Rejection Reason} <![CDATA[<a style='cursor: pointer;' id='manage1_{varaccount}' href='/MetraNet/MetraControl/FileManagement/FileManagementFile.aspx '> View...</a>]]></Value>
+            <Value>[fr]{Name} has been rejected by File Landing Service {State} {RejectReason} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementFile.aspx '> View...</a>]]></Value>
         </locale_entry>
     </locale_space>
 </mt_config>

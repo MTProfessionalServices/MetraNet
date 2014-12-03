@@ -8,7 +8,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Notification/Template/FLS Failed Jobs Event</Name>
-            <Value>[es-mx]{Control ID} has failed processing with error {State}: {Error Code} <![CDATA[<a style='cursor: pointer;' id='manage1_{varaccount} 'href='/MetraNet/MetraControl/FileManagement/FileManagementDetailReport.aspx?controlNumber={ControlId}&filter=3'> View...</a>]]></Value>
+            <Value>[es-mx]{ControlId} has failed processing with error {State}: {ErrorCode} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementDetailReport.aspx?controlNumber={ControlId}&filter=3'> View...</a>]]></Value>
         </locale_entry>
     </locale_space>
 </mt_config>

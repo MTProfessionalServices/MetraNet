@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Get</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>LAST_RUN_DATE</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description>Sample query that gets names of files rejected by the File Landing Service</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[CreateAnalyticsDataMart] @p_dt_now datetime, @p_id_run int, @p_nm_currency nvarchar(3), @p_nm_instance varchar, @p_n_months int, @p_STAGINGDB_prefix varchar
+CREATE PROCEDURE [dbo].[CreateAnalyticsDataMart] @p_dt_now datetime, @p_id_run int, @p_nm_currency nvarchar(3), @p_nm_instance nvarchar(128), @p_n_months int, @p_STAGINGDB_prefix varchar
 AS
 BEGIN
 

@@ -1,5 +1,4 @@
 <xmlconfig>
   <MetraNetInstanceName>Global</MetraNetInstanceName>
-  <PrimaryCurrency>USD</PrimaryCurrency>
-  <MaxProjectedMonths>12</MaxProjectedMonths>
+  <PrimaryCurrency>USD</PrimaryCurrency>  
 </xmlconfig>

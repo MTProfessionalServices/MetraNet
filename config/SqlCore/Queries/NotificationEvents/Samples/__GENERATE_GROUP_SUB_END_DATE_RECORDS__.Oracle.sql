@@ -6,16 +6,14 @@ constants AS ( SELECT
     10 AS NOTIFICATION_DAYS /*Number of days before the subscription expires*/
     FROM DUAL
 )
-SELECT
-  'GROUPSUB' varSubType,
-  gsubmember.id_acc varAccount,   
+SELECT  
+  gsubmember.id_acc AccountID,   
   CASE 
     WHEN tmap_for_partitioned_acc.nm_login IS NULL THEN tmap_for_nonpartitioned_acc.nm_login
     ELSE tmap_for_partitioned_acc.nm_login
-  END varLoginName,
-  gsubmember.vt_end varEndDate,
-  sub.id_po varPOID,
-  tbp.nm_name varPOInternalName,
+  END LoginName,
+  gsubmember.vt_end EndDate,  
+  tbp.nm_name POInternalName,
   t_po.c_POPartitionId id_Partition
 FROM constants, t_gsubmember gsubmember
   INNER JOIN t_sub sub ON gsubmember.id_group=sub.id_group

@@ -13,5 +13,4 @@
 				,(SELECT COUNT(*) FROM t_compositor WHERE id_composite = type.id_cap_type) num_atomic
 				, type.umbrella_sensitive
 				FROM t_composite_capability_type type 
-        LEFT OUTER JOIN t_localized_items li ON type.id_cap_type = li.id_item AND li.id_lang_code = %%LANG_ID%% AND li.id_local_type = 2 --2 - composite capability type
-    	
+        LEFT OUTER JOIN t_localized_items li ON (li.id_local_type = 2 /* where 2 - composite capability type */ AND type.id_cap_type = li.id_item AND li.id_lang_code = %%LANG_ID%%) 	

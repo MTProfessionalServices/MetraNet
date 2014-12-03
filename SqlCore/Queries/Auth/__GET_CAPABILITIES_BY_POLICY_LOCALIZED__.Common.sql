@@ -15,6 +15,6 @@
           umbrella_sensitive
 				FROM t_capability_instance 
 				INNER JOIN t_composite_capability_type type ON t_capability_instance.id_cap_type = type.id_cap_type 
-        LEFT OUTER JOIN t_localized_items li ON type.id_cap_type = li.id_item AND li.id_lang_code = %%ID_LANG%% AND li.id_local_type = 2       --2 - composite capability type
+        LEFT OUTER JOIN t_localized_items li ON (li.id_local_type = 2 /* where 2 - composite capability type */ AND type.id_cap_type = li.id_item AND li.id_lang_code = %%ID_LANG%%)
 				WHERE id_parent_cap_instance IS NULL AND id_policy = %%ID_POLICY%%
     	

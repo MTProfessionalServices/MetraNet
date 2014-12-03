@@ -266,7 +266,7 @@
             <li data-row="37" data-col="1" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" meta:resourcekey="pnlFailedAdapters"
                 Width="320" Height="325">
-                    <div height="100%" style="height: 248px">
+                    <div height="100%" style="height: 248px; width: 390px">
                         <MT:MTFilterGrid ID="grdFailedAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.FailedAdapters.xml">
                         </MT:MTFilterGrid>
@@ -275,8 +275,8 @@
             </li>
             <li data-row="37" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" meta:resourcekey="pnlRunningAdapters"
-                Width="320" Height="325">
-                    <div height="100%" style="height: 248px">
+                Width="430" Height="325">
+                    <div height="100%" style="height: 248px; width: 398px">
                         <MT:MTFilterGrid ID="grdRunningAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.RunningAdapters.xml">
                         </MT:MTFilterGrid>
@@ -294,15 +294,18 @@ OverrideRenderer_<%= grdPendingBillClose.ClientID %> = function(cm)
 };
 OverrideRenderer_<%= grdFailedAdapters.ClientID %> = function(cm)
 {   
-  cm.setRenderer(cm.getIndexById('name'), AdapterStatusLinkRenderer);
+  cm.setRenderer(cm.getIndexById('name'), AdapterNameLinkRenderer);
+  cm.setRenderer(cm.getIndexById('message'), AdapterRunErrorMessageRenderer);
 };
 OverrideRenderer_<%= grdRunningAdapters.ClientID %> = function(cm)
 {   
-  cm.setRenderer(cm.getIndexById('name'), AdapterStatusLinkRenderer);
+  cm.setRenderer(cm.getIndexById('name'), AdapterNameLinkRenderer);
+  cm.setRenderer(cm.getIndexById('status'), AdapterStatusRenderer);
 };
 
-AdapterStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
+AdapterNameLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
 {
+  meta.attr = 'style="white-space:normal"';
   var str = "";
   str += String.format("<a style='cursor:hand;' href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp|ID={0}", record.data.id_instance);
   if (record.data.id_billgroup)
@@ -318,6 +321,11 @@ AdapterStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, st
   return str;
 };      
 
+AdapterRunErrorMessageRenderer = function(value, meta, record, rowIndex, colIndex, store) {
+  meta.attr = 'style="white-space:normal"';
+  return value;
+};
+
 IntervalIdLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
 {
   var str = "";
@@ -332,6 +340,15 @@ IntervalStatusRenderer = function(value, meta, record, rowIndex, colIndex, store
   if (value == "O")
   {
     str += '<%=GetLocalResourceObject("TEXT_INTERVAL_STATUS_OPEN").ToString()%>';
+  }
+  return str;
+};
+
+AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store) {
+  var str = "";
+  if (value == "InProgress")
+  {
+    str += '<%=GetLocalResourceObject("TEXT_RUNNING_ADAPTER_STATUS_IN_PROGRESS").ToString()%>';
   }
   return str;
 };

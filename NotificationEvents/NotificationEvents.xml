@@ -13,7 +13,7 @@
       <properties>LoginName, AccountID, EndDate, POInternalName, id_Partition</properties>
       <consumersquery>__NOTIFICATION_GROUP_ALL_METRACARE_USERS__</consumersquery>
     </NotificationEvent> 
-    <NotificationEvent>
+    <!--NotificationEvent>
       <name>Failed Adapters</name>
       <generatorquery>__GENERATE_FAILED_ADAPTERS_RECORDS__</generatorquery>
       <properties>AdapterName, InstanceID, RunID, IntervalID, ErrorDetail, id_Partition</properties>
@@ -24,18 +24,18 @@
       <generatorquery>__GENERATE_DEMO_NOTIFICATION_EVENT_RECORDS__</generatorquery>
       <properties>EventTimestamp, id_Partition</properties>
       <consumersquery>__NOTIFICATION_GROUP_ALL_METRACARE_USERS__</consumersquery>
-    </NotificationEvent> 
+    </NotificationEvent--> 
     <NotificationEvent>
     <name>FLS Failed Jobs Event</name>
       <generatorquery>__GENERATE_FLS_FAILED_JOBS_RECORDS__</generatorquery>
       <properties>ControlId, State, ErrorCode, CreationDate, BatchId, TrackingId</properties>
-      <consumersquery>__NOTIFICATION_GROUP__ALL_METRACONTROL_FLS_USERS__</consumersquery>
+      <consumersquery>__NOTIFICATION_GROUP_ALL_METRACONTROL_FLS_USERS__</consumersquery>
     </NotificationEvent> 
     <NotificationEvent>
     <name>FLS Rejected Files Event</name>
       <generatorquery>__GENERATE_FLS_REJECTED_FILES_RECORDS__</generatorquery>
       <properties>Name, State, RejectReason, CreationDate</properties>
-      <consumersquery>__NOTIFICATION_GROUP__ALL_METRACONTROL_FLS_USERS__</consumersquery>
+      <consumersquery>__NOTIFICATION_GROUP_ALL_METRACONTROL_FLS_USERS__</consumersquery>
     </NotificationEvent> 
   </NotificationEvents>
 </NotificationEventsMetaDataCollection>

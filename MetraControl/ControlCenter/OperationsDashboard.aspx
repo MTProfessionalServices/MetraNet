@@ -548,8 +548,8 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
             var dateDimension = ndx.dimension(dc.pluck('dd'));
             var batchGroup = dateDimension.group().reduceSum(dc.pluck('batch_count'));
             var udrGroup = dateDimension.group().reduceSum(dc.pluck('udr_count'));
-            var options = { weekday: 'long', month: 'long', day: 'numeric' };
-
+            var options = { weekday: 'long', month: 'long', day: 'numeric', localeMatcher: 'lookup'};
+             
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})

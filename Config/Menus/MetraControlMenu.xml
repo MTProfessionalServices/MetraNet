@@ -120,8 +120,9 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_24</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-24</Link>
-                            <Target>MainContentIframe</Target>
+                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-24</Link>-->
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-24</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
@@ -134,8 +135,9 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_WEEK</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-168</Link>
-                            <Target>MainContentIframe</Target>
+                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-168</Link>-->
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-168</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
@@ -148,8 +150,9 @@
                                 <LocalizationTag>TEXT_RUNS_ALL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp</Link>
-                            <Target>MainContentIframe</Target>
+                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp</Link>-->
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>

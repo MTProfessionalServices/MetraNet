@@ -117,127 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Adapter Instance Information</value>
+  <data name="ArgEndDate_HeaderText" xml:space="preserve">
+    <value>ArgEndDate</value>
   </data>
-  <data name="TX_TYPE" xml:space="preserve">
-    <value>Action</value>
+  <data name="ArgStartDate_HeaderText" xml:space="preserve">
+    <value>ArgStartDate</value>
   </data>
-  <data name="TitleResource1.Text" xml:space="preserve">
-    <value>Adapter Instance Information</value>
-  </data>
-  <data name="lblAdapter.Text" xml:space="preserve">
-    <value>Adapter:</value>
-  </data>
-  <data name="lblStatus.Text" xml:space="preserve">
-    <value>Status:</value>
-  </data>
-  <data name="lblArgStart.Text" xml:space="preserve">
-    <value>Arg Start:</value>
-  </data>
-  <data name="lblArgEnd.Text" xml:space="preserve">
-    <value>Arg End:</value>
-  </data>
-  <data name="lblInstanceId.Text" xml:space="preserve">
-    <value>Instance Id:</value>
-  </data>
-  <data name="btnHistory.Text" xml:space="preserve">
-    <value>View History</value>
-  </data>
-  <data name="AdapterInstanceRunHistoryGrid.Title" xml:space="preserve">
-    <value>Instance Run History</value>
-  </data>
-  <data name="DT_START" xml:space="preserve">
-    <value>Start Time [Duration]</value>
-  </data>
-  <data name="TX_DETAIL" xml:space="preserve">
-    <value>Summary Details</value>
-  </data>
-  <data name="TX_MACHINE" xml:space="preserve">
-    <value>Machine</value>
-  </data>
-  <data name="TX_STATUS" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="pnlInfo.Text" xml:space="preserve">
-    <value>Instance Details</value>
-  </data>
-  <data name="btnRunAdapters.Text" xml:space="preserve">
-    <value>Run Adapter</value>
-  </data>
-  <data name="btnRunAdaptersLater.Text" xml:space="preserve">
-    <value>Run Adapter Later</value>
-  </data>
-  <data name="btnRevertAdapters.Text" xml:space="preserve">
-    <value>Revert Adapter</value>
-  </data>
-  <data name="btnRevertAdaptersLater.Text" xml:space="preserve">
-    <value>Revert Adapter Later</value>
-  </data>
-  <data name="btnCancelSubmittedAction.Text" xml:space="preserve">
-    <value>Cancel Submitted Action</value>
-  </data>
-  <data name="ViewRunDetails" xml:space="preserve">
-    <value>View Run Details</value>
-  </data>
-  <data name="SecondPlural" xml:space="preserve">
-    <value>seconds</value>
-  </data>
-  <data name="SecondSingular" xml:space="preserve">
-    <value>second</value>
-  </data>
-  <data name="RunLaterOn.Text" xml:space="preserve">
-    <value>Run this adapter on</value>
-  </data>
-  <data name="RevertLaterOn.Text" xml:space="preserve">
-    <value>Revert this adapter on</value>
-  </data>
-  <data name="AdapterInstanceAuditHistoryGrid.Title" xml:space="preserve">
-    <value>Instance Audit History</value>
-  </data>
-  <data name="Action_HeaderText" xml:space="preserve">
-    <value>Action</value>
-  </data>
-  <data name="AuditId_HeaderText" xml:space="preserve">
-    <value>Audit Id</value>
-  </data>
-  <data name="Details_HeaderText" xml:space="preserve">
-    <value>Details</value>
-  </data>
-  <data name="Forced_HeaderText" xml:space="preserve">
-    <value>Forced</value>
+  <data name="EventDisplayName_HeaderText" xml:space="preserve">
+    <value>Event Display Name</value>
   </data>
   <data name="InstanceId_HeaderText" xml:space="preserve">
     <value>Instance Id</value>
   </data>
-  <data name="Time_HeaderText" xml:space="preserve">
-    <value>Time</value>
+  <data name="LastRunMachine_HeaderText" xml:space="preserve">
+    <value>LastRunMachine</value>
   </data>
-  <data name="Type_HeaderText" xml:space="preserve">
-    <value>Type</value>
+  <data name="LastRunStart_HeaderText" xml:space="preserve">
+    <value>LastRunStart</value>
   </data>
-  <data name="UserId_HeaderText" xml:space="preserve">
-    <value>User Id</value>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet - Scheduled Adapter Run List</value>
   </data>
-  <data name="UserName_HeaderText" xml:space="preserve">
-    <value>User Name</value>
+  <data name="ScheduledAdapterRunListGrid.Title" xml:space="preserve">
+    <value>Scheduled Adapter Run List</value>
   </data>
-  <data name="Adapter_HeaderText" xml:space="preserve">
-    <value>Adapter</value>
+  <data name="ScheduledAdapterRunListMTTitle.Text" xml:space="preserve">
+    <value>Scheduled Adapter Run List</value>
   </data>
-  <data name="AdapterInstanceRunDetailsGrid.Title" xml:space="preserve">
-    <value>Instance Run Details</value>
-  </data>
-  <data name="DetailType_HeaderText" xml:space="preserve">
-    <value>Detail Type</value>
-  </data>
-  <data name="Timestamp_HeaderText" xml:space="preserve">
-    <value>Timestamp</value>
-  </data>
-  <data name="BatchDetails" xml:space="preserve">
-    <value>View Details Of The Batches For This Run Of The Adapter</value>
-  </data>
-  <data name="FailedAccounts" xml:space="preserve">
-    <value>View List Of Accounts That Had Failures</value>
+  <data name="Status_HeaderText" xml:space="preserve">
+    <value>Status</value>
   </data>
 </root>

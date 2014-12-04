@@ -717,4 +717,41 @@
     <value>[DE]Set Charge Amount</value>
     <description></description>
   </text>
+  <text id="TEXT_Add_Parameter_Table_to_Price_List">
+    <value>[DE]Add Parameter Table to Price List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules_For">
+    <value>[DE]Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules">
+    <value>[DE]Create Rate Schedule(s)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Usage">
+    <value>[DE]Usage</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RC">
+    <value>[DE]RC</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NRC">
+    <value>[DE]NRC</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Discounts">
+    <value>[DE]Discounts</value>
+    <description></description>
+  </text>
+
+  <text id="TEXT_Work_On_New_Pricelist">
+    <value>[DE]Work On New Pricelist</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Return_to_current_Pricelist">
+    <value>[DE]Return to current Pricelist</value>
+    <description></description>
+  </text>
 </texts>

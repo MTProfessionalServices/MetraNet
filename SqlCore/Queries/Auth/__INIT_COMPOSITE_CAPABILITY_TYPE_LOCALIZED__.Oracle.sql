@@ -26,7 +26,7 @@
 		    /* get atomic type defs */
 		    LEFT OUTER JOIN t_atomic_capability_type act ON comp.id_atomic = act.id_cap_type
     		/* get localizations */
-        LEFT OUTER JOIN t_localized_items li ON cct.id_cap_type = li.id_item AND li.id_lang_code = %%LANG_ID%% AND li.id_local_type = 2 
-        LEFT OUTER JOIN t_localized_items li2 ON comp.id_atomic = li2.id_item_second_key AND li2.id_lang_code = %%LANG_ID%% AND li2.id_local_type = 3  
+        LEFT OUTER JOIN t_localized_items li ON (li.id_local_type = 2 /* where 2 - composite capability type */ AND cct.id_cap_type = li.id_item AND li.id_lang_code = %%LANG_ID%%)
+        LEFT OUTER JOIN t_localized_items li2 ON (li2.id_local_type = 3 /* where 3 - atomic capability type */ AND comp.id_atomic = li2.id_item_second_key AND li2.id_lang_code = %%LANG_ID%%) 
     		WHERE cct.id_cap_type= %%CCT_ID%%
     	

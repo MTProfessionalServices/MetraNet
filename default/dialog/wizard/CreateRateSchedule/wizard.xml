@@ -5,41 +5,50 @@
   <title>New Rate Schedule Wizard</title>
   <template>wizard.html</template>
   <name>NewRS</name>    <!-- One word, used to store/reference session data -->
-  
+
   <buttons>
-    <back><![CDATA[
+    <back>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button [BACK_BUTTON_STATE] onClick="javascript:WizardBack(); return false;" class="clsWizardButton">&lt; Back</button></td>
+          <td><button Name="butBack" Id="butBack" [BACK_BUTTON_STATE] onClick="javascript:WizardBack(); return false;" class="clsWizardWideButton">[TEXT_BACK]</button></td>
         </tr>
       </table>
-    ]]></back>
-    
-    <next><![CDATA[
+    ]]>
+    </back>
+
+    <next>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button name='butNext' onClick="javascript:WizardNext(); return false;" class="clsWizardButton">Next &gt;</button></td>
+          <td><button Name="butNext"  onClick="javascript:WizardNext(); return false;" class="clsWizardWideButton">[TEXT_NEXT]</button></td>
         </tr>
       </table>    
-    ]]></next>
-    
-    <finish><![CDATA[
+    ]]>
+    </next>
+
+    <finish>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button  name='butFinish'  onClick="javascript:WizardFinish(); return false;" class="clsWizardButton">Finish</button></td>
+          <td><button Name="butFinish" onClick="javascript:WizardFinish(); return false;" class="clsWizardWideButton">[TEXT_FINISH]</button></td>
         </tr>
       </table>    
-    ]]></finish>
-    
-    <cancel><![CDATA[
+    ]]>
+    </finish>
+
+    <cancel>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button  name='butCancel'  onClick="javascript:WizardCancel(); return false;" class="clsWizardButton">Cancel</button></td>
+          <td><button Name="butCancel" onClick="javascript:WizardCancel(); return false;" class="clsWizardWideButton">[TEXT_CANCEL]</button></td>
         </tr>
       </table>    
-    ]]></cancel>
+    ]]>
+    </cancel>
   </buttons>
-  
+
+
   <!-- Template for the left_frame -->
   <left_frame_html><![CDATA[
     <td valign="top" width="200" height="100%">

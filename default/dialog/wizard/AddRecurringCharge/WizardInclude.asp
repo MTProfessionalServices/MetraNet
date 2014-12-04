@@ -212,10 +212,10 @@ Function WriteUDRCDialog(strWizardName)
     
     strInput = strWizardName & "_IntegerUnitValue"
     strHTML = strHTML & gobjMTFormsAddInputHint("&nbsp;")
-    strHTML = strHTML & gobjMTFormsAddInputHint("Value Type")    
+    strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_VALUE_TYPE"))    
     strHTML = strHTML & "<tr><td></td><td>"
     strHTML = strHTML & "<table align=""center"" valign=""center"" border=""0"">" & vbNewLine
-    strHTML = strHTML & gobjMTForms.AddRadioInput(strInput,  Session(strInput), "", Array("Integer","Decimal"), Array(TRUE,FALSE), 1, " checked") & vbNewLine
+    strHTML = strHTML & gobjMTForms.AddRadioInput(strInput,  Session(strInput), "", Array(FrameWork.GetDictionary("TEXT_INTEGER"), FrameWork.GetDictionary("TEXT_DECIMAL")), Array(TRUE,FALSE), 1, " checked") & vbNewLine
     strHTML = strHTML & "</table>" & vbNewLine    
     strHTML = strHTML & "</td></tr>"
 
@@ -285,7 +285,7 @@ Function WriteChargeConfiguration(strWizardName)
 
   strHTML = strHTML & gobjMTForms.OpenEditBoxTable("", "")
 
-  strHTML = strHTML & gobjMTFormsAddInputHint("Should this item be charged in advance or arrears?")
+  strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_Should_this_item_be_charged_in") )
  
   strInput = strWizardName & "_ChargeInAdvance"
   strHTML = strHTML & "<tr><td ><table align=""center"" valign=""center"" border=""0"">"
@@ -298,7 +298,7 @@ Function WriteChargeConfiguration(strWizardName)
 
   strHTML = strHTML & "<div id='Proration' name='Proration' style='display: block;'>"
   strHTML = strHTML & "<table class='clsWizardBody' width='100%'>"
-  strHTML = strHTML & gobjMTFormsAddInputHint("Should this item be prorated?")
+  strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_Should_this_item_be_prorated"))
 
   strInput = strWizardName & "_ProrateOnActivation"
   strHTML = strHTML & "<tr><td >"
@@ -325,9 +325,9 @@ Function WriteChargeConfiguration(strWizardName)
 	strHTML = strHTML & "<tr><td align='center'>"
 		
 	strHTML = strHTML & "<div id='ProrateOn' name='ProrateOn' style='display: block;'>"
-	strHTML = strHTML & "<table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prorate based on "
+	strHTML = strHTML & "<table><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" & FrameWork.GetDictionary("TEXT_PRORATE_BASED_ON")
   strHTML = strHTML & gobjMTForms.AddSelectInputWithoutPrompt(strInput, session(strInput), array(FrameWork.GetDictionary("TEXT_ACTUAL"),FrameWork.GetDictionary("TEXT_FIXED")), Array("FALSE","TRUE"),"")
-  strHTML = strHTML & " number of days.</td></tr></table>"
+  strHTML = strHTML & FrameWork.GetDictionary("TEXT_number_of_days") &" </td></tr></table>"
 	strHTML = strHTML & "</div>"
 	
 	strHTML = strHTML & "</td></tr>"
@@ -454,7 +454,7 @@ Function WriteCycleConfiguration(strWizardName)
 		strHTML = strHTML &					"</td>"
 		strHTML = strHTML & 				"<td>"
 	strInput = strWizardName & "_Cycle__Relative_PeriodChoice"
-		strHTML = strHTML & gobjMTForms.getSelectHTML(strInput, session(strInput), array("1","3","4","5","6","7","9","8"), array("Monthly", "Daily","Weekly","Bi-Weekly","Semi-Monthly","Quarterly","Semi-Annually","Annual"), "")
+		strHTML = strHTML & gobjMTForms.getSelectHTML(strInput, session(strInput), array("1","3","4","5","6","7","9","8"), array( FrameWork.GetDictionary("TEXT_PC_CYCLE_MONTHLY"), FrameWork.GetDictionary("TEXT_PC_CYCLE_DAILY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_WEEKLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_BIWEEKLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_SEMIMONTHLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_QUARTERLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_SEMIANNUAL"),FrameWork.GetDictionary("TEXT_PC_CYCLE_ANNUAL")), "")
 									
 		strHTML = strHTML &					"</td>" 
 		strHTML = strHTML &				"</tr>"
@@ -498,8 +498,7 @@ Function WriteCycleConfiguration(strWizardName)
 		strHTML = strHTML &					"</td>"
 		strHTML = strHTML & 				"<td>"
 	  strInput = strWizardName & "_Cycle__ExtendedRelative_PeriodChoice"
-		strHTML = strHTML & gobjMTForms.getSelectHTML(strInput, session(strInput), array("1","4","5","7","9","8"), array("Monthly","Weekly","Bi-Weekly","Quarterly","Semi-Annually","Annual"), "")
-									
+		strHTML = strHTML & gobjMTForms.getSelectHTML(strInput, session(strInput), array("1","4","5","7","9","8"), array( FrameWork.GetDictionary("TEXT_PC_CYCLE_MONTHLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_WEEKLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_BIWEEKLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_QUARTERLY"),FrameWork.GetDictionary("TEXT_PC_CYCLE_SEMIANNUAL"),FrameWork.GetDictionary("TEXT_PC_CYCLE_ANNUAL")), "")									
 		strHTML = strHTML &					"</td>" 
 		strHTML = strHTML &				"</tr>"
 		strHTML = strHTML &			"</table>"
@@ -545,7 +544,7 @@ Function WriteCycleConfiguration(strWizardName)
 	strInput = strWizardName & "_Cycle__EndDayOfWeek" ' Name of select
 		strHTML = strHTML & "&nbsp;&nbsp;" & FrameWork.GetDictionary("TEXT_PC_CYCLE_WEEKLY_LABEL1") & "&nbsp;&nbsp;"
 
-		strHTML = strHTML &			gobjMTForms.getSelectHTML(strInput, session(strInput), array("1","2","3","4","5","6","7"), array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"), "")
+		strHTML = strHTML &			gobjMTForms.getSelectHTML(strInput, session(strInput), array("1","2","3","4","5","6","7"), array(FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_SUNDAY"),FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_MONDAY"),FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_TUESDAY"),FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_WEDNESDAY"),FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_THURSDAY"),FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_FRIDAY"),FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_SATURDAY")), "")
 		strHTML = strHTML & 	"</td>"
 		strHTML = strHTML & "</tr>"
 
@@ -573,14 +572,14 @@ Function WriteCycleConfiguration(strWizardName)
 		strHTML = strHTML & FrameWork.GetDictionary("TEXT_PC_CYCLE_SEMIMONTHLY_LABEL1") & "&nbsp;&nbsp;"
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"), _
-																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","End of Month"), _
+																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",FrameWork.GetDictionary("TEXT_END_OF_THE_MONTH")), _
 																																			"")
 																																																														
 		strInput = strWizardName & "_Cycle__EndDayOfMonth2"
 		strHTML = strHTML & FrameWork.GetDictionary("TEXT_PC_CYCLE_SEMIMONTHLY_LABEL2") & "&nbsp;&nbsp;"
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"), _
-																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","End of Month"), _
+																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",FrameWork.GetDictionary("TEXT_END_OF_THE_MONTH")), _
 																																			 "")
 
  		strHTML = strHTML & 	"</td>"
@@ -597,7 +596,7 @@ Function WriteCycleConfiguration(strWizardName)
 		
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"), _
-																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","End of Month"), _
+																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",FrameWork.GetDictionary("TEXT_END_OF_THE_MONTH")), _
 																																			 "")
 		strHTML = strHTML & 	"</td>"
 		strHTML = strHTML & "</tr>"
@@ -610,9 +609,13 @@ Function WriteCycleConfiguration(strWizardName)
 		
 		strHTML = strHTML & 	FrameWork.GetDictionary("TEXT_PC_CYCLE_QUARTERLY_LABEL1") & "&nbsp;&nbsp;"
 		strInput = strWizardName & "_CycleStartMonthQuarterly"
+    Dim JanuaryAprilJulyOctober, FebruaryMayAugustNovember, MarchJuneSeptemberDecember
+    JanuaryAprilJulyOctober = FrameWork.GetDictionary("TEXT_January") & "," & FrameWork.GetDictionary("TEXT_April") & "," &FrameWork.GetDictionary("TEXT_July") & "," &FrameWork.GetDictionary("TEXT_October")
+    FebruaryMayAugustNovember = FrameWork.GetDictionary("TEXT_February") & "," & FrameWork.GetDictionary("TEXT_May") & "," &FrameWork.GetDictionary("TEXT_August") & "," &FrameWork.GetDictionary("TEXT_November")
+    MarchJuneSeptemberDecember = FrameWork.GetDictionary("TEXT_March") & "," & FrameWork.GetDictionary("TEXT_June") & "," &FrameWork.GetDictionary("TEXT_September") & "," &FrameWork.GetDictionary("TEXT_December")
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3"), _
-																																			Array("January,April,July,October","February,May,August,November","March,June,September,December"), _
+																																			Array(JanuaryAprilJulyOctober,FebruaryMayAugustNovember,MarchJuneSeptemberDecember), _
 																																			 "")
 
 		strHTML = strHTML & 	FrameWork.GetDictionary("TEXT_PC_CYCLE_QUARTERLY_LABEL2")
@@ -620,7 +623,7 @@ Function WriteCycleConfiguration(strWizardName)
 		strInput = strWizardName & "_CycleStartDayQuarterly"
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"), _
-																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","End of Month"), _
+																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",FrameWork.GetDictionary("TEXT_END_OF_THE_MONTH")), _
 																																			 "")
 		strHTML = strHTML & 	"</td>"
 		strHTML = strHTML & "</tr>"
@@ -634,9 +637,24 @@ Function WriteCycleConfiguration(strWizardName)
 		'strHTML = strHTML & 	"<td>"
 		strHTML = strHTML & 	FrameWork.GetDictionary("TEXT_PC_CYCLE_SEMIANNUAL_LABEL1") & "&nbsp;&nbsp;"
   strInput = strWizardName & "_CycleStartMonthSemiAnnual"
+
+  Dim January,April,July,October, February,May,August,November, March,June,September,December
+  January = FrameWork.GetDictionary("TEXT_January")
+  February = FrameWork.GetDictionary("TEXT_February")
+  March = FrameWork.GetDictionary("TEXT_March")
+  April = FrameWork.GetDictionary("TEXT_April")
+  May = FrameWork.GetDictionary("TEXT_May")
+  June = FrameWork.GetDictionary("TEXT_June")
+  July = FrameWork.GetDictionary("TEXT_July")
+  August = FrameWork.GetDictionary("TEXT_August")
+  September = FrameWork.GetDictionary("TEXT_September")
+  October = FrameWork.GetDictionary("TEXT_October")
+  November = FrameWork.GetDictionary("TEXT_November")
+  December = FrameWork.GetDictionary("TEXT_December")
+
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3","4","5","6","7","8","9","10","11","12"), _
-																																			Array("January","February","March","April","May","June","July","August","September","October","November","December"), _
+																																			Array(January,February,March,April,May,June,July,August,September,October,November,December), _
 																																			 "")
 
 		strHTML = strHTML & 	FrameWork.GetDictionary("TEXT_PC_CYCLE_SEMIANNUAL_LABEL2")
@@ -660,7 +678,7 @@ Function WriteCycleConfiguration(strWizardName)
   strInput = strWizardName & "_CycleStartMonthAnnual"
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3","4","5","6","7","8","9","10","11","12"), _
-																																			Array("January","February","March","April","May","June","July","August","September","October","November","December"), _
+																																			Array(January,February,March,April,May,June,July,August,September,October,November,December), _
 																																			 "")
 
 		strHTML = strHTML & 	FrameWork.GetDictionary("TEXT_PC_CYCLE_ANNUAL_LABEL2")
@@ -668,7 +686,7 @@ Function WriteCycleConfiguration(strWizardName)
   strInput = strWizardName & "_CycleStartDayAnnual"
 		strHTML = strHTML & 		gobjMTForms.getSelectHTML(strInput, session(strInput), _
 																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"), _
-																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","End of Month"), _
+																																			Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",FrameWork.GetDictionary("TEXT_END_OF_THE_MONTH")), _
 																																			 "")
 																																			 
 		strHTML = strHTML & 	"</td>"

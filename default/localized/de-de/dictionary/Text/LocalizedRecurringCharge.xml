@@ -163,4 +163,48 @@
     <value>[DE]Maximum Unit Value</value>
     <description></description>
   </text>
+  <text id="TEXT_CANCEL">
+    <value>[DE]Cancel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FINISH">
+    <value>[DE]Finish</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BACK">
+    <value>[DE]&lt; Back</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEXT">
+    <value>[DE]Next &gt;</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VALUE_TYPE">
+    <value>[DE]Value type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_charged_in">
+    <value>[DE]Should this item be charged in advance or arrears?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_prorated">
+    <value>[DE]Should this item be prorated?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INTEGER">
+    <value>[DE]Integer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DECIMAL">
+    <value>[DE]Decimal</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_BASED_ON">
+    <value>[DE]Prorate based on</value>
+    <description></description>
+  </text>
+  <text id="TEXT_number_of_days">
+    <value>[DE]number of days.</value>
+    <description></description>
+  </text>
 </texts>

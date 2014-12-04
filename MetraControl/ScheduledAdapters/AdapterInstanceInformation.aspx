@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true"
   CodeFile="AdapterInstanceInformation.aspx.cs" Inherits="AdapterInstanceInformation" %>
 
-<%@ Import Namespace="System.Threading" %>
 <%@ Register TagPrefix="MT" Namespace="MetraTech.UI.Controls" Assembly="MetraTech.UI.Controls" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
   <div class="CaptionBar">
@@ -118,7 +117,8 @@
   </div>
   <div id="runDetails-win" class="x-hidden">
     <div id="runDetails-win-body" class="x-panel">
-      <div id="butchCountMessage" clientidmode="Static"></div>
+      <div id="butchCountMessage" clientidmode="Static">
+      </div>
       <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
         ExtensionName="Core" ClientIDMode="Static" />
     </div>
@@ -154,15 +154,14 @@
     }
     
     function ShowAuditHistory() {
-      //window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.RunHistory.List.asp?InstanceId=<%=InstanceId %>&Title=<%=DisplayNameEncoded %>', '', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes');
+      var windowHeight = grid_AuditHistoryGrid.height + 70;
       if(!auditHistoryWin) {
         auditHistoryWin = new Ext.Window({
             title: '<%=DisplayName %>'+'&nbsp;&mdash;&nbsp;<%=GetLocalResourceObject("AdapterInstanceAuditHistoryGrid.Title").ToString() %>',
             modal: 'true',
             applyTo:'auditHistory-win',
             layout:'fit',
-            //width:650,
-            height:420,
+            height:windowHeight,
             closeAction:'hide',
             anchor:'100%',
             plain: true,
@@ -187,7 +186,6 @@
     }
     
     function ShowRunDetails(runId, runStatus) {
-      //window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.RunDetails.List.asp?RunId='+runId+'&AdapterName='+adapterName+additionalParameters,'', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes');
       var runDetails = GetInstanceRunDetails(runId);
       var windowHeight = grid_RunDetailsGrid.height + 70;
       var batchMessage = "";
@@ -208,7 +206,6 @@
             modal: 'true',
             applyTo:'runDetails-win',
             layout:'fit',
-            //width:650,
             height:windowHeight,
             closeAction:'hide',
             anchor:'100%',
@@ -276,7 +273,8 @@
             items: [{
                 applyTo:'later-win-body',
                 border: false,
-                layout:'fit'
+                layout:'fit',
+                anchor:'100%'
               }
             ],
             buttons: [{

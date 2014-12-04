@@ -6,6 +6,11 @@
   <MT:MTTitle ID="RunScheduledAdapterMTTitle" runat="server" />
   <MT:MTFilterGrid ID="RunScheduledAdapterGrid" runat="server" TemplateFileName="RunScheduledAdapterGrid.xml"
     ExtensionName="Core" />
+  <style type="text/css">
+    td div {
+      white-space: inherit !important;
+    }
+  </style>
   <script type="text/javascript">
     OverrideRenderer_<%= RunScheduledAdapterGrid.ClientID %> = function(cm) {
       cm.setRenderer(cm.getIndexById('tx_display_name'), DisplayNameRenderer);

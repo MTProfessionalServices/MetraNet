@@ -1,6 +1,8 @@
-using System;
+﻿using System;
+using System.Activities.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Security.AccessControl;
 using System.Web.Mvc;
 using MetraTech.DomainModel.Enums.Core.Global;
 
@@ -24,6 +26,7 @@ namespace MetraNet.Models
       public int? DisplayOrder { get; set; }
 
       [Required]
+      [StringLength(20, ErrorMessageResourceName = "ErrorrMessage_SpecCharacteristicValueModel_Value", ErrorMessageResourceType = typeof(Resources.Models))]
       [Display(Name = "SpecCharacteristicModel_Name", ResourceType = typeof(Resources.Models))]
       public string Name { get; set; }
 
@@ -35,6 +38,7 @@ namespace MetraNet.Models
       [Display(Name = "SpecCharacteristicModel_DefaultValue", ResourceType = typeof(Resources.Models))]
       public string DefaultValue { get; set; }
 
+      [StringLength(20, ErrorMessageResourceName = "ErrorrMessage_SpecCharacteristicValueModel_Value", ErrorMessageResourceType = typeof(Resources.Models))]
       [Display(Name = "SpecCharacteristicModel_Category", ResourceType = typeof(Resources.Models))]
       public string Category { get; set; }
 
@@ -47,7 +51,7 @@ namespace MetraNet.Models
       [Display(Name = "SpecCharacteristicModel_Required", ResourceType = typeof(Resources.Models))]
       public bool IsRequired { get; set; }
 
-      [StringLength(256, ErrorMessageResourceName = "ErrorrMessage_SpecCharacteristicModel_Description", ErrorMessageResourceType = typeof(Resources.Models))]
+      [StringLength(255, ErrorMessageResourceName = "ErrorMessage_SpecCharacteristicModel_Description", ErrorMessageResourceType = typeof(Resources.Models))]
       [DataType(DataType.MultilineText)]
       [Display(Name = "SpecCharacteristicModel_Description", ResourceType = typeof(Resources.Models))]
       public string Description { get; set; }
@@ -91,6 +95,7 @@ namespace MetraNet.Models
       [Display(Name = "SpecCharacteristicValueModel_SpecId", ResourceType = typeof(Resources.Models))]
       public int? SpecId { get; set; }
 
+      [StringLength(20, ErrorMessageResourceName = "ErrorrMessage_SpecCharacteristicValueModel_Value", ErrorMessageResourceType = typeof(Resources.Models))]
       [Display(Name = "SpecCharacteristicValueModel_Category", ResourceType = typeof(Resources.Models))]
       public string Category { get; set; }
 
@@ -98,13 +103,14 @@ namespace MetraNet.Models
       public Dictionary<LanguageCode, string> CategoryDisplayNames { get; set; }
 
       [Required]
+      [StringLength(20, ErrorMessageResourceName = "ErrorrMessage_SpecCharacteristicValueModel_Value", ErrorMessageResourceType = typeof(Resources.Models))]
       [Display(Name = "SpecCharacteristicValueModel_Name", ResourceType = typeof(Resources.Models))]
       public string Name { get; set; }
 
       [Display(Name = "SpecCharacteristicValueModel_NameDisplayNames", ResourceType = typeof(Resources.Models))]
       public Dictionary<LanguageCode, string> NameDisplayNames { get; set; }
       
-      [StringLength(256, ErrorMessageResourceName="ErrorrMessage_SpecCharacteristicValueModel_Description", ErrorMessageResourceType= typeof(Resources.Models))]
+      [StringLength(255, ErrorMessageResourceName="ErrorrMessage_SpecCharacteristicValueModel_Description", ErrorMessageResourceType= typeof(Resources.Models))]
       [DataType(DataType.MultilineText)]
       [Display(Name = "SpecCharacteristicValueModel_Description", ResourceType = typeof(Resources.Models))]
       public string Description { get; set; }

@@ -58,7 +58,7 @@
 
       $("#dialogDelete").dialog({
         buttons : {
-          "OK" : function() {
+          "@Resources.Resource.TEXT_OK" : function() {
             $(this).dialog("close");
             $('#info').html("Deleting...").show();
             $.post('/MetraNet/SpecCharacteristics/Delete', { id: id }, function(result) {
@@ -70,7 +70,7 @@
                $('#info').fadeOut(3000);
             });
           },
-          "Cancel" : function() {
+          "@Resources.Resource.TEXT_CANCEL" : function() {
             $(this).dialog("close");
           }
         }

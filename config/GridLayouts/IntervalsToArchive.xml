@@ -84,7 +84,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_INTERVALS_TO_ARCHIVE_ID_INTERVAL</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -120,7 +120,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_INTERVALS_TO_ARCHIVE_DT_START</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -156,7 +156,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_INTERVALS_TO_ARCHIVE_DT_END</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

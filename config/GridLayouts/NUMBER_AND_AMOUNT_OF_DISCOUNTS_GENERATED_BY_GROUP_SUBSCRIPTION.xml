@@ -110,8 +110,7 @@
             <DataIndex>id</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <Value><![CDATA[ID]]></Value>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

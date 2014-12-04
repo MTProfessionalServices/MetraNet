@@ -209,8 +209,8 @@
             <DataIndex># of transactions generated</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_NUM_TRANS_GENERATED</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

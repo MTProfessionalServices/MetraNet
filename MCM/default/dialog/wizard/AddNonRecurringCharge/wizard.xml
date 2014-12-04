@@ -5,41 +5,49 @@
   <title>[TEXT_NEW] [TEXT_KEYTERM_NON_RECURRING_CHARGE] [TEXT_WIZARD]</title>
   <template>wizard.html</template>
   <name>AddNonRecurring</name>    <!-- One word, used to store/reference session data -->
-  
+
   <buttons>
-    <back><![CDATA[
+    <back>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button Name="butBack" Id="butBack" [BACK_BUTTON_STATE] onClick="javascript:WizardBack();" class="clsWizardButton">&lt; Back</button></td>
+          <td><button Name="butBack" Id="butBack" [BACK_BUTTON_STATE] onClick="javascript:WizardBack();" class="clsWizardWideButton">[TEXT_BACK]</button></td>
         </tr>
       </table>
-    ]]></back>
-    
-    <next><![CDATA[
+    ]]>
+    </back>
+
+    <next>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button name='butNext'  onClick="javascript:WizardNext();" class="clsWizardButton">Next &gt;</button></td>
+          <td><button Name="butNext"  onClick="javascript:WizardNext();" class="clsWizardWideButton">[TEXT_NEXT]</button></td>
         </tr>
       </table>    
-    ]]></next>
-    
-    <finish><![CDATA[
+    ]]>
+    </next>
+
+    <finish>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button  name='butFinish'  onClick="javascript:WizardFinish();" class="clsWizardButton">Finish</button></td>
+          <td><button Name="butFinish" onClick="javascript:WizardFinish();" class="clsWizardWideButton">[TEXT_FINISH]</button></td>
         </tr>
       </table>    
-    ]]></finish>
-    
-    <cancel><![CDATA[
+    ]]>
+    </finish>
+
+    <cancel>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button name='butCancel'  onClick="javascript:WizardCancel();" class="clsWizardButton">Cancel</button></td>
+          <td><button Name="butCancel" onClick="javascript:WizardCancel();" class="clsWizardWideButton">[TEXT_CANCEL]</button></td>
         </tr>
       </table>    
-    ]]></cancel>
+    ]]>
+    </cancel>
   </buttons>
-  
+
   <!-- Template for the left_frame -->
   <left_frame_html><![CDATA[
     <td valign="top" width="200" height="100%">

@@ -753,4 +753,53 @@
     <value>[es-MX]Return to current Pricelist</value>
     <description></description>
   </text>
+
+  <text id="TEXT_January">
+    <value>[ES-MX]January</value>
+    <description></description>
+  </text>
+  <text id="TEXT_February">
+    <value>[ES-MX]February</value>
+    <description></description>
+  </text>
+  <text id="TEXT_March">
+    <value>[ES-MX]March</value>
+    <description></description>
+  </text>
+  <text id="TEXT_April">
+    <value>[ES-MX]April</value>
+    <description></description>
+  </text>
+  <text id="TEXT_May">
+    <value>[ES-MX]May</value>
+    <description></description>
+  </text>
+  <text id="TEXT_June">
+    <value>[ES-MX]June</value>
+    <description></description>
+  </text>
+  <text id="TEXT_July">
+    <value>[ES-MX]July</value>
+    <description></description>
+  </text>
+  <text id="TEXT_August">
+    <value>[ES-MX]August</value>
+    <description></description>
+  </text>
+  <text id="TEXT_September">
+    <value>[ES-MX]September</value>
+    <description></description>
+  </text>
+  <text id="TEXT_October">
+    <value>[ES-MX]October</value>
+    <description></description>
+  </text>
+  <text id="TEXT_November">
+    <value>[ES-MX]November</value>
+    <description></description>
+  </text>
+  <text id="TEXT_December">
+    <value>[ES-MX]December</value>
+    <description></description>
+  </text>
 </texts>

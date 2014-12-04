@@ -677,4 +677,16 @@
     <value>Rate Schedule Rules Were Updated</value>
     <description></description>
   </text>
+  <text id="TEXT_Add_Parameter_Table_to_Price_List">
+    <value>Add Parameter Table to Price List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules_For">
+    <value>Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules">
+    <value>Create Rate Schedule(s)</value>
+    <description></description>
+  </text>
 </texts>

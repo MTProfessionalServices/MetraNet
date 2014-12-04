@@ -45,7 +45,12 @@
         </binding>
       </netTcpBinding>
       <wsHttpBinding>
-        <binding name="NewBinding0" maxReceivedMessageSize="9999999">
+        <binding name="NewBinding0" maxBufferPoolSize="2147483647" 
+		        maxReceivedMessageSize="2147483647" receiveTimeout="00:10:00" 
+		        sendTimeout="00:10:00"> 
+		  <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" 
+		                maxArrayLength="2147483647" maxBytesPerRead="2147483647" 
+		                maxNameTableCharCount="2147483647" />  
           <security>
             <transport clientCredentialType="Basic" />
             <message clientCredentialType="UserName" />

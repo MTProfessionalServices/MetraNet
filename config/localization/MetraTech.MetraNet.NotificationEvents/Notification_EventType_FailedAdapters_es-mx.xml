@@ -4,11 +4,11 @@
      <locale_space name="Notification_EventType_FailedAdapters">
         <locale_entry>
             <Name>Notification/EventType/Failed Adapters</Name>
-            <Value>[es-mx]Failed Adapters</Value>
+            <Value>Failed Adapters</Value>
         </locale_entry>
         <locale_entry>
             <Name>Notification/Template/Failed Adapters</Name>
-            <Value>[es-mx]Adapter {tx_name}, instance id {id_instance} for run {id_run} has failed with the error {tx_detail}.</Value>
+            <Value>Adapter {AdapterName}, instance id {InstanceID} for run {RunID} has failed with the error {ErrorDetail}.</Value>
         </locale_entry>
      </locale_space>
 </mt_config>

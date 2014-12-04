@@ -4,11 +4,11 @@
      <locale_space name="Notification_EventType_DemoNotificationEvent">
         <locale_entry>
             <Name>Notification/EventType/Demo Notification Event</Name>
-            <Value>[de]Demo notification event</Value>
+            <Value>Demo notification event</Value>
         </locale_entry>
         <locale_entry>
             <Name>Notification/Template/Demo Notification Event</Name>
-            <Value>[de]Demo event successfully generated on {currenttimestamp}.</Value>
+            <Value>Demo event successfully generated on {EventTimestamp}.</Value>
         </locale_entry>
      </locale_space>
 </mt_config>

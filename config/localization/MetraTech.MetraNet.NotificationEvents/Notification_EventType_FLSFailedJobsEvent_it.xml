@@ -4,11 +4,11 @@
     <locale_space name="Notification_EventType_FLSFailedJobsEvent">
         <locale_entry>
             <Name>Notification/EventType/FLS Failed Jobs Event</Name>
-            <Value>[it]FLS Failed Jobs Event</Value>
+            <Value>FLS Failed Jobs Event</Value>
         </locale_entry>
         <locale_entry>
             <Name>Notification/Template/FLS Failed Jobs Event</Name>
-            <Value>[it]{ControlId} has failed processing with error {State}: {ErrorCode} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementDetailReport.aspx?controlNumber={ControlId}&filter=3'> View...</a>]]></Value>
+            <Value>{ControlId} has failed processing with error {State}: {ErrorCode} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementDetailReport.aspx?controlNumber={ControlId}&filter=3'> View...</a>]]></Value>
         </locale_entry>
     </locale_space>
 </mt_config>

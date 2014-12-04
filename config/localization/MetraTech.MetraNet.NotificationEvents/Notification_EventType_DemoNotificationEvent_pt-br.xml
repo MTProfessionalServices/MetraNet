@@ -8,7 +8,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Notification/Template/Demo Notification Event</Name>
-            <Value>[pt-br]Demo event successfully generated on {currenttimestamp}.</Value>
+            <Value>[pt-br]Demo event successfully generated on {EventTimestamp}.</Value>
         </locale_entry>
      </locale_space>
 </mt_config>

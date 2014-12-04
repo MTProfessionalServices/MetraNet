@@ -168,8 +168,8 @@ PUBLIC FUNCTION SetMSIXPropertyTypeToChargeInEnumType(objMSIXProperty)
     
     ' Temporary Syntax
     Set  objChargeInEnumType = mdm_CreateObject(CVariables)    
-     objChargeInEnumType.Add "Arears" , CHARGE_AREARS , , , "Arears"
-     objChargeInEnumType.Add "Advance", CHARGE_ADVANCE, , , "Advance"
+     objChargeInEnumType.Add "Arears" , CHARGE_AREARS , , , FrameWork.GetDictionary("TEXT_ADVANCE")
+     objChargeInEnumType.Add "Advance", CHARGE_ADVANCE, , , FrameWork.GetDictionary("TEXT_ARREARS")
     
     ' Associate the Cvariables object to the MSIX Properties
     objMSIXProperty.AddValidListOfValues  objChargeInEnumType

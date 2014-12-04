@@ -18,7 +18,7 @@
     <PageSize>14</PageSize>
     <Description>Grid displays list of available Scheduled Adapters for "Run Scheduled Adapters" page.</Description>
     <ExpansionCssClass></ExpansionCssClass>
-    <ShowFilterPanel>true</ShowFilterPanel>
+    <ShowFilterPanel>false</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
@@ -132,7 +132,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -160,7 +160,7 @@
                 <ResourceClassKey>RunScheduledAdapter</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>150</Width>
+            <Width>200</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -168,7 +168,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -193,7 +193,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
-                <ResourceClassKey>JSConsts</ResourceClassKey>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>600</Width>
@@ -204,7 +204,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

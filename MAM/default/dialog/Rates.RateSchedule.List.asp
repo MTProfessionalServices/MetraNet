@@ -303,9 +303,11 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
             mdm_NoTurnDownHTML EventArg ' Takes Care Of Removing the TurnDown
             
         Case 4 'start date
+            Dim dateStart
+            dateStart = ProductView.Properties.Rowset.Value("dt_start")
             If CLng(ProductView.Properties.Rowset.Value("n_begintype")) = PCDATE_TYPE_SUBSCRIPTION Then
               EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-              EventArg.HTMLRendered = EventArg.HTMLRendered & ProductView.Properties.Rowset.Value("n_beginoffset") & mam_GetDictionary("TEXT_DAYS_AFTER") & Service.Tools.ConvertFromGMT(ProductView.Properties.Rowset.Value("dt_start"), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
+              EventArg.HTMLRendered = EventArg.HTMLRendered & ProductView.Properties.Rowset.Value("n_beginoffset") & mam_GetDictionary("TEXT_DAYS_AFTER") & mam_FormatDate(dateStart, "") & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
               EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
             Else  
               'SECENG: ESR-5050: BCAN 6.5 : Can't view a rate schedule in MetraCare
@@ -316,16 +318,18 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               Else
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & Service.Tools.ConvertFromGMT(ProductView.Properties.Rowset.Value("dt_start"), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & mam_FormatDate(dateStart, "") & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               End IF
             End If
             ViewEditMode_DisplayCell        = TRUE  
             
-        case 5 'end date   
+        case 5 'end date  
+            Dim dateEnd
+            dateEnd = ProductView.Properties.Rowset.Value("dt_end") 
             If CLng(ProductView.Properties.Rowset.Value("n_endtype")) = PCDATE_TYPE_SUBSCRIPTION Then
               EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-              EventArg.HTMLRendered = EventArg.HTMLRendered & ProductView.Properties.Rowset.Value("n_endoffset") & mam_GetDictionary("TEXT_DAYS_AFTER") & Service.Tools.ConvertFromGMT(ProductView.Properties.Rowset.Value("dt_end"), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
+              EventArg.HTMLRendered = EventArg.HTMLRendered & ProductView.Properties.Rowset.Value("n_endoffset") & mam_GetDictionary("TEXT_DAYS_AFTER") & mam_FormatDate(dateEnd, "") & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
               EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
             Else 
               If CDate(ProductView.Properties.Rowset.Value("dt_end")) = MaxDate Then  
@@ -334,7 +338,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               Else
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & Service.Tools.ConvertFromGMT(ProductView.Properties.Rowset.Value("dt_end"), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & mam_FormatDate(dateEnd, "") & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               End IF
             End If

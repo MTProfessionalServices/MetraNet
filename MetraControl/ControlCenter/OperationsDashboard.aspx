@@ -438,8 +438,10 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                     .title("<%=UnderInvestigationWord%>", function(d){ return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=UnderInvestigationWord%>";})
 					          .renderlet(function (_chart) {
 						          function setStyle(selection, keyName) {
-							          selection.style("cursor","default")
-							                   .style("fill", function (d) {
+						            if (keyName == "layer") {
+						              selection.style("cursor", "default");
+						            }
+							          selection.style("fill", function (d) {
 								          if (d[keyName] == "<%=OpenWord%>")
 								              return "#0070C0";
 								          else if (d[keyName] == "<%=UnderInvestigationWord%>")

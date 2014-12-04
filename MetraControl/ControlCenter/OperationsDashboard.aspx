@@ -307,7 +307,7 @@ AdapterNameLinkRenderer = function(value, meta, record, rowIndex, colIndex, stor
 {
   meta.attr = 'style="white-space:normal"';
   var str = "";
-  str += String.format("<a style='cursor:hand;' href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp|ID={0}", record.data.id_instance);
+  str += String.format("<a style='cursor:hand; cursor:pointer;' href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp|ID={0}", record.data.id_instance);
   if (record.data.id_billgroup)
   {
 	str += String.format("**BillingGroupId={0}", record.data.id_billgroup);
@@ -329,7 +329,7 @@ AdapterRunErrorMessageRenderer = function(value, meta, record, rowIndex, colInde
 IntervalIdLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
 {
   var str = "";
-  str += String.format("<a style='cursor:hand;' href='/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp|ID={0}", record.data.id_interval);
+  str += String.format("<a style='cursor:hand; cursor:pointer;' href='/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp|ID={0}", record.data.id_interval);
   str += String.format("**ReturnUrl=%2FMetraNet%2FMetraControl%2FControlCenter%2FOperationsDashboard%2Easpx'>{0}</a>", value);
   
   return str;

@@ -80,7 +80,7 @@ function hideDIV(sDivName,bDisable)
 <FORM name='mdm'>
 <!-- The title of the dialog-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%" >
-<tr><td Class='CaptionBar' nowrap>Add Parameter Table to Price List</td></tr>
+<tr><td Class='CaptionBar' nowrap><MDMLABEL Name="TEXT_Add_Parameter_Table_to_Price_List">Add Parameter Table to Price List</MDMLABEL></td></tr>
 </table>
 <br>
 
@@ -92,7 +92,8 @@ function hideDIV(sDivName,bDisable)
           <tr> 
             <td width="100%">
               <table width="100%" cellspacing="0" cellpadding="0" style="border: 1 none red;">
-                <td class="NavigationPaneHeader" colspan="1" style="font-size:12;padding:0px 0px 0px 0px;">Create Rate Schedules For The Following Priceable Items/Parameter Tables
+                <td class="NavigationPaneHeader" colspan="1" style="font-size:12;padding:0px 0px 0px 0px;">
+                <MDMLABEL Name="TEXT_Create_Rate_Schedules_For">Create Rate Schedules For The Following Priceable Items/Parameter Tables</MDMLABEL>
                 <iframe src="[PARAMETER_TABLE_SELECTOR_DIALOG]" width="500px" height="500px" frameborder="0"></iframe>
               </table>
             </td>
@@ -210,7 +211,7 @@ function hideDIV(sDivName,bDisable)
 <br>
 <br>
 <div align=center>
-<button Class='clsButtonXXLarge' name="OK" onclick="mdm_RefreshDialog(this);">Create Rate Schedule(s)</button>&nbsp;&nbsp;&nbsp;
+<button Class='clsButtonXXLarge' name="OK" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name="TEXT_Create_Rate_Schedules" Type="Caption">Create Rate Schedule(s)</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
 </div>
 
 </TD>
@@ -223,7 +224,7 @@ function hideDIV(sDivName,bDisable)
 
 <br><br>
 <div align="center"><!-- Dialog Buttons -->
-  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);">Close</button>
+  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CLOSE'>Close</MDMLABEL></button>
 </div>
 
 </FORM>

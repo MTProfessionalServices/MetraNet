@@ -747,4 +747,16 @@
     <value>A regras de agendamento de taxa foram atualizadas</value>
     <description></description>
   </text>
+  <text id="TEXT_Add_Parameter_Table_to_Price_List">
+    <value>[PT_BR]Add Parameter Table to Price List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules_For">
+    <value>[PT_BR]Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules">
+    <value>[PT_BR]Create Rate Schedule(s)</value>
+    <description></description>
+  </text>
 </texts>

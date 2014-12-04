@@ -1,4 +1,4 @@
-DECLARE @startDate datetime = CAST(CAST(DATEADD(DAY, 1, '%%START_DATE%%')AS DATE) AS DATETIME)
+DECLARE @startDate datetime = CAST(CAST(DATEADD(DAY, 0, '%%START_DATE%%')AS DATE) AS DATETIME)
 DECLARE @endDate datetime = CAST(CAST(DATEADD(DAY, 1, '%%END_DATE%%')AS DATE) AS DATETIME)
 
 SELECT 
@@ -9,14 +9,26 @@ SELECT
 ,COALESCE(udrc.c_ProratedIntervalStart, frc.c_ProratedIntervalStart) as c_ProratedIntervalStart
 ,COALESCE(udrc.c_ProratedIntervalEnd, frc.c_ProratedIntervalEnd) as c_ProratedIntervalEnd
 ,CASE 
-	WHEN udrc.c_RCIntervalSubscriptionStart > @endDate
-		THEN DATEDIFF(DAY, udrc.c_RCIntervalSubscriptionStart, udrc.c_RCIntervalSubscriptionEnd)+1
-	WHEN udrc.c_RCIntervalSubscriptionStart <= @endDate
-		THEN DATEDIFF(DAY, @endDate, udrc.c_RCIntervalSubscriptionEnd)+1
-	WHEN frc.c_RCIntervalSubscriptionStart > @endDate
-		THEN DATEDIFF(DAY, frc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionEnd)+1
-	WHEN frc.c_RCIntervalSubscriptionStart <= @endDate
-		THEN DATEDIFF(DAY, @endDate, frc.c_RCIntervalSubscriptionEnd)+1
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) >= @startDate
+	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) <= @endDate 
+	OR	 COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) > @endDate
+		THEN DATEDIFF(DAY, COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart), COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd))+1
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= @startDate
+	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= @startDate
+	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) <= @endDate
+		THEN DATEDIFF(DAY, @startDate, COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd))
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) < @startDate
+		THEN DATEDIFF(DAY, COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart), @startDate)  
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= @endDate
+	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= @endDate
+		THEN DATEDIFF(DAY, @endDate,  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd))+1 
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= @startDate
+	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= @endDate
+		THEN DATEDIFF(DAY, @startDate, @endDate)
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) >= @startDate
+	AND  COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= @endDate
+	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= @endDate
+		THEN DATEDIFF(DAY, COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart), @endDate)
 	ELSE 1
  END as c_ProratedDays
 ,COALESCE(udrc.c_ProratedDailyRate, frc.c_ProratedDailyRate, acr.c_CreditAmount, 
@@ -28,6 +40,7 @@ SELECT
 ,COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') as c_DeferredRevenueCode
 ,acc.id_pi_template
 FROM		t_acc_usage						acc
+INNER JOIN	t_usage_interval				ui			ON acc.id_usage_interval = ui.id_interval
 LEFT JOIN	t_pv_UDRecurringCharge			udrc		ON acc.id_sess = udrc.id_sess
 LEFT JOIN	t_pv_FlatRecurringCharge		frc			ON acc.id_sess = frc.id_sess
 LEFT JOIN	t_pv_NonRecurringCharge			nrc			ON acc.id_sess = nrc.id_sess
@@ -40,6 +53,7 @@ LEFT JOIN	t_ep_nonrecurring				nrc_ep		ON nrc_ep.id_prop = acc.id_pi_template
 LEFT JOIN	t_ep_usage						usg_ep		ON usg_ep.id_prop = acc.id_pi_template
 LEFT JOIN	t_ep_discount					dis_ep		ON dis_ep.id_prop = acc.id_pi_template
 WHERE 	COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_ep.c_IsLiabilityProduct, usg_ep.c_IsLiabilityProduct, dis_ep.c_IsLiabilityProduct, 'N') = 'N'
+	-- AND ui.tx_interval_status = 'H'
 	AND	acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '')  like '%' + '%%REVENUECODE%%' + '%'
 	AND COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') like '%' + '%%DEFREVENUECODE%%' + '%'
@@ -78,7 +92,6 @@ WHERE 	COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_e
 									)
 							)
 					)
-
 			)
 	)
 	

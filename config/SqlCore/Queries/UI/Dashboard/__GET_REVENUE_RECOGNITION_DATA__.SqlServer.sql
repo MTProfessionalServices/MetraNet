@@ -4,8 +4,8 @@ DECLARE @endDate datetime = CAST(CAST(DATEADD(DAY, 1, '%%END_DATE%%')AS DATE) AS
 SELECT 
  acc.am_currency
 ,COALESCE(udrc.id_usage_interval, frc.id_usage_interval, nrc.id_usage_interval, nsc.id_usage_interval, acr.id_usage_interval, acc.id_usage_interval) as id_usage_interval
-,COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart, nrc.c_NRCIntervalSubscriptionStart, nsc.c_IssueTime, acr.c_CreditTime, acc.dt_crt) as SubscriptionStart
-,COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd, nrc.c_NRCIntervalSubscriptionEnd, nsc.c_IssueTime, acr.c_CreditTime, acc.dt_crt) as SubscriptionEnd
+,COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart, nrc.c_NRCIntervalSubscriptionStart, nsc.c_IssueTime, acr.c_CreditTime, adj.dt_modified, acc.dt_crt) as SubscriptionStart
+,COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd, nrc.c_NRCIntervalSubscriptionEnd, nsc.c_IssueTime, acr.c_CreditTime, adj.dt_modified, acc.dt_crt) as SubscriptionEnd
 ,COALESCE(udrc.c_ProratedIntervalStart, frc.c_ProratedIntervalStart) as c_ProratedIntervalStart
 ,COALESCE(udrc.c_ProratedIntervalEnd, frc.c_ProratedIntervalEnd) as c_ProratedIntervalEnd
 ,CASE 
@@ -20,7 +20,9 @@ SELECT
 	ELSE 1
  END as c_ProratedDays
 ,COALESCE(udrc.c_ProratedDailyRate, frc.c_ProratedDailyRate, acr.c_CreditAmount, 
-	acc.amount + ISNULL(acc.tax_federal, 0) + ISNULL(acc.tax_state, 0) + ISNULL(acc.tax_county, 0) + ISNULL(acc.tax_local, 0) + ISNULL(acc.tax_other, 0)) as c_ProratedDailyRate
+	acc.amount + ISNULL(adj.AdjustmentAmount, 0)
+	+ ISNULL(acc.tax_federal, 0) + ISNULL(acc.tax_state, 0) + ISNULL(acc.tax_county, 0) + ISNULL(acc.tax_local, 0) + ISNULL(acc.tax_other, 0)
+	+ ISNULL(adj.aj_tax_federal, 0) + ISNULL(adj.aj_tax_state, 0) + ISNULL(adj.aj_tax_county, 0) + ISNULL(adj.aj_tax_local, 0) + ISNULL(adj.aj_tax_other, 0)) as c_ProratedDailyRate
 ,COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_ep.c_IsLiabilityProduct, usg_ep.c_IsLiabilityProduct, dis_ep.c_IsLiabilityProduct, 'N') as c_IsLiabilityProduct
 ,COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '') as c_RevenueCode
 ,COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') as c_DeferredRevenueCode
@@ -31,6 +33,7 @@ LEFT JOIN	t_pv_FlatRecurringCharge		frc			ON acc.id_sess = frc.id_sess
 LEFT JOIN	t_pv_NonRecurringCharge			nrc			ON acc.id_sess = nrc.id_sess
 LEFT JOIN	t_pv_NonStandardCharge			nsc			ON acc.id_sess = nsc.id_sess
 LEFT JOIN	t_pv_AccountCredit				acr			ON acc.id_sess = acr.id_sess
+LEFT JOIN	t_adjustment_transaction		adj			ON acc.id_sess = adj.id_sess
 LEFT JOIN	t_ep_unit_dependent_recurring	udrc_ep		ON udrc_ep.id_prop = acc.id_pi_template
 LEFT JOIN	t_ep_recurring					frc_ep		ON frc_ep.id_prop = acc.id_pi_template
 LEFT JOIN	t_ep_nonrecurring				nrc_ep		ON nrc_ep.id_prop = acc.id_pi_template

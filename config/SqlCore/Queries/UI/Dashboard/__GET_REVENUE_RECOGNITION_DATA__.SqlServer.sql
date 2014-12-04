@@ -19,7 +19,8 @@ SELECT
 		THEN DATEDIFF(DAY, @endDate, frc.c_RCIntervalSubscriptionEnd)+1
 	ELSE 1
  END as c_ProratedDays
-,COALESCE(udrc.c_ProratedDailyRate, frc.c_ProratedDailyRate, acr.c_CreditAmount, acc.amount) as c_ProratedDailyRate
+,COALESCE(udrc.c_ProratedDailyRate, frc.c_ProratedDailyRate, acr.c_CreditAmount, 
+	acc.amount + ISNULL(acc.tax_federal, 0) + ISNULL(acc.tax_state, 0) + ISNULL(acc.tax_county, 0) + ISNULL(acc.tax_local, 0) + ISNULL(acc.tax_other, 0)) as c_ProratedDailyRate
 ,COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_ep.c_IsLiabilityProduct, usg_ep.c_IsLiabilityProduct, dis_ep.c_IsLiabilityProduct, 'N') as c_IsLiabilityProduct
 ,COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '') as c_RevenueCode
 ,COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') as c_DeferredRevenueCode
@@ -40,4 +41,41 @@ WHERE 	COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_e
 	AND COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '')  like '%' + '%%REVENUECODE%%' + '%'
 	AND COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') like '%' + '%%DEFREVENUECODE%%' + '%'
 	AND	(%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
-	AND '%%ACCOUNTINGCYCLEID%%' IS NOT NULL
+	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
+		OR
+		('%%ACCOUNTINGCYCLEID%%' = '00000000-0000-0000-0000-000000000000'
+			AND NOT EXISTS (	SELECT 1
+								FROM t_be_sys_rep_accountingcycle dcycl
+								INNER JOIN t_be_sys_rep_accountingcycl dcyclto ON dcycl.c_AccountingCycle_Id = dcyclto.c_AccountingCycle_Id
+								INNER JOIN t_account_ancestor dtanc ON dtanc.id_ancestor = dcyclto.c_AccountId
+								WHERE dtanc.id_descendent = acc.id_payee
+								)
+				)
+		OR 
+		EXISTS (SELECT 1
+				FROM t_be_sys_rep_accountingcycle cycl
+				LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
+				LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
+				WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+				AND tanc.id_descendent = acc.id_payee
+				AND (	(cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
+						OR
+						(cycl.c_IsDefault = 'T'	
+							AND (cyclto.c_AccountId IS NOT NULL
+									OR
+										(cyclto.c_AccountId IS NULL
+										AND NOT EXISTS (	SELECT 1
+															FROM t_be_sys_rep_accountingcycle ncycl
+															INNER JOIN t_be_sys_rep_accountingcycl ncyclto ON ncycl.c_AccountingCycle_Id = ncyclto.c_AccountingCycle_Id
+															INNER JOIN t_account_ancestor ntanc ON ntanc.id_ancestor = ncyclto.c_AccountId
+															WHERE ncycl.c_IsDefault = 'F'
+															AND ntanc.id_descendent = acc.id_payee
+															)
+											)
+									)
+							)
+					)
+
+			)
+	)
+	

@@ -117,52 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AMOUNTCHAINGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>[FR]Amount Chain Groups</value>
+  <data name="ArgEndDate_HeaderText" xml:space="preserve">
+    <value>ArgEndDate</value>
   </data>
-  <data name="lbChooseProductViewResource1.Text" xml:space="preserve">
-    <value>[FR]Which Product View is associated with the new Charge/Credit?</value>
+  <data name="ArgStartDate_HeaderText" xml:space="preserve">
+    <value>ArgStartDate</value>
   </data>
-  <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Charge/Credit: Product View</value>
+  <data name="EventDisplayName_HeaderText" xml:space="preserve">
+    <value>Event Display Name</value>
   </data>
-  <data name="lbSelectAmountChGr.Text" xml:space="preserve">
-    <value>[FR]Select the Amount Chain Group to use for the new Charge/Credit:</value>
+  <data name="InstanceId_HeaderText" xml:space="preserve">
+    <value>Instance Id</value>
   </data>
-  <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
-    <value>[FR]Charge/Credit Name</value>
+  <data name="LastRunMachine_HeaderText" xml:space="preserve">
+    <value>LastRunMachine</value>
   </data>
-  <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>[FR]Description</value>
+  <data name="LastRunStart_HeaderText" xml:space="preserve">
+    <value>LastRunStart</value>
   </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[FR]Description</value>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet - Scheduled Adapter Run List</value>
   </data>
-  <data name="TEXT_ERROR_CREATE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[FR]Error while creating Generated Charge '{0}'</value>
+  <data name="ScheduledAdapterRunListGrid.Title" xml:space="preserve">
+    <value>Scheduled Adapter Run List</value>
   </data>
-  <data name="TEXT_ERROR_INIT_CONTROLS" xml:space="preserve">
-    <value>[FR]An error occurred on control initialization</value>
+  <data name="ScheduledAdapterRunListMTTitle.Text" xml:space="preserve">
+    <value>Scheduled Adapter Run List</value>
   </data>
-  <data name="TEXT_ERROR_NO_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[FR]Error: You must select an Amount Chain Group in the grid</value>
-  </data>
-  <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving Generated Charge '{0}'</value>
-  </data>
-  <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE_ACTION" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving the Generated Charge Action</value>
-  </data>
-  <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE_NAME" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving the Generated Charge Name</value>
-  </data>
-  <data name="TEXT_NAME" xml:space="preserve">
-    <value>Nom</value>
-  </data>
-  <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[FR]Unique ID</value>
-  </data>
-  <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[FR]Description:</value>
+  <data name="Status_HeaderText" xml:space="preserve">
+    <value>Status</value>
   </data>
 </root>

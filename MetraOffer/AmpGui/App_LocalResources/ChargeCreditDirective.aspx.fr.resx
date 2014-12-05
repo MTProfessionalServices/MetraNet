@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,113 +59,113 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="lblDirectiveType.Text" xml:space="preserve">
-        <value>What type of work will this directive do?</value>
-    </data>
-    <data name="lblTitleResource1.Text" xml:space="preserve">
-        <value>Charge/Credit: Directive</value>
-    </data>
-    <data name="rblFieldPopulation.Text" xml:space="preserve">
-        <value>Field Population</value>
-    </data>
-    <data name="rblProcedureExecution.Text" xml:space="preserve">
-        <value>Procedure Execution</value>
-    </data>
-    <data name="rblTableInclusion.Text" xml:space="preserve">
-        <value>Table Inclusion</value>
-    </data>
-    <data name="tbChargeCreditName.LabelSeparator" xml:space="preserve">
-        <value>Charge/Credit:</value>
-    </data>
-    <data name="tbDefaultValue.Label" xml:space="preserve">
-        <value>Default Value</value>
-    </data>
-    <data name="tbFieldName.Label" xml:space="preserve">
-        <value>Field Name</value>
-    </data>
-    <data name="tbFilter.Label" xml:space="preserve">
-        <value>Condition for Execution</value>
-    </data>
-    <data name="tbIncludedFieldPrefix.Label" xml:space="preserve">
-        <value>Included Field Prefix</value>
-    </data>
-    <data name="tbIncludePredicate.Label" xml:space="preserve">
-        <value>Include Predicate</value>
-    </data>
-    <data name="tbIncludeTableName.Label" xml:space="preserve">
-        <value>Include Table Name</value>
-    </data>
-    <data name="tbMvmProcedure.Label" xml:space="preserve">
-        <value>MVM Procedure</value>
-    </data>
-    <data name="tbPopulationString.Label" xml:space="preserve">
-        <value>Population String</value>
-    </data>
-    <data name="tbProductView.Label" xml:space="preserve">
-        <value>Product View</value>
-    </data>
-    <data name="tbSourceValue.Label" xml:space="preserve">
-        <value>Source Value</value>
-    </data>
-    <data name="tbTargetField.Label" xml:space="preserve">
-        <value>Target Field</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblDirectiveType.Text" xml:space="preserve">
+    <value>[FR]What type of work will this directive do?</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>[FR]Charge/Credit: Directive</value>
+  </data>
+  <data name="rblFieldPopulation.Text" xml:space="preserve">
+    <value>[FR]Field Population</value>
+  </data>
+  <data name="rblProcedureExecution.Text" xml:space="preserve">
+    <value>[FR]Procedure Execution</value>
+  </data>
+  <data name="rblTableInclusion.Text" xml:space="preserve">
+    <value>[FR]Table Inclusion</value>
+  </data>
+  <data name="tbChargeCreditName.LabelSeparator" xml:space="preserve">
+    <value>[FR]Charge/Credit:</value>
+  </data>
+  <data name="tbDefaultValue.Label" xml:space="preserve">
+    <value>[FR]Default Value</value>
+  </data>
+  <data name="tbFieldName.Label" xml:space="preserve">
+    <value>[FR]Field Name</value>
+  </data>
+  <data name="tbFilter.Label" xml:space="preserve">
+    <value>[FR]Condition for Execution</value>
+  </data>
+  <data name="tbIncludedFieldPrefix.Label" xml:space="preserve">
+    <value>[FR]Included Field Prefix</value>
+  </data>
+  <data name="tbIncludePredicate.Label" xml:space="preserve">
+    <value>[FR]Include Predicate</value>
+  </data>
+  <data name="tbIncludeTableName.Label" xml:space="preserve">
+    <value>[FR]Include Table Name</value>
+  </data>
+  <data name="tbMvmProcedure.Label" xml:space="preserve">
+    <value>[FR]MVM Procedure</value>
+  </data>
+  <data name="tbPopulationString.Label" xml:space="preserve">
+    <value>[FR]Population String</value>
+  </data>
+  <data name="tbProductView.Label" xml:space="preserve">
+    <value>[FR]Product View</value>
+  </data>
+  <data name="tbSourceValue.Label" xml:space="preserve">
+    <value>[FR]Source Value</value>
+  </data>
+  <data name="tbTargetField.Label" xml:space="preserve">
+    <value>[FR]Target Field</value>
+  </data>
 </root>

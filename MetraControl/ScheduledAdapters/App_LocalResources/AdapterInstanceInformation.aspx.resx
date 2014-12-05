@@ -234,4 +234,10 @@
   <data name="Timestamp_HeaderText" xml:space="preserve">
     <value>Timestamp</value>
   </data>
+  <data name="BatchDetails" xml:space="preserve">
+    <value>View Details Of The Batches For This Run Of The Adapter</value>
+  </data>
+  <data name="FailedAccounts" xml:space="preserve">
+    <value>View List Of Accounts That Had Failures</value>
+  </data>
 </root>

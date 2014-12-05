@@ -2,6 +2,8 @@
 using System.Globalization;
 using System.Threading;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using MetraTech.DataAccess;
 using MetraTech.UI.Common;
 
@@ -208,5 +210,16 @@ public partial class AdapterInstanceInformation : MTPage
   protected string GetDurationMessage(string value, string dtEnd)
   {
     return value + " - " + dtEnd;
+  }
+
+  [WebMethod]
+  public static string GetBatchMessage(string runId)
+  {
+    var result =
+      String.Format(
+        "<br><a href='#' onclick=''window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/BatchManagement.List.asp?Filter=AdapterRun&RerunId={0}','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')''>View Details Of The Batches For This Run Of The Adapter</a>",
+        runId);
+    //GetLocalResourceObject("BatchDetails").ToString();
+    return result;
   }
 }

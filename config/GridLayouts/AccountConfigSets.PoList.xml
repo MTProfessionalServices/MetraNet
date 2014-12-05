@@ -1,28 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
-    <Name>Core.MR.MachineRole</Name>
+    <Name>AccountConfigSets.PoList</Name>
+    <Title>
+        <LocalizationTag>GRID_TITLE</LocalizationTag>
+        <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
+    </Title>
     <Exportable>true</Exportable>
-    <Height>0</Height>
-    <Width>715</Width>
+    <Height>400</Height>
+    <Width>650</Width>
     <Expandable>true</Expandable>
-    <Buttons>Cancel</Buttons>
-    <ObjectName>Core.MR.MachineRole</ObjectName>
-    <AssemblyNameHint>Core.MR.Entity.dll</AssemblyNameHint>
-    <DataSourceURL>../AjaxServices/BEListSvc.aspx?Name=Core.MR.MachineRole&amp;Assembly=Core.MR.Entity</DataSourceURL>
+    <Buttons>OK</Buttons>
+    <DataSourceURL>../AjaxServices/LoadPosForQuote.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
-    <SelectionModel>Standard</SelectionModel>
+    <SelectionModel>CheckBox</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
-    <Description>This grid displays the list of machine roles for a machine</Description>
+    <Description></Description>
     <ExpansionCssClass></ExpansionCssClass>
+    <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
+    <ShowTopBar>true</ShowTopBar>
+    <ShowBottomBar>true</ShowBottomBar>
+    <ShowGridFrame>true</ShowGridFrame>
+    <ShowGridHeader>true</ShowGridHeader>
+    <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-        <ResourceClassKey>Resource</ResourceClassKey>
+        <Value><![CDATA[]]></Value>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>true</FilterPanelCollapsed>
@@ -35,144 +41,152 @@
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-    <ShowFilterPanel>true</ShowFilterPanel>
-    <ShowTopBar>true</ShowTopBar>
-    <ShowBottomBar>true</ShowBottomBar>
-    <ShowGridFrame>true</ShowGridFrame>
-    <ShowGridHeader>true</ShowGridHeader>
-    <ShowColumnHeaders>true</ShowColumnHeaders>
-    <SupportExportSelected>true</SupportExportSelected>
-    <SubGrid></SubGrid>
-    <Title>
-        <Value><![CDATA[]]></Value>
-    </Title>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <SubGrid></SubGrid>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>internalId</ID>
-            <DataType>String</DataType>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
+            <ID>ProductOfferingId</ID>
+            <DataType>Numeric</DataType>
             <IsIdentity>true</IsIdentity>
-            <DataIndex>internalId</DataIndex>
-            <IsColumn>true</IsColumn>
+            <DataIndex>ProductOfferingId</DataIndex>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_INTERNAL_ID</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>Core.MR.Entity.dll</AssemblyFilename>
-            <ObjectName>Core.MR.MachineRole</ObjectName>
-            <ID>Name</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>Name</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_NAME</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>Core.MR.Entity.dll</AssemblyFilename>
-            <ObjectName>Core.MR.MachineRole</ObjectName>
-            <ID>Description</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>Description</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>false</RecordElement>
-            <ID>Actions</ID>
-            <DataIndex></DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
+                <LocalizationTag>PO_ID</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
-            <ColumnHideable>false</ColumnHideable>
+            <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
-            <Filterable>false</Filterable>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
+            <ID>Name</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>Name</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>PO_NAME</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>300</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
+            <ID>Description</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>Description</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>PO_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>300</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
+            <ID>POPartitionId</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>POPartitionId</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>PO_PARTITIONID</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>100</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>false</DefaultColumn>
+            <Exportable>false</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>false</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>true</FilterReadOnly>
+            <DropdownItems></DropdownItems>
         </Element>
     </Elements>
     <ExpanderTemplate>
@@ -186,10 +200,10 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>internalId</ID>
-                            <Name>internalId</Name>
+                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
+                            <ID>ProductOfferingId</ID>
+                            <Name>ProductOfferingId</Name>
                         </Field>
                     </Fields>
                 </Column>
@@ -201,34 +215,5 @@
         </Section>
     </ExpanderTemplate>
     <GridButtons></GridButtons>
-    <ToolbarButtons>
-        <Button>
-            <ButtonID>Add</ButtonID>
-            <ButtonText>
-                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ToolTip>
-            <IconClass>add</IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onNew</JSHandlerFunction>
-        </Button>
-        <Button>
-            <ButtonID>Delete</ButtonID>
-            <ButtonText>
-                <LocalizationTag>TEXT_DELETE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>TEXT_DELETE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ToolTip>
-            <IconClass>remove</IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onDelete</JSHandlerFunction>
-        </Button>
-    </ToolbarButtons>
+    <ToolbarButtons></ToolbarButtons>
 </GridLayout>

@@ -40,7 +40,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Name]]></Value>
+                                <LocalizationTag>TEXT_NAME</LocalizationTag>
                             </Label>
                             <RequiredCapabilities />
                         </Field>
@@ -58,7 +58,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Display Name]]></Value>
+                                <LocalizationTag>TEXT_DISPLAY_NAME</LocalizationTag>
                             </Label>
 
                             <RequiredCapabilities />
@@ -77,7 +77,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Description]]></Value>
+                                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
                             </Label>
                             <RequiredCapabilities />
                         </Field>
@@ -99,7 +99,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Currency]]></Value>
+                                <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
                             </Label>
                             <RequiredCapabilities />
                         </Field>
@@ -117,7 +117,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Effective Start Date]]></Value>
+                                <LocalizationTag>TEXT_EFFECTIVE_START_DATE</LocalizationTag>
                             </Label>
                             <RequiredCapabilities />
                         </Field>
@@ -135,7 +135,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Partition Id]]></Value>
+                                <LocalizationTag>TEXT_PARTITION_ID</LocalizationTag>
                             </Label>
 
                             <RequiredCapabilities />

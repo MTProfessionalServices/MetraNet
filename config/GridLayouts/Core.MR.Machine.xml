@@ -21,8 +21,8 @@
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
     <NoRecordsText>
-      <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-      <ResourceClassKey>Resource</ResourceClassKey>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>Resource</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>true</FilterPanelCollapsed>
@@ -41,7 +41,11 @@
     <ShowGridFrame>true</ShowGridFrame>
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
-    <SubGrid></SubGrid>   
+    <SubGrid></SubGrid>
+    <Title>
+        <Value><![CDATA[]]></Value>
+    </Title>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -53,8 +57,8 @@
             <DataIndex>internalId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_INTERNAL_ID</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_INTERNAL_ID</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -89,8 +93,8 @@
             <DataIndex>MachineIdentifier</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_MACHINE_IDENTIFIER</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_MACHINE_IDENTIFIER</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -125,8 +129,8 @@
             <DataIndex>Description</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -157,8 +161,8 @@
             <DataIndex></DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -170,22 +174,46 @@
             <Filterable>false</Filterable>
         </Element>
     </Elements>
-    <ExpanderTemplate></ExpanderTemplate>
+    <ExpanderTemplate>
+        <Section>
+            <Title>
+                <Value><![CDATA[]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename></AssemblyFilename>
+                            <ObjectName></ObjectName>
+                            <ID>internalId</ID>
+                            <Name>internalId</Name>
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields></Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons>
         <Button>
-          <ButtonID>Add</ButtonID>
-          <ButtonText>
-            <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-            <ResourceClassKey>Resource</ResourceClassKey>
-          </ButtonText>
-          <ToolTip>
-            <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-            <ResourceClassKey>Resource</ResourceClassKey>
-          </ToolTip>
-          <IconClass>add</IconClass>
-          <RequiredCapabilities></RequiredCapabilities>
-          <JSHandlerFunction>onNew</JSHandlerFunction>
+            <ButtonID>Add</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>
         <Button>
             <ButtonID>Delete</ButtonID>
@@ -200,20 +228,6 @@
             <IconClass>remove</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onDelete</JSHandlerFunction>
-        </Button>
-        <Button>
-            <ButtonID>BulkUpdate</ButtonID>
-            <ButtonText>
-                <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ToolTip>
-            <IconClass>bulkupdate</IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onBulkUpdate</JSHandlerFunction>
         </Button>
     </ToolbarButtons>
 </GridLayout>

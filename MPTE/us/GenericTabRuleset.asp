@@ -1318,7 +1318,7 @@ PUBLIC FUNCTION Main
 			On Error resume next
 			'objMTRateSched.SaveWithRules
       dim idChange, errorsSubmit
-      idChange = objApprovals.SubmitChangeForApproval("RateUpdate", session("RATES_RATESCHEDULE_ID"), displayNameForItemInApprovals, "", objChangeDetailsHelper.ToBuffer, errorsSubmit)
+      idChange = objApprovals.SubmitChangeForApproval("RateUpdate", session("RATES_RATESCHEDULE_ID"), displayNameForItemInApprovals, "", objChangeDetailsHelper.ToBuffer, Session("CURRENT_PRODUCTOFFERING_PARTITION_ID"), errorsSubmit)
 
 
 			call WriteRunTimeError(FrameWork.GetDictionary("TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED"), true)

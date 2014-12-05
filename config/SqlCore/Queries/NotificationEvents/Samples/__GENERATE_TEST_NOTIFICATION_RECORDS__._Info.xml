@@ -6,7 +6,7 @@
         <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters></Parameters>
-    <Description>Demo event to test notifications.</Description>
+    <Description>Test event for notifications.</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

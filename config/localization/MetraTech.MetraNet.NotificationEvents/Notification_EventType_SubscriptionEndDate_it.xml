@@ -3,11 +3,11 @@
     <language_code>it</language_code>
     <locale_space name="Notification_EventType_SubscriptionEndDate">
         <locale_entry>
-            <Name>Notification/EventType/Subscription End Date</Name>
+            <Name>Notification_EventType_SubscriptionEndDate/EventType/Subscription End Date</Name>
             <Value>Subscription End Date</Value>
         </locale_entry>
         <locale_entry>
-            <Name>Notification/Template/Subscription End Date</Name>
+            <Name>Notification_EventType_SubscriptionEndDate/Template/Subscription End Date</Name>
             <Value>Account {LoginName} has subscription to {POInternalName} that will end on {EndDate}<![CDATA[<a href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'> View...</a>]]></Value>
         </locale_entry>
     </locale_space>

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
-    <language_code>es</language_code>
-    <locale_space name="Notification_EventType_FLSFailedJobsEvent">
+    <language_code>de</language_code>
+    <locale_space name="Notification_EventType_FLSFailedJobs">
         <locale_entry>
-            <Name>Notification/EventType/FLS Failed Jobs Event</Name>
-            <Value>FLS Failed Jobs Event</Value>
+            <Name>Notification_EventType_FLSFailedJobs/EventType/FLS Failed Jobs</Name>
+            <Value>FLS Failed Jobs</Value>
         </locale_entry>
         <locale_entry>
-            <Name>Notification/Template/FLS Failed Jobs Event</Name>
+            <Name>Notification_EventType_FLSFailedJobs/Template/FLS Failed Jobs</Name>
             <Value>{ControlId} has failed processing with error {State}: {ErrorCode} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementDetailReport.aspx?controlNumber={ControlId}&filter=3'> View...</a>]]></Value>
         </locale_entry>
     </locale_space>

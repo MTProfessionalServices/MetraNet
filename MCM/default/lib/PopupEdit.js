@@ -35,10 +35,12 @@ setInterval("CheckStatus()", 500);  //Check the status every 500 ms
 
 //Requires that browsercheck is included
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
- var bc = new BrowserCheck();  
- var n = bc.ns;
- var ie = bc.ie;
- 
+
+  var bc = new BrowserCheck();
+  var n = bc.ns;
+  var ie = bc.ie;
+
+
 document.onmousemove = MouseClick;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

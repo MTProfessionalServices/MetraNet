@@ -13,8 +13,8 @@
         <frame name="ProductOfferingSelected" src="ProductOffering.ViewEdit.Nav.asp?ID=<%=SafeForHtmlAttr(request.QueryString("id"))%>" scrolling="auto" frameborder="0">
     </frameset>
     -->
-    <frame name="ProductOfferingSelected" src="ProductOffering.ViewEdit.Nav.asp?ID=<%=SafeForHtmlAttr(request.QueryString("id"))%>" scrolling="auto" frameborder="0">
-    <frame name="ProductOfferingMain" src="ProductOffering.ViewEdit.asp?ID=<%=request.QueryString("id")%>" scrolling="auto" frameborder="0">
+    <frame name="ProductOfferingSelected" src="ProductOffering.ViewEdit.Nav.asp?ID=<%=SafeForHtmlAttr(request.QueryString("id"))%>&Master=<%=SafeForHtmlAttr(request.QueryString("Master"))%>" scrolling="auto" frameborder="0">
+    <frame name="ProductOfferingMain" src="ProductOffering.ViewEdit.asp?ID=<%=request.QueryString("id")%>&Master=<%=SafeForHtmlAttr(request.QueryString("Master"))%>" scrolling="auto" frameborder="0">
 </frameset>
 
 </html>

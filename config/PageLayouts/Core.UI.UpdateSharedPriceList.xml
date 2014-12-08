@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.BaseTypes.PriceList</ObjectName>
     <Description>New Page Layout for creating shared price list</Description>
     <Pages>
-        <PageName>/MetraNet/MetraOffer/PriceLists/UpdateSharedPriceList.aspx</PageName>
+        <PageName>~/MetraOffer/PriceLists/UpdateSharedPriceList.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
@@ -20,7 +20,7 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Update Price List]]></Value>
+                <LocalizationTag>TEXT_UPDATE_PL</LocalizationTag>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Name></Name>
@@ -41,7 +41,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Name]]></Value>
+                                <LocalizationTag>TEXT_NAME</LocalizationTag>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -60,7 +60,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Description]]></Value>
+                                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -79,7 +79,7 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Partition Id]]></Value>
+                                <LocalizationTag>TEXT_PARTITION_ID</LocalizationTag>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />

@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
     <Description>Page Layout for creating new Product Offering</Description>
     <Pages>
-        <PageName>/MetraNet/MetraOffer/PriceLists/CreateProductOffering.aspx</PageName>
+        <PageName>~/MetraOffer/PriceLists/CreateProductOffering.aspx</PageName>
     </Pages>
     <Header>
         <!--PageTitle>

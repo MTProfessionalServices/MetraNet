@@ -13,13 +13,99 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Account Hierarchies</DisplayName>
+    <Description>[FR] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Account Hierarchies</DisplayName>
+    <Description>[IT] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Account Hierarchies</DisplayName>
+    <Description>[ES] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Account Hierarchies</DisplayName>
+    <Description>[DE] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Account Hierarchies</DisplayName>
+    <Description>[es-MX] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Account Hierarchies</DisplayName>
+    <Description>[pt-BR] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Account Hierarchies</DisplayName>
+    <Description>[en-GB] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Account Hierarchies</DisplayName>
+    <Description>[JA] Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
       <mtpathcapability>
         <Description>Specify access to hierarchy branches</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>
       </mtpathcapability>
   </atomictypes>
 </compositetype>
@@ -33,6 +119,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Unlimited Capability</DisplayName>
+    <Description>[FR] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Unlimited Capability</DisplayName>
+    <Description>[IT] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Unlimited Capability</DisplayName>
+    <Description>[ES] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Unlimited Capability</DisplayName>
+    <Description>[DE] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Unlimited Capability</DisplayName>
+    <Description>[es-MX] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Unlimited Capability</DisplayName>
+    <Description>[pt-BR] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Unlimited Capability</DisplayName>
+    <Description>[en-GB] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Unlimited Capability</DisplayName>
+    <Description>[JA] Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -44,6 +164,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[FR] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[IT] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[ES] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[DE] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[es-MX] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[pt-BR] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[en-GB] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage System Wide Authorization Policies</DisplayName>
+    <Description>[JA] Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -55,6 +209,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Subscriber Auth</DisplayName>
+    <Description>[FR] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Subscriber Auth</DisplayName>
+    <Description>[IT] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Subscriber Auth</DisplayName>
+    <Description>[ES] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Subscriber Auth</DisplayName>
+    <Description>[DE] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Subscriber Auth</DisplayName>
+    <Description>[es-MX] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Subscriber Auth</DisplayName>
+    <Description>[pt-BR] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Subscriber Auth</DisplayName>
+    <Description>[en-GB] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Subscriber Auth</DisplayName>
+    <Description>[JA] Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -66,6 +254,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage CSR Auth</DisplayName>
+    <Description>[FR] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage CSR Auth</DisplayName>
+    <Description>[IT] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage CSR Auth</DisplayName>
+    <Description>[ES] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage CSR Auth</DisplayName>
+    <Description>[DE] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage CSR Auth</DisplayName>
+    <Description>[es-MX] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage CSR Auth</DisplayName>
+    <Description>[pt-BR] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage CSR Auth</DisplayName>
+    <Description>[en-GB] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage CSR Auth</DisplayName>
+    <Description>[JA] Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -77,6 +299,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] View Online Bill</DisplayName>
+    <Description>[FR] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] View Online Bill</DisplayName>
+    <Description>[IT] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] View Online Bill</DisplayName>
+    <Description>[ES] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] View Online Bill</DisplayName>
+    <Description>[DE] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] View Online Bill</DisplayName>
+    <Description>[es-MX] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] View Online Bill</DisplayName>
+    <Description>[pt-BR] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] View Online Bill</DisplayName>
+    <Description>[en-GB] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] View Online Bill</DisplayName>
+    <Description>[JA] View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -88,9 +344,69 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Application LogOn</DisplayName>
+    <Description>[FR] Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Application LogOn</DisplayName>
+    <Description>[IT] Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Application LogOn</DisplayName>
+    <Description>[ES] Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Application LogOn</DisplayName>
+    <Description>[DE] Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Application LogOn</DisplayName>
+    <Description>[es-MX] Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Application LogOn</DisplayName>
+    <Description>[pt-BR] Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Application LogOn</DisplayName>
+    <Description>[en-GB] Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Application LogOn</DisplayName>
+    <Description>[JA] Application Logon: Permits application logon</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Specify which applications can be accessed</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify which applications can be accessed</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify which applications can be accessed</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify which applications can be accessed</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify which applications can be accessed</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify which applications can be accessed</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify which applications can be accessed</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify which applications can be accessed</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify which applications can be accessed</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/Application</TypeName>
       </mtenumtypecapability>
   </atomictypes>
@@ -105,6 +421,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Payment Redirection</DisplayName>
+    <Description>[FR] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Payment Redirection</DisplayName>
+    <Description>[IT] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Payment Redirection</DisplayName>
+    <Description>[ES] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Payment Redirection</DisplayName>
+    <Description>[DE] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Payment Redirection</DisplayName>
+    <Description>[es-MX] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Payment Redirection</DisplayName>
+    <Description>[pt-BR] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Payment Redirection</DisplayName>
+    <Description>[en-GB] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Payment Redirection</DisplayName>
+    <Description>[JA] Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -116,6 +466,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Payment Server</DisplayName>
+    <Description>[FR] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Payment Server</DisplayName>
+    <Description>[IT] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Payment Server</DisplayName>
+    <Description>[ES] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Payment Server</DisplayName>
+    <Description>[DE] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Payment Server</DisplayName>
+    <Description>[es-MX] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Payment Server</DisplayName>
+    <Description>[pt-BR] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Payment Server</DisplayName>
+    <Description>[en-GB] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Payment Server</DisplayName>
+    <Description>[JA] Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -127,6 +511,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage billable accounts</DisplayName>
+    <Description>[FR] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage billable accounts</DisplayName>
+    <Description>[IT] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage billable accounts</DisplayName>
+    <Description>[ES] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage billable accounts</DisplayName>
+    <Description>[DE] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage billable accounts</DisplayName>
+    <Description>[es-MX] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage billable accounts</DisplayName>
+    <Description>[pt-BR] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage billable accounts</DisplayName>
+    <Description>[en-GB] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage billable accounts</DisplayName>
+    <Description>[JA] Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
  
 <compositetype>
@@ -138,6 +556,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Create CSR accounts</DisplayName>
+    <Description>[FR] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Create CSR accounts</DisplayName>
+    <Description>[IT] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Create CSR accounts</DisplayName>
+    <Description>[ES] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Create CSR accounts</DisplayName>
+    <Description>[DE] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Create CSR accounts</DisplayName>
+    <Description>[es-MX] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Create CSR accounts</DisplayName>
+    <Description>[pt-BR] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Create CSR accounts</DisplayName>
+    <Description>[en-GB] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Create CSR accounts</DisplayName>
+    <Description>[JA] Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -149,6 +601,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update CSR accounts</DisplayName>
+    <Description>[FR] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update CSR accounts</DisplayName>
+    <Description>[IT] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update CSR accounts</DisplayName>
+    <Description>[ES] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update CSR accounts</DisplayName>
+    <Description>[DE] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update CSR accounts</DisplayName>
+    <Description>[es-MX] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update CSR accounts</DisplayName>
+    <Description>[pt-BR] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update CSR accounts</DisplayName>
+    <Description>[en-GB] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update CSR accounts</DisplayName>
+    <Description>[JA] Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -160,6 +646,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Create subscriber accounts</DisplayName>
+    <Description>[FR] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Create subscriber accounts</DisplayName>
+    <Description>[IT] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Create subscriber accounts</DisplayName>
+    <Description>[ES] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Create subscriber accounts</DisplayName>
+    <Description>[DE] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Create subscriber accounts</DisplayName>
+    <Description>[es-MX] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Create subscriber accounts</DisplayName>
+    <Description>[pt-BR] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Create subscriber accounts</DisplayName>
+    <Description>[en-GB] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Create subscriber accounts</DisplayName>
+    <Description>[JA] Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -171,6 +691,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update subscriber accounts</DisplayName>
+    <Description>[FR] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update subscriber accounts</DisplayName>
+    <Description>[IT] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update subscriber accounts</DisplayName>
+    <Description>[ES] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update subscriber accounts</DisplayName>
+    <Description>[DE] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update subscriber accounts</DisplayName>
+    <Description>[es-MX] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update subscriber accounts</DisplayName>
+    <Description>[pt-BR] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update subscriber accounts</DisplayName>
+    <Description>[en-GB] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update subscriber accounts</DisplayName>
+    <Description>[JA] Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -182,6 +736,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Create corporate accounts</DisplayName>
+    <Description>[FR] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Create corporate accounts</DisplayName>
+    <Description>[IT] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Create corporate accounts</DisplayName>
+    <Description>[ES] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Create corporate accounts</DisplayName>
+    <Description>[DE] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Create corporate accounts</DisplayName>
+    <Description>[es-MX] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Create corporate accounts</DisplayName>
+    <Description>[pt-BR] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Create corporate accounts</DisplayName>
+    <Description>[en-GB] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Create corporate accounts</DisplayName>
+    <Description>[JA] Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -193,6 +781,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update corporate accounts</DisplayName>
+    <Description>[FR] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update corporate accounts</DisplayName>
+    <Description>[IT] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update corporate accounts</DisplayName>
+    <Description>[ES] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update corporate accounts</DisplayName>
+    <Description>[DE] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update corporate accounts</DisplayName>
+    <Description>[es-MX] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update corporate accounts</DisplayName>
+    <Description>[pt-BR] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update corporate accounts</DisplayName>
+    <Description>[en-GB] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update corporate accounts</DisplayName>
+    <Description>[JA] Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -204,6 +826,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Move account</DisplayName>
+    <Description>[FR] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Move account</DisplayName>
+    <Description>[IT] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Move account</DisplayName>
+    <Description>[ES] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Move account</DisplayName>
+    <Description>[DE] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Move account</DisplayName>
+    <Description>[es-MX] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Move account</DisplayName>
+    <Description>[pt-BR] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Move account</DisplayName>
+    <Description>[en-GB] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Move account</DisplayName>
+    <Description>[JA] Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -215,6 +871,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update account from active to closed</DisplayName>
+    <Description>[FR] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update account from active to closed</DisplayName>
+    <Description>[IT] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update account from active to closed</DisplayName>
+    <Description>[ES] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update account from active to closed</DisplayName>
+    <Description>[DE] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update account from active to closed</DisplayName>
+    <Description>[es-MX] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update account from active to closed</DisplayName>
+    <Description>[pt-BR] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update account from active to closed</DisplayName>
+    <Description>[en-GB] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update account from active to closed</DisplayName>
+    <Description>[JA] Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -226,6 +916,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update account from active to suspended</DisplayName>
+    <Description>[FR] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update account from active to suspended</DisplayName>
+    <Description>[IT] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update account from active to suspended</DisplayName>
+    <Description>[ES] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update account from active to suspended</DisplayName>
+    <Description>[DE] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update account from active to suspended</DisplayName>
+    <Description>[es-MX] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update account from active to suspended</DisplayName>
+    <Description>[pt-BR] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update account from active to suspended</DisplayName>
+    <Description>[en-GB] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update account from active to suspended</DisplayName>
+    <Description>[JA] Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -237,6 +961,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update account from suspended to active</DisplayName>
+    <Description>[FR] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update account from suspended to active</DisplayName>
+    <Description>[IT] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update account from suspended to active</DisplayName>
+    <Description>[ES] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update account from suspended to active</DisplayName>
+    <Description>[DE] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update account from suspended to active</DisplayName>
+    <Description>[es-MX] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update account from suspended to active</DisplayName>
+    <Description>[pt-BR] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update account from suspended to active</DisplayName>
+    <Description>[en-GB] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update account from suspended to active</DisplayName>
+    <Description>[JA] Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -248,6 +1006,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update account from pending final bill to active</DisplayName>
+    <Description>[FR] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update account from pending final bill to active</DisplayName>
+    <Description>[IT] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update account from pending final bill to active</DisplayName>
+    <Description>[ES] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update account from pending final bill to active</DisplayName>
+    <Description>[DE] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update account from pending final bill to active</DisplayName>
+    <Description>[es-MX] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update account from pending final bill to active</DisplayName>
+    <Description>[pt-BR] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update account from pending final bill to active</DisplayName>
+    <Description>[en-GB] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update account from pending final bill to active</DisplayName>
+    <Description>[JA] Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -259,6 +1051,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Create group subscriptions</DisplayName>
+    <Description>[FR] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Create group subscriptions</DisplayName>
+    <Description>[IT] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Create group subscriptions</DisplayName>
+    <Description>[ES] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Create group subscriptions</DisplayName>
+    <Description>[DE] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Create group subscriptions</DisplayName>
+    <Description>[es-MX] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Create group subscriptions</DisplayName>
+    <Description>[pt-BR] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Create group subscriptions</DisplayName>
+    <Description>[en-GB] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Create group subscriptions</DisplayName>
+    <Description>[JA] Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -270,6 +1096,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update group subscriptions</DisplayName>
+    <Description>[FR] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update group subscriptions</DisplayName>
+    <Description>[IT] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update group subscriptions</DisplayName>
+    <Description>[ES] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update group subscriptions</DisplayName>
+    <Description>[DE] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update group subscriptions</DisplayName>
+    <Description>[es-MX] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update group subscriptions</DisplayName>
+    <Description>[pt-BR] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update group subscriptions</DisplayName>
+    <Description>[en-GB] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update group subscriptions</DisplayName>
+    <Description>[JA] Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -281,6 +1141,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Add to group subscription</DisplayName>
+    <Description>[FR] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Add to group subscription</DisplayName>
+    <Description>[IT] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Add to group subscription</DisplayName>
+    <Description>[ES] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Add to group subscription</DisplayName>
+    <Description>[DE] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Add to group subscription</DisplayName>
+    <Description>[es-MX] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Add to group subscription</DisplayName>
+    <Description>[pt-BR] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Add to group subscription</DisplayName>
+    <Description>[en-GB] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Add to group subscription</DisplayName>
+    <Description>[JA] Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -292,6 +1186,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Modify groupsub membership</DisplayName>
+    <Description>[FR] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Modify groupsub membership</DisplayName>
+    <Description>[IT] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Modify groupsub membership</DisplayName>
+    <Description>[ES] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Modify groupsub membership</DisplayName>
+    <Description>[DE] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Modify groupsub membership</DisplayName>
+    <Description>[es-MX] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Modify groupsub membership</DisplayName>
+    <Description>[pt-BR] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Modify groupsub membership</DisplayName>
+    <Description>[en-GB] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Modify groupsub membership</DisplayName>
+    <Description>[JA] Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -303,6 +1231,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Create subscription</DisplayName>
+    <Description>[FR] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Create subscription</DisplayName>
+    <Description>[IT] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Create subscription</DisplayName>
+    <Description>[ES] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Create subscription</DisplayName>
+    <Description>[DE] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Create subscription</DisplayName>
+    <Description>[es-MX] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Create subscription</DisplayName>
+    <Description>[pt-BR] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Create subscription</DisplayName>
+    <Description>[en-GB] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Create subscription</DisplayName>
+    <Description>[JA] Create Subscription: Permits creating individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -314,6 +1276,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update subscription</DisplayName>
+    <Description>[FR] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update subscription</DisplayName>
+    <Description>[IT] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update subscription</DisplayName>
+    <Description>[ES] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update subscription</DisplayName>
+    <Description>[DE] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update subscription</DisplayName>
+    <Description>[es-MX] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update subscription</DisplayName>
+    <Description>[pt-BR] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update subscription</DisplayName>
+    <Description>[en-GB] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update subscription</DisplayName>
+    <Description>[JA] Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -325,6 +1321,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Custom Rates</DisplayName>
+    <Description>[FR] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Custom Rates</DisplayName>
+    <Description>[IT] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Custom Rates</DisplayName>
+    <Description>[ES] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Custom Rates</DisplayName>
+    <Description>[DE] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Custom Rates</DisplayName>
+    <Description>[es-MX] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Custom Rates</DisplayName>
+    <Description>[pt-BR] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Custom Rates</DisplayName>
+    <Description>[en-GB] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Custom Rates</DisplayName>
+    <Description>[JA] Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -336,6 +1366,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Group Custom Rates</DisplayName>
+    <Description>[FR] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Group Custom Rates</DisplayName>
+    <Description>[IT] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Group Custom Rates</DisplayName>
+    <Description>[ES] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Group Custom Rates</DisplayName>
+    <Description>[DE] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Group Custom Rates</DisplayName>
+    <Description>[es-MX] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Group Custom Rates</DisplayName>
+    <Description>[pt-BR] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Group Custom Rates</DisplayName>
+    <Description>[en-GB] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Group Custom Rates</DisplayName>
+    <Description>[JA] Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -347,6 +1411,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] View subscriptions</DisplayName>
+    <Description>[FR] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] View subscriptions</DisplayName>
+    <Description>[IT] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] View subscriptions</DisplayName>
+    <Description>[ES] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] View subscriptions</DisplayName>
+    <Description>[DE] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] View subscriptions</DisplayName>
+    <Description>[es-MX] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] View subscriptions</DisplayName>
+    <Description>[pt-BR] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] View subscriptions</DisplayName>
+    <Description>[en-GB] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] View subscriptions</DisplayName>
+    <Description>[JA] View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -358,6 +1456,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] View group subscriptions</DisplayName>
+    <Description>[FR] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] View group subscriptions</DisplayName>
+    <Description>[IT] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] View group subscriptions</DisplayName>
+    <Description>[ES] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] View group subscriptions</DisplayName>
+    <Description>[DE] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] View group subscriptions</DisplayName>
+    <Description>[es-MX] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] View group subscriptions</DisplayName>
+    <Description>[pt-BR] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] View group subscriptions</DisplayName>
+    <Description>[en-GB] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] View group subscriptions</DisplayName>
+    <Description>[JA] View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -369,6 +1501,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Delete Subscription</DisplayName>
+    <Description>[FR] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Delete Subscription</DisplayName>
+    <Description>[IT] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Delete Subscription</DisplayName>
+    <Description>[ES] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Delete Subscription</DisplayName>
+    <Description>[DE] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Delete Subscription</DisplayName>
+    <Description>[es-MX] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Delete Subscription</DisplayName>
+    <Description>[pt-BR] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Delete Subscription</DisplayName>
+    <Description>[en-GB] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Delete Subscription</DisplayName>
+    <Description>[JA] Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 
@@ -381,9 +1547,69 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage independent accounts</DisplayName>
+    <Description>[FR] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage independent accounts</DisplayName>
+    <Description>[IT] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage independent accounts</DisplayName>
+    <Description>[ES] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage independent accounts</DisplayName>
+    <Description>[DE] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage independent accounts</DisplayName>
+    <Description>[es-MX] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage independent accounts</DisplayName>
+    <Description>[pt-BR] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage independent accounts</DisplayName>
+    <Description>[en-GB] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage independent accounts</DisplayName>
+    <Description>[JA] Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
   </atomictypes>
@@ -398,6 +1624,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Self Subscribe</DisplayName>
+    <Description>[FR] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Self Subscribe</DisplayName>
+    <Description>[IT] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Self Subscribe</DisplayName>
+    <Description>[ES] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Self Subscribe</DisplayName>
+    <Description>[DE] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Self Subscribe</DisplayName>
+    <Description>[es-MX] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Self Subscribe</DisplayName>
+    <Description>[pt-BR] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Self Subscribe</DisplayName>
+    <Description>[en-GB] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Self Subscribe</DisplayName>
+    <Description>[JA] Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -409,6 +1669,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Update Failed Transactions</DisplayName>
+    <Description>[FR] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Update Failed Transactions</DisplayName>
+    <Description>[IT] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Update Failed Transactions</DisplayName>
+    <Description>[ES] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Update Failed Transactions</DisplayName>
+    <Description>[DE] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Update Failed Transactions</DisplayName>
+    <Description>[es-MX] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Update Failed Transactions</DisplayName>
+    <Description>[pt-BR] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Update Failed Transactions</DisplayName>
+    <Description>[en-GB] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Update Failed Transactions</DisplayName>
+    <Description>[JA] Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -420,40 +1714,191 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Apply Adjustments</DisplayName>
+    <Description>[FR] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Apply Adjustments</DisplayName>
+    <Description>[IT] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Apply Adjustments</DisplayName>
+    <Description>[ES] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Apply Adjustments</DisplayName>
+    <Description>[DE] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Apply Adjustments</DisplayName>
+    <Description>[es-MX] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Apply Adjustments</DisplayName>
+    <Description>[pt-BR] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Apply Adjustments</DisplayName>
+    <Description>[en-GB] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Apply Adjustments</DisplayName>
+    <Description>[JA] Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Specify currency for adjustments</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify currency for adjustments</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify currency for adjustments</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify currency for adjustments</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify currency for adjustments</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify currency for adjustments</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify currency for adjustments</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify currency for adjustments</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify currency for adjustments</Description>
+          </item>	
+        </LocalizedItems>        
         <TypeName>Global/SystemCurrencies/SystemCurrencies</TypeName>
       </mtenumtypecapability>
       <mtdecimalcapability>
         <Description>Specify adjustments limit</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify adjustments limit</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify adjustments limit</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify adjustments limit</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify adjustments limit</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify adjustments limit</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify adjustments limit</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify adjustments limit</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify adjustments limit</Description>
+          </item>	
+        </LocalizedItems>
       </mtdecimalcapability>
   </atomictypes>
 </compositetype>
 
 <compositetype>
   <name>Manage Adjustments</name>
-  <description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).
-  </description>
+  <description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</description>
   <editor></editor>
   <progid>MetraTech.Auth.Capabilities.ManageAdjustmentsCapability</progid>
   <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Adjustments</DisplayName>
+    <Description>[FR] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Adjustments</DisplayName>
+    <Description>[IT] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Adjustments</DisplayName>
+    <Description>[ES] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Adjustments</DisplayName>
+    <Description>[DE] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Adjustments</DisplayName>
+    <Description>[es-MX] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Adjustments</DisplayName>
+    <Description>[pt-BR] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Adjustments</DisplayName>
+    <Description>[en-GB] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Adjustments</DisplayName>
+    <Description>[JA] Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 	<compositetype>
 		<name>Manual Override</name>
-		<description>
-			Manual Override: Allow user to move transaction into manual override state.
-		</description>
+		<description>Manual Override: Allow user to move transaction into manual override state.</description>
 		<editor></editor>
 		<progid>MetraTech.Auth.Capabilities.ManualOverrideCapability</progid>
 		<CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
 		<SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
 		<AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
 		<UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manual Override</DisplayName>
+    <Description>[FR] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manual Override</DisplayName>
+    <Description>[IT] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manual Override</DisplayName>
+    <Description>[ES] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manual Override</DisplayName>
+    <Description>[DE] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manual Override</DisplayName>
+    <Description>[es-MX] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manual Override</DisplayName>
+    <Description>[pt-BR] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manual Override</DisplayName>
+    <Description>[en-GB] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manual Override</DisplayName>
+    <Description>[JA] Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>	
+  </LocalizedItems>
 	</compositetype>
 	
   <compositetype>
@@ -465,35 +1910,149 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Create Disputes</DisplayName>
+      <Description>[FR] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Create Disputes</DisplayName>
+      <Description>[IT] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Create Disputes</DisplayName>
+      <Description>[ES] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Create Disputes</DisplayName>
+      <Description>[DE] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Create Disputes</DisplayName>
+      <Description>[es-MX] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Create Disputes</DisplayName>
+      <Description>[pt-BR] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Create Disputes</DisplayName>
+      <Description>[en-GB] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Create Disputes</DisplayName>
+      <Description>[JA] Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>	
+    </LocalizedItems>
     <atomictypes>
       <mtenumtypecapability>
         <Description>Specify currency for adjustments</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify currency for adjustments</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify currency for adjustments</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify currency for adjustments</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify currency for adjustments</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify currency for adjustments</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify currency for adjustments</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify currency for adjustments</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify currency for adjustments</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/SystemCurrencies/SystemCurrencies</TypeName>
       </mtenumtypecapability>
       <mtdecimalcapability>
         <Description>Specify adjustments limit</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify adjustments limit</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify adjustments limit</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify adjustments limit</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify adjustments limit</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify adjustments limit</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify adjustments limit</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify adjustments limit</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify adjustments limit</Description>
+          </item>	
+        </LocalizedItems>
       </mtdecimalcapability>
     </atomictypes>
   </compositetype>
 
   <compositetype>
     <name>Manage Disputes</name>
-    <description>
-      Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).
-    </description>
+    <description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</description>
     <editor></editor>
     <progid>MetraTech.Auth.Capabilities.ManageDisputesCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage Disputes</DisplayName>
+      <Description>[FR] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage Disputes</DisplayName>
+      <Description>[IT] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage Disputes</DisplayName>
+      <Description>[ES] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage Disputes</DisplayName>
+      <Description>[DE] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage Disputes</DisplayName>
+      <Description>[es-MX] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage Disputes</DisplayName>
+      <Description>[pt-BR] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage Disputes</DisplayName>
+      <Description>[en-GB] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage Disputes</DisplayName>
+      <Description>[JA] Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
 
   <compositetype>
-<!--
-  In the future, as we add more auth/auth to MCM, we can use this capability (now only meant to delete
--->
-
   <name>Delete Rates</name>
   <description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</description>
   <editor></editor>
@@ -502,6 +2061,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Delete Rates</DisplayName>
+    <Description>[FR] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Delete Rates</DisplayName>
+    <Description>[IT] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Delete Rates</DisplayName>
+    <Description>[ES] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Delete Rates</DisplayName>
+    <Description>[DE] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Delete Rates</DisplayName>
+    <Description>[es-MX] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Delete Rates</DisplayName>
+    <Description>[pt-BR] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Delete Rates</DisplayName>
+    <Description>[en-GB] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Delete Rates</DisplayName>
+    <Description>[JA] Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -513,6 +2106,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Delete Product Offerings</DisplayName>
+    <Description>[FR] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Delete Product Offerings</DisplayName>
+    <Description>[IT] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Delete Product Offerings</DisplayName>
+    <Description>[ES] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Delete Product Offerings</DisplayName>
+    <Description>[DE] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Delete Product Offerings</DisplayName>
+    <Description>[es-MX] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Delete Product Offerings</DisplayName>
+    <Description>[pt-BR] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Delete Product Offerings</DisplayName>
+    <Description>[en-GB] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Delete Product Offerings</DisplayName>
+    <Description>[JA] Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -524,6 +2151,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Back Date Subscriptions</DisplayName>
+    <Description>[FR] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Back Date Subscriptions</DisplayName>
+    <Description>[IT] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Back Date Subscriptions</DisplayName>
+    <Description>[ES] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Back Date Subscriptions</DisplayName>
+    <Description>[DE] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Back Date Subscriptions</DisplayName>
+    <Description>[es-MX] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Back Date Subscriptions</DisplayName>
+    <Description>[pt-BR] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Back Date Subscriptions</DisplayName>
+    <Description>[en-GB] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Back Date Subscriptions</DisplayName>
+    <Description>[JA] Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -535,6 +2196,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Scheduled Adapters</DisplayName>
+    <Description>[FR] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Scheduled Adapters</DisplayName>
+    <Description>[IT] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Scheduled Adapters</DisplayName>
+    <Description>[ES] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Scheduled Adapters</DisplayName>
+    <Description>[DE] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Scheduled Adapters</DisplayName>
+    <Description>[es-MX] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Scheduled Adapters</DisplayName>
+    <Description>[pt-BR] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Scheduled Adapters</DisplayName>
+    <Description>[en-GB] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Scheduled Adapters</DisplayName>
+    <Description>[JA] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -546,6 +2241,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage EOP Adapters</DisplayName>
+    <Description>[FR] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage EOP Adapters</DisplayName>
+    <Description>[IT] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage EOP Adapters</DisplayName>
+    <Description>[ES] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage EOP Adapters</DisplayName>
+    <Description>[DE] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage EOP Adapters</DisplayName>
+    <Description>[es-MX] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage EOP Adapters</DisplayName>
+    <Description>[pt-BR] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage EOP Adapters</DisplayName>
+    <Description>[en-GB] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage EOP Adapters</DisplayName>
+    <Description>[JA] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -557,6 +2286,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Batches</DisplayName>
+    <Description>[FR] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Batches</DisplayName>
+    <Description>[IT] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Batches</DisplayName>
+    <Description>[ES] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Batches</DisplayName>
+    <Description>[DE] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Batches</DisplayName>
+    <Description>[es-MX] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Batches</DisplayName>
+    <Description>[pt-BR] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Batches</DisplayName>
+    <Description>[en-GB] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Batches</DisplayName>
+    <Description>[JA] Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -568,6 +2331,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Backouts and Reruns</DisplayName>
+    <Description>[FR] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Backouts and Reruns</DisplayName>
+    <Description>[IT] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Backouts and Reruns</DisplayName>
+    <Description>[ES] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Backouts and Reruns</DisplayName>
+    <Description>[DE] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Backouts and Reruns</DisplayName>
+    <Description>[es-MX] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Backouts and Reruns</DisplayName>
+    <Description>[pt-BR] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Backouts and Reruns</DisplayName>
+    <Description>[en-GB] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Backouts and Reruns</DisplayName>
+    <Description>[JA] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -579,13 +2376,99 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[FR] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[IT] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[ES] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[DE] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[es-MX] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[pt-BR] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[en-GB] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Sales Force Hierarchies</DisplayName>
+    <Description>[JA] Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>        
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
       <mtpathcapability>
         <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>	
+        </LocalizedItems>
       </mtpathcapability>
   </atomictypes>
 </compositetype>
@@ -599,16 +2482,99 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Manage Owned Accounts</DisplayName>
+    <Description>[FR] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Manage Owned Accounts</DisplayName>
+    <Description>[IT] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Manage Owned Accounts</DisplayName>
+    <Description>[ES] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Manage Owned Accounts</DisplayName>
+    <Description>[DE] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Manage Owned Accounts</DisplayName>
+    <Description>[es-MX] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Manage Owned Accounts</DisplayName>
+    <Description>[pt-BR] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Manage Owned Accounts</DisplayName>
+    <Description>[en-GB] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Manage Owned Accounts</DisplayName>
+    <Description>[JA] Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
       <mtpathcapability>
-        <Description>
-          Specify what accounts this user can manage:
-          only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.
-        </Description>
+        <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify which applications can be accessed</Description>
+          </item>	
+        </LocalizedItems>
       </mtpathcapability>
   </atomictypes>
 </compositetype>
@@ -622,9 +2588,69 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Read Business Modeling Entities</DisplayName>
+    <Description>[FR] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Read Business Modeling Entities</DisplayName>
+    <Description>[IT] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Read Business Modeling Entities</DisplayName>
+    <Description>[ES] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Read Business Modeling Entities</DisplayName>
+    <Description>[DE] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Read Business Modeling Entities</DisplayName>
+    <Description>[es-MX] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Read Business Modeling Entities</DisplayName>
+    <Description>[pt-BR] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Read Business Modeling Entities</DisplayName>
+    <Description>[en-GB] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Read Business Modeling Entities</DisplayName>
+    <Description>[JA] Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
     <mtenumtypecapability>
       <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>	
+        </LocalizedItems>
       <TypeName>metratech.com/BusinessEntity/BusinessEntityExtension</TypeName>
     </mtenumtypecapability>
   </atomictypes>
@@ -639,9 +2665,69 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>[FR] Write Business Modeling Entities</DisplayName>
+    <Description>[FR] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>[IT] Write Business Modeling Entities</DisplayName>
+    <Description>[IT] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>[ES] Write Business Modeling Entities</DisplayName>
+    <Description>[ES] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>[DE] Write Business Modeling Entities</DisplayName>
+    <Description>[DE] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>[es-MX] Write Business Modeling Entities</DisplayName>
+    <Description>[es-MX] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>[pt-BR] Write Business Modeling Entities</DisplayName>
+    <Description>[pt-BR] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>[en-GB] Write Business Modeling Entities</DisplayName>
+    <Description>[en-GB] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>[JA] Write Business Modeling Entities</DisplayName>
+    <Description>[JA] Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
     <mtenumtypecapability>
       <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>	
+        </LocalizedItems>
       <TypeName>metratech.com/BusinessEntity/BusinessEntityExtension</TypeName>
     </mtenumtypecapability>
   </atomictypes>
@@ -656,6 +2742,40 @@
 		<SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
 		<AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
 		<UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Impersonation</DisplayName>
+      <Description>[FR] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Impersonation</DisplayName>
+      <Description>[IT] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Impersonation</DisplayName>
+      <Description>[ES] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Impersonation</DisplayName>
+      <Description>[DE] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Impersonation</DisplayName>
+      <Description>[es-MX] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Impersonation</DisplayName>
+      <Description>[pt-BR] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Impersonation</DisplayName>
+      <Description>[en-GB] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Impersonation</DisplayName>
+      <Description>[JA] Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>	
+    </LocalizedItems>
 	</compositetype>
   
   <compositetype>
@@ -667,6 +2787,40 @@
 		<SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
 		<AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
 		<UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] LogonAccount</DisplayName>
+      <Description>[FR] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] LogonAccount</DisplayName>
+      <Description>[IT] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] LogonAccount</DisplayName>
+      <Description>[ES] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] LogonAccount</DisplayName>
+      <Description>[DE] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] LogonAccount</DisplayName>
+      <Description>[es-MX] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] LogonAccount</DisplayName>
+      <Description>[pt-BR] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] LogonAccount</DisplayName>
+      <Description>[en-GB] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] LogonAccount</DisplayName>
+      <Description>[JA] Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>	
+    </LocalizedItems>
 	</compositetype>
 
 	<compositetype>
@@ -678,6 +2832,40 @@
     <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] MetraView Admin</DisplayName>
+      <Description>[FR] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] MetraView Admin</DisplayName>
+      <Description>[IT] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] MetraView Admin</DisplayName>
+      <Description>[ES] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] MetraView Admin</DisplayName>
+      <Description>[DE] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] MetraView Admin</DisplayName>
+      <Description>[es-MX] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] MetraView Admin</DisplayName>
+      <Description>[pt-BR] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] MetraView Admin</DisplayName>
+      <Description>[en-GB] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] MetraView Admin</DisplayName>
+      <Description>[JA] MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -689,27 +2877,146 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Apply NonStandardCharges</DisplayName>
+      <Description>[FR] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Apply NonStandardCharges</DisplayName>
+      <Description>[IT] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Apply NonStandardCharges</DisplayName>
+      <Description>[ES] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Apply NonStandardCharges</DisplayName>
+      <Description>[DE] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Apply NonStandardCharges</DisplayName>
+      <Description>[es-MX] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Apply NonStandardCharges</DisplayName>
+      <Description>[pt-BR] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Apply NonStandardCharges</DisplayName>
+      <Description>[en-GB] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Apply NonStandardCharges</DisplayName>
+      <Description>[JA] Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>	
+    </LocalizedItems>
     <atomictypes>
         <mtenumtypecapability>
           <Description>Specify currency for nonstandard charges</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify currency for nonstandard charges</Description>
+          </item>	
+        </LocalizedItems>
           <TypeName>Global/SystemCurrencies/SystemCurrencies</TypeName>
         </mtenumtypecapability>
         <mtdecimalcapability>
           <Description>Specify nonstandard charges limit</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>[FR] Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="IT">          
+          <Description>[IT] Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="ES">
+          <Description>[ES] Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="DE">
+          <Description>[DE] Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>[es-MX] Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>[pt-BR] Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>[en-GB] Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="JA">
+          <Description>[JA] Specify nonstandard charges limit</Description>
+          </item>	
+        </LocalizedItems>
         </mtdecimalcapability>
     </atomictypes>
   </compositetype>
 
   <compositetype>
     <name>Manage NonStandardCharges</name>
-    <description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).
-    </description>
+    <description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</description>
     <editor></editor>
     <progid>MetraTech.Auth.Capabilities.ManageNonStandardChargesCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage NonStandardCharges</DisplayName>
+      <Description>[FR] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage NonStandardCharges</DisplayName>
+      <Description>[IT] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage NonStandardCharges</DisplayName>
+      <Description>[ES] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage NonStandardCharges</DisplayName>
+      <Description>[DE] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage NonStandardCharges</DisplayName>
+      <Description>[es-MX] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage NonStandardCharges</DisplayName>
+      <Description>[pt-BR] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage NonStandardCharges</DisplayName>
+      <Description>[en-GB] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage NonStandardCharges</DisplayName>
+      <Description>[JA] Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
     <compositetype>
@@ -721,6 +3028,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage DataExportFramework</DisplayName>
+      <Description>[FR] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage DataExportFramework</DisplayName>
+      <Description>[IT] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage DataExportFramework</DisplayName>
+      <Description>[ES] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage DataExportFramework</DisplayName>
+      <Description>[DE] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage DataExportFramework</DisplayName>
+      <Description>[es-MX] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage DataExportFramework</DisplayName>
+      <Description>[pt-BR] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage DataExportFramework</DisplayName>
+      <Description>[en-GB] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage DataExportFramework</DisplayName>
+      <Description>[JA] Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
 
     <compositetype>
@@ -732,6 +3073,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage Specification Characteristics</DisplayName>
+      <Description>[FR] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage Specification Characteristics</DisplayName>
+      <Description>[IT] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage Specification Characteristics</DisplayName>
+      <Description>[ES] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage Specification Characteristics</DisplayName>
+      <Description>[DE] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage Specification Characteristics</DisplayName>
+      <Description>[es-MX] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage Specification Characteristics</DisplayName>
+      <Description>[pt-BR] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage Specification Characteristics</DisplayName>
+      <Description>[en-GB] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage Specification Characteristics</DisplayName>
+      <Description>[JA] Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
 
   <compositetype>
@@ -743,6 +3118,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Allow ApprovalsView</DisplayName>
+      <Description>[FR] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Allow ApprovalsView</DisplayName>
+      <Description>[IT] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Allow ApprovalsView</DisplayName>
+      <Description>[ES] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Allow ApprovalsView</DisplayName>
+      <Description>[DE] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Allow ApprovalsView</DisplayName>
+      <Description>[es-MX] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Allow ApprovalsView</DisplayName>
+      <Description>[pt-BR] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Allow ApprovalsView</DisplayName>
+      <Description>[en-GB] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Allow ApprovalsView</DisplayName>
+      <Description>[JA] Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
     <compositetype>
@@ -754,6 +3163,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Approve AccountChanges</DisplayName>
+      <Description>[FR] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Approve AccountChanges</DisplayName>
+      <Description>[IT] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Approve AccountChanges</DisplayName>
+      <Description>[ES] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Approve AccountChanges</DisplayName>
+      <Description>[DE] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Approve AccountChanges</DisplayName>
+      <Description>[es-MX] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Approve AccountChanges</DisplayName>
+      <Description>[pt-BR] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Approve AccountChanges</DisplayName>
+      <Description>[en-GB] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Approve AccountChanges</DisplayName>
+      <Description>[JA] Approve AccountChanges: Allow approving account update changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
     <compositetype>
@@ -765,6 +3208,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Approve RateUpdates</DisplayName>
+      <Description>[FR] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Approve RateUpdates</DisplayName>
+      <Description>[IT] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Approve RateUpdates</DisplayName>
+      <Description>[ES] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Approve RateUpdates</DisplayName>
+      <Description>[DE] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Approve RateUpdates</DisplayName>
+      <Description>[es-MX] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Approve RateUpdates</DisplayName>
+      <Description>[pt-BR] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Approve RateUpdates</DisplayName>
+      <Description>[en-GB] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Approve RateUpdates</DisplayName>
+      <Description>[JA] Approve RateUpdates: Allow approving rate updates</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -776,6 +3253,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] ManageAmpDecisions</DisplayName>
+      <Description>[FR] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] ManageAmpDecisions</DisplayName>
+      <Description>[IT] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] ManageAmpDecisions</DisplayName>
+      <Description>[ES] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] ManageAmpDecisions</DisplayName>
+      <Description>[DE] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] ManageAmpDecisions</DisplayName>
+      <Description>[es-MX] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] ManageAmpDecisions</DisplayName>
+      <Description>[pt-BR] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] ManageAmpDecisions</DisplayName>
+      <Description>[en-GB] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] ManageAmpDecisions</DisplayName>
+      <Description>[JA] ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
     <compositetype>
@@ -787,6 +3298,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Approve ProductOfferingChanges</DisplayName>
+      <Description>[FR] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Approve ProductOfferingChanges</DisplayName>
+      <Description>[IT] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Approve ProductOfferingChanges</DisplayName>
+      <Description>[ES] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Approve ProductOfferingChanges</DisplayName>
+      <Description>[DE] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Approve ProductOfferingChanges</DisplayName>
+      <Description>[es-MX] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Approve ProductOfferingChanges</DisplayName>
+      <Description>[pt-BR] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Approve ProductOfferingChanges</DisplayName>
+      <Description>[en-GB] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Approve ProductOfferingChanges</DisplayName>
+      <Description>[JA] Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
     <compositetype>
@@ -798,6 +3343,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[FR] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[IT] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[ES] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[DE] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[es-MX] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[pt-BR] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[en-GB] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Approve GroupSubscriptionChanges</DisplayName>
+      <Description>[JA] Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
     <compositetype>
@@ -809,6 +3388,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Approve SubscriptionChanges</DisplayName>
+      <Description>[FR] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Approve SubscriptionChanges</DisplayName>
+      <Description>[IT] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Approve SubscriptionChanges</DisplayName>
+      <Description>[ES] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Approve SubscriptionChanges</DisplayName>
+      <Description>[DE] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Approve SubscriptionChanges</DisplayName>
+      <Description>[es-MX] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Approve SubscriptionChanges</DisplayName>
+      <Description>[pt-BR] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Approve SubscriptionChanges</DisplayName>
+      <Description>[en-GB] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Approve SubscriptionChanges</DisplayName>
+      <Description>[JA] Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -820,6 +3433,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage FLS Files</DisplayName>
+      <Description>[FR] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage FLS Files</DisplayName>
+      <Description>[IT] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage FLS Files</DisplayName>
+      <Description>[ES] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage FLS Files</DisplayName>
+      <Description>[DE] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage FLS Files</DisplayName>
+      <Description>[es-MX] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage FLS Files</DisplayName>
+      <Description>[pt-BR] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage FLS Files</DisplayName>
+      <Description>[en-GB] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage FLS Files</DisplayName>
+      <Description>[JA] Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -831,6 +3478,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] View FLS Files</DisplayName>
+      <Description>[FR] View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] View FLS Files</DisplayName>
+      <Description>[IT] View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] View FLS Files</DisplayName>
+      <Description>[ES] View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] View FLS Files</DisplayName>
+      <Description>[DE] View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] View FLS Files</DisplayName>
+      <Description>[es-MX] View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] View FLS Files</DisplayName>
+      <Description>[pt-BR] View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] View FLS Files</DisplayName>
+      <Description>[en-GB] View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] View FLS Files</DisplayName>
+      <Description>[JA] View FLS files: Permits viewing of FLS files</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -842,6 +3523,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] View Agreement Template</DisplayName>
+      <Description>[FR] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] View Agreement Template</DisplayName>
+      <Description>[IT] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] View Agreement Template</DisplayName>
+      <Description>[ES] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] View Agreement Template</DisplayName>
+      <Description>[DE] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] View Agreement Template</DisplayName>
+      <Description>[es-MX] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] View Agreement Template</DisplayName>
+      <Description>[pt-BR] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] View Agreement Template</DisplayName>
+      <Description>[en-GB] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] View Agreement Template</DisplayName>
+      <Description>[JA] View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -853,6 +3568,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage Agreement Template</DisplayName>
+      <Description>[FR] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage Agreement Template</DisplayName>
+      <Description>[IT] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage Agreement Template</DisplayName>
+      <Description>[ES] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage Agreement Template</DisplayName>
+      <Description>[DE] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage Agreement Template</DisplayName>
+      <Description>[es-MX] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage Agreement Template</DisplayName>
+      <Description>[pt-BR] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage Agreement Template</DisplayName>
+      <Description>[en-GB] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage Agreement Template</DisplayName>
+      <Description>[JA] Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -864,6 +3613,40 @@
     <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+      <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage Quoting</DisplayName>
+      <Description>[FR] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage Quoting</DisplayName>
+      <Description>[IT] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage Quoting</DisplayName>
+      <Description>[ES] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage Quoting</DisplayName>
+      <Description>[DE] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage Quoting</DisplayName>
+      <Description>[es-MX] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage Quoting</DisplayName>
+      <Description>[pt-BR] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage Quoting</DisplayName>
+      <Description>[en-GB] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage Quoting</DisplayName>
+      <Description>[JA] Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -875,6 +3658,40 @@
     <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] View Quoting</DisplayName>
+      <Description>[FR] View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] View Quoting</DisplayName>
+      <Description>[IT] View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] View Quoting</DisplayName>
+      <Description>[ES] View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] View Quoting</DisplayName>
+      <Description>[DE] View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] View Quoting</DisplayName>
+      <Description>[es-MX] View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] View Quoting</DisplayName>
+      <Description>[pt-BR] View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] View Quoting</DisplayName>
+      <Description>[en-GB] View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] View Quoting</DisplayName>
+      <Description>[JA] View Quoting: Permits to view Quoting entities</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -886,6 +3703,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage OnBoard Templates</DisplayName>
+      <Description>[FR] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage OnBoard Templates</DisplayName>
+      <Description>[IT] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage OnBoard Templates</DisplayName>
+      <Description>[ES] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage OnBoard Templates</DisplayName>
+      <Description>[DE] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage OnBoard Templates</DisplayName>
+      <Description>[es-MX] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage OnBoard Templates</DisplayName>
+      <Description>[pt-BR] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage OnBoard Templates</DisplayName>
+      <Description>[en-GB] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage OnBoard Templates</DisplayName>
+      <Description>[JA] Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
  
   <compositetype>
@@ -897,6 +3748,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+      <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Update Runtime Configuration</DisplayName>
+      <Description>[FR] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Update Runtime Configuration</DisplayName>
+      <Description>[IT] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Update Runtime Configuration</DisplayName>
+      <Description>[ES] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Update Runtime Configuration</DisplayName>
+      <Description>[DE] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Update Runtime Configuration</DisplayName>
+      <Description>[es-MX] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Update Runtime Configuration</DisplayName>
+      <Description>[pt-BR] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Update Runtime Configuration</DisplayName>
+      <Description>[en-GB] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Update Runtime Configuration</DisplayName>
+      <Description>[JA] Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype> 
   
   <compositetype>
@@ -908,6 +3793,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage Usage Processing</DisplayName>
+      <Description>[FR] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage Usage Processing</DisplayName>
+      <Description>[IT] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage Usage Processing</DisplayName>
+      <Description>[ES] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage Usage Processing</DisplayName>
+      <Description>[DE] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage Usage Processing</DisplayName>
+      <Description>[es-MX] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage Usage Processing</DisplayName>
+      <Description>[pt-BR] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage Usage Processing</DisplayName>
+      <Description>[en-GB] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage Usage Processing</DisplayName>
+      <Description>[JA] Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype> 
   
   <compositetype>
@@ -919,7 +3838,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage Intervals</DisplayName>
+      <Description>[FR] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage Intervals</DisplayName>
+      <Description>[IT] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage Intervals</DisplayName>
+      <Description>[ES] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage Intervals</DisplayName>
+      <Description>[DE] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage Intervals</DisplayName>
+      <Description>[es-MX] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage Intervals</DisplayName>
+      <Description>[pt-BR] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage Intervals</DisplayName>
+      <Description>[en-GB] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage Intervals</DisplayName>
+      <Description>[JA] Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>Manage Bill Message</name>
     <description>Manage Bill Message: Allow managing/assigning Bill Message through UI</description>
@@ -929,7 +3883,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage Bill Message</DisplayName>
+      <Description>[FR] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage Bill Message</DisplayName>
+      <Description>[IT] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage Bill Message</DisplayName>
+      <Description>[ES] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage Bill Message</DisplayName>
+      <Description>[DE] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage Bill Message</DisplayName>
+      <Description>[es-MX] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage Bill Message</DisplayName>
+      <Description>[pt-BR] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage Bill Message</DisplayName>
+      <Description>[en-GB] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage Bill Message</DisplayName>
+      <Description>[JA] Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>Manage System User Reports</name>
     <description>Manage System User Reports: Allow managing/Assigning User Reports through UI</description>
@@ -939,6 +3928,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>[FR] Manage System User Reports</DisplayName>
+      <Description>[FR] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Manage System User Reports</DisplayName>
+      <Description>[IT] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Manage System User Reports</DisplayName>
+      <Description>[ES] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Manage System User Reports</DisplayName>
+      <Description>[DE] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Manage System User Reports</DisplayName>
+      <Description>[es-MX] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>[pt-BR] Manage System User Reports</DisplayName>
+      <Description>[pt-BR] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Manage System User Reports</DisplayName>
+      <Description>[en-GB] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Manage System User Reports</DisplayName>
+      <Description>[JA] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   <compositetype>
     <name>View Summary Financial Information</name>

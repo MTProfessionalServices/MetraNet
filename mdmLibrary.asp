@@ -2117,4 +2117,34 @@ END FUNCTION
 FUNCTION mdm_GetIconUrlForAccountType(sAccountTypeName)
 		mdm_GetIconUrlForAccountType = "/imagehandler/images/Account/" & mdm_EscapeForImageHandler(sAccountTypeName) & "/account.gif"
 END FUNCTION
+
+
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 			: mdm_LocalizeXSL
+' PARAMETERS		:
+' DESCRIPTION   : Return the instance of the dictionary stored in the session else nothing.
+' RETURNS			  : TRUE if ok.
+PUBLIC FUNCTION mdm_LocalizeString(stringToLocalize) ' As Dictionary    
+
+  Dim strTest 
+  Dim strToReplace
+  Dim strTag
+  Set objRegExp = New RegExp
+  objRegExp.Global = True
+  objRegExp.IgnoreCase = True
+  objRegExp.Pattern = "\[[A-Z0-9_]*\]"
+  
+  Set colMatches = objRegExp.Execute(stringToLocalize)
+  For Each objMatch In colMatches
+    strTag = Mid(objMatch.Value, 2, len(objMatch.Value) - 2)
+    strToReplace = mdm_GetDictionaryValue(strTag, objMatch.Value)
+    stringToLocalize = Replace(stringToLocalize, objMatch.Value, strToReplace)
+  Next
+
+  mdm_LocalizeString = stringToLocalize
+END FUNCTION  
+
+
+
 %>

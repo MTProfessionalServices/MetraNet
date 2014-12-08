@@ -379,4 +379,7 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>値</value>
     </data>
+    <data name="TEXT_QUEUSE_ADHOC_REPORTS" xml:space="preserve">
+        <value>Queue Adhoc Reports</value>
+    </data>
 </root>

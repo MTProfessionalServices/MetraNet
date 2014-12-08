@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,177 +59,176 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-    <data name="AnotherUQGLogicLabelResource.Text" xml:space="preserve">
-        <value>Logic:</value>
-    </data>
-    <data name="btnBackResource1.ServerSide" xml:space="preserve">
-        <value>True</value>
-    </data>
-    <data name="btnContinueResource1.ServerSide" xml:space="preserve">
-        <value>True</value>
-    </data>
-    <data name="btnSaveAndContinueResource1.ServerSide" xml:space="preserve">
-        <value>True</value>
-    </data>
-    <data name="FieldLabelResource.Text" xml:space="preserve">
-        <value>Field:</value>
-    </data>
-    <data name="FilterLabelResource.Text" xml:space="preserve">
-        <value>Filtro:</value>
-    </data>
-    <data name="lblAnotherUQGPanelResource.Text" xml:space="preserve">
-        <value>Another Usage Qualification</value>
-    </data>
-    <data name="lblInfoResource.Text" xml:space="preserve">
-        <value>Specify the properties that usage records must have in order to be analyzed by this Decision Type.</value>
-    </data>
-    <data name="lblTitleResource1.Text" xml:space="preserve">
-        <value>Usage Qualification</value>
-    </data>
-    <data name="lblUsageFieldPanelResource.Text" xml:space="preserve">
-        <value>t_acc_usage/Product View Field</value>
-    </data>
-    <data name="LOGIC_DOES_NOT_MEET_THIS_QUALIFICATION" xml:space="preserve">
-        <value>Does not meet this qualification</value>
-    </data>
-    <data name="LOGIC_MEETS_THIS_QUALIFICATION" xml:space="preserve">
-        <value>Meets this qualification</value>
-    </data>
-    <data name="LogicLabelResource.Text" xml:space="preserve">
-        <value>Logic:</value>
-    </data>
-    <data name="TableLabelResource.Text" xml:space="preserve">
-        <value>Table:</value>
-    </data>
-    <data name="TEXT_ERROR_ADD_USAGE_QUALIFICATION" xml:space="preserve">
-        <value>An error occured while adding Usage Qualification with name = '{0}'.</value>
-    </data>
-    <data name="TEXT_ERROR_GETTING_DATA" xml:space="preserve">
-        <value>An error occurred while retrieving data for the page.</value>
-    </data>
-    <data name="TEXT_ERROR_MUST_USE_UNIQUE_NAME_FOR_NEW_UQ" xml:space="preserve">
-        <value>An error occurred while creating the new Usage Qualification because the name '{0}' is already the name for another Usage Qualificaion. Please use a unique name for the new Usage Qualification.</value>
-    </data>
-    <data name="TEXT_ERROR_RETRIEVE_UQGS" xml:space="preserve">
-        <value>An error occurred while retrieving the list of usage qualification group names.</value>
-    </data>
-    <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_ACTION" xml:space="preserve">
-        <value>An error occurred while retrieving Usage Qualification Action from session state value</value>
-    </data>
-    <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_FILTER" xml:space="preserve">
-        <value>An error occurred while retrieving the filter for usage qualification: </value>
-    </data>
-    <data name="TEXT_INSERT" xml:space="preserve">
-        <value>Inserir</value>
-    </data>
-    <data name="TEXT_SUCCESS_CREATE_USAGE_QUALIFICATION" xml:space="preserve">
-        <value>Successfully created Usage Qualification with name '{0}'.</value>
-    </data>
-    <data name="UsageQualificationDescriptionResource.Label" xml:space="preserve">
-        <value>Descrição</value>
-    </data>
-    <data name="UsageQualificationDescriptionResource.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="UsageQualificationDescriptionResource1.MaxLength" xml:space="preserve">
-        <value>-1</value>
-    </data>
-    <data name="UsageQualificationDescriptionResource1.MinLength" xml:space="preserve">
-        <value>0</value>
-    </data>
-    <data name="UsageQualificationFilterResource.Label" xml:space="preserve">
-        <value>Filtro</value>
-    </data>
-    <data name="UsageQualificationFilterResource.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="UsageQualificationFilterResource1.MaxLength" xml:space="preserve">
-        <value>-1</value>
-    </data>
-    <data name="UsageQualificationFilterResource1.MinLength" xml:space="preserve">
-        <value>0</value>
-    </data>
-    <data name="UsageQualificationLabelResource.Text" xml:space="preserve">
-        <value>Usage Qualification:</value>
-    </data>
-    <data name="UsageQualificationNameResource.Label" xml:space="preserve">
-        <value>Nome</value>
-    </data>
-    <data name="UsageQualificationNameResource.LabelSeparator" xml:space="preserve">
-        <value>:</value>
-    </data>
-    <data name="UsageQualificationNameResource1.MaxLength" xml:space="preserve">
-        <value>-1</value>
-    </data>
-    <data name="UsageQualificationNameResource1.MinLength" xml:space="preserve">
-        <value>0</value>
-    </data>
-    <data name="ValueLabelResource.Text" xml:space="preserve">
-        <value>Value:</value>
-    </data>
-    <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-        <value>Descrição:</value>
-    </data>
-    <data name="ViewUsageQualificationFilterLabelResource.Text" xml:space="preserve">
-        <value>Filtro:</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AnotherUQGLogicLabelResource.Text" xml:space="preserve">
+    <value>[pt-BR]Logic:</value>
+  </data>
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="btnContinueResource1.ServerSide" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="btnSaveAndContinueResource1.ServerSide" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="FieldLabelResource.Text" xml:space="preserve">
+    <value>[pt-BR]Field:</value>
+  </data>
+  <data name="FilterLabelResource.Text" xml:space="preserve">
+    <value>Filtro:</value>
+  </data>
+  <data name="lblAnotherUQGPanelResource.Text" xml:space="preserve">
+    <value>[pt-BR]Another Usage Qualification</value>
+  </data>
+  <data name="lblInfoResource.Text" xml:space="preserve">
+    <value>[pt-BR]Specify the properties that usage records must have in order to be analyzed by this Decision Type.</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>[pt-BR]Usage Qualification</value>
+  </data>
+  <data name="lblUsageFieldPanelResource.Text" xml:space="preserve">
+    <value>[pt-BR]t_acc_usage/Product View Field</value>
+  </data>
+  <data name="LOGIC_DOES_NOT_MEET_THIS_QUALIFICATION" xml:space="preserve">
+    <value>[pt-BR]Does not meet this qualification</value>
+  </data>
+  <data name="LOGIC_MEETS_THIS_QUALIFICATION" xml:space="preserve">
+    <value>[pt-BR]Meets this qualification</value>
+  </data>
+  <data name="LogicLabelResource.Text" xml:space="preserve">
+    <value>[pt-BR]Logic:</value>
+  </data>
+  <data name="TableLabelResource.Text" xml:space="preserve">
+    <value>[pt-BR]Table:</value>
+  </data>
+  <data name="TEXT_ERROR_ADD_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>[pt-BR]An error occured while adding Usage Qualification with name = '{0}'.</value>
+  </data>
+  <data name="TEXT_ERROR_GETTING_DATA" xml:space="preserve">
+    <value>[pt-BR]An error occurred while retrieving data for the page.</value>
+  </data>
+  <data name="TEXT_ERROR_MUST_USE_UNIQUE_NAME_FOR_NEW_UQ" xml:space="preserve">
+    <value>[pt-BR]An error occurred while creating the new Usage Qualification because the name '{0}' is already the name for another Usage Qualificaion. Please use a unique name for the new Usage Qualification.</value>
+  </data>
+  <data name="TEXT_ERROR_RETRIEVE_UQGS" xml:space="preserve">
+    <value>[pt-BR]An error occurred while retrieving the list of usage qualification group names.</value>
+  </data>
+  <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_ACTION" xml:space="preserve">
+    <value>[pt-BR]An error occurred while retrieving Usage Qualification Action from session state value</value>
+  </data>
+  <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_FILTER" xml:space="preserve">
+    <value>[pt-BR]An error occurred while retrieving the filter for usage qualification: </value>
+  </data>
+  <data name="TEXT_INSERT" xml:space="preserve">
+    <value>Inserir</value>
+  </data>
+  <data name="TEXT_SUCCESS_CREATE_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>[pt-BR]Successfully created Usage Qualification with name '{0}'.</value>
+  </data>
+  <data name="UsageQualificationDescriptionResource.Label" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="UsageQualificationDescriptionResource.LabelSeparator" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="UsageQualificationDescriptionResource1.MaxLength" xml:space="preserve">
+    <value>-1</value>
+  </data>
+  <data name="UsageQualificationDescriptionResource1.MinLength" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="UsageQualificationFilterResource.Label" xml:space="preserve">
+    <value>Filtro</value>
+  </data>
+  <data name="UsageQualificationFilterResource.LabelSeparator" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="UsageQualificationFilterResource1.MaxLength" xml:space="preserve">
+    <value>-1</value>
+  </data>
+  <data name="UsageQualificationFilterResource1.MinLength" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="UsageQualificationLabelResource.Text" xml:space="preserve">
+    <value>[pt-BR]Usage Qualification:</value>
+  </data>
+  <data name="UsageQualificationNameResource.Label" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="UsageQualificationNameResource.LabelSeparator" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="UsageQualificationNameResource1.MaxLength" xml:space="preserve">
+    <value>-1</value>
+  </data>
+  <data name="UsageQualificationNameResource1.MinLength" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ValueLabelResource.Text" xml:space="preserve">
+    <value>[pt-BR]Value:</value>
+  </data>
+  <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
+    <value>Descrição:</value>
+  </data>
+  <data name="ViewUsageQualificationFilterLabelResource.Text" xml:space="preserve">
+    <value>Filtro:</value>
+  </data>
 </root>

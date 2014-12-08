@@ -136,13 +136,13 @@
     <value>Id</value>
   </data>
   <data name="ACS_PROPERTIESTOSET" xml:space="preserve">
-    <value>Properties To Set</value>
+    <value>Apply following Account Properties Updates</value>
   </data>
   <data name="ACS_RANK" xml:space="preserve">
     <value>Rank</value>
   </data>
   <data name="ACS_SELECTIONSCRITERIA" xml:space="preserve">
-    <value>Selection Criteria</value>
+    <value>If following Account Properties are satisfied</value>
   </data>
   <data name="CREATE_ACS" xml:space="preserve">
     <value>Add</value>

@@ -45,7 +45,7 @@
                             <Icon>/Res/Images/icons/IntervalStateOpen.gif</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage EOP Adapters</Capability>
+                                <Capability>Manage EOP Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -59,7 +59,7 @@
                             <Icon>/Res/Images/icons/IntervalStateSoftClosed.gif</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                               <Capability>Manage EOP Adapters</Capability>
+                                <Capability>Manage EOP Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -73,7 +73,7 @@
                             <Icon>/Res/Images/icons/IntervalStateHardClosed.gif</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage EOP Adapters</Capability>
+                                <Capability>Manage EOP Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -87,7 +87,7 @@
                             <Icon>/Res/Images/icons/Interval.gif</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage EOP Adapters</Capability>
+                                <Capability>Manage EOP Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -106,12 +106,12 @@
                                 <LocalizationTag>TEXT_EVENT_LIST</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.List.asp</Link>
+                            <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdaptersList.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Scheduled Adapters</Capability>
+                                <Capability>Manage Scheduled Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -120,12 +120,13 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_24</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-24</Link>
-                            <Target>MainContentIframe</Target>
+                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-24</Link>-->
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-24</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Scheduled Adapters</Capability>
+                                <Capability>Manage Scheduled Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -134,12 +135,13 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_WEEK</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-168</Link>
-                            <Target>MainContentIframe</Target>
+                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-168</Link>-->
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-168</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Scheduled Adapters</Capability>
+                                <Capability>Manage Scheduled Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -148,12 +150,13 @@
                                 <LocalizationTag>TEXT_RUNS_ALL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp</Link>
-                            <Target>MainContentIframe</Target>
+                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp</Link>-->
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                               <Capability>Manage Scheduled Adapters</Capability>
+                                <Capability>Manage Scheduled Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -162,12 +165,12 @@
                                 <LocalizationTag>TEXT_RUN_SCHEDULED_ADAPTER</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.asp</Link>
+                            <Link>/MetraNet/MetraControl/ScheduledAdapters/RunScheduledAdapter.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/hourglass_go.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                               <Capability>Manage Scheduled Adapters</Capability>
+                                <Capability>Manage Scheduled Adapters</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -203,19 +206,19 @@
                     <Description></Description>
                     <MenuItems>
                         <MenuItem>
-                          <ID>ViewMeteringStatistics</ID>
-                          <Caption>
-                            <LocalizationTag>TEXT_VIEW_METERING_STATISTICS</LocalizationTag>
-                            <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                          </Caption>
-                          <Link>/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/Usage.Statistics.Filter.asp</Link>
-                          <Target>MainContentIframe</Target>
-                          <Icon>/Res/Images/icons/grid.png</Icon>
-                          <Description></Description>
-                          <RequiredCapabilities>
-                            <Capability>Manage Usage Processing</Capability>
-                          </RequiredCapabilities>
-                        </MenuItem>                      
+                            <ID>ViewMeteringStatistics</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_VIEW_METERING_STATISTICS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/Usage/UsageStatisticsFilter.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/grid.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Usage Processing</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>Batch24</ID>
                             <Caption>
@@ -227,7 +230,7 @@
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                             <Capability>Manage Batches</Capability>
+                                <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -241,7 +244,7 @@
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                             <Capability>Manage Batches</Capability>
+                                <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -255,7 +258,7 @@
                             <Icon>/Res/Images/icons/page_white_lightning.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                           <Capability>Manage Batches</Capability>
+                                <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -269,7 +272,7 @@
                             <Icon>/Res/Images/icons/page_white_medal.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Batches</Capability>
+                                <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -283,7 +286,7 @@
                             <Icon>/Res/Images/icons/page_white_delete.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                             <Capability>Manage Batches</Capability>
+                                <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -297,7 +300,7 @@
                             <Icon>/Res/Images/icons/page_white_stack.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Batches</Capability>
+                                <Capability>Manage Batches</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -311,7 +314,7 @@
                             <Icon>/Res/Images/icons/IntervalStateHardClosed.gif</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Usage Processing</Capability>
+                                <Capability>Manage Usage Processing</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -335,7 +338,7 @@
                             <Icon>/Res/Images/icons/database_gear.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Backouts and Reruns</Capability>
+                                <Capability>Manage Backouts and Reruns</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -349,7 +352,7 @@
                             <Icon>/Res/Images/icons/database_lightning.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Backouts and Reruns</Capability>
+                                <Capability>Manage Backouts and Reruns</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -363,7 +366,7 @@
                             <Icon>/Res/Images/icons/database.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <Capability>Manage Backouts and Reruns</Capability>
+                                <Capability>Manage Backouts and Reruns</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -795,9 +798,9 @@
                             <Icon>/Res/Images/icons/cog_edit.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                               <Capability>Update Runtime Configuration</Capability>
+                                <Capability>Update Runtime Configuration</Capability>
                             </RequiredCapabilities>
-                        </MenuItem>                      
+                        </MenuItem>
                         <MenuItem>
                             <ID>VersionInfo</ID>
                             <Caption>
@@ -821,7 +824,7 @@
                             <Icon>/Res/Images/icons/bricks.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                               <Capability>Update Runtime Configuration</Capability>
+                                <Capability>Update Runtime Configuration</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -835,7 +838,12 @@
                             <Icon>/Res/Images/icons/computer_add.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                                <Capability>Update Runtime Configuration</Capability>                                
+                                <Capability>Update Runtime Configuration</Capability>
+                                <RequiredCapabilities>
+                                    <CompositeCapability name="Read Business Modeling Entities">
+                                        <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
+                                    </CompositeCapability>
+                                </RequiredCapabilities>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -849,7 +857,7 @@
                             <Icon>/Res/Images/icons/database_refresh.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                               <Capability>Update Runtime Configuration</Capability>
+                                <Capability>Update Runtime Configuration</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

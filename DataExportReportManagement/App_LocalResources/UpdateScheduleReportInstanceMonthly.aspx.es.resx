@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,276 +59,291 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnOKResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Actualizar plan de informes mensuales</value>
-  </data>
-  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>Actualizar plan de informes mensuales</value>
-  </data>
-  <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
-    <value>Fecha de activación</value>
-  </data>
-  <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
-    <value>Comprimir informe</value>
-  </data>
-  <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
-    <value>Umbral de compresión</value>
-  </data>
-  <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
-    <value>Destino del archivo de control</value>
-  </data>
-  <data name="TEXT_DEF_CREATE_NEW_REPORT_DEFINITION" xml:space="preserve">
-    <value>Crear nueva definición de informe</value>
-  </data>
-  <data name="TEXT_DEF_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
-    <value>Crear nueva instancia de informe</value>
-  </data>
-  <data name="TEXT_DEF_CREATE_NEW_REPORT_PARAMETER" xml:space="preserve">
-    <value>Crear nuevo parámetro de informe</value>
-  </data>
-  <data name="TEXT_DEF_CREATE_NEW_REPORT_SCHEDULE" xml:space="preserve">
-    <value>Crear plan de instancias nuevas</value>
-  </data>
-  <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
-    <value>Fecha de desactivación</value>
-  </data>
-  <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
-    <value>Método de entrega</value>
-  </data>
-  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
-    <value>Descripción</value>
-  </data>
-  <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
-    <value>Destino</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
-    <value>Día de ejecución</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
-    <value>Hora de finalización de la ejecución (HH:MM)</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Ejecutar el primer día del mes</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Ejecutar el último día del mes</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
-    <value>Hora de inicio de la ejecución (HH:MM)</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
-    <value>Hora de la ejecución (HH:MM)</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-    <value>Tipo de ejecución</value>
-  </data>
-  <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
-    <value>Generar archivo de control</value>
-  </data>
-  <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
-    <value>ID de instancia</value>
-  </data>
-  <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
-    <value>Fecha de la última ejecución</value>
-  </data>
-  <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
-    <value>Gestionar parámetros de informe</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_APRIL" xml:space="preserve">
-    <value>Abril</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_AUGUST" xml:space="preserve">
-    <value>Agosto</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_DECEMBER" xml:space="preserve">
-    <value>Diciembre</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_FEBRUARY" xml:space="preserve">
-    <value>Febrero</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_JANUARY" xml:space="preserve">
-    <value>Enero</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_JULY" xml:space="preserve">
-    <value>Julio</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_JUNE" xml:space="preserve">
-    <value>Junio</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_MARCH" xml:space="preserve">
-    <value>Marzo</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_MAY" xml:space="preserve">
-    <value>Mayo</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_NOVEMBER" xml:space="preserve">
-    <value>Noviembre</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
-    <value>Octubre</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_SEPTEMBER" xml:space="preserve">
-    <value>Septiembre</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
-    <value>Meses transcurridos hasta la fecha</value>
-  </data>
-  <data name="TEXT_DEF_NAME" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
-    <value>Próxima fecha de ejecución</value>
-  </data>
-  <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
-    <value>Escribir parámetros de ejecución para la salida</value>
-  </data>
-  <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
-    <value>ID de parámetro</value>
-  </data>
-  <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
-    <value>Contraseña de FTP</value>
-  </data>
-  <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
-    <value>Evitar ejecución ad hoc</value>
-  </data>
-  <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
-    <value>Etiqueta de consulta</value>
-  </data>
-  <data name="TEXT_DEF_REPEAT_HOURS" xml:space="preserve">
-    <value>Repetir horas</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
-    <value>ID de informe</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
-    <value>Nombre de archivo de salida</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
-    <value>Tipo de salida</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
-    <value>Título del informe</value>
-  </data>
-  <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
-    <value>ID de plan</value>
-  </data>
-  <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
-    <value>Tipo de plan</value>
-  </data>
-  <data name="TEXT_DEF_SHOW_ALL_REPORT_DEFINITIONS" xml:space="preserve">
-    <value>Definiciones de informe</value>
-  </data>
-  <data name="TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Omitir primer día del mes</value>
-  </data>
-  <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Omitir último día del mes</value>
-  </data>
-  <data name="TEXT_DEF_UPDATE_DAILY_SCHEDULE" xml:space="preserve">
-    <value>Actualizar plan diario</value>
-  </data>
-  <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
-    <value>Actualizar definición de informe existente</value>
-  </data>
-  <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_INSTANCE" xml:space="preserve">
-    <value>Actualizar instancia de informe existente</value>
-  </data>
-  <data name="TEXT_DEF_UPDATE_INSTANCE_PARAMETER_VALUE" xml:space="preserve">
-    <value>Actualizar valor del parámetro de la instancia</value>
-  </data>
-  <data name="TEXT_DEF_UPDATE_MONTHLY_SCHEDULE" xml:space="preserve">
-    <value>Actualizar plan mensual</value>
-  </data>
-  <data name="TEXT_DEF_UPDATE_WEEKLY_SCHEDULE" xml:space="preserve">
-    <value>Actualizar plan semanal</value>
-  </data>
-  <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
-    <value>Nombre de usuario de FTP</value>
-  </data>
-  <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
-    <value>Utilizar identificadores citados</value>
-  </data>
-  <data name="TEXT_DEF_VALUE" xml:space="preserve">
-    <value>Valor</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_DAY1" xml:space="preserve">
-    <value>Día de ejecución</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <data name="btnCancelResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnCancelResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="btnOKResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnOKResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
+        <value>10</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Actualizar plan de informes mensuales</value>
+    </data>
+    <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>Actualizar plan de informes mensuales</value>
+    </data>
+    <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
+        <value>Fecha de activación</value>
+    </data>
+    <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
+        <value>Comprimir informe</value>
+    </data>
+    <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
+        <value>Umbral de compresión</value>
+    </data>
+    <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
+        <value>Destino del archivo de control</value>
+    </data>
+    <data name="TEXT_DEF_CREATE_NEW_REPORT_DEFINITION" xml:space="preserve">
+        <value>Crear nueva definición de informe</value>
+    </data>
+    <data name="TEXT_DEF_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
+        <value>Crear nueva instancia de informe</value>
+    </data>
+    <data name="TEXT_DEF_CREATE_NEW_REPORT_PARAMETER" xml:space="preserve">
+        <value>Crear nuevo parámetro de informe</value>
+    </data>
+    <data name="TEXT_DEF_CREATE_NEW_REPORT_SCHEDULE" xml:space="preserve">
+        <value>Crear plan de instancias nuevas</value>
+    </data>
+    <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
+        <value>Fecha de desactivación</value>
+    </data>
+    <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
+        <value>Método de entrega</value>
+    </data>
+    <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+        <value>Descripción</value>
+    </data>
+    <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
+        <value>Destino</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
+        <value>Día de ejecución</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_DAY1" xml:space="preserve">
+        <value>Día de ejecución</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
+        <value>Hora de finalización de la ejecución (HH:MM)</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Ejecutar el primer día del mes</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Ejecutar el último día del mes</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
+        <value>Hora de inicio de la ejecución (HH:MM)</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
+        <value>Hora de la ejecución (HH:MM)</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
+        <value>Tipo de ejecución</value>
+    </data>
+    <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
+        <value>Generar archivo de control</value>
+    </data>
+    <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
+        <value>ID de instancia</value>
+    </data>
+    <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
+        <value>Fecha de la última ejecución</value>
+    </data>
+    <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
+        <value>Gestionar parámetros de informe</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_APRIL" xml:space="preserve">
+        <value>Abril</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_AUGUST" xml:space="preserve">
+        <value>Agosto</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_DECEMBER" xml:space="preserve">
+        <value>Diciembre</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_FEBRUARY" xml:space="preserve">
+        <value>Febrero</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_JANUARY" xml:space="preserve">
+        <value>Enero</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_JULY" xml:space="preserve">
+        <value>Julio</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_JUNE" xml:space="preserve">
+        <value>Junio</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_MARCH" xml:space="preserve">
+        <value>Marzo</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_MAY" xml:space="preserve">
+        <value>Mayo</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_NOVEMBER" xml:space="preserve">
+        <value>Noviembre</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
+        <value>Octubre</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_SEPTEMBER" xml:space="preserve">
+        <value>Septiembre</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
+        <value>Meses transcurridos hasta la fecha</value>
+    </data>
+    <data name="TEXT_DEF_NAME" xml:space="preserve">
+        <value>Nombre</value>
+    </data>
+    <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
+        <value>Próxima fecha de ejecución</value>
+    </data>
+    <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
+        <value>Escribir parámetros de ejecución para la salida</value>
+    </data>
+    <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
+        <value>ID de parámetro</value>
+    </data>
+    <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
+        <value>Contraseña de FTP</value>
+    </data>
+    <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
+        <value>Evitar ejecución ad hoc</value>
+    </data>
+    <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
+        <value>Etiqueta de consulta</value>
+    </data>
+    <data name="TEXT_DEF_REPEAT_HOURS" xml:space="preserve">
+        <value>Repetir horas</value>
+    </data>
+    <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
+        <value>ID de informe</value>
+    </data>
+    <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
+        <value>Nombre de archivo de salida</value>
+    </data>
+    <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
+        <value>Tipo de salida</value>
+    </data>
+    <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
+        <value>Título del informe</value>
+    </data>
+    <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
+        <value>ID de plan</value>
+    </data>
+    <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
+        <value>Tipo de plan</value>
+    </data>
+    <data name="TEXT_DEF_SHOW_ALL_REPORT_DEFINITIONS" xml:space="preserve">
+        <value>Definiciones de informe</value>
+    </data>
+    <data name="TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Omitir primer día del mes</value>
+    </data>
+    <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Omitir último día del mes</value>
+    </data>
+    <data name="TEXT_DEF_UPDATE_DAILY_SCHEDULE" xml:space="preserve">
+        <value>Actualizar plan diario</value>
+    </data>
+    <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
+        <value>Actualizar definición de informe existente</value>
+    </data>
+    <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_INSTANCE" xml:space="preserve">
+        <value>Actualizar instancia de informe existente</value>
+    </data>
+    <data name="TEXT_DEF_UPDATE_INSTANCE_PARAMETER_VALUE" xml:space="preserve">
+        <value>Actualizar valor del parámetro de la instancia</value>
+    </data>
+    <data name="TEXT_DEF_UPDATE_MONTHLY_SCHEDULE" xml:space="preserve">
+        <value>Actualizar plan mensual</value>
+    </data>
+    <data name="TEXT_DEF_UPDATE_WEEKLY_SCHEDULE" xml:space="preserve">
+        <value>Actualizar plan semanal</value>
+    </data>
+    <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
+        <value>Utilizar identificadores citados</value>
+    </data>
+    <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
+        <value>Nombre de usuario de FTP</value>
+    </data>
+    <data name="TEXT_DEF_VALUE" xml:space="preserve">
+        <value>Valor</value>
+    </data>
+    <data name="TEXT_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
+        <value>Execute day of Monthly Schedule </value>
+    </data>
+    <data name="TEXT_EXECUTE_TIME_OF_MONTHLY" xml:space="preserve">
+        <value>Execute Time of Monthly Schedule</value>
+    </data>
+    <data name="TEXT_SKIP_THE_FOLLOWING_MONTH" xml:space="preserve">
+        <value>Skip The Following Months</value>
+    </data>
+  <data name="TEXT_Delete_Monthly_Report_Schedule" xml:space="preserve">
+        <value>Delete Monthly Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Monthly_Report_Schedule" xml:space="preserve">
+        <value>Update Monthly Report Schedule</value>
+    </data>
 </root>

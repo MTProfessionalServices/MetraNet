@@ -33,8 +33,13 @@
       var parameterids = GetParameterIDs();
       if (parameterids.length == 0)
         {
-          Ext.UI.SystemError("No parameter was selected. Please select at least one parameter for assignment");
-          return;
+          Ext.UI.SystemError('<%=GetGlobalResourceObject("JSConsts", "TEXT_No_parameter_was_selected_MESSAGE")%>'); 
+          var dlg = top.Ext.MessageBox.getDialog();
+	        var buttons = dlg.buttons;
+          for (i = 0; i < buttons.length; i++) {
+            buttons[i].addClass('custom-class');
+          }
+        return;
         }      
         
         // do ajax request

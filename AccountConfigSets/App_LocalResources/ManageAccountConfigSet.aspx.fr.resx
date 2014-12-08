@@ -148,7 +148,7 @@
     <value>[FR]Cancel</value>
   </data>
   <data name="TEXT_CREATE_ACCOUNTCONFIGSET" xml:space="preserve">
-    <value>[FR]Create OnBoard Template</value>
+    <value>[FR]Add OnBoard Template</value>
   </data>
   <data name="TEXT_DATES_ERROR" xml:space="preserve">
     <value>[FR]Start Date should be less then End Date</value>
@@ -171,10 +171,10 @@
   <data name="USERNAME" xml:space="preserve">
     <value>[FR]User Name</value>
   </data>
-  <data name="dpSubParamsEndDateResource.Text" xml:space="preserve">
+  <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
     <value>[FR]Subscription End Date</value>
   </data>
-  <data name="dpSubParamsStartDateResource.Text" xml:space="preserve">
+  <data name="dpSubParamsStartDateResource.Label" xml:space="preserve">
     <value>[FR]Subscription Start Date</value>
   </data>
   <data name="tbSubParamsDescriptionResource.Label" xml:space="preserve">
@@ -195,35 +195,35 @@
   <data name="btnAddAccountConfigSetResource.Text" xml:space="preserve">
     <value>[FR]Add</value>
   </data>
-  <data name="dpStartDateResource.Text" xml:space="preserve">
-    <value>[FR]Template Effective Date</value>
+  <data name="dpStartDateResource.Label" xml:space="preserve">
+    <value>[FR]Effective Date</value>
   </data>
-  <data name="dpEndDateResource.Text" xml:space="preserve">
-    <value>[FR]Template Effective End Date</value>
+  <data name="dpEndDateResource.Label" xml:space="preserve">
+    <value>[FR]Effective End Date</value>
   </data>
   <data name="tbAcsDescriptionResource.Label" xml:space="preserve">
-    <value>[FR]Template Description</value>
+    <value>[FR]Description</value>
   </data>
   <data name="cbAcsEnabledResource.BoxLabel" xml:space="preserve">
-    <value>[FR]Template Enabled</value>
+    <value>[FR]Enabled</value>
   </data>
   <data name="tbRankResource.Label" xml:space="preserve">
-    <value>[FR]Template Rank</value>
+    <value>[FR]Rank</value>
   </data>
   <data name="panelAccountConfigSetParameters.Text" xml:space="preserve">
-    <value>[FR]Template Parameters</value>
+    <value>[FR]Template Information</value>
   </data>
   <data name="panelCriteriaResource.Text" xml:space="preserve">
-    <value>[FR]Template Selection Criteria and Properties For Modification Parameters</value>
+    <value>[FR]</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>[FR]Template Subscription Parameters</value>
+    <value>[FR]Subscription Model Details</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
     <value>[FR]Group Subscription Name</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
-    <value>[FR]Subscription Parameters Id</value>
+    <value>[FR]Subscription Params Id</value>
   </data>
   <data name="ACCOUNTVIEW" xml:space="preserve">
     <value>[FR]Account View</value>
@@ -237,7 +237,7 @@
   <data name="ITEM" xml:space="preserve">
     <value>[FR]Item</value>
   </data>
-    <data name="ITEMS" xml:space="preserve">
+  <data name="ITEMS" xml:space="preserve">
     <value>[FR]Items</value>
   </data>
   <data name="SELECTION_CRITERIA_GRID_TITLE" xml:space="preserve">
@@ -252,19 +252,46 @@
   <data name="EDIT_SELECTIONCRITERION" xml:space="preserve">
     <value>[FR]Edit Selection Criterion</value>
   </data>
-  <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
-    <value>[FR]Add Property To Set</value>
+  <data name="REMOVE_PROPERTY_TO_SET" xml:space="preserve">
+    <value>[FR]Remove Property To Set</value>
   </data>
   <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
     <value>[FR]Edit Property To Set</value>
   </data>
+  <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
+    <value>[FR]Add Property</value>
+  </data>
   <data name="ADD_SELECTION_CRITERIA" xml:space="preserve">
-    <value>[FR]Add Selection Criteria</value>
+    <value>[FR]Add Property</value>
   </data>
   <data name="ADD_SELECTION_CRITERION" xml:space="preserve">
     <value>[FR]Add Selection Criterion</value>
   </data>
   <data name="EDIT_SELECTION_CRITERIA" xml:space="preserve">
     <value>[FR]Edit Selection Criteria</value>
+  </data>
+  <data name="UDRC_GRID_TITLE" xml:space="preserve">
+    <value>[FR]UDRC metrics</value>
+  </data>
+  <data name="TEXT_FAILED" xml:space="preserve">
+    <value>[FR]Failed. Wrong input!</value>
+  </data>
+  <data name="TEXT_WRONG_INPUT" xml:space="preserve">
+    <value>[FR]Most likely length of the value more than available for the selected property</value>
+  </data>
+  <data name="panelManageSubscriptionParametersResource.Text" xml:space="preserve">
+    <value>[FR]Apply following Subscription Model</value>
+  </data>
+  <data name="btnSelectSubParamsResource.Text" xml:space="preserve">
+    <value>[FR]Select Model</value>
+  </data>
+  <data name="btnRemoveSubParamsResource.Text" xml:space="preserve">
+    <value>[FR]Remove Model</value>
+  </data>
+  <data name="SELECT_SUBPARAMS" xml:space="preserve">
+    <value>[FR]Subscription Models</value>
+  </data>
+  <data name="TEXT_UPDATE_QUESTION" xml:space="preserve">
+    <value>[FR]Are you sure?</value>
   </data>
 </root>

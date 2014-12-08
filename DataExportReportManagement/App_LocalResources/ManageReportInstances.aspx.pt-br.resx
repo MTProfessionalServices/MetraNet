@@ -141,4 +141,10 @@
     <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Título do relatório</value>
     </data>
+    <data name="TEXT_NO_RECODRS_FOUND" xml:space="preserve">
+        <value>No Instances Found ....</value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Manage Report Instances</value>
+    </data>
 </root>

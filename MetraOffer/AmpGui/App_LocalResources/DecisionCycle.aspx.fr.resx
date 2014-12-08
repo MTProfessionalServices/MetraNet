@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,161 +59,161 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="lblDecisionCycle.Text" xml:space="preserve">
-        <value>Your Decision Type can aggregate events or usage across different billing intervals or time periods.</value>
-    </data>
-    <data name="lblDecisionEffect.Text" xml:space="preserve">
-        <value>How long should the Decision Type be in effect?</value>
-    </data>
-    <data name="lblNumberBIBillingInterval.Text" xml:space="preserve">
-        <value>Number of billing intervals from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberDaysBillingInterval.Text" xml:space="preserve">
-        <value>Number of days from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberMonthBillingInterval.Text" xml:space="preserve">
-        <value>Number of months from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfBillingIntervals.Text" xml:space="preserve">
-        <value>Number of billing intervals in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfDays.Text" xml:space="preserve">
-        <value>Number of days in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfMonth.Text" xml:space="preserve">
-        <value>Number of months in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfQuarters.Text" xml:space="preserve">
-        <value>Number of quarters in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
-        <value>Number of time units in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfWeeks.Text" xml:space="preserve">
-        <value>Number of weeks in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfX.Text" xml:space="preserve">
-        <value>Number of {0} in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberOfYears.Text" xml:space="preserve">
-        <value>Number of years in the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberQuartersBillingInterval.Text" xml:space="preserve">
-        <value>Number of quarters from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
-        <value>Number of time units from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberWeeksBillingInterval.Text" xml:space="preserve">
-        <value>Number of weeks from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberXBillingInterval.Text" xml:space="preserve">
-        <value>Number of {0} from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblNumberYearsBillingInterval.Text" xml:space="preserve">
-        <value>Number of years from the subscription start to the start of the Decision Cycle:</value>
-    </data>
-    <data name="lblTitleResource1.Text" xml:space="preserve">
-        <value>Decision Cycle for {0}</value>
-    </data>
-    <data name="lblUnitOfTime.Label" xml:space="preserve">
-        <value>Time cycle unit:</value>
-    </data>
-    <data name="LIST_DD_TIME_CYCLE_UNIT" xml:space="preserve">
-        <value>Billing Interval,Day,Week,Month,Quarter,Year,Get from parameter table</value>
-    </data>
-    <data name="rblDays.Text" xml:space="preserve">
-        <value>Days</value>
-    </data>
-    <data name="rblDecisionCycleBillingInterval.Text" xml:space="preserve">
-        <value>The Decision Cycle matches the billing interval</value>
-    </data>
-    <data name="rblIndefinitely.Text" xml:space="preserve">
-        <value>Indefinitely</value>
-    </data>
-    <data name="rblMonths.Text" xml:space="preserve">
-        <value>Months</value>
-    </data>
-    <data name="rblQuarters.Text" xml:space="preserve">
-        <value>Quarters</value>
-    </data>
-    <data name="rblSpecified.Text" xml:space="preserve">
-        <value>For a specific number of Decision Cycles:</value>
-    </data>
-    <data name="rblUnitOfTimeFromParamTable.Label" xml:space="preserve">
-        <value>Get unit of time from parameter table:</value>
-    </data>
-    <data name="rblWeeks.Text" xml:space="preserve">
-        <value>Weeks</value>
-    </data>
-    <data name="rblYears.Text" xml:space="preserve">
-        <value>Years</value>
-    </data>
-    <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME" xml:space="preserve">
-        <value>Error: You must specify the number of units in the Decision Cycle.</value>
-    </data>
-    <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL" xml:space="preserve">
-        <value>Error: You must specify the Decision Cycles offset from the subscription start.</value>
-    </data>
-    <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
-        <value>Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblDecisionCycle.Text" xml:space="preserve">
+    <value>[FR]Your Decision Type can aggregate events or usage across different billing intervals or time periods.</value>
+  </data>
+  <data name="lblDecisionEffect.Text" xml:space="preserve">
+    <value>[FR]How long should the Decision Type be in effect?</value>
+  </data>
+  <data name="lblNumberBIBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of billing intervals from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberDaysBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of days from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberMonthBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of months from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfBillingIntervals.Text" xml:space="preserve">
+    <value>[FR]Number of billing intervals in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfDays.Text" xml:space="preserve">
+    <value>[FR]Number of days in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfMonth.Text" xml:space="preserve">
+    <value>[FR]Number of months in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfQuarters.Text" xml:space="preserve">
+    <value>[FR]Number of quarters in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
+    <value>[FR]Number of time units in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfWeeks.Text" xml:space="preserve">
+    <value>[FR]Number of weeks in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfX.Text" xml:space="preserve">
+    <value>[FR]Number of {0} in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberOfYears.Text" xml:space="preserve">
+    <value>[FR]Number of years in the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberQuartersBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of quarters from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of time units from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberWeeksBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of weeks from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberXBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of {0} from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberYearsBillingInterval.Text" xml:space="preserve">
+    <value>[FR]Number of years from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>[FR]Decision Cycle for {0}</value>
+  </data>
+  <data name="lblUnitOfTime.Label" xml:space="preserve">
+    <value>[FR]Time cycle unit:</value>
+  </data>
+  <data name="LIST_DD_TIME_CYCLE_UNIT" xml:space="preserve">
+    <value>[FR]Billing Interval,Day,Week,Month,Quarter,Year,Get from parameter table</value>
+  </data>
+  <data name="rblDays.Text" xml:space="preserve">
+    <value>[FR]Days</value>
+  </data>
+  <data name="rblDecisionCycleBillingInterval.Text" xml:space="preserve">
+    <value>[FR]The Decision Cycle matches the billing interval</value>
+  </data>
+  <data name="rblIndefinitely.Text" xml:space="preserve">
+    <value>[FR]Indefinitely</value>
+  </data>
+  <data name="rblMonths.Text" xml:space="preserve">
+    <value>[FR]Months</value>
+  </data>
+  <data name="rblQuarters.Text" xml:space="preserve">
+    <value>[FR]Quarters</value>
+  </data>
+  <data name="rblSpecified.Text" xml:space="preserve">
+    <value>[FR]For a specific number of Decision Cycles:</value>
+  </data>
+  <data name="rblUnitOfTimeFromParamTable.Label" xml:space="preserve">
+    <value>[FR]Get unit of time from parameter table:</value>
+  </data>
+  <data name="rblWeeks.Text" xml:space="preserve">
+    <value>[FR]Weeks</value>
+  </data>
+  <data name="rblYears.Text" xml:space="preserve">
+    <value>[FR]Years</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME" xml:space="preserve">
+    <value>[FR]Error: You must specify the number of units in the Decision Cycle.</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL" xml:space="preserve">
+    <value>[FR]Error: You must specify the Decision Cycles offset from the subscription start.</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
+    <value>[FR]Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
+  </data>
 </root>

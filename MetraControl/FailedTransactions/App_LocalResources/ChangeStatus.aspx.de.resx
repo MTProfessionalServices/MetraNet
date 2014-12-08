@@ -117,16 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Status der Zahlungstransaktion ändern</value>
+  <data name="cbResubmitNowResource1.BoxLabel" xml:space="preserve">
+    <value>[DE]Resubmit Now</value>
   </data>
-  <data name="radManualPendingResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Ausstehend&lt;/b&gt;: Die Transaktionen werden manuell auf 'Ausstehend' gesetzt.</value>
+  <data name="ddDismissedReasonCodeResource1.Label" xml:space="preserve">
+    <value>[DE]Reason Code</value>
   </data>
-  <data name="radManualReversedResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Zurückgebucht&lt;/b&gt;: Die Transaktionen werden manuell auf 'Zurückgebucht' gesetzt.</value>
+  <data name="ddInvestigationReasonCodeResource1.Label" xml:space="preserve">
+    <value>[DE]Reason Code</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>[DE]Change Case / Failed Transaction Status</value>
+  </data>
+  <data name="pleaseSelectNewStatusMessage.Text" xml:space="preserve">
+    <value>[DE]Please select a new status for the selected transaction(s) or click the "Close" button to cancel.</value>
+  </data>
+  <data name="radCorrectedResource1.BoxLabel" xml:space="preserve">
+    <value>[DE]&lt;b&gt;Corrected&lt;/b&gt; - This transaction has been resolved and is ready to be resubmitted</value>
+  </data>
+  <data name="radDismissedResource1.BoxLabel" xml:space="preserve">
+    <value>[DE]&lt;b&gt;Dismissed&lt;/b&gt; - This transaction cannot be resolved or it is not cost effective to do so.</value>
+  </data>
+  <data name="radOpenResource1.BoxLabel" xml:space="preserve">
+    <value>[DE]&lt;b&gt;Open&lt;/b&gt; - This transaction is currently unresolved.</value>
+  </data>
+  <data name="radUnderResource1.BoxLabel" xml:space="preserve">
+    <value>[DE]&lt;b&gt;Under Investigation&lt;/b&gt; - This transaction is currently unresolved but is being investigated.</value>
+  </data>
+  <data name="ResubmitProgress.Text" xml:space="preserve">
+    <value>[DE]Resubmit failed transactions in progress...</value>
   </data>
   <data name="tbCommentResource1.Label" xml:space="preserve">
     <value>Anmerkung</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
   </data>
 </root>

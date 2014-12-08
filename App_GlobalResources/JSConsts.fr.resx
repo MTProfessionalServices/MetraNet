@@ -1383,4 +1383,22 @@
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
     <value>[FR]View Log</value>
   </data>
+  <data name="TEXT_DAY" xml:space="preserve">
+    <value>Jour</value>
+  </data>
+  <data name="TEXT_FIRST" xml:space="preserve">
+    <value>Premier</value>
+  </data>
+  <data name="TEXT_FOURTH" xml:space="preserve">
+    <value>Quatrième</value>
+  </data>
+  <data name="TEXT_LAST" xml:space="preserve">
+    <value>Dernier</value>
+  </data>
+  <data name="TEXT_SECOND" xml:space="preserve">
+    <value>Seconde</value>
+  </data>
+  <data name="TEXT_THIRD" xml:space="preserve">
+    <value>Troisième</value>
+  </data>
 </root>

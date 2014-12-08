@@ -267,7 +267,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     Set objDetails = objApprovals.Convert(COMObject.Instance)
     objChangeDetailsHelper("productOffering") = objDetails
     objChangeDetailsHelper("productOffering.OLD") = objApprovals.Convert(objMTProductCatalog.GetProductOffering(COMObject.Instance.ID))
-    idChange = objApprovals.SubmitChangeForApproval("ProductOfferingUpdate", COMObject.Instance.ID, COMObject.Instance.Name, "", objChangeDetailsHelper.ToBuffer, errorsSubmit)
+    idChange = objApprovals.SubmitChangeForApproval("ProductOfferingUpdate", COMObject.Instance.ID, COMObject.Instance.Name, "", objChangeDetailsHelper.ToBuffer, COMObject.Properties("POPartitionId").DefaultValue, errorsSubmit)
   Else
     COMObject.Instance.Save
   End If

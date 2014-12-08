@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_Step3_TITLE">
+    <value>[FR]Backout Step Backout Step 3 </value>
+  </text>
+  <text id="TEXT_Step3_Status">
+    <value>[FR]Step 3 Status:</value>
+  </text>
+  <text id="TEXT_Rerun_Id">
+    <value>[FR]Rerun Id:</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>[FR]Comment:</value>
+  </text>
+  <text id="TEXT_Done">
+    <value>[FR]Done</value>
+  </text>  
+</texts>

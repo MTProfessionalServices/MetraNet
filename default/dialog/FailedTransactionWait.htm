@@ -5,9 +5,11 @@
 </HEAD>
 <body onLoad="SizeWindow();">
 <FORM name='mdm'>
+
 <TABLE border="0" cellpadding="1" cellspacing="0" width="100%"s>
-<tr><td Class='CaptionBar' nowrap><MDMLABEL NAME='Title'></MDMLABEL></td></tr>
+  <tr><td Class='CaptionBar' nowrap><MDMLABEL NAME='Title'></MDMLABEL></td></tr>
 </TABLE>
+
 <br><TABLE width="100%" BORDER="0"  CELLPADDING="0" CELLSPACING="0">
 <TR>
 <TD valign="top">
@@ -29,13 +31,13 @@
  </TABLE>
 </TABLE>
 <HR>
+
 <div align=center>
-
-<br>
-<BR>
-
-  <button name="OK" Class="clsOkButton" onClick="mdm_RefreshDialog(this);">Refresh</button>
+  <br>
+  <BR>
+  <button name="OK" Class="clsOkButton" onClick="mdm_RefreshDialog(this);"><MDMLABEL Name="TEXT_REFRESH"></MDMLABEL></button>
 </div>
+
 <script>
  setTimeout("document.mdm.OK.click()", 1000*5);
  

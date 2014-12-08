@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,119 +59,119 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="DIRECTIVES_GRID_TITLE" xml:space="preserve">
-        <value>Directives in Order of Execution:</value>
-    </data>
-    <data name="lbDescription.Text" xml:space="preserve">
-        <value>Specify how the fields in the Product View and in the account usage table (t_acc_usage) should be set for the new Charge/Credit that is being generated. To do so, you must define an ordered set of "directives" of the following types: Database Table Inclusion, Field Population and Procedure Execution.</value>
-    </data>
-    <data name="lbGrid2TitleResource1.Text" xml:space="preserve">
-        <value>Fields to populate:</value>
-    </data>
-    <data name="lblTitleResource1.Text" xml:space="preserve">
-        <value>Charge/Credit: Directives</value>
-    </data>
-    <data name="POPULATEDFIELDS_GRID_TITLE" xml:space="preserve">
-        <value>Product View and t_acc_usage Fields:</value>
-    </data>
-    <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
-        <value>Charge/Credit:</value>
-    </data>
-    <data name="tbProductViewNameResource1.LabelSeparator" xml:space="preserve">
-        <value>Product View:</value>
-    </data>
-    <data name="TEXT_ACTIONS" xml:space="preserve">
-        <value>Actions</value>
-    </data>
-    <data name="TEXT_ADD" xml:space="preserve">
-        <value>Ajouter</value>
-    </data>
-    <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-        <value>Add a new Directive to this Generated Charge or Credit</value>
-    </data>
-    <data name="TEXT_DETAILS" xml:space="preserve">
-        <value>Détails</value>
-    </data>
-    <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-        <value>An error occurred while moving the directive earlier in order of execution.</value>
-    </data>
-    <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-        <value>An error occurred while moving the directive later in order of execution.</value>
-    </data>
-    <data name="TEXT_FIELDNAME" xml:space="preserve">
-        <value>Field Name</value>
-    </data>
-    <data name="TEXT_ORDER" xml:space="preserve">
-        <value>Order</value>
-    </data>
-    <data name="TEXT_POPULATED" xml:space="preserve">
-        <value>Populated</value>
-    </data>
-    <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
-        <value>Move earlier</value>
-    </data>
-    <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
-        <value>Move later</value>
-    </data>
-    <data name="TEXT_TYPE" xml:space="preserve">
-        <value>Type</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DIRECTIVES_GRID_TITLE" xml:space="preserve">
+    <value>[FR]Directives in Order of Execution:</value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>[FR]Specify how the fields in the Product View and in the account usage table (t_acc_usage) should be set for the new Charge/Credit that is being generated. To do so, you must define an ordered set of "directives" of the following types: Database Table Inclusion, Field Population and Procedure Execution.</value>
+  </data>
+  <data name="lbGrid2TitleResource1.Text" xml:space="preserve">
+    <value>[FR]Fields to populate:</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>[FR]Charge/Credit: Directives</value>
+  </data>
+  <data name="POPULATEDFIELDS_GRID_TITLE" xml:space="preserve">
+    <value>[FR]Product View and t_acc_usage Fields:</value>
+  </data>
+  <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
+    <value>[FR]Charge/Credit:</value>
+  </data>
+  <data name="tbProductViewNameResource1.LabelSeparator" xml:space="preserve">
+    <value>[FR]Product View:</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>[FR]Actions</value>
+  </data>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
+    <value>[FR]Add a new Directive to this Generated Charge or Credit</value>
+  </data>
+  <data name="TEXT_DETAILS" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
+    <value>[FR]An error occurred while moving the directive earlier in order of execution.</value>
+  </data>
+  <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
+    <value>[FR]An error occurred while moving the directive later in order of execution.</value>
+  </data>
+  <data name="TEXT_FIELDNAME" xml:space="preserve">
+    <value>[FR]Field Name</value>
+  </data>
+  <data name="TEXT_ORDER" xml:space="preserve">
+    <value>[FR]Order</value>
+  </data>
+  <data name="TEXT_POPULATED" xml:space="preserve">
+    <value>[FR]Populated</value>
+  </data>
+  <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
+    <value>[FR]Move earlier</value>
+  </data>
+  <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
+    <value>[FR]Move later</value>
+  </data>
+  <data name="TEXT_TYPE" xml:space="preserve">
+    <value>[FR]Type</value>
+  </data>
 </root>

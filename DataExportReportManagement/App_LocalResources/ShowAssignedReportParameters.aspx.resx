@@ -129,6 +129,9 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Assigned Report Parameters</value>
     </data>
+    <data name="TEXT_Assign_Parameters" xml:space="preserve">
+        <value>Assign Parameters</value>
+    </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>
@@ -140,5 +143,11 @@
     </data>
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Value</value>
+    </data>
+    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+        <value>Currently there are no parameters assigned to this report definition</value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Currently Assigned Report Parameters</value>
     </data>
 </root>

@@ -21,14 +21,33 @@
   </MT:MTFilterGrid>
   
   <script type="text/javascript">    
+    var textEdit = '<%=GetGlobalResourceObject("JSConsts", "TEXT_EDIT")%>';
+    var textView = '<%=GetGlobalResourceObject("JSConsts", "TEXT_VIEW")%>';
+    
+    OverrideRenderer_<%=AccountConfigSetListGrid.ClientID%> = function(cm) {
+      cm.setRenderer(cm.getIndexById('Actions'), actionsColumnRenderer);
+    };
+
+    function actionsColumnRenderer(value, meta, record) {
+      var str = "";
+      var entityId = record.data.AccountConfigSetParametersId;
+      
+      // Edit ACS
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"ManageSubscriptionParameters.aspx?mode=EDIT&acsId={0}\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
+
+      // View ACS      
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"ManageSubscriptionParameters.aspx?mode=VIEW&acsId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textView));
+      
+      return str;
+    }
+
 
     function onNew_<%= AccountConfigSetListGrid.ClientID %>() {      
-      document.location.href = "ManageAccountConfigSetSubscriptionParams.aspx?mode=ADD";
+      document.location.href = "ManageSubscriptionParameters.aspx?mode=ADD";
     }
     
     onOK_<%=AccountConfigSetListGrid.ClientID %> = function()
     {
-     
       var records = grid_<%=AccountConfigSetListGrid.ClientID %>.getSelectionModel().getSelections();
       var ids = "";
       for(var i=0; i < records.length; i++)
@@ -40,45 +59,22 @@
         ids += records[i].data.AccountConfigSetParametersId;
       }
 
-      try
-      {
-        if(window.getFrameMetraNet().MainContentIframe)
-        {
-          if(window.getFrameMetraNet().MainContentIframe.ticketFrame)
-          {
-            if(window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage)
-            {
-           
-              window.getFrameMetraNet().MainContentIframe.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids);
+      try {
+        var mainFrame = window.getFrameMetraNet().MainContentIframe;
+        if (mainFrame) {
+          if (mainFrame.ticketFrame) {
+            if (mainFrame.ticketFrame.fmeTemplatePage) {
+              mainFrame.ticketFrame.fmeTemplatePage.<%= CallbackFunction %>(ids);
+            } else {
+              mainFrame.ticketFrame.<%= CallbackFunction %>(ids);
             }
-            else
-            {            
-              window.getFrameMetraNet().MainContentIframe.ticketFrame.<%= CallbackFunction %>(ids);
-            }
-          }
-          else
-          {
-             window.getFrameMetraNet().MainContentIframe.<%= CallbackFunction %>(ids);
+          } else {
+            mainFrame.<%= CallbackFunction %>(ids);
           }
         }
+      } catch(e) {
+        window.Ext.UI.msg(window.TEXT_ERROR_MSG, window.TEXT_CALLBACK_MSG_1 + " <%= CallbackFunction %> " + window.TEXT_CALLBACK_MSG_2);
       }
-      catch(e)
-      {
-        //Ext.UI.msg("Error", "Couldn't find <%= CallbackFunction %> method.");      
-        Ext.UI.msg(TEXT_ERROR_MSG, TEXT_CALLBACK_MSG_1 + TEXT_CALLBACK_MSG_2);      
-      }
-     
-      if(window.getFrameMetraNet().accountSelectorWin != null)
-      {
-        window.getFrameMetraNet().accountSelectorWin.close();
-      }
-
-      if(window.getFrameMetraNet().accountSelectorWin2 != null)
-      {
-        window.getFrameMetraNet().accountSelectorWin2.close();
-      }      
-      window.getFrameMetraNet().accountSelectorWin = null;
-      window.getFrameMetraNet().accountSelectorWin2 = null;           
     };  
 
   </script>

@@ -568,7 +568,6 @@ public class SpecCharacteristicRepository
         Category = spec.Category,
         Name = spec.Name,
         SpecType = spec.SpecType,
-        DisplayName = spec.Name,
         DisplayOrder = spec.DisplayOrder,
         ID = spec.SpecId,
         SpecCharacteristicValues = null,

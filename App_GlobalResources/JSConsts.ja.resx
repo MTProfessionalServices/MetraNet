@@ -294,7 +294,7 @@
   <data name="TEXT_RATE_UPDATE" xml:space="preserve">
     <value>[JA]Rate Update</value>
   </data>
-  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
+  <data name="TEXT_ACCOUNT_UPDATE" xml:space="preserve">
     <value>[JA]Account Updates</value>
   </data>
   <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
@@ -1303,7 +1303,7 @@
     <value>No data available</value>
   </data>
   <data name="CURRENT_LOCALE" xml:space="preserve">
-    <value>ja-JA</value>
+    <value>JA</value>
   </data>
   <data name="FRACTION_DIGITS" xml:space="preserve">
     <value>2</value>
@@ -1334,5 +1334,47 @@
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
     <value>[JA]More ...</value>
+  </data>
+  <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
+    <value>Edit Report Definition</value>
+  </data>
+  <data name="TEXT_Manage_Report_Instances" xml:space="preserve">
+    <value>Manage Report Instances</value>
+  </data>
+  <data name="TEXT_Manage_Report_Parameters" xml:space="preserve">
+    <value>Manage Report Parameters</value>
+  </data>
+  <data name="TEXT_Delete_Report" xml:space="preserve">
+    <value>Delete Report</value>
+  </data>
+  <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
+    <value>Edit Report Instance</value>
+  </data>
+  <data name="TEXT_Manage_Report_Instance_Schedule" xml:space="preserve">
+    <value>Manage Report Instance Schedule</value>
+  </data>
+  <data name="TEXT_Manage_Report__InstanceParameters" xml:space="preserve">
+    <value>Edit Instance Parameter Values</value>
+  </data>
+  <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
+    <value>Delete Report Instance</value>
+  </data>
+  <data name="TEXT_Delete_Queue_AdHoc_Reports" xml:space="preserve">
+    <value>Delete Queue AdHoc Reports</value>
+  </data>
+  <data name="TEXT_Update_Report_Instance_Schedule" xml:space="preserve">
+    <value>Update Report Instance Schedule</value>
+  </data>
+  <data name="TEXT_Delete_Report_Instance_Schedule" xml:space="preserve">
+    <value>Delete Report Instance Schedule</value>
+  </data>
+  <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
+    <value>Delete Report Parameter</value>
+  </data>
+  <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
+    <value>No parameter was selected. Please select at least one parameter for assignment</value>
+  </data>
+  <data name="TEXT_VIEW_LOG" xml:space="preserve">
+    <value>[JA]View Log</value>
   </data>
 </root>

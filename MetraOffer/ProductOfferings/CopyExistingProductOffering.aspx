@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<MT:MTTitle ID="MTTitle1" Text="Copy Existing Product Offering" runat="server" />
+<MT:MTTitle ID="MTTitle1" Text="<%$ Resources:Resource,TEXT_COPY_PO %>" runat="server" />
   <br />
   <br />
   <div style="width:810px">

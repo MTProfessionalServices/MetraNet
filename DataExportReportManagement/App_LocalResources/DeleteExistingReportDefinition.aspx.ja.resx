@@ -177,4 +177,13 @@
   <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>既存の報告書定義の更新</value>
   </data>
+  <data name="btnBackResource1.Text" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>The Report Definition was deleted successfully.</value>
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>Report Definition Deleted</value>
+  </data>
 </root>

@@ -15,6 +15,7 @@ using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Debug.Diagnostics;
 
+// ReSharper disable SpecifyACultureInStringConversionExplicitly
 namespace MetraNet.AccountConfigSets
 {
   public partial class ManageAccountConfigSet : MTPage, ICallbackEventHandler
@@ -99,19 +100,15 @@ namespace MetraNet.AccountConfigSets
     protected int CurrentAccountConfigSetId;
     protected int CurrentAccountConfigSetSubParamsId;
 
+    protected Dictionary<int, string> PiNames;
+
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
-
-      //GetAccountViews();
-      ParseRequest();
-
-      if (IsPostBack) return;
-      if (!IsViewMode)
-        MTdpStartDate.Text = MetraTime.Now.Date.ToString();
-      //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();     
+      
+      ParseRequest();      
     }
 
     #region Implementation of ICallbackEventHandler
@@ -130,14 +127,16 @@ namespace MetraNet.AccountConfigSets
       if (value["subParamsId"] == "-")
         {
           int? items = null;
+// ReSharper disable ExpressionIsAlwaysNull
           result = new { result = "ok", items };
+// ReSharper restore ExpressionIsAlwaysNull
         }         
       else
       {
         try
         {
           CurrentAccountConfigSetSubParamsId = Convert.ToInt32(value["subParamsId"]);
-          result = GetSubscriptionParametersResult(CurrentAccountConfigSetSubParamsId);
+          result = GetSubscriptionParametersResult();
         }
         catch (Exception ex)
         {
@@ -163,7 +162,7 @@ namespace MetraNet.AccountConfigSets
       return _callbackResult;
     }
 
-    private object GetSubscriptionParametersResult(int subParamsId)
+    private object GetSubscriptionParametersResult()
     {
       object result;
 
@@ -190,34 +189,6 @@ namespace MetraNet.AccountConfigSets
               };
           result = new { result = "ok", items };
         }
-      }
-      catch (FaultException<MASBasicFaultDetail> ex)
-      {
-        Logger.LogError(ex.Detail.ErrorMessages[0]);
-        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
-      }
-      return result;
-    }
-
-    private object GetPriceableItemsResult(IEnumerable<string> poIds)
-    {
-      object result;
-
-      try
-      {
-        var priceableItemsAll = GetPriceableItemsForPOs(poIds);
-        var items = priceableItemsAll.Items.Select(
-            x => new
-            {
-              PriceableItemId = x.ID,
-              ProductOfferingId = x.PO_ID,
-              x.Name,
-              x.DisplayName,
-              PIKind = x.PIKind.ToString(),
-              x.PICanICB,
-              RatingType = (x.PIKind == PriceableItemKinds.UnitDependentRecurring ? ((Unit_Dependent_Recurring_ChargePIInstance)x).RatingType.ToString() : null)
-            }).ToArray();
-        result = new { result = "ok", items };
       }
       catch (FaultException<MASBasicFaultDetail> ex)
       {
@@ -263,6 +234,7 @@ namespace MetraNet.AccountConfigSets
 
     #endregion
 
+    #region Buttons click handlers
     protected void btnAddAccountConfigSet_Click(object sender, EventArgs e)
     {
       try
@@ -321,41 +293,9 @@ namespace MetraNet.AccountConfigSets
     {
       return string.Format(@"/MetraNet/AccountConfigSets/AccountConfigSetList.aspx");
     }
+    #endregion
 
-    private void SetCurrentAccountConfigSet()
-    {
-      CurrentAccountConfigSet = new AccountConfigSet
-      {
-        AcsId = CurrentAccountConfigSetId,
-        AcsCreationDate = MetraTime.Now
-      };
-
-      CurrentAccountConfigSet.Rank = String.IsNullOrEmpty(MTtbRank.Text) ? 0 : Convert.ToInt32(MTtbRank.Text);
-      CurrentAccountConfigSet.Enabled = MTcbAcsEnabled.Checked;
-      CurrentAccountConfigSet.EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text);
-      CurrentAccountConfigSet.EffectiveEndDate = String.IsNullOrEmpty(MTdpEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpEndDate.Text);
-      CurrentAccountConfigSet.Description = MTtbAcsDescription.Text;
-      CurrentAccountConfigSet.PropertiesToSet = GetPropertyValues(HiddenPropertiesToSet.Value);
-      CurrentAccountConfigSet.SelectionCriteria = GetPropertyValues(HiddenSelectionCriteria.Value);
-      var subParamId = 0;
-      if (MTtbSubParamId.Text != "-")
-        subParamId = String.IsNullOrEmpty(MTtbSubParamId.Text) ? 0 : Convert.ToInt32(MTtbSubParamId.Text);
-      CurrentAccountConfigSet.SubscriptionParamsId = subParamId;
-    }
-
-    private List<AccountConfigSetPropertyValue> GetPropertyValues(string value)
-    {
-      var propertyValueList = new List<AccountConfigSetPropertyValue>();
-      if (!string.IsNullOrEmpty(value))
-      {
-        var propertyValueStrArray = value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
-
-        propertyValueList.AddRange(propertyValueStrArray.Select(propertyValueStr => propertyValueStr.EndsWith("}") ? propertyValueStr : propertyValueStr + "}")
-          .Select(propertyValueStr1 => ExtendedJavaScriptConverter<AccountConfigSetPropertyValue>.GetSerializer().Deserialize<AccountConfigSetPropertyValue>(propertyValueStr1)));
-      }
-
-      return propertyValueList;
-    }
+    #region Invoke WCF clients
 
     private void ValidateRequest()
     {
@@ -373,9 +313,8 @@ namespace MetraNet.AccountConfigSets
       }
     }
 
-    private int InvokeAddAccountConfigSet(AccountConfigSet acs)
+    private void InvokeAddAccountConfigSet(AccountConfigSet acs)
     {
-      int acsId;
       using (var client = new AccountConfigurationSetServiceClient())
       {
         if (client.ClientCredentials != null)
@@ -383,9 +322,9 @@ namespace MetraNet.AccountConfigSets
           client.ClientCredentials.UserName.UserName = UI.User.UserName;
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
+        int acsId;
         client.AddAccountConfigSet(acs, out acsId);
       }
-      return acsId;
     }
 
     private void InvokeUpdateAccountConfigSet(AccountConfigSet acs)
@@ -434,10 +373,78 @@ namespace MetraNet.AccountConfigSets
       }
     }
 
+    private string GetPoName(int poId)
+    {
+      var res = String.Empty;
+      try
+      {
+        using (var client = new ProductOfferingServiceClient())
+        {
+          if (client.ClientCredentials != null)
+          {
+            client.ClientCredentials.UserName.UserName = UI.User.UserName;
+            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          }
+          ProductOffering po;
+          client.GetProductOffering(new PCIdentifier(poId), out po);
+          if (po != null)
+            res = po.DisplayName;
+        }
+      }
+      catch
+      {
+
+      }
+      return res;
+    }
+
+    #endregion
+
+    #region Set server side data from controls
+
+    private void SetCurrentAccountConfigSet()
+    {
+      CurrentAccountConfigSet = new AccountConfigSet
+        {
+          AcsId = CurrentAccountConfigSetId,
+          AcsCreationDate = MetraTime.Now,
+          Rank = String.IsNullOrEmpty(MTtbRank.Text) ? 0 : Convert.ToInt32(MTtbRank.Text),
+          Enabled = MTcbAcsEnabled.Checked,
+          EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
+          EffectiveEndDate = String.IsNullOrEmpty(MTdpEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpEndDate.Text),
+          Description = MTtbAcsDescription.Text,
+          PropertiesToSet = GetPropertyValues(HiddenPropertiesToSet.Value),
+          SelectionCriteria = GetPropertyValues(HiddenSelectionCriteria.Value)
+        };
+
+      var subParamId = 0;
+      if (MTtbSubParamId.Value != "-")
+        subParamId = String.IsNullOrEmpty(MTtbSubParamId.Value) ? 0 : Convert.ToInt32(MTtbSubParamId.Value);
+      CurrentAccountConfigSet.SubscriptionParamsId = subParamId;
+    }
+
+    private List<AccountConfigSetPropertyValue> GetPropertyValues(string value)
+    {
+      var propertyValueList = new List<AccountConfigSetPropertyValue>();
+      if (!string.IsNullOrEmpty(value))
+      {
+        var propertyValueStrArray = value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
+
+        propertyValueList.AddRange(propertyValueStrArray.Select(propertyValueStr => propertyValueStr.EndsWith("}") ? propertyValueStr : propertyValueStr + "}")
+          .Select(propertyValueStr1 => ExtendedJavaScriptConverter<AccountConfigSetPropertyValue>.GetSerializer().Deserialize<AccountConfigSetPropertyValue>(propertyValueStr1)));
+      }
+
+      return propertyValueList;
+    }
+
+    #endregion
+
+    #region Process request
+
     private void ParseRequest()
     {
       _mode = Request["mode"];
-      object title = null;
+      object title;
       switch (_mode)
       {
         case "VIEW":
@@ -476,10 +483,12 @@ namespace MetraNet.AccountConfigSets
           break;
       }
     }
-
+        
     private void NewAccountConfigSet()
     {
       if (IsPostBack || IsViewMode) return;
+      
+      MTdpStartDate.Text = MetraTime.Now.Date.ToString();
 
       List<string> accountViews;
       AccountViewPropertiesData = GetAccountViews(out accountViews);
@@ -510,14 +519,17 @@ namespace MetraNet.AccountConfigSets
       if (CurrentAccountConfigSet.SubscriptionParams != null)
       {
         MTPanelSubscriptionParameters.Collapsed = false;
-        MTtbSubParamId.Text = CurrentAccountConfigSet.SubscriptionParams.AccountConfigSetParametersId.ToString();
-        MTtbSubParamsDescription.Text = CurrentAccountConfigSet.SubscriptionParams.Description;
-        MTtbSubParamsPo.Text = CurrentAccountConfigSet.SubscriptionParams.ProductOfferingId.ToString();
+        MTtbSubParamId.Value = CurrentAccountConfigSet.SubscriptionParams.AccountConfigSetParametersId.ToString();
+        MTtbSubParamsDescription.Text = CurrentAccountConfigSet.SubscriptionParams.Description;        
         MTdpSubParamsStartDate.Text = CurrentAccountConfigSet.SubscriptionParams.StartDate.ToString("d");
         MTdpSubParamsEndDate.Text = CurrentAccountConfigSet.SubscriptionParams.EndDate.ToString("d");
         MTisCorpAccountId.Text = CurrentAccountConfigSet.SubscriptionParams.CorporateAccountId.ToString();
         MTtbGroupSubscriptionName.Text = CurrentAccountConfigSet.SubscriptionParams.GroupSubscriptionName;
-        HiddenUDRCs.Value = EncodeUDRCsForHiddenControl(CurrentAccountConfigSet.SubscriptionParams);        
+        HiddenUDRCs.Value = EncodeUDRCsForHiddenControl(CurrentAccountConfigSet.SubscriptionParams);
+
+        const string poStrTpl = "{0} ({1})";
+        MTtbSubParamsPo.Text = String.Format(poStrTpl, CurrentAccountConfigSet.SubscriptionParams.ProductOfferingId.ToString(),
+          GetPoName(CurrentAccountConfigSet.SubscriptionParams.ProductOfferingId));
       }
       else
       {
@@ -574,11 +586,17 @@ namespace MetraNet.AccountConfigSets
 
     private string EncodeUDRCsForHiddenControl(AccountConfigSetParameters subParams)
     {
-      const string udrcStr = "{5}'PriceableItemId':{0},'Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{6}";
-      const string recodrIdStr = "{0}_{1}_{2}";
+      var pis = GetPriceableItemsForPOs(new[] { subParams.ProductOfferingId.ToString() });
 
-      if (subParams == null)
-        return String.Empty;
+      PiNames = new Dictionary<int, string>();
+      
+      foreach (var pi in pis.Items.Where(pi => !PiNames.ContainsKey(Convert.ToInt32(pi.ID))))
+      {
+        PiNames.Add(Convert.ToInt32(pi.ID), pi.Name);
+      }
+
+      const string udrcStr = "{6}'PriceableItemId':{0},'PriceableItemName':'{5}','Value':'{1}','StartDate':'{2}','EndDate':'{3}','RecordId':'{4}'{7}";
+      const string recodrIdStr = "{0}_{1}_{2}";
 
       if (subParams.UdrcValues == null)
         return String.Empty;
@@ -596,7 +614,8 @@ namespace MetraNet.AccountConfigSets
           udrc.StartDate.ToString("d"),
           udrc.EndDate.ToString("d")
           );
-
+        string piName;
+        PiNames.TryGetValue(udrc.UDRC_Id, out piName);
         hiddenUdrcsValue += string.Format(
           CultureInfo.CurrentCulture,
           udrcStr,
@@ -605,6 +624,7 @@ namespace MetraNet.AccountConfigSets
           udrc.StartDate.ToString("d"),
           udrc.EndDate.ToString("d"),
           recordId,
+          piName,
           "{", "},");
       }
       hiddenUdrcsValue = hiddenUdrcsValue.Substring(0, hiddenUdrcsValue.Length - 1);
@@ -612,7 +632,7 @@ namespace MetraNet.AccountConfigSets
       return hiddenUdrcsValue + "]";
     }
 
-
+    #endregion
   }
 
   public class ExtendedJavaScriptConverter<T> : JavaScriptConverter where T : new()
@@ -681,3 +701,4 @@ namespace MetraNet.AccountConfigSets
     }
   }
 }
+// ReSharper restore SpecifyACultureInStringConversionExplicitly

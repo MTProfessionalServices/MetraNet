@@ -15,17 +15,17 @@
     </div>
     <div>
     <div id="leftColumn1" class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbRank" AllowBlank="True" LabelWidth="120" runat="server"
+      <MT:MTNumberField ID="MTtbRank" AllowBlank="True" LabelWidth="120" runat="server"
        meta:resourcekey="tbRankResource" Text="1" MaxLength="15" />
       <MT:MTCheckBoxControl ID="MTcbAcsEnabled" runat="server" LabelWidth="120" ReadOnly="False"
         meta:resourcekey="cbAcsEnabledResource"/>
     </div>
     <div id="rightColumn1" class="RightColumn">      
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
-        Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpStartDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
       <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpEndDate"
-        Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource" ReadOnly="False"
+        LabelWidth="120" meta:resourcekey="dpEndDateResource" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
     </div>
     </div>
@@ -38,12 +38,10 @@
     </div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelManageSubscriptionParameters" runat="server" Collapsible="True"
-    meta:resourcekey="panelManageSubscriptionParametersResource">    
-    <div  class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
-          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>
-    </div>   
-    <div id = "PlaceHolderSubParamsToolBar" class="RightColumn">                 
+    meta:resourcekey="panelManageSubscriptionParametersResource">              
+      <%--<MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
+          LabelWidth="120" runat="server" Text = "-" meta:resourcekey="tbSubParamsId"/>--%>      
+    <div id = "PlaceHolderSubParamsToolBar" class="LeftColumn">                 
     </div>      
     </MT:MTPanel>
   <MT:MTPanel ID="MTPanelSubscriptionParameters" runat="server" Collapsible="True"
@@ -53,7 +51,7 @@
         LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsDescriptionResource"/>
        <MT:MTTextBoxControl ID="MTtbSubParamsPo" AllowBlank="True" ReadOnly="True"
         LabelWidth="135" runat="server" Text = "-" meta:resourcekey="tbSubParamsPoResource"/>
-      <MT:MTTextBoxControl AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
+      <MT:MTTextBoxControl AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsStartDate" 
         LabelWidth="135" Text = "-" meta:resourcekey="dpSubParamsStartDateResource" ReadOnly="True"
         runat="server"></MT:MTTextBoxControl>
       <MT:MTTextBoxControl AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpSubParamsEndDate"
@@ -94,6 +92,7 @@
       </div>
     </div>
   </div>
+  <input id="MTtbSubParamId" runat="server" type="hidden" />
   <input id="HiddenSelectionCriteria" runat="server" type="hidden" />
   <input id="HiddenPropertiesToSet" runat="server" type="hidden" />  
   <input id="HiddenUDRCs" runat="server" type="hidden" />
@@ -105,8 +104,27 @@
 
     function getUpdateApprove()
     {  
-        var confirmResult = confirm('<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_ACS_MESSAGE")%>');
-        if(confirmResult)
+        var confirmResult = true;
+//      top.Ext.MessageBox.show({
+//          title: '<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_QUESTION")%>',
+//          msg: String.format('<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_ACS_MESSAGE")%>', entityId),
+//          buttons: window.Ext.MessageBox.OKCANCEL,
+//          fn: function(btn) {
+//            if (btn == 'ok') {
+//              confirmResult = true;
+//            }
+//          },
+//          animEl: 'elId',
+//          icon: window.Ext.MessageBox.QUESTION
+//        });
+//      
+//        var dlg = top.Ext.MessageBox.getDialog();
+//	      var buttons = dlg.buttons;
+//	      for (i = 0; i < buttons.length; i++) {
+//        buttons[i].addClass('custom-class');
+//       }
+
+//        if(confirmResult)
            getDataGrids();
 
         return confirmResult;
@@ -305,8 +323,7 @@
                 var comboProperty = Ext.getCmp('form_addPropertyValue_Property');
                 comboProperty.clearValue();
                 comboProperty.store.filter('AccountView', combo.getValue());
-                lastOptions = comboProperty.store.lastOptions;                
-                comboProperty.store.reload(lastOptions);
+                lastOptions = comboProperty.store.lastOptions;                               
               }
             }
           }
@@ -378,7 +395,7 @@
       AddPropertyValueWindow = new Ext.Window({
         title: windowTitle,
         width: 400,
-        height: 250,
+        height: 150,
         minWidth: 100,
         minHeight: 100,
         layout: 'fit',
@@ -456,10 +473,12 @@
 
           if (type == 'SelectionCriteria') {
             selectionCriteriaStore.add(newPropertyValueRecord);
+            //selectionCriteriaStore.sort('AccountView');
           }
 
           if (type == 'PropertyToSet') {
             propertiesToSetStore.add(newPropertyValueRecord);
+            //propertiesToSetStore.sort('AccountView');
           }
 
           AddPropertyValueWindow.destroy();
@@ -483,7 +502,11 @@
       var selectionCriteriaStore = new Ext.data.GroupingStore({
         root: 'propertyValue',
         fields: propertyValueRecord.fields,
-        groupField: 'AccountView'
+        groupField: 'AccountView',
+        sortInfo: {
+          field: 'AccountView',
+          direction: 'ASC' 
+        }
       });
 
       var selectionCriteriaToolBar = null;
@@ -587,7 +610,11 @@
       var propertiesToSetStore = new Ext.data.GroupingStore({
         root: 'propertyValue',
         fields: propertyValueRecord.fields,
-        groupField: 'AccountView'
+        groupField: 'AccountView',
+        sortInfo: {
+          field: 'AccountView',
+          direction: 'ASC' 
+        }
       });
 
       var propertiesToSetToolBar = null;
@@ -679,7 +706,8 @@
       var udrcData = { UDRCs: [] };
 
       var udrcRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-          { name: 'PriceableItemId' },          
+          { name: 'PriceableItemId' },
+          { name: 'PriceableItemName' },          
           { name: 'Value' },
           { name: 'StartDate' },
           { name: 'EndDate' },
@@ -690,13 +718,14 @@
       var udrcStore = new Ext.data.GroupingStore({
         root: 'UDRCs',
         fields: udrcRecord.fields,
-        groupField: 'PriceableItemId'
+        groupField: 'PriceableItemName'
       });
 
       function addUDRCs(items) {
         for (var i = 0; i < items.length; i++) {
-          var myNewRecord = new udrcRecord({            
+          var myNewRecord = new udrcRecord({
             PriceableItemId: items[i].PriceableItemId,
+            PriceableItemName: items[i].PriceableItemName,
             Value: items[i].Value,
             StartDate: items[i].StartDate,
             EndDate: items[i].EndDate,
@@ -716,7 +745,7 @@
       var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
 
       var udrcColumns = [
-        { hidden: true, header: ' ', dataIndex: 'PriceableItemId' },
+        { hidden: true, header: ' ', dataIndex: 'PriceableItemName' },
         { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
         { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
         { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' }
@@ -727,6 +756,7 @@
       var udrcGrid = new Ext.grid.GridPanel({
         ds: udrcStore,
         columns: udrcColumns,
+        enableHdMenu: false,
         stripeRows: true,
         height: GRID_HEIGHT-50,
         width: 345,
@@ -736,7 +766,7 @@
         view: new Ext.grid.GroupingView({
           forceFit: true,
           // custom grouping text template to display the number of items per group
-          groupTextTpl: 'PI{text} ({[values.rs.length]} {[values.rs.length > 1 ? "Items" : "Item"]})'
+          groupTextTpl: '{text} ({[values.rs.length]} {[values.rs.length > 1 ? "<%=GetLocalResourceObject("ITEMS")%>" : "<%=GetLocalResourceObject("ITEM")%>"]})'
         })
       });
     </script>
@@ -792,6 +822,8 @@
       window.Ext.get("<%=MTisCorpAccountId.ClientID %>").dom.value = subParams.CorporateAccountId;
       window.Ext.get("<%=MTtbGroupSubscriptionName.ClientID %>").dom.value = subParams.GroupSubscriptionName;
 
+      udrcStore.removeAll();      
+
       if (subParams.UDRC != null) {        
         if (subParams.UDRC.length > 0)
           udrcData.UDRCs = window.Ext.decode(subParams.UDRC);
@@ -802,19 +834,13 @@
       
     }; 
     
-    function addSubParamsCallback(ids) {      
-      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
-      window.CallServer(JSON.stringify({ subParamsId: ids }));
-      subParamsSelectorWin2.hide();      
-    }
-
     function ShowSubParamsSelector(functionName, target) {
-      if (window.subParamsSelectorWin2 == null || window.poSelectorWin2 === undefined ||
+      if (window.subParamsSelectorWin2 == null || window.subParamsSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
         window.subParamsSelectorWin2 = new top.Ext.Window({
           title: '<%=GetLocalResourceObject("SELECT_SUBPARAMS")%>',
-          width: 700,
-          height: 500,
+          width: 800,
+          height: 600,
           minWidth: 300,
           minHeight: 200,
           layout: 'fit',
@@ -835,10 +861,21 @@
       window.lastTarget2 = target;
       window.lastFunctionName2 = functionName;
       window.subParamsSelectorWin2.show();
+      window.subParamsSelectorWin2.on('close', closeFrame);
+    }
 
-      window.subParamsSelectorWin2.on('close', function () {
-        window.subParamsSelectorWin2 = null;
-      });      
+    function addSubParamsCallback(ids) {
+      window.Ext.get("<%=MTtbSubParamId.ClientID %>").dom.value = ids;
+      if (ids != '' && ids != null)
+        window.CallServer(JSON.stringify({ subParamsId: ids }));
+      window.subParamsSelectorWin2.hide();
+      window.subParamsSelectorWin2.close();
+    }
+
+    function closeFrame() {
+      window.getFrameMetraNet().Ext.getDom("subParamsSelectorWin2").contentWindow = null;
+      window.getFrameMetraNet().frames["subParamsSelectorWin2"] = null;
+      window.subParamsSelectorWin2 = null;
     }
   </script>
 </asp:Content>

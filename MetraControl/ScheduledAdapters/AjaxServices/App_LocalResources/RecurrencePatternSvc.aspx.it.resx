@@ -126,37 +126,16 @@
   <data name="Fourth_Text" xml:space="preserve">
     <value>Quarto</value>
   </data>
-  <data name="Friday_Text" xml:space="preserve">
-    <value>Venerdì</value>
-  </data>
   <data name="Last_Text" xml:space="preserve">
     <value>Ultimo</value>
-  </data>
-  <data name="Monday_Text" xml:space="preserve">
-    <value>lunedì</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="Saturday_Text" xml:space="preserve">
-    <value>sabato</value>
-  </data>
   <data name="Second_Text" xml:space="preserve">
     <value>Secondo</value>
   </data>
-  <data name="Sunday_Text" xml:space="preserve">
-    <value>domenica</value>
-  </data>
   <data name="Third_Text" xml:space="preserve">
     <value>Terzo</value>
-  </data>
-  <data name="Thursday_Text" xml:space="preserve">
-    <value>giovedì</value>
-  </data>
-  <data name="Tuesday_Text" xml:space="preserve">
-    <value>martedì</value>
-  </data>
-  <data name="Wednesday_Text" xml:space="preserve">
-    <value>mercoledì</value>
   </data>
 </root>

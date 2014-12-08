@@ -107,4 +107,8 @@
     <value>[DE]The information was successfully added.</value>
     <description></description>
   </text>
+  <text id="TEXT_OPERATION">
+    <value>[DE]Operation</value>
+    <description></description>
+  </text>
 </texts>

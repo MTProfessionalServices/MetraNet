@@ -2,20 +2,22 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>START_DATE</Name>
+            <Name>END_DATE</Name>
             <DataType>timestamp</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>11/11/2000</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Config\Queries\UsageServer\CommonQueries.xml</CommonQuerySourceFile>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

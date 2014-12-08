@@ -677,4 +677,128 @@
     <value>[JA]View Pending Change</value>
     <description></description>
   </text>
+  <text id="TEXT_CALENDAR_DAY">
+    <value>[JA]Calendar Day</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_PERIOD">
+    <value>[JA]Calendar Period</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_CONFIGURATION">
+    <value>[JA]Calendar Configuration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_EDITOR">
+    <value>[JA]Ruleset Editor</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_CHANGES">
+    <value>[JA]Ruleset Changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_FROM_EXCEL">
+    <value>[JA]Import From Excel File</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOCATION_OF_EXCEL">
+    <value>[JA]Location of Excel file to import</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TABULAR_RULESET_EDITOR">
+    <value>[JA]Tabular Ruleset Editor - Define Filter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_NEW_CALENDAR">
+    <value>[JA]Create New Calendar</value>
+    <description></description>
+  </text>        
+  <text id="TEXT_SET_CHARGE_AMOUNT">
+    <value>[JA]Set Charge Amount</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Add_Parameter_Table_to_Price_List">
+    <value>[JA]Add Parameter Table to Price List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules_For">
+    <value>[JA]Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules">
+    <value>[JA]Create Rate Schedule(s)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Usage">
+    <value>[JA]Usage</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RC">
+    <value>[JA]RC</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NRC">
+    <value>[JA]NRC</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Discounts">
+    <value>[JA]Discounts</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Work_On_New_Pricelist">
+    <value>[JA]Work On New Pricelist</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Return_to_current_Pricelist">
+    <value>[JA]Return to current Pricelist</value>
+    <description></description>
+  </text>
+  <text id="TEXT_January">
+    <value>[JA]January</value>
+    <description></description>
+  </text>
+  <text id="TEXT_February">
+    <value>[JA]February</value>
+    <description></description>
+  </text>
+  <text id="TEXT_March">
+    <value>[JA]March</value>
+    <description></description>
+  </text>
+  <text id="TEXT_April">
+    <value>[JA]April</value>
+    <description></description>
+  </text>
+  <text id="TEXT_May">
+    <value>[JA]May</value>
+    <description></description>
+  </text>
+  <text id="TEXT_June">
+    <value>[JA]June</value>
+    <description></description>
+  </text>
+  <text id="TEXT_July">
+    <value>[JA]July</value>
+    <description></description>
+  </text>
+  <text id="TEXT_August">
+    <value>[JA]August</value>
+    <description></description>
+  </text>
+  <text id="TEXT_September">
+    <value>[JA]September</value>
+    <description></description>
+  </text>
+  <text id="TEXT_October">
+    <value>[JA]October</value>
+    <description></description>
+  </text>
+  <text id="TEXT_November">
+    <value>[JA]November</value>
+    <description></description>
+  </text>
+  <text id="TEXT_December">
+    <value>[JA]December</value>
+    <description></description>
+  </text>
 </texts>

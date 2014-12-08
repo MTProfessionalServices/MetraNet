@@ -42,7 +42,7 @@ Form.Version                    = MDM_VERSION     ' Set the dialog version - we 
 Form.ErrorHandler               = TRUE
 Form.ShowExportIcon             = TRUE
 'Form.Page.MaxRow                = CLng(FrameWork.GetDictionary("MAX_ROW_PER_LIST_PAGE"))
-'Form.Page.NoRecordUserMessage   = FrameWork.GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
+Form.Page.NoRecordUserMessage   = FrameWork.GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
 Form.RouteTo        = "BackOutRerun.BackoutStep3.asp" 'mom_GetDictionary("WELCOME_DIALOG")
 
 mdm_PVBrowserMain ' invoke the mdm framework
@@ -130,6 +130,11 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   Service.Properties.Add "SummaryNumberOfTransactionsVetoedByAdapters", "int32", 0, False, 0, eMSIX_PROPERTY_FLAG_NOT_STORED_IN_ROWSET
   Service.Properties.Add "SummaryNumberOfSynchronouslyMeteredTransactionsThatWontBeBackedOut", "int32", 0, False, 0, eMSIX_PROPERTY_FLAG_NOT_STORED_IN_ROWSET
 
+  Service.Properties("View Name").Caption = mom_GetDictionary("TEXT_View_Name1")
+  Service.Properties("Count").Caption = mom_GetDictionary("TEXT_Count1")
+  Service.Properties("Amount").Caption = mom_GetDictionary("TEXT_Amount1")
+  Service.Properties("Currency").Caption = mom_GetDictionary("TEXT_Currency1")
+
   dim rowset2
   set rowset2 = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
   rowset2.Init "queries\mom"
@@ -145,7 +150,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   Service.Properties("SummaryNumberOfTransactionsVetoedByAdapters").Value=rowset2.value("TransactionsVetoedByAdapters")
   Service.Properties("SummaryNumberOfSynchronouslyMeteredTransactionsThatWontBeBackedOut").Value=rowset2.value("TransactionsMarkedSynchronous")
 
-  ProductView.Properties.CancelLocalization
+  'ProductView.Properties.CancelLocalization
 
   Form_LoadProductView                                  = TRUE ' Must Return TRUE To Render The Dialog
 
@@ -170,9 +175,9 @@ END FUNCTION
 ' RETURNS       :  Return TRUE if ok else FALSE
 PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
   EventArg.HTMLRendered = EventArg.HTMLRendered & "</table><br><br><div align='center'>"
-  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutResubmit' onclick='mdm_RefreshDialog(this); return false;'>Next Step: Resubmit These Records&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/en-us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
-  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutDelete' onclick='if(confirm(""Are you sure you wish to permanently delete these records?\nClick OK to continue and delete these records"")){mdm_RefreshDialog(this); return false;}'>Next Step: Delete These Records&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/en-us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
-  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='Abandon' onclick='mdm_RefreshDialog(this); return false;'>Abandon This Backout And Start Over</button>"
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutResubmit' onclick='mdm_RefreshDialog(this); return false;'>" & mom_GetDictionary("TEXT_Next_Step_Resubmit_These_Records") & "&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/en-us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='BackoutDelete' onclick='if(confirm(""" & mom_GetDictionary("TEXT_Are_you_sure_you_wish") & """)){mdm_RefreshDialog(this); return false;}'>" & mom_GetDictionary("TEXT_Next_Step_Delete_These_Records") & "&nbsp;<IMG valign=middle border=0 src='/mcm/default/localized/en-us/images/icons/arrowSelect.gif'></button>&nbsp;&nbsp;"
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<button Class='clsButtonXXXLarge' name='Abandon' onclick='mdm_RefreshDialog(this); return false;'>" & mom_GetDictionary("TEXT_Abandon_This_Backout_And_Start_Over") & "</button>"
   EventArg.HTMLRendered = EventArg.HTMLRendered & "</div>"
 
   Form_DisplayEndOfPage = TRUE
@@ -200,7 +205,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     objReRun.ID = Clng(Service.Properties("ReRunId").Value)
 
     objReRun.Synchronous = false
-    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = "Backout, Prepare & Extract In Progress"
+    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = mom_GetDictionary("TEXT_Backout_Prepare_Extract_In_Progress")
     m_strStep = "MTBillingReRun.BackoutPrepareExtract"
     objReRun.BackoutPrepareExtract Service.Properties("Comment").Value
     If Not CheckError() Then Exit Function
@@ -225,9 +230,9 @@ PRIVATE FUNCTION BackoutResubmit_Click(EventArg) ' As Boolean
     objReRun.ID = Clng(Service.Properties("ReRunId").Value)
 
     objReRun.Synchronous = false
-    Session("BACKOUTRERUN_CURRENT_TITLE_MESSAGE") = "Backout and Resubmit"
-    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = "Backout and Resubmit In Progress"
-    Session("BACKOUTRERUN_COMPLETE_STATUS_MESSAGE") = "Backout and Resubmit Complete"
+    Session("BACKOUTRERUN_CURRENT_TITLE_MESSAGE") = mom_GetDictionary("TEXT_Backout_and_Resubmit")
+    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = mom_GetDictionary("TEXT_Backout_and_Resubmit_In_Progress")
+    Session("BACKOUTRERUN_COMPLETE_STATUS_MESSAGE") = mom_GetDictionary("TEXT_Backout_and_Resubmit_Complete")
     Session("WaitRefreshCount")=Clng(0)
     
     m_strStep = "MTBillingReRun.BackoutResubmit"
@@ -262,9 +267,9 @@ PRIVATE FUNCTION BackoutDelete_Click(EventArg) ' As Boolean
     objReRun.ID = Clng(Service.Properties("ReRunId").Value)
 
     objReRun.Synchronous = false
-    Session("BACKOUTRERUN_CURRENT_TITLE_MESSAGE") = "Backout and Delete"
-    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = "Backout and Delete In Progress"
-    Session("BACKOUTRERUN_COMPLETE_STATUS_MESSAGE") = "Backout and Delete Complete"
+    Session("BACKOUTRERUN_CURRENT_TITLE_MESSAGE") = mom_GetDictionary("TEXT_Backout_and_Delete")
+    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = mom_GetDictionary("TEXT_Backout_and_Delete_In_Progress")
+    Session("BACKOUTRERUN_COMPLETE_STATUS_MESSAGE") = mom_GetDictionary("TEXT_Backout_and_Delete_Complete")
     Session("WaitRefreshCount")=Clng(0)
     
     m_strStep = "MTBillingReRun.BackoutDelete"
@@ -276,23 +281,6 @@ PRIVATE FUNCTION BackoutDelete_Click(EventArg) ' As Boolean
     objWinApi.Sleep 500 'If we delay a half second, the operation will have a chance at being complete and we will not have to go to wait screen
     
     mdm_TerminateDialogAndExecuteDialog "BackoutRerun.BackoutStep3.asp"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     BackoutDelete_Click = TRUE
 END FUNCTION
@@ -378,7 +366,7 @@ PRIVATE FUNCTION Reanalyze_Click(EventArg) ' As Boolean
 
     objReRun.Synchronous = mom_GetBackoutRerunSynchronousOperationSetting
 
-    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = "Identify Complete<BR>Analyze In Progress"
+    Session("BACKOUTRERUN_CURRENT_STATUS_MESSAGE") = mom_GetDictionary("TEXT_Backout_and_Delete")
     m_strStep = "MTBillingReRun.Analyze"
     objReRun.Analyze "Reanalyze"
     If Not CheckError() Then Exit Function

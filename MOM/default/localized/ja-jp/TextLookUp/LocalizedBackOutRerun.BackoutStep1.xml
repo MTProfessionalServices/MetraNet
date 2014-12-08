@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_BACKOUT_TRANSACTIONS">
+    <value>Backout Transactions</value>
+  </text>
+  <text id="TEXT_Enter_a_description_for_the_rerun_you_are_about_to_create">
+    <value>Enter a description for the rerun you are about to create.</value>
+  </text>
+  <text id="TEXT_Description">
+    <value>Description:</value>
+  </text>
+  <text id="TEXT_How_will_you_identify">
+    <value>How will you identify the transactions to be rerun?</value>
+  </text>
+  <text id="TEXT_I_know_the_Session_ID">
+    <value>I know the Session ID(s).</value>
+  </text>
+  <text id="TEXT_I_will_create_a_user_defined_filter_based_on_selected_criteria">
+    <value>I will create a user defined filter based on selected criteria.</value>
+  </text>
+  <text id="TEXT_I_will_use_SQL_directly_to_identify_the_records_to_be_backed_out">
+    <value>I will use SQL directly to identify the records to be backed out.</value>
+  </text>
+  <text id="TEXT_Please_enter_the_Session_ID">
+    <value>Please enter the Session ID(s).</value>
+  </text>
+  <text id="TEXT_Session_ID">
+    <value>Session ID(s):</value>
+  </text>
+  <text id="TEXT_Enter_Session_IDs_separated_by_spaces_or_carriage_returns_using_the_following_format">
+    <value>Enter Session IDs separated by spaces or carriage returns using the following format:</value>
+  </text>
+  <text id="TEXT_Transaction_Selection_Criteria">
+    <value>Transaction Selection Criteria:</value>
+  </text>
+  <text id="TEXT_Begin_Timestamp">
+    <value>Begin Timestamp:</value>
+  </text>
+  <text id="TEXT_End_Timestamp">
+    <value>End Timestamp:</value>
+  </text>  
+  <text id="TEXT_Uses_Processed_Timestamp">
+    <value>Uses Processed Timestamp</value>
+  </text>
+  <text id="TEXT_Batch_ID">
+    <value>Batch ID:</value>
+  </text>
+  <text id="TEXT_Interval_ID">
+    <value>Interval ID:</value>
+  </text>
+  <text id="TEXT_Add_Product_View_Property">
+    <value>Add Product View Property</value>
+  </text>
+  <text id="TEXT_Add_Service_Definition_Property">
+    <value>Add Service Definition Property</value>
+  </text>
+  <text id="TEXT_Add_Account_Property">
+    <value>Add Account Property</value>
+  </text>
+  <text id="TEXT_You_have_chosen_to_use_SQL">
+    <value>You have chosen to use SQL to identify the records to be backed out. To complete this process you will need to have direct access to the database in order to execute the appropriate queries.&lt;br&gt;&lt;br&gt;&lt;b&gt;Step 1:&lt;/b&gt;&lt;br&gt;Click &apos;Next Step: Identify and Analyze&apos; below to create a rerun to populate&lt;br&gt;&lt;br&gt;&lt;b&gt;Step 2:&lt;/b&gt;&lt;br&gt;Use a separate tool such as Microsoft Query Analyzer or Oracle SQL Plus to login to the database and update the rerun table with session ids to be backed out or resubmitted&lt;br&gt;&lt;br&gt;&lt;b&gt;Step 3:&lt;/b&gt;&lt;br&gt; Return to these screens to review the summary information representing the transactions you inserted. Use the &apos;Reanalyze&apos; button on the top of the &apos;Identify and Analyze&apos; screen to update the summary information if you wind up returning to the previous step to add more sessions to or remove sessions from the rerun table.</value>
+  </text>
+  <text id="TEXT_Next_Step_Identify_Analyze">
+    <value>Next Step: Identify And Analyze</value>
+  </text>
+  <text id="TEXT_Description">
+    <value>Description</value>
+  </text>
+  <text id="TEXT_CANCEL">
+    <value>Cancel</value>
+  </text>
+  
+</texts>

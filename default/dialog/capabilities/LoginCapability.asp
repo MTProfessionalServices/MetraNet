@@ -81,8 +81,6 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 	  Form("CompositeCapabilityType") = FrameWork.Policy.GetCapabilityTypeByID(CLng(Form("CapabilityID")))
 	End If	
 
-  Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))	
-	
   bReturn = DynamicCapabilites(EventArg) ' Load the correct template for the dynmaic capabilities
 		
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
@@ -106,8 +104,10 @@ FUNCTION DynamicCapabilites(EventArg)
 
   on error resume next
 	
+  Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))	
+	
   ' Set Title	
-  mdm_GetDictionary().add "CAPABILITY_TITLE", ProductView.Properties.Rowset.Value("tx_desc")  
+  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description 'ProductView.Properties.Rowset.Value("tx_desc")  
 
 	If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then

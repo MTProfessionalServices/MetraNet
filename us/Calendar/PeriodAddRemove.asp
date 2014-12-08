@@ -360,11 +360,13 @@ end if
 
 <html>
   <head>
-	<title>Calendar Period</title><!-- Localize this -->
+  
+	<title><%=FrameWork.GetDictionary("TEXT_CALENDAR_PERIOD")%></title>
 	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">
-	
+	<meta charset="UTF-8">
+  
   <script language="JavaScript1.2" src="/mpte/shared/browsercheck.js"></script>    
   <script language="JavaScript1.2" src="/mpte/shared/PopupModalDialog.js"></script>
   <script LANGUAGE="JavaScript1.2">  

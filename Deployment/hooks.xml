@@ -78,8 +78,9 @@
     ]]>
     </Description>
     <Short_Description>Synchronize Auth</Short_Description>
-    <hook require_input="false">MetraHook.MTCapabilityHook</hook>
-    <hook secured="true" require_input="false">MetraHook.MTSecurityPolicyHook</hook>
+    <!-- <hook require_input="false">MetraHook.MTCapabilityHook</hook> -->
+	<hook secured="true" require_input="false">MetraTech.Security.Hooks.CapabilityHook</hook>
+    <hook secured="true" require_input="false">MetraHook.MTSecurityPolicyHook</hook>    
   </hooklist>
 
   <hooklist>

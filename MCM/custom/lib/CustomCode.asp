@@ -120,7 +120,7 @@ PRIVATE FUNCTION mcm_GetCustomRateScheduleSummaryInformationForQuery(objParamete
 	  outQuerySummaryProperty = querysnippet.GetQueryString()
 	  
       outQuerySummaryJoin = ""
-      outReturnedSummaryCaptionName = "Summary"
+      outReturnedSummaryCaptionName = FrameWork.GetDictionary("TEXT_SUMMARY")
   end select
   
 END FUNCTION

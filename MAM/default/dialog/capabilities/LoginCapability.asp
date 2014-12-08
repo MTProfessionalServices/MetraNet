@@ -80,6 +80,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   	Form("Role") = FrameWork.Policy.GetRoleByID(FrameWork.SessionContext, Form("RoleID"))
 	  Form("CompositeCapabilityType") = FrameWork.Policy.GetCapabilityTypeByID(CLng(Form("CapabilityID")))
 	End If	
+
+  Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))	
 	
   bReturn = DynamicCapabilites(EventArg) ' Load the correct template for the dynmaic capabilities
 		
@@ -104,8 +106,8 @@ FUNCTION DynamicCapabilites(EventArg)
 
   on error resume next
 	
-  ' Set Title
-	mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
+  ' Set Title	
+  mdm_GetDictionary().add "CAPABILITY_TITLE", ProductView.Properties.Rowset.Value("tx_desc")  
 
 	If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then

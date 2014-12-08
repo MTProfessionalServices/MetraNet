@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Toolbar Texts" type="collection">
-	 
-	 
 		<text id="GO_TOOL_TIP">
 				<value>Ir</value>
 				<description></description>
@@ -10,48 +8,39 @@
 				<value>Redefinir</value>
 				<description></description>
 		</text>
-		
-			 
 		<text id="NEXT_PAGE_TOOL_TIP">
 				<value>Próxima página</value>
 				<description></description>
 		</text>
-
 		<text id="PREVIOUS_PAGE_TOOL_TIP">
 				<value>Página anterior</value>
 				<description></description>
 		</text>
-
 		<text id="FIRST_PAGE_TOOL_TIP">
 				<value>Primeira página</value>
 				<description></description>
 		</text>
-
 		<text id="LAST_PAGE_TOOL_TIP">
 				<value>Última página</value>
 				<description></description>
 		</text>
-
 		<text id="REFRESH_PAGE_TOOL_TIP">
 				<value>Atualizar página</value>
 				<description></description>
 		</text>
-
 		<text id="EXPORT_PAGE_TOOL_TIP">
 				<value>Exportar</value>
 				<description></description>
 		</text>
-
 	 <text id="MDM_TOOL_BAR_PAGE_WORD">
 			<value>Página</value>
 		</text> 	
 		<text id="MDM_TOOL_BAR_OF_WORD">
 			<value>de</value>
-    </text> 
-    
+    </text>
     <text id="MDM_SELECT_ALL">
 			<value>Selecionar tudo</value>
-    </text>     
+    </text>    
     <text id="MDM_UNSELECT_ALL">
 			<value>Desmarcar tudo</value>
     </text>             
@@ -60,6 +49,8 @@
     </text>             
     <text id="MDM_UNSELECT_PAGE">
 			<value>Desmarcar página</value>
-    </text>                 
-    
+    </text>
+    <text id="MDM_DATETIME_BETWEEN">
+      <value>[pt-BR]Between</value>
+    </text>
 </texts>

@@ -163,4 +163,48 @@
     <value>[es-MX]Maximum Unit Value</value>
     <description></description>
   </text>
+  <text id="TEXT_CANCEL">
+    <value>[es-MX]Cancel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FINISH">
+    <value>[es-MX]Finish</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BACK">
+    <value>[es-MX]&lt; Back</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEXT">
+    <value>[es-MX]Next &gt;</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VALUE_TYPE">
+    <value>[ES-MX]Value type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_charged_in">
+    <value>[es-MX]Should this item be charged in advance or arrears?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_prorated">
+    <value>[es-MX]Should this item be prorated?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INTEGER">
+    <value>[es-MX]Integer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DECIMAL">
+    <value>[es-MX]Decimal</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_BASED_ON">
+    <value>[es-MX]Prorate based on</value>
+    <description></description>
+  </text>
+  <text id="TEXT_number_of_days">
+    <value>[es-MX]number of days.</value>
+    <description></description>
+  </text>
 </texts>

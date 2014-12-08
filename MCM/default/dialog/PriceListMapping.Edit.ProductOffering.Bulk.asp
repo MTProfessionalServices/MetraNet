@@ -248,6 +248,7 @@ Call objXML.LoadXML(strXML)
 
 
 Call objXSL.Load(strPathXSL)
+'Call objXSL.LoadXML(mdm_LocalizeString(objXSL.xml))
 
 objXML.setProperty "SelectionLanguage", "XPath"
 objXSL.setProperty "SelectionLanguage", "XPath"

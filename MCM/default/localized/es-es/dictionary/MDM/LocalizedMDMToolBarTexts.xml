@@ -50,4 +50,7 @@
   <text id="MDM_UNSELECT_PAGE">
     <value>[ES]UnSelect Page</value>
   </text>
+  <text id="MDM_DATETIME_BETWEEN">
+    <value>[ES]Between</value>
+  </text>
 </texts>

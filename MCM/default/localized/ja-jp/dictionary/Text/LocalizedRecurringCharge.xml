@@ -163,4 +163,48 @@
     <value>[JA]Maximum Unit Value</value>
     <description></description>
   </text>
+  <text id="TEXT_CANCEL">
+    <value>[JA]Cancel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FINISH">
+    <value>[JA]Finish</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BACK">
+    <value>[JA]&lt; Back</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEXT">
+    <value>[JA]Next &gt;</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VALUE_TYPE">
+    <value>[JA]Value type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_charged_in">
+    <value>[JA]Should this item be charged in advance or arrears?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_prorated">
+    <value>[JA]Should this item be prorated?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INTEGER">
+    <value>[JA]Integer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DECIMAL">
+    <value>[JA]Decimal</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_BASED_ON">
+    <value>[JA]Prorate based on</value>
+    <description></description>
+  </text>
+  <text id="TEXT_number_of_days">
+    <value>[JA]number of days.</value>
+    <description></description>
+  </text>
 </texts>

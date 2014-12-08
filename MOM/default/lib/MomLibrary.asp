@@ -228,7 +228,7 @@ End Function
 ' RETURNS			:
 Public Function mom_FormatDateTime(varValue, varFormat)
   if len(varFormat) = 0 then
-    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, mam_GetDictionary("DATE_TIME_FORMAT"))
+    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, mom_GetDictionary("DATE_TIME_FORMAT"))
   else
     mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, varFormat)
   end if

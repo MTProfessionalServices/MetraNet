@@ -1584,4 +1584,24 @@
   <text id="TEXT_CHARACTERS_LEFT">
     <value>[IT]characters left for</value>
   </text>
+  <text id="TEXT_MetraNet_Users_Hierarchy_members">
+    <value>[IT]Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Select_Access_Level">
+    <value>[IT]Select Access Level:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Owned_directly">
+    <value>[IT]Owned directly</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Owned_by_immediate_subordinates">
+    <value>[IT]Owned by immediate subordinates</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Owned_by_all_subordinates">
+    <value>[IT]Owned by all subordinates</value>
+    <description></description>
+  </text>
 </texts>

@@ -2,7 +2,7 @@
 <HEAD>
   <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
   <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/Navstyles.css">  
-  <title>Bulk Update <MDMLABEL Name="TEXT_PRICELIST_MAPPING"></MDMLABEL></title>
+  <title><MDMLABEL Name="TEXT_BULK_UPDATE">Bulk Update</MDMLABEL> <MDMLABEL Name="TEXT_PRICELIST_MAPPING"></MDMLABEL></title>
   
   <script language="Javascript">
     function ValidateForm() {
@@ -82,7 +82,7 @@
 <FORM name='mdm'>
 <!-- The title of the dialog-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%" >
-<tr><td Class='CaptionBar' nowrap>Bulk Update <MDMLABEL name="TEXT_PRICELIST_MAPPING">Price List Mapping</MDMLABEL></td></tr>
+<tr><td Class='CaptionBar' nowrap><MDMLABEL Name="TEXT_BULK_UPDATE">Bulk Update</MDMLABEL> <MDMLABEL name="TEXT_PRICELIST_MAPPING">Price List Mapping</MDMLABEL></td></tr>
 </table>
 <br>
 #MDMIF CAN_NOT_BE_MODIFIED
@@ -101,7 +101,7 @@
 <div id='UpdatePricelistDiv' name='UpdatePricelistDiv' style='display: block;'>    
 <fieldset>
 <legend>            <INPUT Name="UpdatePricelist" Type="CheckBox">
-            Update Price List Information</legend>
+            <MDMLABEL Name="TEXT_UPDATE_PL_INFO">Update Price List Information</MDMLABEL></legend>
 <br>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
@@ -115,7 +115,7 @@
   <tr>
     <td Class='clsStandardText' style="padding-left:20px;vertical-align: middle;" nowrap>
       <input type="radio" name="NonSharedPriceList" value="0">
-      <MDMLABEL name="PRICELISTNAME" type="caption">Price List</MDMLABEL>:&nbsp;&nbsp;
+      <MDMLABEL name="TEXT_PRICE_LIST">Price List</MDMLABEL>:&nbsp;&nbsp;
       <input class="fieldNonEditable" style="vertical-align: middle;" type="text" name="PRICELISTNAME" size="30" readonly>
       #MDMNOTIF CAN_NOT_BE_MODIFIED
       <button class="clsButtonBlueXLarge" id="BtnCounter" style="vertical-align: middle;"
@@ -135,7 +135,7 @@
  <br><br> 
 <fieldset>
 <legend>            <INPUT Name="UpdateICB" Type="CheckBox">
-            Update 'Allow Personal Rates' Information</legend>
+            <MDMLABEL Name="TEXT_UPDATE_ALLOW_PERS_RATES_INFO">Update 'Allow Personal Rates' Information</MDMLABEL></legend>
 <br>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
@@ -145,9 +145,9 @@
           <td width="20px">&nbsp;</td>
           <td colspan="1" nowrap align="left">
             <INPUT Name="CanICB" Type="radio" value="TRUE"><img src="/mcm/default/localized/en-us/images/icons/icb_allowed.gif" alt="Allows Personal Rates to be set for this item" border="0" align="absmiddle" />
-            <MDMLABEL Name="TEXT_PRICELIST_MAPPING_CAN_ICB" Type="Caption">Can be ICBed</MDMLABEL><br>
+            <MDMLABEL Name="TEXT_PRICELIST_MAPPING_CAN_ICB">Can be ICBed</MDMLABEL><br>
             <INPUT Name="CanICB" Type="radio" value="FALSE"><img src="/mcm/default/localized/en-us/images/icons/icb_not_allowed.gif" alt="Does not allow Personal Rates to be set for this item" border="0" align="absmiddle" />
-            Do not allow Personal Rates to be set
+            <MDMLABEL name="TEXT_DONT_ALLOW_PERS_RATES_SET">Do not allow Personal Rates to be set</MDMLABEL>
           </td>
         </tr>
       </table>
@@ -187,8 +187,8 @@
 
 <br><br>
 <div align="center"><!-- Dialog Buttons -->
-  <button Class='clsButtonXXLarge' name="OK" onclick="ValidateForm();return false;">Update Selected Price List Mappings</button>&nbsp;&nbsp;&nbsp;<br><br>
-  <button Class='clsOKButton' name="CANCEL" onclick="javascript:window.close();">Close</button>
+  <button Class='clsButtonXXLarge' name="OK" onclick="ValidateForm();return false;"><MDMLABEL Name="TEXT_UPDATE_PL_MAPPINGS">Update Selected Price List Mappings</MDMLABEL></button>&nbsp;&nbsp;&nbsp;<br><br>
+  <button Class='clsOKButton' name="CANCEL" onclick="javascript:window.close();"><MDMLABEL Name="TEXT_CLOSE">Close</MDMLABEL></button>
 </div>
 <br><br>
 </form></body></html>

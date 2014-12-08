@@ -490,7 +490,8 @@ Class CMTWizard
   
     'Back button
     strHTML = replace(strHTML, "[BACK_BUTTON]", mstrBackButton)
-    
+    strHTML = replace(strHTML, "[TEXT_BACK]", FrameWork.GetDictionary("TEXT_BACK"))
+
     'Set the state
     if len(mstrPrevPage) = 0 then
       strState = DISABLED
@@ -503,12 +504,15 @@ Class CMTWizard
     'Next/Finish Button
     if len(mstrNextPage) = 0 then
       strHTML = replace(strHTML, "[NEXT_BUTTON]", mstrFinishButton)
+      strHTML = replace(strHTML, "[TEXT_FINISH]", FrameWork.GetDictionary("TEXT_FINISH"))
     else
       strHTML = replace(strHTML, "[NEXT_BUTTON]", mstrNextButton)
+      strHTML = replace(strHTML, "[TEXT_NEXT]", FrameWork.GetDictionary("TEXT_NEXT"))
     end if
     
     'Cancel Button
     strHTML = replace(strHTML, "[CANCEL_BUTTON]", mstrCancelButton)
+    strHTML = replace(strHTML, "[TEXT_CANCEL]", FrameWork.GetDictionary("TEXT_CANCEL"))
 
  
     DoButtonSubs = strHTML  

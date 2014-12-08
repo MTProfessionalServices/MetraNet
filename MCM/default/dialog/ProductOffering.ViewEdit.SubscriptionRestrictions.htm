@@ -80,9 +80,9 @@ if (parent.ProductOfferingSelected)
 <!-- Extended Properties -->
 <!--<div style="border-bottom: 2 solid #000066;">Extended Properties &nbsp;&nbsp; <a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 8px;">Add new extended property here</a></div>-->
 <fieldset style="padding: 20 10 10 10;">
-<legend style="font-weight: normal;">Extended Properties</legend>
+<legend style="font-weight: normal;"><MDMLABEL Name="TEXT_EXTENDED_PROPERTIES">Extended Properties</MDMLABEL></legend>
 
-<MDMGrid Name="ExtendedProperties">Extended Properties</MDMGrid>
+<MDMGrid Name="ExtendedProperties"><MDMLABEL Name="TEXT_EXTENDED_PROPERTIES">Extended Properties</MDMLABEL></MDMGrid>
 <!--
 <br>
 <center>
@@ -111,7 +111,7 @@ if (parent.ProductOfferingSelected)
 #MDMEndIf
 
 <div style="margin:3px;"><button class="clsButtonXLarge" name="butAddSubscriptionAccountTypeRestriction" id="butAddSubscriptionAccountTypeRestriction" onClick="javascript:window.open('/mcm/default/dialog/AccountType.Picker.asp?IDColumnName=id_type&ProxyMode=TRUE&Kind=10&Title=TEXT_SELECT_ACCOUNT_TYPES_THAT_SHOULD_BE_ABLE_TO_SUBSCRIBE&ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]', '_blank', 'height=100,width=100,resizable=yes, scrollbars=yes');">
-  Add Account Type Restriction
+  [TEXT_PRODUCT_OFFERING_ADD_ACCOUNT_TYPE_RESTRICTION]
 </button>&nbsp;
 </div>
 </div>

@@ -361,38 +361,62 @@
 
 					alter table t_adjustment add constraint t_adjustment_fk1
 					foreign key (id_pi_instance) references t_base_props(id_prop);
+					
 					alter table t_adjustment add constraint t_adjustment_fk2
 					foreign key (id_pi_template) references t_pi_template(id_template);
+					
 					alter table t_adjustment add constraint t_adjustment_fk3
 					foreign key (id_adjustment_type) references t_adjustment_type(id_prop);
+					
 					alter table t_adjustment_type_prop add constraint adjustment_type_prop_fk1
 					foreign key (id_adjustment_type) references t_adjustment_type(id_prop);
+					
 					alter table t_adjustment_type_prop add constraint adjustment_type_prop_fk2
 					foreign key (id_prop) references t_base_props(id_prop);
+					
 					alter table t_recur_value add constraint t_recur_value_fk1
 					foreign key (id_prop) references t_recur(id_prop);
+					
 					alter table t_gsub_recur_map add constraint t_gsub_recur_map_fk1
 					foreign key (id_group) references t_group_sub(id_group);
+					
 					alter table t_gsub_recur_map add constraint t_gsub_recur_map_fk2
 					foreign key (id_prop) references t_recur(id_prop);
+					
 					alter table t_gsub_recur_map add constraint t_gsub_recur_map_fk3
 					foreign key (id_acc) references t_account(id_acc);
+					
 					alter table t_acc_ownership add constraint t_acc_ownership_fk1
 					foreign key (id_owner) references t_account(id_acc);
+					
 					alter table t_acc_ownership add constraint t_acc_ownership_fk2
 					foreign key (id_owned) references t_account(id_acc);
+					
+					
 					alter table t_acc_ownership add constraint t_acc_ownership_fk3
 					foreign key (id_relation_type) references t_enum_data(id_enum_data);
+					
 					alter table t_unique_cons add constraint fk1_t_unique_cons
 					foreign key (id_prod_view) references t_prod_view (id_prod_view);
+					
 					alter table t_unique_cons_columns add constraint fk1_t_unique_cons_col
 					foreign key (id_unique_cons) references t_unique_cons (id_unique_cons);
+					
 					alter table t_unique_cons_columns add constraint fk2_t_unique_cons_col
 					foreign key (id_prod_view_prop) references t_prod_view_prop (id_prod_view_prop);
+					
 					alter table t_acctype_descendenttype_map add constraint fk1_t_acctype_destype_map
 					foreign key (id_type) references t_account_type (id_type);
+					
 					alter table t_acctype_descendenttype_map add constraint fk2_t_acctype_destype_map
 					foreign key (id_descendent_type) references t_account_type (id_type);
+					
 					alter table t_account add constraint fk1_t_account
 					foreign key (id_type) references t_account_type(id_type);
-
+										
+					/* foreign keys for T_LOCALIZED_ITEMS table */
+					alter table t_localized_items add constraint FK_LOCAL_TO_LOCAL_ITEMS_TYPE
+					foreign key(id_local_type) references t_localized_items_type(id_local_type);
+					
+					alter table t_localized_items add constraint FK_LOCALIZE_TO_T_LANGUAGE
+					foreign key(id_lang_code) references t_language (id_lang_code);

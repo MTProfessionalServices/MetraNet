@@ -6,102 +6,135 @@
   <div class="CaptionBar">
     <asp:Label ID="lblTitle" runat="server" meta:resourcekey="PageResource1"></asp:Label>
   </div>
-  <MT:MTPanel runat="server" ClientIDMode="Static" ID="pnlInfo" meta:resourcekey="pnlInfo">
-    <table>
-      <tr>
-        <td>
-          <MT:MTLabel runat="server" ID="lblAdapter" ClientIDMode="Static" ViewStateMode="Disabled"
-            meta:resourcekey="lblAdapter" />
-        </td>
-        <td>
-          &nbsp;
-        </td>
-        <td>
-          <MT:MTLabel runat="server" ID="lblAdapterValue" ClientIDMode="Static" ViewStateMode="Disabled" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <MT:MTLabel runat="server" ID="lblStatus" ClientIDMode="Static" ViewStateMode="Disabled"
-            meta:resourcekey="lblStatus" />
-        </td>
-        <td>
-          &nbsp;
-        </td>
-        <td>
-          <MT:MTLabel runat="server" ID="lblStatusValue" ClientIDMode="Static" ViewStateMode="Disabled" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <MT:MTLabel runat="server" ID="lblInstanceId" ClientIDMode="Static" ViewStateMode="Disabled"
-            meta:resourcekey="lblInstanceId" />
-        </td>
-        <td>
-          &nbsp;
-        </td>
-        <td>
-          <MT:MTLabel runat="server" ID="lblInstanceIdValue" ClientIDMode="Static" ViewStateMode="Disabled" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <MT:MTLabel runat="server" ID="lblArgStart" ClientIDMode="Static" ViewStateMode="Disabled"
-            meta:resourcekey="lblArgStart" />
-        </td>
-        <td>
-          &nbsp;
-        </td>
-        <td>
-          <MT:MTLabel runat="server" ID="lblArgStartValue" ClientIDMode="Static" ViewStateMode="Disabled" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <MT:MTLabel runat="server" ID="lblArgEnd" ClientIDMode="Static" ViewStateMode="Disabled"
-            meta:resourcekey="lblArgEnd" />
-        </td>
-        <td>
-          &nbsp;
-        </td>
-        <td>
-          <MT:MTLabel runat="server" ID="lblArgEndValue" ClientIDMode="Static" ViewStateMode="Disabled" />
-        </td>
-      </tr>
-    </table>
-    <div>
-      <MT:MTButton ID="btnHistory" ClientIDMode="Static" meta:resourcekey="btnHistory"
-        OnClientClick="ShowAuditHistory();return false;" runat="server" />
-    </div>
-  </MT:MTPanel>
-  <div>
-    <table>
-      <tr>
-        <td>
-          <MT:MTButton ID="btnRunAdapters" meta:resourcekey="btnRunAdapters" ClientIDMode="Static"
-            runat="server" OnClick="btnRunAdapters_Click" />
-        </td>
-        <td>
-          <MT:MTButton ID="btnRunAdaptersLater" meta:resourcekey="btnRunAdaptersLater" ClientIDMode="Static"
-            runat="server" OnClick="btnRunAdaptersLater_Click" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRunAdaptersLater'); return false;" />
-        </td>
-        <td>
-          <MT:MTButton ID="btnRevertAdapters" meta:resourcekey="btnRevertAdapters" ClientIDMode="Static"
-            runat="server" OnClick="btnRevertAdapters_Click" />
-        </td>
-        <td>
-          <MT:MTButton ID="btnRevertAdaptersLater" meta:resourcekey="btnRevertAdaptersLater"
-            ClientIDMode="Static" runat="server" OnClick="btnRevertAdaptersLater_Click" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnReverseAdaptersLater'); return false;" />
-        </td>
-        <td>
-          <MT:MTButton ID="btnCancelSubmittedAction" meta:resourcekey="btnCancelSubmittedAction"
-            ClientIDMode="Static" runat="server" OnClick="btnCancelSubmittedAction_Click" />
-        </td>
-      </tr>
-    </table>
-  </div>
-  <MT:MTFilterGrid ID="AdapterInstanceRunHistoryGrid" runat="server" TemplateFileName="AdapterInstanceRunHistoryGrid"
-    ExtensionName="Core" />
+  <table style="border-spacing: 10px;">
+    <tr>
+      <td>
+        <MT:MTPanel runat="server" ClientIDMode="Static" ID="pnlInfo" meta:resourcekey="pnlInfo">
+          <table>
+            <tr>
+              <td>
+                <MT:MTLabel runat="server" ID="lblAdapter" ClientIDMode="Static" ViewStateMode="Disabled"
+                  meta:resourcekey="lblAdapter" />
+              </td>
+              <td>
+                &nbsp;
+              </td>
+              <td>
+                <MT:MTLabel runat="server" ID="lblAdapterValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <MT:MTLabel runat="server" ID="lblStatus" ClientIDMode="Static" ViewStateMode="Disabled"
+                  meta:resourcekey="lblStatus" />
+              </td>
+              <td>
+                &nbsp;
+              </td>
+              <td>
+                <MT:MTLabel runat="server" ID="lblStatusValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <MT:MTLabel runat="server" ID="lblInstanceId" ClientIDMode="Static" ViewStateMode="Disabled"
+                  meta:resourcekey="lblInstanceId" />
+              </td>
+              <td>
+                &nbsp;
+              </td>
+              <td>
+                <MT:MTLabel runat="server" ID="lblInstanceIdValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <MT:MTLabel runat="server" ID="lblArgStart" ClientIDMode="Static" ViewStateMode="Disabled"
+                  meta:resourcekey="lblArgStart" />
+              </td>
+              <td>
+                &nbsp;
+              </td>
+              <td>
+                <MT:MTLabel runat="server" ID="lblArgStartValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <MT:MTLabel runat="server" ID="lblArgEnd" ClientIDMode="Static" ViewStateMode="Disabled"
+                  meta:resourcekey="lblArgEnd" />
+              </td>
+              <td>
+                &nbsp;
+              </td>
+              <td>
+                <MT:MTLabel runat="server" ID="lblArgEndValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <div>
+            <MT:MTButton ID="btnHistory" ClientIDMode="Static" meta:resourcekey="btnHistory"
+              OnClientClick="ShowAuditHistory();return false;" runat="server" />
+          </div>
+        </MT:MTPanel>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center" style="display: block">
+          <table style="border-spacing: 10px;">
+            <tr>
+              <td>
+                <MT:MTButton ID="btnRunAdapters" meta:resourcekey="btnRunAdapters" ClientIDMode="Static"
+                  runat="server" OnClick="btnRunAdapters_Click" />
+              </td>
+              <td>
+                <MT:MTButton ID="btnRunAdaptersLater" meta:resourcekey="btnRunAdaptersLater" ClientIDMode="Static"
+                  runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRunAdaptersLater'); return false;" />
+              </td>
+              <td>
+                <MT:MTButton ID="btnRevertAdapters" meta:resourcekey="btnRevertAdapters" ClientIDMode="Static"
+                  runat="server" OnClick="btnRevertAdapters_Click" />
+              </td>
+              <td>
+                <MT:MTButton ID="btnRevertAdaptersLater" meta:resourcekey="btnRevertAdaptersLater"
+                  ClientIDMode="Static" runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnReverseAdaptersLater'); return false;" />
+              </td>
+              <td>
+                <MT:MTButton ID="btnCancelSubmittedAction" meta:resourcekey="btnCancelSubmittedAction"
+                  ClientIDMode="Static" runat="server" OnClick="btnCancelSubmittedAction_Click" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <MT:MTFilterGrid ID="AdapterInstanceRunHistoryGrid" runat="server" TemplateFileName="AdapterInstanceRunHistoryGrid"
+          ExtensionName="Core" />
+      </td>
+    </tr>
+    <tr>
+      <td style="horiz-align: center;">
+        <div align="center" style="display: block">
+          <table style="border-spacing: 10px;">
+            <tr>
+              <td>
+                <MT:MTButton ID="btnRefresh" ClientIDMode="Static" runat="server" OnClick="btnRefresh_Click" />
+              </td>
+              <td>
+                <MT:MTButton ID="btnCancel" ClientIDMode="Static" runat="server" OnClick="btnCancel_Click" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
   <div id="later-win" class="x-hidden">
     <div id="later-win-body" class="x-panel">
       <MT:MTDatePicker runat="server" ID="dtRunRevertOn" ClientIDMode="Static" ViewStateMode="Disabled"
@@ -130,7 +163,6 @@
     var laterWin;
     var auditHistoryWin;
     var runDetailsWin;
-    var dtRunRevertOnLabel = "<%=GetLocalResourceObject("RunLaterOn.Text").ToString() %>";
 
     if ("<%=IntervalId %>".len > 0) {
       additionalParameters = "&BillingGroupId=<%=BillingGroupId %>&IntervalId=<%=IntervalId %>";
@@ -254,6 +286,7 @@
     
     function btnRunRevertAdaptersLater_ClientClick(btnId) {
       var windowTitle = "<%=GetLocalResourceObject("btnRunAdaptersLater.Text").ToString() %>";
+      var dtRunRevertOnLabel = "<%=GetLocalResourceObject("RunLaterOn.Text").ToString() %>";
       if (btnId == '<%=btnRevertAdaptersLater.ClientID %>') {
         windowTitle = "<%=GetLocalResourceObject("btnRevertAdaptersLater.Text").ToString() %>";
         dtRunRevertOnLabel = "<%=GetLocalResourceObject("RevertLaterOn.Text").ToString() %>";
@@ -280,7 +313,7 @@
             buttons: [{
               text: TEXT_OK,
               handler: function() {
-                proceedAdapter(btnId);
+                __doPostBack(btnId, '');
                 laterWin.hide();
               }
             },
@@ -293,10 +326,6 @@
         });
       }
       laterWin.show(this);  
-    }
-    
-    function proceedAdapter(btnId) {
-      __doPostBack(btnId, '');
     }
   </script>
 </asp:Content>

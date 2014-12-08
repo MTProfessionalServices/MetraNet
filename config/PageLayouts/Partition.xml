@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.AccountTypes.Partition</ObjectName>
     <Description>The page layout for adding or updating a Partition account in MetraCare.</Description>
     <Pages>
-        <PageName>/MetraNet/Account/GenericAccountSummary.aspx</PageName>
+        <PageName>~/Account/GenericAccountSummary.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>

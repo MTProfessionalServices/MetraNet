@@ -72,7 +72,9 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   	Form("Role") = FrameWork.Policy.GetRoleByID(FrameWork.SessionContext, Form("RoleID"))
 	  Form("CompositeCapabilityType") = FrameWork.Policy.GetCapabilityTypeByID(CLng(Form("CapabilityID")))
 	End If	
-	
+	  
+  Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))
+
   bReturn = DynamicCapabilites(EventArg) ' Load the correct template for the dynmaic capabilities
 		
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
@@ -97,12 +99,13 @@ FUNCTION DynamicCapabilites(EventArg)
   on error resume next
 
   ' Setup initial template
-  Form.HTMLTemplateSource = Form("InitialTemplate")
-	
-  ' Set Title
-	mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
+  Form.HTMLTemplateSource = Form("InitialTemplate")	  
 
-	If IsEmpty(Form("CompositeCollection")) Then
+  ' Set Title
+	'mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
+  mdm_GetDictionary().add "CAPABILITY_TITLE", ProductView.Properties.Rowset.Value("tx_desc")  
+
+  If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then
       If UCase(Session("IsAccount")) = "TRUE" Then			
 			  Form("AccountPolicy").AddCapability(Form("CompositeCapabilityType").CreateInstance())
@@ -130,7 +133,9 @@ FUNCTION DynamicCapabilites(EventArg)
 		 		'----------------------------------------------------------------------------------------------------------
 				Case "MTPATHCAPABILITY"
 				  
-					mdm_GetDictionary().add "MTPATHCAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
+					'mdm_GetDictionary().add "MTPATHCAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
+          mdm_GetDictionary().add "MTPATHCAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
+          ProductView.Properties.Rowset.MoveNext()
 			
 	        Set objDyn = mdm_CreateObject(CVariables)
 	        objDyn.Add "0", "0", , , "[TEXT_CURRENT_NODE]"
@@ -187,7 +192,8 @@ FUNCTION DynamicCapabilites(EventArg)
 				 
   		'----------------------------------------------------------------------------------------------------------					
 			Case "MTACCESSTYPECAPABILITY"
-					mdm_GetDictionary().add "MTACCESSTYPECAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
+					mdm_GetDictionary().add "MTACCESSTYPECAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
+          ProductView.Properties.Rowset.MoveNext()
 
 					Service.Properties.Add "MTACCESSTYPECAPABILITY" & nCount, "ENUM", 0, TRUE, ""
 					Service.Properties("MTACCESSTYPECAPABILITY" & nCount).Caption = "Access Type"
@@ -205,7 +211,8 @@ FUNCTION DynamicCapabilites(EventArg)
 			
       '----------------------------------------------------------------------------------------------------------					
 			Case "MTDECIMALCAPABILITY"			
-					mdm_GetDictionary().add "MTDECIMALCAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
+					mdm_GetDictionary().add "MTDECIMALCAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
+          ProductView.Properties.Rowset.MoveNext()
 
 					Service.Properties.Add "MTDECIMALCAPABILITY" & nCount, "DECIMAL", 0, TRUE, 0
           
@@ -256,7 +263,8 @@ FUNCTION DynamicCapabilites(EventArg)
 
   		'----------------------------------------------------------------------------------------------------------					
 			Case "MTENUMTYPECAPABILITY"
-					mdm_GetDictionary().add "MTENUMTYPECAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
+					mdm_GetDictionary().add "MTENUMTYPECAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
+          ProductView.Properties.Rowset.MoveNext()
 
 					Service.Properties.Add "MTENUMTYPECAPABILITY" & nCount, "String", 0, TRUE, ""
 					Service.Properties("MTENUMTYPECAPABILITY" & nCount).Caption = "Enum Type"

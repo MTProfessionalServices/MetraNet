@@ -108,7 +108,7 @@
     <description></description>
   </text>
   <text id="DATE_SEPARATOR">
-    <value>.</value>
+    <value>/</value>
     <description>Define the dates separator.</description>
   </text>
 </texts>

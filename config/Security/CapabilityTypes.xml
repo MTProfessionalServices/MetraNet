@@ -82,28 +82,28 @@
         <Description>Specify access to hierarchy branches</Description>
         <LocalizedItems>
           <item lang="FR">          
-          <Description>[FR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[FR] Specify access to hierarchy branches</Description>
           </item>
           <item lang="IT">          
-          <Description>[IT] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[IT] Specify access to hierarchy branches</Description>
           </item>
           <item lang="ES">
-          <Description>[ES] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[ES] Specify access to hierarchy branches</Description>
           </item>
           <item lang="DE">
-          <Description>[DE] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[DE] Specify access to hierarchy branches</Description>
           </item>
           <item lang="es-MX">
-          <Description>[es-MX] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[es-MX] Specify access to hierarchy branches</Description>
           </item>
           <item lang="pt-BR">
-          <Description>[pt-BR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[pt-BR] Specify access to hierarchy branches</Description>
           </item>
           <item lang="en-GB">
-          <Description>[en-GB] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[en-GB] Specify access to hierarchy branches</Description>
           </item>
           <item lang="JA">
-          <Description>[JA] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[JA] Specify access to hierarchy branches</Description>
           </item>	
         </LocalizedItems>
       </mtpathcapability>

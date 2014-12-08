@@ -137,7 +137,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
       iRetryCount = 12
       for i=0 to iRetryCount-1
     
-          Service.XML(Server.MapPath("/mdm"),,,,,,mdm_InternalCache) = strXMLMessage
+          Service.XML(Server.MapPath("/mdm"),Service.Language,,,,,mdm_InternalCache) = strXMLMessage
               If Err.Number Then
                 '//If we are on our last retry then display a message
                 If i=iRetryCount-1 then

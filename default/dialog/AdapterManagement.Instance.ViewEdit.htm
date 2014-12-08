@@ -40,6 +40,11 @@ function isAdapterSelected(){
 
   return false;
 }
+
+function goBack() {
+  window.top.getFrameMetraNet().history.back();
+  return false;
+}
 </SCRIPT>
  </HEAD>
 
@@ -117,7 +122,7 @@ function isAdapterSelected(){
 <!-- Buttons -->
 <center>
 <button onclick="mdm_RefreshDialog(this); return false;" name="refresh" Class="clsOkButton">Refresh</button>
-<button onclick="mdm_RefreshDialog(this); return false;" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CLOSE"></MDMLABEL></button>
+<button onclick="goBack();" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CLOSE"></MDMLABEL></button>
 </FORM>
 </BODY>
 </HTML>

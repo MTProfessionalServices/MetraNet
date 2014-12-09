@@ -29,7 +29,7 @@
 
   <div id="recentAccountContainer" style="width: 400px; padding: 10px;"></div>
   <div id="pendingApprovalsContainer" style="width: 400px; padding: 10px;"></div>
- <div id="recentNotificationsContainer" style="width: 400px; padding: 10px;"></div>
+ 
 
   <uc1:Notifications ID="notification" runat="server" />
 

@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="welcome" Title="MetraNet" CodeFile="Welcome.aspx.cs" %>
-
+<%@ Register src="./UserControls/Notifications/Notifications.ascx" tagname="Notifications" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -29,6 +29,9 @@
 
   <div id="recentAccountContainer" style="width: 400px; padding: 10px;"></div>
   <div id="pendingApprovalsContainer" style="width: 400px; padding: 10px;"></div>
+ <div id="recentNotificationsContainer" style="width: 400px; padding: 10px;"></div>
+
+  <uc1:Notifications ID="notification" runat="server" />
 
   <script type="text/javascript">
 

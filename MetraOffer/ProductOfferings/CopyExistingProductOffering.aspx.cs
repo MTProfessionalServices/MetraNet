@@ -115,7 +115,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("GB", productoffering.Description);
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("IT", productoffering.Description);
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("FR", productoffering.Description);
-        ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("JP", productoffering.DisplayName);
+        ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("JP", productoffering.Description);
 
         copyProductOffering.Save(); 
 

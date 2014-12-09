@@ -145,7 +145,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
         'code fix for core-6775 adjustment amount shows values in timestamp 
         '****Starts here******
         'code fix for core-6775 oracle and sql DB Values Form.Grid.SelectedProperty.Name="COMPOUNDPREBILLADJAMT" ||CompoundPrebillAdjAmt
-        if Form.Grid.SelectedProperty.Name="COMPOUNDPREBILLADJAMT" then
+        if UCase(Form.Grid.SelectedProperty.Name)="COMPOUNDPREBILLADJAMT" then
         Form_DisplayCell = Inherited("Form_DisplayCell()")
         else
         '****End Here******

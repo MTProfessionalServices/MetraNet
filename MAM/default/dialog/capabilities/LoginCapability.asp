@@ -104,10 +104,8 @@ FUNCTION DynamicCapabilites(EventArg)
 
   on error resume next
 	
-  Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))	
-	
   ' Set Title	
-  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description 'ProductView.Properties.Rowset.Value("tx_desc")  
+  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").Description
 
 	If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then
@@ -138,7 +136,7 @@ FUNCTION DynamicCapabilites(EventArg)
 	
 				  If IsValidObject(atomic.GetParameter()) Then
             Dim strPName
-            strPName = "APP_" & CStr(Atomic.GetParameter().Value)
+            strPName = "APP_" & CStr(atomic.GetParameter().Value)
             Service.Properties(strPName).value = TRUE
 					End If
 														

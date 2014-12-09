@@ -173,7 +173,7 @@
             <DataIndex>pi template</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_PERCENTAGE</LocalizationTag>
+                <LocalizationTag>TEXT_PI_TEMPLATE</LocalizationTag>
                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>

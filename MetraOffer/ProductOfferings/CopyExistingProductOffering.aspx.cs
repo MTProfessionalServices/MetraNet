@@ -103,6 +103,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayNames).SetMapping("GB", productoffering.DisplayName);
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayNames).SetMapping("IT", productoffering.DisplayName);
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayNames).SetMapping("FR", productoffering.DisplayName);
+        ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayNames).SetMapping("JP", productoffering.DisplayName);
     
         //Add Description localizations
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("US", productoffering.Description);
@@ -114,6 +115,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("GB", productoffering.Description);
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("IT", productoffering.Description);
         ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("FR", productoffering.Description);
+        ((MetraTech.Localization.LocalizedEntity)copyProductOffering.DisplayDescriptions).SetMapping("JP", productoffering.DisplayName);
 
         copyProductOffering.Save(); 
 

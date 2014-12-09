@@ -26,4 +26,4 @@ WHERE
   evt.dt_activated <= %%%SYSTEMDATE%%% AND
  (evt.dt_deactivated IS NULL OR %%%SYSTEMDATE%%% < evt.dt_deactivated) AND
   evt.tx_type = 'Scheduled' AND
-  run.dt_end >= '%%END_DATE%%'
+  run.dt_end >= TO_DATE ('%%END_DATE%%', 'MM/DD/YYYY')

@@ -1,6 +1,6 @@
 SELECT ui.id_interval,
-       CONVERT(VARCHAR(10), ui.dt_start, 101) AS dt_start,
-       CONVERT(VARCHAR(10), ui.dt_end, 101) AS dt_end,
+       ui.dt_start AS dt_start,
+       ui.dt_end AS dt_end,
        ut.id_cycle_type as 'id_cycle_type'
 FROM   
 	t_usage_interval ui

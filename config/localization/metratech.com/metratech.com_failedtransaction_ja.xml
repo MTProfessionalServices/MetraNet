@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mt_config>
+    <language_code>ja</language_code>
+    <locale_space name="metratech.com/failedtransaction">
+        <locale_entry>
+            <Name>metratech.com/failedtransaction/DismissedReasonCode/ResendOriginal</Name>
+            <Value>[JA]Original transaction will be remetered</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/failedtransaction/DismissedReasonCode/Test</Name>
+            <Value>[JA]Test Record</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/failedtransaction/DismissedReasonCode/UnableToResolve</Name>
+            <Value>[JA]Unable To Resolve</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/failedtransaction/InvestigationReasonCode/AccountResolution</Name>
+            <Value>[JA]Account Resolution Issue</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/failedtransaction/InvestigationReasonCode/OperationsIssue</Name>
+            <Value>[JA]Operations Issue</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/failedtransaction/InvestigationReasonCode/RateResolution</Name>
+            <Value>[JA]Rate Resolution Issue</Value>
+        </locale_entry>
+    </locale_space>
+</mt_config>

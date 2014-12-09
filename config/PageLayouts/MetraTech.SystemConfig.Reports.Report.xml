@@ -19,7 +19,7 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[]]></Value>
+                <LocalizationFQN>BusinessEntity/MetraTech.SystemConfig.Reports.Report/ManageSystemReport</LocalizationFQN>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Name></Name>
@@ -213,11 +213,11 @@
                         <Field>
                             <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
                             <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
-                            <ID>Security</ID>
-                            <Name>Security</Name>
+                            <ID>ReqdCapability</ID>
+                            <Name>ReqdCapability</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
                             <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>

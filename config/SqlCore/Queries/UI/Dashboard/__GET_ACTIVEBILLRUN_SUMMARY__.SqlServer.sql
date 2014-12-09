@@ -1,7 +1,7 @@
 DECLARE @EOP_Interval INT
-DECLARE @EOP_End_Date VARCHAR(25) --Eop END date
+DECLARE @EOP_End_Date DATETIME --Eop END date
 DECLARE @EOPadapterCount INT
-DECLARE @lastEOPinstanceRun VARCHAR(25) --time of run
+DECLARE @lastEOPinstanceRun DATETIME --time of run
 DECLARE @EOP_ReadyToRun INT
 DECLARE @EOPnotYetRun INT
 DECLARE @EOPfailedCount INT
@@ -9,7 +9,7 @@ DECLARE @EOPsucceededCount INT
 DECLARE @lastEOPAdapterName VARCHAR(50)
 DECLARE @lastEOPAdapterDuration INT
 DECLARE @lastEOPAdapterStatus VARCHAR(25)
-DECLARE @start_time VARCHAR(25)
+DECLARE @start_time DATETIME
 DECLARE @Varience FLOAT
 DECLARE @ETAoffset INT
 DECLARE @EarliestETA DATETIME
@@ -22,7 +22,7 @@ set @EarliestETA = DATEADD(HOUR, 20 + @ETAoffset, GETDATE())
 
 SET @EOP_Interval = %%ID_USAGE_INTERVAL%% --change to your interval variable
 SET @EOP_End_Date = (
-SELECT CONVERT(VARCHAR(11), dt_end, 106) AS dt_end from t_usage_interval
+SELECT dt_end AS dt_end from t_usage_interval
 where id_interval = @EOP_Interval
 )
 --get count of all EOP Adapters
@@ -36,7 +36,7 @@ and re.tx_type = 'EndofPeriod'
 
 --First Adapter Run
 SET @start_time  = (
-SELECT top 1  CONVERT(VARCHAR(20), DATEADD(hh, -5, rer.dt_start), 100) as EOP_Start_Time
+SELECT top 1  DATEADD(hh, -5, rer.dt_start) as EOP_Start_Time
 FROM t_recevent_run rer with (nolock)
 join t_recevent_inst rei with (nolock) on   rei.id_instance = rer.id_instance
 join t_recevent re with (nolock) on re.id_event = rei.id_event
@@ -47,7 +47,7 @@ order by rer.dt_start asc)
 
 --time of last EOP adapter / checkpoint run  - adjusted
 SET @lastEOPinstanceRun  = (
-SELECT top 1  CONVERT(VARCHAR(20), DATEADD(hh, -5, rer.dt_start), 100) as time_of_last_EOP_run
+SELECT top 1  DATEADD(hh, -5, rer.dt_start) as time_of_last_EOP_run
 FROM t_recevent_run rer with (nolock)
 join t_recevent_inst rei with (nolock) on   rei.id_instance = rer.id_instance
 join t_recevent re with (nolock) on re.id_event = rei.id_event

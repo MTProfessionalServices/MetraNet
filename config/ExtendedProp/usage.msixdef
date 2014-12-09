@@ -14,7 +14,7 @@
         <dn>IsLiabilityProduct</dn>
         <type>boolean</type>
         <length></length>
-        <required>Y</required>
+        <required>N</required>
         <defaultvalue>F</defaultvalue>
         <description>Shows is this a liability product</description>
     </ptype>

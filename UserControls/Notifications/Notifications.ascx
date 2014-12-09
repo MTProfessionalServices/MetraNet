@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#"  AutoEventWireup="true"
   CodeFile="Notifications.ascx.cs" Inherits="UserControl_Notifications"  %>
-
   
+  <div id="recentNotificationsContainer" style="width: 400px; padding: 10px;"></div>
   <script type="text/javascript">
     var recentNotificationTpl;
     var p;
@@ -19,7 +19,7 @@
                 Ext.Ajax.request({
                   url: '/MetraNet/Notifications/AjaxServices/NotificationSvc.aspx',
                   timeout: 10000,
-                  params: { pageSize: 100, currentPage: pageno },
+                  params: { pageSize: 5, currentPage: pageno },
                   success: function(response) {
                     var template = '';
                     if (response.responseText.length > 12) {

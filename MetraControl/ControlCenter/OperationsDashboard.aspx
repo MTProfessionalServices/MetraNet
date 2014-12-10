@@ -19,9 +19,12 @@
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dashboard.css">
     <link rel="stylesheet" type="text/css" href="Styles/OperationsDashboard.css">
 
-    <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
-    <br />
-    <div class="gridster" width="100%" height="100%">
+
+    <div class="CaptionBar" style="color: #ddd;font-size: 150%;">
+    <asp:Label ID="Label1" runat="server" meta:resourcekey="MTTitle1Resource1">Operations Dashboard</asp:Label>
+  </div>    
+  <br />
+  <div class="gridster" width="100%" height="100%">
 	<ul width="100%" height="100%" id="gridsterul" style="width:100%; text-align:left;">
             <li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
                 <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" meta:resourcekey="pnlFailedTransactionsQueueResource"
@@ -138,19 +141,13 @@
                                 <td colspan="2">
                                     <table>
                                         <tr>
-                                            <td class="label">
-                                                <MT:MTLabel ID="lblVariance" runat="server" Text="Variance:" />
-                                            </td>
-                                            <td>
+                                            <td colspan="2" style="text-align: left">
                                                 <MT:MTLabel ID="txtVariance" runat="server" />
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="label">
-                                                <MT:MTLabel ID="lblEarliestETA" runat="server" Text="Earliest ETA:" />
-                                            </td>
-                                            <td>
-                                                <MT:MTLabel ID="txtEarliestETA" runat="server" />
+                                            <td colspan="2" style="text-align: left">
+                                                <MT:MTLabel ID="txtEarliestETA" runat="server" /><br/><br/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -206,14 +203,14 @@
                                                 &nbsp;
                                             </td>
                                         </tr>
-                                        <tr>
+                                       <%-- <tr>
                                             <td class="label">
                                                 <MT:MTLabel ID="lblBillCloseSynopisType" runat="server" meta:resourcekey="lblBillCloseSynopisTypeResource" Text="Type:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisType" runat="server" />
                                             </td>
-                                        </tr>
+                                        </tr>--%>
                                         <tr>
                                             <td class="label">
                                                 <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" Width="80" />
@@ -258,8 +255,8 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td width="70%">
-                                    <svg id="divBillCloseSynopsis"></svg>
+                                <td width="70%" style="vertical-align:top">
+                                    <svg height="100%" id="divBillCloseSynopsis"></svg>
                                 </td>
                             </tr>
                         </table>
@@ -269,7 +266,7 @@
             <li data-row="37" data-col="1" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" meta:resourcekey="pnlFailedAdapters"
                 Width="320" Height="325">
-                    <div height="100%" style="height: 248px">
+                    <div height="100%" style="height: 248px; width: 390px">
                         <MT:MTFilterGrid ID="grdFailedAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.FailedAdapters.xml">
                         </MT:MTFilterGrid>
@@ -278,8 +275,8 @@
             </li>
             <li data-row="37" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" meta:resourcekey="pnlRunningAdapters"
-                Width="320" Height="325">
-                    <div height="100%" style="height: 248px">
+                Width="430" Height="325">
+                    <div height="100%" style="height: 248px; width: 398px">
                         <MT:MTFilterGrid ID="grdRunningAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.RunningAdapters.xml">
                         </MT:MTFilterGrid>
@@ -292,21 +289,25 @@
 // Custom Renderers
 OverrideRenderer_<%= grdPendingBillClose.ClientID %> = function(cm)
 {   
-  cm.setRenderer(cm.getIndexById('id_interval'), IntervalStatusLinkRenderer);
+  cm.setRenderer(cm.getIndexById('id_interval'), IntervalIdLinkRenderer);
+  cm.setRenderer(cm.getIndexById('tx_interval_status'), IntervalStatusRenderer);
 };
 OverrideRenderer_<%= grdFailedAdapters.ClientID %> = function(cm)
 {   
-  cm.setRenderer(cm.getIndexById('name'), AdapterStatusLinkRenderer);
+  cm.setRenderer(cm.getIndexById('name'), AdapterNameLinkRenderer);
+  cm.setRenderer(cm.getIndexById('message'), AdapterRunErrorMessageRenderer);
 };
 OverrideRenderer_<%= grdRunningAdapters.ClientID %> = function(cm)
 {   
-  cm.setRenderer(cm.getIndexById('name'), AdapterStatusLinkRenderer);
+  cm.setRenderer(cm.getIndexById('name'), AdapterNameLinkRenderer);
+  cm.setRenderer(cm.getIndexById('status'), AdapterStatusRenderer);
 };
 
-AdapterStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
+AdapterNameLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
 {
+  meta.attr = 'style="white-space:normal"';
   var str = "";
-  str += String.format("<a style='cursor:hand;' href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp|ID={0}", record.data.id_instance);
+  str += String.format("<a style='cursor:hand; cursor:pointer;' href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp|ID={0}", record.data.id_instance);
   if (record.data.id_billgroup)
   {
 	str += String.format("**BillingGroupId={0}", record.data.id_billgroup);
@@ -320,14 +321,37 @@ AdapterStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, st
   return str;
 };      
 
-IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
+AdapterRunErrorMessageRenderer = function(value, meta, record, rowIndex, colIndex, store) {
+  meta.attr = 'style="white-space:normal"';
+  return value;
+};
+
+IntervalIdLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
 {
   var str = "";
-  str += String.format("<a style='cursor:hand;' href='/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp|ID={0}", record.data.id_interval);
+  str += String.format("<a style='cursor:hand; cursor:pointer;' href='/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp|ID={0}", record.data.id_interval);
   str += String.format("**ReturnUrl=%2FMetraNet%2FMetraControl%2FControlCenter%2FOperationsDashboard%2Easpx'>{0}</a>", value);
   
   return str;
-};      
+};
+
+IntervalStatusRenderer = function(value, meta, record, rowIndex, colIndex, store) {
+  var str = "";
+  if (value == "O")
+  {
+    str += '<%=GetLocalResourceObject("TEXT_INTERVAL_STATUS_OPEN").ToString()%>';
+  }
+  return str;
+};
+
+AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store) {
+  var str = "";
+  if (value == "InProgress")
+  {
+    str += '<%=GetLocalResourceObject("TEXT_RUNNING_ADAPTER_STATUS_IN_PROGRESS").ToString()%>';
+  }
+  return str;
+};
     </script>
     <script type="text/javascript">
         Ext.onReady(function () {
@@ -414,6 +438,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .title("<%=UnderInvestigationWord%>", function(d){ return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=UnderInvestigationWord%>";})
 					          .renderlet(function (_chart) {
 						          function setStyle(selection, keyName) {
+						            if (keyName == "layer") {
+						              selection.style("cursor", "default");
+						            }
 							          selection.style("fill", function (d) {
 								          if (d[keyName] == "<%=OpenWord%>")
 								              return "#0070C0";
@@ -510,41 +537,46 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.udr_count = +d.udr_count;
                 d.batch_count = +d.batch_count;
                 d.day_no = +d.day_no;
+                if (d.calendardate.search(".m.") != -1) {
+                  d.calendardate = d.calendardate.split('.').join("").toUpperCase();
+                }
                 d.dd = dateFormat.parse(d.calendardate);
             });
+            
             var ndx = crossfilter(data.Items);
             var all = ndx.groupAll();
             var dateDimension = ndx.dimension(dc.pluck('dd'));
             var batchGroup = dateDimension.group().reduceSum(dc.pluck('batch_count'));
             var udrGroup = dateDimension.group().reduceSum(dc.pluck('udr_count'));
-
+            var options = { weekday: 'long', month: 'long', day: 'numeric', localeMatcher: 'lookup'};
+             
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
                     .height(255)
                     .width(410)
-                    .x(d3.time.scale().domain([minDate, maxDate]))
+                    .x(d3.time.scale().domain([minDate, maxDate.setDate(maxDate.getDate()+1)]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .renderHorizontalGridLines(true)
                     .brushOn(false)
-                    .title("<%=UDRsWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
-                    .title("<%=BatchesWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=BatchesWord%>";})
+                    .title("<%=UDRsWord%>", function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";})
+                    .title("<%=BatchesWord%>", function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";})
                     .compose([
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(udrGroup, "<%=UDRsWord%>")
                                 //.colors('#0070C0')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
+                                .title(function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";})
                         ,
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(batchGroup, "<%=BatchesWord%>")
                                 .colors('#148622')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
+                                .title(function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";})
                     ])
                     ;
             composite.xAxis().tickSize(0,0).tickFormat("");
@@ -622,14 +654,16 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         console.log(error);
       } else {
         var activebillrunsummary = json["Items"];
-        var successful, failed, waiting, ready, variance, earliesteta;
+        var total, successful, failed, waiting, ready, variance, earliesteta, etaoffset, remaining;
         if (activebillrunsummary[0] != null) {
+          total = activebillrunsummary[0]["eop_adapter_count"];
           successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
           failed = activebillrunsummary[0]["eop_failed_adapter_count"];
           waiting = activebillrunsummary[0]["eop_nyr_adapter_count"];
           ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
           variance = activebillrunsummary[0]["varianceAsString"];
           earliesteta = activebillrunsummary[0]["earliest_eta"];
+          etaoffset = activebillrunsummary[0]["eta_offset"];
         }
 
         if (failed == 0) {
@@ -642,9 +676,22 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
         d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
         d3.select("#<%=txtReady.ClientID%>").text(ready);
-        d3.select("#<%=txtVariance.ClientID%>").text(variance);
-        d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
 
+        var varianceAsFloat = parseFloat(variance);
+        var textVariance = "";
+        if (!isNaN(varianceAsFloat)) {
+          if (Math.abs(varianceAsFloat) <= .5) textVariance = '<%=GetLocalResourceObject("TEXT_VARIANCE_SAME_MESSAGE")%>';
+          else if (varianceAsFloat > 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_SLOWER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+          else if (varianceAsFloat < 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+        }
+        d3.select("#<%=txtVariance.ClientID%>").text(textVariance);
+
+        var textETA = "";
+        remaining = total - successful;
+        if (!isNaN(remaining)) {
+          textETA = String.format('<%=GetLocalResourceObject("TEXT_EARLIEST_ETA")%>', remaining , etaoffset, earliesteta);
+        }
+        d3.select("#<%=txtEarliestETA.ClientID%>").text(textETA);
         d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor", "pointer");
         d3.select("#<%=txtFailedAdapters.ClientID%>").on("click", function() { window.location = "/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval; });
       }
@@ -686,6 +733,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
+                if (d.date.search(".m.") != -1) {
+                  d.date = d.date.split('.').join("").toUpperCase();
+                }
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > maxDate) maxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;
@@ -699,7 +749,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var pipeQGroup = dateDimension.group().reduceSum(dc.pluck('pipe_q'));
             var msgqQGroup = dateDimension.group().reduceSum(dc.pluck('msgq_q'));
             var schedulerQGroup = dateDimension.group().reduceSum(dc.pluck('scheduler_q'));
-			var colors = d3.scale.ordinal().domain([0,1,2]).range(['#00B0F0','#0070C0','#148622']);
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
                     .margins({top: 5, right: 5, bottom: 64, left: 5})
@@ -711,30 +760,29 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 					.renderHorizontalGridLines(true)
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
- 					.title("<%=pipelineQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
-					.title("<%=rampQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
-					.title("<%=schedulerQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
+ 					.title("<%=pipelineQueueText%>", function(d){ return FormatNumber(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
+					.title("<%=rampQueueText%>", function(d){ return FormatNumber(d.value) + " " + "<%=rampQueueToolTipText%>"; })
+					.title("<%=schedulerQueueText%>", function(d){ return FormatNumber(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                    .compose([
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(pipeQGroup, "<%=pipelineQueueText%>")
-                                .colors(colors(0))
+                                .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(msgqQGroup, "<%=rampQueueText%>")
-                                .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=rampQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(schedulerQGroup, "<%=schedulerQueueText%>")
-                                .colors(colors(2))
+                                .colors('#148622')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                     ]);
             composite1.xAxis().tickSize(0,0).tickFormat("");
             composite1.yAxis().tickSize(0,0).tickFormat("");
@@ -745,7 +793,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var rampBacklogGroup = dateDimension.group().reduceSum(dc.pluck('ramp_backlog'));
             var rampGroup = dateDimension.group().reduceSum(dc.pluck('ramp'));
             var composite2 = dc.compositeChart("#divPricingBacklog");
-			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
                     .margins({top: 5, right: 5, bottom: 64, left: 5})
 					.height(255)
@@ -756,22 +803,21 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
 					.renderHorizontalGridLines(true)
-					.title("<%=pipelineWaitDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
-          .title("<%=pipelineProcessingDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })   
+					.title("<%=pipelineWaitDurationText%>", function(d){ return FormatNumber(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
+          .title("<%=pipelineProcessingDurationText%>", function(d){ return FormatNumber(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })   
                     .compose([
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeBacklogGroup, "<%=pipelineWaitDurationText%>")
-                                .colors(colors(0))
+                                .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeGroup, "<%=pipelineProcessingDurationText%>")
-                                .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
+								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
                     ])
 			;
 
@@ -790,6 +836,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
+                if (d.date.search(".m.") != -1) {
+                  d.date = d.date.split('.').join("").toUpperCase();
+                }
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > realMaxDate) realMaxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;
@@ -851,16 +900,16 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
               .title(function(d){ return LocalizeTickText(d.key) + ": " + FormatNumber(d.value);} )
               .renderlet(function(chartRen) {
                           var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
-                                            .range(['#00B0F0','#0070C0','#148622','#FFC000']);
+                                            .range(['deepskyblue','#0070C0','#148622','#FFC000']);
                           chart.selectAll('rect.bar').each(function(d) {
-                            d3.select(this).attr("style", "fill: " + colors(d.x));
+                            d3.select(this).attr("style", "fill: " + colors(d.x)).style("cursor","default");
                           });
 
                           // rotate x-axis ticks
                           chartRen.selectAll("g.x text")
                             .style("text-anchor", "start")
-                            .attr('dx', '.3em')
-                            .attr('dy', '1em')
+                            .attr('dx', '.1em')
+                            .attr('dy', '.5em')
                             .attr('transform', "rotate(45)");
               })
             ;
@@ -883,7 +932,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 var billCloseSummary = json["Items"];
                
                 if (billCloseSummary[0] != null) {
-                    var type = billCloseSummary[0]["type"];
+                  //var type = billCloseSummary[0]["type"];
                     var billgroups = billCloseSummary[0]["billgroups"];
                     var start = billCloseSummary[0]["start"];
                     var end = billCloseSummary[0]["end"];
@@ -897,7 +946,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                          d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","tblclshasvalue");
                     }
 
-                    d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(LocalizeTypeText(type));
+                 <%--   d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(LocalizeTypeText(type));--%>
                     d3.select("#<%=txtBillCloseSynopisBillGroups.ClientID%>").text(billgroups);
                     d3.select("#<%=txtBillCloseSynopisStart.ClientID%>").text(RenderDate(start, DATE_FORMAT));
                     d3.select("#<%=txtBillCloseSynopisEnd.ClientID%>").text(RenderDate(end, DATE_FORMAT));
@@ -956,7 +1005,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
       return localizedTickText;
    }
    
-   function LocalizeTypeText(text) {
+  <%-- function LocalizeTypeText(text) {
      var localizedTypeText = '';
      if (text == 'M5')
        localizedTypeText = '<%=TypeM5Text%>';
@@ -970,7 +1019,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         localizedTypeText = '<%=TypeEOMText%>';
      return localizedTypeText;
 
-   }    
+   }   --%> 
    
    function FormatNumber(d) {
     return parseFloat(d).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 });
@@ -988,7 +1037,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 resize: { enabled: false },
 				autogrow_cols: true,
 				min_rows: 30,
-            }).data('gridster');
+            }).data('gridster').disable();
         });
     </script>
 </asp:Content>

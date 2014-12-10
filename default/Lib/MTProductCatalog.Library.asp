@@ -168,8 +168,8 @@ PUBLIC FUNCTION SetMSIXPropertyTypeToChargeInEnumType(objMSIXProperty)
     
     ' Temporary Syntax
     Set  objChargeInEnumType = mdm_CreateObject(CVariables)    
-     objChargeInEnumType.Add "Arears" , CHARGE_AREARS , , , "Arears"
-     objChargeInEnumType.Add "Advance", CHARGE_ADVANCE, , , "Advance"
+     objChargeInEnumType.Add "Arears" , CHARGE_AREARS , , , FrameWork.GetDictionary("TEXT_ADVANCE")
+     objChargeInEnumType.Add "Advance", CHARGE_ADVANCE, , , FrameWork.GetDictionary("TEXT_ARREARS")
     
     ' Associate the Cvariables object to the MSIX Properties
     objMSIXProperty.AddValidListOfValues  objChargeInEnumType
@@ -388,16 +388,16 @@ END FUNCTION
 
 
 FUNCTION GetDateFieldString(datetype)
-	Select Case CLng(datetype)
-	Case PCDATE_TYPE_ABSOLUTE
-		GetDateFieldString = "Absolute"
-	Case PCDATE_TYPE_SUBSCRIPTION
-		GetDateFieldString = "Subscription Relative"
-	Case PCDATE_TYPE_BILLCYCLE
-		GetDateFieldString = "Next Billing Cycle"
-  Case Else
-    GetDateFieldString = "None"
-	End Select
+  Select Case CLng(datetype)
+    Case PCDATE_TYPE_ABSOLUTE
+      GetDateFieldString = FrameWork.GetDictionary("TEXT_ABSOLUTE_DATE_TYPE") '"Absolute"
+    Case PCDATE_TYPE_SUBSCRIPTION
+      GetDateFieldString = FrameWork.GetDictionary("TEXT_SUBSCRIPTIONRELATIVE_DATE_TYPE") '"Subscription Relative"
+    Case PCDATE_TYPE_BILLCYCLE
+      GetDateFieldString = FrameWork.GetDictionary("TEXT_BILLINGCYCLE_DATE_TYPE") '"Next Billing Cycle"
+    Case Else
+      GetDateFieldString = FrameWork.GetDictionary("TEXT_NONE")
+  End Select
 END FUNCTION
 
 'Helper function to determine if a given type id is a UDRC type

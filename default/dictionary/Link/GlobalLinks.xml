@@ -192,13 +192,13 @@
     
     <link id="BULK_SUBSCRIPTION_CHANGE_DIALOG_SELECT_SOURCE">
       <value>
-        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_name&amp;Parameters=POMode|source
+        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_display_name&amp;Parameters=POMode|source
       </value>
       <description></description>
     </link>
     <link id="BULK_SUBSCRIPTION_CHANGE_DIALOG_SELECT_DESTINATION">
       <value>
-        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_name&amp;Parameters=POMode|destination&amp;ShowAvailableOnly=Y
+        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_display_name&amp;Parameters=POMode|destination&amp;ShowAvailableOnly=Y
       </value>
       <description></description>
     </link>

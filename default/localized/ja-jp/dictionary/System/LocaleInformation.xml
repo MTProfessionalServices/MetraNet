@@ -37,7 +37,7 @@
     <description>The date format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="JS_DATE_FORMAT">
-    <value>Y/m/d</value>
+    <value>Y/n/d</value>
     <description>ExtJS date format definition</description>
   </text>
   <text id="TIME_FORMAT">

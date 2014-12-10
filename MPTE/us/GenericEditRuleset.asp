@@ -880,7 +880,7 @@ end if
 
 <html>
   <head>
-	 <title>Ruleset Editor</title>
+	 <title><%=FrameWork.GetDictionary("TEXT_RULESET_EDITOR")%></title>
 
 	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">

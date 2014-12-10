@@ -4,7 +4,7 @@
 
 <html>
 <head>
-  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/styles.css'>
+  <LINK localized="TRUE" rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/styles.css'>
   <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/NavStyles.css">
   <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/ListTabs.css">
 	<title>Untitled</title>
@@ -92,19 +92,19 @@ function showParamTableSelectorTab(sSelectedTab,element)
 			<span id="header">
 				<ul>
 					<li id="current">
-						<a onClick="javascript:showParamTableSelectorTab('Usage',this);" href="javascript:void(0);">	Usage
+						<a onClick="javascript:showParamTableSelectorTab('Usage',this);" href="javascript:void(0);">	<%=FrameWork.GetDictionary("TEXT_USAGE")%>
 						</a>
 					</li>
 					<li>
-						<a onClick="javascript:showParamTableSelectorTab('RecurringCharge',this);" href="javascript:void(0);">	RC
+						<a onClick="javascript:showParamTableSelectorTab('RecurringCharge',this);" href="javascript:void(0);">	<%=FrameWork.GetDictionary("TEXT_RC")%>
 						</a>
 					</li>
 					<li>
-						<a onClick="javascript:showParamTableSelectorTab('NonRecurringCharge',this);" href="javascript:void(0);">	NRC
+						<a onClick="javascript:showParamTableSelectorTab('NonRecurringCharge',this);" href="javascript:void(0);">	<%=FrameWork.GetDictionary("TEXT_NRC")%>
 						</a>
 					</li>
 					<li>
-						<a onClick="javascript:showParamTableSelectorTab('Discount',this);" href="javascript:void(0);"> Discounts
+						<a onClick="javascript:showParamTableSelectorTab('Discount',this);" href="javascript:void(0);"> <%=FrameWork.GetDictionary("TEXT_Discounts")%> 
 						</a>
 					</li>
 				</ul>
@@ -112,7 +112,7 @@ function showParamTableSelectorTab(sSelectedTab,element)
 	</tr>
   </table>
 <%
-
+'mdm_Main
 'response.write "<form><textarea cols='100' rows='40'>" & strXML & "</textarea></form>"
 'response.end
 
@@ -134,6 +134,7 @@ strPathXSL = server.MapPath(Application("APP_HTTP_PATH") & "\default\dialog\xsl\
 
 
 Call objXSL.Load(strPathXSL)
+Call objXSL.LoadXML(mdm_LocalizeString(objXSL.xml))
 
 objXML.setProperty "SelectionLanguage", "XPath"
 objXSL.setProperty "SelectionLanguage", "XPath"
@@ -324,8 +325,8 @@ sub writeRowsetNameValueTable(objRowset)
 <div align="center">
 <% =strHTML%>
 <br><br>
-<button class="clsButtonBlueXLarge" onclick="GotoPriceList(<%=id_pricelist_new%>);window.close();">Work On New Pricelist</button>
-<button class="clsButtonBlueXLarge" onclick="window.close();">Return to current Pricelist</button>
+<button class="clsButtonBlueXLarge" onclick="GotoPriceList(<%=id_pricelist_new%>);window.close();"><%=FrameWork.GetDictionary("TEXT_Work_On_New_Pricelist")%></button>
+<button class="clsButtonBlueXLarge" onclick="window.close();"><%=FrameWork.GetDictionary("TEXT_Return_to_current_Pricelist")%></button>
 </div>
 <script>
 function GotoPriceList(idPricelist)

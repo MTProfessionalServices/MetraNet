@@ -195,4 +195,100 @@
   <text id="TEXT_EXCEPTION">
     <value>[pt-BR]Exception</value>
   </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_CASE_NUMBER">
+    <value>[pt-BR]Case Number</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_CASE_STATUS">
+    <value>[pt-BR]Case Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_ID">
+    <value>[pt-BR]Failed Transaction Id</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_SERVICE_ERROR">
+    <value>[pt-BR]Service With Error</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_ERROR_MESSAGE">
+    <value>[pt-BR]Error Message</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_STATUS">
+    <value>[pt-BR]Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
+    <value>[pt-BR]Open</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">
+    <value>[pt-BR]Under Investigation</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">
+    <value>[pt-BR]Reason Code</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT">
+    <value>[pt-BR]Corrected - Pending Resubmit</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT_NOW">
+    <value>[pt-BR]Resubmit Now</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
+    <value>[pt-BR]Dismissed</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE2">
+    <value>[pt-BR]Reason Code</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_COMMENT">
+    <value>[pt-BR]Comment</value>
+  </text>
+  <text id="TEXT_VIEW_AUDIT_TRAIL">
+    <value>[pt-BR]View Audit Trail</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_REQUIRED_FIELDS">
+    <value>[pt-BR]Check For Required Fields</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_PROPERTY">
+    <value>[pt-BR]Property</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_TYPE">
+    <value>[pt-BR]Type</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_LENGTH">
+    <value>[pt-BR]Length</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_REQUIRED">
+    <value>[pt-BR]Required</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS1">
+    <value>[pt-BR]Metered Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS2">
+    <value>[pt-BR]Meter Status</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_VALUE">
+    <value>[pt-BR]Value</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_OPEN_DESCRIPTION">
+    <value>[pt-BR]This case/failed transaction is currently unresolved.</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION_DESCRIPTION">
+    <value>[pt-BR]This case/failed transaction is currently unresolved but is being investigated.</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT_DESCRIPTION">
+    <value>[pt-BR]This case/failed transaction has been resolved and is ready to be resubmitted to the system for processing.</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED_DESCRIPTION">
+    <value>[pt-BR]This case/failed transaction cannot be resolved or it is not cost effective to do so.</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_MAKE_BULK_CHANGE">
+    <value>[pt-BR]Make Bulk Change</value>
+  </text>
+  <text id="TEXT_REFRESH">
+    <value>[pt-BR]Refresh</value>
+  </text>
+  <text id="TEXT_PARENT_TRANSACTIONS_ID">
+    <value>[pt-BR]Parent Transaction Id</value>
+  </text>
+  <text id="TEXT_PARENT_TRANSACTION">
+    <value>[pt-BR]Parent</value>
+  </text>
+  <text id="TEXT_FAILED_TRANSACTIONS_AUDIT_HISTORY">
+    <value>[pt-BR]Audit History For Failed Transaction Case Number</value>
+  </text>
 </texts>

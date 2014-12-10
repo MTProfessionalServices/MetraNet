@@ -67,4 +67,28 @@
   <text id="TEXT_PRICELIST_CURRENCY_CHANGE_WARNING">
     <value><![CDATA[<strong>AVERTISSEMENT : modification de la devise de la [TEXT_KEYTERM_PRICE_LIST]</strong><BR>La copie de la [TEXT_KEYTERM_PRICE_LIST] sera créée dans une autre devise. Toutefois, les prix resteront inchangés et doivent être mis à jour afin de refléter la valeur appropriée dans la nouvelle devise.<BR>]]></value>
   </text>
+  <text id="TEXT_CREATE_COPY_OF_PL">
+    <value>[FR]Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</value>
+  </text>
+  <text id="TEXT_ORIGINAL_PL_NAME">
+    <value>[FR]Original Pricelist Name</value>
+  </text>
+  <text id="TEXT_PL_NAME">
+    <value>[FR]New Pricelist Name</value>
+  </text>
+  <text id="TEXT_PL_DESCRIPTION">
+    <value>[FR]New Pricelist Description</value>
+  </text>
+  <text id="TEXT_PL_DESCRIPTION">
+    <value>[FR]New Pricelist Description</value>
+  </text>
+  <text id="TEXT_CHANGE_CURRENCY_TO">
+    <value>[FR]Change to currency of the new pricelist from </value>
+  </text>
+  <text id="TEXT_TO">
+    <value>[FR] to </value>
+  </text>
+  <text id="TEXT_CREATE">
+    <value>[FR]Create</value>
+  </text>
 </texts>

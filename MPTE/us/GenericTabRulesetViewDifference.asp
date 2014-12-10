@@ -20,7 +20,7 @@ response.buffer=false
 <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
 
   <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
-  <title>Ruleset Changes</title>                 
+  <title><%=FrameWork.GetDictionary("TEXT_RULESET_CHANGES")%></title>                 
 </HEAD>
 <body>
 <FORM Method="post" Action="/mcm/default/dialog/AuditLog.List.asp"  name='mdm'>

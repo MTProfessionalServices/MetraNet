@@ -78,4 +78,7 @@
   <text id="TEXT_PC_CYCLE_SEMIANNUAL_LABEL2">
     <value/>
   </text>
+  <text id="TEXT_END_OF_THE_MONTH">
+    <value>[PT-BR]End of Month</value>
+  </text>
 </texts>

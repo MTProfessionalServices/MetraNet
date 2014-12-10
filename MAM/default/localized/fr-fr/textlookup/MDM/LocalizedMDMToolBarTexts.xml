@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Toolbar Texts" type="collection">
-	 
-	 
 		<text id="GO_TOOL_TIP">
 				<value>Aller</value>
 				<description></description>
@@ -36,19 +34,16 @@
 				<value>Actualiser la page</value>
 				<description></description>
 		</text>
-
 		<text id="EXPORT_PAGE_TOOL_TIP">
 				<value>Exporter</value>
 				<description></description>
 		</text>
-
 	 <text id="MDM_TOOL_BAR_PAGE_WORD">
 			<value>Page</value>
 		</text> 	
 		<text id="MDM_TOOL_BAR_OF_WORD">
 			<value>sur</value>
     </text> 
-    
     <text id="MDM_SELECT_ALL">
 			<value>Sélectionner tout</value>
     </text>     
@@ -60,6 +55,8 @@
     </text>             
     <text id="MDM_UNSELECT_PAGE">
 			<value>Désélectionner la page</value>
-    </text>                 
-    
+    </text>
+    <text id="MDM_DATETIME_BETWEEN">
+      <value>[FR]Between</value>
+    </text>    
 </texts>

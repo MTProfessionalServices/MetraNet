@@ -382,7 +382,7 @@
     <description></description>
   </text>
   <text id="TEXT_NULL_END_DATE_TYPE">
-    <value>Date de fin du cycle</value>
+    <value>[FR]No end date</value>
     <description></description>
   </text>
   <text id="TEXT_ABSOLUTE_DATE_TYPE">
@@ -675,6 +675,131 @@
   </text>
   <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">
     <value>Afficher la modification en attente</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_DAY">
+    <value>[FR]Calendar Day</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_PERIOD">
+    <value>[FR]Calendar Period</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CALENDAR_CONFIGURATION">
+    <value>[FR]Calendar Configuration</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_EDITOR">
+    <value>[FR]Ruleset Editor</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_CHANGES">
+    <value>[FR]Ruleset Changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_FROM_EXCEL">
+    <value>[FR]Import From Excel File</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOCATION_OF_EXCEL">
+    <value>[FR]Location of Excel file to import</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TABULAR_RULESET_EDITOR">
+    <value>[FR]Tabular Ruleset Editor - Define Filter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_NEW_CALENDAR">
+    <value>[FR]Create New Calendar</value>
+    <description></description>
+  </text>        
+  <text id="TEXT_SET_CHARGE_AMOUNT">
+    <value>[FR]Set Charge Amount</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Add_Parameter_Table_to_Price_List">
+    <value>[FR]Add Parameter Table to Price List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules_For">
+    <value>[FR]Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Create_Rate_Schedules">
+    <value>[FR]Create Rate Schedule(s)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Usage">
+    <value>[FR]Usage</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RC">
+    <value>[FR]RC</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NRC">
+    <value>[FR]NRC</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Discounts">
+    <value>[FR]Discounts</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Work_On_New_Pricelist">
+    <value>[FR]Work On New Pricelist</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Return_to_current_Pricelist">
+    <value>[FR]Return to current Pricelist</value>
+    <description></description>
+  </text>
+
+  <text id="TEXT_January">
+    <value>[FR]January</value>
+    <description></description>
+  </text>
+  <text id="TEXT_February">
+    <value>[FR]February</value>
+    <description></description>
+  </text>
+  <text id="TEXT_March">
+    <value>[FR]March</value>
+    <description></description>
+  </text>
+  <text id="TEXT_April">
+    <value>[FR]April</value>
+    <description></description>
+  </text>
+  <text id="TEXT_May">
+    <value>[FR]May</value>
+    <description></description>
+  </text>
+  <text id="TEXT_June">
+    <value>[FR]June</value>
+    <description></description>
+  </text>
+  <text id="TEXT_July">
+    <value>[FR]July</value>
+    <description></description>
+  </text>
+  <text id="TEXT_August">
+    <value>[FR]August</value>
+    <description></description>
+  </text>
+  <text id="TEXT_September">
+    <value>[FR]September</value>
+    <description></description>
+  </text>
+  <text id="TEXT_October">
+    <value>[FR]October</value>
+    <description></description>
+  </text>
+  <text id="TEXT_November">
+    <value>[FR]November</value>
+    <description></description>
+  </text>
+  <text id="TEXT_December">
+    <value>[FR]December</value>
     <description></description>
   </text>
 </texts>

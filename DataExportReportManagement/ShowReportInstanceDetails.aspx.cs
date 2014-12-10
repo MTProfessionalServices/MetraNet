@@ -157,7 +157,7 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
             reportdestination = reportdestination + '\\';
           }
         }
-
+      }
 
       DateTime reportactivationdate = exportreportinstance.InstanceActivationDate;
       DateTime reportdeactivationdate = exportreportinstance.InstanceDeactivationDate;

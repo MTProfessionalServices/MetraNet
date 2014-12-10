@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="MOM Static Texts" type="collection">
+  <description>
+    The file define most of the MAM static texts. The MAM/MDM use also the localization
+    supplied by the MetraTech plate form.
+  </description>
+  <text id="TEXT_Description1">
+    <value>Description</value>
+    <description></description>
+  </text>
+  <text id="TEXT_View_Name1">
+    <value>View Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Count1">
+    <value>Count</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Amount1">
+    <value>Amount</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Currency1">
+    <value>Currency</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BatchId">
+    <value>Batch ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Comment1">
+    <value>Comment</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RerunId1">
+    <value>RerunId</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Filter1">
+    <value>Filter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Tag1">
+    <value>Tag</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LastAction1">
+    <value>Last Action</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Action1">
+    <value>Action</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Time1">
+    <value>Time</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UserName1">
+    <value>User Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_How_will_you_identify_the_transactions_to_be_rerun">
+    <value>[How will you identify the transactions to be rerun?]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Identify_and_Analyze_In_Progress">
+    <value>Identify and Analyze In Progress</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Please_reenter_search_criteria">
+    <value>Please re-enter search criteria</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Invalid_Batch_Id">
+    <value>Invalid Batch Id</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Product_View">
+    <value>Product View:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Remove">
+    <value>Remove</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Service_Definition">
+    <value>Service Definition:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Account_Property_Name">
+    <value>Account Property Name:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_Prepare_Extract_In_Progress">
+    <value>Backout, Prepare and Extract In Progress</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Resubmit">
+    <value>"Backout and Resubmit"</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Resubmit_In_Progress">
+    <value>Backout and Resubmit In Progress</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Resubmit_Complete">
+    <value>Backout and Resubmit Complete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Delete">
+    <value>"Backout and Delete"</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Delete_In_Progress">
+    <value>Backout and Delete In Progress</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Delete_Complete">
+    <value>Backout and Delete Complete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Identify_Complete_Analyze_In_Progress">
+    <value>Identify Complete&lt;BR&gt;Analyze In Progress</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Next_Step_Resubmit_These_Records">
+    <value>Next Step: Resubmit These Records</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon_This_Backout_And_Start_Over">
+    <value>Abandon This Backout And Start Over</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Next_Step_Delete_These_Records">
+    <value>Next Step: Delete These Records</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Are_you_sure_you_wish">
+    <value>Are you sure you wish to permanently delete these records?\nClick OK to continue and delete these records</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_Rerun_History">
+    <value>Backout/Rerun History</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout">
+    <value>Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismiss">
+    <value>Dismiss</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_EVENTS1">
+    <value>No events have been recorded for this backout.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resume_Backout">
+    <value>Resume Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon_Backout">
+    <value>Abandon Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_History">
+    <value>Batch History</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EventName">
+    <value>Event Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Details">
+    <value>Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_User">
+    <value>User</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>No audit events have been recorded for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_Backout_Rerun_List">
+    <value>Batch Backout/Rerun List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>No audit events have been recorded for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_backouts">
+    <value>No backouts exist explicitly for this batch.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resume_Backout">
+    <value>Resume Backout</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon">
+    <value>Abandon</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete">
+    <value>Delete</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit">
+    <value>Resubmit</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Completed">
+    <value>Mark As Completed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Failed">
+    <value>Mark As Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_View_Failed_Transactions">
+    <value>View Failed Transactions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Remove_Title">
+    <value>Remove this backout from the system. The backout was started but no records were ever backedout.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit_the_records">
+    <value>Resubmit the records that were backed out.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete_the_records">
+    <value>Delete The Records That Were Backedout. These records will no longer be able to be resubmited</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAMESPACE">
+    <value>Namespace</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME">
+    <value>Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Source">
+    <value>Source</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Sequence">
+    <value>Sequence</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Completed">
+    <value>Completed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Failed">
+    <value>Failed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismissed">
+    <value>Dismissed</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Expected">
+    <value>Expected</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Creation">
+    <value>Creation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Click_To_View">
+    <value>Click To View List Of Failed Transactions For This Batch</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Property">
+    <value>Property</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Value">
+    <value>Value</value>
+    <description></description>
+  </text>
+</texts>

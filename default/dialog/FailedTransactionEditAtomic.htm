@@ -12,9 +12,9 @@
 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" Width="100%">
  <TR>
   <TD Class="CaptionBar" nowrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_FAILED_TRANSACTION">Edit Failed Transaction</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;
-<button OnClick="mdm_RefreshDialog(this)" name="ok" Class="clsOkButton">Save</button>
+<button OnClick="mdm_RefreshDialog(this)" name="ok" Class="clsOkButton"><MDMLABEL Name="TEXT_SAVE"></MDMLABEL></button>
 <button onclick="mdm_RefreshDialog(this)" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CANCEL"></MDMLABEL></button>
-<button class='clsButtonBlueXLarge' id='EditMapping' onclick="window.open('[AUDIT_LOG_LIST_DIALOG]?EntityType=5&EntityId=<LABEL Name="CaseNumber" Type="Value"></LABEL>&Title=Audit%20History%20For%20Failed%20Transaction%20Case%20Number%20<LABEL Name="CaseNumber" Type="Value"></LABEL>','', 'height=400,width=700, resizable=yes, scrollbars=yes, status=yes'); return false;">View Audit Trail</button>
+<button class='clsButtonBlueXLarge' id='EditMapping' onclick="window.open('[AUDIT_LOG_LIST_DIALOG]?EntityType=5&EntityId=<LABEL Name="CaseNumber" Type="Value"></LABEL>&Title=<LABEL Name="TEXT_FAILED_TRANSACTIONS_AUDIT_HISTORY">Audit History For Failed Transaction Case Number</LABEL>%20<LABEL Name="CaseNumber" Type="Value"></LABEL>','', 'height=400,width=700, resizable=yes, scrollbars=yes, status=yes'); return false;"><MDMLABEL Name="TEXT_VIEW_AUDIT_TRAIL"></MDMLABEL></button>
   </TD>
  </TR>
 </TABLE>
@@ -23,23 +23,23 @@
 <TR><td width="50%" valign="top">
 <TABLE  BORDER="0"  CELLPADDING="0" CELLSPACING="0">
  <TR>
-    <TD nowrap class="captionEW" style="font-weight:bold;">Case Number:&nbsp;&nbsp;</TD>
+    <TD nowrap class="captionEW" style="font-weight:bold;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_CASE_NUMBER">Case Number</LABEL>:&nbsp;&nbsp;</TD>
     <TD class=""><LABEL Name="CaseNumber" Type="Value"></LABEL></TD>
  </TR>
  <TR>
-    <TD class="captionEW" style="font-weight:bold;">Case Status:&nbsp;&nbsp;</TD>
+    <TD class="captionEW" style="font-weight:bold;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_CASE_STATUS">Case Status</LABEL>:&nbsp;&nbsp;</TD>
     <TD class=""><LABEL Name="CaseStatusReasonCode" Type="Value"></LABEL></TD>
  </TR>
  <TR>
-    <td nowrap class="captionEW" style="font-weight:bold;">Failed Transaction Id:&nbsp;&nbsp;</td>
+    <TD nowrap class="captionEW" style="font-weight:bold;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_ID">Failed Transaction Id</LABEL>:&nbsp;&nbsp;</TD>
     <TD class=""><LABEL Name="TEXT_FAILED_TRANSACTION_FAILURE_ID">ID</LABEL></TD>
  </TR>
  <TR>
-    <TD nowrap class="captionEW" style="font-weight:bold;">Service With Error:&nbsp;&nbsp;</TD>
+    <TD nowrap class="captionEW" style="font-weight:bold;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_SERVICE_ERROR">Service With Error</LABEL>:&nbsp;&nbsp;</TD>
     <TD class=""><LABEL Name="ServiceName" Type="Value">Test Service</LABEL></TD>
  </TR>
  <TR>
-    <TD nowrap class="captionEW" style="font-weight:bold;">Error Message:&nbsp;&nbsp;</TD>
+    <TD nowrap class="captionEW" style="font-weight:bold;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_ERROR_MESSAGE">Error Message</LABEL>:&nbsp;&nbsp;</TD>
     <TD class=""><LABEL Name="ErrorMessage" Type="Value">Plugin failed</LABEL></TD>
  </TR> 
 
@@ -53,7 +53,7 @@
 <table border="0" cellspacing="2" cellpadding="2" align="right">
  <TR>
     <TD width="32">&nbsp;</TD> 
-    <td nowrap class="captionEWRequired" style="vertical-align: text-top;">Status:&nbsp;</td>
+    <td nowrap class="captionEWRequired" style="vertical-align: text-top;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_STATUS">Status</LABEL>:&nbsp;</td>
     <td>
           <table class="clsDialogEditTable" cellspacing="1" cellpadding="2" width="100%">
                       
@@ -61,17 +61,17 @@
                         <td align="center" valign="top" class="TableCell">
                            <input type="radio" name="NewStatus" value="N" onClick="setStatusUpdated(this)">
                         </td>
-                        <td align="left" class="TableCell" title="This case/failed transaction is currently unresolved.">
-                           <strong>Open</strong>
+                        <td align="left" class="TableCell" title="[TEXT_FAILED_TRANSACTIONS_OPEN_DESCRIPTION]">
+                           <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_OPEN">Open</LABEL></strong>
                         </td>
                      </tr>
                      <tr id="state1">
                         <td align="center" valign="top" class="TableCell">
                            <input type="radio" name="NewStatus" value="I" onClick="setStatusUpdated(this)">
                         </td>
-                        <td align="left" class="TableCell" title="This case/failed transaction is currently unresolved but is being investigated.">
-                           <strong>Under Investigation</strong><BR>
-                           Reason Code:
+                        <td align="left" class="TableCell" title="[TEXT_FAILED_TRANSACTIONS_INVESTIGATION_DESCRIPTION]">
+                           <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">Under Investigation</LABEL></strong><BR>
+                           <LABEL NAME="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">Reason Code</LABEL>:
                                   <SELECT class="clsInputBox" name="InvestigationReasonCode" onClick="document.all.NewStatus[1].checked=true;" onChange="setStatusUpdated(null)"></SELECT>
                            
                         </td>
@@ -80,22 +80,20 @@
                         <td align="center" valign="top" class="TableCell">
                            <input type="radio" name="NewStatus" value="C" onClick="setStatusUpdated(this);">
                         </td>
-                        <td align="left" class="TableCell" title="This case/failed transaction has been resolved and is ready to be resubmitted to the system for processing.">
-                                <strong>Corrected - Pending Resubmit</strong>
-                               <input type="checkbox" disabled name="ResubmitNow" onClick="setStatusUpdated(null);">Resubmit Now
-
+                        <td align="left" class="TableCell" title="[TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT_DESCRIPTION]">
+                           <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT">Corrected - Pending Resubmit</LABEL></strong>
+                           <input type="checkbox" disabled name="ResubmitNow" onClick="setStatusUpdated(null);"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_RESUBMIT_NOW">Resubmit Now</LABEL>
 		                   </td>
                      </tr>
                      <tr id="state3">
                         <td align="center" valign="top" class="TableCell">
                            <input type="radio" name="NewStatus" value="P" onClick="setStatusUpdated(this)">
                         </td>
-                        <td align="left" class="TableCell" title="This case/failed transaction cannot be resolved or it is not cost effective to do so.">
-                                <strong>Dismissed</strong><BR>
-                           Reason Code:
-                                  <SELECT class="clsInputBox" name="DismissedReasonCode" onClick="document.all.NewStatus[3].checked=true;" onChange="setStatusUpdated(null)">
-
-                                  </SELECT>
+                        <td align="left" class="TableCell" title="[TEXT_FAILED_TRANSACTIONS_DISMISSED_DESCRIPTION]">
+                           <strong><LABEL NAME="TEXT_FAILED_TRANSACTIONS_DISMISSED">Dismissed</LABEL></strong><BR>
+                           <LABEL NAME="TEXT_FAILED_TRANSACTIONS_REASONE_CODE2">Reason Code</LABEL>:
+                           <SELECT class="clsInputBox" name="DismissedReasonCode" onClick="document.all.NewStatus[3].checked=true;" onChange="setStatusUpdated(null)">
+                           </SELECT>
                         </td>
                      </tr>                                     
         </TABLE>
@@ -103,7 +101,7 @@
  </TR>
  <TR>
     <TD width="32">&nbsp;</TD> 
-    <td class="captionEWRequired" style="vertical-align: text-top;">Comment:&nbsp;</td>
+    <td class="captionEWRequired" style="vertical-align: text-top;"><LABEL NAME="TEXT_FAILED_TRANSACTIONS_COMMENT">Comment</LABEL>:&nbsp;</td>
     <TD class="fieldRequired"><TEXTAREA class="clsInputBox" cols=55 rows=4 name="Comment"></TEXTAREA></TD>
  </TR>
 
@@ -183,21 +181,20 @@ setInitialStatusSelection();
 <BR>
 <TABLE Width="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR>
-  <TD Class='TableHeader' NoWrap>Property</TD>
-  <TD Class='TableHeader' NoWrap>Type</TD>
-  <TD Class='TableHeader' NoWrap>Length</TD>
-  <TD Class='TableHeader' NoWrap>Required</TD>
-  <TD Class='TableHeader' NoWrap>Metered Status</TD>
-  <TD Class='TableHeader' NoWrap>Meter Status</TD>
-  <TD Class='TableHeader' NoWrap>Value</TD>
+  <TD Class='TableHeader' NoWrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_PROPERTY">Property</LABEL></TD>
+  <TD Class='TableHeader' NoWrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_TYPE">Type</LABEL></TD>
+  <TD Class='TableHeader' NoWrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_LENGTH">Length</LABEL></TD>
+  <TD Class='TableHeader' NoWrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_REQUIRED">Required</LABEL></TD>
+  <TD Class='TableHeader' NoWrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS1">Metered Status</LABEL></TD>
+  <TD Class='TableHeader' NoWrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS2">Meter Status</LABEL></TD>
+  <TD Class='TableHeader' NoWrap><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_VALUE">Value</LABEL></TD>
 <TR>
 [PROPERTIES] <!-- Do not touche this [] Tag - F.Torres-->
  
 </TABLE>
 <BR>
-<INPUT Type="CheckBox" Name="mdmCheckRequiredField" CHECKED>Check For Required Fields
+<INPUT Type="CheckBox" Name="mdmCheckRequiredField" CHECKED><LABEL NAME="TEXT_FAILED_TRANSACTIONS_EDIT_REQUIRED_FIELDS">Check For Required Fields</LABEL>
 <BR>
-
 
 </FORM>
 </BODY>

@@ -17,7 +17,7 @@
             listeners: {
               render: function(panel) {
                 Ext.Ajax.request({
-                  url: '/MetraNet/Notifications/AjaxServices/NotificationSvc.aspx',
+                  url: '/MetraNet/Notifications/AjaxServices/GetNotifications.aspx',
                   timeout: 10000,
                   params: { pageSize: 5, currentPage: pageno },
                   success: function(response) {
@@ -30,16 +30,21 @@
                           template = hashtable[items[i].notification_event_name];
                           template = template.replace(/&gt;/gi, ">");
                           template = template.replace(/&lt;/gi, "<");
+                        var bg;
+                        i % 2 ? bg = "" : bg = "background:silver;";
                           recentNotificationTpl = new Ext.XTemplate(
                             "<tpl>",
-                            '<div id="recentnotification">' + template + '</div>',
+                            '<div id="recentnotification" style=\"'+ bg +' padding-bottom:10px;\">'+ template + '<br/>'+ '</div>',
                             '</tpl>'
                           );
                           recentNotificationTpl.append(panel.body, items[i]);
+//                        var br = document.createElement("br");
+//                        panel.body.dom.appendChild(br);
                       }
                       var link = document.createElement("a");
                       link.href = '/MetraNet/Notifications/Notifications.aspx';
-                      link.text = TEXT_MORE;
+                      link.text = TEXT_VIEW_ALL;
+                      link.style.cssText  = 'float:right';
                       panel.body.dom.appendChild(link);
                     }
                   }

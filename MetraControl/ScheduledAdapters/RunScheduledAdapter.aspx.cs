@@ -10,6 +10,8 @@ namespace MetraNet.MetraControl.ScheduledAdapters
 {
   public partial class RunScheduledAdapter : MTPage, ICallbackEventHandler
   {
+    private const string QueryName = "__GET_SCHEDULED_ADAPTER_LIST_WITH_RUNTIME__";
+
     protected void Page_Load(object sender, EventArgs e)
     {
       if (IsPostBack) return;
@@ -101,6 +103,20 @@ namespace MetraNet.MetraControl.ScheduledAdapters
     public string GetCallbackResult()
     {
       return _callbackResult;
+    }
+
+    protected override void OnLoadComplete(EventArgs e)
+    {
+      var sqi = new SQLQueryInfo { QueryName = QueryName, QueryDir = "dummy" };
+
+      var param = new SQLQueryParam { FieldName = "%%ID_LANG_CODE%%", FieldValue = UI.SessionContext.LanguageID };
+      sqi.Params.Add(param);
+
+      var qsParam = SQLQueryInfo.Compact(sqi);
+      RunScheduledAdapterGrid.DataSourceURLParams.Clear();
+      RunScheduledAdapterGrid.DataSourceURLParams.Add("q", qsParam);
+
+      base.OnLoadComplete(e);
     }
 
     #endregion

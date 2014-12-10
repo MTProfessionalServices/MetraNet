@@ -502,7 +502,7 @@ function hideCalendar()
  ppcTI = false;
  setCalendar();
  ppcSV = null;
- if (ppcIE) {var obj = document.ppcMonthList.sItem;}
+ if (ppcIE || is_chrome) { var obj = document.ppcMonthList.sItem; }
  else if (ppcNN) {var obj = document.layers['PopUpCalendar'].document.layers['monthSelector'].document.ppcMonthList.sItem;}
  else {/* NOP */}
  obj.selectedIndex = 0;

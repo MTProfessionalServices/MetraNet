@@ -1,7 +1,7 @@
 
 				select 
           dbo.GenGuid() "ID",
-          COALESCE(pam.nm_login, N'Non-Partitioned') "Partition",
+          COALESCE(pam.nm_login, N'Non-Partitioned') "PARTITION",
           bp.nm_name "PI Template", 
 				  count(*) "# Transactions Affected",
 				  am_currency Currency, 

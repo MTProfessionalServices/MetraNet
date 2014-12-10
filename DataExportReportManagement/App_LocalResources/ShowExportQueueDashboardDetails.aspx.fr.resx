@@ -168,4 +168,10 @@
     <data name="TEXT_DEF_WORK_QUEUE_ID" xml:space="preserve">
         <value>ID de la file d’attente de travail</value>
     </data>
+    <data name="TEXT_GRID_TITLE" xml:space="preserve">
+        <value>[FR]Jobs in the Queue</value>
+    </data>
+  <data name="lblShowExportQueueDashboardDetailsTitleResource1.Text" xml:space="preserve">
+    <value>[FR]Data Export Framework Work Queue</value>
+  </data>
 </root>

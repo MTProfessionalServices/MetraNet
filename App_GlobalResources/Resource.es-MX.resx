@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
+    <value>[es-MX]Set localization</value>
+  </data>
+  <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
+    <value>[es-MX]Set Localization</value>
+  </data>
+  <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
+    <value>[es-MX]Accounts</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
+    <value>[es-MX]add category</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
+    <value>[es-MX]add property</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
+    <value>[es-MX]Available Shared Properties</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
+    <value>[es-MX]back to properties</value>
+  </data>
+  <data name="Index_cshtml_Execute_Spec_Characteristics" xml:space="preserve">
+    <value>[es-MX]Spec Characteristics</value>
+  </data>
   <data name="LocalizedJavaScript" xml:space="preserve">
     <value>/Res/JavaScript/Localized.es-mx.js?v=6.5</value>
   </data>
@@ -131,6 +155,27 @@
   </data>
   <data name="LocalizedWelcomePage" xml:space="preserve">
     <value>Welcome.htm</value>
+  </data>
+  <data name="LOG_FOR_QUOTES" xml:space="preserve">
+    <value>[es-MX]Quote log</value>
+  </data>
+  <data name="newSubscription" xml:space="preserve">
+    <value>[es-MX]New Subscription</value>
+  </data>
+  <data name="PO_FOR_QUOTES" xml:space="preserve">
+    <value>[es-MX]Product offerings</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_" xml:space="preserve">
+    <value>[es-MX]Successfully added property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Successfully_deleted_property_" xml:space="preserve">
+    <value>[es-MX]Successfully deleted property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
+    <value>[es-MX]Product Offering Properties</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
+    <value>[es-MX]Successfully moved.</value>
   </data>
   <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
     <value>[es-MX]AccountId</value>
@@ -147,6 +192,21 @@
   <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
     <value>[es-MX]Account Summary</value>
   </data>
+  <data name="TEXT_ACTION_ADD_CATEGORY" xml:space="preserve">
+    <value>[es-MX]add category</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_EXISTING_PROPERTY" xml:space="preserve">
+    <value>[es-MX]add existing property</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_PROPERTY" xml:space="preserve">
+    <value>[es-MX]add property</value>
+  </data>
+  <data name="TEXT_ACTION_DELETE" xml:space="preserve">
+    <value>[es-MX]delete</value>
+  </data>
+  <data name="TEXT_ACTION_EDIT" xml:space="preserve">
+    <value>[es-MX]edit</value>
+  </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
     <value>[es-MX]Actions</value>
   </data>
@@ -156,8 +216,14 @@
   <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
     <value>[es-MX]Add Bill Message</value>
   </data>
+  <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
+    <value>Create Bill Message</value>
+  </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>[es-MX]Add</value>
+  </data>
+  <data name="TEXT_ADD_RELATED_ENTITIES" xml:space="preserve">
+    <value>[es-MX]Add related entities for </value>
   </data>
   <data name="TEXT_AFTER" xml:space="preserve">
     <value>[es-MX]after</value>
@@ -180,8 +246,29 @@
   <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
     <value>[es-MX]Apply Changes</value>
   </data>
+  <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
+    <value>[es-MX]Approve</value>
+  </data>
+  <data name="TEXT_APPROVAL_BUTTON_DENY" xml:space="preserve">
+    <value>[es-MX]Deny</value>
+  </data>
+  <data name="TEXT_APPROVAL_BUTTON_DISMISS" xml:space="preserve">
+    <value>[es-MX]Dismiss</value>
+  </data>
+  <data name="TEXT_APPROVAL_BUTTON_RESUBMIT" xml:space="preserve">
+    <value>[es-MX]Resubmit</value>
+  </data>
+  <data name="TEXT_ARE_YOU_SURE" xml:space="preserve">
+    <value>[es-MX]Are you sure?</value>
+  </data>
   <data name="TEXT_AUTO" xml:space="preserve">
     <value>[es-MX]Auto</value>
+  </data>
+  <data name="TEXT_AVAILABLE_SHARED_PROPERTIES" xml:space="preserve">
+    <value>[es-MX]Available Shared Properties</value>
+  </data>
+  <data name="TEXT_BACK" xml:space="preserve">
+    <value>[es-MX]Previous</value>
   </data>
   <data name="TEXT_BACK_DASHBOARD" xml:space="preserve">
     <value>[es-MX]Back to Dashboard</value>
@@ -192,6 +279,12 @@
   <data name="TEXT_BEFORE" xml:space="preserve">
     <value>[es-MX]before</value>
   </data>
+  <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
+    <value>[es-MX]Bill Message Associations</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[es-MX]Bill Messages</value>
+  </data>
   <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
     <value>[es-MX]Billing Information</value>
   </data>
@@ -200,6 +293,18 @@
   </data>
   <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
     <value>&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_BULKUPDATE" xml:space="preserve">
+    <value>[es-MX]Bulk Update</value>
+  </data>
+  <data name="TEXT_BUTTON_ADD" xml:space="preserve">
+    <value>[es-MX]Add</value>
+  </data>
+  <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
+    <value>[es-MX]Delete</value>
+  </data>
+  <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
+    <value>[es-MX]Edit</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
     <value>[es-MX]Cancel</value>
@@ -210,11 +315,23 @@
   <data name="TEXT_CATEGORY" xml:space="preserve">
     <value>[es-MX]Category</value>
   </data>
+  <data name="TEXT_CHECKING" xml:space="preserve">
+    <value>Corriente</value>
+  </data>
   <data name="TEXT_COLUMN_TITLE" xml:space="preserve">
     <value>[es-MX]Title</value>
   </data>
   <data name="TEXT_CONFIRMATION" xml:space="preserve">
     <value>[es-MX]Confirmation</value>
+  </data>
+  <data name="TEXT_CONTINUE" xml:space="preserve">
+    <value>[es-MX]Continue</value>
+  </data>
+  <data name="TEXT_CORRECT_ERRORS" xml:space="preserve">
+    <value>[es-MX]Please correct the errors and try again.</value>
+  </data>
+  <data name="TEXT_CREATE_NEW_PARAMETER" xml:space="preserve">
+    <value>Create New Parameter</value>
   </data>
   <data name="TEXT_CREATOR_ID" xml:space="preserve">
     <value>[es-MX]Creator Id</value>
@@ -233,9 +350,6 @@
   </data>
   <data name="TEXT_DELETE" xml:space="preserve">
     <value>[es-MX]Delete</value>
-  </data>
-  <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[es-MX]Bulk Update</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>[es-MX]Description</value>
@@ -260,6 +374,12 @@
   </data>
   <data name="TEXT_FR" xml:space="preserve">
     <value>[es-MX]French</value>
+  </data>
+  <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
+    <value>[es-MX]From Parameter Table</value>
+  </data>
+  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>[es-MX]From parameter table</value>
   </data>
   <data name="TEXT_GENERAL" xml:space="preserve">
     <value>[es-MX]General</value>
@@ -312,23 +432,32 @@
   <data name="TEXT_MACHINE_IDENTIFIER" xml:space="preserve">
     <value>[es-MX]Machine Identifier</value>
   </data>
+  <data name="TEXT_MACHINE_NAME" xml:space="preserve">
+    <value>Machine</value>
+  </data>
+  <data name="TEXT_MACHINE_ROLE_NAME" xml:space="preserve">
+    <value>Machine Role</value>
+  </data>
   <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
     <value>[es-MX]Manage Group Subscriptions</value>
   </data>
+  <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
+    <value>[es-MX]MetraTax Country Eligibility</value>
+  </data>
+  <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
+    <value>[es-MX]MetraTax Country Zone</value>
+  </data>
+  <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
+    <value>[es-MX]MetraTax Has Override Band</value>
+  </data>
+  <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
+    <value>[es-MX]MetraTax Override Band</value>
+  </data>
+  <data name="TEXT_MISSING_LOCALIZATION" xml:space="preserve">
+    <value>[es-MX]Missing localization</value>
+  </data>
   <data name="TEXT_MORE_ITEMS" xml:space="preserve">
     <value>[es-MX]More Items...</value>
-  </data>
-  <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>[es-MX]Quote details</value>
-  </data>
-  <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>[es-MX]Accounts</value>
-  </data>
-  <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>[es-MX]Product offerings</value>
-  </data>
-  <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>[es-MX]Quote log</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>[es-MX]Name</value>
@@ -336,11 +465,29 @@
   <data name="TEXT_NEW" xml:space="preserve">
     <value>[es-MX]New </value>
   </data>
+  <data name="TEXT_NEXT" xml:space="preserve">
+    <value>[es-MX]Next</value>
+  </data>
+  <data name="TEXT_NO" xml:space="preserve">
+    <value>[es-MX]No</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
+    <value>[es-MX]This agreement template has no shared properties.</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_YET" xml:space="preserve">
+    <value>[es-MX]There are no properties defined yet...</value>
+  </data>
   <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
     <value>[es-MX]No records found</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
     <value>[es-MX]OK</value>
+  </data>
+  <data name="TEXT_OK_DELETE_1" xml:space="preserve">
+    <value>[es-MX]Click 'OK' to delete the</value>
+  </data>
+  <data name="TEXT_OK_DELETE_2" xml:space="preserve">
+    <value>[es-MX]property.</value>
   </data>
   <data name="TEXT_PAGE_ERROR" xml:space="preserve">
     <value>[es-MX]Unable to display page.</value>
@@ -359,6 +506,12 @@
   </data>
   <data name="TEXT_PROPERTIES" xml:space="preserve">
     <value>[es-MX]Properties</value>
+  </data>
+  <data name="TEXT_PROPERTY" xml:space="preserve">
+    <value>[es-MX]Property</value>
+  </data>
+  <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
+    <value>[es-MX]Quote details</value>
   </data>
   <data name="TEXT_REASSIGN_MESSAGE" xml:space="preserve">
     <value>[es-MX]Select the account to receive the transferred orders.</value>
@@ -387,14 +540,29 @@
   <data name="TEXT_REPORT_TYPE" xml:space="preserve">
     <value>[es-MX]Report Type</value>
   </data>
+  <data name="TEXT_RESTRICTIONS" xml:space="preserve">
+    <value>[es-MX]Restrictions</value>
+  </data>
   <data name="TEXT_SAVE" xml:space="preserve">
     <value>[es-MX]Save</value>
+  </data>
+  <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
+    <value>[es-MX]Save &amp; Continue</value>
+  </data>
+  <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>[es-MX]Save New Usage Qualification</value>
+  </data>
+  <data name="TEXT_SAVINGS" xml:space="preserve">
+    <value>Ahorros</value>
   </data>
   <data name="TEXT_SEARCH_LAYOUT" xml:space="preserve">
     <value>[es-MX]Search Layout</value>
   </data>
   <data name="TEXT_SESSION_ID" xml:space="preserve">
     <value>[es-MX]Session ID</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>[es-MX]Shared Properties</value>
   </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>[es-MX]Show Second Pass Data</value>
@@ -417,6 +585,27 @@
   <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
     <value>[es-MX]The subscription dates must be</value>
   </data>
+  <data name="TEXT_TAX" xml:space="preserve">
+    <value>[es-MX]Tax</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
+    <value>[es-MX]Tax Exempt End Date</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
+    <value>[es-MX]Tax Exempt Reason</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
+    <value>[es-MX]Tax Exempt Start Date</value>
+  </data>
+  <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
+    <value>[es-MX]Tax Registry Reference</value>
+  </data>
+  <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
+    <value>[es-MX]Tax Service Address PCode</value>
+  </data>
+  <data name="TEXT_TAX_VENDOR" xml:space="preserve">
+    <value>[es-MX]Tax Vendor</value>
+  </data>
   <data name="TEXT_THEME" xml:space="preserve">
     <value>[es-MX]Theme</value>
   </data>
@@ -429,6 +618,15 @@
   <data name="TEXT_TITLE" xml:space="preserve">
     <value>MetraNet</value>
   </data>
+  <data name="TEXT_TITLE_ADD_CATEGORY" xml:space="preserve">
+    <value>[es-MX]Create Category</value>
+  </data>
+  <data name="TEXT_TITLE_ADD_PROPERTY" xml:space="preserve">
+    <value>[es-MX]Add Property</value>
+  </data>
+  <data name="TEXT_TITLE_EDIT_PROPERTY" xml:space="preserve">
+    <value>[es-MX]Edit Property</value>
+  </data>
   <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
     <value>MetraControl</value>
   </data>
@@ -438,14 +636,26 @@
   <data name="TEXT_UNRELATED_2" xml:space="preserve">
     <value>[es-MX](s)</value>
   </data>
+  <data name="TEXT_UNRELATED_ENTITY_1" xml:space="preserve">
+    <value>[es-MX]List of unrelated  </value>
+  </data>
+  <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
+    <value>[es-MX]entity instances</value>
+  </data>
   <data name="TEXT_URL" xml:space="preserve">
     <value>Url</value>
+  </data>
+  <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
+    <value>[es-MX]Use Standard Inclusive Tax Calculation</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
     <value>[es-MX]Validation error.  Please try again.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>[es-MX]Value</value>
+  </data>
+  <data name="TEXT_WAITING_FOR_UPDATE" xml:space="preserve">
+    <value>[es-MX]Waiting for update...</value>
   </data>
   <data name="TEXT_WIDGET_PATH" xml:space="preserve">
     <value>[es-MX]Widget Path</value>
@@ -456,208 +666,61 @@
   <data name="TEXT_WIDTH" xml:space="preserve">
     <value>[es-MX]Width</value>
   </data>
-  <data name="TEXT_ADD_RELATED_ENTITIES" xml:space="preserve">
-    <value>[es-MX]Add related entities for </value>
-  </data>
-  <data name="TEXT_UNRELATED_ENTITY_1" xml:space="preserve">
-    <value>[es-MX]List of unrelated  </value>
-  </data>
-  <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
-    <value>[es-MX]entity instances</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
-    <value>[es-MX]Approve</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_DENY" xml:space="preserve">
-    <value>[es-MX]Deny</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_DISMISS" xml:space="preserve">
-    <value>[es-MX]Dismiss</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_RESUBMIT" xml:space="preserve">
-    <value>[es-MX]Resubmit</value>
-  </data>
-  <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
-    <value>[es-MX]Product Offering Properties</value>
-  </data>
-  <data name="Index_cshtml_Execute_Spec_Characteristics" xml:space="preserve">
-    <value>[es-MX]Spec Characteristics</value>
-  </data>
-  <data name="TEXT_ACTION_ADD_CATEGORY" xml:space="preserve">
-    <value>[es-MX]add category</value>
-  </data>
-  <data name="TEXT_ACTION_ADD_PROPERTY" xml:space="preserve">
-    <value>[es-MX]add property</value>
-  </data>
-  <data name="TEXT_ACTION_DELETE" xml:space="preserve">
-    <value>[es-MX]delete</value>
-  </data>
-  <data name="TEXT_ACTION_EDIT" xml:space="preserve">
-    <value>[es-MX]edit</value>
-  </data>
-  <data name="TEXT_ARE_YOU_SURE" xml:space="preserve">
-    <value>[es-MX]Are you sure?</value>
-  </data>
-  <data name="TEXT_CORRECT_ERRORS" xml:space="preserve">
-    <value>[es-MX]Please correct the errors and try again.</value>
-  </data>
-  <data name="TEXT_MISSING_LOCALIZATION" xml:space="preserve">
-    <value>[es-MX]Missing localization</value>
-  </data>
-  <data name="TEXT_NO_PROPERTIES_YET" xml:space="preserve">
-    <value>[es-MX]There are no properties defined yet...</value>
-  </data>
-  <data name="TEXT_OK_DELETE_1" xml:space="preserve">
-    <value>[es-MX]Click 'OK' to delete the</value>
-  </data>
-  <data name="TEXT_OK_DELETE_2" xml:space="preserve">
-    <value>[es-MX]property.</value>
-  </data>
-  <data name="TEXT_RESTRICTIONS" xml:space="preserve">
-    <value>[es-MX]Restrictions</value>
-  </data>
-  <data name="TEXT_TITLE_ADD_CATEGORY" xml:space="preserve">
-    <value>[es-MX]Create Category</value>
-  </data>
-  <data name="TEXT_TITLE_ADD_PROPERTY" xml:space="preserve">
-    <value>[es-MX]Add Property</value>
-  </data>
-  <data name="TEXT_TITLE_EDIT_PROPERTY" xml:space="preserve">
-    <value>[es-MX]Edit Property</value>
-  </data>
-  <data name="TEXT_WAITING_FOR_UPDATE" xml:space="preserve">
-    <value>[es-MX]Waiting for update...</value>
-  </data>
-  <data name="TEXT_ACTION_ADD_EXISTING_PROPERTY" xml:space="preserve">
-    <value>[es-MX]add existing property</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>[es-MX]Shared Properties</value>
-  </data>
-  <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
-    <value>[es-MX]Successfully moved.</value>
-  </data>
-  <data name="SpecCharacteristicsController_Delete_Successfully_deleted_property_" xml:space="preserve">
-    <value>[es-MX]Successfully deleted property.</value>
-  </data>
-  <data name="SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_" xml:space="preserve">
-    <value>[es-MX]Successfully added property.</value>
-  </data>
-  <data name="TEXT_AVAILABLE_SHARED_PROPERTIES" xml:space="preserve">
-    <value>[es-MX]Available Shared Properties</value>
-  </data>
-  <data name="TEXT_PROPERTY" xml:space="preserve">
-    <value>[es-MX]Property</value>
-  </data>
-  <data name="TEXT_BACK" xml:space="preserve">
-    <value>[es-MX]Previous</value>
-  </data>
-  <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
-    <value>[es-MX]From Parameter Table</value>
-  </data>
-  <data name="TEXT_NEXT" xml:space="preserve">
-    <value>[es-MX]Next</value>
-  </data>
-  <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>[es-MX]Save &amp; Continue</value>
-  </data>
-  <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[es-MX]Save New Usage Qualification</value>
-  </data>
-  <data name="TEXT_CONTINUE" xml:space="preserve">
-    <value>[es-MX]Continue</value>
-  </data>
   <data name="TEXT_YES" xml:space="preserve">
     <value>[es-MX]Yes</value>
-  </data>
-  <data name="TEXT_NO" xml:space="preserve">
-    <value>[es-MX]No</value>
-  </data>
-  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>[es-MX]From parameter table</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
-    <value>[es-MX]add category</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>[es-MX]add property</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
-    <value>[es-MX]Available Shared Properties</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
-    <value>[es-MX]back to properties</value>
-  </data>
-  <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>[es-MX]This agreement template has no shared properties.</value>
-  </data>
-  <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
-    <value>[es-MX]Set localization</value>
-  </data>
-  <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
-    <value>[es-MX]Set Localization</value>
-  </data>
-  <data name="TEXT_BUTTON_ADD" xml:space="preserve">
-    <value>[es-MX]Add</value>
-  </data>
-  <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
-    <value>[es-MX]Delete</value>
-  </data>
-  <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
-    <value>[es-MX]Edit</value>
-  </data>
-  <data name="newSubscription" xml:space="preserve">
-    <value>[es-MX]New Subscription</value>
   </data>
   <data name="updateSubscription" xml:space="preserve">
     <value>[es-MX]Subscription Update</value>
   </data>
-  <data name="TEXT_TAX" xml:space="preserve">
-    <value>[es-MX]Tax</value>
+  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
+    <value>[es-MX]Not Yet Run</value>
   </data>
-  <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>[es-MX]Tax Vendor</value>
+  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
+    <value>[es-MX]Ready To Reverse</value>
   </data>
-  <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>[es-MX]Tax Service Address PCode</value>
+  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
+    <value>[es-MX]Ready To Run</value>
   </data>
-  <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>[es-MX]MetraTax Country Eligibility</value>
+  <data name="TEXT_ONE" xml:space="preserve">
+    <value>[es-MX]One</value>
   </data>
-  <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>[es-MX]MetraTax Country Zone</value>
+  <data name="TEXT_MANY" xml:space="preserve">
+    <value>[es-MX]Many</value>
   </data>
-  <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>[es-MX]MetraTax Has Override Band</value>
+  <data name="TEXT_COPY_PO" xml:space="preserve">
+    <value>[es-MX]Copy Existing Product Offering</value>
   </data>
-  <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>[es-MX]MetraTax Override Band</value>
+  <data name="TEXT_CURRENCY" xml:space="preserve">
+    <value>[es-MX]Currency</value>
   </data>
-  <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>[es-MX]Tax Registry Reference</value>
+  <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
+    <value>[es-MX]Display name</value>
   </data>
-  <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>[es-MX]Tax Exempt Reason</value>
+  <data name="TEXT_PARTITION_ID" xml:space="preserve">
+    <value>[es-MX]Partition Id</value>
   </data>
-  <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>[es-MX]Tax Exempt Start Date</value>
+  <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
+    <value>[es-MX]Effective Start Date</value>
   </data>
-  <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>[es-MX]Tax Exempt End Date</value>
+  <data name="TEXT_ADD_RATES_FOR_PT" xml:space="preserve">
+    <value>[es-MX]Add Rates For Additional Parameter Tables</value>
   </data>
-  <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>[es-MX]Use Standard Inclusive Tax Calculation</value>
+  <data name="TEXT_UPDATE_PL" xml:space="preserve">
+    <value>[es-MX]Update Price List</value>
   </data>
-  <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
-    <value>[es-MX]Bill Message Associations</value>
+  <data name="TEXT_UPDATE_SHARED_PL" xml:space="preserve">
+    <value>[es-MX]Update Shared Price List</value>
   </data>
-  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[es-MX]Bill Messages</value>
+  <data name="TEXT_CREATE_SHARED_PL" xml:space="preserve">
+    <value>[es-MX]Create Shared Price List</value>
   </data>
-  <data name="TEXT_CHECKING" xml:space="preserve">
-    <value>Corriente</value>
+  <data name="TEXT_ADD_PL" xml:space="preserve">
+    <value>[es-MX]Add Price List</value>
   </data>
-  <data name="TEXT_SAVINGS" xml:space="preserve">
-    <value>Ahorros</value>
+  <data name="ValidationMustBeDecimal" xml:space="preserve">
+    <value>[es-MX] Must be an decimal value.</value>
+  </data>
+  <data name="ValidationMustBeInt" xml:space="preserve">
+    <value>[es-MX] Must be an integer value.</value>
   </data>
 </root>

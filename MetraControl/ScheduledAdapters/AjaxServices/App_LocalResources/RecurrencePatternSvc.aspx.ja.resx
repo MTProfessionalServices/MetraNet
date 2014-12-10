@@ -126,37 +126,16 @@
   <data name="Fourth_Text" xml:space="preserve">
     <value>4 番目</value>
   </data>
-  <data name="Friday_Text" xml:space="preserve">
-    <value>金</value>
-  </data>
   <data name="Last_Text" xml:space="preserve">
     <value>最後</value>
-  </data>
-  <data name="Monday_Text" xml:space="preserve">
-    <value>月</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="Saturday_Text" xml:space="preserve">
-    <value>土</value>
-  </data>
   <data name="Second_Text" xml:space="preserve">
     <value>2 番目</value>
   </data>
-  <data name="Sunday_Text" xml:space="preserve">
-    <value>日</value>
-  </data>
   <data name="Third_Text" xml:space="preserve">
     <value>3 番目</value>
-  </data>
-  <data name="Thursday_Text" xml:space="preserve">
-    <value>木</value>
-  </data>
-  <data name="Tuesday_Text" xml:space="preserve">
-    <value>火</value>
-  </data>
-  <data name="Wednesday_Text" xml:space="preserve">
-    <value>水</value>
   </data>
 </root>

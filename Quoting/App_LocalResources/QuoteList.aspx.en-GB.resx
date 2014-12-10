@@ -118,66 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CREATE_QUOTE" xml:space="preserve">
-    <value>[en-GB]Create quote</value>
+    <value>Create quote</value>
   </data>
   <data name="CREATION_DATE" xml:space="preserve">
-    <value>[en-GB]Creation date</value>
+    <value>Creation date</value>
   </data>
   <data name="CURRENCY" xml:space="preserve">
-    <value>[en-GB]Currency</value>
+    <value>Currency</value>
   </data>
   <data name="ID_QUOTE" xml:space="preserve">
-    <value>[en-GB]Quote Id</value>
+    <value>Quote Id</value>
   </data>
   <data name="IS_GROUPSUBSCRIPTION" xml:space="preserve">
-    <value>[en-GB]Is group subscription</value>
+    <value>Is group subscription</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>[en-GB]Quotes List</value>
+    <value>Quotes List</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[en-GB]MetraNet - Quotes List</value>
+    <value>MetraNet - Quotes List</value>
   </data>
   <data name="QUOTE_ACCOUNTS" xml:space="preserve">
-    <value>[en-GB]Account's IDs</value>
+    <value>Account's IDs</value>
   </data>
   <data name="QUOTE_DESCRIPTION" xml:space="preserve">
-    <value>[en-GB]Quote description</value>
+    <value>Quote description</value>
   </data>
   <data name="QUOTE_FAILEDMESSAGE" xml:space="preserve">
-    <value>[en-GB]Failed message</value>
+    <value>Failed message</value>
   </data>
   <data name="QUOTE_LIST" xml:space="preserve">
-    <value>[en-GB]Quotes list</value>
+    <value>Quotes list</value>
   </data>
   <data name="QUOTE_PARAMETERS" xml:space="preserve">
-    <value>[en-GB]Quote parameters</value>
+    <value>Quote parameters</value>
   </data>
   <data name="QUOTE_POS" xml:space="preserve">
-    <value>[en-GB]Product offerings's IDs</value>
+    <value>Product offerings's IDs</value>
   </data>
   <data name="QUOTE_STATUS" xml:space="preserve">
-    <value>[en-GB]Quote status</value>
+    <value>Quote status</value>
   </data>
   <data name="QuoteListTitle.Text" xml:space="preserve">
-    <value>[en-GB]Quotes List</value>
+    <value>Quotes List</value>
   </data>
   <data name="REPORT_LINK" xml:space="preserve">
-    <value>[en-GB]Report link</value>
+    <value>Report link</value>
   </data>
   <data name="STATUS_CLEANUP" xml:space="preserve">
-    <value>[en-GB]Status cleanup</value>
+    <value>Status cleanup</value>
   </data>
   <data name="STATUS_REPORT" xml:space="preserve">
-    <value>[en-GB]Status report</value>
+    <value>Status report</value>
   </data>
   <data name="TOTAL_AMOUNT" xml:space="preserve">
-    <value>[en-GB]Total amount</value>
+    <value>Total amount</value>
   </data>
   <data name="TOTAL_TAX" xml:space="preserve">
-    <value>[en-GB]Total Tax</value>
+    <value>Total Tax</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[en-GB]Actions</value>
+    <value>Actions</value>
   </data>
 </root>

@@ -117,6 +117,9 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="TEXT_CONTROL_FILE_LOCATION" xml:space="preserve">
+        <value>Control File Location</value>
+    </data>
     <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
         <value>Data de ativação</value>
     </data>
@@ -186,4 +189,34 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valor</value>
     </data>
+    <data name="TEXT_EXPORT_FILE_DESTINATION" xml:space="preserve">
+        <value>Export File Location</value>
+    </data>
+    <data name="TEXT_FTP_ACCESS_PASSWORD" xml:space="preserve">
+        <value>FTP Access Password</value>
+    </data>
+    <data name="TEXT_FTP_USER" xml:space="preserve">
+        <value>FTP Access User</value>
+    </data>
+    <data name="TEXT_GENERATE_CONTROL_FILE" xml:space="preserve">
+        <value>Generate Control File</value>
+    </data>
+    <data name="TEXT_REPORT_DESTINATION" xml:space="preserve">
+        <value>Report Destination</value>
+    </data>
+    <data name="TEXT_REPORT_INSTANCE_DETAILS" xml:space="preserve">
+        <value>Report Instance Details </value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Add New Report Instance</value>
+    </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>Add New Report Instance</value>
+  </data>
+  <data name="btnCancelResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="btnOKResource1.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

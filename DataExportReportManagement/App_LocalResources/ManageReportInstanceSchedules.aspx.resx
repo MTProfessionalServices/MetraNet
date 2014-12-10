@@ -129,6 +129,9 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Manage Report Instance Schedule</value>
     </data>
+    <data name="TEXT_Daily_Schedule" xml:space="preserve">
+        <value>Daily Schedule</value>
+    </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>
@@ -137,5 +140,17 @@
     </data>
     <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
         <value>Schedule Type</value>
+    </data>
+    <data name="TEXT_Monthly_Schedule" xml:space="preserve">
+        <value>Monthly Schedule</value>
+    </data>
+    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+        <value>No schedule found for this instance </value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Report Instance Schedule</value>
+    </data>
+    <data name="TEXT_Weekly_Schedule" xml:space="preserve">
+        <value>Weekly Schedule</value>
     </data>
 </root>

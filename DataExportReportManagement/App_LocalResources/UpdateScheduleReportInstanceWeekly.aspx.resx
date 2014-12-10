@@ -134,7 +134,7 @@
         <value>10</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Update Weekly Report Schedule</value>
+        <value>Update Weekly Report Schedule </value>
     </data>
     <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
         <value></value>
@@ -168,5 +168,17 @@
     </data>
     <data name="TEXT_DEF_WEEKDAY_WEDNESDAY" xml:space="preserve">
         <value>Wednesday</value>
+    </data>
+    <data name="TEXT_SKIP_EXECUTION" xml:space="preserve">
+        <value>Skip Execution on These Weekdays</value>
+    </data>
+    <data name="TEXT_WEEKLY_SCHEDULE" xml:space="preserve">
+        <value>Weekly Schedule</value>
+    </data>
+  <data name="TEXT_Delete_Weekly_Report_Schedule" xml:space="preserve">
+        <value>Delete Weekly Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Weekly_Report_Schedule" xml:space="preserve">
+        <value>Update Weekly Report Schedule</value>
     </data>
 </root>

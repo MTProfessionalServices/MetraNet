@@ -142,6 +142,9 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Update Daily Report Schedule</value>
     </data>
+    <data name="TEXT_DAILY_SCHEDULE" xml:space="preserve">
+        <value>Daily Report Schedule</value>
+    </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>
@@ -186,5 +189,11 @@
     </data>
     <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
         <value>Skip Last Day of Month</value>
+    </data>
+    <data name="TEXT_Delete_Daily_Report_Schedule" xml:space="preserve">
+        <value>Delete Daily Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Daily_Report_Schedule" xml:space="preserve">
+        <value>Update Daily Report Schedule</value>
     </data>
 </root>

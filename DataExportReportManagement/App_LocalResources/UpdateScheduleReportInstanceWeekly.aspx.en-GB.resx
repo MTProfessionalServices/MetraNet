@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,114 +59,126 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnOKResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Update Weekly Report Schedule</value>
-  </data>
-  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>Update Weekly Report Schedule</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
-    <value>Execute Time(HH:MM)</value>
-  </data>
-  <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
-    <value>Schedule Type</value>
-  </data>
-  <data name="TEXT_DEF_WEEKDAY_FRIDAY" xml:space="preserve">
-    <value>Friday</value>
-  </data>
-  <data name="TEXT_DEF_WEEKDAY_MONDAY" xml:space="preserve">
-    <value>Monday</value>
-  </data>
-  <data name="TEXT_DEF_WEEKDAY_SATURDAY" xml:space="preserve">
-    <value>Saturday</value>
-  </data>
-  <data name="TEXT_DEF_WEEKDAY_SUNDAY" xml:space="preserve">
-    <value>Sunday</value>
-  </data>
-  <data name="TEXT_DEF_WEEKDAY_THURSDAY" xml:space="preserve">
-    <value>Thursday</value>
-  </data>
-  <data name="TEXT_DEF_WEEKDAY_TUESDAY" xml:space="preserve">
-    <value>Tuesday</value>
-  </data>
-  <data name="TEXT_DEF_WEEKDAY_WEDNESDAY" xml:space="preserve">
-    <value>Wednesday</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <data name="btnCancelResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnCancelResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="btnOKResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnOKResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
+        <value>10</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Update Weekly Report Schedule</value>
+    </data>
+    <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>Update Weekly Report Schedule</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
+        <value>Execute Time(HH:MM)</value>
+    </data>
+    <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
+        <value>Schedule Type</value>
+    </data>
+    <data name="TEXT_DEF_WEEKDAY_FRIDAY" xml:space="preserve">
+        <value>Friday</value>
+    </data>
+    <data name="TEXT_DEF_WEEKDAY_MONDAY" xml:space="preserve">
+        <value>Monday</value>
+    </data>
+    <data name="TEXT_DEF_WEEKDAY_SATURDAY" xml:space="preserve">
+        <value>Saturday</value>
+    </data>
+    <data name="TEXT_DEF_WEEKDAY_SUNDAY" xml:space="preserve">
+        <value>Sunday</value>
+    </data>
+    <data name="TEXT_DEF_WEEKDAY_THURSDAY" xml:space="preserve">
+        <value>Thursday</value>
+    </data>
+    <data name="TEXT_DEF_WEEKDAY_TUESDAY" xml:space="preserve">
+        <value>Tuesday</value>
+    </data>
+    <data name="TEXT_DEF_WEEKDAY_WEDNESDAY" xml:space="preserve">
+        <value>Wednesday</value>
+    </data>
+    <data name="TEXT_SKIP_EXECUTION" xml:space="preserve">
+        <value>Skip Execution on These Weekdays</value>
+    </data>
+    <data name="TEXT_WEEKLY_SCHEDULE" xml:space="preserve">
+        <value>Weekly Schedule</value>
+    </data>
+  <data name="TEXT_Delete_Weekly_Report_Schedule" xml:space="preserve">
+        <value>Delete Weekly Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Weekly_Report_Schedule" xml:space="preserve">
+        <value>Update Weekly Report Schedule</value>
+    </data>
 </root>

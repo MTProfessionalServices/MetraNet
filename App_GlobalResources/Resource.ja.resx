@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
+    <value>[JA]Set localization</value>
+  </data>
+  <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
+    <value>[JA]Set Localization</value>
+  </data>
+  <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
+    <value>[JA]Accounts</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
+    <value>[JA]add category</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
+    <value>[JA]add property</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
+    <value>[JA]Available Shared Properties</value>
+  </data>
+  <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
+    <value>[JA]back to properties</value>
+  </data>
+  <data name="Index_cshtml_Execute_Spec_Characteristics" xml:space="preserve">
+    <value>[JA]Spec Characteristics</value>
+  </data>
   <data name="LocalizedJavaScript" xml:space="preserve">
     <value>/Res/JavaScript/Localized.ja.js?v=6.5</value>
   </data>
@@ -131,6 +155,27 @@
   </data>
   <data name="LocalizedWelcomePage" xml:space="preserve">
     <value>Welcome.htm</value>
+  </data>
+  <data name="LOG_FOR_QUOTES" xml:space="preserve">
+    <value>[JA]Quote log</value>
+  </data>
+  <data name="newSubscription" xml:space="preserve">
+    <value>[JA]New Subscription</value>
+  </data>
+  <data name="PO_FOR_QUOTES" xml:space="preserve">
+    <value>[JA]Product offerings</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_" xml:space="preserve">
+    <value>[JA]Successfully added property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Successfully_deleted_property_" xml:space="preserve">
+    <value>[JA]Successfully deleted property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
+    <value>[JA]Product Offering Properties</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
+    <value>[JA]Successfully moved.</value>
   </data>
   <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
     <value>お客様 ID</value>
@@ -147,6 +192,21 @@
   <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
     <value>口座の概要</value>
   </data>
+  <data name="TEXT_ACTION_ADD_CATEGORY" xml:space="preserve">
+    <value>[JA]add category</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_EXISTING_PROPERTY" xml:space="preserve">
+    <value>[JA]add existing property</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_PROPERTY" xml:space="preserve">
+    <value>[JA]add property</value>
+  </data>
+  <data name="TEXT_ACTION_DELETE" xml:space="preserve">
+    <value>[JA]delete</value>
+  </data>
+  <data name="TEXT_ACTION_EDIT" xml:space="preserve">
+    <value>[JA]edit</value>
+  </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
     <value>処理</value>
   </data>
@@ -156,8 +216,14 @@
   <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
     <value>法案メッセージを追加</value>
   </data>
+  <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
+    <value>Create Bill Message</value>
+  </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>追加</value>
+  </data>
+  <data name="TEXT_ADD_RELATED_ENTITIES" xml:space="preserve">
+    <value>関連エンティティの追加 </value>
   </data>
   <data name="TEXT_AFTER" xml:space="preserve">
     <value>後</value>
@@ -180,8 +246,29 @@
   <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
     <value>変更の適用</value>
   </data>
+  <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
+    <value>[JA]Approve</value>
+  </data>
+  <data name="TEXT_APPROVAL_BUTTON_DENY" xml:space="preserve">
+    <value>[JA]Deny</value>
+  </data>
+  <data name="TEXT_APPROVAL_BUTTON_DISMISS" xml:space="preserve">
+    <value>[JA]Dismiss</value>
+  </data>
+  <data name="TEXT_APPROVAL_BUTTON_RESUBMIT" xml:space="preserve">
+    <value>[JA]Resubmit</value>
+  </data>
+  <data name="TEXT_ARE_YOU_SURE" xml:space="preserve">
+    <value>よろしいですか?</value>
+  </data>
   <data name="TEXT_AUTO" xml:space="preserve">
     <value>自動</value>
+  </data>
+  <data name="TEXT_AVAILABLE_SHARED_PROPERTIES" xml:space="preserve">
+    <value>利用可能な共有プロパティ</value>
+  </data>
+  <data name="TEXT_BACK" xml:space="preserve">
+    <value>[JA]Previous</value>
   </data>
   <data name="TEXT_BACK_DASHBOARD" xml:space="preserve">
     <value>Dashboard に戻る</value>
@@ -192,6 +279,12 @@
   <data name="TEXT_BEFORE" xml:space="preserve">
     <value>前</value>
   </data>
+  <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
+    <value>[JA]Bill Message Associations</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[JA]Bill Messages</value>
+  </data>
   <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
     <value>請求書発行情報</value>
   </data>
@@ -200,6 +293,18 @@
   </data>
   <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
     <value>&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_BULKUPDATE" xml:space="preserve">
+    <value>[JA]Bulk Update</value>
+  </data>
+  <data name="TEXT_BUTTON_ADD" xml:space="preserve">
+    <value>[JA]Add</value>
+  </data>
+  <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
+    <value>[JA]Delete</value>
+  </data>
+  <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
+    <value>[JA]Edit</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
     <value>キャンセル</value>
@@ -210,11 +315,23 @@
   <data name="TEXT_CATEGORY" xml:space="preserve">
     <value>カテゴリ</value>
   </data>
+  <data name="TEXT_CHECKING" xml:space="preserve">
+    <value>当座預金</value>
+  </data>
   <data name="TEXT_COLUMN_TITLE" xml:space="preserve">
     <value>タイトル</value>
   </data>
   <data name="TEXT_CONFIRMATION" xml:space="preserve">
     <value>確認</value>
+  </data>
+  <data name="TEXT_CONTINUE" xml:space="preserve">
+    <value>[JA]Continue</value>
+  </data>
+  <data name="TEXT_CORRECT_ERRORS" xml:space="preserve">
+    <value>間違いを直して、もう一度実行してください。</value>
+  </data>
+  <data name="TEXT_CREATE_NEW_PARAMETER" xml:space="preserve">
+    <value>Create New Parameter</value>
   </data>
   <data name="TEXT_CREATOR_ID" xml:space="preserve">
     <value>作成者の ID</value>
@@ -233,9 +350,6 @@
   </data>
   <data name="TEXT_DELETE" xml:space="preserve">
     <value>削除</value>
-  </data>
-  <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[JA]Bulk Update</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>内容</value>
@@ -260,6 +374,12 @@
   </data>
   <data name="TEXT_FR" xml:space="preserve">
     <value>フランス</value>
+  </data>
+  <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
+    <value>[JA]From Parameter Table</value>
+  </data>
+  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>[JA]From parameter table</value>
   </data>
   <data name="TEXT_GENERAL" xml:space="preserve">
     <value>一般</value>
@@ -312,23 +432,32 @@
   <data name="TEXT_MACHINE_IDENTIFIER" xml:space="preserve">
     <value>マシン識別子</value>
   </data>
+  <data name="TEXT_MACHINE_NAME" xml:space="preserve">
+    <value>Machine</value>
+  </data>
+  <data name="TEXT_MACHINE_ROLE_NAME" xml:space="preserve">
+    <value>Machine Role</value>
+  </data>
   <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
     <value>グループ利用の管理</value>
   </data>
+  <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
+    <value>[JA]MetraTax Country Eligibility</value>
+  </data>
+  <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
+    <value>[JA]MetraTax Country Zone</value>
+  </data>
+  <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
+    <value>[JA]MetraTax Has Override Band</value>
+  </data>
+  <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
+    <value>[JA]MetraTax Override Band</value>
+  </data>
+  <data name="TEXT_MISSING_LOCALIZATION" xml:space="preserve">
+    <value>ローカライズがありません</value>
+  </data>
   <data name="TEXT_MORE_ITEMS" xml:space="preserve">
     <value>項目の詳細</value>
-  </data>
-  <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>[JA]Quote details</value>
-  </data>
-  <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>[JA]Accounts</value>
-  </data>
-  <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>[JA]Product offerings</value>
-  </data>
-  <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>[JA]Quote log</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>名前</value>
@@ -336,11 +465,29 @@
   <data name="TEXT_NEW" xml:space="preserve">
     <value>新規</value>
   </data>
+  <data name="TEXT_NEXT" xml:space="preserve">
+    <value>[JA]Next</value>
+  </data>
+  <data name="TEXT_NO" xml:space="preserve">
+    <value>[JA]No</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
+    <value>[JA]This agreement template has no shared properties.</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_YET" xml:space="preserve">
+    <value>定義済みのプロパティがありません...</value>
+  </data>
   <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
     <value>記録が見つかりません</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
     <value>OK</value>
+  </data>
+  <data name="TEXT_OK_DELETE_1" xml:space="preserve">
+    <value>[OK] をクリックして</value>
+  </data>
+  <data name="TEXT_OK_DELETE_2" xml:space="preserve">
+    <value>プロパティを削除します。</value>
   </data>
   <data name="TEXT_PAGE_ERROR" xml:space="preserve">
     <value>ページを表示できません。</value>
@@ -359,6 +506,12 @@
   </data>
   <data name="TEXT_PROPERTIES" xml:space="preserve">
     <value>プロパティ</value>
+  </data>
+  <data name="TEXT_PROPERTY" xml:space="preserve">
+    <value>プロパティ</value>
+  </data>
+  <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
+    <value>[JA]Quote details</value>
   </data>
   <data name="TEXT_REASSIGN_MESSAGE" xml:space="preserve">
     <value>送金された金額の振込先アカウントを選択します。</value>
@@ -387,14 +540,29 @@
   <data name="TEXT_REPORT_TYPE" xml:space="preserve">
     <value>報告書種別</value>
   </data>
+  <data name="TEXT_RESTRICTIONS" xml:space="preserve">
+    <value>制限</value>
+  </data>
   <data name="TEXT_SAVE" xml:space="preserve">
     <value>保存</value>
+  </data>
+  <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
+    <value>[JA]Save &amp; Continue</value>
+  </data>
+  <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>[JA]Save New Usage Qualification</value>
+  </data>
+  <data name="TEXT_SAVINGS" xml:space="preserve">
+    <value>普通預金</value>
   </data>
   <data name="TEXT_SEARCH_LAYOUT" xml:space="preserve">
     <value>検索レイアウト</value>
   </data>
   <data name="TEXT_SESSION_ID" xml:space="preserve">
     <value>セッション ID</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>共有プロパティ</value>
   </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>2 番目の送信データの表示</value>
@@ -417,6 +585,27 @@
   <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
     <value>申し込み日は次の日とする必要があります</value>
   </data>
+  <data name="TEXT_TAX" xml:space="preserve">
+    <value>[JA]Tax</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
+    <value>[JA]Tax Exempt End Date</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
+    <value>[JA]Tax Exempt Reason</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
+    <value>[JA]Tax Exempt Start Date</value>
+  </data>
+  <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
+    <value>[JA]Tax Registry Reference</value>
+  </data>
+  <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
+    <value>[JA]Tax Service Address PCode</value>
+  </data>
+  <data name="TEXT_TAX_VENDOR" xml:space="preserve">
+    <value>[JA]Tax Vendor</value>
+  </data>
   <data name="TEXT_THEME" xml:space="preserve">
     <value>テーマ</value>
   </data>
@@ -429,6 +618,15 @@
   <data name="TEXT_TITLE" xml:space="preserve">
     <value>MetraNet</value>
   </data>
+  <data name="TEXT_TITLE_ADD_CATEGORY" xml:space="preserve">
+    <value>カテゴリの作成</value>
+  </data>
+  <data name="TEXT_TITLE_ADD_PROPERTY" xml:space="preserve">
+    <value>プロパティの追加</value>
+  </data>
+  <data name="TEXT_TITLE_EDIT_PROPERTY" xml:space="preserve">
+    <value>プロパティの編集</value>
+  </data>
   <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
     <value>MetraControl</value>
   </data>
@@ -438,14 +636,26 @@
   <data name="TEXT_UNRELATED_2" xml:space="preserve">
     <value>[JA](s)</value>
   </data>
+  <data name="TEXT_UNRELATED_ENTITY_1" xml:space="preserve">
+    <value>無関係な  </value>
+  </data>
+  <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
+    <value>エンティティ インスタンスの一覧表示</value>
+  </data>
   <data name="TEXT_URL" xml:space="preserve">
     <value>URL</value>
+  </data>
+  <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
+    <value>[JA]Use Standard Inclusive Tax Calculation</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
     <value>確認エラー。再入力してください。</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>値</value>
+  </data>
+  <data name="TEXT_WAITING_FOR_UPDATE" xml:space="preserve">
+    <value>更新を待機しています...</value>
   </data>
   <data name="TEXT_WIDGET_PATH" xml:space="preserve">
     <value>ウィジェット パス</value>
@@ -456,208 +666,61 @@
   <data name="TEXT_WIDTH" xml:space="preserve">
     <value>幅</value>
   </data>
-  <data name="TEXT_ADD_RELATED_ENTITIES" xml:space="preserve">
-    <value>関連エンティティの追加 </value>
-  </data>
-  <data name="TEXT_UNRELATED_ENTITY_1" xml:space="preserve">
-    <value>無関係な  </value>
-  </data>
-  <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
-    <value>エンティティ インスタンスの一覧表示</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
-    <value>[JA]Approve</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_DENY" xml:space="preserve">
-    <value>[JA]Deny</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_DISMISS" xml:space="preserve">
-    <value>[JA]Dismiss</value>
-  </data>
-  <data name="TEXT_APPROVAL_BUTTON_RESUBMIT" xml:space="preserve">
-    <value>[JA]Resubmit</value>
-  </data>
-  <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
-    <value>[JA]Product Offering Properties</value>
-  </data>
-  <data name="Index_cshtml_Execute_Spec_Characteristics" xml:space="preserve">
-    <value>[JA]Spec Characteristics</value>
-  </data>
-  <data name="TEXT_ACTION_ADD_CATEGORY" xml:space="preserve">
-    <value>[JA]add category</value>
-  </data>
-  <data name="TEXT_ACTION_ADD_PROPERTY" xml:space="preserve">
-    <value>[JA]add property</value>
-  </data>
-  <data name="TEXT_ACTION_DELETE" xml:space="preserve">
-    <value>[JA]delete</value>
-  </data>
-  <data name="TEXT_ACTION_EDIT" xml:space="preserve">
-    <value>[JA]edit</value>
-  </data>
-  <data name="TEXT_ARE_YOU_SURE" xml:space="preserve">
-    <value>よろしいですか?</value>
-  </data>
-  <data name="TEXT_CORRECT_ERRORS" xml:space="preserve">
-    <value>間違いを直して、もう一度実行してください。</value>
-  </data>
-  <data name="TEXT_MISSING_LOCALIZATION" xml:space="preserve">
-    <value>ローカライズがありません</value>
-  </data>
-  <data name="TEXT_NO_PROPERTIES_YET" xml:space="preserve">
-    <value>定義済みのプロパティがありません...</value>
-  </data>
-  <data name="TEXT_OK_DELETE_1" xml:space="preserve">
-    <value>[OK] をクリックして</value>
-  </data>
-  <data name="TEXT_OK_DELETE_2" xml:space="preserve">
-    <value>プロパティを削除します。</value>
-  </data>
-  <data name="TEXT_RESTRICTIONS" xml:space="preserve">
-    <value>制限</value>
-  </data>
-  <data name="TEXT_TITLE_ADD_CATEGORY" xml:space="preserve">
-    <value>カテゴリの作成</value>
-  </data>
-  <data name="TEXT_TITLE_ADD_PROPERTY" xml:space="preserve">
-    <value>プロパティの追加</value>
-  </data>
-  <data name="TEXT_TITLE_EDIT_PROPERTY" xml:space="preserve">
-    <value>プロパティの編集</value>
-  </data>
-  <data name="TEXT_WAITING_FOR_UPDATE" xml:space="preserve">
-    <value>更新を待機しています...</value>
-  </data>
-  <data name="TEXT_ACTION_ADD_EXISTING_PROPERTY" xml:space="preserve">
-    <value>[JA]add existing property</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>共有プロパティ</value>
-  </data>
-  <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
-    <value>[JA]Successfully moved.</value>
-  </data>
-  <data name="SpecCharacteristicsController_Delete_Successfully_deleted_property_" xml:space="preserve">
-    <value>[JA]Successfully deleted property.</value>
-  </data>
-  <data name="SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_" xml:space="preserve">
-    <value>[JA]Successfully added property.</value>
-  </data>
-  <data name="TEXT_AVAILABLE_SHARED_PROPERTIES" xml:space="preserve">
-    <value>利用可能な共有プロパティ</value>
-  </data>
-  <data name="TEXT_PROPERTY" xml:space="preserve">
-    <value>プロパティ</value>
-  </data>
-  <data name="TEXT_BACK" xml:space="preserve">
-    <value>[JA]Previous</value>
-  </data>
-  <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
-    <value>[JA]From Parameter Table</value>
-  </data>
-  <data name="TEXT_NEXT" xml:space="preserve">
-    <value>[JA]Next</value>
-  </data>
-  <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>[JA]Save &amp; Continue</value>
-  </data>
-  <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[JA]Save New Usage Qualification</value>
-  </data>
-  <data name="TEXT_CONTINUE" xml:space="preserve">
-    <value>[JA]Continue</value>
-  </data>
   <data name="TEXT_YES" xml:space="preserve">
     <value>[JA]Yes</value>
-  </data>
-  <data name="TEXT_NO" xml:space="preserve">
-    <value>[JA]No</value>
-  </data>
-  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>[JA]From parameter table</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
-    <value>[JA]add category</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>[JA]add property</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
-    <value>[JA]Available Shared Properties</value>
-  </data>
-  <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
-    <value>[JA]back to properties</value>
-  </data>
-  <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>[JA]This agreement template has no shared properties.</value>
-  </data>
-  <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
-    <value>[JA]Set localization</value>
-  </data>
-  <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
-    <value>[JA]Set Localization</value>
-  </data>
-  <data name="TEXT_BUTTON_ADD" xml:space="preserve">
-    <value>[JA]Add</value>
-  </data>
-  <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
-    <value>[JA]Delete</value>
-  </data>
-  <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
-    <value>[JA]Edit</value>
-  </data>
-  <data name="newSubscription" xml:space="preserve">
-    <value>[JA]New Subscription</value>
   </data>
   <data name="updateSubscription" xml:space="preserve">
     <value>[JA]Subscription Update</value>
   </data>
-  <data name="TEXT_TAX" xml:space="preserve">
-    <value>[JA]Tax</value>
+  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
+    <value>[JA]Not Yet Run</value>
   </data>
-  <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>[JA]Tax Vendor</value>
+  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
+    <value>[JA]Ready To Reverse</value>
   </data>
-  <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>[JA]Tax Service Address PCode</value>
+  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
+    <value>[JA]Ready To Run</value>
   </data>
-  <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>[JA]MetraTax Country Eligibility</value>
+  <data name="TEXT_ONE" xml:space="preserve">
+    <value>[JA]One</value>
   </data>
-  <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>[JA]MetraTax Country Zone</value>
+  <data name="TEXT_MANY" xml:space="preserve">
+    <value>[JA]Many</value>
   </data>
-  <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>[JA]MetraTax Has Override Band</value>
+  <data name="TEXT_COPY_PO" xml:space="preserve">
+    <value>[JA]Copy Existing Product Offering</value>
   </data>
-  <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>[JA]MetraTax Override Band</value>
+  <data name="TEXT_CURRENCY" xml:space="preserve">
+    <value>[JA]Currency</value>
   </data>
-  <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>[JA]Tax Registry Reference</value>
+  <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
+    <value>[JA]Display name</value>
   </data>
-  <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>[JA]Tax Exempt Reason</value>
+  <data name="TEXT_PARTITION_ID" xml:space="preserve">
+    <value>[JA]Partition Id</value>
   </data>
-  <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>[JA]Tax Exempt Start Date</value>
+  <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
+    <value>[JA]Effective Start Date</value>
   </data>
-  <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>[JA]Tax Exempt End Date</value>
+  <data name="TEXT_ADD_RATES_FOR_PT" xml:space="preserve">
+    <value>[JA]Add Rates For Additional Parameter Tables</value>
   </data>
-  <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>[JA]Use Standard Inclusive Tax Calculation</value>
+  <data name="TEXT_UPDATE_PL" xml:space="preserve">
+    <value>[JA]Update Price List</value>
   </data>
-  <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
-    <value>[JA]Bill Message Associations</value>
+  <data name="TEXT_UPDATE_SHARED_PL" xml:space="preserve">
+    <value>[JA]Update Shared Price List</value>
   </data>
-  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[JA]Bill Messages</value>
+  <data name="TEXT_CREATE_SHARED_PL" xml:space="preserve">
+    <value>[JA]Create Shared Price List</value>
   </data>
-  <data name="TEXT_CHECKING" xml:space="preserve">
-    <value>当座預金</value>
+  <data name="TEXT_ADD_PL" xml:space="preserve">
+    <value>[JA]Add Price List</value>
   </data>
-  <data name="TEXT_SAVINGS" xml:space="preserve">
-    <value>普通預金</value>
+  <data name="ValidationMustBeDecimal" xml:space="preserve">
+    <value>[JA] Must be an decimal value.</value>
+  </data>
+  <data name="ValidationMustBeInt" xml:space="preserve">
+    <value>[JA] Must be an integer value.</value>
   </data>
 </root>

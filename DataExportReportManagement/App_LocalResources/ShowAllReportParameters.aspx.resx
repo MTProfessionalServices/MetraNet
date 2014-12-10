@@ -153,4 +153,10 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Value</value>
     </data>
+    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+        <value>There are no parameters available for assignment to this report</value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Parameters Available for Assignment</value>
+    </data>
 </root>

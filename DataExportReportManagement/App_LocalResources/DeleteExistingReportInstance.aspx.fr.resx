@@ -402,4 +402,16 @@
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valeur</value>
     </data>
+    <data name="TEXT_DELETE_REPORT_INSTANCE" xml:space="preserve">
+        <value>[FR]Delete Report Instance </value>
+    </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>[FR]Report Instance Deleted</value>
+  </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>[FR]The Report Instance was deleted successfully.</value>
+  </data>
+  <data name="btnBackResource1.Text" xml:space="preserve">
+    <value>[FR]Back</value>
+  </data>
 </root>

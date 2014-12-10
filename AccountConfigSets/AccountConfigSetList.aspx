@@ -136,7 +136,12 @@
                          msg: TEXT_ERROR_SELECT,
                          buttons: Ext.Msg.OK,               
                          icon: Ext.MessageBox.ERROR
-                     });                   
+                     });   
+        var dlg = top.Ext.MessageBox.getDialog();
+	      var buttons = dlg.buttons;
+	      for (i = 0; i < buttons.length; i++) {
+        buttons[i].addClass('custom-class');
+      }                
         return;
       }
 
@@ -170,7 +175,12 @@
                          msg: TEXT_ERROR_SELECT,
                          buttons: Ext.Msg.OK,               
                          icon: Ext.MessageBox.ERROR
-                     }); 
+                     });
+        var dlg = top.Ext.MessageBox.getDialog();
+	      var buttons = dlg.buttons;
+	      for (i = 0; i < buttons.length; i++) {
+        buttons[i].addClass('custom-class');
+        }
         return;
       }
 

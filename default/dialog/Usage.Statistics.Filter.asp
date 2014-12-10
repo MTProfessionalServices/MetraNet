@@ -95,7 +95,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
 
     dim sTitle
     sTitle= "Statistics from " & Service.Properties("TimestampStartDate") & " to " & Service.Properties("TimestampEndDate")
-    Form.RouteTo                      = "Usage.Statistics.Frame.asp?Title=" & server.urlencode(sTitle) & "&StartTime=" & server.urlencode(Service.Properties("TimestampStartDate")) & "&EndTime= " & server.urlencode(Service.Properties("TimestampEndDate"))
+    Form.RouteTo                      = "Usage.Statistics.Frame.asp?Title=" & server.urlencode(sTitle) & "&StartTime=" & server.urlencode(Service.Properties("TimestampStartDate")) & "&EndTime=" & server.urlencode(Service.Properties("TimestampEndDate"))
     'mom_GetDictionary("USAGE_STATISTICS_QUERY_DIALOG")
     
     ' Make sure subscription start date is after po effective start date

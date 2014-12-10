@@ -1376,5 +1376,7 @@
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
     <value>[pt-BR]View Log</value>
+  </data>  <data name="TEXT_VIEW_ALL" xml:space="preserve">
+    <value>[pt-BR]View All...</value>
   </data>
 </root>

@@ -35,14 +35,6 @@
             <Value>Klammer</Value>
         </locale_entry>
         <locale_entry>
-            <Name>UI/NotificationEventType/Group Subscription End Date</Name>
-            <Value>{de} Group Subscription End Date</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>UI/NotificationEventType/Subscription End Date</Name>
-            <Value>{de} Subscription End Date</Value>
-        </locale_entry>
-        <locale_entry>
             <Name>UI/ReportType/Chart</Name>
             <Value>Diagramm</Value>
         </locale_entry>

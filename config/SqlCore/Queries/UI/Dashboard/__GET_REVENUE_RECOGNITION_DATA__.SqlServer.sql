@@ -49,6 +49,7 @@ LEFT JOIN	t_ep_nonrecurring				nrc_ep		ON nrc_ep.id_prop = acc.id_pi_template
 LEFT JOIN	t_ep_usage						usg_ep		ON usg_ep.id_prop = acc.id_pi_template
 LEFT JOIN	t_ep_discount					dis_ep		ON dis_ep.id_prop = acc.id_pi_template
 WHERE 	COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_ep.c_IsLiabilityProduct, usg_ep.c_IsLiabilityProduct, dis_ep.c_IsLiabilityProduct, 'N') = 'N'
+	AND ('%%HARDCLOSED%%' = 'S' OR ui.tx_interval_status = 'H')
 	AND	acc.am_currency like '%' + '%%CURRENCY%%' + '%'
 	AND COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '')  like '%' + '%%REVENUECODE%%' + '%'
 	AND COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') like '%' + '%%DEFREVENUECODE%%' + '%'

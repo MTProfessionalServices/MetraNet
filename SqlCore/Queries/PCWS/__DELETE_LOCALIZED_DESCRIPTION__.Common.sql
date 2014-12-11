@@ -1,0 +1,1 @@
+delete from t_description where id_desc = %%ID_DESC%%

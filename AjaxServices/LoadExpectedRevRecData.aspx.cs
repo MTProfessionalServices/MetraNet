@@ -31,7 +31,7 @@ public partial class AjaxServices_LoadExpectedRevRecData : MTListServicePage
       var accountingCycleIdLinq = items.Filters.Cast<MTFilterElement>().FirstOrDefault(x => x.PropertyName == "AccountingCycleId");
       var accountingCycleId = (accountingCycleIdLinq == null ? "" : accountingCycleIdLinq.Value.ToString().Replace("%", ""));
 
-      var revRec = new DeferredRevenueHelper().GetExpectedRevRec(currency, revenueCode, deferredRevenueCode, productId, accountingCycleId, 0);
+      var revRec = new DeferredRevenueHelper().GetRevRec(currency, revenueCode, "S", deferredRevenueCode, productId, accountingCycleId, 0);
       items.Items.AddRange(revRec);
       if (Page.Request["mode"] == "csv")
       {

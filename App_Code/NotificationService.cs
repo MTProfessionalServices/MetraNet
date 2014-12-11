@@ -8,6 +8,7 @@ using MetraTech.DataAccess;
 using MetraTech.NotificationEvents.EventHandler.Entities;
 using MetraTech.UI.Common;
 using MetraTech.NotificationEvents.EventHandler;
+using MetraTech.NotificationEvents.EventHandler.DataAccess;
 
 
 /// <summary>
@@ -23,6 +24,10 @@ public class NotificationService
     return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsMetaData(langcode);
   }
 
+  public static Dictionary<string, string> GetExisitingNotificationEventsTemplates(int langcode = 820)
+  {
+    return NotificationEventMetaDataSyncHandler.GetExistingNotificationEventsTemplates(langcode);
+  }
 
   public static void GetNotificationEvents(ref MTList<SQLRecord> notificationEvents, int accountID, int langID)
   {

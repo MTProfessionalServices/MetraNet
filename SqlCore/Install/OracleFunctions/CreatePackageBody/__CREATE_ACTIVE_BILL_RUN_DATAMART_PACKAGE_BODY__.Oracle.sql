@@ -49,7 +49,7 @@ BEGIN
 													  and ui.dt_end > add_months(getutcdate(), -3) 
 													  and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = ' || l_interval_id || '))
 							and rer.tx_type = ''Execute''
-							and tx_detail not like ''Manually changed status%''
+							and (rer.tx_detail not like ''Manually changed status%'' or rer.tx_detail is null)
 							group by rei.id_arg_interval, tx_display_name, rer.dt_start, rer.dt_end
 							order by   rer.dt_start';
   end;

@@ -86,7 +86,7 @@ Function RenderMenu()
   dim strMenuXML
   'strMenuXML = "<?xml version=""1.0""?><MetraTech><item>	<name>Amounts Billed By PI Template</name>	<link>/mom/default/dialog/protoIntervalStatisticsRender.asp</link>	<target>fmeStatView</target></item></MetraTech>"
   'strMenuXML = objStatisticsQueryConfig.GetMenuXML("dummy")
-  strMenuXML=objStatisticsQueryConfig.GetMenuXML("Usage", "/mom/default/dialog/Usage.Statistics.Render.asp?LanguageId=840&StartTime=" & server.urlencode(request("StartTime")) & "&EndTime=" & server.urlencode(request("EndTime")) & "&", "fmeStatView")
+  strMenuXML=objStatisticsQueryConfig.GetMenuXML("Usage", "/mom/default/dialog/Usage.Statistics.Render.asp?LanguageId=840&StartTime=" & server.urlencode(session("UsageStatisticsFilter_TimestampStartDate")) & "&EndTime=" & server.urlencode(session("UsageStatisticsFilter_TimestampEndDate")) & "&", "fmeStatView")
 
   Set objMenuGroup  = ObjMenuCreator.GetMenu("", "Rudi", "", "Something", server.MapPath(session("VIRTUAL_DIR")), strMenuXML)
   

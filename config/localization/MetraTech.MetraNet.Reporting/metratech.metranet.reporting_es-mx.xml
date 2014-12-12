@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
     <language_code>es-mx</language_code>
     <locale_space name="MetraTech.MetraNet.Reporting">
@@ -23,8 +23,12 @@
             <Value>[es-MX]Interval Statistics</Value>
         </locale_entry>
         <locale_entry>
-            <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
-            <Value>[es-MX]View Data from Analytics Datamart</Value>
+	      	<Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
+    	  	<Value>[es-MX]View Data from Analytics Datamart</Value>
+        </locale_entry>
+        <locale_entry>
+      		<Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
+      		<Value>[es-MX]View Summary Financial Information</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

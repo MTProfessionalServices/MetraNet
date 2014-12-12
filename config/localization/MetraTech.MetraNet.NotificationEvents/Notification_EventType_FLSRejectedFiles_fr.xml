@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mt_config>
+    <language_code>fr</language_code>
+    <locale_space name="Notification_EventType_FLSRejectedFiles">
+        <locale_entry>
+            <Name>Notification_EventType_FLSRejectedFiles/EventType/FLS Rejected Files</Name>
+            <Value>[fr]FLS Rejected Files</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>Notification_EventType_FLSRejectedFiles/Template/FLS Rejected Files</Name>
+            <Value>[fr]{Name} has been rejected by File Landing Service {State} {RejectReason} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementFile.aspx '> View...</a>]]></Value>
+        </locale_entry>
+    </locale_space>
+</mt_config>

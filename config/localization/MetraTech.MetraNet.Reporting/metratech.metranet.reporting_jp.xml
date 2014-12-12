@@ -3,6 +3,10 @@
     <language_code>jp</language_code>
     <locale_space name="MetraTech.MetraNet.Reporting">
         <locale_entry>
+            <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
+            <Value>[JA]View Summary Financial Information</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Accounting</Name>
             <Value>[JA]Accounting</Value>
         </locale_entry>

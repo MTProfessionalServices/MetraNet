@@ -5,7 +5,29 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters></Parameters>
+    <Parameters>
+        <Parameter>
+            <Name>ID_LANG_CODE</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>FROM_DATE</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>TO_DATE</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
     <Description>MRR Chart Report</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

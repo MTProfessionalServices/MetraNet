@@ -21,4 +21,5 @@ create table SubscriptionsByMonth (
             SubscriptionRevenue int not null,
             SubscriptionRevPrimaryCurrency numeric(22,10) not null,
             DaysInMonth int not null,
-            DaysActiveInMonth int not null )
+            DaysActiveInMonth int not null,
+            ReportingCurrency nvarchar(3) null)

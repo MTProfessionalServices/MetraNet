@@ -5,8 +5,16 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters></Parameters>
-    <Description>Generates id_acc's to be used as consumers of notifications.</Description>
+    <Parameters>
+          <Parameter>
+            <Name>ID_LANG_CODE</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+</Parameters>
+    <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

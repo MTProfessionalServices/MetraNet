@@ -51,13 +51,8 @@ end;';
 execute immediate ('TRUNCATE TABLE Customer');
 execute immediate ('TRUNCATE TABLE SalesRep');
 execute immediate ('TRUNCATE TABLE SubscriptionsByMonth');
-/* [TODO:] need to be implemented */
-/*TRUNCATE TABLE Subscription; 
-TRUNCATE TABLE SubscriptionPrice; */
 execute immediate ('TRUNCATE TABLE SubscriptionUnits');
 execute immediate ('TRUNCATE TABLE SubscriptionSummary');
-/* [TODO:] need to be implemented */
-/*TRUNCATE TABLE Counters;*/
 execute immediate ('TRUNCATE TABLE CurrencyExchangeMonthly');
 execute immediate ('TRUNCATE TABLE ProductOffering');
 execute immediate ('TRUNCATE TABLE SubscriptionParticipants');
@@ -66,10 +61,8 @@ if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Generating Customers DataMart');
 END IF;
 
-/* TODO: info */
-/* TODO: run incrementally instead of drop/recreate each time for usage etc. */
-/* customers datamart */
 
+/* customers datamart */
 insert into tmp_accs (id_ancestor, id_descendent)
 select * from (
 with root_accts as
@@ -224,7 +217,9 @@ insert into Customer
 		HierarchyZipCode,
 		HierarchyCountry,
 		HierarchyEmail,
-		HierarchyPhone)
+		HierarchyPhone,
+		StartDate,
+		EndDate)
 select
 		InstanceId,
 		MetraNetId,
@@ -256,7 +251,9 @@ select
 		HierarchyZipCode,
 		HierarchyCountry,
 		HierarchyEmail,
-		HierarchyPhone
+		HierarchyPhone,
+		StartDate,
+		EndDate
 from (select
 p_nm_instance as InstanceId,
 c.id_acc as MetraNetId,
@@ -289,9 +286,12 @@ pav.c_zip as HierarchyZipCode,
 substr(ted3.nm_enum_data,20,100) as HierarchyCountry,
 pav.c_email as HierarchyEmail,
 pav.c_phonenumber as HierarchyPhone,
+c.dt_crt as StartDate,
+case when UPPER(state.status) != 'AC' then state.vt_start else state.vt_end end as EndDate,
 DENSE_RANK() OVER (PARTITION BY c.id_acc, p.id_acc ORDER BY cam.nm_space, pam.nm_space) as priority_col		
 from tmp_accs r
 inner join t_account c on c.id_acc = r.id_descendent
+inner join t_account_state state on state.id_acc = c.id_acc
 inner join t_account_type ct on ct.id_type = c.id_type
 inner join t_account_mapper cam on cam.id_acc = c.id_acc and cam.nm_space not in ('ar')
 left outer join t_av_internal cavi on cavi.id_acc = c.id_acc
@@ -343,34 +343,6 @@ if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Generating CurrencyExchangeMonthly DataMart');
 END IF;
 
-/* TODO: change name of table */
-/*The next insert is commented out in case of workaround with not configured
-t_pt_currencyexchangerates table*/
-/*insert into CurrencyExchangeMonthly
-(	InstanceId,
-	StartDate,
-	EndDate,
-	SourceCurrency,
-	TargetCurrency,
-	ExchangeRate
-)
-select p_nm_instance,
-	nvl(ed.dt_start, dbo.mtmindate()),
-	nvl(ed.dt_end, dbo.mtmaxdate()),
-	substr(sed.nm_enum_data,42,3),
-	substr(ted.nm_enum_data,42,3),
-	c_ExchangeRates
-from t_pt_currencyexchangerates pt
-inner join t_rsched rs on rs.id_sched = pt.id_sched
-inner join t_effectivedate ed on ed.id_eff_date = rs.id_eff_date
-inner join t_enum_data sed on sed.id_enum_data = pt.c_SourceCurrency
-inner join t_enum_data ted on ted.id_enum_data = pt.c_TargetCurrency
-where 1=1
-and pt.tt_end = dbo.mtmaxdate()
-and nvl(ed.dt_end, dbo.mtmaxdate()) >= add_months(p_dt_now, -(p_n_months + 1))
-;/*
-/*The following Insert clause is used instead of above Insert clause as workaround with not configured
-t_pt_currencyexchangerates table*/
 insert into CurrencyExchangeMonthly
 (	InstanceId,
 	StartDate,
@@ -718,10 +690,6 @@ if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Debug', 'Created index for exchange rates');
 END IF;
 
-/* TODO: renewals */
-/* TODO: churn */
-/* TODO: cancellations */
-/* TODO: subscription revenue */
 insert into SubscriptionsByMonth
 (	InstanceId,
 	SubscriptionId,
@@ -745,7 +713,8 @@ insert into SubscriptionsByMonth
 	SubscriptionRevenue,
 	SubscriptionRevPrimaryCurrency,
 	DaysInMonth,
-	DaysActiveInMonth
+	DaysActiveInMonth,
+	ReportingCurrency
 )
 select cMonth.InstanceId,
 	cMonth.SubscriptionId,
@@ -769,7 +738,8 @@ select cMonth.InstanceId,
 	0 as SubscriptionRevenue,
 	0*(case when p_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevPrimaryCurrency,
 	cMonth.DaysInMonth,
-	cMonth.DaysActiveInMonth
+	cMonth.DaysActiveInMonth,
+	p_nm_currency
 from sum_rcs_by_month cMonth
 left outer join sum_rcs_by_month pMonth on  cMonth.InstanceId = pMonth.InstanceId
 										 and cMonth.SubscriptionId = pMonth.SubscriptionId
@@ -906,8 +876,6 @@ if (p_id_run is not null) then
   INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Generating SubscriptionParticipants DataMart');
 END IF;
 
-/*get total number of subscriptions for all product offerings, not just product offerings with recurring charges*/
-
 insert into tmp_previous_two_months(InstanceId,Month,Year,FirstDayOfMonth,LastDayOfMonth)
 select 
 p_nm_instance as InstanceId,
@@ -967,21 +935,8 @@ if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'SubscriptionParticipants rows: ' || nvl(l_count, 0));
 END IF;
 
-/* TODO: churn/renewal/cancellations */
-/* TODO: projections */
-
-/* TODO: subscription */
-/* TODO: subscription price */
-
-/* TODO: priceable items */
-/* TODO: recurring charges */
-/* TODO: non recurring charges */
-/* TODO: counters */
-/* TODO: revrec */
-
 if (p_id_run is not null) then
 	INSERT INTO t_recevent_run_details (id_run, id_detail, dt_crt, tx_type, tx_detail) VALUES (p_id_run, seq_t_recevent_run_details.NEXTVAL,sysdate, 'Info', 'Finished generating DataMart');
 END IF;
 
-/*execute immediate 'CreateADMart(:1, :2, :3, :4, :5, :6)' using IN p_dt_now, p_id_run, p_nm_currency, p_nm_instance, p_n_months, p_STAGINGD_prefix;*/
 end;

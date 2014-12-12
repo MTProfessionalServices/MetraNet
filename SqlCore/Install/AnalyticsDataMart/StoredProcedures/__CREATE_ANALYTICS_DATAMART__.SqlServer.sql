@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[CreateAnalyticsDataMart] @p_dt_now datetime, @p_id_run int, @p_nm_currency nvarchar(3), @p_nm_instance varchar, @p_n_months int, @p_STAGINGDB_prefix varchar
+CREATE PROCEDURE [dbo].[CreateAnalyticsDataMart] @p_dt_now datetime, @p_id_run int, @p_nm_currency nvarchar(3), @p_nm_instance nvarchar(128), @p_n_months int, @p_STAGINGDB_prefix varchar
 AS
 BEGIN
 
@@ -17,13 +17,8 @@ end;
 TRUNCATE TABLE Customer;
 TRUNCATE TABLE SalesRep;
 TRUNCATE TABLE SubscriptionsByMonth;
-/* [TODO:] need to be implemented */
-/*TRUNCATE TABLE Subscription; 
-TRUNCATE TABLE SubscriptionPrice; */
 TRUNCATE TABLE SubscriptionUnits;
 TRUNCATE TABLE SubscriptionSummary;
-/* [TODO:] need to be implemented */
-/*TRUNCATE TABLE Counters;*/
 TRUNCATE TABLE CurrencyExchangeMonthly;
 TRUNCATE TABLE ProductOffering;
 TRUNCATE TABLE SubscriptionParticipants;
@@ -49,8 +44,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating Customers DataMart');
 end;
 
-/* TODO: info */
-/* TODO: run incrementally instead of drop/recreate each time for usage etc. */
 /* customers datamart */
 ;with root_accts as
 (
@@ -218,10 +211,13 @@ pav.c_state as HierarchyState,
 pav.c_zip as HierarchyZipCode,
 substring(ted3.nm_enum_data,20,100) as HierarchyCountry,
 pav.c_email as HierarchyEmail,
-pav.c_phonenumber as HierarchyPhone
+pav.c_phonenumber as HierarchyPhone,
+c.dt_crt as StartDate,
+case when state.status != 'AC' then state.vt_start else state.vt_end end as EndDate
 into #tmp_all_customers
 from #tmp_accs r with(nolock)
 inner join t_account c with(nolock) on c.id_acc = r.id_descendent
+inner join t_account_state state with(nolock) on state.id_acc = c.id_acc
 inner join t_account_type ct with(nolock) on ct.id_type = c.id_type
 inner join t_account_mapper cam with(nolock) on cam.id_acc = c.id_acc and cam.nm_space not in ('ar')
 left outer join t_av_internal cavi with(nolock) on cavi.id_acc = c.id_acc
@@ -275,7 +271,9 @@ insert into Customer
 		HierarchyZipCode,
 		HierarchyCountry,
 		HierarchyEmail,
-		HierarchyPhone)
+		HierarchyPhone,
+		StartDate,
+		EndDate)
 select
 		InstanceId,
 		MetraNetId,
@@ -307,7 +305,9 @@ select
 		HierarchyZipCode,
 		HierarchyCountry,
 		HierarchyEmail,
-		HierarchyPhone
+		HierarchyPhone,
+		StartDate,
+		EndDate
 from (select *, 
 		DENSE_RANK() OVER (PARTITION BY MetraNetId, HierarchyMetraNetId ORDER BY ExternalIdSpace, HierarchyExternalIdSpace) as [priority_col]		
 		FROM #tmp_all_customers) a
@@ -351,7 +351,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating CurrencyExchangeMonthly DataMart');
 end;
 
-/* TODO: change name of table */
 select
 @p_nm_instance as InstanceId,
 vt_start as StartDate,
@@ -635,10 +634,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Created index for exchange rates');
 end;
 
-/* TODO: renewals */
-/* TODO: churn */
-/* TODO: cancellations */
-/* TODO: subscription revenue */
 insert into SubscriptionsByMonth
 (	InstanceId,
 	SubscriptionId,
@@ -662,7 +657,8 @@ insert into SubscriptionsByMonth
 	SubscriptionRevenue,
 	SubscriptionRevPrimaryCurrency,
 	DaysInMonth,
-	DaysActiveInMonth
+	DaysActiveInMonth,
+	ReportingCurrency
 )
 select cMonth.InstanceId,
 	cMonth.SubscriptionId,
@@ -686,7 +682,8 @@ select cMonth.InstanceId,
 	0 as SubscriptionRevenue,
 	0*(case when @p_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevPrimaryCurrency,
 	cMonth.DaysInMonth,
-	cMonth.DaysActiveInMonth
+	cMonth.DaysActiveInMonth,
+	@p_nm_currency
 from #sum_rcs_by_month cMonth
 left outer join #sum_rcs_by_month pMonth on  cMonth.InstanceId = pMonth.InstanceId
 										 and cMonth.SubscriptionId = pMonth.SubscriptionId
@@ -827,8 +824,6 @@ begin
   INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating SubscriptionParticipants DataMart');
 end;
 
-/*get total number of subscriptions for all product offerings, not just product offerings with recurring charges*/
-
 select 
 @p_nm_instance as InstanceId,
 datepart(month,@p_dt_now) as [Month],
@@ -886,17 +881,6 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'SubscriptionParticipants rows: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
-/* TODO: churn/renewal/cancellations */
-/* TODO: projections */
-
-/* TODO: subscription */
-/* TODO: subscription price */
-
-/* TODO: priceable items */
-/* TODO: recurring charges */
-/* TODO: non recurring charges */
-/* TODO: counters */
-/* TODO: revrec */
 
 if (@p_id_run is not null)
 begin

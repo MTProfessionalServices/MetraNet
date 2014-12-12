@@ -23,10 +23,6 @@
             <Value>[DE]IntervalStatistics</Value>
         </locale_entry>
         <locale_entry>
-      		<Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
-      		<Value>[DE]View Data from Analytics Datamart</Value>
-        </locale_entry>
-        <locale_entry>
 	    	<Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
     	  	<Value>[DE]View Summary Financial Information</Value>
         </locale_entry>

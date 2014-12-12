@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,257 +59,269 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="DATE_FORMAT_JS" xml:space="preserve">
-        <value>%d/%m/%Y %X</value>
-    </data>
-    <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
-        <value>Groupes de factures :</value>
-    </data>
-    <data name="lblBillCloseSynopisDaysUntilRunResource.Text" xml:space="preserve">
-        <value>Jours avant exécution</value>
-    </data>
-    <data name="lblBillCloseSynopisEndResource.Text" xml:space="preserve">
-        <value>Fin :</value>
-    </data>
-    <data name="lblBillCloseSynopisStartResource.Text" xml:space="preserve">
-        <value>Début :</value>
-    </data>
-    <data name="lblBillCloseSynopisTypeResource.Text" xml:space="preserve">
-        <value>Type :</value>
-    </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Tableau de bord des opérations</value>
-    </data>
-    <data name="NO_FAILED_ADAPTER_RUNS_TEXT" xml:space="preserve">
-        <value>Aucun adaptateur défectueux en cours d’exécution</value>
-    </data>
-    <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
-        <value>Aucune clôture de facture en attente</value>
-    </data>
-    <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
-        <value>Aucun adaptateur en cours d’exécution</value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet - Tableau de bord des opérations</value>
-    </data>
-    <data name="pnlActiveBillRun.Text" xml:space="preserve">
-        <value>Facture active en cours d’exécution</value>
-    </data>
-    <data name="pnlBatchUsageResource.Text" xml:space="preserve">
-        <value>Enregistrements de données d’utilisation</value>
-    </data>
-    <data name="pnlBillCloseSynopsisResource.Text" xml:space="preserve">
-        <value>Synopsis clôture facture</value>
-    </data>
-    <data name="pnlFailedAdapters.Text" xml:space="preserve">
-        <value>Adaptateurs défectueux</value>
-    </data>
-    <data name="pnlFailedTransactionsQueueResource.Text" xml:space="preserve">
-        <value>Échec de la file d’attente de transactions</value>
-    </data>
-    <data name="pnlPendingBillClose.Text" xml:space="preserve">
-        <value>Clôture facture en attente</value>
-    </data>
-    <data name="pnlPricingBacklog.Text" xml:space="preserve">
-        <value>Moteur de tarification (en temps réel et par lots)</value>
-    </data>
-    <data name="pnlPricingQueue.Text" xml:space="preserve">
-        <value>File d’attente de tarification</value>
-    </data>
-    <data name="pnlRunningAdapters.Text" xml:space="preserve">
-        <value>Adaptateurs en cours d’exécution</value>
-    </data>
-    <data name="TEXT_3_MONTH_AVERAGE" xml:space="preserve">
-        <value>Moyenne 3 mois</value>
-    </data>
-    <data name="TEXT_ADAPTER" xml:space="preserve">
-        <value>Adaptateur</value>
-    </data>
-    <data name="TEXT_BATCHES" xml:space="preserve">
-        <value>Lots</value>
-    </data>
-    <data name="TEXT_BILL_GROUP" xml:space="preserve">
-        <value>Groupe de factures</value>
-    </data>
-    <data name="TEXT_CURRENT_RUN" xml:space="preserve">
-        <value>Exécution actuelle</value>
-    </data>
-    <data name="TEXT_CURRENT_VS_3_MONTH_AVERAGE" xml:space="preserve">
-        <value>Moyenne 3 mois ou actuelle</value>
-    </data>
-    <data name="TEXT_CYCLE" xml:space="preserve">
-        <value>Cycle</value>
-    </data>
-    <data name="TEXT_DATE" xml:space="preserve">
-        <value>d’exp.</value>
-    </data>
-    <data name="TEXT_DAYS" xml:space="preserve">
-        <value>Jours</value>
-    </data>
-    <data name="TEXT_DAYS_BACK" xml:space="preserve">
-        <value>jours précédents</value>
-    </data>
-    <data name="TEXT_DURATION" xml:space="preserve">
-        <value>Durée</value>
-    </data>
-    <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-        <value>ETA le plus proche:</value>
-    </data>
-    <data name="TEXT_END" xml:space="preserve">
-        <value>Fin</value>
-    </data>
-    <data name="TEXT_FIXED" xml:space="preserve">
-        <value>Fixe</value>
-    </data>
-    <data name="TEXT_INSTANCE" xml:space="preserve">
-        <value>Instance</value>
-    </data>
-    <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-        <value>ID de l’intervalle</value>
-    </data>
-    <data name="TEXT_LAST_BATCH" xml:space="preserve">
-        <value>Dernier lot</value>
-    </data>
-    <data name="TEXT_MESSAGE" xml:space="preserve">
-        <value>Message</value>
-    </data>
-    <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
-        <value>messages en attente dans RabbitMQ</value>
-    </data>
-    <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-        <value>messages en attente d’affectation</value>
-    </data>
-    <data name="TEXT_NAME" xml:space="preserve">
-        <value>Nom</value>
-    </data>
-    <data name="TEXT_OPEN" xml:space="preserve">
-        <value>Ouvrir</value>
-    </data>
-    <data name="TEXT_OVER" xml:space="preserve">
-        <value>Pendant</value>
-    </data>
-    <data name="TEXT_PIPELINE_PROCESSING_DURATION" xml:space="preserve">
-        <value>Durée de traitement pipeline</value>
-    </data>
-    <data name="TEXT_PIPELINE_QUEUE" xml:space="preserve">
-        <value>File d’attente de pipeline</value>
-    </data>
-    <data name="TEXT_PIPELINE_WAIT_DURATION" xml:space="preserve">
-        <value>Durée d’attente pipeline</value>
-    </data>
-    <data name="TEXT_RAMP_QUEUE" xml:space="preserve">
-        <value>File d’attente RAMP</value>
-    </data>
-    <data name="TEXT_READY" xml:space="preserve">
-        <value>Prêt:</value>
-    </data>
-    <data name="TEXT_SCHEDULER_QUEUE" xml:space="preserve">
-        <value>File d’attente calendrier</value>
-    </data>
-    <data name="TEXT_SECONDS_PROCESSING_IN_PIPELINE" xml:space="preserve">
-        <value>secondes de traitement dans le pipeline </value>
-    </data>
-    <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-        <value>secondes d’attente d’affectation</value>
-    </data>
-    <data name="TEXT_START" xml:space="preserve">
-        <value>Début</value>
-    </data>
-    <data name="TEXT_STATUS" xml:space="preserve">
-        <value>État</value>
-    </data>
-    <data name="TEXT_SUCCESSFUL" xml:space="preserve">
-        <value>Succès:</value>
-    </data>
-    <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
-        <value>tâches en attente de traitement</value>
-    </data>
-    <data name="TEXT_UDRS" xml:space="preserve">
-        <value>UDR</value>
-    </data>
-    <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-        <value>En cours d’examen</value>
-    </data>
-    <data name="TEXT_UNGUIDED" xml:space="preserve">
-        <value>Sans guide</value>
-    </data>
-    <data name="TEXT_VARIANCE" xml:space="preserve">
-        <value>Écart:</value>
-    </data>
-    <data name="TEXT_WAITING" xml:space="preserve">
-        <value>En attente:</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DATE_FORMAT_JS" xml:space="preserve">
+    <value>%d/%m/%Y %X</value>
+  </data>
+  <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
+    <value>Groupes de factures :</value>
+  </data>
+  <data name="lblBillCloseSynopisDaysUntilRunResource.Text" xml:space="preserve">
+    <value>Jours avant exécution</value>
+  </data>
+  <data name="lblBillCloseSynopisEndResource.Text" xml:space="preserve">
+    <value>Fin :</value>
+  </data>
+  <data name="lblBillCloseSynopisStartResource.Text" xml:space="preserve">
+    <value>Début :</value>
+  </data>
+  <data name="lblBillCloseSynopisTypeResource.Text" xml:space="preserve">
+    <value>Type :</value>
+  </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>Tableau de bord des opérations</value>
+  </data>
+  <data name="NO_FAILED_ADAPTER_RUNS_TEXT" xml:space="preserve">
+    <value>Aucun adaptateur défectueux en cours d’exécution</value>
+  </data>
+  <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
+    <value>Aucune clôture de facture en attente</value>
+  </data>
+  <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
+    <value>Aucun adaptateur en cours d’exécution</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet - Tableau de bord des opérations</value>
+  </data>
+  <data name="pnlActiveBillRun.Text" xml:space="preserve">
+    <value>Facture active en cours d’exécution</value>
+  </data>
+  <data name="pnlBatchUsageResource.Text" xml:space="preserve">
+    <value>Enregistrements de données d’utilisation</value>
+  </data>
+  <data name="pnlBillCloseSynopsisResource.Text" xml:space="preserve">
+    <value>Synopsis clôture facture</value>
+  </data>
+  <data name="pnlFailedAdapters.Text" xml:space="preserve">
+    <value>Adaptateurs défectueux</value>
+  </data>
+  <data name="pnlFailedTransactionsQueueResource.Text" xml:space="preserve">
+    <value>Échec de la file d’attente de transactions</value>
+  </data>
+  <data name="pnlPendingBillClose.Text" xml:space="preserve">
+    <value>Clôture facture en attente</value>
+  </data>
+  <data name="pnlPricingBacklog.Text" xml:space="preserve">
+    <value>Moteur de tarification (en temps réel et par lots)</value>
+  </data>
+  <data name="pnlPricingQueue.Text" xml:space="preserve">
+    <value>File d’attente de tarification</value>
+  </data>
+  <data name="pnlRunningAdapters.Text" xml:space="preserve">
+    <value>Adaptateurs en cours d’exécution</value>
+  </data>
+  <data name="TEXT_3_MONTH_AVERAGE" xml:space="preserve">
+    <value>Moyenne 3 mois</value>
+  </data>
+  <data name="TEXT_ADAPTER" xml:space="preserve">
+    <value>Adaptateur</value>
+  </data>
+  <data name="TEXT_BATCHES" xml:space="preserve">
+    <value>Lots</value>
+  </data>
+  <data name="TEXT_BILL_GROUP" xml:space="preserve">
+    <value>Groupe de factures</value>
+  </data>
+  <data name="TEXT_CURRENT_RUN" xml:space="preserve">
+    <value>Exécution actuelle</value>
+  </data>
+  <data name="TEXT_CURRENT_VS_3_MONTH_AVERAGE" xml:space="preserve">
+    <value>Moyenne 3 mois ou actuelle</value>
+  </data>
+  <data name="TEXT_CYCLE" xml:space="preserve">
+    <value>Cycle</value>
+  </data>
+  <data name="TEXT_DATE" xml:space="preserve">
+    <value>d’exp.</value>
+  </data>
+  <data name="TEXT_DAYS" xml:space="preserve">
+    <value>Jours</value>
+  </data>
+  <data name="TEXT_DAYS_BACK" xml:space="preserve">
+    <value>jours précédents</value>
+  </data>
+  <data name="TEXT_DURATION" xml:space="preserve">
+    <value>Durée</value>
+  </data>
+  <data name="TEXT_END" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="TEXT_FIXED" xml:space="preserve">
+    <value>Fixe</value>
+  </data>
+  <data name="TEXT_INSTANCE" xml:space="preserve">
+    <value>Instance</value>
+  </data>
+  <data name="TEXT_INTERVAL_ID" xml:space="preserve">
+    <value>ID de l’intervalle</value>
+  </data>
+  <data name="TEXT_LAST_BATCH" xml:space="preserve">
+    <value>Dernier lot</value>
+  </data>
+  <data name="TEXT_MESSAGE" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
+    <value>messages en attente dans RabbitMQ</value>
+  </data>
+  <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
+    <value>messages en attente d’affectation</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="TEXT_OPEN" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="TEXT_OVER" xml:space="preserve">
+    <value>Pendant</value>
+  </data>
+  <data name="TEXT_PIPELINE_PROCESSING_DURATION" xml:space="preserve">
+    <value>Durée de traitement pipeline</value>
+  </data>
+  <data name="TEXT_PIPELINE_QUEUE" xml:space="preserve">
+    <value>File d’attente de pipeline</value>
+  </data>
+  <data name="TEXT_PIPELINE_WAIT_DURATION" xml:space="preserve">
+    <value>Durée d’attente pipeline</value>
+  </data>
+  <data name="TEXT_RAMP_QUEUE" xml:space="preserve">
+    <value>File d’attente RAMP</value>
+  </data>
+  <data name="TEXT_READY" xml:space="preserve">
+    <value>Prêt:</value>
+  </data>
+  <data name="TEXT_SCHEDULER_QUEUE" xml:space="preserve">
+    <value>File d’attente calendrier</value>
+  </data>
+  <data name="TEXT_SECONDS_PROCESSING_IN_PIPELINE" xml:space="preserve">
+    <value>secondes de traitement dans le pipeline </value>
+  </data>
+  <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
+    <value>secondes d’attente d’affectation</value>
+  </data>
+  <data name="TEXT_START" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>État</value>
+  </data>
+  <data name="TEXT_SUCCESSFUL" xml:space="preserve">
+    <value>Succès:</value>
+  </data>
+  <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
+    <value>tâches en attente de traitement</value>
+  </data>
+  <data name="TEXT_UDRS" xml:space="preserve">
+    <value>UDR</value>
+  </data>
+  <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+    <value>En cours d’examen</value>
+  </data>
+  <data name="TEXT_UNGUIDED" xml:space="preserve">
+    <value>Sans guide</value>
+  </data>
+  <data name="TEXT_WAITING" xml:space="preserve">
+    <value>En attente:</value>
+  </data>
   <data name="TEXT_TYPE_EOM" xml:space="preserve">
-    <value>{fr}EOM</value>
+    <value>[FR]EOM</value>
   </data>
   <data name="TEXT_TYPE_M12" xml:space="preserve">
-    <value>{fr}M12</value>
+    <value>[FR]M12</value>
   </data>
   <data name="TEXT_TYPE_M19" xml:space="preserve">
-    <value>{fr}M19</value>
+    <value>[FR]M19</value>
   </data>
   <data name="TEXT_TYPE_M26" xml:space="preserve">
-    <value>{fr}M26</value>
+    <value>[FR]M26</value>
   </data>
   <data name="TEXT_TYPE_M5" xml:space="preserve">
-    <value>{fr}M5</value>
-  </data>      
+    <value>[FR]M5</value>
+  </data>
+  <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
+    <value>[FR]Average run time of remaining {0} adapters is {1} hours (Earliest ETA: {2})</value>
+  </data>
+  <data name="TEXT_VARIANCE_FASTER_MESSAGE" xml:space="preserve">
+    <value>[FR]Adapters are running about {0} % faster compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_VARIANCE_SAME_MESSAGE" xml:space="preserve">
+    <value>[FR]Adapters are running about the same compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_VARIANCE_SLOWER_MESSAGE" xml:space="preserve">
+    <value>[FR]Adapters are running about {0} % slower compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_INTERVAL_STATUS_OPEN" xml:space="preserve">
+    <value>[FR]Open</value>
+  </data>
+  <data name="TEXT_RUNNING_ADAPTER_STATUS_IN_PROGRESS" xml:space="preserve">
+    <value>[FR]In Progress</value>
+  </data>
 </root>

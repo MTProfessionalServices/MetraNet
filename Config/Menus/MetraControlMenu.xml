@@ -456,9 +456,7 @@
                             <Icon>/Res/Images/icons/folder_edit.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -472,9 +470,7 @@
                             <Icon>/Res/Images/icons/application_edit.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -488,9 +484,7 @@
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -504,9 +498,7 @@
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -520,9 +512,7 @@
                             <Icon>/Res/Images/icons/page.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -536,9 +526,7 @@
                             <Icon>/Res/Images/icons/page_red.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -552,9 +540,7 @@
                             <Icon>/Res/Images/icons/page_green.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -568,9 +554,7 @@
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -584,9 +568,7 @@
                             <Icon>/Res/Images/icons/page_white_error.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

@@ -28,7 +28,7 @@
                                 <Capability>Manage System User Reports</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
-                        <!--MenuItem>
+                        <MenuItem>
                             <ID>ReportsMetraControlDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_OPERATIONS_DASHBOARD</LocalizationTag>
@@ -39,7 +39,7 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>MetraOffer Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem-->
+                        </MenuItem>
 						            <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>
@@ -53,7 +53,7 @@
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>	
                         
-                        <!--MenuItem>
+                        <MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_FINANCE_DASHBOARD</LocalizationTag>
@@ -64,9 +64,9 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Finance Dashboard</Description>
                             <RequiredCapabilities>
-                              <Capability>View Data from Analytics Datamart</Capability>
+                              <Capability>View Summary Financial Information</Capability>
                             </RequiredCapabilities>
-                        </MenuItem-->						
+                        </MenuItem>						
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

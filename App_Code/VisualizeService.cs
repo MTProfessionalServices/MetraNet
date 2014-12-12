@@ -165,9 +165,19 @@ public class VisualizeService
 
   public static void ConfigureAndLoadIntervalDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
   {
+    ConfigureAndLoadIntervalDropDownsInternal("__GET_AVAILABLE_INTERVALS__", ddIntervalsList, paramDict);
+  }
+
+  public static void ConfigureAndLoadSoftClosedIntervalDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
+  {
+    ConfigureAndLoadIntervalDropDownsInternal("__GET_SOFT_CLOSED_INTERVALS__", ddIntervalsList, paramDict);
+  }
+
+  private static void ConfigureAndLoadIntervalDropDownsInternal(string query, List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
+  {
     using (var conn = ConnectionManager.CreateConnection())
     {
-      using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, "__GET_AVAILABLE_INTERVALS__"))
+      using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, query))
       {
         if (paramDict != null)
         {
@@ -179,21 +189,15 @@ public class VisualizeService
 
         using (var reader = stmt.ExecuteReader())
         {
-          var items = new ListItem[MaxDdCount];
-          int count = 0;
-
           while (reader.Read())
           {
-            items[count] = new ListItem();
-            items[count].Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), Convert.ToDateTime(reader.GetValue("dt_end")).ToString("d"));
-            items[count].Value = reader.GetValue("id_interval").ToString();
-            if (count == 0) items[count].Selected = true;
-
+            ListItem item =  new ListItem();
+            item.Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), Convert.ToDateTime(reader.GetValue("dt_end")).ToString("d"));
+            item.Value = reader.GetValue("id_interval").ToString();
             foreach (MTDropDown dd in ddIntervalsList)
             {
-              dd.Items.Add(items[count]);  
+              dd.Items.Add(item);  
             }
-            count = count + 1;
           }
         }
       }

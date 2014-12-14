@@ -9,8 +9,10 @@
 									@id_prop int OUTPUT 
 			      AS
 			      DECLARE @identity_value int
+				  DECLARE @id_display_name int
+				  DECLARE @id_display_desc int
 			      BEGIN TRAN
-			      exec InsertBaseProps @id_lang_code, @n_kind, 'N', 'N', @nm_name, NULL, NULL, @identity_value output
+			      exec InsertBaseProps @id_lang_code, @n_kind, 'N', 'N', @nm_name, NULL, NULL, @identity_value output, @id_display_name output, @id_display_desc output
 			      INSERT INTO t_counter_params_metadata
 					              (id_prop, id_counter_meta, ParamType, DBType) 
 				    VALUES 

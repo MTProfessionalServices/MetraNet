@@ -6,8 +6,10 @@
 											@nm_name nvarchar(255),
 											@nm_desc nvarchar(255)
 					AS
+					DECLARE @updated_id_display_name int
+					DECLARE @updated_id_display_desc int
 					BEGIN TRAN
-            exec UpdateBaseProps @id_prop, @id_lang_code, NULL, @nm_desc, NULL
+            exec UpdateBaseProps @id_prop, @id_lang_code, NULL, @nm_desc, NULL, @updated_id_display_name OUTPUT, @updated_id_display_desc OUTPUT
 						UPDATE 
  							t_base_props  
 						SET 

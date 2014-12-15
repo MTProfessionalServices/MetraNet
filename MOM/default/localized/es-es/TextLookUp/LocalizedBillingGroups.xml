@@ -207,4 +207,22 @@
   <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
     <value>[ES]Accounts with Bill-To addresses residing in a South American country</value>
   </text>
+  <text id="TEXT_BG_TITLE_BILLING_GROUP_STATE">
+    <value>[ES]Billing Group State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_NEW_STATE">
+    <value>[ES]New State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_DESCRIPTION">
+    <value>[ES]Description</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_OK_NAME">
+    <value>[ES]OK</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_CANCEL_NAME">
+    <value>[ES]Cancel</value>
+  </text>
+  <text id="TEXT_BG_BILLING_GROUP_STATE_GRID_TITLE">
+    <value>[ES]The current state of this Billing Group is</value>
+  </text>
 </texts>

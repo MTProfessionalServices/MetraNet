@@ -40,18 +40,6 @@
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
-		<Parameter>
-            <Name>updated_id_display_name</Name>
-            <DataType>unknown</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
-		<Parameter>
-            <Name>updated_id_display_desc</Name>
-            <DataType>unknown</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

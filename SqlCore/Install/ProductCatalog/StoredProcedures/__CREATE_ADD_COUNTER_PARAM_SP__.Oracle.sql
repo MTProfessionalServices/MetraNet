@@ -11,10 +11,8 @@
 				 identity OUT int)
 				AS
 				identity_value int;
-				id_display_name int;
-				id_display_desc int;
 				BEGIN
-	        InsertBaseProps (p_id_lang_code, 190, 'N', 'N', nm_name, nm_desc, nm_display_name, identity_value, id_display_name, id_display_desc);
+	        InsertBaseProps (p_id_lang_code, 190, 'N', 'N', nm_name, nm_desc, nm_display_name, identity_value);
 					INSERT INTO t_counter_params
 			    (id_counter_param,id_counter, id_counter_param_meta, Value)
 			    VALUES

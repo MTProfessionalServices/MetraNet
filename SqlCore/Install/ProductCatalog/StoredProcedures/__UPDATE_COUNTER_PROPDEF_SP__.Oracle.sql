@@ -12,10 +12,8 @@
         identity_value int;
         id_locale int;
         id_dummy int;
-		updated_id_display_name int;
-		updated_id_display_desc int;
       BEGIN
-		UpdateBaseProps(temp_id_prop, id_lang_code, nm_name, NULL, nm_display_name, updated_id_display_name, updated_id_display_desc);
+		UpdateBaseProps(temp_id_prop, id_lang_code, nm_name, NULL, nm_display_name);
         UPDATE t_counterpropdef
 		SET nm_servicedefprop = nm_servicedefprop,
 		n_order = n_order,

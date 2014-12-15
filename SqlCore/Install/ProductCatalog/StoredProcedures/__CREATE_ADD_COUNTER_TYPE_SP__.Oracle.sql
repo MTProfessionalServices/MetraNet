@@ -12,9 +12,7 @@
 				temp_id_lang_code INT;				
 				identity_value INT;
 				t_base_props_count INT;
-				id_display_name INT;
-				id_display_desc INT;
-				BEGIN						
+				BEGIN		
 					id_prop := -1;
 					temp_nm_name := nm_name;			
 					temp_id_lang_code := id_lang_code;			
@@ -29,7 +27,7 @@
 					END IF;			
 					IF t_count = 0 
 						THEN			
-						Insertbaseprops(id_lang_code, n_kind, 'N', 'N', nm_name, nm_desc, NULL, identity_value, id_display_name, id_display_desc);		   
+						Insertbaseprops(id_lang_code, n_kind, 'N', 'N', nm_name, nm_desc, NULL, identity_value);		   
 						INSERT INTO T_COUNTER_METADATA (id_prop, FormulaTemplate, b_valid_for_dist) 
 						VALUES (identity_value, 				    nm_formula_template, valid_for_dist);				
 						id_prop := identity_value;			

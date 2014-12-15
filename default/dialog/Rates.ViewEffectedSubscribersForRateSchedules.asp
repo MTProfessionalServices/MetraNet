@@ -44,10 +44,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     ProductView.Clear  ' Set all the property of the service to empty or to the default value
    	ProductView.Properties.ClearSelection
     ProductView.Properties.Flags = eMSIX_PROPERTIES_FLAG_PRODUCTVIEW
-
-    'response.write(Service.Properties.ToString)
-    'response.end
-    
+   
     Form("ParamTableId") = request("ParamTableId")
     Form("PriceListId") = request("PriceListId")
     
@@ -65,33 +62,31 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   
   dim rowset
   
-
-    if len(request("ParamTableId"))>0 then
-      Form("ParamTableId") = request("ParamTableId")
-      Form("PriceListId") = request("PriceListId")
-    end if
+  if len(request("ParamTableId"))>0 then
+    Form("ParamTableId") = request("ParamTableId")
+    Form("PriceListId") = request("PriceListId")
+  end if
     
-    set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
-  	rowset.Init "queries\productcatalog"
-    'rowset.SetQueryString("select h.hierarchyname as 'Subscriber', sub.id_acc as 'Account Id', 'Type' = case when sub.id_group is not NULL THEN 'Group Subscription: ' + gsub.tx_name ELSE 'Subscription' END, bp.nm_name as 'Name', vt_start as 'Start', vt_end as 'End' from t_vw_allrateschedules_po rspo join t_vw_expanded_sub sub on rspo.id_po=sub.id_po join vw_hierarchyname h on sub.id_acc = h.id_acc join t_base_props bp on sub.id_po=bp.id_prop left join t_group_sub gsub on sub.id_group = gsub.id_group  where id_paramtable=" & Form("ParamTableId") & " and id_pricelist=" & Form("PriceListId") & " union select h.hierarchyname as 'Subscriber', acc.id_acc as 'Account Id', 'Default Price List' as 'Type', bp.nm_name as 'Name', NULL as 'Start', NULL as 'End' from t_vw_allrateschedules_pl rspl join t_av_internal acc on rspl.id_pricelist=acc.c_pricelist join vw_hierarchyname h on acc.id_acc = h.id_acc join t_base_props bp on rspl.id_pricelist=bp.id_prop where id_paramtable="  & Form("ParamTableId") & " and id_pricelist=" & Form("PriceListId") )
-
-    rowset.SetQueryTag("__GET_DEPENDENT_SUBSCRIBERS_FOR_PRICELIST_AND_PARAMTABLE__")  
-    rowset.AddParam "%%ID_PARAMTABLE%%", CLng(Form("ParamTableId"))
-    rowset.AddParam "%%ID_PRICELIST%%", CLng(Form("PriceListId"))
-  	rowset.Execute
-
+  set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
+  rowset.Init "queries\productcatalog"
+  rowset.SetQueryTag("__GET_DEPENDENT_SUBSCRIBERS_FOR_PRICELIST_AND_PARAMTABLE__")  
+  rowset.AddParam "%%ID_PARAMTABLE%%", CLng(Form("ParamTableId"))
+  rowset.AddParam "%%ID_PRICELIST%%", CLng(Form("PriceListId"))
+  rowset.Execute
 
   ' Load a Rowset from a SQL Queries and build the properties collection of the product view based on the columns of the rowset
   Set ProductView.Properties.RowSet = rowset
-  ProductView.Properties.AddPropertiesFromRowset rowset
-  
+  ProductView.Properties.AddPropertiesFromRowset rowset  
   ProductView.Properties.SelectAll
-
   ProductView.Properties.CancelLocalization
-
-  mdm_SetMultiColumnFilteringMode TRUE 
-        
-  Form_LoadProductView                                  = TRUE ' Must Return TRUE To Render The Dialog
+  ProductView.Properties("id").Caption = mcm_GetDictionary("TEXT_SUBSCRIPTION_ID")
+  ProductView.Properties("name").Caption = mcm_GetDictionary("TEXT_COLUMN_NAME")
+  ProductView.Properties("count").Caption = mcm_GetDictionary("TEXT_QUANTITY")
+  ProductView.Properties("minstart").Caption = mcm_GetDictionary("TEXT_RATES_COLUMN_START_DATE")
+  ProductView.Properties("maxend").Caption = mcm_GetDictionary("TEXT_RATES_COLUMN_END_DATE") 
+  
+  mdm_SetMultiColumnFilteringMode TRUE         
+  Form_LoadProductView = TRUE ' Must Return TRUE To Render The Dialog
   
 END FUNCTION
 
@@ -106,31 +101,29 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
        else
          if Form.Grid.Col>2 then
          Select Case lcase(Form.Grid.SelectedProperty.Name)
-         'Select Case Form.Grid.Col
-         'Case 8
-         Case "start"
+
+         Case "minstart"
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"
-            tempDate = ProductView.Properties.RowSet.Value("start")
+            tempDate = ProductView.Properties.RowSet.Value("minstart")
             if not IsNull(tempDate) then
               if not FrameWork.IsMinusInfinity(tempDate) then
-                EventArg.HTMLRendered = EventArg.HTMLRendered & tempDate 
+                EventArg.HTMLRendered = EventArg.HTMLRendered & mcm_FormatDate(tempDate, "") 
               end if  
             end if
-            EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
-         
+            EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"         
   			    Form_DisplayCell = TRUE
-         Case "end"
+
+         Case "maxend"
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"
-            tempDate = ProductView.Properties.RowSet.Value("end")
+            tempDate = ProductView.Properties.RowSet.Value("maxend")
             if not IsNull(tempDate) then
               if not FrameWork.IsInfinity(tempDate) then
-                EventArg.HTMLRendered = EventArg.HTMLRendered & tempDate 
+                EventArg.HTMLRendered = EventArg.HTMLRendered & mcm_FormatDate(tempDate, "") 
               end if  
             end if
             EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
-              '  ProductView.Properties.RowSet.Value("State") & "<button class='clsButtonBlueSmall' name='EditMapping' onclick=""window.open('protoIntervalManagement.asp?','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes')"">" & "Change" &  "</button></td>" 
-         
   			    Form_DisplayCell = TRUE
+
   	     Case else
             Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
          End Select
@@ -189,7 +182,7 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
 
     EventArg.HTMLRendered = "<INPUT Type='Hidden' Name='PickerIDs' Value=''></TABLE><BR><CENTER><BR><BR>" & vbNewLine
 
-    EventArg.HTMLRendered = EventArg.HTMLRendered & "<BUTTON Name='CANCEL' Class='clsOKButton' OnClick='window.close();'>" & "Close" & "</BUTTON></center>" & vbNewLine
+    EventArg.HTMLRendered = EventArg.HTMLRendered & "<BUTTON Name='CANCEL' Class='clsOKButton' OnClick='window.close();'>" & mcm_GetDictionary("TEXT_CLOSE") & "</BUTTON></center>" & vbNewLine
 
     EventArg.HTMLRendered = EventArg.HTMLRendered & "</FORM>" & vbNewLine
     

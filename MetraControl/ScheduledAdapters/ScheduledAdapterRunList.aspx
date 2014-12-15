@@ -12,7 +12,7 @@
     };
     
     function IdInstanceRenderer(value, meta, record) {
-      return String.format("<a href='/MetraNet/MetraControl/ScheduledAdapters/AdapterInstanceInformation.aspx?ID={0}&ReturnUrl=ScheduledAdapterRunList.aspx' style='cursor:pointer'>{0}</a>", value);
+      return String.format("<a href='/MetraNet/MetraControl/ScheduledAdapters/AdapterInstanceInformation.aspx?ID={0}&ReturnUrl=ScheduledAdapterRunList.aspx<%=String.IsNullOrEmpty(Request.QueryString["duration"]) ? String.Empty : "?duration="+Request.QueryString["duration"] %>' style='cursor:pointer'>{0}</a>", value);
     }
     
     function onCancel_<%= ScheduledAdapterRunListGrid.ClientID %>() {

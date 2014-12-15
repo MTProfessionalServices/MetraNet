@@ -144,8 +144,8 @@
       if (ddval.toString() == zero.toString()) {
           boxval = document.getElementById("ctl00_ContentPlaceHolder1_numberMonthBillingInterval_tbNumericSource").value.toString();
           if (boxval == "") {
-              alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL")%>');
-              return false;
+            alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL")%>');
+            return false;
           }
       }
       return true;

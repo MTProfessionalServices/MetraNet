@@ -717,10 +717,7 @@
   <data name="TEXT_ADD_PL" xml:space="preserve">
     <value>[FR]Add Price List</value>
   </data>
-  <data name="ValidationMustBeDecimal" xml:space="preserve">
-    <value>[FR] Must be an decimal value.</value>
-  </data>
-  <data name="ValidationMustBeInt" xml:space="preserve">
-    <value>[FR] Must be an integer value.</value>
+  <data name="ValidationMustBeNumber" xml:space="preserve">
+    <value>[FR] Must be a number value.</value>
   </data>
 </root>

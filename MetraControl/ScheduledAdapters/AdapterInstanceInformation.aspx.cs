@@ -2,8 +2,6 @@
 using System.Globalization;
 using System.Threading;
 using System.Web;
-using System.Web.Script.Services;
-using System.Web.Services;
 using MetraTech.DataAccess;
 using MetraTech.UI.Common;
 
@@ -33,13 +31,17 @@ public partial class AdapterInstanceInformation : MTPage
     IntervalId = Request["IntervalId"];
     BillingGroupId = Request["BillingGroupId"];
     DisableActions = Request["DisableActions"];
+    btnRefresh.Text = Resources.JSConsts.TEXT_NOWCAST_REFRESH;
+    btnCancel.Text = Resources.JSConsts.TEXT_CANCEL;
+
     if (IsPostBack)
     {
       if (Request.Form["__EVENTTARGET"] == btnRunAdaptersLater.ClientID)
       {
         btnRunAdaptersLater_Click(this, new EventArgs());
       }
-      else if (Request.Form["__EVENTTARGET"] == btnRevertAdaptersLater.ClientID) {
+      else if (Request.Form["__EVENTTARGET"] == btnRevertAdaptersLater.ClientID)
+      {
         btnRevertAdapters_Click(this, new EventArgs());
       }
       return;
@@ -84,8 +86,6 @@ public partial class AdapterInstanceInformation : MTPage
   private void InitControls()
   {
     LoadSummaryInfo();
-    //var IntervalDescription = Request["IntervalDescription"];
-    //lblArgStart.Visible = lblArgEnd.Visible = lblArgStartValue.Visible = lblArgEndValue.Visible = !String.IsNullOrEmpty(IntervalDescription);
     lblInstanceIdValue.Text = InstanceId;
     lblAdapterValue.Text = DisplayName;
     lblArgEndValue.Text = ArgEndDate;
@@ -212,14 +212,16 @@ public partial class AdapterInstanceInformation : MTPage
     return value + " - " + dtEnd;
   }
 
-  [WebMethod]
-  public static string GetBatchMessage(string runId)
+  protected void btnCancel_Click(object sender, EventArgs e)
   {
-    var result =
-      String.Format(
-        "<br><a href='#' onclick=''window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/BatchManagement.List.asp?Filter=AdapterRun&RerunId={0}','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')''>View Details Of The Batches For This Run Of The Adapter</a>",
-        runId);
-    //GetLocalResourceObject("BatchDetails").ToString();
-    return result;
+    var returnUrl = !String.IsNullOrEmpty(Request.QueryString["ReturnUrl"]) 
+                  ? Request.QueryString["ReturnUrl"] 
+                  : Request.Url.AbsolutePath.Remove(Request.Url.AbsolutePath.IndexOf(Request.ApplicationPath, StringComparison.InvariantCulture) + Request.ApplicationPath.Length);
+    Response.Redirect(returnUrl, false);
+  }
+
+  protected void btnRefresh_Click(object sender, EventArgs e)
+  {
+    InitControls();
   }
 }

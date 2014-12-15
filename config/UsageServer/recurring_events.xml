@@ -554,6 +554,40 @@
       <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
       <ConfigFile>GenerateNotificationEventsAdapter.xml</ConfigFile>
       <Description>Generate notification events.</Description>
+      <LocalizedItems>
+        <item lang="FR">
+          <DisplayName>[FR] Generate Notification Events Adapter</DisplayName>
+          <Description>[FR] Generate notification events.</Description>
+        </item>
+        <item lang="IT">
+          <DisplayName>[IT] Generate Notification Events Adapter</DisplayName>
+          <Description>[IT] Generate notification events.</Description>
+        </item>
+        <item lang="ES">
+          <DisplayName>[ES] Generate Notification Events Adapter</DisplayName>
+          <Description>[ES] Generate notification events.</Description>
+        </item>
+        <item lang="DE">
+          <DisplayName>[DE] Generate Notification Events Adapter</DisplayName>
+          <Description>[DE] Generate notification events.</Description>
+        </item>
+        <item lang="es-MX">
+          <DisplayName>[es-MX] Generate Notification Events Adapter</DisplayName>
+          <Description>[es-MX] Generate notification events.</Description>
+        </item>
+        <item lang="pt-BR">
+          <DisplayName>[pt-BR] Generate Notification Events Adapter</DisplayName>
+          <Description>[pt-BR] Generate notification events.</Description>
+        </item>
+        <item lang="en-GB">
+          <DisplayName>[en-GB] Generate Notification Events Adapter</DisplayName>
+          <Description>[en-GB] Generate notification events.</Description>
+        </item>
+        <item lang="JA">
+          <DisplayName>[JA] Generate Notification Events Adapter</DisplayName>
+          <Description>[JA] Generate notification events.</Description>
+        </item>	
+      </LocalizedItems>
       <RecurrencePattern>
         <Daily>
           <Start>1/1/2010 12:00:00 AM</Start>

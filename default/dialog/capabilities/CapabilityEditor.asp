@@ -100,10 +100,16 @@ FUNCTION DynamicCapabilites(EventArg)
   Form.HTMLTemplateSource = Form("InitialTemplate")	  
   
   Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))
+
+  Do While Not ProductView.Properties.RowSet.EOF
+    Form("atomic" & ProductView.Properties.RowSet.Value("atomic_id_cap_type")) = ProductView.Properties.RowSet.Value("CompositionDescription")  
+    Form("CAPABILITY_TITLE") = ProductView.Properties.RowSet.Value("tx_desc")  
+    ProductView.Properties.Rowset.MoveNext
+  LOOP
     
   ' Set Title
 	'mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
-  mdm_GetDictionary().add "CAPABILITY_TITLE", ProductView.Properties.Rowset.Value("tx_desc")  
+  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CAPABILITY_TITLE")  
 
   If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then
@@ -125,7 +131,7 @@ FUNCTION DynamicCapabilites(EventArg)
 	
   nCount = 1
 	For Each composite in Form("CompositeCollection")
-	
+    
 		For Each atomic in composite.AtomicCapabilities
 
 	    Select Case UCase(atomic.capabilityType.name)
@@ -144,9 +150,8 @@ FUNCTION DynamicCapabilites(EventArg)
 				  Service.Properties.Add "MTWILDCARD" & nCount, "String", 0, TRUE, ""
 			    Service.Properties("MTWILDCARD" & nCount).AddValidListOfValues objDyn	
 
-          mdm_GetDictionary().add "MTPATHCAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
-          ProductView.Properties.Rowset.MoveNext()
-					
+          mdm_GetDictionary().add "MTPATHCAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID))
+          					
 					strHTML = strHTML & "<tr>"
 					strHTML = strHTML & "	  <td  width='50%' class='captionEWRequired'>[MTPATHCAPABILITY_DESCRIPTION]:</td>"
 					strHTML = strHTML & "	  <td  width='50%' class='clsStandardText'>"
@@ -204,8 +209,7 @@ FUNCTION DynamicCapabilites(EventArg)
 	        Service.Properties("MTACCESSTYPECAPABILITY" & nCount).AddValidListOfValues objDyn	
 				  Service.Properties("MTACCESSTYPECAPABILITY" & nCount) = CStr(atomic.GetParameter())
 					
-          mdm_GetDictionary().add "MTACCESSTYPECAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
-          ProductView.Properties.Rowset.MoveNext()
+          mdm_GetDictionary().add "MTACCESSTYPECAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID)) 
 
 					strHTML = strHTML & "   <tr>"
  			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>[MTACCESSTYPECAPABILITY_DESCRIPTION]:</td>"
@@ -254,10 +258,9 @@ FUNCTION DynamicCapabilites(EventArg)
   					Service.Properties("MTDECIMALCAPABILITY" & nCount) = "0.00"
 						Service.Properties("MTDECIMALCAPABILITYOPERATOR" & nCount) = MTDECIMALCAPABILITY_OPERATOR_TYPE_NONE
 					End If
-					
-          mdm_GetDictionary().add "MTDECIMALCAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
-          ProductView.Properties.Rowset.MoveNext()
-
+					          
+          mdm_GetDictionary().add "MTDECIMALCAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID))
+          
 					strHTML = strHTML & "   <tr>"
  			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>[MTDECIMALCAPABILITY_DESCRIPTION]:</td>"
           strHTML = strHTML & "     <td width='50%' class='clsStandardText'><input class='fieldRequired' size='15' type='text' value='" & Service.Properties("MTDECIMALCAPABILITY" & nCount) & "' name='MTDECIMALCAPABILITY" & nCount & "'></td>"
@@ -286,9 +289,8 @@ FUNCTION DynamicCapabilites(EventArg)
 					Else
 					  Service.Properties("MTENUMTYPECAPABILITY" & nCount).Value = ""
 					End If
-          	
-          mdm_GetDictionary().add "MTENUMTYPECAPABILITY_DESCRIPTION", ProductView.Properties.Rowset.Value("CompositionDescription") 
-          ProductView.Properties.Rowset.MoveNext()
+
+          mdm_GetDictionary().add "MTENUMTYPECAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID))           	          
 
 					If (atomic.capabilityType.CompositionDescription = "Specify currency for adjustments") Then
 					strHTML = strHTML & "   <tr>"

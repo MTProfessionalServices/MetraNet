@@ -97,7 +97,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   '
  ' ProductView.Properties("tx_name").Caption = mam_GetDictionary("TEXT_CAPABILITY_NAME")
   ProductView.Properties("tx_desc").Caption = mam_GetDictionary("TEXT_CAPABILITY_DESCRIPTION")
-  ProductView.Properties("umbrella_sensitive").Caption = "Requires Manage Account Hierarchies"
+  ProductView.Properties("umbrella_sensitive").Caption = mam_GetDictionary("TEXT_Requires_Manage_Account_Hierarchies")
   			
   ProductView.Properties("tx_desc").Sorted = MTSORT_ORDER_ASCENDING
   Set Form.Grid.FilterProperty = ProductView.Properties("tx_desc") ' Set the property on which to apply the filter  

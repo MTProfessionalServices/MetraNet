@@ -1604,4 +1604,8 @@
     <value>[DE]Owned by all subordinates</value>
     <description></description>
   </text>
+  <text id="TEXT_Requires_Manage_Account_Hierarchies">
+    <value>[DE]Requires Manage Account Hierarchies</value>
+    <description></description>
+  </text>
 </texts>

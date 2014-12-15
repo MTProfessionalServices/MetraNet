@@ -3,8 +3,8 @@
     <language_code>it</language_code>
     <locale_space name="MetraTech.MetraNet.Reporting">
         <locale_entry>
-            <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Data from Analytics Datamart</Name>
-            <Value>[IT]View Data from Analytics Datamart</Value>
+            <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
+            <Value>[IT]View Summary Financial Information</Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Accounting</Name>

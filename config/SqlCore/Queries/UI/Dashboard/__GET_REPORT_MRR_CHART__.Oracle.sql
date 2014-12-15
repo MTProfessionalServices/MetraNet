@@ -1,12 +1,11 @@
-select 1 from dual
-/* The above query has be removed once we have Subscription table implemented*/
-/* Subscription table is not implemented yet, so the query was commented out*/
-/*       st.FeeCurrency as CurrencyCode,
-       SUM(sm.MRRBase + sm.MRRNew + sm.MRRRenewal + sm.MRRPriceChange + sm.MRRChurn + sm.MRRCancellation) as Amount
+SELECT
+       TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY') as "Date",
+       sm.ReportingCurrency as CurrencyCode,
+       SUM(sm.MrrPrimaryCurrency) as Amount,
+			 NVL(lc.tx_desc, sm.ReportingCurrency) as LocalizedCurrency
 FROM SubscriptionsByMonth sm
-		join Subscription st on sm.SubscriptionId = st.SubscriptionId
-		join Customer c on st.AccountId = c.AccountId
-WHERE sm.Month IS NOT NULL
-AND sm.Month >= add_months(GETUTCDATE(), -13)
-AND sm.Month < trunc(add_months(GETUTCDATE(), 12),'MON')
-GROUP BY trunc(sm.Month,'MON'), st.FeeCurrency*/
+LEFT OUTER JOIN t_enum_data c on LOWER(c.nm_enum_data) = CONCAT('global/systemcurrencies/systemcurrencies/', LOWER(sm.ReportingCurrency))
+LEFT OUTER JOIN t_description lc on lc.id_desc = c.id_enum_data and lc.id_lang_code = %%ID_LANG_CODE%%
+WHERE TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY') >= %%FROM_DATE%%
+  AND TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY') < %%TO_DATE%%
+GROUP BY TO_DATE(LPAD(TO_CHAR(sm.Month), 2, '0') || '-01-' || TO_CHAR(sm.Year), 'MM-DD-YYYY'), sm.ReportingCurrency, lc.tx_desc

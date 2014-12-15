@@ -5,7 +5,7 @@ Set IsCleanupMode to true when scheduling an instance of this adapter to run in 
 If IsCleanupMode is set to false or not set in this file, then
 the adapter will run in the mode to generate new notification events. 
 -->
-    <IsCleanupMode>true</IsCleanupMode>
+    <IsCleanupMode>false</IsCleanupMode>
     <!-- 
 If running this adapter in cleanup mode (<IsCleanupMode>true</IsCleanupMode>), you must specify the age of notification events to cleanup from NetMeter.
 Set MaxNotificationEventAgeInDays to a number of days greater than or equal to 0.

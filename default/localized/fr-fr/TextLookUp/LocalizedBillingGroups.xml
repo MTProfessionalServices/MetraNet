@@ -135,4 +135,115 @@
   <text id="TEXT_SUCCEEDED">
     <value>[FR]Succeeded</value>
   </text>
+  <text id="TEXT_BG_TITLE_INTERVAL">
+    <value>[FR]Interval</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_MONTHLY">
+    <value>Tous les mois</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_DAILY">
+    <value>Tous les jours</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_WEEKLY">
+    <value>Toutes les semaines</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_BIWEEKLY">
+    <value>Toutes les deux semaines</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_QUARTERLY">
+    <value>Trimestriel</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_SEMI_ANNUAL">
+    <value>Deux fois par an</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ANNUAL">
+    <value>Tous les ans</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ALL">
+    <value>[FR]All</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ERROR">
+    <value>[FR](unknown cycle type)</value>
+  </text>
+  <text id="TEXT_BG_STATUS_OPEN">
+    <value>[FR]Open</value>
+  </text>
+  <text id="TEXT_BG_STATUS_HARD_CLOSED">
+    <value>[FR]Hard Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_SOFT_CLOSED">
+    <value>[FR]Soft Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_UNKOWN">
+    <value>[FR]UNKOWN</value>
+  </text>
+  <text id="TEXT_BG_NAME_DEFAULT">
+    <value>[FR]Default</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_DEFAULT">
+    <value>[FR]Accounts that did not match other billing group rules</value>
+  </text>
+  <text id="TEXT_BG_NAME_EUROPE">
+    <value>[FR]Europe</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_EUROPE">
+    <value>[FR]Accounts with Bill-To addresses residing in an European country</value>
+  </text>
+  <text id="TEXT_BG_NAME_NORTH_AMERICA">
+    <value>[FR]North America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_NORTH_AMERICA">
+    <value>[FR]Accounts with Bill-To addresses residing in a North American country</value>
+  </text>
+  <text id="TEXT_BG_NAME_SOUTH_AMERICA">
+    <value>[FR]South America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
+    <value>[FR]Accounts with Bill-To addresses residing in a South American country</value>
+  </text>
+  <text id="TEXT_BG_TITLE_BILLING_GROUP_STATE">
+    <value>[FR]Billing Group State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_NEW_STATE">
+    <value>[FR]New State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_DESCRIPTION">
+    <value>[FR]Description</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_OK_NAME">
+    <value>[FR]OK</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_CANCEL_NAME">
+    <value>[FR]Cancel</value>
+  </text>
+  <text id="TEXT_BG_BILLING_GROUP_STATE_GRID_TITLE">
+    <value>[FR]The current state of this Billing Group is</value>
+  </text>
+  <text id="TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT">
+    <value>[FR]Billing Management</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READY_TO_RUN">
+    <value>[FR]Ready To Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READY_TO_REVERSE">
+    <value>[FR]Ready To Reverse</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_NOT_YET_RUN">
+    <value>[FR]Not Yet Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_ACKNOWLEDGE">
+    <value>[FR]Acknowledge</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_RUNNING">
+    <value>[FR]Running</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_SUCCEEDED">
+    <value>[FR]Succeeded</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_FAILED">
+    <value>[FR]Failed</value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_EXECUTE">
+    <value>[FR]Execute </value>
+  </text>
 </texts>

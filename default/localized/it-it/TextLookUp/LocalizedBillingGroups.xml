@@ -141,4 +141,70 @@
   <text id="TEXT_SUCCEEDED">
     <value>[IT]Succeeded</value>
   </text>
+  <text id="TEXT_BG_TITLE_INTERVAL">
+    <value>[IT]Interval</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_MONTHLY">
+    <value>[IT]Monthly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_DAILY">
+    <value>[IT]Daily</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_WEEKLY">
+    <value>[IT]Weekly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_BIWEEKLY">
+    <value>[IT]BiWeekly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_QUARTERLY">
+    <value>[IT]Quarterly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_SEMI_ANNUAL">
+    <value>[IT]Semi-Annually</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ANNUAL">
+    <value>[IT]Annual</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ALL">
+    <value>[IT]All</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ERROR">
+    <value>[IT](unknown cycle type)</value>
+  </text>
+  <text id="TEXT_BG_STATUS_OPEN">
+    <value>[IT]Open</value>
+  </text>
+  <text id="TEXT_BG_STATUS_HARD_CLOSED">
+    <value>[IT]Hard Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_SOFT_CLOSED">
+    <value>[IT]Soft Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_UNKOWN">
+    <value>[IT]UNKOWN</value>
+  </text>
+  <text id="TEXT_BG_NAME_DEFAULT">
+    <value>[IT]Default</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_DEFAULT">
+    <value>[IT]Accounts that did not match other billing group rules</value>
+  </text>
+  <text id="TEXT_BG_NAME_EUROPE">
+    <value>[IT]Europe</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_EUROPE">
+    <value>[IT]Accounts with Bill-To addresses residing in an European country</value>
+  </text>
+  <text id="TEXT_BG_NAME_NORTH_AMERICA">
+    <value>[IT]North America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_NORTH_AMERICA">
+    <value>[IT]Accounts with Bill-To addresses residing in a North American country</value>
+  </text>
+  <text id="TEXT_BG_NAME_SOUTH_AMERICA">
+    <value>[IT]South America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
+    <value>[IT]Accounts with Bill-To addresses residing in a South American country</value>
+  </text>
 </texts>

@@ -1377,4 +1377,22 @@
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
     <value>[JA]View Log</value>
   </data>
+  <data name="TEXT_DAY" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="TEXT_FIRST" xml:space="preserve">
+    <value>1 番目</value>
+  </data>
+  <data name="TEXT_FOURTH" xml:space="preserve">
+    <value>4 番目</value>
+  </data>
+  <data name="TEXT_LAST" xml:space="preserve">
+    <value>最後</value>
+  </data>
+  <data name="TEXT_SECOND" xml:space="preserve">
+    <value>2 番目</value>
+  </data>
+  <data name="TEXT_THIRD" xml:space="preserve">
+    <value>3 番目</value>
+  </data>
 </root>

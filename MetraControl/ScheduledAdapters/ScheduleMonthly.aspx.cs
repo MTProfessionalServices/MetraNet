@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Globalization;
+using System.Resources;
 using System.Web.UI.WebControls;
 using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.UsageServer;
+using Resources;
 
 public partial class ScheduleMonthly : MTPage
 {
@@ -67,7 +70,7 @@ public partial class ScheduleMonthly : MTPage
         schedAdapterClient.ClientCredentials.UserName.UserName = UI.User.UserName;
         schedAdapterClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
-
+      
       BaseRecurrencePattern recurPattern;
       schedAdapterClient.GetRecurrencePattern(Convert.ToInt32(ViewState["EventID"]), out recurPattern);
       var recurrencePattern = recurPattern as MonthlyRecurrencePattern;
@@ -75,17 +78,22 @@ public partial class ScheduleMonthly : MTPage
       {
         var monthsArray = recurrencePattern.DaysOfMonth.ToString().Split(',');
         var daysOfMonth = "";
-        for (int i = 0; i < monthsArray.Length; i++)
+
+        foreach (var month in monthsArray)
         {
-          if (i == monthsArray.Length - 1)
+          if (daysOfMonth.Length > 1) daysOfMonth += ",";
+          var strDay = month.Trim().Split(' ');
+          if (strDay.Length > 1)
           {
-            daysOfMonth = daysOfMonth + monthsArray[i].Trim();
+            daysOfMonth += GetGlobalResourceObject("JSConsts", "TEXT_" + strDay[0].ToUpper()).ToString();
+            daysOfMonth += " " + GetDayOfWeek(strDay[1]);
           }
           else
           {
-            daysOfMonth = daysOfMonth + monthsArray[i].Trim() + ",";
+            daysOfMonth += strDay[0];  
           }
         }
+
         sbMonthly.SelectedValue = daysOfMonth;
         ddMonths.SelectedValue = recurrencePattern.IntervalInMonth.ToString(CultureInfo.InvariantCulture);
         tbStartTime.Text = recurrencePattern.ExecutionTimes.ToString();
@@ -104,6 +112,14 @@ public partial class ScheduleMonthly : MTPage
       Logger.LogError(ex.Message);
       schedAdapterClient.Abort();
     }
+  }
+
+  private string GetDayOfWeek(string enDayName)
+  {
+    DayOfWeek enumDay;
+    Enum.TryParse(enDayName, out enumDay);
+
+    return CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)enumDay];
   }
 
 

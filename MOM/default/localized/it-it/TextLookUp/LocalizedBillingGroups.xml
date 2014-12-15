@@ -207,4 +207,49 @@
   <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
     <value>[IT]Accounts with Bill-To addresses residing in a South American country</value>
   </text>
+  <text id="TEXT_BG_TITLE_BILLING_GROUP_STATE">
+    <value>[IT]Billing Group State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_NEW_STATE">
+    <value>[IT]New State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_DESCRIPTION">
+    <value>[IT]Description</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_OK_NAME">
+    <value>[IT]OK</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_CANCEL_NAME">
+    <value>[IT]Cancel</value>
+  </text>
+  <text id="TEXT_BG_BILLING_GROUP_STATE_GRID_TITLE">
+    <value>[IT]The current state of this Billing Group is</value>
+  </text>
+  <text id="TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT">
+    <value>[IT]Billing Management</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READY_TO_RUN">
+    <value>[IT]Ready To Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READY_TO_REVERSE">
+    <value>[IT]Ready To Reverse</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_NOT_YET_RUN">
+    <value>[IT]Not Yet Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_ACKNOWLEDGE">
+    <value>[IT]Acknowledge</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_RUNNING">
+    <value>[IT]Running</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_SUCCEEDED">
+    <value>[IT]Succeeded</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_FAILED">
+    <value>[IT]Failed</value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_EXECUTE">
+    <value>[IT]Execute </value>
+  </text>
 </texts>

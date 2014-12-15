@@ -384,7 +384,7 @@ CLASS CFrameWork ' -- The FrameWork Class --
 
           Dim auth
           set auth = Server.CreateObject("MetraTech.Security.Auth")
-          auth.Initialize strLogin, strNameSpace
+          auth.InitializeWithLanguage strLogin, strNameSpace, GetLanguageIntegerCode(Session("PAGE_LANGUAGE"))
           If Len(strTicket) > 0 Then 'If a ticket is passed, use it
             LogOn = auth.LoginWithTicket(strTicket, objSessionContext)
           Else
@@ -702,13 +702,28 @@ CLASS CFrameWork ' -- The FrameWork Class --
 	            CheckInternalStuff booMDMMode
 	        
 	            ' Setup application start page
-             if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
-	                if(not IsEmpty(Session("PAGE_LANGUAGE"))) then
-                    Session(FRAMEWORK_APP_LANGUAGE) = Session("PAGE_LANGUAGE")
-                  else                  
-                    Session(FRAMEWORK_APP_LANGUAGE) = FRAMEWORK_DEFAULT_LANGUAGE                      
-                  end if
-            
+	                         if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
+                                           Dim userLocale
+                    userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
+                    dim Languages
+                    if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
+                        Languages = Split(userLocale, ",", -1)
+                        dim L
+                        L = Languages(0)
+                        if(IsEmpty(L) or IsNull(L)) then L = FRAMEWORK_DEFAULT_LANGUAGE end if
+                          Session(FRAMEWORK_APP_LANGUAGE)           = L
+                    else
+                          Session(FRAMEWORK_APP_LANGUAGE)           = FRAMEWORK_DEFAULT_LANGUAGE
+                    end if 
+              else
+              dim lang
+              lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
+              if (instr(1, lang, "en") <> 0) then
+                lang = "en-US"
+              end if
+                Session(FRAMEWORK_APP_LANGUAGE) = lang
+              end if
+
               else
                   dim lang
                   lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
@@ -1763,8 +1778,20 @@ CLASS CFrameWork ' -- The FrameWork Class --
             Case "CN":GetLanguageIntegerCode=156
             Case "DE":GetLanguageIntegerCode=276
             Case "FR":GetLanguageIntegerCode=0
+            Case "BR":GetLanguageIntegerCode=1046  
+            Case else: GetLanguageIntegerCode=840
         End Select
     END FUNCTION
+    
+    PUBLIC FUNCTION GetLanguageIDForCurrentUser(strLanguageCode)
+    
+      dim objLanguageList
+      set objLanguageList = Server.CreateObject("MetraTech.Localization.LanguageList")
+      
+      GetLanguageIDForCurrentUser = objLanguageList.GetLanguageID(strLanguageCode)
+    END FUNCTION
+    
+
     
     PUBLIC FUNCTION GetLocalizedString(strLanguage,strFQN)
         Dim strDisplayName

@@ -51,24 +51,24 @@ FUNCTION GetBillingGroupCycleType(strType)
   
   Select Case strType
     Case CycleType_Monthly
-      cycle = "Monthly"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_MONTHLY")
     Case CycleType_Daily
-      cycle = "Daily"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_DAILY")
     Case CycleType_Weekly
-      cycle = "Weekly"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_WEEKLY")
     Case CycleType_BiWeekly
-      cycle = "BiWeekly"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_BIWEEKLY")
     Case CycleType_Quarterly
-      cycle = "Quarterly"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_QUARTERLY")
     Case CycleType_SemiAnnual
-	  cycle = "Semi-Annually"
+	  cycle = Framework.GetDictionary("TEXT_BG_CYCLE_SEMI_ANNUAL")
     Case CycleType_Annual
-      cycle = "Annual"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_ANNUAL")
     Case CycleType_All
-      cycle = "All"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_ALL")
 
     Case Else
-      cycle = "(unknown cycle type)"
+      cycle = Framework.GetDictionary("TEXT_BG_CYCLE_ERROR")
   End Select  
   
   GetBillingGroupCycleType = cycle  

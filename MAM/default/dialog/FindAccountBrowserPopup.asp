@@ -106,7 +106,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     If Len(Request.QueryString("SearchDate")) Then
       Form("SearchDate") = Request.QueryString("SearchDate")
     Else
-      Form("SearchDate") = mam_GetHierarchyTime()
+      Form("SearchDate") = mam_GetHierarchyTimeWithFormat()
     End IF
     
 	  ProductView.Clear  ' Set all the property of the service to empty or to the default value

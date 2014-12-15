@@ -1383,10 +1383,17 @@ Function mdm_pvb_RenderProductViewHtml(strPageAction, strHTMLTemplateRendered) '
                 If (Form.Grid.SelectedProperty Is Nothing) Then
                     Exit For
                 Else
+               ' Dim value
+               ' value = Form.Grid.SelectedProperty.value;
                     Form.Grid.Col = i + 2             ' CALL EVENT Form_DisplayCell for the cell  of the product view
                     EventArg.HTMLRendered = Empty
                     Form_DisplayCell EventArg
                     objCat.Concat EventArg.HTMLRendered
+                 ''  strFormat = Form.Grid.SelectedProperty.Format
+                 ' If(Len(strFormat))Then
+                 ' strValue = ProductView.Tools.Format(value,strFormat) 'CORE-7367
+                 ' End If
+
                 End If
                     Next
             

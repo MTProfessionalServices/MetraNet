@@ -65,6 +65,7 @@ On Error resume next
     Call FrameWork.LogOn("MAM", Empty , Empty , strNamespace, strTicket, Empty) 
     
     Call mam_SetupCSR(strLogon, strNamespace, strNamespaceType)
+
       
     Session("LocalizedPath") = Application("APP_HTTP_PATH") & "/default/localized/" & Session("PAGE_LANGUAGE")
 

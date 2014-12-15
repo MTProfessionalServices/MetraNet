@@ -73,12 +73,18 @@ Function GetCalendarCodeSelect()
 	Set objEnumCfg = CreateObject("Metratech.MTEnumConfig")
 	Set objEnumColl = objEnumCfg.GetEnumerators("metratech.com/calendar", "CalendarCode")
 
+  Dim lang
+  lang = session.Contents("FRAMEWORK_APP_LANGUAGE_SHORT")
+  Set lc = Server.CreateObject("Metratech.LocaleConfig")
+  lc.Initialize("Core")
+  lc.LoadLanguage(lang)
+
 	strHTML = ""
 	strHTML = strHTML & "<select class='clsInputBox' name='selectCalCode'>"
 	For Each varEnum in objEnumColl
 		' First figure out the enum value
 		enumVal = objEnumCfg.GetEnumeratorValueByID(objEnumCfg.GetID("metratech.com/calendar", "CalendarCode", varEnum.Name))
-		strHTML = strHTML & "<option value=" & CStr(enumVal) & ">" & varEnum.Name & "</option>"
+		strHTML = strHTML & "<option value=" & CStr(enumVal) & ">" & lc.GetLocalizedString("metratech.com/calendar/CalendarCode/" & varEnum.Name, lang) & "</option>"
 	Next
 	
 	strHTML = strHTML & "</select>"

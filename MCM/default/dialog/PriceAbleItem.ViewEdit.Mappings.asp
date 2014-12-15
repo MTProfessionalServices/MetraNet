@@ -395,8 +395,16 @@ PRIVATE FUNCTION ContainedParameterTables_DisplayCell(EventArg) ' As Boolean
       ' The button are named EditMapping1, EditMapping2 for fred runner
       dim strLinkParams
       strLinkParams = "ID|" & Request("ID") & ";EditMode|False;POBased|" & Request("POBased") & ";Kind|" & Request("Kind") & ";Automatic|" & Request("Automatic")
-      EventArg.HTMLRendered     =  "<td class='" & EventArg.Grid.CellClass & "'>"  & _
-            "<button type=""button"" class='clsButtonBlueLarge' name=""EditMapping_" & EventArg.Grid.Rowset.Value("tpt_nm_name") & """ onclick=""window.open('PriceListMapping.Edit.asp?ID=" & EventArg.Grid.Rowset.Value("id_paramtable") & "&NonSharedPLID=" & Form("NonSharedPLID") & "&PI_ID=" & Request("ID") & "&NextPage=PriceableItem.Usage.ViewEdit.asp&MonoSelect=TRUE&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;" & strLinkParams & ";PARAMTABLEID|" & EventArg.Grid.Rowset.Value("id_paramtable")  & "','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_EDIT") & " Mapping" & "</button></td>"                       
+      EventArg.HTMLRendered =  "<td class='" & EventArg.Grid.CellClass & "'>" & _
+            "<button type=""button"" class='clsButtonBlueXLarge' name=""EditMapping_" & _ 
+            EventArg.Grid.Rowset.Value("tpt_nm_name") & _ 
+            """ onclick=""window.open('PriceListMapping.Edit.asp?ID=" & _ 
+            EventArg.Grid.Rowset.Value("id_paramtable") & _
+            "&NonSharedPLID=" & Form("NonSharedPLID") & "&PI_ID=" & Request("ID") & _ 
+            "&NextPage=PriceableItem.Usage.ViewEdit.asp&MonoSelect=TRUE&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;" & _
+            strLinkParams & ";PARAMTABLEID|" & EventArg.Grid.Rowset.Value("id_paramtable") & _ 
+            "','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & _ 
+            FrameWork.GetDictionary("TEXT_EDIT_PRICE_LIST_MAPPING") & "</button></td>"                       
             
       ContainedParameterTables_DisplayCell = TRUE      
                       

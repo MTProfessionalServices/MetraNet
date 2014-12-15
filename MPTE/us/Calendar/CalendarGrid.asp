@@ -125,7 +125,7 @@ Function GetPeriodGraphAlt(objPeriodCollection, objCalCode)
 	
 End Function
 	
-Function GetPeriodsTable(objMTPeriodCollection)
+Function GetPeriodsTable(objMTPeriodCollection, localEnum, lang)
 	Dim strHTML, objPeriod
 	strHTML = ""
 	strHTML = strHTML & "<table>"
@@ -137,7 +137,7 @@ Function GetPeriodsTable(objMTPeriodCollection)
 			strHTML = strHTML & "<td align='right' nowrap>" & FormatTimeString(objPeriod.StartTime) & "<td>"
 			strHTML = strHTML & "<td align='center' nowrap>&nbsp;-&nbsp;<td>"
 			strHTML = strHTML & "<td align='right' nowrap>" & FormatTimeString(objPeriod.EndTime) & "</td>"
-			strHTML = strHTML & "<td nowrap>" & objPeriod.GetCodeAsString & "<td>"
+			strHTML = strHTML & "<td nowrap>" & localEnum.GetLocalizedString("metratech.com/calendar/CalendarCode/" & objPeriod.GetCodeAsString, lang) & "<td>"
 			strHTML = strHTML & "</tr>"
 		next
 	End if
@@ -145,7 +145,7 @@ Function GetPeriodsTable(objMTPeriodCollection)
 	GetPeriodsTable = strHTML
 End Function	
 	
-Function GetCalendarWeekdayRow(objMTCalendarWeekday, clsStyle, booIsConfigured, intDayofWeek)
+Function GetCalendarWeekdayRow(objMTCalendarWeekday, clsStyle, booIsConfigured, intDayofWeek, localEnum, lang)
 	Dim strHTML, strExtraOpts, strDisabledDay
 	strHTML = ""
 	if UCase(session("RATES_EDITMODE")) = "TRUE" then
@@ -172,7 +172,7 @@ Function GetCalendarWeekdayRow(objMTCalendarWeekday, clsStyle, booIsConfigured, 
 	strHTML = strHTML & "</td>"
 	
 	strHTML = strHTML & "<td class='"& clsStyle &"'>" & GetDayName(intDayofWeek) & "</td>" & vbNewLine
-	strHTML = strHTML & "<td class='"& clsStyle &"'>" & objMTCalendarWeekday.GetCodeAsString & "</td>" & vbNewLine
+	strHTML = strHTML & "<td class='"& clsStyle &"'>" & localEnum.GetLocalizedString("metratech.com/calendar/CalendarCode/" & objMTCalendarWeekday.GetCodeAsString, lang) & "</td>" & vbNewLine
 	' If this day of the week is not configured, we don't allow editing the calendar code on it
 	if not booIsConfigured then
 		strDisabledDay = " disabled"
@@ -181,7 +181,7 @@ Function GetCalendarWeekdayRow(objMTCalendarWeekday, clsStyle, booIsConfigured, 
 	strHTML = strHTML & " onClick=""javascript:OpenDialogWindow('gotoCalendarDayEdit.asp?daytype=Weekday&day_id=" & objMTCalendarWeekday.DayofWeek & "','');"" "
 	strHTML = strHTML & "" & strDisabledDay & "><br>" & vbNewLine	
 	strHTML = strHTML & "<td class='"& clsStyle &"' width='25%'>" & GetPeriodGraphAlt(objMTCalendarWeekday.GetPeriods, objMTCalendarWeekday.Code) & "</td>" & vbNewLine
-	strHTML = strHTML & "<td class='"& clsStyle &"' align='right'>" & GetPeriodsTable(objMTCalendarWeekday.GetPeriods) & "</td>" & vbNewLine
+	strHTML = strHTML & "<td class='"& clsStyle &"' align='right'>" & GetPeriodsTable(objMTCalendarWeekday.GetPeriods, localEnum, lang) & "</td>" & vbNewLine
 	strHTML = strHTML & "<td class='"& clsStyle &"'><input type='button' class='clsButtonBlueSmall' name='AddPeriod" & intDayofWeek & "' value='" & FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_ADDPERIOD") & "'"
 	strHTML = strHTML & " onClick=""javascript:OpenDialogWindow('gotoPeriodAddRemove.asp?daytype=Weekday&action=Add&day_id=" & intDayofWeek & "','');"" "
 	strHTML = strHTML & "" & strDisabledDay & "><br>" & vbNewLine
@@ -219,7 +219,7 @@ Function GetCalendarHolidayRow(objMTCalendarHoliday, clsStyle)
 	strHTML = strHTML & "<td class='"& clsStyle &"'>" & Server.HTMLEncode(objMTCalendarHoliday.Name) & "</td>" & vbNewLine
 	strHTML = strHTML & "<td class='"& clsStyle &"'>" & objMTCalendarHoliday.Date & "</td>" & vbNewLine
 	strHTML = strHTML & "<td class='"& clsStyle &"' width='25%'>" & GetPeriodGraphAlt(objMTCalendarHoliday.GetPeriods, objMTCalendarHoliday.Code) & "</td>"
-	strHTML = strHTML & "<td class='"& clsStyle &"' align='right'>" & GetPeriodsTable(objMTCalendarHoliday.GetPeriods) & "</td>" & vbNewLine
+	strHTML = strHTML & "<td class='"& clsStyle &"' align='right'>" & GetPeriodsTable(objMTCalendarHoliday.GetPeriods, localEnum, lang) & "</td>" & vbNewLine
 	strHTML = strHTML & "<td class=""" & clsStyle & """><input type=""button"" class=""clsButtonBlueSmall"" name=""AddPeriod" & strHolidayName & """ value=""" & FrameWork.GetDictionary("TEXT_MPTE_CALENDAR_ADDPERIOD") & """ "
 	strHTML = strHTML & " onClick=""javascript:OpenDialogWindow('gotoPeriodAddRemove.asp?daytype=Holiday&action=Add&day_id=" & Server.URLEncode(objMTCalendarHoliday.Name) & "','');"" "
 	strHTML = strHTML & strExtraOpts & "><br>" & vbNewLine
@@ -236,6 +236,13 @@ End Function
 Function GetCalendarGrid(objMTCalendar, intGridType)
 	Dim strHTML, objDay, i, cellstyle, booIsConfigured, objDayColl
 	strHTML = ""
+
+  Dim lang
+  lang = session.Contents("FRAMEWORK_APP_LANGUAGE_SHORT")
+  Set lc = Server.CreateObject("Metratech.LocaleConfig")
+  lc.Initialize("Core")
+  lc.LoadLanguage(lang)
+
 	strHTML = strHTML & GetCalendarGridHeader(intGridType)
 
 	i = 0	
@@ -251,7 +258,7 @@ Function GetCalendarGrid(objMTCalendar, intGridType)
 		set objDay = objMTCalendar.GetWeekdayorDefault(CALENDARDAY_DEFAULTWEEKDAY)
 		cellstyle = "clsCalendarCell"
 		booIsConfigured = true
-		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_DEFAULTWEEKDAY)
+		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_DEFAULTWEEKDAY, lc, lang)
 		
 		for i = CALENDARDAY_MONDAY to CALENDARDAY_FRIDAY ' 1 to 5
 									 ' with 0, while the collection index starts at 1!!!
@@ -265,7 +272,7 @@ Function GetCalendarGrid(objMTCalendar, intGridType)
 				cellstyle = "clsCalendarCell"
 				booIsConfigured = true										
 			end if
-			strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, i)
+			strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, i, lc, lang)
 		next
 		
 	' Weekend Grid : Sat, Sun + Default Weekend
@@ -273,7 +280,7 @@ Function GetCalendarGrid(objMTCalendar, intGridType)
 		set objDay = objMTCalendar.GetWeekdayorDefault(CALENDARDAY_DEFAULTWEEKEND)
 		cellstyle = "clsCalendarCell"
 		booIsConfigured = true
-		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_DEFAULTWEEKEND)
+		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_DEFAULTWEEKEND,  lc, lang)
 		
 		' Saturday
 		set objDay = objMTCalendar.GetWeekdayorDefault(CALENDARDAY_SATURDAY)
@@ -284,7 +291,7 @@ Function GetCalendarGrid(objMTCalendar, intGridType)
 			cellstyle = "clsCalendarCell"
 			booIsConfigured = true										
 		end if
-		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_SATURDAY)
+		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_SATURDAY,  lc, lang)
 
 		' Sunday
 		set objDay = objMTCalendar.GetWeekdayorDefault(CALENDARDAY_SUNDAY)
@@ -295,7 +302,7 @@ Function GetCalendarGrid(objMTCalendar, intGridType)
 			cellstyle = "clsCalendarCell"
 			booIsConfigured = true										
 		end if
-		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_SUNDAY)
+		strHTML = strHTML & GetCalendarWeekdayRow(objDay, cellstyle, booIsConfigured, CALENDARDAY_SUNDAY,  lc, lang)
 				
 	end if
 	GetCalendarGrid = strHTML

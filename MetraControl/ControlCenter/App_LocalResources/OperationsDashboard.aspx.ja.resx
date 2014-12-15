@@ -237,17 +237,11 @@
   <data name="TEXT_DURATION" xml:space="preserve">
     <value>[JA]Duration</value>
   </data>
-  <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>[JA]Earliest ETA:</value>
-  </data>
   <data name="TEXT_READY" xml:space="preserve">
     <value>[JA]Ready:</value>
   </data>
   <data name="TEXT_SUCCESSFUL" xml:space="preserve">
     <value>[JA]Successful:</value>
-  </data>
-  <data name="TEXT_VARIANCE" xml:space="preserve">
-    <value>[JA]Variance:</value>
   </data>
   <data name="TEXT_WAITING" xml:space="preserve">
     <value>[JA]Waiting:</value>
@@ -298,18 +292,36 @@
     <value>%Y/%m/%d %X</value>
   </data>
   <data name="TEXT_TYPE_EOM" xml:space="preserve">
-    <value>{ja}EOM</value>
+    <value>[JA]EOM</value>
   </data>
   <data name="TEXT_TYPE_M12" xml:space="preserve">
-    <value>{ja}M12</value>
+    <value>[JA]M12</value>
   </data>
   <data name="TEXT_TYPE_M19" xml:space="preserve">
-    <value>{ja}M19</value>
+    <value>[JA]M19</value>
   </data>
   <data name="TEXT_TYPE_M26" xml:space="preserve">
-    <value>{ja}M26</value>
+    <value>[JA]M26</value>
   </data>
   <data name="TEXT_TYPE_M5" xml:space="preserve">
-    <value>{ja}M5</value>
-  </data>    
+    <value>[JA]M5</value>
+  </data>
+  <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
+    <value>[JA]Average run time of remaining {0} adapters is {1} hours (Earliest ETA: {2})</value>
+  </data>
+  <data name="TEXT_VARIANCE_FASTER_MESSAGE" xml:space="preserve">
+    <value>[JA]Adapters are running about {0} % faster compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_VARIANCE_SAME_MESSAGE" xml:space="preserve">
+    <value>[JA]Adapters are running about the same compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_VARIANCE_SLOWER_MESSAGE" xml:space="preserve">
+    <value>[JA]Adapters are running about {0} % slower compared to previous runs for this interval</value>
+  </data>
+  <data name="TEXT_INTERVAL_STATUS_OPEN" xml:space="preserve">
+    <value>[JA]Open</value>
+  </data>
+  <data name="TEXT_RUNNING_ADAPTER_STATUS_IN_PROGRESS" xml:space="preserve">
+    <value>[JA]In Progress</value>
+  </data>
 </root>

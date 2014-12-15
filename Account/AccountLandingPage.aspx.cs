@@ -70,7 +70,7 @@ public partial class Account_AccountLandingPage : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    ShowFinancialData = UI.CoarseCheckCapability("View Data from Analytics Datamart");
+    ShowFinancialData = true; //UI.CoarseCheckCapability("View Summary Financial Information");
     if (!IsPostBack)
     {
       NoDecisionsText = string.Format("{0}", GetLocalResourceObject("NO_DECISIONS_TEXT"));

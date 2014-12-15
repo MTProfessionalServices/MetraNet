@@ -1323,12 +1323,6 @@
   <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
     <value>Recent Notifications</value>
   </data>
-  <data name="SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[es-MX]Account {varloginname} has subscription to {varpointernalname} that will end on {varenddate}&lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
-  </data>
-  <data name="GROUP_SUBSCRIPTION_ENDING_TEMPLATE" xml:space="preserve">
-    <value>[es-MX]Account {varloginname} participation in subscription to {varpointernalname} will end on {varenddate} &lt;a style='cursor: pointer;' id='manage1_{varaccount}' href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'&gt;View...&lt;/a&gt;</value>
-  </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>{es-MX}Change Password</value>
   </data>
@@ -1382,5 +1376,23 @@
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
     <value>[es-MX]View Log</value>
+  </data>
+  <data name="TEXT_DAY" xml:space="preserve">
+    <value>Día</value>
+  </data>
+  <data name="TEXT_FIRST" xml:space="preserve">
+    <value>Primer</value>
+  </data>
+  <data name="TEXT_FOURTH" xml:space="preserve">
+    <value>Cuarto(a)</value>
+  </data>
+  <data name="TEXT_LAST" xml:space="preserve">
+    <value>Último(a)</value>
+  </data>
+  <data name="TEXT_SECOND" xml:space="preserve">
+    <value>Segundo(a)</value>
+  </data>
+  <data name="TEXT_THIRD" xml:space="preserve">
+    <value>Tercero(a)</value>
   </data>
 </root>

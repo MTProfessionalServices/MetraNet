@@ -215,7 +215,7 @@ function fnVisualizeLineChart2(objLineChartConfig) {
         var colorData = {
             name: name,
             values: data.map(function (d) {
-                var dataObj = { x_axis: d[X_AXIS_COLUMN], y_axis: +d[name] };
+                var dataObj = { x_axis: d[X_AXIS_COLUMN], y_axis: +d[name] , name : d.adapter};
                 return dataObj;
             }
                )
@@ -322,9 +322,49 @@ function fnVisualizeLineChart2(objLineChartConfig) {
           .attr("transform", function (d) { return "translate(" + x(d.value.x_axis) + "," + y(d.value.y_axis) + ")"; })
           .attr("x", 3)
           .attr("dy", ".35em");
-    //.text(function (d) { return d.name; });
 
-
+          
+          var mygforeachline = currLine.append("g")          
+          .attr("class","dc-tooltip-0");
+          
+          var inners = mygforeachline.selectAll("circle")
+          .data(function (d) { return d.values;})
+          .enter()
+          .append("circle").attr("cx",function (d) { return x(d.x_axis);})
+          .attr("cy",function (d) { return y(d.y_axis);})
+          .attr("class", "dot")
+          .attr("r", "3")
+          .attr("fill","#00B0F0")
+          .style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6")
+          .on("mouseover", function(d, i) {
+          var dpX = d3.select(this).attr('cx');
+          var dpY = d3.select(this).attr('cy');
+          d3.select(this).attr("r", "5").style("fill-opacity", "0.8")
+          .style("stroke-opacity", "0.8");
+          svg.append("svg:line")
+                    .attr("x1", dpX)
+                    .attr("y1", dpY)
+                    .attr("x2", 0)
+                    .attr("y2", dpY)
+                    .style("stroke-dasharray", ("5, 4"))
+                    .style("stroke-opacity", 0.9)
+                    .style("stroke","gray").attr("class","mylegend");
+          svg.append("svg:line")
+                    .attr("x1", dpX)
+                    .attr("y1", dpY)
+                    .attr("x2", dpX)
+                    .attr("y2", height)
+                    .style("stroke-dasharray", ("5, 4"))
+                    .style("stroke-opacity", 0.9)
+                    .style("stroke","gray").attr("class","mylegend");
+          })
+          .on('mouseout', function(d, i) {
+            d3.select(this).attr("r", "3").style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6");
+            d3.selectAll(".mylegend").remove();
+          })
+          .append("title").text(function (d) { return  d.name + " : " + d.y_axis +" Seconds";});
     return this;
 }
 

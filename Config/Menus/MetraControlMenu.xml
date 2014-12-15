@@ -120,7 +120,6 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_24</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-24</Link>-->
                           <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-24</Link>
                           <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
@@ -135,7 +134,6 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_WEEK</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-168</Link>-->
                           <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-168</Link>
                           <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
@@ -150,7 +148,6 @@
                                 <LocalizationTag>TEXT_RUNS_ALL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                          <!--<Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp</Link>-->
                           <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx</Link>
                           <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
@@ -456,9 +453,7 @@
                             <Icon>/Res/Images/icons/folder_edit.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -472,9 +467,7 @@
                             <Icon>/Res/Images/icons/application_edit.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -488,9 +481,7 @@
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -504,9 +495,7 @@
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -520,9 +509,7 @@
                             <Icon>/Res/Images/icons/page.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -536,9 +523,7 @@
                             <Icon>/Res/Images/icons/page_red.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -552,9 +537,7 @@
                             <Icon>/Res/Images/icons/page_green.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -568,9 +551,7 @@
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -584,9 +565,7 @@
                             <Icon>/Res/Images/icons/page_white_error.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                              <CompositeCapability name="Read Business Modeling Entities">
-                                <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                              </CompositeCapability>
+                                <Capability>View FLS Files</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

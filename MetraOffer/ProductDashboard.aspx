@@ -23,10 +23,13 @@
  
  .dc-chart g.row text {
     fill: black;
-    cursor: pointer;
+    /*cursor: pointer;*/
     font: bold 11px tahoma,arial,verdana,sans-serif;
   }
-    
+  .dc-chart g.row rect {
+  /*  fill-opacity: 0.8;*/
+    cursor: default !important;
+  }
     
     
    .x-panel-bwrap,.x-panel-body, 

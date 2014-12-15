@@ -35,14 +35,6 @@
             <Value>Parenthesis</Value>
         </locale_entry>
         <locale_entry>
-            <Name>UI/NotificationEventType/Group Subscription End Date</Name>
-            <Value>Group Subscription End Date</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>UI/NotificationEventType/Subscription End Date</Name>
-            <Value>Subscription End Date</Value>
-        </locale_entry>
-        <locale_entry>
             <Name>UI/ReportType/Chart</Name>
             <Value>Chart</Value>
         </locale_entry>

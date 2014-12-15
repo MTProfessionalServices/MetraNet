@@ -1583,7 +1583,7 @@
   </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
-        <Description>Specify access level - Read or Write (where Write includes Read access)</Description>        
+        <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
         <LocalizedItems>
           <item lang="FR">          
           <Description>[FR] Specify access level - Read or Write (where Write includes Read access)</Description>
@@ -3738,52 +3738,7 @@
       </item>	
     </LocalizedItems>
   </compositetype>
-  
-  <compositetype>
-    <name>View Data from Analytics Datamart</name>
-    <description>View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</description>
-    <editor></editor>
-    <progid>MetraTech.Auth.Capabilities.ViewAnalyticsDatamartDataCapability</progid>
-    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
-    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
-    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
-    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
-    <LocalizedItems>
-      <item lang="FR">
-      <DisplayName>[FR] View Data from Analytics Datamart</DisplayName>
-      <Description>[FR] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>
-      <item lang="IT">
-      <DisplayName>[IT] View Data from Analytics Datamart</DisplayName>
-      <Description>[IT] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>
-      <item lang="ES">
-      <DisplayName>[ES] View Data from Analytics Datamart</DisplayName>
-      <Description>[ES] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>
-      <item lang="DE">
-      <DisplayName>[DE] View Data from Analytics Datamart</DisplayName>
-      <Description>[DE] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>
-      <item lang="es-MX">
-      <DisplayName>[es-MX] View Data from Analytics Datamart</DisplayName>
-      <Description>[es-MX] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>
-      <item lang="pt-BR">
-      <DisplayName>[pt-BR] View Data from Analytics Datamart</DisplayName>
-      <Description>[pt-BR] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>
-      <item lang="en-GB">
-      <DisplayName>[en-GB] View Data from Analytics Datamart</DisplayName>
-      <Description>[en-GB] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>
-      <item lang="JA">
-      <DisplayName>[JA] View Data from Analytics Datamart</DisplayName>
-      <Description>[JA] View Data from Analytics Datamart: Permits viewing data from Analytics Datamart</Description>
-      </item>	
-    </LocalizedItems>
-  </compositetype>
-  
+ 
   <compositetype>
     <name>Update Runtime Configuration</name>
     <description>Update Runtime Configuration: Permits to update system configuration at runtime</description>
@@ -4007,6 +3962,16 @@
       <Description>[JA] Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
       </item>	
     </LocalizedItems>
+  </compositetype>
+  <compositetype>
+    <name>View Summary Financial Information</name>
+    <description>View Summary Financial Information: Allow viewing financial information through UI</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ViewSummaryFinancialInformationCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
   </compositetype>
   
 </mt_config>

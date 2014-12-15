@@ -225,4 +225,31 @@
   <text id="TEXT_BG_BILLING_GROUP_STATE_GRID_TITLE">
     <value>The current state of this Billing Group is</value>
   </text>
+  <text id="TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT">
+    <value>Billing Management</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READY_TO_RUN">
+    <value>Ready To Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READY_TO_REVERSE">
+    <value>Ready To Reverse</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_NOT_YET_RUN">
+    <value>Not Yet Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_ACKNOWLEDGE">
+    <value>Acknowledge</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_RUNNING">
+    <value>Running</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_SUCCEEDED">
+    <value>Succeeded</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_FAILED">
+    <value>Failed</value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_EXECUTE">
+    <value>Execute </value>
+  </text>
 </texts>

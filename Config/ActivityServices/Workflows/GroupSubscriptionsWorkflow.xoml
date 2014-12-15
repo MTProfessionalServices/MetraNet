@@ -414,7 +414,7 @@
 			<SetStateActivity x:Name="setStateActivity30" TargetStateName="GroupSubscriptionMembers" />
 		</EventDrivenActivity>
 	</ns2:MTPageStateActivity>
-	<ns2:MTPageStateActivity x:Name="SetUDRCValues" PageName="/MetraNet/GroupSubscriptions/SetUDRCValues.aspx">
+	<ns2:MTPageStateActivity x:Name="SetUDRCValues" PageName="/MetraNet/GroupSubscriptions/SetUDRCValuesForGroupSubscription.aspx">
 		<StateInitializationActivity x:Name="Init_SetUDRCValues">
 			<ns2:MTStateInitOutputActivity x:Name="mtStateInitOutputActivitySetUDRC" />
 			<FaultHandlersActivity x:Name="faultHandlersActivity39" />

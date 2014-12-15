@@ -47,6 +47,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   else
     Form.RouteTo = "welcome.asp"
   end if
+  Response.Cookies ("previousPage") = Form.RouteTo
 
   Form("InstanceId") = request.querystring("ID")
   Form("IntervalDescription") = request.querystring("IntervalDescription")

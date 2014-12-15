@@ -6,7 +6,7 @@
 SELECT 
   evt.id_event EventID,
   evt.tx_name EventName,
-  evt.tx_display_name EventDisplayName,
+  COALESCE(loc.tx_name, evt.tx_display_name) EventDisplayName,
   evt.tx_type EventType,
   evt.tx_reverse_mode ReverseMode,
   evt.tx_class_name ClassName,
@@ -32,6 +32,7 @@ SELECT
   CASE WHEN evt.tx_billgroup_support = 'Interval' THEN 'Y' ELSE 'N' END IsGlobalAdapter
 FROM t_recevent_inst inst
 INNER JOIN t_recevent evt ON evt.id_event = inst.id_event
+LEFT OUTER JOIN t_localized_items loc on (id_local_type = 1  /*Adapter type*/ AND id_lang_code = %%ID_LANG_CODE%% AND evt.id_event=loc.id_item)
 INNER JOIN t_usage_interval ui ON ui.id_interval = inst.id_arg_interval
 LEFT OUTER JOIN %%TMP_BILLGROUP_TABLE%% bgs ON bgs.id_billgroup = inst.id_arg_billgroup
 LEFT OUTER JOIN  
@@ -133,7 +134,8 @@ GROUP BY
   run.tx_machine,
   cur_run.tx_machine,
   batch.total,
-  warnings.total
+  warnings.total,
+  loc.tx_name
 ORDER BY
   inst.id_arg_interval ASC,
   TotalDeps ASC,

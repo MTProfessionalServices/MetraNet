@@ -11,6 +11,6 @@ VALUES
 		   ,%%ID_ITEM_SECOND_KEY%%
            ,%%ID_LANG%%
            ,'%%LOCALIZE_DISPLAY_NAME%%'
-           ,'%%LOCALIZE_DESCRIPTION%%');
+           ,'%%LOCALIZE_DESCRIPTION%%')
 
       

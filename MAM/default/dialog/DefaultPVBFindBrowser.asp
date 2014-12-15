@@ -88,7 +88,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     If Len(Request.QueryString("SearchDate")) > 0 Then
       Form("SearchDate") = CDate(Request.QueryString("SearchDate"))
     Else
-      Form("SearchDate") = mam_GetHierarchyTime()
+      Form("SearchDate") = mam_GetHierarchyTimeWithFormat()
     End IF
  
     If Len(Request.QueryString("AccountTypeName")) > 0 Then

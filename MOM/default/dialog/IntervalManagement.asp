@@ -116,12 +116,12 @@ FUNCTION Form_Refresh(EventArg)
   End If
  
   if objInterval.Status = UsageIntervalStatus_Open OR objInterval.Status = UsageIntervalStatus_Blocked Then
-    Service.Properties("Status").Value = "Open"
+    Service.Properties("Status").Value = mom_GetDictionary("TEXT_BG_STATUS_OPEN")
   else
     if objInterval.Status = UsageIntervalStatus_HardClosed Then
-      Service.Properties("Status").Value = "Hard Closed"
+      Service.Properties("Status").Value = mom_GetDictionary("TEXT_BG_STATUS_HARD_CLOSED")
     else
-      Service.Properties("Status").Value = "UNKOWN"
+      Service.Properties("Status").Value = mom_GetDictionary("TEXT_BG_STATUS_UNKOWN")
     end if
   end if
     

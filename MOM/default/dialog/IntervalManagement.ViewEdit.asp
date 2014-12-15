@@ -122,7 +122,7 @@ FUNCTION Form_Refresh(EventArg)
   end if
 
   Service.Properties("BillingGroupId").Value          = bg.BillingGroupID
-  Service.Properties("BillingGroup").Value = bg.Name
+  Service.Properties("BillingGroup").Value = mom_GetDictionary("TEXT_BG_NAME_" & UCase(Replace(bg.Name, " ", "_")))
 
   If (IsNull(bg.PartitionName) Or IsEmpty(bg.PartitionName)) Then
      mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 0
@@ -198,6 +198,7 @@ FUNCTION getRecurringEventRunHTML
   	set objUSMInstances = CreateObject("MetraTech.UsageServer.RecurringEventInstanceFilter")
 	  objUSMInstances.UsageIntervalID = idInterval
 	  objUSMInstances.BillingGroupID = idBillingGroup
+    objUSMInstances.LanguageId = Session("FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME").LanguageId
 	  set rowset = objUSMInstances.GetEndOfPeriodRowset(true, true)    
 
     dim objUSM
@@ -232,6 +233,7 @@ FUNCTION getRecurringEventRunHTML
     else  
       do while not rowset.eof
           dim sToolTip,sIcon,sStatus,sStatusCode,sInstanceId,sStyle,sTime,sSelectHTML,sLastRunActionHTML, sLastRunResultHTML
+          sLastRunActionHTML = "&nbsp;"
           sTime			= "&nbsp;"
           sToolTip		= "Component: " & rowset.value("ClassName") & vbCRLF & "Config File: " & rowset.value("ConfigFile") & vbCRLF
           sStatusCode	= rowset.value("Status")
@@ -261,17 +263,26 @@ FUNCTION getRecurringEventRunHTML
               else
                 sTime = mom_GetDurationMessage(rowset.value("LastRunStart"),rowset.value("LastRunEnd"))
               end if
-              sLastRunActionHTML = rowset.value("LastRunAction") 
+              
+              if Not IsNull(rowset.value("LastRunAction")) then
+                sLastRunActionHTML = mom_GetDictionary("TEXT_BG_RUN_ACTION_" & UCase(Replace(rowset.value("LastRunAction"), " ", "_"))) 
+              end if
+
               dim sLastRunStatus
+              sLastRunStatus = ""
               dim sLastRunDetail
               if cint(rowset.value("LastRunWarnings")) = 0 then
-                sLastRunStatus = rowset.value("LastRunStatus")
+                if Not IsNull(rowset.value("LastRunStatus")) then
+                  sLastRunStatus = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(rowset.value("LastRunStatus"), " ", "_"))) 
+                end if
                 sLastRunDetail = rowset.value("LastRunDetail")
               else
                 if sStatusCode = "Succeeded" then
                   sLastRunStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>" & "[TEXT_SUCCEEDED_WITH_WARNINGS]"
                 else
-                  sLastRunStatus = rowset.value("LastRunStatus")
+                  if Not IsNull(rowset.value("LastRunStatus")) then
+                    sLastRunStatus = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(rowset.value("LastRunStatus"), " ", "_"))) 
+                  end if
                 end if
                 sLastRunDetail = "The run generated " & rowset.value("LastRunWarnings") & " warnings." & vbNewLine & rowset.value("LastRunDetail")
               end if  
@@ -315,7 +326,7 @@ FUNCTION getRecurringEventRunHTML
             sStyle = "height: 29px;text-align:middle;vertical-align: middle;BACKGROUND-COLOR:#D6D3CE; border-bottom: silver solid 1px;	BORDER-TOP: silver solid 1px;"            
             if sStatusCode = "NotYetRun" then
               'sStatus =  "<button  style='font-weight: bold;padding: 0px 0px 0px 0px;font-size: 8px;height=18px;width=60px;' name='AcknowledgeCheckPoint' onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "Acknowledge" &  "</button>" & vbNewLine
-              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "<span style='font-size: 10px;'>Acknowledge</span>" &  "</button>" & vbNewLine
+              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "<span style='font-size: 10px;'>" & mom_GetDictionary("TEXT_BG_STATUS_CODE_ACKNOWLEDGE") & "</span>" &  "</button>" & vbNewLine
             end if
             if sStatusCode = "ReadyToRun" or sStatusCode = "Succeeded" then
               'sStatus =  "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='EditMapping' onclick=""javascript:alert('Not implemented yet... hold your horses');"">" & "Acknowledge" &  "</button>" & vbNewLine
@@ -326,6 +337,12 @@ FUNCTION getRecurringEventRunHTML
             sIcon = "../localized/en-us/images/adapter_checkpoint.gif"
           end if
 
+          dim status
+          if sInstanceId = "&nbsp;" then
+            status = sStatus
+          else
+            status = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(sStatus, " ", "_")))
+          end if
           
           if UCase(rowset.value("IsGlobalAdapter")) = "Y" then
             sHTML = sHTML & "<tr class='TableDetailCell' title='" & sToolTip & "' style='" & sStyle & "'>"
@@ -335,7 +352,7 @@ FUNCTION getRecurringEventRunHTML
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sInstanceId & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunStart")  & "&nbsp;</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunEnd") & "&nbsp;</td>"  
-            sHTML = sHTML & "<td style='" & sStyle & "'>" & sStatus & "</td>"  
+            sHTML = sHTML & "<td style='" & sStyle & "'>" & status & "</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sLastRunActionHTML  & "&nbsp;</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sTime & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("Details") & "&nbsp;</td>"
@@ -350,7 +367,7 @@ FUNCTION getRecurringEventRunHTML
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sInstanceId & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunStart")  & "&nbsp;</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunEnd") & "&nbsp;</td>"  
-            sHTML = sHTML & "<td style='" & sStyle & "'>" & sStatus & "</td>"  
+            sHTML = sHTML & "<td style='" & sStyle & "'>" & status & "</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sLastRunActionHTML  & "&nbsp;</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sTime & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("Details") & "&nbsp;</td>"

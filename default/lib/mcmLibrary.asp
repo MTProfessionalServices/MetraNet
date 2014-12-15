@@ -325,9 +325,10 @@ PRIVATE FUNCTION mcmDrawTabsForPriceableItem(sPriceableItemName,iPriceableItemKi
     
     gObjMTTabs.AddTab Framework.GetDictionary("TEXT_GENERAL_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_" & sTypeLinkName & "_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=1"
     gObjMTTabs.AddTab Framework.GetDictionary("TEXT_PARAMEETR_TABL_MAPPINGS_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_PARAMTABLE_MAPPINGS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
-    if iPriceableItemKind=40 then
-      gObjMTTabs.AddTab Framework.GetDictionary("TEXT_COUNTERS_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_DISCOUNT_COUNTERS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
-    end if    
+    'FEAT-4216  Switch/Remove Legacy Discount and Aggregate Rating In Favor Of CDE
+    'if iPriceableItemKind=40 then
+    '  gObjMTTabs.AddTab Framework.GetDictionary("TEXT_COUNTERS_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_DISCOUNT_COUNTERS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
+    'end if    
     gObjMTTabs.Tab = iSelectedTab
     
     sTabs                 = gObjMTTabs.DrawTabMenu(g_int_TAB_TOP)

@@ -64,6 +64,18 @@
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
+		 <Parameter>
+            <Name>id_display_name</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+		 <Parameter>
+            <Name>id_display_desc</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

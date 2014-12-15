@@ -7,6 +7,13 @@
 Option Explicit
 CONST MDM_CACHE_SESSION_NAME     = "MDM.CACHE"
 CONST DEFAULT_LANGUAGE = "en-us"
+'-----------------------
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
+'
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: Application_OnStart
 ' PARAMETERS	:
@@ -51,28 +58,42 @@ End Function
 ' DESCRIPTION :
 ' RETURNS		  :
 Sub Session_OnStart
+stop
+  DIM APP_FOLDER  ' As String
+  APP_FOLDER                    = server.MapPath("/mam") 
+  Dim lang, L
+  lang = DEFAULT_LANGUAGE
+     if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
+      Dim userLocale
+      userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
+      dim Languages
+      if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
+          Languages = Split(userLocale, ",", -1)
+          L = Languages(0)
+      if(not(IsEmpty(L)) or not(IsNull(L))) then 
+        lang = L 
+      end if
+      end if 
+    else
+    L = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
+    if(FolderExists(APP_FOLDER & "\default\Localized\" & LCase( L))) then
+      lang = L
+     end if
+  end if
+  
+      Session("PAGE_LANGUAGE") = lang
 
- '   if Application("PERF_GENERATE_RESULTS") then
-  '    Set session("PERF_TIMER_SCRIPT_TIMER") =  server.CreateObject("MTScriptTimer.ASPTimer")
-'
- '     'Initialize timer XML for this session, pass a unique ID
-  '    'Date & " " & Time & "[" & sessionID & "]"
-   '   Call session("PERF_TIMER_SCRIPT_TIMER").Init(Application("PERF_TIMER_MANAGER").InitializeTimerXML(Date & " " & Time & " [" & Session.SessionID & "]"))
-    'end if
-    
+
 	  Dim objMAM      ' As Object
-    DIM APP_FOLDER  ' As String
-    
+
     ' This help the mdm to know when the session time out
     Session("mdm_SESSION_ID")     = "MDM_SESSION_ID=" & Now()
-  
+
     ' Setup application start page
     Application("startPage")      = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
   
     ' Setup application virtual directory path (this may be different than the start page)
     Application("APP_HTTP_PATH")  = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
-    
-    APP_FOLDER                    = server.MapPath(application("startPage"))   ' "
   	Set objMAM                    = Server.CreateObject("MTMAM.MAM")    ' "
     Session("mdm_APP_FOLDER")     = APP_FOLDER ' Store the application folder for the mdm
 
@@ -89,6 +110,7 @@ Sub Session_OnStart
 
     
     ' It is required to load the dictionary before we initialize the MAM componant.
+    objMAM.Language= Session("PAGE_LANGUAGE")
     mam_LoadDictionary objMAM, Session("PAGE_LANGUAGE") 
 
     
@@ -103,7 +125,8 @@ Sub Session_OnStart
     
     objMAM.CSR("Language").Value                = Session("PAGE_LANGUAGE") ' Default value before we log-in
 
-    'Set the server locale
+    'Set the server locale The default is US English.
+    ' Session.LCID = = 1033 
     dim sLCID
     sLCID = Session("mdm_LOCALIZATION_DICTIONARY").Item("SESSION_LCID")
     if len(rtrim(ltrim(sLCID)))>0 then

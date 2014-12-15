@@ -141,4 +141,70 @@
   <text id="TEXT_SUCCEEDED">
     <value>Succeeded</value>
   </text>
+  <text id="TEXT_BG_TITLE_INTERVAL">
+    <value>Interval</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_MONTHLY">
+    <value>Monthly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_DAILY">
+    <value>Daily</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_WEEKLY">
+    <value>Weekly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_BIWEEKLY">
+    <value>BiWeekly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_QUARTERLY">
+    <value>Quarterly</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_SEMI_ANNUAL">
+    <value>Semi-Annually</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ANNUAL">
+    <value>Annual</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ALL">
+    <value>All</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ERROR">
+    <value>(unknown cycle type)</value>
+  </text>
+  <text id="TEXT_BG_STATUS_OPEN">
+    <value>Open</value>
+  </text>
+  <text id="TEXT_BG_STATUS_HARD_CLOSED">
+    <value>Hard Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_SOFT_CLOSED">
+    <value>Soft Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_UNKOWN">
+    <value>UNKOWN</value>
+  </text>
+  <text id="TEXT_BG_NAME_DEFAULT">
+    <value>Default</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_DEFAULT">
+    <value>Accounts that did not match other billing group rules</value>
+  </text>
+  <text id="TEXT_BG_NAME_EUROPE">
+    <value>Europe</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_EUROPE">
+    <value>Accounts with Bill-To addresses residing in an European country</value>
+  </text>
+  <text id="TEXT_BG_NAME_NORTH_AMERICA">
+    <value>North America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_NORTH_AMERICA">
+    <value>Accounts with Bill-To addresses residing in a North American country</value>
+  </text>
+  <text id="TEXT_BG_NAME_SOUTH_AMERICA">
+    <value>South America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
+    <value>Accounts with Bill-To addresses residing in a South American country</value>
+  </text>
 </texts>

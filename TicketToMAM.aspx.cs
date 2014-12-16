@@ -23,13 +23,9 @@ public partial class UserControls_ticketToMAM : MTPage
     var gotoURL = Request.QueryString["URL"].Replace("|", "?").Replace("**", "&");
     try
     {
-      if (gotoURL.Contains("?"))
-        gotoURL = gotoURL + "&language=" + GetLanguageCode();
-      else
-        gotoURL = gotoURL + "?language=" + GetLanguageCode();
-      ApiInput input = new ApiInput(gotoURL);
-      SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(
-        AccessControllerEngineCategory.UrlController.ToString(), input);
+      gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "language=" + Session["MTSelectedLanguage"];
+      var input = new ApiInput(gotoURL);
+      SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
     }
     catch (AccessControllerException accessExp)
     {
@@ -41,23 +37,14 @@ public partial class UserControls_ticketToMAM : MTPage
       Session[Constants.ERROR] = exp.Message;
       throw;
     }
-
+       
     HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
     var auth = new Auth();
-    auth.InitializeWithLanguage(UI.User.UserName, UI.User.NameSpace,
-                                Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)));
+    auth.Initialize(UI.User.UserName, UI.User.NameSpace, UI.User.UserName,
+                    "MetraNet", Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)));
 
     var accountId = UI.Subscriber.SelectedAccount == null ? 0 : int.Parse(UI.Subscriber["_AccountID"]);
     URL = auth.CreateEntryPoint("mam", "system_user", accountId, gotoURL, false, true);
-
-    if (UI.Subscriber.SelectedAccount != null)
-    {
-      URL = auth.CreateEntryPoint("mam", "system_user", int.Parse(UI.Subscriber["_AccountID"]), gotoURL, false, true);
-    }
-    else
-    {
-      URL = auth.CreateEntryPoint("mam", "system_user", 0, gotoURL, false, true);
-    }
   }
 }

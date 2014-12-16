@@ -57,7 +57,15 @@ function onDetails()
         </div>
         <div class="clearer"><!--important--></div>
 
-    <a href="Login.aspx?l=en-US">English (US)</a> &middot; <a href="Login.aspx?l=en-GB">English (GB)</a> &middot; <a href="Login.aspx?l=fr-FR">Français (France)</a> &middot; <a href="Login.aspx?l=de-DE">Deutsch</a> &middot; <a href="Login.aspx?l=it">Italiano</a>&middot; <a href="Login.aspx?l=es">Español</a> &middot; <a href="Login.aspx?l=ja">日本語</a>&middot; <a href="Login.aspx?l=pt-br">Portuguese-Brazil</a>&middot; <a href="Login.aspx?l=es-mx">Spanish-Mexican</a>
+    <a href="Login.aspx?l=en-US">English (US)</a> &middot; 
+    <a href="Login.aspx?l=en-GB">English (GB)</a> &middot; 
+    <a href="Login.aspx?l=fr-FR">Français</a> &middot; 
+    <a href="Login.aspx?l=de-DE">Deutsch</a> &middot; 
+    <a href="Login.aspx?l=es">Español</a> &middot; 
+    <a href="Login.aspx?l=ja">日本語</a>&middot; 
+    <a href="Login.aspx?l=pt-br">Português (Brazil)</a>&middot; 
+    <a href="Login.aspx?l=it">Italiano</a>&middot; 
+    <a href="Login.aspx?l=es-mx">Español (México)</a>
         
   </div>
       <!--/box500-->

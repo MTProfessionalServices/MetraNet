@@ -17,7 +17,7 @@ public partial class AdapterInstanceInformation : MTPage
   protected string BillingGroupId;
   protected string IntervalId;
   private string _reverseMode;
-  private string DisableActions;
+  private string _disableActions;
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -30,7 +30,7 @@ public partial class AdapterInstanceInformation : MTPage
     InstanceId = Request["ID"];
     IntervalId = Request["IntervalId"];
     BillingGroupId = Request["BillingGroupId"];
-    DisableActions = Request["DisableActions"];
+    _disableActions = Request["DisableActions"];
     btnRefresh.Text = Resources.JSConsts.TEXT_NOWCAST_REFRESH;
     btnCancel.Text = Resources.JSConsts.TEXT_CANCEL;
 
@@ -115,7 +115,7 @@ public partial class AdapterInstanceInformation : MTPage
     if (_reverseMode == "NotImplemented")
       bShowReverseOption = false;
 
-    if (DisableActions == "true")
+    if (_disableActions == "true")
     {
       bShowReverseOption = false;
       bShowRunOption = false;
@@ -156,54 +156,88 @@ public partial class AdapterInstanceInformation : MTPage
 
   protected void btnRunAdapters_Click(object sender, EventArgs e)
   {
-    var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
+    try
+    {
+      var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
 
-    usmClient.SubmitEventForExecution(Convert.ToInt32(InstanceId), false, "");
-    usmClient.NotifyServiceOfSubmittedEvents();
+      usmClient.SubmitEventForExecution(Convert.ToInt32(InstanceId), false, "");
+      usmClient.NotifyServiceOfSubmittedEvents();
+    }
+    catch (Exception ex)
+    {
+      SetError(ex.Message);
+    }
     InitControls();
   }
 
   protected void btnRunAdaptersLater_Click(object sender, EventArgs e)
   {
-    DateTime laterOn;
-    if (String.IsNullOrEmpty(dtRunRevertOn.Text) ||
-        !DateTime.TryParse(dtRunRevertOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
-      return;
+    try
+    {
+      DateTime laterOn;
+      if (String.IsNullOrEmpty(dtRunRevertOn.Text) ||
+          !DateTime.TryParse(dtRunRevertOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
+        return;
 
-    var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
-    usmClient.SubmitEventForExecution(Convert.ToInt32(InstanceId), false, laterOn, "");
-    usmClient.NotifyServiceOfSubmittedEvents();
+      var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
+      usmClient.SubmitEventForExecution(Convert.ToInt32(InstanceId), false, laterOn, "");
+      usmClient.NotifyServiceOfSubmittedEvents();
+    }
+    catch (Exception ex)
+    {
+      SetError(ex.Message);
+    }
     InitControls();
   }
 
   protected void btnRevertAdapters_Click(object sender, EventArgs e)
   {
-    var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
+    try
+    {
+      var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
 
-    usmClient.SubmitEventForReversal(Convert.ToInt32(InstanceId), false, "");
-    usmClient.NotifyServiceOfSubmittedEvents();
+      usmClient.SubmitEventForReversal(Convert.ToInt32(InstanceId), false, "");
+      usmClient.NotifyServiceOfSubmittedEvents();
+    }
+    catch (Exception ex)
+    {
+      SetError(ex.Message);
+    }
     InitControls();
   }
 
   protected void btnRevertAdaptersLater_Click(object sender, EventArgs e)
   {
-    DateTime laterOn;
-    if (String.IsNullOrEmpty(dtRunRevertOn.Text) ||
-        !DateTime.TryParse(dtRunRevertOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
-      return;
+    try
+    {
+      DateTime laterOn;
+      if (String.IsNullOrEmpty(dtRunRevertOn.Text) ||
+          !DateTime.TryParse(dtRunRevertOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
+        return;
 
-    var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
-    usmClient.SubmitEventForReversal(Convert.ToInt32(InstanceId), false, laterOn, "");
-    usmClient.NotifyServiceOfSubmittedEvents();
+      var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
+      usmClient.SubmitEventForReversal(Convert.ToInt32(InstanceId), false, laterOn, "");
+      usmClient.NotifyServiceOfSubmittedEvents();
+    }
+    catch (Exception ex)
+    {
+      SetError(ex.Message);
+    }
     InitControls();
   }
 
   protected void btnCancelSubmittedAction_Click(object sender, EventArgs e)
   {
-    var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
-
-    usmClient.CancelSubmittedEvent(Convert.ToInt32(InstanceId), "");
-    usmClient.NotifyServiceOfSubmittedEvents();
+    try
+    {
+      var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
+      usmClient.CancelSubmittedEvent(Convert.ToInt32(InstanceId), "");
+      usmClient.NotifyServiceOfSubmittedEvents();
+    }
+    catch (Exception ex)
+    {
+      SetError(ex.Message);
+    }
     InitControls();
   }
 
@@ -214,8 +248,8 @@ public partial class AdapterInstanceInformation : MTPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    var returnUrl = !String.IsNullOrEmpty(Request.QueryString["ReturnUrl"]) 
-                  ? Request.QueryString["ReturnUrl"] 
+    var returnUrl = !String.IsNullOrEmpty(Request.QueryString["ReturnUrl"])
+                  ? Request.QueryString["ReturnUrl"]
                   : Request.Url.AbsolutePath.Remove(Request.Url.AbsolutePath.IndexOf(Request.ApplicationPath, StringComparison.InvariantCulture) + Request.ApplicationPath.Length);
     Response.Redirect(returnUrl, false);
   }

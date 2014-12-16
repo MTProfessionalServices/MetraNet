@@ -285,7 +285,7 @@ CLASS CTransactionUIFinder
                 If Prop.Core = FALSE Then ' Exclude properties coming from t_acc_usage
                       
                       strDisplayName = Empty
-                      ProductView.Tools.GetLocalizedString MAM().Language,ProductViewFQN & "/" & Prop.dn,strDisplayName
+                      ProductView.Tools.GetLocalizedString MAM().CSR("Language").Value,ProductViewFQN & "/" & Prop.dn,strDisplayName
                       If Len(strDisplayName) = 0 Then strDisplayName = Prop.dn
     
                       strMSIXType = mdm_ComputeMSIXHandlerPropertyTypeAsString(Prop.DataType)

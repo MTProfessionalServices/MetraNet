@@ -136,6 +136,7 @@ public partial class AdapterInstanceInformation : MTPage
         int paramValue;
         Int32.TryParse(InstanceId, out paramValue);
         stmt.AddParam("%%ID_INSTANCE%%", paramValue);
+        stmt.AddParam("%%ID_LANG_CODE%%", UI.SessionContext.LanguageID);
 
         using (var reader = stmt.ExecuteReader())
         {
@@ -143,7 +144,7 @@ public partial class AdapterInstanceInformation : MTPage
           {
             Status = reader.IsDBNull("Status") ? "" : reader.GetString("Status");
             StatusText = MetraNet.Formatters.GetAdapterInstanceStatusMessage(Status, reader.IsDBNull("EffectiveDate") ? (DateTime?)null : reader.GetDateTime("EffectiveDate"));
-            DisplayName = reader.IsDBNull("DisplayName") ? "" : HttpUtility.HtmlEncode(reader.GetString("DisplayName"));
+            DisplayName = reader.IsDBNull("tx_display_name") ? "" : HttpUtility.HtmlEncode(reader.GetString("tx_display_name"));
             DisplayNameEncoded = HttpUtility.UrlEncode(DisplayName);
             _reverseMode = reader.IsDBNull("ReverseMode") ? "" : reader.GetString("ReverseMode");
             ArgStartDate = reader.IsDBNull("ArgStartDate") ? "" : reader.GetDateTime("ArgStartDate").ToString(Thread.CurrentThread.CurrentUICulture);

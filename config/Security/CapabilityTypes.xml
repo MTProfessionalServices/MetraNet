@@ -82,28 +82,28 @@
         <Description>Specify access to hierarchy branches</Description>
         <LocalizedItems>
           <item lang="FR">          
-          <Description>[FR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[FR] Specify access to hierarchy branches</Description>
           </item>
           <item lang="IT">          
-          <Description>[IT] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[IT] Specify access to hierarchy branches</Description>
           </item>
           <item lang="ES">
-          <Description>[ES] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[ES] Specify access to hierarchy branches</Description>
           </item>
           <item lang="DE">
-          <Description>[DE] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[DE] Specify access to hierarchy branches</Description>
           </item>
           <item lang="es-MX">
-          <Description>[es-MX] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[es-MX] Specify access to hierarchy branches</Description>
           </item>
           <item lang="pt-BR">
-          <Description>[pt-BR] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[pt-BR] Specify access to hierarchy branches</Description>
           </item>
           <item lang="en-GB">
-          <Description>[en-GB] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[en-GB] Specify access to hierarchy branches</Description>
           </item>
           <item lang="JA">
-          <Description>[JA] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          <Description>[JA] Specify access to hierarchy branches</Description>
           </item>	
         </LocalizedItems>
       </mtpathcapability>
@@ -2244,35 +2244,35 @@
   <LocalizedItems>
     <item lang="FR">
     <DisplayName>[FR] Manage EOP Adapters</DisplayName>
-    <Description>[FR] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[FR] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>
     <item lang="IT">
     <DisplayName>[IT] Manage EOP Adapters</DisplayName>
-    <Description>[IT] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[IT] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>
     <item lang="ES">
     <DisplayName>[ES] Manage EOP Adapters</DisplayName>
-    <Description>[ES] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[ES] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>
     <item lang="DE">
     <DisplayName>[DE] Manage EOP Adapters</DisplayName>
-    <Description>[DE] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[DE] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>
     <item lang="es-MX">
     <DisplayName>[es-MX] Manage EOP Adapters</DisplayName>
-    <Description>[es-MX] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[es-MX] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>
     <item lang="pt-BR">
     <DisplayName>[pt-BR] Manage EOP Adapters</DisplayName>
-    <Description>[pt-BR] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[pt-BR] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage EOP Adapters</DisplayName>
-    <Description>[en-GB] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[en-GB] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>
     <item lang="JA">
     <DisplayName>[JA] Manage EOP Adapters</DisplayName>
-    <Description>[JA] Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>[JA] Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
     </item>	
   </LocalizedItems>
 </compositetype>
@@ -2334,35 +2334,35 @@
   <LocalizedItems>
     <item lang="FR">
     <DisplayName>[FR] Manage Backouts and Reruns</DisplayName>
-    <Description>[FR] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[FR] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>
     <item lang="IT">
     <DisplayName>[IT] Manage Backouts and Reruns</DisplayName>
-    <Description>[IT] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[IT] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>
     <item lang="ES">
     <DisplayName>[ES] Manage Backouts and Reruns</DisplayName>
-    <Description>[ES] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[ES] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>
     <item lang="DE">
     <DisplayName>[DE] Manage Backouts and Reruns</DisplayName>
-    <Description>[DE] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[DE] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>
     <item lang="es-MX">
     <DisplayName>[es-MX] Manage Backouts and Reruns</DisplayName>
-    <Description>[es-MX] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[es-MX] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>
     <item lang="pt-BR">
     <DisplayName>[pt-BR] Manage Backouts and Reruns</DisplayName>
-    <Description>[pt-BR] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[pt-BR] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Backouts and Reruns</DisplayName>
-    <Description>[en-GB] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[en-GB] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>
     <item lang="JA">
     <DisplayName>[JA] Manage Backouts and Reruns</DisplayName>
-    <Description>[JA] >Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>[JA] Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
     </item>	
   </LocalizedItems>
 </compositetype>

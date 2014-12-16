@@ -1107,16 +1107,6 @@ PRIVATE FUNCTION mam_GetHierarchyTime()
 End Function
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
-' FUNCTION		: mam_GetHierarchyTime
-' DESCRIPTION	: Gets the time set in the hierarchy pane.
-' PARAMETERS	:
-' RETURNS		  :
-PRIVATE FUNCTION mam_GetHierarchyTimeNotFormatted() 
-    mam_GetHierarchyTimeNotFormatted = CDate(mdm_GetGMTTimeFormatted("MM/dd/yyyy") & " " & mam_GetDictionary("END_OF_DAY"))
-
-End Function
-
-' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION		: mam_GetSystemUserHierarchyTime
 ' DESCRIPTION	: Gets the time set in the system user hierarchy pane.
 ' PARAMETERS	:

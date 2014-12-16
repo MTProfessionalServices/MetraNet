@@ -28,7 +28,7 @@
         StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_DAY")%>', record.data.interval, getCorrectTime(record.data.executiontimes));
         break;
       case "monthly":
-        StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_MONTH")%>', record.data.interval, getCorrectTime(record.data.executiontimes), record.data.daysofmonth);
+        StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_MONTH")%>', record.data.interval, getCorrectTime(record.data.executiontimes), getCorrectMonthlyDay(record.data.daysofmonth));
         break;
       case "weekly":
         StrScheduleName = String.format('<%=GetLocalResourceObject("TEXT_SCHEDULE_WEEK")%>', record.data.interval, getCorrectTime(record.data.executiontimes), getCorrectWeekDay(record.data.daysofweek));
@@ -108,6 +108,40 @@
         //localize week day
         res += d.toLocaleString(CURRENT_LOCALE, { weekday: 'short' });
       }
+      return res;
+    }
+
+     function getLocaleWeekDay(weekDay) {
+      var d = new Date("01/01/2001");
+        
+        //looking for a match of the day in en-US culture                                                     
+        for (var j = 0; j < 7; j++) {
+          //if match found exit the loop 
+          if (d.toLocaleString("en-US", { weekday: 'long' }).localeCompare(weekDay.replace(" ", "")) == 0) {
+            break;
+          }
+          d.setDate(d.getDate() + 1);
+        }
+      
+      return d.toLocaleString(CURRENT_LOCALE, { weekday: 'long' });
+    }
+
+
+    function getCorrectMonthlyDay(enMonthlyDays) {
+      var dayOfMonthList = enMonthlyDays.split(',');
+      var res = "";
+      
+      for (var i = 0; i < dayOfMonthList.length; i++) {
+        var strDay = dayOfMonthList[i].trim().split(' ');
+        if (res.length > 1) res += ", ";
+        if (strDay.length > 1) {
+          res += window["TEXT_" + strDay[0].toUpperCase()];
+          res += " " + getLocaleWeekDay(strDay[1]);
+        } else {
+          res += dayOfMonthList[i];
+        }
+      }
+      
       return res;
     }
 

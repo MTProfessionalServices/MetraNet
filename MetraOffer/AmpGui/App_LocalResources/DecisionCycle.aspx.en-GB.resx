@@ -196,7 +196,7 @@
     <value>Error: You must specify the number of units in the Decision Cycle.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL" xml:space="preserve">
-    <value>Error: You must specify the Decision Cycle's offset from the subscription start.</value>
+    <value>Error: You must specify the Decision Cycles offset from the subscription start.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
     <value>Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>

@@ -1380,4 +1380,22 @@
   <data name="TEXT_VIEW_ALL" xml:space="preserve">
     <value>[IT]View All...</value>
   </data>
+  <data name="TEXT_DAY" xml:space="preserve">
+    <value>Giorno</value>
+  </data>
+  <data name="TEXT_FIRST" xml:space="preserve">
+    <value>Primo</value>
+  </data>
+  <data name="TEXT_FOURTH" xml:space="preserve">
+    <value>Quarto</value>
+  </data>
+  <data name="TEXT_LAST" xml:space="preserve">
+    <value>Ultimo</value>
+  </data>
+  <data name="TEXT_SECOND" xml:space="preserve">
+    <value>Secondo</value>
+  </data>
+  <data name="TEXT_THIRD" xml:space="preserve">
+    <value>Terzo</value>
+  </data>
 </root>

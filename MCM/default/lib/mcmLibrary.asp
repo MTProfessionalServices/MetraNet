@@ -463,4 +463,26 @@ PRIVATE FUNCTION mcm_DefaultFilterValueHandler(sValue)
   end if
   
 END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		:
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mcm_GetDictionary(strName) ' As String
+	  mcm_GetDictionary = Session("mdm_LOCALIZATION_DICTIONARY").item(strName).value
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mcm_FormatDate(strValue) 
+' PARAMETERS	: Format the date.
+' DESCRIPTION :
+' RETURNS			:
+Public Function mcm_FormatDate(varValue, varFormat)
+  if len(varFormat) = 0 then
+    mcm_FormatDate = FrameWork.MSIXTools.Format(varValue, mcm_GetDictionary("DATE_FORMAT"))
+  else
+    mcm_FormatDate = FrameWork.MSIXTools.Format(varValue, varFormat)
+  end if
+End Function
 %>

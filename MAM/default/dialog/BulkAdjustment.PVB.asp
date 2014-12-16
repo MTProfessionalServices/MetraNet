@@ -101,12 +101,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
                         
       Service.Properties.TimeZoneId                              = MAM().CSR("TimeZoneId") ' Set the TimeZone, so the dates will be printed for the CSR time zone
       Service.Properties.DayLightSaving                          = mam_GetDictionary("DAY_LIGHT_SAVING")
-      Service.Properties("Timestamp").Format                     =  FrameWork.GetDictionary("DATE_TIME_FORMAT")
-      Service.Properties("c_RCIntervalSubscriptionStart").Format  = FrameWork.GetDictionary("DATE_TIME_FORMAT")
-      Service.Properties("c_RCIntervalSubscriptionEnd").Format  = FrameWork.GetDictionary("DATE_TIME_FORMAT")
-      Service.Properties("c_RCIntervalEnd").Format  = FrameWork.GetDictionary("DATE_TIME_FORMAT")
-      Service.Properties("c_ProratedIntervalEnd").Format  = FrameWork.GetDictionary("DATE_TIME_FORMAT")
-        Service.Properties("c_ProratedIntervalStart").Format = FrameWork.GetDictionary("DATE_TIME_FORMAT")
+      
       Set Form.Grid.PropertyID = ProductView.Properties("SessionID")
       mdm_SetMultiColumnFilteringMode TRUE
       

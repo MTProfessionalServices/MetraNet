@@ -105,11 +105,6 @@
         <description>The add independent account dialog.</description>
       </link>     
       
-      <link id="ADD_ACCOUNT_INFO_DIALOG">      
-        <value>[APP_HTTP_PATH]/default/dialog/DefaultDialogAddAccount.asp?MDMReload=TRUE</value>
-        <description>The add account dialog.</description>
-      </link>     
-      
       <link id="SUMMARY_ACCOUNT_INFO_DIALOG">      
         <value>[APP_HTTP_PATH]/default/dialog/GotoSummary.asp</value>
         <description>The account summary dialog, routes to the correct dialog based on Account Type</description>            
@@ -123,11 +118,6 @@
       <link id='SEND_EMAIL_DIALOG'>    
         <value>[APP_HTTP_PATH]/SendEMailToSubscriber.asp</value>
         <description>The send email function. Note : this is not a MAM dialog.</description>
-      </link>
-      
-      <link id='CREDIT_REQUESTS_BROWSER'>      
-        <value>[APP_HTTP_PATH]/default/dialog/DefaultPVBCreditRequest.asp</value>            
-        <description>Credit request product view browser.</description>            
       </link>
       
       <link id='PREFERENCE_DIALOG'>      
@@ -145,7 +135,7 @@
         <description>Mapping browser dialog.</description>
       </link>             
       
-
+                
       <link id="UPDATE_CSR_DIALOG">
         <value>[APP_HTTP_PATH]/default/dialog/DefaultDialogUpdateCSR.asp</value> 
         <description>Update CSR dialog.</description>
@@ -178,12 +168,6 @@
         <description>Find subscriber browser in popup form.</description>
       </link> 
       
-      <link id='ISSUE_CREDIT_FROM_REQUEST'>      
-        <value>[APP_HTTP_PATH]/default/dialog/DefaultDialogIssueCreditFromRequest.asp</value> 
-        <description>Issue a credit from a request dialog</description>            
-      </link>
-      
-
       <link id="APPLICATION_LOG_BROWSER">
         <value>[APP_HTTP_PATH]/default/dialog/DefaultPVBApplicationAuditLog.asp</value> 
         <description>Audit log product view browser. Browse for all the accounts.</description>

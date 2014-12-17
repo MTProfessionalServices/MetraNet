@@ -455,8 +455,8 @@ PUBLIC FUNCTION SetMSIXPropertyTypeToProrationLengthOnEnumType(objMSIXProperty)
     
     ' Temporary Syntax
     Set  objProrateOnEnumType = mdm_CreateObject(CVariables)    
-     objProrateOnEnumType.Add "Actual" , PRORATE_ACTUAL_LENGTH , , , "Actual"
-     objProrateOnEnumType.Add "Fixed", PRORATE_FIXED_LENGTH, , , "Fixed"
+     objProrateOnEnumType.Add "Actual" , PRORATE_ACTUAL_LENGTH , , , FrameWork.GetDictionary("TEXT_ACTUAL") '"Actual"
+     objProrateOnEnumType.Add "Fixed", PRORATE_FIXED_LENGTH, , , FrameWork.GetDictionary("TEXT_FIXED") '"Fixed"
     
     ' Associate the Cvariables object to the MSIX Properties
     objMSIXProperty.AddValidListOfValues  objProrateOnEnumType

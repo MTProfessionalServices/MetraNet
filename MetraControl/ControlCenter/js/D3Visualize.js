@@ -334,7 +334,7 @@ function fnVisualizeLineChart2(objLineChartConfig) {
                   var body = d3.select("body");
                   var tmp = body.append("div")
                   .attr("class", "d3-tip e")
-                  .attr("id", "_" +x(d.x_axis) + "_" + y(d.y_axis))
+                  .attr("id", "_" +parseInt(x(d.x_axis) , 10)+ "_" + parseInt(y(d.y_axis), 10))
                   .style("top","\""+x(d.x_axis)+"\"")
                   .style("left","\""+y(d.y_axis)+"\"")
                   .style("position", "absolute")

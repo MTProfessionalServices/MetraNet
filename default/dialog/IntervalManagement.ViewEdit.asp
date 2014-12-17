@@ -59,6 +59,7 @@ FUNCTION Form_Initialize(EventArg)
                         
   Service.Properties.Add "IntervalId", "string", 0, TRUE ,Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalStatus", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "IntervalStatusNotLocalized", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalStatusIcon", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalType", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalStartDateTime", MSIXDEF_TYPE_TIMESTAMP, 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
@@ -152,17 +153,20 @@ FUNCTION Form_Refresh(EventArg)
     case BillingGroupStatus_Open
       bShowChangeIntervalStateLink = true  
       Service.Properties("IntervalStatus").Value = mom_GetDictionary("TEXT_INTERVAL_STATE_OPEN")
+      Service.Properties("IntervalStatusNotLocalized").Value = "Open"
     case BillingGroupStatus_SoftClosed
       bShowChangeIntervalStateLink = objUSM.CanOpenBillingGroup(Service.Properties("BillingGroupID").Value)
       Service.Properties("IntervalStatus").Value = mom_GetDictionary("TEXT_INTERVAL_STATE_SOFT_CLOSED")
+      Service.Properties("IntervalStatusNotLocalized").Value = "Soft Closed"
     case BillingGroupStatus_HardClosed  
       bShowChangeIntervalStateLink = objUSM.CanOpenBillingGroup(Service.Properties("BillingGroupID").Value)    
       Service.Properties("IntervalStatus").Value = mom_GetDictionary("TEXT_INTERVAL_STATE_HARD_CLOSED")
+      Service.Properties("IntervalStatusNotLocalized").Value = "Hard Closed"
       bShowCreatePullListLink=false
   end select
   
   if bShowChangeIntervalStateLink then
-    Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;<A href=""#"" onclick=""window.open('IntervalManagement.StateChange.asp?MDMReload=TRUE&BillingGroupID=" & Service.Properties("BillingGroupID").Value & "&IntervalId=" & Service.Properties("IntervalId").Value & "&State=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&StateName=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&IntervalEndDate=" & Server.UrlEncode(Service.Properties("IntervalEndDateTime").Value) & "','', 'height=500,width=650, resizable=yes, scrollbars=yes, status=yes')"">" & "[TEXT_CHANGE_STATE]" &  "</A>"
+    Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;<A href=""#"" onclick=""window.open('IntervalManagement.StateChange.asp?MDMReload=TRUE&BillingGroupID=" & Service.Properties("BillingGroupID").Value & "&IntervalId=" & Service.Properties("IntervalId").Value & "&State=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&StateName=" & Server.URLEncode(Service.Properties("IntervalStatusNotLocalized").Value) & "&IntervalEndDate=" & Server.UrlEncode(Service.Properties("IntervalEndDateTime").Value) & "','', 'height=500,width=650, resizable=yes, scrollbars=yes, status=yes')"">" & "[TEXT_CHANGE_STATE]" &  "</A>"
   else 
     if bg.CanBeHardClosed then
       Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);return false;"">" & "<span style='font-size: 10px;'>[TEXT_FORCE_HARD_CLOSE]</span>" &  "</button>"

@@ -1,12 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <mt_config>
-
-<applicabilityrule>
-  <name>IsTransactionPrebill</name>
-  <description>Returns TRUE if a transaction belongs to an open interval</description>
-  <displayname>Returns TRUE if a transaction belongs to an open interval</displayname>
-  <calculationengine>1</calculationengine>
-  <formula>
-    <![CDATA[
+    <applicabilityrule>
+        <name>IsTransactionPrebill</name>
+        <description>Returns TRUE if a transaction belongs to an open interval</description>
+        <DisplayDescriptions>
+            <language name="US">[US]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="DE">[DE]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="IT">[IT]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="JP">[JP]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="ES">[ES]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="GB">[GB]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="MX">[MX]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="BR">[BR]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="DA">[DA]Returns TRUE if a transaction belongs to an open interval</language>
+        </DisplayDescriptions>
+        <displayname>Returns TRUE if a transaction belongs to an open interval</displayname>
+        <DisplayNames>
+            <language name="US">[US]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="DE">[DE]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="IT">[IT]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="JP">[JP]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="ES">[ES]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="GB">[GB]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="MX">[MX]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="BR">[BR]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="DA">[DA]Returns TRUE if a transaction belongs to an open interval</language>
+        </DisplayNames>
+        <calculationengine>1</calculationengine>
+        <formula><![CDATA[
     CREATE PROCEDURE ApplicabilityRule
     --inputs
     @id_sess INTEGER
@@ -17,17 +40,38 @@
     SELECT IsPrebill INTO @sPrebill FROM VW_AJ_INFO
     WHERE id_sess = @id_sess
     SET @IsApplicable = CASE WHEN (@sPrebill = 'Y') THEN TRUE ELSE FALSE END;
-    ]]>
-  </formula>
-</applicabilityrule>
-
-<applicabilityrule>
-  <name>IsTransactionPostbill</name>
-  <description>Returns TRUE if a transaction belongs to a closed interval</description>
-  <displayname>Returns TRUE if a transaction belongs to a closed interval</displayname>
-  <calculationengine>1</calculationengine>
-  <formula>
-    <![CDATA[
+    ]]></formula>
+    </applicabilityrule>
+    <applicabilityrule>
+        <name>IsTransactionPostbill</name>
+        <description>Returns TRUE if a transaction belongs to a closed interval</description>
+        <DisplayDescriptions>
+            <language name="US">[US]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="DE">[DE]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="IT">[IT]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="JP">[JP]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="ES">[ES]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="GB">[GB]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="MX">[MX]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="BR">[BR]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="DA">[DA]Returns TRUE if a transaction belongs to a closed interval</language>
+        </DisplayDescriptions>
+        <displayname>Returns TRUE if a transaction belongs to a closed interval</displayname>
+        <DisplayNames>
+            <language name="US">[US]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="DE">[DE]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="IT">[IT]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="JP">[JP]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="ES">[ES]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="GB">[GB]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="MX">[MX]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="BR">[BR]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="DA">[DA]Returns TRUE if a transaction belongs to a closed interval</language>
+        </DisplayNames>
+        <calculationengine>1</calculationengine>
+        <formula><![CDATA[
     CREATE PROCEDURE ApplicabilityRule
     --inputs
     @id_sess INTEGER
@@ -38,8 +82,6 @@
     SELECT IsPrebill INTO @sPrebill FROM VW_AJ_INFO
     WHERE id_sess = @id_sess
     SET @IsApplicable = CASE WHEN (@sPrebill = 'N') THEN TRUE ELSE FALSE END;
-    ]]>
-  </formula>
-</applicabilityrule>
-
+    ]]></formula>
+    </applicabilityrule>
 </mt_config>

@@ -1,29 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <priceable_item>
-  <name>Percent Discount</name>
-  <description>Percent discount based on one qualifer and calculated against one target</description>
-  <item_type>discount</item_type>
-  <relationships>
-    <parent></parent>
-  </relationships>
-  <parameter_table>metratech.com/PercentDiscount</parameter_table>
-  <counters>
-    <cpd>
-      <name>Qualifier</name>
-      <display_name>Counter used to qualify for discount</display_name>
-      <service_property>c_Qualifier</service_property>
-      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
-    </cpd>
-    <cpd>
-      <name>Target</name>
-      <display_name>Counter used to distribute discount</display_name>
-      <service_property>c_Target</service_property>
-      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
-    </cpd>
-  </counters>
-  <pipeline>
-    <service_definition>metratech.com/PercentDiscount</service_definition>
-    <product_view>metratech.com/PercentDiscount</product_view>
-  </pipeline>
+    <name>Percent Discount</name>
+    <DisplayNames>
+        <language name="US">[US]Percent Discount</language>
+        <language name="DE">[DE]Percent Discount</language>
+        <language name="FR">[FR]Percent Discount</language>
+        <language name="IT">[IT]Percent Discount</language>
+        <language name="JP">[JP]Percent Discount</language>
+        <language name="ES">[ES]Percent Discount</language>
+        <language name="GB">[GB]Percent Discount</language>
+        <language name="MX">[MX]Percent Discount</language>
+        <language name="BR">[BR]Percent Discount</language>
+        <language name="DA">[DA]Percent Discount</language>
+    </DisplayNames>
+    <description>Percent discount based on one qualifer and calculated against one target</description>
+    <DisplayDescriptions>
+        <language name="US">[US]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="DE">[DE]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="FR">[FR]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="IT">[IT]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="JP">[JP]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="ES">[ES]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="GB">[GB]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="MX">[MX]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="BR">[BR]Percent discount based on one qualifer and calculated against one target</language>
+        <language name="DA">[DA]Percent discount based on one qualifer and calculated against one target</language>
+    </DisplayDescriptions>
+    <item_type>discount</item_type>
+    <relationships>
+        <parent></parent>
+    </relationships>
+    <parameter_table>metratech.com/PercentDiscount</parameter_table>
+    <counters>
+        <cpd>
+            <name>Qualifier</name>
+            <display_name>Counter used to qualify for discount</display_name>
+            <service_property>c_Qualifier</service_property>
+            <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+        </cpd>
+        <cpd>
+            <name>Target</name>
+            <display_name>Counter used to distribute discount</display_name>
+            <service_property>c_Target</service_property>
+            <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+        </cpd>
+    </counters>
+    <pipeline>
+        <service_definition>metratech.com/PercentDiscount</service_definition>
+        <product_view>metratech.com/PercentDiscount</product_view>
+    </pipeline>
 </priceable_item>

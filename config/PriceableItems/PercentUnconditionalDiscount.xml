@@ -1,23 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <priceable_item>
-  <name>Percent Unconditional Discount</name>
-  <description>Unconditional Percent discount calculated against one target</description>
-  <item_type>discount</item_type>
-  <relationships>
-    <parent></parent>
-  </relationships>
-  <parameter_table>metratech.com/PercentDiscount_NoCond</parameter_table>
-  <counters>
-    <cpd>
-      <name>Target</name>
-      <display_name>Counter used to distribute discount</display_name>
-      <service_property>c_Target</service_property>
-      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
-    </cpd>
-  </counters>
-  <pipeline>
-    <service_definition>metratech.com/PercentDiscount_NoCond</service_definition>
-    <product_view>metratech.com/PercentDiscount_NoCond</product_view>
-  </pipeline>
+    <name>Percent Unconditional Discount</name>
+    <DisplayNames>
+        <language name="US">[US]Percent Unconditional Discount</language>
+        <language name="DE">[DE]Percent Unconditional Discount</language>
+        <language name="FR">[FR]Percent Unconditional Discount</language>
+        <language name="IT">[IT]Percent Unconditional Discount</language>
+        <language name="JP">[JP]Percent Unconditional Discount</language>
+        <language name="ES">[ES]Percent Unconditional Discount</language>
+        <language name="GB">[GB]Percent Unconditional Discount</language>
+        <language name="MX">[MX]Percent Unconditional Discount</language>
+        <language name="BR">[BR]Percent Unconditional Discount</language>
+        <language name="DA">[DA]Percent Unconditional Discount</language>
+    </DisplayNames>
+    <description>Unconditional Percent discount calculated against one target</description>
+    <DisplayDescriptions>
+        <language name="US">[US]Unconditional Percent discount calculated against one target</language>
+        <language name="DE">[DE]Unconditional Percent discount calculated against one target</language>
+        <language name="FR">[FR]Unconditional Percent discount calculated against one target</language>
+        <language name="IT">[IT]Unconditional Percent discount calculated against one target</language>
+        <language name="JP">[JP]Unconditional Percent discount calculated against one target</language>
+        <language name="ES">[ES]Unconditional Percent discount calculated against one target</language>
+        <language name="GB">[GB]Unconditional Percent discount calculated against one target</language>
+        <language name="MX">[MX]Unconditional Percent discount calculated against one target</language>
+        <language name="BR">[BR]Unconditional Percent discount calculated against one target</language>
+        <language name="DA">[DA]Unconditional Percent discount calculated against one target</language>
+    </DisplayDescriptions>
+    <item_type>discount</item_type>
+    <relationships>
+        <parent></parent>
+    </relationships>
+    <parameter_table>metratech.com/PercentDiscount_NoCond</parameter_table>
+    <counters>
+        <cpd>
+            <name>Target</name>
+            <display_name>Counter used to distribute discount</display_name>
+            <service_property>c_Target</service_property>
+            <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+        </cpd>
+    </counters>
+    <pipeline>
+        <service_definition>metratech.com/PercentDiscount_NoCond</service_definition>
+        <product_view>metratech.com/PercentDiscount_NoCond</product_view>
+    </pipeline>
 </priceable_item>

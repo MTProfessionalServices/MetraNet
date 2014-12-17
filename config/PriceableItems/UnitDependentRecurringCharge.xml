@@ -1,27 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <priceable_item>
-  <name>Unit Dependent Recurring Charge</name>
-  <description>Recurring charge based on a single subscription specific value.</description>
-  <item_type>unit_dependent_recurring</item_type>
-  <relationships>
-    <parent></parent>
-  </relationships>
-  <parameter_table>metratech.com/UDRCTiered</parameter_table>
-  <parameter_table>metratech.com/UDRCTapered</parameter_table>
-  <counters></counters>
-  <pipeline>
-    <service_definition>metratech.com/udrecurringcharge</service_definition>
-    <product_view>metratech.com/udrecurringcharge</product_view>
-  </pipeline>
-  <adjustment_type>
-    <name>UnitDependentRecurringChargeFlatAdjustment</name>
-    <description>Unit Dependent Recurring Charge Flat Adjustment</description>
-    <displayname>Unit Dependent Recurring Charge Flat Adjustment</displayname>
-    <CalculationEngine>1</CalculationEngine>
-    <supportsBulk>Y</supportsBulk>
-    <formula>
-	    <![CDATA[
+    <name>Unit Dependent Recurring Charge</name>
+    <DisplayNames>
+        <language name="US">[US]Unit Dependent Recurring Charge</language>
+        <language name="DE">[DE]Unit Dependent Recurring Charge</language>
+        <language name="FR">[FR]Unit Dependent Recurring Charge</language>
+        <language name="IT">[IT]Unit Dependent Recurring Charge</language>
+        <language name="JP">[JP]Unit Dependent Recurring Charge</language>
+        <language name="ES">[ES]Unit Dependent Recurring Charge</language>
+        <language name="GB">[GB]Unit Dependent Recurring Charge</language>
+        <language name="MX">[MX]Unit Dependent Recurring Charge</language>
+        <language name="BR">[BR]Unit Dependent Recurring Charge</language>
+        <language name="DA">[DA]Unit Dependent Recurring Charge</language>
+    </DisplayNames>
+    <description>Recurring charge based on a single subscription specific value.</description>
+    <DisplayDescriptions>
+        <language name="US">[US]Recurring charge based on a single subscription specific value.</language>
+        <language name="DE">[DE]Recurring charge based on a single subscription specific value.</language>
+        <language name="FR">[FR]Recurring charge based on a single subscription specific value.</language>
+        <language name="IT">[IT]Recurring charge based on a single subscription specific value.</language>
+        <language name="JP">[JP]Recurring charge based on a single subscription specific value.</language>
+        <language name="ES">[ES]Recurring charge based on a single subscription specific value.</language>
+        <language name="GB">[GB]Recurring charge based on a single subscription specific value.</language>
+        <language name="MX">[MX]Recurring charge based on a single subscription specific value.</language>
+        <language name="BR">[BR]Recurring charge based on a single subscription specific value.</language>
+        <language name="DA">[DA]Recurring charge based on a single subscription specific value.</language>
+    </DisplayDescriptions>
+    <item_type>unit_dependent_recurring</item_type>
+    <relationships>
+        <parent></parent>
+    </relationships>
+    <parameter_table>metratech.com/UDRCTiered</parameter_table>
+    <parameter_table>metratech.com/UDRCTapered</parameter_table>
+    <counters></counters>
+    <pipeline>
+        <service_definition>metratech.com/udrecurringcharge</service_definition>
+        <product_view>metratech.com/udrecurringcharge</product_view>
+    </pipeline>
+    <adjustment_type>
+        <name>UnitDependentRecurringChargeFlatAdjustment</name>
+        <description>Unit Dependent Recurring Charge Flat Adjustment</description>
+        <DisplayDescriptions>
+            <language name="US">[US]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="DE">[DE]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="FR">[FR]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="IT">[IT]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="JP">[JP]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="ES">[ES]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="GB">[GB]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="MX">[MX]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="BR">[BR]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="DA">[DA]Unit Dependent Recurring Charge Flat Adjustment</language>
+        </DisplayDescriptions>
+        <displayname>Unit Dependent Recurring Charge Flat Adjustment</displayname>
+        <DisplayNames>
+            <language name="US">[US]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="DE">[DE]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="FR">[FR]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="IT">[IT]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="JP">[JP]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="ES">[ES]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="GB">[GB]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="MX">[MX]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="BR">[BR]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="DA">[DA]Unit Dependent Recurring Charge Flat Adjustment</language>
+        </DisplayNames>
+        <CalculationEngine>1</CalculationEngine>
+        <supportsBulk>Y</supportsBulk>
+        <formula><![CDATA[
         Create Procedure DoAdjustmentCalc
 	        -- inputs
 	        @RCAdjustmentAmount DECIMAL,
@@ -29,36 +75,49 @@
 	        @TotalAdjustmentAmount DECIMAL OUTPUT
 	        as
         set @TotalAdjustmentAmount = @RCAdjustmentAmount
-	    ]]>
-    </formula>
-    <applicabilityrules>
-      <rule>IsTransactionPostbill</rule>
-    </applicabilityrules>
-    <Kind>3</Kind>
-    <required_inputs>
-      <input_val
-        name="RCAdjustmentAmount"
-        type="DECIMAL"
-        displayname="Amount to adjust recurring charge"
-      />
-    </required_inputs>
-    <outputs>
-      <output_val
-        name="TotalAdjustmentAmount"
-        type="DECIMAL"
-        displayname="Unit Dependent Recurring Charge Total Adjustment Amount"
-      />
-    </outputs>
-    
-   </adjustment_type>
-  <adjustment_type>
-    <name>UnitDependentRecurringChargePercentAdjustment</name>
-    <description>Unit Dependent Recurring Charge Percent Adjustment</description>
-    <displayname>Unit Dependent Recurring Charge Percent Adjustment</displayname>
-    <CalculationEngine>1</CalculationEngine>
-    <supportsBulk>Y</supportsBulk>
-    <formula>
-	    <![CDATA[
+	    ]]></formula>
+        <applicabilityrules>
+            <rule>IsTransactionPostbill</rule>
+        </applicabilityrules>
+        <Kind>3</Kind>
+        <required_inputs>
+            <input_val name="RCAdjustmentAmount" type="DECIMAL" displayname="Amount to adjust recurring charge" />
+        </required_inputs>
+        <outputs>
+            <output_val name="TotalAdjustmentAmount" type="DECIMAL" displayname="Unit Dependent Recurring Charge Total Adjustment Amount" />
+        </outputs>
+    </adjustment_type>
+    <adjustment_type>
+        <name>UnitDependentRecurringChargePercentAdjustment</name>
+        <description>Unit Dependent Recurring Charge Percent Adjustment</description>
+        <DisplayDescriptions>
+            <language name="US">[US]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="DE">[DE]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="FR">[FR]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="IT">[IT]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="JP">[JP]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="ES">[ES]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="GB">[GB]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="MX">[MX]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="BR">[BR]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="DA">[DA]Unit Dependent Recurring Charge Percent Adjustment</language>
+        </DisplayDescriptions>
+        <displayname>Unit Dependent Recurring Charge Percent Adjustment</displayname>
+        <DisplayNames>
+            <language name="US">[US]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="DE">[DE]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="FR">[FR]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="IT">[IT]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="JP">[JP]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="ES">[ES]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="GB">[GB]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="MX">[MX]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="BR">[BR]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="DA">[DA]Unit Dependent Recurring Charge Percent Adjustment</language>
+        </DisplayNames>
+        <CalculationEngine>1</CalculationEngine>
+        <supportsBulk>Y</supportsBulk>
+        <formula><![CDATA[
         Create Procedure DoAdjustmentCalc 
 	        -- inputs
 	        @RCAdjustmentPercent DECIMAL,
@@ -67,25 +126,16 @@
 	        @TotalAdjustmentAmount DECIMAL OUTPUT
 	        as
         set @TotalAdjustmentAmount = round(@Amount*@RCAdjustmentPercent*0.01, 2)
-	    ]]>
-    </formula>
-    <applicabilityrules>
-      <rule>IsTransactionPostbill</rule>
-    </applicabilityrules>
-    <Kind>3</Kind>
-    <required_inputs>
-      <input_val
-        name="RCAdjustmentPercent"
-        type="DECIMAL"
-        displayname="Recurring Charge Adjustment Percentage"
-      />
-    </required_inputs>
-    <outputs>
-       <output_val
-        name="TotalAdjustmentAmount"
-        type="DECIMAL"
-        displayname="Unit Dependent Recurring Charge Total Adjustment Amount"
-      />
-    </outputs>
-   </adjustment_type>
+	    ]]></formula>
+        <applicabilityrules>
+            <rule>IsTransactionPostbill</rule>
+        </applicabilityrules>
+        <Kind>3</Kind>
+        <required_inputs>
+            <input_val name="RCAdjustmentPercent" type="DECIMAL" displayname="Recurring Charge Adjustment Percentage" />
+        </required_inputs>
+        <outputs>
+            <output_val name="TotalAdjustmentAmount" type="DECIMAL" displayname="Unit Dependent Recurring Charge Total Adjustment Amount" />
+        </outputs>
+    </adjustment_type>
 </priceable_item>

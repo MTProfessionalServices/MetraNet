@@ -1,26 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <priceable_item>
-  <name>Flat Rate Non Recurring Charge</name>
-  <description>One time service charge with a flat rate.</description>
-  <item_type>non-recurring</item_type>
-  <relationships>
-    <parent></parent>
-  </relationships>
-  <parameter_table>metratech.com/NonRecurringCharge</parameter_table>
-  <counters></counters>
-  <pipeline>
-    <service_definition>metratech.com/NonRecurringCharge</service_definition>
-    <product_view>metratech.com/NonRecurringCharge</product_view>
-  </pipeline>
+    <name>Flat Rate Non Recurring Charge</name>
+    <DisplayNames>
+        <language name="US">[US]Flat Rate Non Recurring Charge</language>
+        <language name="DE">[DE]Flat Rate Non Recurring Charge</language>
+        <language name="FR">[FR]Flat Rate Non Recurring Charge</language>
+        <language name="IT">[IT]Flat Rate Non Recurring Charge</language>
+        <language name="JP">[JP]Flat Rate Non Recurring Charge</language>
+        <language name="ES">[ES]Flat Rate Non Recurring Charge</language>
+        <language name="GB">[GB]Flat Rate Non Recurring Charge</language>
+        <language name="MX">[MX]Flat Rate Non Recurring Charge</language>
+        <language name="BR">[BR]Flat Rate Non Recurring Charge</language>
+        <language name="DA">[DA]Flat Rate Non Recurring Charge</language>
+    </DisplayNames>
+    <description>One time service charge with a flat rate.</description>
+    <DisplayDescriptions>
+        <language name="US">[US]One time service charge with a flat rate.</language>
+        <language name="DE">[DE]One time service charge with a flat rate.</language>
+        <language name="FR">[FR]One time service charge with a flat rate.</language>
+        <language name="IT">[IT]One time service charge with a flat rate.</language>
+        <language name="JP">[JP]One time service charge with a flat rate.</language>
+        <language name="ES">[ES]One time service charge with a flat rate.</language>
+        <language name="GB">[GB]One time service charge with a flat rate.</language>
+        <language name="MX">[MX]One time service charge with a flat rate.</language>
+        <language name="BR">[BR]One time service charge with a flat rate.</language>
+        <language name="DA">[DA]One time service charge with a flat rate.</language>
+    </DisplayDescriptions>
+    <item_type>non-recurring</item_type>
+    <relationships>
+        <parent></parent>
+    </relationships>
+    <parameter_table>metratech.com/NonRecurringCharge</parameter_table>
+    <counters></counters>
+    <pipeline>
+        <service_definition>metratech.com/NonRecurringCharge</service_definition>
+        <product_view>metratech.com/NonRecurringCharge</product_view>
+    </pipeline>
     <adjustment_type>
-    <name>FlatNonRecurringChargeFlatAdjustment</name>
-    <description>Non Recurring Charge Flat Adjustment</description>
-    <displayname>Non Recurring Charge Flat Adjustment</displayname>
-    <CalculationEngine>1</CalculationEngine>
-    <supportsBulk>Y</supportsBulk>
-    <formula>
-	    <![CDATA[
+        <name>FlatNonRecurringChargeFlatAdjustment</name>
+        <description>Non Recurring Charge Flat Adjustment</description>
+        <DisplayDescriptions>
+            <language name="US">[US]Non Recurring Charge Flat Adjustment</language>
+            <language name="DE">[DE]Non Recurring Charge Flat Adjustment</language>
+            <language name="FR">[FR]Non Recurring Charge Flat Adjustment</language>
+            <language name="IT">[IT]Non Recurring Charge Flat Adjustment</language>
+            <language name="JP">[JP]Non Recurring Charge Flat Adjustment</language>
+            <language name="ES">[ES]Non Recurring Charge Flat Adjustment</language>
+            <language name="GB">[GB]Non Recurring Charge Flat Adjustment</language>
+            <language name="MX">[MX]Non Recurring Charge Flat Adjustment</language>
+            <language name="BR">[BR]Non Recurring Charge Flat Adjustment</language>
+            <language name="DA">[DA]Non Recurring Charge Flat Adjustment</language>
+        </DisplayDescriptions>
+        <displayname>Non Recurring Charge Flat Adjustment</displayname>
+        <DisplayNames>
+            <language name="US">[US]Non Recurring Charge Flat Adjustment</language>
+            <language name="DE">[DE]Non Recurring Charge Flat Adjustment</language>
+            <language name="FR">[FR]Non Recurring Charge Flat Adjustment</language>
+            <language name="IT">[IT]Non Recurring Charge Flat Adjustment</language>
+            <language name="JP">[JP]Non Recurring Charge Flat Adjustment</language>
+            <language name="ES">[ES]Non Recurring Charge Flat Adjustment</language>
+            <language name="GB">[GB]Non Recurring Charge Flat Adjustment</language>
+            <language name="MX">[MX]Non Recurring Charge Flat Adjustment</language>
+            <language name="BR">[BR]Non Recurring Charge Flat Adjustment</language>
+            <language name="DA">[DA]Non Recurring Charge Flat Adjustment</language>
+        </DisplayNames>
+        <CalculationEngine>1</CalculationEngine>
+        <supportsBulk>Y</supportsBulk>
+        <formula><![CDATA[
         Create Procedure DoAdjustmentCalc 
 	        -- inputs
 	        @NRCAdjustmentAmount DECIMAL,
@@ -28,34 +74,47 @@
 	        @TotalAdjustmentAmount DECIMAL OUTPUT
 	        as
         set @TotalAdjustmentAmount = @NRCAdjustmentAmount
-	    ]]>
-    </formula>
-    <applicabilityrules></applicabilityrules>
-    <Kind>3</Kind>
-    <required_inputs>
-      <input_val
-        name="NRCAdjustmentAmount"
-        type="DECIMAL"
-        displayname="Amount to adjust non recurring charge"
-      />
-    </required_inputs>
-    <outputs>
-       <output_val
-        name="TotalAdjustmentAmount"
-        type="DECIMAL"
-        displayname="Non Recurring Charge Total Adjustment Amount"
-      />
-    </outputs>
-    
-   </adjustment_type>
+	    ]]></formula>
+        <applicabilityrules></applicabilityrules>
+        <Kind>3</Kind>
+        <required_inputs>
+            <input_val name="NRCAdjustmentAmount" type="DECIMAL" displayname="Amount to adjust non recurring charge" />
+        </required_inputs>
+        <outputs>
+            <output_val name="TotalAdjustmentAmount" type="DECIMAL" displayname="Non Recurring Charge Total Adjustment Amount" />
+        </outputs>
+    </adjustment_type>
     <adjustment_type>
-    <name>FlatNonRecurringChargePercentAdjustment</name>
-    <description>Non Recurring Charge Percent Adjustment</description>
-    <displayname>Non Recurring Charge Percent Adjustment</displayname>
-    <CalculationEngine>1</CalculationEngine>
-    <supportsBulk>Y</supportsBulk>
-    <formula>
-	    <![CDATA[
+        <name>FlatNonRecurringChargePercentAdjustment</name>
+        <description>Non Recurring Charge Percent Adjustment</description>
+        <DisplayDescriptions>
+            <language name="US">[US]Non Recurring Charge Percent Adjustment</language>
+            <language name="DE">[DE]Non Recurring Charge Percent Adjustment</language>
+            <language name="FR">[FR]Non Recurring Charge Percent Adjustment</language>
+            <language name="IT">[IT]Non Recurring Charge Percent Adjustment</language>
+            <language name="JP">[JP]Non Recurring Charge Percent Adjustment</language>
+            <language name="ES">[ES]Non Recurring Charge Percent Adjustment</language>
+            <language name="GB">[GB]Non Recurring Charge Percent Adjustment</language>
+            <language name="MX">[MX]Non Recurring Charge Percent Adjustment</language>
+            <language name="BR">[BR]Non Recurring Charge Percent Adjustment</language>
+            <language name="DA">[DA]Non Recurring Charge Percent Adjustment</language>
+        </DisplayDescriptions>
+        <displayname>Non Recurring Charge Percent Adjustment</displayname>
+        <DisplayNames>
+            <language name="US">[US]Non Recurring Charge Percent Adjustment</language>
+            <language name="DE">[DE]Non Recurring Charge Percent Adjustment</language>
+            <language name="FR">[FR]Non Recurring Charge Percent Adjustment</language>
+            <language name="IT">[IT]Non Recurring Charge Percent Adjustment</language>
+            <language name="JP">[JP]Non Recurring Charge Percent Adjustment</language>
+            <language name="ES">[ES]Non Recurring Charge Percent Adjustment</language>
+            <language name="GB">[GB]Non Recurring Charge Percent Adjustment</language>
+            <language name="MX">[MX]Non Recurring Charge Percent Adjustment</language>
+            <language name="BR">[BR]Non Recurring Charge Percent Adjustment</language>
+            <language name="DA">[DA]Non Recurring Charge Percent Adjustment</language>
+        </DisplayNames>
+        <CalculationEngine>1</CalculationEngine>
+        <supportsBulk>Y</supportsBulk>
+        <formula><![CDATA[
         Create Procedure DoAdjustmentCalc 
 	        -- inputs
 	        @NRCAdjustmentPercent DECIMAL,
@@ -64,24 +123,14 @@
 	        @TotalAdjustmentAmount DECIMAL OUTPUT
 	        as
 	        set @TotalAdjustmentAmount = round(@Amount*@NRCAdjustmentPercent*0.01, 2)
-	    ]]>
-    </formula>
-    <applicabilityrules></applicabilityrules>
-    <Kind>3</Kind>
-    <required_inputs>
-      <input_val
-        name="NRCAdjustmentPercent"
-        type="DECIMAL"
-        displayname="Percent of Amount to adjust non recurring charge"
-      />
-    </required_inputs>
-    <outputs>
-       <output_val
-        name="TotalAdjustmentAmount"
-        type="DECIMAL"
-        displayname="Non Recurring Charge Total Adjustment Amount"
-      />
-    </outputs>
-    
-   </adjustment_type>   
+	    ]]></formula>
+        <applicabilityrules></applicabilityrules>
+        <Kind>3</Kind>
+        <required_inputs>
+            <input_val name="NRCAdjustmentPercent" type="DECIMAL" displayname="Percent of Amount to adjust non recurring charge" />
+        </required_inputs>
+        <outputs>
+            <output_val name="TotalAdjustmentAmount" type="DECIMAL" displayname="Non Recurring Charge Total Adjustment Amount" />
+        </outputs>
+    </adjustment_type>
 </priceable_item>

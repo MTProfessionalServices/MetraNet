@@ -1,23 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <priceable_item>
-  <name>Flat Discount</name>
-  <description>Flat discount based on 1 qualifer</description>
-  <item_type>discount</item_type>
-  <relationships>
-    <parent></parent>
-  </relationships>
-  <parameter_table>metratech.com/FlatDiscount</parameter_table>
-  <counters>
-    <cpd>
-      <name>Qualifier</name>
-      <display_name>Counter used to qualify for discount</display_name>
-      <service_property>c_FlatRateQualifier</service_property>
-      <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
-    </cpd>
-  </counters>
-  <pipeline>
-    <service_definition>metratech.com/FlatDiscount</service_definition>
-    <product_view>metratech.com/FlatDiscount</product_view>
-  </pipeline>
+    <name>Flat Discount</name>
+    <DisplayNames>
+        <language name="US">[US]Flat Discount</language>
+        <language name="DE">[DE]Flat Discount</language>
+        <language name="FR">[FR]Flat Discount</language>
+        <language name="IT">[IT]Flat Discount</language>
+        <language name="JP">[JP]Flat Discount</language>
+        <language name="ES">[ES]Flat Discount</language>
+        <language name="GB">[GB]Flat Discount</language>
+        <language name="MX">[MX]Flat Discount</language>
+        <language name="BR">[BR]Flat Discount</language>
+        <language name="DA">[DA]Flat Discount</language>
+    </DisplayNames>
+    <description>Flat discount based on 1 qualifer</description>
+    <DisplayDescriptions>
+        <language name="US">[US]Flat discount based on 1 qualifer</language>
+        <language name="DE">[DE]Flat discount based on 1 qualifer</language>
+        <language name="FR">[FR]Flat discount based on 1 qualifer</language>
+        <language name="IT">[IT]Flat discount based on 1 qualifer</language>
+        <language name="JP">[JP]Flat discount based on 1 qualifer</language>
+        <language name="ES">[ES]Flat discount based on 1 qualifer</language>
+        <language name="GB">[GB]Flat discount based on 1 qualifer</language>
+        <language name="MX">[MX]Flat discount based on 1 qualifer</language>
+        <language name="BR">[BR]Flat discount based on 1 qualifer</language>
+        <language name="DA">[DA]Flat discount based on 1 qualifer</language>
+    </DisplayDescriptions>
+    <item_type>discount</item_type>
+    <relationships>
+        <parent></parent>
+    </relationships>
+    <parameter_table>metratech.com/FlatDiscount</parameter_table>
+    <counters>
+        <cpd>
+            <name>Qualifier</name>
+            <display_name>Counter used to qualify for discount</display_name>
+            <service_property>c_FlatRateQualifier</service_property>
+            <preferred_counter_type>SumOfOneProperty</preferred_counter_type>
+        </cpd>
+    </counters>
+    <pipeline>
+        <service_definition>metratech.com/FlatDiscount</service_definition>
+        <product_view>metratech.com/FlatDiscount</product_view>
+    </pipeline>
 </priceable_item>

@@ -75,26 +75,38 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
   rowset2.Execute
 
-  Form("PT_ID") = rowset2.value("ParamTableId")
+    dim pt_id
+  if rowset2.RecordCount=0 then
+    set rowset2 = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
+    rowset2.Init "queries\audit"
+    rowset2.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
+    rowset2.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
+    rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage("en-us")
+    rowset2.Execute
+  end if
+    pt_id = rowset2.value("ParamTableId")
+
+
+    Form("PT_ID") = pt_id 
   
-  dim rowset
-  set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
-  rowset.Init "queries\audit"
-  rowset.SetQueryTag("__GET_PARAMTABLE_TABLENAME_FROM_PARAMTABLE_ID__")
-  rowset.AddParam "%%PT_ID%%", Clng(Form("PT_ID"))
-  rowset.Execute
+    dim rowset
+    set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
+    rowset.Init "queries\audit"
+    rowset.SetQueryTag("__GET_PARAMTABLE_TABLENAME_FROM_PARAMTABLE_ID__")
+    rowset.AddParam "%%PT_ID%%", Clng(Form("PT_ID"))
+    rowset.Execute
   
-  dim sPT
-  sPT = rowset.Value("nm_instance_tablename")
+    dim sPT
+    sPT = rowset.Value("nm_instance_tablename")
   
-  rowset.SetQueryTag("__SELECT_AUDIT_ENTRIES_FOR_RULESET_UPDATE_ON_PARAMETER_TABLE__")
-  rowset.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
-  rowset.AddParam "%%PARAM_TABLE_DB_NAME%%", sPT
-  rowset.Execute
+    rowset.SetQueryTag("__SELECT_AUDIT_ENTRIES_FOR_RULESET_UPDATE_ON_PARAMETER_TABLE__")
+    rowset.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
+    rowset.AddParam "%%PARAM_TABLE_DB_NAME%%", sPT
+    rowset.Execute
   
-  ' Load a Rowset from a SQL Queries and build the properties collection of the product view based on the columns of the rowset
-  Set ProductView.Properties.RowSet = rowset
-  ProductView.Properties.AddPropertiesFromRowset rowset
+    ' Load a Rowset from a SQL Queries and build the properties collection of the product view based on the columns of the rowset
+    Set ProductView.Properties.RowSet = rowset
+    ProductView.Properties.AddPropertiesFromRowset rowset
   
   'ProductView.Properties.SelectAll
   ProductView.Properties.ClearSelection                       ' Select the properties I want to print in the PV Browser   Order
@@ -262,7 +274,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim strEndOfPageHTMLCode, strTmp
     
     
-    strTmp = "</table><div align=center><BR><BR><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button><BR>" & vbNewLine
+    strTmp = "</table><div align=center><BR><BR><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>" & FrameWork.GetDictionary("TEXT_CLOSE") & "</button><BR>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"

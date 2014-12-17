@@ -180,7 +180,7 @@ PRIVATE FUNCTION inheritedForm_Export(EventArg) ' As Boolean
     Server.ScriptTimeout = 60 * 5    ' Start at 5 min.
     start = now
     
-    Response.Clear();
+    Response.Clear()
     Response.Buffer = TRUE
     Response.ContentType = "application/csv"
     Response.AddHeader "Content-Disposition", "attachment; filename=export.csv"

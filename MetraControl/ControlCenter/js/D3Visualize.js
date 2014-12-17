@@ -330,7 +330,23 @@ function fnVisualizeLineChart2(objLineChartConfig) {
           var inners = mygforeachline.selectAll("circle")
           .data(function (d) { return d.values;})
           .enter()
-          .append("circle").attr("cx",function (d) { return x(d.x_axis);})
+          .append("circle").attr("cx",function (d) { 
+                  var body = d3.select("body");
+                  var tmp = body.append("div")
+                  .attr("class", "d3-tip e")
+                  .attr("id", "_" +x(d.x_axis) + "_" + y(d.y_axis))
+                  .style("top","\""+x(d.x_axis)+"\"")
+                  .style("left","\""+y(d.y_axis)+"\"")
+                  .style("position", "absolute")
+                  .style("opacity", "0")
+                  .style("pointer-events", "none")
+                  .append("div")
+                  .style("width", "250px");
+                  tmp.append("div").html(d.name);
+                  tmp.append("div")
+                  .html(d.y_axis + " Seconds");
+         
+                return x(d.x_axis);})
           .attr("cy",function (d) { return y(d.y_axis);})
           .attr("class", "dot")
           .attr("r", "3")
@@ -358,13 +374,72 @@ function fnVisualizeLineChart2(objLineChartConfig) {
                     .style("stroke-dasharray", ("5, 4"))
                     .style("stroke-opacity", 0.9)
                     .style("stroke","gray").attr("class","mylegend");
+          var scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
+          scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+          d3.select("#_"+ parseInt(x(d.x_axis),10) + "_" + parseInt(y(d.y_axis), 10)).style("opacity", "1").style("pointer-events", "all");
+          d3.select("#_"+ parseInt(x(d.x_axis),10) + "_" + parseInt(y(d.y_axis),10)).style(
+          {top: (d3.event.pageY) + scrollTop - 40+ 'px',
+           left: (d3.event.pageX) +  scrollLeft + 10+'px'});
           })
           .on('mouseout', function(d, i) {
             d3.select(this).attr("r", "3").style("fill-opacity", "0.3")
           .style("stroke-opacity", "0.6");
             d3.selectAll(".mylegend").remove();
-          })
-          .append("title").text(function (d) { return  d.name + " : " + d.y_axis +" Seconds";});
+          d3.select("#_"+ parseInt(x(d.x_axis),10) + "_" + parseInt(y(d.y_axis),10)).style("opacity", "0").style("pointer-events", "none");
+          });
+          
+
+/*          var body = d3.select("body");
+          var mydivs = body.selectAll(".div")
+          .data(series)
+          .enter()
+          .append("div")
+          .attr("class", function (d) { return d.name;});
+          
+          mydivs
+          .selectAll("div")
+          .data(function(d) { return d.values;})
+          .enter()
+          .append("div")
+          .attr("class", "d3-tip e")
+          .style("top",function (d) { return x(d.x_axis);})
+          .style("left",function (d) { return y(d.y_axis);})
+          .style("position", "absolute")
+          .style("opacity", "0")
+          .style("pointer-events", "none")
+          .on('mouseover', function(d){
+              d3.select(this).attr("opacity", "1").attr("pointer-events", "all");
+              })
+          .on('mouseout', function(d){
+              d3.select(this).attr("opacity", "0").attr("pointer-events", "none");
+          })          
+          .append("div")
+          .style("width", "150px")
+          .attr("class", "mywrapper");
+          var wrapper = d3.selectAll(".mywrapper");
+          wrapper.append("div")
+          .html(function(d){
+            return d.name;
+            });
+          wrapper.append("div")
+          .html(function(d){
+            return d.y_axis + " Seconds" ;
+            });
+          
+
+*/
+/*          var tooltipsdivs = svg.select("#divActiveBillRun").append mygforeachline.selectAll("div")
+          .data(function (d) { return d.values;})
+          .enter()
+          .append("div")
+          .attr("top",function (d) { return x(d.x_axis);})
+          .attr("left",function (d) { return y(d.y_axis);})
+          .attr("class", "d3-tip e")
+          .attr("position", "absolute")
+          .attr("fill","#00B0F0")
+          .style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6")*/
+ //         .append("title").text(function (d) { return  d.name + " : " + d.y_axis +" Seconds";}).attr("class", "d3-tip");
     return this;
 }
 

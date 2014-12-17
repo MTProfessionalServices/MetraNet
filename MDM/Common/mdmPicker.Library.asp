@@ -342,10 +342,10 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BR><CENTER>"
     
     If ProductView.Properties.Rowset.RecordCount > 0 Then
-      strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BUTTON Name='OK'  Class='clsOKButton' OnClick='mdm_RefreshDialog(this);return false;'>OK</BUTTON>&nbsp;&nbsp;&nbsp;"
+      strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BUTTON Name='OK'  Class='clsOKButton' OnClick='mdm_RefreshDialog(this);return false;'>" & FrameWork.GetDictionary("TEXT_OK") & "</BUTTON>&nbsp;&nbsp;&nbsp;"
     End If
     
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BUTTON Name='CANCEL' Class='clsOKButton' OnClick='mdm_RefreshDialog(this);return false;'>Cancel</BUTTON>"
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BUTTON Name='CANCEL' Class='clsOKButton' OnClick='mdm_RefreshDialog(this);return false;'>" & FrameWork.GetDictionary("TEXT_CANCEL") & "</BUTTON>"
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</center>"
     
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM></HTML>"

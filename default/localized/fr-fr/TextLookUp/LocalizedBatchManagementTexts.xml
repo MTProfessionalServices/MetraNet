@@ -120,4 +120,13 @@
   <text id="TEXT_Comment">
     <value>[FR]Comment</value>
   </text>
+  <text id="TEXT_Mark_As_Hard_Closed">
+    <value>[FR]Mark As Hard Closed</value>
+  </text>
+  <text id="TEXT_Manually_Assign_Accounts">
+    <value>[FR]Manually Assign Accounts</value>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>[FR]Close</value>
+  </text>
 </texts>

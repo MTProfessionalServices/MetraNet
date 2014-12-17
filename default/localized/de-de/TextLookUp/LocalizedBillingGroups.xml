@@ -252,4 +252,55 @@
   <text id="TEXT_BG_RUN_ACTION_EXECUTE">
     <value>[DE]Execute </value>
   </text>
+  <text id="TEXT_Unassigned_Accounts_That_Are_Hard_Closed">
+    <value>[DE]Unassigned Accounts That Are Hard Closed</value>
+  </text>
+  <text id="TEXT_Unassigned_Accounts_That_Are_Open">
+    <value>[DE]Unassigned Accounts That Are Open</value>
+  </text>
+  <text id="TEXT_Account">
+    <value>[DE]Account</value>
+  </text>
+  <text id="TEXT_Account_ID">
+    <value>[DE]Account ID</value>
+  </text>
+  <text id="TEXT_User_Name">
+    <value>[DE]User Name</value>
+  </text>
+  <text id="TEXT_Namespace">
+    <value>[DE]Namespace</value>
+  </text>
+  <text id="TEXT_Members_of">
+    <value>[DE]Members of</value>
+  </text>
+  <text id="TEXT_Search">
+    <value>[DE]Search</value>
+  </text>
+  <text id="TEXT_Locate_Billing_Group_for_Payer_in_Interval">
+    <value>[DE]Locate Billing Group for Payer in Interval</value>
+  </text>
+  <text id="TEXT_Go_to_this_Group">
+    <value>[DE]Go to this Group</value>
+  </text>
+  <text id="TEXT_OPEN">
+    <value>[DE]Open</value>
+  </text>
+  <text id="TEXT_Soft_Closed">
+    <value>[DE]Soft Closed</value>
+  </text>
+  <text id="TEXT_Hard_Closed">
+    <value>[DE]Hard Closed</value>
+  </text>
+  <text id="TEXT_unknown">
+    <value>[DE]unknown</value>
+  </text>
+  <text id="TEXT_Payer_not_found_in_billing_group_for_interval_">
+    <value>[DE]Payer not found in billing group for interval </value>
+  </text>
+  <text id="TEXT_Both_the_User_Name_and_Namespace_are_required_when_not_searching_by_account_id">
+    <value>[DE]Both the User Name and Namespace are required when not searching by account id.</value>
+  </text>
+  <!--<text id="TEXT_Locate_Payer">
+    <value>[DE]Locate Payer</value>
+  </text>-->
 </texts>

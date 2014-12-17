@@ -17,13 +17,13 @@
 <body>
 <FORM name='mdm'>
   <TABLE border="0" cellpadding="1" cellspacing="0" width="100%">
-    <tr><td Class='CaptionBar' nowrap>Locate Billing Group for Payer in Interval: <small><MDMLABEL Name="IntervalID"></MDMLABEL></small></td></tr>
+    <tr><td Class='CaptionBar' nowrap><MDMLABEL Name="TEXT_Locate_Billing_Group_for_Payer_in_Interval">Locate Billing Group for Payer in Interval</MDMLABEL>: <small><MDMLABEL Name="IntervalID"></MDMLABEL></small></td></tr>
   </TABLE>
 
   <table border="0" cellpadding="1" cellspacing="0">
     <TR>
       <td valign=bottom><INPUT type="radio" ID="Radio2" VALUE="AccountID" NAME="SearchType"></td>
-      <TD class="captionEW"><b>Account ID:</b>&nbsp;</TD>
+      <TD class="captionEW"><b><MDMLABEL Name="TEXT_Account_ID">Account ID</MDMLABEL>:</b>&nbsp;</TD>
       <TD class="fieldRequired">
         <input onclick="SelectAccountID();" type="text" name="accountID" class="field" ID="Text1">
       </TD>
@@ -32,21 +32,21 @@
   <tr><td>&nbsp;</td></tr>
   <TR>
       <td valign=bottom><INPUT type="radio" ID="Radio1" VALUE="UserName" NAME="SearchType"></td>
-      <TD class="captionEW"><b>User Name:</b>&nbsp;</TD>
+      <TD class="captionEW"><b><MDMLABEL Name="TEXT_User_Name">User Name</MDMLABEL>:</b>&nbsp;</TD>
       <TD class="fieldRequired">
         <input onclick="SelectUserName();" type="text" name="username" class="field">
       </TD>
   </TR>  
     <TR>
       <td class="captionEW">&nbsp;</td>
-      <TD class="captionEW"><b>Namespace:</b>&nbsp;</TD>
+      <TD class="captionEW"><b><MDMLABEL Name="TEXT_Namespace">Namespace</MDMLABEL>:</b>&nbsp;</TD>
       <TD class="fieldRequired">
         <input onclick="SelectUserName();" type="text" name="namespace" class="field">
       </TD>
   </TR>   
    <tr><td>&nbsp;</td></tr>   
   <tr><td colspan=3 align=center>
-      <button OnClick="mdm_RefreshDialog(this)" name="ok" Class="clsButtonBlueSmall" ID="ok">Search</button>
+      <button OnClick="mdm_RefreshDialog(this)" name="ok" Class="clsButtonMedium" ID="ok"><MDMLABEL Name="TEXT_Search">Search</MDMLABEL></button>
       </td></tr>
   </table>
 
@@ -56,7 +56,7 @@
 
   <center>
     <br><br>
-    <button onclick="window.close()" name="cancel" Class="clsButtonSmall" ID="Button2"><MDMLABEL Name="TEXT_CLOSE"></MDMLABEL></button>
+    <button onclick="window.close()" name="cancel" Class="clsButtonMedium" ID="Button2"><MDMLABEL Name="TEXT_CLOSE"></MDMLABEL></button>
   </center>
 
           

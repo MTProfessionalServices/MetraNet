@@ -1,123 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BATCH_MANANAGEMENT">
-    <value>Batch Management</value>
+    <value>[ES-MX]Batch Management</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_UPDATE_STATUS_TITLE">
-    <value>Update Batch Status</value>
+    <value>[ES-MX]Update Batch Status</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_ACTION">
-    <value>Mark As Failed</value>
+    <value>[ES-MX]Mark As Failed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_TITLE">
-    <value>Mark Batch As Failed</value>
+    <value>[ES-MX]Mark Batch As Failed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_ACTION">
-    <value>Mark As Completed</value>
+    <value>[ES-MX]Mark As Completed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_TITLE">
-    <value>Mark Batch As Completed</value>
+    <value>[ES-MX]Mark Batch As Completed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_ACTION">
-    <value>Mark As Dismissed</value>
+    <value>[ES-MX]Mark As Dismissed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_TITLE">
-    <value>Mark Batch As Dismissed</value>
+    <value>[ES-MX]Mark Batch As Dismissed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_ACTION">
-    <value>Backout</value>
+    <value>[ES-MX]Backout</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_TITLE">
-    <value>Backout Batch</value>
+    <value>[ES-MX]Backout Batch</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_ACTION">
-    <value>Resubmit</value>
+    <value>[ES-MX]Resubmit</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_TITLE">
-    <value>Resubmit Batch</value>
+    <value>[ES-MX]Resubmit Batch</value>
   </text>
   <text id="TEXT_BATCH_STATE_ACTIVE">
-    <value>Active/Open</value>
+    <value>[ES-MX]Active/Open</value>
   </text>
   <text id="TEXT_BATCH_STATE_ACTIVE_DESCRIPTION">
-    <value>This batch is open and can have transactions metered against it.</value>
+    <value>[ES-MX]This batch is open and can have transactions metered against it.</value>
   </text>
   <text id="TEXT_BATCH_STATE_COMPLETED">
-    <value>Completed</value>
+    <value>[ES-MX]Completed</value>
   </text>
   <text id="TEXT_BATCH_STATE_COMPLETED_DESCRIPTION">
-    <value>This batch is complete. No more transactions can be metered against it.</value>
+    <value>[ES-MX]This batch is complete. No more transactions can be metered against it.</value>
   </text>
   <text id="TEXT_BATCH_STATE_FAILED">
-    <value>Failed</value>
+    <value>[ES-MX]Failed</value>
   </text>
   <text id="TEXT_BATCH_STATE_FAILED_DESCRIPTION">
-    <value>This batch has failed.</value>
+    <value>[ES-MX]This batch has failed.</value>
   </text>
   <text id="TEXT_BATCH_STATE_BACKEDOUT">
-    <value>Backed Out</value>
+    <value>[ES-MX]Backed Out</value>
   </text>
   <text id="TEXT_BATCH_STATE_BACKEDOUT_DESCRIPTION">
-    <value>This batch has been backed out.</value>
+    <value>[ES-MX]This batch has been backed out.</value>
   </text>
   <text id="TEXT_BATCH_STATE_RESUBMIT">
-    <value>Resubmit</value>
+    <value>[ES-MX]Resubmit</value>
   </text>
   <text id="TEXT_BATCH_STATE_RESUBMIT_DESCRIPTION">
-    <value>This batch has been resubmitted after it was backed out.</value>
+    <value>[ES-MX]This batch has been resubmitted after it was backed out.</value>
   </text>
   <text id="TEXT_BATCH_STATE_DISMISSED">
-    <value>Dismissed</value>
+    <value>[ES-MX]Dismissed</value>
   </text>
   <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION">
-    <value>This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value>
+    <value>[ES-MX]This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value>
   </text>
   <text id="TEXT_Namespace">
-    <value>Namespace</value>
+    <value>[ES-MX]Namespace</value>
   </text>
   <text id="TEXT_Name">
-    <value>Name</value>
+    <value>[ES-MX]Name</value>
   </text>
   <text id="TEXT_Sequence">
-    <value>Sequence</value>
+    <value>[ES-MX]Sequence</value>
   </text>
   <text id="TEXT_Source">
-    <value>Source</value>
+    <value>[ES-MX]Source</value>
   </text>
   <text id="TEXT_Created">
-    <value>Created</value>
+    <value>[ES-MX]Created</value>
   </text>
   <text id="TEXT_First_Transaction">
-    <value>First Transaction</value>
+    <value>[ES-MX]First Transaction</value>
   </text>
   <text id="TEXT_Most_Recent_Transaction">
-    <value>Most Recent Transaction</value>
+    <value>[ES-MX]Most Recent Transaction</value>
   </text>
   <text id="TEXT_Internal_Batch_Id">
-    <value>Internal Batch Id</value>
+    <value>[ES-MX]Internal Batch Id</value>
   </text>
   <text id="TEXT_Status">
-    <value>Status</value>
+    <value>[ES-MX]Status</value>
   </text>
   <text id="TEXT_Expected">
-    <value>Expected</value>
+    <value>[ES-MX]Expected</value>
   </text>
   <text id="TEXT_Completed">
-    <value>Completed</value>
+    <value>[ES-MX]Completed</value>
   </text>
   <text id="TEXT_Failed">
-    <value>Failed</value>
+    <value>[ES-MX]Failed</value>
   </text>
   <text id="TEXT_Dismissed">
-    <value>Dismissed</value>
+    <value>[ES-MX]Dismissed</value>
   </text>
   <text id="TEXT_Difference">
-    <value>Difference</value>
+    <value>[ES-MX]Difference</value>
   </text>
   <text id="TEXT_View_Statistics">
-    <value>View Statistics</value>
+    <value>[ES-MX]View Statistics</value>
   </text>
   <text id="TEXT_Comment">
-    <value>Comment</value>
+    <value>[ES-MX]Comment</value>
+  </text>
+  <text id="TEXT_Mark_As_Hard_Closed">
+    <value>[ES-MX]Mark As Hard Closed</value>
+  </text>
+  <text id="TEXT_Manually_Assign_Accounts">
+    <value>[ES-MX]Manually Assign Accounts</value>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>[ES-MX]Close</value>
   </text>
 </texts>

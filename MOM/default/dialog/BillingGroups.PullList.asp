@@ -77,13 +77,13 @@ FUNCTION Form_Refresh(EventArg)
   Form.Grids("BillingGroups").Properties("AdapterSucceededCount").Selected = i : i=i+1
   Form.Grids("BillingGroups").Properties("AdapterFailedCount").Selected    = i : i=i+1
            
-	Form.Grids("BillingGroups").Properties("Name").Caption			             = "Billing Group"
-	Form.Grids("BillingGroups").Properties("Status").Caption		             = "Status"  
-  Form.Grids("BillingGroups").Properties("MemberCount").Caption		         = "Members"
-	Form.Grids("BillingGroups").Properties("AdapterCount").Caption	         = "Adapters"
-  Form.Grids("BillingGroups").Properties("AdapterSucceededCount").Caption  = "Succeeded"
-  Form.Grids("BillingGroups").Properties("AdapterFailedCount").Caption     = "Failed"
-  
+	Form.Grids("BillingGroups").Properties("Name").Caption			             = mom_GetDictionary("TEXT_BILLING_GROUP")
+	Form.Grids("BillingGroups").Properties("Status").Caption		             = mom_GetDictionary("TEXT_STATUS")
+  Form.Grids("BillingGroups").Properties("MemberCount").Caption		         = mom_GetDictionary("TEXT_MEMBERS")
+	Form.Grids("BillingGroups").Properties("AdapterCount").Caption	         = mom_GetDictionary("TEXT_ADAPTERS")
+  Form.Grids("BillingGroups").Properties("AdapterSucceededCount").Caption  = mom_GetDictionary("TEXT_SUCCEED")
+  Form.Grids("BillingGroups").Properties("AdapterFailedCount").Caption     = mom_GetDictionary("TEXT_FAILED")
+
   Form.Grids("BillingGroups").Properties("Name").Sorted = MTSORT_ORDER_ASCENDING
 
   Form_Refresh = TRUE

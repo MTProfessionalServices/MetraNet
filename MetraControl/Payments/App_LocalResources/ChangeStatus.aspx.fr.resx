@@ -119,16 +119,16 @@
     </resheader>
     <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Change Payment Transaction Status</value>
+        <value>[FR]Change Payment Transaction Status</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>
     </data>
     <data name="radManualPendingResource1.BoxLabel" xml:space="preserve">
-        <value>&lt;b&gt;Pending&lt;/b&gt; - The transactions will be manually set to pending.</value>
+        <value>[FR]&lt;b&gt;Pending&lt;/b&gt; - The transactions will be manually set to pending.</value>
     </data>
     <data name="radManualReversedResource1.BoxLabel" xml:space="preserve">
-        <value>&lt;b&gt;Reversed&lt;/b&gt; - The transactions will be manually set to reversed.</value>
+        <value>[FR]&lt;b&gt;Reversed&lt;/b&gt; - The transactions will be manually set to reversed.</value>
     </data>
     <data name="tbCommentResource1.Label" xml:space="preserve">
         <value>Commentaire</value>

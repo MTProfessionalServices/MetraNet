@@ -5,4 +5,8 @@
     <value>:</value>
     <description></description>
   </text>
+  <text id="NO_RECORD_USER_MESSAGE">
+    <value>No record(s) found.</value>
+    <description></description>
+  </text>
 </texts>

@@ -86,19 +86,19 @@ END FUNCTION
 
 FUNCTION form_Refresh(EventArg)
 
-   dim rowset
-   set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
-	 rowset.Init "queries\mom"
-   rowset.SetQueryTag("__GET_ADAPTER_INSTANCE_INFORMATION__")
-   rowset.AddParam "%%ID_INSTANCE%%", CLng(Form("InstanceId"))   
-   
-   rowset.Execute
+  dim rowset
+  set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
+	rowset.Init "queries\mom"
+  rowset.SetQueryTag("__GET_ADAPTER_INSTANCE_INFORMATION__")
+  rowset.AddParam "%%ID_INSTANCE%%", CLng(Form("InstanceId"))
+  rowset.AddParam "%%ID_LANG_CODE%%", Session("FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME").LanguageId      
+  rowset.Execute
     
   Service.Properties("InstanceID").Value       = rowset.value("InstanceID")
   Service.Properties("StatusCode").Value       = rowset.value("Status")
   Service.Properties("Status").Value       = mom_GetAdapterInstanceStatusMessage(rowset.value("Status"),mdm_Format(rowset.value("EffectiveDate"), mom_GetDictionary("DATE_TIME_FORMAT")))
-  Service.Properties("DisplayName").Value       = rowset.value("DisplayName")  
-  Service.Properties("DisplayNameEncoded").Value       = server.urlencode(rowset.value("DisplayName"))  
+  Service.Properties("DisplayName").Value       = rowset.value("tx_display_name")  
+  Service.Properties("DisplayNameEncoded").Value       = server.urlencode(rowset.value("tx_display_name"))  
   Service.Properties("ReverseMode").Value       = rowset.value("ReverseMode")
   Service.Properties("ArgStartDate").Value       = rowset.value("ArgStartDate")
   Service.Properties("ArgEndDate").Value       = rowset.value("ArgEndDate")

@@ -127,7 +127,7 @@
     <value>Y/m/d G:i:s|Y/m/d</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>Y/m/d G:i:s A</value>
+    <value>Y/m/d G:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
     <value>Y/m/d G:i:s</value>

@@ -198,7 +198,7 @@ and rei.tx_status = 'Succeeded'))
   ) AS "Variance"  
 , (SELECT 
 /*This is the 3 month average run time (in seconds) for the adapters that have *not* yet run successfully for the current interval*/
-(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum(ROUND((rer.dt_end - rer.dt_start) * 86400,0)) / count(distinct rei.id_arg_interval) else 0 end
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum(ROUND((rer.dt_end - rer.dt_start) * 24,0)) / count(distinct rei.id_arg_interval) else 0 end
   FROM t_recevent_inst rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance

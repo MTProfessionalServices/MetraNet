@@ -81,7 +81,7 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
       {
         MTList<SQLRecord> items = new MTList<SQLRecord>();
         IList<SqlParameter> paramDict = new List<SqlParameter>();
-
+        
         if (!String.IsNullOrEmpty(UI.Subscriber["_AccountID"]))
         {
           paramDict.Add(new SqlParameter{ParamName = "%%ACCOUNT_ID%%"
@@ -94,6 +94,15 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
           Response.Write("{\"Items\":[]}");
           Response.End();
           return;
+        }
+
+        if (operation == "subscriptionsummary")
+        {
+          paramDict.Add(new SqlParameter
+            { ParamName = "%%LANG_ID%%",
+              SqlType = MTParameterType.Integer,
+              Value = UI.SessionContext.LanguageID
+            });
         }
 
         GetDataForOperation(operation, paramDict, ref items);

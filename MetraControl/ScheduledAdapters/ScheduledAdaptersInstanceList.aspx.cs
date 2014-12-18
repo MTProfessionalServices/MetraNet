@@ -32,8 +32,8 @@ public partial class MetraControl_ScheduledAdapters_ScheduledAdaptersInstanceLis
   {
     IdAdapter = Request["ID"] ?? String.Empty;
 
-    AdapterNameBase64 = Request["AdapterName"];
-
+    AdapterNameBase64 = Request["AdapterName"].Replace(" ", "+");
+    
     if (AdapterNameBase64 != null)
     {
       AdapterName = Encoding.UTF8.GetString(Convert.FromBase64String(AdapterNameBase64));

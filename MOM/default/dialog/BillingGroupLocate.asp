@@ -112,13 +112,20 @@ FUNCTION OK_Click(EventArg)
   Set bg = objUSM.GetBillingGroup(CLng(billingGroupID))
   
   Dim status
+  Dim statusNotLocalized
+  dim nameLocalize
+  nameLocalize = UCase(Replace(bg.Name, " ", "_"))
+
   Select Case bg.Status
     Case BillingGroupStatus_Open
       status = mom_GetDictionary("TEXT_OPEN") 
+      statusNotLocalized = "Open"
     Case BillingGroupStatus_SoftClosed
       status = mom_GetDictionary("TEXT_Soft_Closed")
+      statusNotLocalized = "Soft Closed"
     Case BillingGroupStatus_HardClosed
       status = mom_GetDictionary("TEXT_Hard_Closed")
+      statusNotLocalized = "Hard Closed"
     Case Else
       status = mom_GetDictionary("TEXT_unknown")
   End Select  
@@ -134,8 +141,10 @@ FUNCTION OK_Click(EventArg)
   html = html & "<td nowrap Class='TableHeader'>" & mom_GetDictionary("TEXT_FAILED") & "</td>"
   html = html & "</tr>"
   html = html & "<tr>"
-  html = html & "<td class='TableCell' align='left'><b><a target='fmeMain' onclick='window.close()' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& "'>" & bg.Name & "</a></b><br>" & bg.Description & "<br><br>" & "<button OnClick='window.opener.location = ""IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& """;window.close();' name='goto' Class='clsButtonBlueLarge' ID='Button1'>" & mom_GetDictionary("TEXT_Go_to_this_Group") & "</button>" & "</td>"
-  html = html & "<td class='TableCell'><img src='" & GetIntervalStateIcon(status) & "' align='absmiddle'>" & status & "</td>"
+  html = html & "<td class='TableCell' align='left'><b><a target='fmeMain' onclick='window.close()' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& "'>" 
+  html = html & mom_GetDictionary("TEXT_BG_NAME_" & nameLocalize) & "</a></b><br>" & mom_GetDictionary("TEXT_BG_DESCRIPTION_" & nameLocalize) & "<br><br>" 
+  html = html & "<button OnClick='window.opener.location = ""IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& """;window.close();' name='goto' Class='clsButtonBlueLarge' ID='Button1'>" & mom_GetDictionary("TEXT_Go_to_this_Group") & "</button>" & "</td>"
+  html = html & "<td class='TableCell'><img src='" & GetIntervalStateIcon(statusNotLocalized) & "' align='absmiddle'>" & status & "</td>"
   html = html & "<td style='text-align:right;' class='TableCell'>" & bg.MemberCount & "</td>"
   html = html & "<td name='AdapterCount(1)' class='TableCell' align='RIGHT'>" & bg.AdapterCount & "</td>"
   html = html & "<td name='AdapterSucceededCount(1)' class='TableCell' align='RIGHT'>" & bg.SucceededAdapterCount & "</td>"

@@ -300,7 +300,7 @@
   <text id="TEXT_Both_the_User_Name_and_Namespace_are_required_when_not_searching_by_account_id">
     <value>[ES-MX]Both the User Name and Namespace are required when not searching by account id.</value>
   </text>
-  <!--<text id="TEXT_Locate_Payer">
-    <value>[ES-MX]Locate Payer</value>
-  </text>-->
+  <text id="TEXT_Locate_Billing_Group">
+    <value>[ES-MX]Locate Billing Group</value>
+  </text>
 </texts>

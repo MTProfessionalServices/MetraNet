@@ -83,7 +83,7 @@
 #MDMNOTIf ADAPTER_RUN_REVERSE_ERROR
 <BR>
 <div name="forceAdaptersDiv" id="forceAdaptersDiv">
-<input type="checkbox" name="ForceAdapters"> Force the selected adapter(s) to run/reverse without running/reversing any dependencies.
+<input type="checkbox" name="ForceAdapters"><MDMLABEL Name="TEXT_Force_the_selected_adapter"> Force the selected adapter(s) to run/reverse without running/reversing any dependencies.</MDMLABEL>
 </div>
 <script>
   if (document.mdm.AdapterListCount.value>1)
@@ -116,7 +116,7 @@
 </script>
 
 <BR><BR>
-<button OnClick="mdm_RefreshDialog(this); return false;" name="ProceedWithWarnings" Class="clsOkButton">Continue</button>
+<button OnClick="mdm_RefreshDialog(this); return false;" name="ProceedWithWarnings" Class="clsOkButton"><MDMLABEL Name="TEXT_Continue">Continue</MDMLABEL></button>
 <button OnClick="mdm_RefreshDialog(this); return false;" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CANCEL"></MDMLABEL></button>
 #MDMENDIf
 

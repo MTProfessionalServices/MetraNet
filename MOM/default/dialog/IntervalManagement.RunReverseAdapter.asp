@@ -88,8 +88,12 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   
   'Set the title for the page
 
-  Service.Properties("PageTitle").Value = Form("ActionText") & " Adapter(s)"
-  
+  if Form("Action") = "RUN" then
+    Service.Properties("PageTitle").Value = mom_GetDictionary("TEXT_RUN_ADAPTER") 
+  else
+    Service.Properties("PageTitle").Value = mom_GetDictionary("TEXT_REVERCE_ADAPTER") 
+  end if
+
   gIssueWithAdapter = false
   gIssueWithAdapterDependency = false
   gIssueWithAdapterDependencyOtherThanAdditionalWork = false
@@ -115,15 +119,15 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   if gIssueWithAdapter or gIssueWithAdapterDependency or gDebug then
     if ucase(Form("Action"))="RUN" then
       if gIssueWithAdapter or gIssueWithAdapterDependencyOtherThanAdditionalWork then
-        Service.Properties("ERROR_WARNING_MESSAGE").Value = "<strong>ERROR: One or more of the adapters you selected cannot be run.</strong><BR>One or more of the adapters you selected or their dependencies cannot be run. As a consequence, none of the adapters you selected will be run. Please review the error and click 'OK' to return to the interval and select different adapters or a different action."
+        Service.Properties("ERROR_WARNING_MESSAGE").Value = mom_GetDictionary("TEXT_RUN_ERROR_WARNING_MESSAGE_1")
       else
-        Service.Properties("ERROR_WARNING_MESSAGE").Value = "One or more of the adapters you selected cannot be run without additional actions also taking place. Please review the dependencies and click 'Continue' to run the requested adapters and perform any additional actions that may be required."
+        Service.Properties("ERROR_WARNING_MESSAGE").Value = mom_GetDictionary("TEXT_RUN_ERROR_WARNING_MESSAGE_2")
       end if  
     else
       if gIssueWithAdapter or gIssueWithAdapterDependencyOtherThanAdditionalWork then
-        Service.Properties("ERROR_WARNING_MESSAGE").Value = "<strong>ERROR: One or more of the adapters you selected cannot be reversed.</strong><BR>One or more of the adapters you selected or their dependencies cannot be reversed. As a consequence, none of the adapters you selected will be reversed. Please review the error and click 'OK' to return to the interval and select different adapters or a different action."
+        Service.Properties("ERROR_WARNING_MESSAGE").Value = mom_GetDictionary("TEXT_RUN_ERROR_WARNING_MESSAGE_3")
       else
-        Service.Properties("ERROR_WARNING_MESSAGE").Value = "One or more of the adapters you selected cannot be reversed without additional actions also taking place. Please review the dependencies and click 'Continue' to reverse the requested adapters and perform any additional actions that may be required."
+        Service.Properties("ERROR_WARNING_MESSAGE").Value = mom_GetDictionary("TEXT_RUN_ERROR_WARNING_MESSAGE_4")
       end if
     end if
   
@@ -170,7 +174,7 @@ FUNCTION getAdapterInformationHTML
     
     dim objUSM
     set objUSM = mom_GetUsageServerClientObject()
-
+    
     dim objUSMInstances
   	set objUSMInstances = CreateObject("MetraTech.UsageServer.RecurringEventInstanceFilter")
     
@@ -180,7 +184,7 @@ FUNCTION getAdapterInformationHTML
         For i = 0 to ubound(arrInstances)-1
           objUSMInstances.AddInstanceCriteria arrInstances(i)
         Next
-        
+   objUSMInstances.LanguageId = FrameWork.SessionContext.LanguageId   
    objUSMInstances.Apply
 
   
@@ -206,17 +210,17 @@ FUNCTION getAdapterInformationHTML
 
     dim sActionText
     if Form("Action") = "RUN" then
-      sActionText = "You have selected to run the following adapter(s):"
+      sActionText = mom_GetDictionary("TEXT_You_have_selected_to_run_the_following_adapter")
     else
-      sActionText = "You have selected to reverse the following adapter(s):"
+      sActionText = mom_GetDictionary("TEXT_You_have_selected_to_reverse_the_following_adapter")
     end if
     
     sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
     sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='15'><strong><font size=2>" & sActionText & "</font></strong></td></tr>"    
-    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;background-color=#688ABA'><td align='left'>Adapter</td><td align='left'>&nbsp;</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;background-color=#688ABA'><td align='left'>" & mom_GetDictionary("TEXT_Adapter") & "</td><td align='left'>&nbsp;</td></tr>"    
 
     if rowset.eof then
-      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>No adapter instances selected.</td></tr>"
+      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>" & mom_GetDictionary("TEXT_No_adapter_instances_selected") & "</td></tr>"
     else  
       do while not rowset.eof 
           dim sToolTip, sAdapterName, sErrorMessage, sIntervalInstanceMessage
@@ -277,13 +281,13 @@ FUNCTION getAdapterInformationHTML
       gIssueWithAdapterDependencyOtherThanAdditionalWork=false
       
       if Form("Action") = "RUN" then
-        sActionText = "Because of dependencies, these adapters and checkpoints will also need to be run or cancelled:"
+        sActionText = mom_GetDictionary("TEXT_Because_of_run") 
       else
-        sActionText = "Because of dependencies, these adapters and checkpoints will also need to be reversed or cancelled:"
+        sActionText = mom_GetDictionary("TEXT_Because_of_reverce") 
       end if
       sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
       sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='15'><strong><font size=2>" & sActionText & "</font></strong></td></tr>"    
-      sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;background-color=#688ABA'><td align='left'>Adapter</td><td align='left'>&nbsp;</td></tr>"    
+      sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;background-color=#688ABA'><td align='left'>" & mom_GetDictionary("TEXT_Adapter") & "</td><td align='left'>&nbsp;</td></tr>"    
 
       do while not rowset.eof 
           dim sEventType
@@ -325,7 +329,7 @@ FUNCTION getAdapterInformationHTML
                 select case sReason
                 case "Missing"
                   if sEventType = "SCHEDULED" then
-                    sErrorMessage =  "The missing period for this scheduled adapter is from " & rowset.value("ArgStartDate") & " until " & rowset.value("ArgEndDate") & ".<BR>Proceeding will run this scheduled adapter from when it was last run until " & rowset.value("ArgEndDate")
+                    sErrorMessage =  mom_GetDictionary("TEXT_Missing_SCHEDULED_ERROR_1") & rowset.value("ArgStartDate") & mom_GetDictionary("TEXT_Missing_SCHEDULED_ERROR_2") & rowset.value("ArgEndDate") & mom_GetDictionary("TEXT_Missing_SCHEDULED_ERROR_3") & rowset.value("ArgEndDate")
                     sAdditionalAdapterList = sAdditionalAdapterList & rowset.value("EventId") & " CREATE " & rowset.value("ArgEndDate") & ","
                   else
                     'There might be additional intervals that are not closed or have adapter instances created, if this is the case then we cannot continue normally
@@ -336,7 +340,7 @@ FUNCTION getAdapterInformationHTML
                     end if
                   end if                 
                 case "ReadyToReverse"
-                 sErrorMessage="The adapter is currently marked as 'ReadyToReverse'. The submitted Reverse action will be cancelled."
+                 sErrorMessage = mom_GetDictionary("TEXT_ReadyToReverse_ERROR")
                  sAdditionalAdapterList = sAdditionalAdapterList & rowset.value("InstanceId") & " CANCEL,"
                 case "NotYetRun"
                   sAdditionalAdapterList = sAdditionalAdapterList & rowset.value("InstanceId") & " RUN" & IIF(sEventType="CHECKPOINT","CHECKPOINT","") & ","
@@ -351,7 +355,7 @@ FUNCTION getAdapterInformationHTML
                 case "Succeeded", "Failed"
                   sAdditionalAdapterList = sAdditionalAdapterList & rowset.value("InstanceId") & " REVERSE" & IIF(UCASE(rowset.value("EventType"))="CHECKPOINT","CHECKPOINT","") & ","
                 case "ReadyToRun"
-                 sErrorMessage="The adapter is currently marked as 'ReadyToRun'. The submitted Run action will be cancelled."
+                 sErrorMessage = mom_GetDictionary("TEXT_ReadyToRun_ERROR")                 
                  sAdditionalAdapterList = sAdditionalAdapterList & rowset.value("InstanceId") & " CANCEL,"
                 case else
                   sErrorMessage="Unknown Action for [" & sReason & "] when reversing"
@@ -365,18 +369,18 @@ FUNCTION getAdapterInformationHTML
               if Not IsNull(rowset.value("ArgIntervalID")) then
                 if Form("IntervalId") <> CStr(rowset.value("ArgIntervalID")) then
                   if bRunning then
-                    sTemp = "In a previous interval (" & rowset.value("ArgIntervalID") & "), the adapter was not run. "
+                    sTemp = mom_GetDictionary("TEXT_In_a_previous_interval") & rowset.value("ArgIntervalID") & mom_GetDictionary("TEXT_the_adapter_was_not_run")
                   else
-                    sTemp = "In an interval (" & rowset.value("ArgIntervalID") & ") after this interval, the adapter was not reversed. "
+                    sTemp = mom_GetDictionary("TEXT_In_an_interval") & rowset.value("ArgIntervalID") & mom_GetDictionary("TEXT_after_this_interval_the_adapter_was_not_reversed")
                   end if
                 end if
               end if
               if IsNull(rowset.value("InstanceID")) then
                 if sEventType <> "SCHEDULED" then
-                  sErrorMessage = sErrorMessage & "<IMG SRC='/mcm/default/localized/en-us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & sTemp & "Instance doesn't exist."
+                  sErrorMessage = sErrorMessage & "<IMG SRC='/mcm/default/localized/en-us/images/icons/warningSmall.gif' align='center' BORDER='0' >&nbsp;" & sTemp & mom_GetDictionary("TEXT_Instance_doesnt_exist")
                 end if
               else
-                sErrorMessage = sErrorMessage & sTemp & "Instance: " & rowset.value("InstanceID") & "&nbsp; &nbsp; &nbsp; &nbsp; Billing Group: " & rowset.value("BillGroupName")
+                sErrorMessage = sErrorMessage & sTemp & mom_GetDictionary("TEXT_Instance") & rowset.value("InstanceID") & "&nbsp; &nbsp; &nbsp; &nbsp; " & mom_GetDictionary("TEXT_Billing_Group") & rowset.value("BillGroupName")
               end if
 
             end if

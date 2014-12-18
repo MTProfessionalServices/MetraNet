@@ -41,11 +41,11 @@ public partial class Bill : MTPage
 
     billManager.ReportParams.DateRange = usageIntervalSlice;    
     billManager.ReportParams.ReportView = ReportViewType.OnlineBill;    
-    billManager.ReportParams.UseSecondPassData = true;  // only show second pass data on bill
+    billManager.ReportParams.UseSecondPassData = false;
 
     billManager.ReportParamsLocalized.DateRange = usageIntervalSlice;
     billManager.ReportParamsLocalized.ReportView = ReportViewType.OnlineBill;
-    billManager.ReportParamsLocalized.UseSecondPassData = true;  // only show second pass data on bill
+    billManager.ReportParamsLocalized.UseSecondPassData = false;
     billManager.GetInvoiceReport(true);
   }
 

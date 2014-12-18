@@ -1,3 +1,3 @@
 c_BillSetting_Id,c_internal_key,c__Version,c_CreationDate,c_UpdateDate,c_UID,c_InlineTax,c_InlineAdjustments,c_AllowSelfCare,c_AllowOnlinePayment,c_AllowSavedReports,c_ShowSecondPassData,c_AllowSharedReports,c_ShowOnlyHardClosedIntervals
-"4e6e7c85-3019-4eaf-89e9-9d3100055cf1","da2f50b6-f400-4135-b76c-6c028a2e6fb1","1","","","","F","F","T","T","T","T","T","F"
-"1da53791-ae95-4334-8f88-9d410102887f","15f0c7b5-550d-4c16-8f67-39c2718aac6b","4","","4/2/2012 8:30:43 PM","","F","F","T","T","T","T","T","F"
+"4e6e7c85-3019-4eaf-89e9-9d3100055cf1","da2f50b6-f400-4135-b76c-6c028a2e6fb1","1","","","","F","F","T","T","T","F","T","F"
+"1da53791-ae95-4334-8f88-9d410102887f","15f0c7b5-550d-4c16-8f67-39c2718aac6b","4","","4/2/2012 8:30:43 PM","","F","F","T","T","T","F","T","F"

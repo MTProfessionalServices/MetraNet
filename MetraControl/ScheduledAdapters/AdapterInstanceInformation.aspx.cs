@@ -2,8 +2,10 @@
 using System.Globalization;
 using System.Threading;
 using System.Web;
+using MetraNet;
 using MetraTech.DataAccess;
 using MetraTech.UI.Common;
+using Newtonsoft.Json;
 
 public partial class AdapterInstanceInformation : MTPage
 {
@@ -16,6 +18,8 @@ public partial class AdapterInstanceInformation : MTPage
   protected string DisplayNameEncoded;
   protected string BillingGroupId;
   protected string IntervalId;
+  protected static string JsonLocalizedStatuses;
+  protected static string JsonLocalizedActions;
   private string _reverseMode;
   private string _disableActions;
 
@@ -47,6 +51,8 @@ public partial class AdapterInstanceInformation : MTPage
       return;
     }
     InitControls();
+    JsonLocalizedStatuses = JsonConvert.SerializeObject(Formatters.GetAdapterInstanceStatusesLocalized());
+    JsonLocalizedActions = JsonConvert.SerializeObject(Formatters.GetAdapterInstanceAuditActionsLocalized());
   }
 
   protected override void OnLoadComplete(EventArgs e)
@@ -92,9 +98,9 @@ public partial class AdapterInstanceInformation : MTPage
     lblArgStartValue.Text = ArgStartDate;
     lblStatusValue.Text = StatusText;
 
-    bool bShowReverseOption = false;
-    bool bShowRunOption = false;
-    bool bShowMarkAsNotReadyToRun = false;
+    var bShowReverseOption = false;
+    var bShowRunOption = false;
+    var bShowMarkAsNotReadyToRun = false;
 
     // Determine button state
     switch (Status)

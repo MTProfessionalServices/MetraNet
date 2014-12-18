@@ -8,11 +8,11 @@
   <br />
 
   <MT:MTPanel ID="MTPanelDateRange" meta:resourcekey="MTPanelDateRange" runat="server" Width="350">
-    <MT:MTDatePicker ID="MTDatePickerFrom" LabelWidth="100" runat="server" />
-    <MT:MTDatePicker ID="MTDatePickerTo" LabelWidth="100" runat="server" />
+    <MT:MTDatePicker ID="MTDatePickerFrom" LabelWidth="100" AllowBlank="False" runat="server" />
+    <MT:MTDatePicker ID="MTDatePickerTo" LabelWidth="100" AllowBlank="False" runat="server" />
     <br />
     <div align="center">
-      <MT:MTButton ID="MTButtonSearch" OnClick="ButtonSearchClick" runat="server" />
+      <MT:MTButton ID="MTButtonSearch" OnClientClick="return ValidateForm();" OnClick="ButtonSearchClick" runat="server" />
     </div>
   </MT:MTPanel>
 

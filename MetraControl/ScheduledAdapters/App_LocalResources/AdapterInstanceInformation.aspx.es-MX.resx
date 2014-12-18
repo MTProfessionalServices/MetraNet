@@ -187,4 +187,58 @@
   <data name="SecondSingular" xml:space="preserve">
     <value>[es-MX]second</value>
   </data>
+  <data name="RunLaterOn.Text" xml:space="preserve">
+    <value>[es-MX]Run this adapter on</value>
+  </data>
+  <data name="RevertLaterOn.Text" xml:space="preserve">
+    <value>[es-MX]Revert this adapter on</value>
+  </data>
+  <data name="AdapterInstanceAuditHistoryGrid.Title" xml:space="preserve">
+    <value>[es-MX]Instance Audit History</value>
+  </data>
+  <data name="Action_HeaderText" xml:space="preserve">
+    <value>[es-MX]Action</value>
+  </data>
+  <data name="AuditId_HeaderText" xml:space="preserve">
+    <value>[es-MX]Audit Id</value>
+  </data>
+  <data name="Details_HeaderText" xml:space="preserve">
+    <value>[es-MX]Details</value>
+  </data>
+  <data name="Forced_HeaderText" xml:space="preserve">
+    <value>[es-MX]Forced</value>
+  </data>
+  <data name="InstanceId_HeaderText" xml:space="preserve">
+    <value>[es-MX]Instance Id</value>
+  </data>
+  <data name="Time_HeaderText" xml:space="preserve">
+    <value>[es-MX]Time</value>
+  </data>
+  <data name="Type_HeaderText" xml:space="preserve">
+    <value>[es-MX]Type</value>
+  </data>
+  <data name="UserId_HeaderText" xml:space="preserve">
+    <value>[es-MX]User Id</value>
+  </data>
+  <data name="UserName_HeaderText" xml:space="preserve">
+    <value>[es-MX]User Name</value>
+  </data>
+  <data name="Adapter_HeaderText" xml:space="preserve">
+    <value>[es-MX]Adapter</value>
+  </data>
+  <data name="AdapterInstanceRunDetailsGrid.Title" xml:space="preserve">
+    <value>[es-MX]Instance Run Details</value>
+  </data>
+  <data name="DetailType_HeaderText" xml:space="preserve">
+    <value>[es-MX]Detail Type</value>
+  </data>
+  <data name="Timestamp_HeaderText" xml:space="preserve">
+    <value>[es-MX]Timestamp</value>
+  </data>
+  <data name="BatchDetails" xml:space="preserve">
+    <value>[es-MX]View Details Of The Batches For This Run Of The Adapter</value>
+  </data>
+  <data name="FailedAccounts" xml:space="preserve">
+    <value>[es-MX]View List Of Accounts That Had Failures</value>
+  </data>
 </root>

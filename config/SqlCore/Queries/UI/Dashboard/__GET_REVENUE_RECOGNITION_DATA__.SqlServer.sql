@@ -9,22 +9,8 @@ SELECT
 ,COALESCE(udrc.c_ProratedIntervalStart, frc.c_ProratedIntervalStart) as c_ProratedIntervalStart
 ,COALESCE(udrc.c_ProratedIntervalEnd, frc.c_ProratedIntervalEnd) as c_ProratedIntervalEnd
 ,CASE 
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= @startDate
-	OR	 COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) >= @startDate
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) < @endDate 
-	OR	 COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) > @endDate
-		THEN DATEDIFF(DAY, COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart), COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd))+1
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) < @startDate
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= @startDate
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) <= @endDate
-		THEN DATEDIFF(DAY, @startDate, COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd))
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) >= @startDate
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= @endDate
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= @endDate
-		THEN DATEDIFF(DAY, COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart), @endDate)
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= @startDate
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= @endDate
-		THEN DATEDIFF(DAY, @startDate, @endDate)
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) IS NOT NULL
+		THEN 30
 	ELSE 1
  END as c_ProratedDays
 ,COALESCE(udrc.c_ProratedDailyRate, frc.c_ProratedDailyRate, acr.c_CreditAmount, 

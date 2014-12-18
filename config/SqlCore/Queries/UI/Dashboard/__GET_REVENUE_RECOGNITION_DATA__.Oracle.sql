@@ -6,23 +6,8 @@ SELECT
 ,COALESCE(udrc.c_ProratedIntervalStart, frc.c_ProratedIntervalStart) as c_ProratedIntervalStart
 ,COALESCE(udrc.c_ProratedIntervalEnd, frc.c_ProratedIntervalEnd) as c_ProratedIntervalEnd
 ,CASE 
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
-	OR	 COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) < TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1 
-	OR	 COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) > TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1
-		THEN TO_DATE(COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart), 'YYYY-MM-DD HH24:MI:SS') 
-        - TO_DATE(COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd), 'YYYY-MM-DD HH24:MI:SS')+1
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) < TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1
-		THEN TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - TO_DATE(COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd), 'YYYY-MM-DD HH24:MI:SS')
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) >= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1
-		THEN TO_DATE(COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart), 'YYYY-MM-DD HH24:MI:SS') - TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1
-	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) <= TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS')
-	AND  COALESCE(udrc.c_RCIntervalSubscriptionEnd, frc.c_RCIntervalSubscriptionEnd) >= TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1
-		THEN TO_DATE('%%START_DATE%%', 'YYYY-MM-DD HH24:MI:SS') - TO_DATE('%%END_DATE%%', 'YYYY-MM-DD HH24:MI:SS')+1
+	WHEN COALESCE(udrc.c_RCIntervalSubscriptionStart, frc.c_RCIntervalSubscriptionStart) IS NOT NULL
+		THEN 30
 	ELSE 1
  END as c_ProratedDays
 ,COALESCE(udrc.c_ProratedDailyRate, frc.c_ProratedDailyRate, acr.c_CreditAmount, 

@@ -1323,6 +1323,9 @@
   <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
     <value>Recent Notifications</value>
   </data>
+  <data name="TEXT_NO_RECENT_NOTIFICATIONS" xml:space="preserve">
+    <value>No recent notifications.</value>
+  </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>Change Password</value>
   </data>

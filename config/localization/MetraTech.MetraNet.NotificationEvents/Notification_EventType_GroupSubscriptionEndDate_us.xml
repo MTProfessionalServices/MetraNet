@@ -8,7 +8,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Notification_EventType_GroupSubscriptionEndDate/Template/Group Subscription End Date</Name>
-            <Value>Account {LoginName} participation in subscription to {POInternalName} will end on {EndDate} <![CDATA[<a href='JavaScript:getFrameMetraNet().Account.Load({varaccount});'> View...</a>]]></Value>
+            <Value>Account {LoginName} participation in subscription to {POInternalName} will end on {EndDate} <![CDATA[<a href='JavaScript:getFrameMetraNet().Account.Load({AccountID});'> View...</a>]]></Value>
         </locale_entry>
     </locale_space>
 </mt_config>

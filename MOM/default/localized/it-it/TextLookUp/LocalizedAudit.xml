@@ -89,4 +89,8 @@
     <value>[IT]Current GMT time is</value>
     <description></description>
   </text>
+  <text id="TEXT_FORCED">
+    <value>[IT]Forced</value>
+    <description></description>
+  </text>
 </texts>

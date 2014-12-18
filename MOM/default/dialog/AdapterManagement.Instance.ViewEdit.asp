@@ -42,18 +42,20 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS:  Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 
-  if len(request("ReturnUrl"))>0 then
-    Form.RouteTo = request("ReturnUrl")
-  else
-    Form.RouteTo = "welcome.asp"
-  end if
-  Response.Cookies ("previousPage") = Form.RouteTo
+  if request.querystring.Count > 0 then
+    if len(request("ReturnUrl"))>0 then
+      Form.RouteTo = request("ReturnUrl")
+    else
+      Form.RouteTo = "welcome.asp"
+    end if
+    Response.Cookies ("previousPage") = Form.RouteTo
 
-  Form("InstanceId") = request.querystring("ID")
-  Form("IntervalDescription") = request.querystring("IntervalDescription")
-  Form("DisableActions") = request.querystring("DisableActions")
-  Form("IntervalId") = request.querystring("IntervalId")
-  Form("BillingGroupId") = request.querystring("BillingGroupId")
+    Form("InstanceId") = request.querystring("ID")
+    Form("IntervalDescription") = request.querystring("IntervalDescription")
+    Form("DisableActions") = request.querystring("DisableActions")
+    Form("IntervalId") = request.querystring("IntervalId")
+    Form("BillingGroupId") = request.querystring("BillingGroupId")
+  end if
   
   Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.

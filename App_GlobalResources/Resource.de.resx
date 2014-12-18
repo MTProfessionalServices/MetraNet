@@ -720,4 +720,16 @@
   <data name="ValidationMustBeNumber" xml:space="preserve">
     <value>[DE] Must be a number value.</value>
   </data>
+  <data name="ReceventInstAuditAction_SubmitForExecution" xml:space="preserve">
+    <value>[DE]SubmitForExecution</value>
+  </data>
+  <data name="ReceventInstAuditAction_SubmitForReversal" xml:space="preserve">
+    <value>[DE]SubmitForReversal</value>
+  </data>
+  <data name="ReceventInstAuditAction_Cancel" xml:space="preserve">
+    <value>[DE]Cancel</value>
+  </data>
+  <data name="AdapterStatusCode_Succeeded" xml:space="preserve">
+    <value>[DE]Succeeded</value>
+  </data>
 </root>

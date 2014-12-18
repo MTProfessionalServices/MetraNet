@@ -187,4 +187,58 @@
   <data name="SecondSingular" xml:space="preserve">
     <value>[IT]second</value>
   </data>
+  <data name="RunLaterOn.Text" xml:space="preserve">
+    <value>[IT]Run this adapter on</value>
+  </data>
+  <data name="RevertLaterOn.Text" xml:space="preserve">
+    <value>[IT]Revert this adapter on</value>
+  </data>
+  <data name="AdapterInstanceAuditHistoryGrid.Title" xml:space="preserve">
+    <value>[IT]Instance Audit History</value>
+  </data>
+  <data name="Action_HeaderText" xml:space="preserve">
+    <value>[IT]Action</value>
+  </data>
+  <data name="AuditId_HeaderText" xml:space="preserve">
+    <value>[IT]Audit Id</value>
+  </data>
+  <data name="Details_HeaderText" xml:space="preserve">
+    <value>[IT]Details</value>
+  </data>
+  <data name="Forced_HeaderText" xml:space="preserve">
+    <value>[IT]Forced</value>
+  </data>
+  <data name="InstanceId_HeaderText" xml:space="preserve">
+    <value>[IT]Instance Id</value>
+  </data>
+  <data name="Time_HeaderText" xml:space="preserve">
+    <value>[IT]Time</value>
+  </data>
+  <data name="Type_HeaderText" xml:space="preserve">
+    <value>[IT]Type</value>
+  </data>
+  <data name="UserId_HeaderText" xml:space="preserve">
+    <value>[IT]User Id</value>
+  </data>
+  <data name="UserName_HeaderText" xml:space="preserve">
+    <value>[IT]User Name</value>
+  </data>
+  <data name="Adapter_HeaderText" xml:space="preserve">
+    <value>[IT]Adapter</value>
+  </data>
+  <data name="AdapterInstanceRunDetailsGrid.Title" xml:space="preserve">
+    <value>[IT]Instance Run Details</value>
+  </data>
+  <data name="DetailType_HeaderText" xml:space="preserve">
+    <value>[IT]Detail Type</value>
+  </data>
+  <data name="Timestamp_HeaderText" xml:space="preserve">
+    <value>[IT]Timestamp</value>
+  </data>
+  <data name="BatchDetails" xml:space="preserve">
+    <value>[IT]View Details Of The Batches For This Run Of The Adapter</value>
+  </data>
+  <data name="FailedAccounts" xml:space="preserve">
+    <value>[IT]View List Of Accounts That Had Failures</value>
+  </data>
 </root>

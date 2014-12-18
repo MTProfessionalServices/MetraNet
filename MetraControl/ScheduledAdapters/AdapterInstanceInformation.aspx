@@ -163,6 +163,8 @@
     var laterWin;
     var auditHistoryWin;
     var runDetailsWin;
+    var locolizedStatuses = Ext.util.JSON.decode('<%=JsonLocalizedStatuses%>');
+    var locolizedActions = Ext.util.JSON.decode('<%=JsonLocalizedActions%>');
 
     if ("<%=IntervalId %>".len > 0) {
       additionalParameters = "&BillingGroupId=<%=BillingGroupId %>&IntervalId=<%=IntervalId %>";
@@ -185,6 +187,14 @@
       return value + GetDurationMessage(value, record.data.dt_end);
     }
     
+    OverrideRenderer_<%=AuditHistoryGrid.ClientID %> = function(cm) {
+      cm.setRenderer(cm.getIndexById('tx_action'), ActionColRenderer);
+    }
+        
+    function ActionColRenderer(value, meta, record) {
+      return getLocolizedAction(value);
+    }
+
     function ShowAuditHistory() {
       var windowHeight = grid_AuditHistoryGrid.height + 70;
       if(!auditHistoryWin) {
@@ -277,7 +287,7 @@
     }
     
     function GetDurationMessage(dateStart, dateEnd) {
-      var diff =  Math.round((new Date(dateEnd) - new Date(dateStart)) / 1000);
+      var diff =  Math.round((Date.parseDate(dateEnd, DATE_TIME_FORMAT_DEF, true) - Date.parseDate(dateStart, DATE_TIME_FORMAT_DEF, true)) / 1000);
       if (diff == 0 || diff > 1) {
         return String.format(" [{0} {1}]", diff, "<%=GetLocalResourceObject("SecondPlural").ToString() %>");
       }
@@ -326,6 +336,20 @@
         });
       }
       laterWin.show(this);  
+    }
+    
+    function getLocolizedAction(action) {
+      if (!locolizedActions[action]) {
+        locolizedActions[action] = action;
+      }
+      return locolizedActions[action];
+    }
+    
+    function getLocolizedStatus(status) {
+      if (!locolizedStatuses[status]) {
+        locolizedStatuses[status] = status;
+      }
+      return locolizedStatuses[status];
     }
   </script>
 </asp:Content>

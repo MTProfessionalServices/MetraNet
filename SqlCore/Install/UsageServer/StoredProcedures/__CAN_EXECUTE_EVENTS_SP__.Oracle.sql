@@ -1,5 +1,5 @@
 
-CREATE or replace PROCEDURE CANEXECUTEEVENTS(dt_now DATE, id_instances VARCHAR2, res out sys_refcursor)
+CREATE or replace PROCEDURE CANEXECUTEEVENTS(dt_now DATE, id_instances VARCHAR2, lang_code int, res out sys_refcursor)
 AS
 BEGIN
 
@@ -15,11 +15,12 @@ BEGIN
   INSERT INTO t_CanExecuteEventsTempTbl
   SELECT
     args.COLUMN_VALUE,
-    evt.tx_display_name,
+    COALESCE(loc.tx_name, evt.tx_display_name) tx_display_name,
     'OK'
   FROM table(cast(dbo.CSVToInt(CANEXECUTEEVENTS.id_instances) as  tab_id_instance)) args
   INNER JOIN t_recevent_inst inst ON inst.id_instance = args.COLUMN_VALUE
-  INNER JOIN t_recevent evt ON evt.id_event = inst.id_event;
+  INNER JOIN t_recevent evt ON evt.id_event = inst.id_event
+  LEFT OUTER JOIN t_localized_items loc on (id_local_type = 1  /*Adapter type*/ AND id_lang_code = lang_code AND evt.id_event=loc.id_item);
 
   /* is the event not active */
   UPDATE t_CanExecuteEventsTempTbl results

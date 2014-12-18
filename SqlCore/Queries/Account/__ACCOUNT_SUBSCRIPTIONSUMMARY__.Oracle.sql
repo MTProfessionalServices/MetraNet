@@ -31,7 +31,7 @@ gsm.id_acc = %%ACCOUNT_ID%%
 group by s.id_sub, p.id_po,gsm.id_acc,gsm.vt_start,gsm.vt_end
 ) tmp
 inner join t_sub sub on sub.id_sub=tmp.id_sub
-left JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_code = 840
+left JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_code = %%LANG_ID%%
 INNER JOIN t_group_sub tg on sub.id_group = tg.id_group
 inner join t_po on t_po.id_po = tmp.id_po
 inner join t_pricelist plist on plist.id_pricelist  = t_po.id_nonshared_pl
@@ -52,7 +52,7 @@ null AS PromoCode,
 null AS GroupSubscriptionName,
 null AS GroupSubscriptionDescription
 FROM t_sub sub
-LEFT JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_code = 840
+LEFT JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_code = %%LANG_ID%%
 inner join t_po on t_po.id_po = sub.id_po
 inner join t_pricelist plist on plist.id_pricelist  = t_po.id_nonshared_pl		
 WHERE sub.id_acc = %%ACCOUNT_ID%% and sub.id_group is null

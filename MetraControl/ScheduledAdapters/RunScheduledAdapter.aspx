@@ -31,7 +31,7 @@
     var textNoSelection = '<%=GetGlobalResourceObject("JSConsts", "TEXT_ERROR_SELECT")%>';
     
     function onCancel_<%= RunScheduledAdapterGrid.ClientID %>() {
-      window.location.href = "/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp";
+      window.location.href = "/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx";
       return false;
     }
 

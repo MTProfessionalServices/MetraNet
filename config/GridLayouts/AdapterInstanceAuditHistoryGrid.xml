@@ -34,7 +34,7 @@
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
     <EnableColumnConfig>false</EnableColumnConfig>
     <EnableFilterConfig>false</EnableFilterConfig>
-    <Resizeable>false</Resizeable>
+    <Resizable>false</Resizable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField>dt_crt</DefaultSortField>
     <DefaultSortDirection>Descending</DefaultSortDirection>

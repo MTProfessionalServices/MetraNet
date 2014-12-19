@@ -197,7 +197,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
               sPageInfo = SafeForHtmlAttr(SafeForUrl(sPageInfo))
               'Updating HTML Encoding
               'strHTML = "<button name='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1');"">View Changes</button>"
-              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & SafeForHtmlAttr(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">View Changes</button>"
+              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & SafeForHtmlAttr(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">" & FrameWork.GetDictionary("TEXT_VIEW_CHANGES") & "</button>"
             else
               strHTML = "&nbsp;"       
             end if

@@ -169,7 +169,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
               dim sPageInfo
               sPageInfo = FrameWork.GetDictionary("TEXT_PRICE_LIST") & " <strong>" & SafeForHtml(Service.Properties("PriceListName")) & "</strong><br>" & FrameWork.GetDictionary("TEXT_MODIFIED_BY") & " <strong>" & ProductView.Properties.RowSet.Value("UserName") & "</strong> " & FrameWork.GetDictionary("TEXT_AT") & " <strong>" & ProductView.Properties.RowSet.Value("Time") & "</strong>"              
               sPageInfo = server.urlencode(sPageInfo)
-              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">View Changes</button>"
+              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">" & FrameWork.GetDictionary("TEXT_VIEW_CHANGES") & "</button>"
             else
               strHTML = "&nbsp;"       
             end if

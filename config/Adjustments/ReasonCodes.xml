@@ -11,8 +11,8 @@
             <language name="JP">[JP]Bankruptcy Reason Code</language>
             <language name="ES">[ES]Bankruptcy Reason Code</language>
             <language name="GB">[GB]Bankruptcy Reason Code</language>
-            <language name="MX">[MX]Bankruptcy Reason Code</language>
-            <language name="BR">[BR]Bankruptcy Reason Code</language>
+            <language name="es-MX">[MX]Bankruptcy Reason Code</language>
+            <language name="pt-BR">[BR]Bankruptcy Reason Code</language>
             <language name="DA">[DA]Bankruptcy Reason Code</language>
         </DisplayDescriptions>
         <displayname>Bankruptcy Reason Code</displayname>
@@ -24,8 +24,8 @@
             <language name="JP">[JP]Bankruptcy Reason Code</language>
             <language name="ES">[ES]Bankruptcy Reason Code</language>
             <language name="GB">[GB]Bankruptcy Reason Code</language>
-            <language name="MX">[MX]Bankruptcy Reason Code</language>
-            <language name="BR">[BR]Bankruptcy Reason Code</language>
+            <language name="es-MX">[MX]Bankruptcy Reason Code</language>
+            <language name="pt-BR">[BR]Bankruptcy Reason Code</language>
             <language name="DA">[DA]Bankruptcy Reason Code</language>
         </DisplayNames>
     </reasoncode>
@@ -40,8 +40,8 @@
             <language name="JP">[JP]Transaction billed to wrong account</language>
             <language name="ES">[ES]Transaction billed to wrong account</language>
             <language name="GB">[GB]Transaction billed to wrong account</language>
-            <language name="MX">[MX]Transaction billed to wrong account</language>
-            <language name="BR">[BR]Transaction billed to wrong account</language>
+            <language name="es-MX">[MX]Transaction billed to wrong account</language>
+            <language name="pt-BR">[BR]Transaction billed to wrong account</language>
             <language name="DA">[DA]Transaction billed to wrong account</language>
         </DisplayDescriptions>
         <displayname>Transaction billed to wrong account</displayname>
@@ -53,8 +53,8 @@
             <language name="JP">[JP]Transaction billed to wrong account</language>
             <language name="ES">[ES]Transaction billed to wrong account</language>
             <language name="GB">[GB]Transaction billed to wrong account</language>
-            <language name="MX">[MX]Transaction billed to wrong account</language>
-            <language name="BR">[BR]Transaction billed to wrong account</language>
+            <language name="es-MX">[MX]Transaction billed to wrong account</language>
+            <language name="pt-BR">[BR]Transaction billed to wrong account</language>
             <language name="DA">[DA]Transaction billed to wrong account</language>
         </DisplayNames>
     </reasoncode>
@@ -69,8 +69,8 @@
             <language name="JP">[JP]Rate Correction</language>
             <language name="ES">[ES]Rate Correction</language>
             <language name="GB">[GB]Rate Correction</language>
-            <language name="MX">[MX]Rate Correction</language>
-            <language name="BR">[BR]Rate Correction</language>
+            <language name="es-MX">[MX]Rate Correction</language>
+            <language name="pt-BR">[BR]Rate Correction</language>
             <language name="DA">[DA]Rate Correction</language>
         </DisplayDescriptions>
         <displayname>Rate Correction</displayname>
@@ -82,8 +82,8 @@
             <language name="JP">[JP]Rate Correction</language>
             <language name="ES">[ES]Rate Correction</language>
             <language name="GB">[GB]Rate Correction</language>
-            <language name="MX">[MX]Rate Correction</language>
-            <language name="BR">[BR]Rate Correction</language>
+            <language name="es-MX">[MX]Rate Correction</language>
+            <language name="pt-BR">[BR]Rate Correction</language>
             <language name="DA">[DA]Rate Correction</language>
         </DisplayNames>
     </reasoncode>

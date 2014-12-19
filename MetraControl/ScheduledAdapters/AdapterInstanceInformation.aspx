@@ -145,7 +145,7 @@
   <div id="auditHistory-win" class="x-hidden">
     <div id="auditHistory-win-body" class="x-panel">
       <MT:MTFilterGrid ID="AuditHistoryGrid" runat="server" TemplateFileName="AdapterInstanceAuditHistoryGrid"
-        ExtensionName="Core" ClientIDMode="Static" />
+        ExtensionName="Core" ClientIDMode="Static" Resizable="False" />
     </div>
   </div>
   <div id="runDetails-win" class="x-hidden">
@@ -175,20 +175,23 @@
             <td>
               <MT:MTLabel runat="server" ID="lblSummaryDetailsValue" ClientIDMode="Static" ViewStateMode="Disabled" />
             </td>
+            <td>
+              &nbsp;
+            </td>
           </tr>
           <tr>
-            <td colspan="3">
+            <td colspan="4">
               <div id="butchCountMessage" clientidmode="Static">
               </div>
             </td>
           </tr>
           <tr>
-            <td colspan="3">
-              <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
-                ExtensionName="Core" ClientIDMode="Static" />
+            <td colspan="4">
             </td>
           </tr>
         </table>
+              <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
+                ExtensionName="Core" ClientIDMode="Static" Resizable="False" />
       </MT:MTPanel>
     </div>
   </div>
@@ -244,6 +247,7 @@
             anchor:'100%',
             plain: true,
             buttonAlign: 'center',
+            resizable: false,
             items: [{
                 applyTo:'auditHistory-win-body',
                 border: false,
@@ -291,6 +295,7 @@
             anchor:'100%',
             plain: true,
             buttonAlign: 'center',
+            resizable: false,
             items: [{
                 applyTo:'runDetails-win-body',
                 border: false,

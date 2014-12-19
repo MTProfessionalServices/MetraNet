@@ -115,4 +115,8 @@
     <value>[JA]The information was successfully added.</value>
     <description></description>
   </text>
+  <text id="TEXT_OPERATION">
+    <value>[JA]Operation</value>
+    <description></description>
+  </text>
 </texts>

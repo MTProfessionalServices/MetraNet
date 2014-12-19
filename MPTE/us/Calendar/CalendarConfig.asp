@@ -65,12 +65,17 @@ Function GetPeriodlegend
 	
 	Set objEnumCfg = CreateObject("Metratech.MTEnumConfig")
 	Set objEnumColl = objEnumCfg.GetEnumerators("metratech.com/calendar", "CalendarCode")
+  Dim lang
+  lang = session.Contents("FRAMEWORK_APP_LANGUAGE_SHORT")
+  Set lc = Server.CreateObject("Metratech.LocaleConfig")
+  lc.Initialize("Core")
+  lc.LoadLanguage(lang)
 
 	strHTML = ""
 	strHTML = strHTML & "<table width='0'><tr>"	
 	For Each varEnum in objEnumColl
 		varEnumValue = objEnumCfg.GetEnumeratorValueByID(objEnumCfg.GetID("metratech.com/calendar", "CalendarCode", varEnum.Name))
-		strHTML = strHTML & "<td width='" & Clng(100/objEnumColl.Count) & "%' class='clsCalendarGraph" & varEnumValue & "'>" & varEnum.Name & "</td>"
+		strHTML = strHTML & "<td width='" & Clng(100/objEnumColl.Count) & "%' class='clsCalendarGraph" & varEnumValue & "'>"  & lc.GetLocalizedString("metratech.com/calendar/CalendarCode/" & varEnum.Name, lang) & "</td>"
 	Next
 	strHTML = strHTML & "</tr></table>"
 

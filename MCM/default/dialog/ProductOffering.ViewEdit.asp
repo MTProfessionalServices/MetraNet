@@ -63,6 +63,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   
   ' Save the id so we can use it on links in the page	
   mdm_GetDictionary().Add "CURRENT_PRODUCTOFFERING_ITEM_ID",Request.QueryString("ID")
+  Session("CURRENT_PRODUCTOFFERING_PARTITION_ID") = COMObject.Instance.POPartitionId
   
   ' Find the ProductOffering and store it into the MDM COM Object, this will take care of the sub object like EffectiveDate  
   'response.write("PO Properties count [" & objMTProductOffering.Properties.count &"]<BR>")

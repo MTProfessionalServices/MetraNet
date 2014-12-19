@@ -47,13 +47,14 @@ PUBLIC CONST ACCOUNT_TYPE_MOM = "MOM"
 PUBLIC CONST ACCOUNT_TYPE_MCM = "MCM"
 
 ' Internal names used to stored information in the session
-PUBLIC CONST FRAMEWORK_APP_STARTPAGE    = "FRAMEWORK_APP_STARTPAGE"
-PUBLIC CONST FRAMEWORK_APP_FOLDER       = "FRAMEWORK_APP_FOLDER"
-PUBLIC CONST FRAMEWORK_APP_DICTIONARY   = "FRAMEWORK_APP_DICTIONARY"
-PUBLIC CONST FRAMEWORK_APP_LANGUAGE     = "FRAMEWORK_APP_LANGUAGE"
-PUBLIC CONST FRAMEWORK_APP_PATH         = "FRAMEWORK_APP_PATH"
-PUBLIC CONST FRAMEWORK_LOCALIZED_PATH   = "FRAMEWORK_LOCALIZED_PATH"
-PUBLIC CONST FRAMEWORK_APP_RCD          = "FRAMEWORK_APP_RCD"
+PUBLIC CONST FRAMEWORK_APP_STARTPAGE    	= "FRAMEWORK_APP_STARTPAGE"
+PUBLIC CONST FRAMEWORK_APP_FOLDER       	= "FRAMEWORK_APP_FOLDER"
+PUBLIC CONST FRAMEWORK_APP_DICTIONARY   	= "FRAMEWORK_APP_DICTIONARY"
+PUBLIC CONST FRAMEWORK_APP_LANGUAGE     	= "FRAMEWORK_APP_LANGUAGE"
+PUBLIC CONST FRAMEWORK_APP_PATH         	= "FRAMEWORK_APP_PATH"
+PUBLIC CONST FRAMEWORK_APP_LANGUAGE_SHORT   = "FRAMEWORK_APP_LANGUAGE_SHORT"
+PUBLIC CONST FRAMEWORK_LOCALIZED_PATH   	= "FRAMEWORK_LOCALIZED_PATH"
+PUBLIC CONST FRAMEWORK_APP_RCD          	= "FRAMEWORK_APP_RCD"
 
 
 PUBLIC CONST FRAMEWORK_DEFAULT_LANGUAGE = "en-us"
@@ -728,7 +729,11 @@ CLASS CFrameWork ' -- The FrameWork Class --
 	                    Session(alias_mdm_APP_FOLDER)                  =  Application(FRAMEWORK_APP_PATH)
 	                    Session(alias_mdm_APP_LANGUAGE)                =  Session(FRAMEWORK_APP_LANGUAGE)
 	            End If
-	
+
+				dim langFull
+				langFull = Session(FRAMEWORK_APP_LANGUAGE)
+				Session(FRAMEWORK_APP_LANGUAGE_SHORT) = Right(langFull, (Len(langFull)-InStrRev(langFull, "-")))
+				
 	            strMessage = vbNewline  & "*****************************************************************" & vbNewline
 	            strMessage = strMessage & " Starting Framework - " & Now                                      & vbNewline
 	            strMessage = strMessage & "*****************************************************************"

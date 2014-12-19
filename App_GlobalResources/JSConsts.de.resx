@@ -1377,6 +1377,9 @@
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
     <value>[DE]View Log</value>
   </data>
+  <data name="TEXT_VIEW_ALL" xml:space="preserve">
+    <value>[De]View All...</value>
+  </data>
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Tag</value>
   </data>

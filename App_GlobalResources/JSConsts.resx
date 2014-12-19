@@ -1377,6 +1377,9 @@
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
     <value>View Log</value>
   </data>
+  <data name="TEXT_VIEW_ALL" xml:space="preserve">
+    <value>View All...</value>
+  </data>
   <data name="TEXT_FIRST" xml:space="preserve">
     <value>First</value>
   </data>

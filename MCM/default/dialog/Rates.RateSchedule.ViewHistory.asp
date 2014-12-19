@@ -193,7 +193,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             if EventId=1402 then 'Ruleset Update
               dim sPageInfo
               'SECENG: CORE-4797 CLONE - MSOL 30262 MetraOffer: Stored cross-site scripting - All output should be properly encoded
-              sPageInfo = "Price list <strong>" & SafeForHtml(Service.Properties("PriceListName")) & "</strong><br>modified by <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("UserName")) & "</strong> at <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("Time")) & "</strong>"
+              sPageInfo = FrameWork.GetDictionary("TEXT_PRICE_LIST") & " <strong>" & SafeForHtml(Service.Properties("PriceListName")) & "</strong><br>" & FrameWork.GetDictionary("TEXT_MODIFIED_BY") & " <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("UserName")) & "</strong> " & FrameWork.GetDictionary("TEXT_AT") & " <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("Time")) & "</strong>"
               sPageInfo = SafeForHtmlAttr(SafeForUrl(sPageInfo))
               'Updating HTML Encoding
               'strHTML = "<button name='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1');"">View Changes</button>"

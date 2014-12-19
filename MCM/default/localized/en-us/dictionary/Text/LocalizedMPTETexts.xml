@@ -803,4 +803,16 @@
     <value>December</value>
     <description></description>
   </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>Price list</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MODIFIED_BY">
+    <value>modified by</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AT">
+    <value>at</value>
+    <description></description>
+  </text>
 </texts>

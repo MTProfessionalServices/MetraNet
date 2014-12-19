@@ -801,4 +801,16 @@
     <value>[PT-BR]December</value>
     <description></description>
   </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>[PT-BR]Price list</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MODIFIED_BY">
+    <value>[PT-BR]modified by</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AT">
+    <value>[PT-BR]at</value>
+    <description></description>
+  </text>
 </texts>

@@ -801,4 +801,16 @@
     <value>[JA]December</value>
     <description></description>
   </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>[JA]Price list</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MODIFIED_BY">
+    <value>[JA]modified by</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AT">
+    <value>[JA]at</value>
+    <description></description>
+  </text>
 </texts>

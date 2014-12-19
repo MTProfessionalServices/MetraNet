@@ -99,7 +99,7 @@
               </td>
               <td>
                 <MT:MTButton ID="btnRevertAdaptersLater" meta:resourcekey="btnRevertAdaptersLater"
-                  ClientIDMode="Static" runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnReverseAdaptersLater'); return false;" />
+                  ClientIDMode="Static" runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRevertAdaptersLater'); return false;" />
               </td>
               <td>
                 <MT:MTButton ID="btnCancelSubmittedAction" meta:resourcekey="btnCancelSubmittedAction"
@@ -343,13 +343,6 @@
         locolizedActions[action] = action;
       }
       return locolizedActions[action];
-    }
-    
-    function getLocolizedStatus(status) {
-      if (!locolizedStatuses[status]) {
-        locolizedStatuses[status] = status;
-      }
-      return locolizedStatuses[status];
     }
   </script>
 </asp:Content>

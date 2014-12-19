@@ -246,9 +246,6 @@
   <text id="TEXT_BG_RUN_ACTION_EXECUTE">
     <value>[FR]Execute </value>
   </text>
-  <text id="TEXT_BG_RUN_ACTION_REVERSE">
-    <value>[FR]Reverse </value>
-  </text>
   <text id="TEXT_Unassigned_Accounts_That_Are_Hard_Closed">
     <value>[FR]Unassigned Accounts That Are Hard Closed</value>
   </text>

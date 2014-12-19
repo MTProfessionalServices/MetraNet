@@ -161,39 +161,33 @@ FUNCTION getAvailableActionsHTML()
 
 
     if bShowRunOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='RunAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Run Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "[TEXT_RUN_ADAPTER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' id='EditMapping' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & "Run Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' id='EditMapping' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & "[TEXT_RUN_ADAPTER]" &  "</button>" & vbNewLine
     end if
 
     if bShowRunOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Run Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "[TEXT_RUN_ADAPTER_LATER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='EditMapping' onclick=''>" & "Run Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='EditMapping' onclick=''>" & "[TEXT_RUN_ADAPTER_LATER]" &  "</button>" & vbNewLine
     end if
     
     if bShowReverseOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ReverseAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Reverse Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "[TEXT_REVERCE_ADAPTER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='ReverseAdapters' onclick=''>" & "Reverse Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdapters' onclick=''>" & "[TEXT_REVERCE_ADAPTER]" &  "</button>" & vbNewLine
     end if
 
     if bShowReverseOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Reverse Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "[TEXT_REVERCE_ADAPTER_LATER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=''>" & "Reverse Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=''>" & "[TEXT_REVERCE_ADAPTER_LATER]" &  "</button>" & vbNewLine
     end if
-    
-    'if bShowForceOption then
-    '  sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ReverseAdaptersLater' onclick=""javascript:alert('Not implemented yet... hold your horses');"">" & "Force Adapter" &  "</button>" & vbNewLine
-    'else
-    '  sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='ReverseAdaptersLater' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes')"">" & "Backout Adapter" &  "</button>" & vbNewLine
-    'end if   
          
     if bShowMarkAsNotReadyToRun then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='CancelPendingAction' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Cancel Submitted Action" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXXLarge' name='CancelPendingAction' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "[TEXT_CANCEL_SUBMITTED_ACTION]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' id='CancelPendingAction' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & "Cancel Submitted Action" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXXLarge' id='CancelPendingAction' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & "[TEXT_CANCEL_SUBMITTED_ACTION]" &  "</button>" & vbNewLine
     end if      
     sHTML = sHTML & "<BR>"
 
@@ -211,14 +205,10 @@ FUNCTION getRunHistoryHTML
   	rowset.SetQueryTag("__GET_ADAPTER_RUN_LIST_FOR_INSTANCE__")
     rowset.AddParam "%%ID_INSTANCE%%", CLng(Form("InstanceId"))   
   	rowset.Execute
-
-    'rowset.Sort "Time", 1
-    'sHTML = DumpRowsetHTML(rowset)
-    'rowset.MoveFirst
     
     sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
-    sHTML = sHTML & "<tr class='TableHeader'><td align='left' colspan='15'><strong><font size=4>Instance Run History</font></strong></td></tr>"    
-    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;background-color=#688ABA'><td align='left'>Action</td><td align='left'>Status</td><td valign='bottom' align='left'>Summary Details</td><td align='left'>Start Time [Duration]</td><td align='left'>Machine</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader'><td align='left' colspan='15'><strong><font size=4>[TEXT_VIEW_ADAPTER_RUN_HISTORY]</font></strong></td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;background-color=#688ABA'><td align='left'>[TEXT_Action1]</td><td align='left'>[TEXT_STATUS]</td><td valign='bottom' align='left'>[TEXT_SUMMARY_DETAIL]</td><td align='left'>[TEXT_START_TIME]</td><td align='left'>[TEXT_MACHINE]</td></tr>"    
 
     dim sAdditionalParameters
     if len(Form("IntervalId"))>0 then
@@ -226,7 +216,7 @@ FUNCTION getRunHistoryHTML
     end if
     
     if rowset.eof then
-      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>No runs have been associated with this instance.</td></tr>"
+      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>[TEXT_NO_RUNS_INSTANCE]</td></tr>"
     else  
       do while not rowset.eof 
           dim sToolTip, sTime, sStatusCode, sType, sMachine, sViewDetailsHTML
@@ -238,16 +228,17 @@ FUNCTION getRunHistoryHTML
             sTime = mom_GetDurationMessage(rowset.value("dt_start"),rowset.value("dt_end"))
           end if
 
-          sViewDetailsHTML = "<A href=""#"" title=""View Run Details"" onclick=""window.open('AdapterManagement.RunDetails.List.asp?RunId=" & rowset.value("id_run") & "&AdapterName=" & Service.Properties("DisplayNameEncoded") & sAdditionalParameters & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">"
+          sViewDetailsHTML = "<A href=""#"" title=""[TEXT_VIEW_RUN_DETAIL]"" onclick=""window.open('AdapterManagement.RunDetails.List.asp?RunId=" & rowset.value("id_run") & "&AdapterName=" & Service.Properties("DisplayNameEncoded") & sAdditionalParameters & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">"
           if  len(rowset.value("tx_detail"))=0 then
-            sViewDetailsHTML = sViewDetailsHTML & "View Run Details" & "</A>"
+            sViewDetailsHTML = sViewDetailsHTML & "[TEXT_VIEW_RUN_DETAIL]" & "</A>"
           else
             sViewDetailsHTML = sViewDetailsHTML & rowset.value("tx_detail") & "</A>"
           end if
                    
           sMachine = rowset.value("tx_machine")
 
-          sToolTip = "Run Id: " & rowset.value("id_run") & vbNewLine & "Reversed Run Id: " & rowset.value("id_reversed_run")
+          sToolTip = "[TEXT_Rerun_Id]: " & rowset.value("id_run") & vbNewLine & "[TEXT_REVERSED_RUN_ID]: " & rowset.value("id_reversed_run")
+
           sHTML = sHTML & "<tr class='TableDetailCell' title='" & sToolTip & "'>"
           'sHTML = sHTML & "<td style='vertical-align: top'>" & "&nbsp;" & "</td>"            
           sHTML = sHTML & "<td style='vertical-align: top'>" & sType & "&nbsp;</td>"

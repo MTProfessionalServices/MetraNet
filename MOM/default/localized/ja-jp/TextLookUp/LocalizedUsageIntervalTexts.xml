@@ -270,4 +270,16 @@
   <text id="TEXT_No_adapter_instances_selected">
     <value>[JA]No adapter instances selected.</value>
   </text>
+  <text id="TEXT_NO_RUNS_INSTANCE">
+    <value>[JA]No runs have been associated with this instance.</value>
+  </text>
+  <text id="TEXT_VIEW_RUN_DETAIL">
+    <value>[JA]View Run Details</value>
+  </text>
+  <text id="TEXT_SUMMARY_DETAIL">
+    <value>[JA]Summary Details</value>
+  </text>
+  <text id="TEXT_REVERSED_RUN_ID">
+    <value>[JA]Reversed Run Id</value>
+  </text>
 </texts>

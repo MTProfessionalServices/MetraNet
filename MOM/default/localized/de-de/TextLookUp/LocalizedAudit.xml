@@ -105,4 +105,8 @@
     <value>[DE]Adapter Run History For Bill Group</value>
     <description></description>
   </text>
+  <text id="TEXT_ADAPTER_INSTANCE_INFO">
+    <value>[DE]Adapter Instance Information</value>
+    <description></description>
+  </text>
 </texts>

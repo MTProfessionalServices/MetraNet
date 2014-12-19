@@ -216,7 +216,7 @@ FUNCTION getRecurringEventRunHTML
     end if
     
     dim sIntervalDescription
-    sIntervalDescription = "Interval " & Service.Properties("IntervalId").Value & " " & Service.Properties("IntervalType").Value & " " & Service.Properties("IntervalStartDateTime").Value & " - " & Service.Properties("IntervalEndDateTime").Value
+    sIntervalDescription = "[TEXT_INTERVAL] " & Service.Properties("IntervalId").Value & " " & Service.Properties("IntervalType").Value & " " & Service.Properties("IntervalStartDateTime").Value & " - " & Service.Properties("IntervalEndDateTime").Value
 
     'DEBUG - dump rowset 
     if false then

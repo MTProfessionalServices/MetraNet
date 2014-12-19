@@ -85,17 +85,17 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   if Form("BillingGroupId") > 0 then
     rowset.SetQueryTag("__GET_BILLINGGROUP_ADAPER_HISTORY__")  
     rowset.AddParam "%%ID_BILLGROUP%%", CLng(Form("BillingGroupId"))
-    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", "Adapter Run History For " & "Bill Group " & Form("Title") 
+    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", mom_GetDictionary("TEXT_HISTORY_FOR_BG") & " " & Form("Title")  'Adapter Run History For Bill Group
   else 
 	  if Form("InstanceId") > 0 then
 		  rowset.SetQueryTag("__GET_ADAPTER_INSTANCE_HISTORY__")  
 		  rowset.AddParam "%%ID_INSTANCE%%", CLng(Form("InstanceId"))
-		  mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", "Adapter Run History For " & Form("Title") 
+		  mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", mom_GetDictionary("TEXT_HISTORY_FOR") & " " & Form("Title") 'Adapter Run History For
 	  else
 		  if Form("IntervalId") > 0 then
 		    rowset.SetQueryTag("__GET_INTERVAL_ADAPER_HISTORY__")  
 		    rowset.AddParam "%%ID_INTERVAL%%", CLng(Form("IntervalId"))
-		    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", "Adapter Run History For Interval " & Form("Title") 
+		    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", mom_GetDictionary("TEXT_HISTORY_FOR_INTERVAL") & " " & Form("Title") 'Adapter Run History For Interval
 		  else
 		    response.write("Instance Id or Interval Id Not Passed")
 		    response.end

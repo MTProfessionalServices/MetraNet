@@ -212,7 +212,7 @@
 
     function DetailColRenderer(value, meta, record, rowIndex, colIndex, store)
     {
-      if (value.len == 0) {
+      if (value.length == 0 || value == 'NULL') {
         value = "<%=GetLocalResourceObject("ViewRunDetails").ToString() %>";
       }
       return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\", \"{2}\");return false;'>{2}</a>", record.data.id_run, record.data.tx_status, value);

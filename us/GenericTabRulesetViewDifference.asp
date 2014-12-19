@@ -186,7 +186,7 @@ mdm_Initialize();
           sPriceListName = FrameWork.GetDictionary("TEXT_ICB_PRICELIST_DISPLAY_NAME")
         end if
         
-        sPageTitle = "Pricelist <strong>" & sPriceListName & "</strong><br>modified by <strong>" & sModifiedBy & "</strong> at <strong>" & dtRuleSet1 & "</strong>"
+        sPageTitle = FrameWork.GetDictionary("TEXT_PRICE_LIST") & " <strong>" & sPriceListName & "</strong><br>" & FrameWork.GetDictionary("TEXT_MODIFIED_BY") & "<strong>" & sModifiedBy & "</strong> " & FrameWork.GetDictionary("TEXT_AT") & " <strong>" & dtRuleSet1 & "</strong>"
 
       else
         dtRuleSet1 = request("RS_STARTDATE_1")
@@ -1043,7 +1043,7 @@ end sub
 
 sub writePageEnd()
   response.write "</table></div>"
-  response.write "<br><br><br><div align='center'><button Class='clsOKButton' name='CANCEL' onclick='window.close();'>Close</button>"
+  response.write "<br><br><br><div align='center'><button Class='clsOKButton' name='CANCEL' onclick='window.close();'>" & FrameWork.GetDictionary("TEXT_CLOSE") & "</button>"
   response.write "</div><BR><BR>"
   response.write "</FORM></BODY></HTML>"
 end sub

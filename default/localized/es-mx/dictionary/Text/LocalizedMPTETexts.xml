@@ -802,4 +802,16 @@
     <value>[ES-MX]December</value>
     <description></description>
   </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>[ES-MX]Price list</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MODIFIED_BY">
+    <value>[ES-MX]modified by</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AT">
+    <value>[ES-MX]at</value>
+    <description></description>
+  </text>
 </texts>

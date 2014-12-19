@@ -801,4 +801,16 @@
     <value>[IT]December</value>
     <description></description>
   </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>[IT]Price list</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MODIFIED_BY">
+    <value>[IT]modified by</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AT">
+    <value>[IT]at</value>
+    <description></description>
+  </text>
 </texts>

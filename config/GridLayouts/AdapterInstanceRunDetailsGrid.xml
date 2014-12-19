@@ -7,7 +7,7 @@
     </Title>
     <Exportable>false</Exportable>
     <Height>350</Height>
-    <Width>520</Width>
+    <Width>650</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>

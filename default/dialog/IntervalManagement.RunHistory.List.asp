@@ -109,36 +109,34 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties.AddPropertiesFromRowset rowset  
   ProductView.Properties.SelectAll
   ProductView.Properties.CancelLocalization
+  ProductView.Properties.ClearSelection      ' Select the properties I want to print in the PV Browser Order
+  ProductView.Properties("InstanceId").Caption = mom_GetDictionary("TEXT_INSTANCE_ID")
+  ProductView.Properties("Time").Caption       = mom_GetDictionary("TEXT_AUDIT_TIME")   
+  ProductView.Properties("Action").Caption     = mom_GetDictionary("TEXT_Action1")
+  ProductView.Properties("UserName").Caption   = mom_GetDictionary("TEXT_AUDIT_USERNAME")
+  ProductView.Properties("AuditId").Caption    = mom_GetDictionary("TEXT_AUDIT_AUDIT_ID")
+  ProductView.Properties("Type").Caption       = mom_GetDictionary("TEXT_TYPE")
+  ProductView.Properties("UserID").Caption     = mom_GetDictionary("TEXT_AUDIT_USER_ID")
+  ProductView.Properties("Details").Caption    = mom_GetDictionary("TEXT_AUDIT_DETAILS")
+  ProductView.Properties("Forced").Caption     = mom_GetDictionary("TEXT_FORCED") 
 
   if Form("IntervalId") > 0 then 
     dim i
-    i=1
-    ProductView.Properties.ClearSelection      ' Select the properties I want to print in the PV Browser   Order
+    i=1    
     ProductView.Properties("InstanceId").Selected = i : i = i + 1
     ProductView.Properties("Time").Selected 			= i : i = i + 1
     ProductView.Properties("Adapter").Selected 		= i : i = i + 1
     ProductView.Properties("Action").Selected 		= i : i = i + 1
     ProductView.Properties("UserName").Selected 	= i : i = i + 1
-    
-    ProductView.Properties("InstanceId").Caption = mom_GetDictionary("TEXT_INSTANCE_ID")
-    ProductView.Properties("Time").Caption 		   = mom_GetDictionary("TEXT_AUDIT_TIME")
     ProductView.Properties("Adapter").Caption 	 = mom_GetDictionary("TEXT_ADAPTER")
-    ProductView.Properties("Action").Caption 	   = mom_GetDictionary("TEXT_Action1")
-    ProductView.Properties("UserName").Caption 	 = mom_GetDictionary("TEXT_AUDIT_USERNAME")
-    ProductView.Properties("AuditId").Caption 	 = mom_GetDictionary("TEXT_AUDIT_AUDIT_ID")
-    ProductView.Properties("Type").Caption 	     = mom_GetDictionary("TEXT_TYPE")
-    ProductView.Properties("UserID").Caption 	   = mom_GetDictionary("TEXT_AUDIT_USER_ID")
-    ProductView.Properties("Details").Caption 	 = mom_GetDictionary("TEXT_AUDIT_DETAILS")
-    ProductView.Properties("Forced").Caption 	   = mom_GetDictionary("TEXT_FORCED")
   
     mdm_SetMultiColumnFilteringMode TRUE  
     Set Form.Grid.FilterProperty = ProductView.Properties("UserName") ' Set the property on which to apply the filter  
   else
     ProductView.Properties.SelectAll
     Form.Grid.FilterMode = 0' MDM_FILTER_MODE_ON ' Filter
-    'mdm_SetMultiColumnFilteringMode TRUE
   end if
-  
+   
   ProductView.Properties("Time").Sorted               = MTSORT_ORDER_DESCENDING
 
   ' REQUIRED because we must generate the property type info in javascript. When the user change the property which he

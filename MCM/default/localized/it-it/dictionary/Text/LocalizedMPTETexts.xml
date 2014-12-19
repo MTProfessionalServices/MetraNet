@@ -813,4 +813,12 @@
     <value>[IT]at</value>
     <description></description>
   </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>[IT]View changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>[IT]View history</value>
+    <description></description>
+  </text>
 </texts>

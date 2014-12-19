@@ -814,4 +814,12 @@
     <value>[ES-MX]at</value>
     <description></description>
   </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>[ES-MX]View changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>[ES-MX]View history</value>
+    <description></description>
+  </text>
 </texts>

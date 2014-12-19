@@ -813,4 +813,12 @@
     <value>[PT-BR]at</value>
     <description></description>
   </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>[PT-BR]View changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>[PT-BR]View history</value>
+    <description></description>
+  </text>
 </texts>

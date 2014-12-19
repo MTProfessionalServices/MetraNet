@@ -815,4 +815,12 @@
     <value>at</value>
     <description></description>
   </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>View changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>View history</value>
+    <description></description>
+  </text>
 </texts>

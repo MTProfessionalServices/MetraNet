@@ -241,4 +241,13 @@
   <data name="FailedAccounts" xml:space="preserve">
     <value>[DE]View List Of Accounts That Had Failures</value>
   </data>
+  <data name="lblRunId.Text" xml:space="preserve">
+    <value>[DE]Run Id:</value>
+  </data>
+  <data name="lblSummaryDetails.Text" xml:space="preserve">
+    <value>[DE]Summary Details:</value>
+  </data>
+  <data name="pnlRunDetails.Text" xml:space="preserve">
+    <value>[DE]Details:</value>
+  </data>
 </root>

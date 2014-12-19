@@ -187,4 +187,13 @@
   <data name="SecondSingular" xml:space="preserve">
     <value>second</value>
   </data>
+  <data name="lblRunId.Text" xml:space="preserve">
+    <value>[en-GB]Run Id:</value>
+  </data>
+  <data name="lblSummaryDetails.Text" xml:space="preserve">
+    <value>[en-GB]Summary Details:</value>
+  </data>
+  <data name="pnlRunDetails.Text" xml:space="preserve">
+    <value>[en-GB]Details:</value>
+  </data>
 </root>

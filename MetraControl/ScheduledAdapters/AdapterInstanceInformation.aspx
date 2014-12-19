@@ -72,7 +72,7 @@
               </td>
             </tr>
           </table>
-          <br/>
+          <br />
           <div>
             <MT:MTButton ID="btnHistory" ClientIDMode="Static" meta:resourcekey="btnHistory"
               OnClientClick="ShowAuditHistory();return false;" runat="server" />
@@ -150,10 +150,46 @@
   </div>
   <div id="runDetails-win" class="x-hidden">
     <div id="runDetails-win-body" class="x-panel">
-      <div id="butchCountMessage" clientidmode="Static">
-      </div>
-      <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
-        ExtensionName="Core" ClientIDMode="Static" />
+      <MT:MTPanel runat="server" ClientIDMode="Static" ID="pnlRunDetails" meta:resourcekey="pnlRunDetails">
+        <table>
+          <tr>
+            <td>
+              <MT:MTLabel runat="server" ID="lblRunId" ClientIDMode="Static" ViewStateMode="Disabled"
+                meta:resourcekey="lblRunId" />
+            </td>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              <MT:MTLabel runat="server" ID="lblRunIdValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <MT:MTLabel runat="server" ID="lblSummaryDetails" ClientIDMode="Static" ViewStateMode="Disabled"
+                meta:resourcekey="lblSummaryDetails" />
+            </td>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              <MT:MTLabel runat="server" ID="lblSummaryDetailsValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div id="butchCountMessage" clientidmode="Static">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
+                ExtensionName="Core" ClientIDMode="Static" />
+            </td>
+          </tr>
+        </table>
+      </MT:MTPanel>
     </div>
   </div>
   <script type="text/javascript">
@@ -179,7 +215,7 @@
       if (value.len == 0) {
         value = "<%=GetLocalResourceObject("ViewRunDetails").ToString() %>";
       }
-      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\");return false;'>{2}</a>", record.data.id_run, record.data.tx_status, value);
+      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\", \"{2}\");return false;'>{2}</a>", record.data.id_run, record.data.tx_status, value);
     }
       
     function DateStartColRenderer(value, meta, record, rowIndex, colIndex, store)
@@ -227,9 +263,9 @@
       auditHistoryWin.show(this);  
     }
     
-    function ShowRunDetails(runId, runStatus) {
+    function ShowRunDetails(runId, runStatus, summaryDetails) {
       var runDetails = GetInstanceRunDetails(runId);
-      var windowHeight = grid_RunDetailsGrid.height + 70;
+      var windowHeight = grid_RunDetailsGrid.height + 160;
       var batchMessage = "";
       if (runDetails.BatchCount > 0) {
         batchMessage = String.format("<a href='#' onclick=\"window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/BatchManagement.List.asp?Filter=AdapterRun&RerunId={0}','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')\">{1}</a>", runId, "<%=GetLocalResourceObject("BatchDetails").ToString() %>");
@@ -242,6 +278,8 @@
       if (batchMessage.length > 0) {
         Ext.fly("butchCountMessage").dom.innerHTML = batchMessage;
       }
+      Ext.fly("lblRunIdValue").dom.innerHTML = runId;
+      Ext.fly("lblSummaryDetailsValue").dom.innerHTML = summaryDetails;
       if(!runDetailsWin) {
         runDetailsWin = new Ext.Window({
             title: '<%=DisplayName %>'+'&nbsp;&mdash;&nbsp;<%=GetLocalResourceObject("AdapterInstanceRunDetailsGrid.Title").ToString() %>',

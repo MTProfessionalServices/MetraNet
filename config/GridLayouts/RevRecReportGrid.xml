@@ -15,7 +15,7 @@
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
-    <PageSize>10</PageSize>
+    <PageSize>10000</PageSize>
     <Description></Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>

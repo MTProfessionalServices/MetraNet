@@ -345,7 +345,7 @@ FUNCTION getRecurringEventRunHTML
           if sInstanceId = "&nbsp;" then
             status = sStatus
           else
-            status = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(sStatus, " ", "_")))
+            status = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(sStatusCode, " ", "_")))
           end if
           
           if UCase(rowset.value("IsGlobalAdapter")) = "Y" then

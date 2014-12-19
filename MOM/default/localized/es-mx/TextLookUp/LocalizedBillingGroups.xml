@@ -228,13 +228,13 @@
   <text id="TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT">
     <value>[es-MX]Billing Management</value>
   </text>
-  <text id="TEXT_BG_STATUS_CODE_READY_TO_RUN">
+  <text id="TEXT_BG_STATUS_CODE_READYTORUN">
     <value>[es-MX]Ready To Run</value>
   </text>
-  <text id="TEXT_BG_STATUS_CODE_READY_TO_REVERSE">
+  <text id="TEXT_BG_STATUS_CODE_READYTOREVERSE">
     <value>[es-MX]Ready To Reverse</value>
   </text>
-  <text id="TEXT_BG_STATUS_CODE_NOT_YET_RUN">
+  <text id="TEXT_BG_STATUS_CODE_NOTYETRUN">
     <value>[es-MX]Not Yet Run</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_ACKNOWLEDGE">

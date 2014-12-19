@@ -71,7 +71,17 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   'Set the title for the page
 
   Service.Properties("PageTitle").Value = Form("ActionText") & " Adapter(s) At Scheduled Time"
-  Service.Properties("ActionText").Value = Form("ActionText")
+  'Service.Properties("ActionText").Value = Form("ActionText")
+
+  if Form("Action") = "RUN" then
+    Service.Properties("PageTitle").Value = mom_GetDictionary("TEXT_RUN") 
+    Form("ActionText") = mom_GetDictionary("TEXT_RUN") 
+  else
+    Service.Properties("PageTitle").Value = mom_GetDictionary("TEXT_REVERSE") 
+    Form("ActionText") = mom_GetDictionary("TEXT_REVERSE") 
+  end if
+
+  Service.Properties("PageTitle").Value = Service.Properties("PageTitle").Value & mom_GetDictionary("TEXT_Adapter_At_Scheduled_Time") 
 
   'PopulateThePropertyComboBox
   
@@ -101,7 +111,7 @@ FUNCTION getAdapterInformationHTML
           objUSMInstances.AddInstanceCriteria arrInstances(i)
         Next
         
-   'objUSMInstances.AddInstanceCriteria 1010
+   objUSMInstances.LanguageId = FrameWork.SessionContext.LanguageId 
    objUSMInstances.Apply
 
    'Set rowset= objUSM.GetCanExecuteEventDepsRowset((objUSMInstances))
@@ -126,9 +136,9 @@ FUNCTION getAdapterInformationHTML
     
     dim sActionText
     if Form("Action") = "RUN" then
-      sActionText = "You have selected to run the following adapter(s):"
+      sActionText = mom_GetDictionary("TEXT_You_have_selected_to_run_the_following_adapter")
     else
-      sActionText = "You have selected to reverse the following adapter(s):"
+      sActionText = mom_GetDictionary("TEXT_You_have_selected_to_reverse_the_following_adapter")
     end if
     
     sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
@@ -136,7 +146,7 @@ FUNCTION getAdapterInformationHTML
     'sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;background-color=#688ABA'><td align='left'>Adapter</td><td align='left'>&nbsp;</td></tr>"    
 
     if rowset.eof then
-      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>No adapter instances selected.</td></tr>"
+      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>" & mom_GetDictionary("TEXT_No_adapter_instances_selected") & "</td></tr>"
     else  
       do while not rowset.eof 
           dim sToolTip, sAdapterName, sErrorMessage

@@ -282,4 +282,19 @@
   <text id="TEXT_REVERSED_RUN_ID">
     <value>[IT]Reversed Run Id</value>
   </text>
+  <text id="TEXT_Adapter_List">
+    <value>[IT]Adapter List</value>
+  </text>
+  <text id="TEXT_These_Adapters_On">
+    <value>[IT]These Adapters On</value>
+  </text>
+  <text id="TEXT_Adapter_At_Scheduled_Time">
+    <value>[IT] Adapter(s) At Scheduled Time</value>
+  </text>
+  <text id="TEXT_RUN">
+    <value>[IT]Run</value>
+  </text>
+  <text id="TEXT_REVERSE">
+    <value>[IT]Reverse</value>
+  </text>
 </texts>

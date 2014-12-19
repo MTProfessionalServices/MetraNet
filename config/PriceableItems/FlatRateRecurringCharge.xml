@@ -9,8 +9,8 @@
         <language name="JP">[JP]Flat Rate Recurring Charge</language>
         <language name="ES">[ES]Flat Rate Recurring Charge</language>
         <language name="GB">[GB]Flat Rate Recurring Charge</language>
-        <language name="MX">[MX]Flat Rate Recurring Charge</language>
-        <language name="BR">[BR]Flat Rate Recurring Charge</language>
+        <language name="es-MX">[MX]Flat Rate Recurring Charge</language>
+        <language name="pt-BR">[BR]Flat Rate Recurring Charge</language>
         <language name="DA">[DA]Flat Rate Recurring Charge</language>
     </DisplayNames>
     <description>Recurring charge with a flat rate</description>
@@ -22,8 +22,8 @@
         <language name="JP">[JP]Recurring charge with a flat rate</language>
         <language name="ES">[ES]Recurring charge with a flat rate</language>
         <language name="GB">[GB]Recurring charge with a flat rate</language>
-        <language name="MX">[MX]Recurring charge with a flat rate</language>
-        <language name="BR">[BR]Recurring charge with a flat rate</language>
+        <language name="es-MX">[MX]Recurring charge with a flat rate</language>
+        <language name="pt-BR">[BR]Recurring charge with a flat rate</language>
         <language name="DA">[DA]Recurring charge with a flat rate</language>
     </DisplayDescriptions>
     <item_type>recurring</item_type>
@@ -47,8 +47,8 @@
             <language name="JP">[JP]Recurring Charge Flat Adjustment</language>
             <language name="ES">[ES]Recurring Charge Flat Adjustment</language>
             <language name="GB">[GB]Recurring Charge Flat Adjustment</language>
-            <language name="MX">[MX]Recurring Charge Flat Adjustment</language>
-            <language name="BR">[BR]Recurring Charge Flat Adjustment</language>
+            <language name="es-MX">[MX]Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR">[BR]Recurring Charge Flat Adjustment</language>
             <language name="DA">[DA]Recurring Charge Flat Adjustment</language>
         </DisplayDescriptions>
         <displayname>Recurring Charge Flat Adjustment</displayname>
@@ -60,8 +60,8 @@
             <language name="JP">[JP]Recurring Charge Flat Adjustment</language>
             <language name="ES">[ES]Recurring Charge Flat Adjustment</language>
             <language name="GB">[GB]Recurring Charge Flat Adjustment</language>
-            <language name="MX">[MX]Recurring Charge Flat Adjustment</language>
-            <language name="BR">[BR]Recurring Charge Flat Adjustment</language>
+            <language name="es-MX">[MX]Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR">[BR]Recurring Charge Flat Adjustment</language>
             <language name="DA">[DA]Recurring Charge Flat Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>
@@ -95,8 +95,8 @@
             <language name="JP">[JP]Recurring Charge Percent Adjustment</language>
             <language name="ES">[ES]Recurring Charge Percent Adjustment</language>
             <language name="GB">[GB]Recurring Charge Percent Adjustment</language>
-            <language name="MX">[MX]Recurring Charge Percent Adjustment</language>
-            <language name="BR">[BR]Recurring Charge Percent Adjustment</language>
+            <language name="es-MX">[MX]Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR">[BR]Recurring Charge Percent Adjustment</language>
             <language name="DA">[DA]Recurring Charge Percent Adjustment</language>
         </DisplayDescriptions>
         <displayname>Recurring Charge Percent Adjustment</displayname>
@@ -108,8 +108,8 @@
             <language name="JP">[JP]Recurring Charge Percent Adjustment</language>
             <language name="ES">[ES]Recurring Charge Percent Adjustment</language>
             <language name="GB">[GB]Recurring Charge Percent Adjustment</language>
-            <language name="MX">[MX]Recurring Charge Percent Adjustment</language>
-            <language name="BR">[BR]Recurring Charge Percent Adjustment</language>
+            <language name="es-MX">[MX]Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR">[BR]Recurring Charge Percent Adjustment</language>
             <language name="DA">[DA]Recurring Charge Percent Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>

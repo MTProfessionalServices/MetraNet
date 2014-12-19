@@ -9,8 +9,8 @@
         <language name="JP">[JP]Unit Dependent Recurring Charge</language>
         <language name="ES">[ES]Unit Dependent Recurring Charge</language>
         <language name="GB">[GB]Unit Dependent Recurring Charge</language>
-        <language name="MX">[MX]Unit Dependent Recurring Charge</language>
-        <language name="BR">[BR]Unit Dependent Recurring Charge</language>
+        <language name="es-MX">[MX]Unit Dependent Recurring Charge</language>
+        <language name="pt-BR">[BR]Unit Dependent Recurring Charge</language>
         <language name="DA">[DA]Unit Dependent Recurring Charge</language>
     </DisplayNames>
     <description>Recurring charge based on a single subscription specific value.</description>
@@ -22,8 +22,8 @@
         <language name="JP">[JP]Recurring charge based on a single subscription specific value.</language>
         <language name="ES">[ES]Recurring charge based on a single subscription specific value.</language>
         <language name="GB">[GB]Recurring charge based on a single subscription specific value.</language>
-        <language name="MX">[MX]Recurring charge based on a single subscription specific value.</language>
-        <language name="BR">[BR]Recurring charge based on a single subscription specific value.</language>
+        <language name="es-MX">[MX]Recurring charge based on a single subscription specific value.</language>
+        <language name="pt-BR">[BR]Recurring charge based on a single subscription specific value.</language>
         <language name="DA">[DA]Recurring charge based on a single subscription specific value.</language>
     </DisplayDescriptions>
     <item_type>unit_dependent_recurring</item_type>
@@ -48,8 +48,8 @@
             <language name="JP">[JP]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="ES">[ES]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="GB">[GB]Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="MX">[MX]Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="BR">[BR]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="es-MX">[MX]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR">[BR]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="DA">[DA]Unit Dependent Recurring Charge Flat Adjustment</language>
         </DisplayDescriptions>
         <displayname>Unit Dependent Recurring Charge Flat Adjustment</displayname>
@@ -61,8 +61,8 @@
             <language name="JP">[JP]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="ES">[ES]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="GB">[GB]Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="MX">[MX]Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="BR">[BR]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="es-MX">[MX]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR">[BR]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="DA">[DA]Unit Dependent Recurring Charge Flat Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>
@@ -98,8 +98,8 @@
             <language name="JP">[JP]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="ES">[ES]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="GB">[GB]Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="MX">[MX]Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="BR">[BR]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="es-MX">[MX]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR">[BR]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="DA">[DA]Unit Dependent Recurring Charge Percent Adjustment</language>
         </DisplayDescriptions>
         <displayname>Unit Dependent Recurring Charge Percent Adjustment</displayname>
@@ -111,8 +111,8 @@
             <language name="JP">[JP]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="ES">[ES]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="GB">[GB]Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="MX">[MX]Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="BR">[BR]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="es-MX">[MX]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR">[BR]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="DA">[DA]Unit Dependent Recurring Charge Percent Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>

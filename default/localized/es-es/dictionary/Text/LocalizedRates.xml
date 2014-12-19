@@ -145,4 +145,16 @@
     <value>[ES]Copy from a Nonshared [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
+  <text id="TEXT_QUANTITY">
+    <value>[ES]Quantity</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_ID">
+    <value>[ES]Subscription ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATE_SUBSCRIPTION">
+    <value>[ES]Subscribers Currently Using Rate Schedule</value>
+    <description></description>
+  </text>  
 </texts>

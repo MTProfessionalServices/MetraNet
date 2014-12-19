@@ -252,6 +252,9 @@
   <text id="TEXT_BG_RUN_ACTION_EXECUTE">
     <value>[JA]Execute </value>
   </text>
+  <text id="TEXT_BG_RUN_ACTION_REVERSE">
+    <value>[JA]Reverse </value>
+  </text>
   <text id="TEXT_Unassigned_Accounts_That_Are_Hard_Closed">
     <value>[JA]Unassigned Accounts That Are Hard Closed</value>
   </text>

@@ -85,17 +85,17 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   if Form("BillingGroupId") > 0 then
     rowset.SetQueryTag("__GET_BILLINGGROUP_ADAPER_HISTORY__")  
     rowset.AddParam "%%ID_BILLGROUP%%", CLng(Form("BillingGroupId"))
-    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", "Adapter Run History For " & "Bill Group " & Form("Title") 
+    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", mom_GetDictionary("TEXT_HISTORY_FOR_BG") & " " & Form("Title")  'Adapter Run History For Bill Group
   else 
 	  if Form("InstanceId") > 0 then
 		  rowset.SetQueryTag("__GET_ADAPTER_INSTANCE_HISTORY__")  
 		  rowset.AddParam "%%ID_INSTANCE%%", CLng(Form("InstanceId"))
-		  mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", "Adapter Run History For " & Form("Title") 
+		  mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", mom_GetDictionary("TEXT_HISTORY_FOR") & " " & Form("Title") 'Adapter Run History For
 	  else
 		  if Form("IntervalId") > 0 then
 		    rowset.SetQueryTag("__GET_INTERVAL_ADAPER_HISTORY__")  
 		    rowset.AddParam "%%ID_INTERVAL%%", CLng(Form("IntervalId"))
-		    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", "Adapter Run History For Interval " & Form("Title") 
+		    mdm_GetDictionary().Add "ADAPTER_RUN_PAGE_TITLE", mom_GetDictionary("TEXT_HISTORY_FOR_INTERVAL") & " " & Form("Title") 'Adapter Run History For Interval
 		  else
 		    response.write("Instance Id or Interval Id Not Passed")
 		    response.end
@@ -109,36 +109,34 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties.AddPropertiesFromRowset rowset  
   ProductView.Properties.SelectAll
   ProductView.Properties.CancelLocalization
+  ProductView.Properties.ClearSelection      ' Select the properties I want to print in the PV Browser Order
+  ProductView.Properties("InstanceId").Caption = mom_GetDictionary("TEXT_INSTANCE_ID")
+  ProductView.Properties("Time").Caption       = mom_GetDictionary("TEXT_AUDIT_TIME")   
+  ProductView.Properties("Action").Caption     = mom_GetDictionary("TEXT_Action1")
+  ProductView.Properties("UserName").Caption   = mom_GetDictionary("TEXT_AUDIT_USERNAME")
+  ProductView.Properties("AuditId").Caption    = mom_GetDictionary("TEXT_AUDIT_AUDIT_ID")
+  ProductView.Properties("Type").Caption       = mom_GetDictionary("TEXT_TYPE")
+  ProductView.Properties("UserID").Caption     = mom_GetDictionary("TEXT_AUDIT_USER_ID")
+  ProductView.Properties("Details").Caption    = mom_GetDictionary("TEXT_AUDIT_DETAILS")
+  ProductView.Properties("Forced").Caption     = mom_GetDictionary("TEXT_FORCED") 
 
   if Form("IntervalId") > 0 then 
     dim i
-    i=1
-    ProductView.Properties.ClearSelection      ' Select the properties I want to print in the PV Browser   Order
+    i=1    
     ProductView.Properties("InstanceId").Selected = i : i = i + 1
     ProductView.Properties("Time").Selected 			= i : i = i + 1
     ProductView.Properties("Adapter").Selected 		= i : i = i + 1
     ProductView.Properties("Action").Selected 		= i : i = i + 1
     ProductView.Properties("UserName").Selected 	= i : i = i + 1
-    
-    ProductView.Properties("InstanceId").Caption = mom_GetDictionary("TEXT_INSTANCE_ID")
-    ProductView.Properties("Time").Caption 		   = mom_GetDictionary("TEXT_AUDIT_TIME")
     ProductView.Properties("Adapter").Caption 	 = mom_GetDictionary("TEXT_ADAPTER")
-    ProductView.Properties("Action").Caption 	   = mom_GetDictionary("TEXT_Action1")
-    ProductView.Properties("UserName").Caption 	 = mom_GetDictionary("TEXT_AUDIT_USERNAME")
-    ProductView.Properties("AuditId").Caption 	 = mom_GetDictionary("TEXT_AUDIT_AUDIT_ID")
-    ProductView.Properties("Type").Caption 	     = mom_GetDictionary("TEXT_TYPE")
-    ProductView.Properties("UserID").Caption 	   = mom_GetDictionary("TEXT_AUDIT_USER_ID")
-    ProductView.Properties("Details").Caption 	 = mom_GetDictionary("TEXT_AUDIT_DETAILS")
-    ProductView.Properties("Forced").Caption 	   = mom_GetDictionary("TEXT_FORCED")
   
     mdm_SetMultiColumnFilteringMode TRUE  
     Set Form.Grid.FilterProperty = ProductView.Properties("UserName") ' Set the property on which to apply the filter  
   else
     ProductView.Properties.SelectAll
     Form.Grid.FilterMode = 0' MDM_FILTER_MODE_ON ' Filter
-    'mdm_SetMultiColumnFilteringMode TRUE
   end if
-  
+   
   ProductView.Properties("Time").Sorted               = MTSORT_ORDER_DESCENDING
 
   ' REQUIRED because we must generate the property type info in javascript. When the user change the property which he

@@ -300,7 +300,47 @@
   <text id="TEXT_Both_the_User_Name_and_Namespace_are_required_when_not_searching_by_account_id">
     <value>Both the User Name and Namespace are required when not searching by account id.</value>
   </text>
-  <!--<text id="TEXT_Locate_Payer">
-    <value>Locate Payer</value>
-  </text>-->
+  <text id="TEXT_Locate_Billing_Group">
+    <value>Locate Billing Group</value>
+  </text>
+  <text id="TEXT_Create_Billing_Group_from_Pull_List">
+    <value>Create Billing Group from Pull List</value>
+  </text>
+  <text id="TEXT_New_Group_Name">
+    <value>New Group Name</value>
+  </text>
+  <text id="TEXT_What_accounts_should_be_included">
+    <value>What accounts should be included in this new billing group?</value>
+  </text>
+  <text id="TEXT_All_Failed_Accounts">
+    <value>All Failed Accounts</value>
+  </text>
+  <text id="TEXT_Include_all_failed_accounts">
+    <value>  Include all failed accounts from the run.</value>
+  </text>
+  <text id="TEXT_Specify_Accounts_in_a_Pull_List">
+    <value>Specify Accounts in a Pull List</value>
+  </text>
+  <text id="TEXT_A_pull_list_is_used_to_remove">
+    <value>A pull list is used to remove accounts from the current billing group. These
+      accounts will be placed in this newly created billing group. Specify either
+      account IDs separated by returns or username\namespace pairs separated by
+      returns. You may also use the inline account finder below to add accounts to
+      the textbox.
+    </value>
+  </text>
+  <text id="TEXT_Find_Account">
+    <value>Find Account</value>
+  </text>
+  <text id="TEXT_A_pull_list_is_used_to_remove2">
+    <value>A pull list file is used to remove accounts from the current billing group.
+      These accounts will be placed in this newly created billing group. The file
+      format is a UTF-8 encoded text file that specifies either account IDs separated
+      by returns or username comma namespace pairs separated by returns.
+    </value>
+  </text>
+  <text id="TEXT_Create_Pull_List_From_File">
+    <value>Create Pull List From File</value>
+  </text>
+
 </texts>

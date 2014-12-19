@@ -334,7 +334,7 @@ FUNCTION getRecurringEventRunHTML
             end if
             if sStatusCode = "ReadyToRun" or sStatusCode = "Succeeded" then
               'sStatus =  "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='EditMapping' onclick=""javascript:alert('Not implemented yet... hold your horses');"">" & "Acknowledge" &  "</button>" & vbNewLine
-              sStatus = "Acknowledged"
+              sStatus = mom_GetDictionary("TEXT_BG_STATUS_CODE_ACKNOWLEDGE")
             end if
             
             

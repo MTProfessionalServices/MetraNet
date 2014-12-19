@@ -201,4 +201,73 @@
   <text id="TEXT_NO_PERMISSION_TO_VIEW_BILLING_GROUP">
     <value><![CDATA[[ES]You do not have permission to view this billing group.]]></value>
   </text>
+  <text id="TEXT_Force_the_selected_adapter">
+    <value>[ES] Force the selected adapter(s) to run/reverse without running/reversing any dependencies.</value>
+  </text>
+  <text id="TEXT_Continue">
+    <value>[ES]Continue</value>
+  </text>
+  <text id="TEXT_Because_of_run">
+    <value>[ES]Because of dependencies, these adapters and checkpoints will also need to be run or cancelled:</value>
+  </text>
+  <text id="TEXT_Because_of_reverce">
+    <value>[ES]Because of dependencies, these adapters and checkpoints will also need to be reversed or cancelled:</value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_1">
+    <value>[ES]The missing period for this scheduled adapter is from </value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_2">
+    <value>[ES] until </value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_3">
+    <value><![CDATA[[ES].<BR>Proceeding will run this scheduled adapter from when it was last run until ]]></value>
+  </text>
+  <text id="TEXT_ReadyToReverse_ERROR">
+    <value>[ES]The adapter is currently marked as 'ReadyToReverse'. The submitted Reverse action will be cancelled.</value>
+  </text>
+  <text id="TEXT_ReadyToRun_ERROR">
+    <value>[ES]The adapter is currently marked as 'ReadyToRun'. The submitted Run action will be cancelled.</value>
+  </text>
+  <text id="TEXT_In_a_previous_interval">
+    <value>[ES]In a previous interval (</value>
+  </text>
+  <text id="TEXT_the_adapter_was_not_run">
+    <value>[ES]), the adapter was not run. </value>
+  </text>
+  <text id="TEXT_In_an_interval">
+    <value>[ES]In an interval (</value>
+  </text>
+  <text id="TEXT_after_this_interval_the_adapter_was_not_reversed">
+    <value>[ES]) after this interval, the adapter was not reversed. </value>
+  </text>
+  <text id="TEXT_Instance_doesnt_exist">
+    <value>[ES]Instance doesn't exist.</value>
+  </text>
+  <text id="TEXT_Instance">
+    <value>[ES]Instance: </value>
+  </text>
+  <text id="TEXT_Billing_Group_">
+    <value>[ES]Billing Group: </value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_1">
+    <value><![CDATA[[ES]<strong>ERROR: One or more of the adapters you selected cannot be run.</strong><BR>One or more of the adapters you selected or their dependencies cannot be run. As a consequence, none of the adapters you selected will be run. Please review the error and click 'OK' to return to the interval and select different adapters or a different action.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_2">
+    <value><![CDATA[[ES]One or more of the adapters you selected cannot be run without additional actions also taking place. Please review the dependencies and click 'Continue' to run the requested adapters and perform any additional actions that may be required.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_3">
+    <value><![CDATA[[ES]<strong>ERROR: One or more of the adapters you selected cannot be reversed.</strong><BR>One or more of the adapters you selected or their dependencies cannot be reversed. As a consequence, none of the adapters you selected will be reversed. Please review the error and click 'OK' to return to the interval and select different adapters or a different action.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_4">
+    <value><![CDATA[[ES]One or more of the adapters you selected cannot be reversed without additional actions also taking place. Please review the dependencies and click 'Continue' to reverse the requested adapters and perform any additional actions that may be required.]]></value>
+  </text>
+  <text id="TEXT_You_have_selected_to_run_the_following_adapter">
+    <value>[ES]You have selected to run the following adapter(s):</value>
+  </text>
+  <text id="TEXT_You_have_selected_to_reverse_the_following_adapter">
+    <value>[ES]You have selected to reverse the following adapter(s):</value>
+  </text>
+  <text id="TEXT_No_adapter_instances_selected">
+    <value>[ES]No adapter instances selected.</value>
+  </text>
 </texts>

@@ -39,4 +39,34 @@
   <text id="MoM_ERROR_ERROR_DETAIL_DESCRIPTION">
     <value>View Error Number and Source If Available</value>
   </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Succeeded">
+    <value>This adapter has already run and succeeded.  It needs to be reversed before it can be run again.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Failed">
+    <value>This adapter has already run and failed.  It needs to be reversed before it can be run again.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_ReadyToRun">
+    <value>This adapter has been marked as Ready To Run and needs to be reversed before it can be run again.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Running">
+    <value>This adapter is currently running.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Reversing">
+    <value>This adapter is currently reversing.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotImplemented">
+    <value>This adapter cannot be reversed.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotYetRun">
+    <value>This adapter has not completed a run. Adapter must have a 'Failed' or 'Succeeded' status on a completed run to be reversed.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Missing">
+    <value>This scheduled adapter has not completed a run for all or part of the time period.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotCreated">
+    <value>This adapter has not been run. Execute the adapter after soft closing the parent billing group.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_UNKOWN">
+    <value>UNKOWN Error Code: </value>
+  </text>
 </texts>

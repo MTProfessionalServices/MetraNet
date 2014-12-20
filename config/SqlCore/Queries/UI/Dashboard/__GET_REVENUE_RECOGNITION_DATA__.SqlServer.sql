@@ -1,6 +1,3 @@
-DECLARE @startDate datetime = CAST(CAST(DATEADD(DAY, 0, '%%START_DATE%%')AS DATE) AS DATETIME)
-DECLARE @endDate datetime = CAST(CAST(DATEADD(DAY, 1, '%%END_DATE%%')AS DATE) AS DATETIME)
-
 SELECT 
  acc.am_currency
 ,COALESCE(udrc.id_usage_interval, frc.id_usage_interval, nrc.id_usage_interval, nsc.id_usage_interval, acr.id_usage_interval, acc.id_usage_interval) as id_usage_interval

@@ -6,6 +6,9 @@ using System.Threading;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.Debug.Diagnostics;
+using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 
@@ -52,10 +55,6 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
         paramDict.Add("%%FROM_DATE%%", firstDayOfFirstMonth);
         paramDict.Add("%%TO_DATE%%", firstDayOfCurrentMonth);
 
-        if (operation.ToLower().Equals("revenuereport") || operation.ToLower().Equals("mrrreport") ) 
-        {
-            paramDict.Add("%%ID_LANG_CODE%%", UI.SessionContext.LanguageID);
-        }
         GetData(_queryDict[operation], paramDict, ref items);
 
         if (items.Items.Count == 0)
@@ -176,7 +175,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           json.Append(item);
           item = string.Format("\"amountAsString\":{0},", FormatAmount(record.Fields[2], Convert.ToString(record.Fields[1].FieldValue)));
           json.Append(item);
-          item = string.Format("\"localizedCurrency\":{0},", FormatFieldValue(record.Fields[3]));
+          item = string.Format("\"localizedCurrency\":\"{0}\",", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(SystemCurrencies), Convert.ToString(record.Fields[1].FieldValue))));
           json.Append(item);
           item = string.Format("\"period\":{0}", period);
           json.Append(item);

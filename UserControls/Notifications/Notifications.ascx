@@ -12,7 +12,7 @@
       p = new Ext.Panel({
         items: [{
             title: TEXT_RECENT_NOTIFICATION,
-            html: '<div id="recentNotificationsList"><i>' + '</i></div>',
+            html: '<div id="recentNotificationsList"><p>' + '</p></div>',
             renderTo: 'recentNotificationsContainer',
             listeners: {
               render: function(panel) {
@@ -21,17 +21,24 @@
                   timeout: 10000,
                   params: { pageSize: 5, currentPage: pageno },
                   success: function(response) {
-                    var template = '';
-                    if (response.responseText.length > 12) {
+                      var template = '';
                       var items;
                       items = Ext.decode(response.responseText).Items;
+                      if (items.length == 0) {
+                        var p = document.createElement("p");                      
+                        var i = document.createElement("i");
+                        var text = document.createTextNode(TEXT_NO_RECENT_NOTIFICATIONS);
+                        i.appendChild(text);
+                        document.getElementById("recentNotificationsList").appendChild(i).appendChild(p);                                    
+                      }
+                      else{
                       for(var i = 0; i < items.length; i++)
                       {
                           template = hashtable[items[i].notification_event_name];
                           template = template.replace(/&gt;/gi, ">");
                           template = template.replace(/&lt;/gi, "<");
                         var bg;
-                        i % 2 ? bg = "" : bg = "background:silver;";
+                        i % 2 ? bg = "" : bg = "background:whitesmoke;";
                           recentNotificationTpl = new Ext.XTemplate(
                             "<tpl>",
                             '<div id="recentnotification" style=\"'+ bg +' padding-bottom:10px;\">'+ template + '<br/>'+ '</div>',

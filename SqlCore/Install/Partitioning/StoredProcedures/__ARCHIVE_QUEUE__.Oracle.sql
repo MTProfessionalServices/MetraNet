@@ -44,6 +44,13 @@ BEGIN
     
     /* Adding a commit before calling the proc again to fix ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired */
     COMMIT;
+    
+    BEGIN
+   SELECT b_processing into pipeline_processing FROM t_pipeline;
+   IF pipeline_processing > 0 THEN
+   RETURN;
+   END IF;
+END;
 
 	archive_queue_partition(
 		P_UPDATE_STATS => p_update_stats,

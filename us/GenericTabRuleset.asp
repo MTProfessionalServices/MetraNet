@@ -1459,7 +1459,7 @@ PUBLIC FUNCTION Main
 		
 		<%
 		if session("UnsavedChanges") = true then
-		  response.Write "<br /><div class='clsNote2'>You have unsaved changes.</div><br />"
+		  response.Write "<br /><div class='clsNote2'>" & FrameWork.GetDictionary("TEXT_YOU_HAVE_UNSAVED_CHANGES") & "</div><br />"
 		end if
 		%>
 		    

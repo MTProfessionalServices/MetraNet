@@ -62,7 +62,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties("Name_Space").AddValidListOfValues "__GET_PRESENTATION_NAME_SPACE_LIST__",,,,mam_GetDictionary("SQL_QUERY_STRING_RELATIVE_PATH")
   Service.Properties("Name_Space").Value = ""
   If Not IsEmpty(Session("HIERARCHY_HELPER")) Then
-	  Service.Properties("hierarchyDate") = CDate(mdm_Format(mam_GetHierarchyTime(), mam_GetDictionary("DATE_FORMAT")))
+	  Service.Properties("hierarchyDate") = CDate(mdm_Format(mam_GetHierarchyTimeWithFormat(), mam_GetDictionary("DATE_FORMAT")))
   End If
   
   If Len(request.QueryString("subHierarcy")) Then

@@ -384,7 +384,7 @@ CLASS CFrameWork ' -- The FrameWork Class --
 
           Dim auth
           set auth = Server.CreateObject("MetraTech.Security.Auth")
-          auth.Initialize strLogin, strNameSpace
+          auth.InitializeWithLanguage strLogin, strNameSpace, GetLanguageIntegerCode(Session("PAGE_LANGUAGE"))
           If Len(strTicket) > 0 Then 'If a ticket is passed, use it
             LogOn = auth.LoginWithTicket(strTicket, objSessionContext)
           Else

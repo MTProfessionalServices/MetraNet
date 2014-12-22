@@ -322,7 +322,8 @@
     <value>Specify Accounts in a Pull List</value>
   </text>
   <text id="TEXT_A_pull_list_is_used_to_remove">
-    <value>A pull list is used to remove accounts from the current billing group. These
+    <value>
+      A pull list is used to remove accounts from the current billing group. These
       accounts will be placed in this newly created billing group. Specify either
       account IDs separated by returns or username\namespace pairs separated by
       returns. You may also use the inline account finder below to add accounts to
@@ -333,7 +334,8 @@
     <value>Find Account</value>
   </text>
   <text id="TEXT_A_pull_list_is_used_to_remove2">
-    <value>A pull list file is used to remove accounts from the current billing group.
+    <value>
+      A pull list file is used to remove accounts from the current billing group.
       These accounts will be placed in this newly created billing group. The file
       format is a UTF-8 encoded text file that specifies either account IDs separated
       by returns or username comma namespace pairs separated by returns.
@@ -353,5 +355,44 @@
   </text>
   <text id="TEXT_Payee_Namespace">
     <value>Payee Namespace</value>
+  </text>  
+  <text id="TEXT_BG_RUN_ACTION_MARKASNOTYETRUN">
+    <value>Mark as not yet Run </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASFAILED">
+    <value>Mark as Failed </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASSUCCEEDED">
+    <value>Mark as Succeeded </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_CANCEL">
+    <value>Cancel </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_UNACKNOWLEDGE">
+    <value>Unacknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_ACKNOWLEDGE">
+    <value>Acknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFORREVERSAL">
+    <value>Submit For Reversal </value>
+  </text>  
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFOREXECUTION">
+    <value>Submit For Execution </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_WAS_FORCED">
+    <value>The adapter run was forced to ignore dependencies</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_CHECKPOINT">
+    <value>Checkpoint</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ENDOFPERIOD">
+    <value>End Of Period</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_SCHEDULED">
+    <value>Scheduled</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ROOT">
+    <value>Root</value>
   </text>  
 </texts>

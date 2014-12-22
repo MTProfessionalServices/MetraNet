@@ -356,4 +356,43 @@
   <text id="TEXT_Payee_Namespace">
     <value>[PT-BR]Payee Namespace</value>
   </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASNOTYETRUN">
+    <value>[PT-BR]Mark as not yet Run </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASFAILED">
+    <value>[PT-BR]Mark as Failed </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASSUCCEEDED">
+    <value>[PT-BR]Mark as Succeeded </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_CANCEL">
+    <value>[PT-BR]Cancel </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_UNACKNOWLEDGE">
+    <value>[PT-BR]Unacknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_ACKNOWLEDGE">
+    <value>[PT-BR]Acknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFORREVERSAL">
+    <value>[PT-BR]Submit For Reversal </value>
+  </text>  
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFOREXECUTION">
+    <value>[PT-BR]Submit For Execution </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_WAS_FORCED">
+    <value>[PT-BR]The adapter run was forced to ignore dependencies</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_CHECKPOINT">
+    <value>[PT-BR]Checkpoint</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ENDOFPERIOD">
+    <value>[PT-BR]End Of Period</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_SCHEDULED">
+    <value>[PT-BR]Scheduled</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ROOT">
+    <value>[PT-BR]Root</value>
+  </text>  
 </texts>

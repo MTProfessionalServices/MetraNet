@@ -240,9 +240,8 @@ FUNCTION getRunHistoryHTML
           sToolTip = "[TEXT_Rerun_Id]: " & rowset.value("id_run") & vbNewLine & "[TEXT_REVERSED_RUN_ID]: " & rowset.value("id_reversed_run")
 
           sHTML = sHTML & "<tr class='TableDetailCell' title='" & sToolTip & "'>"
-          'sHTML = sHTML & "<td style='vertical-align: top'>" & "&nbsp;" & "</td>"            
-          sHTML = sHTML & "<td style='vertical-align: top'>" & sType & "&nbsp;</td>"
-          sHTML = sHTML & "<td style='vertical-align: top'>" & sStatusCode & "&nbsp;</td>"  
+          sHTML = sHTML & "<td style='vertical-align: top'>" & mom_GetDictionary("TEXT_BG_RUN_ACTION_" & UCase(Replace(sType, " ", "_"))) & "&nbsp;</td>"
+          sHTML = sHTML & "<td style='vertical-align: top'>" & mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(sStatusCode, " ", "_"))) & "&nbsp;</td>"  
           sHTML = sHTML & "<td style='vertical-align: top'>" & sViewDetailsHTML & "</td>"
           sHTML = sHTML & "<td style='vertical-align: top'>" & sTime & "&nbsp;</td>"
           sHTML = sHTML & "<td style='vertical-align: top'>" & sMachine & "&nbsp;</td></tr>"

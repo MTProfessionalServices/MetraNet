@@ -136,14 +136,14 @@ PRIVATE FUNCTION MyForm_LoadProductView(EventArg) ' As Boolean
 	ProductView.Properties("PayeeUserName").Selected =    i : i=i+1
 	ProductView.Properties("PayeeNameSpace").Selected =   i : i=i+1
 
-	ProductView.Properties("DisplayName").Caption = "Account"
-	ProductView.Properties("AccountID").Caption   = "Account ID"  
-	ProductView.Properties("UserName").Caption    = "User Name"
-	ProductView.Properties("NameSpace").Caption   = "Namespace"
-	ProductView.Properties("PayeeDisplayName").Caption = "Payee Account"
-	ProductView.Properties("PayeeAccountID").Caption   = "Payee Account ID"  
-	ProductView.Properties("PayeeUserName").Caption    = "Payee User Name"
-	ProductView.Properties("PayeeNameSpace").Caption   = "Payee Namespace"	
+	ProductView.Properties("DisplayName").Caption = mom_GetDictionary("TEXT_Account")
+	ProductView.Properties("AccountID").Caption   = mom_GetDictionary("TEXT_Account_ID") 
+	ProductView.Properties("UserName").Caption    = mom_GetDictionary("TEXT_User_Name")
+	ProductView.Properties("NameSpace").Caption   = mom_GetDictionary("TEXT_Namespace") 
+	ProductView.Properties("PayeeDisplayName").Caption = mom_GetDictionary("TEXT_Payee_Account")
+	ProductView.Properties("PayeeAccountID").Caption   = mom_GetDictionary("TEXT_Payee_Account_ID")   
+	ProductView.Properties("PayeeUserName").Caption    = mom_GetDictionary("TEXT_Payee_User_Name")
+	ProductView.Properties("PayeeNameSpace").Caption   = mom_GetDictionary("TEXT_Payee_Namespace") 
   end if
   
   mdm_SetMultiColumnFilteringMode TRUE  

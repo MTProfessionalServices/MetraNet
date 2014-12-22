@@ -344,5 +344,16 @@
   <text id="TEXT_Create_Pull_List_From_File">
     <value>[IT]Create Pull List From File</value>
   </text>
-
+  <text id="TEXT_Payee_Account">
+    <value>[IT]Payee Account</value>
+  </text>
+  <text id="TEXT_Payee_Account_ID">
+    <value>[IT]Payee Account ID</value>
+  </text>
+  <text id="TEXT_Payee_User_Name">
+    <value>[IT]Payee User Name</value>
+  </text>
+  <text id="TEXT_Payee_Namespace">
+    <value>[IT]Payee Namespace</value>
+  </text>
 </texts>

@@ -62,7 +62,7 @@ and rei.tx_status = 'Succeeded'
 set @Variance = case when @Past_three_month_average != 0.0 then ROUND(((@EOP_Interval_run_time - @Past_three_month_average) * 100.0/ @Past_three_month_average),2) else 0.0 end;
 
 -- get the three month average total run time (in seconds) of all adapters that have not yet successfully run for the current EOP adapter
-SET @ETAoffset = (SELECT case when count(distinct rei.id_arg_interval) != 0 then sum(datediff(second, rer.dt_start, rer.dt_end)) / count(distinct rei.id_arg_interval) else 0 end
+SET @ETAoffset = (SELECT case when count(distinct rei.id_arg_interval) != 0 then sum(datediff(second, DATEADD(ms, 500 - DATEPART(ms, rer.dt_start + '00:00:00.500'),rer.dt_start), DATEADD(ms, 500 - DATEPART(ms, rer.dt_end + '00:00:00.500'),rer.dt_end) )) / (count(distinct rei.id_arg_interval) + 0.0) else 0 end
   FROM [dbo].[t_recevent_inst] rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
@@ -84,7 +84,8 @@ Where id_arg_interval = @EOP_Interval
 and rer.tx_type = 'Execute'
 and tx_detail not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded'
-))
+)
+and tx_name != '_EndRoot')
 
 -- Convert the ETAoffset from seconds to hours
 set @ETAoffsetHours = ROUND(((@ETAoffset + 0.0) / 3600.0), 3)

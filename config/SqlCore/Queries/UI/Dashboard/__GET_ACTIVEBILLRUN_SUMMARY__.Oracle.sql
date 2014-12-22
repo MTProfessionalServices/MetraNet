@@ -113,7 +113,7 @@ where ui.tx_interval_status = 'H'
 and ui.dt_end > add_months(GETUTCDATE(),-3)
 and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and tx_name in (
 -- These are the adapters that have successfully run so far for the current EOP interval
 SELECT tx_name
@@ -122,7 +122,7 @@ SELECT tx_name
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
 Where id_arg_interval = %%ID_USAGE_INTERVAL%%
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded')
         )
   != 0.0 then
@@ -135,7 +135,7 @@ and rei.tx_status = 'Succeeded')
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
 Where id_arg_interval = %%ID_USAGE_INTERVAL%%
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded')
 
         - 
@@ -152,7 +152,7 @@ where ui.tx_interval_status = 'H'
 and ui.dt_end > add_months(GETUTCDATE(),-3)
 and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and tx_name in (
 -- These are the adapters that have successfully run so far for the current EOP interval
 SELECT tx_name
@@ -161,7 +161,7 @@ SELECT tx_name
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
 Where id_arg_interval = %%ID_USAGE_INTERVAL%%
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded'))
         ) *  
         
@@ -178,7 +178,7 @@ where ui.tx_interval_status = 'H'
 and ui.dt_end > add_months(GETUTCDATE(),-3)
 and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and tx_name in (
 -- These are the adapters that have successfully run so far for the current EOP interval
 SELECT tx_name
@@ -187,7 +187,7 @@ SELECT tx_name
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
 Where id_arg_interval = %%ID_USAGE_INTERVAL%%
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded'))        
         )
       ) , 2) /*round off the Variance to 2 decimal places*/
@@ -198,7 +198,7 @@ and rei.tx_status = 'Succeeded'))
   ) AS "Variance"  
 , (SELECT 
 /*This is the 3 month average run time (in seconds) for the adapters that have *not* yet run successfully for the current interval*/
-(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_end - rer.dt_start) * 86400) / count(distinct rei.id_arg_interval) else 0 end
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum(ROUND((rer.dt_end - rer.dt_start) * 24,0)) / count(distinct rei.id_arg_interval) else 0 end
   FROM t_recevent_inst rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
@@ -209,7 +209,7 @@ where ui.tx_interval_status = 'H'
 and ui.dt_end > add_months(GETUTCDATE(),-3)
 and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and tx_name not in (
 -- These are the adapters that have successfully run so far for the current EOP interval
 SELECT tx_name
@@ -218,9 +218,10 @@ SELECT tx_name
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
 Where id_arg_interval = %%ID_USAGE_INTERVAL%%
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded'
-))/(24*60*60)
+)
+and tx_name != '_EndRoot')
 + GETUTCDATE()
 FROM DUAL) AS "earliest_eta"
 ,
@@ -237,7 +238,7 @@ where ui.tx_interval_status = 'H'
 and ui.dt_end > add_months(GETUTCDATE(),-3)
 and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = %%ID_USAGE_INTERVAL%%))
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and tx_name not in (
 -- These are the adapters that have successfully run so far for the current EOP interval
 SELECT tx_name
@@ -246,8 +247,9 @@ SELECT tx_name
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
 Where id_arg_interval = %%ID_USAGE_INTERVAL%%
 and rer.tx_type = 'Execute'
-and tx_detail not like 'Manually changed status%'
+and NVL(tx_detail,' ') not like 'Manually changed status%'
 and rei.tx_status = 'Succeeded'
 )
+and tx_name != '_EndRoot'
 ), 3) AS "eta_offset"
 FROM DUAL

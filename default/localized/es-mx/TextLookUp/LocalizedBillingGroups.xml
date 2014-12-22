@@ -345,4 +345,16 @@
     <value>[ES-MX]Create Pull List From File</value>
   </text>
 
+  <text id="TEXT_Payee_Account">
+    <value>[ES-MX]Payee Account</value>
+  </text>
+  <text id="TEXT_Payee_Account_ID">
+    <value>[ES-MX]Payee Account ID</value>
+  </text>
+  <text id="TEXT_Payee_User_Name">
+    <value>[ES-MX]Payee User Name</value>
+  </text>
+  <text id="TEXT_Payee_Namespace">
+    <value>[ES-MX]Payee Namespace</value>
+  </text>
 </texts>

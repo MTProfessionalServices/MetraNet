@@ -822,4 +822,8 @@
     <value>[FR]View history</value>
     <description></description>
   </text>
+  <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
+    <value>[FR]You have unsaved changes.</value>
+    <description></description>
+  </text>
 </texts>

@@ -821,4 +821,8 @@
     <value>[JA]View history</value>
     <description></description>
   </text>
+  <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
+    <value>[JA]You have unsaved changes.</value>
+    <description></description>
+  </text>
 </texts>

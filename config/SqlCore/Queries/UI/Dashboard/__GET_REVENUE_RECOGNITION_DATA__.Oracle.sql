@@ -11,9 +11,9 @@ SELECT
 	ELSE 1
  END as c_ProratedDays
 ,COALESCE(udrc.c_ProratedDailyRate, frc.c_ProratedDailyRate, acr.c_CreditAmount, 
-	acc.amount + ISNULL(adj.AdjustmentAmount, 0)
-	+ ISNULL(acc.tax_federal, 0) + ISNULL(acc.tax_state, 0) + ISNULL(acc.tax_county, 0) + ISNULL(acc.tax_local, 0) + ISNULL(acc.tax_other, 0)
-	+ ISNULL(adj.aj_tax_federal, 0) + ISNULL(adj.aj_tax_state, 0) + ISNULL(adj.aj_tax_county, 0) + ISNULL(adj.aj_tax_local, 0) + ISNULL(adj.aj_tax_other, 0)) as c_ProratedDailyRate
+	acc.amount + COALESCE(adj.AdjustmentAmount, 0)
+	+ COALESCE(acc.tax_federal, 0) + COALESCE(acc.tax_state, 0) + COALESCE(acc.tax_county, 0) + COALESCE(acc.tax_local, 0) + COALESCE(acc.tax_other, 0)
+	+ COALESCE(adj.aj_tax_federal, 0) + COALESCE(adj.aj_tax_state, 0) + COALESCE(adj.aj_tax_county, 0) + COALESCE(adj.aj_tax_local, 0) + COALESCE(adj.aj_tax_other, 0)) as c_ProratedDailyRate
 ,COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_ep.c_IsLiabilityProduct, usg_ep.c_IsLiabilityProduct, dis_ep.c_IsLiabilityProduct, 'N') as c_IsLiabilityProduct
 ,COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '') as c_RevenueCode
 ,COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') as c_DeferredRevenueCode

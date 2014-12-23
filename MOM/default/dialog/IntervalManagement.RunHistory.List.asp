@@ -149,31 +149,57 @@ END FUNCTION
 
 PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
 
-       if Form.Grid.Col<=3 then
-          Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
-       else
-         Select Case lcase(Form.Grid.SelectedProperty.Name)
-         Case "action"
-            dim strForced
+  if Form.Grid.Col<=3 then
+    Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
+  else
+    Select Case lcase(Form.Grid.SelectedProperty.Name)
+      Case "action"
+        dim strForced
             
-            if ProductView.Properties.RowSet.Value("Forced")="Y" and UCASE(ProductView.Properties.RowSet.Value("type"))<>"CHECKPOINT" then
-              strForced = "<br><img src='../localized/en-us/images/errorsmall.gif' align='absmiddle' border='0'><strong> The adapter run was forced to ignore dependencies</strong>"
-            else
-              strForced = ""
-            end if
-            
-            EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>" & ProductView.Properties.RowSet.Value("Action") & strForced & "</td>"
-            
-  			    Form_DisplayCell = TRUE
-         Case "time"
-            EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("time"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>"
-            Form_DisplayCell = TRUE
-  	     Case else
-            Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
-      End Select
-     end if
+        if ProductView.Properties.RowSet.Value("Forced")="Y" and UCASE(ProductView.Properties.RowSet.Value("type"))<>"CHECKPOINT" then
+          strForced = "<br><img src='../localized/en-us/images/errorsmall.gif' align='absmiddle' border='0'><strong> [TEXT_BG_RUN_ACTION_WAS_FORCED]</strong>"
+        else
+          strForced = ""
+        end if
+        strForced = mom_GetDictionary("TEXT_BG_RUN_ACTION_" & UCase(Replace(ProductView.Properties.RowSet.Value("Action"), " ", "_"))) & strForced
+        EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>" & strForced & "</td>"
+        Form_DisplayCell = TRUE
+      
+      Case "time"
+        EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>" & mdm_Format(ProductView.Properties.RowSet.Value("time"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>"
+        Form_DisplayCell = TRUE
 
-    Form_DisplayCell = true
+  	  Case else
+        Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
+    End Select
+  End if
+
+  Form_DisplayCell = TRUE
+END FUNCTION
+
+PRIVATE FUNCTION Form_DisplayDetailRow (EventArg) ' As Boolean
+
+  Dim forced, typedesc
+  
+  If (ProductView.Properties.RowSet.Value("forced") = "Y") Then
+    forced = mom_GetDictionary("TEXT_YES") 
+  Else 
+    forced = mom_GetDictionary("TEXT_NO")
+  End If
+
+  typedesc = mom_GetDictionary("TEXT_BG_RUN_TYPE_" & UCase(Replace(ProductView.Properties.RowSet.Value("type"), " ", "_")))
+
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<td></td><td></td>" & vbNewLine
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<td ColSpan=" & (ProductView.Properties.Count+2) & ">" & vbNewLine    
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<TABLE border=0 cellpadding=1 cellspacing=1>" & vbNewLine
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr Class='TableDetailCell'><td nowrap>&nbsp;" & ProductView.Properties("AuditId").Caption & ":&nbsp;&nbsp;</td><td nowrap>" & ProductView.Properties.RowSet.Value("AuditId") & "&nbsp;</td></tr>" & vbNewLine
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr Class='TableDetailCell'><td nowrap>&nbsp;" & ProductView.Properties("Type").Caption & ":&nbsp;&nbsp;</td><td nowrap>" & typedesc & "&nbsp;</td></tr>" & vbNewLine
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr Class='TableDetailCell'><td nowrap>&nbsp;" & ProductView.Properties("Forced").Caption & ":&nbsp;&nbsp;</td><td nowrap>" & forced & "&nbsp;</td></tr>" & vbNewLine
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr Class='TableDetailCell'><td nowrap>&nbsp;" & ProductView.Properties("UserID").Caption & ":&nbsp;&nbsp;</td><td nowrap>" & ProductView.Properties.RowSet.Value("UserID") & "&nbsp;</td></tr>" & vbNewLine
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr Class='TableDetailCell'><td nowrap>&nbsp;" & ProductView.Properties("Details").Caption & ":&nbsp;&nbsp;</td><td nowrap>" & ProductView.Properties.RowSet.Value("Details") & "&nbsp;</td></tr>" & vbNewLine
+  EventArg.HTMLRendered = EventArg.HTMLRendered & "</TABLE><BR>"
+
+  Form_DisplayDetailRow = TRUE
 
 END FUNCTION
 

@@ -1376,7 +1376,8 @@
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
     <value>[pt-BR]View Log</value>
-  </data>  <data name="TEXT_VIEW_ALL" xml:space="preserve">
+  </data>
+  <data name="TEXT_VIEW_ALL" xml:space="preserve">
     <value>[pt-BR]View All...</value>
   </data>
   <data name="TEXT_DAY" xml:space="preserve">
@@ -1396,5 +1397,8 @@
   </data>
   <data name="TEXT_THIRD" xml:space="preserve">
     <value>Terceiro</value>
+  </data>
+  <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
+    <value>[PT-BR]Pending Changes Waiting For Approval</value>
   </data>
 </root>

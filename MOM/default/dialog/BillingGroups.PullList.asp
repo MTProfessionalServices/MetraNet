@@ -111,9 +111,8 @@ PRIVATE FUNCTION BillingGroups_DisplayCell(EventArg)
       dim strImage
       strImage = GetIntervalStateIcon(Trim(EventArg.Grid.Rowset.Value("Status")))
       EventArg.HTMLRendered =  "<td width='150px' class='" & EventArg.Grid.CellClass & "'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr align='right'>"  & _
-            "<td align='left'><img src='" & strImage & "' align='absmiddle'>" & EventArg.Grid.Rowset.Value("Status") & "</td>" & _
+            "<td align='left'><img src='" & strImage & "' align='absmiddle'>" & mom_GetDictionary("TEXT_BG_STATUS_" & UCase(Replace(EventArg.Grid.Rowset.Value("Status"), " ", "_"))) & "</td>" & _
             "</tr></table></td>"
-      
       BillingGroups_DisplayCell = TRUE   
 
     Case "MEMBERCOUNT"

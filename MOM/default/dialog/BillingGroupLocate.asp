@@ -128,8 +128,20 @@ FUNCTION OK_Click(EventArg)
       statusNotLocalized = "Hard Closed"
     Case Else
       status = mom_GetDictionary("TEXT_unknown")
-  End Select  
-          
+  End Select 
+  
+  dim descriptionLocalize
+        
+  descriptionLocalize = bg.Name
+
+  If (nameLocalize = "DEFAULT" Or nameLocalize = "EUROPE" Or nameLocalize = "NORTH_AMERICA" Or nameLocalize = "SOUTH_AMERICA") Then
+      nameLocalize = mom_GetDictionary("TEXT_BG_NAME_" & nameLocalize)
+      descriptionLocalize = mom_GetDictionary("TEXT_BG_DESCRIPTION_" & nameLocalize)
+  Else     
+     nameLocalize = bg.Name
+     descriptionLocalize = bg.Description
+  End If
+           
   Dim html
   html = html & "<table border='0' cellpadding='3' cellspacing='0' width='100%'>"
   html = html & "<tr>"
@@ -142,7 +154,7 @@ FUNCTION OK_Click(EventArg)
   html = html & "</tr>"
   html = html & "<tr>"
   html = html & "<td class='TableCell' align='left'><b><a target='fmeMain' onclick='window.close()' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& "'>" 
-  html = html & mom_GetDictionary("TEXT_BG_NAME_" & nameLocalize) & "</a></b><br>" & mom_GetDictionary("TEXT_BG_DESCRIPTION_" & nameLocalize) & "<br><br>" 
+  html = html & nameLocalize & "</a></b><br>" & descriptionLocalize & "<br><br>"   
   html = html & "<button OnClick='window.opener.location = ""IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& """;window.close();' name='goto' Class='clsButtonBlueLarge' ID='Button1'>" & mom_GetDictionary("TEXT_Go_to_this_Group") & "</button>" & "</td>"
   html = html & "<td class='TableCell'><img src='" & GetIntervalStateIcon(statusNotLocalized) & "' align='absmiddle'>" & status & "</td>"
   html = html & "<td style='text-align:right;' class='TableCell'>" & bg.MemberCount & "</td>"

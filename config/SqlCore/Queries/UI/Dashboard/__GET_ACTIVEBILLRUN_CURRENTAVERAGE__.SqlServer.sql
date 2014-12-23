@@ -6,7 +6,7 @@ BEGIN
 DROP TABLE NM_Dashboard__Interval_Data
 END
 
-SELECT rei.id_arg_interval, re.tx_display_name, rer.dt_start as dt_start, datediff(second, rer.dt_start, rer.dt_end) as [duration], 0 as three_month_avg
+SELECT rei.id_arg_interval, re.tx_display_name, rer.dt_start as dt_start, datediff(second, DATEADD(ms, 500 - DATEPART(ms, rer.dt_start + '00:00:00.500'),rer.dt_start), DATEADD(ms, 500 - DATEPART(ms, rer.dt_end + '00:00:00.500'),rer.dt_end)) as [duration], 0 as three_month_avg
 into  NM_Dashboard__Interval_Data
   FROM [dbo].[t_recevent_inst] rei
   join t_recevent re on re.id_event = rei.id_event

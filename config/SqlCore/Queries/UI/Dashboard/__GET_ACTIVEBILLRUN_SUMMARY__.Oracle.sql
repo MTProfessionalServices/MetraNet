@@ -102,7 +102,7 @@ SELECT
 SELECT
   case when
         /*Past_three_month_average*/
-(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_start - rer.dt_end) * 86400) / count(distinct rei.id_arg_interval) else 0.0 end
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum(ROUND((rer.dt_end - rer.dt_start) * 86400,0)) / count(distinct rei.id_arg_interval) else 0.0 end
   FROM t_recevent_inst rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
@@ -129,7 +129,7 @@ and rei.tx_status = 'Succeeded')
     ROUND(
       (
         (/*EOP_Interval_run_time*/
-(SELECT NVL(sum((rer.dt_start - rer.dt_end) * 86400),0.0)
+(SELECT NVL(sum(ROUND((rer.dt_end - rer.dt_start) * 86400,0)),0.0)
   FROM t_recevent_inst rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
@@ -141,7 +141,7 @@ and rei.tx_status = 'Succeeded')
         - 
         
         /*Past_three_month_average*/
-(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_start - rer.dt_end) * 86400) / count(distinct rei.id_arg_interval) else 0.0 end
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum(ROUND((rer.dt_end - rer.dt_start) * 86400,0)) / count(distinct rei.id_arg_interval) else 0.0 end
   FROM t_recevent_inst rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
@@ -167,7 +167,7 @@ and rei.tx_status = 'Succeeded'))
         
         (100 / 
         /*Past_three_month_average*/
-(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum((rer.dt_start - rer.dt_end) * 86400) / count(distinct rei.id_arg_interval) else 0.0 end
+(SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum(ROUND((rer.dt_end - rer.dt_start) * 86400,0)) / count(distinct rei.id_arg_interval) else 0.0 end
   FROM t_recevent_inst rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance

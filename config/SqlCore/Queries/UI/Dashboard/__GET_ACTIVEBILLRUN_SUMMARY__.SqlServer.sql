@@ -24,17 +24,17 @@ where id_interval = @EOP_Interval
 )
 
 --get sum of all run times for successful adapters that have run so far for current EOP Interval (in seconds)
-SET @EOP_Interval_run_time = (SELECT sum(datediff(second, rer.dt_start, rer.dt_end))
+SET @EOP_Interval_run_time = (SELECT sum(datediff(second, DATEADD(ms, 500 - DATEPART(ms, rer.dt_start + '00:00:00.500'),rer.dt_start), DATEADD(ms, 500 - DATEPART(ms, rer.dt_end + '00:00:00.500'),rer.dt_end))) + 0.0
   FROM [dbo].[t_recevent_inst] rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance
 Where id_arg_interval = @EOP_Interval
 and rer.tx_type = 'Execute'
 and tx_detail not like 'Manually changed status%'
-and rei.tx_status = 'Succeeded') + 0.0
+and rei.tx_status = 'Succeeded')
 
 -- get the three month average total run time (in seconds) for all EOP adapters in past hard closed intervals that match the bill cycle of the current EOP Interval
-SET @Past_three_month_average = (SELECT case when count(distinct rei.id_arg_interval) != 0 then sum(datediff(second, rer.dt_start, rer.dt_end) + 0.0) / count(distinct rei.id_arg_interval) else 0 end
+SET @Past_three_month_average = (SELECT case when count(distinct rei.id_arg_interval) != 0 then sum(datediff(second, DATEADD(ms, 500 - DATEPART(ms, rer.dt_start + '00:00:00.500'),rer.dt_start), DATEADD(ms, 500 - DATEPART(ms, rer.dt_end + '00:00:00.500'),rer.dt_end)) + 0.0) / count(distinct rei.id_arg_interval) else 0 end
   FROM [dbo].[t_recevent_inst] rei
   join t_recevent re on re.id_event = rei.id_event
   left join t_recevent_run rer on rer.id_instance = rei.id_instance

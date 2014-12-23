@@ -900,7 +900,7 @@ Function WriteTypeSelect(strWizardName)
                                             " id=""PropertyDiv""", _
                                             "PropertyTable", _
                                             true, _
-                                            Array("10%","40%","50%"), _
+                                            Array("65","120","180"), _
                                             "", _
                                             "")
 	
@@ -925,9 +925,9 @@ Function WriteTypeSelect(strWizardName)
           If ProductCatalogHelper.IsRecurringChargeKind(objType.Kind) then 
           
       	      arrProperties(0) = "<input type='radio' name='" & strWizardName & "_NewType' value='" & objType.ID & "'>"
-          	  arrProperties(1) = objType.Name
+          	  arrProperties(1) = objType.DisplayNames.GetMapping(Framework.GetLanguageCodeForCurrentUser())
           	  arrProperties(2) = objType.Description
-        	    strHTML = strHTML & gobjMTGrid.AddGridRow(arrProperties, "", true, Array("10%","40%","50%"), "", "")
+        	    strHTML = strHTML & gobjMTGrid.AddGridRow(arrProperties, "", true, Array("65","120","180"), "", "")
       	  End if
     Next
 

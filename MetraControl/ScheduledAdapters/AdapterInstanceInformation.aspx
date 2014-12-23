@@ -94,11 +94,11 @@
                   runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRunAdaptersLater'); return false;" />
               </td>
               <td>
-                <MT:MTButton ID="btnRevertAdapters" meta:resourcekey="btnRevertAdapters" ClientIDMode="Static"
+                <MT:MTButton ID="btnReverseAdapters" meta:resourcekey="btnReverseAdapters" ClientIDMode="Static"
                   runat="server" OnClick="btnRevertAdapters_Click" />
               </td>
               <td>
-                <MT:MTButton ID="btnRevertAdaptersLater" meta:resourcekey="btnRevertAdaptersLater"
+                <MT:MTButton ID="btnReverseAdaptersLater" meta:resourcekey="btnReverseAdaptersLater"
                   ClientIDMode="Static" runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRevertAdaptersLater'); return false;" />
               </td>
               <td>
@@ -340,9 +340,9 @@
     function btnRunRevertAdaptersLater_ClientClick(btnId) {
       var windowTitle = "<%=GetLocalResourceObject("btnRunAdaptersLater.Text").ToString() %>";
       var dtRunRevertOnLabel = "<%=GetLocalResourceObject("RunLaterOn.Text").ToString() %>";
-      if (btnId == '<%=btnRevertAdaptersLater.ClientID %>') {
+      if (btnId == '<%=btnReverseAdaptersLater.ClientID %>') {
         windowTitle = "<%=GetLocalResourceObject("btnRevertAdaptersLater.Text").ToString() %>";
-        dtRunRevertOnLabel = "<%=GetLocalResourceObject("RevertLaterOn.Text").ToString() %>";
+        dtRunRevertOnLabel = "<%=GetLocalResourceObject("ReverseLaterOn.Text").ToString() %>";
       }
       Ext.fly('MTField_dtRunRevertOn').child('label').dom.innerText = dtRunRevertOnLabel+':';
       if(!laterWin) {

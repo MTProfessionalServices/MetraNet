@@ -44,7 +44,7 @@ public partial class AdapterInstanceInformation : MTPage
       {
         btnRunAdaptersLater_Click(this, new EventArgs());
       }
-      else if (Request.Form["__EVENTTARGET"] == btnRevertAdaptersLater.ClientID)
+      else if (Request.Form["__EVENTTARGET"] == btnReverseAdaptersLater.ClientID)
       {
         btnRevertAdapters_Click(this, new EventArgs());
       }
@@ -128,7 +128,7 @@ public partial class AdapterInstanceInformation : MTPage
       bShowMarkAsNotReadyToRun = false;
     }
     btnRunAdapters.Enabled = btnRunAdaptersLater.Enabled = bShowRunOption;
-    btnRevertAdapters.Enabled = btnRevertAdaptersLater.Enabled = bShowReverseOption;
+    btnReverseAdapters.Enabled = btnReverseAdaptersLater.Enabled = bShowReverseOption;
     btnCancelSubmittedAction.Enabled = bShowMarkAsNotReadyToRun;
     btnHistory.Enabled = !String.IsNullOrEmpty(DisplayName);
   }

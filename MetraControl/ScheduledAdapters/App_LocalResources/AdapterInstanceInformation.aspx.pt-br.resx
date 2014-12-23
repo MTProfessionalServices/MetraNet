@@ -169,11 +169,11 @@
   <data name="btnRunAdaptersLater.Text" xml:space="preserve">
     <value>[pt-BR]Run Adapter Later</value>
   </data>
-  <data name="btnRevertAdapters.Text" xml:space="preserve">
-    <value>[pt-BR]Revert Adapter</value>
+  <data name="btnReverseAdapters.Text" xml:space="preserve">
+    <value>[pt-BR]Reverse Adapter</value>
   </data>
-  <data name="btnRevertAdaptersLater.Text" xml:space="preserve">
-    <value>[pt-BR]Revert Adapter Later</value>
+  <data name="btnReverseAdaptersLater.Text" xml:space="preserve">
+    <value>[pt-BR]Reverse Adapter Later</value>
   </data>
   <data name="btnCancelSubmittedAction.Text" xml:space="preserve">
     <value>[pt-BR]Cancel Submitted Action</value>
@@ -190,8 +190,8 @@
   <data name="RunLaterOn.Text" xml:space="preserve">
     <value>[pt-BR]Run this adapter on</value>
   </data>
-  <data name="RevertLaterOn.Text" xml:space="preserve">
-    <value>[pt-BR]Revert this adapter on</value>
+  <data name="ReverseLaterOn.Text" xml:space="preserve">
+    <value>[pt-BR]Reverse this adapter on</value>
   </data>
   <data name="AdapterInstanceAuditHistoryGrid.Title" xml:space="preserve">
     <value>[pt-BR]Instance Audit History</value>

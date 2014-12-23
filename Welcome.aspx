@@ -109,8 +109,8 @@
             render: function (panel) {
               var pendingApprovalsTpl = new Ext.XTemplate(
                             '<tpl for=".">',
-                                '<p style="margin-bottom:10px;"><a href="/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?Filter_ChangesSummary_ChangeState=Pending&Filter_ChangesSummary_ChangeType={ChangeType}"><div class="ApprovalNotification"><div style="float:left;margin:5px; margin-right:10px;"><img src="/ImageHandler/images/Approvals/ChangeTypes/{ChangeType}/ChangeType.png"></div><div style="margin:5px;padding-left:10px;"><b>{ChangeTypeDisplayName}</b><br>{PendingCount} Pending Changes Waiting For Approval &nbsp;&nbsp; <b>View</b></div></div></a></p>',
-
+                                '<p style="margin-bottom:10px;"><a href="/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?Filter_ChangesSummary_ChangeState=Pending&Filter_ChangesSummary_ChangeType={ChangeType}"><div class="ApprovalNotification"><div style="float:left;margin:5px; margin-right:10px;"><img src="/ImageHandler/images/Approvals/ChangeTypes/{ChangeType}/ChangeType.png"></div><div style="margin:5px;padding-left:10px;"><b>{ChangeTypeDisplayName}</b><br>{PendingCount} '
+                                  + TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL + ' &nbsp;&nbsp; <b>' + TEXT_AMPWIZARD_VIEW + '</b></div></div></a></p>',
                             '</tpl>', {
                               isNull: function (FirstName, LastName) {
                                 if ((FirstName == null) || (LastName == null) || (FirstName == '') || (LastName == '')) {

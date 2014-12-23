@@ -1398,4 +1398,7 @@
   <data name="TEXT_THIRD" xml:space="preserve">
     <value>Third</value>
   </data>
+  <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
+    <value>Pending Changes Waiting For Approval</value>
+  </data>
 </root>

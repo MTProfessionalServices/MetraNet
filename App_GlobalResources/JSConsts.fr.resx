@@ -1380,7 +1380,6 @@
   <data name="TEXT_VIEW_ALL" xml:space="preserve">
     <value>[FR]View All...</value>
   </data>
-
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Jour</value>
   </data>
@@ -1398,5 +1397,8 @@
   </data>
   <data name="TEXT_THIRD" xml:space="preserve">
     <value>Troisième</value>
+  </data>
+  <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
+    <value>[FR]Pending Changes Waiting For Approval</value>
   </data>
 </root>

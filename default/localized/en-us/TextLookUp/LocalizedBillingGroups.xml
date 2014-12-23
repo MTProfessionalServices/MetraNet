@@ -249,8 +249,14 @@
   <text id="TEXT_BG_STATUS_CODE_FAILED">
     <value>Failed</value>
   </text>
+  <text id="TEXT_BG_STATUS_CODE_INPROGRESS">
+    <value>In Progress</value>
+  </text>
   <text id="TEXT_BG_RUN_ACTION_EXECUTE">
     <value>Execute </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_REVERSE">
+    <value>Reverse </value>
   </text>
   <text id="TEXT_Unassigned_Accounts_That_Are_Hard_Closed">
     <value>Unassigned Accounts That Are Hard Closed</value>

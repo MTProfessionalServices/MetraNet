@@ -21,6 +21,7 @@ GROUP BY
        base1.nm_name,
        base1.nm_desc,
        base1.n_display_name,
-       desc1.tx_desc 
+       desc1.tx_desc,
+       base1.n_desc
        /* having count(rc.id_prop) >= %%ID_COUNT%% */
 HAVING COUNT(rc.id_prop) = 1

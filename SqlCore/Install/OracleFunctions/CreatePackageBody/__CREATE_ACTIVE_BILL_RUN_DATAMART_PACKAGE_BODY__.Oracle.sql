@@ -35,8 +35,8 @@ BEGIN
 							  rei.id_arg_interval, 
 							  re.tx_display_name, 
 							  rer.dt_start dt_start, 
-							  floor((rer.dt_end - rer.dt_start) * 24 * 60 * 60) duration, 
-							  0 as three_month_avg
+							  ROUND((rer.dt_end - rer.dt_start) * 86400,0) duration, 
+							  0.0 as three_month_avg
 							  FROM t_recevent_inst rei
 							  join t_recevent re on re.id_event = rei.id_event
 							  left join t_recevent_run rer on rer.id_instance = rei.id_instance

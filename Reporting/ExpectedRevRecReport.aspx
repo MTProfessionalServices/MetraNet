@@ -81,6 +81,7 @@
       select.append($("<option/>").text("<%=GetLocalResourceObject("Option_All_Text").ToString() %>"));
       $.ajax({
         url: "../Report/GetProductsFilter",
+        cache: false,
         success: function (res) {
           res.forEach(function (e) {
             select.append($("<option/>").val(e.Key).text(e.Value));
@@ -97,6 +98,7 @@
       });
       $.ajax({
         url: "../Report/GetAccountingCyclesFilter",
+        cache: false,
         success: function (res) {
           res.forEach(function (e) {
             selectCycle.append($("<option/>").val(e.Id).text(e.Name));
@@ -117,6 +119,7 @@
       selectCurrency.append($("<option/>").text('<%=GetLocalResourceObject("Option_All_Text").ToString()%>').val(''));
       $.ajax({
         url: "../Report/GetCurrencyFilter",
+        cache: false,
         success: function (res) {
           res.forEach(function (e) {
             selectCurrency.append($("<option/>").val(e).text(e));

@@ -15,8 +15,8 @@ SELECT
 	+ COALESCE(acc.tax_federal, 0) + COALESCE(acc.tax_state, 0) + COALESCE(acc.tax_county, 0) + COALESCE(acc.tax_local, 0) + COALESCE(acc.tax_other, 0)
 	+ COALESCE(adj.aj_tax_federal, 0) + COALESCE(adj.aj_tax_state, 0) + COALESCE(adj.aj_tax_county, 0) + COALESCE(adj.aj_tax_local, 0) + COALESCE(adj.aj_tax_other, 0)) as c_ProratedDailyRate
 ,COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_ep.c_IsLiabilityProduct, usg_ep.c_IsLiabilityProduct, dis_ep.c_IsLiabilityProduct, 'N') as c_IsLiabilityProduct
-,COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '') as c_RevenueCode
-,COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') as c_DeferredRevenueCode
+,COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, N'') as c_RevenueCode
+,COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, N'') as c_DeferredRevenueCode
 ,acc.id_pi_template
 FROM		t_acc_usage						acc
 INNER JOIN	t_usage_interval				ui			ON acc.id_usage_interval = ui.id_interval
@@ -34,8 +34,8 @@ LEFT JOIN	t_ep_discount					dis_ep		ON dis_ep.id_prop = acc.id_pi_template
 WHERE 	COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_ep.c_IsLiabilityProduct, usg_ep.c_IsLiabilityProduct, dis_ep.c_IsLiabilityProduct, 'N') = 'N'
 	AND ('%%HARDCLOSED%%' = 'S' OR ui.tx_interval_status = 'H')
 	AND	acc.am_currency like '%' + '%%CURRENCY%%' + '%'
-	AND COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, '')  like '%' + '%%REVENUECODE%%' + '%'
-	AND COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, '') like '%' + '%%DEFREVENUECODE%%' + '%'
+	AND COALESCE(udrc_ep.c_RevenueCode, frc_ep.c_RevenueCode, nrc_ep.c_RevenueCode, usg_ep.c_RevenueCode, dis_ep.c_RevenueCode, N'')  like '%' + '%%REVENUECODE%%' + '%'
+	AND COALESCE(udrc_ep.c_DeferredRevenueCode, frc_ep.c_DeferredRevenueCode, nrc_ep.c_DeferredRevenueCode, usg_ep.c_DeferredRevenueCode, dis_ep.c_DeferredRevenueCode, N'') like '%' + '%%DEFREVENUECODE%%' + '%'
 	AND	(%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
 	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 		OR

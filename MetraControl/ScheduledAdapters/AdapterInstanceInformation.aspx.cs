@@ -46,7 +46,7 @@ public partial class AdapterInstanceInformation : MTPage
       }
       else if (Request.Form["__EVENTTARGET"] == btnReverseAdaptersLater.ClientID)
       {
-        btnRevertAdapters_Click(this, new EventArgs());
+        btnReverseAdaptersLater_Click(this, new EventArgs());
       }
       return;
     }
@@ -182,8 +182,8 @@ public partial class AdapterInstanceInformation : MTPage
     try
     {
       DateTime laterOn;
-      if (String.IsNullOrEmpty(dtRunRevertOn.Text) ||
-          !DateTime.TryParse(dtRunRevertOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
+      if (String.IsNullOrEmpty(dtRunReverseOn.Text) ||
+          !DateTime.TryParse(dtRunReverseOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
         return;
 
       var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };
@@ -197,7 +197,7 @@ public partial class AdapterInstanceInformation : MTPage
     InitControls();
   }
 
-  protected void btnRevertAdapters_Click(object sender, EventArgs e)
+  protected void btnReverseAdapters_Click(object sender, EventArgs e)
   {
     try
     {
@@ -213,13 +213,13 @@ public partial class AdapterInstanceInformation : MTPage
     InitControls();
   }
 
-  protected void btnRevertAdaptersLater_Click(object sender, EventArgs e)
+  protected void btnReverseAdaptersLater_Click(object sender, EventArgs e)
   {
     try
     {
       DateTime laterOn;
-      if (String.IsNullOrEmpty(dtRunRevertOn.Text) ||
-          !DateTime.TryParse(dtRunRevertOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
+      if (String.IsNullOrEmpty(dtRunReverseOn.Text) ||
+          !DateTime.TryParse(dtRunReverseOn.Text, Thread.CurrentThread.CurrentUICulture, DateTimeStyles.AssumeLocal, out laterOn))
         return;
 
       var usmClient = new MetraTech.UsageServer.Client { SessionContext = UI.User.SessionContext };

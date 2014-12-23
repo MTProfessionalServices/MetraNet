@@ -91,15 +91,15 @@
               </td>
               <td>
                 <MT:MTButton ID="btnRunAdaptersLater" meta:resourcekey="btnRunAdaptersLater" ClientIDMode="Static"
-                  runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRunAdaptersLater'); return false;" />
+                  runat="server" OnClientClick="btnRunReverseAdaptersLater_ClientClick('btnRunAdaptersLater'); return false;" />
               </td>
               <td>
                 <MT:MTButton ID="btnReverseAdapters" meta:resourcekey="btnReverseAdapters" ClientIDMode="Static"
-                  runat="server" OnClick="btnRevertAdapters_Click" />
+                  runat="server" OnClick="btnReverseAdapters_Click" />
               </td>
               <td>
                 <MT:MTButton ID="btnReverseAdaptersLater" meta:resourcekey="btnReverseAdaptersLater"
-                  ClientIDMode="Static" runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRevertAdaptersLater'); return false;" />
+                  ClientIDMode="Static" runat="server" OnClientClick="btnRunReverseAdaptersLater_ClientClick('btnReverseAdaptersLater'); return false;" />
               </td>
               <td>
                 <MT:MTButton ID="btnCancelSubmittedAction" meta:resourcekey="btnCancelSubmittedAction"
@@ -137,7 +137,7 @@
   </table>
   <div id="later-win" class="x-hidden">
     <div id="later-win-body" class="x-panel">
-      <MT:MTDatePicker runat="server" ID="dtRunRevertOn" ClientIDMode="Static" ViewStateMode="Disabled"
+      <MT:MTDatePicker runat="server" ID="dtRunReverseOn" ClientIDMode="Static" ViewStateMode="Disabled"
         EnableViewState="False" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10;altFormats:DATE_TIME_FORMAT, minValue:new Date(),&#13;&#10;maxValue:null,&#13;&#10;minValue: new Date(),value: new Date(),anchor:'100%'"
         XType="datefield" ControlHeight="100" Height="100" />
     </div>
@@ -190,8 +190,8 @@
             </td>
           </tr>
         </table>
-              <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
-                ExtensionName="Core" ClientIDMode="Static" Resizable="False" />
+        <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
+          ExtensionName="Core" ClientIDMode="Static" Resizable="False" />
       </MT:MTPanel>
     </div>
   </div>
@@ -337,14 +337,14 @@
       return String.format(" [{0} {1}]", diff, "<%=GetLocalResourceObject("SecondSingular").ToString() %>");
     };
     
-    function btnRunRevertAdaptersLater_ClientClick(btnId) {
+    function btnRunReverseAdaptersLater_ClientClick(btnId) {
       var windowTitle = "<%=GetLocalResourceObject("btnRunAdaptersLater.Text").ToString() %>";
-      var dtRunRevertOnLabel = "<%=GetLocalResourceObject("RunLaterOn.Text").ToString() %>";
+      var dtRunReverseOnLabel = "<%=GetLocalResourceObject("RunLaterOn.Text").ToString() %>";
       if (btnId == '<%=btnReverseAdaptersLater.ClientID %>') {
-        windowTitle = "<%=GetLocalResourceObject("btnRevertAdaptersLater.Text").ToString() %>";
+        windowTitle = "<%=GetLocalResourceObject("btnReverseAdaptersLater.Text").ToString() %>";
         dtRunRevertOnLabel = "<%=GetLocalResourceObject("ReverseLaterOn.Text").ToString() %>";
       }
-      Ext.fly('MTField_dtRunRevertOn').child('label').dom.innerText = dtRunRevertOnLabel+':';
+      Ext.fly('MTField_dtRunReverseOn').child('label').dom.innerText = dtRunReverseOnLabel+':';
       if(!laterWin) {
         laterWin = new Ext.Window({
             title: windowTitle,

@@ -162,4 +162,11 @@
   <data name="tbUserNameResource1.Label" xml:space="preserve">
     <value>ユーザ名</value>
   </data>
+  <data name="ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS" xml:space="preserve">
+    <value><![CDATA[[JA]The new password does not meet security requirements:       
+            * Must be at least 7 characters and less than 1024 
+            * Must contain at least one lower case letter, one upper case letter, one digit and one special character 
+            * Valid special characters including space are _ !@#$%^&*+= 
+            * Passwords once changed, may not be any of the previous 4 passwords]]></value>
+  </data>
 </root>

@@ -91,7 +91,16 @@ public partial class login : MTPage
     }
     catch (Exception exp)
     {
-      reasonText.InnerHtml = Server.HtmlEncode(exp.Message).Replace("\r\n", "<br/>");
+      if (exp.Message.Contains("The new password does not meet security requirements"))
+      {
+        object title = GetLocalResourceObject("ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS");
+        if (title != null)
+          reasonText.InnerHtml = Server.HtmlEncode(title.ToString()).Replace("\r\n", "<br/>");
+        else
+          reasonText.InnerHtml = Server.HtmlEncode(exp.Message).Replace("\r\n", "<br/>");
+      }
+      else
+        reasonText.InnerHtml = Server.HtmlEncode(exp.Message).Replace("\r\n", "<br/>");
     }
   }
 

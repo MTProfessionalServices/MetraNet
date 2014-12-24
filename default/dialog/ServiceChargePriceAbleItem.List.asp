@@ -119,7 +119,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties.SelectAll
   else
     ProductView.Properties.ClearSelection               ' Select the properties I want to print in the PV Browser   Order  
-    ProductView.Properties("nm_name").Selected     = 1
+    ProductView.Properties("nm_display_name").Selected     = 1
     ProductView.Properties("nm_desc").Selected 	  = 2
     'Need extra column for rc and nrc for configure adjustments button
     if CLng(Form("Kind"))=PI_TYPE_RECURRING OR CLng(Form("Kind"))=PI_TYPE_NON_RECURRING Then
@@ -128,11 +128,11 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
     end if
   end if
   
-  ProductView.Properties("nm_name").Sorted       = MTSORT_ORDER_ASCENDING ' Set the default sorted property
+  ProductView.Properties("nm_display_name").Sorted       = MTSORT_ORDER_ASCENDING ' Set the default sorted property
   
-  Set Form.Grid.FilterProperty                          = ProductView.Properties("nm_name") ' Set the property on which to apply the filter  
+  Set Form.Grid.FilterProperty                          = ProductView.Properties("nm_display_name") ' Set the property on which to apply the filter  
 
-  ProductView.Properties("nm_name").Caption 		          = FrameWork.GetDictionary("TEXT_COLUMN_NAME")
+  ProductView.Properties("nm_display_name").Caption 		          = FrameWork.GetDictionary("TEXT_COLUMN_NAME")
   ProductView.Properties("nm_desc").Caption 	            = FrameWork.GetDictionary("TEXT_COLUMN_DESCRIPTION")
 
   

@@ -123,7 +123,15 @@ FUNCTION Form_Refresh(EventArg)
   end if
 
   Service.Properties("BillingGroupId").Value          = bg.BillingGroupID
-  Service.Properties("BillingGroup").Value = mom_GetDictionary("TEXT_BG_NAME_" & UCase(Replace(bg.Name, " ", "_")))
+  
+  dim nameLocalize
+  nameLocalize = UCase(Replace(bg.Name, " ", "_"))
+
+  If (nameLocalize = "DEFAULT" Or nameLocalize = "EUROPE" Or nameLocalize = "NORTH_AMERICA" Or nameLocalize = "SOUTH_AMERICA") Then
+      Service.Properties("BillingGroup").Value = mom_GetDictionary("TEXT_BG_NAME_" & nameLocalize)     
+  else 
+      Service.Properties("BillingGroup").Value = nameLocalize
+  End If
 
   If (IsNull(bg.PartitionName) Or IsEmpty(bg.PartitionName)) Then
      mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 0

@@ -31,7 +31,8 @@ namespace MetraNet.MetraControl.ScheduledAdapters
       sqi.Params.Add(param);
       param = new SQLQueryParam { FieldName = "%%ID_LANG_CODE%%", FieldValue = UI.SessionContext.LanguageID};
       sqi.Params.Add(param);
-
+      param = new SQLQueryParam { FieldName = "%%MIN_DATE%%", FieldValue = SqlDateTime.MinValue.Value.ToString(CultureInfo.InvariantCulture) };
+      sqi.Params.Add(param);
       var qsParam = SQLQueryInfo.Compact(sqi);
       ScheduledAdapterRunListGrid.DataSourceURLParams.Clear();
       ScheduledAdapterRunListGrid.DataSourceURLParams.Add("q", qsParam);

@@ -2,7 +2,7 @@
 <priceable_item>
     <name>Flat Rate Non Recurring Charge</name>
     <DisplayNames>
-        <language name="US">[US]Flat Rate Non Recurring Charge</language>
+        <language name="US">Flat Rate Non Recurring Charge</language>
         <language name="DE">[DE]Flat Rate Non Recurring Charge</language>
         <language name="FR">[FR]Flat Rate Non Recurring Charge</language>
         <language name="IT">[IT]Flat Rate Non Recurring Charge</language>
@@ -15,7 +15,7 @@
     </DisplayNames>
     <description>One time service charge with a flat rate.</description>
     <DisplayDescriptions>
-        <language name="US">[US]One time service charge with a flat rate.</language>
+        <language name="US">One time service charge with a flat rate.</language>
         <language name="DE">[DE]One time service charge with a flat rate.</language>
         <language name="FR">[FR]One time service charge with a flat rate.</language>
         <language name="IT">[IT]One time service charge with a flat rate.</language>
@@ -40,7 +40,7 @@
         <name>FlatNonRecurringChargeFlatAdjustment</name>
         <description>Non Recurring Charge Flat Adjustment</description>
         <DisplayDescriptions>
-            <language name="US">[US]Non Recurring Charge Flat Adjustment</language>
+            <language name="US">Non Recurring Charge Flat Adjustment</language>
             <language name="DE">[DE]Non Recurring Charge Flat Adjustment</language>
             <language name="FR">[FR]Non Recurring Charge Flat Adjustment</language>
             <language name="IT">[IT]Non Recurring Charge Flat Adjustment</language>
@@ -53,7 +53,7 @@
         </DisplayDescriptions>
         <displayname>Non Recurring Charge Flat Adjustment</displayname>
         <DisplayNames>
-            <language name="US">[US]Non Recurring Charge Flat Adjustment</language>
+            <language name="US">Non Recurring Charge Flat Adjustment</language>
             <language name="DE">[DE]Non Recurring Charge Flat Adjustment</language>
             <language name="FR">[FR]Non Recurring Charge Flat Adjustment</language>
             <language name="IT">[IT]Non Recurring Charge Flat Adjustment</language>
@@ -88,7 +88,7 @@
         <name>FlatNonRecurringChargePercentAdjustment</name>
         <description>Non Recurring Charge Percent Adjustment</description>
         <DisplayDescriptions>
-            <language name="US">[US]Non Recurring Charge Percent Adjustment</language>
+            <language name="US">Non Recurring Charge Percent Adjustment</language>
             <language name="DE">[DE]Non Recurring Charge Percent Adjustment</language>
             <language name="FR">[FR]Non Recurring Charge Percent Adjustment</language>
             <language name="IT">[IT]Non Recurring Charge Percent Adjustment</language>
@@ -101,7 +101,7 @@
         </DisplayDescriptions>
         <displayname>Non Recurring Charge Percent Adjustment</displayname>
         <DisplayNames>
-            <language name="US">[US]Non Recurring Charge Percent Adjustment</language>
+            <language name="US">Non Recurring Charge Percent Adjustment</language>
             <language name="DE">[DE]Non Recurring Charge Percent Adjustment</language>
             <language name="FR">[FR]Non Recurring Charge Percent Adjustment</language>
             <language name="IT">[IT]Non Recurring Charge Percent Adjustment</language>

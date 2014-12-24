@@ -4,7 +4,7 @@
         <name>Bankruptcy</name>
         <description>Bankruptcy Reason Code</description>
         <DisplayDescriptions>
-            <language name="US">[US]Bankruptcy Reason Code</language>
+            <language name="US">Bankruptcy Reason Code</language>
             <language name="DE">[DE]Bankruptcy Reason Code</language>
             <language name="FR">[FR]Bankruptcy Reason Code</language>
             <language name="IT">[IT]Bankruptcy Reason Code</language>
@@ -17,7 +17,7 @@
         </DisplayDescriptions>
         <displayname>Bankruptcy Reason Code</displayname>
         <DisplayNames>
-            <language name="US">[US]Bankruptcy Reason Code</language>
+            <language name="US">Bankruptcy Reason Code</language>
             <language name="DE">[DE]Bankruptcy Reason Code</language>
             <language name="FR">[FR]Bankruptcy Reason Code</language>
             <language name="IT">[IT]Bankruptcy Reason Code</language>
@@ -33,7 +33,7 @@
         <name>Rebill</name>
         <description>Transaction billed to wrong account</description>
         <DisplayDescriptions>
-            <language name="US">[US]Transaction billed to wrong account</language>
+            <language name="US">Transaction billed to wrong account</language>
             <language name="DE">[DE]Transaction billed to wrong account</language>
             <language name="FR">[FR]Transaction billed to wrong account</language>
             <language name="IT">[IT]Transaction billed to wrong account</language>
@@ -46,7 +46,7 @@
         </DisplayDescriptions>
         <displayname>Transaction billed to wrong account</displayname>
         <DisplayNames>
-            <language name="US">[US]Transaction billed to wrong account</language>
+            <language name="US">Transaction billed to wrong account</language>
             <language name="DE">[DE]Transaction billed to wrong account</language>
             <language name="FR">[FR]Transaction billed to wrong account</language>
             <language name="IT">[IT]Transaction billed to wrong account</language>
@@ -62,7 +62,7 @@
         <name>RateCorrection</name>
         <description>Rate Correction</description>
         <DisplayDescriptions>
-            <language name="US">[US]Rate Correction</language>
+            <language name="US">Rate Correction</language>
             <language name="DE">[DE]Rate Correction</language>
             <language name="FR">[FR]Rate Correction</language>
             <language name="IT">[IT]Rate Correction</language>
@@ -75,7 +75,7 @@
         </DisplayDescriptions>
         <displayname>Rate Correction</displayname>
         <DisplayNames>
-            <language name="US">[US]Rate Correction</language>
+            <language name="US">Rate Correction</language>
             <language name="DE">[DE]Rate Correction</language>
             <language name="FR">[FR]Rate Correction</language>
             <language name="IT">[IT]Rate Correction</language>

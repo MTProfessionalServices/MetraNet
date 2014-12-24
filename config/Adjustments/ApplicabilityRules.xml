@@ -4,7 +4,7 @@
         <name>IsTransactionPrebill</name>
         <description>Returns TRUE if a transaction belongs to an open interval</description>
         <DisplayDescriptions>
-            <language name="US">[US]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="US">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="DE">[DE]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="FR">[FR]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="IT">[IT]Returns TRUE if a transaction belongs to an open interval</language>
@@ -17,7 +17,7 @@
         </DisplayDescriptions>
         <displayname>Returns TRUE if a transaction belongs to an open interval</displayname>
         <DisplayNames>
-            <language name="US">[US]Returns TRUE if a transaction belongs to an open interval</language>
+            <language name="US">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="DE">[DE]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="FR">[FR]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="IT">[IT]Returns TRUE if a transaction belongs to an open interval</language>
@@ -46,7 +46,7 @@
         <name>IsTransactionPostbill</name>
         <description>Returns TRUE if a transaction belongs to a closed interval</description>
         <DisplayDescriptions>
-            <language name="US">[US]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="US">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="DE">[DE]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="FR">[FR]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="IT">[IT]Returns TRUE if a transaction belongs to a closed interval</language>
@@ -59,7 +59,7 @@
         </DisplayDescriptions>
         <displayname>Returns TRUE if a transaction belongs to a closed interval</displayname>
         <DisplayNames>
-            <language name="US">[US]Returns TRUE if a transaction belongs to a closed interval</language>
+            <language name="US">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="DE">[DE]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="FR">[FR]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="IT">[IT]Returns TRUE if a transaction belongs to a closed interval</language>

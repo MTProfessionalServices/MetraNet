@@ -2,7 +2,7 @@
 <priceable_item>
     <name>Unit Dependent Recurring Charge</name>
     <DisplayNames>
-        <language name="US">[US]Unit Dependent Recurring Charge</language>
+        <language name="US">Unit Dependent Recurring Charge</language>
         <language name="DE">[DE]Unit Dependent Recurring Charge</language>
         <language name="FR">[FR]Unit Dependent Recurring Charge</language>
         <language name="IT">[IT]Unit Dependent Recurring Charge</language>
@@ -15,7 +15,7 @@
     </DisplayNames>
     <description>Recurring charge based on a single subscription specific value.</description>
     <DisplayDescriptions>
-        <language name="US">[US]Recurring charge based on a single subscription specific value.</language>
+        <language name="US">Recurring charge based on a single subscription specific value.</language>
         <language name="DE">[DE]Recurring charge based on a single subscription specific value.</language>
         <language name="FR">[FR]Recurring charge based on a single subscription specific value.</language>
         <language name="IT">[IT]Recurring charge based on a single subscription specific value.</language>
@@ -41,7 +41,7 @@
         <name>UnitDependentRecurringChargeFlatAdjustment</name>
         <description>Unit Dependent Recurring Charge Flat Adjustment</description>
         <DisplayDescriptions>
-            <language name="US">[US]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="US">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="DE">[DE]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="FR">[FR]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="IT">[IT]Unit Dependent Recurring Charge Flat Adjustment</language>
@@ -54,7 +54,7 @@
         </DisplayDescriptions>
         <displayname>Unit Dependent Recurring Charge Flat Adjustment</displayname>
         <DisplayNames>
-            <language name="US">[US]Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="US">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="DE">[DE]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="FR">[FR]Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="IT">[IT]Unit Dependent Recurring Charge Flat Adjustment</language>
@@ -91,7 +91,7 @@
         <name>UnitDependentRecurringChargePercentAdjustment</name>
         <description>Unit Dependent Recurring Charge Percent Adjustment</description>
         <DisplayDescriptions>
-            <language name="US">[US]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="US">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="DE">[DE]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="FR">[FR]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="IT">[IT]Unit Dependent Recurring Charge Percent Adjustment</language>
@@ -104,7 +104,7 @@
         </DisplayDescriptions>
         <displayname>Unit Dependent Recurring Charge Percent Adjustment</displayname>
         <DisplayNames>
-            <language name="US">[US]Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="US">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="DE">[DE]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="FR">[FR]Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="IT">[IT]Unit Dependent Recurring Charge Percent Adjustment</language>

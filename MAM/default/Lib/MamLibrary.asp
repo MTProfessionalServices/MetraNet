@@ -1092,18 +1092,6 @@ PUBLIC FUNCTION mam_LoadTempCSRAccount(lngAccountID)
     mam_LoadTempCSRAccount = FALSE
   End If
 END FUNCTION
-' ---------------------------------------------------------------------------------------------------------------------------------------
-' FUNCTION		: mam_GetHierarchyTime
-' DESCRIPTION	: Gets the time set in the hierarchy pane.
-' PARAMETERS	:
-' RETURNS		  :
-PRIVATE FUNCTION  mam_GetHierarchyTimeWithFormat() 
-  If IsEmpty(Session("HIERARCHY_HELPER")) Then
-   mam_GetHierarchyTimeWithFormat = CDate(mam_GetGMTEndOfTheDayFormatted())
-  Else
-   mam_GetHierarchyTimeWithFormat = CDate(Session("HIERARCHY_HELPER").SnapShot)
-  End If
-End Function
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION		: mam_GetHierarchyTime
@@ -1111,7 +1099,11 @@ End Function
 ' PARAMETERS	:
 ' RETURNS		  :
 PRIVATE FUNCTION mam_GetHierarchyTime() 
-     mam_GetHierarchyTime = CDate(mdm_GetGMTTimeFormatted("MM/dd/yyyy") & " " & mam_GetDictionary("END_OF_DAY"))
+  If IsEmpty(Session("HIERARCHY_HELPER")) Then
+    mam_GetHierarchyTime =  CDate(mam_GetGMTEndOfTheDay())
+  Else
+    mam_GetHierarchyTime = CDate(Session("HIERARCHY_HELPER").SnapShot)
+  End If
 End Function
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------

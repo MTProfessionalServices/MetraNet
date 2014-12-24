@@ -39,9 +39,6 @@
        <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_DESCRIPTION">Description</MDMLABEL>:&nbsp;&nbsp;</td>
         <td><input name="DISPLAYDESCRIPTIONS" MultiLanguage="true" class="field" type="text" size="50"></td>
       </tr>
-      
-      <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-		  <tr><td colspan=2>[BILLING_CYCLE_HTML_SUB_TEMPLATE]</td></tr> 
 		 
  </table>
 </td>
@@ -59,19 +56,7 @@
 </tr>
 </table>
 
-#MDMNotIf CURRENT_PO_BASED
-<br>
-<!-- Counter Configuration -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
 
-<tr><td colspan='12'>&nbsp;</td></tr>
-<tr><td colspan='12' class='sectionCaptionBar'><MDMLabel name="CounterDefinitionsMessage" type="value"></MDMLabel></td></tr>
-<tr>
-<td colspan="4" nowrap class="clsStandardText"><MDMLabel name="NoCounterDefinitionsMessage" type="value">Message</MDMLabel><MDMGrid Name="CounterDefinitions">Counter Definitions</MDMGrid>
-</td>
-</tr>
-</table>
-#MDMEndIf
 
 <br><br><CENTER>
     #MDMIf ShowEditButton

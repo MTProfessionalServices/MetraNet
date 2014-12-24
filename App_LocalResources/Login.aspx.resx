@@ -166,7 +166,7 @@
         <value>MetraNet | Login</value>
     </data>
     <data name="PASSWORDS_DONT_MATCH" xml:space="preserve">
-        <value>Passwords donot match</value>
+        <value>Passwords do not match</value>
     </data>
     <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
         <value>Confirm Password</value>

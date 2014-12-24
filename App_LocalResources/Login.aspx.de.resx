@@ -190,6 +190,6 @@
     <value>[DE]Enter Confirm Password</value>
   </data>
   <data name="PASSWORDS_DONT_MATCH" xml:space="preserve">
-    <value>[DE]Passwords donot match</value>
+    <value>[DE]Passwords do not match</value>
   </data>
 </root>

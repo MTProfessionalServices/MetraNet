@@ -25,6 +25,6 @@ LEFT OUTER JOIN t_recevent_run run ON run.dt_start = maxrun.dt_start AND
 WHERE
   /* event is active */
   evt.dt_activated <= %%%SYSTEMDATE%%% AND
- (evt.dt_deactivated IS NULL OR %%%SYSTEMDATE%%% < evt.dt_deactivated) AND
+  (evt.dt_deactivated IS NULL OR %%%SYSTEMDATE%%% < evt.dt_deactivated) AND
   evt.tx_type = 'Scheduled' AND
-  run.dt_end >= '%%END_DATE%%'
+  ('%%END_DATE%%' = '%%MIN_DATE%%' OR run.dt_end >= '%%END_DATE%%')

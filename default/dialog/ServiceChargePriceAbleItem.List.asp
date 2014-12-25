@@ -88,6 +88,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     strTabs = gObjMTTabs.DrawTabMenu(g_int_TAB_TOP)
   
     Form.HTMLTemplateSource = Replace(Form.HTMLTemplateSource, "<MDMTAB />", strTabs)
+    Form.Page.NoRecordUserMessage     = FrameWork.GetDictionary("NO_RECORD_USER_MESSAGE")
     
 	  Form_Initialize = MDMListDialog.Initialize(EventArg)
     Form("NextPage") = Form("NextPage1")

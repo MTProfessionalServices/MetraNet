@@ -72,21 +72,12 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   rowset2.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
   'rowset2.SetQueryString("select nm_name from t_base_props bp join t_rsched rs on bp.id_prop = rs.id_pricelist and rs.id_sched=%%RS_ID%%")
   rowset2.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
-  rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
+  rowset2.AddParam "%%ID_LANG%%", Framework.SessionContext.LanguageID
   rowset2.Execute
 
     dim pt_id
-  if rowset2.RecordCount=0 then
-    set rowset2 = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
-    rowset2.Init "queries\audit"
-    rowset2.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
-    rowset2.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
-    rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage("en-us")
-    rowset2.Execute
-  end if
     pt_id = rowset2.value("ParamTableId")
-
-
+    
     Form("PT_ID") = pt_id 
   
     dim rowset

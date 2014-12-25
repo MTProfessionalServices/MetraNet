@@ -1,6 +1,6 @@
 
       SELECT
-        COALESCE(tbp.id_prop, tvp.id_prop) id_prop,
+        COALESCE(tvp.id_prop, tbp.id_prop) id_prop,
         COALESCE(tvp.n_kind, tbp.n_kind) n_kind,
         COALESCE(tvp.n_name, tbp.n_name) n_name,
         COALESCE(tvp.n_desc, tbp.n_desc) n_desc,
@@ -13,7 +13,7 @@
         %%COLUMNS%%
       FROM t_pi_template tpt
         INNER JOIN t_base_props tbp ON tbp.id_prop = tpt.id_template
-        LEFT JOIN t_vw_base_props tvp ON tvp.nm_name = tbp.nm_name AND tvp.id_lang_code = %%ID_LANG%%
+        LEFT JOIN t_vw_base_props tvp ON tvp.id_prop = tbp.id_prop AND tvp.id_lang_code = %%ID_LANG%%
         LEFT JOIN t_recur rec ON rec.id_prop = tbp.id_prop
         %%JOINS%%
       WHERE id_template_parent IS NULL %%FILTERS%%

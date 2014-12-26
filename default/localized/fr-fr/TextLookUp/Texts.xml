@@ -50,5 +50,32 @@
   <text id="TEXT_GO">
     <value>[FR]Go</value>
   </text>
-
+  <text id="TEXT_ADAPTER_NAME">
+    <value>[FR]Adapter Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RUN_ID">
+    <value>[FR]Run Id</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_RUN_DETAILS">
+    <value>[FR]Adapter Run Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL_TYPE">
+    <value>[FR]Detail Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL">
+    <value>[FR]Detail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TIMESTAMP">
+    <value>[FR]Timestamp</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUMMARY_DETAILS">
+    <value>[FR]Summary Details</value>
+    <description></description>
+  </text>
 </texts>

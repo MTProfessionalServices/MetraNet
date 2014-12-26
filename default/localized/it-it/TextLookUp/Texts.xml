@@ -47,4 +47,32 @@
     <value>[IT]Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
     <description></description>
   </text>
+  <text id="TEXT_ADAPTER_NAME">
+    <value>[IT]Adapter Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RUN_ID">
+    <value>[IT]Run Id</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_RUN_DETAILS">
+    <value>[IT]Adapter Run Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL_TYPE">
+    <value>[IT]Detail Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL">
+    <value>[IT]Detail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TIMESTAMP">
+    <value>[IT]Timestamp</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUMMARY_DETAILS">
+    <value>[IT]Summary Details</value>
+    <description></description>
+  </text>
 </texts>

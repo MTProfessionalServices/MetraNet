@@ -490,10 +490,10 @@ FUNCTION mom_GetDurationMessage(dtStart,dtEnd) ' As String
   iDuration = DateDiff("n",dtStart,dtEnd)
   if not isnull(iDuration)  then
     if iDuration = 0 then
-      iDuration = DateDiff("s",dtStart,dtEnd)
-      sDuration = " [" & iDuration & " second" & iif(iDuration=1,"","s") & "]"
+      iDuration = DateDiff("s",dtStart,dtEnd)      
+      sDuration = " [" & iDuration & iif(iDuration=1,mom_GetDictionary("TEXT_SECOND_SINGULAR"),mom_GetDictionary("TEXT_SECOND_PLURAL")) & "]"
     else
-      sDuration = " [" & iDuration & " minute" & iif(iDuration=1,"","s") & "]"                          
+      sDuration = " [" & iDuration & iif(iDuration=1,mom_GetDictionary("TEXT_MINUTE_SINGULAR"),mom_GetDictionary("TEXT_MINUTE_PLURAL")) & "]"                          
     end if
     mom_GetDurationMessage=dtStart & sDuration
   else

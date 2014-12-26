@@ -401,4 +401,16 @@
   <text id="TEXT_BG_RUN_TYPE_ROOT">
     <value>[IT]Root</value>
   </text>  
+  <text id="TEXT_SECOND_SINGULAR">
+    <value>[IT]second</value>
+  </text>
+  <text id="TEXT_MINUTE_SINGULAR">
+    <value>[IT]minute</value>
+  </text>
+  <text id="TEXT_SECOND_PLURAL">
+    <value>[IT]seconds</value>
+  </text>
+  <text id="TEXT_MINUTE_PLURAL">
+    <value>[IT]minutes</value>
+  </text>
 </texts>

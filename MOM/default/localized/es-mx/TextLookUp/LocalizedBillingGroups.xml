@@ -401,4 +401,16 @@
   <text id="TEXT_Payee_Namespace">
     <value>[ES-MX]Payee Namespace</value>
   </text>
+  <text id="TEXT_SECOND_SINGULAR">
+    <value>[ES-MX]second</value>
+  </text>
+  <text id="TEXT_MINUTE_SINGULAR">
+    <value>[ES-MX]minute</value>
+  </text>
+  <text id="TEXT_SECOND_PLURAL">
+    <value>[ES-MX]seconds</value>
+  </text>
+  <text id="TEXT_MINUTE_PLURAL">
+    <value>[ES-MX]minutes</value>
+  </text>
 </texts>

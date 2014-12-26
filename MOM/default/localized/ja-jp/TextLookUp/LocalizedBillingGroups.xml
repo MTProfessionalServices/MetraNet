@@ -401,4 +401,16 @@
   <text id="TEXT_BG_RUN_TYPE_ROOT">
     <value>[JA]Root</value>
   </text>  
+  <text id="TEXT_SECOND_SINGULAR">
+    <value>[JA]second</value>
+  </text>
+  <text id="TEXT_MINUTE_SINGULAR">
+    <value>[JA]minute</value>
+  </text>
+  <text id="TEXT_SECOND_PLURAL">
+    <value>[JA]seconds</value>
+  </text>
+  <text id="TEXT_MINUTE_PLURAL">
+    <value>[JA]minutes</value>
+  </text>
 </texts>

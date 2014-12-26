@@ -93,11 +93,10 @@ public partial class login : MTPage
     {
       if (exp.Message.Contains("The new password does not meet security requirements"))
       {
-        object title = GetLocalResourceObject("ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS");
-        if (title != null)
-          reasonText.InnerHtml = Server.HtmlEncode(title.ToString()).Replace("\r\n", "<br/>");
-        else
-          reasonText.InnerHtml = Server.HtmlEncode(exp.Message).Replace("\r\n", "<br/>");
+        object title = Resources.ErrorMessages.ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS;
+        reasonText.InnerHtml = title != null 
+          ? Server.HtmlEncode(title.ToString()).Replace("\r\n", "<br/>") 
+          : Server.HtmlEncode(exp.Message).Replace("\r\n", "<br/>");
       }
       else
         reasonText.InnerHtml = Server.HtmlEncode(exp.Message).Replace("\r\n", "<br/>");

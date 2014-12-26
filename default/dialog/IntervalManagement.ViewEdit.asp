@@ -261,7 +261,7 @@ FUNCTION getRecurringEventRunHTML
             sIcon = "../localized/en-us/images/adapters/" & rowset.value("BillGroupSupportType") & ".png"
             sInstanceId = rowset.value("InstanceId")
             'sInstanceId = "<A href=""#"" title=""View Adapter Instance Run History"" onclick=""window.open('AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & sInstanceId & "</A>"
-            sInstanceId = "<A href='AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&DisableActions=" & bDisableActions & "&IntervalDescription=" & Server.UrlEncode(sIntervalDescription) & "&ReturnUrl=" & Server.UrlEncode("IntervalManagement.ViewEdit.asp") & "' title='[TEXT_VIEW_ADAPTER_RUN_HISTORY]'>" & sInstanceId & "</A>"
+            sInstanceId = "<a href='/MetraNet/MetraControl/ScheduledAdapters/AdapterInstanceInformation.aspx?ID=" & sInstanceId & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&DisableActions=" & bDisableActions & "&IntervalDescription=" & Server.UrlEncode(sIntervalDescription) & "&ReturnUrl=" & Server.UrlEncode("/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.ViewEdit.asp") & "' title='[TEXT_VIEW_ADAPTER_RUN_HISTORY]'>" & sInstanceId & "</a>"
             sSelectHTML = "<input type='checkbox' name='MDM_CB_" & rowset.value("InstanceId") & "' " & IIF(bDisableActions,"disabled ","") & "value=''>"
             sStyle = "vertical-align: top;"
             

@@ -175,7 +175,7 @@ mdm_Initialize();
 
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", idRateSchedule1
-        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
+        rowset.AddParam "%%ID_LANG%%", Framework.SessionContext.LanguageID
         rowset.Execute
         
         dim sPriceListName
@@ -306,7 +306,7 @@ mdm_Initialize();
         rowset.Init "queries\audit"
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", objMTRateSched.Id
-        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
+        rowset.AddParam "%%ID_LANG%%", Framework.SessionContext.LanguageID
         rowset.Execute
         
         if len(rowset.value("PriceListName"))>0 then

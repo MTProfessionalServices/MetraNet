@@ -218,7 +218,7 @@
       if (value.length == 0 || value == 'NULL') {
         value = "<%=GetLocalResourceObject("ViewRunDetails").ToString() %>";
       }
-      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\", \"{2}\");return false;'>{2}</a>", record.data.id_run, record.data.tx_status, value);
+      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\", \"{2}\");return false;'>{3}</a>", record.data.id_run, record.data.tx_status, encodeURI(value), value);
     }
       
     function DateStartColRenderer(value, meta, record, rowIndex, colIndex, store)
@@ -283,7 +283,7 @@
         Ext.fly("butchCountMessage").dom.innerHTML = batchMessage;
       }
       Ext.fly("lblRunIdValue").dom.innerHTML = runId;
-      Ext.fly("lblSummaryDetailsValue").dom.innerHTML = summaryDetails;
+      Ext.fly("lblSummaryDetailsValue").dom.innerHTML = decodeURI(summaryDetails);
       if(!runDetailsWin) {
         runDetailsWin = new Ext.Window({
             title: '<%=DisplayName %>'+'&nbsp;&mdash;&nbsp;<%=GetLocalResourceObject("AdapterInstanceRunDetailsGrid.Title").ToString() %>',

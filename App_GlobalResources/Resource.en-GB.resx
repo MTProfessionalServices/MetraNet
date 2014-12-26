@@ -732,4 +732,10 @@
   <data name="AdapterStatusCode_Succeeded" xml:space="preserve">
     <value>[en-GB]Succeeded</value>
   </data>
+  <data name="AdapterStatusCode_Running" xml:space="preserve">
+    <value>[en-GB]Running</value>
+  </data>
+  <data name="AdapterStatusCode_Failed" xml:space="preserve">
+    <value>[en-GB]Failed</value>
+  </data>
 </root>

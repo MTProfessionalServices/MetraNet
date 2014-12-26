@@ -309,4 +309,11 @@
   <data name="ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY" xml:space="preserve">
     <value>Accès refusé, l'insuffisance de capacité</value>
   </data>
+  <data name="ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS" xml:space="preserve">
+    <value><![CDATA[Le nouveau mot de passe ne répond pas aux exigences de sécurité:
+            * Doit contenir au moins 7 caractères et moins de 1024
+            * Doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial
+            * Caractères spéciaux valides y compris l'espace sont _ !@#$%^&*+=
+            * Mots de passe une fois changés, ne peuvent pas être un des 4 mots de passe précédemment utilisés]]></value>
+  </data>
 </root>

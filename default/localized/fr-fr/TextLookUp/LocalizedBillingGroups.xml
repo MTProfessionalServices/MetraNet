@@ -395,4 +395,16 @@
   <text id="TEXT_BG_RUN_TYPE_ROOT">
     <value>[FR]Root</value>
   </text>  
+  <text id="TEXT_SECOND_SINGULAR">
+    <value>[FR]second</value>
+  </text>
+  <text id="TEXT_MINUTE_SINGULAR">
+    <value>[FR]minute</value>
+  </text>
+  <text id="TEXT_SECOND_PLURAL">
+    <value>[FR]seconds</value>
+  </text>
+  <text id="TEXT_MINUTE_PLURAL">
+    <value>[FR]minutes</value>
+  </text>
 </texts>

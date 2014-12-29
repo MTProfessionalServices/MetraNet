@@ -6,8 +6,8 @@ SELECT DISTINCT
        tbp.n_desc,
        tbp.n_display_name,
        tbp.nm_name,
-       tbp.nm_desc,
-       tbp.nm_display_name,
+       COALESCE(tvp.nm_desc, tbp.nm_desc) nm_desc,
+       COALESCE(tvp.nm_display_name, tbp.nm_display_name) nm_display_name,
        b_user_subscribe,
        b_user_unsubscribe,
        dt_start te_dt_start,
@@ -28,6 +28,7 @@ FROM   t_base_props tbp
             ON  te.id_eff_date = t_po.id_avail
             AND %%REFDATE%% >= te.dt_start
             AND (%%REFDATE%% <= te.dt_end OR te.dt_end IS NULL)
+       LEFT JOIN t_vw_base_props tvp ON tvp.id_prop = tbp.id_prop AND tvp.id_lang_code = %%ID_LANG%%
 WHERE  tbp.n_kind = 100
        AND %%CURRENCYFILTER3%% /* tavi.c_currency = tpl.nm_currency_code */ 
            %%PARTITIONFILTER%%

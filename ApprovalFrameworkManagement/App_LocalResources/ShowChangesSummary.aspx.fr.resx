@@ -168,4 +168,16 @@
     <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
         <value>Afficher les modifications</value>
     </data>
+    <data name="TEXT_SUMMARY" xml:space="preserve">
+        <value>[FR]Summary</value>
+    </data>
+    <data name="lblShowAllChangesSummaryTitleResource1.Text" xml:space="preserve">
+        <value>[FR]All Changes Summary</value>
+    </data>
+    <data name="ChangesSummaryResource1.NoRecordsText" xml:space="preserve">
+        <value>[FR]No records found</value>
+    </data>
+    <data name="MTSection2Resource1.Text" xml:space="preserve">
+        <value>[FR]Change Details</value>
+    </data>    
 </root>

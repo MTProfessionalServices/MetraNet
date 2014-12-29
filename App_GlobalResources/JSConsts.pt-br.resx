@@ -160,16 +160,16 @@
     <value>pt-BR</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y G:i:s|j/n/Y</value>
+    <value>d/m/Y H:i:s|d/m/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>d/m/Y H:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>d/m/Y H:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>
@@ -181,7 +181,7 @@
     <value>Duplicar</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>d/M/YYYY</value>
+    <value>dd/mm/YYYY</value>
   </data>
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>A data de início não pode ser maior que a data de término</value>

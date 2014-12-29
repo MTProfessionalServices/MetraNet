@@ -5,7 +5,7 @@
 	  COALESCE(vbp.nm_desc, bp.nm_desc) as nm_desc,
 	  COALESCE(vbp.nm_display_name, bp.nm_display_name) as nm_display_name,	  
 	  bp.n_display_name,	 
-	  vbp.n_kind,
+	  bp.n_kind,
       tp.id_pi as id_pi_type, 
 	  tp.id_template_parent as id_pi_parent, 
 	  CAST(NULL AS INT) as id_pi_template, 

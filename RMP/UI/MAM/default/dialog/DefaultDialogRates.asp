@@ -123,6 +123,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("dt_end").Caption 	                 = mam_GetDictionary("TEXT_RATES_COLUMN_END_DATE")
   ProductView.Properties("b_PersonalRate").Caption 	         = mam_GetDictionary("TEXT_HAS_PERSONAL_RATES")
   ProductView.Properties("b_canICB").Caption 	             	 = mam_GetDictionary("TEXT_CAN_ICB")  
+  Service.Properties("dt_start").Format = FrameWork.GetDictionary("DATE_FORMAT") 
+  Service.Properties("dt_end").Format = FrameWork.GetDictionary("DATE_FORMAT")
   end if
       
   ProductView.Properties("instance_nm_name").Sorted = MTSORT_ORDER_ASCENDING

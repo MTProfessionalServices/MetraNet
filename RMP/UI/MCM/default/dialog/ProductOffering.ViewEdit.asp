@@ -68,15 +68,20 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   'response.write("PO Properties count [" & objMTProductOffering.Properties.count &"]<BR>")
   'response.write("MDM Properties count [" & COMObject.Properties.count &"]<BR>")
   'response.end
-  
-  COMObject.Properties("SelfUnSubscribable").Caption        = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_SELFUNSUBSCRIBABLE")
-  COMObject.Properties("SelfSubscribable").Caption          = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_SELFSUBSCRIBABLE")
-  COMObject.Properties("EffectiveDate__StartDate").Caption   = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE")
-  COMObject.Properties("EffectiveDate__EndDate").Caption     = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE")
-  COMObject.Properties("AvailabilityDate__StartDate").Caption = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE")
-  COMObject.Properties("AvailabilityDate__EndDate").Caption  = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE")
-    
-
+    '---------- add property for date -------------------------------
+  COMObject.Properties.Add "EffDate_StartDate", "String", 0, False, Empty
+  COMObject.Properties.Add "EffDate_EndDate", "String", 0, False, Empty
+  COMObject.Properties.Add "AvDate_StartDate", "String", 0, False, Empty
+  COMObject.Properties.Add "AvDate_EndDate", "String", 0, False, Empty
+  '------------------------------------------------------------------
+  COMObject.Properties("SelfUnSubscribable").Caption = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_SELFUNSUBSCRIBABLE")
+  COMObject.Properties("SelfSubscribable").Caption = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_SELFSUBSCRIBABLE")
+  '---------- set date property -------------------------------------
+  COMObject.Properties("EffDate_StartDate") = mdm_format(COMObject.Properties("EffectiveDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("EffDate_EndDate") = mdm_format(COMObject.Properties("EffectiveDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("AvDate_StartDate") = mdm_format(COMObject.Properties("AvailabilityDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("AvDate_EndDate") = mdm_format(COMObject.Properties("AvailabilityDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  '------------------------------------------------------------------
   COMObject.Properties.Add "CURRENCYCODE", "String",  256, FALSE, TRUE
   COMObject.Properties("CURRENCYCODE") = COMObject.Instance.GetCurrencyCode()
 
@@ -117,9 +122,7 @@ END FUNCTION
 
 
 PRIVATE FUNCTION GetProductOffering(booFromInitializeEvent) ' As Boolean
-
-    Dim objMTProductCatalog, objMTProductOffering
-  
+    Dim objMTProductCatalog, objMTProductOffering  
     Set objMTProductCatalog                         = GetProductCatalogObject
     Set objMTProductOffering                        = objMTProductCatalog.GetProductOffering(Form("ID"))
     Set COMObject.Instance(booFromInitializeEvent)  = objMTProductOffering
@@ -131,22 +134,17 @@ END FUNCTION
 ' PARAMETERS		  :
 ' DESCRIPTION 		:
 ' RETURNS		      : Return TRUE if ok else FALSE
-PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean
-
-    
+PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean    
     GetProductOffering FALSE ' False called from refresh event...
-
     If COMObject.Instance.Hidden Then
       Response.redirect Form.RouteTo
-    End If
-    
+    End If    
     ' Check to see if this PO can be modified, if not display a warning  
     If Not CBool(COMObject.Instance.CanBeModified()) Then
       mdm_GetDictionary().Add "CAN_NOT_BE_MODIFIED", "TRUE"
     Else
       mdm_GetDictionary().Add "CAN_NOT_BE_MODIFIED", "FALSE"  
     End If
-
 
   'display warning at top and disable OK if pending...
   dim objApprovals, bApprovalsEnabled, bAllowMoreThanOnePendingChange, bProductOfferingHasPendingChange, tmpSessionContext
@@ -176,10 +174,8 @@ PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean
     If len(Request("UpdateNav"))>0 Then
       mcmTriggerUpdateOfPONavigationPane
     End If
-
-     
-    Dim objMTProductCatalog, objMTPriceableItem
-    
+         
+    Dim objMTProductCatalog, objMTPriceableItem   
 
     ' See if we need to Add a recurring charge
     If len(Request("AddItem")) <> 0 Then
@@ -222,7 +218,12 @@ PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean
         COMObject.Instance.Save
         
     End If
-    
+  '---------- refresh date property-------------------------------------
+  COMObject.Properties("EffDate_StartDate") = mdm_format(COMObject.Properties("EffectiveDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("EffDate_EndDate") = mdm_format(COMObject.Properties("EffectiveDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("AvDate_StartDate") = mdm_format(COMObject.Properties("AvailabilityDate__StartDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  COMObject.Properties("AvDate_EndDate") = mdm_format(COMObject.Properties("AvailabilityDate__EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  '---------------------------------------------------------------------
     Form_Refresh = TRUE
     
 END FUNCTION

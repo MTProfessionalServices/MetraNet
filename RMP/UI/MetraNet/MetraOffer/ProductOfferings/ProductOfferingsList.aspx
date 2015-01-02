@@ -23,6 +23,8 @@
 
     <script language="javascript" type="text/javascript">
       function CreateProductOffering_<%=MTFilterGrid1.ClientID%> () {
+        var gridId = "extGrid_" + "<%=MTFilterGrid1.ClientID%>";
+        SaveFilterModel(gridId);
         location.href = '/MetraNet/MetraOffer/ProductOfferings/CreateProductOffering.aspx?Master=' + <%=IsMaster.ToString().ToLower()%>;
       };
 
@@ -49,10 +51,11 @@
         }
         else
         {
-            str = String.format("<span title='Name_{0}'><a style='cursor:hand;' id='viewName_{0}' title='{1}' href='JavaScript:ViewProductOffering({0});'>{2}</a></span>", 
+            str = String.format("<span title='Name_{0}'><a style='cursor:hand;' id='viewName_{0}' title='{1}' href='JavaScript:ViewProductOffering({0},\"{3}\");'>{2}</a></span>", 
                                 record.data.ProductOfferingId,
                                 textTEXT_ViewPO,
-                                record.data.Name);
+                                record.data.Name,
+                                store.sm.grid.id);
         }
 
         return str;
@@ -61,7 +64,6 @@
     function ActionsColRenderer(value, meta, record, rowIndex, colIndex, store)
     {
         var str = "";
-      
         var textTEXT_UnhidePO = '<%=GetLocalResourceObject("TEXT_UnhidePO")%>';
         var textTEXT_ViewPO = '<%=GetLocalResourceObject("TEXT_ViewPO")%>';
         var textTEXT_EditPO = '<%=GetLocalResourceObject("TEXT_EditPO")%>';
@@ -76,12 +78,12 @@
         }
         else
         {
-            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='view_{0}'   title='{1}' href='JavaScript:ViewProductOffering({0});'>  <img src='/Res/Images/icons/package_go.png'   alt='{1}' /></a>",
-              record.data.ProductOfferingId, textTEXT_ViewPO);
+            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='view_{0}'   title='{1}' href='JavaScript:ViewProductOffering({0},\"{2}\");'>  <img src='/Res/Images/icons/package_go.png'   alt='{1}' /></a>",
+              record.data.ProductOfferingId, textTEXT_ViewPO, store.sm.grid.id);
             str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='edit_{0}'   title='{1}' href='JavaScript:EditProductOffering({0}, \"{2}\");'>  <img src='/Res/Images/icons/pencil.png'       alt='{1}' /></a>",
               record.data.ProductOfferingId, textTEXT_EditPO, store.sm.grid.id);
-            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{5}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\");'><img src='/Res/Images/icons/copy.png' alt='{5}' /></a>",
-              record.data.ProductOfferingId, escape(record.data.Name), escape(record.data.Description),escape(record.data.DisplayName),escape(record.data.Currency), textTEXT_CopyPO); 
+            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{6}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\",\"{5}\");'><img src='/Res/Images/icons/copy.png' alt='{6}' /></a>",
+              record.data.ProductOfferingId, escape(record.data.Name), escape(record.data.Description),escape(record.data.DisplayName),escape(record.data.Currency), store.sm.grid.id, textTEXT_CopyPO); 
             
             if (<%=(!(PartitionLibrary.IsPartition)).ToString().ToLower()%>)
             {
@@ -102,14 +104,15 @@
         var str = "";
         var textTEXT_CopyPO = '<%=GetLocalResourceObject("TEXT_CopyPO")%>';
 
-        str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{5}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\");'><img src='/Res/Images/icons/copy.png' alt='{5}' /></a>",
-          record.data.ProductOfferingId, escape(record.data.Name), escape(record.data.Description),escape(record.data.DisplayName),escape(record.data.Currency), textTEXT_CopyPO); 
+        str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{6}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\",\"{5}\");'><img src='/Res/Images/icons/copy.png' alt='{6}' /></a>",
+          record.data.ProductOfferingId, escape(record.data.Name), escape(record.data.Description),escape(record.data.DisplayName),escape(record.data.Currency), store.sm.grid.id, textTEXT_CopyPO); 
             
         return str;
     }
   
-    function ViewProductOffering(poId) {
-      var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/ProductOffering.ViewEdit.Frame.asp|ID=" + poId;
+    function ViewProductOffering(poId, gridId) {
+      SaveFilterModel(gridId);
+      var targetURL = "/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/ProductOffering.ViewEdit.Frame.asp|ID=" + poId +"**Master=<%=IsMaster.ToString().ToLower()%>";
       location.href = targetURL;
     }  
 
@@ -120,8 +123,9 @@
       GridRefresh(gridId);
     }
 
-    function CopyProductOffering(POID, name, description, displayname, currency) {
-      location.href = '/MetraNet/MetraOffer/ProductOfferings/CopyExistingProductOffering.aspx?poid=' + POID + '&poname=' + name + '&podescription=' + description + '&podisplayname=' + displayname + '&pocurrency=' + currency;
+    function CopyProductOffering(POID, name, description, displayname, currency, gridId) {
+      SaveFilterModel(gridId);
+      location.href = '/MetraNet/MetraOffer/ProductOfferings/CopyExistingProductOffering.aspx?poid=' + POID + '&poname=' + name + '&podescription=' + description + '&podisplayname=' + displayname + '&pocurrency=' + currency+"&Master=<%=IsMaster.ToString().ToLower()%>";
     }
 
     function HideProductOffering(poId, gridId) {
@@ -161,7 +165,48 @@
         }, 
         10);
     }
-
+    
+    function SaveFilterModel(gridId) {
+      var filters = [];
+      var grid = window.Ext.getCmp(gridId);
+      if (grid) {
+        var allFilters = grid.filters.filters.items;
+        if (allFilters && allFilters instanceof Array && allFilters.length > 0) {
+          for (var i = 0, maxLength = allFilters.length; i < maxLength; i++) {
+            var filter = allFilters[i];
+            if (filter) {
+              var itemFilter = {
+                fieldName: filter.dataIndex,
+                operationType: filter.filterOperation,
+                value:"",
+                type: filter.type,
+                filterHideable: filter.filterHideable,
+                filterReadOnly:filter.readonly
+              };
+              filters.push(itemFilter);
+            }
+          }
+          var applyFilters = grid.filters.getFilterData();
+          if (applyFilters && applyFilters instanceof Array && applyFilters.length > 0) {
+            for (var countAllFilter = 0, length = filters.length; countAllFilter < length; countAllFilter++) {
+              for(var countApplyFilter=0, maxLeng =applyFilters.length; countApplyFilter<maxLeng;countApplyFilter++) {
+                var allFilterItem = filters[countAllFilter];
+                var applyFilter = applyFilters[countApplyFilter];
+                if (allFilterItem.fieldName == applyFilter.field) {
+                  if (applyFilter.data) {
+                    allFilterItem.value = applyFilter.data.value ===undefined?"":applyFilter.data.value;
+                    allFilterItem.operationType = applyFilter.data.comparison;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      if (window.Ext) {
+        window.Ext.util.Cookies.set("POsFilter", JSON.stringify(filters));
+      }
+    }
     </script>
 
     <div id="results-win" class="x-hidden"> 

@@ -102,7 +102,6 @@ public static class GridRenderer
             }
 
             priceListTypeElement.FilterDropdownItems.Add(filterItem);
-           
           }
         }
       }
@@ -117,10 +116,10 @@ public static class GridRenderer
       return;
     }
 
-    MetraTech.Accounts.Type.AccountTypeCollection col = new MetraTech.Accounts.Type.AccountTypeCollection();
-    List<string> sortList = new List<string>();
-    Dictionary<string, int> map = new Dictionary<string, int>();
-    List<string> exList =  new List<string>();
+    var col = new AccountTypeCollection();
+    var sortList = new List<string>();
+    var map = new Dictionary<string, int>();
+    var exList = new List<string>();
     //Retrieve "Root" account type from web.config (excluded from display on account type dropdown on advanced find filter) 
     exList.Add(ConfigurationManager.AppSettings["ExcludeAccountType"].ToString());
 
@@ -131,15 +130,15 @@ public static class GridRenderer
     client.Password = userData.SessionPassword;
     client.Invoke();
     exList.Add(client.InOut_typeName);
-              
+
     foreach (AccountType accType in col.AccountTypes)
     {
-      if(!exList.Contains(accType.Name))
-      {       
-          sortList.Add(accType.Name);
-          map[accType.Name] = accType.ID;
+      if (!exList.Contains(accType.Name))
+      {
+        sortList.Add(accType.Name);
+        map[accType.Name] = accType.ID;
       }
-    }    
+    }
     sortList.Sort();
 
     foreach (string sortedItem in sortList)
@@ -151,11 +150,62 @@ public static class GridRenderer
     }
   }
 
-    public static void PopulateProductCatalogBooleanFilter(MTFilterGrid MyGrid1, string idElement)
+  public static void PopulateProductCatalogBooleanFilter(MTFilterGrid MyGrid1, string idElement)
+  {
+    Dictionary<string, string> pcBooleanList = new Dictionary<string, string>(2);
+    pcBooleanList.Add("Yes", "Y");
+    pcBooleanList.Add("No", "N");
+    AddFilterListToElement(MyGrid1, idElement, pcBooleanList);
+  }
+
+  public static MTFilterOperation GetFilterOperationByString(this FilterModel model)
+  {
+    MTFilterOperation returnValue;
+
+    switch (model.OperationType)
     {
-        Dictionary<string, string> pcBooleanList = new Dictionary<string, string>(2);
-        pcBooleanList.Add("Yes", "Y");
-        pcBooleanList.Add("No", "N");
-        AddFilterListToElement(MyGrid1, idElement, pcBooleanList);
+      case "eq":
+        returnValue = MTFilterOperation.Equal;
+        break;
+
+      case "gt":
+        returnValue = MTFilterOperation.Greater;
+        break;
+
+      case "gte":
+        returnValue = MTFilterOperation.GreaterOrEqual;
+        break;
+
+      case "lt":
+        returnValue = MTFilterOperation.Less;
+        break;
+
+      case "lte":
+        returnValue = MTFilterOperation.LessOrEqual;
+        break;
+
+      case "lk":
+        returnValue = MTFilterOperation.Like;
+        break;
+
+      case "ne":
+        returnValue = MTFilterOperation.NotEqual;
+        break;
+
+      default:
+        returnValue = MTFilterOperation.Equal;
+        break;
     }
+    return returnValue;
+  }
+}
+
+public class FilterModel
+{
+  public string FieldName { get; set; }
+  public string OperationType { get; set; }
+  public string Value { get; set; }
+  public bool FilterHideable { get; set; }
+  public bool FilterReadOnly { get; set; }
+  public string Type { get; set; }
 }

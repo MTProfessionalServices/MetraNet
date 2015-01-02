@@ -104,7 +104,7 @@ public class PartitionLibrary
     return partitionData;
   }
 
-  public static void SetupFilterGridForPartition(MetraTech.UI.Controls.MTFilterGrid grid, string filtertype, bool forSubscription = false)
+  public static void SetupFilterGridForPartition(MTFilterGrid grid, string filtertype, bool forSubscription = false, bool clearFilter = false)
   {
     PartitionData partitionData;
     if (forSubscription)
@@ -136,6 +136,10 @@ public class PartitionLibrary
     gdel.ElementValue = filtertype.ToUpper() == "PL"? partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture)
                                                     : (filtertype.ToUpper() != "PO" ? partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture)
                                                                                     : partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture));
+    if (clearFilter)
+    {
+      gdel.ElementValue = String.Empty;
+    }
   }
 
   public static void SetupFilterGridForMaster(MetraTech.UI.Controls.MTFilterGrid grid, string masterLocalizedText)

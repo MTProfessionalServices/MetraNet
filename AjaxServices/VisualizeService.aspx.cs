@@ -82,6 +82,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
             paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
             break;
           case "revenuereport":
+          case "mrrreport":
             paramDict.Add("%%ID_LANG_CODE%%", UI.SessionContext.LanguageID);
             break;
         }
@@ -293,9 +294,18 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           item = string.Format("\"period\":{0}", FormatDateTime(record.Fields[0], "Y"));
           json.Append(item);
         }
-        else if (operation.Equals(""))
+        else if (operation.Equals("MRRReport"))
         {
-          
+          item = string.Format("\"date\":{0},", FormatFieldValue(record.Fields[0], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"currency\":{0},", FormatFieldValue(record.Fields[1]));
+          json.Append(item);
+          item = string.Format("\"amount\":{0},", FormatFieldValue(record.Fields[2], invariantCulture));
+          json.Append(item);
+          item = string.Format("\"amountAsString\":{0},", FormatAmount(record.Fields[2], Convert.ToString(record.Fields[1].FieldValue)));
+          json.Append(item);
+          item = string.Format("\"period\":{0}", FormatDateTime(record.Fields[0], "Y"));
+          json.Append(item);
         }
       }
       json.Append("}");

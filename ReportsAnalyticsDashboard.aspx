@@ -86,22 +86,18 @@
   <div class="CaptionBar" style="color: #ddd;font-size: 150%;">
     <asp:Label ID="Label1" runat="server" meta:resourcekey="MTTitle1Resource1">Finance Dashboard</asp:Label>
   </div>
-  <%--<div style="margin: 40px; border: 1px solid; padding: 15px 10px 15px 35px; background-repeat: no-repeat;
-    background-position: 10px center; color: #9F6000; background-color: #FEEFB3; background-image: url('/Res/Images/icons/error.png');">
-    Under development
-  </div>--%>
   <br />
   <div class="gridster" width="100%" height="100%">
     <ul width="100%" height="100%" id="gridsterul" style="width: 100%; align: left;">
-    <li data-row="1" data-col="1" data-sizex="3" data-sizey="8" height="100%">
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="8" height="100%" >
       <MT:MTPanel ID="pnlBilling" runat="server" Text="Billing" Collapsed="False" 
           Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlBillingResource1" >
         <div class="remaining-graphs span8">
           <div>
-            <div >
+            <div id="divRevenueChartDd" style="visibility: hidden">
               <span id="spnSelectCurrency" runat="server"></span>
-              <select id="selRevenueCurrency" style="width: 100px"></select>
+              <select id="selRevenueCurrency" style="width: 100px;"></select>
             </div>
           </div>
           <br/>
@@ -112,16 +108,12 @@
         </div>  
       </MT:MTPanel>
   </li>
-  <li data-row="12" data-col="1" data-sizex="3" data-sizey="8" height="100%">
+  <li data-row="12" data-col="1" data-sizex="3" data-sizey="8" height="100%" >
       <MT:MTPanel ID="pnlMRR" runat="server" Text="MRR" Collapsed="False" 
           Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlMRRResource1" >
          <div class="remaining-graphs span8">
-          <div>
-            Select currency:
-            <select id="selMRRCurrency"></select>
-      
-        </div>
+          <br/>
           <div class="row-fluid">
           <div id="MRRChart" class="pie-graph span4 dc-chart" style="float: none !important;">
           </div>
@@ -129,11 +121,12 @@
         </div>
       </MT:MTPanel>
   </li>
-  <li data-row="23" data-col="1" data-sizex="3" data-sizey="8" height="100%">
+  <li data-row="22" data-col="1" data-sizex="3" data-sizey="8" height="100%" style="padding-top: 14px">
       <MT:MTPanel ID="pnlNewCustomers" runat="server" Text="New Customers" Collapsed="False" 
           Collapsible="True" EnableChrome="True" 
           meta:resourcekey="pnlNewCustomersResource1" >
         <div class="remaining-graphs span8">
+          <br/>
           <div class="row-fluid">
             <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
             </div>
@@ -146,23 +139,24 @@
 
   <br />
   <script type="text/javascript">
-  
-      var MRRChart = dc.barChart("#MRRChart");
-      var RevenueChart = dc.barChart("#RevenueChart");
-      var NewCustomersChart = dc.barChart("#NewCustomersChart");
-      var MRRJSONData;
-      var RevenueJSONData;
-      var ToolTipDivWidth = 150;
+      
+    var ToolTipDivWidth = 150;
+    var RevenueChartId = "#RevenueChart";
+    var RevenueChartDdDivId = "#divRevenueChartDd";
+    var RevenueChartDdId = "#selRevenueCurrency";
+    var MRRChartId = "#MRRChart";
+    var NewCustomersChartId = "#NewCustomersChart";
+    var RevenueJSONData;      
 
-      var margin = {top: 10,right: 50,bottom: 30,left: 55},
-          width = 920 - margin.left - margin.right,
-          height = 340 - margin.top - margin.bottom,
-          paddingX = 10,
-          previousMonth = getUTCDate(new Date(<%= previousMonth %>)),
-          firstMonth = getUTCDate(new Date(<%= firstMonth %>));
+    var Margin = {top: 10,right: 50,bottom: 30,left: 55},
+        Width = 920 - Margin.left - Margin.right,
+        Height = 340 - Margin.top - Margin.bottom,
+        PreviousMonth = getUTCDate(new Date(<%= previousMonth %>)),
+        FirstMonth = getUTCDate(new Date(<%= firstMonth %>));
           
 
-    function SetCurrencyOptions(JSONData, selectId, currencyFieldName, localizedCurrencyFieldName) {
+    function populateCurrencyDd(JSONData, selectId, currencyFieldName, localizedCurrencyFieldName) {
+      
       var currencies = [];
       var localizedCurrencies = [];
       $.each(JSONData, function(){
@@ -174,23 +168,20 @@
 
       for (var i=0; i<localizedCurrencies.length; i++)
       {
-        $("#"+selectId).append($('<option>', {
+        $(selectId).append($('<option>', {
                                               value: localizedCurrencies[i][0],
                                               text:localizedCurrencies[i][1]
                                               }));
       }
+      d3.select(RevenueChartDdDivId).style("visibility", "visible");
     }
 
    Ext.onReady(function () {
-      $("#selMRRCurrency").change(function() {
-          $( "#selMRRCurrency option:selected" ).val();
-          RenderMRRChart(MRRJSONData);
-        });
 
-        $("#selRevenueCurrency").change(function() {
-          $( "#selRevenueCurrency option:selected" ).val();
-          RenderRevenueChart(RevenueJSONData);
-        });
+      $(RevenueChartDdId).change(function() {
+        $(RevenueChartDdId +  " option:selected" ).val();
+        renderRevenueChart(RevenueChartId, RevenueChartDdId, RevenueJSONData);
+      });
 
       getRevenue();
       getMRR();
@@ -221,8 +212,12 @@
         url: 'AjaxServices/VisualizeService.aspx?operation=RevenueReport&_=' + new Date().getTime(),
         success: function(data) {
           RevenueJSONData = data.Items;
-          SetCurrencyOptions(RevenueJSONData, "selRevenueCurrency", "currency", "localizedCurrency");
-          RenderRevenueChart(RevenueJSONData);
+          if (RevenueJSONData.length == 0) {
+            appendNoDataText(RevenueChartId, RevenueChartDdDivId);
+            return;
+          }
+          populateCurrencyDd(RevenueJSONData, RevenueChartDdId, "currency", "localizedCurrency");
+          renderRevenueChart(RevenueChartId, RevenueChartDdId, RevenueJSONData);
         },
         error: function () {
           console.log("RevenueReport - Error getting Data");
@@ -230,27 +225,36 @@
       });
     };
 
-    function RenderRevenueChart(JSONData) {
-      
-      var currentCurrency = $( "#selRevenueCurrency option:selected" ).val();
-      var currentCurrencyLocalized = $( "#selRevenueCurrency option:selected" ).text();
+    function appendNoDataText(divId, ddDivId) {
+      var svg = d3.select(divId).append('svg').attr('width', Width).attr('height', Height);
+      svg.append("text")
+        .attr("x", Width / 2)
+        .attr("y", Height / 2)
+        .style("text-anchor", "middle")
+        .style("fill", "gray")
+        .text("<%=Convert.ToString(GetLocalResourceObject("TEXT_NO_DATA_AVAILABLE"))%>");
+      if (ddDivId != null) {
+        d3.select(ddDivId).style("visibility", "hidden");
+      }
+    }
+
+    function renderRevenueChart(divId, ddId, JSONData) {
+      var revenueChart = dc.barChart(divId);
+      var currentCurrency = $( ddId + " option:selected" ).val();
+      var currentCurrencyLocalized = $( ddId + " option:selected" ).text();
       
       var ndx = crossfilter(JSONData),
           runDimension = ndx.dimension(function(d) {return new Date(Date.parse(d.date)); }),
           currencyGroup = runDimension.group().reduceSum(function(d) {if (d.currency == currentCurrency) return d.amount;return 0;});
-
-      RevenueChart.width(width)
-        .height(height)
-        .margins(margin)
-        .x(d3.time.scale().domain([firstMonth, previousMonth]))
+      
+      revenueChart.width(Width)
+        .height(Height)
+        .margins(Margin)
+        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
         .round(d3.time.month.round)
         .xUnits(d3.time.months)
         .brushOn(false)
-        //.title('')
-        //.xAxisLabel("Months")
-        //.yAxisLabel("Amount")
         .elasticY(true)
-        .xAxisPadding(paddingX)
         .dimension(runDimension)
         .group(currencyGroup, currentCurrency)
         .barPadding(0.1)
@@ -260,14 +264,12 @@
         .gap(15)
         .legend(dc.legend().x(800).y(0))
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
-        
-          
-      RevenueChart.render();
+      revenueChart.render();
       
-      d3.select("#RevenueChart svg").selectAll(" .axis text").text(function (d) {
-        return localizeRevenueChartAxis(d);
+      d3.select(divId + " svg").selectAll(" .axis text").text(function (d) {
+        return localizeRevenueChartAxes(d);
       });
-      d3.select("#RevenueChart svg").selectAll(" .dc-legend text").text(function(d) {
+      d3.select(divId + " svg").selectAll(" .dc-legend text").text(function(d) {
         return currentCurrencyLocalized;
       });
       
@@ -279,8 +281,7 @@
             .html(function (d) {
               return getRevenueChartTooltipHtml(JSONData, d, currentCurrency);
             });
-      var toolTipSelector = 'div' + '#RevenueChart' + '.dc-chart rect';
-      //alert(d3.selectAll(toolTipSelector));
+      var toolTipSelector = 'div' + divId + '.dc-chart rect';
       d3.selectAll(toolTipSelector).call(toolTip);
       d3.selectAll(toolTipSelector).on('mouseover', toolTip.show)
                                     .on('mouseout', toolTip.hide);
@@ -294,7 +295,7 @@
       return html;
     }
     
-    function localizeRevenueChartAxis(d) {
+    function localizeRevenueChartAxes(d) {
        var tickDate = new Date(Date.parse(d));
         var month = tickDate.getMonth();
         var year = tickDate.getFullYear();
@@ -367,9 +368,12 @@
         timeout: 10000,
         url: 'AjaxServices/VisualizeService.aspx?operation=MRRReport&_=' + new Date().getTime(),
         success: function(data) {
-          MRRJSONData = data.Items;
-          SetCurrencyOptions(MRRJSONData, "selMRRCurrency", "currencycode");
-          RenderMRRChart(MRRJSONData);
+          var mrrJSONData = data.Items;
+          if (mrrJSONData.length == 0) {
+            appendNoDataText(MRRChartId, null);
+            return;
+          }          
+          renderMRRChart(MRRChartId , mrrJSONData);
         },
         error: function() {
           console.log("MRRReport - Error getting Data");
@@ -377,44 +381,40 @@
       });
     };
 
-    function RenderMRRChart(JSONData) {
+    function renderMRRChart(divId, data) {
 
-      var currentCurrency = $( "#selMRRCurrency option:selected" ).text();
-
-      var ndx = crossfilter(JSONData);
-
-      var startMonthMRR = getUTCDate(new Date(<%= startMonthMRR %>));
-      var endMonthMRR = getUTCDate(new Date(<%= endMonthMRR %>));
+      var currentCurrency = data[0].currency;
+      
+      var mrrChart = dc.barChart(divId);
+      var ndx = crossfilter(data);
 
       var mrrValue = ndx.dimension(function(d) {
         return new Date(Date.parse(d.date));
       });
       
       var currencyGroup = mrrValue.group().reduceSum(function(d) {
-        if (d.currencycode == currentCurrency) return d.amount;
+        if (d.currency == currentCurrency) return d.amount;
         return 0;
       });
 
-      MRRChart.width(width)
-        .height(height)
+      mrrChart.width(Width)
+        .height(Height)
         .dimension(mrrValue)
         .group(currencyGroup, currentCurrency)
         .transitionDuration(350)
-        .margins(margin)
+        .margins(Margin)
         .centerBar(true)
         .gap(10)
         .round(d3.time.month.round)
-        .x(d3.time.scale().domain([startMonthMRR, endMonthMRR]))
+        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
         .brushOn(false)
         .title(function(d){return d.value;})
-        //.xAxisLabel("Months")
-        //.yAxisLabel("Amount")
         .elasticY(true)
         .xUnits(d3.time.months)
-        .legend(dc.legend().x(750).y(0))
+        .legend(dc.legend().x(800).y(0))
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
           
-      MRRChart.render();
+      mrrChart.render();
     }
 
     function getNewCustomers() {
@@ -425,7 +425,12 @@
         timeout: 10000,
         url: 'AjaxServices/VisualizeService.aspx?operation=NewCustomersReport&_=' + new Date().getTime(),
         success: function (data) {
-          RenderNewCustomersChart(data.Items);
+          var newCustomersJSONData = data.Items;
+          if (newCustomersJSONData.length == 0) {
+            appendNoDataText(NewCustomersChartId, null);
+            return;
+          }  
+          renderNewCustomersChart(NewCustomersChartId, newCustomersJSONData);
         },
         error: function () {
           console.log("NewCustomersReport - Error getting Data");
@@ -433,7 +438,9 @@
       });
     };
 
-    function RenderNewCustomersChart(JSONData) {
+    function renderNewCustomersChart(divId, JSONData) {
+
+      var newCustomersChart = dc.barChart(divId);
       var ndx = crossfilter(JSONData);
 
       var startValue = ndx.dimension(function(d) {
@@ -441,26 +448,24 @@
       });
       var startValueGroup = startValue.group();
 
-      NewCustomersChart.width(width)
-        .height(height)
+      newCustomersChart.width(Width)
+        .height(Height)
         .dimension(startValue)
         .group(startValueGroup, "New Customers")
         .transitionDuration(1000)
-        .margins(margin)
+        .margins(Margin)
         .centerBar(true)
         .gap(15)
         .round(d3.time.month.round)
-        .x(d3.time.scale().domain([firstMonth, previousMonth]))
+        .x(d3.time.scale().domain([FirstMonth, PreviousMonth]))
         .brushOn(false)
         .title(function(d){return d.value;})
-        //.xAxisLabel("Months")
-        //.yAxisLabel("Customers")
         .xUnits(d3.time.months)
         .legend(dc.legend().x(680).y(0))
         .elasticY(true)
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
           
-      NewCustomersChart.render();
+      newCustomersChart.render();
     }
     var gridster;
 

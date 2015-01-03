@@ -13,15 +13,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 {
   private const string sqlQueriesPath = @"..\Extensions\SystemConfig\config\SqlCustom\Queries\UI\Dashboard";
   private const string noQueryMessage = "No query specified";
-  private readonly Dictionary<string, string> _queryDict = new Dictionary<string, string> { { "ftoverxdays", "__GET_FAILEDTRANSACTIONS_OVERXDAYS__" },
-                                                                                            { "ft30dayaging", "__GET_FAILEDTRANSACTIONS_30DAYAGING__"},
-                                                                                            { "ftgettotal", "__GET_FAILEDTRANSACTIONS_TOTAL__"},
-                                                                                            { "batchusage30day", "__GET_BATCHUSAGE_30DAYBATCHESUDR__"},
-                                                                                            { "getlastbatch", "__GET_BATCHUSAGE_LASTBATCH__"},
-                                                                                            { "activebillrun", "__GET_ACTIVEBILLRUN_CURRENTAVERAGE__"},
-                                                                                            { "activebillrunsummary", "__GET_ACTIVEBILLRUN_SUMMARY__"},
-                                                                                            { "billclosesummary", "__GET_BILLCLOSESYNOPSIS_SUMMARY__"},
-                                                                                            { "billclosedetails", "__GET_BILLCLOSESYNOPSIS_DETAILS__"},
+  private readonly Dictionary<string, string> _queryDict = new Dictionary<string, string> { 
                                                                                             { "RevenueReport",      "__GET_REPORT_REVENUE_CHART__"},
                                                                                             { "MRRReport",          "__GET_REPORT_MRR_CHART__"},
                                                                                             { "NewCustomersReport", "__GET_REPORT_NEWCUSTOMERS_CHART__"},
@@ -52,35 +44,6 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
         switch (operation.ToLower())
         {
-          case "ftoverxdays":
-            var threshold = Request["threshold"];
-
-            if (string.IsNullOrEmpty(threshold))
-            {
-              Logger.LogWarning(noQueryMessage);
-              Response.Write(json);
-              Response.End();
-              return;
-            }
-
-            paramDict.Add("%%AGE_THRESHOLD%%", int.Parse(threshold));
-            break;
-          case "activebillrun":
-          case "activebillrunsummary":
-          case "billclosedetails":
-          case "billclosesummary":
-            var id_usage_interval = Request["intervalid"];
-
-            if (string.IsNullOrEmpty(id_usage_interval))
-            {
-              Logger.LogWarning("No intervalid specified");
-              Response.Write(json);
-              Response.End();
-              return;
-            }
-
-            paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
-            break;
           case "revenuereport":
           case "mrrreport":
             paramDict.Add("%%ID_LANG_CODE%%", UI.SessionContext.LanguageID);
@@ -95,7 +58,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           return;
         }
 
-        json = ConstructJson(operation, items); //SerializeItems(items);
+        json = ConstructJson(operation, items); 
         Logger.LogInfo("Returning " + json);
         Response.Write(json);
         Response.End();
@@ -172,97 +135,12 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
     }
   }
 
-  protected string SerializeItems(MTList<SQLRecord> items)
-  {
-    var json = new StringBuilder();
-
-    json.Append("{\"Items\":[");
-
-    for (int i = 0; i < items.Items.Count; i++)
-    {
-      SQLRecord record = items.Items[i];
-
-      if (i > 0)
-      {
-        json.Append(",");
-      }
-
-      json.Append("{");
-
-      //iterate through fields
-      for (int j = 0; j < record.Fields.Count; j++)
-      {
-        SQLField field = record.Fields[j];
-        if (j > 0)
-        {
-          json.Append(",");
-        }
-
-        json.Append("\"");
-        json.Append(field.FieldName);
-        json.Append("\":");
-
-        if (field.FieldValue == null)
-        {
-          json.Append("null");
-        }
-        else
-        {
-
-          if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
-          {
-            json.Append("\"");
-          }
-
-          string value;
-          if (typeof(Byte[]) == field.FieldDataType)
-          {
-            var enc = Encoding.ASCII;
-            value = enc.GetString((Byte[])(field.FieldValue));
-          }
-          else
-          {
-            value = field.FieldValue.ToString();
-          }
-
-          // CORE-5487 HtmlEncode the field so XSS tags don't show up in UI.
-          //StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(value));
-          // CORE-5938: Audit log: incorrect character encoding in Details row 
-          var sb = new StringBuilder(value.EncodeForHtml());
-          sb = sb.Replace("\"", "\\\"");
-          //CORE-5320: strip all the new line characters. They are not allowed in jason
-          // Oracle can return them and breeak our ExtJs grid with an ugly "Session Time Out" catch all error message
-          // TODO: need to find other places where JSON is generated and strip new line characters.
-          sb = sb.Replace("\n", "<br />");
-          sb = sb.Replace("\r", "");
-          string fieldvalue = sb.ToString();
-
-          json.Append(fieldvalue);
-
-          if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
-          {
-            json.Append("\"");
-          }
-        }
-      }
-
-      json.Append("}");
-    }
-
-    json.Append("]");
-
-    json.Append("}");
-
-    return json.ToString();
-  }
-
   private string ConstructJson(string operation, MTList<SQLRecord> items)
   {
     var json = new StringBuilder();
     string item = string.Empty;
     //format dates/amounts used as data in client side for formatting or plotting graphs using invaraint culture otherwise culture specific decimal/group seperators mess up with json returned
     var invariantCulture = CultureInfo.InvariantCulture;
-    //string reportingCurrency = GetReportingCurrency();
 
     json.Append("{\"Items\":[");
 

@@ -121,15 +121,18 @@
     <value>{JA}Product Dashboard</value>
   </data>
   <data name="pnlBillingResource1.Text" xml:space="preserve">
-    <value>{JA} Billings</value>
+    <value>{JA}Billings</value>
   </data>
   <data name="pnlMRRResource1.Text" xml:space="preserve">
-    <value>{JA} MRR</value>
+    <value>{JA}MRR</value>
   </data>
   <data name="pnlNewCustomersResource1.Text" xml:space="preserve">
-    <value>{JA} New Customers</value>
+    <value>{JA}New Customers</value>
   </data>
   <data name="SELECT_CURRENCY" xml:space="preserve">
-    <value>{JA} Select Currency:</value>
+    <value>{JA}Select Currency:</value>
   </data>
+  <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
+    <value>{JA}No data found</value>
+  </data>  
 </root>

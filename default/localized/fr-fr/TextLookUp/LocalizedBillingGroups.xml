@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BILLING_GROUP">
     <value>Groupe de facturation</value>
@@ -115,25 +115,25 @@
     <value>Aucun compte présentant des échecs signalés n’a été détecté. Cet adaptateur n’a pas signalé de lots, ou il n’y a pas eu d’échecs au regard de comptes particuliers dans les lots signalés. </value>
   </text>
   <text id="TEXT_OPENUNASSIGNED_ACCOUNTS">
-    <value>[FR]Open Unassigned Accounts</value>
+    <value>Ouvrir les comptes non affectés</value>
   </text>
   <text id="TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS">
-    <value>[FR]Hard closed Unassigned Accounts</value>
+    <value>Comptes non affectés en clôture matérielle</value>
   </text>
   <text id="TEXT_ACCOUNTS_INVOICED">
-    <value>[FR]New Accounts Can Be Invoiced For This Interval</value>
+    <value>Les nouveaux comptes peuvent être facturés pour cet intervalle</value>
   </text>
   <text id="TEXT_CHANGE">
-    <value>[FR]Change</value>
+    <value>Modification</value>
   </text>
   <text id="TEXT_ACCOUNTS_NOT_INVOICED">
-    <value>[FR]New Accounts Will Not Be Invoiced For This Interval</value>
+    <value>Les nouveaux comptes ne seront pas facturés pour cet intervalle</value>
   </text>
   <text id="TEXT_REFRESH_INTERVAL_DETAILS">
-    <value>[FR]Refresh Interval Details</value>
+    <value>Actualiser détails intervalle</value>
   </text>
   <text id="TEXT_SUCCEEDED">
-    <value>[FR]Succeeded</value>
+    <value>Réussi</value>
   </text>
   <text id="TEXT_BG_TITLE_INTERVAL">
     <value>[FR]Interval</value>

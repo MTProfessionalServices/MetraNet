@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="MOM_ERROR_1000">
-    <value>[pt-BR]1000-MOM ERROR-E-mail is not valid</value>
+    <value>1000-MOM ERROR-E-mail não é válido</value>
   </text>
   <text id="MOM_ERROR_1001">
-    <value>[pt-BR]1001-MOM ERROR-A system error has occurred.  Please have your administrator check the system log, and try again later.</value>
+    <value>Ocorreu um erro do sistema. Solicite que seu administrador verifique o log do sistema e tente novamente mais tarde.</value>
   </text>
   <text id="MOM_ERROR_1002">
-    <value>[pt-BR]1002-MOM ERROR-A unknown error occured.  Please have your administrator check the system log, and try again later.</value>
+    <value>Ocorreu um erro desconhecido. Solicite que seu administrador verifique o log do sistema e tente novamente mais tarde.</value>
   </text>
   <text id="MOM_ERROR_1003">
-    <value>[pt-BR]1003-MOM ERROR-CSR loading information failed.</value>
+    <value>1003-MOM ERROR-CSR falha ao carregar informações.</value>
   </text>
   <text id="MOM_ERROR_1004">
-    <value>[pt-BR]1004-MOM ERROR-This feature is only supported in IE version 4.0 and above.</value>
+    <value>Este recurso só é suportado na versão do IE 4.0 e versões superiores.</value>
   </text>
   <text id="MOM_ERROR_1005">
-    <value>[pt-BR]1005-MOM ERROR-Cannot find the csr id from table t_account_mapper.</value>
+    <value>1005-MOM ERROR-Não  é possível encontrar a id de csr id da tabela t_account_mapper.</value>
   </text>
   <text id="MOM_ERROR_1006">
-    <value>[pt-BR]1006-MOM ERROR-Cannot create the name space. Check if the name space already exists.</value>
+    <value>1006-MOM ERROR-Não é possível criar o namespace. Verifique se ele já existe.</value>
   </text>
   <text id="MOM_ERROR_1007">
-    <value>[pt-BR]1007-MOM ERROR-Invalid login or password.</value>
+    <value>1007-MOM ERROR-Login ou senha inválida.</value>
   </text>
   <text id="MOM_ERROR_1008">
-    <value>[pt-BR]1008-MOM ERROR-No items selected.</value>
+    <value>1008-MOM ERROR-Nenhum item selecionado.</value>
   </text>
   <text id="MOM_ERROR_1009">
-    <value><![CDATA[[pt-BR]Failed to resubmit transactions due to errors in the selected group.  None of the transactions were resubmitted.  To view the detailed error information click <span style="text-decoration:underline;cursor:hand;" onclick="window.open('[FAILED_TRANSACTION_ERROR_ROWSET_DIALOG]', 'ErrorWindow', 'width=640, height=480, menubar=no, status=no, location=no, toolbar=no, scrollbars=yes, resizable=yes');">here</span>.]]></value>
+    <value><![CDATA[Falha ao reenviar transações devido a erros no grupo selecionado. Nenhuma das transações foi reenviada. Para exibir as informações detalhadas do erro, clique <span style="text-decoration:underline;cursor:hand;" onclick="window.open('[FAILED_TRANSACTION_ERROR_ROWSET_DIALOG]', 'ErrorWindow', 'width=640, height=480, menubar=no, status=no, location=no, toolbar=no, scrollbars=yes, resizable=yes');">aqui</span>.]]></value>
   </text>
   <text id="MOM_ERROR_1010">
-    <value>[pt-BR]1010-MOM ERROR-One or more sessions identified for resubmit could not be found.</value>
+    <value>1010-MOM ERROR-Não foi possível encontrar uma ou mais sessões identificadas para reenvio.</value>
   </text>
   <text id="MoM_ERROR_ERROR_DETAIL">
-    <value>[pt-BR]Detail</value>
+    <value>Detalhe</value>
   </text>
   <text id="MoM_ERROR_ERROR_DETAIL_DESCRIPTION">
-    <value>[pt-BR]View Error Number and Source If Available</value>
+    <value>Exibir Número de Erro e Origem, Se Disponíveis</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Succeeded">
     <value>[PT-BR]This adapter has already run and succeeded.  It needs to be reversed before it can be run again.</value>

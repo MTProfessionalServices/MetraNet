@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_USM_MANUAL">
-    <value>[FR]Run Usage Server Maintenance</value>
+    <value>Lancer la maintenance du serveur d’utilisation</value>
   </text>
   <text id="TEXT_USM_CLOSE">
-    <value>[FR]Close</value>
+    <value>Fermer</value>
   </text>
   <text id="TEXT_USM_RUN">
-    <value>[FR]Run</value>
+    <value>Exécuter</value>
   </text>
   <text id="TEXT_USM_ACTION">
-    <value>[FR]Action</value>
+    <value>Action</value>
   </text>
   <text id="TEXT_USM_DESCRIPTION">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </text>
   <text id="TEXT_USM_CLOSE_DESCRIPTION">
-    <value><![CDATA[<strong>[FR]Automatically Soft Close the Billing Groups of Expired Usage Intervals.</strong><br>Each night the platform will check for intervals that have ended and using the grace period configuration below, automatically create billing groups and change their state to 'Soft Closed'.]]></value>
+    <value><![CDATA[<strong>Effectuez une clôture logicielle automatique des groupes de facturation dans les intervalles d'utilisation expirés.</strong><br>Chaque nuit, la plate-forme vérifiera que les intervalles sont terminés et, à l'aide de la configuration de la période de grâce ci-dessous, il créera automatiquement des groupes de facturation et modifiera leur état en "Clôture (logicielle)".]]></value>
   </text>
   <text id="TEXT_USM_CLOSE_INTERVAL_HEADER">
-    <value><![CDATA[[FR]Automatically create and Soft Close Billing Groups for:]]></value>
+    <value><![CDATA[Créer et fermer automatiquement les groupes de facturation pour :]]></value>
   </text>
   <text id="TEXT_USM_CLOSE_BLOCK_ACCOUNT_DESCRIPTION">
-    <value><![CDATA[[FR]When automatically closing intervals, block the intervals to new accounts.]]></value>
+    <value><![CDATA[Lors de la fermeture automatique des intervalles, bloquez les intervalles sur les nouveaux comptes.]]></value>
   </text>
   <text id="TEXT_USM_RUN_DESCRIPTION">
-    <value><![CDATA[<strong>[FR]Automatically Run End Of Period Adapters On Soft Closed Billing Groups</strong><BR>Once a Billing Group has been Soft Closed, either automatically or manually, the platform will automatically start running End Of Period adapters.]]></value>
+    <value><![CDATA[<strong>Exécuter automatiquement les adaptateurs de fin de période sur les groupes de facturation en clôture logicielle</strong><BR>Quand un groupe de facturation fera l'objet d'une clôture logicielle, que ce soit automatiquement ou manuellement, la plate-forme lancera automatiquement l'exécution des adaptateurs de fin de période.]]></value>
   </text>
   <text id="TEXT_USM_RUN_SCHEDULED_ADAPTERS_DESCRIPTION">
-    <value><![CDATA[<strong>[FR]Run Scheduled Adapters</strong><BR>The platform will periodically run configured scheduled adapters. Note: If this setting is not selected, all scheduled adapters will need to be run manually.]]></value>
+    <value><![CDATA[<strong>Exécuter les adaptateurs planifiés</strong><BR>La plate-forme exécutera périodiquement des adaptateurs planifiés configurés. Remarque : Si ce paramètre n'est pas sélectionné, tous les adaptateurs planifiés doivent être exécutés manuellement.]]></value>
   </text>
   <text id="TEXT_USM_AUTO_CONFIG_TITLE">
-    <value>[FR]Usage Server Maintenance Configuration</value>
+    <value>Configuration de la maintenance du serveur d'utilisation</value>
   </text>
   <text id="TEXT_USM_AUTO_INFORMATION">
-    <value>[FR]These settings control various aspects of Usage Server Maintenance.</value>
+    <value>Ces paramètres contrôlent les divers aspects de la maintenance du serveur d'utilisation.</value>
   </text>
   <text id="TEXT_USM_AUTO_ENABLED">
-    <value>[FR]Enabled</value>
+    <value>Activé</value>
   </text>
   <text id="TEXT_USM_UPDATE_CONFIG">
-    <value>[FR]Save Configuration</value>
+    <value>Enregistrer la configuration</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_CONFIG_TITLE">
-    <value>[FR]Usage Server Maintenance Grace Period Configuration</value>
+    <value>Configuration de la période de grâce pour la maintenance du serveur d'utilisation</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_CONFIG_INFORMATION">
-    <value>[FR]Grace periods used by UsageServerMaintenance.exe for determining when to Soft Close or Hard Close intervals automatically.</value>
+    <value>Périodes de grâce utilisées par UsageServerMaintenance.exe pour déterminer quand effectuer automatiquement une clôture logicielle ou matérielle des intervalles.</value>
   </text>
   <text id="TEXT_USM_SETTINGS">
-    <value>[FR]Settings</value>
+    <value>Paramètres</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_SOFT">
-    <value>[FR]Soft Close Grace Period</value>
+    <value>Période de grâce de la clôture logicielle</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_HARD">
-    <value>[FR]Hard Close Grace Period</value>
+    <value>Période de grâce de la clôture matérielle</value>
   </text>
 </texts>

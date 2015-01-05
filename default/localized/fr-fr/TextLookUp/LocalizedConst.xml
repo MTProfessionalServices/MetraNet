@@ -5,283 +5,283 @@
     supplied by the MetraTech plate form.
   </description>
   <text id="TEXT_Description1">
-    <value>[FR]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_View_Name1">
-    <value>[FR]View Name</value>
+    <value>Afficher le nom</value>
     <description></description>
   </text>
   <text id="TEXT_Count1">
-    <value>[FR]Count</value>
+    <value>Nombre</value>
     <description></description>
   </text>
   <text id="TEXT_Amount1">
-    <value>[FR]Amount</value>
+    <value>Montant</value>
     <description></description>
   </text>
   <text id="TEXT_Currency1">
-    <value>[FR]Currency</value>
+    <value>Devise</value>
     <description></description>
   </text>
   <text id="TEXT_BatchId">
-    <value>[FR]Batch ID</value>
+    <value>ID de lot</value>
     <description></description>
   </text>
   <text id="TEXT_Comment1">
-    <value>[FR]Comment</value>
+    <value>Commentaire</value>
     <description></description>
   </text>
   <text id="TEXT_RerunId1">
-    <value>[FR]RerunId</value>
+    <value>ID réexécution</value>
     <description></description>
   </text>
   <text id="TEXT_Filter1">
-    <value>[FR]Filter</value>
+    <value>Filtre</value>
     <description></description>
   </text>
   <text id="TEXT_Tag1">
-    <value>[FR]Tag</value>
+    <value>Balise</value>
     <description></description>
   </text>
   <text id="TEXT_LastAction1">
-    <value>[FR]Last Action</value>
-    <description></description>
+    <value>Dernière action</value>
+    <description/>
   </text>
   <text id="TEXT_Action1">
-    <value>[FR]Action</value>
+    <value>Action</value>
     <description></description>
   </text>
   <text id="TEXT_Time1">
-    <value>[FR]Time</value>
+    <value>Heure</value>
     <description></description>
   </text>
   <text id="TEXT_UserName1">
-    <value>[FR]User Name</value>
+    <value>Nom d’utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_How_will_you_identify_the_transactions_to_be_rerun">
-    <value>[FR][How will you identify the transactions to be rerun?]</value>
+    <value>[How will you identify the transactions to be rerun?]</value>
     <description></description>
   </text>
   <text id="TEXT_Identify_and_Analyze_In_Progress">
-    <value>[FR]Identify and Analyze In Progress</value>
+    <value>Identification et analyse en cours</value>
     <description></description>
   </text>
   <text id="TEXT_Please_reenter_search_criteria">
-    <value>[FR]Please re-enter search criteria</value>
+    <value>Saisissez à nouveau les critères de recherche</value>
     <description></description>
   </text>
   <text id="TEXT_Invalid_Batch_Id">
-    <value>[FR]Invalid Batch Id</value>
+    <value>ID de lot invalide</value>
     <description></description>
   </text>
   <text id="TEXT_Product_View">
-    <value>[FR]Product View:</value>
+    <value>Vue produit :</value>
     <description></description>
   </text>
   <text id="TEXT_Remove">
-    <value>[FR]Remove</value>
+    <value>Supprimer</value>
     <description></description>
   </text>
   <text id="TEXT_Service_Definition">
-    <value>[FR]Service Definition:</value>
+    <value>Définition du service :</value>
     <description></description>
   </text>
   <text id="TEXT_Account_Property_Name">
-    <value>[FR]Account Property Name:</value>
+    <value>Nom de propriété de compte :</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_Prepare_Extract_In_Progress">
-    <value>[FR]Backout, Prepare and Extract In Progress</value>
+    <value>Annulation, préparation et extraction en cours</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_and_Resubmit">
-    <value>[FR]"Backout and Resubmit"</value>
+    <value>"Annulation et renvoi"</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_and_Resubmit_In_Progress">
-    <value>[FR]Backout and Resubmit In Progress</value>
+    <value>Annulation et renvoi en cours</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_and_Resubmit_Complete">
-    <value>[FR]Backout and Resubmit Complete</value>
+    <value>Annulation et renvoi réussis</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_and_Delete">
-    <value>[FR]"Backout and Delete"</value>
+    <value>"Annulation et suppression"</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_and_Delete_In_Progress">
-    <value>[FR]Backout and Delete In Progress</value>
+    <value>Annulation et suppression en cours</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_and_Delete_Complete">
-    <value>[FR]Backout and Delete Complete</value>
+    <value>Annulation et suppression réussies</value>
     <description></description>
   </text>
   <text id="TEXT_Identify_Complete_Analyze_In_Progress">
-    <value>[FR]Identify Complete&lt;BR&gt;Analyze In Progress</value>
+    <value>Identification terminée&lt;BR&gt;Analyse en cours</value>
     <description></description>
   </text>
   <text id="TEXT_Next_Step_Resubmit_These_Records">
-    <value>[FR]Next Step: Resubmit These Records</value>
+    <value>Etape suivante : renvoyer ces enregistrements</value>
     <description></description>
   </text>
   <text id="TEXT_Abandon_This_Backout_And_Start_Over">
-    <value>[FR]Abandon This Backout And Start Over</value>
+    <value>Abandonner cette annulation et recommencer</value>
     <description></description>
   </text>
   <text id="TEXT_Next_Step_Delete_These_Records">
-    <value>[FR]Next Step: Delete These Records</value>
+    <value>Etape suivante : supprimer ces enregistrements</value>
     <description></description>
   </text>
   <text id="TEXT_Are_you_sure_you_wish">
-    <value>[FR]Are you sure you wish to permanently delete these records?\nClick OK to continue and delete these records</value>
+    <value>Voulez-vous supprimer définitivement ces enregistrements ?\nCliquez sur OK pour continuer et supprimer ces enregistrements</value>
     <description></description>
   </text>
   <text id="TEXT_Backout_Rerun_History">
-    <value>[FR]Backout/Rerun History</value>
+    <value>Historique des annulations/réexécutions</value>
     <description></description>
   </text>
   <text id="TEXT_Backout">
-    <value>[FR]Backout</value>
+    <value>Annulation</value>
     <description></description>
   </text>
   <text id="TEXT_Dismiss">
-    <value>[FR]Dismiss</value>
+    <value>Ignorer</value>
     <description></description>
   </text>
   <text id="TEXT_NO_EVENTS1">
-    <value>[FR]No events have been recorded for this backout.</value>
+    <value>Aucun événement n'a été enregistré pour cette annulation.</value>
     <description></description>
   </text>
   <text id="TEXT_Resume_Backout">
-    <value>[FR]Resume Backout</value>
+    <value>Reprendre l'annulation</value>
     <description></description>
   </text>
   <text id="TEXT_Abandon_Backout">
-    <value>[FR]Abandon Backout</value>
+    <value>Abandonner l'annulation</value>
     <description></description>
   </text>
   <text id="TEXT_Batch_History">
-    <value>[FR]Batch History</value>
+    <value>Historique des lots</value>
     <description></description>
   </text>
   <text id="TEXT_EventName">
-    <value>[FR]Event Name</value>
+    <value>Nom de l'événement</value>
     <description></description>
   </text>
   <text id="TEXT_Details">
-    <value>[FR]Details</value>
+    <value>Détails</value>
     <description></description>
   </text>
   <text id="TEXT_User">
-    <value>[FR]User</value>
+    <value>Utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_No_audit_events">
-    <value>[FR]No audit events have been recorded for this batch.</value>
+    <value>Aucun événement d'audit n'a été enregistré pour ce lot.</value>
     <description></description>
   </text>
   <text id="TEXT_Batch_Backout_Rerun_List">
-    <value>[FR]Batch Backout/Rerun List</value>
+    <value>Liste des annulations/réexécutions de lots</value>
     <description></description>
   </text>
   <text id="TEXT_No_audit_events">
-    <value>[FR]No audit events have been recorded for this batch.</value>
+    <value>Aucun événement d'audit n'a été enregistré pour ce lot.</value>
     <description></description>
   </text>
   <text id="TEXT_No_backouts">
-    <value>[FR]No backouts exist explicitly for this batch.</value>
+    <value>Il n'existe explicitement aucune annulation pour ce lot.</value>
     <description></description>
   </text>
   <text id="TEXT_Resume_Backout">
-    <value>[FR]Resume Backout</value>
+    <value>Reprendre l'annulation</value>
     <description></description>
   </text>
   <text id="TEXT_Abandon">
-    <value>[FR]Abandon</value>
+    <value>Abandonner</value>
     <description></description>
   </text>
   <text id="TEXT_Delete">
-    <value>[FR]Delete</value>
+    <value>Supprimer</value>
     <description></description>
   </text>
   <text id="TEXT_Resubmit">
-    <value>[FR]Resubmit</value>
+    <value>Renvoyer</value>
     <description></description>
   </text>
   <text id="TEXT_Mark_As_Completed">
-    <value>[FR]Mark As Completed</value>
+    <value>Marquer comme terminé</value>
     <description></description>
   </text>
   <text id="TEXT_Mark_As_Failed">
-    <value>[FR]Mark As Failed</value>
+    <value>Marquer comme échoué</value>
     <description></description>
   </text>
   <text id="TEXT_View_Failed_Transactions">
-    <value>[FR]View Failed Transactions</value>
+    <value>Voir les transactions en échec</value>
     <description></description>
   </text>
   <text id="TEXT_Remove_Title">
-    <value>[FR]Remove this backout from the system. The backout was started but no records were ever backedout.</value>
+    <value>Supprimez cette annulation du système. L'annulation a commencé mais aucun enregistrement n'a été annulé.</value>
     <description></description>
   </text>
   <text id="TEXT_Resubmit_the_records">
-    <value>[FR]Resubmit the records that were backed out.</value>
+    <value>Renvoyez les enregistrements annulés.</value>
     <description></description>
   </text>
   <text id="TEXT_Delete_the_records">
-    <value>[FR]Delete The Records That Were Backedout. These records will no longer be able to be resubmited</value>
+    <value>Supprimez les enregistrements annulés. Ces enregistrements ne pourront plus être renvoyés</value>
     <description></description>
   </text>
   <text id="TEXT_NAMESPACE">
-    <value>[FR]Namespace</value>
+    <value>Espace de nommage</value>
     <description></description>
   </text>
   <text id="TEXT_NAME">
-    <value>[FR]Name</value>
+    <value>Nom</value>
     <description></description>
   </text>
   <text id="TEXT_Source">
-    <value>[FR]Source</value>
+    <value>Source</value>
     <description></description>
   </text>
   <text id="TEXT_Sequence">
-    <value>[FR]Sequence</value>
+    <value>Séquence</value>
     <description></description>
   </text>
   <text id="TEXT_Completed">
-    <value>[FR]Completed</value>
+    <value>Terminé</value>
     <description></description>
   </text>
   <text id="TEXT_Failed">
-    <value>[FR]Failed</value>
+    <value>Échec</value>
     <description></description>
   </text>
   <text id="TEXT_Dismissed">
-    <value>[FR]Dismissed</value>
+    <value>Ignoré</value>
     <description></description>
   </text>
   <text id="TEXT_Expected">
-    <value>[FR]Expected</value>
+    <value>Prévu</value>
     <description></description>
   </text>
   <text id="TEXT_Creation">
-    <value>[FR]Creation</value>
+    <value>Création</value>
     <description></description>
   </text>
   <text id="TEXT_Click_To_View">
-    <value>[FR]Click To View List Of Failed Transactions For This Batch</value>
+    <value>Cliquez pour voir la liste des transactions en échec pour ce lot</value>
     <description></description>
   </text>
   <text id="TEXT_Property">
-    <value>[FR]Property</value>
+    <value>Propriété</value>
     <description></description>
   </text>
   <text id="TEXT_Value">
-    <value>[FR]Value</value>
+    <value>Valeur</value>
     <description></description>
   </text>
 </texts>

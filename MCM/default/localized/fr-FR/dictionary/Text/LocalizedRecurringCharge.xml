@@ -20,7 +20,7 @@
     <description></description>
   </text>
   <text id="TEXT_PRORATE_ACTIVATION">
-    <value>Au prorata à l’activation</value>
+    <value>Au prorata à l'activation</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_INSTANTLY">
@@ -104,11 +104,11 @@
     <description></description>
   </text>
   <text id="TEXT_NAME_TIP">
-    <value>Formulation abrégée pour [TEXT_KEYTERM_RECURRING_CHARGE] dans l’ [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>Formulation abrégée pour [TEXT_KEYTERM_RECURRING_CHARGE] dans l' [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
     <description></description>
   </text>
   <text id="TEXT_DISPLAY_NAME_TIP">
-    <value>Nom des [TEXT_KEYTERM_RECURRING_CHARGE] tel qu’il apparaît dans d’autres applications et pour les abonnés.</value>
+    <value>Nom des [TEXT_KEYTERM_RECURRING_CHARGE] tel qu'il apparaît dans d'autres applications et pour les abonnés.</value>
     <description></description>
   </text>
   <text id="TEXT_DESCRIPTION_TIP">
@@ -144,7 +144,7 @@
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION">
-    <value>Valeurs d’énumération valides</value>
+    <value>Valeurs d'énumération valides</value>
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION_SEPARATOR_HELP">

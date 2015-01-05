@@ -14,15 +14,15 @@
 
   <!-- Columns -->
   <text id="TEXT_UDRC">
-    <value>[TEXT_KEYTERM_RECURRING_CHARGE] calculés sur la base d’unités</value>
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] calculés sur la base d'unités</value>
     <description></description>
   </text>
   <text id="TEXT_UNIT_NAME">
-    <value>Nom d’unité</value>
+    <value>Nom d'unité</value>
     <description></description>
   </text>
   <text id="TEXT_UNIT_DISPLAY_NAME">
-    <value>Nom d’affichage d’unité</value>
+    <value>Nom d'affichage d'unité</value>
     <description></description>
   </text>
   <text id="TEXT_TIERED_TAPER_USER_HINT">
@@ -51,7 +51,7 @@
     <description></description>
   </text>
   <text id="TEXT_COLUMN_DISPLAY_NAME">
-    <value>Nom d’affichage</value>
+    <value>Nom d'affichage</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_KIND">
@@ -81,7 +81,7 @@
     <description></description>
   </text>
   <text id="TEXT_FIELD_DISPLAY_NAME">
-    <value>Nom d’affichage</value>
+    <value>Nom d'affichage</value>
     <description></description>
   </text>
   <text id="TEXT_FIELD_DESCRIPTION">
@@ -91,15 +91,15 @@
 
   <!-- Product View Property Picker Dialog -->
   <text id="TEXT_PV_NAME">
-    <value>Nom de l’affichage produit</value>
+    <value>Nom de l'affichage produit</value>
     <description></description>
   </text>
   <text id="TEXT_PV_PROPERTY">
-    <value>Propriété de l’affichage produit</value>
+    <value>Propriété de l'affichage produit</value>
     <description></description>
   </text>
   <text id="TEXT_PV_DESCRIPTION">
-    <value>Description de l’affichage produit</value>
+    <value>Description de l'affichage produit</value>
     <description></description>
   </text>
   <text id="MCM_PRODUCT_VIEW_PROPERTY_PICKER">
@@ -157,7 +157,7 @@
     <description></description>
   </text>
   <text id="TEXT_NO_CHILD_ITEMS">
-    <value>Il n’y a pas d’[TEXT_KEYTERM_PRICEABLE_ITEMS] enfant</value>
+    <value>Il n'y a pas d'[TEXT_KEYTERM_PRICEABLE_ITEMS] enfant</value>
     <description></description>
   </text>
   <text id="TEXT_NEW">
@@ -189,7 +189,7 @@
     <description></description>
   </text>
   <text id="TEXT_FILTER_WILDCARD_CONSTRAINT_MESSAGE">
-    <value>Le caractère générique * ne peut être utilisé qu’à la fin de la chaîne de recherche ou au début et  à la fin de celle-ci.\nExemples :\n\tEnterprise Bundle*\n\t*Bundle*</value>
+    <value>Le caractère générique * ne peut être utilisé qu'à la fin de la chaîne de recherche ou au début et  à la fin de celle-ci.\nExemples :\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
   <text id="TEXT_EXTENDED_PROPERTIES">

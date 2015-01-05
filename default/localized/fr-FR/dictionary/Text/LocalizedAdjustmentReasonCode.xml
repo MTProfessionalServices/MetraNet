@@ -8,10 +8,10 @@
     <value>Ajustements</value>
   </text>
   <text id="TEXT_ADJUSTMENT_TYPE">
-    <value>Type d’ajustement</value>
+    <value>Type d'ajustement</value>
   </text>
   <text id="TEXT_ADJUSTMENT_TYPES">
-    <value>Types d’ajustements</value>
+    <value>Types d'ajustements</value>
   </text>
   <text id="TEXT_REASON_CODE">
     <value>Code de motif</value>
@@ -20,10 +20,10 @@
     <value>Codes de motifs</value>
   </text>
   <text id="TEXT_ADJUSTMENT_REASON_CODE">
-    <value>Code de motif de l’ajustement</value>
+    <value>Code de motif de l'ajustement</value>
   </text>
   <text id="TEXT_ADJUSTMENT_REASON_CODES">
-    <value>Codes de motifs d’ajustement</value>
+    <value>Codes de motifs d'ajustement</value>
   </text>
   <text id="TEXT_MANAGE_ADJUSTMENT_REASON_CODES">
     <value>Gérer les [TEXT_ADJUSTMENT_REASON_CODES]</value>
@@ -65,7 +65,7 @@
     <value>Les [TEXT_ADJUSTMENTS] ont été configurés</value>
   </text>
   <text id="TEXT_PRICEABLE_ITEM_DOES_NOT_SUPPORT_ADJUSTMENT">
-    <value>L’[TEXT_KEYTERM_PRICEABLE_ITEM] ne prend pas en charge les [TEXT_ADJUSTMENTS]</value>
+    <value>L'[TEXT_KEYTERM_PRICEABLE_ITEM] ne prend pas en charge les [TEXT_ADJUSTMENTS]</value>
   </text>
   <text id="TEXT_SELECT_AN_ADJUSTMENT_TYPE">
     <value>Sélectionnez un [TEXT_ADJUSTMENT_TYPE]</value>

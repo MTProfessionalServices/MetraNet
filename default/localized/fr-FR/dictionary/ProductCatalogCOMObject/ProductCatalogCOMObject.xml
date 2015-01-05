@@ -7,7 +7,7 @@
 
   <!-- Priceable Items Properties -->
   <text id="TEXT_PRICEABLE_ITEM_USAGE">
-    <value>Frais d’utilisation</value>
+    <value>Frais d'utilisation</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_NAME">
@@ -15,7 +15,7 @@
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_DISPLAYNAME">
-    <value>Nom d’affichage</value>
+    <value>Nom d'affichage</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_DESCRIPTION">

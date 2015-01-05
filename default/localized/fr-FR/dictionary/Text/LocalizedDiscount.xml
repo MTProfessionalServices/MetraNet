@@ -45,7 +45,7 @@
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT_BASED_COUNTERS">
-    <value>Cette [TEXT_KEYTERM_DISCOUNT] s’appuie sur les [TEXT_KEYTERM_COUNTERS] suivants</value>
+    <value>Cette [TEXT_KEYTERM_DISCOUNT] s'appuie sur les [TEXT_KEYTERM_COUNTERS] suivants</value>
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT_COUNTER_DESCRIPTION">

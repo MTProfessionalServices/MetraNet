@@ -6,7 +6,7 @@
     <description></description>
   </text>
   <text id="TEXT_RATES_PRICELIST_LIST">
-    <value>Prix basés sur la [TEXT_KEYTERM_PRICE_LIST] pour l’élément à prix</value>
+    <value>Prix basés sur la [TEXT_KEYTERM_PRICE_LIST] pour l'élément à prix</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_ALLPRICELISTS_LIST">
@@ -98,27 +98,27 @@
     <description></description>
   </text>
   <text id="TEXT_WIZARD_EFFECTIVE_DATE_TIP">
-    <value>Les dates de validité déterminent les périodes d’application d’un ensemble de règles particulier à la tarification.</value>
+    <value>Les dates de validité déterminent les périodes d'application d'un ensemble de règles particulier à la tarification.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_EFFECTIVE_DATE_NULL_TIP">
-    <value>Si vous sélectionnez "[TEXT_NULL_START_DATE_TYPE]" , cela signifie que votre date de début de [TEXT_KEYTERM_RATE_SCHEDULE] se situe dans le passé. Si vous sélectionnez "[TEXT_NULL_END_DATE_TYPE]", cela signifie que votre date de fin de [TEXT_KEYTERM_RATE_SCHEDULE] se situe dans l’avenir.</value>
+    <value>Si vous sélectionnez "[TEXT_NULL_START_DATE_TYPE]" , cela signifie que votre date de début de [TEXT_KEYTERM_RATE_SCHEDULE] se situe dans le passé. Si vous sélectionnez "[TEXT_NULL_END_DATE_TYPE]", cela signifie que votre date de fin de [TEXT_KEYTERM_RATE_SCHEDULE] se situe dans l'avenir.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_DESCRIPTION_TIP">
-    <value>Mécanisme simple et facultatif permettant d’identifier votre [TEXT_KEYTERM_RATE_SCHEDULE].</value>
+    <value>Mécanisme simple et facultatif permettant d'identifier votre [TEXT_KEYTERM_RATE_SCHEDULE].</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_RATES">
-    <value>Prix de l’[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Prix de l'[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_CHILD_PRICEABLE_ITEM">
-    <value>Sélectionnez l’[TEXT_KEYTERM_PRICEABLE_ITEM] enfant</value>
+    <value>Sélectionnez l'[TEXT_KEYTERM_PRICEABLE_ITEM] enfant</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_SOURCE_FILE">
-    <value>Sélectionnez l’[TEXT_KEYTERM_PRICEABLE_ITEM] enfant</value>
+    <value>Sélectionnez l'[TEXT_KEYTERM_PRICEABLE_ITEM] enfant</value>
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_DESCRIPTION">
@@ -130,7 +130,7 @@
     <description></description>
   </text>
   <text id="TEXT_IMPORT_RULES">
-    <value>Règles d’importation</value>
+    <value>Règles d'importation</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_RULES_FIELDSET_LABEL">
@@ -138,11 +138,11 @@
     <description></description>
   </text>
   <text id="COPY_SHARED_RSCHED">
-    <value>Copier à partir d’un [TEXT_KEYTERM_RATE_SCHEDULE] partagé</value>
+    <value>Copier à partir d'un [TEXT_KEYTERM_RATE_SCHEDULE] partagé</value>
     <description></description>
   </text>
   <text id="COPY_NONSHARED_RSCHED">
-    <value>Copier à partir d’un [TEXT_KEYTERM_RATE_SCHEDULE] non partagé</value>
+    <value>Copier à partir d'un [TEXT_KEYTERM_RATE_SCHEDULE] non partagé</value>
     <description></description>
   </text>
   <text id="TEXT_QUANTITY">

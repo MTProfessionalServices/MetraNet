@@ -2,7 +2,7 @@
 <texts id="Main" type="collection">
   <description>The file defines MetraOffer errors. The error message are localized.</description>
   <text id="MCM_ERROR_999">
-    <value>Le système n’a pas pu traiter votre requête. Demandez à votre administrateur de vérifier les journaux système.</value>
+    <value>Le système n'a pas pu traiter votre requête. Demandez à votre administrateur de vérifier les journaux système.</value>
   </text>
   <text id="MCM_ERROR_1000">
     <value>Erreur de cycle de facturation : le premier jour du mois ne doit pas être supérieur ou égal au deuxième jour du mois.</value>
@@ -14,7 +14,7 @@
     <value>La date entrée est incorrecte. Vérifiez les valeurs entrées.</value>
   </text>
   <text id="MCM_ERROR_1003">
-    <value>Avertissement : vous êtes en train de définir une date d’entrée en vigueur située dans le passé. Cela peut entraîner des problèmes lors de sessions déjà chronométrées. Cliquez de nouveau sur OK pour conserver ces dates et continuer, ou définissez de nouvelles dates situées dans l’avenir.</value>
+    <value>Avertissement : vous êtes en train de définir une date d'entrée en vigueur située dans le passé. Cela peut entraîner des problèmes lors de sessions déjà chronométrées. Cliquez de nouveau sur OK pour conserver ces dates et continuer, ou définissez de nouvelles dates situées dans l'avenir.</value>
   </text>
   <text id="MCM_ERROR_1004">
     <value>La date de début doit être antérieure à la date de fin.</value>
@@ -23,16 +23,16 @@
     <value>Sélectionnez un [TEXT_KEYTERM_RATE_SCHEDULE] avant de cliquer sur [TEXT_OK].</value>
   </text>
   <text id="MCM_ERROR_1006">
-    <value>Une ou plusieurs valeurs d’énumération ont été ignorées.</value>
+    <value>Une ou plusieurs valeurs d'énumération ont été ignorées.</value>
   </text>
   <text id="MCM_ERROR_1007">
     <value>Chaque ajustement doit comporter au minimum un code de motif</value>
   </text>
   <text id="MCM_ERROR_1008">
-    <value>La date d’entrée en vigueur et les dates de disponibilité doivent être renseignées.</value>
+    <value>La date d'entrée en vigueur et les dates de disponibilité doivent être renseignées.</value>
   </text>
   <text id="MCM_ERROR_1009">
-    <value>Les changements d’abonnement en vrac sont impossibles si l’[TEXT_KEYTERM_PRODUCT_OFFERING] cible contient  des[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES].</value>
+    <value>Les changements d'abonnement en vrac sont impossibles si l'[TEXT_KEYTERM_PRODUCT_OFFERING] cible contient  des[TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES].</value>
   </text>
   <text id="MCM_ERROR_ERROR_DETAIL">
     <value>Détails</value>
@@ -59,13 +59,13 @@
     <value>La date de début doit être antérieure à la date de fin</value>
   </text>
   <text id="MCM_ERROR_STARTDATE_IN_PAST">
-    <value>La date de début se situe dans le passé, ce qui peut entraîner une perte d’informations.</value>
+    <value>La date de début se situe dans le passé, ce qui peut entraîner une perte d'informations.</value>
   </text>
   <text id="MCM_ERROR_ENDDATE_IN_PAST">
-    <value>La date de fin se situe dans le passé, ce qui peut entraîner une perte d’informations.</value>
+    <value>La date de fin se situe dans le passé, ce qui peut entraîner une perte d'informations.</value>
   </text>
   <text id="MCM_ERROR_PARTITION_NOT_EQUAL">
-    <value>L’offre produit source et l’offre produit cible doivent avoir la même partition.</value>
+    <value>L'offre produit source et l'offre produit cible doivent avoir la même partition.</value>
   </text>
   <text id="ERROR_WIZARD_NOTIFICATION">
     <value>Remarque :</value>

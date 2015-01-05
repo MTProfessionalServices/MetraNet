@@ -25,26 +25,26 @@
     <value>Date de fin disponible</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_NO_CHILD_ITEMS">
-    <value>Actuellement, cette [TEXT_KEYTERM_PRODUCT_OFFERING] ne contient pas d’[TEXT_KEYTERM_PRICEABLE_ITEMS] ou de [TEXT_KEYTERM_DISCOUNTS].</value>
+    <value>Actuellement, cette [TEXT_KEYTERM_PRODUCT_OFFERING] ne contient pas d'[TEXT_KEYTERM_PRICEABLE_ITEMS] ou de [TEXT_KEYTERM_DISCOUNTS].</value>
   </text>
   <text id="TEXT_PO_CONFIGURATION_NOT_COMPLETE">
-    <value>La configuration de l’[TEXT_KEYTERM_PRODUCT_OFFERING] est incomplète, pour les raisons suivantes :</value>
+    <value>La configuration de l'[TEXT_KEYTERM_PRODUCT_OFFERING] est incomplète, pour les raisons suivantes :</value>
     <description></description>
   </text>
   <text id="TEXT_CHECK_PO_CONFIGURATION">
-    <value>Vérifiez la configuration de l’[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Vérifiez la configuration de l'[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_GOOD_CONFIGURATION">
-    <value>L’offre [TEXT_KEYTERM_PRODUCT_OFFERING] est configurée de façon incomplète.</value>
+    <value>L'offre [TEXT_KEYTERM_PRODUCT_OFFERING] est configurée de façon incomplète.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
-    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] est disponible à l’abonnement ; par conséquent, les éléments à prix ne peuvent pas être modifiés.</value>
+    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] est disponible à l'abonnement ; par conséquent, les éléments à prix ne peuvent pas être modifiés.</value>
     <description></description>
   </text>
   <text id="TEXT_TOOLTIP_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
-    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] est disponible à l’abonnement ; par conséquent, les éléments à prix ne peuvent pas être modifiés.</value>
+    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] est disponible à l'abonnement ; par conséquent, les éléments à prix ne peuvent pas être modifiés.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_PRICELIST_MAPPINGS_CANNOT_BE_MODIFIED">
@@ -76,11 +76,11 @@
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ACCOUNT_TYPE_RESTRICTIONS">
-    <value>Types de comptes pouvant s’abonner à cette [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Types de comptes pouvant s'abonner à cette [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_NO_ACCOUNT_TYPE_RESTRICTIONS_MESSAGE">
-    <value><![CDATA[<b>Tous les types de comptes peuvent s’abonner à cette offre produit</b><br>Actuellement, il n’existe pas de limitations en termes de type de compte pour cette [TEXT_KEYTERM_PRODUCT_OFFERING]. Tout type de compte autorisant l’abonnement peut s’abonner à cette offre produit.]]></value>
+    <value><![CDATA[<b>Tous les types de comptes peuvent s'abonner à cette offre produit</b><br>Actuellement, il n'existe pas de limitations en termes de type de compte pour cette [TEXT_KEYTERM_PRODUCT_OFFERING]. Tout type de compte autorisant l'abonnement peut s'abonner à cette offre produit.]]></value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ADD_ACCOUNT_TYPE_RESTRICTION">
@@ -88,13 +88,13 @@
     <description></description>
   </text>
   <text id="TEXT_SELECT_ACCOUNT_TYPES_THAT_SHOULD_BE_ABLE_TO_SUBSCRIBE">
-    <value>Sélectionnez un ou plusieurs types de comptes à ajouter en tant que restrictions d’abonnement, pour cette [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Sélectionnez un ou plusieurs types de comptes à ajouter en tant que restrictions d'abonnement, pour cette [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
 
   <!-- Wizard -->
   <text id="TEXT_WIZARD_PROMPT_CREATE_COPY_OF_EXISTING">
-    <value>Voulez-vous faire une copie d’une [TEXT_KEYTERM_PRODUCT_OFFERING] existante ?</value>
+    <value>Voulez-vous faire une copie d'une [TEXT_KEYTERM_PRODUCT_OFFERING] existante ?</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_CREATE_NEW_PRODUCT_OFFERING">
@@ -102,7 +102,7 @@
     <description></description>
   </text>
   <text id="TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING">
-    <value>Sélectionner l’offre existante</value>
+    <value>Sélectionner l'offre existante</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_COPY_NAME_PREFIX">
@@ -110,7 +110,7 @@
     <description>The new product offering name will be the original name prepended with this text.</description>
   </text>
   <text id="TEXT_WIZARD_SUMMARY_COPY_NAME">
-    <value>Création en cours d’une copie de</value>
+    <value>Création en cours d'une copie de</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_EFFECTIVEDATE">
@@ -122,15 +122,15 @@
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT1">
-    <value>La devise de cette [TEXT_KEYTERM_PRODUCT_OFFERING] ne peut pas être modifiée, car l’[TEXT_KEYTERM_PRODUCT_OFFERING] source a des mappages partagés.</value>
+    <value>La devise de cette [TEXT_KEYTERM_PRODUCT_OFFERING] ne peut pas être modifiée, car l'[TEXT_KEYTERM_PRODUCT_OFFERING] source a des mappages partagés.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT2">
-    <value>La devise de cette [TEXT_KEYTERM_PRODUCT_OFFERING] ne peut pas être modifiée, car l’[TEXT_KEYTERM_PRODUCT_OFFERING] source possède déjà des prix.</value>
+    <value>La devise de cette [TEXT_KEYTERM_PRODUCT_OFFERING] ne peut pas être modifiée, car l'[TEXT_KEYTERM_PRODUCT_OFFERING] source possède déjà des prix.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_AVAILABILITYDATE">
-    <value>A quelle date cette [TEXT_KEYTERM_PRODUCT_OFFERING] sera-t-elle disponible à l’abonnement ?</value>
+    <value>A quelle date cette [TEXT_KEYTERM_PRODUCT_OFFERING] sera-t-elle disponible à l'abonnement ?</value>
     <description></description>
   </text>
 
@@ -148,7 +148,7 @@
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_PICKER">
-    <value>Outil de sélection d’[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Outil de sélection d'[TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_BUTTON_REMOVE_PRICEABLE_ITEM">
@@ -156,7 +156,7 @@
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_REMOVE_PRICEABLE_ITEM">
-    <value>Supprimer {PI_NAME} de l’[TEXT_KEYTERM_PRODUCT_OFFERING] ?</value>
+    <value>Supprimer {PI_NAME} de l'[TEXT_KEYTERM_PRODUCT_OFFERING] ?</value>
     <!--  I used the tag {} because this is a run-time replacement -->
     <description></description>
   </text>
@@ -169,23 +169,23 @@
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_HIDE_PRODUCT_OFFERING">
-    <value>Cliquez sur OK pour masquer cette [TEXT_KEYTERM_PRODUCT_OFFERING] de l’utilisation courante de MetraOffer.</value>
+    <value>Cliquez sur OK pour masquer cette [TEXT_KEYTERM_PRODUCT_OFFERING] de l'utilisation courante de MetraOffer.</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_UNHIDE_PRODUCT_OFFERING">
-    <value>Cliquez sur OK pour afficher de nouveau cette [TEXT_KEYTERM_PRODUCT_OFFERING] dans le cadre de l’utilisation courante de MetraOffer.</value>
+    <value>Cliquez sur OK pour afficher de nouveau cette [TEXT_KEYTERM_PRODUCT_OFFERING] dans le cadre de l'utilisation courante de MetraOffer.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_PRODUCTOFFERING_ALREADY_HAS_PENDING_CHANGE">
-    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] possède actuellement une mise à jour en attente d’approbation. Pour des raisons de cohérence, d’autres mises à jour ne peuvent pas être effectuées tant que le changement en attente est approuvé ou refusé.</value>
+    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] possède actuellement une mise à jour en attente d'approbation. Pour des raisons de cohérence, d'autres mises à jour ne peuvent pas être effectuées tant que le changement en attente est approuvé ou refusé.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_BLOCKING_CHANGES">
-    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] possède actuellement une mise à jour en attente d’approbation. Pour des raisons de cohérence, d’autres mises à jour ne peuvent pas être effectuées tant que le changement en attente est approuvé ou refusé.</value>
+    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] possède actuellement une mise à jour en attente d'approbation. Pour des raisons de cohérence, d'autres mises à jour ne peuvent pas être effectuées tant que le changement en attente est approuvé ou refusé.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_PENDING_CHANGES">
-    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] possède actuellement une mise à jour en cours d’approbation.</value>
+    <value>Cette [TEXT_KEYTERM_PRODUCT_OFFERING] possède actuellement une mise à jour en cours d'approbation.</value>
     <description></description>
   </text>
   <text id="TEXT_GENERAL_TAB">

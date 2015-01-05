@@ -2,11 +2,11 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-    <value>Journal d’audit du catalogue produits</value>
+    <value>Journal d'audit du catalogue produits</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_AUDIT_LOG">
-    <value>Afficher le journal d’audit</value>
+    <value>Afficher le journal d'audit</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOG_DESCRIPTION">
@@ -38,31 +38,31 @@
     <description></description>
   </text>
   <text id="TEXT_AUDIT_APPLICATION_NAME">
-    <value>Nom de l’application</value>
+    <value>Nom de l'application</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>ID d’entité</value>
+    <value>ID d'entité</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_AUDIT_ID">
-    <value>ID d’audit</value>
+    <value>ID d'audit</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENT_ID">
-    <value>ID d’événement</value>
+    <value>ID d'événement</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USER_ID">
-    <value>ID de l’utilisateur</value>
+    <value>ID de l'utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-    <value>ID de type d’entité</value>
+    <value>ID de type d'entité</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>ID d’entité</value>
+    <value>ID d'entité</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DT_CRT">
@@ -78,7 +78,7 @@
     <description></description>
   </text>
   <text id="TEXT_CURRENT_GMT_TIME_IS">
-    <value>L’heur GMT actuelle est</value>
+    <value>L'heur GMT actuelle est</value>
     <description></description>
   </text>
 </texts>

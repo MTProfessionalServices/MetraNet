@@ -3,7 +3,7 @@
   <Properties>
   <Property>
 	<Name>limit</Name>
-  <Value>1</Value>
+  <Value>10</Value>
   </Property>
   </Properties>
 </Widget>

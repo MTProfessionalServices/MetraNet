@@ -22,7 +22,7 @@
   function iDColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
     var str = "";
-    str += String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.asp?ID={0}'>{1}</a>", value, value);   
+    str += String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.asp?ID={0}&ReturnURL={2}'>{1}</a>", value, value, encodeURIComponent("/MetraNet/MetraControl/BillingManagement/IntervalManagementList.aspx?Intervals=<%=statusFilterValue%>"));
     return str;
   }
   

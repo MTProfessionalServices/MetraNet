@@ -22,7 +22,7 @@
     <description></description>
   </text>
   <text id="TEXT_INVALID_BLANK_LOGIN">
-    <value>Le nom d’utilisateur ou le mot de passe doit être renseigné. Réessayez.</value>
+    <value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value>
     <description></description>
   </text>
 </texts>

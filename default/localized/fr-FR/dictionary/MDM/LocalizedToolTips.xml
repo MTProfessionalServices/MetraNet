@@ -80,11 +80,11 @@
     <description></description>
   </text>
   <text id="TEXT_SUCCEED">
-    <value>L'opération a abouti</value>
+    <value>Opération réussie</value>
     <description></description>
   </text>
   <text id="TEXT_FAILED">
-    <value>L'opération a échoué</value>
+    <value>Échec</value>
     <description></description>
   </text>
   <text id="TEXT_NONE">
@@ -104,7 +104,7 @@
     <description></description>
   </text>
   <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-    <value>Ces informations n'ont pas pu être ajoutées.</value>
+    <value>Les informations ont été ajoutées.</value>
     <description></description>
   </text>
   <text id="TEXT_OPERATION">

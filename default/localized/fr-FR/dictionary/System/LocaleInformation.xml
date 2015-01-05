@@ -96,15 +96,15 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>annule</value>
+    <value>Annuler</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>prochaine mois</value>
+    <value>Mois prochain</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>mois dernier</value>
+    <value>Mois précédent</value>
     <description></description>
-  </text>  
+  </text>
 </texts>

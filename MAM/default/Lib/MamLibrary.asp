@@ -761,6 +761,15 @@ PUBLIC FUNCTION mam_ConvertToSysDate(localeDate)
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_DateFromLocaleString()
+' PARAMETERS	: string with localized date
+' DESCRIPTION : Returns date type from string. (CORE-8563 - CDate converts properly in all localizations. It only does not like "." symbols)
+' RETURNS			: date
+PUBLIC FUNCTION mam_DateFromLocaleString(dateString)
+   mam_DateFromLocaleString = CDate(Replace(dateString,".","/"))
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: mam_GetNormalDateFormat()
 ' PARAMETERS	:
 ' DESCRIPTION :

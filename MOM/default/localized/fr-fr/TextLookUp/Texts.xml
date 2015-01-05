@@ -25,13 +25,13 @@
     <value>Connexion MetraControl</value>
   </text>
   <text id="TEXT_USERNAME">
-    <value>Nom d’utilisateur</value>
+    <value>Nom d'utilisateur</value>
   </text>
   <text id="TEXT_PASSWORD">
     <value>Mot de passe</value>
   </text>
   <text id="TEXT_LOGIN_USERNAME">
-    <value>Nom d’utilisateur</value>
+    <value>Nom d'utilisateur</value>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
     <value>Mot de passe</value>

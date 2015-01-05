@@ -16,7 +16,7 @@
     <value>Modification des abonnements en vrac</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_SOURCE">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] source</value>
+    <value>Source [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_DESTINATION">
     <value>[TEXT_KEYTERM_PRODUCT_OFFERING] cible</value>

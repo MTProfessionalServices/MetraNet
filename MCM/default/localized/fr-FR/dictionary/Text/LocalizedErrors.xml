@@ -42,7 +42,7 @@
     I removed this entry because it is not used and it is defined with a new value in mcm 3.0
     text id="FrameWork_ERROR_1000"><value>E-Mail is not valid</value></text -->
   <text id="ERROR_ITEM_NOT_FOUND">
-    <value>Élément introuvable pour l’ID :</value>
+    <value>Impossible de trouver l'élément pour l'ID :</value>
     <description></description>
   </text>
   <text id="ERROR_ITEM_NO_PARAMETER_TABLES">

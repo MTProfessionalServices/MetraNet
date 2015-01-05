@@ -18,63 +18,63 @@
     <description></description>
   </text>
   <text id="TEXT_PO_WITHOUT_PI_MESSAGE">
-    <value><![CDATA[[FR]Currently, this Product Offering does not contain any Priceable Items or Discounts.<br /><br />Click 
+    <value><![CDATA[Actuellement, cette offre produit ne contient pas d'élément à prix ni de remise.<br /><br />Cliquez 
                             <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
               <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,-2);</xsl:attribute>
-              here</a>
-             to go to the product offering screen to add items]]></value>
+              ici</a>
+             afin d'accéder à l'écran des offres produit pour ajouter des éléments]]></value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_NOT_MAPPED_MESSAGE">
-    <value><![CDATA[[FR]This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../name" />' priceable item above and create a mapping.]]></value>
+    <value><![CDATA[Ce tableau des paramètres n'est pas mappé à un tarif pour cette offre produit. Sélectionnez l'élément à prix '<xsl:value-of select="../../name" />' ci-dessus et créez un mappage.]]></value>
     <description></description>
   </text>
   <text id="TEXT_SELECTED_PO">
-    <value>[FR]Selected Product Offering</value>
+    <value>Offre produit sélectionnée</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLES_PLM_UPDATED">
-    <value>[FR]Parameter Tables To Have Their Price List Mappings Updated</value>
+    <value>Tableaux de paramètres ayant des mappages de tarifs à mettre à jour</value>
     <description></description>
   </text>
   <text id="TEXT_PO_WITHOUT_PI_MESSAGE2">
-    <value><![CDATA[[FR]Currently, this Product Offering does not contain any Priceable Items or Discounts.<br /><br />Please return to the Product Offering screen to add items to be included in the product offering.]]></value>
+    <value><![CDATA[Actuellement, cette offre produit ne contient pas d'élément à prix ni de remise.<br /><br />Retournez à l'écran des offres produit pour ajouter des éléments à inclure dans cette offre produit.]]></value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE_NOT_MAPPED">
-    <value>[FR]This parameter table is not mapped to a pricelist.</value>
+    <value>Ce tableau de paramètres n'est pas mappé à un tarif.</value>
     <description></description>
   </text>
   <text id="TEXT_PO_WITHOUT_PI_MESSAGE3">
-    <value>[FR]Currently there are no priceable items of this type in the Product Catalog</value>
+    <value>Actuellement, il n'existe aucun élément à prix de ce type dans le catalogue de produits</value>
     <description></description>
   </text>
   <text id="TEXT_RETURN_TO_PREVIOUS_SEARCH">
-    <value>[FR]Return To Previous Search Results</value>
+    <value>Retourner aux résultats de recherche précédents</value>
     <description></description>
   </text>  
   <text id="TEXT_SELECTED_PL">
-    <value>[FR]Selected Price List</value>
+    <value>Tarif sélectionné</value>
     <description></description>
   </text>
   <text id="TEXT_PL_CONTAINS_RATES">
-    <value>[FR]This Price List contains rates or configuration information for the following items</value>
+    <value>Ce tarif contient des prix ou des informations de configuration pour les éléments suivants</value>
     <description></description>
   </text>
   <text id="TEXT_PO_WITHOUT_PI_MESSAGE4">
-    <value><![CDATA[[FR]Currently, this Price List does not contain any rate schedules for any Priceable Items.<br /><br />Click 
+    <value><![CDATA[Actuellement, ce tarif ne contient pas d'échelle tarifaire pour les éléments à prix.<br /><br />Cliquez 
                             <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
               <xsl:attribute name="href">javascript:OpenAddRateScheduleWindow();</xsl:attribute>
-              here</a>
-             to go to the Price List screen to add rates or configuration information]]></value>
+              ici</a>
+             afin d'accéder à l'écran des tarifs pour ajouter des prix ou des informations de configuration]]></value>
     <description></description>
   </text>
   <text id="TEXT_RATES_CAN_BE_SET">
-    <value>[FR]Personal Rates can be set for this item</value>
+    <value>Des prix personnels peuvent être définis pour cet élément</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_CANNOT_BE_SET">
-    <value>[FR]Personal Rates cannot be set for this item</value>
+    <value>Impossible de définir des prix personnels pour cet élément</value>
     <description></description>
   </text>
 </texts>

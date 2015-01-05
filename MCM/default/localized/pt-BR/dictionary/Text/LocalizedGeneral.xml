@@ -193,19 +193,19 @@
     <description></description>
   </text>
   <text id="TEXT_EXTENDED_PROPERTIES">
-    <value>[pt-BR]Extended Properties</value>
+    <value>Propriedades estendidas</value>
     <description></description>
   </text>
   <text id="TEXT_WHAT_IS_EXTENDED_PROPERTIES">
-    <value>[pt-BR]What are extended properties?</value>
+    <value>O que são propriedades estendidas?</value>
     <description></description>
   </text>
   <text id="TEXT_OTHER_ACTIONS">
-    <value>[pt-BR]Other Actions</value>
+    <value>Outras Ações</value>
     <description></description>
   </text>
   <text id="TEXT_CHECK_CONFIGURATION">
-    <value>[pt-BR]Check Configuration</value>
+    <value>Verificar Configuração</value>
     <description></description>
   </text>
   <text id="TEXT_Change_the_price_list">
@@ -213,111 +213,111 @@
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
-    <value>[pt-BR]Update Price List Mappings</value>
+    <value>Atualizar Mapeamentos da Lista de Preços</value>
     <description></description>
   </text>
   <text id="TEXT_COPY">
-    <value>[pt-BR]Copy</value>
+    <value>COP</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_RATES">
-    <value>[pt-BR]Add Rates For Additional Parameter Tables</value>
+    <value>Adicionar Tarifas a mais Tabelas de Parâmetros</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_SUBSCR_AND_ASSOCIATIONS">
-    <value>[pt-BR]View Subscriptions and Default Pricelist Associations</value>
+    <value>Exibir Assinaturas e Associações de Lista de Preços Padrão</value>
     <description></description>
   </text>
   <text id="TEXT_CHANGES_POTENTIALLY_AFFECT1">
-    <value><![CDATA[&nbsp;&nbsp;[pt-BR]Changes to these rate schedules potentially affect <b>]]></value>
+    <value><![CDATA[&nbsp;&nbsp;As alterações a esses cronogramas de tarifas potencialmente afetam <b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_CHANGES_POTENTIALLY_AFFECT2">
-    <value><![CDATA[</b> [pt-BR]subscribers.&nbsp;&nbsp;]]></value>
+    <value><![CDATA[</b> assinantes.&nbsp;&nbsp;]]></value>
     <description></description>
   </text>
   <text id="TEXT_NO_RATE_SCHEDULES">
-    <value><![CDATA[<span style='font-weight:normal;'><b>[pt-BR]There are currently no rate schedules on this price list for this parameter table.</b><BR><BR> Use the 'New Rate Schedule' button above to create one or use this button to automatically create a default rate schedule that would always be in effect (no start date and no end date):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>[pt-BR]Create Default Rate Schedule</button><BR></span>]]></value>
+    <value><![CDATA[<span style='font-weight:normal;'><b>Atualmente, não há cronogramas de tarifas nessa lista de preços dessa tabela de parâmetros.</b><BR><BR> Use o botão 'Novo Cronograma de Tarifas'acima para criar um ou use esse botão para criar automaticamente um cronograma de tarifas padrão que sempre estará em efeito (sem data de início ou término):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>Criar Cronograma de Tarifas Padrão</button><BR></span>]]></value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">
-    <value><![CDATA[[pt-BR]Parameter Table: <b>]]></value>
+    <value><![CDATA[Tabela de Parâmetros: <b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_RATES_STORED_ON_PO">
-    <value><![CDATA[</b><br>[pt-BR]Rates are stored on the Product Offering's non-shared price list.<br>]]></value>
+    <value><![CDATA[</b><br>As tarifas são armazenadas na lista de produtos não compartilhada da Oferta de Produto.<br>]]></value>
     <description></description>
   </text>
   <text id="TEXT_RATES_STORED_ON_SHARED_PL">
-    <value><![CDATA[</b><br>[pt-BR]Rates are stored on the shared price list '<b>]]></value>
+    <value><![CDATA[</b><br>As tarifas são armazenadas na lista de preços padrão'<b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_RATE_SCHEDULE_TITLE">
-    <value>[pt-BR]Create a new rate schedule and copy the rates from this rate schedule</value>
+    <value>Criar um novo cronograma de tarifas e copiar as tarifa desse cronograma de agendamento</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_RATE_SCHEDULE">
-    <value>[pt-BR]New Rate Schedule From This One</value>
+    <value>Novo Cronograma de Tarifas com Base Neste</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_HISTORY">
-    <value>[pt-BR]View History</value>
+    <value>Exibir histórico</value>
     <description></description>
   </text>
   <text id="TEXT_EXPORT_TO_EXCEL">
-    <value>[pt-BR]Export To Excel</value>
+    <value>Exportar para Excel</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_FROM_EXCEL">
-    <value>[pt-BR]Import From Excel</value>
+    <value>Importar do Excel</value>
     <description></description>
   </text>
   <text id="TEXT_BULK_UPDATE">
-    <value>[pt-BR]Bulk Update</value>
+    <value>Atualização em massa</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_INFO">
-    <value>[pt-BR]Update Price List Information</value>
+    <value>Atualizar Informações de Lista de Preços</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ALLOW_PERS_RATES_INFO">
-    <value>[pt-BR]Update 'Allow Personal Rates' Information</value>
+    <value>Atualizar informações de 'Permitir Tarifas Pessoais'</value>
     <description></description>
   </text>
   <text id="TEXT_PRICE_LIST">
-    <value>[pt-BR]Price List</value>
+    <value>Lista de preços</value>
     <description></description>
   </text>
   <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
-    <value>[pt-BR]Do not allow Personal Rates to be set</value>
+    <value>Não permitir a definição de Tarifas Pessoais</value>
     <description></description>
   </text>
   <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
-    <value>[pt-BR]Do not allow Personal Rates to be set</value>
+    <value>Não permitir a definição de Tarifas Pessoais</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
-    <value>[pt-BR]Update Selected Price List Mappings</value>
+    <value>Atualizar Mapeamentos de Lista de Preços Selecionada</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSE">
-    <value>[pt-BR]Close</value>
+    <value>Fechar</value>
     <description></description>
   </text>
   <text id="TEXT_GENERAL_TAB">
-    <value>[pt-BR]General</value>
+    <value>Geral</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMEETR_TABL_MAPPINGS_TAB">
-    <value>[pt-BR]Parameter Table Mappings</value>
+    <value>Mapeamentos de Tabela de Parâmetros</value>
     <description></description>
   </text>
   <text id="TEXT_COUNTERS_TAB">
-    <value>[pt-BR]Counters</value>
+    <value>Contadores</value>
     <description></description>
   </text>
   <text id="TEXT_OVERVIEW_TAB">
-    <value>[pt-BR]Overview</value>
+    <value>Visão Geral</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SCHEDULE_HISTORY">

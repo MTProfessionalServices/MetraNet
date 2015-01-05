@@ -48,7 +48,7 @@
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_PRICELIST_MAPPINGS_CANNOT_BE_MODIFIED">
-    <value><![CDATA[Cette [TEXT_KEYTERM_PRODUCT_OFFERING] est disponible à l’abonnement ; par conséquent les mappages de liste de prix ne peuvent pas être mis à jour. <br />Cependant, l’autorisation (ou non), pour un utilisateur, d’entrer les [TEXT_KEYTERM_PERSONAL_RATES] pour un abonné peut être mise à jour.]]></value>
+    <value><![CDATA[Il est possible de s'abonner à [TEXT_KEYTERM_PRODUCT_OFFERING]. Par conséquent, les mappages de tarifs ne peuvent pas être mis à jour. <br />Toutefois, vous pouvez modifier le paramètre indiquant si les utilisateurs sont autorisés à saisir des [TEXT_KEYTERM_PERSONAL_RATES] pour l'abonné.]]></value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_NEW_PRODUCT_OFFERING">
@@ -189,19 +189,19 @@
     <description></description>
   </text>
   <text id="TEXT_GENERAL_TAB">
-    <value>[FR]General</value>
+    <value>Général</value>
     <description></description>
   </text>
   <text id="TEXT_PROPERTIES_TAB">
-    <value>[FR]Properties</value>
+    <value>Propriétés</value>
     <description></description>
   </text>
   <text id="TEXT_INCLUDED_ITEMS_TAB">
-    <value>[FR]Included Items</value>
+    <value>Eléments inclus</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_RESTRICTIONS_TAB">
-    <value>[FR]Subscription Restrictions</value>
+    <value>Restrictions d'abonnement</value>
     <description></description>
   </text>
 </texts>

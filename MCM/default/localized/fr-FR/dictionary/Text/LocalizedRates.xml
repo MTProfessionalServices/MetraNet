@@ -22,7 +22,7 @@
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_PRICELIST">
-    <value>Sélectionner la [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Sélectionner une [TEXT_KEYTERM_PRICE_LIST]</value>
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_PRODUCT_OFFERING">
@@ -58,15 +58,15 @@
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_PICKER_TITLE">
-    <value>Sélectionnez un [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>Sélectionner un [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_LIST_TITLE">
-    <value>Sélectionnez un [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>Sélectionner un [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_EDIT_PROPERTIES">
-    <value>Modifier une propriété</value>
+    <value>Modifier les propriétés</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_COLUMN_PRICELIST">

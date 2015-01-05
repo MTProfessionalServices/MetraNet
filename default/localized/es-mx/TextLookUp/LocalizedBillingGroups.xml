@@ -207,4 +207,7 @@
   <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
     <value>[es-MX]Accounts with Bill-To addresses residing in a South American country</value>
   </text>
+  <text id="TEXT_RETURN_TO_INTERVAL_LIST">
+    <value>[es-MX]Return To Interval List</value>
+  </text>
 </texts>

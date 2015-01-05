@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_USM_MANUAL">
-    <value>Lancer la maintenance du serveur d’utilisation</value>
+    <value>Lancer la maintenance du serveur d'utilisation</value>
   </text>
   <text id="TEXT_USM_CLOSE">
     <value>Fermer</value>

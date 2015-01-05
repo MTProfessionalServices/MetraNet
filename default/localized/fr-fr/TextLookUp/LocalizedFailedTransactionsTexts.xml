@@ -22,7 +22,7 @@
     <value>Temps chronométré</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_CODE">
-    <value>Code d’erreur</value>
+    <value>Code d'erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_DESCRIPTION">
     <value>Description de l'erreur</value>
@@ -64,7 +64,7 @@
     <value>Erreur lors de l'envoi de la transaction au pipeline. Affichez le fichier journal.</value>
   </text>
   <text id="TEXT_INTERVAL_ID">
-    <value>ID de l’intervalle</value>
+    <value>ID de l'intervalle</value>
   </text>
   <text id="TEXT_SESSION_ID">
     <value>ID de la session</value>
@@ -79,7 +79,7 @@
     <value>Nom du service</value>
   </text>
   <text id="TEXT_ERROR_MESSAGE">
-    <value>Message d’erreur</value>
+    <value>Message d'erreur</value>
   </text>
   <text id="TEXT_ERROR">
     <value>Erreur</value>
@@ -163,7 +163,7 @@
     <value>Ouvrir</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_UNDER_INVESTIGATION">
-    <value>En cours d’examen</value>
+    <value>En cours d'examen</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_CORRECTED">
     <value>Corrigé - En attente de renvoi</value>
@@ -208,7 +208,7 @@
     <value>Service avec erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_MESSAGE">
-    <value>Message d’erreur</value>
+    <value>Message d'erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS">
     <value>État</value>
@@ -217,7 +217,7 @@
     <value>Ouvrir</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">
-    <value>En cours d’examen</value>
+    <value>En cours d'examen</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">
     <value>Code de motif</value>
@@ -274,7 +274,7 @@
     <value>Ce dossier ou cette transaction en échec est actuellement résolu. Il est prêt à être renvoyé au système pour traitement.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED_DESCRIPTION">
-    <value>Ce dossier ou cette transaction en échec ne peut pas être résolu ou sa résolution n’est pas rentable.</value>
+    <value>Ce dossier ou cette transaction en échec ne peut pas être résolu ou sa résolution n'est pas rentable.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_MAKE_BULK_CHANGE">
     <value>Effectuer une modification massive</value>

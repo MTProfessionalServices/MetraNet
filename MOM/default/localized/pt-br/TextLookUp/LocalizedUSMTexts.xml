@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_USM_MANUAL">
-    <value>[pt-BR]Run Usage Server Maintenance</value>
+    <value>Manutenção do servidor de utilização</value>
   </text>
   <text id="TEXT_USM_CLOSE">
-    <value>[pt-BR]Close</value>
+    <value>Fechar</value>
   </text>
   <text id="TEXT_USM_RUN">
-    <value>[pt-BR]Run</value>
+    <value>Executar</value>
   </text>
   <text id="TEXT_USM_ACTION">
-    <value>[pt-BR]Action</value>
+    <value>Ação</value>
   </text>
   <text id="TEXT_USM_DESCRIPTION">
-    <value>[pt-BR]Description</value>
+    <value>Descrição</value>
   </text>
   <text id="TEXT_USM_CLOSE_DESCRIPTION">
-    <value><![CDATA[<strong>[pt-BR]Automatically Soft Close the Billing Groups of Expired Usage Intervals.</strong><br>Each night the platform will check for intervals that have ended and using the grace period configuration below, automatically create billing groups and change their state to 'Soft Closed'.]]></value>
+    <value><![CDATA[<strong>Finalize Automaticamente as Atividades dos Grupos de Cobrança de Intervalos de Uso Expirados.</strong><br>A cada noite, a plataforma procurará intervalos que terminaram e, usando a configuração do período de bonificação abaixo, criará automaticamente os grupos de cobrança e alterará seu status para  'Finalizado.]]></value>
   </text>
   <text id="TEXT_USM_CLOSE_INTERVAL_HEADER">
-    <value><![CDATA[[pt-BR]Automatically create and Soft Close Billing Groups for:]]></value>
+    <value><![CDATA[Criar e fazer o fechamento simplificado dos grupos para:]]></value>
   </text>
   <text id="TEXT_USM_CLOSE_BLOCK_ACCOUNT_DESCRIPTION">
-    <value><![CDATA[[pt-BR]When automatically closing intervals, block the intervals to new accounts.]]></value>
+    <value><![CDATA[Ao fechar intervalos automaticamente, bloquear os intervalos para novas contas.]]></value>
   </text>
   <text id="TEXT_USM_RUN_DESCRIPTION">
-    <value><![CDATA[<strong>[pt-BR]Automatically Run End Of Period Adapters On Soft Closed Billing Groups</strong><BR>Once a Billing Group has been Soft Closed, either automatically or manually, the platform will automatically start running End Of Period adapters.]]></value>
+    <value><![CDATA[<strong>Executar Automaticamente Adaptadores de Fim do Período em Grupos de Cobrança finalizados</strong><BR>Depois que um grupo de cobrança for finalizado, automatica ou manualmente, a plataforma começará a executar adaptadores de Fim do Período.]]></value>
   </text>
   <text id="TEXT_USM_RUN_SCHEDULED_ADAPTERS_DESCRIPTION">
-    <value><![CDATA[<strong>[pt-BR]Run Scheduled Adapters</strong><BR>The platform will periodically run configured scheduled adapters. Note: If this setting is not selected, all scheduled adapters will need to be run manually.]]></value>
+    <value><![CDATA[A plataforma executará periodicamente os adaptadores programados e configurados. Observação: se esta configuração não for selecionada, todos os adaptadores programados precisarão ser executados manualmente.]]></value>
   </text>
   <text id="TEXT_USM_AUTO_CONFIG_TITLE">
-    <value>[pt-BR]Usage Server Maintenance Configuration</value>
+    <value>Configuração der Manutenção do Servidor de Uso</value>
   </text>
   <text id="TEXT_USM_AUTO_INFORMATION">
-    <value>[pt-BR]These settings control various aspects of Usage Server Maintenance.</value>
+    <value>Essas configurações controlam vários aspectos da Manutenção do Servidor de Uso.</value>
   </text>
   <text id="TEXT_USM_AUTO_ENABLED">
-    <value>[pt-BR]Enabled</value>
+    <value>Ativado</value>
   </text>
   <text id="TEXT_USM_UPDATE_CONFIG">
-    <value>[pt-BR]Save Configuration</value>
+    <value>Configurações de gravação</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_CONFIG_TITLE">
-    <value>[pt-BR]Usage Server Maintenance Grace Period Configuration</value>
+    <value>Configuração do Período de Bonificação de Manutenção do Servidor de Uso</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_CONFIG_INFORMATION">
-    <value>[pt-BR]Grace periods used by UsageServerMaintenance.exe for determining when to Soft Close or Hard Close intervals automatically.</value>
+    <value>Os períodos de bonificação usados por UsageServerMaintenance.exe para determinar quando Fechar Permanentemente ou Finalizar intervalos de modo automático.</value>
   </text>
   <text id="TEXT_USM_SETTINGS">
-    <value>[pt-BR]Settings</value>
+    <value>Configurações</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_SOFT">
-    <value>[pt-BR]Soft Close Grace Period</value>
+    <value>Finalizar o Período de Graça</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_HARD">
-    <value>[pt-BR]Hard Close Grace Period</value>
+    <value>Fechar Permanentemente o Período de Graça</value>
   </text>
 </texts>

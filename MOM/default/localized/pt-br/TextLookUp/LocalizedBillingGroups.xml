@@ -1,145 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BILLING_GROUP">
-    <value>[pt-BR]Billing Group</value>
+    <value>Grupo de faturamento</value>
   </text>
   <text id="TEXT_SUCCEED">
-    <value>[pt-BR]Succeed</value>
+    <value>Bem-sucedido</value>
   </text>
   <text id="TEXT_FAILED">
-    <value>[pt-BR]Failed</value>
+    <value>Falhou</value>
   </text>
   <text id="TEXT_ADAPTERS">
-    <value>[pt-BR]Adapters</value>
+    <value>Adaptador</value>
   </text>
   <text id="TEXT_MEMBERS">
-    <value>[pt-BR]Members</value>
+    <value>Membros</value>
   </text>
   <text id="TEXT_STATUS">
-    <value>[pt-BR]Status</value>
+    <value>Status</value>
   </text>
   <text id="TEXT_BILLING_GROUPS">
-    <value>[pt-BR]Billing Groups</value>
+    <value>Grupo de faturamento</value>
   </text>
   <text id="TEXT_BILLING_GROUPS_FOR_INTERVAL">
-    <value>[pt-BR]Billing Groups for Interval</value>
+    <value>Grupos de Cobrança do Intervalo</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS_DESCRIPTION">
-    <value>[pt-BR]Select to view statistics for all billing groups in this interval.</value>
+    <value>Selecione para exibir estatísticas de todos os grupos de cobrança do intervalo.</value>
   </text>
   <text id="TEXT_LOCATE_PAYER_DESCRIPTION">
-    <value>[pt-BR]Find a payer's billing group for this interval.</value>
+    <value>Encontre um grupo de cobrança de contribuinte para esse intervalo.</value>
   </text>
   <text id="TEXT_MATERIALIZE">
-    <value>[pt-BR]Create Billing Groups for Interval</value>
+    <value>Criar Grupos de Cobrança para o Intervalo</value>
   </text>
   <text id="TEXT_REMATERIALIZE">
-    <value>[pt-BR]Recreate Billing Groups for Interval</value>
+    <value>Recriar Grupos de Cobrança para o Intervalo</value>
   </text>
   <text id="TEXT_MATERIALIZE_WAIT">
-    <value>[pt-BR]Please wait while billing groups are populated...</value>
+    <value>Aguarde enquanto os grupos de cobrança são preenchidos...</value>
   </text>
   <text id="TEXT_CREATE_GROUP_DESCRIPTION">
-    <value>[pt-BR]Create a pull list for this billing group.</value>
+    <value>Crie uma lista de extração para esse grupo de cobrança.</value>
   </text>
   <text id="TEXT_VIEW_HISTORY_DESCRIPTION">
-    <value>[pt-BR]View Billing Process Adapter history for this billing group in this interval.</value>
+    <value>Exibir o histórico do Adaptador do Processo de Cobrança desse grupo de cobrança nesse intervalo.</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION">
-    <value>[pt-BR]Select to view statistics for this billing group and interval.</value>
+    <value>Selecione para exibir as estatísticas desse grupo de cobrança e intervalo.</value>
   </text>
   <text id="TEXT_CREATE_PULL_LIST_ACCOUNT_DESCRIPTION">
-    <value>[pt-BR]A pull list is used to remove accounts from the current billing group. These accounts will be placed in this newly created billing group. Specify either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
+    <value>Uma lista de extração foi usada para remover contas do grupo de cobrança atual. Essas contas serão colocadas nesse grupo de cobrança recém-criado. Especifique IDs de conta separadas por retornos ou pares de nome de usuário vírgula namespace separados por retornos.</value>
   </text>
   <text id="TEXT_CREATE_PULL_LIST_FILE_DESCRIPTION">
-    <value>[pt-BR]A pull list file is used to remove accounts from the current billing group.  These accounts will be placed in this newly created billing group.  The file format is a UTF-8 encoded text file that specifies either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
+    <value>Uma lista de extração foi usada para remover contas do grupo de cobrança atual. Essas contas serão colocadas nesse grupo de cobrança recém-criado. O formato de arquivo é arquivo de texto codificado na base UTF-8 que especifica as IDs de conta separadas por retornos ou pares de nome de usuário vírgula namespace separados por retornos.</value>
   </text>
   <text id="TEXT_NO_BILLING_GROUPS">
-    <value>[pt-BR]Your system has valid billing group definitions, but the system has not assigned payers to groups for this interval. Please click the Create Billing Groups for Interval button above.</value>
+    <value>O sistema tem definições de grupos de cobrança válidos, mas não atribuiu contribuintes aos grupos desse intervalo. Clique no botão Criar Grupos de Cobrança para o Intervalo acima.</value>
   </text>
   <text id="TEXT_NO_PAYING_ACCOUNTS_IN_INTERVAL_DESCRIPTION">
-    <value>[pt-BR]This interval does not have any paying accounts or any accounts to invoice. It can be hard closed directly by clicking on the button below.</value>
+    <value>O intervalo não tem contas pagadoras ou nenhuma conta para faturar. Ele pode ser fechado permanentemente de modo direto clicando-se no botão abaixo.</value>
   </text>
   <text id="TEXT_TOGGLE_HIERARCHY_DISPLAY">
-    <value>[pt-BR]Toggle Hierarchy Display</value>
+    <value>Alterar Exibição da Hierarquia</value>
   </text>
   <text id="TEXT_HARD_CLOSE_THIS_INTERVAL">
-    <value>[pt-BR]Hard Close This Interval</value>
+    <value>Fechar Permanentemente Esse Intervalo</value>
   </text>
   <text id="TEXT_SUB_BILLING_GROUPS">
-    <value>[pt-BR]Sub-Billing Groups Created from Pull Lists:</value>
+    <value>Grupos de Subcobrança Criados de Listas de Extração:</value>
   </text>
   <text id="TEXT_BG_INTERVALID">
-    <value>[pt-BR]Interval</value>
+    <value>Intervalo</value>
   </text>
   <text id="TEXT_BG_CYCLE_TYPE">
-    <value>[pt-BR]Type</value>
+    <value>Tipo</value>
   </text>
   <text id="TEXT_BG_START">
-    <value>[pt-BR]Start</value>
+    <value>Início</value>
   </text>
   <text id="TEXT_BG_END">
-    <value>[pt-BR]End</value>
+    <value>Término</value>
   </text>
   <text id="TEXT_BG_TOTAL_GROUP_COUNT">
-    <value>[pt-BR]Groups</value>
+    <value>Grupo</value>
   </text>
   <text id="TEXT_BG_OPEN_BILLING_GROUP_COUNT">
-    <value>[pt-BR]Open</value>
+    <value>Abrir</value>
   </text>
   <text id="TEXT_BG_SOFT_CLOSED_GROUP_COUNT">
-    <value>[pt-BR]Soft Closed</value>
+    <value>Fechado simplificadamente</value>
   </text>
   <text id="TEXT_BG_HARD_CLOSED_GROUP_COUNT">
-    <value>[pt-BR]Hard Closed</value>
+    <value>Fechado detalhadamente</value>
   </text>
   <text id="TEXT_BG_UNASSIGNED">
-    <value>[pt-BR]Unassigned Accounts</value>
+    <value>Contas Não Atribuídas</value>
   </text>
   <text id="TEXT_BG_PROGRESS">
-    <value>[pt-BR]Progress</value>
+    <value>Progresso</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS">
-    <value>[pt-BR]View Statistics</value>
+    <value>Exibir Estatísticas</value>
   </text>
   <text id="TEXT_REFRESH_INTERVAL_DETAILS">
-    <value>[pt-BR]Refresh interval details</value>
+    <value>Atualizar detalhes do intervalo</value>
   </text>
   <text id="TEXT_LOCATE_PAYER">
-    <value>[pt-BR]Locate Payer</value>
+    <value>Localizar Contribuinte</value>
   </text>
   <text id="TEXT_MANUALLY_ASSIGN_ACCOUNTS">
-    <value>[pt-BR]Manually Assign Accounts</value>
+    <value>Atribuir Contas Manualmente</value>
   </text>
   <text id="TEXT_TEMP_BILLING_GROUP">
-    <value>[pt-BR]Create a temporary billing group for this interval in order to bill for unassigned accounts.</value>
+    <value>Crie um grupo de cobrança temporário para esse intervalo para cobrar contas não atribuídas.</value>
   </text>
   <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_TITLE">
-    <value>[pt-BR]Accounts That Had Reported Failures For This Adapter Run</value>
+    <value>Contas que Tinham Falhas Relatadas para Execução Desse Adaptador</value>
   </text>
   <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_NO_ACCOUNTS_FOUND">
-    <value>[pt-BR]No accounts with reported failures were found. Either this adapter did not report any batches or in the reported batches there were no failures against particular accounts. </value>
+    <value>Nenhuma conta com falhas relatadas foi encontrada. Esse adaptador não relatou nenhum lote ou não houve falhas nos lotes relatados em relação a determinadas contas. </value>
   </text>
   <text id="TEXT_OPENUNASSIGNED_ACCOUNTS">
-    <value>[pt-BR]Open Unassigned Accounts</value>
+    <value>Abrir Contas Não Atribuídas</value>
   </text>
   <text id="TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS">
-    <value>[pt-BR]Hard closed Unassigned Accounts</value>
+    <value>Contas Não Atribuídas Fechadas Permanentemente</value>
   </text>
   <text id="TEXT_ACCOUNTS_INVOICED">
-    <value>[pt-BR]New Accounts Can Be Invoiced For This Interval</value>
+    <value>Novas Contas Podem Ser Faturadas para Esse Intervalo</value>
   </text>
   <text id="TEXT_CHANGE">
-    <value>[pt-BR]Change</value>
+    <value>Alterar</value>
   </text>
   <text id="TEXT_ACCOUNTS_NOT_INVOICED">
-    <value>[pt-BR]New Accounts Will Not Be Invoiced For This Interval</value>
+    <value>Novas Contas Não Serão Faturadas para Esse Intervalo</value>
   </text>
   <text id="TEXT_REFRESH_INTERVAL_DETAILS">
-    <value>[pt-BR]Refresh Interval Details</value>
+    <value>Atualizar Detalhes do Intervalo</value>
   </text>
   <text id="TEXT_SUCCEEDED">
-    <value>[pt-BR]Succeeded</value>
+    <value>Bem-sucedido</value>
   </text>
   <text id="TEXT_BG_TITLE_INTERVAL">
     <value>[pt-BR]Interval</value>

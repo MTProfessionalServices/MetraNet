@@ -4,18 +4,18 @@
     The file defines localized string for VersionInfo.asp
   </description>
   <text id="TEXT_SYSTEM_VERSION_INFORMATION">
-    <value>[pt-BR]System Version Information</value>
+    <value>Informações de Versão do Sistema</value>
   </text>
   <text id="TEXT_ITEM">
-    <value>[pt-BR]Item</value>
+    <value>Item</value>
   </text>
   <text id="TEXT_DISPLAY_ALL_FILE_VERSIONS">
-    <value>[pt-BR]Display All File Versions</value>
+    <value>Exibir Todas as Versões do Arquivo</value>
   </text>
   <text id="TEXT_OPERATING_SYSTEM">
-    <value>[pt-BR]Operating System</value>
+    <value>Sistema Operacional</value>
   </text>
   <text id="TEXT_DATABASE_SERVER">
-    <value>[pt-BR]Database Server</value>
+    <value>Servidor de Banco se Dados</value>
   </text>
 </texts>

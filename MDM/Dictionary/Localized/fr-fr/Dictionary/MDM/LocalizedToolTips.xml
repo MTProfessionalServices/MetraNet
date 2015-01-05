@@ -4,107 +4,107 @@
     This file defines the MAM tool tips localization.
   </description>
   <text id="TEXT_OK">
-    <value>[FR]OK</value>
+    <value>OK</value>
     <description></description>
   </text>
   <text id="TEXT_CANCEL">
-    <value>[FR]Cancel</value>
+    <value>Annuler</value>
     <description></description>
   </text>
   <text id="TEXT_CLEAR">
-    <value>[FR]Clear</value>
+    <value>Effacer</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT">
-    <value>[FR]Edit</value>
+    <value>Modifier</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW">
-    <value>[FR]View</value>
+    <value>Afficher</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE">
-    <value>[FR]Delete</value>
+    <value>Supprimer</value>
     <description></description>
   </text>
   <text id="TEXT_ADD">
-    <value>[FR]Add</value>
+    <value>Ajouter</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE">
-    <value>[FR]Update</value>
+    <value>Mettre à jour</value>
     <description></description>
   </text>
   <text id="TEXT_HELP">
-    <value>[FR]Account Manager Help</value>
+    <value>Aide du gestionnaire de compte</value>
     <description></description>
   </text>
   <text id="TEXT_FULLSCREEN">
-    <value>[FR]Toggle Full Screen Mode</value>
+    <value>Alterner avec le mode Plein écran</value>
     <description></description>
   </text>
   <text id="TEXT_GO">
-    <value>[FR]Find Account</value>
+    <value>Rechercher le compte</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED">
-    <value>[FR]Advanced Find</value>
+    <value>Recherche avancée</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_DOWN">
-    <value>[FR]Show Detailed Information</value>
+    <value>Afficher les informations détaillées</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_UP">
-    <value>[FR]Hide Detailed Information</value>
+    <value>Masquer les informations détaillées</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSEWINDOW">
-    <value>[FR]Close Account</value>
+    <value>Fermer le compte</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_PAYMENT_METHOD">
-    <value>[FR]Add Payment Method</value>
+    <value>Ajouter une méthode de paiement</value>
     <description></description>
   </text>
   <text id="TEXT_ENTER">
-    <value>[FR]Enter</value>
+    <value>Entrer</value>
     <description></description>
   </text>
   <text id="TEXT_GO_BACK">
-    <value>[FR]Go Back to Find Results</value>
+    <value>Revenir aux résultats de la recherche</value>
     <description></description>
   </text>
   <text id="TEXT_APPLY">
-    <value>[FR]Apply</value>
+    <value>Appliquer</value>
     <description></description>
   </text>
   <text id="TEXT_SUCCEED">
-    <value>[FR]Succeed</value>
+    <value>Opération réussie</value>
     <description></description>
   </text>
   <text id="TEXT_FAILED">
-    <value>[FR]Failed</value>
+    <value>Échec</value>
     <description></description>
   </text>
   <text id="TEXT_NONE">
-    <value>[FR]None</value>
+    <value>Aucun(e)</value>
     <description></description>
   </text>
   <text id="TEXT_NO">
-    <value>[FR]No</value>
+    <value>Non</value>
     <description></description>
   </text>
   <text id="TEXT_YES">
-    <value>[FR]Yes</value>
+    <value>Oui</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSE">
-    <value>[FR]Close</value>
+    <value>Fermer</value>
     <description></description>
   </text>
   <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-    <value>[FR]The information was successfully added.</value>
+    <value>Les informations ont été ajoutées.</value>
     <description></description>
   </text>
 </texts>

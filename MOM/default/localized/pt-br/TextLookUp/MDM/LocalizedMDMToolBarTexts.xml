@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Toolbar Texts" type="collection">
   <text id="GO_TOOL_TIP">
-    <value>[pt-BR]Go</value>
+    <value>Ir</value>
     <description></description>
   </text>
   <text id="RESET_TOOL_TIP">
-    <value>[pt-BR]Reset</value>
+    <value>Redefinir</value>
     <description></description>
   </text>
   <text id="NEXT_PAGE_TOOL_TIP">
-    <value>[pt-BR]Next Page</value>
+    <value>Próxima página</value>
     <description></description>
   </text>
   <text id="PREVIOUS_PAGE_TOOL_TIP">
-    <value>[pt-BR]Previous Page</value>
+    <value>Página anterior</value>
     <description></description>
   </text>
   <text id="FIRST_PAGE_TOOL_TIP">
-    <value>[pt-BR]First Page</value>
+    <value>Primeira página</value>
     <description></description>
   </text>
   <text id="LAST_PAGE_TOOL_TIP">
-    <value>[pt-BR]Last Page</value>
+    <value>Última página</value>
     <description></description>
   </text>
   <text id="REFRESH_PAGE_TOOL_TIP">
-    <value>[pt-BR]Refresh Page</value>
+    <value>Atualizar página</value>
     <description></description>
   </text>
   <text id="EXPORT_PAGE_TOOL_TIP">
-    <value>[pt-BR]Export</value>
+    <value>Exportar</value>
     <description></description>
   </text>
   <text id="MDM_TOOL_BAR_PAGE_WORD">
-    <value>[pt-BR]Page</value>
+    <value>Página</value>
   </text>
   <text id="MDM_TOOL_BAR_OF_WORD">
-    <value>[pt-BR]of</value>
+    <value>de</value>
   </text>
   <text id="MDM_SELECT_ALL">
-    <value>[pt-BR]Select All</value>
+    <value>Selecionar tudo</value>
   </text>
   <text id="MDM_UNSELECT_ALL">
-    <value>[pt-BR]UnSelect All</value>
+    <value>Desmarcar tudo</value>
   </text>
   <text id="MDM_SELECT_PAGE">
-    <value>[pt-BR]Select Page</value>
+    <value>Selecionar página</value>
   </text>
   <text id="MDM_UNSELECT_PAGE">
-    <value>[pt-BR]UnSelect Page</value>
+    <value>Desmarcar página</value>
   </text>
   <text id="MDM_DATETIME_BETWEEN">
-    <value>[pt-BR]Between</value>
+    <value>Entre</value>
   </text>
 </texts>

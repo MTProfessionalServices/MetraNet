@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Widget>
+  <Properties>
+  <Property>
+	<Name>limit</Name>
+  <Value>1</Value>
+  </Property>
+  </Properties>
+</Widget>

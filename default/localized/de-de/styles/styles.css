@@ -786,7 +786,7 @@ TH
   }
           
   .clsButtonBlueLarge {
-    width: 100px; 
+    /*width: 100px; */
     height: 24px;
    /* background-color: transparent;
     background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
@@ -799,7 +799,7 @@ TH
     cursor:hand;    */
   }    
   .clsButtonBlueXLarge {
-    width: 150px; 
+    /*width: 150px; */
     /*height: 24px;
     background-color: transparent;
     background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);

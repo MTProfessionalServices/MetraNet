@@ -186,7 +186,7 @@
     <text id="TEXT_LOCAL_TAX_AMOUNT"><value>Montant de la taxe locale</value></text>
     <text id="TEXT_OTHER_TAX_AMOUNT"><value>Autre montant de taxe</value></text>
     <text id="TEXT_AMOUNT_WITH_TAX"><value>Montant avec taxe</value></text>
-    <text id="TEXT_INTERVAL_ID"><value>ID de l’intervalle</value></text>
+    <text id="TEXT_INTERVAL_ID"><value>ID de l'intervalle</value></text>
     <text id="TEXT_COMPOUNDPOSTBILLADJAMT"><value>CompoundPostbillAdjAmt</value></text>
     <text id="TEXT_COMPOUNDPOSTBILLADJEDAMT"><value>CompoundPostbillAdjedAmt</value></text>
     <text id="TEXT_ATOMICPREBILLADJAMT"><value>AtomicPrebillAdjAmt</value></text>

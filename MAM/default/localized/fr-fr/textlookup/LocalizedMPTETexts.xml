@@ -388,7 +388,7 @@
     </text>
 
 		<text id="TEXT_MPTE_HOLIDAY_DATE">
-        <value>d’exp.</value>
+        <value>d'exp.</value>
 		<description></description>
     </text>
 				
@@ -493,7 +493,7 @@
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DATE">
-        <value>d’exp.</value><description></description>
+        <value>d'exp.</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_STARTTIME">

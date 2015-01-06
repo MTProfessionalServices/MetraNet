@@ -1087,6 +1087,26 @@
             <Value>Anglais (États-Unis)</Value>
         </locale_entry>
         <locale_entry>
+            <Name>Global/LocalizedItemsType /AtomicCapability </Name>
+            <Value>AtomicCapability </Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>Global/LocalizedItemsType /CompositeCapability </Name>
+            <Value>CompositeCapability </Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>Global/LocalizedItemsType /None</Name>
+            <Value>None</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>Global/LocalizedItemsType /RecurringAdapters</Name>
+            <Value>RecurringAdapters</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>Global/LocalizedItemsType /Role </Name>
+            <Value>Role </Value>
+        </locale_entry>
+        <locale_entry>
             <Name>Global/MonthOfTheYear/April</Name>
             <Value>Avril</Value>
         </locale_entry>

@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <mt_config>
   <language_code>gb</language_code>
   <locale_space name="Global">
@@ -1373,6 +1374,26 @@
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT-12:00) Eniwetok, Kwajalein</Name>
       <Value>(GMT-12:00) Eniwetok, Kwajalein</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/LocalizedItemsType /AtomicCapability </Name>
+      <Value>Global/LocalizedItemsType /AtomicCapability </Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/LocalizedItemsType /CompositeCapability </Name>
+      <Value>Global/LocalizedItemsType /CompositeCapability </Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/LocalizedItemsType /None</Name>
+      <Value>Global/LocalizedItemsType /None</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/LocalizedItemsType /RecurringAdapters</Name>
+      <Value>Global/LocalizedItemsType /RecurringAdapters</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>Global/LocalizedItemsType /Role </Name>
+      <Value>Global/LocalizedItemsType /Role </Value>
     </locale_entry>
   </locale_space>
 </mt_config>

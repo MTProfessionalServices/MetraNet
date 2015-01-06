@@ -444,8 +444,8 @@ Class CMTWizard
     strErrorHTML = strErrorHTML & "    <TD>" & vbNewline
     strErrorHTML = strErrorHTML & "      <TABLE class=""clsWizardError"" BORDER=""0"">" & vbNewline
     strErrorHTML = strErrorHTML & "        <TR>" & vbNewline
-    strErrorHTML = strErrorHTML & "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""" & "/mcm/default/localized/us" & "/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
-    strErrorHTML = strErrorHTML & "          <TD VALIGN=""top""><IMG SRC=""" & "/mcm/default/localized/us" &  "/images/icons/warningSmall.gif"" align=""center"" BORDER=""0"" >&nbsp;</TD>" & vbNewline
+    strErrorHTML = strErrorHTML & "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""" & "/mcm/default/localized/en-us" & "/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
+    strErrorHTML = strErrorHTML & "          <TD VALIGN=""top""><IMG SRC=""" & "/mcm/default/localized/en-us" &  "/images/icons/warningSmall.gif"" align=""center"" BORDER=""0"" >&nbsp;</TD>" & vbNewline
     strErrorHTML = strErrorHTML & "          <TD class=""clsWizardErrorText"">"
     
     'What kind of error message was passed to us
@@ -466,7 +466,7 @@ Class CMTWizard
     strErrorHTML = Framework.Dictionary.PreProcess(strErrorHTML) 
 
     strErrorHTML = strErrorHTML & "</TD>" & vbNewline
-    strErrorHTML = strErrorHTML & "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""" & "/mcm/default/localized/us" & "/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
+    strErrorHTML = strErrorHTML & "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""" & "/mcm/default/localized/en-us" & "/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
     strErrorHTML = strErrorHTML & "        </TR>" & vbNewline
     'strErrorHTML = strErrorHTML & "        <TR>" & vbNewline
     'strErrorHTML = strErrorHTML & "          <TD>&nbsp</TD>" & vbNewline

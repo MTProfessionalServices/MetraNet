@@ -28,7 +28,7 @@
     </locale_entry>
     <locale_entry>
       <Name>pipeline/error/FailureTime</Name>
-      <Value>Échec temps</Value>
+      <Value>Heure de l'échec</Value>
     </locale_entry>
     <locale_entry>
       <Name>pipeline/error/Line</Name>

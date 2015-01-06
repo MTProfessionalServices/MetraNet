@@ -160,7 +160,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultProductView/TimeStamp</Name>
-            <Value>Time Stamp</Value>
+            <Value>Carimbo de data/hora</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultProductView/ViewID</Name>

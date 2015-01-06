@@ -20,7 +20,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeState/FailedToApply</Name>
-      <Value>Échec de l'application</Value>
+      <Value>Application impossible</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeState/Applied</Name>

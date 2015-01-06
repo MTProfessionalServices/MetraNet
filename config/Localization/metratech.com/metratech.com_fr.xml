@@ -64,7 +64,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CountyTaxAmount</Name>
-      <Value>Montant de la taxe appliquée par le pays</Value>
+      <Value>Montant de la taxe pays</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/American Express</Name>
@@ -76,7 +76,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/Discover</Name>
-      <Value>Discover</Value>
+      <Value>Découvrir</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/JCB</Name>

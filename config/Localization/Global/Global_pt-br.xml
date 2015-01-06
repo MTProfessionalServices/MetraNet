@@ -4,11 +4,11 @@
     <locale_space name="Global">
         <locale_entry>
             <Name>Global/AccessLevel/READ</Name>
-            <Value>READ</Value>
+            <Value>LIDO</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/AccessLevel/WRITE</Name>
-            <Value>WRITE</Value>
+            <Value>GRAVAR</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/Application/Application/MAM</Name>

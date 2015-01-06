@@ -88,7 +88,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/Reason</Name>
-            <Value>Code d'erreur</Value>
+            <Value>Code de motif</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/RequestAmount</Name>

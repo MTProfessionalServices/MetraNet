@@ -4,15 +4,15 @@
   <locale_space name="metratech.com/Contact">
     <locale_entry>
       <Name>metratech.com/Contact/Address1</Name>
-      <Value>Ligne d'adresse 1</Value>
+      <Value>Adresse 1</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Contact/Address2</Name>
-      <Value>Ligne d'adresse 2</Value>
+      <Value>Adresse 2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Contact/Address3</Name>
-      <Value>Ligne d'adresse 3</Value>
+      <Value>Adresse 3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Contact/City</Name>
@@ -56,7 +56,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Contact/PassportIssuer</Name>
-      <Value>Délivreur du passeport</Value>
+      <Value>Emetteur de passeport</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Contact/PhoneNumber</Name>
@@ -64,7 +64,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Contact/State</Name>
-      <Value>Département</Value>
+      <Value>État</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Contact/Zip</Name>

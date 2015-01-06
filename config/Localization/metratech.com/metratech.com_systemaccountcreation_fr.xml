@@ -4,7 +4,7 @@
   <locale_space name="metratech.com/SystemAccountcreation">
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation</Name>
-      <Value>Création d'un compte-système</Value>
+      <Value>Création de compte système</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/_Accountid</Name>
@@ -12,15 +12,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/accountenddate</Name>
-      <Value>Date d'expiration du compte</Value>
+      <Value>Date de fin du compte</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/accountstartdate</Name>
-      <Value>Date d'effet du compte</Value>
+      <Value>Date de début de compte</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/AccountStatus</Name>
-      <Value>Statut de compte</Value>
+      <Value>État du compte</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/accounttype</Name>
@@ -36,31 +36,31 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/address2</Name>
-      <Value>Ligne d'adresse 2</Value>
+      <Value>Adresse 2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/address3</Name>
-      <Value>Ligne d'adresse 3</Value>
+      <Value>Adresse 3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ancestorAccount</Name>
-      <Value>Compte-parent</Value>
+      <Value>Compte parent</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ancestorAccountID</Name>
-      <Value>ID du Compte-parent</Value>
+      <Value>ID de compte parent</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ancestorAccountNS</Name>
-      <Value>Espace de nom du compte-parent</Value>
+      <Value>Espace de nom du compte parent</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ApplyAccountTemplate</Name>
-      <Value>Appliquer le modèle de compte</Value>
+      <Value>Appliquer modèle de compte</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ApplyDefaultSecurityPolicy</Name>
-      <Value>Appliquer les règles de sécurité par défaut</Value>
+      <Value>Appliquer politique de sécurité par défaut</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/billable</Name>
@@ -96,7 +96,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/email</Name>
-      <Value>E-mail</Value>
+      <Value>E-Mail</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/facsimiletelephonenumber</Name>
@@ -116,11 +116,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/hierarchy_enddate</Name>
-      <Value>Date d'expiration de la hiérarchie</Value>
+      <Value>Date de fin de hiérarchie</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/hierarchy_startdate</Name>
-      <Value>Date d'effet de la hierarchie</Value>
+      <Value>Date de début de hiérarchie</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/InvoiceMethod</Name>
@@ -144,7 +144,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/name_space</Name>
-      <Value>Espace de nom</Value>
+      <Value>Espace de nommage</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/operation</Name>
@@ -164,15 +164,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/pricelist</Name>
-      <Value>Tarifs</Value>
+      <Value>Tarif</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/seconddayofmonth</Name>
-      <Value>Deuxième jour du mois</Value>
+      <Value>2e jour du mois</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/SecurityAnswer</Name>
-      <Value>Réponse à la question de sécurité</Value>
+      <Value>Réponse de sécurité</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/SecurityQuestion</Name>
@@ -180,7 +180,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/startday</Name>
-      <Value>Jour de début</Value>
+      <Value>Date de début</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/startmonth</Name>
@@ -196,11 +196,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/StatusReason</Name>
-      <Value>Raison du statut</Value>
+      <Value>Motif état</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/StatusReasonOther</Name>
-      <Value>Autre raison du statut</Value>
+      <Value>Autre motif d'état</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/taxexempt</Name>
@@ -208,7 +208,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/TaxExemptID</Name>
-      <Value>ID d'exemption de taxe</Value>
+      <Value>Exempt de taxe</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/timezoneID</Name>
@@ -216,7 +216,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/timezoneoffset</Name>
-      <Value>Décalage horaire</Value>
+      <Value>Décalage de fuseau horaire</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/transactioncookie</Name>
@@ -224,11 +224,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/TruncateOldSubscriptions</Name>
-      <Value>Raccourcir les vieux abonnements</Value>
+      <Value>Tronquer anciens abonnements</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/usagecycletype</Name>
-      <Value>Type de cycle de consommation</Value>
+      <Value>Type de cycle d’utilisation</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/username</Name>

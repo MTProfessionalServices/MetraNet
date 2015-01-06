@@ -48,11 +48,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/internal/PriceList</Name>
-      <Value>Tarifs</Value>
+      <Value>Tarif</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/internal/SecurityAnswer</Name>
-      <Value>Réponse à la question de sécurité</Value>
+      <Value>Réponse de sécurité</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/internal/SecurityQuestion</Name>
@@ -64,11 +64,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/internal/StatusReason</Name>
-      <Value>Raison du statut</Value>
+      <Value>Motif état</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/internal/StatusReasonOther</Name>
-      <Value>Autre raison pour le statut</Value>
+      <Value>Autre motif d'état</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/internal/TaxExempt</Name>
@@ -80,7 +80,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/internal/TaxExemptID</Name>
-      <Value>ID d'exemption de taxe</Value>
+      <Value>ID exempt de taxe</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Internal/TaxExemptReason</Name>

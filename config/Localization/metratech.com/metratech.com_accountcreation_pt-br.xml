@@ -424,7 +424,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-      <Value>TruncarAssinaturasVelhos</Value>
+      <Value>TruncateOldSubscriptions</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/usagecycletype</Name>

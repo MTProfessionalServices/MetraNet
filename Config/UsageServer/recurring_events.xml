@@ -9,8 +9,8 @@
       <Description>This scheduled BPA kick off reports</Description>
       <LocalizedItems>
         <item lang="FR">
-          <DisplayName>[FR] Queue Scheduled Export Reports</DisplayName>
-          <Description>[FR] This scheduled BPA kick off reports</Description>
+          <DisplayName>Mettre en file d’attente les rapports d’exportation planifiés </DisplayName>
+          <Description>A planifié des rapports de lancement de BPA</Description>
         </item>
         <item lang="IT">
           <DisplayName>[IT] Queue Scheduled Export Reports</DisplayName>
@@ -29,8 +29,8 @@
           <Description>[es-MX] This scheduled BPA kick off reports</Description>
         </item>
         <item lang="pt-BR">
-          <DisplayName>[pt-BR] Queue Scheduled Export Reports</DisplayName>
-          <Description>[pt-BR] This scheduled BPA kick off reports</Description>
+          <DisplayName>Enfileirar relatórios de exportação agendados</DisplayName>
+          <Description>Este BPA agendado dispara relatórios</Description>
         </item>
         <item lang="en-GB">
           <DisplayName>[en-GB] Queue Scheduled Export Reports</DisplayName>

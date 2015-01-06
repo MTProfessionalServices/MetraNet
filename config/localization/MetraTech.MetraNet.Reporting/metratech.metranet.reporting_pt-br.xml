@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <mt_config>
   <language_code>pt-br</language_code>
@@ -21,7 +21,7 @@
     </locale_entry>
     <locale_entry>
       <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
-      <Value>View Summary Financial Information</Value>
+      <Value>[pt-BR]View Summary Financial Information</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

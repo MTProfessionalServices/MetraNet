@@ -9,15 +9,15 @@
     TransactionFinder.Template:[ProductView-FQN](Index)
   -->
   <!-- metratech.com/audioconfcall -->
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(1)"><value>ConferenceID</value></text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(2)"><value>ConferenceName</value></text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(3)"><value>ConferenceSubject</value></text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(4)"><value>OrganizationName</value></text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(5)"><value>ServiceLevel</value></text>
-  <text id="TransactionFinder.Template:metratech.com/audioconfcall(6)"><value>ScheduledStartTime</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(1)"><value>ID de la conférence</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(2)"><value>Nom de la conférence</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(3)"><value>Thème de la conférence</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(4)"><value>Nom de l’entreprise</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(5)"><value>Niveau de service</value></text>
+  <text id="TransactionFinder.Template:metratech.com/audioconfcall(6)"><value>Heure de début prévue</value></text>
 
   <!-- metratech.com/songdownloads -->
-  <text id="TransactionFinder.Template:metratech.com/songdownloads(1)"><value>songs</value></text>
+  <text id="TransactionFinder.Template:metratech.com/songdownloads(1)"><value>chansons</value></text>
   <text id="TransactionFinder.Template:metratech.com/songdownloads(2)"><value>mp3bytes</value></text>
   <text id="TransactionFinder.Template:metratech.com/songdownloads(3)"><value>wavbytes</value></text>
   <text id="TransactionFinder.Template:metratech.com/songdownloads(4)"><value>TotalSongs</value></text>

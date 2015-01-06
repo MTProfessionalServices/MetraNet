@@ -84,7 +84,7 @@
     </text>
 
     <text id="TEXT_AUDIT_USER_ID">
-        <value>ID utilisateur</value>
+        <value>ID de l'utilisateur</value>
         <description></description>
     </text>
 
@@ -99,7 +99,7 @@
     </text>
   
     <text id="TEXT_AUDIT_DT_CRT">
-        <value>Date du CRT</value>
+        <value>Date CRT</value>
         <description></description>
     </text>
 

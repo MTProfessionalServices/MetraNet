@@ -13,7 +13,7 @@
     
     
     <text id="TEXT_ADJUSTMENTS">
-      <value>divers</value>
+      <value>Ajustements</value>
     </text>
         
     <text id="TEXT_MISC_ADJUSTMENT">
@@ -167,7 +167,7 @@
     <text id="TEXT_PARENT_POSTBILL_ADJUSTMENT"><value>[TEXT_ADJUSTMENT] parent après facturation</value></text>
     
     <text id="TEXT_ALL_CHILDREN_ARE_ADJUSTED"><value>Tous les éléments enfant sont ajustés</value></text>
-    <text id="TEXT_REASON_CODE"><value>Code d’erreur</value></text>
+    <text id="TEXT_REASON_CODE"><value>Code de motif</value></text>
     <text id="TEXT_TRANSACTION"><value>Transaction</value></text>
     <text id="TEXT_REBILL_TYPE"><value>Type de [TEXT_KEYTERM_REBILL_NAME]</value></text>
     

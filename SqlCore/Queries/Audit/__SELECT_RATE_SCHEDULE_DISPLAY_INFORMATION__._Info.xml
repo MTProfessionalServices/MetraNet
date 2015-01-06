@@ -9,19 +9,22 @@
             <Name>RS_ID</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>TX_LANG_CODE</Name>
-            <DataType>string</DataType>
+            <Name>ID_LANG</Name>
+            <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>
-    <Description></Description>
+    <Description>Retrieving localized names of Parameter Table and Price List.
+Query is used for viewing history of Rate Schedule and on Approvals Rate Update diff screen.</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Config\Queries\Audit\CommonQueries.xml</CommonQuerySourceFile>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

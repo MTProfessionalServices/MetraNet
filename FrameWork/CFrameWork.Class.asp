@@ -1451,19 +1451,19 @@ CLASS CFrameWork ' -- The FrameWork Class --
   			End If
   
   			Select Case UCase(vTimeTemplate(i))
-  				Case "HH"
+  				Case "HH", "H"
   					iHour = Clng(iCurSegment)
   					If iHour < 0 or iHour > 24 Then
   						IsValidDate = FALSE
   						exit function
   					End If
-  				Case "MM"
+  				Case "MM", "M"
   					iMin = Clng(iCurSegment)
   					If iMin < 0 or iMin > 60 Then
   						IsValidDate = FALSE
   						exit function
   					End If								
-  				Case "SS"
+  				Case "SS", "S"
   					iSec = Clng(iCurSegment)
   					If iSec < 0 or iSec > 60 Then
   						IsValidDate = FALSE

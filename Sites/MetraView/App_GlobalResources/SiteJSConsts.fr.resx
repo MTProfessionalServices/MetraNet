@@ -283,7 +283,7 @@
         <value>Supprimer</value>
     </data>
     <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir effectuer la suppression de {0} ?</value>
+        <value>Êtes-vous sûr de vouloir supprimer {0} ?</value>
     </data>
     <data name="TEXT_DELETE_SEARCH_CONFIRM" xml:space="preserve">
         <value>Êtes-vous sûr de vouloir supprimer cette recherche enregistrée ?</value>
@@ -556,7 +556,7 @@
         <value>Propriétés qui seront mises à jour</value>
     </data>
     <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-        <value>Vous avez reçu ce crédit car votre abonnement facturé à l'avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] à l'avance.  Vous n'avez utilisé le service que du [RCIntervalStart] au [ProratedIntervalStartPreviousDay].  Par conséquent, ce crédit représente la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd].  Cela correspond à une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé un taux journalier de [ProratedDailyRate].  Le taux journalier a été calculé sur la base du montant [RCAmount] , en divisant ce montant par le nombre de jours contenu dans cette période. Nous avons donc pris en compte la période de [ProratedDays] jours et l'avons multipliée par[ProratedDailyRate] , ce qui a permis d'obtenir un crédit de [Amount].&lt;BR&gt;</value>
+        <value>Vous avez reçu ce crédit parce que votre abonnement comportant des frais récurrents facturés à l'avance a changé durant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Dans votre facture précédente, nous vous avons facturé [RCAmount] à l'avance.  Vous avez utilisé le service uniquement du [RCIntervalStart] au [ProratedIntervalStartPreviousDay].  Par conséquent, ce crédit représente la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd].  Cela correspond à une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons appliqué un prix journalier de [ProratedDailyRate].  Le prix journalier a été calculé en prenant [RCAmount] et en divisant par le nombre de jours de la période. Ainsi, nous avons pris une période de [ProratedDays] jours et l'avons multipliée par [ProratedDailyRate] pour obtenir un crédit de [Amount] en votre faveur.&lt;BR&gt;</value>
     </data>
     <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
         <value>Ces frais ont été calculés au prorata.  Cela permet de diminuer les frais en ne facturant que le nombre de jours d'abonnement à un service au cours d'une période de facturation donnée.&lt;BR&gt;&lt;BR&gt;Pour cet élément, les frais ont débuté le [ProratedIntervalStart] pour se terminer le [ProratedIntervalEnd]. Vous avez donc bénéficié de [ProratedDays] jours de service. Votre facture pour cette période fait donc apparaître un montant calculé via la multiplication du taux journalier de [ProratedDailyRate] par [ProratedDays] jours pendant lesquels vous avez bénéficié de l'abonnement.  Cela représente [Amount].  (Le taux journalier de [ProratedDailyRate] est calculé en divisant les frais de la période (qui s'élèvent à [RCAmount]) par le nombre de jours de la période).&lt;BR&gt;</value>
@@ -616,7 +616,7 @@
         <value>Sélectionner des comptes</value>
     </data>
     <data name="TEXT_SELECT_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
-        <value>Sélectionnez les membres à ajouter</value>
+        <value>Sélectionnez les membres à supprimer</value>
     </data>
     <data name="TEXT_SELFCARE_LOGIN" xml:space="preserve">
         <value>Connexion à l’auto-gestion</value>

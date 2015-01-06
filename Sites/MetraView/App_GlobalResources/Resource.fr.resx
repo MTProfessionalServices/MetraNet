@@ -433,7 +433,7 @@
         <value>Site</value>
     </data>
     <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-        <value>Le site est actuellement indisponible pour cause de maintenance. Nous sommes désolés des désagréments que cela peut vous causer. Essayez ultérieurement.</value>
+        <value>Le site est actuellement indisponible pour cause de maintenance. Nous sommes désolés des désagréments que cela peut vous causer. Réessayez ultérieurement.</value>
     </data>
     <data name="TEXT_SITE_NAME" xml:space="preserve">
         <value>Nom du site</value>

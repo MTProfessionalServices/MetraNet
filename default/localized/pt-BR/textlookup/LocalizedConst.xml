@@ -193,7 +193,7 @@
     <description>owner</description>
   </text>
   <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-    <value>Contas pagas pelo</value>
+    <value>Contas pagas pelo </value>
     <description>Contas pagas pelo</description>
   </text>
   <text id="TEXT_MOVING_ACCOUNTS">
@@ -752,8 +752,8 @@
     <value>Login no MetraCare</value>
     <description></description>
   </text>
- <text id="TEXT_NO_AUTH">
-    <value>Sua sessão expirou.  Faça login novamente.</value>
+  <text id="TEXT_NO_AUTH">
+    <value>Sua sessão expirou. Faça login novamente.</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_NAME">
@@ -1201,7 +1201,7 @@
     <description></description>
   </text>
   <text id="TEXT_JAVASCRIPT_ERROR">
-    <value>Seu navegador não parece ter o JavaScript ativado.  Siga esse link para corrigir a situação.</value>
+    <value>Seu navegador não parece ter o JavaScript ativado. Siga esse link para corrigir a situação.</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_GROUP_SUBSCRIPTION">
@@ -1565,10 +1565,10 @@
     <value>Ver proprietários de segurança padrão</value>
   </text>
   <text id="TEXT_ADD_MEMBERS_TO_ROLE">
-    <value>Adicionar membros a função</value>
+    <value>Adicionando membros à função</value>
   </text>
   <text id="TEXT_SELECT_ACCOUNTS">
-    <value>Selecione contas</value>
+    <value>Selecionar contas</value>
   </text>
   <text id="TEXT_ACCOUNTS_TO_MOVE">
     <value>Selecionar contas para mover</value>
@@ -1583,29 +1583,29 @@
     <value>Número de Atomics</value>
   </text>
   <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
-    <value>Requre gerenciar hierarquias conta</value>
+    <value>Exige gerenciar hierarquias de conta</value>
   </text>
   <text id="TEXT_CHARACTERS_LEFT">
     <value>caracteres restantes para</value>
   </text>
   <text id="TEXT_MetraNet_Users_Hierarchy_members">
-    <value>[pt-br]Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</value>
+    <value>Gerenciar contas pertencentes: permite que os membros da hierarquia de usuários MetraNet gerenciem contas pertecentes a eles ou a seus subordinados</value>
     <description></description>
   </text>
   <text id="TEXT_Select_Access_Level">
-    <value>[pt-br]Select Access Level:</value>
+    <value>Selecionar Nível de Acesso:</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_directly">
-    <value>[pt-br]Owned directly</value>
+    <value>Pertencente diretamente</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_by_immediate_subordinates">
-    <value>[pt-br]Owned by immediate subordinates</value>
+    <value>Pertencente a subordinados imediatos</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_by_all_subordinates">
-    <value>[pt-br]Owned by all subordinates</value>
+    <value>Pertencente a todos os subordinados</value>
     <description></description>
   </text>
   <text id="TEXT_Requires_Manage_Account_Hierarchies">

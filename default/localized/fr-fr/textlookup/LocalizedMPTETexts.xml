@@ -241,7 +241,7 @@
     </text>
 
 		<text id="TEXT_MPTE_EDITCALENDAR">
-        <value>Modifier des propriétés</value>
+        <value>Modifier les propriétés</value>
 		<description></description>
     </text>
 
@@ -328,7 +328,7 @@
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_CALENDAR_NAME_DUPLICATE">
-        <value>Un calendrier portant ce nom existe déjà dans le système. Renommez ce calendrier et réessayez.</value><description></description>
+        <value>Un calendrier portant ce nom existe déjà dans le système. Renommez ce calendrier et réessayez.</value>
 				<description></description>
     </text>
 		
@@ -727,7 +727,7 @@
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-        <value><![CDATA[<b>Les deux ensembles de règles sont identiques.</b><BR>Cela peut se produire quand un ensemble de règles est enregistré mais qu'aucune modification n'a été apportée.
+        <value><![CDATA[<b>Les deux jeux de règles sont identiques.</b><BR>Cela peut se produire lorsqu'un jeu de règles est enregistré mais qu'aucune modification n'y est apportée.&nbsp;&nbsp;
 ]]></value>
 				<description></description>
     </text>

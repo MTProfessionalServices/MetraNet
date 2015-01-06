@@ -51,6 +51,6 @@
 			<value>Desmarcar página</value>
     </text>
     <text id="MDM_DATETIME_BETWEEN">
-      <value>[pt-BR]Between</value>
+      <value>Entre</value>
     </text>
 </texts>

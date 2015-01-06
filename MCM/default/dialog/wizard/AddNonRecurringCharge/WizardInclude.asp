@@ -179,7 +179,7 @@ Function WriteNewOrExisting(strWizardName)
                                             " id=""PropertyDiv""", _
                                             "PropertyTable", _
                                             true, _
-                                            Array("10%","30%","60%"), _
+                                            Array("65","120","180"), _
                                             "", _
                                             "")
 
@@ -208,7 +208,7 @@ Function WriteNewOrExisting(strWizardName)
   	'arrProperties(2) = objPriceableItemTemplates.value("nm_desc")  	
   	arrProperties(1) = SafeForHtmlAttr(objPriceableItemTemplates.value("nm_name"))
   	arrProperties(2) = SafeForHtmlAttr(objPriceableItemTemplates.value("nm_desc"))
-   	strHTML = strHTML & gobjMTGrid.AddGridRow(arrProperties, "", true, Array("10%","30%","60%"), "", Array("center"))
+   	strHTML = strHTML & gobjMTGrid.AddGridRow(arrProperties, "", true, Array("65","120","180"), "", Array("center"))
    
     objPriceableItemTemplates.MoveNext
 

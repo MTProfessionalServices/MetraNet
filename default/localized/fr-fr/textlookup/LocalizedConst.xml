@@ -145,7 +145,7 @@
     <description>Account State</description>
   </text>
   <text id="TEXT_LOGIN_INFORMATION">
-    <value>Infos d’ouverture de session</value>
+    <value>Infos d'ouverture de session</value>
     <description>Login Information</description>
   </text>
   <text id="TEXT_OTHER">
@@ -557,7 +557,7 @@
     <description></description>
   </text>
   <text id="TEXT_BUTTON_VALIDATE_USER_NAME">
-    <value>Valider le nom d’utilisateur</value>
+    <value>Valider le nom d'utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_BUTTON_GENERATE_PASSWORD">
@@ -633,7 +633,7 @@
     <description></description>
   </text>
   <text id="TEXT_DELETE_SUBSCRIPTION">
-    <value>Supprimer l’abonnement</value>
+    <value>Supprimer l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_NO_SUBSCRIPTIONS">
@@ -681,15 +681,15 @@
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_ID">
-    <value>ID de l’abonnement</value>
+    <value>ID de l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_END_DATE">
-    <value>Date de fin de l’abonnement</value>
+    <value>Date de fin de l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_START_DATE">
-    <value>Date de début de l’abonnement</value>
+    <value>Date de début de l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_START">
@@ -749,7 +749,7 @@
     <description></description>
   </text>
   <text id="TEXT_LOGIN_TITLE">
-    <value>Ouverture d’une session MetraCare</value>
+    <value>Ouverture d'une session MetraCare</value>
     <description></description>
   </text>
   <text id="TEXT_NO_AUTH">
@@ -757,7 +757,7 @@
     <description></description>
   </text>
   <text id="TEXT_LOGIN_NAME">
-    <value>Nom d’utilisateur</value>
+    <value>Nom d'utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
@@ -957,11 +957,11 @@
     <description></description>
   </text>
   <text id="TEXT_UPDATE_CSR">
-    <value>Mettre à jour l’utilisateur système</value>
+    <value>Mettre à jour l'utilisateur système</value>
     <description></description>
   </text>
   <text id="TEXT_FOUND_CSR">
-    <value>Mettre à jour l’utilisateur/les utilisateurs système</value>
+    <value>Mettre à jour l'utilisateur/les utilisateurs système</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_UPDATE_CSR_CONFIRM_PASSWORD">
@@ -1149,7 +1149,7 @@
     <description></description>
   </text>
   <text id="TEXT_APPLICATION_AUDIT_LOG">
-    <value>Journal d’audit de l’application</value>
+    <value>Journal d'audit de l'application</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_AUDIT_LOG">
@@ -1277,7 +1277,7 @@
     <description></description>
   </text>
   <text id="TEXT_GSUB_CYCLE_CONFIGURATION">
-    <value>Configuration du cycle d’utilisation</value>
+    <value>Configuration du cycle d'utilisation</value>
     <description></description>
   </text>
   <text id="TEXT_GSUB_USE_CYCLE_FROM_TEMPLATE">
@@ -1289,7 +1289,7 @@
     <description></description>
   </text>
   <text id="TEXT_GSUB_USE_CYCLE_ENFORCED_BY_PO">
-    <value>Cycle d’utilisation appliqué par l’offre produit</value>
+    <value>Cycle d'utilisation appliqué par l'offre produit</value>
     <description></description>
   </text>
   <text id="TEXT_DRAGDROP_ACCOUNTS_MESSAGE">
@@ -1516,7 +1516,7 @@
     <description/>
   </text>
   <text id="TEXT_WARNING_EBCR_START_DATE_CHANGE">
-    <value>La modification de cette date de début peut avoir un impact négatif sur les frais alignés par le cycle de facturation contenus dans l’offre produit associée [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>La modification de cette date de début peut avoir un impact négatif sur les frais alignés par le cycle de facturation contenus dans l'offre produit associée [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
     <description/>
   </text>
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE">

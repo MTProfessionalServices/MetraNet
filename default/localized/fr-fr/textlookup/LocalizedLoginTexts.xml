@@ -4,7 +4,7 @@
     <description></description>
 
     <text id="TEXT_LOGIN_TITLE">
-        <value>Ouverture d’une session MetraOffer</value>
+        <value>Ouverture d'une session MetraOffer</value>
         <description></description>
     </text>
 
@@ -14,7 +14,7 @@
     </text>
 
     <text id="TEXT_LOGIN_NAME">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
         <description></description>
     </text>
 

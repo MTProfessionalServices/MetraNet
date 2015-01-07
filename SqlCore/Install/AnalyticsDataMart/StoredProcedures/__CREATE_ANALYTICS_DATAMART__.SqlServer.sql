@@ -728,7 +728,7 @@ mrr.Year,
 mrr.Month,
 count(1) as TotalParticipants,
 count(distinct cust.HierarchyMetraNetId) as DistinctHierarchies,
-sum(case when datediff(day, sub.vt_start, @p_dt_now) <= 30 then 1 else 0 end) as NewParticipants,
+sum(case when datediff(day, sub.dt_start, @p_dt_now) <= 30 then 1 else 0 end) as NewParticipants,
 sum(mrr.MRRPrimaryCurrency) as MRRPrimaryCurrency,
 sum(mrr.MRRNewPrimaryCurrency) as MRRNewPrimaryCurrency,
 sum(mrr.MRRBasePrimaryCurrency) as MRRBasePrimaryCurrency,
@@ -739,7 +739,7 @@ sum(mrr.MRRCancelationPrimaryCurrency) as MRRCancelationPrimaryCurrency,
 sum(mrr.SubscriptionRevPrimaryCurrency) as SubscriptionRevPrimaryCurrency,
 mrr.DaysInMonth
 from SubscriptionsByMonth mrr
-inner join t_sub sub with(nolock) on sub.id_sub = mrr.SubscriptionId
+inner join t_vw_effective_subs sub with(nolock) on sub.id_sub = mrr.SubscriptionId
 inner join Customer cust on cust.InstanceId = mrr.InstanceId and cust.MetraNetId = sub.id_acc
 where 1=1
 group by mrr.InstanceId, mrr.Year, mrr.Month, sub.id_po, mrr.DaysInMonth

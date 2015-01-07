@@ -6,13 +6,13 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_PO</Name>
+            <Name>ID_LANG</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>ID_PI</Name>
+            <Name>ID_PARENT</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>

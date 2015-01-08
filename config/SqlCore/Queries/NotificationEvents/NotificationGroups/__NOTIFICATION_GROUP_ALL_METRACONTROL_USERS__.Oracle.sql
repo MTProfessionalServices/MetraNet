@@ -1,23 +1,44 @@
 SELECT DISTINCT(capMapper.id_acc), capMapper.id_Partition 
   FROM (
   
-
+/* accounts that have the Application Logon to MOM capability */
 SELECT 		
 	prp.id_acc  
 	,acc.id_acc AS id_Partition
 FROM     
   T_PRINCIPAL_POLICY prp     
   INNER JOIN t_capability_instance ci ON prp.ID_POLICY = CI.ID_POLICY
-  LEFT OUTER JOIN t_policy_role pr ON prp.id_policy = pr.id_policy
-  LEFT OUTER JOIN t_role r ON r.id_role = pr.id_role  
   LEFT OUTER JOIN t_enum_capability etc ON ci.id_cap_instance = etc.id_cap_instance
   LEFT OUTER JOIN t_account_ancestor accancestor ON accancestor.id_descendent = prp.id_acc AND num_generations = 2
   LEFT OUTER JOIN t_account acc ON acc.id_acc = accancestor.id_ancestor AND acc.id_type = 9
 WHERE 1=1 
   AND prp.policy_type = 'A'
-  AND (etc.param_value = (select id_enum_data from t_enum_data nm where nm.nm_enum_data = 'Global/Application/MOM') or r.tx_name = 'Operations Staff (MetraControl)')
+  AND etc.param_value = (select id_enum_data from t_enum_data nm where nm.nm_enum_data = 'Global/Application/MOM')
   AND prp.id_acc IS NOT NULL
 
+UNION ALL
+
+/* accounts that are assigned a role which includes Application Logon to MOM capability */
+SELECT 		
+	prp.id_acc  
+	,acc.id_acc AS id_Partition
+FROM     
+	T_PRINCIPAL_POLICY prp    
+	LEFT OUTER JOIN t_policy_role pr ON prp.id_policy = pr.id_policy
+	LEFT OUTER JOIN t_role r ON r.id_role = pr.id_role
+	LEFT OUTER JOIN t_account_ancestor accancestor ON accancestor.id_descendent = prp.id_acc AND num_generations = 2
+	LEFT OUTER JOIN t_account acc ON acc.id_acc = accancestor.id_ancestor AND acc.id_type = 9
+WHERE  1=1 
+  AND prp.id_acc IS NOT NULL 
+  AND prp.policy_type = 'A' 
+  AND pr.id_role = (SELECT SUBR.id_role
+					FROM T_ROLE SUBR
+					INNER JOIN T_PRINCIPAL_POLICY SUBPRP ON SUBR.ID_ROLE = SUBPRP.ID_ROLE
+					INNER JOIN t_capability_instance ci ON SUBPRP.ID_POLICY = CI.ID_POLICY
+					LEFT OUTER JOIN t_enum_capability etc ON ci.id_cap_instance = etc.id_cap_instance
+					LEFT OUTER JOIN t_enum_data ed ON etc.param_value = ed.id_enum_data
+					where SUBR.id_role = pr.id_role AND ed.nm_enum_data = 'Global/Application/MOM')
+          
 UNION ALL
 
       

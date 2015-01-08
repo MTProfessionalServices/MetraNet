@@ -1,20 +1,19 @@
 SELECT DISTINCT(capMapper.id_acc), capMapper.id_Partition 
   FROM (
 
+/* accounts that have the Application Logon to MOM and Manage EOP Adapters capability */ 
 SELECT                  
   prp.id_acc, 
   acc.id_acc AS id_Partition
 FROM     
   T_PRINCIPAL_POLICY prp     
   INNER JOIN t_capability_instance ci ON prp.ID_POLICY = CI.ID_POLICY
-  LEFT OUTER JOIN t_policy_role pr ON prp.id_policy = pr.id_policy
-  LEFT OUTER JOIN t_role r ON r.id_role = pr.id_role  
   LEFT OUTER JOIN t_enum_capability etc ON ci.id_cap_instance = etc.id_cap_instance
   LEFT OUTER JOIN t_account_ancestor accancestor ON accancestor.id_descendent = prp.id_acc AND num_generations = 2
   LEFT OUTER JOIN t_account acc ON acc.id_acc = accancestor.id_ancestor AND acc.id_type = 9
 WHERE 1=1 
   AND prp.policy_type = 'A'
-  AND (etc.param_value = (select id_enum_data from t_enum_data nm where nm.nm_enum_data = 'Global/Application/MOM') or r.tx_name = 'Operations Staff (MetraControl)')
+  AND etc.param_value = (select id_enum_data from t_enum_data nm where nm.nm_enum_data = 'Global/Application/MOM') 
   AND prp.id_acc IS NOT NULL
   -- And this account also has EOP capability
   AND EXISTS (SELECT DISTINCT prp_fls.id_acc
@@ -23,6 +22,38 @@ WHERE 1=1
               LEFT OUTER JOIN t_composite_capability_type cct ON ci.id_cap_type = cct.id_cap_type
               WHERE  
                 prp_fls.id_acc = prp.id_acc AND prp_fls.policy_type = 'A' AND cct.tx_name = 'Manage EOP Adapters') 
+UNION ALL
+
+/* accounts that are assigned a role which includes Application Logon to MOM and Manage EOP Adapters capability */
+SELECT 		
+	prp.id_acc  
+	,acc.id_acc AS id_Partition
+FROM     
+	T_PRINCIPAL_POLICY prp    
+	LEFT OUTER JOIN t_policy_role pr ON prp.id_policy = pr.id_policy
+	LEFT OUTER JOIN t_role r ON r.id_role = pr.id_role
+	LEFT OUTER JOIN t_account_ancestor accancestor ON accancestor.id_descendent = prp.id_acc AND num_generations = 2
+	LEFT OUTER JOIN t_account acc ON acc.id_acc = accancestor.id_ancestor AND acc.id_type = 9
+WHERE  1=1 
+  AND prp.id_acc IS NOT NULL 
+  AND prp.policy_type = 'A' 
+  AND pr.id_role = (SELECT 
+						CASE 
+						WHEN CAPABILITIES.CAPBILITIESCOUNT >= 2 THEN pr.id_role
+						ELSE NULL
+						END
+					FROM (SELECT 
+							count(1) AS CAPBILITIESCOUNT
+							, SUBR.id_role 
+						  FROM T_ROLE SUBR
+						  INNER JOIN T_PRINCIPAL_POLICY RPP ON SUBR.ID_ROLE = RPP.ID_ROLE
+						  INNER JOIN t_capability_instance ci ON RPP.ID_POLICY = CI.ID_POLICY
+						  LEFT OUTER JOIN t_Composite_capability_type ct ON ci.id_cap_type = ct.id_cap_type 
+						  LEFT OUTER JOIN t_enum_capability etc ON ci.id_cap_instance = etc.id_cap_instance
+						  LEFT OUTER JOIN t_enum_data ed ON etc.param_value = ed.id_enum_data 
+						  where ed.nm_enum_data = 'Global/Application/MOM' OR ct.tx_name = 'Manage EOP Adapters'
+						  group by SUBR.id_role) CAPABILITIES WHERE CAPABILITIES.id_role = pr.id_role)
+              
 UNION ALL
 
       

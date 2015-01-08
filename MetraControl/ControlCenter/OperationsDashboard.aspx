@@ -8,12 +8,14 @@
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!--script type="text/javascript" src="js/d3.legend.js"></script-->
+    <script  type="text/javascript" src="/Res/JavaScript/d3.min.js"></script>
+    <script  type="text/javascript" src="/Res/JavaScript/d3.tip.js"></script>
     <script type="text/javascript" src="js/D3Visualize.js"></script>
     <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
     <script type="text/javascript" src="/Res/JavaScript/jquery.gridster.min.js"></script>
     <script type="text/javascript" src="/Res/JavaScript/crossfilter.min.js"></script>
     <script type="text/javascript" src="/Res/JavaScript/dc.min.js"></script>
-    <script  type="text/javascript" src="/Res/JavaScript/d3.tip.js"></script>    <script  type="text/javascript" src="/Res/JavaScript/d3.min.js"></script><script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
+<script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
     <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dashboard.css">
@@ -450,7 +452,8 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
         var currencyFormat = d3.format("$,.0f");
         var percentageFormat = d3.format(".1%");
 
-	Ext.onReady(function () {
+	
+   Ext.onReady(function () {
 
         //d3.select("#<%=ddBillCloses.ClientID %>").on("change", makeBillCloseSynopsisPart);
        
@@ -461,10 +464,20 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
         makeActiveBillRunsPart();
         makePendingBillClosePart();
         makeBillCloseSynopsisPart();
-		    makePricingEnginePart();
+        makePricingEnginePart();
+        //assignToolTips();
 
     });
+      function assignToolTips(){
+        d3.select("#divBatchUsage").selectAll("circle").on("mouseover",function(d){onMouseOver(d, this);});
+        d3.select("#divBatchUsage").selectAll("circle").on("mouseout", function(d){onMouseOut(d, this);});
 
+        d3.select("#divPricingQueues").selectAll("circle").on("mouseover",function(d){onMouseOver(d, this);});
+        d3.select("#divPricingQueues").selectAll("circle").on("mouseout", function(d){onMouseOut(d, this);});
+
+        d3.select("#divPricingBacklog").selectAll("circle").on("mouseover",function(d){onMouseOver(d, this);});
+        d3.select("#divPricingBacklog").selectAll("circle").on("mouseout", function(d){onMouseOut(d, this);});
+      }
     function makePendingBillClosePart() {
     }
     
@@ -627,7 +640,13 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .renderHorizontalGridLines(true)
                     .brushOn(false)
-                    .title("<%=UDRsWord%>", function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";})
+                                .title(function(d){
+                                  //setTooltips(d, getBillingsChartTooltipHtml);
+                                  //return "";
+                                    return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";
+                                })                    .title("<%=UDRsWord%>", function(d){
+                                  return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";
+                                })
                     .title("<%=BatchesWord%>", function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";})
                     .compose([
                         dc.lineChart(composite)
@@ -635,14 +654,23 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                                 .group(udrGroup, "<%=UDRsWord%>")
                                 //.colors('#0070C0')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";})
+  
+                                .title(function(d){
+                                  setTooltips(d, getBillingsChartTooltipHtml,{word :" <%=UDRsWord%>"});
+                                  return "";
+                                  //  return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";
+                                })
                         ,
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(batchGroup, "<%=BatchesWord%>")
                                 .colors('#148622')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";})
+                                .title(function(d){
+                                  setTooltips(d, getBillingsChartTooltipHtml,{word: " <%=BatchesWord%>"});
+                                  return "";
+                                 // return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";
+                                })
                     ])
                     ;
             composite.xAxis().tickSize(0,0).tickFormat("");
@@ -651,43 +679,97 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
 
             composite.render();
             composite.redraw();
+            
+            d3.select
             dc.renderAll();
-            }
+            assignToolTips();
+              // setLocalizedAxes(divId);
+            
+          }
         });
 
         //Recent Batch
-        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=getlastbatch&curTime=" + new Date().getTime(), function (error, json) {
+      d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=getlastbatch&curTime=" + new Date().getTime(), 
+        function (error, json) {
             if (error) console.log("Error:" + error);
             else {
-                var lastBatchInfo = json["Items"];
-                if (lastBatchInfo[0] != null) {
-                    var timediff = lastBatchInfo[0]["time diff"];
-                    var lastbatchdatetime = lastBatchInfo[0]["datetime"];
-                    var lastbatchid = lastBatchInfo[0]["batchid"];
-                  
-                     var valueClass = "clshasvalue";
-
-
-                  if (timediff <= <%=udrBatchFrequencyThreshold%>) {
-
-                    valueClass = "clszerovalue";
-
-                  }
-
-                  var txtLastBatch = d3.select("#<%=txtLastBatch.ClientID%>");
+              var lastBatchInfo = json["Items"];
+              if (lastBatchInfo[0] != null) {
+                var timediff = lastBatchInfo[0]["time diff"];
+                var lastbatchdatetime = lastBatchInfo[0]["datetime"];
+                var lastbatchid = lastBatchInfo[0]["batchid"];
+                var valueClass;
+                valueClass = (timediff <= <%=udrBatchFrequencyThreshold%> )?"clshasvalue":"clszerovalue";
+                var txtLastBatch = d3.select("#<%=txtLastBatch.ClientID%>");
                   
 
-                  txtLastBatch.text(RenderDate(lastbatchdatetime, DATE_TIME_RENDERER))
-                            .style("cursor","pointer")
-                            .attr("class",valueClass)
-                            .on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
+                txtLastBatch.text(RenderDate(lastbatchdatetime, DATE_TIME_RENDERER))
+                          .style("cursor","pointer")
+                          .attr("class",valueClass)
+                          .on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
              
-                }
+              }
             }
-        });
-
+        }    
+      );
     }
+        function setTooltips(d, htmlFormatFunction, args) {
+          // tooltips
+          var body = d3.select("body");
+          var tmp = body.append("div")
+          .attr("class", "d3-tip e")
+          .attr("id", "_" + removeSpaceAndStuff(d.key) + "_" + d.value)
+          //.style("top","\""+x(d.x_axis)+"\"")
+          //.style("left","\""+y(d.y_axis)+"\"")
+          .style("position", "absolute")
+          .style("opacity", "0")
+          .style("pointer-events", "none")
+          .append("div")
+          .style("width", "250px");
+          tmp.append("div").html(htmlFormatFunction(d, args));
+//          tmp.append("div")
+  //        .html(htmlFormatFunction(d));
+          }
+        function getBillingsChartTooltipHtml(d, args) {
+          var options = { weekday: 'long', month: 'long', day: 'numeric', localeMatcher: 'lookup'};
+          //if (d.data == null) return null;
+          //var currentItem = getDataItem(JSONData, d.data.key, currentCurrency);
+          //var html = (currentItem != null) ? String.format("<div style='width:{0}px;'><div class=Period>{1}</div>{2}: {3}</div></div>", ToolTipDivWidth, currentItem.period, "<%=Convert.ToString(GetLocalResourceObject("TEXT_BILLINGS_TOOLTIP"))%>", currentItem.amountAsString) : null;
+          var html = d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + d.value +  args.word;
+          return html;
+        }
+      function PricingEngineHTML(d, args){
+        var html = FormatNumber(d.value) + ": " + args.word;
+        return html;
 
+      }
+      function removeSpaceAndStuff(str){
+        str = str.toString().replace(/\s/g, "_");
+        str = str.toString().replace(/\//g, "_");
+        str = str.toString().replace(/\-/g, "_");
+        str = str.toString().replace(/\(/g, "_");
+        str = str.toString().replace(/\)/g, "_");
+        str = str.toString().replace(/:/g, "_");
+        return str;
+      }
+
+      function onMouseOver(d, element){
+        var scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
+        scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+        d3.select("#_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style("opacity", "1").style("pointer-events", "all");
+        d3.select("#_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style(
+        {top: (d3.event.pageY) + scrollTop - 40+ 'px',
+          left: (d3.event.pageX) +  scrollLeft + 10+'px'});
+        d3.select(element.parentElement).selectAll("path").style("opacity", "1");
+      }
+      function onMouseOut(d, element){
+        
+        d3.select(element).attr("r", "3").style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6");
+        d3.select(element.parentElement).selectAll("path").style("opacity", "0");
+        d3.select("#_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style("opacity", "0").style("pointer-events", "none");
+
+      }
 
     function makeActiveBillRunsPart() {
       var objActiveBillRunLineChartConfig = {
@@ -835,20 +917,29 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                                 .group(pipeQGroup, "<%=pipelineQueueText%>")
                                 .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
+								.title(function(d){ 
+								  setTooltips(d, PricingEngineHTML,{word: "<%=pipelineQueueToolTipText%>"});
+								  //return FormatNumber(d.value) + " " + "<%=pipelineQueueToolTipText%>"; 
+								})
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(msgqQGroup, "<%=rampQueueText%>")
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return FormatNumber(d.value) + " " + "<%=rampQueueToolTipText%>"; })
+								.title(function(d){ 
+								  setTooltips(d, PricingEngineHTML,{word: "<%=rampQueueToolTipText%>"});
+								    //return FormatNumber(d.value) + " " + "<%=rampQueueToolTipText%>"; 
+								})
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(schedulerQGroup, "<%=schedulerQueueText%>")
                                 .colors('#148622')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return FormatNumber(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
+								.title(function(d){ 
+								  setTooltips(d, PricingEngineHTML,{word: "<%=schedulerQueueToolTipText%>"});
+								  //return FormatNumber(d.value) + " " + "<%=schedulerQueueToolTipText%>"; 
+								})
                     ]);
             composite1.xAxis().tickSize(0,0).tickFormat("");
             composite1.yAxis().tickSize(0,0).tickFormat("");
@@ -877,20 +968,27 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                                 .group(pipeBacklogGroup, "<%=pipelineWaitDurationText%>")
                                 .colors('deepskyblue')
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
+								.title(function(d){ 
+								  setTooltips(d, PricingEngineHTML, {word: "<%=pipelineWaitDurationToolTipText%>"})
+								  //return FormatNumber(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>";
+								})
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeGroup, "<%=pipelineProcessingDurationText%>")
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return FormatNumber(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
+								.title(function(d){ 
+								  setTooltips(d, PricingEngineHTML, {word: "<%=pipelineProcessingDurationToolTipText%>"})
+//								  return FormatNumber(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>";
+								})
                     ])
 			;
 
             composite2.xAxis().tickSize(0,0).tickFormat("");
             composite2.yAxis().tickSize(0,0).tickFormat("");
 			
-			dc.renderAll();
+            dc.renderAll();
+            assignToolTips();
 			
             setInterval(function() {
 		d3.json("/MetraNet/AjaxServices/PricingEngineDashboardService.aspx?curTime=" + new Date().getTime(), function (error, json) {
@@ -923,6 +1021,7 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
 			composite1.x(d3.time.scale().domain([minDate, maxDate]));
 			composite2.x(d3.time.scale().domain([minDate, maxDate]));
 			dc.renderAll();
+			assignToolTips();
 			}});
             }, 10000);
 			}
@@ -985,6 +1084,7 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                return LocalizeTickText(x);
             });            
             dc.renderAll();
+            assignToolTips();
           }
         });
 

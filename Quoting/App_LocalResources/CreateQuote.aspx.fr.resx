@@ -127,7 +127,7 @@
         <value>Ajouter UDRC</value>
     </data>
     <data name="BASE_AMOUNT" xml:space="preserve">
-        <value>Montant de base</value>
+        <value>Montant de base RC</value>
     </data>
     <data name="btnConvertQuoteResource.Text" xml:space="preserve">
         <value>Convertir en abonnement</value>
@@ -163,7 +163,7 @@
         <value>L’ICB ne sera pas appliqué aux abonnements groupés (limitation actuelle)</value>
     </data>
     <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
-        <value>Éléments à prix autorisant les prix personnalisés</value>
+        <value>Eléments à prix autorisant un prix personnalisé</value>
     </data>
     <data name="ISGROUP" xml:space="preserve">
         <value>Est une entreprise</value>
@@ -316,10 +316,10 @@
         <value>Éléments à prix UDRC</value>
     </data>
     <data name="UNIT_AMOUNT" xml:space="preserve">
-        <value>Montant unitaire</value>
+        <value>Montant unitaire RC</value>
     </data>
     <data name="UNIT_VALUE" xml:space="preserve">
-        <value>Valeur unitaire</value>
+        <value>Nombre d'unités</value>
     </data>
     <data name="USERNAME" xml:space="preserve">
         <value>Nom d’utilisateur</value>

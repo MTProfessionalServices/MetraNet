@@ -121,27 +121,27 @@
     <value>True</value>
   </data>
   <data name="CheckMarkLabel.Text" xml:space="preserve">
-    <value>[pt-BR]No configuration errors were detected.</value>
+    <value>Nenhum erro de configuração foi detectado.</value>
   </data>
   <data name="ErrorLabel.Text" xml:space="preserve">
-    <value>[pt-BR]Your Decision Type contains configuration errors:</value>
+    <value>Seu Tipo de decisão contém erros de configuração:</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]Errors</value>
+    <value>Erro</value>
   </data>
   <data name="NavigateLabel.Text" xml:space="preserve">
-    <value>[pt-BR]Navigate back to the appropriate pages to correct your errors. Then redo the Error Check.</value>
+    <value>Navegue para as páginas apropriadas para corrigir seus erros. Depois refaça a Verificação de erro.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_RAN_VALIDATE_FOR_DECISION" xml:space="preserve">
-    <value>[pt-BR]Ran validation for Decision Type</value>
+    <value>A validação foi executada para o Tipo de decisão</value>
   </data>
   <data name="VALIDATION_ERROR_MESSAGE" xml:space="preserve">
     <value>Mensagem</value>
   </data>
   <data name="VALIDATION_ERROR_SEVERITY" xml:space="preserve">
-    <value>[pt-BR]Level</value>
+    <value>Nível</value>
   </data>
 </root>

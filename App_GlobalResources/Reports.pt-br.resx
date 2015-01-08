@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TEXT_ACCOUNTING_CYCLE" xml:space="preserve">
-        <value>Accounting Ciclo</value>
+        <value>Código de contabilidade</value>
     </data>
     <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
         <value>Nome do adaptador</value>
@@ -202,7 +202,7 @@
         <value>Número da fatura</value>
     </data>
     <data name="TEXT_LAST_TRANSACTION_DATE" xml:space="preserve">
-        <value>Última Transaction Data</value>
+        <value>Data da transação</value>
     </data>
     <data name="TEXT_LAST_TRANSACTION_OF_TYPE" xml:space="preserve">
         <value>Última Transação de Tipo</value>
@@ -310,7 +310,7 @@
         <value>Valores do imposto</value>
     </data>
     <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
-        <value>Isentas de impostos, Data de Validade</value>
+        <value>Data de término de isenção de imposto</value>
     </data>
     <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
         <value>ID de isenção de imposto</value>
@@ -322,10 +322,10 @@
         <value>Valor monetário total</value>
     </data>
     <data name="TEXT_UNIQUE_IDENTIFIER" xml:space="preserve">
-        <value>Unique Identifier</value>
+        <value>Identificador exclusivo</value>
     </data>
     <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
-        <value>Identificador de Usuário</value>
+        <value>Identificador da cotação</value>
     </data>
     <data name="TEXT_VIEW_ID" xml:space="preserve">
         <value>Exibir ID</value>

@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TEXT_ACCOUNTING_CYCLE" xml:space="preserve">
-        <value>Accounting cycle</value>
+        <value>Cycle comptable</value>
     </data>
     <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
         <value>Nom de l’adaptateur</value>
@@ -169,7 +169,7 @@
         <value>Date finale</value>
     </data>
     <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
-        <value>Code des impôts différés</value>
+        <value>Code de revenu différé</value>
     </data>
     <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
         <value>Nom de la remise</value>
@@ -202,13 +202,13 @@
         <value>Numéro de facture</value>
     </data>
     <data name="TEXT_LAST_TRANSACTION_DATE" xml:space="preserve">
-        <value>Dernière date de la transaction</value>
+        <value>Date de dernière transaction</value>
     </data>
     <data name="TEXT_LAST_TRANSACTION_OF_TYPE" xml:space="preserve">
-        <value>Dernière transaction de type</value>
+        <value>Dernière transaction du type</value>
     </data>
     <data name="TEXT_MAXIMUM_PAYMENT" xml:space="preserve">
-        <value>Paiement maximal</value>
+        <value>Paiement maximum</value>
     </data>
     <data name="TEXT_MESSAGE" xml:space="preserve">
         <value>Message</value>
@@ -268,7 +268,7 @@
         <value>Payeur</value>
     </data>
     <data name="TEXT_PAYMENT_CURRENCY" xml:space="preserve">
-        <value>Monnaie de paiement</value>
+        <value>Devise du paiement</value>
     </data>
     <data name="TEXT_PAYMENT_METHOD" xml:space="preserve">
         <value>Méthode de paiement</value>
@@ -283,7 +283,7 @@
         <value>PO abonnement</value>
     </data>
     <data name="TEXT_PRICEABLE_ITEM" xml:space="preserve">
-        <value>Élément à prix</value>
+        <value>Elément à prix</value>
     </data>
     <data name="TEXT_PRODUCT" xml:space="preserve">
         <value>[FR]Product</value>
@@ -295,13 +295,13 @@
         <value>Type de RC</value>
     </data>
     <data name="TEXT_REGISTERED_USERS" xml:space="preserve">
-        <value>Les utilisateurs enregistrés</value>
+        <value>Utilisateurs enregistrés</value>
     </data>
     <data name="TEXT_REVENUE_CODE" xml:space="preserve">
         <value>Code revenu</value>
     </data>
     <data name="TEXT_REVENUE_PART" xml:space="preserve">
-        <value>Revenu partie</value>
+        <value>Partie de revenu</value>
     </data>
     <data name="TEXT_STATE" xml:space="preserve">
         <value>État</value>
@@ -313,10 +313,10 @@
         <value>Montant de la taxe</value>
     </data>
     <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
-        <value>Exonérés de taxe Date d'expiration</value>
+        <value>Date de fin d'exemption de taxe</value>
     </data>
     <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
-        <value>ID d’exemption de taxe</value>
+        <value>Exempt de taxe</value>
     </data>
     <data name="TEXT_TOTAL" xml:space="preserve">
         <value>Total</value>
@@ -325,10 +325,10 @@
         <value>Montant monétaire total</value>
     </data>
     <data name="TEXT_UNIQUE_IDENTIFIER" xml:space="preserve">
-        <value>Identificateur</value>
+        <value>Identifiant unique</value>
     </data>
     <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
-        <value>Identifiant de l'utilisateur</value>
+        <value>Identifiant d'utilisateur</value>
     </data>
     <data name="TEXT_VIEW_ID" xml:space="preserve">
         <value>Afficher ID</value>

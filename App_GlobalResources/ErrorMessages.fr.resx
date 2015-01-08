@@ -166,7 +166,7 @@
     <value>Monnaie non valide.</value>
   </data>
   <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
-    <value>ID de partition incorrect</value>
+    <value>ID de partition invalide</value>
   </data>
   <data name="ERROR_LAST_LOGIN" xml:space="preserve">
     <value>La dernière connexion {0} a eu lieu le {1}.  Il y a eu {2} échecs de connexion depuis la dernière connexion réussie.</value>
@@ -184,7 +184,7 @@
     <value>Fichier de menu incorrect. Signalez-le à votre administrateur système.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>Ce compte a déjà un changement en attente de type Mise à jour de compte. Seul un changement en attente de ce type est autorisé.</value>
+    <value>Ce compte possède déjà une modification de type Mise à jour de compte en attente. Une seule modification de ce type en attente est autorisée.</value>
   </data>
   <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
     <value>Cet utilisateur n’a jamais ouvert de session MetraView.</value>
@@ -202,7 +202,7 @@
     <value>Les mots de passe ne correspondent pas.</value>
   </data>
   <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
-    <value>Payeur incorrect ou manquant</value>
+    <value>Payeur manquant ou invalide</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
     <value>Le nom de l’offre produit doit être unique</value>
@@ -211,10 +211,10 @@
     <value>Erreur de configuration du fichier ReportFormat</value>
   </data>
   <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>Erreur dans le fichier config ReportFormat. Le type de format de rapport n’est pas défini.</value>
+    <value>Erreur de configuration du fichier ReportFormat. Ce type de format de rapport n'est pas défini.</value>
   </data>
   <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
-    <value>Erreur dans le fichier config ReportFormat. Structure de fichier incorrecte.</value>
+    <value>Erreur de configuration du fichier ReportFormat. Structure de fichier incorrecte.</value>
   </data>
   <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
     <value>Error in config ReportFormat file. Report image  isn't defined.</value>
@@ -244,7 +244,7 @@
     <value>Le nom d’utilisateur est incorrect.</value>
   </data>
   <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
-    <value>Vous avez dépassé le nombre de tentatives de connexions et votre compte est bloqué. Contactez votre administrateur système.</value>
+    <value>Vous avez dépassé le nombre de tentatives de connexion et votre compte est verrouillé. Contactez votre administrateur système.</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_ANNUALLY" xml:space="preserve">
     <value>Jours de l’intervalle annuel</value>
@@ -274,10 +274,10 @@
     <value>doit être un entier supérieur ou égal à zéro.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_RETRIEVE" xml:space="preserve">
-    <value>Impossible de récupérer la configuration. Pour plus d’informations, consultez le journal.</value>
+    <value>Impossible de récupérer la configuration. Consultez le journal pour voir les détails.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
-    <value>Impossible d’enregistrer les changements de configuration. Pour plus d’informations, consultez le journal.</value>
+    <value>Impossible d'enregistrer les modifications de la configuration. Consultez le journal pour voir les détails.</value>
   </data>
   <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
     <value>Échec de suppression de spéc.</value>
@@ -307,7 +307,7 @@
     <value>Impossible de trouver la propriété.</value>
   </data>
   <data name="ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY" xml:space="preserve">
-    <value>Accès refusé, l'insuffisance de capacité</value>
+    <value>Accès refusé, fonctionnalité insuffisante</value>
   </data>
   <data name="ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS" xml:space="preserve">
     <value><![CDATA[Le nouveau mot de passe ne répond pas aux exigences de sécurité:

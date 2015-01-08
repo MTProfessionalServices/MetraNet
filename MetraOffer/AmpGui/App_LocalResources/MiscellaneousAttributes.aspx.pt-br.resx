@@ -127,25 +127,24 @@
     <value>True</value>
   </data>
   <data name="COLUMN_NAME" xml:space="preserve">
-    <value>[pt-BR]Parameter Table Field</value>
+    <value>Campo de tabela de parâmetros</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]Miscellaneous Attributes:</value>
+    <value>Adicionar atributo diverso</value>
   </data>
   <data name="HARDCODED_VALUE" xml:space="preserve">
-    <value>[pt-BR]Fixed Value</value>
+    <value>Valor fixo</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>[pt-BR]On this page, you can manage miscellaneous Decision Type attributes that were not covered elsewhere in the wizard.</value>
+    <value>Nesta página, você pode gerenciar atributos diversos de Tipo de decisão que não foram cobertos em nenhum outro lugar no assistente.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>[pt-BR]Warning: Don't change anything here unless you're very sure of what you're doing!</value>
-  </data>
+    <value>Aviso: não altere nada aqui, a menos que você tenha total certeza do que está fazendo!</value>  </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Miscellaneous Attributes</value>
+    <value>Adicionar atributo diverso</value>
   </data>
   <data name="NAME" xml:space="preserve">
-    <value>[pt-BR]Attribute Name</value>
+    <value>Nome do atributo</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -157,6 +156,6 @@
     <value>Adicionar</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>[pt-BR]Define another attribute for this Decision Type</value>
+    <value>Definir outro atributo para esse Tipo de decisão</value>
   </data>
 </root>

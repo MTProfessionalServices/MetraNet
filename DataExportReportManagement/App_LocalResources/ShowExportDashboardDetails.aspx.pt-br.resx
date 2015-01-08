@@ -130,7 +130,7 @@
         <value>Painel da estrutura de exportação de dados</value>
     </data>
     <data name="TEXT_AUDIT_ID" xml:space="preserve">
-        <value>ID de auditoria</value>
+        <value>ID da auditoria</value>
     </data>
     <data name="TEXT_DEF_DELIVERY_TYPE_TEXT" xml:space="preserve">
         <value>Relatório Tipo de Distribuição Texto</value>
@@ -148,19 +148,19 @@
         <value>Instância Run Resultado</value>
     </data>
     <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
-        <value>Data de início da execução</value>
+        <value>Data da última execução</value>
     </data>
     <data name="TEXT_DEF_NAME" xml:space="preserve">
         <value>Nome</value>
     </data>
     <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
-        <value>Data de término da execução</value>
+        <value>Data da próxima execução</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_FILENAME" xml:space="preserve">
-        <value>nome do arquivo de saída</value>
+        <value>Nome do arquivo de saída</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_TYPE_TEXT" xml:space="preserve">
-        <value>relatório tipo de saída de texto</value>
+        <value>Tipo de saída do relatório</value>
     </data>
     <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Título do relatório</value>

@@ -130,10 +130,10 @@
         <value>Tableau de bord du cadre d’exportation des données</value>
     </data>
     <data name="TEXT_AUDIT_ID" xml:space="preserve">
-        <value>vérification id</value>
+        <value>ID d’audit</value>
     </data>
     <data name="TEXT_DEF_DELIVERY_TYPE_TEXT" xml:space="preserve">
-        <value>Type de rapport de distribution texte</value>
+        <value>Texte du type de distribution de rapport</value>
     </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -148,19 +148,19 @@
         <value>Exemple Exécuter Résultat</value>
     </data>
     <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
-        <value>Date de début du cycle</value>
+        <value>Date du dernier cycle</value>
     </data>
     <data name="TEXT_DEF_NAME" xml:space="preserve">
         <value>Nom</value>
     </data>
     <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
-        <value>Date de fin du cycle</value>
+        <value>Date du prochain cycle</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_FILENAME" xml:space="preserve">
         <value>Nom du fichier de sortie</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_TYPE_TEXT" xml:space="preserve">
-        <value>Rapport Type de sortie texte</value>
+        <value>Texte du type de sortie de rapport</value>
     </data>
     <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Titre du rapport</value>

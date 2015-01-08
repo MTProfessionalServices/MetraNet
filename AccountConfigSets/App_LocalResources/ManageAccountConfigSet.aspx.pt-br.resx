@@ -118,180 +118,180 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACTIONS" xml:space="preserve">
-    <value>Actions</value>
+    <value>Ações</value>
   </data>
   <data name="CONDITION_SIGN" xml:space="preserve">
-    <value>Condition</value>
+    <value>Condicional</value>
   </data>
   <data name="CONDITIONS" xml:space="preserve">
-    <value>Conditions</value>
+    <value>Condicional</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Accounts</value>
+    <value>Contas</value>
   </data>
   <data name="MTbtnCancelResource1.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="PIID" xml:space="preserve">
-    <value>PI Id</value>
+    <value>ID de PI</value>
   </data>
   <data name="PINAME" xml:space="preserve">
-    <value>PI Name</value>
+    <value>Nome de PI</value>
   </data>
   <data name="POID" xml:space="preserve">
-    <value>PO Id</value>
+    <value>Id de PO</value>
   </data>
   <data name="PONAME" xml:space="preserve">
-    <value>PO Name</value>
+    <value>Nome de PO</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="TEXT_CREATE_ACCOUNTCONFIGSET" xml:space="preserve">
-    <value>Add OnBoard Template</value>
+    <value>[pt-BR]Add OnBoard Template</value>
   </data>
   <data name="TEXT_DATES_ERROR" xml:space="preserve">
-    <value>Start Date should be less then End Date</value>
+    <value>A data de início deve ser menor que a data de término</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>End Date</value>
+    <value>Data de término</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNTCONFIGSET" xml:space="preserve">
-    <value>Manage OnBoard Template</value>
+    <value>Gerenciar modelos OnBoard</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>Start Date</value>
+    <value>Data de início</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
-    <value>Value</value>
+    <value>Valor</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>User Name</value>
+    <value>Nome do usuário</value>
   </data>
   <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
-    <value>Subscription End Date</value>
+    <value>Data de término da assinatura</value>
   </data>
   <data name="dpSubParamsStartDateResource.Label" xml:space="preserve">
-    <value>Subscription Start Date</value>
+    <value>Data de início da assinatura</value>
   </data>
   <data name="tbSubParamsDescriptionResource.Label" xml:space="preserve">
-    <value>Description</value>
+    <value>Descrição</value>
   </data>
   <data name="tbSubParamsPoResource.Label" xml:space="preserve">
-    <value>Product Offering</value>
+    <value>Oferta de produto</value>
   </data>
   <data name="isCorpAccountIdResource.Label" xml:space="preserve">
-    <value>Corporate Account</value>
+    <value>Conta corporativa</value>
   </data>
   <data name="btnUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Update</value>
+    <value>Atualizar</value>
   </data>
   <data name="btnGoToUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Edit</value>
+    <value>Editar</value>
   </data>
   <data name="btnAddAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Add</value>
+    <value>Adicionar</value>
   </data>
   <data name="dpStartDateResource.Label" xml:space="preserve">
-    <value>Effective Date</value>
+    <value>[pt-BR]Effective Date</value>
   </data>
   <data name="dpEndDateResource.Label" xml:space="preserve">
-    <value>Effective End Date</value>
+    <value>[pt-BR]Effective End Date</value>
   </data>
   <data name="tbAcsDescriptionResource.Label" xml:space="preserve">
-    <value>Description</value>
+    <value>[pt-BR]Description</value>
   </data>
   <data name="cbAcsEnabledResource.BoxLabel" xml:space="preserve">
-    <value>Enabled</value>
+    <value>[pt-BR]Enabled</value>
   </data>
   <data name="tbRankResource.Label" xml:space="preserve">
-    <value>Rank</value>
+    <value>[pt-BR]Rank</value>
   </data>
   <data name="panelAccountConfigSetParameters.Text" xml:space="preserve">
-    <value>Template Information</value>
+    <value>[pt-BR]Template Information</value>
   </data>
   <data name="panelCriteriaResource.Text" xml:space="preserve">
-    <value><span class="x-panel-header-text" id="ext-gen34"></span></value>
+    <value></value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Subscription Model Details</value>
+    <value>[pt-BR]Subscription Model Details</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
-    <value>Group Subscription Name</value>
+    <value>Nome da assinatura em grupo</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
-    <value>Subscription Params Id</value>
+    <value>[pt-BR]Subscription Params Id</value>
   </data>
   <data name="ACCOUNTVIEW" xml:space="preserve">
-    <value>Account View</value>
+    <value>ID de conta</value>
   </data>
   <data name="PROPERTY" xml:space="preserve">
-    <value>Property</value>
+    <value>Propriedade</value>
   </data>
   <data name="VALUE" xml:space="preserve">
-    <value>Value</value>
+    <value>Valor</value>
   </data>
   <data name="ITEM" xml:space="preserve">
-    <value>Item</value>
+    <value>[pt-BR]Item</value>
   </data>
   <data name="ITEMS" xml:space="preserve">
-    <value>Items</value>
+    <value>[pt-BR]Items</value>
   </data>
   <data name="SELECTION_CRITERIA_GRID_TITLE" xml:space="preserve">
-    <value>If following Account Properties are satisfied</value>
+    <value>[pt-BR]If following Account Properties are satisfied</value>
   </data>
   <data name="PROPERTY_TO_SET_GRID_TITLE" xml:space="preserve">
-    <value>Apply following Account Properties Updates</value>
+    <value>[pt-BR]Apply following Account Properties Updates</value>
   </data>
   <data name="REMOVE_SELECTIONCRITERION" xml:space="preserve">
-    <value>Remove Selection Criterion</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="EDIT_SELECTIONCRITERION" xml:space="preserve">
-    <value>Edit Selection Criterion</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="REMOVE_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Remove Property To Set</value>
+    <value>[pt-BR]Remove Property To Set</value>
   </data>
   <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Edit Property To Set</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Add Property</value>
+    <value>[pt-BR]Add Property</value>
   </data>
   <data name="ADD_SELECTION_CRITERIA" xml:space="preserve">
-    <value>Add Property</value>
+    <value>[pt-BR]Add Property</value>
   </data>
   <data name="ADD_SELECTION_CRITERION" xml:space="preserve">
-    <value>Add Selection Criterion</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="EDIT_SELECTION_CRITERIA" xml:space="preserve">
-    <value>Edit Selection Criteria</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value>UDRC metrics</value>
+    <value>Métricas UDRC</value>
   </data>
   <data name="TEXT_FAILED" xml:space="preserve">
-    <value>Failed. Wrong input!</value>
+    <value>Falha. Entrada incorreta!</value>
   </data>
   <data name="TEXT_WRONG_INPUT" xml:space="preserve">
-    <value>Most likely length of the value more than available for the selected property</value>
+    <value>É provável que o comprimento do valor seja mais que o disponível para a propriedade selecionada</value>
   </data>
   <data name="panelManageSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Apply following Subscription Model</value>
+    <value>[pt-BR]Apply following Subscription Model</value>
   </data>
   <data name="btnSelectSubParamsResource.Text" xml:space="preserve">
-    <value>Select Model</value>
+    <value>[pt-BR]Select Model</value>
   </data>
   <data name="btnRemoveSubParamsResource.Text" xml:space="preserve">
-    <value>Remove Model</value>
+    <value>[pt-BR]Remove Model</value>
   </data>
   <data name="SELECT_SUBPARAMS" xml:space="preserve">
-    <value>Subscription Models</value>
+    <value>[pt-BR]Subscription Models</value>
   </data>
   <data name="TEXT_UPDATE_QUESTION" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>[pt-BR]Are you sure?</value>
   </data>
 </root>

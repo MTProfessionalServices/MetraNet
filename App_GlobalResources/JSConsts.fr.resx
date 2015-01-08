@@ -130,7 +130,7 @@
     <value>Échec de transactions</value>
   </data>
   <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
-    <value>Facture</value>
+    <value>Factures</value>
   </data>
   <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
     <value>Ltv</value>
@@ -256,7 +256,7 @@
     <value>Type de compte</value>
   </data>
   <data name="TEXT_ACCOUNT_UPDATE" xml:space="preserve">
-    <value>Mise à jour des comptes</value>
+    <value>Mise à jour de compte</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Seules les valeurs numériques sont autorisées</value>
@@ -280,7 +280,7 @@
     <value>Ajouter un abonnement groupé</value>
   </data>
   <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
-    <value>Ajouter des membres à la hiérarchie</value>
+    <value>Ajouter des hiérarchies de membres</value>
   </data>
   <data name="TEXT_ADD_REMITTANCE_DETAILS" xml:space="preserve">
     <value>Ajouter les détails du virement.</value>
@@ -367,7 +367,7 @@
     <value>Chaque débit/crédit créé figurant dans la grille est associé à une vue produit et spécifie la définition des zones dans la vue produit et dans t_acc_usage.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>- Si le débit/crédit est appliqué de façon proportionnelle, la fraction suivante de la valeur de débit/crédit s’applique :&lt;br /&gt;  (total - début de plage) / (fin de plage - début de plage)&lt;br /&gt;- Si le débit/crédit s’applique de façon inversement proportionnelle, la fraction suivante du débit/crédit s’applique :&lt;br /&gt;  (fin de plage - total) / (fin de plage - début de plage)&lt;br /&gt;- Si le débit/crédit s’applique sous forme de multiplicateur agrégé, le montant du débit/crédit est calculé comme suit :&lt;br /&gt;  (valeur de débit ou de crédit) * (valeur agrégée à utiliser pour la décision),&lt;br /&gt;où la valeur agrégée peut représenter un montant, des unités d’utilisation ou des événements.&lt;br /&gt;- Sinon, la valeur totale de débit/crédit est appliquée.</value>
+    <value>- Si les frais/le crédit sont appliqués proportionnellement, la fraction suivante de la valeur des frais/du crédit est appliquée :&lt;br /&gt;  (total - début de la plage) / (fin de la plage - début de la plage)&lt;br /&gt;- Si les frais/le crédit sont appliqués de manière inversement proportionnelle, la fraction suivante de la valeur des frais/du crédit est appliquée :&lt;br /&gt;  (fin de la plage - total) / (fin de la plage - début de la plage)&lt;br /&gt;- Si les frais/le crédit sont appliqués en tant que multiplicateur consolidé, le montant des frais/du crédit est calculé comme suit :&lt;br /&gt;  (valeur des frais ou du crédit) * (valeur consolidée pour la décision)&lt;br /&gt;où la valeur consolidée peut être une somme d'argent, des unités d'utilisation ou des événements.&lt;br /&gt;- Sinon, la valeur totale des frais/du crédit est appliquée.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
     <value>&lt;i&gt;Agir dans chaque enregistrement individuellement&lt;/i&gt; signifie que la décision utilise un enregistrement, l’ajoute au total, et si ce total figure dans la plage, réalise une action spécifique.  &lt;i&gt;Agir sur tous les enregistrements&lt;/i&gt; signifie que la décision totalise &lt;u&gt;TOUS&lt;/u&gt; les enregistrements ; si ce total entre dans la plage, elle applique l’action spécifique à &lt;u&gt;TOUS&lt;/u&gt; les enregistrements.</value>
@@ -448,7 +448,7 @@
     <value>Renvoyez cette modification approuvée pour tenter à nouveau de l’appliquer au système.</value>
   </data>
   <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
-    <value>Commentaire:</value>
+    <value>Commentaire :</value>
   </data>
   <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
     <value>Erreur de mise à jour de l’ID de modification</value>
@@ -793,16 +793,16 @@
     <value>Obtenir le chemin de la hiérarchie</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
-    <value>Ajouter des membres au groupe</value>
+    <value>Ajouter membres au groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
-    <value>Effacer des membres du groupe</value>
+    <value>Supprimer membres du groupe</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
-    <value>Désabonner des membres de l’abonnement de groupe</value>
+    <value>Désabonner membres de l'abonnement groupé</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
-    <value>Mettre à jour les membres du groupe</value>
+    <value>Mettre à jour membres du groupe</value>
   </data>
   <data name="TEXT_GRPSUBMEM_DEL" xml:space="preserve">
     <value>Sélectionnez les membres à supprimer</value>
@@ -910,7 +910,7 @@
     <value>Aucun compte chargé.</value>
   </data>
   <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
-    <value>Pas de données disponibles</value>
+    <value>Pas de donnés disponibles</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
     <value>Il n’y a pas de propriétés pour la mise à jour en vrac</value>
@@ -976,7 +976,7 @@
     <value>Vous devez d’abord renseigner les détails du virement.</value>
   </data>
   <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
-    <value>Mise à jour des offres</value>
+    <value>Mise à jour de l’offre produit</value>
   </data>
   <data name="TEXT_PROPERTIES" xml:space="preserve">
     <value>Propriétés</value>
@@ -985,7 +985,7 @@
     <value>Propriétés qui seront mises à jour</value>
   </data>
   <data name="TEXT_RATE_UPDATE" xml:space="preserve">
-    <value>Mise à jour des prix</value>
+    <value>Mise à jour du prix</value>
   </data>
   <data name="TEXT_RATES" xml:space="preserve">
     <value>Prix  </value>
@@ -1117,10 +1117,10 @@
     <value>État</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
-    <value>Ajouter un abonnement</value>
+    <value>Ajout d'abonnement</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
-    <value>Mise à jour des abonnements</value>
+    <value>Mise à jour de l’abonnement</value>
   </data>
   <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
     <value>Abonnements</value>
@@ -1195,7 +1195,7 @@
     <value>Afficher la/les relations</value>
   </data>
   <data name="TEXT_WELCOME" xml:space="preserve">
-    <value>ach</value>
+    <value>ACH</value>
   </data>
   <data name="TEXT_WILL_LOSE_CHANGES" xml:space="preserve">
     <value>Les modifications effectuées seront perdues.</value>
@@ -1309,31 +1309,31 @@
     <value>Créer une relation</value>
   </data>
   <data name="TEXT_TERMINATE" xml:space="preserve">
-    <value>Terminate</value>
+    <value>Résilier</value>
   </data>
   <data name="TEXT_TERMINATE_SELECTED_ROWS" xml:space="preserve">
-    <value>Are you sure you want to terminate selected rows?</value>
+    <value>Etes-vous sûr de vouloir résilier les lignes sélectionnées ?</value>
   </data>
   <data name="TEXT_UPDATE_ACS_MESSAGE" xml:space="preserve">
-    <value>Are you sure that you want to update OnBoard template?</value>
+    <value>Etes-vous sûr de vouloir mettre à jour le modèle embarqué ?</value>
   </data>
   <data name="TEXT_TERMINATE_MESSAGE" xml:space="preserve">
-    <value>Are you sure you want to terminate {0}?</value>
+    <value>Etes-vous sûr de vouloir résilier {0} ?</value>
   </data>
   <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
-    <value>Recent Notifications</value>
+    <value>Notifications récentes</value>
   </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
-    <value>[FR]Change Password</value>
+    <value>Modifier le mot de passe</value>
   </data>
   <data name="TEXT_MY_SECURITY_SETTINGS" xml:space="preserve">
-    <value>[FR]My Security Settings</value>
+    <value>Mes paramètres de sécurité</value>
   </data>
   <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
     <value>[FR]Notifications</value>
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
-    <value>[FR]More ...</value>
+    <value>Plus...</value>
   </data>
   <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
     <value>[FR]Edit Report Definition</value>

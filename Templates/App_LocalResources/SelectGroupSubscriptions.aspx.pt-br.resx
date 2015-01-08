@@ -136,7 +136,7 @@
         <value>Data de término</value>
     </data>
     <data name="EndDateResource1.Label" xml:space="preserve">
-        <value>Data Assinaturas Fim</value>
+        <value>Data de término das assinaturas</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
         <value>Assinaturas em grupo</value>
@@ -169,13 +169,13 @@
         <value>Data de início</value>
     </data>
     <data name="StartDateResource1.Label" xml:space="preserve">
-        <value>Assinaturas Data de Início</value>
+        <value>Data de início das assinaturas</value>
     </data>
     <data name="SUBSCRIPTION_ID" xml:space="preserve">
         <value>ID da assinatura</value>
     </data>
     <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-        <value>Assinatura Span</value>
+        <value>Duração da assinatura</value>
     </data>
     <data name="SUPPORTS_GROUP" xml:space="preserve">
         <value>Suporta operações em grupo</value>

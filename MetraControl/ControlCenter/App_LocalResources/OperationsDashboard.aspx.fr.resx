@@ -274,7 +274,7 @@
     <value>État</value>
   </data>
   <data name="TEXT_SUCCESSFUL" xml:space="preserve">
-    <value>Succès:</value>
+    <value>Réussi :</value>
   </data>
   <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
     <value>tâches en attente de traitement</value>
@@ -289,10 +289,10 @@
     <value>Sans guide</value>
   </data>
   <data name="TEXT_WAITING" xml:space="preserve">
-    <value>En attente:</value>
+    <value>En attente :</value>
   </data>
   <data name="TEXT_TYPE_EOM" xml:space="preserve">
-    <value>[FR]EOM</value>
+    <value>FDM</value>
   </data>
   <data name="TEXT_TYPE_M12" xml:space="preserve">
     <value>[FR]M12</value>

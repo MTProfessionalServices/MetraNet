@@ -280,10 +280,10 @@
     <value>antes</value>
   </data>
   <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
-    <value>Associações mensagems de conta</value>
+    <value>Associações mensagens de conta</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>Mensagems de conta</value>
+    <value>Mensagens de conta</value>
   </data>
   <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
     <value>Informações de faturamento</value>
@@ -361,7 +361,7 @@
     <value>Valor exibido</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
-    <value>Mostrar valor como string</value>
+    <value>ExibirQuantidadeComoString</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Editar </value>
@@ -409,10 +409,10 @@
     <value>Id interno</value>
   </data>
   <data name="TEXT_IS_REQUIRED" xml:space="preserve">
-    <value>É necessário</value>
+    <value>ÉObrigatório</value>
   </data>
   <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>Esta o site for a do ar para manutenção</value>
+    <value>ÉSiteInativadoParaManutenção</value>
   </data>
   <data name="TEXT_IS_VISIBLE" xml:space="preserve">
     <value>está visível</value>

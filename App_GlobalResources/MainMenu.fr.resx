@@ -670,7 +670,7 @@
         <value>Mettre à jour la définition de rapport existante</value>
     </data>
     <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-        <value>Audit d’utilisation</value>
+        <value>Détails de décision du calcul d'utilisation</value>
     </data>
     <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
         <value>Utilisation traitement</value>

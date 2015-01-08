@@ -121,7 +121,7 @@
         <value>DB estado</value>
     </data>
     <data name="TEXT_END_DATE" xml:space="preserve">
-        <value>End Date</value>
+        <value>Data de término</value>
     </data>
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
         <value>Todos os intervalos</value>
@@ -133,16 +133,16 @@
         <value>Intervalos faturáveis</value>
     </data>
     <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-        <value>Intervalos concluídas</value>
+        <value>Intervalos concluídos</value>
     </data>
     <data name="TEXT_GROUP" xml:space="preserve">
         <value>Grupos</value>
     </data>
     <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-        <value>Difícil fechado</value>
+        <value>Fechado detalhadamente</value>
     </data>
     <data name="TEXT_ID" xml:space="preserve">
-        <value>Intervalo de ID</value>
+        <value>ID do intervalo</value>
     </data>
     <data name="TEXT_OPEN" xml:space="preserve">
         <value>Abrir</value>
@@ -160,6 +160,6 @@
         <value>Desconhecido</value>
     </data>
     <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-        <value>Uso Tipo de ciclo</value>
+        <value>Tipo de ciclo de utilização</value>
     </data>
 </root>

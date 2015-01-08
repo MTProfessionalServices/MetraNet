@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionRange.Text" xml:space="preserve">
-    <value>[FR]The aggregate value for the Decision Type has a range of values within which the Decision Type is applicable.</value>
+    <value>La valeur consolidée du type de décision inclut une plage permettant d'appliquer le type de décision.</value>
   </data>
   <data name="lblDecisionRangeProration.Text" xml:space="preserve">
-    <value>[FR]Prorate the range at subscription activation and/or termination?</value>
+    <value>Estimer la plage au prorata à l'activation et/ou la résiliation de l'abonnement ?</value>
   </data>
   <data name="lblDecisionRangeRestart.Text" xml:space="preserve">
-    <value>[FR]Restart the count after the end of the range has been reached?</value>
+    <value>Redémarrer le décompte après la fin de la plage ?</value>
   </data>
   <data name="lblEndOfRange.Text" xml:space="preserve">
-    <value>[FR]End of range:</value>
+    <value>Fin de plage :</value>
   </data>
   <data name="lblProrate.Text" xml:space="preserve">
-    <value>[FR]How should the decision prorate the range?</value>
+    <value>Comment la décision doit-elle estimer la plage au prorata ?</value>
   </data>
   <data name="lblStartOfRange.Text" xml:space="preserve">
-    <value>[FR]Start of range:</value>
+    <value>Début de plage :</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]5. Range for {0}</value>
+    <value>5. Plage de {0}</value>
   </data>
   <data name="PRORATE_BOTH_TEXT" xml:space="preserve">
-    <value>[FR]Prorate the range on both activation and termination</value>
+    <value>Estimer la plage au prorata à l'activation et la résiliation</value>
   </data>
   <data name="PRORATE_NONE_TEXT" xml:space="preserve">
-    <value>[FR]Do not prorate the range on activation or termination</value>
+    <value>Ne pas estimer la plage au prorata à l'activation ou la résiliation</value>
   </data>
   <data name="PRORATE_TIER_END_TEXT" xml:space="preserve">
-    <value>[FR]Prorate the range only on termination</value>
+    <value>Estimer la plage au prorata à la résiliation seule</value>
   </data>
   <data name="PRORATE_TIER_START_TEXT" xml:space="preserve">
-    <value>[FR]Prorate the range only on activation</value>
+    <value>Estimer la plage au prorata à l'activation seule</value>
   </data>
   <data name="rblRangeNo.Text" xml:space="preserve">
-    <value>[FR]No</value>
+    <value>Non</value>
   </data>
   <data name="rblRangeYes.Text" xml:space="preserve">
     <value>Oui</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_END_RANGE" xml:space="preserve">
-    <value>[FR]Error: You must specify the end of range.</value>
+    <value>Erreur : vous devez indiquer la fin de la plage.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_START_RANGE" xml:space="preserve">
-    <value>[FR]Error: You must specify the start of range.</value>
+    <value>Erreur : vous devez indiquer le début de la plage.</value>
   </data>
 </root>

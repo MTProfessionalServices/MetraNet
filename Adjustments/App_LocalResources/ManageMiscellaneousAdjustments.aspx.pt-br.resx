@@ -232,7 +232,7 @@
         <value>Valores do imposto</value>
     </data>
     <data name="TEXT_TIMESTAMP" xml:space="preserve">
-        <value>Timestamp</value>
+        <value>Carimbo de data/hora</value>
     </data>
     <data name="TEXT_VIEW_ID" xml:space="preserve">
         <value>Exibir ID</value>

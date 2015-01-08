@@ -124,13 +124,13 @@
         <value>Annuellement</value>
     </data>
     <data name="LabelAutoRunEopInfoResource1.Text" xml:space="preserve">
-        <value>Après la fermeture, automatique ou manuelle, d’un groupe de facturation par le logiciel, la plate-forme exécutera automatiquement les adaptateurs de fin de période.</value>
+        <value>Une fois qu'un groupe de facturation a fait l'objet d'une clôture logicielle automatique ou manuelle, la plate-forme exécute automatiquement les adaptateurs de fin de période.</value>
     </data>
     <data name="LabelAutoRunEopResource1.Text" xml:space="preserve">
-        <value>Exécuter automatiquement les adaptateurs de fin de période sur les groupes de facturation clos automatiquement</value>
+        <value>Lancer automatiquement les adaptateurs de fin de période sur les groupes de facturation en clôture logicielle</value>
     </data>
     <data name="LabelAutoSoftCloseResource1.Text" xml:space="preserve">
-        <value>Créer et fermer automatiquement les groupes de facturation pour :</value>
+        <value>Créer automatiquement des groupes de facturation en clôture logicielle pour :</value>
     </data>
     <data name="LabelAutoSoftCloseTitleResource1.Text" xml:space="preserve">
         <value>Fermer automatiquement les groupes de facturation des intervalles d’utilisation parvenus à expiration.</value>
@@ -148,7 +148,7 @@
         <value>jour(s) après l’expiration de l’intervalle.</value>
     </data>
     <data name="LabelEachNightResource1.Text" xml:space="preserve">
-        <value>Chaque nuit, la plate-forme recherchera les intervalles qui ont expiré et, en fonction du délai de grâce configuré ci-dessous, elle créera automatiquement des groupes de facturation et changera leur état à « Clos automatiquement ».</value>
+        <value>Chaque nuit, la plate-forme contrôle les intervalles terminés et utilise la configuration de la période de grâce ci-dessous pour créer automatiquement des groupes de facturation et modifier leur état en Clôture (logicielle).</value>
     </data>
     <data name="LabelIntervalsResource1.Text" xml:space="preserve">
         <value>intervalles</value>
@@ -160,7 +160,7 @@
         <value>Trimestriel</value>
     </data>
     <data name="LabelRunScheduledAdaptersInfoResource1.Text" xml:space="preserve">
-        <value>La plate-forme exécutera périodiquement les adaptateurs planifiés configurés. Remarque : si ce paramètre n’est pas sélectionné, tous les adaptateurs planifiés devront être exécutés manuellement.</value>
+        <value>La plate-forme exécute périodiquement les adaptateurs planifiés configurés.  Remarque : Si ce paramètre n'est pas sélectionné, tous les adaptateurs planifiés doivent être exécutés manuellement.</value>
     </data>
     <data name="LabelRunScheduledAdaptersResource1.Text" xml:space="preserve">
         <value>Exécuter les adaptateurs planifiés</value>

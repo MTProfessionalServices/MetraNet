@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ddParamTableResource1.Label" xml:space="preserve">
-    <value>[FR]Parameter Table</value>
+    <value>Tableau des paramètres</value>
   </data>
   <data name="lblEnterInfoResource1.Text" xml:space="preserve">
-    <value>[FR]Enter information about this Decision Type:</value>
+    <value>Entrez des informations sur ce type de décision :</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>[FR]Enter information used to describe this decision type.</value>
+    <value>Entrez la description de ce type de décision.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]General Information for {0}</value>
+    <value>Informations générales pour {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </data>
   <data name="tbGenInfoNameResource1.Label" xml:space="preserve">
-    <value>[FR]Decision Type Name</value>
+    <value>Nom du type de décision</value>
   </data>
   <data name="TEXT_ERROR_ADD_EDIT_DECISION" xml:space="preserve">
-    <value>[FR]Error while creating/editing Decision Type</value>
+    <value>Erreur de création/modification du type de décision</value>
   </data>
   <data name="TEXT_ERROR_DUPLICATE_DECISION_NAME" xml:space="preserve">
-    <value>[FR]Error: Decision Type name already in use</value>
+    <value>Erreur : le nom du type de décision est déjà utilisé</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_PARAM_TABLE_NAMES" xml:space="preserve">
-    <value>[FR]Error while retrieving parameter table names</value>
+    <value>Erreur de récupération des noms de tableaux de paramètres</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_DECISION" xml:space="preserve">
-    <value>[FR]Successfully created Decision Type</value>
+    <value>Type de décision créé avec succès</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[FR]Description:</value>
+    <value>Description :</value>
   </data>
 </root>

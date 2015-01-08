@@ -169,7 +169,7 @@
         <value>Nouveaux frais/Crédits</value>
     </data>
     <data name="PAGETITLE_ITEMS_TO_AGGREGATE" xml:space="preserve">
-        <value>4. Éléments à regrouper</value>
+        <value>4. Eléments à consolider</value>
     </data>
     <data name="PAGETITLE_MISCELLANEOUS_ATTRIBUTES" xml:space="preserve">
         <value>11. Attributs divers</value>
@@ -217,7 +217,7 @@
         <value>Valeur fixe</value>
     </data>
     <data name="TEXT_GET_FROM_PARAM_TABLE_COLUMN" xml:space="preserve">
-        <value>Extraction à partir de la table de paramètres</value>
+        <value>A partir du tableau des paramètres</value>
     </data>
     <data name="TEXT_MORE" xml:space="preserve">
         <value>&lt;u&gt;Autre...&lt;/u&gt;</value>

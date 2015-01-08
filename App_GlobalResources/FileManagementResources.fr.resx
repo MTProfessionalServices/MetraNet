@@ -229,7 +229,7 @@
         <value>Annuaire entrant</value>
     </data>
     <data name="GLOBAL_INCOMING_DIR_HELP" xml:space="preserve">
-        <value>Le répertoire entrant doit être situé sur le système sur lequel le service FLS (File Landing Service) est exécuté. n’entrez pas de nom de serveur. Par exemple, si FLS est exécuté sur MNServer3 dans D:\\IncomingFLS, entrez D:\\IncomingFLS.</value>
+        <value>Le répertoire entrant doit être situé sur le système sur lequel le service FLS (File Landing Service) est exécuté. N'entrez pas de nom de serveur. Par exemple, si FLS est exécuté sur MNServer3 dans D:\\IncomingFLS, entrez D:\\IncomingFLS.</value>
     </data>
     <data name="GLOBAL_PANEL_TITLE" xml:space="preserve">
         <value>Paramètres généraux de gestion des fichiers</value>
@@ -364,7 +364,7 @@
         <value>ID interne</value>
     </data>
     <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-        <value>Aucun enregistrement trouvé.</value>
+        <value>Aucun enregistrement trouvé</value>
     </data>
     <data name="TEXT_ORDER" xml:space="preserve">
         <value>Ordre</value>

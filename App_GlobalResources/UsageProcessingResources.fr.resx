@@ -121,10 +121,10 @@
         <value>Frais d’utilisation</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
-        <value>Événements d’utilisation</value>
+        <value>Evénements d'utilisation</value>
     </data>
-    <data name="NO_RECORDS_TEXT" xml:space="preserve">
-        <value>Aucun enregistrement trouvé.</value>
+  <data name="NO_RECORDS_TEXT" xml:space="preserve">
+        <value>Aucun enregistrement trouvé</value>
     </data>
     <data name="TEXT_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
         <value>Comptes concernés</value>
@@ -142,7 +142,7 @@
         <value>Montant avant</value>
     </data>
     <data name="TEXT_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-        <value>Montant chaînes groupées</value>
+        <value>Groupe de chaînes de montants</value>
     </data>
     <data name="TEXT_B_CHANGED" xml:space="preserve">
         <value>Modifié ?</value>
@@ -181,7 +181,7 @@
         <value>Date chronométrée</value>
     </data>
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
-        <value>Audit de décisions</value>
+        <value>Audit d'utilisation</value>
     </data>
     <data name="TEXT_ID_ACC" xml:space="preserve">
         <value>Compte</value>

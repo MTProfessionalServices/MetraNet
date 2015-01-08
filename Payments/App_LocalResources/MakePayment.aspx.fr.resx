@@ -133,9 +133,9 @@
         <value>Méthode de paiement</value>
     </data>
     <data name="InstructionsText.Text" xml:space="preserve">
-        <value>Vous pouvez régler votre facture à l’aide d’un compte d’épargne ou d’une carte de crédit/débit.
+        <value>Vous pouvez payer votre facture en utilisant un compte courant/d'épargne ou une carte de crédit/débit.
 
-Commencez par choisir le montant à régler, le mode de paiement et la date du paiement.</value>
+Commencez par choisir le montant à payer, ainsi que le mode et la date de paiement.</value>
     </data>
     <data name="lblPaymentAmount.Text" xml:space="preserve">
         <value>Montant du paiement</value>

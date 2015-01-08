@@ -145,7 +145,7 @@
         <value>Jour d’exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
-        <value>Dernier jour du mois d’exécution</value>
+        <value>Jour du mois d’exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
         <value>Premier jour du mois d’exécution</value>

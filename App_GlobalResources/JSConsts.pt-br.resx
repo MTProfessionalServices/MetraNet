@@ -256,7 +256,7 @@
     <value>Tipo de conta</value>
   </data>
   <data name="TEXT_ACCOUNT_UPDATE" xml:space="preserve">
-    <value>Atualizações de conta</value>
+    <value>Atualização da conta</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Apenas dígitos numéricos são permitidos</value>
@@ -397,7 +397,7 @@
     <value>Como parte da geração de cobrança ou crédito, uma diretiva pode executar os seguintes tipos de trabalho:&lt;br/&gt;- Inclusão de tabela - unir a uma tabela ou exibição de banco de dados. Todos os campos da linha selecionada na tabela ou exibição inclusa serão adicionados como campos ao objeto na memória.&lt;br/&gt;- Preenchimento de campo - preenche um campo do objeto na memória avaliando uma expressão ou atribuindo um valor padrão.&lt;br/&gt;- Execução do procedimento - executa um procedimento MVM. A execução de procedimento fornece um mecanismo para fazer qualquer coisa que não pode ser realizada através de inclusão de tabela e preenchimento de campo.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Exemplo: um ciclo de cobrança é mensal, mas você deseja fornecer uma taxa especial se \"mais de 1000 minutos forem usados em três meses\". Isso é conhecido como o ciclo de decisão.</value>
+    <value>Por exemplo, talvez o ciclo de cobrança é mensal, mas você deseja oferecer uma taxa especial se \"mais de 1000 minutos forem usados em três meses\". Isso é conhecido como o ciclo de decisão.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
     <value>Exemplo: aplicar uma taxa especial se 'minutos totais forem entre 500 e 1000' ou se 'o número de tarifas for maior que 5'.</value>
@@ -976,7 +976,7 @@
     <value>Primeiramente, você deve preencher os detalhes de remessa.</value>
   </data>
   <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
-    <value>Atualização do Product Offering</value>
+    <value>Atualização da oferta de produto</value>
   </data>
   <data name="TEXT_PROPERTIES" xml:space="preserve">
     <value>Propriedades</value>
@@ -985,7 +985,7 @@
     <value>Propriedades que serão atualizadas</value>
   </data>
   <data name="TEXT_RATE_UPDATE" xml:space="preserve">
-    <value>Atualização de Taxa</value>
+    <value>Atualização de função</value>
   </data>
   <data name="TEXT_RATES" xml:space="preserve">
     <value>Taxas  </value>
@@ -1117,10 +1117,10 @@
     <value>Estado</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
-    <value>Adição de assinatura</value>
+    <value>Final da assinatura</value>
   </data>
   <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
-    <value>Atualização de assinatura</value>
+    <value>Atualização da assinatura</value>
   </data>
   <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
     <value>Assinaturas</value>
@@ -1147,7 +1147,7 @@
     <value>Nem todas as linhas foram retornadas, pois o conjunto de resultados é muito grande. Modifique sua pesquisa para ver mais resultados.</value>
   </data>
   <data name="TEXT_TOPNOTE" xml:space="preserve">
-    <value>TopNote</value>
+    <value>NotaSuperior</value>
   </data>
   <data name="TEXT_TRANSACTION_OPEN" xml:space="preserve">
     <value>Abrir</value>
@@ -1309,31 +1309,31 @@
     <value>Remover relacionamento</value>
   </data>
   <data name="TEXT_TERMINATE" xml:space="preserve">
-    <value>Terminate</value>
+    <value>Terminar</value>
   </data>
   <data name="TEXT_TERMINATE_SELECTED_ROWS" xml:space="preserve">
-    <value>Are you sure you want to terminate selected rows?</value>
+    <value>Tem certeza que deseja excluir as linhas selecionadas?</value>
   </data>
   <data name="TEXT_UPDATE_ACS_MESSAGE" xml:space="preserve">
-    <value>Are you sure that you want to update OnBoard template?</value>
+    <value>Tem certeza de que deseja atualizar o modelo OnBoard?</value>
   </data>
   <data name="TEXT_TERMINATE_MESSAGE" xml:space="preserve">
-    <value>Are you sure you want to terminate {0}?</value>
+    <value>Tem certeza que deseja excluir {0}?</value>
   </data>
   <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
-    <value>Recent Notifications</value>
+    <value>Notificações recentes</value>
   </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
-    <value>{pt-BR}Change Password</value>
+    <value>Alterar senha</value>
   </data>
   <data name="TEXT_MY_SECURITY_SETTINGS" xml:space="preserve">
-    <value>{pt-BR}My Security Settings</value>
+    <value>Minhas Configurações de Segurança</value>
   </data>
   <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
-    <value>{pt-BR}Notifications</value>
+    <value>Notificação</value>
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
-    <value>[pt-BR]More ...</value>
+    <value>Mais ...</value>
   </data>
   <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
     <value>Edit Report Definition</value>

@@ -127,7 +127,7 @@ The file defines the localization of the main menu options.
 			<value>Générer un mot de passe</value>      
 		</text>       
     <text id="TEXT_SUBSCRIBER_LOG">
-			<value>Journal des comptes</value>
+			<value>Journal de compte</value>
 		</text>
     <text id="TEXT_SUBSCRIBER_LOG_ADD">
 			<value>Remarques</value>
@@ -148,7 +148,7 @@ The file defines the localization of the main menu options.
 			<value>Points limites du service</value>
 		</text>   
     <text id="TEXT_SEP_ADJUSTMENTS">
-			<value>divers</value>
+			<value>Ajustements</value>
 		</text>   
     <text id="TEXT_SEP_LOGS">
 			<value>Journaux</value>

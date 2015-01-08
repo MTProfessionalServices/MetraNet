@@ -140,12 +140,24 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
           EventArg.HTMLRendered = objPreProcessor.Process(strTemplateCheckBox)
           Form_DisplayCell      = TRUE
         Case 2
-          Form_DisplayCell = Inherited("Form_DisplayCell()")    
+          Form_DisplayCell = Inherited("Form_DisplayCell()")   
         Case 9
+        'code fix for core-6775 adjustment amount shows values in timestamp 
+        '****Starts here******
+        'code fix for core-6775 oracle and sql DB Values Form.Grid.SelectedProperty.Name="COMPOUNDPREBILLADJAMT" ||CompoundPrebillAdjAmt
+        if UCase(Form.Grid.SelectedProperty.Name)="COMPOUNDPREBILLADJAMT" then
+        Form_DisplayCell = Inherited("Form_DisplayCell()")
+        else
+        '****End Here******
             EventArg.HTMLRendered = EventArg.HTMLRendered  & "<TD nowrap Class='[CLASS]'>"
             EventArg.HTMLRendered = EventArg.HTMLRendered  & Framework.Format(ProductView.Properties.RowSet.Value("timestamp"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value)
             EventArg.HTMLRendered = EventArg.HTMLRendered  &  "</TD>"
             EventArg.HTMLRendered = PreProcess(EventArg.HTMLRendered,Array("CLASS", Form.Grid.CellClass))
+        
+        'code fix for core-6775 adjustment amount shows values in timestamp 
+        '****Starts here******
+        End if 
+        '****End Here******
         Case Else
               
           Select Case UCase(Form.Grid.SelectedProperty.Name)

@@ -1,205 +1,205 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_INTERVAL_MANANAGEMENT">
-    <value>[FR]Interval Management</value>
+    <value>Gestion des intervalles</value>
   </text>
   <text id="TEXT_BILLING_MANANAGEMENT">
-    <value>[FR]Billing Management</value>
-  </text>  
+    <value>Gestion de la facturation</value>
+  </text>
   <text id="TEXT_INTERVAL_MANANAGEMENT_EXPIRED">
-    <value>[FR]Expired Interval Management</value>
+    <value>Gestion des intervalles expirés</value>
   </text>
   <text id="TEXT_INTERVAL_MANANAGEMENT_ACTIVE">
-    <value>[FR]Active/Open Interval Management</value>
+    <value>Gestion des intervalles actifs/ouverts</value>
   </text>
   <text id="TEXT_INTERVAL_MANANAGEMENT_HARDCLOSED">
-    <value>[FR]Hard Closed Interval Management</value>
+    <value>Gestion des intervalles en clôture matérielle</value>
   </text>
   <text id="TEXT_CHANGE_INTERVAL_STATE">
-    <value>[FR]Change Interval State</value>
+    <value>Modifier l'état de l'intervalle</value>
   </text>
   <text id="TEXT_NEW_INTERVAL_STATE">
-    <value>[FR]Change State To</value>
+    <value>Modifier l'état en</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_NEW">
-    <value>[FR]New</value>
+    <value>Nouveau</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_NEW_DESCRIPTION">
-    <value>[FR]Indicates that this interval is recently created.</value>
+    <value>Indique que cet intervalle a été créé récemment.</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_OPEN">
-    <value>[FR]Open</value>
+    <value>Ouvrir</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_OPEN_DESCRIPTION">
-    <value>[FR]This billing group is able to accept usage data.</value>
+    <value>Ce groupe de facturation accepte les données d'utilisation.</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_SOFT_CLOSE_PENDING">
-    <value>[FR]Soft Close Pending</value>
+    <value>Clôture logicielle en attente</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_SOFT_CLOSE_PENDING_DESCRIPTION">
-    <value>[FR]This billing group is closed to new usage data and during the next usm.exe Run operation, its state will be changed to [TEXT_INTERVAL_STATE_SOFT_CLOSED] and the Soft Close Event adapters will be run for this interval.</value>
+    <value>Ce groupe de facturation n'accepte pas les nouvelles données d'utilisation. Pendant la prochaine exécution d'usm.exe, son état passera à [TEXT_INTERVAL_STATE_SOFT_CLOSED] et les adaptateurs d'événement de clôture logicielle seront exécutés pour cet intervalle.</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_SOFT_CLOSED">
-    <value>[FR]Soft Closed</value>
+    <value>Clôture (logicielle)</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_HARD_CLOSE_PENDING">
-    <value>[FR]Hard Close Pending</value>
+    <value>Clôture matérielle en attente</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_HARD_CLOSE_PENDING_DESCRIPTION">
-    <value>[FR]This interval is closed to new usage data and during the next usm.exe Run operation, its state will be changed to [TEXT_INTERVAL_STATE_HARD_CLOSED] and the Hard Close Event adapters will be run for this interval.</value>
+    <value>Cet intervalle n'accepte pas les nouvelles données d'utilisation. Pendant la prochaine exécution d'usm.exe, son état passera à [TEXT_INTERVAL_STATE_HARD_CLOSED] et les adaptateurs d'événement de clôture matérielle seront exécutés pour cet intervalle.</value>
   </text>
   <text id="TEXT_INTERVAL_STATE_HARD_CLOSED">
-    <value>[FR]Hard Closed</value>
+    <value>Clôture (matérielle)</value>
   </text>
   <text id="TEXT_BILLING_GROUP">
-    <value>[FR]Billing Group</value>
+    <value>Groupe de facturation</value>
   </text>
   <text id="TEXT_PARTITION">
-    <value>[FR]Partition</value>
-  </text>    
+    <value>Partition</value>
+  </text>  
   <text id="TEXT_INTERVAL">
-    <value>[FR]Interval</value>
+    <value>Intervalle</value>
   </text>
   <text id="TEXT_MEMBERS">
-    <value>[FR]Members</value>
+    <value>Membres</value>
   </text>
   <text id="TEXT_TYPE">
-    <value>[FR]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_START">
-    <value>[FR]Start</value>
+    <value>Début</value>
   </text>
   <text id="TEXT_END">
-    <value>[FR]End</value>
+    <value>Fin</value>
   </text>
   <text id="TEXT_STATUS">
-    <value>[FR]Status</value>
+    <value>État</value>
   </text>
   <text id="TEXT_INTERVAL_ONLY_ADAPTERS">
-    <value>[FR]Interval-Only Adapters</value>
+    <value>Adaptateurs d'intervalle uniquement</value>
   </text>
   <text id="TEXT_ADAPTERS">
-    <value>[FR]Adapters</value>
+    <value>Adaptateurs</value>
   </text>
   <text id="TEXT_SUCCEEDED">
-    <value>[FR]Succeeded</value>
+    <value>Réussi</value>
   </text>
   <text id="TEXT_FAILED">
-    <value>[FR]Failed</value>
+    <value>Échec</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS">
-    <value>[FR]View Statistics</value>
+    <value>Voir statistiques</value>
   </text>
   <text id="TEXT_IN_INTERVAL">
-    <value>[FR]In Interval</value>
+    <value>Dans l'intervalle</value>
   </text>
   <text id="TEXT_VIEW_HISTORY">
-    <value>[FR]View History</value>
+    <value>Afficher l'historique</value>
   </text>
   <text id="TEXT_CREATE_PULL_LIST">
-    <value>[FR]Create Pull List</value>
+    <value>Créer liste d'extraction</value>
   </text>
   <text id="TEXT_CHANGE_STATE">
-    <value>[FR]Change State</value>
+    <value>Modifier l'état</value>
   </text>
   <text id="TEXT_FORCE_HARD_CLOSE">
-    <value>[FR]Force Hard Close</value>
+    <value>Forcer la clôture matérielle</value>
   </text>
   <text id="TEXT_ADAPTER">
-    <value>[FR]Adapter</value>
+    <value>Adaptateur</value>
   </text>
   <text id="TEXT_INSTANCE_ID">
-    <value>[FR]Instance Id</value>
+    <value>ID d'instance</value>
   </text>
   <text id="TEXT_START_TIME">
-    <value>[FR]Start Time [Duration]</value>
+    <value>Heure de début [Duration]</value>
   </text>
   <text id="TEXT_RESULT">
-    <value>[FR]Result</value>
+    <value>Résultat</value>
   </text>
   <text id="TEXT_MACHINE">
-    <value>[FR]Machine</value>
+    <value>Machine</value>
   </text>
   <text id="TEXT_NO_ADAPTER_EVENTS">
-    <value>[FR]No adapter event runs for this interval currently.</value>
+    <value>Aucun événement d'adaptateur exécuté pour cet intervalle actuellement.</value>
   </text>
   <text id="TEXT_BILLING_PROCESS_ADAPTERS">
-    <value>[FR]Billing Process Adapters</value>
+    <value>Adaptateurs de processus de facturation</value>
   </text>
   <text id="TEXT_VIEW_ADAPTER_RUN_HISTORY">
-    <value>[FR]View Adapter Instance Run History</value>
+    <value>Voir l'historique d'exécution des instances d'adaptateur</value>
   </text>
   <text id="TEXT_SUCCEEDED_WITH_WARNINGS">
-    <value>[FR]Succeeded With Warnings</value>
+    <value>Réussi avec avertissements</value>
   </text>
   <text id="TEXT_VIEW_BATCH_INFORMATION">
-    <value>[FR]View Batch Information</value>
+    <value>Voir les informations de lot</value>
   </text>
   <text id="TEXT_BATCHES">
-    <value>[FR]batches</value>
+    <value>lots</value>
   </text>
   <text id="TEXT_INTERVAL_ONLY">
-    <value>[FR]Interval Only</value>
+    <value>Intervalle uniquement</value>
   </text>
   <text id="TEXT_SELECT_ADAPTERS">
-    <value>[FR]Please select one or more adapters</value>
+    <value>Sélectionnez au moins un adaptateur</value>
   </text>
   <text id="TEXT_RUN_ADAPTER">
-    <value>[FR]Run Adapter</value>
+    <value>Exécuter l'adaptateur</value>
   </text>
   <text id="TEXT_BACKOUT_ADAPTER">
-    <value>[FR]Backout Adapter</value>
+    <value>Annuler l'adaptateur</value>
   </text>
   <text id="TEXT_RUN_ADAPTER_LATER">
-    <value>[FR]Run Adapter Later</value>
+    <value>Exécuter l'adaptateur plus tard</value>
   </text>
   <text id="TEXT_REVERCE_ADAPTER">
-    <value>[FR]Reverse Adapter</value>
+    <value>Inverser l'adaptateur</value>
   </text>
   <text id="TEXT_REVERCE_ADAPTER_LATER">
-    <value>[FR]Reverse Adapter Later</value>
+    <value>Inverser l'adaptateur plus tard</value>
   </text>
   <text id="TEXT_CANCEL_SUBMITTED_ACTION">
-    <value>[FR]Cancel Submitted Action</value>
+    <value>Annuler l'action envoyée</value>
   </text>
   <text id="TEXT_FORCE_RUN_ADAPTER">
-    <value>[FR]Force Run Adapter</value>
-  </text>  
+    <value>Forcer l'exécution de l'adaptateur</value>
+  </text>
   <text id="TEXT_LAST_ACTION">
-    <value><![CDATA[[FR]Last<br>Action]]></value>
-  </text>  
+    <value><![CDATA[Dernière<br>action]]></value>
+  </text>
   <text id="TEXT_INTERVAL_STATE_HARD_CLOSED_DESCRIPTION">
-    <value><![CDATA[[FR]This interval is closed to new usage data.<BR><BR>NOTE: Only explicitly set the interval state to Hard             Closed as opposed to Hard Close Pending when you wish to prevent the Hard Close Adapters from being run automatically. In this case, you will need to run the Hard Close Adapters manually for this interval.]]></value>
+    <value><![CDATA[Cet intervalle n'accepte pas les nouvelles données d'utilisation.<BR><BR>REMARQUE : Définissez explicitement l'état de l'intervalle sur Clôture matérielle en opposition à Clôture matérielle en attente uniquement pour empêcher l'exécution automatique des adaptateurs de clôture matérielle. Dans ce cas, vous devez exécuter manuellement les adaptateurs de clôture matérielle pour cet intervalle.]]></value>
   </text>
   <text id="TEXT_ADAPTER_CANNOT_FORCE_MULTIPLE_INSTANCES_WARNING">
-    <value><![CDATA[[FR]You are not allowed to Force more than one adapter at a time.]]></value>
+    <value><![CDATA[Vous n'êtes pas autorisé à forcer plusieurs adaptateurs simultanément.]]></value>
   </text>
   <text id="TEXT_ADAPTER_CAN_ONLY_CONTINUE_BY_FORCING_WARNING">
-    <value><![CDATA[<strong>[FR]WARNING: This interval has dependencies that cannot be run/reversed at this time.</strong><BR>The only way to continue is to force this particular adapter to ignore the dependencies. Normally it is recommended that you do not continue to force this adapter and instead resolve the issues with adapter dependencies by running/reversing them, including adapters from previous intervals.<BR>]]></value>
+    <value><![CDATA[<strong>AVERTISSEMENT : Cet intervalle possède des dépendances impossibles à exécuter/inverser pour l'instant.</strong><BR>Le seul moyen de continuer consiste à forcer cet adaptateur pour ignorer les dépendances. Il est normalement recommandé de ne pas forcer cet adaptateur et de résoudre les problèmes de dépendance des adaptateurs en les exécutant/inversant, y compris pour les adaptateurs des intervalles précédents.<BR>]]></value>
   </text>
   <text id="TEXT_RETURN_TO_INTERVAL_DIALOG">
-    <value><![CDATA[[FR]Back to Interval]]></value>
+    <value><![CDATA[Retour à l'intervalle]]></value>
   </text>
   <text id="TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS">
-    <value><![CDATA[[FR]Create New Accounts As Hard Closed]]></value>
+    <value><![CDATA[Créer de nouveaux comptes en clôture matérielle]]></value>
   </text>
   <text id="TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS_TITLE">
-    <value><![CDATA[[FR]Change Default State For Accounts Created In This Interval]]></value>
+    <value><![CDATA[Modifier l'état par défaut pour les comptes créés dans cet intervalle]]></value>
   </text>
   <text id="TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS_WARNING">
-    <value><![CDATA[[FR]Currently any new back-dated accounts will have mappings created for this interval in the 'Open' state and these accounts will accept usage for this interval.<br><br> To disallow any new accounts from receiving usage in this interval, please click '[TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS]' below. You would do this once you no longer intend to accept new back dated accounts to be included in billing for this interval. ]]></value>
+    <value><![CDATA[Actuellement, les nouveaux comptes antidatés font l'objet d'une création de mappages pour cet intervalle à l'état 'Ouvert' et ces comptes acceptent l'utilisation de cet intervalle.<br><br> Pour désactiver la réception de l'utilisation par les nouveaux comptes dans cet intervalle, cliquez sur '[TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS]' ci-dessous. Procédez ainsi lorsque vous ne voulez plus accepter l'ajout de nouveaux comptes antidatés dans la facturation pour cet intervalle. ]]></value>
   </text>
   <text id="TEXT_REFRESH">
-    <value><![CDATA[[FR]Refresh]]></value>
+    <value><![CDATA[Actualiser]]></value>
   </text>
   <text id="TEXT_INTERVAL_STATE_ACTIVE_INTERVAL_WARNING">
-    <value><![CDATA[<strong>[FR]WARNING: This Interval Is Currently Active.</strong><BR>Normally this interval should not be changed from its 'Open' state until the end date of the interval has passed. Closing this interval prematurely should only be done when it is assured that there is no more usage data for this interval.<BR>]]></value>
+    <value><![CDATA[<strong>AVERTISSEMENT : Cet intervalle est actuellement actif.</strong><BR>Normalement, cet intervalle doit conserver l'état 'Ouvert' jusqu'à ce que sa date de fin soit passée. Vous ne devez fermer prématurément cet intervalle que si vous êtes certain qu'il n'existe plus de données d'utilisation pour cet intervalle.<BR>]]></value>
   </text>
   <text id="TEXT_INTERVAL_STATE_SOFT_CLOSED_DESCRIPTION">
-    <value><![CDATA[[FR]This billing group is closed to new usage data.<BR><BR>Setting a billing groups state to [TEXT_INTERVAL_STATE_SOFT_CLOSED] will create adapter instances for this billing group. You will need to run the adapters manually for this billing group since the adapters are not run automatically.]]></value>
+    <value><![CDATA[Ce groupe de facturation n'accepte pas les nouvelles données d'utilisation.<BR><BR>La définition de l'état d'un groupe de facturation sur [TEXT_INTERVAL_STATE_SOFT_CLOSED] crée des instances d'adaptateurs pour ce groupe de facturation. Vous devez exécuter les adaptateurs manuellement pour ce groupe de facturation car ils ne sont pas exécutés automatiquement.]]></value>
   </text>
   <text id="TEXT_NO_PERMISSION_TO_VIEW_BILLING_GROUP">
-    <value><![CDATA[[FR]You do not have permission to view this billing group.]]></value>
+    <value><![CDATA[Vous n'êtes pas autorisé à voir ce groupe de facturation.]]></value>
   </text>
   <text id="TEXT_Force_the_selected_adapter">
     <value>[FR] Force the selected adapter(s) to run/reverse without running/reversing any dependencies.</value>

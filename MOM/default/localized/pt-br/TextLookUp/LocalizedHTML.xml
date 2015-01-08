@@ -6,7 +6,7 @@
   </description>
 
   <text id="TEXT_LOG_OUT_MESSAGE">
-    <value><![CDATA[<center><b>[pt-BR]Goodbye.</b><br><br>Click <a href='[START_PAGE]'>here</a> to login again.</center>]]></value>
+    <value><![CDATA[<center><b>Até logo.</b><br><br>Clique <a href='[START_PAGE]'>aqui</a> para fazer o login novamente.</center>]]></value>
     <description></description>
   </text>
 </texts>

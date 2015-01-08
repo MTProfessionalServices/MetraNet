@@ -14,15 +14,15 @@
 
   <!-- Columns -->
   <text id="TEXT_UDRC">
-    <value>[TEXT_KEYTERM_RECURRING_CHARGE] calculés sur la base d’unités</value>
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] calculés sur la base d'unités</value>
     <description></description>
   </text>
   <text id="TEXT_UNIT_NAME">
-    <value>Nom d’unité</value>
+    <value>Nom d'unité</value>
     <description></description>
   </text>
   <text id="TEXT_UNIT_DISPLAY_NAME">
-    <value>Nom d’affichage d’unité</value>
+    <value>Nom d'affichage d'unité</value>
     <description></description>
   </text>
   <text id="TEXT_TIERED_TAPER_USER_HINT">
@@ -51,7 +51,7 @@
     <description></description>
   </text>
   <text id="TEXT_COLUMN_DISPLAY_NAME">
-    <value>Nom d’affichage</value>
+    <value>Nom d'affichage</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_KIND">
@@ -81,7 +81,7 @@
     <description></description>
   </text>
   <text id="TEXT_FIELD_DISPLAY_NAME">
-    <value>Nom d’affichage</value>
+    <value>Nom d'affichage</value>
     <description></description>
   </text>
   <text id="TEXT_FIELD_DESCRIPTION">
@@ -91,15 +91,15 @@
 
   <!-- Product View Property Picker Dialog -->
   <text id="TEXT_PV_NAME">
-    <value>Nom de l’affichage produit</value>
+    <value>Nom de l'affichage produit</value>
     <description></description>
   </text>
   <text id="TEXT_PV_PROPERTY">
-    <value>Propriété de l’affichage produit</value>
+    <value>Propriété de l'affichage produit</value>
     <description></description>
   </text>
   <text id="TEXT_PV_DESCRIPTION">
-    <value>Description de l’affichage produit</value>
+    <value>Description de l'affichage produit</value>
     <description></description>
   </text>
   <text id="MCM_PRODUCT_VIEW_PROPERTY_PICKER">
@@ -157,7 +157,7 @@
     <description></description>
   </text>
   <text id="TEXT_NO_CHILD_ITEMS">
-    <value>Il n’y a pas d’[TEXT_KEYTERM_PRICEABLE_ITEMS] enfant</value>
+    <value>Il n'y a pas d'[TEXT_KEYTERM_PRICEABLE_ITEMS] enfant</value>
     <description></description>
   </text>
   <text id="TEXT_NEW">
@@ -189,23 +189,23 @@
     <description></description>
   </text>
   <text id="TEXT_FILTER_WILDCARD_CONSTRAINT_MESSAGE">
-    <value>Le caractère générique * ne peut être utilisé qu’à la fin de la chaîne de recherche ou au début et  à la fin de celle-ci.\nExemples :\n\tEnterprise Bundle*\n\t*Bundle*</value>
+    <value>Le caractère générique * ne peut être utilisé qu'à la fin de la chaîne de recherche ou au début et  à la fin de celle-ci.\nExemples :\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
   <text id="TEXT_EXTENDED_PROPERTIES">
-    <value>[FR]Extended Properties</value>
+    <value>Propriétés étendues</value>
     <description></description>
   </text>
   <text id="TEXT_WHAT_IS_EXTENDED_PROPERTIES">
-    <value>[FR]What are extended properties?</value>
+    <value>Quelles sont les propriétés étendues?</value>
     <description></description>
   </text>
   <text id="TEXT_OTHER_ACTIONS">
-    <value>[FR]Other Actions</value>
+    <value>Autres actions</value>
     <description></description>
   </text>
   <text id="TEXT_CHECK_CONFIGURATION">
-    <value>[FR]Check Configuration</value>
+    <value>Vérifier la configuration</value>
     <description></description>
   </text>
   <text id="TEXT_Change_the_price_list">
@@ -213,111 +213,111 @@
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
-    <value>[FR]Update Price List Mappings</value>
+    <value>Mettre à jour les mappages de tarifs</value>
     <description></description>
   </text>
   <text id="TEXT_COPY">
-    <value>[FR]Copy</value>
+    <value>Copier</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_RATES">
-    <value>[FR]Add Rates For Additional Parameter Tables</value>
+    <value>Ajouter des prix pour les tableaux de paramètres supplémentaires</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_SUBSCR_AND_ASSOCIATIONS">
-    <value>[FR]View Subscriptions and Default Pricelist Associations</value>
+    <value>Voir les abonnements et les associations de tarifs par défaut</value>
     <description></description>
   </text>
   <text id="TEXT_CHANGES_POTENTIALLY_AFFECT1">
-    <value><![CDATA[&nbsp;&nbsp;[FR]Changes to these rate schedules potentially affect <b>]]></value>
+    <value><![CDATA[&nbsp;&nbsp;Les modifications apportées à ces échelles tarifaires pourraient affecter <b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_CHANGES_POTENTIALLY_AFFECT2">
-    <value><![CDATA[</b> [FR]subscribers.&nbsp;&nbsp;]]></value>
+    <value><![CDATA[</b> les abonnés.&nbsp;&nbsp;]]></value>
     <description></description>
   </text>
   <text id="TEXT_NO_RATE_SCHEDULES">
-    <value><![CDATA[<span style='font-weight:normal;'><b>[FR]There are currently no rate schedules on this price list for this parameter table.</b><BR><BR> Use the 'New Rate Schedule' button above to create one or use this button to automatically create a default rate schedule that would always be in effect (no start date and no end date):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>[FR]Create Default Rate Schedule</button><BR></span>]]></value>
+    <value><![CDATA[<span style='font-weight:normal;'><b>Il n'existe actuellement aucune échelle tarifaire sur ce tarif pour ce tableau des paramètres.</b><BR><BR> Utilisez le bouton 'Nouvelle échelle tarifaire' ci-dessus pour en créer une ou pour créer automatiquement une échelle tarifaire par défaut qui sera toujours active (pas de date de début ni de date de fin) :<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>Créer une échelle tarifaire par défaut</button><BR></span>]]></value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">
-    <value><![CDATA[[FR]Parameter Table: <b>]]></value>
+    <value><![CDATA[Tableau des paramètres : <b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_RATES_STORED_ON_PO">
-    <value><![CDATA[</b><br>[FR]Rates are stored on the Product Offering's non-shared price list.<br>]]></value>
+    <value><![CDATA[</b><br>Les prix sont stockés sur le tarif non partagé de l'offre produit.<br>]]></value>
     <description></description>
   </text>
   <text id="TEXT_RATES_STORED_ON_SHARED_PL">
-    <value><![CDATA[</b><br>[FR]Rates are stored on the shared price list '<b>]]></value>
+    <value><![CDATA[</b><br>Les prix sont stockés sur le tarif partagé '<b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_RATE_SCHEDULE_TITLE">
-    <value>[FR]Create a new rate schedule and copy the rates from this rate schedule</value>
+    <value>Créez une nouvelle échelle tarifaire et copiez les prix de cette échelle tarifaire</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_RATE_SCHEDULE">
-    <value>[FR]New Rate Schedule From This One</value>
+    <value>Nouvelle échelle tarifaire à partir de celle-ci</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_HISTORY">
-    <value>[FR]View History</value>
+    <value>Afficher l'historique</value>
     <description></description>
   </text>
   <text id="TEXT_EXPORT_TO_EXCEL">
-    <value>[FR]Export To Excel</value>
+    <value>Exporter dans Excel</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_FROM_EXCEL">
-    <value>[FR]Import From Excel</value>
+    <value>Importer depuis Excel</value>
     <description></description>
   </text>
   <text id="TEXT_BULK_UPDATE">
-    <value>[FR]Bulk Update</value>
+    <value>Mise à jour en vrac</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_INFO">
-    <value>[FR]Update Price List Information</value>
+    <value>Mettre à jour les informations sur les tarifs</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ALLOW_PERS_RATES_INFO">
-    <value>[FR]Update 'Allow Personal Rates' Information</value>
+    <value>Mettre à jour les informations 'Autoriser les prix personnels'</value>
     <description></description>
   </text>
   <text id="TEXT_PRICE_LIST">
-    <value>[FR]Price List</value>
+    <value>Tarif</value>
     <description></description>
   </text>
   <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
-    <value>[FR]Do not allow Personal Rates to be set</value>
+    <value>Interdire la définition de prix personnels</value>
     <description></description>
   </text>
   <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
-    <value>[FR]Do not allow Personal Rates to be set</value>
+    <value>Interdire la définition de taux personnels</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
-    <value>[FR]Update Selected Price List Mappings</value>
+    <value>Mettre à jour les mappages de tarifs sélectionnés</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSE">
-    <value>[FR]Close</value>
+    <value>Fermer</value>
     <description></description>
   </text>
   <text id="TEXT_GENERAL_TAB">
-    <value>[FR]General</value>
+    <value>Général</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMEETR_TABL_MAPPINGS_TAB">
-    <value>[FR]Parameter Table Mappings</value>
+    <value>Mappages des tableaux de paramètres</value>
     <description></description>
   </text>
   <text id="TEXT_COUNTERS_TAB">
-    <value>[FR]Counters</value>
+    <value>Compteurs</value>
     <description></description>
   </text>
   <text id="TEXT_OVERVIEW_TAB">
-    <value>[FR]Overview</value>
+    <value>Présentation</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SCHEDULE_HISTORY">

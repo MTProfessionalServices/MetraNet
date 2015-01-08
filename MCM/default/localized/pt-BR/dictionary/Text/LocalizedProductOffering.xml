@@ -189,19 +189,19 @@
     <description></description>
   </text>
   <text id="TEXT_GENERAL_TAB">
-    <value>[pt-BR]General</value>
+    <value>Geral</value>
     <description></description>
   </text>
   <text id="TEXT_PROPERTIES_TAB">
-    <value>[pt-BR]Properties</value>
+    <value>Propriedades</value>
     <description></description>
   </text>
   <text id="TEXT_INCLUDED_ITEMS_TAB">
-    <value>[pt-BR]Included Items</value>
+    <value>Itens Inclusos</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_RESTRICTIONS_TAB">
-    <value>[pt-BR]Subscription Restrictions</value>
+    <value>Descrição de assinatura</value>
     <description></description>
   </text>
 </texts>

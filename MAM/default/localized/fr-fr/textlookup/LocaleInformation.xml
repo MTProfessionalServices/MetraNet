@@ -84,7 +84,7 @@
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Aut,Septembre,Octobre,Novembre,Décembre</value>
+    <value>Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Août,Septembre,Octobre,Novembre,Décembre</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">
@@ -96,17 +96,17 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>annule</value>
+    <value>Annuler</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>prochaine mois</value>
+    <value>Mois prochain</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>mois dernier</value>
+    <value>Mois précédent</value>
     <description></description>
-  </text>  
+  </text>
   <text id="DATE_SEPARATOR">
     <value>/</value>
     <description>Define the dates separator.</description>

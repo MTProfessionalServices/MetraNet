@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BACKOUT_TRANSACTIONS">
-    <value>[FR]Backout Transactions</value>
+    <value>Transactions annulées</value>
   </text>
   <text id="TEXT_Enter_a_description_for_the_rerun_you_are_about_to_create">
-    <value>[FR]Enter a description for the rerun you are about to create.</value>
+    <value>Entrez la description de la réexécution que vous allez créer.</value>
   </text>
   <text id="TEXT_Description">
-    <value>[FR]Description:</value>
+    <value>Description :</value>
   </text>
   <text id="TEXT_How_will_you_identify">
-    <value>[FR]How will you identify the transactions to be rerun?</value>
+    <value>Comment identifierez-vous les transactions à réexécuter ?</value>
   </text>
   <text id="TEXT_I_know_the_Session_ID">
-    <value>[FR]I know the Session ID(s).</value>
+    <value>Je connais les ID de session.</value>
   </text>
   <text id="TEXT_I_will_create_a_user_defined_filter_based_on_selected_criteria">
-    <value>[FR]I will create a user defined filter based on selected criteria.</value>
+    <value>Je créerai un filtre défini par l'utilisateur basé sur les critères sélectionnés.</value>
   </text>
   <text id="TEXT_I_will_use_SQL_directly_to_identify_the_records_to_be_backed_out">
-    <value>[FR]I will use SQL directly to identify the records to be backed out.</value>
+    <value>J'utiliserai directement SQL pour identifier les enregistrements à annuler.</value>
   </text>
   <text id="TEXT_Please_enter_the_Session_ID">
-    <value>[FR]Please enter the Session ID(s).</value>
+    <value>Saisissez les ID de session.</value>
   </text>
   <text id="TEXT_Session_ID">
-    <value>[FR]Session ID(s):</value>
+    <value>ID de session :</value>
   </text>
   <text id="TEXT_Enter_Session_IDs_separated_by_spaces_or_carriage_returns_using_the_following_format">
-    <value>[FR]Enter Session IDs separated by spaces or carriage returns using the following format:</value>
+    <value>Saisissez les ID de session séparés par des espaces ou des retours chariot en utilisant le format suivant :</value>
   </text>
   <text id="TEXT_Transaction_Selection_Criteria">
-    <value>[FR]Transaction Selection Criteria:</value>
+    <value>Critères de sélection des transactions :</value>
   </text>
   <text id="TEXT_Begin_Timestamp">
-    <value>[FR]Begin Timestamp:</value>
+    <value>Début d'horodatage :</value>
   </text>
   <text id="TEXT_End_Timestamp">
-    <value>[FR]End Timestamp:</value>
+    <value>Fin d'horodatage :</value>
   </text>  
   <text id="TEXT_Uses_Processed_Timestamp">
-    <value>[FR]Uses Processed Timestamp</value>
+    <value>Utilise l'horodatage traité</value>
   </text>
   <text id="TEXT_Batch_ID">
-    <value>[FR]Batch ID:</value>
+    <value>ID de lot :</value>
   </text>
   <text id="TEXT_Interval_ID">
-    <value>[FR]Interval ID:</value>
+    <value>ID d'intervalle :</value>
   </text>
   <text id="TEXT_Add_Product_View_Property">
-    <value>[FR]Add Product View Property</value>
+    <value>Ajouter une propriété de vue produit</value>
   </text>
   <text id="TEXT_Add_Service_Definition_Property">
-    <value>[FR]Add Service Definition Property</value>
+    <value>Ajouter une propriété de définition de service</value>
   </text>
   <text id="TEXT_Add_Account_Property">
-    <value>[FR]Add Account Property</value>
+    <value>Ajouter une propriété de compte</value>
   </text>
   <text id="TEXT_You_have_chosen_to_use_SQL">
-    <value>[FR]You have chosen to use SQL to identify the records to be backed out. To complete this process you will need to have direct access to the database in order to execute the appropriate queries.&lt;br&gt;&lt;br&gt;&lt;b&gt;Step 1:&lt;/b&gt;&lt;br&gt;Click &apos;Next Step: Identify and Analyze&apos; below to create a rerun to populate&lt;br&gt;&lt;br&gt;&lt;b&gt;Step 2:&lt;/b&gt;&lt;br&gt;Use a separate tool such as Microsoft Query Analyzer or Oracle SQL Plus to login to the database and update the rerun table with session ids to be backed out or resubmitted&lt;br&gt;&lt;br&gt;&lt;b&gt;Step 3:&lt;/b&gt;&lt;br&gt; Return to these screens to review the summary information representing the transactions you inserted. Use the &apos;Reanalyze&apos; button on the top of the &apos;Identify and Analyze&apos; screen to update the summary information if you wind up returning to the previous step to add more sessions to or remove sessions from the rerun table.</value>
+    <value>Vous avez choisi d'utiliser SQL pour identifier les enregistrements à annuler. Pour cela, vous devez avoir un accès direct à la base de données pour exécuter les requêtes appropriées.&lt;br&gt;&lt;br&gt;&lt;b&gt;Etape 1 :&lt;/b&gt;&lt;br&gt;Cliquez sur 'Etape suivante : Identifier et analyser' ci-dessous pour créer une réexécution à renseigner&lt;br&gt;&lt;br&gt;&lt;b&gt;Etape 2 :&lt;/b&gt;&lt;br&gt;Utilisez un outil tiers comme Microsoft Query Analyzer ou Oracle SQL Plus pour vous connecter à la base de données et mettre à jour le tableau des réexécutions avec les ID de session à annuler ou renvoyer&lt;br&gt;&lt;br&gt;&lt;b&gt;Etape 3 :&lt;/b&gt;&lt;br&gt; Retournez aux écrans pour visualiser les résumés représentant les transactions insérées. Utilisez le bouton 'Réanalyser' en haut de l'écran 'Identifier et analyser' pour mettre à jour les résumés pour revenir à l'étape précédente afin d'ajouter d'autres sessions ou d'en supprimer dans le tableau des réexécutions.</value>
   </text>
   <text id="TEXT_Next_Step_Identify_Analyze">
-    <value>[FR]Next Step: Identify And Analyze</value>
+    <value>Etape suivante : Identifier et analyser</value>
   </text>
   <text id="TEXT_Description">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </text>
   <text id="TEXT_CANCEL">
-    <value>[FR]Cancel</value>
+    <value>Annuler</value>
   </text>
   
 </texts>

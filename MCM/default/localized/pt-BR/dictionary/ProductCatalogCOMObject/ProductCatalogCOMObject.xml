@@ -8,26 +8,26 @@
   <!-- Priceable Items Properties -->
   <text id="TEXT_PRICEABLE_ITEM_USAGE">
     <value>Taxa de utilização</value>
-    <description></description>
+    <description/>
   </text>
   <text id="TEXT_PRICEABLE_NAME">
     <value>Nome</value>
-    <description></description>
+    <description/>
   </text>
   <text id="TEXT_PRICEABLE_DISPLAYNAME">
     <value>Nome exibido</value>
-    <description></description>
+    <description/>
   </text>
   <text id="TEXT_PRICEABLE_DESCRIPTION">
     <value>Descrição</value>
-    <description></description>
+    <description/>
   </text>
   <text id="TEXT_PRICEABLE_TYPE">
     <value>Tipo</value>
-    <description></description>
+    <description/>
   </text>
   <text id="TEXT_PRICEABLE_SERVICE_DEFINITION">
     <value>Definição de serviço</value>
-    <description></description>
+    <description/>
   </text>
 </texts>

@@ -2,7 +2,7 @@
 <texts id="fred" type="collection">
   <description></description>
   <text id="TEXT_LOGIN_TITLE">
-    <value>Ouverture d’une session MetraOffer</value>
+    <value>Ouverture d'une session MetraOffer</value>
     <description></description>
   </text>
   <text id="TEXT_NO_AUTH">
@@ -10,7 +10,7 @@
     <description></description>
   </text>
   <text id="TEXT_LOGIN_NAME">
-    <value>Nom d’utilisateur</value>
+    <value>Nom d'utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
@@ -18,11 +18,11 @@
     <description></description>
   </text>
   <text id="TEXT_INVALID_LOGIN">
-    <value>Vérifiez votre nom d’utilisateur et votre mot de passe, puis sélectionnez Entrée pour faire une nouvelle tentative.</value>
+    <value>Vérifiez votre nom d'utilisateur et votre mot de passe, puis sélectionnez Entrée pour faire une nouvelle tentative.</value>
     <description></description>
   </text>
   <text id="TEXT_INVALID_BLANK_LOGIN">
-    <value>Le nom d’utilisateur ou le mot de passe doit être renseigné. Réessayez.</value>
+    <value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value>
     <description></description>
   </text>
 </texts>

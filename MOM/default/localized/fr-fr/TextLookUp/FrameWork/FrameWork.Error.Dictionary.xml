@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Framework Errors" type="collection">
   <text id="FRAMEWORK_LOGON_ERROR_200">
-    <value><![CDATA[<br>[FR]Your account has been locked for security reasons. <br> Please contact customer service to inquire about <br> the status of your account. ]]></value>
+    <value><![CDATA[<br>Votre compte a été verrouillé pour des raisons de sécurité. <br> Contactez le service d'assistance clientèle pour plus d'informations sur <br> l'état de votre compte. ]]></value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_201">
-    <value>[FR]Invalid user name or password.  Please try again.</value>
+    <value>Nom d'utilisateur ou mot de passe incorrect. Réessayez.</value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_300">
-    <value>[FR]Your account is not allowed to login.  Please contact customer service to inquire about the status of your account.</value>
+    <value>Votre compte ne peut pas être connecté. Contactez le service d'assistance clientèle pour plus d'informations sur l'état de votre compte.</value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_1003">
-    <value>[FR]User name or password may not be blank.  Please try again.</value>
+    <value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value>
   </text>
   <text id="TEXT_PASSWORD_EXPIRING">
-    <value>[FR]Your password is expiring in {0} day(s).  If you have time, why not change it now?</value>
+    <value>Votre mot de passe expire dans {0} jour(s).  Si vous le pouvez, pourquoi ne pas le modifier maintenant ?</value>
   </text>
   <text id="FRAMEWORK_ERROR_1000">
-    <value>[FR]Logon denied</value>
+    <value>Connexion refusée</value>
   </text>
   <text id="FRAMEWORK_ERROR_1001">
-    <value>[FR]Cannot create COM Objects for the Security! Check the mtlog.txt file</value>
+    <value>Impossible de créer des objets COM pour la sécurité ! Vérifiez le fichier mtlog.txt.</value>
   </text>
   <text id="FRAMEWORK_ERROR_1002">
-    <value>[FR]Please check your user name and password and select enter to try again.</value>
+    <value>Vérifiez votre nom d'utilisateur et votre mot de passe, puis sélectionnez Entrée pour faire une nouvelle tentative.</value>
   </text>
   <text id="FRAMEWORK_ERROR_1003">
-    <value>[FR]User name or password may not be blank.  Please try again.</value>
+    <value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value>
   </text>
   <text id="FRAMEWORK_ERROR_1004">
-    <value><![CDATA[<strong>[FR]Authorization Denied</strong><BR>You do not have the required capability or role to perform this operation:]]></value>
+    <value><![CDATA[<strong>Autorisation refusée</strong><BR>Vous ne possédez pas la fonctionnalité ou le rôle requis pour effectuer cette opération :]]></value>
   </text>
 </texts>

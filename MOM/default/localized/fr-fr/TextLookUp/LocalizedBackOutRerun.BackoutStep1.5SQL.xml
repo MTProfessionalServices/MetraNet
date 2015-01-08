@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_Identify_Sessions_Using_SQL">
-    <value>[FR]Identify Sessions Using SQL</value>
+    <value>Identifier les sessions avec SQL</value>
   </text>
   <text id="TEXT_An_empty_table_with_the_name_t_rerun_session_">
-    <value>[FR]An empty table with the name &lt;b&gt;t_rerun_session_</value>
+    <value>Un tableau vide nommé &lt;b&gt;t_rerun_session_</value>
   </text>
   <text id="TEXT_has_just_been_created_in_the_database_The">
-    <value>[FR] has just been created in the database. The</value>
+    <value> vient d'être créé dans la base de données. Le</value>
   </text>
   <text id="TEXT_in_the_table_name_is_the_current_rerun_id">
-    <value>[FR] in the table name is the current rerun id.</value>
+    <value> dans le nom du tableau est l'ID de réexécution actuel.</value>
   </text>
   <text id="TEXT_You_will_now_need_to_access_the_database_directly">
-    <value>[FR]You will now need to access the database directly and execute the SQL necessary to populate this table, t_rerun_session_</value>
+    <value>Vous devez à présent accéder directement à la base de données et exécuter l'outil SQL nécessaire pour renseigner ce tableau, t_rerun_session_</value>
   </text>
   <text id="TEXT_with_the_session_ids_you_wish">
-    <value>[FR], with the session ids you wish to backout or resubmit.&lt;br&gt;&lt;br&gt;Once you have populated the table with the session ids, select &apos;Next Step: Analyze&apos; below to proceed to the &apos;Identify and Analyze&apos; page where you can review what is going to be backed out and resubmitted before any action is taken on these sessions.</value>
+    <value>, avec les ID de session à annuler ou renvoyer.&lt;br&gt;&lt;br&gt;Une fois le tableau renseigné avec les ID de session, cliquez sur 'Etape suivante : Analyser' ci-dessous pour accéder à la page 'Identifier et analyser' où vous pourrez visualiser ce qui va être annulé et renvoyé avant que l'action ne soit effectuée sur ces sessions.</value>
   </text>
   <text id="TEXT_I_will_use_SQL_directly_to_identify_the_records_to_be_backed_out">
-    <value>[FR]I will use SQL directly to identify the records to be backed out.</value>
+    <value>J'utiliserai directement SQL pour identifier les enregistrements à annuler.</value>
   </text>
   <text id="TEXT_Next_Step_Analyze">
-    <value>[FR]Next Step: Analyze</value>
+    <value>Etape suivante : Analyser</value>
   </text>
   <text id="TEXT_Examples">
-    <value>[FR]Examples</value>
+    <value>Exemples</value>
   </text>
   <text id="TEXT_Essentially_you_are_just">
-    <value>[FR]Essentially you are just inserting the session ids of the transactions you wish to backout but the ids have to be inserted in a particular way. In addition, the query for inserting failed transaction ids is different from the query for inserting successful transaction ids.&lt;br&gt;&lt;br&gt;If you make a mistake, no problem. As long as you haven't deleted or resubmitted the transactions, even if you have proceed to the next page (the Identify and Analyze page) and discover you have made a mistake, you can update the &lt;b&gt;t_rerun_session_</value>
+    <value>Il suffit d'insérer les ID de session des transactions à annuler, mais vous devez le faire d'une certaine manière. En outre, la requête d'insertion des ID de transaction en échec est différente de celle concernant les ID de transactions réussies.&lt;br&gt;&lt;br&gt;Peu importe si vous vous trompez. Tant que vous n'avez pas supprimé ou renvoyé les transactions, même si vous êtes passé à la page suivante (page Identifier et analyser), si vous vous rendez compte d'une erreur, vous pouvez mettre à jour le tableau &lt;b&gt;t_rerun_session_</value>
   </text>
   <text id="TEXT_table_by_adding_or">
-    <value>[FR] table by adding or deleting records with out starting over as long as you select &apos;Reanalyze&apos; at the top of the next page to update the summary information before continuing on to actually delete or resubmit the transactions.</value>
+    <value> en ajoutant ou en supprimant des enregistrements sans avoir à recommencer. Vous devez juste veiller à cliquer sur 'Réanalyser' en haut de la page suivante pour mettre à jour les résumés avant de supprimer ou de renvoyer réellement les transactions.</value>
   </text>
   <text id="TEXT_Usage_Transaction_Example">
-    <value>[FR]Usage Transaction Example</value>
+    <value>Exemple de transaction d'utilisation</value>
   </text>
   <text id="TEXT_For_Example">
-    <value>[FR]For example, if the following query selecting usage for account 137 that was processed before February 2005 represented the sessions you wanted to backout</value>
+    <value>Par exemple, si la requête suivante consistant à sélectionner l'utilisation pour le compte 137 traitée avant février 2005 représente les sessions à annuler,</value>
   </text>  
   <text id="TEXT_Then_you_would_execute">
-    <value>[FR]Then you would execute the following query to insert these same records into the rerun table</value>
+    <value>vous devez exécuter la requête suivante pour insérer ces mêmes enregistrements dans le tableau des réexécutions</value>
   </text>
   <text id="TEXT_Failed_Transaction_Example">
-    <value>[FR]Failed Transaction Example</value>
+    <value>Exemple de transaction en échec</value>
   </text>
   <text id="TEXT_Failed_Transaction_Example_Content">
-    <value>[FR]For example, if the following query selecting failed transactions that are new, happened in a service whose name ends with &apos;testservice&apos; and were metered before February 2005 represented the sessions you wanted to backout</value>
+    <value>Par exemple, si la requête suivante consistant à sélectionner les nouvelles transactions en échec dans un service dont le nom finit par 'testservice' et celles mesurées avant février 2005 représente les sessions à annuler,</value>
   </text>
   <text id="TEXT_Then_you_would_execute_the_following_query">
-    <value>[FR]Then you would execute the following query to insert these same records into the rerun table</value>
+    <value>vous devez exécuter la requête suivante pour insérer ces mêmes enregistrements dans le tableau des réexécutions</value>
   </text>
 </texts>

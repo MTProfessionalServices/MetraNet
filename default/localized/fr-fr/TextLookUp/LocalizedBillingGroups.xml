@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BILLING_GROUP">
     <value>Groupe de facturation</value>
@@ -16,25 +16,25 @@
     <value>Groupe de facturation</value>
   </text>
   <text id="TEXT_BILLING_GROUPS_FOR_INTERVAL">
-    <value>Groupes de facturation de l’intervalle</value>
+    <value>Groupes de facturation de l'intervalle</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS_DESCRIPTION">
-    <value>Sélectionner pour consulter les statistiques d’un groupe de facturation dans cet intervalle.</value>
+    <value>Sélectionner pour consulter les statistiques d'un groupe de facturation dans cet intervalle.</value>
   </text>
   <text id="TEXT_LOCATE_PAYER_DESCRIPTION">
-    <value>Trouver le groupe de facturation d’un payeur pour cet intervalle.</value>
+    <value>Trouver le groupe de facturation d'un payeur pour cet intervalle.</value>
   </text>
   <text id="TEXT_MATERIALIZE">
-    <value>Créer des groupes de facturation pour l’intervalle</value>
+    <value>Créer des groupes de facturation pour l'intervalle</value>
   </text>
   <text id="TEXT_REMATERIALIZE">
-    <value>Recréer des groupes de facturation pour l’intervalle</value>
+    <value>Recréer des groupes de facturation pour l'intervalle</value>
   </text>
   <text id="TEXT_MATERIALIZE_WAIT">
     <value>Veuillez patienter pendant que les groupes de facturation sont renseignés...</value>
   </text>
   <text id="TEXT_CREATE_GROUP_DESCRIPTION">
-    <value>Créer une liste d’extraction pour ce groupe de facturation.</value>
+    <value>Créer une liste d'extraction pour ce groupe de facturation.</value>
   </text>
   <text id="TEXT_VIEW_HISTORY_DESCRIPTION">
     <value>Consulter historique adaptateur processus de facturation de ce groupe de facturation dans cet intervalle.</value>
@@ -43,13 +43,13 @@
     <value>Sélectionner pour consulter les statistiques de ce groupe de facturation et cet intervalle.</value>
   </text>
   <text id="TEXT_CREATE_PULL_LIST_ACCOUNT_DESCRIPTION">
-    <value>Une liste d’extraction permet de retirer des comptes du groupe de facturation en cours. Ces comptes sont ensuite placés dans ce groupe de facturation nouvellement créé. Spécifiez des ID de compte séparés par des retours ou des paires nom d’utilisateur virgule nom d’espace séparées par des retours.</value>
+    <value>Une liste d'extraction permet de retirer des comptes du groupe de facturation en cours. Ces comptes sont ensuite placés dans ce groupe de facturation nouvellement créé. Spécifiez des ID de compte séparés par des retours ou des paires nom d'utilisateur virgule nom d'espace séparées par des retours.</value>
   </text>
   <text id="TEXT_CREATE_PULL_LIST_FILE_DESCRIPTION">
-    <value>Une  liste d’extraction permet de retirer des comptes du groupe de facturation en cours. Ces comptes sont ensuite placés dans ce groupe de facturation nouvellement créé. Le format de fichier est un fichier texte codé UTF-8 qui spécifie des ID de compte séparés par des retours ou des paires nom d’utilisateur virgule nom d’espace séparées par des retours.</value>
+    <value>Une  liste d'extraction permet de retirer des comptes du groupe de facturation en cours. Ces comptes sont ensuite placés dans ce groupe de facturation nouvellement créé. Le format de fichier est un fichier texte codé UTF-8 qui spécifie des ID de compte séparés par des retours ou des paires nom d'utilisateur virgule nom d'espace séparées par des retours.</value>
   </text>
   <text id="TEXT_NO_BILLING_GROUPS">
-    <value>Votre système présente des définitions de groupe de facturation valides, mais n’a pas affecté de payeurs aux groupes pour cet intervalle. Veuillez cliquer sur le bouton Créer des groupes de facturation pour l’intervalle ci-dessus.</value>
+    <value>Votre système présente des définitions de groupe de facturation valides, mais n'a pas affecté de payeurs aux groupes pour cet intervalle. Veuillez cliquer sur le bouton Créer des groupes de facturation pour l'intervalle ci-dessus.</value>
   </text>
   <text id="TEXT_NO_PAYING_ACCOUNTS_IN_INTERVAL_DESCRIPTION">
     <value>Cet intervalle ne comporte pas de comptes payants ni de comptes à facturer. Vous pouvez le fermer directement (clôture matérielle) en cliquant sur le bouton ci-dessous.</value>
@@ -61,7 +61,7 @@
     <value>Basculer affichage hiérarchie</value>
   </text>
   <text id="TEXT_SUB_BILLING_GROUPS">
-    <value>Sous-facturation des groupes créés à partir de listes d’extraction</value>
+    <value>Sous-facturation des groupes créés à partir de listes d'extraction</value>
   </text>
   <text id="TEXT_BG_INTERVALID">
     <value>Intervalle</value>
@@ -112,28 +112,28 @@
     <value>Comptes ayant présenté des échecs signalés pour ce cycle adaptateur</value>
   </text>
   <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_NO_ACCOUNTS_FOUND">
-    <value>Aucun compte présentant des échecs signalés n’a été détecté. Cet adaptateur n’a pas signalé de lots, ou il n’y a pas eu d’échecs au regard de comptes particuliers dans les lots signalés. </value>
+    <value>Aucun compte présentant des échecs signalés n'a été détecté. Cet adaptateur n'a pas signalé de lots, ou il n'y a pas eu d'échecs au regard de comptes particuliers dans les lots signalés. </value>
   </text>
   <text id="TEXT_OPENUNASSIGNED_ACCOUNTS">
-    <value>[FR]Open Unassigned Accounts</value>
+    <value>Ouvrir les comptes non affectés</value>
   </text>
   <text id="TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS">
-    <value>[FR]Hard closed Unassigned Accounts</value>
+    <value>Comptes non affectés en clôture matérielle</value>
   </text>
   <text id="TEXT_ACCOUNTS_INVOICED">
-    <value>[FR]New Accounts Can Be Invoiced For This Interval</value>
+    <value>Les nouveaux comptes peuvent être facturés pour cet intervalle</value>
   </text>
   <text id="TEXT_CHANGE">
-    <value>[FR]Change</value>
+    <value>Modification</value>
   </text>
   <text id="TEXT_ACCOUNTS_NOT_INVOICED">
-    <value>[FR]New Accounts Will Not Be Invoiced For This Interval</value>
+    <value>Les nouveaux comptes ne seront pas facturés pour cet intervalle</value>
   </text>
   <text id="TEXT_REFRESH_INTERVAL_DETAILS">
-    <value>[FR]Refresh Interval Details</value>
+    <value>Actualiser détails intervalle</value>
   </text>
   <text id="TEXT_SUCCEEDED">
-    <value>[FR]Succeeded</value>
+    <value>Réussi</value>
   </text>
   <text id="TEXT_BG_TITLE_INTERVAL">
     <value>[FR]Interval</value>

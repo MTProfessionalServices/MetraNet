@@ -5,7 +5,7 @@
     Kevin why this html code is not a asp page...
   </description>
   <text id="TEXT_LOG_OUT_MESSAGE">
-    <value><![CDATA[<center><b>[FR]Goodbye.</b><br><br>Click <a href='[START_PAGE]'>here</a> to login again.</center>]]></value>
+    <value><![CDATA[<center><b>Au revoir.</b><br><br>Cliquez <a href='[START_PAGE]'>ici</a> pour vous connecter de nouveau.</center>]]></value>
     <description></description>
   </text>
 </texts>

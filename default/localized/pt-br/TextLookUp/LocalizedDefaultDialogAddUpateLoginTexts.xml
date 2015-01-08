@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_ADD_UPDATE_LOGIN_TITLE">
-    <value>[pt-BR]Add Login</value>
+    <value>Adicionar Login</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_ERROR_CONFIRM_PASSWORD_DOES_NOT_MATCH">
-    <value>[pt-BR]Confirm password does not match.</value>
+    <value>A senha de confirmação não é compatível.</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_GENERAL">
-    <value>[pt-BR]General</value>
+    <value>Geral</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_LOGIN">
-    <value>[pt-BR]Login</value>
+    <value>Login</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_CONFIRM_PASSWORD">
-    <value>[pt-BR]Confirm Password</value>
+    <value>Senha de confirmação</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_LOCATION">
-    <value>[pt-BR]Location</value>
+    <value>Localização</value>
   </text>
   <text id="TEXT_SUCCESS">
-    <value>[pt-BR]Action completed successfully.</value>
+    <value>Ação concluída com êxito.</value>
   </text>
 </texts>

@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
-    <value>[FR]No data</value>
+    <value>Pas de donnée</value>
   </text>
   <text id="TEXT_ADD_NAME_SPACE">
-    <value>[FR]Add Name Space</value>
+    <value>Ajouter un espace de nom</value>
   </text>
   <text id="TEXT_NAME_SPACE">
-    <value>[FR]Name Space</value>
+    <value>Espace de nommage</value>
   </text>
   <text id="TEXT_DESCRIPTION">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </text>
   <text id="TEXT_TYPE">
-    <value>[FR]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_TELL_USER_SYSTEM_ERROR_OCCUR_TRY_LATER">
-    <value>[FR]A system error has occurred. Contact your MAM Administrator.</value>
+    <value>Une erreur système s'est produite. Contactez votre administrateur MAM.</value>
   </text>
   <text id="TEXT_MOM">
-    <value>[FR]MetraTech Operations Manager</value>
+    <value>Gestionnaire d'opérations MetraTech</value>
   </text>
   <text id="TEXT_LOGIN_TITLE">
-    <value>[FR]MetraControl Login</value>
+    <value>Connexion MetraControl</value>
   </text>
   <text id="TEXT_USERNAME">
-    <value>[FR]User Name</value>
+    <value>Nom d'utilisateur</value>
   </text>
   <text id="TEXT_PASSWORD">
-    <value>[FR]Password</value>
+    <value>Mot de passe</value>
   </text>
   <text id="TEXT_LOGIN_USERNAME">
-    <value>[FR]User Name</value>
+    <value>Nom d'utilisateur</value>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
-    <value>[FR]Password</value>
+    <value>Mot de passe</value>
   </text>
   <text id="TEXT_LOGOUT">
-    <value>[FR]Log Out</value>
+    <value>Fermer la session</value>
   </text>
   <text id="TEXT_NO_AUTH">
-    <value>[FR]Your session has timed out.  Please login again.</value>
+    <value>Votre session est arrivée à expiration. Veuillez vous reconnecter.</value>
     <description>Session timeout message</description>
   </text>
   <text id="TEXT_JAVASCRIPT_ERROR">
-    <value>[FR]Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
+    <value>JavaScript ne semble pas activé sur votre navigateur. Cliquez sur ce lien pour corriger ce problème.</value>
     <description></description>
   </text>
   <text id="TEXT_GO">

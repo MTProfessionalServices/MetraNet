@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_credit_TITLE">
-    <value>[FR]Credit Audit Log</value>
+    <value>Journal d'audit du crédit</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_postauth_TITLE">
-    <value>[FR]Post Auth Audit Log</value>
+    <value>Journal d'audit post-aut.</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_preauth_TITLE">
-    <value>[FR]Pre Auth Audit Log</value>
+    <value>Journal d'audit pré-aut.</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_prenote_TITLE">
-    <value>[FR]ACH Prenote Audit Log</value>
+    <value>Journal d'audit d'ACH Prenote</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_credit_TITLE">
-    <value>[FR]ACH Credit Audit Log</value>
+    <value>Journal d'audit de crédit ACH</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_debit_TITLE">
-    <value>[FR]ACH Debit Audit Log</value>
+    <value>Journal d'audit de débit ACH</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_paymentscheduler_TITLE">
-    <value>[FR]Payment Scheduler</value>
+    <value>Planificateur de paiement</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_ERROR_OCCUR_CHANGING_THE_STATUS">
-    <value>[FR]An error occured changing the status of the transaction [TRANSACTIONID]. The status of following transaction(s) is not changed.</value>
+    <value>Une erreur s'est produite au changement d'état de la transaction [TRANSACTIONID]. L'état des transactions suivantes n'est pas modifié.</value>
   </text>
   <text id="TEXT_SYSTEM_LOG_PS_ERROR">
-    <value>[FR]Error.</value>
+    <value>Erreur.</value>
   </text>
 </texts>

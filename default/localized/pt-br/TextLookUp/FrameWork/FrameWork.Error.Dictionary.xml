@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Framework Errors" type="collection">
   <text id="FRAMEWORK_LOGON_ERROR_200">
-    <value><![CDATA[<br>[pt-BR]Your account has been locked for security reasons. <br> Please contact customer service to inquire about <br> the status of your account. ]]></value>
+    <value><![CDATA[<br>Sua conta foi bloqueada por motivos de segurança. <br> Entre em contato com o atendimento ao cliente para perguntar sobre <br> o status da sua conta. ]]></value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_201">
-    <value>[pt-BR]Invalid user name or password.  Please try again.</value>
+    <value>Senha ou nome de usuário inválido. Tente novamente.</value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_300">
-    <value>[pt-BR]Your account is not allowed to login.  Please contact customer service to inquire about the status of your account.</value>
+    <value>Sua conta não permite login. Entre em contato com o atendimento ao cliente para se informar sobre o status de sua conta.</value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_1003">
-    <value>[pt-BR]User name or password may not be blank.  Please try again.</value>
+    <value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value>
   </text>
   <text id="TEXT_PASSWORD_EXPIRING">
-    <value>[pt-BR]Your password is expiring in {0} day(s).  If you have time, why not change it now?</value>
+    <value>Sua senha expira em {0} dia(s). Se tiver tempo, altere-a agora.</value>
   </text>
   <text id="FRAMEWORK_ERROR_1000">
-    <value>[pt-BR]Logon denied</value>
+    <value>Logon negado</value>
   </text>
   <text id="FRAMEWORK_ERROR_1001">
-    <value>[pt-BR]Cannot create COM Objects for the Security! Check the mtlog.txt file</value>
+    <value>Não é possível criar Objetos COM para a Segurança! Verifique o arquivo mtlog.txt</value>
   </text>
   <text id="FRAMEWORK_ERROR_1002">
-    <value>[pt-BR]Please check your user name and password and select enter to try again.</value>
+    <value>Verifique seu nome e senha de usuário e selecione inserir para tentar novamente.</value>
   </text>
   <text id="FRAMEWORK_ERROR_1003">
-    <value>[pt-BR]User name or password may not be blank.  Please try again.</value>
+    <value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value>
   </text>
   <text id="FRAMEWORK_ERROR_1004">
-    <value><![CDATA[<strong>[pt-BR]Authorization Denied</strong><BR>You do not have the required capability or role to perform this operation:]]></value>
+    <value><![CDATA[<strong>Autorização Negada</strong><BR>Você não tem a capacidade ou a função necessária para executar essa operação:]]></value>
   </text>
 </texts>

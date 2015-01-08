@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_Step2_TITLE">
-    <value>[FR]Backout Step 2: Results Of Identify and Analyze</value>
+    <value>Etape 2 de l'annulation : résultats de l'identification et de l'analyse</value>
   </text>
   <text id="TEXT_Step2_Status">
-    <value>[FR]Step 2 Status:</value>
+    <value>Etat de l'étape 2 :</value>
   </text>
   <text id="TEXT_Analyze_Complete">
-    <value>[FR]Analyze Complete</value>
+    <value>Analyse terminée</value>
   </text>
   <text id="TEXT_Identify_Complete">
-    <value>[FR]Identify Complete</value>
+    <value>Identification terminée</value>
   </text>
   <text id="TEXT_Reanalyze">
-    <value>[FR]Reanalyze</value>
+    <value>Réanalyser</value>
   </text>
   <text id="TEXT_Rerun_Id">
-    <value>[FR]Rerun Id:</value>
+    <value>ID de réexécution :</value>
   </text>
   <text id="TEXT_Comment">
-    <value>[FR]Comment:</value>
+    <value>Commentaire :</value>
   </text>
   <text id="TEXT_Items_To_Be_Backed_Out">
-    <value>[FR]Items To Be Backed Out</value>
+    <value>Eléments à annuler</value>
   </text>
   <text id="TEXT_Transactions">
-    <value>[FR]Transactions:</value>
+    <value>Transactions :</value>
   </text>
   <text id="TEXT_Failed_Transactions">
-    <value>[FR]Failed Transactions:</value>
+    <value>Transactions en échec :</value>
   </text>  
   <text id="TEXT_Items_That_Can_t_Be_Backed_Out">
-    <value>[FR]Items That Can't Be Backed Out</value>
+    <value>Eléments impossibles à annuler</value>
   </text>  
   <text id="TEXT_Database_Transactions_In_Hard_Closed_Billing_Groups">
-    <value>[FR]Database Transactions In Hard Closed Billing Groups:</value>
+    <value>Transactions de la base de données dans les groupes de facturation en clôture matérielle :</value>
   </text>    
   <text id="TEXT_Transactions_Vetoed_After_Analysis">
-    <value>[FR]Transactions Vetoed After Analysis:</value>
+    <value>Transactions sous veto après analyse :</value>
   </text>
   <text id="TEXT_Synchronously_Metered_Transactions">
-    <value>[FR]Synchronously Metered Transactions:</value>
+    <value>Transactions mesurées de manière synchrone :</value>
   </text>
   <text id="TEXT_Summary_Of_Database_Transactions_Being_Backed_Out">
-    <value>[FR]Summary Of Database Transactions Being Backed Out</value>
+    <value>Résumé des transactions de la base de données en cours d'annulation</value>
   </text>
   <text id="TEXT_Next_Step_Resubmit_These_Records">
     <value>[FR]Next Step: Resubmit These Records</value>
@@ -55,7 +55,7 @@
     <value>[FR]Next Step: Delete These Records</value>
   </text>
   <text id="TEXT_Reanalyze">
-    <value>[FR]Reanalyze</value>
+    <value>Réanalyser</value>
   </text>
   
 </texts>

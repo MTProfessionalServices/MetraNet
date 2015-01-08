@@ -1,294 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_FAILED_TRANSACTIONS_FAILED_TRANSACTION_BROWSER">
-    <value>[FR]Failed Transactions</value>
+    <value>Échec de transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_FAILED_TRANSACTION">
-    <value>[FR]Edit Failed Transaction</value>
+    <value>Modifier transaction en échec</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SERVICE_NAME">
-    <value>[FR]Service Name</value>
+    <value>Nom du service</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SESSION_UID">
-    <value>[FR]Session UID</value>
+    <value>IDU de session</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SESSION_ID">
-    <value>[FR]Session ID</value>
+    <value>ID de la session</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_HOST">
-    <value>[FR]Host</value>
+    <value>Hôte</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METERED_TIME">
-    <value>[FR]Metered Time</value>
+    <value>Temps chronométré</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_CODE">
-    <value>[FR]Error Code</value>
+    <value>Code d'erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_DESCRIPTION">
-    <value>[FR]Error Description</value>
+    <value>Description de l'erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STAGE">
-    <value>[FR]Stage</value>
+    <value>Phase</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_PLUGIN">
-    <value>[FR]PlugIn</value>
+    <value>Plug-in</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_POSSIBLE_ACCOUNT_ID">
-    <value>[FR]Account ID</value>
+    <value>ID du compte</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_LINE">
-    <value>[FR]Line</value>
+    <value>Ligne</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METHOD">
-    <value>[FR]Method</value>
+    <value>Méthode</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_MODULE">
-    <value>[FR]Module</value>
+    <value>Module</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATE">
-    <value>[FR]State</value>
+    <value>État</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_FAILURETIME">
-    <value>[FR]Failure Time</value>
+    <value>Heure de l'échec</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_COMPOUND_ID">
-    <value>[FR]Compound ID</value>
+    <value>ID composé</value>
   </text>
   <text id="TEXT_RESUBMIT_TRANSACTION">
-    <value>[FR]ReSubmit Failed Transaction</value>
+    <value>Renvoyer transaction en échec</value>
   </text>
   <text id="TEXT_RESUBMIT_TRANSACTION_SUCCEED">
-    <value>[FR]The transaction was sent with success to the pipeline.</value>
+    <value>La transaction a été envoyée avec succès au pipeline.</value>
   </text>
   <text id="TEXT_RESUBMIT_TRANSACTION_FAILED">
-    <value>[FR]Error found sending the transaction to the pipeline. View the log file.</value>
+    <value>Erreur lors de l'envoi de la transaction au pipeline. Affichez le fichier journal.</value>
   </text>
   <text id="TEXT_INTERVAL_ID">
-    <value>[FR]Interval ID</value>
+    <value>ID de l'intervalle</value>
   </text>
   <text id="TEXT_SESSION_ID">
-    <value>[FR]Session ID</value>
+    <value>ID de la session</value>
   </text>
   <text id="TEXT_SESSION_TYPE">
-    <value>[FR]Session Type</value>
+    <value>Type de session</value>
   </text>
   <text id="TEXT_VIEW_ID">
-    <value>[FR]View ID</value>
+    <value>Afficher ID</value>
   </text>
   <text id="TEXT_SERVICE_NAME">
-    <value>[FR]Service Name</value>
+    <value>Nom du service</value>
   </text>
   <text id="TEXT_ERROR_MESSAGE">
-    <value>[FR]Error Message</value>
+    <value>Message d'erreur</value>
   </text>
   <text id="TEXT_ERROR">
-    <value>[FR]Error</value>
+    <value>Erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METERED_STATUS">
-    <value>[FR]Metered</value>
+    <value>CHRONOMÉTRÉ</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_NOT_METERED_STATUS">
-    <value>[FR]Not Metered</value>
+    <value>Non mesuré</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METER">
-    <value>[FR]Meter</value>
+    <value>Mesurer</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SUBMIT_TITLE">
-    <value>[FR]Submit</value>
+    <value>Envoyer</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT">
-    <value>[FR]ReSubmit As Sender</value>
+    <value>Renvoyer en tant qu'expéditeur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SUBMIT_PRESS_OK_TO_REFRESH_FAILED_TRANSACTION_SCREEN">
-    <value>[FR]Press OK to refresh the screen.</value>
+    <value>Appuyez sur OK pour actualiser l'écran.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_FAILED_PVB_COMBOX_BOX_TITLE">
-    <value>[FR]Period</value>
+    <value>Période</value>
   </text>
   <text id="TEXT_PLEASE_SELECT">
-    <value>[FR]Please select at least one transaction to act on.</value>
+    <value>Veuillez sélectionner au moins une transaction.</value>
   </text>
   <text id="TEXT_EXPORT">
-    <value>[FR]Export</value>
+    <value>Exporter</value>
   </text>
   <text id="TEXT_SAVE">
-    <value>[FR]Save</value>
+    <value>Enregistrer</value>
   </text>
   <text id="TEXT_LOST_TRANSACTIONS_LOST_TRANSACTION_BROWSER">
-    <value>[FR]Suspended Transactions</value>
+    <value>Transactions suspendues</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_TITLE">
-    <value>[FR]Bulk Change</value>
+    <value>Modification massive</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE">
-    <value>[FR]Mode</value>
+    <value>Mode</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE_CHANGE_ALL">
-    <value>[FR]Change All</value>
+    <value>Changer tout</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE_CHANGE_IF_PREVIOUS_VALUE_IS">
-    <value>[FR]Change Only If Previous Value Is</value>
+    <value>Ne changer que si l'ancienne valeur est</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_NEW_VALUE">
-    <value>[FR]New Value</value>
+    <value>Nouvelle valeur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_PREVIOUS_VALUE">
-    <value>[FR]Previous Value</value>
+    <value>Valeur précédente</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_PROPERTY">
-    <value>[FR]Property</value>
+    <value>Propriété</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ALL">
-    <value>[FR]Failed Transactions</value>
+    <value>Échec de transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
-    <value>[FR]Open Failed Transactions</value>
+    <value>Ouvrir transactions en échec</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_UNDER_INVESTIGATION">
-    <value>[FR]Failed Transactions Under Investigation</value>
+    <value>Enquête visant les transactions en échec</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_CORRECTED">
-    <value>[FR]Corrected Failed Transactions Waiting To Be Resubmitted</value>
+    <value>Transactions en échec corrigées en attente de renvoi</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
-    <value>[FR]Dismissed Failed Transactions</value>
+    <value>Transactions en échec ignorées</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_RESUBMITTED">
-    <value>[FR]Resubmitted Failed Transactions</value>
+    <value>Transactions en échec renvoyées</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_FOR_BATCH">
-    <value>[FR]Failed Transactions For Batch</value>
+    <value>Transactions en échec pour lot</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_OPEN">
-    <value>[FR]Open</value>
+    <value>Ouvrir</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_UNDER_INVESTIGATION">
-    <value>[FR]Under Investigation</value>
+    <value>En cours d'examen</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_CORRECTED">
-    <value>[FR]Corrected - Pending Resubmit</value>
+    <value>Corrigé - En attente de renvoi</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_DISMISSED">
-    <value>[FR]Dismissed</value>
+    <value>Ignoré</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_RESUBMITTED">
-    <value>[FR]Resubmitted</value>
+    <value>Renvoyé</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_OPEN">
-    <value>[FR]Open</value>
+    <value>Ouvrir</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_DELETED">
-    <value>[FR]Deleted</value>
+    <value>Supprimé</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DELETE_CHILD_TRANSACTION">
-    <value>[FR]Are you sure you wish to delete this child transaction ?</value>
+    <value>Voulez-vous vraiment supprimer cette transaction enfant ?</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_NEW_STATUS">
-    <value>[FR]New Status</value>
+    <value>Nouvel état</value>
   </text>
   <text id="TEXT_ERROR_TITLE">
-    <value>[FR]Failed Transaction Resubmit Errors</value>
+    <value>Erreurs de renvoi des transactions en échec</value>
   </text>
   <text id="TEXT_TX_UID_ENCODED">
-    <value>[FR]Failure Compound Session ID</value>
+    <value>ID de session composé en échec</value>
   </text>
   <text id="TEXT_EXCEPTION">
-    <value>[FR]Exception</value>
+    <value>Exception</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_CASE_NUMBER">
-    <value>[FR]Case Number</value>
+    <value>N° de dossier</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_CASE_STATUS">
-    <value>[FR]Case Status</value>
+    <value>Etat du dossier</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ID">
-    <value>[FR]Failed Transaction Id</value>
+    <value>ID de transaction en échec</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SERVICE_ERROR">
-    <value>[FR]Service With Error</value>
+    <value>Service avec erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_MESSAGE">
-    <value>[FR]Error Message</value>
+    <value>Message d'erreur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS">
-    <value>[FR]Status</value>
+    <value>État</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
-    <value>[FR]Open</value>
+    <value>Ouvrir</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">
-    <value>[FR]Under Investigation</value>
+    <value>En cours d'examen</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">
-    <value>[FR]Reason Code</value>
+    <value>Code de motif</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT">
-    <value>[FR]Corrected - Pending Resubmit</value>
+    <value>Corrigé - En attente de renvoi</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT_NOW">
-    <value>[FR]Resubmit Now</value>
+    <value>Renvoyer maintenant</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
-    <value>[FR]Dismissed</value>
+    <value>Ignoré</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE2">
-    <value>[FR]Reason Code</value>
+    <value>Code de motif</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_COMMENT">
-    <value>[FR]Comment</value>
+    <value>Commentaire</value>
   </text>
   <text id="TEXT_VIEW_AUDIT_TRAIL">
-    <value>[FR]View Audit Trail</value>
+    <value>Voir piste d'audit</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_REQUIRED_FIELDS">
-    <value>[FR]Check For Required Fields</value>
+    <value>Vérifier les champs obligatoires</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_PROPERTY">
-    <value>[FR]Property</value>
+    <value>Propriété</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_TYPE">
-    <value>[FR]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_LENGTH">
-    <value>[FR]Length</value>
+    <value>Durée</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_REQUIRED">
-    <value>[FR]Required</value>
+    <value>Obligatoire</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS1">
-    <value>[FR]Metered Status</value>
+    <value>Etat mesuré</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS2">
-    <value>[FR]Meter Status</value>
+    <value>Mesurer l'état</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_VALUE">
-    <value>[FR]Value</value>
+    <value>Valeur</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_OPEN_DESCRIPTION">
-    <value>[FR]This case/failed transaction is currently unresolved.</value>
+    <value>Ce dossier ou cette transaction en échec n'est actuellement pas résolu.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION_DESCRIPTION">
-    <value>[FR]This case/failed transaction is currently unresolved but is being investigated.</value>
+    <value>Ce dossier ou cette transaction en échec n'est actuellement pas résolu mais est visé par une enquête.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT_DESCRIPTION">
-    <value>[FR]This case/failed transaction has been resolved and is ready to be resubmitted to the system for processing.</value>
+    <value>Ce dossier ou cette transaction en échec est actuellement résolu. Il est prêt à être renvoyé au système pour traitement.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED_DESCRIPTION">
-    <value>[FR]This case/failed transaction cannot be resolved or it is not cost effective to do so.</value>
+    <value>Ce dossier ou cette transaction en échec ne peut pas être résolu ou sa résolution n'est pas rentable.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_MAKE_BULK_CHANGE">
-    <value>[FR]Make Bulk Change</value>
+    <value>Effectuer une modification massive</value>
   </text>
   <text id="TEXT_REFRESH">
-    <value>[FR]Refresh</value>
+    <value>Actualiser</value>
   </text>
   <text id="TEXT_PARENT_TRANSACTIONS_ID">
-    <value>[FR]Parent Transaction Id</value>
+    <value>ID de transaction parente</value>
   </text>
   <text id="TEXT_PARENT_TRANSACTION">
-    <value>[FR]Parent</value>
+    <value>Parent</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_AUDIT_HISTORY">
-    <value>[FR]Audit History For Failed Transaction Case Number</value>
+    <value>Historique des audits pour le numéro de dossier de transaction échoué</value>
   </text>
 </texts>

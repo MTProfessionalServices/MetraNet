@@ -1,124 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BATCH_MANANAGEMENT">
-    <value>[PT-BR]Batch Management</value>
+    <value>Gerenciamento de lote</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_UPDATE_STATUS_TITLE">
-    <value>[PT-BR]Update Batch Status</value>
+    <value>Atualizar Status do Lote</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_ACTION">
-    <value>[PT-BR]Mark As Failed</value>
+    <value>Marcar como Com Falha</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_TITLE">
-    <value>[PT-BR]Mark Batch As Failed</value>
+    <value>Marcar Lote Como Com Falha</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_ACTION">
-    <value>[PT-BR]Mark As Completed</value>
+    <value>Marcar como Concluído</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_TITLE">
-    <value>[PT-BR]Mark Batch As Completed</value>
+    <value>Marcar Lote Como Concluído</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_ACTION">
-    <value>[PT-BR]Mark As Dismissed</value>
+    <value>Marcar Como Ignorado</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_TITLE">
-    <value>[PT-BR]Mark Batch As Dismissed</value>
+    <value>Marcar Lote Como Ignorado</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_ACTION">
-    <value>[PT-BR]Backout</value>
+    <value>Fazer Backout</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_TITLE">
-    <value>[PT-BR]Backout Batch</value>
+    <value>Fazer Backout de Lote</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_ACTION">
-    <value>[PT-BR]Resubmit</value>
+    <value>Reenviar</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_TITLE">
-    <value>[PT-BR]Resubmit Batch</value>
+    <value>Reenviar Lote</value>
   </text>
   <text id="TEXT_BATCH_STATE_ACTIVE">
-    <value>[PT-BR]Active/Open</value>
+    <value>Ativo/Abrir</value>
   </text>
   <text id="TEXT_BATCH_STATE_ACTIVE_DESCRIPTION">
-    <value>[PT-BR]This batch is open and can have transactions metered against it.</value>
+    <value>Esse lote está aberto e pode ter transações medidas em relação a ele.</value>
   </text>
   <text id="TEXT_BATCH_STATE_COMPLETED">
-    <value>[PT-BR]Completed</value>
+    <value>Concluído</value>
   </text>
   <text id="TEXT_BATCH_STATE_COMPLETED_DESCRIPTION">
-    <value>[PT-BR]This batch is complete. No more transactions can be metered against it.</value>
+    <value>Esse lote está completo. Não é possível mais medir transações em relação a ele.</value>
   </text>
   <text id="TEXT_BATCH_STATE_FAILED">
-    <value>[PT-BR]Failed</value>
+    <value>Falhou</value>
   </text>
   <text id="TEXT_BATCH_STATE_FAILED_DESCRIPTION">
-    <value>[PT-BR]This batch has failed.</value>
+    <value>Esse campo falhou.</value>
   </text>
   <text id="TEXT_BATCH_STATE_BACKEDOUT">
-    <value>[PT-BR]Backed Out</value>
+    <value>Com Backout</value>
   </text>
   <text id="TEXT_BATCH_STATE_BACKEDOUT_DESCRIPTION">
-    <value>[PT-BR]This batch has been backed out.</value>
+    <value>O backout desse lote foi realizado.</value>
   </text>
   <text id="TEXT_BATCH_STATE_RESUBMIT">
-    <value>[PT-BR]Resubmit</value>
+    <value>Reenviar</value>
   </text>
   <text id="TEXT_BATCH_STATE_RESUBMIT_DESCRIPTION">
-    <value>[PT-BR]This batch has been resubmitted after it was backed out.</value>
+    <value>Esse lote foi reenviado depois do backout.</value>
   </text>
   <text id="TEXT_BATCH_STATE_DISMISSED">
-    <value>[PT-BR]Dismissed</value>
+    <value>Rejeitado</value>
   </text>
   <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION">
-    <value>[PT-BR]This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value>
+    <value>Esse lote foi ignorado e não é mais relevante. As transações completas sofreram backout.</value>
   </text>
   <text id="TEXT_Namespace">
-    <value>[PT-BR]Namespace</value>
+    <value>Espaço de nomes</value>
   </text>
   <text id="TEXT_Name">
-    <value>[PT-BR]Name</value>
+    <value>Nome</value>
   </text>
   <text id="TEXT_Sequence">
-    <value>[PT-BR]Sequence</value>
+    <value>Sequência</value>
   </text>
   <text id="TEXT_Source">
-    <value>[PT-BR]Source</value>
+    <value>Fonte</value>
   </text>
   <text id="TEXT_Created">
-    <value>[PT-BR]Created</value>
+    <value>CRIADO</value>
   </text>
   <text id="TEXT_First_Transaction">
-    <value>[PT-BR]First Transaction</value>
+    <value>Editar transação</value>
   </text>
   <text id="TEXT_Most_Recent_Transaction">
-    <value>[PT-BR]Most Recent Transaction</value>
+    <value>Transação Mais Recente</value>
   </text>
   <text id="TEXT_Internal_Batch_Id">
-    <value>[PT-BR]Internal Batch Id</value>
+    <value>ID do Lote Interno</value>
   </text>
   <text id="TEXT_Status">
-    <value>[PT-BR]Status</value>
+    <value>Status</value>
   </text>
   <text id="TEXT_Expected">
-    <value>[PT-BR]Expected</value>
+    <value>Esperado</value>
   </text>
   <text id="TEXT_Completed">
-    <value>[PT-BR]Completed</value>
+    <value>Concluído</value>
   </text>
   <text id="TEXT_Failed">
-    <value>[PT-BR]Failed</value>
+    <value>Falhou</value>
   </text>
   <text id="TEXT_Dismissed">
-    <value>[PT-BR]Dismissed</value>
+    <value>Rejeitado</value>
   </text>
   <text id="TEXT_Difference">
-    <value>[PT-BR]Difference</value>
+    <value>Diferença</value>
   </text>
   <text id="TEXT_View_Statistics">
-    <value>[PT-BR]View Statistics</value>
+    <value>Exibir Estatísticas</value>
   </text>
   <text id="TEXT_Comment">
-    <value>[PT-BR]Comment</value>
+    <value>Comentário</value>
   </text>
   <text id="TEXT_Mark_As_Hard_Closed">
     <value>[PT-BR]Mark As Hard Closed</value>

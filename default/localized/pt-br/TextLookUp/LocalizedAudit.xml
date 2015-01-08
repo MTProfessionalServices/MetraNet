@@ -2,91 +2,91 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-    <value>[pt-BR]Product Catalog Audit Log</value>
+    <value>Log de auditoria do catálogo de produtos</value>
     <description></description>
   </text>
   <text id="TEXT_SYSTEM_AUDIT_LOG">
-    <value>[pt-BR]System Audit Log</value>
+    <value>Log de Auditoria do Sistema</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_AUDIT_LOG">
-    <value>[pt-BR]Account Audit Log</value>
+    <value>Log de Auditoria da Conta</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_AUDIT_LOG">
-    <value>[pt-BR]View Audit Log</value>
+    <value>Exibir log de auditoria</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOG_DESCRIPTION">
-    <value>[pt-BR]View events that have been performed against the Product Catalog.</value>
+    <value>Exibir eventos que foram executados no catálogo de produtos.</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TIME">
-    <value>[pt-BR]Time</value>
+    <value>Hora</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USERNAME">
-    <value>[pt-BR]User</value>
+    <value>Usuário</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENTNAME">
-    <value>[pt-BR]Event</value>
+    <value>Evento</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITYNAME">
-    <value>[pt-BR]Item</value>
+    <value>Item</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DETAILS">
-    <value>[pt-BR]Details</value>
+    <value>Detalhes</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOGGED_IN_AS">
-    <value>[pt-BR]Logged in as</value>
+    <value>Conectado como</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_APPLICATION_NAME">
-    <value>[pt-BR]Application name</value>
+    <value>Nome da aplicação</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>[pt-BR]Entity ID</value>
+    <value>ID da entidade</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_AUDIT_ID">
-    <value>[pt-BR]Audit ID</value>
+    <value>ID da auditoria</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENT_ID">
-    <value>[pt-BR]Event ID</value>
+    <value>ID do evento</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USER_ID">
-    <value>[pt-BR]User ID</value>
+    <value>ID de usuário</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-    <value>[pt-BR]Entity Type ID</value>
+    <value>Id do tipo de entidade</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>[pt-BR]Entity ID</value>
+    <value>ID da entidade</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DT_CRT">
-    <value>[pt-BR]Date CRT</value>
+    <value>CRT de data</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
-    <value>[pt-BR]tx_logged_in_as</value>
+    <value>tx_logged_in_as</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_APPLICATION_NAME">
-    <value>[pt-BR]tx_application_name</value>
+    <value>tx_application_name</value>
     <description></description>
   </text>
   <text id="TEXT_CURRENT_GMT_TIME_IS">
-    <value>[pt-BR]Current GMT time is</value>
+    <value>A hora GMT atual é</value>
     <description></description>
   </text>
   <text id="TEXT_FORCED">

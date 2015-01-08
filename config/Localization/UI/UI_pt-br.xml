@@ -72,7 +72,7 @@
         </locale_entry>
         <locale_entry>
             <Name>UI/UICultures/Arabic</Name>
-            <Value>Arabic</Value>
+            <Value>Árabe</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/UICultures/Deutsch</Name>
@@ -124,7 +124,7 @@
         </locale_entry>
         <locale_entry>
             <Name>UI/UICultures/Portuguese - Brazil</Name>
-            <Value>Portuguese - Brazil</Value>
+            <Value>Português-Brasil</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/UICultures/Spanish</Name>
@@ -132,7 +132,7 @@
         </locale_entry>
         <locale_entry>
             <Name>UI/UICultures/Spanish - Mexican</Name>
-            <Value>Spanish - Mexican</Value>
+            <Value>Espanhol-México</Value>
         </locale_entry>
         <locale_entry>
             <Name>UI/UICultures/日本語</Name>

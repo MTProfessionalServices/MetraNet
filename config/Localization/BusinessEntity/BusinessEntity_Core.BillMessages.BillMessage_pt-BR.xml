@@ -20,7 +20,7 @@
     </locale_entry>
     <locale_entry>
       <Name>BusinessEntity/Core.BillMessages.BillMessage/Language/Label</Name>
-      <Value>Língua</Value>
+      <Value>Idioma</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

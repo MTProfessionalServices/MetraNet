@@ -766,7 +766,11 @@ END FUNCTION
 ' DESCRIPTION : Returns date type from string. (CORE-8563 - CDate converts properly in all localizations. It only does not like "." symbols)
 ' RETURNS			: date
 PUBLIC FUNCTION mam_DateFromLocaleString(dateString)
-   mam_DateFromLocaleString = CDate(Replace(dateString,".","/"))
+  If Len(dateString) = 0 Then
+      mam_DateFromLocaleString = ""
+  Else
+      mam_DateFromLocaleString = CDate(Replace(dateString,".","/"))
+  End If
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------

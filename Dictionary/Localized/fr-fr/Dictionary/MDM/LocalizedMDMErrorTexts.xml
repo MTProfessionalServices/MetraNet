@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="MDM_ERROR_1000">
-    <value>[FR]1000-MDM/ASP-WARNING-Event [EVENT], dialog [NAME] is not implemented.</value>
+    <value>1000-MDM/ASP-AVERTISSEMENT-Événement [EVENT], la boîte de dialogue [NAME] n'est pas mise en oeuvre.</value>
   </text>
   <text id="MDM_ERROR_1001">
-    <value>[FR]1001-MDM/ASP-Service COM Instance not found. Internal Error. Consult the MTLog.txt file.</value>
+    <value>1001-MDM/ASP-Instance COM introuvable. Erreur interne. Consultez le fichier MTLog.txt.</value>
   </text>
   <text id="MDM_ERROR_1002">
-    <value>[FR]1002-MDM/ASP-WARNING-Dictionary instance not found in Session()</value>
+    <value>1002-MDM/ASP-AVERTISSEMENT-Instance de dictionnaire introuvable dans Session()</value>
   </text>
   <text id="MDM_ERROR_1003">
-    <value>[FR]1002-MDM/ASP-WARNING-Dictionary instance found in Session()</value>
+    <value>1002-MDM/ASP-AVERTISSEMENT-Instance de dictionnaire trouvée dans Session()</value>
   </text>
   <text id="MDM_ERROR_1004">
-    <value>[FR]1004-MDM/ASP-WARNING-Free from session object [NAME]</value>
+    <value>1004-MDM/ASP-AVERTISSEMENT-Absence d'objet de session [NAME]</value>
   </text>
   <text id="MDM_ERROR_1005">
-    <value>[FR]1005-MDM/ASP-WARNING-Store in session object [NAME]</value>
+    <value>1005-MDM/ASP-AVERTISSEMENT-Stocker objet de session [NAME]</value>
   </text>
   <text id="MDM_ERROR_1006">
-    <value>[FR]1006-MDM/ASP-MDM Session Variable [NAME] not found</value>
+    <value>1006-MDM/ASP-Variable de session MDM [NAME] introuvable</value>
   </text>
   <text id="MDM_ERROR_1007">
-    <value>[FR]1007-MDM/ASP-MTService.Service.Initialize() function failed</value>
+    <value>1007-MDM/ASP-MTService.Service.Initialize() - Échec de la fonction</value>
   </text>
   <text id="MDM_ERROR_1008">
-    <value>[FR]1008-MDM/ASP-Default Form_Refresh() event was called. Form_Refresh() event is not implemented in the dialog!</value>
+    <value>1008-MDM/ASP-Événement par défaut Form_Refresh() appelé. Événement Form_Refresh() non mis en oeuvre dans la boîte de dialogue !</value>
   </text>
   <text id="MDM_ERROR_1009">
-    <value>[FR]1009-MDM/ASP-Object Session Variable [NAME] not in session</value>
+    <value>1009-MDM/ASP-Variable de session [NAME] absente de la session</value>
   </text>
   <text id="MDM_ERROR_1010">
-    <value>[FR]1010-MDM/ASP-WARNING-MDM Garbage collector executed</value>
+    <value>1010-MDM/ASP-AVERTISSEMENT-Collecteur de corbeille MDM exécuté</value>
   </text>
   <text id="MDM_ERROR_1011">
-    <value>[FR]1011-MDM/ASP-WARNING-MDM Garbage collector clear [NAME]</value>
+    <value>1011-MDM/ASP-AVERTISSEMENT-Collecteur de corbeille MDM effacé [NAME]</value>
   </text>
   <text id="MDM_ERROR_1012">
-    <value>[FR]1012-MDM/ASP-WARNING-MDM Clear Cache executed</value>
+    <value>1012-MDM/ASP-AVERTISSEMENT-Effacement de mémoire cache MDM effectué</value>
   </text>
   <text id="MDM_ERROR_1013">
-    <value>[FR]1013-MDM/ASP-An COM error occured in the event [NAME] or the event [NAME] does not exist. Check the MTLog.txt file. COM Error Info=</value>
+    <value>1013-MDM/ASP-Une erreur COM s'est produite dans l'événement [NAME] ou l'événement [NAME] n'existe pas. Examinez le fichier MTLog.txt. Infos erreurs COM =</value>
   </text>
   <text id="MDM_ERROR_1014">
-    <value>[FR]1014-MDM/ASP-Event Form_LoadProductView() must be implemented</value>
+    <value>1014-MDM/ASP-L'événement Form_LoadProductView() doit être mis en oeuvre</value>
   </text>
   <text id="MDM_ERROR_1015">
-    <value>[FR]1015-MDM/ASP-WARNING-Event [EVENT] failed!</value>
+    <value>1015-MDM/ASP-AVERTISSEMENT-L'événement [EVENT] a échoué !</value>
   </text>
   <text id="MDM_ERROR_1016">
-    <value>[FR]1016-MDM/ASP-Dialog Service not found in memory! Event=[EVENT]. (Do not use the back button)</value>
+    <value>1016-MDM/ASP-La boîte de dialogue Service est introuvable en mémoire ! Événement =[EVENT]. (N'utilisez pas le bouton Précédent)</value>
   </text>
   <text id="MDM_ERROR_1017">
-    <value>[FR]1017-MDM/ASP-Rowset type not supported columns [COLUMN]</value>
+    <value>1017-MDM/ASP-Type d'ensemble de lignes - colonnes [COLUMN] non prises en charge</value>
   </text>
   <text id="MDM_ERROR_1018">
-    <value>[FR]1018-MDM/ASP-Cache object not found in session</value>
+    <value>1018-MDM/ASP-L'objet de mémoire cache est introuvable dans la session</value>
   </text>
   <text id="MDM_ERROR_1019">
-    <value>[FR]1019-MDM/ASP-IIS Session Time Out</value>
+    <value>1019-MDM/ASP-Expiration de la session IIS</value>
   </text>
   <text id="MDM_ERROR_1020">
-    <value>[FR]1020-MDM/ASP-Rowset.Sort(""[PROPERTY]"") raised an error. Please look at the MTLog.txt file.</value>
+    <value>1020-MDM/ASP-Rowset.Sort(""[PROPERTY]"") : une erreur est survenue. Examinez le fichier MTLog.txt.</value>
   </text>
   <text id="MDM_ERROR_1021">
-    <value>[FR]1021-MDM/ASP-MDM caugth an COM Error Event=[EVENT_NAME]; Number=[ERR_NUMBER]; Description=[ERR_DESCRIPTION]; Localization=[ERR_LOCALIZATION]</value>
+    <value>1021-MDM/ASP-MDM a intercepté un événement d'erreur COM =[EVENT_NAME]; Numéro =[ERR_NUMBER]; Description=[ERR_DESCRIPTION]; Localisation=[ERR_LOCALIZATION]</value>
   </text>
   <text id="MDM_ERROR_1022">
-    <value>[FR]1022-MDM/ASP-Method Service.RenderHTML() failed</value>
+    <value>1022-MDM/ASP-Échec de la méthode Service.RenderHTML()</value>
   </text>
   <text id="MDM_ERROR_1023">
-    <value>[FR]1023-MDM/ASP-Type mismatch on a filter</value>
+    <value>1023-MDM/ASP-Non correspondance de type dans un filtre</value>
   </text>
   <text id="MDM_ERROR_1024">
-    <value>[FR]1024-MDM/ASP-The filter data is not correct.  Please Reset the filter.</value>
+    <value>1024-MDM/ASP-Les données de filtre sont incorrectes. Réinitialisez le filtre.</value>
   </text>
 </texts>

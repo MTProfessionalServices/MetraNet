@@ -120,14 +120,15 @@ public partial class GroupSubscriptions_SetGroupSubscriptionDate : MTPage
         PanelEBCRWarning.Visible = GroupSubscriptionInstance.WarnOnEBCRStartDateChange ?? false;
         
         // Support Group Operations
-        PanelSharedCounters.Visible = GroupSubscriptionInstance.SupportsGroupOperations;
+        //FEAT-4446  Remove legacy rating options from MetraOffer/MetraCare/MetraView
+        PanelSharedCounters.Visible = false; //GroupSubscriptionInstance.SupportsGroupOperations;
 
         if (GroupSubscriptionInstance.DiscountAccountId != null)
         {
           radSharedCounters.Checked = true;
           radNoSharedCounters.Checked = false;
           PanelDiscountAccount.Visible = true;
-          ShowDiscConfig = true;
+          ShowDiscConfig = false; 
         }
         else
         {
@@ -308,46 +309,49 @@ public partial class GroupSubscriptions_SetGroupSubscriptionDate : MTPage
         OKFlag = false;
       }
 
-      if (radNoSharedCounters.Checked)
-      {
-        GroupSubscriptionInstance.ProportionalDistribution = true;
-      }
-      else
-      {
-        GroupSubscriptionInstance.ProportionalDistribution = false;
-        if(tbAcctGrpDis.AccountID == "")
-        {
-          string Message = GetLocalResourceObject("ErrorGrpDis").ToString();
-          SetError(Message);
-          Logger.LogError(Message);
-          PanelDiscountAccount.Style.Add("visibility", "visible");
-          OKFlag = false;
-          ShowDiscConfig = true;
-        }
-        else
-        {
-          int DiscAcctId = int.Parse(tbAcctGrpDis.AccountID);
-          Account acc = new Account();
-          acc = MetraTech.UI.Common.AccountLib.LoadAccount(DiscAcctId, UI.User, ApplicationTime);
+      GroupSubscriptionInstance.ProportionalDistribution = true;
 
-          if (acc == null)
-          {
-            string Message = GetLocalResourceObject("ErrorGrpDis").ToString();
-            SetError(Message);
-            Logger.LogError(Message);
-            PanelDiscountAccount.Style.Add("visibility", "visible");
-            OKFlag = false;
-            ShowDiscConfig = true;
-          }
-          else
-          {
-            GroupSubscriptionInstance.DiscountAccountId = DiscAcctId;
-            ShowDiscConfig = false;
-          }
+      //FEAT-4446  Remove legacy rating options from MetraOffer/MetraCare/MetraView
+      //if (radNoSharedCounters.Checked)
+      //{
+      //  GroupSubscriptionInstance.ProportionalDistribution = true;
+      //}
+      //else
+      //{
+      //  GroupSubscriptionInstance.ProportionalDistribution = false;
+      //  if(tbAcctGrpDis.AccountID == "")
+      //  {
+      //    string Message = GetLocalResourceObject("ErrorGrpDis").ToString();
+      //    SetError(Message);
+      //    Logger.LogError(Message);
+      //    PanelDiscountAccount.Style.Add("visibility", "visible");
+      //    OKFlag = false;
+      //    ShowDiscConfig = true;
+      //  }
+      //  else
+      //  {
+      //    int DiscAcctId = int.Parse(tbAcctGrpDis.AccountID);
+      //    Account acc = new Account();
+      //    acc = MetraTech.UI.Common.AccountLib.LoadAccount(DiscAcctId, UI.User, ApplicationTime);
+
+      //    if (acc == null)
+      //    {
+      //      string Message = GetLocalResourceObject("ErrorGrpDis").ToString();
+      //      SetError(Message);
+      //      Logger.LogError(Message);
+      //      PanelDiscountAccount.Style.Add("visibility", "visible");
+      //      OKFlag = false;
+      //      ShowDiscConfig = true;
+      //    }
+      //    else
+      //    {
+      //      GroupSubscriptionInstance.DiscountAccountId = DiscAcctId;
+      //      ShowDiscConfig = false;
+      //    }
           
-        }
+      //  }
         
-      }
+      //}
 
      // if (MTRadioControl2.Checked)
      // {

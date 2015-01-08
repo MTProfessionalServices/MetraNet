@@ -13,13 +13,79 @@
     <script type="text/javascript" src="/Res/JavaScript/jquery.gridster.min.js"></script>
     <script type="text/javascript" src="/Res/JavaScript/crossfilter.min.js"></script>
     <script type="text/javascript" src="/Res/JavaScript/dc.min.js"></script>
-    <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
+    <script  type="text/javascript" src="/Res/JavaScript/d3.tip.js"></script>    <script  type="text/javascript" src="/Res/JavaScript/d3.min.js"></script><script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
     <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dashboard.css">
     <link rel="stylesheet" type="text/css" href="Styles/OperationsDashboard.css">
 
+    <style>
+   
+    .dc-chart g.row text {
+    fill: black;
+    /*cursor: pointer;*/
+    font: bold 11px tahoma,arial,verdana,sans-serif;
+  }
+  
+  .dc-chart rect.bar {
+    cursor: default !important;
+  }
 
+   .x-panel-bwrap,.x-panel-body
+   {
+      width: 100% !important;
+      height: 100% !important;
+   }
+    
+    .x-panel-body
+    {
+      padding: 0px !important;
+    }
+    
+    #gridsterul
+    {
+      position: static !important;
+    }
+    
+    .mtpanel-inner {
+     width: auto;
+      height: 100%;
+    }
+
+    .d3-tip {
+        line-height: 1;
+        font-weight: normal;
+        padding: 12px;
+        background: rgba(211, 211, 211, 0.96);
+        /*color: black;*/
+        border-radius: 2px;
+        z-index: 1000;
+        /*font-family: "Helvetica Neue","Arial Black", Arial, sans-serif;*/
+    }    
+    
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 18px;
+      width: 100%;
+      line-height: 1;
+      color: rgba(211, 211, 211, 0.96);
+      position: absolute;
+    }
+    
+    /* Eastward tooltips */
+    .d3-tip.e:after {
+      content: "\25C0";
+      margin: -4px 0 0 0;
+      top: 50%;
+      left: -8px;
+    }
+    
+    .d3-tip .Period {
+        font-weight: bold;
+    }
+  </style>
     <div class="CaptionBar" style="color: #ddd;font-size: 150%;">
     <asp:Label ID="Label1" runat="server" meta:resourcekey="MTTitle1Resource1">Operations Dashboard</asp:Label>
   </div>    

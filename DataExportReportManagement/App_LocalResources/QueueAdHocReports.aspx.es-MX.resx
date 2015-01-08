@@ -206,7 +206,7 @@
         <value>120</value>
     </data>
     <data name="pmFTPPasswordResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Longitud máxima = 50</value>
+        <value></value>
     </data>
     <data name="pmFTPPasswordResource1.Text" xml:space="preserve">
         <value></value>
@@ -239,7 +239,7 @@
         <value>0</value>
     </data>
     <data name="tbControlFileLocationResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Longitud máxima = 50</value>
+        <value></value>
     </data>
     <data name="tbControlFileLocationResource1.Text" xml:space="preserve">
         <value></value>
@@ -275,7 +275,7 @@
         <value>0</value>
     </data>
     <data name="tbFTPUserResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Longitud máxima = 50</value>
+        <value></value>
     </data>
     <data name="tbFTPUserResource1.Text" xml:space="preserve">
         <value></value>
@@ -311,7 +311,7 @@
         <value>0</value>
     </data>
     <data name="tbReportDestinationResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Longitud máxima = 50</value>
+        <value></value>
     </data>
     <data name="tbReportDestinationResource1.Text" xml:space="preserve">
         <value></value>

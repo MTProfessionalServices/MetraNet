@@ -1321,8 +1321,11 @@
     <value>Are you sure you want to terminate {0}?</value>
   </data>
   <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
-    <value>Recent Notifications</value>
+    <value>[JA]Recent Notifications</value>
   </data>
+  <data name="TEXT_NO_RECENT_NOTIFICATIONS" xml:space="preserve">
+    <value>[JA]No recent notifications.</value>
+  </data> 
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>{JA}Change Password</value>
   </data>

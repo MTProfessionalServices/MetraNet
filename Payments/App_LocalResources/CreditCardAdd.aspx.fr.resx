@@ -124,7 +124,7 @@
         <value>Type de carte de crédit</value>
     </data>
     <data name="ddExpMonthResource1.Label" xml:space="preserve">
-        <value>Date d’expiration</value>
+        <value>Date d'expiration</value>
     </data>
     <data name="ddExpYearResource1.Label" xml:space="preserve">
         <value>/</value>
@@ -133,7 +133,7 @@
         <value>Priorité</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="MTSection1Resource1.Text" xml:space="preserve">
         <value>Informations sur la carte de crédit</value>
@@ -145,10 +145,10 @@
         <value>MetraNet</value>
     </data>
     <data name="tbAddress2Resource1.Label" xml:space="preserve">
-        <value>Ligne d’adresse 2</value>
+        <value>Ligne d'adresse 2</value>
     </data>
     <data name="tbAddressResource1.Label" xml:space="preserve">
-        <value>Ligne d’adresse 1</value>
+        <value>Ligne d'adresse 1</value>
     </data>
     <data name="tbCCNumberResource1.Label" xml:space="preserve">
         <value>Numéro de la carte</value>

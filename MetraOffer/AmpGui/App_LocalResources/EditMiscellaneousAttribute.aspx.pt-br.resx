@@ -130,6 +130,6 @@
     <value>MetraNet</value>
   </data>
   <data name="ValueLabel.Text" xml:space="preserve">
-    <value>[pt-BR]Value:</value>
+    <value>Valores:</value>
   </data>
 </root>

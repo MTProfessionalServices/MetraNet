@@ -127,21 +127,21 @@
         <value>Sélectionnez un compte de frais valide.</value>
     </data>
     <data name="ErrorEditUDRCAcct" xml:space="preserve">
-        <value>Erreur lors de la configuration du compte des frais récurrents en fonction de l’unité.</value>
+        <value>Erreur lors de la configuration du compte des frais récurrents en fonction de l'unité.</value>
     </data>
     <data name="lblErrorMessageResource1" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="lblSetUDRChargeAccountTitleResource1" xml:space="preserve">
-        <value>Configuration du compte des frais récurrents en fonction de l’unité</value>
+        <value>Configuration du compte des frais récurrents en fonction de l'unité</value>
     </data>
     <data name="StartDate" xml:space="preserve">
         <value>Date de début de validité</value>
     </data>
     <data name="UDRCConfigHeader" xml:space="preserve">
-        <value>Configuration des frais récurrents en fonction de l’unité</value>
+        <value>Configuration des frais récurrents en fonction de l'unité</value>
     </data>
     <data name="UDRCDisplayName" xml:space="preserve">
-        <value>Nom d’affichage UDRC : </value>
+        <value>Nom d'affichage UDRC : </value>
     </data>
 </root>

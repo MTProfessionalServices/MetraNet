@@ -127,7 +127,7 @@
         <value>Valider</value>
     </data>
     <data name="btnValidateResource1.Tooltip" xml:space="preserve">
-        <value>Valider le nom d’utilisateur</value>
+        <value>Valider le nom d'utilisateur</value>
     </data>
     <data name="cbApplyDefaultPolicyResource1.BoxLabel" xml:space="preserve">
         <value>Appliquer la stratégie par défaut</value>
@@ -136,7 +136,7 @@
         <value>Notification par e-mail</value>
     </data>
     <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-        <value>Type d’authentification</value>
+        <value>Type d'authentification</value>
     </data>
     <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
         <value>Site de marque</value>
@@ -154,13 +154,13 @@
         <value>Fuseau horaire</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="lblIsValidUsernameResource1.Text" xml:space="preserve">
-        <value>Nom d’utilisateur non valide</value>
+        <value>Nom d'utilisateur non valide</value>
     </data>
     <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-        <value>Nom d’utilisateur valide</value>
+        <value>Nom d'utilisateur valide</value>
     </data>
     <data name="ListItemResource1.Text" xml:space="preserve">
         <value>MetraView</value>
@@ -172,7 +172,7 @@
         <value>Informations de facturation</value>
     </data>
     <data name="MTSection2Resource1.Text" xml:space="preserve">
-        <value>Infos d’ouverture de session</value>
+        <value>Infos d'ouverture de session</value>
     </data>
     <data name="MTSection3Resource1.Text" xml:space="preserve">
         <value>Informations du compte</value>
@@ -232,7 +232,7 @@
         <value>Département</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="tbZipResource1.Label" xml:space="preserve">
         <value>Code postal</value>

@@ -118,69 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GENERATEDCHARGES_GRID_TITLE" xml:space="preserve">
-    <value>[FR]Generated Charges/Credits</value>
+    <value>Frais/crédits générés</value>
   </data>
   <data name="lbChargeValueResource1.Text" xml:space="preserve">
-    <value>[FR]What should the value of the Charge/Credit be?</value>
+    <value>Quelle doit être la valeur des frais/du crédit ?</value>
   </data>
   <data name="lbHowApplied.Text" xml:space="preserve">
-    <value>[FR]How should the Charge/Credit be applied?</value>
+    <value>Comment appliquer les frais/le crédit ?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Charge/Credit: Attributes</value>
+    <value>Frais/Crédit :  Attributs</value>
   </data>
   <data name="lbNegativeValueResource1.Text" xml:space="preserve">
-    <value>[FR]A negative value indicates a credit.</value>
+    <value>Une valeur négative indique un crédit.</value>
   </data>
   <data name="lbPositiveValueResource1.Text" xml:space="preserve">
-    <value>[FR]A positive value indicates a charge.</value>
+    <value>Une valeur positive indique des frais.</value>
   </data>
   <data name="lbSelectFromGrid.Text" xml:space="preserve">
-    <value>[FR]Select a Generated Charge/Credit from the grid or add a new one:</value>
+    <value>Sélectionnez des frais/un crédit générés dans la grille ou ajoutez-en de nouveaux :</value>
   </data>
   <data name="lbWhenGenerate.Text" xml:space="preserve">
-    <value>[FR]When should the new Charge/Credit be generated?</value>
+    <value>Quand les nouveaux frais/le crédit doivent-ils être générés ?</value>
   </data>
   <data name="radAggrMultText" xml:space="preserve">
-    <value>[FR]As an aggregate multiplier</value>
+    <value>En tant que multiplicateur consolidé</value>
   </data>
   <data name="radEntireValueText" xml:space="preserve">
-    <value>[FR]Apply the entire charge/credit value</value>
+    <value>Appliquer la valeur totale des frais/du crédit</value>
   </data>
   <data name="radEveryTimeText" xml:space="preserve">
-    <value>[FR]Every time a usage record falls within the Decision Range.</value>
+    <value>Chaque fois qu'un enregistrement d'utilisation est compris dans la plage de décisions.</value>
   </data>
   <data name="radInvPropText" xml:space="preserve">
-    <value>[FR]Inversely proportionally</value>
+    <value>Inversement proportionnel</value>
   </data>
   <data name="radOnceAfterSummedText" xml:space="preserve">
-    <value>[FR]Only once, after all the usage records have been summed, if the total falls within the Decision Range.</value>
+    <value>Une seule fois, après que tous les enregistrements d'utilisation ont été cumulés, si le total est compris dans la plage de décisions.</value>
   </data>
   <data name="radOnceFirstEnterText" xml:space="preserve">
-    <value>[FR]Only once, when a usage record first causes the total to &lt;i&gt;enter&lt;/i&gt; the Decision Range.</value>
+    <value>Une seule fois, lorsqu'un enregistrement d'utilisation fait &lt;i&gt;entrer&lt;/i&gt; pour la première fois le total dans la plage de décisions.</value>
   </data>
   <data name="radOnceFirstExitText" xml:space="preserve">
-    <value>[FR]Only once, when a usage record first causes the total to &lt;i&gt;exit&lt;/i&gt; the Decision Range.</value>
+    <value>Une seule fois, lorsqu'un enregistrement d'utilisation fait &lt;i&gt;sortir&lt;/i&gt; pour la première fois le total de la plage de décisions.</value>
   </data>
   <data name="radParamTableText" xml:space="preserve">
-    <value>[FR]From parameter table</value>
+    <value>A partir du tableau des paramètres</value>
   </data>
   <data name="radPropText" xml:space="preserve">
-    <value>[FR]Proportionally</value>
+    <value>Proportionnellement</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>[FR]Create New Generated Charge</value>
+    <value>Créer de nouveaux frais générés</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>[FR]Create a new Generated Charge or Credit</value>
+    <value>Créer de nouveaux frais ou un crédit générés</value>
   </data>
   <data name="TEXT_ERROR_NO_GENERATED_CHARGE" xml:space="preserve">
-    <value>[FR]Error: You must select a Charge/Credit in the grid</value>
+    <value>Erreur : vous devez sélectionner des frais/un crédit dans la grille</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_CHARGE_COLUMN_NAMES" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving Charge Column Names from table '{0}'</value>
+    <value>Une erreur s'est produite lors de la récupération des noms de la colonne Frais dans le tableau '{0}'</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_CHARGE_CREDIT_ATTRIBUTE" xml:space="preserve">
-    <value>[FR]An error occurred while updating the generated charge attributes of Decision Type: </value>
+    <value>Une erreur s'est produite lors de la mise à jour des attributs de frais générés du type de décision : </value>
   </data>
 </root>

@@ -199,7 +199,7 @@
         <value>Informations du compte</value>
     </data>
     <data name="pnlLoginInfoResource1.Text" xml:space="preserve">
-        <value>Infos d’ouverture de session</value>
+        <value>Infos d'ouverture de session</value>
     </data>
     <data name="tbAncestorAccountIDResource1.AllowBlank" xml:space="preserve">
         <value>False</value>
@@ -241,10 +241,10 @@
         <value>Date de début de compte</value>
     </data>
     <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-        <value>ID d’exemption de taxe</value>
+        <value>Exempt de taxe</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="tbUserNameResource1.MaxLength" xml:space="preserve">
         <value>-1</value>

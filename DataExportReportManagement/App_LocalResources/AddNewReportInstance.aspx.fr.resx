@@ -121,7 +121,7 @@
         <value>[FR]Control File Location</value>
     </data>
     <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
-        <value>Date d’activation</value>
+        <value>Date d'activation</value>
     </data>
     <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
         <value>Comprimer le rapport</value>
@@ -145,13 +145,13 @@
         <value>Destination</value>
     </data>
     <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-        <value>Type d’exécution</value>
+        <value>Type d'exécution</value>
     </data>
     <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
         <value>Générer le fichier de contrôle</value>
     </data>
     <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
-        <value>ID d’instance</value>
+        <value>ID d'instance</value>
     </data>
     <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
         <value>Date du dernier cycle</value>
@@ -163,7 +163,7 @@
         <value>Date du prochain cycle</value>
     </data>
     <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
-        <value>Écrire les paramètres d’exécution dans la sortie</value>
+        <value>Écrire les paramètres d'exécution dans la sortie</value>
     </data>
     <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
         <value>Mot de passe FTP</value>
@@ -172,7 +172,7 @@
         <value>ID de rapport</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
-        <value>Nom du fichier de sortie</value>
+        <value>[FR]Output File Distribution Method</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
         <value>Type de sortie</value>
@@ -184,7 +184,7 @@
         <value>Utiliser les identifiants cités</value>
     </data>
     <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
-        <value>Nom d’utilisateur FTP</value>
+        <value>Nom d'utilisateur FTP</value>
     </data>
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valeur</value>

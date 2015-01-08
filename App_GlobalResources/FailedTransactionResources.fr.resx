@@ -136,10 +136,10 @@
         <value>Modifier tous les états</value>
     </data>
     <data name="TEXT_CHANGE_STATUS" xml:space="preserve">
-        <value>Modifier l’état</value>
+        <value>Modifier l'état</value>
     </data>
     <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
-        <value>Modifier le dossier / état d’échec de transaction</value>
+        <value>Modifier le dossier / état d'échec de transaction</value>
     </data>
     <data name="TEXT_CODE" xml:space="preserve">
         <value>Code</value>
@@ -163,31 +163,31 @@
         <value>Ignoré</value>
     </data>
     <data name="TEXT_ERROR_MESSAGE" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Message d'erreur</value>
     </data>
     <data name="TEXT_ERROR_TYPE_EXAMPLE" xml:space="preserve">
-        <value>Type d’erreur (Exemple)</value>
+        <value>Type d'erreur (Exemple)</value>
     </data>
     <data name="TEXT_ERROR_TYPE_FAILURE_SUMMARY" xml:space="preserve">
-        <value>Payeur - Résumé des échecs du type d’intervalle</value>
+        <value>Payeur - Résumé des échecs du type d'intervalle</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
         <value>Résumé des échecs de phase et de plug-in</value>
     </data>
     <data name="TEXT_FAILURE_TIME" xml:space="preserve">
-        <value>Heure de l’erreur</value>
+        <value>Heure de l'erreur</value>
     </data>
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
-        <value>Résumé par type d’erreur</value>
+        <value>Résumé par type d'erreur</value>
     </data>
     <data name="TEXT_GRID_TITLE_INTERVAL_TYPE" xml:space="preserve">
-        <value>Échec de transactions (y compris type d’intervalle)</value>
+        <value>Échec de transactions (y compris type d'intervalle)</value>
     </data>
     <data name="TEXT_GRID_TITLE_INTERVAL_TYPE_FAILURE_SUMMARY" xml:space="preserve">
-        <value>Résumé des échecs du type d’intervalle</value>
+        <value>Résumé des échecs du type d'intervalle</value>
     </data>
     <data name="TEXT_INTERVAL_FAILURE_SUMMARY" xml:space="preserve">
-        <value>Payeur - Résumé des échecs d’intervalle</value>
+        <value>Payeur - Résumé des échecs d'intervalle</value>
     </data>
     <data name="TEXT_IS_CHILD" xml:space="preserve">
         <value>Est Enfant</value>
@@ -202,7 +202,7 @@
         <value>Non</value>
     </data>
     <data name="TEXT_OPEN" xml:space="preserve">
-        <value>Ouvert</value>
+        <value>Ouvrir</value>
     </data>
     <data name="TEXT_PAYER" xml:space="preserve">
         <value>Payeur</value>
@@ -235,31 +235,31 @@
         <value>Phase</value>
     </data>
     <data name="TEXT_STATE_REASON_CODE" xml:space="preserve">
-        <value>Code du motif d’état</value>
+        <value>Code du motif d'état</value>
     </data>
     <data name="TEXT_STATUS" xml:space="preserve">
         <value>État</value>
     </data>
     <data name="TEXT_UCYCLE_TYPE" xml:space="preserve">
-        <value>Type de cycle de consommation</value>
+        <value>Type de cycle d'utilisation</value>
     </data>
     <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
-        <value>Valeur du cycle d’utilisation</value>
+        <value>Valeur du cycle d'utilisation</value>
     </data>
     <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-        <value>En cours d’examen</value>
+        <value>En cours d'examen</value>
     </data>
     <data name="TEXT_UNIQUE_ID" xml:space="preserve">
         <value>ID unique</value>
     </data>
     <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-        <value>Type&lt;br&gt;du cycle d’utilisation</value>
+        <value>Type&lt;br&gt;du cycle d'utilisation</value>
     </data>
     <data name="TEXT_USAGE_CYCLE_TYPE_VALUE" xml:space="preserve">
-        <value>Valeur du type de cycle d’utilisation</value>
+        <value>Valeur du type de cycle d'utilisation</value>
     </data>
     <data name="TEXT_USAGE_CYCLE_VALUE" xml:space="preserve">
-        <value>Valeur&lt;br&gt;du cycle d’utilisation</value>
+        <value>Valeur&lt;br&gt;du cycle d'utilisation</value>
     </data>
     <data name="TEXT_YES" xml:space="preserve">
         <value>Oui</value>

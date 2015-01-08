@@ -121,7 +121,7 @@
         <value>Appliquer aux descendants des comptes</value>
     </data>
     <data name="cbReplaceTaxLevelResource1.BoxLabel" xml:space="preserve">
-        <value>Replace Tax Level</value>
+        <value>Remplacer le niveau de taxe</value>
     </data>
     <data name="ddScope.Label" xml:space="preserve">
         <value>Étendue</value>
@@ -142,10 +142,10 @@
         <value>Indicateur de limite</value>
     </data>
     <data name="tbPcodeResource.Label" xml:space="preserve">
-        <value>Code d’emplacement permanent</value>
+        <value>Code d'emplacement permanent</value>
     </data>
     <data name="tbTaxRateResource1.Label" xml:space="preserve">
-        <value>État appliquant la taxe</value>
+        <value>Taxe</value>
     </data>
     <data name="tbTaxTypeResource.Label" xml:space="preserve">
         <value>Type de taxe</value>

@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="CORP_ID" xml:space="preserve">
-        <value>ID du compte d’entreprise</value>
+        <value>ID du compte d'entreprise</value>
     </data>
     <data name="DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -136,7 +136,7 @@
         <value>Date de fin</value>
     </data>
     <data name="EndDateResource1.Label" xml:space="preserve">
-        <value>Abonnements Date de fin</value>
+        <value>Date de fin des abonnements</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
         <value>Abonnements groupés</value>
@@ -157,10 +157,10 @@
         <value>MetraNet</value>
     </data>
     <data name="PO_DISPLAYNAME" xml:space="preserve">
-        <value>Nom d’affichage de l’offre produit</value>
+        <value>Nom d'affichage de l'offre produit</value>
     </data>
     <data name="PO_ID" xml:space="preserve">
-        <value>ID de l’offre produit</value>
+        <value>ID de l'offre produit</value>
     </data>
     <data name="PROPORTIONAL_DISTRIBUTION" xml:space="preserve">
         <value>Distribution proportionnelle</value>
@@ -169,13 +169,13 @@
         <value>Date de début</value>
     </data>
     <data name="StartDateResource1.Label" xml:space="preserve">
-        <value>Abonnements Date de départ</value>
+        <value>Date de début des abonnements</value>
     </data>
     <data name="SUBSCRIPTION_ID" xml:space="preserve">
-        <value>ID de l’abonnement</value>
+        <value>ID de l'abonnement</value>
     </data>
     <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-        <value>Abonnement Span</value>
+        <value>Période d'abonnement</value>
     </data>
     <data name="SUPPORTS_GROUP" xml:space="preserve">
         <value>Fournit une assistance sur les opérations groupées</value>

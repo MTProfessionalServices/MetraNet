@@ -143,7 +143,7 @@
         <value>Mettre à jour le calendrier de rapports mensuel</value>
     </data>
     <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
-        <value>Date d’activation</value>
+        <value>Date d'activation</value>
     </data>
     <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
         <value>Comprimer le rapport</value>
@@ -164,7 +164,7 @@
         <value>Créer un nouveau paramètre de rapport</value>
     </data>
     <data name="TEXT_DEF_CREATE_NEW_REPORT_SCHEDULE" xml:space="preserve">
-        <value>Créer un nouveau calendrier d’instances</value>
+        <value>Créer un nouveau calendrier d'instances</value>
     </data>
     <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
         <value>Date de désactivation</value>
@@ -179,34 +179,34 @@
         <value>Destination</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
-        <value>Jour d’exécution</value>
+        <value>Jour d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_DAY1" xml:space="preserve">
-        <value>Jour d’exécution</value>
+        <value>Jour d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
-        <value>Heure de fin d’exécution (HH:MM)</value>
+        <value>Heure de fin d'exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
-        <value>Premier jour du mois d’exécution</value>
+        <value>Premier jour du mois d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
-        <value>Dernier jour du mois d’exécution</value>
+        <value>Dernier jour du mois d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
-        <value>Heure de début d’exécution (HH:MM)</value>
+        <value>Heure de début d'exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
-        <value>Heure d’exécution (HH:MM)</value>
+        <value>Heure d'exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-        <value>Type d’exécution</value>
+        <value>Type d'exécution</value>
     </data>
     <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
         <value>Générer le fichier de contrôle</value>
     </data>
     <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
-        <value>ID d’instance</value>
+        <value>ID d'instance</value>
     </data>
     <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
         <value>Date du dernier cycle</value>
@@ -260,7 +260,7 @@
         <value>Date du prochain cycle</value>
     </data>
     <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
-        <value>Écrire les paramètres d’exécution dans la sortie</value>
+        <value>Écrire les paramètres d'exécution dans la sortie</value>
     </data>
     <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
         <value>ID du paramètre</value>
@@ -269,7 +269,7 @@
         <value>Mot de passe FTP</value>
     </data>
     <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
-        <value>Empêcher l’exécution ad hoc</value>
+        <value>Empêcher l'exécution ad hoc</value>
     </data>
     <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
         <value>Balise de requête</value>
@@ -311,10 +311,10 @@
         <value>Mettre à jour la définition de rapport existante</value>
     </data>
     <data name="TEXT_DEF_UPDATE_EXISTING_REPORT_INSTANCE" xml:space="preserve">
-        <value>Mettre à jour l’instance de rapport existante</value>
+        <value>Mettre à jour l'instance de rapport existante</value>
     </data>
     <data name="TEXT_DEF_UPDATE_INSTANCE_PARAMETER_VALUE" xml:space="preserve">
-        <value>Mettre à jour la valeur des paramètres d’instance</value>
+        <value>Mettre à jour la valeur des paramètres d'instance</value>
     </data>
     <data name="TEXT_DEF_UPDATE_MONTHLY_SCHEDULE" xml:space="preserve">
         <value>Mettre à jour le calendrier mensuel</value>
@@ -326,7 +326,7 @@
         <value>Utiliser les identifiants cités</value>
     </data>
     <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
-        <value>Nom d’utilisateur FTP</value>
+        <value>Nom d'utilisateur FTP</value>
     </data>
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
         <value>Valeur</value>

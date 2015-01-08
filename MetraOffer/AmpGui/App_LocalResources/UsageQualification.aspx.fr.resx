@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnotherUQGLogicLabelResource.Text" xml:space="preserve">
-    <value>[FR]Logic:</value>
+    <value>Logique :</value>
   </data>
   <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
@@ -130,61 +130,61 @@
     <value>True</value>
   </data>
   <data name="FieldLabelResource.Text" xml:space="preserve">
-    <value>[FR]Field:</value>
+    <value>Zone :</value>
   </data>
   <data name="FilterLabelResource.Text" xml:space="preserve">
-    <value>[FR]Filtre:</value>
+    <value>Filtre :</value>
   </data>
   <data name="lblAnotherUQGPanelResource.Text" xml:space="preserve">
-    <value>[FR]Another Usage Qualification</value>
+    <value>Autre qualification d'utilisation</value>
   </data>
   <data name="lblInfoResource.Text" xml:space="preserve">
-    <value>[FR]Specify the properties that usage records must have in order to be analyzed by this Decision Type.</value>
+    <value>Indiquez les propriétés requises des enregistrements d'utilisation pour être analysés par ce type de décision.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Usage Qualification</value>
+    <value>Qualification d'utilisation</value>
   </data>
   <data name="lblUsageFieldPanelResource.Text" xml:space="preserve">
-    <value>[FR]t_acc_usage/Product View Field</value>
+    <value>t_acc_usage/Zone de la vue produit</value>
   </data>
   <data name="LOGIC_DOES_NOT_MEET_THIS_QUALIFICATION" xml:space="preserve">
-    <value>[FR]Does not meet this qualification</value>
+    <value>Non conforme à cette qualification</value>
   </data>
   <data name="LOGIC_MEETS_THIS_QUALIFICATION" xml:space="preserve">
-    <value>[FR]Meets this qualification</value>
+    <value>Conforme à cette qualification</value>
   </data>
   <data name="LogicLabelResource.Text" xml:space="preserve">
-    <value>[FR]Logic:</value>
+    <value>Logique :</value>
   </data>
   <data name="TableLabelResource.Text" xml:space="preserve">
-    <value>[FR]Table:</value>
+    <value>Tableau :</value>
   </data>
   <data name="TEXT_ERROR_ADD_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[FR]An error occured while adding Usage Qualification with name = '{0}'.</value>
+    <value>Erreur pendant l'ajout de la qualification d'utilisation nommée = '{0}'.</value>
   </data>
   <data name="TEXT_ERROR_GETTING_DATA" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving data for the page.</value>
+    <value>Une erreur s'est produite pendant la récupération des données pour la page.</value>
   </data>
   <data name="TEXT_ERROR_MUST_USE_UNIQUE_NAME_FOR_NEW_UQ" xml:space="preserve">
-    <value>[FR]An error occurred while creating the new Usage Qualification because the name '{0}' is already the name for another Usage Qualificaion. Please use a unique name for the new Usage Qualification.</value>
+    <value>Une erreur s'est produite pendant la création de la nouvelle qualification d'utilisation car le nom '{0}' est déjà employé pour une autre qualification d'utilisation. Veuillez indiquer un nom unique pour la nouvelle qualification d'utilisation.</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_UQGS" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving the list of usage qualification group names.</value>
+    <value>Une erreur s'est produite pendant la récupération de la liste des noms de groupes de qualifications d'utilisation.</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_ACTION" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving Usage Qualification Action from session state value</value>
+    <value>Erreur pendant la récupération de l'action de qualification d'utilisation dans la valeur de l'état de session</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_FILTER" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving the filter for usage qualification: </value>
+    <value>Erreur pendant la récupération du filtre pour la qualification d'utilisation : </value>
   </data>
   <data name="TEXT_INSERT" xml:space="preserve">
     <value>Insérer</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[FR]Successfully created Usage Qualification with name '{0}'.</value>
+    <value>Création réussie de la qualification d'utilisation nommée '{0}'.</value>
   </data>
   <data name="UsageQualificationDescriptionResource.Label" xml:space="preserve">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </data>
   <data name="UsageQualificationDescriptionResource.LabelSeparator" xml:space="preserve">
     <value>:</value>
@@ -196,7 +196,7 @@
     <value>0</value>
   </data>
   <data name="UsageQualificationFilterResource.Label" xml:space="preserve">
-    <value>[FR]Filtre</value>
+    <value>Filtre</value>
   </data>
   <data name="UsageQualificationFilterResource.LabelSeparator" xml:space="preserve">
     <value>:</value>
@@ -208,7 +208,7 @@
     <value>0</value>
   </data>
   <data name="UsageQualificationLabelResource.Text" xml:space="preserve">
-    <value>[FR]Usage Qualification:</value>
+    <value>Qualification d'utilisation :</value>
   </data>
   <data name="UsageQualificationNameResource.Label" xml:space="preserve">
     <value>Nom</value>
@@ -223,12 +223,12 @@
     <value>0</value>
   </data>
   <data name="ValueLabelResource.Text" xml:space="preserve">
-    <value>[FR]Value:</value>
+    <value>Valeur :</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[FR]Description:</value>
+    <value>Description :</value>
   </data>
   <data name="ViewUsageQualificationFilterLabelResource.Text" xml:space="preserve">
-    <value>[FR]Filtre:</value>
+    <value>Filtre :</value>
   </data>
 </root>

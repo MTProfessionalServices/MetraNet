@@ -121,10 +121,10 @@
         <value>Cycles de facturation</value>
     </data>
     <data name="LblEndDayOfMonth" xml:space="preserve">
-        <value>Dernier jour du mois</value>
+        <value>1er dernier jour du mois</value>
     </data>
     <data name="LblEndDayOfWeek" xml:space="preserve">
-        <value>Dernier jour de la semaine</value>
+        <value>Jour de la semaine</value>
     </data>
     <data name="LblFirstEndDayOfMonth" xml:space="preserve">
         <value>1er dernier jour du mois</value>
@@ -133,10 +133,10 @@
         <value>2ème dernier jour du mois</value>
     </data>
     <data name="LblSelectInterval" xml:space="preserve">
-        <value>Sélectionner l’intervalle</value>
+        <value>Sélectionner l'intervalle</value>
     </data>
     <data name="LblStartDay" xml:space="preserve">
-        <value>Jour de début</value>
+        <value>Date de début</value>
     </data>
     <data name="lblStartMonth" xml:space="preserve">
         <value>Mois de début</value>

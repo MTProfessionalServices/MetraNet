@@ -139,7 +139,7 @@
     <value>ajouter une catégorie</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>Ajouter une propriété</value>
+    <value>ajouter une propriété</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
     <value>Propriétés partagées disponibles</value>
@@ -181,7 +181,7 @@
     <value>Propriété supprimée avec succès.</value>
   </data>
   <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
-    <value>Propriétés de l’offre produit</value>
+    <value>Propriétés de l'offre produit</value>
   </data>
   <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
     <value>Déplacé avec succès.</value>
@@ -196,7 +196,7 @@
     <value>Le compte '{0}' est bloqué.</value>
   </data>
   <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
-    <value>Nom du compte</value>
+    <value>Nom du compte :</value>
   </data>
   <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
     <value>Résumé du compte</value>
@@ -217,16 +217,16 @@
     <value>modifier</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[FR]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
     <value>Ajouter des comptes</value>
   </data>
   <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
-    <value>Ajouter un message de facture</value>
+    <value>Ajouter message de facturation</value>
   </data>
   <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
-    <value>Créer Bill message</value>
+    <value>Créer message de facturation</value>
   </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>Ajouter</value>
@@ -244,7 +244,7 @@
     <value>Autoriser les rapports enregistrés</value>
   </data>
   <data name="TEXT_ALLOW_SELF_CARE" xml:space="preserve">
-    <value>Autoriser l’auto-gestion</value>
+    <value>Autoriser l'auto-gestion</value>
   </data>
   <data name="TEXT_ALLOW_SHARED_REPORTS" xml:space="preserve">
     <value>Autoriser les rapports partagés</value>
@@ -289,10 +289,10 @@
     <value>avant</value>
   </data>
   <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
-    <value>Association de messages pour facture</value>
+    <value>Associations de messages de facturation</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>Messages pour facture</value>
+    <value>Messages relatifs aux factures</value>
   </data>
   <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
     <value>Informations de facturation</value>
@@ -427,13 +427,13 @@
     <value>Est Visible</value>
   </data>
   <data name="TEXT_LAYOUT_EXTENSION_NAME" xml:space="preserve">
-    <value>Nom d’extension de la présentation</value>
+    <value>Nom d'extension de la présentation</value>
   </data>
   <data name="TEXT_LAYOUT_NAME" xml:space="preserve">
     <value>Nom de la présentation</value>
   </data>
   <data name="TEXT_LOGIN_INFORMATION" xml:space="preserve">
-    <value>Infos d’ouverture de session</value>
+    <value>Infos d'ouverture de session</value>
   </data>
   <data name="TEXT_LOGO_IMAGE" xml:space="preserve">
     <value>Image du logo</value>
@@ -481,10 +481,10 @@
     <value>Non</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>Ce modèle d’accord ne contient aucune propriété partagée.</value>
+    <value>Ce modèle d'accord ne contient aucune propriété partagée.</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_YET" xml:space="preserve">
-    <value>Pour l’instant, aucune propriété n’est définie...</value>
+    <value>Pour l'instant, aucune propriété n'est définie...</value>
   </data>
   <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
     <value>Aucun enregistrement trouvé</value>
@@ -499,7 +499,7 @@
     <value>propriété.</value>
   </data>
   <data name="TEXT_PAGE_ERROR" xml:space="preserve">
-    <value>Impossible d’afficher la page.</value>
+    <value>Impossible d'afficher la page.</value>
   </data>
   <data name="TEXT_PAGEURL" xml:space="preserve">
     <value>URLPage</value>
@@ -511,7 +511,7 @@
     <value>Priorité</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
-    <value>Nom de l’AffichageProduit</value>
+    <value>Nom de l'AffichageProduit</value>
   </data>
   <data name="TEXT_PROPERTIES" xml:space="preserve">
     <value>Propriétés</value>
@@ -556,10 +556,10 @@
     <value>Enregistrer</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>Enregistrer &amp; Continuer</value>
+    <value>Enregistrer et continuer</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Enregistrer la nouvelle qualification d’utilisation</value>
+    <value>Enregistrer la nouvelle qualification d'utilisation</value>
   </data>
   <data name="TEXT_SAVINGS" xml:space="preserve">
     <value>Épargne</value>
@@ -589,10 +589,10 @@
     <value>Style</value>
   </data>
   <data name="TEXT_SUB_DATE_MESSAGE" xml:space="preserve">
-    <value>Les dates de début et de fin de l’abonnement doivent être comprises entre {0} et {1}.</value>
+    <value>Les dates de début et de fin de l'abonnement doivent être comprises entre {0} et {1}.</value>
   </data>
   <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
-    <value>Les dates d’abonnement doivent être</value>
+    <value>Les dates d'abonnement doivent être</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
     <value>Taxe</value>
@@ -649,7 +649,7 @@
     <value>Liste des éléments non liés  </value>
   </data>
   <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
-    <value>instances de l’entité</value>
+    <value>instances de l'entité</value>
   </data>
   <data name="TEXT_URL" xml:space="preserve">
     <value>URL</value>
@@ -679,7 +679,7 @@
     <value>Oui</value>
   </data>
   <data name="updateSubscription" xml:space="preserve">
-    <value>Mise à jour de l’abonnement</value>
+    <value>Mise à jour de l'abonnement</value>
   </data>
   <data name="TEXT_ONE" xml:space="preserve">
     <value>[FR]One</value>
@@ -694,7 +694,7 @@
     <value>Devise</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>Nom d’affichage</value>
+    <value>Nom d'affichage</value>
   </data>
   <data name="TEXT_PARTITION_ID" xml:space="preserve">
     <value>ID de partition</value>

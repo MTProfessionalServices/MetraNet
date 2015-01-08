@@ -130,10 +130,10 @@
         <value>Estado da conta</value>
     </data>
     <data name="TEXT_AccountConfigSets" xml:space="preserve">
-        <value>[PT-BR]Manage OnBoard Templates</value>
+        <value>Gerenciar modelos OnBoard</value>
     </data>
     <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
-        <value>[PT-BR]OnBoard Templates List</value>
+        <value>Modelos OnBoard</value>
     </data>
     <data name="TEXT_AccountConfigSetsSubParams_LIST" xml:space="preserve">
         <value>Sub. Params For OnBoard Templates</value>
@@ -289,10 +289,10 @@
         <value>Corrigido e aguardando</value>
     </data>
     <data name="TEXT_CREATE_ACS" xml:space="preserve">
-        <value>Add OnBoard Template</value>
+        <value>Adicionar modelo OnBoard</value>
     </data>
     <data name="TEXT_CREATE_ACS_SUB_PARAMS" xml:space="preserve">
-        <value>Add Model</value>
+        <value>[pt-BR]Add Model</value>
     </data>
     <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
         <value>Criar retornos/reexecuções</value>
@@ -325,7 +325,7 @@
         <value>Pseudônimos</value>
     </data>
     <data name="TEXT_EDIT_NAMESPACES" xml:space="preserve">
-        <value>Namespaces</value>
+        <value>[pt-BR]Namespaces</value>
     </data>
     <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
         <value>Editar modelo</value>
@@ -355,7 +355,7 @@
         <value>Resumo por estágio e plugin</value>
     </data>
     <data name="TEXT_FEEDS" xml:space="preserve">
-        <value>Feeds</value>
+        <value>[pt-BR]Feeds</value>
     </data>
     <data name="TEXT_FILE_MANAGEMENT" xml:space="preserve">
         <value>Processamento de arquivos</value>
@@ -583,7 +583,7 @@
         <value>Adaptadores agendados</value>
     </data>
     <data name="TEXT_SEARCH" xml:space="preserve">
-        <value></value>
+        <value>Buscar</value>
     </data>
     <data name="TEXT_SECURITY" xml:space="preserve">
         <value>Segurança</value>

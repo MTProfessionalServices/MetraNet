@@ -127,7 +127,7 @@
         <value>Description</value>
     </data>
     <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-        <value>Nom d’affichage</value>
+        <value>Nom d'affichage</value>
     </data>
     <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
         <value>Date de début de validité</value>

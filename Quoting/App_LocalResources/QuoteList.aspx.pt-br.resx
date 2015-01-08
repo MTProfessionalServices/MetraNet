@@ -151,7 +151,7 @@
         <value>Lista de cotações</value>
     </data>
     <data name="QUOTE_NUM" xml:space="preserve">
-        <value>Ctação #</value>
+        <value>ID da cotação</value>
     </data>
     <data name="QUOTE_PARAMETERS" xml:space="preserve">
         <value>Parâmetros de cotação</value>

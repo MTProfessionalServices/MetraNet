@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
-    <value>[FR]What action should this decision take?</value>
+    <value>Quelle action cette décision doit-elle faire ?</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
-    <value>[FR]How should records be processed?</value>
+    <value>Comment traiter les enregistrements ?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Decision Action for {0}</value>
+    <value>Action de décision pour {0}</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
     <value>Aucun(e)</value>
@@ -133,63 +133,63 @@
     <value>MetraNet</value>
   </data>
   <data name="radDiscountResource1.Text" xml:space="preserve">
-    <value>[FR]Apply a percentage discount</value>
+    <value>Appliquer un pourcentage de remise</value>
   </data>
   <data name="radEventRateResource1.Text" xml:space="preserve">
-    <value>[FR]Apply a new rate for events</value>
+    <value>Appliquer un nouveau prix pour les événements</value>
   </data>
   <data name="radGenChargeResource1.Text" xml:space="preserve">
-    <value>[FR]Generate a charge/credit</value>
+    <value>Générer des frais/un crédit</value>
   </data>
   <data name="radUnitRateResource1.Text" xml:space="preserve">
-    <value>[FR]Apply a new rate for units</value>
+    <value>Appliquer un nouveau prix aux unités</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>[FR]Single-Bucket</value>
+    <value>Catégorie unique</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>[FR]Multi-Bucket</value>
+    <value>Catégories multiples</value>
   </data>
   <data name="rblParamTableResource1.Text" xml:space="preserve">
-    <value>[FR]From Paramter Table</value>
+    <value>Du tableau de param.</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[FR]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_ERROR_NO_DECISION_ACTION" xml:space="preserve">
-    <value>[FR]Error: You must select the action that the Decision Type will take</value>
+    <value>Erreur : vous devez sélectionner l'action à faire par le type de décision</value>
   </data>
   <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
-    <value>[FR]Error: You must specify the percentage discount to be applied by this Decision Type</value>
+    <value>Erreur : vous devez indiquer le pourcentage de remise à appliquer par ce type de décision</value>
   </data>
   <data name="TEXT_ERROR_NO_EVENT_RATE_VALUE" xml:space="preserve">
-    <value>[FR]Error: You must specify the value of the new event rate to be applied by this Decision Type</value>
+    <value>Erreur : vous devez indiquer la valeur du nouveau prix d'événement à appliquer par ce type de décision</value>
   </data>
   <data name="TEXT_ERROR_NO_INCREMENTAL_OR_BULK_OR_PT" xml:space="preserve">
-    <value>[FR]Error: You must choose how the Decision Type will process records </value>
+    <value>Erreur : vous devez choisir comment le type de décision traitera les enregistrements </value>
   </data>
   <data name="TEXT_ERROR_NO_UNIT_RATE_VALUE" xml:space="preserve">
-    <value>[FR]Error: You must specify the value of the new unit rate to be applied by this Decision Type</value>
+    <value>Erreur : vous devez indiquer la valeur du nouveau prix unitaire à appliquer par ce type de décision</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_DISCOUNT" xml:space="preserve">
-    <value>[FR]Error: You must specify a percentage for discount</value>
+    <value>Erreur : vous devez indiquer un pourcentage de remise</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS" xml:space="preserve">
-    <value>[FR]Error: You must specify a rate for events</value>
+    <value>Erreur : vous devez indiquer un prix pour les événements</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS" xml:space="preserve">
-    <value>[FR]Error: You must specify a rate for units</value>
+    <value>Erreur : vous devez indiquer un prix pour les unités</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nom</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
-    <value>[FR]Product View</value>
+    <value>Affichage du produit</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[FR]Unique ID</value>
+    <value>ID unique</value>
   </data>
 </root>

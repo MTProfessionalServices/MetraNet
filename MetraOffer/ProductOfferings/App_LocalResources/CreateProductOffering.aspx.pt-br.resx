@@ -133,7 +133,7 @@
         <value>Data de início da vigência</value>
     </data>
     <data name="TEXT_MASTER" xml:space="preserve">
-        <value>[pr-BR]Create Master Product Offering</value>
+        <value>Criar oferta de produto</value>
     </data>
     <data name="TEXT_NAME" xml:space="preserve">
         <value>Nome</value>

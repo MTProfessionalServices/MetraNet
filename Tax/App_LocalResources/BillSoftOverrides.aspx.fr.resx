@@ -151,7 +151,7 @@
         <value>Taxe excédentaire</value>
     </data>
     <data name="TEXT_EXEMPT_LEVEL" xml:space="preserve">
-        <value>Niveau d’exemption</value>
+        <value>Niveau d'exemption</value>
     </data>
     <data name="TEXT_LIMIT_INDICATOR" xml:space="preserve">
         <value>Indicateur de limite</value>
@@ -160,7 +160,7 @@
         <value>Base maximum</value>
     </data>
     <data name="TEXT_PERMANENT_LOCATION_CODE" xml:space="preserve">
-        <value>Code d’emplacement permanent</value>
+        <value>Code d'emplacement permanent</value>
     </data>
     <data name="TEXT_REPLACE_TAX_LEVEL" xml:space="preserve">
         <value>Remplacer le niveau de taxe</value>
@@ -181,7 +181,7 @@
         <value>Type de taxe</value>
     </data>
     <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-        <value>ID d’exemption de taxe</value>
+        <value>ID d'exemption de taxe</value>
     </data>
     <data name="TEXT_UPDATE_DATE" xml:space="preserve">
         <value>Date de mise à jour</value>

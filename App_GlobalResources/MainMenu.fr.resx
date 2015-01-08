@@ -184,7 +184,7 @@
         <value>Options avancées</value>
     </data>
     <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
-        <value>Modèles d’accords</value>
+        <value>Modèles d'accords</value>
     </data>
     <data name="TEXT_AGREEMENTS" xml:space="preserve">
         <value>Accords</value>
@@ -199,7 +199,7 @@
         <value>Analyses</value>
     </data>
     <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
-        <value>Journal d’audit de l’application</value>
+        <value>Journal d'audit de l'application</value>
     </data>
     <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
         <value>Approbations</value>
@@ -340,13 +340,13 @@
         <value>Échec de transactions</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_ERROR_TYPE_MENU" xml:space="preserve">
-        <value>Résumé par compte et type d’erreur</value>
+        <value>Résumé par compte et type d'erreur</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_INTERVAL_MENU" xml:space="preserve">
         <value>Résumé par compte</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU" xml:space="preserve">
-        <value>Résumé par type d’intervalle</value>
+        <value>Résumé par type d'intervalle</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
         <value>Échec du résumé des transactions par phase et plug-in</value>
@@ -400,7 +400,7 @@
         <value>Ajustements</value>
     </data>
     <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
-        <value>Gérer les modèles d’accords</value>
+        <value>Gérer les modèles d'accords</value>
     </data>
     <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
         <value>Types de décisions</value>
@@ -436,7 +436,7 @@
         <value>Gérer les rapports</value>
     </data>
     <data name="TEXT_MANAGE_ROLES" xml:space="preserve">
-        <value>Rôles d’utilisateurs</value>
+        <value>Rôles d'utilisateurs</value>
     </data>
     <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
         <value>Gérer la sécurité</value>
@@ -532,10 +532,10 @@
         <value>Tableau de bord produit</value>
     </data>
     <data name="TEXT_QUEUE_ADHOC_REPORT_FOR_EXECUTION" xml:space="preserve">
-        <value>Mettre le rapport ad hoc dans la file d’attente pour exécution</value>
+        <value>Mettre le rapport ad hoc dans la file d'attente pour exécution</value>
     </data>
     <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
-        <value>Mettre les rapport ad hoc dans la file d’attente</value>
+        <value>Mettre les rapport ad hoc dans la file d'attente</value>
     </data>
     <data name="TEXT_QUOTING" xml:space="preserve">
         <value>Gérer les bons de commande</value>
@@ -559,7 +559,7 @@
         <value>Renvoyé</value>
     </data>
     <data name="TEXT_RUN_SCHEDULED_ADAPTER" xml:space="preserve">
-        <value>Exécuter l’adaptateur planifié maintenant</value>
+        <value>Exécuter l'adaptateur planifié maintenant</value>
     </data>
     <data name="TEXT_RUNS_ALL" xml:space="preserve">
         <value>Cycles (Tous)</value>
@@ -571,13 +571,13 @@
         <value>Cycles de la semaine passée</value>
     </data>
     <data name="TEXT_SCHEDULE_REPORT_INSTANCE_DAILY" xml:space="preserve">
-        <value>Planifier l’instance de rapport quotidiennement</value>
+        <value>Planifier l'instance de rapport quotidiennement</value>
     </data>
     <data name="TEXT_SCHEDULE_REPORT_INSTANCE_MONTHLY" xml:space="preserve">
-        <value>Planifier l’instance de rapport mensuellement</value>
+        <value>Planifier l'instance de rapport mensuellement</value>
     </data>
     <data name="TEXT_SCHEDULE_REPORT_INSTANCE_WEEKLY" xml:space="preserve">
-        <value>Planifier l’instance de rapport une fois par semaine</value>
+        <value>Planifier l'instance de rapport une fois par semaine</value>
     </data>
     <data name="TEXT_SCHEDULED_ADAPTERS" xml:space="preserve">
         <value>Adaptateurs planifiés</value>
@@ -601,7 +601,7 @@
         <value>Taux partagés</value>
     </data>
     <data name="TEXT_SHOW_A_REPORT_INSTANCE_DETAILS" xml:space="preserve">
-        <value>Afficher les détails de l’instance de rapport</value>
+        <value>Afficher les détails de l'instance de rapport</value>
     </data>
     <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
         <value>Afficher tous les changements</value>
@@ -613,13 +613,13 @@
         <value>Historique des audits de rapport</value>
     </data>
     <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
-        <value>File d’attente d’exportation des données</value>
+        <value>File d'attente d'exportation des données</value>
     </data>
     <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
         <value>Afficher les échecs de changement</value>
     </data>
     <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-        <value>Afficher l’historique des éléments</value>
+        <value>Afficher l'historique des éléments</value>
     </data>
     <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
         <value>Afficher les changements en attente</value>
@@ -637,7 +637,7 @@
         <value>Résumé du compte</value>
     </data>
     <data name="TEXT_SUMMARY_BY_ERROR_TYPE" xml:space="preserve">
-        <value>Résumé par type d’erreur</value>
+        <value>Résumé par type d'erreur</value>
     </data>
     <data name="TEXT_SUSPENDED_TRANSACTIONS" xml:space="preserve">
         <value>Suspendu</value>
@@ -658,7 +658,7 @@
         <value>Sécurité</value>
     </data>
     <data name="TEXT_UNDER_INVESTIGATION_FAILED_TRANSACTIONS" xml:space="preserve">
-        <value>En cours d’examen</value>
+        <value>En cours d'examen</value>
     </data>
     <data name="TEXT_UPDATE_ACCOUNT" xml:space="preserve">
         <value>Mettre à jour le compte</value>
@@ -670,13 +670,13 @@
         <value>Mettre à jour la définition de rapport existante</value>
     </data>
     <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-        <value>Audit d’utilisation</value>
+        <value>Détails de décision du calcul d'utilisation</value>
     </data>
     <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
         <value>Utilisation traitement</value>
     </data>
     <data name="TEXT_USM" xml:space="preserve">
-        <value>Maintenance du serveur d’utilisation</value>
+        <value>Maintenance du serveur d'utilisation</value>
     </data>
     <data name="TEXT_USM_CONFIG" xml:space="preserve">
         <value>Utilisation serveur</value>

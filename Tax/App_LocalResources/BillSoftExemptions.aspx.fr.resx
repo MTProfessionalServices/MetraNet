@@ -154,7 +154,7 @@
         <value>Supprimer une exemption</value>
     </data>
     <data name="TEXT_PERMANENT_LOCATION_CODE" xml:space="preserve">
-        <value>Code d’emplacement permanent</value>
+        <value>Code d'emplacement permanent</value>
     </data>
     <data name="TEXT_START_DATE" xml:space="preserve">
         <value>Date de début</value>
@@ -166,12 +166,12 @@
         <value>Type de taxe</value>
     </data>
     <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-        <value>ID d’exemption de taxe</value>
+        <value>ID d'exemption de taxe</value>
     </data>
     <data name="TEXT_UPDATE_DATE" xml:space="preserve">
         <value>Date de mise à jour</value>
     </data>
     <data name="TEXT_VIEW" xml:space="preserve">
-        <value>Afficher l’exemption</value>
+        <value>Afficher l'exemption</value>
     </data>
 </root>

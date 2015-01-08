@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNTCHAINGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]Amount Chain Groups</value>
+    <value>Grupo de cadeia de valores</value>
   </data>
   <data name="lblAmountChainGroupResource1.Text" xml:space="preserve">
-    <value>[pt-BR]An &lt;i&gt;Amount Chain&lt;/i&gt;  is a collection of usage charge fields that are related to the charge amount.  Some fields are used to determine the amount; some fields are derived from the amount. &lt;b/&gt;&lt;b/&gt; An &lt;i&gt;Amount Chain Group&lt;/i&gt; is a set of Amount Chains that are associated with a Decision.</value>
+    <value>Uma &lt;i&gt;Cadeia de valor&lt;/i&gt;  é uma coleção de campos de encargo de uso relacionados ao valor do encargo. Alguns campos são usados para determinar o valor; alguns campos são derivados do valor. &lt;b/&gt;&lt;b/&gt; Um &lt;i&gt;Grupo de cadeias de valores&lt;/i&gt; é um conjunto de Cadeias de valores que estão associados a uma Decisão.</value>
   </data>
   <data name="lblSelectResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Select the Amount Chain Group for this Decision Type:</value>
+    <value>Selecione o Grupo de cadeias de valores para esse Tipo de decisão:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Amount Chain Group</value>
+    <value>Grupo de cadeia de valores</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -136,12 +136,12 @@
     <value>Descrição</value>
   </data>
   <data name="TEXT_ERROR_NO_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[pt-BR]Error: You must select an Amount Chain Group</value>
+    <value>Erro: você deve selecionar o Grupo de Cadeias de valores</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nome</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[pt-BR]Unique ID</value>
+    <value>ID exclusivo</value>
   </data>
 </root>

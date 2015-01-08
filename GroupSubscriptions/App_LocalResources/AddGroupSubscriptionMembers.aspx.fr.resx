@@ -136,7 +136,7 @@
         <value>Date de début de validité</value>
     </data>
     <data name="ErrorAddGroupSubMember" xml:space="preserve">
-        <value>Erreur lors de l’ajout des membres de l’abonnement groupé.</value>
+        <value>Erreur lors de l'ajout des membres de l'abonnement groupé.</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
         <value>Comptes</value>
@@ -145,13 +145,13 @@
         <value>Abonnement groupé</value>
     </data>
     <data name="lblAddGroupSubMembersTitleResource1" xml:space="preserve">
-        <value>Période de validité de l’abonnement groupé</value>
+        <value>Période de validité de l'abonnement groupé</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="MTTitle1.Text" xml:space="preserve">
-        <value>Ajouter des membres à l’abonnement groupé {0}</value>
+        <value>Ajouter des membres à l'abonnement groupé {0}</value>
     </data>
     <data name="REMOVE_ACCOUNT" xml:space="preserve">
         <value>Supprimer le compte</value>
@@ -163,6 +163,6 @@
         <value>Sélection</value>
     </data>
     <data name="USERNAME" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
 </root>

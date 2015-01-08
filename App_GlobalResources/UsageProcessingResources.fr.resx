@@ -118,13 +118,13 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="BEFORE_AFTER_GRID_TITLE" xml:space="preserve">
-        <value>Frais d’utilisation</value>
+        <value>Frais d'utilisation</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
-        <value>Événements d’utilisation</value>
+        <value>Evénements d'utilisation</value>
     </data>
-    <data name="NO_RECORDS_TEXT" xml:space="preserve">
-        <value>Aucun enregistrement trouvé.</value>
+  <data name="NO_RECORDS_TEXT" xml:space="preserve">
+        <value>Aucun enregistrement trouvé</value>
     </data>
     <data name="TEXT_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
         <value>Comptes concernés</value>
@@ -142,7 +142,7 @@
         <value>Montant avant</value>
     </data>
     <data name="TEXT_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-        <value>Montant chaînes groupées</value>
+        <value>Groupe de chaînes de montants</value>
     </data>
     <data name="TEXT_B_CHANGED" xml:space="preserve">
         <value>Modifié ?</value>
@@ -154,7 +154,7 @@
         <value>Créer des frais lors de la finalisation</value>
     </data>
     <data name="TEXT_CHARGE_ON_INBOUND" xml:space="preserve">
-        <value>Créer des frais lors de l’entrée de niveau</value>
+        <value>Créer des frais lors de l'entrée de niveau</value>
     </data>
     <data name="TEXT_CHARGE_ON_OUTBOUND" xml:space="preserve">
         <value>Créer des frais lors de la sortie de niveau</value>
@@ -181,7 +181,7 @@
         <value>Date chronométrée</value>
     </data>
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
-        <value>Audit de décisions</value>
+        <value>Audit d'utilisation</value>
     </data>
     <data name="TEXT_ID_ACC" xml:space="preserve">
         <value>Compte</value>
@@ -205,22 +205,22 @@
         <value>Type de décision</value>
     </data>
     <data name="TEXT_NM_PI_INSTANCE" xml:space="preserve">
-        <value>Exemple d’élément à prix</value>
+        <value>Exemple d'élément à prix</value>
     </data>
     <data name="TEXT_NM_PI_TEMPLATE" xml:space="preserve">
-        <value>Modèle d’élément à prix</value>
+        <value>Modèle d'élément à prix</value>
     </data>
     <data name="TEXT_NM_PO" xml:space="preserve">
         <value>Offre produit</value>
     </data>
     <data name="TEXT_NM_PV_TABLE" xml:space="preserve">
-        <value>Tableau d’affichage produits</value>
+        <value>Tableau d'affichage produits</value>
     </data>
     <data name="TEXT_NM_VIEW" xml:space="preserve">
         <value>Affichage du produit</value>
     </data>
     <data name="TEXT_PER_EVENT_RATE" xml:space="preserve">
-        <value>Par prix d’événement</value>
+        <value>Par prix d'événement</value>
     </data>
     <data name="TEXT_PER_UNIT_RATE" xml:space="preserve">
         <value>Par prix unitaire</value>

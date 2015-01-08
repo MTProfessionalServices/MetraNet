@@ -121,36 +121,36 @@
     <value>Commentaire</value>
   </data>
   <data name="cbResubmitNowResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]Resubmit Now</value>
+    <value>Renvoyer maintenant</value>
   </data>
   <data name="ddDismissedReasonCodeResource1.Label" xml:space="preserve">
-    <value>[FR]Reason Code</value>
+    <value>Code de motif</value>
   </data>
   <data name="ddInvestigationReasonCodeResource1.Label" xml:space="preserve">
-    <value>[FR]Reason Code</value>
+    <value>Code de motif</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Change Case / Failed Transaction Status</value>
+    <value>Modifier le dossier / état d'échec de transaction</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="pleaseSelectNewStatusMessage.Text" xml:space="preserve">
-    <value>[FR]Please select a new status for the selected transaction(s) or click the "Close" button to cancel.</value>
+    <value>Sélectionnez un nouvel état pour les transactions sélectionnées ou cliquez sur le bouton "Fermer" pour annuler.</value>
   </data>
   <data name="radCorrectedResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Corrected&lt;/b&gt; - This transaction has been resolved and is ready to be resubmitted</value>
+    <value>&lt;b&gt;Corrigé&lt;/b&gt; - Cette transaction a été résolue et est prête à être renvoyée.</value>
   </data>
   <data name="radDismissedResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Dismissed&lt;/b&gt; - This transaction cannot be resolved or it is not cost effective to do so.</value>
+    <value>&lt;b&gt;Ignoré&lt;/b&gt; - Cette transaction ne peut pas être résolue ou sa résolution n'est pas rentable.</value>
   </data>
   <data name="radOpenResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Open&lt;/b&gt; - This transaction is currently unresolved.</value>
+    <value>&lt;b&gt;Ouvert&lt;/b&gt; - Cette transaction n'est pas résolue actuellement.</value>
   </data>
   <data name="radUnderResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Under Investigation&lt;/b&gt; - This transaction is currently unresolved but is being investigated.</value>
+    <value>&lt;b&gt;En cours d'examen&lt;/b&gt; - Cette transaction n'est pas résolue actuellement mais est en cours d'examen.</value>
   </data>
   <data name="ResubmitProgress.Text" xml:space="preserve">
-    <value>[FR]Resubmit failed transactions in progress...</value>
+    <value>Renvoi des transactions qui ont échoué en cours...</value>
   </data>
 </root>

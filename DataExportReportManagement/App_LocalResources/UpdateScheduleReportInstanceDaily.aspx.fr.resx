@@ -149,25 +149,25 @@
         <value>Description</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
-        <value>Jour d’exécution</value>
+        <value>Jour d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
-        <value>Heure de fin d’exécution (HH:MM)</value>
+        <value>Heure de fin d'exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
-        <value>Premier jour du mois d’exécution</value>
+        <value>Premier jour du mois d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
-        <value>Dernier jour du mois d’exécution</value>
+        <value>Dernier jour du mois d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
-        <value>Heure de début d’exécution (HH:MM)</value>
+        <value>Heure de début d'exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
-        <value>Heure d’exécution (HH:MM)</value>
+        <value>Heure d'exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-        <value>Type d’exécution</value>
+        <value>Type d'exécution</value>
     </data>
     <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
         <value>Mois à ce jour</value>

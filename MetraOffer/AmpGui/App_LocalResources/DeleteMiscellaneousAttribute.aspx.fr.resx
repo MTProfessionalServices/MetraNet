@@ -127,9 +127,9 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_COMING_SOON.Text" xml:space="preserve">
-    <value>[FR]This feature is not yet enabled.</value>
+    <value>Cette fonction n'est pas encore activée.</value>
   </data>
   <data name="TEXT_QUESTION" xml:space="preserve">
-    <value>[FR]Are you sure you want to delete the Miscellaneous Attribute '{0}' from the '{1}' Decision Type?</value>
+    <value>Voulez-vous vraiment supprimer l'attribut divers '{0}' du type de décision '{1}' ?</value>
   </data>
 </root>

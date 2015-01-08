@@ -118,16 +118,16 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ErrorJoinGroupSub" xml:space="preserve">
-        <value>Erreur lors de l’adhésion à un abonnement groupé.</value>
+        <value>Erreur lors de l'adhésion à un abonnement groupé.</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="lblSetJoinGroupSubscriptionsTitleResource1.Text" xml:space="preserve">
         <value>Adhérer à un abonnement groupé</value>
     </data>
     <data name="PageTitle.Text" xml:space="preserve">
-        <value>Propriétés de l’abonnement groupé</value>
+        <value>Propriétés de l'abonnement groupé</value>
     </data>
     <data name="tbEffEndDate.Label" xml:space="preserve">
         <value>Date de fin de validité</value>

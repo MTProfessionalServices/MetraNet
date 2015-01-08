@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TEXT_DB_STATUS" xml:space="preserve">
-        <value>DB statut</value>
+        <value>Etat BDD</value>
     </data>
     <data name="TEXT_END_DATE" xml:space="preserve">
         <value>Date de fin</value>
@@ -133,16 +133,16 @@
         <value>Intervalles facturables</value>
     </data>
     <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-        <value>Les intervalles</value>
+        <value>Intervalles terminés</value>
     </data>
     <data name="TEXT_GROUP" xml:space="preserve">
         <value>Groupes</value>
     </data>
     <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-        <value>Disque fermé</value>
+        <value>Clôture (matérielle)</value>
     </data>
     <data name="TEXT_ID" xml:space="preserve">
-        <value>Intervalle ID</value>
+        <value>ID de l'intervalle</value>
     </data>
     <data name="TEXT_OPEN" xml:space="preserve">
         <value>Ouvrir</value>
@@ -160,6 +160,6 @@
         <value>Inconnu</value>
     </data>
     <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-        <value>Type d'utilisation du cycle</value>
+        <value>Type de cycle d'utilisation</value>
     </data>
 </root>

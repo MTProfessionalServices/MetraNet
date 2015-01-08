@@ -121,7 +121,7 @@
         <value>Annuler</value>
     </data>
     <data name="btnIssueCreditNoteResource1.Text" xml:space="preserve">
-        <value>Émettre une note de crédit</value>
+        <value>Emettre note de crédit</value>
     </data>
     <data name="CommentTextBoxResource1.Label" xml:space="preserve">
         <value>Commentaire</value>
@@ -139,10 +139,10 @@
         <value>Documents de la note de crédit</value>
     </data>
     <data name="MTPanel1Resource1.Text" xml:space="preserve">
-        <value>Créer un document de note de crédit pour l’ajustement émis</value>
+        <value>Créer un document de note de crédit pour l'ajustement émis</value>
     </data>
     <data name="NO_RECORDS_TEXT" xml:space="preserve">
-        <value>Aucun enregistrement trouvé.</value>
+        <value>Aucun enregistrement trouvé</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet - Créer un document de note de crédit pour les ajustements émis</value>
@@ -157,7 +157,7 @@
         <value>Identifiant de note de crédit</value>
     </data>
     <data name="TEXT_DATE" xml:space="preserve">
-        <value>d’exp. </value>
+        <value>d'exp. </value>
     </data>
     <data name="TEXT_DESCRIPTION" xml:space="preserve">
         <value>Description</value>

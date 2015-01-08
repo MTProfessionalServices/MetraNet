@@ -121,7 +121,7 @@ public partial class MetraOffer_UpdateSharedPriceList : MTPage
   protected void btnAddRatesToPT_Click(object sender, EventArgs e)
   {
     var targetUrl = "/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/PriceList.AddParamTable.asp|ID=" +
-                    intincomingPLID; // sharedpricelist.ID;
+                    intincomingPLID + "**FramedPriceList=true"; // sharedpricelist.ID;
     //We may try to redirect to another frame instead of page so that the close of that frame will bring back where you were before, but OK for now
     Response.Redirect(targetUrl, false);
   }

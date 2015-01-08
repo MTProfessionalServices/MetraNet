@@ -133,10 +133,10 @@
         <value>ID du compte</value>
     </data>
     <data name="TEXT_ADJUSTMENT_AMOUNT" xml:space="preserve">
-        <value>Montant d’ajustement</value>
+        <value>Montant d'ajustement</value>
     </data>
     <data name="TEXT_ADJUSTMENT_CREATE_DATE" xml:space="preserve">
-        <value>Date de création de l’ajustement</value>
+        <value>Date de création de l'ajustement</value>
     </data>
     <data name="TEXT_AMOUNT" xml:space="preserve">
         <value>Montant</value>
@@ -181,7 +181,7 @@
         <value>Notification par e-mail</value>
     </data>
     <data name="TEXT_ERROR" xml:space="preserve">
-        <value>Une erreur est survenue lors du traitement de l’ajustement divers.</value>
+        <value>Une erreur est survenue lors du traitement de l'ajustement divers.</value>
     </data>
     <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
         <value>Taxe nationale</value>
@@ -190,7 +190,7 @@
         <value>ID d&amp;apos;intervalle de guide</value>
     </data>
     <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-        <value>ID de l’intervalle</value>
+        <value>ID de l'intervalle</value>
     </data>
     <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
         <value>Taxe locale</value>
@@ -217,7 +217,7 @@
         <value>Type de session</value>
     </data>
     <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-        <value>Taxe appliquée par l’État</value>
+        <value>Taxe appliquée par l'État</value>
     </data>
     <data name="TEXT_STATUS" xml:space="preserve">
         <value>État</value>
@@ -226,7 +226,7 @@
         <value>ID du compte souscripteur</value>
     </data>
     <data name="TEXT_SUCCESS" xml:space="preserve">
-        <value>L’ajustement divers a été traité avec succès.</value>
+        <value>L'ajustement divers a été traité avec succès.</value>
     </data>
     <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
         <value>Montant de la taxe</value>

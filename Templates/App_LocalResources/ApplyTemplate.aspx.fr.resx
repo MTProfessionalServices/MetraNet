@@ -130,7 +130,7 @@
         <value>Prochain début de période de facturation du payeur après cette date</value>
     </data>
     <data name="DISPLAY_NAME" xml:space="preserve">
-        <value>Nom d’affichage</value>
+        <value>Nom d'affichage</value>
     </data>
     <data name="END_DATE" xml:space="preserve">
         <value>Date de fin</value>
@@ -151,7 +151,7 @@
         <value>ID du groupe</value>
     </data>
     <data name="GROUP_SUB_NAME" xml:space="preserve">
-        <value>Nom de l’abonnement groupé</value>
+        <value>Nom de l'abonnement groupé</value>
     </data>
     <data name="IS_GROUP" xml:space="preserve">
         <value>Est Groupe</value>
@@ -184,10 +184,10 @@
         <value>MetraNet</value>
     </data>
     <data name="PO_DISPLAY_NAME" xml:space="preserve">
-        <value>Nom de l’abonnement</value>
+        <value>Nom de l'abonnement</value>
     </data>
     <data name="PO_ID" xml:space="preserve">
-        <value>ID de l’offre produit</value>
+        <value>ID de l'offre produit</value>
     </data>
     <data name="radAll.BoxLabel" xml:space="preserve">
         <value>Tous les descendants</value>
@@ -202,7 +202,7 @@
         <value>Date de début des abonnements</value>
     </data>
     <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-        <value>Période d’abonnement</value>
+        <value>Période d'abonnement</value>
     </data>
     <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
         <value>Type de compte</value>

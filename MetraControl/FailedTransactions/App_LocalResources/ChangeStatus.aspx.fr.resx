@@ -130,7 +130,7 @@
     <value>Code de motif</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Modifier le dossier / état d’échec de transaction</value>
+    <value>Modifier le dossier / état d'échec de transaction</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -142,13 +142,13 @@
     <value>&lt;b&gt;Corrigé&lt;/b&gt; - Cette transaction a été résolue et est prête à être renvoyée.</value>
   </data>
   <data name="radDismissedResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Ignoré&lt;/b&gt; - Cette transaction ne peut pas être résolue ou sa résolution n’est pas rentable.</value>
+    <value>&lt;b&gt;Ignoré&lt;/b&gt; - Cette transaction ne peut pas être résolue ou sa résolution n'est pas rentable.</value>
   </data>
   <data name="radOpenResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Ouvert&lt;/b&gt; - Cette transaction n’est pas résolue actuellement.</value>
+    <value>&lt;b&gt;Ouvert&lt;/b&gt; - Cette transaction n'est pas résolue actuellement.</value>
   </data>
   <data name="radUnderResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;En cours d’examen&lt;/b&gt; - Cette transaction n’est pas résolue actuellement mais est en cours d’examen.</value>
+    <value>&lt;b&gt;En cours d'examen&lt;/b&gt; - Cette transaction n'est pas résolue actuellement mais est en cours d'examen.</value>
   </data>
   <data name="ResubmitProgress.Text" xml:space="preserve">
     <value>Renvoi des transactions qui ont échoué en cours...</value>

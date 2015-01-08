@@ -139,7 +139,7 @@
         <value>Date de début disponible</value>
     </data>
     <data name="TEXT_CopyPO" xml:space="preserve">
-        <value>Copier l’offre produit</value>
+        <value>Copier l'offre produit</value>
     </data>
     <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
         <value>Créer une offre produit</value>
@@ -154,10 +154,10 @@
         <value>Description</value>
     </data>
     <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-        <value>Nom d’affichage</value>
+        <value>Nom d'affichage</value>
     </data>
     <data name="TEXT_EditPO" xml:space="preserve">
-        <value>Modifier l’offre produit</value>
+        <value>Modifier l'offre produit</value>
     </data>
     <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
         <value>Date de fin de validité</value>
@@ -166,16 +166,16 @@
         <value>Date de début de validité</value>
     </data>
     <data name="TEXT_EXTERNALINFORMATIONURL" xml:space="preserve">
-        <value>URL d’informations externe</value>
+        <value>URL d'informations externe</value>
     </data>
     <data name="TEXT_GLCODE" xml:space="preserve">
         <value>Code général</value>
     </data>
     <data name="TEXT_HidePO" xml:space="preserve">
-        <value>Masquer l’offre produit</value>
+        <value>Masquer l'offre produit</value>
     </data>
     <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
-        <value>URL d’informations interne</value>
+        <value>URL d'informations interne</value>
     </data>
     <data name="TEXT_ISHIDDEN" xml:space="preserve">
         <value>Masqué</value>
@@ -190,9 +190,9 @@
         <value>ID de partition</value>
     </data>
     <data name="TEXT_UnhidePO" xml:space="preserve">
-        <value>Annuler le masquage de l’offre produit</value>
+        <value>Annuler le masquage de l'offre produit</value>
     </data>
     <data name="TEXT_ViewPO" xml:space="preserve">
-        <value>Afficher l’offre produit</value>
+        <value>Afficher l'offre produit</value>
     </data>
 </root>

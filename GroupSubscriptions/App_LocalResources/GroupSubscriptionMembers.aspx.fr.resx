@@ -121,7 +121,7 @@
         <value>ID du compte</value>
     </data>
     <data name="AccountName.HeaderText" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="Actions.HeaderText" xml:space="preserve">
         <value>Actions</value>
@@ -136,19 +136,19 @@
         <value>Supprimer des membres</value>
     </data>
     <data name="DeleteButtonToolTip.HeaderText" xml:space="preserve">
-        <value>Vous pouvez supprimer les membres qui n’ont pas d’utilisation.</value>
+        <value>Vous pouvez supprimer les membres qui n'ont pas d'utilisation.</value>
     </data>
     <data name="EndDate.HeaderText" xml:space="preserve">
         <value>Date de fin</value>
     </data>
     <data name="Grid.Title" xml:space="preserve">
-        <value>Membres de l’abonnement groupé {0}</value>
+        <value>Membres de l'abonnement groupé {0}</value>
     </data>
     <data name="GroupId.HeaderText" xml:space="preserve">
         <value>ID du groupe</value>
     </data>
     <data name="lblGroupSubMembersTitleResource1.Text" xml:space="preserve">
-        <value>Membres de l’abonnement groupé</value>
+        <value>Membres de l'abonnement groupé</value>
     </data>
     <data name="NoRecordsFound.HeaderText" xml:space="preserve">
         <value>Aucun enregistrement trouvé.</value>

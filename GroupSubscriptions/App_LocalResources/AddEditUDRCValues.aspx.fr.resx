@@ -121,7 +121,7 @@
         <value>Date de fin</value>
     </data>
     <data name="ErrorAddUDRCValues" xml:space="preserve">
-        <value>Erreur lors de l’ajout des valeurs UDRC.</value>
+        <value>Erreur lors de l'ajout des valeurs UDRC.</value>
     </data>
     <data name="ErrorStartEndDates" xml:space="preserve">
         <value>Entrez des dates de début et de fin valides.</value>
@@ -130,7 +130,7 @@
         <value>Entrez une date de fin valide.</value>
     </data>
     <data name="ErrorUDRCInitStartEndDate" xml:space="preserve">
-        <value>Les valeurs UDRC doivent s’étendre sur l’intégralité de la période couverte par les dates de début et de fin de l’abonnement groupé.</value>
+        <value>Les valeurs UDRC doivent s'étendre sur l'intégralité de la période couverte par les dates de début et de fin de l'abonnement groupé.</value>
     </data>
     <data name="ErrorUDRCStartDate" xml:space="preserve">
         <value>Entrez une date de début valide.</value>
@@ -139,7 +139,7 @@
         <value>Entrez une valeur UDRC valide.</value>
     </data>
     <data name="lblErrorMessageResource1" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="lblMinMaxVal" xml:space="preserve">
         <value>La valeur UDRC doit être comprise entre </value>
@@ -169,6 +169,6 @@
         <value>Configuration des valeurs UDRC</value>
     </data>
     <data name="UDRCValueUnitName" xml:space="preserve">
-        <value>Nom d’affichage de l’unité de valeur UDRC : </value>
+        <value>Nom d'affichage de l'unité de valeur UDRC : </value>
     </data>
 </root>

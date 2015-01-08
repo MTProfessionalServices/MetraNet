@@ -160,7 +160,7 @@
         <value>Jour de la semaine</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="LblFirstEndDayOfMonth" xml:space="preserve">
         <value>1er dernier jour du mois</value>
@@ -169,7 +169,7 @@
         <value>2ème dernier jour du mois</value>
     </data>
     <data name="LblSelectInterval" xml:space="preserve">
-        <value>Sélectionner l’intervalle</value>
+        <value>Sélectionner l'intervalle</value>
     </data>
     <data name="LblStartDay" xml:space="preserve">
         <value>Date de début</value>
@@ -184,7 +184,7 @@
         <value>Anglais (États-Unis)</value>
     </data>
     <data name="MTSection2Resource1.Text" xml:space="preserve">
-        <value>Infos d’ouverture de session</value>
+        <value>Infos d'ouverture de session</value>
     </data>
     <data name="MTSection3Resource1.Text" xml:space="preserve">
         <value>Informations du compte</value>
@@ -199,7 +199,7 @@
         <value>Compte parent</value>
     </data>
     <data name="tbAuthenticationTypeResource1.Label" xml:space="preserve">
-        <value>Type d’authentification</value>
+        <value>Type d'authentification</value>
     </data>
     <data name="tbOtherResource1.Label" xml:space="preserve">
         <value>Autre</value>
@@ -220,6 +220,6 @@
         <value>Exempt de taxe</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
 </root>

@@ -133,7 +133,7 @@
         <value>Abonnement</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Détails sur l’abonnement</value>
+        <value>Détails sur l'abonnement</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet </value>
@@ -142,7 +142,7 @@
         <value>Cet abonnement possède déjà une approbation de changement '{0}' en attente. Aucun nouveau changement ne peut être soumis jusqu'à ce que le précédent changement ait été approuvé ou refusé.</value>
     </data>
     <data name="pendingChangeWarningFormat" xml:space="preserve">
-        <value>Cet abonnement possède déjà une approbation de changement '{0}' en attente. &lt;a href='{1}'&gt;Cliquez ici pour afficher le changement en attente d’approbation.&lt;/a&gt;</value>
+        <value>Cet abonnement possède déjà une approbation de changement '{0}' en attente. &lt;a href='{1}'&gt;Cliquez ici pour afficher le changement en attente d'approbation.&lt;/a&gt;</value>
     </data>
     <data name="pnlMain.Text" xml:space="preserve">
         <value>Détails</value>

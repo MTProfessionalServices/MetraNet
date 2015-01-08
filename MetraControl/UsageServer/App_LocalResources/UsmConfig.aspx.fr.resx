@@ -133,7 +133,7 @@
         <value>Créer automatiquement des groupes de facturation en clôture logicielle pour :</value>
     </data>
     <data name="LabelAutoSoftCloseTitleResource1.Text" xml:space="preserve">
-        <value>Fermer automatiquement les groupes de facturation des intervalles d’utilisation parvenus à expiration.</value>
+        <value>Fermer automatiquement les groupes de facturation des intervalles d'utilisation parvenus à expiration.</value>
     </data>
     <data name="LabelBiWeeklyResource1.Text" xml:space="preserve">
         <value>Toutes les deux semaines</value>
@@ -145,7 +145,7 @@
         <value>Tous les jours</value>
     </data>
     <data name="LabelDaysAfterResource1.Text" xml:space="preserve">
-        <value>jour(s) après l’expiration de l’intervalle.</value>
+        <value>jour(s) après l'expiration de l'intervalle.</value>
     </data>
     <data name="LabelEachNightResource1.Text" xml:space="preserve">
         <value>Chaque nuit, la plate-forme contrôle les intervalles terminés et utilise la configuration de la période de grâce ci-dessous pour créer automatiquement des groupes de facturation et modifier leur état en Clôture (logicielle).</value>
@@ -178,7 +178,7 @@
         <value>Configuration USM</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Maintenance du serveur d’utilisation</value>
+        <value>Maintenance du serveur d'utilisation</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>

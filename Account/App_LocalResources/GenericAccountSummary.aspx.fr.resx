@@ -133,7 +133,7 @@
         <value>2ème dernier jour du mois</value>
     </data>
     <data name="LblSelectInterval" xml:space="preserve">
-        <value>Sélectionner l’intervalle</value>
+        <value>Sélectionner l'intervalle</value>
     </data>
     <data name="LblStartDay" xml:space="preserve">
         <value>Date de début</value>

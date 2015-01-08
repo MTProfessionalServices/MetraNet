@@ -139,7 +139,7 @@
         <value>ID du groupe</value>
     </data>
     <data name="GROUP_SUB_NAME" xml:space="preserve">
-        <value>Nom de l’abonnement groupé</value>
+        <value>Nom de l'abonnement groupé</value>
     </data>
     <data name="IS_GROUP" xml:space="preserve">
         <value>Est Groupe</value>
@@ -163,10 +163,10 @@
         <value>MetraNet</value>
     </data>
     <data name="PO_DISPLAY_NAME" xml:space="preserve">
-        <value>Nom de l’abonnement</value>
+        <value>Nom de l'abonnement</value>
     </data>
     <data name="PO_ID" xml:space="preserve">
-        <value>ID de l’offre produit</value>
+        <value>ID de l'offre produit</value>
     </data>
     <data name="START_DATE" xml:space="preserve">
         <value>Date de début</value>

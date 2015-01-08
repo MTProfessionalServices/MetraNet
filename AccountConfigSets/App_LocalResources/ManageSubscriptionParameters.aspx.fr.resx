@@ -127,13 +127,13 @@
     <value>[FR]Update</value>
   </data>
   <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
-    <value>Date de fin de l’abonnement</value>
+    <value>Date de fin de l'abonnement</value>
   </data>
   <data name="dpSubParamsStartDateResource.Label" xml:space="preserve">
-    <value>Date de début de l’abonnement</value>
+    <value>Date de début de l'abonnement</value>
   </data>
   <data name="isCorpAccountIdResource.Label" xml:space="preserve">
-    <value>Compte d’entreprise</value>
+    <value>Compte d'entreprise</value>
   </data>
   <data name="ITEM" xml:space="preserve">
     <value>[FR]Item</value>
@@ -166,7 +166,7 @@
     <value>[FR]Remove UDRC Metric</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
-    <value>Nom de l’abonnement groupé</value>
+    <value>Nom de l'abonnement groupé</value>
   </data>
   <data name="tbSubParamsDescriptionResource.Label" xml:space="preserve">
     <value>[FR]Description</value>

@@ -154,10 +154,10 @@
         <value>Mémoriser mes infos.</value>
     </data>
     <data name="Login1Resource1.UserNameLabelText" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="Login1Resource1.UserNameRequiredErrorMessage" xml:space="preserve">
-        <value>Le nom d’utilisateur est obligatoire.</value>
+        <value>Le nom d'utilisateur est obligatoire.</value>
     </data>
     <data name="NEW_PASSWORD_TEXT" xml:space="preserve">
         <value>Nouveau mot de passe</value>
@@ -187,7 +187,7 @@
         <value>120</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="tbUserNameResource1.LabelWidth" xml:space="preserve">
         <value>120</value>

@@ -124,7 +124,7 @@
         <value>Annuler</value>
     </data>
     <data name="CheckingSavingsAccount" xml:space="preserve">
-        <value>Compte courant/d’épargne</value>
+        <value>Compte courant/d'épargne</value>
     </data>
     <data name="CreditDebitCard" xml:space="preserve">
         <value>Carte de crédit/débit</value>
@@ -165,7 +165,7 @@ Commencez par choisir le montant à payer, ainsi que le mode et la date de paiem
         <value>Informations de paiement</value>
     </data>
     <data name="rcAddACHAccount.BoxLabel" xml:space="preserve">
-        <value>Compte courant/d’épargne</value>
+        <value>Compte courant/d'épargne</value>
     </data>
     <data name="rcAddCreditCard.BoxLabel" xml:space="preserve">
         <value>Carte de crédit/débit</value>

@@ -202,7 +202,7 @@
         <value>ID du calendrier</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_GAIN" xml:space="preserve">
-        <value>Gain d’abonnements</value>
+        <value>Gain d'abonnements</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_LOSS" xml:space="preserve">
         <value>Perte d'abonnements</value>
@@ -214,12 +214,12 @@
         <value>Total abonnements</value>
     </data>
     <data name="TEXT_USER_NAME" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="UPDATED_BY_TEXT" xml:space="preserve">
         <value>au</value>
     </data>
     <data name="VIEW_PO_TEXT" xml:space="preserve">
-        <value>Afficher l’offre produit</value>
+        <value>Afficher l'offre produit</value>
     </data>
 </root>

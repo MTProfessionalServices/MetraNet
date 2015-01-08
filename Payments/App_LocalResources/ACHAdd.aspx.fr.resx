@@ -127,13 +127,13 @@
         <value>Type de carte de crédit</value>
     </data>
     <data name="ddExpMonthResource1.Label" xml:space="preserve">
-        <value>Date d’expiration</value>
+        <value>Date d'expiration</value>
     </data>
     <data name="ddPriorityResource1.Label" xml:space="preserve">
         <value>Priorité</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="lcAmount.Text" xml:space="preserve">
         <value>Montant</value>
@@ -160,10 +160,10 @@
         <value>Numéro de compte</value>
     </data>
     <data name="tbAddress2Resource1.Label" xml:space="preserve">
-        <value>Ligne d’adresse 2</value>
+        <value>Ligne d'adresse 2</value>
     </data>
     <data name="tbAddressResource1.Label" xml:space="preserve">
-        <value>Ligne d’adresse 1</value>
+        <value>Ligne d'adresse 1</value>
     </data>
     <data name="tbCCNumberResource1.Label" xml:space="preserve">
         <value>Numéro de la carte</value>
@@ -187,7 +187,7 @@
         <value>Initiale du second prénom</value>
     </data>
     <data name="tbRoutingNumberResource1.Title" xml:space="preserve">
-        <value>Numéro d’acheminement</value>
+        <value>Numéro d'acheminement</value>
     </data>
     <data name="tbStateResource1.Label" xml:space="preserve">
         <value>Département</value>

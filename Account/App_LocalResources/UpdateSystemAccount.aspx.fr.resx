@@ -124,7 +124,7 @@
         <value>Compte parent</value>
     </data>
     <data name="LblAuthenticationType.Label" xml:space="preserve">
-        <value>Type d’authentification</value>
+        <value>Type d'authentification</value>
     </data>
     <data name="LblBrandedSite.Label" xml:space="preserve">
         <value>Site de marque</value>
@@ -142,7 +142,7 @@
         <value>Fuseau horaire</value>
     </data>
     <data name="LblUsername.Label" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="ListItemResource1.Text" xml:space="preserve">
         <value>MetraView</value>
@@ -154,18 +154,18 @@
         <value>10</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Mettre à jour l’utilisateur système</value>
+        <value>Mettre à jour l'utilisateur système</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>
     </data>
     <data name="PendingChangeWarning" xml:space="preserve">
-        <value>Ce compte est déjà associé à un changement en attente dans la file d’attente de l’infrastructure d’approbation. {0} Cliquez ici pour afficher les changements en attente.</value>
+        <value>Ce compte est déjà associé à un changement en attente dans la file d'attente de l'infrastructure d'approbation. {0} Cliquez ici pour afficher les changements en attente.</value>
     </data>
     <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
         <value>Informations du compte</value>
     </data>
     <data name="pnlLoginInfo.Text" xml:space="preserve">
-        <value>Infos d’ouverture de session</value>
+        <value>Infos d'ouverture de session</value>
     </data>
 </root>

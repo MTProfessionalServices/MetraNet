@@ -160,7 +160,7 @@
         <value>ICB</value>
     </data>
     <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
-        <value>L’ICB ne sera pas appliqué aux abonnements groupés (limitation actuelle)</value>
+        <value>L'ICB ne sera pas appliqué aux abonnements groupés (limitation actuelle)</value>
     </data>
     <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
         <value>Eléments à prix autorisant un prix personnalisé</value>
@@ -187,7 +187,7 @@
         <value>Prix personnalisés</value>
     </data>
     <data name="MTPanelLog.Text" xml:space="preserve">
-        <value>Journal des bons de commande/message d’erreur</value>
+        <value>Journal des bons de commande/message d'erreur</value>
     </data>
     <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
         <value>Comptes et offres produits</value>
@@ -244,7 +244,7 @@
         <value>Prix</value>
     </data>
     <data name="QuoteFailed.Label" xml:space="preserve">
-        <value>Message d’erreur</value>
+        <value>Message d'erreur</value>
     </data>
     <data name="QuoteLog.Label" xml:space="preserve">
         <value>Journal des bons de commande</value>
@@ -277,7 +277,7 @@
         <value>Ajouter une mesure UDRC</value>
     </data>
     <data name="TEXT_ADDING_ICB" xml:space="preserve">
-        <value>Ajout d’ICB</value>
+        <value>Ajout d'ICB</value>
     </data>
     <data name="TEXT_CANCEL" xml:space="preserve">
         <value>Annuler</value>
@@ -292,13 +292,13 @@
         <value>Date de fin</value>
     </data>
     <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
-        <value>Le compte d’entreprise pour abonnement groupé doit être sélectionné</value>
+        <value>Le compte d'entreprise pour abonnement groupé doit être sélectionné</value>
     </data>
     <data name="TEXT_MANAGE_QUOTE" xml:space="preserve">
         <value>Gérer les bons de commande</value>
     </data>
     <data name="TEXT_MISSED_UDRC" xml:space="preserve">
-        <value>La mesure UDRC n’est pas définie pour tous les éléments à prix</value>
+        <value>La mesure UDRC n'est pas définie pour tous les éléments à prix</value>
     </data>
     <data name="TEXT_OK" xml:space="preserve">
         <value>OK</value>
@@ -322,6 +322,6 @@
         <value>Nombre d'unités</value>
     </data>
     <data name="USERNAME" xml:space="preserve">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
     </data>
 </root>

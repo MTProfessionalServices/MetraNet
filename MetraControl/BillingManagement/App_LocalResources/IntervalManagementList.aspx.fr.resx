@@ -142,7 +142,7 @@
         <value>Clôture (matérielle)</value>
     </data>
     <data name="TEXT_ID" xml:space="preserve">
-        <value>ID de l’intervalle</value>
+        <value>ID de l'intervalle</value>
     </data>
     <data name="TEXT_OPEN" xml:space="preserve">
         <value>Ouvrir</value>
@@ -160,6 +160,6 @@
         <value>Inconnu</value>
     </data>
     <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-        <value>Type de cycle d’utilisation</value>
+        <value>Type de cycle d'utilisation</value>
     </data>
 </root>

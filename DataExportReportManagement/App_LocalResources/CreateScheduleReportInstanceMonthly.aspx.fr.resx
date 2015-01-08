@@ -142,19 +142,19 @@
         <value>Créer le calendrier de rapports mensuels</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
-        <value>Jour d’exécution</value>
+        <value>Jour d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
-        <value>Jour du mois d’exécution</value>
+        <value>Jour du mois d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
-        <value>Premier jour du mois d’exécution</value>
+        <value>Premier jour du mois d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
-        <value>Dernier jour du mois d’exécution</value>
+        <value>Dernier jour du mois d'exécution</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
-        <value>Heure d’exécution (HH:MM)</value>
+        <value>Heure d'exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_MONTH_APRIL" xml:space="preserve">
         <value>Avril</value>

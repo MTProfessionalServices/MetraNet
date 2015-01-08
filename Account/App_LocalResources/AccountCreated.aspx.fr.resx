@@ -127,7 +127,7 @@
         <value>Compte créé</value>
     </data>
     <data name="lblFutureAccountResource1.Text" xml:space="preserve">
-        <value>Pour gérer ce compte, réglez l’heure de l’application sur {0}</value>
+        <value>Pour gérer ce compte, réglez l'heure de l'application sur {0}</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>

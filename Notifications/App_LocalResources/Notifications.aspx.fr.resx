@@ -121,7 +121,7 @@
     <value>Aucun enregistrement trouvé</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>d’exp.</value>
+    <value>d'exp.</value>
   </data>
   <data name="TEXT_NOTIFICATIONS_EVENT_TYPE" xml:space="preserve">
     <value>Type</value>

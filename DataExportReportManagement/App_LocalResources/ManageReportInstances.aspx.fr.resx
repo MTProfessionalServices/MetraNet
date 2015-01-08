@@ -133,10 +133,10 @@
         <value>Description</value>
     </data>
     <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-        <value>Type d’exécution</value>
+        <value>Type d'exécution</value>
     </data>
     <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
-        <value>ID d’instance</value>
+        <value>ID d'instance</value>
     </data>
     <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
         <value>Titre du rapport</value>

@@ -136,10 +136,10 @@
         <value>Configuration du compte des frais récurrents forfaitaires</value>
     </data>
     <data name="FRRCDisplayName" xml:space="preserve">
-        <value>Nom d’affichage des frais récurrents forfaitaires : </value>
+        <value>Nom d'affichage des frais récurrents forfaitaires : </value>
     </data>
     <data name="lblErrorMessageResource1" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="lblSetFRRCAccountTitle" xml:space="preserve">
         <value>Configuration du compte des frais récurrents forfaitaires</value>

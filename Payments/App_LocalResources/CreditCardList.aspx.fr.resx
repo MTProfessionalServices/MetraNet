@@ -130,13 +130,13 @@
         <value>Ajouter carte de crédit</value>
     </data>
     <data name="ADDRESS_INFO" xml:space="preserve">
-        <value>Infos d’adresse</value>
+        <value>Infos d'adresse</value>
     </data>
     <data name="ADDRESS_LINE1" xml:space="preserve">
-        <value>Ligne d’adresse 1</value>
+        <value>Ligne d'adresse 1</value>
     </data>
     <data name="ADDRESS_LINE2" xml:space="preserve">
-        <value>Ligne d’adresse 2</value>
+        <value>Ligne d'adresse 2</value>
     </data>
     <data name="CARD_INFO" xml:space="preserve">
         <value>Informations sur la carte</value>
@@ -151,7 +151,7 @@
         <value>Type de carte</value>
     </data>
     <data name="EXPIRATION_DATE" xml:space="preserve">
-        <value>Date d’exp.</value>
+        <value>Date d'exp.</value>
     </data>
     <data name="FIRST_NAME" xml:space="preserve">
         <value>Prénom</value>

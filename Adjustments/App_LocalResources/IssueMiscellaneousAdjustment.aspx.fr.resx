@@ -163,7 +163,7 @@
         <value>0</value>
     </data>
     <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
-        <value>Taxe appliquée par l’État</value>
+        <value>Taxe appliquée par l'État</value>
     </data>
     <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
         <value>-1</value>
@@ -178,10 +178,10 @@
         <value>0</value>
     </data>
     <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
-        <value>Total de l’ajustement émis</value>
+        <value>Total de l'ajustement émis</value>
     </data>
     <data name="adjDatePickerResource1.Label" xml:space="preserve">
-        <value>Date de l’ajustement</value>
+        <value>Date de l'ajustement</value>
     </data>
     <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
         <value>Description interne</value>
@@ -241,7 +241,7 @@
         <value>MetraNet</value>
     </data>
     <data name="TEXT_CREATED" xml:space="preserve">
-        <value>L’ajustement divers a été créé avec succès.</value>
+        <value>L'ajustement divers a été créé avec succès.</value>
     </data>
     <data name="TEXT_CREATED_TITLE" xml:space="preserve">
         <value>Un ajustement divers a été créé.</value>
@@ -250,10 +250,10 @@
         <value>Une note de crédit a été créée pour cet ajustement divers.</value>
     </data>
     <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
-        <value>Une note de crédit sera créée pour cet ajustement divers lors de l’approbation de ce dernier.</value>
+        <value>Une note de crédit sera créée pour cet ajustement divers lors de l'approbation de ce dernier.</value>
     </data>
     <data name="TEXT_DESCRIPTION" xml:space="preserve">
-        <value>Émission d’un ajustement divers</value>
+        <value>Émission d'un ajustement divers</value>
     </data>
     <data name="TEXT_MAX_AUTHORIZED_AMOUNT" xml:space="preserve">
         <value>Le montant autorisé doit être</value>
@@ -268,10 +268,10 @@
         <value>Un ajustement divers en attente a été créé.</value>
     </data>
     <data name="TEXT_PROCESSING_ERROR" xml:space="preserve">
-        <value>Votre demande n’a pas pu être traitée en raison des erreurs suivantes :</value>
+        <value>Votre demande n'a pas pu être traitée en raison des erreurs suivantes :</value>
     </data>
     <data name="TEXT_THROUGH" xml:space="preserve">
-        <value>A l’aide de</value>
+        <value>A l'aide de</value>
     </data>
     <data name="TEXT_UNLIMITED" xml:space="preserve">
         <value>Illimité</value>

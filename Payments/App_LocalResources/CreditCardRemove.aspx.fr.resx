@@ -127,7 +127,7 @@
         <value>Êtes-vous sûr de vouloir supprimer la carte de crédit ci-dessous ?</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Messages d'erreur</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
         <value>Supprimer la carte de crédit</value>

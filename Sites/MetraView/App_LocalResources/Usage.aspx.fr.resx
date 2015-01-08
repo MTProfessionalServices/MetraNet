@@ -127,7 +127,7 @@
         <value>Vue détaillée</value>
     </data>
     <data name="endDateResource1.Label" xml:space="preserve">
-        <value>À</value>
+        <value>à</value>
     </data>
     <data name="ShowReportFor.Text" xml:space="preserve">
         <value>Afficher le rapport pour :</value>

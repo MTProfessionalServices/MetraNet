@@ -164,6 +164,10 @@
     <value>Pagador</value>
     <description>Payer</description>
   </text>
+  <text id="TEXT_PAYING_ACCOUNT">
+    <value>[pt-BR]Paying Account</value>
+    <description>Paying Account</description>
+  </text>
   <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
     <value>Adicionando membro ao grupo</value>
     <description>Adding Member to Group</description>

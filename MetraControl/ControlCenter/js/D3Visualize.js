@@ -443,9 +443,12 @@ function fnVisualizeLineChart2(objLineChartConfig) {
     return this;
 }
 
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
 
 //CreateLegend('legend', svglegend);
-
 function CreateLegend(data,svglegend) {
     
     rectangle = svglegend.selectAll("rect").data(data).enter().append("rect");
@@ -453,7 +456,56 @@ function CreateLegend(data,svglegend) {
                        .attr("y", function (d) { return d.y_axis; })
                        .attr("width", 30)
                        .attr("height", 10)
-                       .style("fill", function (d) { return d.color; });
+                       .style("fill", function (d) { return d.color; })
+                        .on("mouseover", function (d, i) {
+                          gs = d3.select("#svgActiveBillRun").selectAll(".currLine");
+                          paths = gs.selectAll(".line").each(function (p, i) {
+                            if (d.text == "Current Run") {
+                              if (p.name != "duration") {
+                                d3.select(this).attr("opacity", "0.5")
+                                                .attr("stroke-dasharray", "(3,3)");
+                              } else {
+                                d3.select(this)
+                                  .attr("stroke-width", "2")
+                              }
+                            } else {
+                              if (p.name == "duration") {
+                                d3.select(this).attr("opacity", "0.5")
+                                .attr("stroke-width", "0.5")
+                                .attr("stroke-dasharray", "(3,3)");
+                              } else {
+                                d3.select(this)
+                                  .attr("stroke-width", "2")
+                              }
+                            }
+                          });
+                        })
+                          .on("mouseout", function (d, i) {
+
+                            gs = d3.select("#svgActiveBillRun").selectAll(".currLine");
+                            paths = gs.selectAll(".line").each(function (p, i) {
+                              if (d.text == "Current Run") {
+                                if (p.name != "duration") {
+                                  d3.select(this).attr("opacity", "1")
+                                                  .attr("stroke-dasharray", "");
+                                } else {
+                                  d3.select(this)
+                                    .attr("stroke-width", "1")
+                                }
+                              } else {
+                                if (p.name == "duration") {
+                                  d3.select(this).attr("opacity", "1")
+                                  .attr("stroke-width", "1")
+                                  .attr("stroke-dasharray", "");
+                                } else {
+                                  d3.select(this)
+                                    .attr("stroke-width", "1")
+                                }
+                              }
+                            });
+
+                          });
+
 
 
 

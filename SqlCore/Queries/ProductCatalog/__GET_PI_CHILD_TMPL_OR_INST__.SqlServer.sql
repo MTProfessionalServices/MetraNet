@@ -27,7 +27,7 @@
 				t_pl_map.id_pi_template,
 				t_pl_map.id_po,
 				bp.n_desc
-        from t_base_props
+        from t_base_props bp
         join t_pl_map on bp.id_prop = t_pl_map.id_pi_instance
         where bp.id_prop = %%ID_CHILD%%
         and t_pl_map.id_pi_instance_parent = %%ID_PARENT%% and t_pl_map.id_paramtable is null

@@ -31,8 +31,8 @@
       LEFT OUTER JOIN	t_adjustment_type_prop ajtp	ON ajt.id_prop = ajtp.id_adjustment_type
       LEFT OUTER JOIN	t_base_props base1 ON	ajt.id_prop	=	base1.id_prop
       LEFT OUTER JOIN	t_description	desc1	ON base1.n_display_name	=	desc1.id_desc AND desc1.id_lang_code = %%ID_LANG_CODE%% 
-      LEFT OUTER JOIN	t_base_props base2 ON	ajtp.id_prop = base2.id_prop AND desc2.id_lang_code = %%ID_LANG_CODE%%
-      LEFT OUTER JOIN	t_description	desc2	ON base2.n_display_name	=	desc2.id_desc
+      LEFT OUTER JOIN	t_base_props base2 ON	ajtp.id_prop = base2.id_prop 
+      LEFT OUTER JOIN	t_description	desc2	ON base2.n_display_name	=	desc2.id_desc AND desc2.id_lang_code = %%ID_LANG_CODE%%
       WHERE aj.%%COLUMN%% in ( Select id_template from t_pi_template where id_template = %%ID_PI%% OR id_template_parent = %%ID_PI%% )
       /* don't return rebill adjustment types */
       AND ajt.n_adjustmentType <> 4

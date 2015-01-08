@@ -4,55 +4,55 @@
     <locale_space name="BusinessEntity/MetraTech.SystemConfig.Reports.Report">
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Category/Label</Name>
-            <Value>Category</Value>
+            <Value>Categoria</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Description/Label</Name>
-            <Value>Description</Value>
+            <Value>Descrição</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Extension/Label</Name>
-            <Value>Extension</Value>
+            <Value>Extensão</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/GridLayoutName/Label</Name>
-            <Value>Grid Layout Name</Value>
+            <Value>Nome do Layout de Grade</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Name/Label</Name>
-            <Value>Name</Value>
+            <Value>Nome</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/QueryName/Label</Name>
-            <Value>Query Tag Name</Value>
+            <Value>Consultar nome da tag</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Report</Name>
-            <Value>Report</Value>
+            <Value>Relatório</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/ManageSystemReport</Name>
-            <Value>Manage System Report</Value>
+            <Value>Gerenciar relatório do sistema</Value>
         </locale_entry>        
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/ReqdCapability/Label</Name>
-            <Value>Required Capability</Value>
+            <Value>Capacidade necessária</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/RequiresInput/Label</Name>
-            <Value>Requires Input</Value>
+            <Value>Requer entrada</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/SubCategory/Label</Name>
-            <Value>Sub Category</Value>
+            <Value>adicionar categoria</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Type/Label</Name>
-            <Value>Type</Value>
+            <Value>Tipo</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/URL/Label</Name>
-            <Value>URL</Value>
+            <Value>Url</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

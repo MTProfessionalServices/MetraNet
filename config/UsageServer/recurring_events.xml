@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xmlconfig>
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
@@ -14,7 +14,7 @@
       </Description>
       <LocalizedItems>
         <item lang="FR">
-          <DisplayName>[FR] Generate and/or Populate Analytics Data Mart</DisplayName>
+          <DisplayName>Générer et/ou compléter le Datamart d'analyse</DisplayName>
           <Description>[FR] <![CDATA[
         Generates and/or populates the Analytics Data Mart
       ]]>
@@ -49,7 +49,7 @@
       </Description>
         </item>
         <item lang="pt-BR">
-          <DisplayName>[pt-BR] Generate and/or Populate Analytics Data Mart</DisplayName>
+          <DisplayName>Gerar e/ou preencher Analytics Data Mart</DisplayName>
           <Description>[pt-BR] <![CDATA[
         Generates and/or populates the Analytics Data Mart
       ]]>
@@ -247,7 +247,7 @@
         ]]></Description>
               </item>
               <item lang="pt-BR">
-                <DisplayName>[pt-BR] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                <DisplayName>Adaptador de estado de conta de alteração genérico (agendado)</DisplayName>
                 <Description>[pt-BR] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
@@ -314,7 +314,7 @@
       </Description>
             <LocalizedItems>
               <item lang="FR">
-                <DisplayName>[FR] NonRecurring Charge Adapter</DisplayName>
+                <DisplayName>Adaptateur de frais non récurrents</DisplayName>
                 <Description>[FR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
@@ -349,7 +349,7 @@
         in which the adapter is run.</Description>
               </item>
               <item lang="pt-BR">
-                <DisplayName>[pt-BR] NonRecurring Charge Adapter</DisplayName>
+                <DisplayName>Adaptador de encargo não recorrente</DisplayName>
                 <Description>[pt-BR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
@@ -387,7 +387,7 @@
       ]]></Description>
             <LocalizedItems>
               <item lang="FR">
-                <DisplayName>[FR] Delete Dismissed Failed Transactions</DisplayName>
+                <DisplayName>Supprimer les transactions en échec ignorées</DisplayName>
                 <Description>[FR] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
@@ -427,7 +427,7 @@
       ]]></Description>
               </item>
               <item lang="pt-BR">
-                <DisplayName>[pt-BR] Delete Dismissed Failed Transactions</DisplayName>
+                <DisplayName>Excluir Transações com Falha Ignoradas</DisplayName>
                 <Description>[pt-BR] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
@@ -466,7 +466,7 @@
             <Description>Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
             <LocalizedItems>
               <item lang="FR">
-                <DisplayName>[FR] Pipeline Failover Adapter</DisplayName>
+                <DisplayName>Adaptateur de basculement de pipeline</DisplayName>
                 <Description>[FR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
               </item>
               <item lang="IT">
@@ -486,7 +486,7 @@
                 <Description>[es-MX] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
               </item>
               <item lang="pt-BR">
-                <DisplayName>[pt-BR] Pipeline Failover Adapter</DisplayName>
+                <DisplayName>Adaptador de failover de pipeline</DisplayName>
                 <Description>[pt-BR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
               </item>
               <item lang="en-GB">
@@ -512,8 +512,8 @@
 			<Description>Cleanup and void failed transactions.</Description>
       <LocalizedItems>
         <item lang="FR">
-          <DisplayName>[FR] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[FR] Cleanup and void failed transactions.</Description>
+          <DisplayName>Adaptateur de nettoyage des paiements en échec </DisplayName>
+          <Description>Nettoie et annule les transactions en échec.</Description>
         </item>
         <item lang="IT">
           <DisplayName>[IT] Failed Payment Cleanup Adapter </DisplayName>
@@ -532,8 +532,8 @@
           <Description>[es-MX] Cleanup and void failed transactions.</Description>
         </item>
         <item lang="pt-BR">
-          <DisplayName>[pt-BR] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[pt-BR] Cleanup and void failed transactions.</Description>
+          <DisplayName>Adaptador de limpeza de pagamento com falha </DisplayName>
+          <Description>Limpa e evita transações com falha.</Description>
         </item>
         <item lang="en-GB">
           <DisplayName>[en-GB] Failed Payment Cleanup Adapter </DisplayName>

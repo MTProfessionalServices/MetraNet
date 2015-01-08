@@ -50,6 +50,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
                       ' but do a last rendering/refresh.
 
   Form("PRICELIST_ID") = request("ID")
+  Form("FramedPriceList") = request("FramedPriceList")
   
 	Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.
@@ -161,9 +162,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   mcmTriggerUpdateOfPricelistNavigationPane 
     
   OK_Click = TRUE  
-
-  Response.Redirect("/mcm/default/dialog/Pricelist.ViewEdit.Frame.asp?ID=" + idPL)
-
+  GetBack()
 END FUNCTION
 
 FUNCTION CreateRateSchedule(bRatesPOBased,idPI,idPT,idPL,objProdCat)
@@ -293,6 +292,28 @@ FUNCTION ValidateInputValues()
 	
 END FUNCTION
 
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		    : CANCEL_Click
+' PARAMETERS		  :
+' DESCRIPTION 		:
+' RETURNS		      : Return TRUE if ok else FALSE
+PRIVATE FUNCTION Cancel_Click(EventArg) ' As Boolean
+  CANCEL_Click = TRUE
+  GetBack()
+END FUNCTION
+
+FUNCTION GetBack()
+  dim idPL
+  idPL = Form("PRICELIST_ID")
+
+  GetBack = TRUE
+  
+  If(Len(Form("FramedPriceList")) > 0 and UCase(Form("FramedPriceList")) = "TRUE") Then
+    Response.Redirect("/mcm/default/dialog/Pricelist.ViewEdit.Frame.asp?ID=" + idPL + "&LinkColumnMode=TRUE&Rates=TRUE&POBased=FALSE&Title=TEXT_RATES_ALLPRICELISTS_CHOOSE_PRICEABLE_ITEM&kind=10")
+  Else
+    Response.Redirect("/mcm/default/dialog/Pricelist.ViewEdit.asp?ID=" + idPL)
+  End If
+END FUNCTION
 %>
 
 

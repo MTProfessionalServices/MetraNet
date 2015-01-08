@@ -23,21 +23,12 @@ file mam\custom\linklookup\GlobalLinks.xml.
 			<description></description>
 		</link>
     
-		<link id="SYSTEM_USER_HIERARCHY_MOVE_DATE_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/SystemUserHierarchyMoveDate.asp</value>
-			<description></description>
-		</link>
-    
 		<link id="HIERARCHY_MOVE_DATE_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/HierarchyMoveDate.asp</value>
 			<description></description>
 		</link>
 	    
-    <link id="BLANK_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/blank.asp</value>
-      <description></description>
-		</link>            
-    
+		
     <link id="PAYMENT_HISTORY_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/PayerHistory.asp</value>
       <description></description>
@@ -63,11 +54,7 @@ file mam\custom\linklookup\GlobalLinks.xml.
       <description></description>
 		</link>        
     
- 	  <link id="ACCOUNT_STATUS_VIEW_HISTORY">
-			<value>[APP_HTTP_PATH]/default/dialog/AccountStatus.History.View.asp</value>
-      <description></description>
-		</link>    
-    
+		
  	  <link id="PAYER_ADD_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/PayerAdd.asp</value>
       <description>Payer Add</description>
@@ -77,37 +64,7 @@ file mam\custom\linklookup\GlobalLinks.xml.
 			<value>[APP_HTTP_PATH]/default/dialog/hierarchyview.asp</value>
       <description></description>
 		</link>
-    
-    <link id="HIERARCHY_VIEW_PAGE">
-			<value>[APP_HTTP_PATH]/default/dialog/hierarchyClient.asp</value>
-      <description>Account Hierarchy</description>
-		</link>
-    
- 	  <link id="HIERARCHY_REFRESH_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/HierarchyRefresh.asp</value>
-      <description>Refresh hierarchy</description>
-		</link>
-
- 	  <link id="BATCH_ERROR_LIST_FILTER_OFF_NO_BACK_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?PopUpWindowMode=TRUE&amp;FilterOff=TRUE&amp;Close=TRUE&amp;MDMReload=TRUE</value>
-      <description>Displays last batch errors</description>
-		</link>
-    
- 	  <link id="BATCH_ERROR_LIST_FILTER_OFF_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?FilterOff=TRUE&amp;MDMReload=TRUE</value>
-      <description>Displays last batch errors</description>
-		</link>
- 	  
- 	  <link id="BATCH_ERROR_LIST_MENU_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?FilterOff=TRUE&amp;Close=TRUE&amp;MDMReload=TRUE</value>
-      <description>Displays last batch errors</description>
-		</link>
-		    
- 	  <link id="BATCH_ERROR_LIST_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?MDMReload=TRUE</value>
-      <description>Displays last batch errors</description>
-		</link>
-        
+		
  	  <link id="FOLDER_OWNER_DELETE_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/FolderOwnerDelete.asp</value>
       <description></description>
@@ -128,22 +85,9 @@ file mam\custom\linklookup\GlobalLinks.xml.
       <description></description>
 		</link>
 
- 	  <link id="ACCOUNT_TEMPLATE_APPLY_TO_MOVED_ACCOUNT_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/AccountTemplate.ApplyToMovedAccount.asp</value>
-      <description></description>
-		</link>
+ 	  
    
-    <link id="ACCOUNT_TEMPLATE_APPLY_TO_MULTI_MOVED_ACCOUNT_DIALOG">
-      <value>/MetraNet/StartWorkFlow.aspx</value>
-     <!-- <value>[APP_HTTP_PATH]/default/dialog/AccountTemplate.ApplyToMultiMovedAccount.asp</value> -->
-      <description></description>
-    </link>
-    
-    <link id="ACCOUNT_TEMPLATE_APPLY_PROMPT">
-      <value>[APP_HTTP_PATH]/default/dialog/AccountTemplate.Prompt.asp</value>
-      <description></description>
-    </link>
-        
+		
  	  <link id="PAYER_UPDATE_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/PayerUpdate.asp</value>
       <description>Update Payer Information</description>
@@ -305,35 +249,15 @@ file mam\custom\linklookup\GlobalLinks.xml.
       <description>Link to the payment methods browser.</description>
 		</link>      
     
-    <link id="UPDATE_ACH_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogUpdateACH.asp</value>
-      <description>Link the dialog Update ACH.</description>
-		</link>               
 
-    <link id="DELETE_ACH_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDeleteACH.asp</value>
-      <description>Link to the dialog delete ACH.</description>
-		</link>      
 
     <link id="ADD_ACH_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogAddACH.asp</value>
       <description>Link to the dialog add ACH.</description>
 		</link>      
     
-    <link id="UPDATE_CREDIT_CARD_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogUpdateCreditCard.asp</value>
-      <description>Link to the dialog Update a credit card info.</description>
-		</link>   
-             
-    <link id="UPDATE_PURCHASE_CARD_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogUpdatePurchaseCard.asp</value>
-      <description>Link to the dialog update a Purchase credit card info.</description>
-		</link>          
-
-    <link id="DELETE_CREDIT_CARD_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDeleteCreditCard.asp</value>
-      <description>Link to the dialog delete a credit card.</description>
-		</link>      
+    
+    
 
     <link id="ADD_CREDIT_CARD_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogAddCreditCard.asp</value>
@@ -345,10 +269,6 @@ file mam\custom\linklookup\GlobalLinks.xml.
       <description>Link to the dialog Add a purchase card.</description>
 		</link>     
     
-    <link id="UPDATE_PAPER_INVOICE_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogUpdatePaperInvoice.asp</value>
-      <description>Link to the dialog update the Invoice method.</description>
-		</link>               
 
 <!-- Account Mapping Links -->    
     <link id="UPDATE_ACCOUNT_MAPPING_DIALOG">
@@ -379,11 +299,6 @@ file mam\custom\linklookup\GlobalLinks.xml.
 		<link id="GROUP_MEMBER_ADD_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/GroupMemberAdd.asp</value>
       <description>Link to the dialog to add members.</description>
-		</link>
-
-		<link id="GROUP_MEMBER_REMOVE_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/GroupMemberRemove.asp</value>
-      <description>Link to the dialog to bulk unsubscribe members.</description>
 		</link>
 
 		<link id="GROUP_ADD_DIALOG">
@@ -424,16 +339,8 @@ file mam\custom\linklookup\GlobalLinks.xml.
       <description>Link to the dialog add contact. This dialog do the update contact as well.</description>
 		</link>
 
-    <link id="PAYMENT_METHODS_AUTH_RECEIVED_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogAuthReceived.asp</value>
-      <description>Link to the dialog Authorization Received for a payment method.</description>
-		</link>
 
-    <link id="PAYMENT_METHODS_SCHEDULER_DIALOG">
-			<value>[APP_HTTP_PATH]/default/dialog/DefaultDialogPaymentMethodsScheduler.asp</value>
-      <description>Link to the dialog Payment Method Scheduler.</description>
-		</link>
- 
+
  <!-- Cookies and Javascript help -->
     <link id="COOKIE_HELP_URL">
 			<value>[APP_HTTP_PATH]/default/localized/en-us/help/Help_cookies.hlp.htm</value>
@@ -461,11 +368,7 @@ file mam\custom\linklookup\GlobalLinks.xml.
       <description />
     </link>    
     
-    <link id="SYSTEM_USER_HIERARCHY_CLIENT_DIALOG">
-      <value>[APP_HTTP_PATH]/default/dialog/SystemUserHierachyClient.asp</value>
-      <description />
-    </link>    
- 
+    
     <link id="OWNED_ADD_DIALOG">
       <value>[APP_HTTP_PATH]/default/dialog/OwnedAdd.asp</value>
       <description />

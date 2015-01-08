@@ -26,7 +26,7 @@
     <value>Voici une synthèse de la [TEXT_KEYTERM_PRICE_LIST] que vous êtes sur le point de créer.</value>
   </text>
   <text id="TEXT_PRICELIST_SUMMARY_DESCRIPTION2">
-    <value>Cliquez sur \'Terminer\' pour créer cette [TEXT_KEYTERM_PRICE_LIST].</value>
+    <value>Cliquez sur \'Terminer\' pour créer ce [TEXT_KEYTERM_PRICE_LIST].</value>
   </text>
   <text id="TEXT_PRICELIST_EDIT_PROPERTIES">
     <value>Modifier les propriétés</value>
@@ -41,7 +41,7 @@
     <value>Gérer les [TEXT_KEYTERM_PRICE_LISTS]</value>
   </text>
   <text id="TEXT_PRICELIST_MAPPING_NO_NAME">
-    <value>Veuillez indiquer une liste de prix.</value>
+    <value>Spécifiez un tarif.</value>
   </text>
   <text id="TEXT_NONSHARED_PRICE_LIST">
     <value>[TEXT_KEYTERM_PRICE_LIST] non partagée</value>
@@ -68,27 +68,27 @@
     <value><![CDATA[<strong>AVERTISSEMENT : modification de la devise de la [TEXT_KEYTERM_PRICE_LIST]</strong><BR>La copie de la [TEXT_KEYTERM_PRICE_LIST] sera créée dans une autre devise. Toutefois, les prix resteront inchangés et doivent être mis à jour afin de refléter la valeur appropriée dans la nouvelle devise.<BR>]]></value>
   </text>
   <text id="TEXT_CREATE_COPY_OF_PL">
-    <value>[FR]Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Créer une copie du [TEXT_KEYTERM_PRICE_LIST] existant</value>
   </text>
   <text id="TEXT_ORIGINAL_PL_NAME">
-    <value>[FR]Original Pricelist Name</value>
+    <value>Nom du tarif original</value>
   </text>
   <text id="TEXT_PL_NAME">
-    <value>[FR]New Pricelist Name</value>
+    <value>Nom du nouveau tarif</value>
   </text>
   <text id="TEXT_PL_DESCRIPTION">
-    <value>[FR]New Pricelist Description</value>
+    <value>Description du nouveau tarif</value>
   </text>
   <text id="TEXT_PL_DESCRIPTION">
-    <value>[FR]New Pricelist Description</value>
+    <value>Description du nouveau tarif</value>
   </text>
   <text id="TEXT_CHANGE_CURRENCY_TO">
-    <value>[FR]Change to currency of the new pricelist from </value>
+    <value>Modifier la devise du nouveau tarif de </value>
   </text>
   <text id="TEXT_TO">
-    <value>[FR] to </value>
+    <value> en </value>
   </text>
   <text id="TEXT_CREATE">
-    <value>[FR]Create</value>
+    <value>Créer</value>
   </text>
 </texts>

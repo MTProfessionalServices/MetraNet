@@ -957,4 +957,64 @@
   <data name="TEXT_THIRD" xml:space="preserve">
     <value>Terceiro</value>
   </data>
+  <data name="ACCOUNTMAPPER_ERR_ALREADY_EXISTS_MSG" xml:space="preserve">
+    <value>[PT-BR]Account mapping already exists</value>
+  </data>
+  <data name="MT_ACCOUNT_TYPE_AND_NAMESPACE_MISMATCH_MSG" xml:space="preserve">
+    <value>[PT-BR]Account Type and Namespace mismatch during account creation.</value>
+  </data>
+  <data name="MT_NONBILLABLE_ACCOUNTS_REQUIRE_PAYER_MSG" xml:space="preserve">
+    <value>[PT-BR]An account marked as non-billable must have a paying account.</value>
+  </data>
+  <data name="MT_CANNOT_RESOLVE_PAYING_ACCOUNT_MSG" xml:space="preserve">
+    <value>[PT-BR]Account Creation can not resolve the payer account from the login and namespace.</value>
+  </data>
+  <data name="MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT_MSG" xml:space="preserve">
+    <value>[PT-BR]Account Creation can not resolve the hierarchy parent from the login and namespace.</value>
+  </data>
+  <data name="MT_PARENT_NOT_IN_HIERARCHY_MSG" xml:space="preserve">
+    <value>[PT-BR]The specified parent does not exist in the hierarchy.</value>
+  </data>
+  <data name="MT_ANCESTOR_OF_INCORRECT_TYPE_MSG" xml:space="preserve">
+    <value>[PT-BR]The parent account is of incorrect type.</value>
+  </data>
+  <data name="MT_CANNOT_CREATE_ACCOUNT_BEFORE_ANCESTOR_START_MSG" xml:space="preserve">
+    <value>[PT-BR]The system cannot create the account in the hierarchy before the start date of the ancestor.</value>
+  </data>
+  <data name="MT_ACCOUNT_ALREADY_IN_HIERARCHY_MSG" xml:space="preserve">
+    <value>[PT-BR]The account is already in the hierarchy in the specified time range.</value>
+  </data>
+  <data name="MT_PAYMENT_DATE_BEFORE_ACCOUNT_STARDATE_MSG" xml:space="preserve">
+    <value>[PT-BR]The system cannot create a payment record before the creation date of the account.</value>
+  </data>
+  <data name="MT_PAYMENT_START_AND_END_ARE_THE_SAME_MSG" xml:space="preserve">
+    <value>[PT-BR]The system cannot create a payment record where the start and end day are the same day.</value>
+  </data>
+  <data name="MT_PAYMENT_START_AFTER_END_MSG" xml:space="preserve">
+    <value>[PT-BR]The payment start date must be before the payment end date.</value>
+  </data>
+  <data name="MT_ACCOUNT_IS_NOT_BILLABLE_MSG" xml:space="preserve">
+    <value>[PT-BR]The paying account is not billable.</value>
+  </data>
+  <data name="MT_PAYER_IN_INVALID_STATE_MSG" xml:space="preserve">
+    <value>[PT-BR]The paying account is not active during the payment time interval.</value>
+  </data>
+  <data name="MT_CURRENCY_MISMATCH_MSG" xml:space="preserve">
+    <value>[PT-BR]The currency of the account must match the currency of the ancestor account.</value>
+  </data>
+  <data name="MT_PAYER_PAYEE_CURRENCY_MISMATCH_MSG" xml:space="preserve">
+    <value>[PT-BR]The currency of the payer account must match the currency of the payee account.</value>
+  </data>
+  <data name="MT_CANNOT_PAY_FOR_ACCOUNT_IN_OTHER_CORPORATE_ACCOUNT_MSG" xml:space="preserve">
+    <value>[PT-BR]Both the payer account and payee account must share the same corporate account.</value>
+  </data>
+  <data name="MTPCUSER_CYCLE_CONFLICTS_WITH_ACCOUNT_CYCLE_MSG" xml:space="preserve">
+    <value>[PT-BR] </value>
+  </data>
+  <data name="MT_ACCOUNT_PRICELIST_INVALID" xml:space="preserve">
+    <value>[PT-BR]The price list is invalid.</value>
+  </data>
+  <data name="MT_CANNOT_MOVE_ACCOUNT_TO_ANOTHER_NAMESPACE" xml:space="preserve">
+    <value>[PT-BR]Account cannot be moved to another namespace.</value>
+  </data>
 </root>

@@ -157,7 +157,7 @@
         <value>ID de la session de débat</value>
     </data>
     <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-        <value>Taxe locale</value>
+        <value>Taxe appliquée par le pays</value>
     </data>
     <data name="TEXT_CURRENCY" xml:space="preserve">
         <value>Devise</value>
@@ -184,7 +184,7 @@
         <value>Une erreur est survenue lors du traitement de l’ajustement divers.</value>
     </data>
     <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-        <value>Taxe nationale</value>
+        <value>Taxe fédérale</value>
     </data>
     <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
         <value>ID d&amp;apos;intervalle de guide</value>

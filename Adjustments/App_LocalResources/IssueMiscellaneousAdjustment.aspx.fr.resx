@@ -127,7 +127,7 @@
         <value>0</value>
     </data>
     <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
-        <value>Taxe locale</value>
+        <value>Taxe appliquée par le pays</value>
     </data>
     <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
         <value>-1</value>
@@ -136,7 +136,7 @@
         <value>0</value>
     </data>
     <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
-        <value>Taxe nationale</value>
+        <value>Taxe fédérale</value>
     </data>
     <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
         <value>-1</value>

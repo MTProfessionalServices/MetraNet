@@ -157,7 +157,7 @@
         <value>Méthode de paiement</value>
     </data>
     <data name="EXPIRATION_DATE" xml:space="preserve">
-        <value>Date d'exp.</value>
+        <value>Date d’exp.</value>
     </data>
     <data name="FIRST_NAME" xml:space="preserve">
         <value>Prénom</value>

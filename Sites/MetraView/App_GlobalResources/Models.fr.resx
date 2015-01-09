@@ -145,10 +145,10 @@
         <value>Description :</value>
     </data>
     <data name="SpecCharacteristicModel_DisplayOrder" xml:space="preserve">
-        <value>Ordre d'affichage :</value>
+        <value>Ordre d’affichage :</value>
     </data>
     <data name="SpecCharacteristicModel_DisplayOrder1" xml:space="preserve">
-        <value>Ordre d'affichage :</value>
+        <value>Ordre d’affichage :</value>
     </data>
     <data name="SpecCharacteristicModel_EntityId" xml:space="preserve">
         <value>ID d&amp;apos;entité :</value>
@@ -220,10 +220,10 @@
         <value>Options :</value>
     </data>
     <data name="SpecCharacteristicValueModel_ChoicesDisplayNames" xml:space="preserve">
-        <value>Noms d'options :</value>
+        <value>Noms d’options :</value>
     </data>
     <data name="SpecCharacteristicValueModel_ChoicesDisplayNames1" xml:space="preserve">
-        <value>Noms d'options :</value>
+        <value>Noms d’options :</value>
     </data>
     <data name="SpecCharacteristicValueModel_DatetimeValue" xml:space="preserve">
         <value>Valeur date/heure :</value>

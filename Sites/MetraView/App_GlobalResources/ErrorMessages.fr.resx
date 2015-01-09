@@ -187,7 +187,7 @@
         <value>Fichier de menu incorrect. Signalez-le à votre administrateur système.</value>
     </data>
     <data name="ERROR_MAKE_PAYMENT" xml:space="preserve">
-        <value>Nous n'avons pas pu traiter votre paiement. Vérifiez les informations sur le paiement et faites une nouvelle tentative. Si le problème persiste, contactez-nous pour que nous puissions réaliser cette transaction.</value>
+        <value>Nous n’avons pas pu traiter votre paiement. Vérifiez les informations sur le paiement et faites une nouvelle tentative. Si le problème persiste, contactez-nous pour que nous puissions réaliser cette transaction.</value>
     </data>
     <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
         <value>Cet utilisateur n’a jamais ouvert une session MetraView.</value>
@@ -208,13 +208,13 @@
         <value>Erreur de configuration du fichier ReportFormat</value>
     </data>
     <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-        <value>Erreur de configuration du fichier ReportFormat. Ce type de format de rapport n'est pas défini.</value>
+        <value>Erreur de configuration du fichier ReportFormat. Ce type de format de rapport n’est pas défini.</value>
     </data>
     <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
         <value>Erreur de configuration du fichier ReportFormat. Structure de fichier incorrecte.</value>
     </data>
     <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-        <value>Erreur de configuration du fichier ReportFormat. L'image du rapport n'est pas définie.</value>
+        <value>Erreur de configuration du fichier ReportFormat. L’image du rapport n’est pas définie.</value>
     </data>
     <data name="ERROR_REPORT_OPEN" xml:space="preserve">
         <value>Impossible ouvrir et enregistrer le rapport </value>
@@ -229,7 +229,7 @@
         <value>Vous devez d’abord gérer un compte avant de pouvoir exécuter une action l’impliquant.</value>
     </data>
     <data name="ERROR_TEMP_LOCK" xml:space="preserve">
-        <value>Le système n'autorise que {0} tentatives de connexion avant que le compte ne soit temporairement verrouillé pendant {1} minutes.  Vous pouvez déverrouiller manuellement le compte.</value>
+        <value>Le système n’autorise que {0} tentatives de connexion avant que le compte ne soit temporairement verrouillé pendant {1} minutes.  Vous pouvez déverrouiller manuellement le compte.</value>
     </data>
     <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
         <value>Impossible de verrouiller le compte. Disposez-vous des droits correspondants ?</value>
@@ -259,7 +259,7 @@
         <value><![CDATA[Le nouveau mot de passe ne répond pas aux exigences de sécurité:
             * Doit contenir au moins 7 caractères et moins de 1024
             * Doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial
-            * Caractères spéciaux valides y compris l'espace sont _ !@#$%^&*+=
+            * Caractères spéciaux valides y compris l’espace sont _ !@#$%^&*+=
             * Mots de passe une fois changés, ne peuvent pas être un des 4 mots de passe précédemment utilisés]]></value>
     </data>
 </root>

@@ -271,7 +271,7 @@
         <value>Nom du PointEntrée</value>
     </data>
     <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-        <value>Points d'entrée</value>
+        <value>Points d’entrée</value>
     </data>
     <data name="TEXT_ESTIMATE" xml:space="preserve">
         <value>Ceci est juste une estimation, par votre facture définitive.</value>
@@ -349,7 +349,7 @@
         <value>NON</value>
     </data>
     <data name="TEXT_NO_BILL" xml:space="preserve">
-        <value>Votre facture n'est pas encore disponible.  Cliquez &lt;a href="Usage.aspx?view=summary"&gt;ici&lt;/a&gt; pour afficher l'utilisation actuelle.</value>
+        <value>Votre facture n’est pas encore disponible.  Cliquez &lt;a href="Usage.aspx?view=summary"&gt;ici&lt;/a&gt; pour afficher l’utilisation actuelle.</value>
     </data>
     <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
         <value>Aucun enregistrement trouvé</value>

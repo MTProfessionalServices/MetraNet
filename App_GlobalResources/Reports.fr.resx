@@ -313,7 +313,7 @@
     <value>Montant de la taxe</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
-    <value>Exonérés de taxe Date d'expiration</value>
+    <value>Exonérés de taxe Date d’expiration</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
     <value>ID d’exemption de taxe</value>
@@ -328,7 +328,7 @@
     <value>Identificateur</value>
   </data>
   <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
-    <value>Identifiant de l'utilisateur</value>
+    <value>Identifiant de l’utilisateur</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>Afficher ID</value>
@@ -361,7 +361,7 @@
     <value>date de fin</value>
   </data>
   <data name="TEXT_EXPIRATION_DATE" xml:space="preserve">
-    <value>date d'expiration</value>
+    <value>date d’expiration</value>
   </data>
   <data name="TEXT_EXPIRED" xml:space="preserve">
     <value>expiré</value>

@@ -145,7 +145,7 @@
     <value>Priorité de décision</value>
   </data>
   <data name="DECISIONS_GRID_TITLE" xml:space="preserve">
-    <value>Types de décisions classés par priorité (plus le nombre est petit, plus l'exécution est tôt) :</value>
+    <value>Types de décisions classés par priorité (plus le nombre est petit, plus l’exécution est tôt) :</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Interactions des décisions</value>

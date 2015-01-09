@@ -148,19 +148,19 @@
     <value>Appliquer la valeur totale des frais/du crédit</value>
   </data>
   <data name="radEveryTimeText" xml:space="preserve">
-    <value>Chaque fois qu'un enregistrement d'utilisation est compris dans la plage de décisions.</value>
+    <value>Chaque fois qu’un enregistrement d’utilisation est compris dans la plage de décisions.</value>
   </data>
   <data name="radInvPropText" xml:space="preserve">
     <value>Inversement proportionnel</value>
   </data>
   <data name="radOnceAfterSummedText" xml:space="preserve">
-    <value>Une seule fois, après que tous les enregistrements d'utilisation ont été cumulés, si le total est compris dans la plage de décisions.</value>
+    <value>Une seule fois, après que tous les enregistrements d’utilisation ont été cumulés, si le total est compris dans la plage de décisions.</value>
   </data>
   <data name="radOnceFirstEnterText" xml:space="preserve">
-    <value>Une seule fois, lorsqu'un enregistrement d'utilisation fait &lt;i&gt;entrer&lt;/i&gt; pour la première fois le total dans la plage de décisions.</value>
+    <value>Une seule fois, lorsqu’un enregistrement d’utilisation fait &lt;i&gt;entrer&lt;/i&gt; pour la première fois le total dans la plage de décisions.</value>
   </data>
   <data name="radOnceFirstExitText" xml:space="preserve">
-    <value>Une seule fois, lorsqu'un enregistrement d'utilisation fait &lt;i&gt;sortir&lt;/i&gt; pour la première fois le total de la plage de décisions.</value>
+    <value>Une seule fois, lorsqu’un enregistrement d’utilisation fait &lt;i&gt;sortir&lt;/i&gt; pour la première fois le total de la plage de décisions.</value>
   </data>
   <data name="radParamTableText" xml:space="preserve">
     <value>A partir du tableau des paramètres</value>
@@ -178,9 +178,9 @@
     <value>Erreur : vous devez sélectionner des frais/un crédit dans la grille</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_CHARGE_COLUMN_NAMES" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la récupération des noms de la colonne Frais dans le tableau '{0}'</value>
+    <value>Une erreur s’est produite lors de la récupération des noms de la colonne Frais dans le tableau '{0}'</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_CHARGE_CREDIT_ATTRIBUTE" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la mise à jour des attributs de frais générés du type de décision : </value>
+    <value>Une erreur s’est produite lors de la mise à jour des attributs de frais générés du type de décision : </value>
   </data>
 </root>

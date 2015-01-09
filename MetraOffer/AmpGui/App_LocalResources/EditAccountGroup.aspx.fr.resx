@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_QUALIFICATIONS_GRID_TITLE" xml:space="preserve">
-    <value>Qualifications des comptes dans l'ordre d'exécution :</value>
+    <value>Qualifications des comptes dans l’ordre d’exécution :</value>
   </data>
   <data name="lblAcctQualGridResource1.Text" xml:space="preserve">
     <value>Indiquez les mesures à prendre pour que les comptes visés par le type de décision puissent être sélectionnés. &lt;br/&gt;Pour cela, vous devez définir un ensemble de qualifications de comptes répondant à un ordre précis.</value>
   </data>
   <data name="lblEditAccountGroupResource1.Text" xml:space="preserve">
-    <value>Ici vous pouvez définir un groupe spécifiant un ensemble de comptes visés par l'opération.</value>
+    <value>Ici vous pouvez définir un groupe spécifiant un ensemble de comptes visés par l’opération.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Groupe de comptes</value>
@@ -154,10 +154,10 @@
     <value>Erreur de suppression de la qualification de compte :</value>
   </data>
   <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>Une erreur s'est produite pendant la remontée de la qualification de compte dans l'ordre d'exécution :</value>
+    <value>Une erreur s’est produite pendant la remontée de la qualification de compte dans l’ordre d’exécution :</value>
   </data>
   <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>Une erreur s'est produite pendant la descente de la qualification de compte dans l'ordre d'exécution :</value>
+    <value>Une erreur s’est produite pendant la descente de la qualification de compte dans l’ordre d’exécution :</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_ACCT_GROUP_DESCRIPTION" xml:space="preserve">
     <value>Erreur pendant la mise à jour de la description du groupe de comptes :</value>

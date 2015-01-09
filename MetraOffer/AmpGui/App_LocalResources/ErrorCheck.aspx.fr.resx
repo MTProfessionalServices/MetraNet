@@ -136,7 +136,7 @@
     <value>Votre type de décision est actif. Voulez-vous le désactiver maintenant ? Il sera alors inéligible au traitement par le moteur AMP.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Contrôle d'erreur</value>
+    <value>Contrôle d’erreur</value>
   </data>
   <data name="MTButtonActivateDecisionResource1.ServerSide" xml:space="preserve">
     <value>True</value>
@@ -160,9 +160,9 @@
     <value>Désactiver le type de décision</value>
   </data>
   <data name="TEXT_ERROR_ACTIVATING_DECISION" xml:space="preserve">
-    <value>Erreur d'activation du type de décision </value>
+    <value>Erreur d’activation du type de décision </value>
   </data>
   <data name="TEXT_ERROR_DEACTIVATING_DECISION1" xml:space="preserve">
-    <value>Une erreur s'est produite à la désactivation du type de décision </value>
+    <value>Une erreur s’est produite à la désactivation du type de décision </value>
   </data>
 </root>

@@ -124,7 +124,7 @@
         <value>Mes modifications récentes</value>
     </data>
     <data name="pnlRecentOfferingChangesResource1.Text" xml:space="preserve">
-        <value>Modifications d'offres récentes</value>
+        <value>Modifications d’offres récentes</value>
     </data>
     <data name="pnlRecentRateChangesResource1.Text" xml:space="preserve">
         <value>Modifications de prix récentes</value>
@@ -181,7 +181,7 @@
         <value>Pas de données</value>
     </data>
     <data name="TEXT_NO_RECORDS" xml:space="preserve">
-        <value>Pas d'enregistrements</value>
+        <value>Pas d’enregistrements</value>
     </data>
     <data name="TEXT_PO_ID" xml:space="preserve">
         <value>ID PO</value>
@@ -205,7 +205,7 @@
         <value>Gain d’abonnements</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_LOSS" xml:space="preserve">
-        <value>Perte d'abonnements</value>
+        <value>Perte d’abonnements</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
         <value>Abonnements</value>

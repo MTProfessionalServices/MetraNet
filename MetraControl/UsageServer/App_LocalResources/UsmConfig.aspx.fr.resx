@@ -124,7 +124,7 @@
         <value>Annuellement</value>
     </data>
     <data name="LabelAutoRunEopInfoResource1.Text" xml:space="preserve">
-        <value>Une fois qu'un groupe de facturation a fait l'objet d'une clôture logicielle automatique ou manuelle, la plate-forme exécute automatiquement les adaptateurs de fin de période.</value>
+        <value>Une fois qu’un groupe de facturation a fait l’objet d’une clôture logicielle automatique ou manuelle, la plate-forme exécute automatiquement les adaptateurs de fin de période.</value>
     </data>
     <data name="LabelAutoRunEopResource1.Text" xml:space="preserve">
         <value>Lancer automatiquement les adaptateurs de fin de période sur les groupes de facturation en clôture logicielle</value>
@@ -160,7 +160,7 @@
         <value>Trimestriel</value>
     </data>
     <data name="LabelRunScheduledAdaptersInfoResource1.Text" xml:space="preserve">
-        <value>La plate-forme exécute périodiquement les adaptateurs planifiés configurés.  Remarque : Si ce paramètre n'est pas sélectionné, tous les adaptateurs planifiés doivent être exécutés manuellement.</value>
+        <value>La plate-forme exécute périodiquement les adaptateurs planifiés configurés.  Remarque : Si ce paramètre n’est pas sélectionné, tous les adaptateurs planifiés doivent être exécutés manuellement.</value>
     </data>
     <data name="LabelRunScheduledAdaptersResource1.Text" xml:space="preserve">
         <value>Exécuter les adaptateurs planifiés</value>

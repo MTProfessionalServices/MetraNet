@@ -139,7 +139,7 @@
         <value>MetraNet </value>
     </data>
     <data name="pendingChangeUiErrorFormat" xml:space="preserve">
-        <value>Cet abonnement possède déjà une approbation de changement '{0}' en attente. Aucun nouveau changement ne peut être soumis jusqu'à ce que le précédent changement ait été approuvé ou refusé.</value>
+        <value>Cet abonnement possède déjà une approbation de changement '{0}' en attente. Aucun nouveau changement ne peut être soumis jusqu’à ce que le précédent changement ait été approuvé ou refusé.</value>
     </data>
     <data name="pendingChangeWarningFormat" xml:space="preserve">
         <value>Cet abonnement possède déjà une approbation de changement '{0}' en attente. &lt;a href='{1}'&gt;Cliquez ici pour afficher le changement en attente d’approbation.&lt;/a&gt;</value>

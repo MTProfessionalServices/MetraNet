@@ -160,13 +160,13 @@
     <value>Description</value>
   </data>
   <data name="TEXT_ERROR_NO_DECISION_ACTION" xml:space="preserve">
-    <value>Erreur : vous devez sélectionner l'action à faire par le type de décision</value>
+    <value>Erreur : vous devez sélectionner l’action à faire par le type de décision</value>
   </data>
   <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
     <value>Erreur : vous devez indiquer le pourcentage de remise à appliquer par ce type de décision</value>
   </data>
   <data name="TEXT_ERROR_NO_EVENT_RATE_VALUE" xml:space="preserve">
-    <value>Erreur : vous devez indiquer la valeur du nouveau prix d'événement à appliquer par ce type de décision</value>
+    <value>Erreur : vous devez indiquer la valeur du nouveau prix d’événement à appliquer par ce type de décision</value>
   </data>
   <data name="TEXT_ERROR_NO_INCREMENTAL_OR_BULK_OR_PT" xml:space="preserve">
     <value>Erreur : vous devez choisir comment le type de décision traitera les enregistrements </value>

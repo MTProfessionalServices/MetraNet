@@ -133,10 +133,10 @@
     <value>Une décision peut être traitée par AMP en fin de période (FDP) et/ou à une date planifiée, indépendamment des intervalles de facturation.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>Quelle est la fréquence d'exécution de ce type de décision ?</value>
+    <value>Quelle est la fréquence d’exécution de ce type de décision ?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Fréquence d'exécution</value>
+    <value>Fréquence d’exécution</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>

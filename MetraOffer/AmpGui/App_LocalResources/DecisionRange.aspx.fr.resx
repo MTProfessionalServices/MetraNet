@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionRange.Text" xml:space="preserve">
-    <value>La valeur consolidée du type de décision inclut une plage permettant d'appliquer le type de décision.</value>
+    <value>La valeur consolidée du type de décision inclut une plage permettant d’appliquer le type de décision.</value>
   </data>
   <data name="lblDecisionRangeProration.Text" xml:space="preserve">
-    <value>Estimer la plage au prorata à l'activation et/ou la résiliation de l'abonnement ?</value>
+    <value>Estimer la plage au prorata à l’activation et/ou la résiliation de l’abonnement ?</value>
   </data>
   <data name="lblDecisionRangeRestart.Text" xml:space="preserve">
     <value>Redémarrer le décompte après la fin de la plage ?</value>
@@ -139,16 +139,16 @@
     <value>5. Plage de {0}</value>
   </data>
   <data name="PRORATE_BOTH_TEXT" xml:space="preserve">
-    <value>Estimer la plage au prorata à l'activation et la résiliation</value>
+    <value>Estimer la plage au prorata à l’activation et la résiliation</value>
   </data>
   <data name="PRORATE_NONE_TEXT" xml:space="preserve">
-    <value>Ne pas estimer la plage au prorata à l'activation ou la résiliation</value>
+    <value>Ne pas estimer la plage au prorata à l’activation ou la résiliation</value>
   </data>
   <data name="PRORATE_TIER_END_TEXT" xml:space="preserve">
     <value>Estimer la plage au prorata à la résiliation seule</value>
   </data>
   <data name="PRORATE_TIER_START_TEXT" xml:space="preserve">
-    <value>Estimer la plage au prorata à l'activation seule</value>
+    <value>Estimer la plage au prorata à l’activation seule</value>
   </data>
   <data name="rblRangeNo.Text" xml:space="preserve">
     <value>Non</value>

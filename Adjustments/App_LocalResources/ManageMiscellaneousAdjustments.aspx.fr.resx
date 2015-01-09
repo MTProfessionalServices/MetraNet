@@ -169,7 +169,7 @@
         <value>Refuser tout</value>
     </data>
     <data name="TEXT_DENY_ALL_CONFIRM" xml:space="preserve">
-        <value>Voulez-vous vraiment continuer ? Cela bloquera tous les ajustements correspondant à vos critères de filtrage. En l'absence de filtres, tous les ajustements seront bloqués.</value>
+        <value>Voulez-vous vraiment continuer ? Cela bloquera tous les ajustements correspondant à vos critères de filtrage. En l’absence de filtres, tous les ajustements seront bloqués.</value>
     </data>
     <data name="TEXT_DESCRIPTION" xml:space="preserve">
         <value>Description interne</value>

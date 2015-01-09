@@ -121,7 +121,7 @@
     <value>Types de décisions</value>
   </data>
   <data name="lblDecisionDescriptionResource1.Text" xml:space="preserve">
-    <value>Un type de décision définit un ensemble d'actions à faire sur un ensemble de comptes spécifié lorsqu'un montant cumulé respecte certains critères.&lt;br/&gt;La décision, qui est une instance d'un type de décision, est traitée par le processeur de mesures consolidées.</value>
+    <value>Un type de décision définit un ensemble d’actions à faire sur un ensemble de comptes spécifié lorsqu’un montant cumulé respecte certains critères.&lt;br/&gt;La décision, qui est une instance d’un type de décision, est traitée par le processeur de mesures consolidées.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Gérer les types de décisions du processeur de mesures consolidées (AMP)</value>
@@ -166,7 +166,7 @@
     <value>Priorité</value>
   </data>
   <data name="TEXT_PT_NOT_EXIST" xml:space="preserve">
-    <value>Cette action est impossible car le tableau de paramètres associé au type de décision n'existe pas.</value>
+    <value>Cette action est impossible car le tableau de paramètres associé au type de décision n’existe pas.</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
     <value>ID unique</value>
@@ -175,7 +175,7 @@
     <value>Groupe qual. utilis.</value>
   </data>
   <data name="TITLE_UNABLE_TO_ACTIVATE" xml:space="preserve">
-    <value>Impossible d'activer le type de décision</value>
+    <value>Impossible d’activer le type de décision</value>
   </data>
   <data name="TITLE_UNABLE_TO_CLONE" xml:space="preserve">
     <value>Impossible de cloner le type de décision</value>

@@ -319,7 +319,7 @@
         <value>Montant unitaire RC</value>
     </data>
     <data name="UNIT_VALUE" xml:space="preserve">
-        <value>Nombre d'unités</value>
+        <value>Nombre d’unités</value>
     </data>
     <data name="USERNAME" xml:space="preserve">
         <value>Nom d’utilisateur</value>

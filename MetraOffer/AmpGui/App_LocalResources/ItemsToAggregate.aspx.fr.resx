@@ -121,7 +121,7 @@
     <value>Additionner les montants monétaires.</value>
   </data>
   <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value>Additionner les unités d'utilisation.</value>
+    <value>Additionner les unités d’utilisation.</value>
   </data>
   <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
@@ -130,19 +130,19 @@
     <value>True</value>
   </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value>Compter le nombre d'événements.</value>
+    <value>Compter le nombre d’événements.</value>
   </data>
   <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
     <value>Depuis le tableau de paramètres.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>Les décisions comptent les montants monétaires, les unités ou le nombre d'événements. Cet écran permet de sélectionner les éléments consolidés par un type de décision.</value>
+    <value>Les décisions comptent les montants monétaires, les unités ou le nombre d’événements. Cet écran permet de sélectionner les éléments consolidés par un type de décision.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
     <value>Ajustez les réglages pour ce type de décision.</value>
   </data>
   <data name="lblGenInfoResource3.Text" xml:space="preserve">
-    <value>Comment consolider l'utilisation ?</value>
+    <value>Comment consolider l’utilisation ?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Eléments à consolider pour {0}</value>

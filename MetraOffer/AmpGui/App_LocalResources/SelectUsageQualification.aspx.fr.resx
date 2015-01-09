@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblSelectResource1.Text" xml:space="preserve">
-    <value>Sélectionnez la qualification d'utilisation pour ce type de décision :</value>
+    <value>Sélectionnez la qualification d’utilisation pour ce type de décision :</value>
   </data>
   <data name="lblSelectUsageQualResource1.Text" xml:space="preserve">
-    <value>L'&lt;i&gt;utilisation&lt;/i&gt; (unité de facturation) est un ensemble de zones d'enregistrement de vue produit.  Une &lt;i&gt;qualification d'utilisation&lt;/i&gt; limite l'utilisation qu'une décision peut analyser aux enregistrements d'utilisation possédant certaines propriétés.</value>
+    <value>L'&lt;i&gt;utilisation&lt;/i&gt; (unité de facturation) est un ensemble de zones d’enregistrement de vue produit.  Une &lt;i&gt;qualification d’utilisation&lt;/i&gt; limite l’utilisation qu’une décision peut analyser aux enregistrements d’utilisation possédant certaines propriétés.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Sélectionner qualification d'utilisation</value>
+    <value>Sélectionner qualification d’utilisation</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -133,16 +133,16 @@
     <value>Actions</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Créer nouvelle qualification d'utilisation</value>
+    <value>Créer nouvelle qualification d’utilisation</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Créer une nouvelle qualification d'utilisation</value>
+    <value>Créer une nouvelle qualification d’utilisation</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="TEXT_ERROR_NO_USAGE_QUAL" xml:space="preserve">
-    <value>Aucune qualification d'utilisation sélectionnée pour la décision </value>
+    <value>Aucune qualification d’utilisation sélectionnée pour la décision </value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nom</value>
@@ -151,6 +151,6 @@
     <value>ID unique</value>
   </data>
   <data name="USAGEQUALIFICATIONGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>Qualifications d'utilisation</value>
+    <value>Qualifications d’utilisation</value>
   </data>
 </root>

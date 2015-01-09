@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllDecisionsAccessToUsageRecord.Text" xml:space="preserve">
-    <value>Comptable – Ce type de décision traite tous les enregistrements d'utilisation éligibles quelles que soient les autres décisions appliquées. Les décisions ultérieures, quel que soit leur domaine, ne seront pas impactées par les enregistrements d'utilisation traités par une décision de ce type.</value>
+    <value>Comptable – Ce type de décision traite tous les enregistrements d’utilisation éligibles quelles que soient les autres décisions appliquées. Les décisions ultérieures, quel que soit leur domaine, ne seront pas impactées par les enregistrements d’utilisation traités par une décision de ce type.</value>
   </data>
   <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
@@ -145,13 +145,13 @@
     <value>False</value>
   </data>
   <data name="DecisionApportionQuestion.Text" xml:space="preserve">
-    <value>Quel est le domaine de ce type de décision ?  (Affecte la manière dont les enregistrements d'utilisation sont traités par les décisions multiples.)</value>
+    <value>Quel est le domaine de ce type de décision ?  (Affecte la manière dont les enregistrements d’utilisation sont traités par les décisions multiples.)</value>
   </data>
   <data name="ExclusiveAccessToConsumedUsage.Text" xml:space="preserve">
-    <value>Facturable – Ce type de décision ne traite aucune partie d'un enregistrement d'utilisation traité par une décision du domaine Facturable. Les décisions ultérieures du domaine Facturable ne traiteront aucune partie d'un enregistrement d'utilisation traité par une décision de ce type.</value>
+    <value>Facturable – Ce type de décision ne traite aucune partie d’un enregistrement d’utilisation traité par une décision du domaine Facturable. Les décisions ultérieures du domaine Facturable ne traiteront aucune partie d’un enregistrement d’utilisation traité par une décision de ce type.</value>
   </data>
   <data name="IntroInfo.Text" xml:space="preserve">
-    <value>Si plusieurs décisions sont configurées, il est recommandé d'étudier leurs interactions éventuelles.</value>
+    <value>Si plusieurs décisions sont configurées, il est recommandé d’étudier leurs interactions éventuelles.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Interactions des décisions</value>

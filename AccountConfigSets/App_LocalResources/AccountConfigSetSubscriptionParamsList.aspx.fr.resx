@@ -121,7 +121,7 @@
         <value>[FR]Subscription Models</value>
     </data>
     <data name="ACS_CORPORATE_ACCOUNT" xml:space="preserve">
-        <value>ID du compte d'entreprise</value>
+        <value>ID du compte d’entreprise</value>
     </data>
     <data name="ACS_DESCRIPTION" xml:space="preserve">
         <value>Description</value>

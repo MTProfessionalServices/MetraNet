@@ -142,7 +142,7 @@
     <value>Nom de la zone</value>
   </data>
   <data name="tbFilter.Label" xml:space="preserve">
-    <value>Condition d'exécution</value>
+    <value>Condition d’exécution</value>
   </data>
   <data name="tbIncludedFieldPrefix.Label" xml:space="preserve">
     <value>Préfixe de zone inclus</value>

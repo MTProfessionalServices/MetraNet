@@ -121,7 +121,7 @@
     <value>Groupes de chaînes de montants</value>
   </data>
   <data name="lblAmountChainGroupResource1.Text" xml:space="preserve">
-    <value>Une &lt;i&gt;chaîne de montants&lt;/i&gt; est un ensemble de zones de frais d'utilisation qui sont associées au montant des frais.  Certaines zones permettent de déterminer le montant et d'autres sont dérivées de celui-ci. &lt;b/&gt;&lt;b/&gt; Un &lt;i&gt;groupe de chaînes de montants&lt;/i&gt; est un ensemble de chaînes de montants associées à une décision.</value>
+    <value>Une &lt;i&gt;chaîne de montants&lt;/i&gt; est un ensemble de zones de frais d’utilisation qui sont associées au montant des frais.  Certaines zones permettent de déterminer le montant et d’autres sont dérivées de celui-ci. &lt;b/&gt;&lt;b/&gt; Un &lt;i&gt;groupe de chaînes de montants&lt;/i&gt; est un ensemble de chaînes de montants associées à une décision.</value>
   </data>
   <data name="lblSelectResource1.Text" xml:space="preserve">
     <value>Sélectionnez le groupe de chaînes de montants pour ce type de décision :</value>

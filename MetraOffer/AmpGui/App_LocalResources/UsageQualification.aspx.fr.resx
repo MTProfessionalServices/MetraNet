@@ -136,13 +136,13 @@
     <value>Filtre :</value>
   </data>
   <data name="lblAnotherUQGPanelResource.Text" xml:space="preserve">
-    <value>Autre qualification d'utilisation</value>
+    <value>Autre qualification d’utilisation</value>
   </data>
   <data name="lblInfoResource.Text" xml:space="preserve">
-    <value>Indiquez les propriétés requises des enregistrements d'utilisation pour être analysés par ce type de décision.</value>
+    <value>Indiquez les propriétés requises des enregistrements d’utilisation pour être analysés par ce type de décision.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Qualification d'utilisation</value>
+    <value>Qualification d’utilisation</value>
   </data>
   <data name="lblUsageFieldPanelResource.Text" xml:space="preserve">
     <value>t_acc_usage/Zone de la vue produit</value>
@@ -160,28 +160,28 @@
     <value>Tableau :</value>
   </data>
   <data name="TEXT_ERROR_ADD_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Erreur pendant l'ajout de la qualification d'utilisation nommée = '{0}'.</value>
+    <value>Erreur pendant l’ajout de la qualification d’utilisation nommée = '{0}'.</value>
   </data>
   <data name="TEXT_ERROR_GETTING_DATA" xml:space="preserve">
-    <value>Une erreur s'est produite pendant la récupération des données pour la page.</value>
+    <value>Une erreur s’est produite pendant la récupération des données pour la page.</value>
   </data>
   <data name="TEXT_ERROR_MUST_USE_UNIQUE_NAME_FOR_NEW_UQ" xml:space="preserve">
-    <value>Une erreur s'est produite pendant la création de la nouvelle qualification d'utilisation car le nom '{0}' est déjà employé pour une autre qualification d'utilisation. Veuillez indiquer un nom unique pour la nouvelle qualification d'utilisation.</value>
+    <value>Une erreur s’est produite pendant la création de la nouvelle qualification d’utilisation car le nom '{0}' est déjà employé pour une autre qualification d’utilisation. Veuillez indiquer un nom unique pour la nouvelle qualification d’utilisation.</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_UQGS" xml:space="preserve">
-    <value>Une erreur s'est produite pendant la récupération de la liste des noms de groupes de qualifications d'utilisation.</value>
+    <value>Une erreur s’est produite pendant la récupération de la liste des noms de groupes de qualifications d’utilisation.</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_ACTION" xml:space="preserve">
-    <value>Erreur pendant la récupération de l'action de qualification d'utilisation dans la valeur de l'état de session</value>
+    <value>Erreur pendant la récupération de l’action de qualification d’utilisation dans la valeur de l’état de session</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_FILTER" xml:space="preserve">
-    <value>Erreur pendant la récupération du filtre pour la qualification d'utilisation : </value>
+    <value>Erreur pendant la récupération du filtre pour la qualification d’utilisation : </value>
   </data>
   <data name="TEXT_INSERT" xml:space="preserve">
     <value>Insérer</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Création réussie de la qualification d'utilisation nommée '{0}'.</value>
+    <value>Création réussie de la qualification d’utilisation nommée '{0}'.</value>
   </data>
   <data name="UsageQualificationDescriptionResource.Label" xml:space="preserve">
     <value>Description</value>
@@ -208,7 +208,7 @@
     <value>0</value>
   </data>
   <data name="UsageQualificationLabelResource.Text" xml:space="preserve">
-    <value>Qualification d'utilisation :</value>
+    <value>Qualification d’utilisation :</value>
   </data>
   <data name="UsageQualificationNameResource.Label" xml:space="preserve">
     <value>Nom</value>

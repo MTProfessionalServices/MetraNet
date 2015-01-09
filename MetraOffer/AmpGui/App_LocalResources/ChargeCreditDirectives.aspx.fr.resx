@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DIRECTIVES_GRID_TITLE" xml:space="preserve">
-    <value>Directives dans l'ordre d'exécution :</value>
+    <value>Directives dans l’ordre d’exécution :</value>
   </data>
   <data name="lbDescription.Text" xml:space="preserve">
-    <value>Indiquez comment les zones de la vue produit et du tableau d'utilisation des comptes (t_acc_usage) doivent être définies pour les nouveaux frais/crédit en cours de création. Pour cela, vous devez définir un ensemble ordonné de "directives" des types suivants : Inclusion de table de base de données, Renseignement des zones et Exécution de procédures.</value>
+    <value>Indiquez comment les zones de la vue produit et du tableau d’utilisation des comptes (t_acc_usage) doivent être définies pour les nouveaux frais/crédit en cours de création. Pour cela, vous devez définir un ensemble ordonné de "directives" des types suivants : Inclusion de table de base de données, Renseignement des zones et Exécution de procédures.</value>
   </data>
   <data name="lbGrid2TitleResource1.Text" xml:space="preserve">
     <value>Zones à renseigner :</value>
@@ -151,10 +151,10 @@
     <value>Détails</value>
   </data>
   <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la remontée de la directive dans l'ordre d'exécution.</value>
+    <value>Une erreur s’est produite lors de la remontée de la directive dans l’ordre d’exécution.</value>
   </data>
   <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la descente de la directive dans l'ordre d'exécution.</value>
+    <value>Une erreur s’est produite lors de la descente de la directive dans l’ordre d’exécution.</value>
   </data>
   <data name="TEXT_FIELDNAME" xml:space="preserve">
     <value>Nom de la zone</value>

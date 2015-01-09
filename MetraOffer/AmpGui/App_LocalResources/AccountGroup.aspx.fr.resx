@@ -124,7 +124,7 @@
     <value>&lt;u&gt;Groupe de comptes personnalisé&lt;/u&gt;</value>
   </data>
   <data name="lblAccountGroupResource1.Text" xml:space="preserve">
-    <value>Pour prendre une décision à propos d'un compte, vous devez l'analyser ainsi que les autres comptes liés.</value>
+    <value>Pour prendre une décision à propos d’un compte, vous devez l’analyser ainsi que les autres comptes liés.</value>
   </data>
   <data name="lblSelectResource1.Text" xml:space="preserve">
     <value>Sélectionnez le groupe de comptes pour ce type de décision :</value>

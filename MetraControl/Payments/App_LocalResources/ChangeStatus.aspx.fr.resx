@@ -119,7 +119,7 @@
     </resheader>
     <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Modifier l'état de la transaction de paiement</value>
+        <value>Modifier l’état de la transaction de paiement</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>

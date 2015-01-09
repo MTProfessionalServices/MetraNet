@@ -127,9 +127,9 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_COMING_SOON.Text" xml:space="preserve">
-    <value>Cette fonction n'est pas encore activée.</value>
+    <value>Cette fonction n’est pas encore activée.</value>
   </data>
   <data name="TEXT_QUESTION" xml:space="preserve">
-    <value>Voulez-vous vraiment supprimer l'attribut divers '{0}' du type de décision '{1}' ?</value>
+    <value>Voulez-vous vraiment supprimer l’attribut divers '{0}' du type de décision '{1}' ?</value>
   </data>
 </root>

@@ -211,13 +211,13 @@
     <value>Erreur de configuration du fichier ReportFormat</value>
   </data>
   <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>Erreur de configuration du fichier ReportFormat. Ce type de format de rapport n'est pas défini.</value>
+    <value>Erreur de configuration du fichier ReportFormat. Ce type de format de rapport n’est pas défini.</value>
   </data>
   <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
     <value>Erreur de configuration du fichier ReportFormat. Structure de fichier incorrecte.</value>
   </data>
   <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-    <value>Error in config ReportFormat file. Report image  isn't defined.</value>
+    <value>Error in config ReportFormat file. Report image  isn’t defined.</value>
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
     <value>Impossible d’ouvrir et d’enregistrer le rapport</value>
@@ -277,7 +277,7 @@
     <value>Impossible de récupérer la configuration. Consultez le journal pour voir les détails.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
-    <value>Impossible d'enregistrer les modifications de la configuration. Consultez le journal pour voir les détails.</value>
+    <value>Impossible d’enregistrer les modifications de la configuration. Consultez le journal pour voir les détails.</value>
   </data>
   <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
     <value>Échec de suppression de spéc.</value>
@@ -313,7 +313,7 @@
     <value><![CDATA[Le nouveau mot de passe ne répond pas aux exigences de sécurité:
             * Doit contenir au moins 7 caractères et moins de 1024
             * Doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial
-            * Caractères spéciaux valides y compris l'espace sont _ !@#$%^&*+=
+            * Caractères spéciaux valides y compris l’espace sont _ !@#$%^&*+=
             * Mots de passe une fois changés, ne peuvent pas être un des 4 mots de passe précédemment utilisés]]></value>
   </data>
 </root>

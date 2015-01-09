@@ -753,11 +753,13 @@ END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: mam_ConvertToSysDate()
-' PARAMETERS	: localized date
-' DESCRIPTION : Converts localized date to sysdate format
-' RETURNS			: sysdate
+' PARAMETERS	: Date
+' DESCRIPTION : Previously fixed some problem with DT localization, that is now absent.
+' Convertion Date Type to String Type is not not needed now. (fix to CORE-8516)
+' [TODO]: Remove this and all usages once regression is complete.
+' RETURNS			: The Same Value
 PUBLIC FUNCTION mam_ConvertToSysDate(localeDate)
-   mam_ConvertToSysDate = localeDate&""
+   mam_ConvertToSysDate = localeDate
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------

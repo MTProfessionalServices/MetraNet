@@ -61,10 +61,10 @@ function onDetails()
     <a href="Login.aspx?l=en-GB">English (GB)</a> &middot; 
     <a href="Login.aspx?l=fr-FR">Français</a> &middot; 
     <a href="Login.aspx?l=de-DE">Deutsch</a> &middot; 
-    <a href="Login.aspx?l=es">Español</a> &middot; 
-    <a href="Login.aspx?l=ja">日本語</a>&middot; 
+    <a href="Login.aspx?l=es-es">Español</a> &middot; 
+    <a href="Login.aspx?l=ja-jp">日本語</a>&middot; 
     <a href="Login.aspx?l=pt-br">Português (Brazil)</a>&middot; 
-    <a href="Login.aspx?l=it">Italiano</a>&middot; 
+    <a href="Login.aspx?l=it-it">Italiano</a>&middot; 
     <a href="Login.aspx?l=es-mx">Español (México)</a>
         
   </div>

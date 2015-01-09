@@ -133,7 +133,7 @@
         <value>défini</value>
     </data>
     <data name="SUB_PROPS_SECTION_NAME" xml:space="preserve">
-        <value>Propriétés de l'abonnement</value>
+        <value>Propriétés de l’abonnement</value>
     </data>
     <data name="SubChangeBasicEndDateResource.Label" xml:space="preserve">
         <value>Date de fin</value>
@@ -151,6 +151,6 @@
         <value>Nom de la mesure</value>
     </data>
     <data name="UDRC_SECTION_NAME" xml:space="preserve">
-        <value>Mesure des frais récurrents d'offre produit</value>
+        <value>Mesure des frais récurrents d’offre produit</value>
     </data>
 </root>

@@ -121,7 +121,7 @@
         <value>Montant</value>
     </data>
     <data name="ChangeStatusButton" xml:space="preserve">
-        <value>Définir l'état Manuel en attente/Inversé manuellement</value>
+        <value>Définir l’état Manuel en attente/Inversé manuellement</value>
     </data>
     <data name="Comment" xml:space="preserve">
         <value>Commentaire</value>
@@ -139,7 +139,7 @@
         <value>État</value>
     </data>
     <data name="StatusTitle.Text" xml:space="preserve">
-        <value>Modifier l'état</value>
+        <value>Modifier l’état</value>
     </data>
     <data name="title.Text" xml:space="preserve">
         <value>Transactions de paiement</value>

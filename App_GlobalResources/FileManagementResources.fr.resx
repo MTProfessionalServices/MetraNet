@@ -145,28 +145,28 @@
         <value>Commande émise</value>
     </data>
     <data name="DETAIL_CURRENT_ERROR_CODE" xml:space="preserve">
-        <value>Code d'erreur actuel</value>
+        <value>Code d’erreur actuel</value>
     </data>
     <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-        <value>Message d'erreur en cours</value>
+        <value>Message d’erreur en cours</value>
     </data>
     <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
         <value>État actuel</value>
     </data>
     <data name="DETAIL_DO_RETRY" xml:space="preserve">
-        <value>Réessayez d'exécuter la tâche.</value>
+        <value>Réessayez d’exécuter la tâche.</value>
     </data>
     <data name="DETAIL_FILES" xml:space="preserve">
         <value>Fichiers</value>
     </data>
     <data name="DETAIL_METRAFLOW_HISTORY" xml:space="preserve">
-        <value>Obtenir les détails de l'exécution de MetraFlow</value>
+        <value>Obtenir les détails de l’exécution de MetraFlow</value>
     </data>
     <data name="DETAIL_STATE_HISTORY" xml:space="preserve">
-        <value>Détails de l'historique d'état</value>
+        <value>Détails de l’historique d’état</value>
     </data>
     <data name="DETAIL_STATE_HISTORY_DATE" xml:space="preserve">
-        <value>d'exp.</value>
+        <value>d’exp.</value>
     </data>
     <data name="DETAIL_STATE_HISTORY_STATE" xml:space="preserve">
         <value>État</value>
@@ -178,13 +178,13 @@
         <value>Rapport sur les tâches détaillé</value>
     </data>
     <data name="DETAIL_WAS_MARKED_FOR_RETRY" xml:space="preserve">
-        <value>Marqué en vue d'une nouvelle tentative</value>
+        <value>Marqué en vue d’une nouvelle tentative</value>
     </data>
     <data name="FILE_DATE" xml:space="preserve">
-        <value>d'exp.</value>
+        <value>d’exp.</value>
     </data>
     <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-        <value>Message d'erreur</value>
+        <value>Message d’erreur</value>
     </data>
     <data name="FILE_GENERAL_TITLE" xml:space="preserve">
         <value>Fichiers</value>
@@ -223,7 +223,7 @@
         <value>Annuaire terminé</value>
     </data>
     <data name="GLOBAL_FAILED_DIR" xml:space="preserve">
-        <value>Échec de l'annuaire</value>
+        <value>Échec de l’annuaire</value>
     </data>
     <data name="GLOBAL_INCOMING_DIR" xml:space="preserve">
         <value>Annuaire entrant</value>
@@ -235,7 +235,7 @@
         <value>Paramètres généraux de gestion des fichiers</value>
     </data>
     <data name="GLOBAL_RESCAN_INTERVAL" xml:space="preserve">
-        <value>Intervalle de répétition de l'analyse en secondes</value>
+        <value>Intervalle de répétition de l’analyse en secondes</value>
     </data>
     <data name="GLOBAL_TITLE" xml:space="preserve">
         <value>Paramètres généraux</value>
@@ -256,10 +256,10 @@
         <value>Numéro de contrôle</value>
     </data>
     <data name="JOB_DATE" xml:space="preserve">
-        <value>d'exp.</value>
+        <value>d’exp.</value>
     </data>
     <data name="JOB_ERROR_CODE" xml:space="preserve">
-        <value>Code d'erreur</value>
+        <value>Code d’erreur</value>
     </data>
     <data name="JOB_FAILED_TITLE" xml:space="preserve">
         <value>Tâches de gestion de fichiers qui ont échoué</value>
@@ -289,7 +289,7 @@
         <value>Heure de fin</value>
     </data>
     <data name="METRAFLOW_HISTORY_INSTRUCTION_NO" xml:space="preserve">
-        <value>Numéro d'instruction</value>
+        <value>Numéro d’instruction</value>
     </data>
     <data name="METRAFLOW_HISTORY_SEQ_NO" xml:space="preserve">
         <value>Numéro de séquence</value>
@@ -358,7 +358,7 @@
         <value>Format</value>
     </data>
     <data name="TEXT_INTERNAL_ERROR" xml:space="preserve">
-        <value>Une erreur interne s'est produite.</value>
+        <value>Une erreur interne s’est produite.</value>
     </data>
     <data name="TEXT_INTERNAL_ID" xml:space="preserve">
         <value>ID interne</value>
@@ -373,13 +373,13 @@
         <value>Filtre</value>
     </data>
     <data name="TEXT_RESCAN_INTERVAL_ERROR" xml:space="preserve">
-        <value>L'intervalle de répétition de l'analyse doit être compris entre 2 et 86400.</value>
+        <value>L’intervalle de répétition de l’analyse doit être compris entre 2 et 86400.</value>
     </data>
     <data name="TEXT_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
         <value>Une erreur est survenue lors de la récupération des détails du fichier.</value>
     </data>
     <data name="TEXT_RETRIEVE_HISTORY_DETAILS_RUN_ERROR" xml:space="preserve">
-        <value>Impossible de récupérer les détails d'historique de ce cycle.</value>
+        <value>Impossible de récupérer les détails d’historique de ce cycle.</value>
     </data>
     <data name="TEXT_RETRIEVE_RUN_DETAILS_ERROR" xml:space="preserve">
         <value>Impossible de récupérer les détails de ce cycle.</value>

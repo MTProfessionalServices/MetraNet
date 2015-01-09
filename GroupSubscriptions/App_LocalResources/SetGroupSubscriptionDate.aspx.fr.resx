@@ -118,10 +118,10 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
-        <value>Cycle d'utilisation appliqué par l'offre produit</value>
+        <value>Cycle d’utilisation appliqué par l’offre produit</value>
     </data>
     <data name="CorporateAccount" xml:space="preserve">
-        <value>Compte d'entreprise</value>
+        <value>Compte d’entreprise</value>
     </data>
     <data name="Description" xml:space="preserve">
         <value>Description</value>
@@ -139,7 +139,7 @@
         <value>Date de début non valide</value>
     </data>
     <data name="ErrorAddGroupSub" xml:space="preserve">
-        <value>Erreur lors de l'ajout de l'abonnement groupé.</value>
+        <value>Erreur lors de l’ajout de l’abonnement groupé.</value>
     </data>
     <data name="ErrorGrpDis" xml:space="preserve">
         <value>Sélectionnez un compte de remise groupée.</value>
@@ -157,13 +157,13 @@
         <value>Compte pour la remise de groupe</value>
     </data>
     <data name="lblEBCRWarningResource1.Text" xml:space="preserve">
-        <value>La modification de cette date de début peut avoir un impact négatif sur les frais alignés par le cycle de facturation contenus dans l'offre produit associée.</value>
+        <value>La modification de cette date de début peut avoir un impact négatif sur les frais alignés par le cycle de facturation contenus dans l’offre produit associée.</value>
     </data>
     <data name="LblEnforced.Text" xml:space="preserve">
-        <value>Cycle d'utilisation appliqué par l'offre produit</value>
+        <value>Cycle d’utilisation appliqué par l’offre produit</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d'erreur</value>
+        <value>Messages d’erreur</value>
     </data>
     <data name="MTAccountsPanel.Text" xml:space="preserve">
         <value>Sélectionner un compte</value>
@@ -178,19 +178,19 @@
         <value>Configuration des remises</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Détails de l'abonnement groupé</value>
+        <value>Détails de l’abonnement groupé</value>
     </data>
     <data name="MTUsageCyclePanel.Text" xml:space="preserve">
-        <value>Configuration du cycle d'utilisation</value>
+        <value>Configuration du cycle d’utilisation</value>
     </data>
     <data name="NoSharedCountersBoxLabel.BoxLabel" xml:space="preserve">
         <value>Ne pas utiliser des compteurs partagés</value>
     </data>
     <data name="OfferingEndDate" xml:space="preserve">
-        <value>Date de fin de l'offre</value>
+        <value>Date de fin de l’offre</value>
     </data>
     <data name="OfferingStartDate" xml:space="preserve">
-        <value>Date de début de l'offre</value>
+        <value>Date de début de l’offre</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraCare</value>
@@ -202,10 +202,10 @@
         <value>Offre produit</value>
     </data>
     <data name="ProductOfferingHeader" xml:space="preserve">
-        <value>Propriétés de l'offre produit</value>
+        <value>Propriétés de l’offre produit</value>
     </data>
     <data name="SearchAccount.Label" xml:space="preserve">
-        <value>Compte pour le cycle d'utilisation</value>
+        <value>Compte pour le cycle d’utilisation</value>
     </data>
     <data name="SharedCountersBoxLabel.BoxLabel" xml:space="preserve">
         <value>Utiliser les compteurs partagés</value>

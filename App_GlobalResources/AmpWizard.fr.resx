@@ -178,10 +178,10 @@
         <value>7. Action</value>
     </data>
     <data name="PAGETITLE_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-        <value>3. Qualification d'utilisation</value>
+        <value>3. Qualification d’utilisation</value>
     </data>
     <data name="PAGETITLE_USAGE_QUALIFICATION" xml:space="preserve">
-        <value>Qualification d'utilisation</value>
+        <value>Qualification d’utilisation</value>
     </data>
     <data name="TEXT_ADVANCED_FEATURE" xml:space="preserve">
         <value>Fonction avancée</value>
@@ -190,28 +190,28 @@
         <value>Vous devez indiquer une valeur pour cet attribut.</value>
     </data>
     <data name="TEXT_ERROR_RETRIEVE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'extraction du groupe de qualifications de compte '{0}'</value>
+        <value>Une erreur s’est produite pendant l’extraction du groupe de qualifications de compte '{0}'</value>
     </data>
     <data name="TEXT_ERROR_RETRIEVE_DECISION" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'extraction de la décision '{0}'</value>
+        <value>Une erreur s’est produite pendant l’extraction de la décision '{0}'</value>
     </data>
     <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'extraction des frais générés '{0}'</value>
+        <value>Une erreur s’est produite pendant l’extraction des frais générés '{0}'</value>
     </data>
     <data name="TEXT_ERROR_RETRIEVE_PARAM_TABLE_COLUMN_NAMES" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'extraction des noms de colonnes de la table de paramètres</value>
+        <value>Une erreur s’est produite pendant l’extraction des noms de colonnes de la table de paramètres</value>
     </data>
     <data name="TEXT_ERROR_RETRIEVE_TABLE_COLUMN_NAMES" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'extraction des noms de colonnes de la table de base de données '{0}'</value>
+        <value>Une erreur s’est produite pendant l’extraction des noms de colonnes de la table de base de données '{0}'</value>
     </data>
     <data name="TEXT_ERROR_SAVE_DECISION" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'enregistrement de la décision '{0}'</value>
+        <value>Une erreur s’est produite pendant l’enregistrement de la décision '{0}'</value>
     </data>
     <data name="TEXT_ERROR_SAVE_GENERATED_CHARGE" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'enregistrement des frais générés '{0}'</value>
+        <value>Une erreur s’est produite pendant l’enregistrement des frais générés '{0}'</value>
     </data>
     <data name="TEXT_ERROR_STORE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
-        <value>Une erreur s'est produite pendant l'enregistrement du groupe de qualifications de compte '{0}'</value>
+        <value>Une erreur s’est produite pendant l’enregistrement du groupe de qualifications de compte '{0}'</value>
     </data>
     <data name="TEXT_FIXED_VALUE" xml:space="preserve">
         <value>Valeur fixe</value>
@@ -223,6 +223,6 @@
         <value>&lt;u&gt;Autre...&lt;/u&gt;</value>
     </data>
     <data name="TEXT_SUCCESS_SAVE_DECISION" xml:space="preserve">
-        <value>l'enregistrement de la décision '{0}' a abouti</value>
+        <value>l’enregistrement de la décision '{0}' a abouti</value>
     </data>
 </root>

@@ -139,7 +139,7 @@
         <value>Documents de la note de crédit</value>
     </data>
     <data name="MTPanel1Resource1.Text" xml:space="preserve">
-        <value>Créer un document de note de crédit pour l'ajustement émis</value>
+        <value>Créer un document de note de crédit pour l’ajustement émis</value>
     </data>
     <data name="NO_RECORDS_TEXT" xml:space="preserve">
         <value>Aucun enregistrement trouvé</value>
@@ -157,7 +157,7 @@
         <value>Identifiant de note de crédit</value>
     </data>
     <data name="TEXT_DATE" xml:space="preserve">
-        <value>d'exp. </value>
+        <value>d’exp. </value>
     </data>
     <data name="TEXT_DESCRIPTION" xml:space="preserve">
         <value>Description</value>

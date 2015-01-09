@@ -145,7 +145,7 @@
         <value>Expéditeur</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-        <value>ID de l'expéditeur</value>
+        <value>ID de l’expéditeur</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
         <value>Type</value>
@@ -154,7 +154,7 @@
         <value>Élément modifié</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-        <value>ID de l'élément modifié</value>
+        <value>ID de l’élément modifié</value>
     </data>
     <data name="TEXT_APPROVAL_FAILED_CHANGES" xml:space="preserve">
         <value>Modifications en échec</value>

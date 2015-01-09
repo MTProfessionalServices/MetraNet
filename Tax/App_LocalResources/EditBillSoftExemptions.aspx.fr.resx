@@ -133,7 +133,7 @@
         <value>ID du compte</value>
     </data>
     <data name="tbPcodeResource.Label" xml:space="preserve">
-        <value>Code d'emplacement permanent</value>
+        <value>Code d’emplacement permanent</value>
     </data>
     <data name="tbTaxTypeResource.Label" xml:space="preserve">
         <value>Type de taxe</value>

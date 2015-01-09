@@ -121,7 +121,7 @@
     <value>Accounting cycle</value>
   </data>
   <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
-    <value>Nom de l’adaptateur</value>
+        <value>Nom de l’adaptateur</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
     <value>Montant</value>
@@ -238,7 +238,7 @@
     <value>Nombre de RC avancés créés</value>
   </data>
   <data name="TEXT_NUM_ARREARS_GENERATED" xml:space="preserve">
-    <value>Nombre d’arriérés créés</value>
+        <value>Nombre d’arriérés créés</value>
   </data>
   <data name="TEXT_NUM_DAYS_IN_PERIOD" xml:space="preserve">
     <value>Nombre de jours dans la période</value>

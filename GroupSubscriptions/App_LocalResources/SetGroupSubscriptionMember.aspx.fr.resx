@@ -124,22 +124,22 @@
         <value>Date de fin de validité</value>
     </data>
     <data name="ErrorEditGroupSubMem" xml:space="preserve">
-        <value>Erreur lors de la modification d'un membre de l'abonnement groupé.</value>
+        <value>Erreur lors de la modification d’un membre de l’abonnement groupé.</value>
     </data>
     <data name="GroupSubMemberConfigHeader" xml:space="preserve">
-        <value>Définir le membre d'un abonnement groupé</value>
+        <value>Définir le membre d’un abonnement groupé</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d'erreur</value>
+        <value>Messages d’erreur</value>
     </data>
     <data name="lblSetGroupSubMemberTitleResource1.Text" xml:space="preserve">
-        <value>Modifier un membre de l'abonnement groupé</value>
+        <value>Modifier un membre de l’abonnement groupé</value>
     </data>
     <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
         <value>10</value>
     </data>
     <data name="PANEL_TEXT" xml:space="preserve">
-        <value>Modifier un membre de l'abonnement groupé {0}</value>
+        <value>Modifier un membre de l’abonnement groupé {0}</value>
     </data>
     <data name="StartDate" xml:space="preserve">
         <value>Date de début de validité</value>

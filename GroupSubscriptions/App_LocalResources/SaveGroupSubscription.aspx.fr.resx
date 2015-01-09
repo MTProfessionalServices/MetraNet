@@ -124,21 +124,21 @@
         <value>Retour au tableau de bord</value>
     </data>
     <data name="ErrorSaveGroupSub" xml:space="preserve">
-        <value>Erreur lors de l'enregistrement d'un abonnement groupé.</value>
+        <value>Erreur lors de l’enregistrement d’un abonnement groupé.</value>
     </data>
     <data name="lblCreatedResource1" xml:space="preserve">
-        <value>L'abonnement groupé suivant a été créé avec succès :</value>
+        <value>L’abonnement groupé suivant a été créé avec succès :</value>
     </data>
     <data name="lblDisplayNameResource1.Text" xml:space="preserve">
-        <value>Nom d'affichage</value>
+        <value>Nom d’affichage</value>
     </data>
     <data name="lblGroupSubscriptionResource1.Text" xml:space="preserve">
-        <value>L'abonnement groupé suivant a été créé avec succès :  </value>
+        <value>L’abonnement groupé suivant a été créé avec succès :  </value>
     </data>
     <data name="lblTitleResource1.Text" xml:space="preserve">
         <value>Abonnement groupé </value>
     </data>
     <data name="lblUpdatedResource1" xml:space="preserve">
-        <value>L'abonnement groupé suivant a été mis à jour avec succès :</value>
+        <value>L’abonnement groupé suivant a été mis à jour avec succès :</value>
     </data>
 </root>

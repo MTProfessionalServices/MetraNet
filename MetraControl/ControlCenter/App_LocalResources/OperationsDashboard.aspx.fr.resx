@@ -139,22 +139,22 @@
     <value>Tableau de bord des opérations</value>
   </data>
   <data name="NO_FAILED_ADAPTER_RUNS_TEXT" xml:space="preserve">
-    <value>Aucun adaptateur défectueux en cours d'exécution</value>
+    <value>Aucun adaptateur défectueux en cours d’exécution</value>
   </data>
   <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
     <value>Aucune clôture de facture en attente</value>
   </data>
   <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
-    <value>Aucun adaptateur en cours d'exécution</value>
+    <value>Aucun adaptateur en cours d’exécution</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet - Tableau de bord des opérations</value>
   </data>
   <data name="pnlActiveBillRun.Text" xml:space="preserve">
-    <value>Facture active en cours d'exécution</value>
+    <value>Facture active en cours d’exécution</value>
   </data>
   <data name="pnlBatchUsageResource.Text" xml:space="preserve">
-    <value>Enregistrements de données d'utilisation</value>
+    <value>Enregistrements de données d’utilisation</value>
   </data>
   <data name="pnlBillCloseSynopsisResource.Text" xml:space="preserve">
     <value>Synopsis clôture facture</value>
@@ -163,7 +163,7 @@
     <value>Adaptateurs défectueux</value>
   </data>
   <data name="pnlFailedTransactionsQueueResource.Text" xml:space="preserve">
-    <value>Échec de la file d'attente de transactions</value>
+    <value>Échec de la file d’attente de transactions</value>
   </data>
   <data name="pnlPendingBillClose.Text" xml:space="preserve">
     <value>Clôture facture en attente</value>
@@ -172,10 +172,10 @@
     <value>Moteur de tarification (en temps réel et par lots)</value>
   </data>
   <data name="pnlPricingQueue.Text" xml:space="preserve">
-    <value>File d'attente de tarification</value>
+    <value>File d’attente de tarification</value>
   </data>
   <data name="pnlRunningAdapters.Text" xml:space="preserve">
-    <value>Adaptateurs en cours d'exécution</value>
+    <value>Adaptateurs en cours d’exécution</value>
   </data>
   <data name="TEXT_3_MONTH_AVERAGE" xml:space="preserve">
     <value>Moyenne 3 mois</value>
@@ -199,7 +199,7 @@
     <value>Cycle</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>d'exp.</value>
+    <value>d’exp.</value>
   </data>
   <data name="TEXT_DAYS" xml:space="preserve">
     <value>Jours</value>
@@ -220,7 +220,7 @@
     <value>Instance</value>
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-    <value>ID de l'intervalle</value>
+    <value>ID de l’intervalle</value>
   </data>
   <data name="TEXT_LAST_BATCH" xml:space="preserve">
     <value>Dernier lot</value>
@@ -232,7 +232,7 @@
     <value>messages en attente dans RabbitMQ</value>
   </data>
   <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-    <value>messages en attente d'affectation</value>
+    <value>messages en attente d’affectation</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nom</value>
@@ -247,25 +247,25 @@
     <value>Durée de traitement pipeline</value>
   </data>
   <data name="TEXT_PIPELINE_QUEUE" xml:space="preserve">
-    <value>File d'attente de pipeline</value>
+    <value>File d’attente de pipeline</value>
   </data>
   <data name="TEXT_PIPELINE_WAIT_DURATION" xml:space="preserve">
-    <value>Durée d'attente pipeline</value>
+    <value>Durée d’attente pipeline</value>
   </data>
   <data name="TEXT_RAMP_QUEUE" xml:space="preserve">
-    <value>File d'attente RAMP</value>
+    <value>File d’attente RAMP</value>
   </data>
   <data name="TEXT_READY" xml:space="preserve">
     <value>Prêt:</value>
   </data>
   <data name="TEXT_SCHEDULER_QUEUE" xml:space="preserve">
-    <value>File d'attente calendrier</value>
+    <value>File d’attente calendrier</value>
   </data>
   <data name="TEXT_SECONDS_PROCESSING_IN_PIPELINE" xml:space="preserve">
     <value>secondes de traitement dans le pipeline </value>
   </data>
   <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-    <value>secondes d'attente d'affectation</value>
+    <value>secondes d’attente d’affectation</value>
   </data>
   <data name="TEXT_START" xml:space="preserve">
     <value>Début</value>
@@ -283,7 +283,7 @@
     <value>UDR</value>
   </data>
   <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-    <value>En cours d'examen</value>
+    <value>En cours d’examen</value>
   </data>
   <data name="TEXT_UNGUIDED" xml:space="preserve">
     <value>Sans guide</value>

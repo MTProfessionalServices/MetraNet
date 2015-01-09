@@ -139,7 +139,7 @@
         <value>Date de fin des abonnements</value>
     </data>
     <data name="EXTERN_URL_NAME" xml:space="preserve">
-        <value>Nom de l'URL externe</value>
+        <value>Nom de l’URL externe</value>
     </data>
     <data name="EXTERNAL_URL" xml:space="preserve">
         <value>URL externe</value>
@@ -148,7 +148,7 @@
         <value>Code général</value>
     </data>
     <data name="GLCODE_DISPLAY_NAME" xml:space="preserve">
-        <value>Nom d'affichage Glcode</value>
+        <value>Nom d’affichage Glcode</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
         <value>Abonnements</value>
@@ -166,7 +166,7 @@
         <value>URL interne</value>
     </data>
     <data name="INTERNAL_URL_NAME" xml:space="preserve">
-        <value>Nom de l'URL interne</value>
+        <value>Nom de l’URL interne</value>
     </data>
     <data name="lblSelectSubscriptionsResource1.Text" xml:space="preserve">
         <value>Sélectionner des abonnements</value>
@@ -181,7 +181,7 @@
         <value>MetraNet </value>
     </data>
     <data name="PO_ID" xml:space="preserve">
-        <value>ID de l'offre produit</value>
+        <value>ID de l’offre produit</value>
     </data>
     <data name="START_DATE" xml:space="preserve">
         <value>Date de début</value>
@@ -190,6 +190,6 @@
         <value>Date de début des abonnements</value>
     </data>
     <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-        <value>Période d'abonnement</value>
+        <value>Période d’abonnement</value>
     </data>
 </root>

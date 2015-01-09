@@ -124,13 +124,13 @@
         <value>Ajouter un abonnement</value>
     </data>
     <data name="DisplayName.HeaderText" xml:space="preserve">
-        <value>Nom de l'abonnement</value>
+        <value>Nom de l’abonnement</value>
     </data>
     <data name="EndDate.HeaderText" xml:space="preserve">
         <value>Date de fin</value>
     </data>
     <data name="ExternalInformationURL.HeaderText" xml:space="preserve">
-        <value>URL d'informations externe</value>
+        <value>URL d’informations externe</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
         <value>Abonnements</value>
@@ -145,7 +145,7 @@
         <value>Frais récurr.</value>
     </data>
     <data name="InternalInformationURL.HeaderText" xml:space="preserve">
-        <value>URL d'informations interne</value>
+        <value>URL d’informations interne</value>
     </data>
     <data name="lblSubscriptionsTitle.Text" xml:space="preserve">
         <value>Abonnements</value>
@@ -160,7 +160,7 @@
         <value>MetraNet</value>
     </data>
     <data name="PRODUCT_OFFERING_ID" xml:space="preserve">
-        <value>ID de l'offre produit</value>
+        <value>ID de l’offre produit</value>
     </data>
     <data name="StartDate.HeaderText" xml:space="preserve">
         <value>Date de début</value>
@@ -169,6 +169,6 @@
         <value>État</value>
     </data>
     <data name="SubscriptionID" xml:space="preserve">
-        <value>ID de l'abonnement</value>
+        <value>ID de l’abonnement</value>
     </data>
 </root>

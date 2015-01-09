@@ -130,13 +130,13 @@
         <value>MetraNet</value>
     </data>
     <data name="TEXT_ADJUSTMENT_AMOUNT" xml:space="preserve">
-        <value>Montant d'ajustement</value>
+        <value>Montant d’ajustement</value>
     </data>
     <data name="TEXT_ADJUSTMENT_CREATE_DATE" xml:space="preserve">
-        <value>Date de création de l'ajustement</value>
+        <value>Date de création de l’ajustement</value>
     </data>
     <data name="TEXT_ADJUSTMENT_DESCRIPTION" xml:space="preserve">
-        <value>Description de l'ajustement</value>
+        <value>Description de l’ajustement</value>
     </data>
     <data name="TEXT_ADJUSTMENT_STATUS" xml:space="preserve">
         <value>État</value>
@@ -157,19 +157,19 @@
         <value>ID de la session parent</value>
     </data>
     <data name="TEXT_PENDING_POSTBILL_AMT" xml:space="preserve">
-        <value>Montant de l'ajustement après facturation en attente</value>
+        <value>Montant de l’ajustement après facturation en attente</value>
     </data>
     <data name="TEXT_PENDING_PREBILL_AMT" xml:space="preserve">
-        <value>Montant de l'ajustement avant facturation en attente</value>
+        <value>Montant de l’ajustement avant facturation en attente</value>
     </data>
     <data name="TEXT_PI_DISPNAME" xml:space="preserve">
         <value>Élément à prix</value>
     </data>
     <data name="TEXT_POSTBILL_ADJ_AMT" xml:space="preserve">
-        <value>Total de l'ajustement après facturation</value>
+        <value>Total de l’ajustement après facturation</value>
     </data>
     <data name="TEXT_PREBILL_ADJ_AMT" xml:space="preserve">
-        <value>Total de l'ajustement avant facturation</value>
+        <value>Total de l’ajustement avant facturation</value>
     </data>
     <data name="TEXT_SESSION_ID" xml:space="preserve">
         <value>ID de la session</value>
@@ -181,9 +181,9 @@
         <value>En attente</value>
     </data>
     <data name="TEXT_USERNAME_PAYEE" xml:space="preserve">
-        <value>Nom d'utilisateur du bénéficiaire</value>
+        <value>Nom d’utilisateur du bénéficiaire</value>
     </data>
     <data name="TEXT_USERNAME_PAYER" xml:space="preserve">
-        <value>Nom d'utilisateur du payeur</value>
+        <value>Nom d’utilisateur du payeur</value>
     </data>
 </root>

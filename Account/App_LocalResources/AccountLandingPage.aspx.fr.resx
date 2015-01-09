@@ -145,13 +145,13 @@
         <value>NowCast</value>
     </data>
     <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-        <value>Aucune transacction détectée pour l'intervalle en cours</value>
+        <value>Aucune transacction détectée pour l’intervalle en cours</value>
     </data>
     <data name="NO_INVOICES_TEXT" xml:space="preserve">
         <value>Actuellement, ce compte ne contient pas de factures/paiements.</value>
     </data>
     <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
-        <value>Actuellement, ce compte ne contient pas d'abonnements.</value>
+        <value>Actuellement, ce compte ne contient pas d’abonnements.</value>
     </data>
     <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
         <value>Paiement</value>
@@ -172,7 +172,7 @@
         <value>Adhérer à un abonnement groupé</value>
     </data>
     <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-        <value>Ajouter ce compte en tant que membre d'un abonnement groupé existant</value>
+        <value>Ajouter ce compte en tant que membre d’un abonnement groupé existant</value>
     </data>
     <data name="SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT" xml:space="preserve">
         <value>Abonnement</value>

@@ -181,16 +181,16 @@
         <value>ID de frais internes</value>
     </data>
     <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-        <value>ID de l'intervalle</value>
+        <value>ID de l’intervalle</value>
     </data>
     <data name="TEXT_ISSUE_DATE" xml:space="preserve">
-        <value>Date d'émission</value>
+        <value>Date d’émission</value>
     </data>
     <data name="TEXT_ISSUE_TIME" xml:space="preserve">
-        <value>Heure d'émission</value>
+        <value>Heure d’émission</value>
     </data>
     <data name="TEXT_ISSUER_ID" xml:space="preserve">
-        <value>ID d'émission</value>
+        <value>ID d’émission</value>
     </data>
     <data name="TEXT_NONSTANDARD_CHARGE_REASON" xml:space="preserve">
         <value>Motif des frais non standard</value>
@@ -205,7 +205,7 @@
         <value>Quantité</value>
     </data>
     <data name="TEXT_REASON_CODE" xml:space="preserve">
-        <value>Code d'erreur</value>
+        <value>Code d’erreur</value>
     </data>
     <data name="TEXT_REASONCODE_DESCRIPTION" xml:space="preserve">
         <value>Description du code de motif</value>

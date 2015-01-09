@@ -133,15 +133,15 @@
         <value>Rapport sur les désabonnements</value>
     </data>
     <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
-        <value>Description de l'abonnement</value>
+        <value>Description de l’abonnement</value>
     </data>
     <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-        <value>Date de fin de l'abonnement</value>
+        <value>Date de fin de l’abonnement</value>
     </data>
     <data name="SUBSCRIPTION_NAME" xml:space="preserve">
-        <value>Nom de l'abonnement</value>
+        <value>Nom de l’abonnement</value>
     </data>
     <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-        <value>Date de début de l'abonnement</value>
+        <value>Date de début de l’abonnement</value>
     </data>
 </root>

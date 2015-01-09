@@ -143,7 +143,7 @@
         <value>Mettre à jour le calendrier de rapports hebdomadaire</value>
     </data>
     <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
-        <value>Heure d'exécution (HH:MM)</value>
+        <value>Heure d’exécution (HH:MM)</value>
     </data>
     <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
         <value>Type de calendrier</value>

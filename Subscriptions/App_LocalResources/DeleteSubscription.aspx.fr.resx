@@ -118,16 +118,16 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="lblDisplayNameResource1.Text" xml:space="preserve">
-        <value>Nom d'affichage</value>
+        <value>Nom d’affichage</value>
     </data>
     <data name="lblMessageResource1.Text" xml:space="preserve">
-        <value>Utilisez cette option de suppression d'abonnement uniquement lorsque vous souhaitez supprimer tout l'historique de l'abonnement du compte à l'offre de produit. Sinon, cliquez sur le bouton Désabonner de la page précédente (Abonnements). Pour plus d'informations, consultez la rubrique d'aide A propos de la suppression d'abonnements.</value>
+        <value>Utilisez cette option de suppression d’abonnement uniquement lorsque vous souhaitez supprimer tout l’historique de l’abonnement du compte à l’offre de produit. Sinon, cliquez sur le bouton Désabonner de la page précédente (Abonnements). Pour plus d’informations, consultez la rubrique d’aide A propos de la suppression d’abonnements.</value>
     </data>
     <data name="lblPrompt.Text" xml:space="preserve">
         <value>Êtes-vous sûr de vouloir supprimer cet abonnement ?</value>
     </data>
     <data name="lblTitleResource1.Text" xml:space="preserve">
-        <value>Supprimer l'abonnement</value>
+        <value>Supprimer l’abonnement</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet </value>

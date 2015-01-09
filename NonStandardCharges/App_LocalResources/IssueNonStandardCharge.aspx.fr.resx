@@ -151,7 +151,7 @@
         <value>Taux</value>
     </data>
     <data name="tbReasonCodeResource1.Label" xml:space="preserve">
-        <value>Code d'erreur</value>
+        <value>Code d’erreur</value>
     </data>
     <data name="TEXT_CREATED" xml:space="preserve">
         <value>Des frais non standard ont été émis.</value>
@@ -172,7 +172,7 @@
         <value>Une erreur est survenue lors du traitement de frais non standard.</value>
     </data>
     <data name="TEXT_THROUGH" xml:space="preserve">
-        <value>A l'aide de</value>
+        <value>A l’aide de</value>
     </data>
     <data name="TEXT_UNLIMITED" xml:space="preserve">
         <value>Illimité</value>

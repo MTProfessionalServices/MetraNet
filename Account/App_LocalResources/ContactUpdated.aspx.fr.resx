@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="contactchangesubmittedSuccessMsg" xml:space="preserve">
-        <value>Changement de contact envoyé à l'infrastructure d'approbation</value>
+        <value>Changement de contact envoyé à l’infrastructure d’approbation</value>
     </data>
     <data name="contactchangesubmittedSuccessTitle" xml:space="preserve">
         <value>Changement de contact envoyé</value>
@@ -130,7 +130,7 @@
         <value>Mise à jour des contacts réussie</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d'erreur</value>
+        <value>Messages d’erreur</value>
     </data>
     <data name="lblTitleResource1.Text" xml:space="preserve">
         <value>Confirmation</value>

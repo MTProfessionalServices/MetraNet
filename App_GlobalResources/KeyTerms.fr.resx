@@ -142,7 +142,7 @@
         <value>Abonné principal</value>
     </data>
     <data name="TEXT_KEYTERM_CORPORATE_ACCOUNT" xml:space="preserve">
-        <value>Compte d'entreprise</value>
+        <value>Compte d’entreprise</value>
     </data>
     <data name="TEXT_KEYTERM_COUNTER" xml:space="preserve">
         <value>Compteur</value>
@@ -250,21 +250,21 @@
         <value>Tarifs partagés</value>
     </data>
     <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE" xml:space="preserve">
-        <value>Frais récurrents dépendant de l'unité</value>
+        <value>Frais récurrents dépendant de l’unité</value>
     </data>
     <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES" xml:space="preserve">
-        <value>Frais récurrents dépendant de l'unité</value>
+        <value>Frais récurrents dépendant de l’unité</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGE" xml:space="preserve">
-        <value>Frais d'utilisation</value>
+        <value>Frais d’utilisation</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE" xml:space="preserve">
-        <value>Frais d'utilisation (Consolidés)</value>
+        <value>Frais d’utilisation (Consolidés)</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGES" xml:space="preserve">
-        <value>Frais d'utilisation</value>
+        <value>Frais d’utilisation</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
-        <value>Frais d'utilisation (Consolidés)</value>
+        <value>Frais d’utilisation (Consolidés)</value>
     </data>
 </root>

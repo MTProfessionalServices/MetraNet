@@ -151,7 +151,7 @@
         <value>Nom</value>
     </data>
     <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
-        <value>Empêcher l'exécution ad hoc</value>
+        <value>Empêcher l’exécution ad hoc</value>
     </data>
     <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
         <value>Balise de requête</value>

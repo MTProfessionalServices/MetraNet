@@ -124,7 +124,7 @@
         <value>Description</value>
     </data>
     <data name="PO_ID" xml:space="preserve">
-        <value>ID de l'offre produit</value>
+        <value>ID de l’offre produit</value>
     </data>
     <data name="PO_NAME" xml:space="preserve">
         <value>Nom</value>

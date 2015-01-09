@@ -142,7 +142,7 @@
         <value>Identifiant de note de crédit</value>
     </data>
     <data name="TEXT_DATE" xml:space="preserve">
-        <value>d'exp.</value>
+        <value>d’exp.</value>
     </data>
     <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
         <value>Montant</value>
@@ -160,7 +160,7 @@
         <value>État</value>
     </data>
     <data name="TEXT_STATUS_INFORMATION" xml:space="preserve">
-        <value>Informations d'état</value>
+        <value>Informations d’état</value>
     </data>
     <data name="TEXT_TAX" xml:space="preserve">
         <value>Taxe</value>

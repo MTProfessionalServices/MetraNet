@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TEXT_APPROVAL_GROUP_SUBSCRIPTION_CHANGE_DETAILS" xml:space="preserve">
-        <value>Membres de l'abonnement groupé</value>
+        <value>Membres de l’abonnement groupé</value>
     </data>
     <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNT_NAME" xml:space="preserve">
         <value>Nom du membre</value>
@@ -133,10 +133,10 @@
         <value>Date de fin</value>
     </data>
     <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUB_NAME" xml:space="preserve">
-        <value>Nom de l'abonnement groupé</value>
+        <value>Nom de l’abonnement groupé</value>
     </data>
     <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUBID" xml:space="preserve">
-        <value>ID d'abonnement groupé</value>
+        <value>ID d’abonnement groupé</value>
     </data>
     <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_MEMBERID" xml:space="preserve">
         <value>ID de membre</value>

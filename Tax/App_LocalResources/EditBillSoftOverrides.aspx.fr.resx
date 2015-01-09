@@ -142,7 +142,7 @@
         <value>Indicateur de limite</value>
     </data>
     <data name="tbPcodeResource.Label" xml:space="preserve">
-        <value>Code d'emplacement permanent</value>
+        <value>Code d’emplacement permanent</value>
     </data>
     <data name="tbTaxRateResource1.Label" xml:space="preserve">
         <value>Taxe</value>

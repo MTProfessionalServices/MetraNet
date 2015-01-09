@@ -166,7 +166,7 @@ altFormats:DATE_TIME_FORMAT</value>
         <value>null</value>
     </data>
     <data name="tbStartTimeResource1.Label" xml:space="preserve">
-        <value>Heures d'exécution (UTC)</value>
+        <value>Heures d’exécution (UTC)</value>
     </data>
     <data name="tbStartTimeResource1.LabelSeparator" xml:space="preserve">
         <value>:</value>

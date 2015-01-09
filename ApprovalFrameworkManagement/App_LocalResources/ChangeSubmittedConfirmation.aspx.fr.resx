@@ -124,9 +124,9 @@
         <value>Confirmation du changement envoyé</value>
     </data>
     <data name="lblContentsResource1.Text" xml:space="preserve">
-        <value>Changement envoyé avec succès à l'infrastructure d'approbation.</value>
+        <value>Changement envoyé avec succès à l’infrastructure d’approbation.</value>
     </data>
     <data name="Panel1Resource1.Text" xml:space="preserve">
-        <value>Changement envoyé avec succès à l'infrastructure d'approbation</value>
+        <value>Changement envoyé avec succès à l’infrastructure d’approbation</value>
     </data>
 </root>

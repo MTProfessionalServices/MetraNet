@@ -127,7 +127,7 @@
         <value>Valider</value>
     </data>
     <data name="btnValidateResource1.Tooltip" xml:space="preserve">
-        <value>Valider le nom d'utilisateur</value>
+        <value>Valider le nom d’utilisateur</value>
     </data>
     <data name="cbApplyDefaultPolicyResource1.BoxLabel" xml:space="preserve">
         <value>Appliquer la stratégie par défaut</value>
@@ -145,7 +145,7 @@
         <value>Exempt de taxe</value>
     </data>
     <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-        <value>Type d'authentification</value>
+        <value>Type d’authentification</value>
     </data>
     <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
         <value>Cycle de facturation</value>
@@ -184,19 +184,19 @@
         <value>Jour de la semaine</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d'erreur</value>
+        <value>Messages d’erreur</value>
     </data>
     <data name="LblFirstEndDayOfMonth" xml:space="preserve">
         <value>1er dernier jour du mois</value>
     </data>
     <data name="lblIsValidUsernameResource1.Text" xml:space="preserve">
-        <value>Nom d'utilisateur non valide</value>
+        <value>Nom d’utilisateur non valide</value>
     </data>
     <data name="LblSecondEndDayOfMonth" xml:space="preserve">
         <value>2ème dernier jour du mois</value>
     </data>
     <data name="LblSelectInterval" xml:space="preserve">
-        <value>Sélectionner l'intervalle</value>
+        <value>Sélectionner l’intervalle</value>
     </data>
     <data name="LblStartDay" xml:space="preserve">
         <value>Date de début</value>
@@ -205,7 +205,7 @@
         <value>Mois de début</value>
     </data>
     <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-        <value>Nom d'utilisateur OK</value>
+        <value>Nom d’utilisateur OK</value>
     </data>
     <data name="ListItemResource1.Text" xml:space="preserve">
         <value>Aucun(e)</value>
@@ -214,7 +214,7 @@
         <value>Anglais (États-Unis)</value>
     </data>
     <data name="MTSection2Resource1.Text" xml:space="preserve">
-        <value>Infos d'ouverture de session</value>
+        <value>Infos d’ouverture de session</value>
     </data>
     <data name="MTSection3Resource1.Text" xml:space="preserve">
         <value>Informations du compte</value>
@@ -250,6 +250,6 @@
         <value>Date de début de compte</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>Nom d'utilisateur</value>
+        <value>Nom d’utilisateur</value>
     </data>
 </root>

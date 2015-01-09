@@ -124,7 +124,7 @@
         <value>MetraNet</value>
     </data>
     <data name="TEXT_ACCOUNT_ADMIN_ID" xml:space="preserve">
-        <value>ID d'administrateur du compte</value>
+        <value>ID d’administrateur du compte</value>
     </data>
     <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
         <value>ID du compte</value>

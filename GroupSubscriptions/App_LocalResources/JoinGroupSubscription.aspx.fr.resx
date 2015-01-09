@@ -136,7 +136,7 @@
         <value>Nom</value>
     </data>
     <data name="lblErrorMessageResource1" xml:space="preserve">
-        <value>Messages d'erreur</value>
+        <value>Messages d’erreur</value>
     </data>
     <data name="lblJoinGroupSubscriptionsTitleResource1.Text" xml:space="preserve">
         <value>Adhérer à un abonnement groupé</value>
@@ -148,10 +148,10 @@
         <value>Description</value>
     </data>
     <data name="PODetails.HeaderText" xml:space="preserve">
-        <value>Détails de l'offre produit</value>
+        <value>Détails de l’offre produit</value>
     </data>
     <data name="PODisplayName.HeaderText" xml:space="preserve">
-        <value>Nom d'affichage</value>
+        <value>Nom d’affichage</value>
     </data>
     <data name="StartDate.HeaderText" xml:space="preserve">
         <value>Date de début</value>

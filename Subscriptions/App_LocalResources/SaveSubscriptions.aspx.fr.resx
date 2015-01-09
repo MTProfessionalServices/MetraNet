@@ -124,13 +124,13 @@
         <value>Retour au tableau de bord</value>
     </data>
     <data name="lblDisplayNameResource1.Text" xml:space="preserve">
-        <value>Nom d'affichage</value>
+        <value>Nom d’affichage</value>
     </data>
     <data name="lblSubscriptionResource1" xml:space="preserve">
-        <value>L'abonnement suivant a été créé avec succès :  </value>
+        <value>L’abonnement suivant a été créé avec succès :  </value>
     </data>
     <data name="lblSubscriptionUpdatedResource1" xml:space="preserve">
-        <value>L'abonnement suivant a été mis à jour avec succès : </value>
+        <value>L’abonnement suivant a été mis à jour avec succès : </value>
     </data>
     <data name="lblTitleResource1" xml:space="preserve">
         <value>Abonnement créé avec succès</value>

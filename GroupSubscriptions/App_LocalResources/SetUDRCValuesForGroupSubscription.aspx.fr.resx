@@ -130,7 +130,7 @@
         <value>Date de fin</value>
     </data>
     <data name="ErrorSaveGroupSub" xml:space="preserve">
-        <value>Erreur lors de l'enregistrement d'un abonnement groupé.</value>
+        <value>Erreur lors de l’enregistrement d’un abonnement groupé.</value>
     </data>
     <data name="FlatRateRCGrid.Title" xml:space="preserve">
         <value>Configuration des frais récurrents forfaitaires</value>
@@ -139,10 +139,10 @@
         <value>IDInstanceFRForfaitaires</value>
     </data>
     <data name="lblErrorMessageResource1" xml:space="preserve">
-        <value>Messages d'erreur</value>
+        <value>Messages d’erreur</value>
     </data>
     <data name="lblSetChargeAccountResource1" xml:space="preserve">
-        <value>Configurez les comptes de frais forfaitaires/UDRC avant d'ajouter les valeurs UDRC</value>
+        <value>Configurez les comptes de frais forfaitaires/UDRC avant d’ajouter les valeurs UDRC</value>
     </data>
     <data name="lblTitleResource1" xml:space="preserve">
         <value>Comptes des frais récurrents</value>
@@ -154,7 +154,7 @@
         <value>Date de début</value>
     </data>
     <data name="UDRCGrid.Title" xml:space="preserve">
-        <value>Configuration des frais récurrents en fonction de l'unité</value>
+        <value>Configuration des frais récurrents en fonction de l’unité</value>
     </data>
     <data name="UDRCInstanceId.HeaderText" xml:space="preserve">
         <value>IDInstanceUDRC</value>

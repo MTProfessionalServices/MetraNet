@@ -169,13 +169,13 @@
     <value>Valeur</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>Nom d'utilisateur</value>
+    <value>Nom d’utilisateur</value>
   </data>
   <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
-    <value>Date de fin de l'abonnement</value>
+    <value>Date de fin de l’abonnement</value>
   </data>
   <data name="dpSubParamsStartDateResource.Label" xml:space="preserve">
-    <value>Date de début de l'abonnement</value>
+    <value>Date de début de l’abonnement</value>
   </data>
   <data name="tbSubParamsDescriptionResource.Label" xml:space="preserve">
     <value>Description</value>
@@ -184,7 +184,7 @@
     <value>Offre produit</value>
   </data>
   <data name="isCorpAccountIdResource.Label" xml:space="preserve">
-    <value>Compte d'entreprise</value>
+    <value>Compte d’entreprise</value>
   </data>
   <data name="btnUpdateAccountConfigSetResource.Text" xml:space="preserve">
     <value>Mettre à jour</value>
@@ -220,7 +220,7 @@
     <value>[FR]Subscription Model Details</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
-    <value>Nom de l'abonnement groupé</value>
+    <value>Nom de l’abonnement groupé</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
     <value>ID de param. d'abonnement</value>

@@ -118,19 +118,19 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ErrorDeleteGroupSubMember" xml:space="preserve">
-        <value>Erreur lors de la suppression d'un membre de l'abonnement groupé.</value>
+        <value>Erreur lors de la suppression d’un membre de l’abonnement groupé.</value>
     </data>
     <data name="InfoMsg.Text" xml:space="preserve">
-        <value>Un ou plusieurs abonnements de membres sont sur le point d'être supprimés. Certains de ces abonnements sont encore actifs ; par conséquent, modifiez la date de début en spécifiant le lendemain, pour activer la suppression. Ces membres n'apparaîtront plus dans la liste des abonnés, et l'enregistrement de leurs abonnements sera supprimé.</value>
+        <value>Un ou plusieurs abonnements de membres sont sur le point d’être supprimés. Certains de ces abonnements sont encore actifs ; par conséquent, modifiez la date de début en spécifiant le lendemain, pour activer la suppression. Ces membres n’apparaîtront plus dans la liste des abonnés, et l’enregistrement de leurs abonnements sera supprimé.</value>
     </data>
     <data name="lblConfirmResource1.Text" xml:space="preserve">
         <value>Êtes-vous sûr de vouloir effectuer la suppression ?</value>
     </data>
     <data name="lblDeleteGroupSubMembersTitleResource1" xml:space="preserve">
-        <value>Supprimer des membres de l'abonnement groupé</value>
+        <value>Supprimer des membres de l’abonnement groupé</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Messages d'erreur</value>
+        <value>Messages d’erreur</value>
     </data>
     <data name="lblMessageResource1.Text" xml:space="preserve">
         <value>Vous êtes sur le point de supprimer définitivement cet abonnement groupé et toutes les données du système. Cela n'est autorisé que s'il n'y a jamais eu de participation à cet abonnement groupé. Cet abonnement groupé sera supprimé des modèles de comptes associés.</value>
@@ -139,6 +139,6 @@
         <value>Date de début de validité</value>
     </data>
     <data name="PanelTitle" xml:space="preserve">
-        <value>Supprimer des membres de l'abonnement groupé</value>
+        <value>Supprimer des membres de l’abonnement groupé</value>
     </data>
 </root>

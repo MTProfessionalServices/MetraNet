@@ -65,7 +65,7 @@ WHERE 	COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_e
 	AND	(%%PRODUCTID%% IS NULL OR (%%PRODUCTID%% IS NOT NULL AND acc.id_pi_template = %%PRODUCTID%%))
 	AND (NOT EXISTS (select 1 from t_be_sys_rep_accountingcycle)
 		OR
-		('%%ACCOUNTINGCYCLEID%%' = '00000000-0000-0000-0000-000000000000'
+		('%%ACCOUNTINGCYCLEID%%' = '00000000000000000000000000000000'
 			AND NOT EXISTS (	SELECT 1
 								FROM t_be_sys_rep_accountingcycle dcycl
 								INNER JOIN t_be_sys_rep_accountingcycl dcyclto ON dcycl.c_AccountingCycle_Id = dcyclto.c_AccountingCycle_Id
@@ -78,7 +78,7 @@ WHERE 	COALESCE(udrc_ep.c_IsLiabilityProduct, frc_ep.c_IsLiabilityProduct, nrc_e
 				FROM t_be_sys_rep_accountingcycle cycl
 				LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 				LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-				WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+				WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 				AND tanc.id_descendent = acc.id_payee
 				AND (	(cycl.c_IsDefault = 'F' AND cyclto.c_AccountId IS NOT NULL)
 						OR

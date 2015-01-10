@@ -37,7 +37,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 
@@ -110,7 +110,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 
@@ -178,7 +178,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 
@@ -239,7 +239,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 

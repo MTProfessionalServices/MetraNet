@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="GroupSubscriptions_SetUDRCValues" Title="<%$Resources:Resource,TEXT_TITLE%>"
-  Culture="auto" UICulture="auto" CodeFile="SetUDRCValues.aspx.cs" %>
+  Culture="auto" UICulture="auto" CodeFile="SetUDRCValuesForGroupSubscription.aspx.cs" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

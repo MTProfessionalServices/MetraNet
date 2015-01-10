@@ -147,6 +147,17 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
       string reportdestination = exportreportinstance.ReportDestination;
 
       string reportexecutiontype = exportreportinstance.ReportExecutionType == ReportExecutionTypeEnum.EOP ? "EOP" : "Scheduled";
+      if (reportdistributiontype == "Disk")
+      {
+        if (reportdestination.Length > 2)
+        {
+          string slash = "\\";
+          if (reportdestination.Substring(reportdestination.Length - 1) != slash)
+          {
+            reportdestination = reportdestination + '\\';
+          }
+        }
+      }
 
       DateTime reportactivationdate = exportreportinstance.InstanceActivationDate;
       DateTime reportdeactivationdate = exportreportinstance.InstanceDeactivationDate;

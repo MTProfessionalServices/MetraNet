@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using MetraTech.UI.Common;
 
-public partial class SummaryGridView : MTPage
+public partial class FailedTransactionSummaryGridView : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {

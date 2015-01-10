@@ -608,7 +608,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_INTERVAL_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerIntervalSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerIntervalSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -622,7 +622,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_ERROR_TYPE_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerErrorTypeSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerErrorTypeSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -636,7 +636,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionIntervalTypeSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionIntervalTypeSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -650,7 +650,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionStagePluginSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionStagePluginSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -664,7 +664,7 @@
                                 <LocalizationTag>TEXT_SUMMARY_BY_ERROR_TYPE</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionErrorTypeSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionErrorTypeSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_error.png</Icon>
                             <Description></Description>

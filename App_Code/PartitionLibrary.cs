@@ -175,6 +175,61 @@ public class PartitionLibrary
     gdel.FilterHideable = false;
   }
 
+  public static void SetupFilterGridForPartitionSystemUser(MetraTech.UI.Controls.MTFilterGrid grid,
+                                                           string partitionElement, bool filterByPartitionId = true)
+  {
+    var gdel = grid.FindElementByID(partitionElement);
+    if (gdel == null)
+    {
+      // let us not thru exception for now, there might be a case where gridlayout might not have partition id as a column
+      //throw new ApplicationException(
+      //  string.Format("Can't find element named {0} on the FilterGrid layout '{1}'", filterElementName,
+      //                grid.TemplateFileName));
+      return;
+    }
+
+    Dictionary<string, Int32> partitions = RetrieveAllPartitions();
+    partitions = partitions.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+    
+    gdel.FilterHideable = true;
+    if (partitions.Count == 0)
+    {
+      // If there is no partition in the system, then remove partition column from the grid
+      gdel.IsColumn = false;
+      gdel.Filterable = false;
+    }
+    else
+    {
+      if (PartitionData.isPartitionUser)
+      {
+        grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, PartitionData.PartitionName);
+        gdel.FilterOperation = MTFilterOperation.Equal;
+        gdel.ElementValue = filterByPartitionId
+                              ? PartitionData.PartitionId.ToString(CultureInfo.CurrentCulture)
+                              : PartitionData.PartitionUserName;
+        gdel.FilterReadOnly = true;
+      }
+      else
+      {
+        gdel.DataType = MTDataType.List;
+
+        // Add an entry for Non-Partition (root)
+        partitions.Add("Non-Partitioned", 1);
+        
+        foreach (string pname in partitions.Keys)
+        {
+          int pId;
+          partitions.TryGetValue(pname, out pId);
+          var dropDownItem = new MTFilterDropdownItem();
+          dropDownItem.Key = filterByPartitionId
+                               ? pId.ToString(CultureInfo.CurrentCulture)
+                               : pname;
+          dropDownItem.Value = string.Format("{0} ({1})", pname, pId.ToString(CultureInfo.CurrentCulture));
+          gdel.FilterDropdownItems.Add(dropDownItem);
+        }
+      }
+    }
+  }
 
   public static void PopulatePriceListDropdown(DropDownList ddPriceList)
   {

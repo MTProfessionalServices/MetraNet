@@ -58,8 +58,12 @@
                 </QueryParameters>
                 <QueryColumns>
                     <QueryColumn>
-                        <Name>unique_identifier</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                        <Name>ID</Name>
+                        <Type>System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+    	            <QueryColumn>
+                        <Name>Partition</Name>
+                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
                         <Name>id_acc</Name>
@@ -251,12 +255,14 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>unique_identifier</ID>
+            <ID>ID</ID>
             <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
-            <DataIndex>unique_identifier</DataIndex>
+            <DataIndex>ID</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <Value><![CDATA[ID]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>false</Resizeable>
@@ -284,13 +290,50 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
+            <ID>partition</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>partition</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                 <LocalizationTag>TEXT_PARTITION</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
             <ID>id_acc</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_acc</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[ID_ Acc]]></Value>
+                <LocalizationTag>TEXT_ID_ACC</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -325,7 +368,8 @@
             <DataIndex>id_usage_interval</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[ID_Usage_Interval]]></Value>
+                	 <LocalizationTag>TEXT_ID_USAGE_INTERVAL</LocalizationTag>
+                     <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -360,7 +404,8 @@
             <DataIndex>interval_start</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Interval_Start]]></Value>
+                 <LocalizationTag>TEXT_INTERVAL_START</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -395,7 +440,8 @@
             <DataIndex>interval_end</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Interval_End]]></Value>
+                 <LocalizationTag>TEXT_INTERVAL_END</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -430,7 +476,8 @@
             <DataIndex>decision_unique_id</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Decision_Unique_Id]]></Value>
+                 <LocalizationTag>TEXT_DECISION_UNIQUE_ID</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -465,7 +512,8 @@
             <DataIndex>parent_decision_unique_id</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Parent_Decision_Unique_Id]]></Value>
+                 <LocalizationTag>TEXT_PARENT_DECISION_UNIQUE_ID</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -500,7 +548,8 @@
             <DataIndex>decision_type</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Decision_Type]]></Value>
+                 <LocalizationTag>TEXT_DECISION_TYPE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -535,7 +584,8 @@
             <DataIndex>intervals_remaining</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Intervals_Remaining]]></Value>
+                 <LocalizationTag>TEXT_INTERVALS_REMAINING</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -570,7 +620,8 @@
             <DataIndex>start_date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Start_Date]]></Value>
+                 <LocalizationTag>TEXT_START_DATE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -605,7 +656,8 @@
             <DataIndex>end_date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[End_Date]]></Value>
+                 <LocalizationTag>TEXT_END_DATE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -640,7 +692,8 @@
             <DataIndex>finalization_date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Finalization_Date]]></Value>
+                 <LocalizationTag>TEXT_FINALIZATION_DATE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -675,7 +728,8 @@
             <DataIndex>finalized</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Finalized]]></Value>
+                     <LocalizationTag>TEXT_FINALIZED</LocalizationTag>
+               		 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -710,7 +764,8 @@
             <DataIndex>expiration_date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Expiration_Date]]></Value>
+                <LocalizationTag>TEXT_EXPIRATION_DATE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -745,7 +800,8 @@
             <DataIndex>expired</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Expired]]></Value>
+                <LocalizationTag>TEXT_EXPIRED</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -780,7 +836,8 @@
             <DataIndex>audit_only</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Audit Only]]></Value>
+                <LocalizationTag>TEXT_AUDIT_ONLY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -814,7 +871,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>tier_end</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                 <LocalizationTag>TEXT_TIER_END</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -848,7 +908,8 @@
             <DataIndex>tier_start</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Tier_Start]]></Value>
+                 <LocalizationTag>TEXT_TIER_START</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -883,7 +944,8 @@
             <DataIndex>qualified_total</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Qualified_Total]]></Value>
+                 <LocalizationTag>TEXT_QUALIFIED_TOTAL</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -918,7 +980,8 @@
             <DataIndex>qualified_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Qualified_Events]]></Value>
+                 <LocalizationTag>TEXT_QUALIFIED_EVENTS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -953,7 +1016,8 @@
             <DataIndex>qualified_units</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Qualified_Units]]></Value>
+                 <LocalizationTag>TEXT_QUALIFIED_UNITS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -988,7 +1052,8 @@
             <DataIndex>qualified_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Qualified_amount]]></Value>
+				 <LocalizationTag>TEXT_QUALIFIED_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1023,7 +1088,8 @@
             <DataIndex>total_generated_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Generated_Events]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_GENERATED_EVENTS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1058,7 +1124,8 @@
             <DataIndex>total_generated_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Generated_Amount]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_GENERATED_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1093,7 +1160,8 @@
             <DataIndex>total_rated_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Rated_Events]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_RATED_EVENTS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1128,7 +1196,8 @@
             <DataIndex>total_rated_units</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Rated_Units]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_RATED_UNITS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1163,7 +1232,8 @@
             <DataIndex>total_rated_amount_delta</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Rated_Amount_Delta]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_RATED_AMOUNT_DELTA</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1198,7 +1268,8 @@
             <DataIndex>total_rated_amount_after</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Rated_Amount_After]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_RATED_AMOUNT_AFTER</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1233,7 +1304,8 @@
             <DataIndex>total_discounted_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Discounted_Events]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_DISCOUNTED_EVENTS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1268,7 +1340,8 @@
             <DataIndex>total_discounted_units</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Discounted_Units]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_DISCOUNTED_UNITS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1303,7 +1376,8 @@
             <DataIndex>total_discounted_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Discounted_Amount]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_DISCOUNTED_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1338,7 +1412,8 @@
             <DataIndex>total_discount_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total_Discount_Amount]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_DISCOUNT_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1373,7 +1448,8 @@
             <DataIndex>pre_qualified_total</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Qualified_Total]]></Value>
+                 <LocalizationTag>TEXT_PRE_QUALIFIED_TOTAL</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1408,7 +1484,8 @@
             <DataIndex>pre_qualified_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Qualified_Events]]></Value>
+                 <LocalizationTag>TEXT_PRE_QUALIFIED_EVENTS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1443,7 +1520,8 @@
             <DataIndex>pre_qualified_units</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Qualified_Units]]></Value>
+                 <LocalizationTag>TEXT_PRE_QUALIFIED_UNITS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1478,7 +1556,8 @@
             <DataIndex>pre_qualified_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Qualified_Amount]]></Value>
+                 <LocalizationTag>TEXT_PRE_QUALIFIED_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1513,7 +1592,8 @@
             <DataIndex>pre_total_generated_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Generated_Events]]></Value>
+                 <LocalizationTag>TEXT_PRE_TOTAL_GENERATED_EVENTS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1548,7 +1628,8 @@
             <DataIndex>pre_total_generated_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Generated_Amount]]></Value>
+                <LocalizationTag>TEXT_PRE_TOTAL_GENERATED_AMOUNT</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1583,7 +1664,8 @@
             <DataIndex>pre_total_rated_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Rated_Events]]></Value>
+                 <LocalizationTag>TEXT_PRE_TOTAL_RATED_EVENTS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1618,7 +1700,8 @@
             <DataIndex>pre_total_rated_units</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Rated_Units]]></Value>
+               <LocalizationTag>TEXT_PRE_TOTAL_RATED_UNITS</LocalizationTag>
+               <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1653,7 +1736,8 @@
             <DataIndex>pre_total_rated_amount_delta</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Rated_Amounnt_Delta]]></Value>
+                <LocalizationTag>TEXT_PRE_TOTAL_RATED_AMOUNT_DELTA</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1688,7 +1772,8 @@
             <DataIndex>pre_total_rated_amount_after</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Rated_Amounnt_After]]></Value>
+                 <LocalizationTag>TEXT_PRE_TOTAL_RATED_AMOUNT_AFTER</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1723,7 +1808,8 @@
             <DataIndex>pre_total_discounted_events</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Discounted_Events]]></Value>
+                <LocalizationTag>TEXT_PRE_TOTAL_DISCOUNTED_EVENTS</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1758,7 +1844,8 @@
             <DataIndex>pre_total_discounted_units</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Discounted_Units]]></Value>
+                 <LocalizationTag>TEXT_PRE_TOTAL_DISCOUNTED_UNITS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1793,7 +1880,8 @@
             <DataIndex>pre_total_discounted_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Discounted_Amount]]></Value>
+                 <LocalizationTag>TEXT_PRE_TOTAL_DISCOUNTED_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -1828,7 +1916,8 @@
             <DataIndex>pre_total_discount_amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pre_Total_Discount_Amount]]></Value>
+               <LocalizationTag>TEXT_PRE_TOTAL_DISCOUNT_AMOUNT</LocalizationTag>
+               <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

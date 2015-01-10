@@ -118,7 +118,8 @@
             <DataIndex>nm_enum_data</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Message Type]]></Value>
+                <LocalizationTag>TEXT_MESSAGE_TYPE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -153,7 +154,8 @@
             <DataIndex>id_pipeline</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Pipeline ID]]></Value>
+                 <LocalizationTag>TEXT_PIPELINE_ID</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -188,7 +190,8 @@
             <DataIndex>unprocessed_messages</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Unprocessed Messages]]></Value>
+                 <LocalizationTag>TEXT_UNPROCESSED_MESSAGES</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

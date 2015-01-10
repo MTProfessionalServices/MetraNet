@@ -154,7 +154,8 @@
             <DataIndex>id_country</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[ID_Country]]></Value>
+                <LocalizationTag>TEXT_COUNTRY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>350</Width>
@@ -189,7 +190,8 @@
             <DataIndex>card type</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Card Type]]></Value>
+                 <LocalizationTag>TEXT_CARD_TYPE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>300</Width>
@@ -224,7 +226,8 @@
             <DataIndex>n_currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[N_Currency]]></Value>
+                 <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -259,7 +262,8 @@
             <DataIndex>registered users</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Registered Users]]></Value>
+                 <LocalizationTag>TEXT_REGISTERED_USERS</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -294,7 +298,8 @@
             <DataIndex>num of payments</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Num Of Payments]]></Value>
+                <LocalizationTag>TEXT_NUMBER_OF_PAYMENTS</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -329,7 +334,8 @@
             <DataIndex>minimum amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Minimum Amount]]></Value>
+                 <LocalizationTag>TEXT_MINIMUM_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -364,7 +370,8 @@
             <DataIndex>maximum amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Maximum Amount]]></Value>
+               <LocalizationTag>TEXT_MAXIMUM_AMOUNT</LocalizationTag>
+               <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -399,7 +406,8 @@
             <DataIndex>average amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Average Amount]]></Value>
+                 <LocalizationTag>TEXT_AVERAGE_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -434,7 +442,8 @@
             <DataIndex>last transaction of type</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Last Transaction of Type]]></Value>
+                 <LocalizationTag>TEXT_LAST_TRANSACTION_OF_TYPE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -463,13 +472,14 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>last trasaction date</ID>
+            <ID>last transaction date</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>last trasaction date</DataIndex>
+            <DataIndex>last transaction date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Last Transaction Date]]></Value>
+                 <LocalizationTag>TEXT_LAST_TRANSACTION_DATE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -504,7 +514,8 @@
             <DataIndex>payment type</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Payment Type]]></Value>
+                 <LocalizationTag>TEXT_PAYMENT_TYPE</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

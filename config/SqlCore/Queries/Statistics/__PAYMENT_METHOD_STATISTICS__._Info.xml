@@ -3,6 +3,7 @@
     <Action>Get</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>		
     </Implementations>
     <Parameters></Parameters>
     <Description>Retrieve the Payment methods and related statistics</Description>

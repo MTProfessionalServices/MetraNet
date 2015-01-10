@@ -1,4 +1,6 @@
 select 
+    dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/ 
+    COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
   concat(mapClient.nm_login, concat(mapClient.nm_space, avi.c_TaxExemptEndDate)) "Unique identifier",
 	mapClient.nm_login "UserIdentifier",
 	NVL(avcClient.c_FirstName + ' ','') + NVL(avcClient.c_LastName,'') "Name",
@@ -11,6 +13,7 @@ select
 from t_account_mapper mapClient 
 inner join t_av_internal avi on mapClient.id_acc = avi.id_acc
 inner join t_av_contact avcClient on mapClient.id_acc = avcClient.id_acc
+left outer join vw_bus_partition_accounts bpt on bpt.id_acc = avi.id_acc
 and avcClient.c_contacttype = (SELECT id_enum_data FROM t_enum_data WHERE nm_enum_data ='metratech.com/accountcreation/contacttype/bill-to' )
 inner join t_description descCountry on avcClient.c_Country = descCountry.id_desc and descCountry.id_lang_code = (SELECT id_lang_code FROM t_language WHERE tx_lang_code = 'us')
 WHERE  

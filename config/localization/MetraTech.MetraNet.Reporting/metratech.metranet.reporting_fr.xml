@@ -15,6 +15,10 @@
             <Value>De base</Value>
         </locale_entry>
         <locale_entry>
+            <Name>MetraTech.MetraNet.Reporting/ReportType/BillingGroupStatistics</Name>
+            <Value>Facturation Statistiques Groupe</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Configured</Name>
             <Value>Configuré</Value>
         </locale_entry>

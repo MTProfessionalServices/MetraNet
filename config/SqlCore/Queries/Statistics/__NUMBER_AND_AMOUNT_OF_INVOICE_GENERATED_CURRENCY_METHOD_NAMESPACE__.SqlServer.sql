@@ -1,6 +1,7 @@
 
 				select
-                  concat(invoice_currency, tx_Desc, namespace) 'Unique Identifier',				
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/	
+		  		  COALESCE(partition_name, N'Non-Partitioned') "PARTITION",       
 				  count(*) "# of invoices",
 				  tx_desc "Invoice Method",
 				  namespace "Namespace",
@@ -10,7 +11,8 @@
 				from t_invoice inv
 				inner join t_av_internal av on inv.id_payer=av.id_acc
 				left outer join t_description des on av.c_invoicemethod=des.id_desc
+                left outer join vw_bus_partition_accounts bpt on bpt.id_acc = inv.id_acc
 				where id_payer_interval=%%ID_INTERVAL%%
 				  and (id_lang_code=%%ID_LANG_CODE%% 
 				       or id_lang_code is null)
-				group by invoice_currency,tx_Desc,namespace
+				group by partition_name,invoice_currency,tx_Desc,namespace

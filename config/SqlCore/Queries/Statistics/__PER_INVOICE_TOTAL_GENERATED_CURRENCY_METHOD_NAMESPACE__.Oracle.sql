@@ -1,6 +1,7 @@
 
 				select 
-				  inv.id_payer || id_invoice_num || invoice_currency || tx_Desc || namespace || au.total AS "Unique Identifier",
+				  dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/	
+		          COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				  inv.id_payer AS Payer,
 				  id_invoice_num AS "Invoice Number",
 				  au.total AS "Contributing Accounts",
@@ -18,7 +19,8 @@
 				    group by id_acc
 				    ) au 
 				  on au.id_acc=inv.id_payer
+				left outer join vw_bus_partition_accounts bpt on bpt.id_acc = au.id_acc
 				where id_payer_interval=%%ID_INTERVAL%%
 				  and (id_lang_code=%%ID_LANG_CODE%% 
 				       or id_lang_code is null)
-				group by inv.id_payer,id_invoice_num,invoice_currency,tx_Desc,namespace,au.total
+				group by partition_name,inv.id_payer,id_invoice_num,invoice_currency,tx_Desc,namespace,au.total

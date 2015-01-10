@@ -1018,8 +1018,8 @@ public class BillManager: System.Web.UI.TemplateControl
 
       PaymentInfo paymentInfo = new PaymentInfo();
       AccountIdentifier identifier = new AccountIdentifier(accID);
-
-      client.GetPaymentInfo(identifier, GetLanguageCode(), ref paymentInfo);
+      var language = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
+      client.GetPaymentInfoLocalized(identifier, language, ref paymentInfo);
 
       return paymentInfo;
     }

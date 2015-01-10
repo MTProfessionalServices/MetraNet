@@ -1017,4 +1017,142 @@
   <data name="MT_CANNOT_MOVE_ACCOUNT_TO_ANOTHER_NAMESPACE" xml:space="preserve">
     <value>[ES]Account cannot be moved to another namespace.</value>
   </data>
+  <data name="INVALID_BRANDED_SITE" xml:space="preserve">
+    <value>[ES]Invalid Branded site. Should be branded site in '{0}' namespace.</value>
+  </data>
+  <data name="NOT_ACCOUNT" xml:space="preserve">
+    <value>[ES]The given object is not an Account</value>
+  </data>
+  <data name="MISSING_INTERNAL_VIEW" xml:space="preserve">
+    <value>[ES]Account must have an InternalView</value>
+  </data>
+  <data name="MISSING_USERNAME" xml:space="preserve">
+    <value>[ES]Account must have a user name</value>
+  </data>
+  <data name="MISSING_PASSWORD" xml:space="preserve">
+    <value>[ES]Account must have a password</value>
+  </data>
+  <data name="MISSING_NAMESPACE" xml:space="preserve">
+    <value>[ES]Account must have a namespace</value>
+  </data>
+  <data name="MISSING_DAY_OF_MONTH" xml:space="preserve">
+    <value>[ES]Day of month must be specified for monthly cycle type</value>
+  </data>
+  <data name="MISSING_DAY_OF_WEEK" xml:space="preserve">
+    <value>[ES]Day of week must be specified for weekly cycle type</value>
+  </data>
+  <data name="MISSING_START_DAY" xml:space="preserve">
+    <value>[ES]Start day must be specified for {0} cycle type</value>
+  </data>
+  <data name="MISSING_START_MONTH" xml:space="preserve">
+    <value>[ES]Start month must be specified for {0} cycle type</value>
+  </data>
+  <data name="MISSING_START_YEAR" xml:space="preserve">
+    <value>[ES]Start year must be specified for bi-weekly cycle type</value>
+  </data>
+  <data name="MISSING_FIRST_DAY_OF_MONTH" xml:space="preserve">
+    <value>[ES]First day of month must be specified for semi-monthly cycle type</value>
+  </data>
+  <data name="MISSING_SECOND_DAY_OF_MONTH" xml:space="preserve">
+    <value>[ES]Second day of month must be specified for semi-monthly cycle type</value>
+  </data>
+  <data name="MISSING_REQUIRED_PROP_ACCOUNT" xml:space="preserve">
+    <value>[ES]The required account property '{0}' has not been specified</value>
+  </data>
+  <data name="MISSING_REQUIRED_PROP_VIEW" xml:space="preserve">
+    <value>[ES]The required view property '{0}' has not been specified for view '{1}'</value>
+  </data>
+  <data name="MISSING_CURRENCY_FOR_PAYER" xml:space="preserve">
+    <value>[ES]The payer account '{0}' must have a valid currency</value>
+  </data>
+  <data name="MISSING_ACCOUNT_TYPE" xml:space="preserve">
+    <value>[ES]The account '{0}' must have a valid account type</value>
+  </data>
+  <data name="MISSING_ACCOUNT_STATUS" xml:space="preserve">
+    <value>[ES]The account '{0}' must have a valid account status</value>
+  </data>
+  <data name="INVALID_ACCOUNT_TYPE" xml:space="preserve">
+    <value>[ES]The account '{0}' has an invalid account type '{1}'</value>
+  </data>
+  <data name="MISSING_LANGUAGE" xml:space="preserve">
+    <value>[ES]The account '{0}' must have a valid language</value>
+  </data>
+  <data name="INVALID_USAGE_CYCLE_TYPE" xml:space="preserve">
+    <value>[ES]The account '{0}' has an invalid usage cycle type '{1}'</value>
+  </data>
+  <data name="MISSING_USAGE_CYCLE_TYPE" xml:space="preserve">
+    <value>[ES]The account '{0}' must have a usage cycle type</value>
+  </data>
+  <data name="ANCESTOR_ID_MISMATCH" xml:space="preserve">
+    <value>[ES]The account '{0}' has a ancestor login '{1}' and namespace '{2}' that doesn't match the specifeid ancestor ID '{3}'.</value>
+  </data>
+  <data name="MISSING_ANCESTOR_LOGIN" xml:space="preserve">
+    <value>[ES]The account '{0}' has an ancestor namespace '{1}' but no login information.</value>
+  </data>
+  <data name="MISSING_ANCESTOR_NAMESPACE" xml:space="preserve">
+    <value>[ES]The account '{0}' has an ancestor login '{1}' but no namespace information.</value>
+  </data>
+  <data name="PAYER_ID_MISMATCH" xml:space="preserve">
+    <value>[ES]The account '{0}' has a payer login '{1}' and namespace '{2}' that doesn't match the specifeid payer ID '{3}'.</value>
+  </data>
+  <data name="MISSING_PAYER_LOGIN" xml:space="preserve">
+    <value>[ES]The account '{0}' has a payer namespace '{1}' but no login information.</value>
+  </data>
+  <data name="MISSING_PAYER_NAMESPACE" xml:space="preserve">
+    <value>[ES]The account '{0}' has a payer login '{1}' but no namespace information.</value>
+  </data>
+  <data name="MISSING_LOGIN_APP" xml:space="preserve">
+    <value>[ES]The system account '{0}' must have a login application</value>
+  </data>
+  <data name="INVALID_ACCOUNT_ANCESTOR" xml:space="preserve">
+    <value>[ES]The account '{0}' has an invalid ancestor id of -1</value>
+  </data>
+  <data name="INVALID_ACCOUNT_USERNAME" xml:space="preserve">
+    <value>[ES]The account '{0}' cannot have a username greater than 255 characters.</value>
+  </data>
+  <data name="INVALID_ACCOUNT_PASSWORD" xml:space="preserve">
+    <value>[ES]The account '{0}' cannot have a password greater than 1024 characters.</value>
+  </data>
+  <data name="INVALID_START_YEAR" xml:space="preserve">
+    <value>[ES]The account '{0}' must have a start year that is between 1970 and 2037.</value>
+  </data>
+  <data name="INVALID_START_DAY" xml:space="preserve">
+    <value>[ES]The account '{0}' has a start day that is greater than the number of days for the month '{1}' in year '{2}'.</value>
+  </data>
+  <data name="INVALID_START_DAY_WITHOUT_YEAR" xml:space="preserve">
+    <value>[ES]The account '{0}' has a start day that is greater than the number of days for the month '{1}'.</value>
+  </data>
+  <data name="INVALID_START_DAY_RANGE" xml:space="preserve">
+    <value>[ES]The account start day must be in the range [1 - 31].</value>
+  </data>
+  <data name="INVALID_START_MONTH_RANGE" xml:space="preserve">
+    <value>[ES]The account start month must be in the range [1 - 12].</value>
+  </data>
+  <data name="INVALID_FIRST_DAY" xml:space="preserve">
+    <value>[ES]Invalid End of Month day selected. Day MUST be after start day.</value>
+  </data>
+  <data name="INVALID_DATA" xml:space="preserve">
+    <value>[ES]Invalid Data.</value>
+  </data>
+  <data name="INVALID_START_YEAR_FOR_CYCLE" xml:space="preserve">
+    <value>[ES]The '{0}' cycle type must have a start year that is between 1970 and 2037.</value>
+  </data>
+  <data name="INVALID_START_DAY_FOR_CYCLE" xml:space="preserve">
+    <value>[ES]The '{0}' cycle type has a start day that is greater than the number of days for the month '{1}' in year '{2}'.</value>
+  </data>
+  <data name="INVALID_START_MONTH_RANGE_FOR_CYCLE" xml:space="preserve">
+    <value>[ES]The start month must be in the range [1 - 12] for '{0}' cycle type.</value>
+  </data>
+  <data name="INVALID_START_DAY_RANGE_FOR_CYCLE" xml:space="preserve">
+    <value>[ES]The start day must be in the range [1 - 31] for '{0}' cycle type.</value>
+  </data>
+  <data name="INVALID_START_DAY_WITHOUT_YEAR_FOR_CYCLE" xml:space="preserve">
+    <value>[ES]The '{0}' cycle type has a start day that is greater than the number of days for the month '{1}'.</value>
+  </data>
+  <data name="UNKNOWN_CYCLE_TYPE" xml:space="preserve">
+    <value>[ES]The '{0}' cycle type is unsupported cycle type.</value>
+  </data>
+  <data name="Account_failed_validation" xml:space="preserve">
+    <value>[ES]Account failed validation</value>
+  </data>
 </root>

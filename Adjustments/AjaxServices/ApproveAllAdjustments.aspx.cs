@@ -40,7 +40,10 @@ public partial class Adjustments_AjaxServices_ApproveAllAdjustments : MTListServ
           client.Open();
           client.ApproveAllAdjustedTransactions(ref adjustments);
           response.Success = true;
-          response.Message = "Successfully approved all selected adjustments.";
+          //response.Message = "Successfully approved all selected adjustments.";
+          var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_all_selected_adjustments");
+          if (message != null)
+            response.Message = message.ToString();
           client.Close();
           client = null;
         }

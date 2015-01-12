@@ -40,7 +40,10 @@ public partial class Adjustments_AjaxServices_DeleteAllAdjustments : MTListServi
           client.Open();
           client.DeleteAllAdjustedTransactions(ref adjustments);
           response.Success = true;
-          response.Message = "Successfully deleted all selected adjustments.";
+          //response.Message = "Successfully deleted all selected adjustments.";
+          var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_deleted_all_selected_adjustments");
+          if (message != null)
+            response.Message = message.ToString();
           client.Close();
           client = null;
         }

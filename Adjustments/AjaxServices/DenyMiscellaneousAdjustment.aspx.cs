@@ -47,7 +47,10 @@ public partial class Adjustments_AjaxServices_DenyMiscellaneousAdjustment : MTLi
           }
           client.DenyAccountCredits(sessionIds, UI.User.AccountId);
           response.Success = true;
-          response.Message = "Successfully denied miscellaneous adjustment.";  // TODO need to localize
+          //response.Message = "Successfully denied miscellaneous adjustment.";  // TODO need to localize
+          var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_denied_miscellaneous_adjustment");
+          if (message != null)
+            response.Message = message.ToString();
           client.Close();
           client = null;
         }

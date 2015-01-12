@@ -113,7 +113,7 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
 	If ProductView.Properties.Rowset.RecordCount > 0 Then
       EventArg.HTMLRendered = EventArg.HTMLRendered & "<BUTTON Name='OK' Class='clsOKButton' OnClick='OK_Click();'>" & FrameWork.GetDictionary("TEXT_OK") & "</BUTTON>&nbsp;&nbsp;&nbsp;" & vbNewLine
 	End if
-    EventArg.HTMLRendered = EventArg.HTMLRendered & "<BUTTON Name='CANCEL' Class='clsOKButton' OnClick='CANCEL_Click();'>" & FrameWork.GetDictionary("TEXT_CANCEL") & "</BUTTON></center>" & vbNewLine
+    EventArg.HTMLRendered = EventArg.HTMLRendered & "<BUTTON Name='CANCEL' Class='clsOKButton' OnClick='return CANCEL_Click();'>" & FrameWork.GetDictionary("TEXT_CANCEL") & "</BUTTON></center>" & vbNewLine
     EventArg.HTMLRendered = EventArg.HTMLRendered & "</center>" & vbNewLine    
     MDMPickerDialog.GenerateHTMLEndOfPage EventArg
     EventArg.HTMLRendered = EventArg.HTMLRendered & "</FORM>" & vbNewLine

@@ -758,7 +758,6 @@ TH
   */
   
   .clsButtonBlueSmall {
-    width: 50px; 
     height: 24px;
     /*background-color: transparent;
     background-image: url(../images/buttonbluesmall.gif);
@@ -772,7 +771,6 @@ TH
   }    
   
   .clsButtonBlueMedium {
-    width: 77px; 
     height: 24px;
     /*background-color: transparent;
     background-image: url(../images/buttonbluemedium.gif);

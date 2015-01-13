@@ -268,13 +268,19 @@
 
     // Handle errors which occur while requesting the payment broker.
     function completeErrorRequest() {
-      document.getElementById('<%=tbCCNumber.ClientID%>').value = 'error';
+      document.getElementById('<%=tbCCNumber.ClientID%>').value = 'PaymentBroker request error occurred';
     }
 
     // Process response from the payment broker.
     function callback(obj) {
       if (obj.ResponseType != 'Success') {
-        document.getElementById('<%=tbCCNumber.ClientID%>').value = 'error';
+        document.getElementById('<%=tbCCNumber.ClientID%>').value = '';
+        Ext.Msg.show({
+          title: TEXT_ERROR,
+          msg: obj.ResponseValue,
+          buttons: Ext.Msg.OK,
+          icon: Ext.MessageBox.ERROR
+        });
       }
       else {
         document.getElementById('<%=tbCCSafeNumber.ClientID%>').value = "******" + document.getElementById('<%=tbCCNumber.ClientID%>').value.substr(12); //document.getElementById('<%=tbCCNumber.ClientID%>').length - 4);

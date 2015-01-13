@@ -121,7 +121,7 @@
     <value>Accounting cycle</value>
   </data>
   <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
-    <value>Nom de l’adaptateur</value>
+        <value>Nom de l’adaptateur</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
     <value>Montant</value>
@@ -238,7 +238,7 @@
     <value>Nombre de RC avancés créés</value>
   </data>
   <data name="TEXT_NUM_ARREARS_GENERATED" xml:space="preserve">
-    <value>Nombre d’arriérés créés</value>
+        <value>Nombre d’arriérés créés</value>
   </data>
   <data name="TEXT_NUM_DAYS_IN_PERIOD" xml:space="preserve">
     <value>Nombre de jours dans la période</value>
@@ -313,7 +313,7 @@
     <value>Montant de la taxe</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
-    <value>Exonérés de taxe Date d'expiration</value>
+    <value>Exonérés de taxe Date d’expiration</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
     <value>ID d’exemption de taxe</value>
@@ -328,7 +328,7 @@
     <value>Identificateur</value>
   </data>
   <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
-    <value>Identifiant de l'utilisateur</value>
+    <value>Identifiant de l’utilisateur</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>Afficher ID</value>
@@ -349,7 +349,7 @@
     <value>Montant moyen</value>
   </data>
   <data name="TEXT_CHARGE_KIND" xml:space="preserve">
-    <value>charge Kind</value>
+    <value>[FR]charge Kind</value>
   </data>
   <data name="TEXT_DECISION_TYPE" xml:space="preserve">
     <value>type de décision</value>
@@ -361,7 +361,7 @@
     <value>date de fin</value>
   </data>
   <data name="TEXT_EXPIRATION_DATE" xml:space="preserve">
-    <value>date d'expiration</value>
+    <value>date d’expiration</value>
   </data>
   <data name="TEXT_EXPIRED" xml:space="preserve">
     <value>expiré</value>
@@ -403,7 +403,7 @@
     <value>Type de paiement</value>
   </data>
   <data name="TEXT_PIPELINE_ID" xml:space="preserve">
-    <value>pipeline ID</value>
+    <value>[FR]pipeline ID</value>
   </data>
   <data name="TEXT_PRE_QUALIFIED_AMOUNT" xml:space="preserve">
     <value>Pré Montant qualifié</value>
@@ -484,7 +484,7 @@
     <value>Unités totales réduits</value>
   </data>
   <data name="TEXT_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
-    <value>Total Discount Amount</value>
+    <value>[FR]Total Discount Amount</value>
   </data>
   <data name="TEXT_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
     <value>Montant total généré</value>

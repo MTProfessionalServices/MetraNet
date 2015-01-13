@@ -145,7 +145,7 @@
         <value>0</value>
     </data>
     <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
-        <value>Taxe, locale</value>
+        <value>Taxe locale</value>
     </data>
     <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
         <value>-1</value>
@@ -154,7 +154,7 @@
         <value>0</value>
     </data>
     <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
-        <value>Taxe, autre</value>
+        <value>Autre taxe</value>
     </data>
     <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
         <value>-1</value>
@@ -163,7 +163,7 @@
         <value>0</value>
     </data>
     <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
-        <value>Etat appliquant la taxe</value>
+        <value>Taxe appliquée par l’État</value>
     </data>
     <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
         <value>-1</value>
@@ -208,7 +208,7 @@
         <value>True</value>
     </data>
     <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
-        <value>Émettre une note de crédit pour cet ajustement</value>
+        <value>Emettre une note de crédit pour cet ajustement</value>
     </data>
     <data name="CommentTextBoxResource1.Label" xml:space="preserve">
         <value>Commentaire</value>
@@ -223,7 +223,7 @@
         <value>False</value>
     </data>
     <data name="ddReasonCodeResource1.Label" xml:space="preserve">
-        <value>Code d’erreur</value>
+        <value>Code de motif</value>
     </data>
     <data name="ddReasonCodeResource1.ReadOnly" xml:space="preserve">
         <value>False</value>
@@ -256,7 +256,7 @@
         <value>Émission d’un ajustement divers</value>
     </data>
     <data name="TEXT_MAX_AUTHORIZED_AMOUNT" xml:space="preserve">
-        <value>Montant autorisé max</value>
+        <value>Le montant autorisé doit être</value>
     </data>
     <data name="TEXT_MISCELLANEOUS_ADJUSTMENT" xml:space="preserve">
         <value>Ajustement divers</value>

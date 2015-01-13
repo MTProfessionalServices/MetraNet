@@ -373,7 +373,7 @@ AdapterNameLinkRenderer = function(value, meta, record, rowIndex, colIndex, stor
 {
   meta.attr = 'style="white-space:normal"';
   var str = "";
-  str += String.format("<a style='cursor:hand; cursor:pointer;' href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp|ID={0}", record.data.id_instance);
+  str += String.format("<a style='cursor:hand; cursor:pointer;' href='/MetraNet/MetraControl/ScheduledAdapters/AdapterInstanceInformation.aspx?ID={0}", record.data.id_instance);
   if (record.data.id_billgroup)
   {
 	str += String.format("**BillingGroupId={0}", record.data.id_billgroup);

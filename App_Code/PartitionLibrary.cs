@@ -114,7 +114,7 @@ public class PartitionLibrary
   {
     PartitionData partitionData;
     if (forSubscription)
-      partitionData = RetrievePartitionInformation(UI.Subscriber.SelectedAccount._AccountID);
+      partitionData = (UI.Subscriber.SelectedAccount == null)? RetrievePartitionInformation(null) : RetrievePartitionInformation(UI.Subscriber.SelectedAccount._AccountID);
     else
       partitionData = (PartitionData) UI.User.GetData("PartitionData");
 

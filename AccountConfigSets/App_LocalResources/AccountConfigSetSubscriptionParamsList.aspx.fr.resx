@@ -118,69 +118,69 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="AccountConfigSetTitle.Text" xml:space="preserve">
-        <value>Subscription Models</value>
+        <value>[FR]Subscription Models</value>
     </data>
     <data name="ACS_CORPORATE_ACCOUNT" xml:space="preserve">
-        <value>[FR]Corporate Account Id</value>
+        <value>ID du compte d’entreprise</value>
     </data>
     <data name="ACS_DESCRIPTION" xml:space="preserve">
-        <value>[FR]Description</value>
+        <value>Description</value>
     </data>
     <data name="ACS_EFFECTIVE_DATE" xml:space="preserve">
-        <value>[FR]Sub. Start Date</value>
+        <value>Date début abon.</value>
     </data>
     <data name="ACS_EFFECTIVE_END_DATE" xml:space="preserve">
-        <value>[FR]Sub. End Date</value>
+        <value>Date fin abon.</value>
     </data>
     <data name="ACS_ENABLED" xml:space="preserve">
-        <value>[FR]Enabled</value>
+        <value>Activé</value>
     </data>
     <data name="ACS_GSUBNAME" xml:space="preserve">
-        <value>[FR]Group Sub. Name</value>
+        <value>Nom abon. groupé</value>
     </data>
     <data name="ACS_ID" xml:space="preserve">
-        <value>[FR]Id</value>
+        <value>ID</value>
     </data>
     <data name="ACS_PO_ID" xml:space="preserve">
-        <value>[FR]PO ID</value>
+        <value>ID PO</value>
     </data>
     <data name="ACS_PROPERTIESTOSET" xml:space="preserve">
-        <value>[FR]Properties To Set</value>
+        <value>Propriétés à définir</value>
     </data>
     <data name="ACS_RANK" xml:space="preserve">
-        <value>[FR]Rank</value>
+        <value>Rang</value>
     </data>
     <data name="ACS_SELECTIONSCRITERIA" xml:space="preserve">
-        <value>[FR]Selection Criteria</value>
+        <value>Critères de sélection</value>
     </data>
     <data name="CREATE_ACS" xml:space="preserve">
-        <value>[FR]Add</value>
+        <value>Ajouter</value>
     </data>
     <data name="CREATION_DATE" xml:space="preserve">
-        <value>[FR]Creation date</value>
+        <value>Date de création</value>
     </data>
     <data name="DELETE_ACS" xml:space="preserve">
-        <value>[FR]Delete</value>
+        <value>Supprimer</value>
     </data>
     <data name="EDIT_ACS" xml:space="preserve">
-        <value>[FR]Edit</value>
+        <value>Modifier</value>
     </data>
     <data name="MOVE_RANK_DOWN" xml:space="preserve">
-        <value>[FR]Move down</value>
+        <value>Descendre</value>
     </data>
     <data name="MOVE_RANK_UP" xml:space="preserve">
-        <value>[FR]Move up</value>
+        <value>Monter</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>[FR]MetraNet - OnBoard Templates</value>
+        <value>MetraNet - Modèles embarqués</value>
     </data>
     <data name="TERMINATE_ACS" xml:space="preserve">
-        <value>[FR]Terminate</value>
+        <value>Résilier</value>
     </data>
     <data name="TEXT_ACTIONS" xml:space="preserve">
-        <value>[FR]Actions</value>
+        <value>Actions</value>
     </data>
     <data name="VIEW_ACS" xml:space="preserve">
-        <value>[FR]View</value>
+        <value>Afficher</value>
     </data>
 </root>

@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
-    <value>[pt-BR]What action should this decision take?</value>
+    <value>Qual ação deve ser executada por essa decisão?</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
-    <value>[pt-BR]How should records be processed?</value>
+    <value>Como os registros devem ser processados?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Decision Action for {0}</value>
+    <value>Ação de decisão para {0}</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
     <value>Nenhum</value>
@@ -133,25 +133,25 @@
     <value>MetraNet</value>
   </data>
   <data name="radDiscountResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Apply a percentage discount</value>
+    <value>Aplicar um desconto percentual</value>
   </data>
   <data name="radEventRateResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Apply a new rate for events</value>
+    <value>Aplicar uma nova taxa para eventos</value>
   </data>
   <data name="radGenChargeResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Generate a charge/credit</value>
+    <value>Gerar um encargo/crédito</value>
   </data>
   <data name="radUnitRateResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Apply a new rate for units</value>
+    <value>Aplicar uma nova taxa para unidades</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Single-Bucket</value>
+    <value>Bucket único</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Multi-Bucket</value>
+    <value>Multibucket</value>
   </data>
   <data name="rblParamTableResource1.Text" xml:space="preserve">
-    <value>[pt-BR]From Paramter Table</value>
+    <value>Da tabela de parâmetros</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
     <value>Ações</value>
@@ -160,36 +160,36 @@
     <value>Descrição</value>
   </data>
   <data name="TEXT_ERROR_NO_DECISION_ACTION" xml:space="preserve">
-    <value>[pt-BR]Error: You must select the action that the Decision Type will take</value>
+    <value>Erro: você deve selecionar a ação que o Tipo de decisão executará</value>
   </data>
   <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
-    <value>[pt-BR]Error: You must specify the percentage discount to be applied by this Decision Type</value>
+    <value>Erro: você deve especificar o desconto percentual a ser aplicado por esse tipo de decisão</value>
   </data>
   <data name="TEXT_ERROR_NO_EVENT_RATE_VALUE" xml:space="preserve">
-    <value>[pt-BR]Error: You must specify the value of the new event rate to be applied by this Decision Type</value>
+    <value>Erro: você deve especificar o valor da nova taxa de eventos a ser aplicada por esse Tipo de decisão</value>
   </data>
   <data name="TEXT_ERROR_NO_INCREMENTAL_OR_BULK_OR_PT" xml:space="preserve">
-    <value>[pt-BR]Error: You must choose how the Decision Type will process records </value>
+    <value>Erro: você deve escolher o modo como o Tipo de decisão processará os registros </value>
   </data>
   <data name="TEXT_ERROR_NO_UNIT_RATE_VALUE" xml:space="preserve">
-    <value>[pt-BR]Error: You must specify the value of the new unit rate to be applied by this Decision Type</value>
+    <value>Erro: você deve especificar o valor da nova taxa de unidade a ser aplicada por esse Tipo de decisão</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_DISCOUNT" xml:space="preserve">
-    <value>[pt-BR]Error: You must specify a percentage for discount</value>
+    <value>Erro: você deve especificar um percentual de desconto</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS" xml:space="preserve">
-    <value>[pt-BR]Error: You must specify a rate for events</value>
+    <value>Erro: você deve especificar uma taxa de eventos</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS" xml:space="preserve">
-    <value>[pt-BR]Error: You must specify a rate for units</value>
+    <value>Erro: você deve especificar uma taxa de unidades</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nome</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
-    <value>[pt-BR]Product View</value>
+    <value>Exibição do produto</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[pt-BR]Unique ID</value>
+    <value>ID exclusivo</value>
   </data>
 </root>

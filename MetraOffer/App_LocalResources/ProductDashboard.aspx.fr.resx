@@ -121,31 +121,31 @@
         <value>Tableau de bord produit</value>
     </data>
     <data name="pnlMyRecentChangesResource1.Text" xml:space="preserve">
-        <value>Mes Modifications récentes</value>
+        <value>Mes modifications récentes</value>
     </data>
     <data name="pnlRecentOfferingChangesResource1.Text" xml:space="preserve">
-        <value>Changements récents placement</value>
+        <value>Modifications d’offres récentes</value>
     </data>
     <data name="pnlRecentRateChangesResource1.Text" xml:space="preserve">
-        <value>Changements récents taux</value>
+        <value>Modifications de prix récentes</value>
     </data>
     <data name="pnlTop10MMRResource1.Text" xml:space="preserve">
         <value>{FR}Top 10 MRR</value>
     </data>
     <data name="pnlTop10NewCustomersResource1.Text" xml:space="preserve">
-        <value>{FR}Top 10 New Customers (Last 30 days)</value>
+        <value>Top 10 des nouveaux clients (30 derniers jours)</value>
     </data>
     <data name="pnlTop10RevenueResource1.Text" xml:space="preserve">
-        <value>{FR}Top 10 Revenue</value>
+        <value>Top 10 des revenus</value>
     </data>
     <data name="pnlTop10SubsResource1.Text" xml:space="preserve">
-        <value>{FR}Top 10 Subscriptions</value>
+        <value>Top 10 des abonnements</value>
     </data>
     <data name="pnlTop10UniqueCustomersResource1.Text" xml:space="preserve">
-        <value>{FR}Top 10 Customers</value>
+        <value>Top 10 des clients</value>
     </data>
     <data name="TEXT_CHANGE_DATE" xml:space="preserve">
-        <value>Modification de la date</value>
+        <value>Date de modification</value>
     </data>
     <data name="TEXT_CHANGE_DESCRIPTION" xml:space="preserve">
         <value>Description de la modification</value>
@@ -166,22 +166,22 @@
         <value>Perte</value>
     </data>
     <data name="TEXT_MRR_GAIN" xml:space="preserve">
-        <value>MRR Gain</value>
+        <value>Gain MRR</value>
     </data>
     <data name="TEXT_MRR_LOSS" xml:space="preserve">
-        <value>MRR Loss</value>
+        <value>Perte MRR</value>
     </data>
     <data name="TEXT_MRR_TOOLTIP" xml:space="preserve">
         <value>MRR</value>
     </data>
     <data name="TEXT_MRR_TOTAL" xml:space="preserve">
-        <value>MRR Total</value>
+        <value>Total MRR</value>
     </data>
     <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
-        <value>Aucune donnée trouvée</value>
+        <value>Pas de données</value>
     </data>
     <data name="TEXT_NO_RECORDS" xml:space="preserve">
-        <value>Aucune information</value>
+        <value>Pas d’enregistrements</value>
     </data>
     <data name="TEXT_PO_ID" xml:space="preserve">
         <value>ID PO</value>
@@ -190,10 +190,10 @@
         <value>Nom PO</value>
     </data>
     <data name="TEXT_PRODUCT_TEMPLATE_ID" xml:space="preserve">
-        <value>Modèle de produit ID</value>
+        <value>ID du modèle de produit</value>
     </data>
     <data name="TEXT_PRODUCT_TEMPLATE_NAME" xml:space="preserve">
-        <value>Produit Nom du modèle</value>
+        <value>Nom du modèle de produit</value>
     </data>
     <data name="TEXT_REVENUE_TOOLTIP" xml:space="preserve">
         <value>Revenu</value>
@@ -202,22 +202,22 @@
         <value>ID du calendrier</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_GAIN" xml:space="preserve">
-        <value>Abonnements Gain</value>
+        <value>Gain d’abonnements</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_LOSS" xml:space="preserve">
-        <value>Perte Abonnements</value>
+        <value>Perte d’abonnements</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
         <value>Abonnements</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_TOTAL" xml:space="preserve">
-        <value>Abonnements total</value>
+        <value>Total abonnements</value>
     </data>
     <data name="TEXT_USER_NAME" xml:space="preserve">
         <value>Nom d’utilisateur</value>
     </data>
     <data name="UPDATED_BY_TEXT" xml:space="preserve">
-        <value>par</value>
+        <value>au</value>
     </data>
     <data name="VIEW_PO_TEXT" xml:space="preserve">
         <value>Afficher l’offre produit</value>

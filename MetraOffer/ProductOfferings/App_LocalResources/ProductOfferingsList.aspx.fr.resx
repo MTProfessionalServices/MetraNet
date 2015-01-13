@@ -124,7 +124,7 @@
         <value>Liste des offres produit</value>
     </data>
     <data name="NO_RECORDS_TEXT" xml:space="preserve">
-        <value>Aucun enregistrement trouvé.</value>
+        <value>Aucun enregistrement trouvé</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>

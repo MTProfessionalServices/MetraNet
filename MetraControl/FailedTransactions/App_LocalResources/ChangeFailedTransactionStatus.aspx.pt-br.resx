@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="cbResubmitNowResource1.BoxLabel" xml:space="preserve">
-    <value>Reenviar Agora</value>
+    <value>Reenviar agora</value>
   </data>
   <data name="ddDismissedReasonCodeResource1.Label" xml:space="preserve">
     <value>Código do motivo</value>
@@ -133,19 +133,19 @@
     <value>MetraNet</value>
   </data>
   <data name="pleaseSelectNewStatusMessage.Text" xml:space="preserve">
-    <value>Please select a new status for the selected transaction(s) or click the "Close" button to cancel.</value>
+    <value>Selecione um novo status para as transações selecionadas ou clique no botão "Fechar" para cancelar.</value>
   </data>
   <data name="radCorrectedResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Corrected&lt;/b&gt; - This transaction has been resolved and is ready to be resubmitted</value>
+    <value>&lt;b&gt;Corrigida&lt;/b&gt; - essa transação foi resolvida e está pronta para ser reenviada</value>
   </data>
   <data name="radDismissedResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Dismissed&lt;/b&gt; - This transaction cannot be resolved or it is not cost effective to do so.</value>
+    <value>&lt;b&gt;Rejeitada&lt;/b&gt; - essa transação não pode ser resolvida ou não é rentável fazê-lo.</value>
   </data>
   <data name="radOpenResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Open&lt;/b&gt; - This transaction is currently unresolved.</value>
+    <value>&lt;b&gt;Aberta&lt;/b&gt; - essa transação está sem solução no momento.</value>
   </data>
   <data name="radUnderResource1.BoxLabel" xml:space="preserve">
-    <value>&lt;b&gt;Under Investigation&lt;/b&gt; - This transaction is currently unresolved but is being investigated.</value>
+    <value>&lt;b&gt;Sob investigação&lt;/b&gt; - essa transação está sem solução no momento, mas está sendo investigada.</value>
   </data>
   <data name="ResubmitProgress.Text" xml:space="preserve">
     <value>Reenvio de transações com falha em progresso...</value>

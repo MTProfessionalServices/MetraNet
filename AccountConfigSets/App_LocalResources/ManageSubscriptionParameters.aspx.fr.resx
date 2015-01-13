@@ -127,13 +127,13 @@
     <value>[FR]Update</value>
   </data>
   <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
-    <value>[FR]Subscription End Date</value>
+    <value>Date de fin de l’abonnement</value>
   </data>
   <data name="dpSubParamsStartDateResource.Label" xml:space="preserve">
-    <value>[FR]Subscription Start Date</value>
+    <value>Date de début de l’abonnement</value>
   </data>
   <data name="isCorpAccountIdResource.Label" xml:space="preserve">
-    <value>[FR]Corporate Account</value>
+    <value>Compte d’entreprise</value>
   </data>
   <data name="ITEM" xml:space="preserve">
     <value>[FR]Item</value>
@@ -142,7 +142,7 @@
     <value>[FR]Items</value>
   </data>
   <data name="manageSubscriptionParameterTitle.Text" xml:space="preserve">
-    <value>[FR]Manage Subscription Parameters</value>
+    <value>Gérer les paramètres d’abonnement</value>
   </data>
   <data name="MTbtnCancelResource.Text" xml:space="preserve">
     <value>[FR]Cancel</value>
@@ -166,7 +166,7 @@
     <value>[FR]Remove UDRC Metric</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
-    <value>[FR]Group Subscription Name</value>
+    <value>Nom de l’abonnement groupé</value>
   </data>
   <data name="tbSubParamsDescriptionResource.Label" xml:space="preserve">
     <value>[FR]Description</value>
@@ -178,7 +178,7 @@
     <value>[FR]Product Offering Name</value>
   </data>
   <data name="tbSubParamsPoResource.Label" xml:space="preserve">
-    <value>[FR]Product Offering</value>
+    <value>Offre produit</value>
   </data>
   <data name="TEXT_ADD_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
     <value>[FR]Add Subscription Model</value>

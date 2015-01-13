@@ -154,10 +154,10 @@
         <value>Fuseau horaire</value>
     </data>
     <data name="LblEndDayOfMonth" xml:space="preserve">
-        <value>Dernier jour du mois</value>
+        <value>1er dernier jour du mois</value>
     </data>
     <data name="LblEndDayOfWeek" xml:space="preserve">
-        <value>Dernier jour de la semaine</value>
+        <value>Jour de la semaine</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
         <value>Messages d’erreur</value>
@@ -217,7 +217,7 @@
         <value>Date de début de compte</value>
     </data>
     <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-        <value>ID d’exemption de taxe</value>
+        <value>Exempt de taxe</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
         <value>Nom d’utilisateur</value>

@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
     Inherits="ApprovalFrameworkManagement_ShowChangesSummary" Title="Changes Summary"
-    Culture="auto" UICulture="auto" CodeFile="ShowChangesSummary.aspx.cs" meta:resourcekey="PageResource1" %>
+    Culture="auto" UICulture="auto" CodeFile="ShowChangesSummary.aspx.cs" %>
 
 <%@ Import Namespace="MetraTech.UI.Tools" %>
 <%@ Import Namespace="Resources" %>

@@ -72,7 +72,7 @@
               </td>
             </tr>
           </table>
-          <br/>
+          <br />
           <div>
             <MT:MTButton ID="btnHistory" ClientIDMode="Static" meta:resourcekey="btnHistory"
               OnClientClick="ShowAuditHistory();return false;" runat="server" />
@@ -91,15 +91,15 @@
               </td>
               <td>
                 <MT:MTButton ID="btnRunAdaptersLater" meta:resourcekey="btnRunAdaptersLater" ClientIDMode="Static"
-                  runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnRunAdaptersLater'); return false;" />
+                  runat="server" OnClientClick="btnRunReverseAdaptersLater_ClientClick('btnRunAdaptersLater'); return false;" />
               </td>
               <td>
-                <MT:MTButton ID="btnRevertAdapters" meta:resourcekey="btnRevertAdapters" ClientIDMode="Static"
-                  runat="server" OnClick="btnRevertAdapters_Click" />
+                <MT:MTButton ID="btnReverseAdapters" meta:resourcekey="btnReverseAdapters" ClientIDMode="Static"
+                  runat="server" OnClick="btnReverseAdapters_Click" />
               </td>
               <td>
-                <MT:MTButton ID="btnRevertAdaptersLater" meta:resourcekey="btnRevertAdaptersLater"
-                  ClientIDMode="Static" runat="server" OnClientClick="btnRunRevertAdaptersLater_ClientClick('btnReverseAdaptersLater'); return false;" />
+                <MT:MTButton ID="btnReverseAdaptersLater" meta:resourcekey="btnReverseAdaptersLater"
+                  ClientIDMode="Static" runat="server" OnClientClick="btnRunReverseAdaptersLater_ClientClick('btnReverseAdaptersLater'); return false;" />
               </td>
               <td>
                 <MT:MTButton ID="btnCancelSubmittedAction" meta:resourcekey="btnCancelSubmittedAction"
@@ -137,7 +137,7 @@
   </table>
   <div id="later-win" class="x-hidden">
     <div id="later-win-body" class="x-panel">
-      <MT:MTDatePicker runat="server" ID="dtRunRevertOn" ClientIDMode="Static" ViewStateMode="Disabled"
+      <MT:MTDatePicker runat="server" ID="dtRunReverseOn" ClientIDMode="Static" ViewStateMode="Disabled"
         EnableViewState="False" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10;altFormats:DATE_TIME_FORMAT, minValue:new Date(),&#13;&#10;maxValue:null,&#13;&#10;minValue: new Date(),value: new Date(),anchor:'100%'"
         XType="datefield" ControlHeight="100" Height="100" />
     </div>
@@ -145,15 +145,54 @@
   <div id="auditHistory-win" class="x-hidden">
     <div id="auditHistory-win-body" class="x-panel">
       <MT:MTFilterGrid ID="AuditHistoryGrid" runat="server" TemplateFileName="AdapterInstanceAuditHistoryGrid"
-        ExtensionName="Core" ClientIDMode="Static" />
+        ExtensionName="Core" ClientIDMode="Static" Resizable="False" />
     </div>
   </div>
   <div id="runDetails-win" class="x-hidden">
     <div id="runDetails-win-body" class="x-panel">
-      <div id="butchCountMessage" clientidmode="Static">
-      </div>
-      <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
-        ExtensionName="Core" ClientIDMode="Static" />
+      <MT:MTPanel runat="server" ClientIDMode="Static" ID="pnlRunDetails" meta:resourcekey="pnlRunDetails">
+        <table>
+          <tr>
+            <td>
+              <MT:MTLabel runat="server" ID="lblRunId" ClientIDMode="Static" ViewStateMode="Disabled"
+                meta:resourcekey="lblRunId" />
+            </td>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              <MT:MTLabel runat="server" ID="lblRunIdValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <MT:MTLabel runat="server" ID="lblSummaryDetails" ClientIDMode="Static" ViewStateMode="Disabled"
+                meta:resourcekey="lblSummaryDetails" />
+            </td>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              <MT:MTLabel runat="server" ID="lblSummaryDetailsValue" ClientIDMode="Static" ViewStateMode="Disabled" />
+            </td>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <div id="butchCountMessage" clientidmode="Static">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4">
+            </td>
+          </tr>
+        </table>
+        <MT:MTFilterGrid ID="RunDetailsGrid" runat="server" TemplateFileName="AdapterInstanceRunDetailsGrid"
+          ExtensionName="Core" ClientIDMode="Static" Resizable="False" />
+      </MT:MTPanel>
     </div>
   </div>
   <script type="text/javascript">
@@ -163,6 +202,8 @@
     var laterWin;
     var auditHistoryWin;
     var runDetailsWin;
+    var locolizedStatuses = Ext.util.JSON.decode('<%=JsonLocalizedStatuses%>');
+    var locolizedActions = Ext.util.JSON.decode('<%=JsonLocalizedActions%>');
 
     if ("<%=IntervalId %>".len > 0) {
       additionalParameters = "&BillingGroupId=<%=BillingGroupId %>&IntervalId=<%=IntervalId %>";
@@ -174,10 +215,10 @@
 
     function DetailColRenderer(value, meta, record, rowIndex, colIndex, store)
     {
-      if (value.len == 0) {
+      if (value.length == 0 || value == 'NULL') {
         value = "<%=GetLocalResourceObject("ViewRunDetails").ToString() %>";
       }
-      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\");return false;'>{2}</a>", record.data.id_run, record.data.tx_status, value);
+      return String.format("<a href='#' style='cursor:pointer' onclick='ShowRunDetails({0}, \"{1}\", \"{2}\");return false;'>{3}</a>", record.data.id_run, record.data.tx_status, encodeURI(value).replace(/'/g,"&#39"), value);
     }
       
     function DateStartColRenderer(value, meta, record, rowIndex, colIndex, store)
@@ -185,6 +226,14 @@
       return value + GetDurationMessage(value, record.data.dt_end);
     }
     
+    OverrideRenderer_<%=AuditHistoryGrid.ClientID %> = function(cm) {
+      cm.setRenderer(cm.getIndexById('tx_action'), ActionColRenderer);
+    }
+        
+    function ActionColRenderer(value, meta, record) {
+      return getLocolizedAction(value);
+    }
+
     function ShowAuditHistory() {
       var windowHeight = grid_AuditHistoryGrid.height + 70;
       if(!auditHistoryWin) {
@@ -198,6 +247,7 @@
             anchor:'100%',
             plain: true,
             buttonAlign: 'center',
+            resizable: false,
             items: [{
                 applyTo:'auditHistory-win-body',
                 border: false,
@@ -217,9 +267,9 @@
       auditHistoryWin.show(this);  
     }
     
-    function ShowRunDetails(runId, runStatus) {
+    function ShowRunDetails(runId, runStatus, summaryDetails) {
       var runDetails = GetInstanceRunDetails(runId);
-      var windowHeight = grid_RunDetailsGrid.height + 70;
+      var windowHeight = grid_RunDetailsGrid.height + 160;
       var batchMessage = "";
       if (runDetails.BatchCount > 0) {
         batchMessage = String.format("<a href='#' onclick=\"window.open('/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/BatchManagement.List.asp?Filter=AdapterRun&RerunId={0}','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')\">{1}</a>", runId, "<%=GetLocalResourceObject("BatchDetails").ToString() %>");
@@ -232,6 +282,8 @@
       if (batchMessage.length > 0) {
         Ext.fly("butchCountMessage").dom.innerHTML = batchMessage;
       }
+      Ext.fly("lblRunIdValue").dom.innerHTML = runId;
+      Ext.fly("lblSummaryDetailsValue").dom.innerHTML = decodeURI(summaryDetails);
       if(!runDetailsWin) {
         runDetailsWin = new Ext.Window({
             title: '<%=DisplayName %>'+'&nbsp;&mdash;&nbsp;<%=GetLocalResourceObject("AdapterInstanceRunDetailsGrid.Title").ToString() %>',
@@ -243,6 +295,7 @@
             anchor:'100%',
             plain: true,
             buttonAlign: 'center',
+            resizable: false,
             items: [{
                 applyTo:'runDetails-win-body',
                 border: false,
@@ -277,21 +330,21 @@
     }
     
     function GetDurationMessage(dateStart, dateEnd) {
-      var diff =  Math.round((new Date(dateEnd) - new Date(dateStart)) / 1000);
+      var diff =  Math.round((Date.parseDate(dateEnd, DATE_TIME_FORMAT_DEF, true) - Date.parseDate(dateStart, DATE_TIME_FORMAT_DEF, true)) / 1000);
       if (diff == 0 || diff > 1) {
         return String.format(" [{0} {1}]", diff, "<%=GetLocalResourceObject("SecondPlural").ToString() %>");
       }
       return String.format(" [{0} {1}]", diff, "<%=GetLocalResourceObject("SecondSingular").ToString() %>");
     };
     
-    function btnRunRevertAdaptersLater_ClientClick(btnId) {
+    function btnRunReverseAdaptersLater_ClientClick(btnId) {
       var windowTitle = "<%=GetLocalResourceObject("btnRunAdaptersLater.Text").ToString() %>";
-      var dtRunRevertOnLabel = "<%=GetLocalResourceObject("RunLaterOn.Text").ToString() %>";
-      if (btnId == '<%=btnRevertAdaptersLater.ClientID %>') {
-        windowTitle = "<%=GetLocalResourceObject("btnRevertAdaptersLater.Text").ToString() %>";
-        dtRunRevertOnLabel = "<%=GetLocalResourceObject("RevertLaterOn.Text").ToString() %>";
+      var dtRunReverseOnLabel = "<%=GetLocalResourceObject("RunLaterOn.Text").ToString() %>";
+      if (btnId == '<%=btnReverseAdaptersLater.ClientID %>') {
+        windowTitle = "<%=GetLocalResourceObject("btnReverseAdaptersLater.Text").ToString() %>";
+        dtRunRevertOnLabel = "<%=GetLocalResourceObject("ReverseLaterOn.Text").ToString() %>";
       }
-      Ext.fly('MTField_dtRunRevertOn').child('label').dom.innerText = dtRunRevertOnLabel+':';
+      Ext.fly('MTField_dtRunReverseOn').child('label').dom.innerText = dtRunReverseOnLabel+':';
       if(!laterWin) {
         laterWin = new Ext.Window({
             title: windowTitle,
@@ -326,6 +379,13 @@
         });
       }
       laterWin.show(this);  
+    }
+    
+    function getLocolizedAction(action) {
+      if (!locolizedActions[action]) {
+        locolizedActions[action] = action;
+      }
+      return locolizedActions[action];
     }
   </script>
 </asp:Content>

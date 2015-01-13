@@ -45,7 +45,10 @@ public partial class Adjustments_AjaxServices_DenyAdjustments : MTListServicePag
         }
         client.DeleteAdjustments(sessionIds); ;
         response.Success = true;
-        response.Message = "Successfully deleted adjustments.";
+        //response.Message = "Successfully deleted adjustments.";
+        var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_denyed_adjustments");
+        if (message != null)
+          response.Message = message.ToString();
         client.Close();
         client = null;
       }

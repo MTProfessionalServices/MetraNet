@@ -36,8 +36,13 @@ public partial class Adjustments_AjaxServices_GetAdjustedTransactionDetails : MT
 				client.GetAdjustedTransactionDetail(sessionId, out detail);
 
 				//CORE-5824 Check if details is null
-				string html = detail != null ? GetResponse(detail) : "Details for ajustment not found!";
+				var message = GetGlobalResourceObject("Adjustments", "TEXT_Details_for_ajustment_not_found");
+        string messageNotFound = "";
+        if (message != null)
+          messageNotFound = message.ToString();
 
+        string html = detail != null ? GetResponse(detail) : messageNotFound;
+        
 				Response.Write(html);
 				client.Close();
 				client = null;

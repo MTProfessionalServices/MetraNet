@@ -43,7 +43,10 @@ public partial class Adjustments_AjaxServices_DenyAllMiscellaneousAdjustments : 
           client.Open();
           client.DenyAllAccountCredits(ref items, UI.User.AccountId);
           response.Success = true;
-          response.Message = "Successfully denied all miscellaneous adjustments.";
+          //response.Message = "Successfully denied all miscellaneous adjustments.";
+          var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_denied_all_miscellaneous_adjustments");
+          if (message != null)
+            response.Message = message.ToString();
           client.Close();
           client = null;
         }

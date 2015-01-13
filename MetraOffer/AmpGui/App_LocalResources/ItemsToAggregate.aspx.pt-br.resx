@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value>[pt-BR]Add up monetary charge amounts.</value>
+    <value>Somar valores de encargos monetários.</value>
   </data>
   <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value>[pt-BR]Add up units of usage.</value>
+    <value>Somar unidades de uso.</value>
   </data>
   <data name="btnBackResource1.ServerSide" xml:space="preserve">
-    <value>True</value>
+    <value>Verdadeiro</value>
   </data>
   <data name="btnContinueResource1.ServerSide" xml:space="preserve">
-    <value>True</value>
+    <value>Verdadeiro</value>
   </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value>[pt-BR]Count the number of events.</value>
+    <value>Contar o número de eventos.</value>
   </data>
   <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
-    <value>[pt-BR]From Parameter Table.</value>
+    <value>Da tabela de parâmetros</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>
+    <value>As decisões contam valores monetários, unidades ou número de eventos. Essa tela permite a seleção do que um tipo de decisão agregará.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>[pt-BR]Adjust the settings for this Decision Type.</value>
+    <value>Ajuste as configurações desse Tipo de decisão.</value>
   </data>
   <data name="lblGenInfoResource3.Text" xml:space="preserve">
-    <value>[pt-BR]How should usage be aggregated?</value>
+    <value>Como o uso deve ser agregado?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Items to Aggregate for {0}</value>
+    <value>Itens a serem agregados para {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>

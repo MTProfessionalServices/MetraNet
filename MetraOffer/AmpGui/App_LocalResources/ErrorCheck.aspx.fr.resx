@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivateDecisionLabel.Text" xml:space="preserve">
-    <value>[FR]Do you want to activate your Decision Type now? Doing so makes it eligible for processing by the AMP engine.</value>
+    <value>Voulez-vous activer votre type de décision maintenant ? Il sera alors éligible au traitement par le moteur AMP.</value>
   </data>
   <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
@@ -130,13 +130,13 @@
     <value>True</value>
   </data>
   <data name="CheckForErrorsLabel.Text" xml:space="preserve">
-    <value>[FR]Check your Decision Type for configuration errors.</value>
+    <value>Vérifiez les erreurs de configuration dans votre type de décision.</value>
   </data>
   <data name="DeactivateDecisionLabel.Text" xml:space="preserve">
-    <value>[FR]Your Decision Type is currently active. Do you want to deactivate your Decision Type now? Doing so makes it ineligible for processing by the AMP engine.</value>
+    <value>Votre type de décision est actif. Voulez-vous le désactiver maintenant ? Il sera alors inéligible au traitement par le moteur AMP.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Error Check</value>
+    <value>Contrôle d’erreur</value>
   </data>
   <data name="MTButtonActivateDecisionResource1.ServerSide" xml:space="preserve">
     <value>True</value>
@@ -148,21 +148,21 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_ACTIVATE_DECISION" xml:space="preserve">
-    <value>[FR]Activate Decision Type</value>
+    <value>Activer le type de décision</value>
   </data>
   <data name="TEXT_ACTIVATED_DECISION" xml:space="preserve">
-    <value>[FR]Activated Decision Type</value>
+    <value>Type de décision activé</value>
   </data>
   <data name="TEXT_CHECK_FOR_ERRORS" xml:space="preserve">
-    <value>[FR]Check for Errors Now</value>
+    <value>Contrôler les erreurs</value>
   </data>
   <data name="TEXT_DEACTIVATE_DECISION" xml:space="preserve">
-    <value>[FR]Deactivate Decision Type</value>
+    <value>Désactiver le type de décision</value>
   </data>
   <data name="TEXT_ERROR_ACTIVATING_DECISION" xml:space="preserve">
-    <value>[FR]An error occurred while activating Decision Type </value>
+    <value>Erreur d’activation du type de décision </value>
   </data>
   <data name="TEXT_ERROR_DEACTIVATING_DECISION1" xml:space="preserve">
-    <value>[FR]An error occurred while deactivating Decision Type </value>
+    <value>Une erreur s’est produite à la désactivation du type de décision </value>
   </data>
 </root>

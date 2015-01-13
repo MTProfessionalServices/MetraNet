@@ -1401,4 +1401,7 @@
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Day</value>
   </data>  
+  <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
+    <value>Pending Changes Waiting For Approval</value>
+  </data>
 </root>

@@ -127,7 +127,7 @@
     <value>Y/m/d G:i:s|Y/m/d</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>Y/m/d G:i:s A</value>
+    <value>Y/m/d G:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
     <value>Y/m/d G:i:s</value>
@@ -1400,5 +1400,8 @@
   </data>
   <data name="TEXT_THIRD" xml:space="preserve">
     <value>3 番目</value>
+  </data>
+  <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
+    <value>[JA]Pending Changes Waiting For Approval</value>
   </data>
 </root>

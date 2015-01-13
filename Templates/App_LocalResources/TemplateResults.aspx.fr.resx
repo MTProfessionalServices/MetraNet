@@ -136,7 +136,7 @@
         <value>Détails de l’activité des modèles</value>
     </data>
     <data name="NO_RECORDS_TEXT" xml:space="preserve">
-        <value>Aucun enregistrement trouvé.</value>
+        <value>Aucun enregistrement trouvé</value>
     </data>
     <data name="NUM_RETRIES" xml:space="preserve">
         <value>Nombre de nouvelles tentatives</value>

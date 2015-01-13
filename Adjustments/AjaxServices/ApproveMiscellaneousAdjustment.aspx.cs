@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 using MetraTech.ActivityServices.Common;
 using MetraTech.Debug.Diagnostics;
@@ -46,7 +47,10 @@ public partial class Adjustments_AjaxServices_ApproveMiscellaneousAdjustment : M
           //client.ApproveMiscellaneousAdjustments(sessionIds, UI.User.AccountId);
           client.ApproveAccountCredits(sessionIds, UI.User.AccountId);
           response.Success = true;
-          response.Message = "Successfully approved miscellaneous adjustment."; 
+          //response.Message = "Successfully approved miscellaneous adjustment."; 
+          var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_miscellaneous_adjustment");
+          if (message != null)
+            response.Message = message.ToString();
           client.Close();
           client = null;
         }

@@ -139,7 +139,7 @@
     <value>ajouter une catégorie</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>Ajouter une propriété</value>
+    <value>ajouter une propriété</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
     <value>Propriétés partagées disponibles</value>
@@ -196,7 +196,7 @@
     <value>Le compte '{0}' est bloqué.</value>
   </data>
   <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
-    <value>Nom du compte</value>
+    <value>Nom du compte :</value>
   </data>
   <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
     <value>Résumé du compte</value>
@@ -217,16 +217,16 @@
     <value>modifier</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[FR]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
     <value>Ajouter des comptes</value>
   </data>
   <data name="TEXT_ADD_BILL_MESSAGE" xml:space="preserve">
-    <value>Ajouter un message de facture</value>
+    <value>Ajouter message de facturation</value>
   </data>
   <data name="TEXT_ADD_BILLMESSAGE" xml:space="preserve">
-    <value>Créer Bill message</value>
+    <value>Créer message de facturation</value>
   </data>
   <data name="TEXT_ADD_BME" xml:space="preserve">
     <value>Ajouter</value>
@@ -289,10 +289,10 @@
     <value>avant</value>
   </data>
   <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
-    <value>Association de messages pour facture</value>
+    <value>Associations de messages de facturation</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>Messages pour facture</value>
+    <value>Messages relatifs aux factures</value>
   </data>
   <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
     <value>Informations de facturation</value>
@@ -556,7 +556,7 @@
     <value>Enregistrer</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>Enregistrer &amp; Continuer</value>
+    <value>Enregistrer et continuer</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
     <value>Enregistrer la nouvelle qualification d’utilisation</value>
@@ -719,5 +719,23 @@
   </data>
   <data name="ValidationMustBeNumber" xml:space="preserve">
     <value>[FR] Must be a number value.</value>
+  </data>
+  <data name="ReceventInstAuditAction_SubmitForExecution" xml:space="preserve">
+    <value>[FR]SubmitForExecution</value>
+  </data>
+  <data name="ReceventInstAuditAction_SubmitForReversal" xml:space="preserve">
+    <value>[FR]SubmitForReversal</value>
+  </data>
+  <data name="ReceventInstAuditAction_Cancel" xml:space="preserve">
+    <value>[FR]Cancel</value>
+  </data>
+  <data name="AdapterStatusCode_Succeeded" xml:space="preserve">
+    <value>[FR]Succeeded</value>
+  </data>
+  <data name="AdapterStatusCode_Running" xml:space="preserve">
+    <value>[FR]Running</value>
+  </data>
+  <data name="AdapterStatusCode_Failed" xml:space="preserve">
+    <value>[FR]Failed</value>
   </data>
 </root>

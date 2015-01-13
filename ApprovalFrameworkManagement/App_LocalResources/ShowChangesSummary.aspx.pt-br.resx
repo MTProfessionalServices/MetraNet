@@ -118,19 +118,19 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TEXT_APPROVAL_ALL_CHANGES" xml:space="preserve">
-        <value>Todas as alterações</value>
+        <value>Aplicar alterações</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
         <value>Mudanças de status tudo</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-        <value>Aprovador ID</value>
+        <value>ID do aprovador</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
         <value>Comentário</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-        <value>Estado actual</value>
+        <value>Estado atual</value>
     </data>
     <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
         <value>Ação</value>
@@ -210,4 +210,16 @@
     <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
         <value>Exibir alterações</value>
     </data>
+    <data name="TEXT_SUMMARY" xml:space="preserve">
+        <value>[pt-BR]Summary</value>
+    </data>
+    <data name="lblShowAllChangesSummaryTitleResource1.Text" xml:space="preserve">
+        <value>[pt-BR]All Changes Summary</value>
+    </data>
+    <data name="ChangesSummaryResource1.NoRecordsText" xml:space="preserve">
+        <value>[pt-BR]No records found</value>
+    </data>
+    <data name="MTSection2Resource1.Text" xml:space="preserve">
+        <value>[pt-BR]Change Details</value>
+    </data>    
 </root>

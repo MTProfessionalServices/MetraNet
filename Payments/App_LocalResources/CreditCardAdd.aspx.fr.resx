@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="CreditCardTypeError" xml:space="preserve">
-        <value>n'est pas un type de carte pris en charge pour cette intégration de paiement</value>
+        <value>n’est pas un type de carte pris en charge pour cette intégration de paiement</value>
     </data>
     <data name="ddCardTypeResource1.Label" xml:space="preserve">
         <value>Type de carte de crédit</value>

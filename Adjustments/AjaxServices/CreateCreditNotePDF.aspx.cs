@@ -35,7 +35,10 @@ public partial class Adjustments_AjaxServices_CreateCreditNotePDF : MTListServic
           }
           client.CreateCreditNotePDF(creditNoteId, accountId, creditNotePrefix, templateName, languageCode);
           response.Success = true;
-          response.Message = string.Format("Successfully submitted request to generate Credit Note pdf");
+          //response.Message = string.Format("Successfully submitted request to generate Credit Note pdf");
+          var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_submitted_request_to_generate_Credit_Note_pdf");
+          if (message != null)
+            response.Message = message.ToString();
         }
         catch (FaultException<MASBasicFaultDetail> ex)
         {

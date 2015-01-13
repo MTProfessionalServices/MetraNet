@@ -163,7 +163,7 @@
         <value>Ignoré</value>
     </data>
     <data name="TEXT_ERROR_MESSAGE" xml:space="preserve">
-        <value>Messages d’erreur</value>
+        <value>Message d’erreur</value>
     </data>
     <data name="TEXT_ERROR_TYPE_EXAMPLE" xml:space="preserve">
         <value>Type d’erreur (Exemple)</value>
@@ -202,7 +202,7 @@
         <value>Non</value>
     </data>
     <data name="TEXT_OPEN" xml:space="preserve">
-        <value>Ouvert</value>
+        <value>Ouvrir</value>
     </data>
     <data name="TEXT_PAYER" xml:space="preserve">
         <value>Payeur</value>
@@ -241,7 +241,7 @@
         <value>État</value>
     </data>
     <data name="TEXT_UCYCLE_TYPE" xml:space="preserve">
-        <value>Type de cycle de consommation</value>
+        <value>Type de cycle d’utilisation</value>
     </data>
     <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
         <value>Valeur du cycle d’utilisation</value>

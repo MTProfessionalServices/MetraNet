@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PageResource1.Title" xml:space="preserve">
+    <data name="PageResource1.Title" xml:space="preserve">
     <value>[JA]MetraNet - Adapter Instance Information</value>
   </data>
   <data name="TX_TYPE" xml:space="preserve">
@@ -169,11 +169,11 @@
   <data name="btnRunAdaptersLater.Text" xml:space="preserve">
     <value>[JA]Run Adapter Later</value>
   </data>
-  <data name="btnRevertAdapters.Text" xml:space="preserve">
-    <value>[JA]Revert Adapter</value>
+  <data name="btnReverseAdapters.Text" xml:space="preserve">
+    <value>[JA]Reverse Adapter</value>
   </data>
-  <data name="btnRevertAdaptersLater.Text" xml:space="preserve">
-    <value>[JA]Revert Adapter Later</value>
+  <data name="btnReverseAdaptersLater.Text" xml:space="preserve">
+    <value>[JA]Reverse Adapter Later</value>
   </data>
   <data name="btnCancelSubmittedAction.Text" xml:space="preserve">
     <value>[JA]Cancel Submitted Action</value>
@@ -186,5 +186,68 @@
   </data>
   <data name="SecondSingular" xml:space="preserve">
     <value>[JA]second</value>
+  </data>
+  <data name="RunLaterOn.Text" xml:space="preserve">
+    <value>[JA]Run this adapter on</value>
+  </data>
+  <data name="ReverseLaterOn.Text" xml:space="preserve">
+    <value>[JA]Reverse this adapter on</value>
+  </data>
+  <data name="AdapterInstanceAuditHistoryGrid.Title" xml:space="preserve">
+    <value>[JA]Instance Audit History</value>
+  </data>
+  <data name="Action_HeaderText" xml:space="preserve">
+    <value>[JA]Action</value>
+  </data>
+  <data name="AuditId_HeaderText" xml:space="preserve">
+    <value>[JA]Audit Id</value>
+  </data>
+  <data name="Details_HeaderText" xml:space="preserve">
+    <value>[JA]Details</value>
+  </data>
+  <data name="Forced_HeaderText" xml:space="preserve">
+    <value>[JA]Forced</value>
+  </data>
+  <data name="InstanceId_HeaderText" xml:space="preserve">
+    <value>[JA]Instance Id</value>
+  </data>
+  <data name="Time_HeaderText" xml:space="preserve">
+    <value>[JA]Time</value>
+  </data>
+  <data name="Type_HeaderText" xml:space="preserve">
+    <value>[JA]Type</value>
+  </data>
+  <data name="UserId_HeaderText" xml:space="preserve">
+    <value>[JA]User Id</value>
+  </data>
+  <data name="UserName_HeaderText" xml:space="preserve">
+    <value>[JA]User Name</value>
+  </data>
+  <data name="Adapter_HeaderText" xml:space="preserve">
+    <value>[JA]Adapter</value>
+  </data>
+  <data name="AdapterInstanceRunDetailsGrid.Title" xml:space="preserve">
+    <value>[JA]Instance Run Details</value>
+  </data>
+  <data name="DetailType_HeaderText" xml:space="preserve">
+    <value>[JA]Detail Type</value>
+  </data>
+  <data name="Timestamp_HeaderText" xml:space="preserve">
+    <value>[JA]Timestamp</value>
+  </data>
+  <data name="BatchDetails" xml:space="preserve">
+    <value>[JA]View Details Of The Batches For This Run Of The Adapter</value>
+  </data>
+  <data name="FailedAccounts" xml:space="preserve">
+    <value>[JA]View List Of Accounts That Had Failures</value>
+  </data>
+  <data name="lblRunId.Text" xml:space="preserve">
+    <value>[JA]Run Id:</value>
+  </data>
+  <data name="lblSummaryDetails.Text" xml:space="preserve">
+    <value>[JA]Summary Details:</value>
+  </data>
+  <data name="pnlRunDetails.Text" xml:space="preserve">
+    <value>[JA]Details:</value>
   </data>
 </root>

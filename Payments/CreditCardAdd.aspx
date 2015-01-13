@@ -87,13 +87,19 @@
 
     function completeErrorRequest() {
       // Handle errors which occur while requesting the payment broker.
-      document.getElementById('<%=tbCCNumber.ClientID%>').value = 'Error occurred';
+      document.getElementById('<%=tbCCNumber.ClientID%>').value = 'PaymentBroker request error occurred';
     }
 
     function callback(obj) {
       // Process response from the payment broker.
       if (obj.ResponseType != 'Success') {
-        document.getElementById('<%=tbCCNumber.ClientID%>').value = 'Error occurred';
+        document.getElementById('<%=tbCCNumber.ClientID%>').value = '';
+        Ext.Msg.show({
+          title: TEXT_ERROR,
+          msg: obj.ResponseValue,
+          buttons: Ext.Msg.OK,
+          icon: Ext.MessageBox.ERROR
+        });
       } else {
         document.getElementById('<%=paymentInstrumentId.ClientID%>').value = obj.ResponseValue;
         var number = document.getElementById('<%=tbCCNumber.ClientID%>').value;

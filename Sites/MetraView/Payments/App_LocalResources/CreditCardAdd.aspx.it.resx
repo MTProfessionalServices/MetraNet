@@ -186,4 +186,7 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>CAP (Codice di avviamento postale)</value>
   </data>
+  <data name="tbEmail.Label" xml:space="preserve">
+    <value>[IT]Email</value>
+  </data>
 </root>

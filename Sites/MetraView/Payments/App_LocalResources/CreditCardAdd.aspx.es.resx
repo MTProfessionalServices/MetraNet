@@ -186,4 +186,7 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>Código postal</value>
   </data>
+  <data name="tbEmail.Label" xml:space="preserve">
+    <value>[ES]Email</value>
+  </data>
 </root>

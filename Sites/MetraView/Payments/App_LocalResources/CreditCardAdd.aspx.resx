@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,131 +59,134 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="AddCC.Text" xml:space="preserve">
-        <value>Add Credit Card</value>
-    </data>
-    <data name="ddCardTypeResource1.Label" xml:space="preserve">
-        <value>Credit Card Type</value>
-    </data>
-    <data name="ddExpMonthResource1.Label" xml:space="preserve">
-        <value>Expiration Date</value>
-    </data>
-    <data name="ddExpYearResource1.Label" xml:space="preserve">
-        <value>/</value>
-    </data>
-    <data name="ddPriorityResource1.Label" xml:space="preserve">
-        <value>Priority</value>
-    </data>
-    <data name="hrCCVNResource1.Text" xml:space="preserve">
-        <value>Credit Card Verification Number</value>
-    </data>
-    <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>Error Messages</value>
-    </data>
-    <data name="lcAmount.Label" xml:space="preserve">
-        <value>Amount</value>
-    </data>
-    <data name="lcMethod.Label" xml:space="preserve">
-        <value>Method</value>
-    </data>
-    <data name="MTSection1Resource1.Text" xml:space="preserve">
-        <value>Credit Card Information</value>
-    </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Add Credit Card</value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>Add Credit Card</value>
-    </data>
-    <data name="tbAddress2Resource1.Label" xml:space="preserve">
-        <value>Address Line 2</value>
-    </data>
-    <data name="tbAddressResource1.Label" xml:space="preserve">
-        <value>Address Line 1</value>
-    </data>
-    <data name="tbCCNumberResource1.Label" xml:space="preserve">
-        <value>Card Number</value>
-    </data>
-    <data name="tbCityResource1.Label" xml:space="preserve">
-        <value>City</value>
-    </data>
-    <data name="tbCountryResource1.Label" xml:space="preserve">
-        <value>Country</value>
-    </data>
-    <data name="tbCVNNumberResource1.Label" xml:space="preserve">
-        <value>CVV Number</value>
-    </data>
-    <data name="tbFirstNameResource1.Label" xml:space="preserve">
-        <value>First Name</value>
-    </data>
-    <data name="tbLastNameResource1.Label" xml:space="preserve">
-        <value>Last Name</value>
-    </data>
-    <data name="tbMiddleInitialResource1.Label" xml:space="preserve">
-        <value>Middle Initial</value>
-    </data>
-    <data name="tbStateResource1.Label" xml:space="preserve">
-        <value>State/Province</value>
-    </data>
-    <data name="tbZipCodeResource1.Label" xml:space="preserve">
-        <value>Zip/Postal Code</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddCC.Text" xml:space="preserve">
+    <value>Add Credit Card</value>
+  </data>
+  <data name="ddCardTypeResource1.Label" xml:space="preserve">
+    <value>Credit Card Type</value>
+  </data>
+  <data name="ddExpMonthResource1.Label" xml:space="preserve">
+    <value>Expiration Date</value>
+  </data>
+  <data name="ddExpYearResource1.Label" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="ddPriorityResource1.Label" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="hrCCVNResource1.Text" xml:space="preserve">
+    <value>Credit Card Verification Number</value>
+  </data>
+  <data name="lblErrorMessageResource1.Text" xml:space="preserve">
+    <value>Error Messages</value>
+  </data>
+  <data name="lcAmount.Label" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lcMethod.Label" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="MTSection1Resource1.Text" xml:space="preserve">
+    <value>Credit Card Information</value>
+  </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>Add Credit Card</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Add Credit Card</value>
+  </data>
+  <data name="tbAddress2Resource1.Label" xml:space="preserve">
+    <value>Address Line 2</value>
+  </data>
+  <data name="tbAddressResource1.Label" xml:space="preserve">
+    <value>Address Line 1</value>
+  </data>
+  <data name="tbCCNumberResource1.Label" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="tbCityResource1.Label" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="tbCountryResource1.Label" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="tbCVNNumberResource1.Label" xml:space="preserve">
+    <value>CVV Number</value>
+  </data>
+  <data name="tbFirstNameResource1.Label" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="tbLastNameResource1.Label" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="tbMiddleInitialResource1.Label" xml:space="preserve">
+    <value>Middle Initial</value>
+  </data>
+  <data name="tbStateResource1.Label" xml:space="preserve">
+    <value>State/Province</value>
+  </data>
+  <data name="tbZipCodeResource1.Label" xml:space="preserve">
+    <value>Zip/Postal Code</value>
+  </data>
+  <data name="tbEmail.Label" xml:space="preserve">
+    <value>Email</value>
+  </data>
 </root>

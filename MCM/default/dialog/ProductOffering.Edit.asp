@@ -235,8 +235,8 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 
   COMObject.Properties("EffDate_StartDate").Value = Empty    
   COMObject.Properties("EffDate_EndDate").Value = Empty     	
-  CCOMObject.Properties("AvDate_StartDate").Value = Empty   
-  COMCOMObject.Properties("AvDate_EndDate").Value = Empty
+  COMObject.Properties("AvDate_StartDate").Value = Empty   
+  COMObject.Properties("AvDate_EndDate").Value = Empty
 
   If COMObject.Instance.DisplayName = "" then
    COMObject.Instance.DisplayName = "Dummy"

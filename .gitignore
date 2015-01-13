@@ -5,10 +5,15 @@ output/
 !RMP/UI/Res/Ext/docs/output
 !RMP/UI/Res/Ext/examples/docs/output
 
+Database/
 BBXService/
 RMP/Bin/
 RMP/*.txt
 RMP/MTLog.Be.txt
 /**/[Bb]in
+/**/[Tt]emp
+/**/*.resources
 
 _MetraNet_*
+sessions.bin
+sessionkeys.xml

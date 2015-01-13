@@ -5,6 +5,7 @@ output/
 !RMP/UI/Res/Ext/docs/output
 !RMP/UI/Res/Ext/examples/docs/output
 
+Database/
 BBXService/
 RMP/Bin/
 RMP/*.txt
@@ -15,9 +16,4 @@ RMP/MTLog.Be.txt
 
 _MetraNet_*
 sessions.bin
-RMP/Config/Security/sessionkeys.xml
-
-# Achilles additions
-RMP/InstallScripts/**/SQLLogs
-RMP/mtlog.be.txt.*
-RMP/Extensions/MetraView/Sites/MetraView/App_Data/Logs/*
+sessionkeys.xml

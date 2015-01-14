@@ -4,9 +4,10 @@
       (
       SELECT top 1001
       /* __GET_USAGE_SUMMARY__ */
-      bpd2.nm_display_name as ProductOfferingName,
-      bp2d2.nm_display_name as PriceableItemName,
-      bp3d2.nm_display_name as PriceableItemInstanceName,
+      bpPo.nm_display_name as ProductOfferingName,
+      tbpPiTpl.nm_name AS PriceableItemType,
+      COALESCE(bpPiTpl.nm_display_name, tbpPiTpl.nm_display_name) as PriceableItemName,
+      bpPiInst.nm_display_name as PriceableItemInstanceName,
       au.id_prod as ProductOfferingId,
       au.id_pi_instance as PriceableItemInstanceId,
       au.id_pi_template as PriceableItemTemplateId,
@@ -14,14 +15,14 @@
       au.id_view as ViewID,
 	  descd2.tx_desc as ViewName,
       'Product' as ViewType,
-      {fn IFNULL(bp3d2.n_display_name, bp2d2.n_display_name)} as DescriptionID,
+      COALESCE(bpPiInst.n_display_name, bpPiTpl.n_display_name) as DescriptionID,
       au.am_currency Currency,
-      SUM({fn IFNULL(au.Amount, 0.0)}) as Amount,
+      SUM(COALESCE(au.Amount, 0.0)) as Amount,
       /* prebill adjustments */
-      SUM({fn IFNULL(au.AtomicPrebillAdjAmt, 0.0)}) as AtomicPrebillAdjAmt,
-      SUM({fn IFNULL(au.CompoundPrebillAdjAmt, 0.0)}) as CompoundPrebillAdjAmt,
-      SUM({fn IFNULL(au.CompoundPrebillAdjedAmt, 0.0)}) as CompoundPrebillAdjedAmt,
-      SUM({fn IFNULL(au.AtomicPrebillAdjedAmt, 0.0)}) as AtomicPrebillAdjedAmt
+      SUM(COALESCE(au.AtomicPrebillAdjAmt, 0.0)) as AtomicPrebillAdjAmt,
+      SUM(COALESCE(au.CompoundPrebillAdjAmt, 0.0)) as CompoundPrebillAdjAmt,
+      SUM(COALESCE(au.CompoundPrebillAdjedAmt, 0.0)) as CompoundPrebillAdjedAmt,
+      SUM(COALESCE(au.AtomicPrebillAdjedAmt, 0.0)) as AtomicPrebillAdjedAmt
       ,SUM(au.CompoundPrebillFedTaxAdjAmt) As CompoundPrebillFedTaxAdjAmt
 			,SUM(au.CompoundPrebillStateTaxAdjAmt) AS CompoundPrebillStateTaxAdjAmt
 			,SUM(au.CompoundPrebillCntyTaxAdjAmt) AS CompoundPrebillCntyTaxAdjAmt
@@ -46,27 +47,27 @@
 			,SUM(au.AtomicPostbillLocalTaxAdjAmt) AS AtomicPostbillLocalTaxAdjAmt
 			,SUM(au.AtomicPostbillOtherTaxAdjAmt) AS AtomicPostbillOtherTaxAdjAmt
 			,SUM(au.AtomicPostbillTotalTaxAdjAmt) AS AtomicPostbillTotalTaxAdjAmt
-      ,SUM({fn IFNULL(au.Tax_Federal, 0.0)} + {fn IFNULL(au.Tax_State, 0.0)} + {fn IFNULL(au.Tax_County, 0.0)} + {fn IFNULL(au.Tax_Local, 0.0)} + {fn IFNULL(au.Tax_Other, 0.0)}) as TaxAmount,
-      SUM({fn IFNULL((au.tax_federal), 0.0)}) FederalTaxAmount,
-      SUM({fn IFNULL((au.tax_state), 0.0)}) StateTaxAmount,
-      SUM({fn IFNULL((au.tax_county), 0.0)}) CountyTaxAmount,
-      SUM({fn IFNULL((au.tax_local), 0.0)}) LocalTaxAmount,
-      SUM({fn IFNULL((au.tax_other), 0.0)}) OtherTaxAmount,
+      ,SUM(COALESCE(au.Tax_Federal, 0.0) + COALESCE(au.Tax_State, 0.0) + COALESCE(au.Tax_County, 0.0) + COALESCE(au.Tax_Local, 0.0) + COALESCE(au.Tax_Other, 0.0)) as TaxAmount,
+      SUM(COALESCE(au.tax_federal, 0.0)) FederalTaxAmount,
+      SUM(COALESCE(au.tax_state, 0.0)) StateTaxAmount,
+      SUM(COALESCE(au.tax_county, 0.0)) CountyTaxAmount,
+      SUM(COALESCE(au.tax_local, 0.0)) LocalTaxAmount,
+      SUM(COALESCE(au.tax_other, 0.0)) OtherTaxAmount,
       SUM(au.amount + 
 	      /*If implied taxes, then taxes are already included, don't add them again */
 	      (case when au.is_implied_tax = 'N' then 
-              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
-                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+              (COALESCE(au.tax_federal, 0.0) + COALESCE(au.tax_state, 0.0) + COALESCE(au.tax_county, 0.0) + 
+                  COALESCE(au.tax_local, 0.0) + COALESCE(au.tax_other, 0.0)) else 0.0 end)
 	      /*If informational taxes, then they shouldn't be in the total */
 			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
-              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
-                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end))
+              (COALESCE(au.tax_federal, 0.0) + COALESCE(au.tax_state, 0.0) + COALESCE(au.tax_county, 0.0) + 
+                  COALESCE(au.tax_local, 0.0) + COALESCE(au.tax_other, 0.0)) else 0.0 end))
 			  AmountWithTax,
       SUM((case when au.is_implied_tax = 'N' then %%DISPLAYAMOUNT%% else au.amount end) 
 	  /*If informational taxes, then they shouldn't be in the total */
 			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
-              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
-                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)) 
+              (COALESCE(au.tax_federal, 0.0) + COALESCE(au.tax_state, 0.0) + COALESCE(au.tax_county, 0.0) + 
+                  COALESCE(au.tax_local, 0.0) + COALESCE(au.tax_other, 0.0)) else 0.0 end)) 
 		AS DisplayAmount,
       
       COUNT(1) as Count
@@ -95,10 +96,10 @@
             THEN prebillajs.AdjustmentAmount
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)} AS CompoundPrebillAdjAmt,
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0) AS CompoundPrebillAdjAmt,
         (au.amount + CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.AdjustmentAmount
-            ELSE 0 END + {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)}) AS CompoundPrebillAdjedAmt,
+            ELSE 0 END + COALESCE(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)) AS CompoundPrebillAdjedAmt,
         (CASE WHEN (prebillajs.id_adj_trx IS NOT NULL AND prebillajs.c_status = 'A')	
 	            THEN prebillajs.AdjustmentAmount
 	            ELSE 0 END) AS AtomicPrebillAdjAmt,
@@ -114,32 +115,32 @@
             THEN prebillajs.aj_tax_federal
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundFedTaxAdjAmt, 0.0)} AS CompoundPrebillFedTaxAdjAmt,            
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundFedTaxAdjAmt, 0.0) AS CompoundPrebillFedTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_state
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundStateTaxAdjAmt, 0.0)} AS CompoundPrebillStateTaxAdjAmt,            
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundStateTaxAdjAmt, 0.0) AS CompoundPrebillStateTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_county
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundCntyTaxAdjAmt, 0.0)} AS CompoundPrebillCntyTaxAdjAmt,            
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundCntyTaxAdjAmt, 0.0) AS CompoundPrebillCntyTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_local
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundLocalTaxAdjAmt, 0.0)} AS CompoundPrebillLocalTaxAdjAmt,            
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundLocalTaxAdjAmt, 0.0) AS CompoundPrebillLocalTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_other
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundOtherTaxAdjAmt, 0.0)} AS CompoundPrebillOtherTaxAdjAmt,            
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundOtherTaxAdjAmt, 0.0) AS CompoundPrebillOtherTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN (prebillajs.aj_tax_federal + prebillajs.aj_tax_state + prebillajs.aj_tax_county + prebillajs.aj_tax_local + prebillajs.aj_tax_other)
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundTotalTaxAdjAmt, 0.0)} AS CompoundPrebillTotalTaxAdjAmt,            
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundTotalTaxAdjAmt, 0.0) AS CompoundPrebillTotalTaxAdjAmt,            
 				/* ATOMIC PREBILL ADJUSTMENTS TO TAXES: */
 	      
 	      (CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
@@ -169,18 +170,18 @@
         /* POSTBILL ADJUSTMENTS: */
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.AdjustmentAmount
-            ELSE 0 END + {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0)} AS CompoundPostbillAdjAmt,
+            ELSE 0 END + COALESCE(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0) AS CompoundPostbillAdjAmt,
         /* when calculating postbill adjusted amounts, always consider prebill adjusted amounts */
         (au.amount + CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.AdjustmentAmount
-            ELSE 0 END  + {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0)} 
+            ELSE 0 END  + COALESCE(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0) 
         + 
         /* bring in prebill adjustments */
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.AdjustmentAmount
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)}
+            COALESCE(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)
         ) 
             AS CompoundPostbillAdjedAmt,
         (CASE WHEN (postbillajs.id_adj_trx IS NOT NULL AND postbillajs.c_status = 'A')	
@@ -205,33 +206,33 @@
             THEN postbillajs.aj_tax_federal
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundFedTaxAdjAmt, 0.0)} AS CompoundPostbillFedTaxAdjAmt,            
+            COALESCE(ChildPostBillAdjustments.PostbillCompoundFedTaxAdjAmt, 0.0) AS CompoundPostbillFedTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_state
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundStateTaxAdjAmt, 0.0)} AS CompoundPostbillStateTaxAdjAmt,            
+            COALESCE(ChildPostBillAdjustments.PostbillCompoundStateTaxAdjAmt, 0.0) AS CompoundPostbillStateTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_county
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundCntyTaxAdjAmt, 0.0)} AS CompoundPostbillCntyTaxAdjAmt,            
+            COALESCE(ChildPostBillAdjustments.PostbillCompoundCntyTaxAdjAmt, 0.0) AS CompoundPostbillCntyTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_local
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundLocalTaxAdjAmt, 0.0)} AS CompoundPostbillLocalTaxAdjAmt,            
+            COALESCE(ChildPostBillAdjustments.PostbillCompoundLocalTaxAdjAmt, 0.0) AS CompoundPostbillLocalTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_other
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundOtherTaxAdjAmt, 0.0)} AS CompoundPostbillOtherTaxAdjAmt,            
+            COALESCE(ChildPostBillAdjustments.PostbillCompoundOtherTaxAdjAmt, 0.0) AS CompoundPostbillOtherTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN (postbillajs.aj_tax_federal + postbillajs.aj_tax_state + 
 									postbillajs.aj_tax_county + postbillajs.aj_tax_local + postbillajs.aj_tax_other)
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundTotalTaxAdjAmt, 0.0)} AS CompoundPostbillTotalTaxAdjAmt,            
+            COALESCE(ChildPostBillAdjustments.PostbillCompoundTotalTaxAdjAmt, 0.0) AS CompoundPostbillTotalTaxAdjAmt,            
 				/* ATOMIC POST ADJUSTMENTS TO TAXES: */
 	      
 	      (CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
@@ -465,11 +466,12 @@
         LEFT OUTER JOIN t_adjustment_type prebillajtype on prebillajtype.id_prop = prebillajs.id_aj_type 
         LEFT OUTER JOIN t_adjustment_type postbillajtype on postbillajtype.id_prop = postbillajs.id_aj_type 
 	) au
-    /* vw_aj_info */  
-      left outer join t_vw_base_props bp2d2 on au.id_pi_template=bp2d2.id_prop and bp2d2.id_lang_code=%%ID_LANG%%
+    /* vw_aj_info */
+      join t_base_props tbpPiTpl on au.id_pi_template = tbpPiTpl.id_prop
       left outer join t_pi_template piTemplated2 on piTemplated2.id_template=au.id_pi_template
-      left outer join t_vw_base_props bpd2 on au.id_prod=bpd2.id_prop and bpd2.id_lang_code=%%ID_LANG%%
-      left outer join t_vw_base_props bp3d2 on au.id_pi_instance=bp3d2.id_prop and bp3d2.id_lang_code=%%ID_LANG%%
+      left outer join t_vw_base_props bpPo on au.id_prod=bpPo.id_prop and bpPo.id_lang_code=%%ID_LANG%%
+      left outer join t_vw_base_props bpPiTpl on au.id_pi_template=bpPiTpl.id_prop and bpPiTpl.id_lang_code=%%ID_LANG%%
+      left outer join t_vw_base_props bpPiInst on au.id_pi_instance=bpPiInst.id_prop and bpPiInst.id_lang_code=%%ID_LANG%%
 	  inner join t_description descd2 on au.id_view=descd2.id_desc and descd2.id_lang_code=%%ID_LANG%%
       %%FROM_CLAUSE%%
       where
@@ -480,16 +482,18 @@
       %%SESSION_PREDICATE%%
       group by
       au.id_prod,
-      bpd2.nm_display_name,
-      bp2d2.nm_display_name,
-      bp3d2.nm_display_name,
+      tbpPiTpl.nm_name,
+      tbpPiTpl.nm_display_name,
+      bpPo.nm_display_name,
+      bpPiTpl.nm_display_name,
+      bpPiInst.nm_display_name,
       au.id_pi_instance,
       au.id_pi_template,
       piTemplated2.id_template_parent,
       au.id_view,
-	  descd2.tx_desc,
-      bp2d2.n_display_name,
-      bp3d2.n_display_name,
+      descd2.tx_desc,
+      bpPiTpl.n_display_name,
+      bpPiInst.n_display_name,
       au.am_currency 
       order by
       ProductOfferingName,

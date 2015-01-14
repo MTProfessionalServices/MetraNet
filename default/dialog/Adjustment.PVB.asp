@@ -514,7 +514,7 @@ PRIVATE FUNCTION G_DisplayCell(EventArg) ' As Boolean
                                                   "CHILDIDPITEMPLATE"                     , Form.Grids("G").Rowset.Value("PriceableItemTemplateId"), _
                                                   "PITEMPLATE"                            , ProductView.Properties.Rowset.Value("PITemplate"), _
                                                   "PITEMPLATECHILD"                       , Form.Grids("G").Rowset.Value("PriceableItemTemplateId"), _                                                                                                    
-                                                  "CHILDTYPE"                             , Form.Grids("G").Rowset.Value("PriceableItemName") _
+                                                  "CHILDTYPE"                             , Form.Grids("G").Rowset.Value("PriceableItemType") _
                                                   ))
                                                   
 

@@ -7,7 +7,6 @@
 
   <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" Width="100%" />
   <asp:Label ID="lblErrorMessage" runat="server" CssClass="ErrorMessage" Text="Error Messages" Visible="False" meta:resourcekey="lblErrorMessageResource1"></asp:Label>
-  <script language="javascript" type="text/javascript" src="PaymentBroker.js?v=1.2"></script>
   <script language="javascript" type="text/javascript">
     function sendCardToPaymentBroker() {     
       if (window.ValidateForm() == false) return false;

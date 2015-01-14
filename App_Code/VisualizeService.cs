@@ -22,13 +22,11 @@ public class VisualizeService
   protected static readonly Logger logger = new Logger("[VisualizeService]");
   private const int MaxDdCount = 50;
 
-  public static void GetData(string connectionInfo, string catalog, string sqlQueryTag,
+  public static void GetData(string sqlQueryTag,
                              Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
   {
-    var ciDbServer = new ConnectionInfo(connectionInfo) {Catalog = catalog};
-    logger.LogInfo("Connection Info:" + connectionInfo);
-
-    using (var conn = ConnectionManager.CreateConnection(ciDbServer))
+    
+    using (var conn = ConnectionManager.CreateConnection())
     {
       using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, sqlQueryTag))
       {

@@ -83,11 +83,11 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   
   
   ' set column captions
-  ProductView.Properties("Message ID").Caption = "Message ID"
-  ProductView.Properties("Metered On").Caption = "Metered On"
-  ProductView.Properties("Assigned On").Caption = "Assigned On"
-  ProductView.Properties("Assigned To").Caption = "Assigned To"
-  ProductView.Properties("Session Count").Caption = "Session Count"
+  ProductView.Properties("Message ID").Caption = mom_GetDictionary("TEXT_Message_ID") 
+  ProductView.Properties("Metered On").Caption = mom_GetDictionary("TEXT_Metered_On") 
+  ProductView.Properties("Assigned On").Caption = mom_GetDictionary("TEXT_Assigned_On") 
+  ProductView.Properties("Assigned To").Caption = mom_GetDictionary("TEXT_Assigned_To") 
+  ProductView.Properties("Session Count").Caption = mom_GetDictionary("TEXT_Session_Count") 
   
   ProductView.Properties.SelectAll
 
@@ -166,10 +166,10 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     
     Form_DisplayEndOfPageAddSelectButtons EventArg, "", FALSE ' No JavaScript, Do not close the form tag
     
-    strTmp = "<BR><button  name='SUBMIT' Class='clsOkButton' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>Resubmit</button>" & vbNewLine
+    strTmp = "<BR><button  name='SUBMIT' Class='clsOkButton' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>"& mom_GetDictionary("TEXT_Resubmit") & "</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
 
-    strTmp = "<button  name='Delete' Class='clsOkButton' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>Delete</button>" & vbNewLine
+    strTmp = "<button  name='Delete' Class='clsOkButton' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>"& mom_GetDictionary("TEXT_Delete") & "</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"

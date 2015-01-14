@@ -307,7 +307,7 @@
         <value>Id interno</value>
     </data>
     <data name="TEXT_IS_REQUIRED" xml:space="preserve">
-        <value>É necessário</value>
+        <value>ÉObrigatório</value>
     </data>
     <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
         <value>está desativado para manutenção</value>

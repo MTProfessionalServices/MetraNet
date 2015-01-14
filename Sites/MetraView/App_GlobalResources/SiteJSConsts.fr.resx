@@ -151,7 +151,7 @@
         <value>%b %#d, %Y</value>
     </data>
     <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-        <value>Aucune transacction détectée pour l'intervalle en cours</value>
+        <value>Aucune transacction détectée pour l’intervalle en cours</value>
     </data>
     <data name="NO_RECORDS_FOUND" xml:space="preserve">
         <value>Aucun enregistrement trouvé</value>
@@ -199,7 +199,7 @@
         <value>Recherche avancée</value>
     </data>
     <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-        <value>Le nom ne peut pas contenir d'apostrophes ou de guillemets.</value>
+        <value>Le nom ne peut pas contenir d’apostrophes ou de guillemets.</value>
     </data>
     <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
         <value>Appliquer les modifications</value>
@@ -244,7 +244,7 @@
         <value>Colonne</value>
     </data>
     <data name="TEXT_COLUMN_CONFIG_PROMPT" xml:space="preserve">
-        <value>Sélectionnez toutes les colonnes visibles. Utilisez l'opération de glisser-déposer pour effectuer une réorganisation</value>
+        <value>Sélectionnez toutes les colonnes visibles. Utilisez l’opération de glisser-déposer pour effectuer une réorganisation</value>
     </data>
     <data name="TEXT_CONFIGURATION_COMPLETED" xml:space="preserve">
         <value>Modification de la configuration réussie</value>
@@ -283,7 +283,7 @@
         <value>Supprimer</value>
     </data>
     <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir effectuer la suppression de {0} ?</value>
+        <value>Êtes-vous sûr de vouloir supprimer {0} ?</value>
     </data>
     <data name="TEXT_DELETE_SEARCH_CONFIRM" xml:space="preserve">
         <value>Êtes-vous sûr de vouloir supprimer cette recherche enregistrée ?</value>
@@ -376,7 +376,7 @@
         <value>Effectuez une sélection</value>
     </data>
     <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-        <value>Trop grand nombre d'enregistrements à mettre à jour</value>
+        <value>Trop grand nombre d’enregistrements à mettre à jour</value>
     </data>
     <data name="TEXT_EXPORT" xml:space="preserve">
         <value>Exporter</value>
@@ -400,7 +400,7 @@
         <value>Échec du chargement de la page.</value>
     </data>
     <data name="TEXT_FILTER_CONFIG_PROMPT" xml:space="preserve">
-        <value>Sélectionnez tous les filtres visibles. Utilisez l'opération de glisser-déposer pour effectuer une réorganisation</value>
+        <value>Sélectionnez tous les filtres visibles. Utilisez l’opération de glisser-déposer pour effectuer une réorganisation</value>
     </data>
     <data name="TEXT_FIND_ACCOUNT" xml:space="preserve">
         <value>Rechercher le compte</value>
@@ -430,7 +430,7 @@
         <value>Racine de la hiérarchie</value>
     </data>
     <data name="TEXT_HISTORY_TOOLTIP" xml:space="preserve">
-        <value>Nombre de comptes :  {0} &lt;br/&gt;Nombre de comptes terminés : {1} &lt;br/&gt;Nombre d'erreurs de compte : {2} &lt;br/&gt;Nombre d'abonnements : {3} &lt;br/&gt;Nombre d'abonnements terminés :  {4}&lt;br/&gt; Nombre d'erreurs d'abonnement : {5}</value>
+        <value>Nombre de comptes :  {0} &lt;br/&gt;Nombre de comptes terminés : {1} &lt;br/&gt;Nombre d’erreurs de compte : {2} &lt;br/&gt;Nombre d’abonnements : {3} &lt;br/&gt;Nombre d’abonnements terminés :  {4}&lt;br/&gt; Nombre d’erreurs d’abonnement : {5}</value>
     </data>
     <data name="TEXT_INTERNAL" xml:space="preserve">
         <value>Informations internes</value>
@@ -445,7 +445,7 @@
         <value>Le numéro d’acheminement est incorrect.</value>
     </data>
     <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-        <value>Vous allez mettre à jour les éléments NUMBER_TO_UPDATE. Sélectionnez un nombre moins important d'éléments pour respecter la limitation (fixée à {0} éléments)</value>
+        <value>Vous allez mettre à jour les éléments NUMBER_TO_UPDATE. Sélectionnez un nombre moins important d’éléments pour respecter la limitation (fixée à {0} éléments)</value>
     </data>
     <data name="TEXT_LOAD_SAVED_SEARCH" xml:space="preserve">
         <value>Charger la recherche enregistrée</value>
@@ -499,7 +499,7 @@
         <value>Aucun compte chargé.</value>
     </data>
     <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-        <value>Il n'y a pas de propriétés pour la mise à jour en vrac</value>
+        <value>Il n’y a pas de propriétés pour la mise à jour en vrac</value>
     </data>
     <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
         <value>Aucune propriété ne sera mise à jour</value>
@@ -511,7 +511,7 @@
         <value>Aucun compte récent.</value>
     </data>
     <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-        <value>Il n'y a aucun BME sélectionné pour effectuer une mise à jour en vrac</value>
+        <value>Il n’y a aucun BME sélectionné pour effectuer une mise à jour en vrac</value>
     </data>
     <data name="TEXT_NONE" xml:space="preserve">
         <value>Aucun(e)</value>
@@ -556,10 +556,10 @@
         <value>Propriétés qui seront mises à jour</value>
     </data>
     <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-        <value>Vous avez reçu ce crédit car votre abonnement facturé à l'avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] à l'avance.  Vous n'avez utilisé le service que du [RCIntervalStart] au [ProratedIntervalStartPreviousDay].  Par conséquent, ce crédit représente la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd].  Cela correspond à une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé un taux journalier de [ProratedDailyRate].  Le taux journalier a été calculé sur la base du montant [RCAmount] , en divisant ce montant par le nombre de jours contenu dans cette période. Nous avons donc pris en compte la période de [ProratedDays] jours et l'avons multipliée par[ProratedDailyRate] , ce qui a permis d'obtenir un crédit de [Amount].&lt;BR&gt;</value>
+        <value>Vous avez reçu ce crédit parce que votre abonnement comportant des frais récurrents facturés à l’avance a changé durant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Dans votre facture précédente, nous vous avons facturé [RCAmount] à l’avance.  Vous avez utilisé le service uniquement du [RCIntervalStart] au [ProratedIntervalStartPreviousDay].  Par conséquent, ce crédit représente la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd].  Cela correspond à une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons appliqué un prix journalier de [ProratedDailyRate].  Le prix journalier a été calculé en prenant [RCAmount] et en divisant par le nombre de jours de la période. Ainsi, nous avons pris une période de [ProratedDays] jours et l’avons multipliée par [ProratedDailyRate] pour obtenir un crédit de [Amount] en votre faveur.&lt;BR&gt;</value>
     </data>
     <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
-        <value>Ces frais ont été calculés au prorata.  Cela permet de diminuer les frais en ne facturant que le nombre de jours d'abonnement à un service au cours d'une période de facturation donnée.&lt;BR&gt;&lt;BR&gt;Pour cet élément, les frais ont débuté le [ProratedIntervalStart] pour se terminer le [ProratedIntervalEnd]. Vous avez donc bénéficié de [ProratedDays] jours de service. Votre facture pour cette période fait donc apparaître un montant calculé via la multiplication du taux journalier de [ProratedDailyRate] par [ProratedDays] jours pendant lesquels vous avez bénéficié de l'abonnement.  Cela représente [Amount].  (Le taux journalier de [ProratedDailyRate] est calculé en divisant les frais de la période (qui s'élèvent à [RCAmount]) par le nombre de jours de la période).&lt;BR&gt;</value>
+        <value>Ces frais ont été calculés au prorata.  Cela permet de diminuer les frais en ne facturant que le nombre de jours d’abonnement à un service au cours d’une période de facturation donnée.&lt;BR&gt;&lt;BR&gt;Pour cet élément, les frais ont débuté le [ProratedIntervalStart] pour se terminer le [ProratedIntervalEnd]. Vous avez donc bénéficié de [ProratedDays] jours de service. Votre facture pour cette période fait donc apparaître un montant calculé via la multiplication du taux journalier de [ProratedDailyRate] par [ProratedDays] jours pendant lesquels vous avez bénéficié de l’abonnement.  Cela représente [Amount].  (Le taux journalier de [ProratedDailyRate] est calculé en divisant les frais de la période (qui s’élèvent à [RCAmount]) par le nombre de jours de la période).&lt;BR&gt;</value>
     </data>
     <data name="TEXT_RATES" xml:space="preserve">
         <value>Prix  </value>
@@ -616,7 +616,7 @@
         <value>Sélectionner des comptes</value>
     </data>
     <data name="TEXT_SELECT_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
-        <value>Sélectionnez les membres à ajouter</value>
+        <value>Sélectionnez les membres à supprimer</value>
     </data>
     <data name="TEXT_SELFCARE_LOGIN" xml:space="preserve">
         <value>Connexion à l’auto-gestion</value>

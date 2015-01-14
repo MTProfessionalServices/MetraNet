@@ -142,13 +142,13 @@
         <value>Valeur par défaut :</value>
     </data>
     <data name="SpecCharacteristicModel_Description" xml:space="preserve">
-        <value>Description:</value>
+        <value>Description :</value>
     </data>
     <data name="SpecCharacteristicModel_DisplayOrder" xml:space="preserve">
-        <value>Ordre d'affichage :</value>
+        <value>Ordre d’affichage :</value>
     </data>
     <data name="SpecCharacteristicModel_DisplayOrder1" xml:space="preserve">
-        <value>Ordre d'affichage :</value>
+        <value>Ordre d’affichage :</value>
     </data>
     <data name="SpecCharacteristicModel_EntityId" xml:space="preserve">
         <value>ID d&amp;apos;entité :</value>
@@ -220,10 +220,10 @@
         <value>Options :</value>
     </data>
     <data name="SpecCharacteristicValueModel_ChoicesDisplayNames" xml:space="preserve">
-        <value>Noms d'options :</value>
+        <value>Noms d’options :</value>
     </data>
     <data name="SpecCharacteristicValueModel_ChoicesDisplayNames1" xml:space="preserve">
-        <value>Noms d'options :</value>
+        <value>Noms d’options :</value>
     </data>
     <data name="SpecCharacteristicValueModel_DatetimeValue" xml:space="preserve">
         <value>Valeur date/heure :</value>
@@ -244,10 +244,10 @@
         <value>Option par défaut :</value>
     </data>
     <data name="SpecCharacteristicValueModel_Description" xml:space="preserve">
-        <value>Description:</value>
+        <value>Description :</value>
     </data>
     <data name="SpecCharacteristicValueModel_Description1" xml:space="preserve">
-        <value>Description:</value>
+        <value>Description :</value>
     </data>
     <data name="SpecCharacteristicValueModel_DescriptionDisplayNames" xml:space="preserve">
         <value>Noms des descriptions :</value>
@@ -322,10 +322,10 @@
         <value>Type de propriété:</value>
     </data>
     <data name="SpecCharacteristicValueModel_StringValue" xml:space="preserve">
-        <value>Valeur de chaîne</value>
+        <value>Valeur de chaîne :</value>
     </data>
     <data name="SpecCharacteristicValueModel_StringValue1" xml:space="preserve">
-        <value>Valeur de chaîne</value>
+        <value>Valeur de chaîne :</value>
     </data>
     <data name="SpecCharacteristicValueModel_UserEditable" xml:space="preserve">
         <value>Modifiable :</value>

@@ -186,4 +186,7 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>郵便番号</value>
   </data>
+  <data name="tbEmail.Label" xml:space="preserve">
+    <value>[JA]Email</value>
+  </data>
 </root>

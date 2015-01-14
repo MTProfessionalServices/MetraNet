@@ -121,7 +121,7 @@
         <value>Facturation et paiements</value>
     </data>
     <data name="Charge.Text" xml:space="preserve">
-        <value>Frais</value>
+        <value>Modification</value>
     </data>
     <data name="DetailedView.Text" xml:space="preserve">
         <value>Vue détaillée</value>

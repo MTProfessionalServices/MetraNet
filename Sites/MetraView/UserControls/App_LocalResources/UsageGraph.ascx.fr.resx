@@ -124,6 +124,6 @@
         <value>.</value>
     </data>
     <data name="UsageGraphText.Text" xml:space="preserve">
-        <value>Ce tableau représente les frais d'utilisation de l'intervalle de facturation, ventilé par produit. Pour afficher plus d'informations sur ces frais, cliquez</value>
+        <value>Ce tableau représente les frais d’utilisation de l’intervalle de facturation, ventilé par produit. Pour afficher plus d’informations sur ces frais, cliquez</value>
     </data>
 </root>

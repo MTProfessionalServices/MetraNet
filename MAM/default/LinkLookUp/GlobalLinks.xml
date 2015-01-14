@@ -64,7 +64,28 @@ file mam\custom\linklookup\GlobalLinks.xml.
 			<value>[APP_HTTP_PATH]/default/dialog/hierarchyview.asp</value>
       <description></description>
 		</link>
+			
 		
+ 	  <link id="BATCH_ERROR_LIST_FILTER_OFF_NO_BACK_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?PopUpWindowMode=TRUE&amp;FilterOff=TRUE&amp;Close=TRUE&amp;MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+    
+ 	  <link id="BATCH_ERROR_LIST_FILTER_OFF_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?FilterOff=TRUE&amp;MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+ 	  
+ 	  <link id="BATCH_ERROR_LIST_MENU_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?FilterOff=TRUE&amp;Close=TRUE&amp;MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+		    
+ 	  <link id="BATCH_ERROR_LIST_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+        
  	  <link id="FOLDER_OWNER_DELETE_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/FolderOwnerDelete.asp</value>
       <description></description>

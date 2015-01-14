@@ -38,6 +38,8 @@ public partial class Payments_CreditCardAdd : MTPage
     set { ViewState["PaymentBrokerAddress"] = value; }
   }
 
+  protected string CreditCardTypeErrorMessage { get { return (string)GetLocalResourceObject("CreditCardTypeError"); } }
+
   private bool PayNow
   {
     get { return !String.IsNullOrEmpty(Request.QueryString["pay"]); }

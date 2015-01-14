@@ -189,4 +189,7 @@
   <data name="tbEmail.Label" xml:space="preserve">
     <value>E-mail</value>
   </data>
+  <data name="CreditCardTypeError" xml:space="preserve">
+    <value>n’est pas un type de carte pris en charge pour cette intégration de paiement</value>
+  </data>
 </root>

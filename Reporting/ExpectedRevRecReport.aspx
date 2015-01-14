@@ -20,16 +20,23 @@
   <script type="text/javascript">
     var accCycleId;
 
-      function SetTitle() {
-        var title = "<%=GetLocalResourceObject("MTTitle1Resource1.Text").ToString() %> - " + $('#selAccCycle :selected').text();
-        $('#MTTitle1 div').text(title);
-        top.document.title = "MetraNet - " + title;
-      }
+    function SetTitle() {
+      var title = "<%=GetLocalResourceObject("MTTitle1Resource1.Text").ToString() %> - " + $('#selAccCycle :selected').text();
+      $('#MTTitle1 div').text(title);
+      top.document.title = "MetraNet - " + title;
+    }
       
     Ext.onReady(function () {
-      $(".x-panel-fbar button").on( "click", function() {
+      $("#ext-comp-1087 button").on( "click", function() {
                                     RefreshHeaders();
                                     SetTitle();
+                                  });
+      
+      $("#clear_button button").on( "click", function() {
+                                    $('select#selCurrency').val('');
+                                    $('select#selProductId').val('');
+                                    $('select#selAccCycle').val('00000000-0000-0000-0000-000000000000');
+                                    $('#filter_AccountingCycleId_grdExpectedRevRecReport').val('00000000-0000-0000-0000-000000000000');
                                   });
     });
 
@@ -66,7 +73,10 @@
     }
 
     function RefreshHeaders() {
-      var cycle = $('#filter_AccountingCycleId_grdExpectedRevRecReport').val();;
+      var cycle = $('#filter_AccountingCycleId_grdExpectedRevRecReport').val();
+      if (cycle == '') {
+        cycle = '00000000-0000-0000-0000-000000000000';
+      }
       if (accCycleId !== cycle) {
         SetHeaders(cycle);
       }
@@ -75,12 +85,13 @@
     Ext.onReady(function () {
       $('#ext-gen121 td').hide();
       var inpVal = $('#filter_ProductId_grdExpectedRevRecReport-value');
-      var select = $("<select/>").width('218px').on('change', function () {
+      var select = $("<select id='selProductId'/>").width('218px').on('change', function () {
         inpVal.val(this.value);
       });
-      select.append($("<option/>").text("<%=GetLocalResourceObject("Option_All_Text").ToString() %>"));
+      select.append($("<option/>").text("<%=GetLocalResourceObject("Option_All_Text").ToString() %>").val(''));
       $.ajax({
         url: "../Report/GetProductsFilter",
+        cache: false,
         success: function (res) {
           res.forEach(function (e) {
             select.append($("<option/>").val(e.Key).text(e.Value));
@@ -97,6 +108,7 @@
       });
       $.ajax({
         url: "../Report/GetAccountingCyclesFilter",
+        cache: false,
         success: function (res) {
           res.forEach(function (e) {
             selectCycle.append($("<option/>").val(e.Id).text(e.Name));
@@ -117,6 +129,7 @@
       selectCurrency.append($("<option/>").text('<%=GetLocalResourceObject("Option_All_Text").ToString()%>').val(''));
       $.ajax({
         url: "../Report/GetCurrencyFilter",
+        cache: false,
         success: function (res) {
           res.forEach(function (e) {
             selectCurrency.append($("<option/>").val(e).text(e));

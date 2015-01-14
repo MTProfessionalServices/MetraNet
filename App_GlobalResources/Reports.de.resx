@@ -156,6 +156,9 @@
   <data name="TEXT_DATE_LAST" xml:space="preserve">
     <value>[DE]Date Last</value>
   </data>
+  <data name="TEXT_DEFERRED_CODE" xml:space="preserve">
+    <value>[DE]Deferred</value>
+  </data>
   <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
     <value>[DE]Deferred revenue code</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="TEXT_DISTINCT_PAYERS" xml:space="preserve">
     <value>[DE]Distinct Payers</value>
   </data>
+  <data name="TEXT_EARNED_CODE" xml:space="preserve">
+    <value>[DE]Earned</value>
+  </data>
   <data name="TEXT_EXPECTED" xml:space="preserve">
     <value>[DE]Expected</value>
   </data>
@@ -182,6 +188,9 @@
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION" xml:space="preserve">
     <value>[DE]Group Subscription</value>
+  </data>
+  <data name="TEXT_INCREMENTAL_CODE" xml:space="preserve">
+    <value>[DE]Incremental</value>
   </data>
   <data name="TEXT_INVOICE_METHOD" xml:space="preserve">
     <value>[DE]Invoice Method</value>

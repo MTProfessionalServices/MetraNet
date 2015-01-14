@@ -525,4 +525,13 @@
   <data name="TEXT_INTERVALS_TO_ARCHIVE_ID_INTERVAL" xml:space="preserve">
     <value>intervalle Id</value>
   </data>
+  <data name="TEXT_DEFERRED_CODE" xml:space="preserve">
+    <value>[FR]Deferred</value>
+  </data>
+  <data name="TEXT_EARNED_CODE" xml:space="preserve">
+    <value>[FR]Earned</value>
+  </data>
+  <data name="TEXT_INCREMENTAL_CODE" xml:space="preserve">
+    <value>[FR]Incremental</value>
+  </data>
 </root>

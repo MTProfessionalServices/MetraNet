@@ -46,6 +46,15 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS     : Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 	Dim bReturn 
+
+   Form("Update") = request.QueryString("Update")
+   Form("RoleID") =  request.QueryString("RoleID")
+   Form("CapabilityID") = request.QueryString("capabilityID") 
+   Form("CompositeCollection") = Empty
+  
+   Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))	 
+   Form("CompositeCapabilityTypeDescription") = ProductView.Properties.Rowset.Value("tx_desc")  
+
 	Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.
 
@@ -54,12 +63,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "APP_MCM", "Boolean", 0, FALSE, FALSE    
   Service.Properties.Add "APP_MOM", "Boolean", 0, FALSE, FALSE     
   Service.Properties.Add "APP_MPS", "Boolean", 0, FALSE, FALSE                        
-                  
-  Form("Update") = request.QueryString("Update")
- 	Form("RoleID") =  request.QueryString("RoleID")
-	Form("CapabilityID") = request.QueryString("capabilityID") 
-  Form("CompositeCollection") = Empty
-	
+  	
   If UCase(Session("IsAccount")) = "TRUE" Then
 		
     On error resume next
@@ -68,7 +72,6 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
       Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
     End If
     On error goto 0     
-
   
 		If UCase(Session("DefaultPolicy")) = "TRUE" Then
 		  Form("AccountPolicy") = Form("AuthAccount").GetDefaultPolicy(FrameWork.SessionContext)
@@ -105,7 +108,7 @@ FUNCTION DynamicCapabilites(EventArg)
   on error resume next
 	
   ' Set Title	
-  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").Description
+  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityTypeDescription")
 
 	If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then

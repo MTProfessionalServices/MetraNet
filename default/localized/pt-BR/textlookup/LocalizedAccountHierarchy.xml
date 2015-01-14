@@ -6,12 +6,12 @@
 
     <text id="TEXT_DROP_ACCOUNTS">
       <value>Arraste e solte aqui...</value>
-      <description>drag and drop</description>
+      <description>arrastar e soltar</description>
     </text> 
 
     <text id="TEXT_LOADING_DONE">
       <value>Concluído</value>
-      <description>done</description>
+      <description>concluído</description>
     </text> 
 
     <text id="TEXT_LOADING_HIERARCHY">

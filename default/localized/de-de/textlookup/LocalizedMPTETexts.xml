@@ -689,4 +689,92 @@
     <value>[DE]Create Rate Schedule(s)</value>
     <description></description>
   </text>
+  <text id="TEXT_PRODUCT_CATALOG">
+    <value>[DE]Product Catalog</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TABULAR_RULESET_READER">
+    <value>[DE]Tabular Ruleset Reader</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RETRIEVED_PC_OBJECTS">
+    <value>[DE]Retrieved Product Catalog objects</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOADED_ENUMS">
+    <value>[DE]Loaded Enums</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_START">
+    <value>[DE]Ruleset START</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNABLE_READ_CONFIGURATION">
+    <value>[DE]Unable to read configuration from input. Error returned is:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNABLE_CRATE_RULESET">
+    <value>[DE]Unable to create ruleset from propset object. Error returned is:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING">
+    <value>[DE]Product Offering</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_ITEM">
+    <value>[DE]Priceable Item</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICELIST">
+    <value>[DE]Pricelist</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE">
+    <value>[DE]Parameter Table</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATE_SCHEDULE">
+    <value>[DE]Rate Schedule</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EFFECTIVE">
+    <value>[DE]Effective</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOADED_RULESET1">
+    <value>[DE]Loaded Ruleset 1</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOADED_RULESET2">
+    <value>[DE]Loaded Ruleset 2</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISPLAYING_XML_SETTINGS">
+    <value>[DE]Displaying XML versions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET1_HAS">
+    <value>[DE]Ruleset 1 has </value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET2_HAS">
+    <value>[DE] and Ruleset 2 has </value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_DIFF_START">
+    <value>[DE]Ruleset Diff START</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_DIFF_END">
+    <value>[DE]Ruleset Diff End</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHARGED_FROM">
+    <value>[DE]Charged From</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHARGED_TO">
+    <value>[DE] to </value>
+    <description></description>
+  </text>
 </texts>

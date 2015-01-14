@@ -92,7 +92,7 @@
     <description></description>
   </text>
   <text id="TEXT_FAILED">
-    <value>Échec de l'opération</value>
+    <value>Échec</value>
     <description></description>
   </text>
   <text id="TEXT_NONE">

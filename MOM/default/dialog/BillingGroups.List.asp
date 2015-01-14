@@ -194,14 +194,23 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
         Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
 	    End If
 		Case 3 
-
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "<td width='250px' class='" & Form.Grid.CellClass & "' align='left'>"
+      dim nameLocalize, nameToDisplay, descriptionToDisplay
+      nameLocalize = UCase(Replace(ProductView.Properties("Name").Value, " ", "_"))
+      nameToDisplay = ProductView.Properties("Name").Value
+      descriptionToDisplay = ProductView.Properties("Description").Value
+
+      If (nameLocalize = "DEFAULT" Or nameLocalize = "EUROPE" Or nameLocalize = "NORTH_AMERICA" Or nameLocalize = "SOUTH_AMERICA") Then
+         nameToDisplay = mom_GetDictionary("TEXT_BG_NAME_" & nameLocalize)  
+         descriptionToDisplay = mom_GetDictionary("TEXT_BG_DESCRIPTION_" & nameLocalize)    
+      End If
+ 
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "<b><a target='ticketFrame' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & ProductView.Properties("BillingGroupID") & "&ID=" & Form("IntervalID") & _
-                                                      "'>" & ProductView.Properties("Name") & "</a></b><br>" 
+                                                      "'>" & nameToDisplay & "</a></b><br>" 
       If Not (IsNull(ProductView.Properties("partition_name")) Or IsEmpty(ProductView.Properties("partition_name"))) then
         EventArg.HTMLRendered = EventArg.HTMLRendered & mom_GetDictionary("TEXT_PARTITION") & ": " & ProductView.Properties("partition_name") & "<br>"
       End If
-      EventArg.HTMLRendered = EventArg.HTMLRendered & ProductView.Properties("Description") 
+      EventArg.HTMLRendered = EventArg.HTMLRendered & descriptionToDisplay 
 			EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
             
       Form_DisplayCell = TRUE   
@@ -211,7 +220,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
       dim strImage
       strImage = GetIntervalStateIcon(Trim(ProductView.Properties("Status")))
       EventArg.HTMLRendered =  "<td width='150px' class='" & Form.Grid.CellClass & "'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr align='right'>"  & _
-            "<td align='left'><img src='" & strImage & "' align='absmiddle'>" & ProductView.Properties("Status") & "</td>" & _
+            "<td align='left'><img src='" & strImage & "' align='absmiddle'>" & mom_GetDictionary("TEXT_BG_STATUS_" & UCase(Replace(ProductView.Properties("Status"), " ", "_"))) & "</td>" & _
             "</tr></table></td>"
       
       Form_DisplayCell = TRUE   

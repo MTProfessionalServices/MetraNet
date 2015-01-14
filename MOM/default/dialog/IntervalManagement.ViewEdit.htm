@@ -57,7 +57,7 @@ function isAdapterSelected(){
   <!-- Title Bar -->
 <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
  <TR>
-  <TD Class="CaptionBar" nowrap>Billing Management:<small>&nbsp;<MDMLABEL Name="BillingGroup"></MDMLABEL></small></TD>
+  <TD Class="CaptionBar" nowrap>[TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT]:<small>&nbsp;<MDMLABEL Name="BillingGroup"></MDMLABEL></small></TD>
  </TR>
 </TABLE>
 
@@ -72,7 +72,7 @@ function isAdapterSelected(){
           </TR>   
           <TR>
             <TD class="captionEWRequired" >[TEXT_BILLING_GROUP]:&nbsp;</TD>
-            <TD class="fieldRequired"><MDMLABEL Name="BillingGroup"></MDMLABEL> (<a title="View Members" href="#" OnClick="window.open('BillingGroup.MemberList.asp?MDMReload=TRUE&BillingGroupID=[BillingGroupID]&IntervalID=[IntervalId]&Title=Members of [BillingGroup]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="BillingGroupMemberCount"></MDMLABEL> [Members]</a>)</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="BillingGroup"></MDMLABEL> (<a title="View Members" href="#" OnClick="window.open('BillingGroup.MemberList.asp?MDMReload=TRUE&BillingGroupID=[BillingGroupID]&IntervalID=[IntervalId]&Title=[TEXT_Members_of] [BillingGroup]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="BillingGroupMemberCount"></MDMLABEL> [Members]</a>)</TD>
             <TD></TD>
           </TR>   
           #MDMIf SHOW_PARTITION_NAME  

@@ -89,4 +89,24 @@
     <value>[ES]Current GMT time is</value>
     <description></description>
   </text>
+  <text id="TEXT_FORCED">
+    <value>[ES]Forced</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR">
+    <value>[ES]Adapter Run History For</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR_INTERVAL">
+    <value>[ES]Adapter Run History For Interval</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR_BG">
+    <value>[ES]Adapter Run History For Bill Group</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_INSTANCE_INFO">
+    <value>[ES]Adapter Instance Information</value>
+    <description></description>
+  </text>
 </texts>

@@ -687,7 +687,6 @@ TH
   }
   */      
   .clsButtonBlueSmall {
-    width: 50px; 
     height: 24px;
     background-color: transparent;
     background-image: url(../images/buttonbluesmall.gif);
@@ -700,7 +699,6 @@ TH
     cursor:hand;    
   }    
   .clsButtonBlueMedium {
-    width: 77px; 
     height: 24px;
     background-color: transparent;
     background-image: url(../images/buttonbluemedium.gif);
@@ -713,7 +711,7 @@ TH
     cursor:hand;    
   }        
   .clsButtonBlueLarge {
-    width: 100px; 
+    /*width: 100px; */
     height: 24px;
     background-color: transparent;
     background-image: url(../images/buttonbluelarge.gif);
@@ -726,7 +724,7 @@ TH
     cursor:hand;    
   }    
   .clsButtonBlueXLarge {
-    width: 150px; 
+    /*width: 150px; */
     height: 24px;
     background-color: transparent;
     background-image: url(../images/buttonblueXlarge.gif);

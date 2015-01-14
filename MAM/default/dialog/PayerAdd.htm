@@ -25,7 +25,7 @@
 <!-- Title Bar -->
 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
  <TR>
-  <TD Class="CaptionBar" nowrap>Add Accounts for Payment</TD>
+  <TD Class="CaptionBar" nowrap>[TEXT_ADD_ACCOUNTS_FOR_PAYMENT]</TD>
  </TR>
 </TABLE>
 <BR>
@@ -37,7 +37,7 @@
       [TEXT_DRAGDROP_ACCOUNTS_MESSAGE]
     </div>  
  -->
- <button onclick="getFrameMetraNet().getMultiSelection('setMultiSelection', 'DropGrid');return false;" name="selectAccounts" Class='clsOkButton'>Select Accounts</button>
+ <button onclick="getFrameMetraNet().getMultiSelection('setMultiSelection', 'DropGrid');return false;" name="selectAccounts" Class='clsOkButton'>[TEXT_SELECT_ACCOUNTS]</button>
    
 <!-- *** Drag and Drop Form - and manual entry mode *** -->   
 #MDMIf ENABLE_ADVANCED_MANUAL_ENTRY   
@@ -66,7 +66,7 @@
     
     <TABLE BORDER="0" CELLPADDING="2" CELLSPACING="1" style="position:inherit">
      <TR>
-        <TD class="captionEWRequired">Effective Start Date:&nbsp;&nbsp;</TD>
+        <TD class="captionEWRequired">[TEXT_EFFECTIVE_START_DATE]:&nbsp;&nbsp;</TD>
         <TD>
           <INPUT type="text" class="fieldRequired" size="20" name="StartDate" id="StartDate">
 
@@ -81,7 +81,7 @@
         </TD>
      </TR>       
      <TR>
-        <TD class="captionEW">Effective End Date:&nbsp;&nbsp;</TD>
+        <TD class="captionEW">[TEXT_EFFECTIVE_END_DATE]:&nbsp;&nbsp;</TD>
         <TD>
           <INPUT type="text" class="fieldRequired" size="20" name="EndDate" id="EndDate">
           
@@ -96,7 +96,7 @@
      <tr>
        <td colspan="2" align="center">
          <br><br>
-         <button onclick="mdm_RefreshDialog(this); return false" name="ok" Class='clsOkButton'><MDMLABEL Name="TEXT_OK">OK</MDMLABEL></button> <button onclick="mdm_RefreshDialog(this); return false;" name="cancel" Class='clsOkButton'><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></button>
+         <button onclick="mdm_RefreshDialog(this); return false;" name="ok" Class='clsOkButton'><MDMLABEL Name="TEXT_OK">OK</MDMLABEL></button> <button onclick="mdm_RefreshDialog(this); return false;" name="cancel" Class='clsOkButton'><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></button>
        </td>
      </tr>
     </TABLE>

@@ -175,7 +175,7 @@ mdm_Initialize();
 
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", idRateSchedule1
-        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
+        rowset.AddParam "%%ID_LANG%%", Framework.SessionContext.LanguageID
         rowset.Execute
         
         dim sPriceListName
@@ -186,7 +186,7 @@ mdm_Initialize();
           sPriceListName = FrameWork.GetDictionary("TEXT_ICB_PRICELIST_DISPLAY_NAME")
         end if
         
-        sPageTitle = "Pricelist <strong>" & sPriceListName & "</strong><br>modified by <strong>" & sModifiedBy & "</strong> at <strong>" & dtRuleSet1 & "</strong>"
+        sPageTitle = FrameWork.GetDictionary("TEXT_PRICE_LIST") & " <strong>" & sPriceListName & "</strong><br>" & FrameWork.GetDictionary("TEXT_MODIFIED_BY") & "<strong>" & sModifiedBy & "</strong> " & FrameWork.GetDictionary("TEXT_AT") & " <strong>" & dtRuleSet1 & "</strong>"
 
       else
         dtRuleSet1 = request("RS_STARTDATE_1")
@@ -214,7 +214,7 @@ mdm_Initialize();
 
       '//Load relevant product catalog and meta data objects
       		  Set objMTProductCatalog = GetProductCatalogObject
-      			call WriteRunTimeError("Product Catalog" & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ"), false)
+      			call WriteRunTimeError(FrameWork.GetDictionary("TEXT_PRODUCT_CATALOG") & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ"), false)
       					  
       		  Set objParamTableDef = objMTProductCatalog.GetParamTableDefinition(idPT)
       			call WriteRunTimeError(FrameWork.GetDictionary("TEXT_KEYTERM_PARAMETER_TABLE") & FrameWork.GetDictionary("TEXT_MPTE_ERROR_NOT_FOUND") & "&nbps;" & "ID=" & session("RATES_PARAMTABLE_ID"), false)
@@ -224,18 +224,18 @@ mdm_Initialize();
       
       		  ' Get the Metadata from the parameter table
       		  Set mobjTRReader = Server.CreateObject("MTTabRulesetReader.RulesetHandler")
-      			call WriteRunTimeError("Tabular Ruleset Reader" & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ"), false)
+      			call WriteRunTimeError(FrameWork.GetDictionary("TEXT_TABULAR_RULESET_READER") & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ"), false)
       			
       		  call mobjTRReader.InitializeFromProdCat(objParamTableDef.Id)
-      			call WriteRunTimeError("Tabular Ruleset Reader" & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ"), false)
+      			call WriteRunTimeError(FrameWork.GetDictionary("TEXT_TABULAR_RULESET_READER") & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ"), false)
       
-            writeTimedMessage "Retrieved Product Catalog objects"
+            writeTimedMessage FrameWork.GetDictionary("TEXT_RETRIEVED_PC_OBJECTS")
       
       		  ' Load enum types for this parameter table 
       		  call mobjTRReader.LoadEnums("US")
-      			call WriteRunTimeError("Tabular Ruleset Reader" & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES"), false)
+      			call WriteRunTimeError(FrameWork.GetDictionary("TEXT_TABULAR_RULESET_READER") & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES"), false)
       
-            writeTimedMessage "Loaded Enums"
+            writeTimedMessage FrameWork.GetDictionary("TEXT_LOADED_ENUMS")
       			
 			On Error Goto 0
 
@@ -263,7 +263,7 @@ mdm_Initialize();
            
       response.write("<div class='clsStandardText' style='padding-left:20px;vertical-align:middle;'>" & sPageTitle & "</div><BR>")
       
-      writeTimedMessage "Ruleset START"
+      writeTimedMessage FrameWork.GetDictionary("TEXT_RULESET_START")
 
 
       if bViewChangeFromApproval then
@@ -279,11 +279,11 @@ mdm_Initialize();
         set objTempConfigPropSet = objTempConfig.ReadConfigurationFromString(sRulesetBuffer, false)
   
         if err then
-          sErrorMessage = "Unable to read configuration from input. Error returned is:<BR>[" & Hex(err.number) & "] " & err.description
+          sErrorMessage = FrameWork.GetDictionary("TEXT_UNABLE_READ_CONFIGURATION") & "<BR>[" & Hex(err.number) & "] " & err.description
         else
           objTempRuleSet.ReadFromSet objTempConfigPropSet
           if err then
-            sErrorMessage = "Unable to create ruleset from propset object. Error returned is:<BR>[" & Hex(err.number) & "] " & err.description
+            sErrorMessage = FrameWork.GetDictionary("TEXT_UNABLE_CRATE_RULESET") & "<BR>[" & Hex(err.number) & "] " & err.description
           else
             '//Success
             Set mobjRuleset1=objTempRuleSet
@@ -306,7 +306,7 @@ mdm_Initialize();
         rowset.Init "queries\audit"
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", objMTRateSched.Id
-        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
+        rowset.AddParam "%%ID_LANG%%", Framework.SessionContext.LanguageID
         rowset.Execute
         
         if len(rowset.value("PriceListName"))>0 then
@@ -327,23 +327,23 @@ mdm_Initialize();
             sSubscriptionInformation = rowset.value("IndividualSubscriptionName")  & "&nbsp;(" & rowset.value("IndividualSubscriptionAccountId") & ")"
           end if
 
-          sSubscriptionInformation = sSubscriptionInformation & "<br><b>Product Offering:&nbsp;</b>" & rowset.value("ProductOfferingDisplayName")
-          sSubscriptionInformation = sSubscriptionInformation & "<br><b>Priceable Item:&nbsp;</b>" & rowset.value("PriceableItemName")
+          sSubscriptionInformation = sSubscriptionInformation & "<br><b>" & FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING") & ":&nbsp;</b>" & rowset.value("ProductOfferingDisplayName")
+          sSubscriptionInformation = sSubscriptionInformation & "<br><b>" & FrameWork.GetDictionary("TEXT_PRICEABLE_ITEM") & ":&nbsp;</b>" & rowset.value("PriceableItemName")
           sPriceListName = sPriceListName & ":&nbsp;" & sSubscriptionInformation
 
         end if
 
         '//Write out the information with more detail as to what was modified
         response.write("<div style='font-size:11px;'>")
-        response.write("<b>Pricelist:&nbsp;</b>" & sPriceListName &  "<br><b>Parameter Table:&nbsp;</b> " & mobjTRReader.Caption & "&nbsp;(" & objParamTableDef.Name & ")<br><b>Rate Schedule:&nbsp;</b>" & objMTRateSched.Description & "&nbsp;&nbsp;<b>Effective:&nbsp;</b>" & sRateScheduleDescription & "<br/>")
+        response.write("<b>" & FrameWork.GetDictionary("TEXT_PRICELIST") & ":&nbsp;</b>" & sPriceListName &  "<br><b>" & FrameWork.GetDictionary("TEXT_PARAMETER_TABLE") & ":&nbsp;</b> " & mobjTRReader.Caption & "&nbsp;(" & objParamTableDef.Name & ")<br><b>" & FrameWork.GetDictionary("TEXT_RATE_SCHEDULE") & ":&nbsp;</b>" & objMTRateSched.Description & "&nbsp;&nbsp;<b>" & FrameWork.GetDictionary("TEXT_EFFECTIVE") & ":&nbsp;</b>" & sRateScheduleDescription & "<br/>")
         response.write("<br></div>")
 
       else
         '//Load the two rulsets to be compared
 		    Set mobjRuleset1 = objMTRateSched.GetDatedRuleSet(CDate(dtRuleSet1)) ' get the ruleset from the RateSchedule.
-        writeTimedMessage "Loaded Ruleset 1"
+        writeTimedMessage FrameWork.GetDictionary("TEXT_LOADED_RULESET1")
 		    Set mobjRuleset2 = objMTRateSched.GetDatedRuleSet(CDate(dtRuleSet2)) ' get the ruleset from the RateSchedule.
-        writeTimedMessage "Loaded Ruleset 2"
+        writeTimedMessage FrameWork.GetDictionary("TEXT_LOADED_RULESET2")
         'mobjRuleset1.write "c:\ruleset.xml"
       end if
 
@@ -361,7 +361,7 @@ mdm_Initialize();
       
       '//For debugging purposes, write out the xml versions of the rulesets      
       if mDebug then
-        response.write("<b>Displaying XML versions:<BR>Ruleset 1 has " & mobjRuleset1.count & " rows and Ruleset 2 has " & mobjRuleset2.count & " rows<BR></b>")
+        response.write("<b>" & FrameWork.GetDictionary("TEXT_DISPLAYING_XML_SETTINGS") & ":<BR>" & FrameWork.GetDictionary("TEXT_RULESET1_HAS") & mobjRuleset1.count & FrameWork.GetDictionary("TEXT_ROWS") & FrameWork.GetDictionary("TEXT_RULESET2_HAS") & mobjRuleset2.count & FrameWork.GetDictionary("TEXT_ROWS") & "<BR></b>")
         writeXML
       end if
       
@@ -387,10 +387,10 @@ sub writeRulesetDiffSpan(objPreviousRuleset,objNewerRuleset)
   dim objDiffGenerator
   dim objDiff
 
-  writeTimedMessage "Ruleset Diff START"  
+  writeTimedMessage FrameWork.GetDictionary("TEXT_RULESET_DIFF_START")
   set objDiffGenerator = Server.CreateObject("MetraTech.UI.DifferenceViewer.RulesetDifferenceGenerator")
   set objDiff = objDiffGenerator.GetDifference((objPreviousRuleset),(objNewerRuleset))
-  writeTimedMessage "Ruleset Diff End"  
+  writeTimedMessage FrameWork.GetDictionary("TEXT_RULESET_DIFF_END")
   
   writeDebugMessage("There are " & objDiff.GetDifferenceSpanCount & " difference spans") & "<BR>"
 
@@ -1043,7 +1043,7 @@ end sub
 
 sub writePageEnd()
   response.write "</table></div>"
-  response.write "<br><br><br><div align='center'><button Class='clsOKButton' name='CANCEL' onclick='window.close();'>Close</button>"
+  response.write "<br><br><br><div align='center'><button Class='clsOKButton' name='CANCEL' onclick='window.close();'>" & FrameWork.GetDictionary("TEXT_CLOSE") & "</button>"
   response.write "</div><BR><BR>"
   response.write "</FORM></BODY></HTML>"
 end sub
@@ -1073,7 +1073,7 @@ end sub
 '//writeChangedValue
 '//Format the message indicating that a value has changed
 sub writeChangedValue(sNewValue, sPreviousValue)
-  response.write("<font color='red' style='font-size:10px'>Changed From <strong>" & sPreviousValue & "</strong> to </font><BR><strong>" & sNewValue & "</strong>")
+  response.write("<font color='red' style='font-size:10px'>" & FrameWork.GetDictionary("TEXT_CHARGED_FROM") & " <strong>" & sPreviousValue & " </strong>" & FrameWork.GetDictionary("TEXT_CHARGED_TO") & "</font><BR><strong>" & sNewValue & "</strong>")
 end sub
 
 '//Routines for writing debugging and timing messages to the screen

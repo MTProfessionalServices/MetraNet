@@ -37,11 +37,11 @@
     <description></description>
   </text>
   <text id="TEXT_ERROR_DESCRIPTION">
-    <value>Erreur de description</value>
+    <value>Description de l'erreur</value>
     <description></description>
   </text>
   <text id="TEXT_MOVE_ACROSS_CORPORATE">
-    <value><![CDATA[ <br>&nbsp;&nbsp;Vous ne pouvez déplacer que les comptes présents dans la même hiérarchie société. ]]></value>
+    <value><![CDATA[ <br>&nbsp;&nbsp;Vous ne pouvez déplacer les comptes que dans la même hiérarchie d'entreprise. ]]></value>
     <description></description>
   </text>
   <text id="TEXT_BATCH_OPERATION_WARNING">
@@ -57,7 +57,7 @@
     <description></description>
   </text>
   <text id="TEXT_UNABLE_TO_MANAGE_ACCOUNT">
-    <value><![CDATA[ <br>&nbsp;&nbsp;Impossible de gérer le compte. Il peut s'agir d'une restriction de sécurité <br>&nbsp;&nbsp;ou le compte n'existe pas actuellement dans la hiérarchie. ]]></value>
+    <value><![CDATA[ <br>&nbsp;&nbsp;Impossible de gérer le compte. Il s'agit peut-être d'une restriction de sécurité <br>&nbsp;&nbsp;ou le compte n'existe pas actuellement dans la hiérarchie. ]]></value>
     <description></description>
   </text>
   <text id="TEXT_APPLY_CURRENT_TEMPLATE">
@@ -141,11 +141,11 @@
     <description>folders only</description>
   </text>
   <text id="TEXT_ACCOUNT_STATE">
-    <value>Etat du compte</value>
+    <value>État du compte</value>
     <description>Account State</description>
   </text>
   <text id="TEXT_LOGIN_INFORMATION">
-    <value>Infos d’ouverture de session</value>
+    <value>Infos d'ouverture de session</value>
     <description>Login Information</description>
   </text>
   <text id="TEXT_OTHER">
@@ -163,6 +163,10 @@
   <text id="TEXT_PAYER">
     <value>Payeur</value>
     <description>Payer</description>
+  </text>
+  <text id="TEXT_PAYING_ACCOUNT">
+    <value>[FR]Paying Account</value>
+    <description>Paying Account</description>
   </text>
   <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
     <value>Ajout d'un membre à un groupe</value>
@@ -189,7 +193,7 @@
     <description>owner</description>
   </text>
   <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-    <value>Comptes payés par </value>
+    <value>Comptes réglés par </value>
     <description></description>
   </text>
   <text id="TEXT_MOVING_ACCOUNTS">
@@ -209,7 +213,7 @@
     <description>Update Account State</description>
   </text>
   <text id="TEXT_ACCOUNT_STATE">
-    <value>Etat du compte</value>
+    <value>État du compte</value>
     <description>Account State</description>
   </text>
   <text id="TEXT_BACK">
@@ -449,7 +453,7 @@
     <description></description>
   </text>
   <text id="TEXT_EDIT_PROPERTIES">
-    <value>Modifier des propriétés</value>
+    <value>Modifier les propriétés</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_START_DATE">
@@ -553,7 +557,7 @@
     <description></description>
   </text>
   <text id="TEXT_BUTTON_VALIDATE_USER_NAME">
-    <value>Valider le nom d’utilisateur</value>
+    <value>Valider le nom d'utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_BUTTON_GENERATE_PASSWORD">
@@ -629,7 +633,7 @@
     <description></description>
   </text>
   <text id="TEXT_DELETE_SUBSCRIPTION">
-    <value>Supprimer l’abonnement</value>
+    <value>Supprimer l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_NO_SUBSCRIPTIONS">
@@ -649,7 +653,7 @@
     <description></description>
   </text>
   <text id="TEXT_ACTIVE_SUBSCRIPTIONS">
-    <value>Actif</value>
+    <value>ACTIF</value>
     <description></description>
   </text>
   <text id="TEXT_DISABLED_SUBSCRIPTIONS">
@@ -677,15 +681,15 @@
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_ID">
-    <value>ID de l’abonnement</value>
+    <value>ID de l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_END_DATE">
-    <value>Date de fin de l’abonnement</value>
+    <value>Date de fin de l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_START_DATE">
-    <value>Date de début de l’abonnement</value>
+    <value>Date de début de l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_START">
@@ -745,15 +749,15 @@
     <description></description>
   </text>
   <text id="TEXT_LOGIN_TITLE">
-    <value>Ouverture d’une session MetraCare</value>
+    <value>Ouverture d'une session MetraCare</value>
     <description></description>
   </text>
   <text id="TEXT_NO_AUTH">
-    <value>Votre session est arrivée à expiration. Veuillez vous reconnecter.</value>
+    <value>Votre session est arrivée à expiration. Connectez-vous de nouveau.</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_NAME">
-    <value>Nom d’utilisateur</value>
+    <value>Nom d'utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
@@ -765,7 +769,7 @@
     <description></description>
   </text>
   <text id="TEXT_INVALID_BLANK_LOGIN">
-    <value>Le nom d'utilisateur ou le mot de passe doit être renseigné. Réessayez.</value>
+    <value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value>
     <description></description>
   </text>
   <text id="TEXT_GENERATE_PASSWORD">
@@ -953,11 +957,11 @@
     <description></description>
   </text>
   <text id="TEXT_UPDATE_CSR">
-    <value>Mettre à jour l’utilisateur système</value>
+    <value>Mettre à jour l'utilisateur système</value>
     <description></description>
   </text>
   <text id="TEXT_FOUND_CSR">
-    <value>Mettre à jour l’utilisateur/les utilisateurs système</value>
+    <value>Mettre à jour l'utilisateur/les utilisateurs système</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_UPDATE_CSR_CONFIRM_PASSWORD">
@@ -1069,7 +1073,7 @@
     <description></description>
   </text>
   <text id="TEXT_ISSUE_ISSUE_CREDIT_FROM_CREDIT_REQUEST_TITLE">
-    <value>^^Émettre un crédit à partir d'une demande de crédit^^</value>
+    <value>^^Emettre crédit depuis demande de crédit^^</value>
     <description></description>
   </text>
   <text id="TEXT_ISSUE_CREDIT_CONFIRM">
@@ -1145,7 +1149,7 @@
     <description></description>
   </text>
   <text id="TEXT_APPLICATION_AUDIT_LOG">
-    <value>Journal d’audit de l’application</value>
+    <value>Journal d'audit de l'application</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_AUDIT_LOG">
@@ -1273,7 +1277,7 @@
     <description></description>
   </text>
   <text id="TEXT_GSUB_CYCLE_CONFIGURATION">
-    <value>Configuration du cycle d’utilisation</value>
+    <value>Configuration du cycle d'utilisation</value>
     <description></description>
   </text>
   <text id="TEXT_GSUB_USE_CYCLE_FROM_TEMPLATE">
@@ -1285,7 +1289,7 @@
     <description></description>
   </text>
   <text id="TEXT_GSUB_USE_CYCLE_ENFORCED_BY_PO">
-    <value>Cycle d’utilisation appliqué par l’offre produit</value>
+    <value>Cycle d'utilisation appliqué par l'offre produit</value>
     <description></description>
   </text>
   <text id="TEXT_DRAGDROP_ACCOUNTS_MESSAGE">
@@ -1512,7 +1516,7 @@
     <description/>
   </text>
   <text id="TEXT_WARNING_EBCR_START_DATE_CHANGE">
-    <value>La modification de cette date de début peut avoir un impact négatif sur les frais alignés par le cycle de facturation contenus dans l’offre produit associée [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>La modification de cette date de début peut avoir un impact négatif sur les frais alignés par le cycle de facturation contenus dans l'offre produit associée [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
     <description/>
   </text>
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE">
@@ -1520,7 +1524,7 @@
     <description/>
   </text>
   <text id="ADD_FOLDER_OWNER">
-    <value>Ajouter un administrateur du compte</value>
+    <value>Ajouter un administrateur de compte</value>
     <description/>
   </text>
   <text id="ADD_ACCOUNT_FOR_ADMINISTRATION">
@@ -1558,50 +1562,54 @@
     <value>Options</value>
   </text>
   <text id="TEXT_VIEW_DEFAULT_SECURITY_OWNERS">
-    <value>Afficher les administrateurs de sécurité par défaut</value>
+    <value>Afficher les propriétaires de sécurité par défaut</value>
   </text>
   <text id="TEXT_ADD_MEMBERS_TO_ROLE">
     <value>Ajouter des membres au rôle</value>
   </text>
   <text id="TEXT_SELECT_ACCOUNTS">
-    <value>Sélectionner les comptes</value>
+    <value>Sélectionner des comptes</value>
   </text>
   <text id="TEXT_ACCOUNTS_TO_MOVE">
-    <value>Sélectionner les comptes à déplacer</value>
+    <value>Sélectionner des comptes à déplacer</value>
   </text>
   <text id="TEXT_CAPABILITIES">
-    <value>Capacités</value>
+    <value>Fonctionnalités</value>
   </text>
   <text id="TEXT_PROG_ID">
-    <value>ProgID</value>
+    <value>ID prog</value>
   </text>
   <text id="TEXT_NUMBER_OF_ATOMICS">
-    <value>Quantité atomique</value>
+    <value>Nombre d'atomiques</value>
   </text>
   <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
-    <value>Requiert la capacité de gérer les hiérarchies de comptes</value>
+    <value>Nécessite la gestion des hiérarchies de comptes</value>
   </text>
   <text id="TEXT_CHARACTERS_LEFT">
-    <value>caractères laissés pour</value>
+    <value>caractères restants pour</value>
   </text>
   <text id="TEXT_MetraNet_Users_Hierarchy_members">
-    <value>[FR]Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</value>
+    <value>Autorise les membres de la hiérarchie des utilisateurs MetraNet à gérer les comptes détenus par eux-mêmes ou leurs subordonnés.</value>
     <description></description>
   </text>
   <text id="TEXT_Select_Access_Level">
-    <value>[FR]Select Access Level:</value>
+    <value>Sélectionner un niveau d'accès :</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_directly">
-    <value>[FR]Owned directly</value>
+    <value>Détenu directement</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_by_immediate_subordinates">
-    <value>[FR]Owned by immediate subordinates</value>
+    <value>Détenu par les subordonnés immédiats</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_by_all_subordinates">
-    <value>[FR]Owned by all subordinates</value>
+    <value>Détenu par tous les subordonnés</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Requires_Manage_Account_Hierarchies">
+    <value>[FR]Requires Manage Account Hierarchies</value>
     <description></description>
   </text>
 </texts>

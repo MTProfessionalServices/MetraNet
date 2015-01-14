@@ -753,11 +753,26 @@ END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: mam_ConvertToSysDate()
-' PARAMETERS	: localized date
-' DESCRIPTION : Converts localized date to sysdate format
-' RETURNS			: sysdate
+' PARAMETERS	: Date
+' DESCRIPTION : Previously fixed some problem with DT localization, that is now absent.
+' Convertion Date Type to String Type is not not needed now. (fix to CORE-8516)
+' [TODO]: Remove this and all usages once regression is complete.
+' RETURNS			: The Same Value
 PUBLIC FUNCTION mam_ConvertToSysDate(localeDate)
-   mam_ConvertToSysDate = localeDate&""
+   mam_ConvertToSysDate = localeDate
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_DateFromLocaleString()
+' PARAMETERS	: string with localized date
+' DESCRIPTION : Returns date type from string. (CORE-8563 - CDate converts properly in all localizations. It only does not like "." symbols)
+' RETURNS			: date
+PUBLIC FUNCTION mam_DateFromLocaleString(dateString)
+  If Len(dateString) = 0 Then
+      mam_DateFromLocaleString = ""
+  Else
+      mam_DateFromLocaleString = CDate(Replace(dateString,".","/"))
+  End If
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------

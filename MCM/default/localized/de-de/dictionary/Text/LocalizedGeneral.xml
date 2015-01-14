@@ -320,4 +320,8 @@
     <value>[DE]Overview</value>
     <description></description>
   </text>
+  <text id="TEXT_RATE_SCHEDULE_HISTORY">
+    <value>[DE]Rate Schedule History</value>
+    <description></description>
+  </text>
 </texts>

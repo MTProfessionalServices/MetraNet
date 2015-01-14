@@ -758,7 +758,6 @@ TH
   */
   
   .clsButtonBlueSmall {
-    width: 50px; 
     height: 24px;
     /*background-color: transparent;
     background-image: url(../images/buttonbluesmall.gif);
@@ -772,7 +771,6 @@ TH
   }    
   
   .clsButtonBlueMedium {
-    width: 77px; 
     height: 24px;
     /*background-color: transparent;
     background-image: url(../images/buttonbluemedium.gif);
@@ -786,7 +784,7 @@ TH
   }
           
   .clsButtonBlueLarge {
-    width: 100px; 
+    /*width: 100px; */
     height: 24px;
    /* background-color: transparent;
     background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
@@ -799,7 +797,7 @@ TH
     cursor:hand;    */
   }    
   .clsButtonBlueXLarge {
-    width: 150px; 
+    /*width: 150px; */
     height: 24px;
     /*background-color: transparent;
     background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
@@ -1508,7 +1506,6 @@ TH A:Hover
 }
 
 button,.clsButtonBlueSmall,.clsButtonBlueMedium, .clsButtonBlueLarge,.clsButtonBlueXLarge,.clsButtonBlueXXLarge ,clsButtonBlueXXXLarge
-  
 {
 align-items: flex-start;
 text-align: center;

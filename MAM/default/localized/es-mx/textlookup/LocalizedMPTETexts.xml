@@ -689,4 +689,92 @@
     <value>[es-MX]Create Rate Schedule(s)</value>
     <description></description>
   </text>
+  <text id="TEXT_PRODUCT_CATALOG">
+    <value>[es-MX]Product Catalog</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TABULAR_RULESET_READER">
+    <value>[es-MX]Tabular Ruleset Reader</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RETRIEVED_PC_OBJECTS">
+    <value>[es-MX]Retrieved Product Catalog objects</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOADED_ENUMS">
+    <value>[es-MX]Loaded Enums</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_START">
+    <value>[es-MX]Ruleset START</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNABLE_READ_CONFIGURATION">
+    <value>[es-MX]Unable to read configuration from input. Error returned is:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UNABLE_CRATE_RULESET">
+    <value>[es-MX]Unable to create ruleset from propset object. Error returned is:</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRODUCT_OFFERING">
+    <value>[es-MX]Product Offering</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICEABLE_ITEM">
+    <value>[es-MX]Priceable Item</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICELIST">
+    <value>[es-MX]Pricelist</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE">
+    <value>[es-MX]Parameter Table</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATE_SCHEDULE">
+    <value>[es-MX]Rate Schedule</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EFFECTIVE">
+    <value>[es-MX]Effective</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOADED_RULESET1">
+    <value>[es-MX]Loaded Ruleset 1</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LOADED_RULESET2">
+    <value>[es-MX]Loaded Ruleset 2</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DISPLAYING_XML_SETTINGS">
+    <value>[es-MX]Displaying XML versions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET1_HAS">
+    <value>[es-MX]Ruleset 1 has </value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET2_HAS">
+    <value>[es-MX] and Ruleset 2 has </value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_DIFF_START">
+    <value>[es-MX]Ruleset Diff START</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RULESET_DIFF_END">
+    <value>[es-MX]Ruleset Diff End</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHARGED_FROM">
+    <value>[es-MX]Charged From</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHARGED_TO">
+    <value>[es-MX] to </value>
+    <description></description>
+  </text>
 </texts>

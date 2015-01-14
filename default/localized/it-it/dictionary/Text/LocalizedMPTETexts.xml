@@ -801,4 +801,28 @@
     <value>[IT]December</value>
     <description></description>
   </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>[IT]Price list</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MODIFIED_BY">
+    <value>[IT]modified by</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AT">
+    <value>[IT]at</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>[IT]View changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>[IT]View history</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
+    <value>[IT]You have unsaved changes.</value>
+    <description></description>
+  </text>
 </texts>

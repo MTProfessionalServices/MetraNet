@@ -47,6 +47,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     Form("MonoSelect")            = TRUE
     Form("IDColumnName")          = "Id_prop"
     Form("PriceAbleItemTypeID")   = mdm_UIValue("PriceAbleItemTypeID")
+    Form.Page.NoRecordUserMessage     = FrameWork.GetDictionary("NO_RECORD_USER_MESSAGE")
     Form.Modal = TRUE
 END FUNCTION
 

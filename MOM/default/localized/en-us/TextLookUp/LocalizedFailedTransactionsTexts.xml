@@ -291,4 +291,19 @@
   <text id="TEXT_FAILED_TRANSACTIONS_AUDIT_HISTORY">
     <value>Audit History For Failed Transaction Case Number</value>
   </text>
+  <text id="TEXT_Message_ID">
+    <value>Message ID</value>
+  </text>
+  <text id="TEXT_Metered_On">
+    <value>Metered On</value>
+  </text>
+  <text id="TEXT_Assigned_On">
+    <value>Assigned On</value>
+  </text>
+  <text id="TEXT_Assigned_To">
+    <value>Assigned To</value>
+  </text>
+  <text id="TEXT_Session_Count">
+    <value>Session Count</value>
+  </text>
 </texts>

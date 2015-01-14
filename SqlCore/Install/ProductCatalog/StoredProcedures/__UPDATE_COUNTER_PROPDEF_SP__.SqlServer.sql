@@ -9,10 +9,12 @@
 											@nm_preferredcountertype nvarchar(255),
 											@n_order int
 					AS
-					DECLARE @identity_value int
+						DECLARE @identity_value int
 						DECLARE @id_locale int
+						DECLARE @updated_id_display_name int
+						DECLARE @updated_id_display_desc int
 					BEGIN TRAN
-						exec UpdateBaseProps @id_prop, @id_lang_code, @nm_name, NULL, @nm_display_name
+						exec UpdateBaseProps @id_prop, @id_lang_code, @nm_name, NULL, @nm_display_name, @updated_id_display_name OUTPUT, @updated_id_display_desc OUTPUT
 						UPDATE t_counterpropdef 
 						SET
 							nm_servicedefprop = @nm_servicedefprop,

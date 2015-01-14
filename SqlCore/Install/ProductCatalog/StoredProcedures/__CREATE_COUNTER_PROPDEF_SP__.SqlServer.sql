@@ -11,9 +11,11 @@
 											@id_prop int OUTPUT 
 					AS
 					DECLARE @identity_value int
-						DECLARE @id_locale int
+					DECLARE @id_locale int
+					DECLARE @id_display_name int
+					DECLARE @id_display_desc int
 					BEGIN TRAN
-						exec InsertBaseProps @id_lang_code, @n_kind, 'N', 'N', @nm_name, NULL, @nm_display_name, @identity_value output
+						exec InsertBaseProps @id_lang_code, @n_kind, 'N', 'N', @nm_name, NULL, @nm_display_name, @identity_value output, @id_display_name output, @id_display_desc output
 						INSERT INTO t_counterpropdef 
 							(id_prop, id_pi, nm_servicedefprop, n_order, nm_preferredcountertype) 
 						VALUES 

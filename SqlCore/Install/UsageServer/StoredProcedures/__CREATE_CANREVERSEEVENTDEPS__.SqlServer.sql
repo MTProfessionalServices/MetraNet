@@ -1,7 +1,8 @@
 
 create PROCEDURE CanReverseEventDeps (
 	@dt_now DATETIME, 
-	@id_instances VARCHAR(4000)
+	@id_instances VARCHAR(4000),
+  @lang_code INT = 840
 	)
 AS
 
@@ -10,7 +11,7 @@ BEGIN
   SELECT
     orig_evt.tx_name OriginalEventName,
     orig_evt.tx_display_name OriginalEventDisplayName,
-    evt.tx_display_name EventDisplayName,
+    COALESCE(loc.tx_name, evt.tx_display_name) EventDisplayName,    
     evt.tx_type EventType,
     evt.tx_reverse_mode ReverseMode,
     deps.OriginalInstanceID,
@@ -61,6 +62,7 @@ BEGIN
   INNER JOIN t_recevent evt ON evt.id_event = deps.EventID
   INNER JOIN t_recevent_inst orig_inst ON orig_inst.id_instance = deps.OriginalInstanceID
   INNER JOIN t_recevent orig_evt ON orig_evt.id_event = orig_inst.id_event
+  LEFT OUTER JOIN t_localized_items loc on (id_local_type = 1  /*Adapter type*/ AND id_lang_code = @lang_code AND evt.id_event=loc.id_item)
 
 end
  

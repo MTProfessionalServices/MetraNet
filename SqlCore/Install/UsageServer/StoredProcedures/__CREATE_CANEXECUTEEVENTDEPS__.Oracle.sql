@@ -2,6 +2,7 @@
 CREATE OR REPLACE procedure CanExecuteEventDeps (
    p_dt_now               date,
    p_id_instances         varchar2,
+   lang_code              int,
    p_result         out   sys_refcursor
 )
 as
@@ -15,7 +16,7 @@ begin
     select
       orig_evt.tx_name OriginalEventName,
       orig_evt.tx_display_name OriginalEventDisplayName,
-      evt.tx_display_name EventDisplayName,
+      COALESCE(loc.tx_name, evt.tx_display_name) EventDisplayName,    
       evt.tx_type EventType,
       deps.OriginalInstanceID,
       deps.EventID,
@@ -69,7 +70,7 @@ begin
     INNER JOIN t_recevent_inst orig_inst 
       ON orig_inst.id_instance = deps.OriginalInstanceID
     INNER JOIN t_recevent orig_evt ON orig_evt.id_event = orig_inst.id_event
-    ;
+    LEFT OUTER JOIN t_localized_items loc on (id_local_type = 1  /*Adapter type*/ AND id_lang_code = lang_code AND evt.id_event=loc.id_item);
 
 end CanExecuteEventDeps;
   

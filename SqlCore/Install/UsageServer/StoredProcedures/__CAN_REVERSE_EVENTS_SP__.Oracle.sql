@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE PROCEDURE CANREVERSEEVENTS(dt_now DATE, id_instances VARCHAR2, RES OUT SYS_REFCURSOR)
+CREATE OR REPLACE PROCEDURE CANREVERSEEVENTS(dt_now DATE, id_instances VARCHAR2, lang_code int, RES OUT SYS_REFCURSOR)
 AS
 BEGIN
   /*  */
@@ -13,11 +13,12 @@ BEGIN
   INSERT INTO t_CanExecuteEventsTempTbl
   SELECT
     args.column_value,
-    evt.tx_display_name,
+    COALESCE(loc.tx_name, evt.tx_display_name) tx_display_name,
     'OK'
   FROM table(cast(dbo.CSVToInt(CANREVERSEEVENTS.id_instances)as  tab_id_instance)) args
   INNER JOIN t_recevent_inst inst ON inst.id_instance = args.column_value
-  INNER JOIN t_recevent evt ON evt.id_event = inst.id_event;
+  INNER JOIN t_recevent evt ON evt.id_event = inst.id_event
+  LEFT OUTER JOIN t_localized_items loc on (id_local_type = 1  /*Adapter type*/ AND id_lang_code = lang_code AND evt.id_event=loc.id_item);
   /* is the event not active */
   UPDATE t_CanExecuteEventsTempTbl results SET tx_reason = 'EventNotActive'
   where exists (

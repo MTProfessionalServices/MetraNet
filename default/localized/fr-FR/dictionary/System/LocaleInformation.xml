@@ -17,7 +17,7 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789/: </value>
+    <value>0123456789 /:</value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
@@ -96,15 +96,15 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>annule</value>
+    <value>Annuler</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>prochaine mois</value>
+    <value>Mois prochain</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>mois dernier</value>
+    <value>Mois précédent</value>
     <description></description>
-  </text>  
+  </text>
 </texts>

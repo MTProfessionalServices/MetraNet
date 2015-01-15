@@ -50,7 +50,7 @@ if (parent.PricelistSelected)
       <BR>
       &nbsp;&nbsp;<button name='delete[ID]' class='clsButtonBlueMedium' onclick="OpenDialogWindow('<MDMLABEL Name="PRICELIST_DELETE_DIALOG"></MDMLABEL>?ID=[CURRENT_PRICELIST_ID]', '_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;"><MDMLABEL Name="TEXT_DELETE"></MDMLABEL></button>
       &nbsp;&nbsp;<button name='copy[ID]' class='clsButtonBlueMedium' onclick="OpenDialogWindow('PriceList.Copy.asp?ID=[CURRENT_PRICELIST_ID]', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false; "><MDMLABEL Name="TEXT_COPY">Copy</MDMLABEL></button>
-      &nbsp;&nbsp;<button name='addParamTable[ID]' class='clsButtonBlueXXXLarge' onclick="OpenDialogWindow('PriceList.AddParamTable.asp?ID=[CURRENT_PRICELIST_ID]', 'height=800,width=1000,resizable=yes,scrollbars=yes'); return false; "><MDMLABEL Name="TEXT_ADD_RATES">Add Rates For Additional Parameter Tables</MDMLABEL></button>
+      &nbsp;&nbsp;<button name='addParamTable[ID]' class='clsButtonBlueXXXLarge' onclick="window.location.assign('PriceList.AddParamTable.asp?ID=[CURRENT_PRICELIST_ID]'); return false; "><MDMLABEL Name="TEXT_ADD_RATES">Add Rates For Additional Parameter Tables</MDMLABEL></button>
 
       <BR>&nbsp;
       </fieldset>

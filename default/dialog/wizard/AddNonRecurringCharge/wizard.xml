@@ -256,7 +256,7 @@
     </previous_page_condition>
   
     <previous_page>NewEvent</previous_page>
-    <title>Summary</title>
+    <title>[TEXT_SUMMARY]</title>
 	  <left_frame_file>[CREATE_NONRECURRING_SUMMARY]</left_frame_file>     
     <!--left_frame_eval>WriteSummaryText("[WIZARD_NAME]")</left_frame_eval-->
     <!--left_frame_html><![CDATA[

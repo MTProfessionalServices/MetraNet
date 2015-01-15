@@ -21,6 +21,7 @@ where ui.tx_interval_status = 'H'
 and ui.dt_end > dateadd(month, -3, getdate())
 and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval =  @Interval_ID))
 and rer.tx_type = 'Execute'
+and rer.dt_start = (select max(dt_start) from t_recevent_run where id_instance = rer.id_instance)
 and tx_detail not like 'Manually changed status%'
 group by rei.id_arg_interval, tx_display_name,  rer.dt_start, rer.dt_end
 order by   rer.dt_start

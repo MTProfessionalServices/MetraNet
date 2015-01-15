@@ -45,7 +45,7 @@
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT_BASED_COUNTERS">
-    <value>Cette [TEXT_KEYTERM_DISCOUNT] s’appuie sur les [TEXT_KEYTERM_COUNTERS] suivants</value>
+    <value>Cette [TEXT_KEYTERM_DISCOUNT] s'appuie sur les [TEXT_KEYTERM_COUNTERS] suivants</value>
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT_COUNTER_DESCRIPTION">
@@ -57,7 +57,7 @@
     <description></description>
   </text>
   <text id="TEXT_NO_COUNTER_FOR_DISCOUNT">
-    <value>	Il n’y a pas de définitions de [TEXT_KEYTERM_COUNTER] pour cette [TEXT_KEYTERM_DISCOUNT].</value>
+    <value>	Il n'existe aucune définition [TEXT_KEYTERM_COUNTER] pour cette [TEXT_KEYTERM_DISCOUNT].</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_PERIOD">

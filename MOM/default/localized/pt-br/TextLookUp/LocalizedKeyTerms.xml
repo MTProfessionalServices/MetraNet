@@ -4,173 +4,173 @@
 
   <!-- Auth / Auth -->
   <text id="TEXT_KEYTERM_ROLE">
-    <value>[pt-BR]Role</value>
+    <value>Função</value>
     <description>Security Role</description>
   </text>
   <text id="TEXT_KEYTERM_ROLES">
-    <value>[pt-BR]Roles</value>
+    <value>Funções</value>
     <description>Security Roles</description>
   </text>
   <text id="TEXT_KEYTERM_CAPABILITY">
-    <value>[pt-BR]Capability</value>
+    <value>Capacidade</value>
     <description>Capability</description>
   </text>
   <text id="TEXT_KEYTERM_CAPABILITIES">
-    <value>[pt-BR]Capabilities</value>
+    <value>Capacidades</value>
     <description>Capabilities</description>
   </text>
 
   <!-- Product Offering -->
   <text id="TEXT_KEYTERM_PRODUCT_OFFERING">
-    <value>[pt-BR]Product Offering</value>
+    <value>Oferta de produto</value>
     <description>Product Offering</description>
   </text>
   <text id="TEXT_KEYTERM_PRODUCT_OFFERINGS">
-    <value>[pt-BR]Product Offerings</value>
+    <value>Ofertas de produto</value>
     <description>Product Offerings</description>
   </text>
 
   <!-- Service Charge -->
   <text id="TEXT_KEYTERM_SERVICE_CHARGE">
-    <value>[pt-BR]Service Charge</value>
+    <value>Taxa de serviço</value>
     <description>Service Charge</description>
   </text>
   <text id="TEXT_KEYTERM_SERVICE_CHARGES">
-    <value>[pt-BR]Service Charges</value>
+    <value>Taxas de serviço</value>
     <description>Service Charges</description>
   </text>
 
   <!-- Priceable Items -->
   <text id="TEXT_KEYTERM_PRICEABLE_ITEM">
-    <value>[pt-BR]Priceable Item</value>
+    <value>Item cobrável</value>
     <description>Priceable Item</description>
   </text>
   <text id="TEXT_KEYTERM_PRICEABLE_ITEMS">
-    <value>[pt-BR]Priceable Items</value>
+    <value>Itens cobráveis</value>
     <description>Priceable Items</description>
   </text>
 
   <!-- Usage Charge -->
   <text id="TEXT_KEYTERM_USAGE_CHARGE">
-    <value>[pt-BR]Usage Charge</value>
+    <value>Taxa de utilização</value>
     <description>Usage Charge</description>
   </text>
   <text id="TEXT_KEYTERM_USAGE_CHARGES">
-    <value>[pt-BR]Usage Charges</value>
+    <value>Taxas de utilização</value>
     <description>Usage Charges</description>
   </text>
 
   <!-- Usage Charge (aggregate) -->
   <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
-    <value>[pt-BR]Usage Charge (Aggregate)</value>
+    <value>Taxa de utilização (Agregado)</value>
     <description>Usage Charge (Aggregate)</description>
   </text>
   <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
-    <value>[pt-BR]Usage Charges (Aggregate)</value>
+    <value>Taxas de utilização (Agregado)</value>
     <description>Usage Charges (Aggregate)</description>
   </text>
 
   <!-- Recurring Charge -->
   <text id="TEXT_KEYTERM_RECURRING_CHARGE">
-    <value>[pt-BR]Recurring Charge</value>
+    <value>Cobrança recorrente</value>
     <description>Recurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_RECURRING_CHARGES">
-    <value>[pt-BR]Recurring Charges</value>
+    <value>Cobranças recorrentes</value>
     <description>Recurring Charges</description>
   </text>
 
   <!-- Non-Recurring Charge -->
   <text id="TEXT_KEYTERM_NON_RECURRING_CHARGE">
-    <value>[pt-BR]Non-Recurring Charge</value>
+    <value>Cobrança não recorrente</value>
     <description>Non-Recurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_NON_RECURRING_CHARGES">
-    <value>[pt-BR]Non-Recurring Charges</value>
+    <value>Cobranças não recorrentes</value>
     <description>Non-Recurring Charges</description>
   </text>
 
   <!-- Discounts -->
   <text id="TEXT_KEYTERM_DISCOUNT">
-    <value>[pt-BR]Discount</value>
+    <value>Desconto</value>
     <description>Discount</description>
   </text>
   <text id="TEXT_KEYTERM_DISCOUNTS">
-    <value>[pt-BR]Discounts</value>
+    <value>Descontos</value>
     <description>Discounts</description>
   </text>
 
   <!-- Price List -->
   <text id="TEXT_KEYTERM_PRICE_LIST">
-    <value>[pt-BR]Price List</value>
+    <value>Lista de preços</value>
     <description>Price List</description>
   </text>
   <text id="TEXT_KEYTERM_PRICE_LISTS">
-    <value>[pt-BR]Price Lists</value>
+    <value>Listas de preços</value>
     <description>Price Lists</description>
   </text>
 
   <!-- Rate Schedule -->
   <text id="TEXT_KEYTERM_RATE_SCHEDULE">
-    <value>[pt-BR]Rate Schedule</value>
+    <value>Agenda de taxa</value>
     <description>Rate Schedule</description>
   </text>
   <text id="TEXT_KEYTERM_RATE_SCHEDULES">
-    <value>[pt-BR]Rate Schedules</value>
+    <value>Agendas de taxa</value>
     <description>Rate Schedules</description>
   </text>
 
   <!-- Personal Rate -->
   <text id="TEXT_KEYTERM_PERSONAL_RATE">
-    <value>[pt-BR]Custom Rate</value>
+    <value>Taxa personalizada</value>
     <description>Custom Rate</description>
   </text>
   <text id="TEXT_KEYTERM_PERSONAL_RATES">
-    <value>[pt-BR]Custom Rates</value>
+    <value>Taxas personalizadas</value>
     <description>Custom Rates</description>
   </text>
 
   <!-- Counter -->
   <text id="TEXT_KEYTERM_COUNTER">
-    <value>[pt-BR]Counter</value>
+    <value>Contador</value>
     <description>Counter</description>
   </text>
   <text id="TEXT_KEYTERM_COUNTERS">
-    <value>[pt-BR]Counters</value>
+    <value>Contadores</value>
     <description>Counters</description>
   </text>
 
   <!-- Parameter Table -->
   <text id="TEXT_KEYTERM_PARAMETER_TABLE">
-    <value>[pt-BR]Parameter Table</value>
+    <value>Tabela de parâmetros</value>
     <description>Parameter Table</description>
   </text>
   <text id="TEXT_KEYTERM_PARAMETER_TABLES">
-    <value>[pt-BR]Parameter Tables</value>
+    <value>Tabelas de parâmetros</value>
     <description>Parameter Tables</description>
   </text>
   <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTION">
-    <value>[pt-BR]Group Subscription</value>
+    <value>Assinatura em grupo</value>
     <description>group subscription</description>
   </text>
   <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS">
-    <value>[pt-BR]Group Subscriptions</value>
+    <value>Assinaturas em grupo</value>
     <description>group subscriptions</description>
   </text>
   <text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
-    <value>[pt-BR]Corporate Account</value>
+    <value>Conta corporativa</value>
     <description>Corporate Account</description>
   </text>
   <text id="PAYER_ACCOUNT">
-    <value>[pt-BR]Payer</value>
+    <value>Pagador</value>
     <description>The paying account</description>
   </text>
   <text id="PAYEE_ACCOUNT">
-    <value>[pt-BR]Payee</value>
+    <value>Favorecido</value>
     <description>The paying account</description>
   </text>
   <text id="INDEPENDENT_ACCOUNT">
-    <value>[pt-BR]Indepdendent account</value>
+    <value>Conta independente</value>
     <description>Independent account</description>
   </text>
 </texts>

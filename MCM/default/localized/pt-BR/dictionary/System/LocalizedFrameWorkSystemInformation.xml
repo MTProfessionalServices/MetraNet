@@ -32,7 +32,7 @@
     <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
   </text>
   <text id="TEXT_JAVASCRIPT_ERROR">
-    <value>Seu navegador n&#227;o parece ter o JavaScript ativado. Siga esse link para corrigir a situa&#231;&#227;o.</value>
+    <value>Seu navegador não parece ter o JavaScript ativado. Siga esse link para corrigir a situação.</value>
     <description></description>
   </text>
   <text id="MAX_ROW_PER_PICKER_PAGE">

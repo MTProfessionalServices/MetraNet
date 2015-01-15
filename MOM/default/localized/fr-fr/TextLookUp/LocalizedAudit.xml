@@ -2,79 +2,79 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-    <value>[FR]Product Catalog Audit Log</value>
+    <value>Journal d'audit du catalogue produits</value>
     <description></description>
   </text>
   <text id="TEXT_SYSTEM_AUDIT_LOG">
-    <value>[FR]System Audit Log</value>
+    <value>Journal d'audit du système</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_AUDIT_LOG">
-    <value>[FR]Account Audit Log</value>
+    <value>Journal d'audit des comptes</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_AUDIT_LOG">
-    <value>[FR]View Audit Log</value>
+    <value>Afficher le journal d'audit</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOG_DESCRIPTION">
-    <value>[FR]View events that have been performed against the Product Catalog.</value>
+    <value>Afficher les événements associés au catalogue produits</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TIME">
-    <value>[FR]Time</value>
+    <value>Heure</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USERNAME">
-    <value>[FR]User</value>
+    <value>Utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENTNAME">
-    <value>[FR]Event</value>
+    <value>Evénement</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITYNAME">
-    <value>[FR]Item</value>
+    <value>Élément</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DETAILS">
-    <value>[FR]Details</value>
+    <value>Détails</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOGGED_IN_AS">
-    <value>[FR]Logged in as</value>
+    <value>Connecté en tant que</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_APPLICATION_NAME">
-    <value>[FR]Application name</value>
+    <value>Nom de l'application</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>[FR]Entity ID</value>
+    <value>ID d'entité</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_AUDIT_ID">
-    <value>[FR]Audit ID</value>
+    <value>ID d'audit</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENT_ID">
-    <value>[FR]Event ID</value>
+    <value>ID d'événement</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USER_ID">
-    <value>[FR]User ID</value>
+    <value>ID de l'utilisateur</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-    <value>[FR]Entity Type ID</value>
+    <value>ID de type d'entité</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>[FR]Entity ID</value>
+    <value>ID d'entité</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DT_CRT">
-    <value>[FR]Date CRT</value>
+    <value>Date CRT</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
@@ -86,7 +86,27 @@
     <description></description>
   </text>
   <text id="TEXT_CURRENT_GMT_TIME_IS">
-    <value>[FR]Current GMT time is</value>
+    <value>L'heur GMT actuelle est</value>
     <description></description>
   </text>
+  <text id="TEXT_FORCED">
+    <value>[FR]Forced</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR">
+    <value>[FR]Adapter Run History For</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR_INTERVAL">
+    <value>[FR]Adapter Run History For Interval</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR_BG">
+    <value>[FR]Adapter Run History For Bill Group</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_INSTANCE_INFO">
+    <value>[FR]Adapter Instance Information</value>
+    <description></description>
+  </text>  
 </texts>

@@ -148,12 +148,12 @@ The MAM/MDM use also the localization supplied by the MetraTech plate form.
     </text>
 
     <text id="TEXT_PURCHASE_CARD">
-        <value>Carte d’achat</value>
+        <value>Carte d'achat</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_PURCHASE_CARD">
-        <value>Ajouter une carte d’achat</value>
+        <value>Ajouter une carte d'achat</value>
         <description></description>
     </text>
 
@@ -178,7 +178,7 @@ The MAM/MDM use also the localization supplied by the MetraTech plate form.
     </text>
 
     <text id="TEXT_COMPANY_ADDRESS">
-        <value>Adresse de l’entreprise</value>
+        <value>Adresse de l'entreprise</value>
         <description></description>
     </text>
 
@@ -218,7 +218,7 @@ The MAM/MDM use also the localization supplied by the MetraTech plate form.
     </text>
 
     <text id="TEXT_ROUTING_NUMBER">
-        <value>Numéro d’acheminement</value>
+        <value>Numéro d'acheminement</value>
         <description></description>
     </text>
 
@@ -258,7 +258,7 @@ The MAM/MDM use also the localization supplied by the MetraTech plate form.
     </text>
 
     <text id="TEXT_AUTH_USERNAME">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
         <description></description>
     </text>
 

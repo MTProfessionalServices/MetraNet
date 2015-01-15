@@ -17,7 +17,7 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789/: </value>
+    <value>0123456789 /:</value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
@@ -89,7 +89,7 @@
   </text>
   <text id="DAY_NAMES">
     <value>Domingo,Segunda,Terça,Quarta,Quinta,Sexta,Sábado</value>
-    <description>weekdays.</description>
+    <description>Dias úteis</description>
   </text>
   <text id="START_DAY_OF_WEEK">
     <value>0</value>
@@ -109,6 +109,6 @@
   </text>
   <text id="DATE_SEPARATOR">
     <value>/</value>
-    <description>Define the dates separator.</description>
+    <description>Defina o separador de data.</description>
   </text>
 </texts>

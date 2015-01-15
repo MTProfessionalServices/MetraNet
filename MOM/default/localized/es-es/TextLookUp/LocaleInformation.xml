@@ -16,7 +16,7 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789/: </value>
+    <value>0123456789 /:</value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">

@@ -4,17 +4,17 @@
     <description></description>
 
     <text id="TEXT_LOGIN_TITLE">
-        <value>Ouverture d’une session MetraOffer</value>
+        <value>Ouverture d'une session MetraOffer</value>
         <description></description>
     </text>
 
     <text id="TEXT_NO_AUTH">
-        <value>Votre session est arrivée à expiration. Veuillez vous reconnecter.</value>
+        <value>Votre session est arrivée à expiration. Connectez-vous de nouveau.</value>
         <description></description>
     </text>
 
     <text id="TEXT_LOGIN_NAME">
-        <value>Nom d’utilisateur</value>
+        <value>Nom d'utilisateur</value>
         <description></description>
     </text>
 
@@ -29,7 +29,7 @@
     </text>
 
     <text id="TEXT_INVALID_BLANK_LOGIN">
-        <value>Le nom d'utilisateur ou le mot de passe doit être renseigné. Réessayez.</value>
+        <value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value>
         <description></description>
     </text> 	  
                   

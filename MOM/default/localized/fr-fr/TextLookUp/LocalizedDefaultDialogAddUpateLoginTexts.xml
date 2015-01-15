@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_ADD_UPDATE_LOGIN_TITLE">
-    <value>[FR]Add Login</value>
+    <value>Ajouter identifiant</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_ERROR_CONFIRM_PASSWORD_DOES_NOT_MATCH">
-    <value>[FR]Confirm password does not match.</value>
+    <value>Le mot de passe de confirmation ne correspond pas.</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_GENERAL">
-    <value>[FR]General</value>
+    <value>Général</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_LOGIN">
-    <value>[FR]Login</value>
+    <value>Ouvrir une session</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_CONFIRM_PASSWORD">
-    <value>[FR]Confirm Password</value>
+    <value>Confirmer le mot de passe</value>
   </text>
   <text id="TEXT_ADD_UPDATE_LOGIN_LOCATION">
-    <value>[FR]Location</value>
+    <value>Emplacement</value>
   </text>
   <text id="TEXT_SUCCESS">
-    <value>[FR]Action completed successfully.</value>
+    <value>Action réussie.</value>
   </text>
 </texts>

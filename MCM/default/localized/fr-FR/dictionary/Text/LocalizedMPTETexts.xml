@@ -4,7 +4,7 @@
 
   <!-- Columns -->
   <text id="TEXT_MPTE_BUTTON_SETEFFDATE">
-    <value>Définir la date d’entrée en vigueur et la description</value>
+    <value>Définir la date d'entrée en vigueur et la description</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERON">
@@ -20,7 +20,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_WARNING_NORATE_CONFIGURED">
-    <value>Avertissement : aucun prix n’est actuellement configuré</value>
+    <value>Avertissement : aucun prix n'est actuellement configuré</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_AND">
@@ -52,7 +52,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_DEFAULTRULE_NOT_ALLOWED">
-    <value>La règle par défaut n’est pas autorisée dans cette table de paramètres</value>
+    <value>La règle par défaut n'est pas autorisée dans cette table de paramètres</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_DEFAULTRULE">
@@ -76,7 +76,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_UNSAVED_CHANGES">
-    <value>Vous avez choisi d’actualiser ou de fermer, mais les modifications n’ont pas été enregistrées. Voulez-vous vraiment continuer ?</value>
+    <value>Vous avez choisi d'actualiser ou de fermer, mais les modifications n'ont pas été enregistrées. Voulez-vous vraiment continuer ?</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_BTN">
@@ -128,11 +128,11 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_MOREINFO">
-    <value>Plus d’infos</value>
+    <value>Plus d'infos</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERPAGING_ERROR">
-    <value>La pagination n’est pas disponible lorsque le filtrage est activé</value>
+    <value>La pagination n'est pas disponible lorsque le filtrage est activé</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_FIRSTPAGE">
@@ -208,7 +208,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_EDITCALENDAR">
-    <value>Modifier des propriétés</value>
+    <value>Modifier les propriétés</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_IMPORTCALENDAR">
@@ -224,7 +224,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_WRONG_TYPE_ERROR">
-    <value>Absence d’éléments de ce type</value>
+    <value>Absence d'éléments de ce type</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_EDIT_DAY">
@@ -256,7 +256,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKENDS">
-    <value>Week-end</value>
+    <value>Week-ends</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_HOLIDAY">
@@ -264,7 +264,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DATE">
-    <value>d’exp.</value>
+    <value>d'exp.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DAY_OF_WEEK">
@@ -284,7 +284,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_SAVE_CALENDAR">
-    <value>Impossible d’enregistrer ce calendrier dans la base de données</value>
+    <value>Impossible d'enregistrer ce calendrier dans la base de données</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_LINK_TO_CALENDAR">
@@ -292,7 +292,7 @@
     <description></description>
   </text>
   <text id="TEXT_MTPE_CANNOT_SET_WEEKDAY_TO_DEFAULT">
-    <value>Impossible d’utiliser la valeur par défaut pour définir le jour de la semaine</value>
+    <value>Impossible d'utiliser la valeur par défaut pour définir le jour de la semaine</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_CANNOT_CREATE_WEEKDAY">
@@ -328,7 +328,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAY_DATE">
-    <value>d’exp.</value>
+    <value>d'exp.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_PERIOD_BTN">
@@ -368,21 +368,21 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_NEW_CALENDAR_SAVED">
-    <value>L’enregistrement du calendrier a abouti.</value>
+    <value>L'enregistrement du calendrier a abouti.</value>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SAVED">
-    <value>Le calendrier a été enregistré. Si l’utilisation a déjà été évaluée à l’aide de ce calendrier, le pipeline doit peut-être redémarrer afin que les nouvelles valeurs soient prises en considération.</value>
+    <value>Le calendrier a été enregistré. Si l'utilisation a déjà été évaluée à l'aide de ce calendrier, le pipeline doit peut-être redémarrer afin que les nouvelles valeurs soient prises en considération.</value>
   </text>
   <text id="TEXT_RATESCHEDULE_PICKER_TITLE">
     <value>Sélectionnez [TEXT_KEYTERM_RATE_SCHEDULE] pour importer les règles à partir de</value>
     <description></description>
   </text>
   <text id="TEXT_NULL_START_DATE_TYPE">
-    <value>Date de début du cycle</value>
+    <value>Absence de date de début</value>
     <description></description>
   </text>
   <text id="TEXT_NULL_END_DATE_TYPE">
-    <value>[FR]No end date</value>
+    <value>Absence de date de fin</value>
     <description></description>
   </text>
   <text id="TEXT_ABSOLUTE_DATE_TYPE">
@@ -390,7 +390,7 @@
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTIONRELATIVE_DATE_TYPE">
-    <value>jour(s) après l’abonnement</value>
+    <value>jour(s) après l'abonnement</value>
     <description></description>
   </text>
   <text id="TEXT_BILLINGCYCLE_DATE_TYPE">
@@ -422,7 +422,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DATE">
-    <value>d’exp.</value>
+    <value>d'exp.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_STARTTIME">
@@ -446,11 +446,11 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_PERIODS">
-    <value>Période</value>
+    <value>Périodes</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_PERIODSTART_AFTER_END">
-    <value>L’heure de début doit être antérieure à l’heure de fin</value>
+    <value>L'heure de début doit être antérieure à l'heure de fin</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDARNAME_BLANK">
@@ -458,7 +458,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_DUPLICATE">
-    <value>Ce nom est déjà utilisé par d’autres vacances dans ce calendrier</value>
+    <value>Ce nom est déjà utilisé par d'autres vacances dans ce calendrier</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_BLANK">
@@ -474,7 +474,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_REMOVE_HOLIDAY">
-    <value>Les vacances n’ont pas pu être supprimées de ce calendrier.</value>
+    <value>Les vacances n'ont pas pu être supprimées de ce calendrier.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_SET_DAY_TO_DEFAULT">
@@ -538,7 +538,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-    <value>L’énumérateur de cette valeur est introuvable</value>
+    <value>L'énumérateur de cette valeur est introuvable</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_FILE_NOT_LOCATED">
@@ -546,11 +546,11 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_FILE_NOT_READABLE">
-    <value>Une erreur s’est produite pendant la lecture du fichier</value>
+    <value>Une erreur s'est produite pendant la lecture du fichier</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-    <value>L’énumérateur de cette valeur est introuvable</value>
+    <value>L'énumérateur de cette valeur est introuvable</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_BLANK1">
@@ -586,11 +586,11 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_UNKNOWN">
-    <value>Une erreur inconnue s’est produite. Réessayez ultérieurement. Si le problème persiste, contactez votre administrateur système.</value>
+    <value>Une erreur inconnue s'est produite. Réessayez ultérieurement. Si le problème persiste, contactez votre administrateur système.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ">
-    <value>L’objet n’a pas pu être créé. Vérifiez que cet objet est disponible et enregistré.</value>
+    <value>L'objet n'a pas pu être créé. Vérifiez que cet objet est disponible et enregistré.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_FOUND">
@@ -598,19 +598,19 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED">
-    <value>Impossible d’enregistrer [TEXT_KEYTERM_RATE_SCHEDULE] avec les règles de la base de données. Vérifiez votre fichier journal.</value>
+    <value>Impossible d'enregistrer [TEXT_KEYTERM_RATE_SCHEDULE] avec les règles de la base de données. Vérifiez votre fichier journal.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ">
-    <value>L’exécution de la fonction par l’objet a échoué.</value>
+    <value>L'exécution de la fonction par l'objet a échoué.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-    <value>L’objet n’a pas pu charger les types énumérés.</value>
+    <value>L'objet n'a pas pu charger les types énumérés.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-    <value>L’objet n’a pas pu charger les types énumérés.</value>
+    <value>L'objet n'a pas pu charger les types énumérés.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_WARNING_EDIT_PAST_RATES">
@@ -622,7 +622,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_VALUE_NOT_CONFIGURED">
-    <value>cette valeur n’est pas configurée</value>
+    <value>cette valeur n'est pas configurée</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_PERIODS_CONFIGURED">
@@ -638,7 +638,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WARNING_WHEN_EDITING">
-    <value>Avertissement : de nombreuses [TEXT_KEYTERM_RATE_SCHEDULES] peuvent utiliser ce calendrier. Toute modification apportée affectera la totalité d’entre elles. </value>
+    <value>Avertissement : de nombreuses [TEXT_KEYTERM_RATE_SCHEDULES] peuvent utiliser ce calendrier. Toute modification apportée affectera la totalité d'entre elles. </value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NULLVALUE">
@@ -662,7 +662,7 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-    <value><![CDATA[<b>Les deux ensembles de règles sont identiques.</b><BR>Cela peut se produire quand un ensemble de règles est enregistré mais qu’aucune modification n’a été apportée.]]></value>
+    <value><![CDATA[<b>Les deux jeux de règles sont identiques.</b><BR>Cela peut se produire lorsqu'un jeu de règles est enregistré mais qu'aucune modification n'y est apportée.&nbsp;&nbsp;]]></value>
     <description></description>
   </text>
   <text id="TEXT_ICB_PRICELIST_DISPLAY_NAME">
@@ -670,7 +670,7 @@
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_RATESCHEDULE_ALREADY_HAS_PENDING_CHANGE">
-    <value>Cette échelle tarifaire contient une mise à jour en attente d’approbation. Pour des raisons de cohérence, aucune autre mise à jour ne peut être effectuée tant que cette mise à jour n’a pas été approuvée ou refusée.</value>
+    <value>Cette échelle tarifaire contient une mise à jour en attente d'approbation. Pour des raisons de cohérence, aucune autre mise à jour ne peut être effectuée tant que cette mise à jour n'a pas été approuvée ou refusée.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">
@@ -678,43 +678,43 @@
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_DAY">
-    <value>[FR]Calendar Day</value>
+    <value>Jour calendaire</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_PERIOD">
-    <value>[FR]Calendar Period</value>
+    <value>Période calendaire</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_CONFIGURATION">
-    <value>[FR]Calendar Configuration</value>
+    <value>Configuration du calendrier</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_EDITOR">
-    <value>[FR]Ruleset Editor</value>
+    <value>Editeur de jeu de règles</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_CHANGES">
-    <value>[FR]Ruleset Changes</value>
+    <value>Modifications du jeu de règles</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_FROM_EXCEL">
-    <value>[FR]Import From Excel File</value>
+    <value>Importer depuis un fichier Excel</value>
     <description></description>
   </text>
   <text id="TEXT_LOCATION_OF_EXCEL">
-    <value>[FR]Location of Excel file to import</value>
+    <value>Emplacement du fichier Excel à importer</value>
     <description></description>
   </text>
   <text id="TEXT_TABULAR_RULESET_EDITOR">
-    <value>[FR]Tabular Ruleset Editor - Define Filter</value>
+    <value>Editeur de jeu de règles tabulaire - Définir le filtre</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_NEW_CALENDAR">
-    <value>[FR]Create New Calendar</value>
+    <value>Créer un nouveau calendrier</value>
     <description></description>
   </text>        
   <text id="TEXT_SET_CHARGE_AMOUNT">
-    <value>[FR]Set Charge Amount</value>
+    <value>Définir le montant des frais</value>
     <description></description>
   </text>
   <text id="TEXT_Add_Parameter_Table_to_Price_List">
@@ -800,6 +800,30 @@
   </text>
   <text id="TEXT_December">
     <value>[FR]December</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>[FR]Price list</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MODIFIED_BY">
+    <value>[FR]modified by</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AT">
+    <value>[FR]at</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>[FR]View changes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>[FR]View history</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
+    <value>[FR]You have unsaved changes.</value>
     <description></description>
   </text>
 </texts>

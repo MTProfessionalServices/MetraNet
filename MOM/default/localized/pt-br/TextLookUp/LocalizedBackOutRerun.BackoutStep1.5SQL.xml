@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_Identify_Sessions_Using_SQL">
-    <value>Identify Sessions Using SQL</value>
+    <value>Identificar Sessões Usando SQL</value>
   </text>
   <text id="TEXT_An_empty_table_with_the_name_t_rerun_session_">
-    <value>An empty table with the name &lt;b&gt;t_rerun_session_</value>
+    <value>Uma tabela vazia com o nome &lt;b&gt;t_rerun_session_</value>
   </text>
   <text id="TEXT_has_just_been_created_in_the_database_The">
-    <value> has just been created in the database. The</value>
+    <value> acabou de ser criada no banco de dados. O</value>
   </text>
   <text id="TEXT_in_the_table_name_is_the_current_rerun_id">
-    <value> in the table name is the current rerun id.</value>
+    <value> no nome da tabela é a id de reexecução atual.</value>
   </text>
   <text id="TEXT_You_will_now_need_to_access_the_database_directly">
-    <value>You will now need to access the database directly and execute the SQL necessary to populate this table, t_rerun_session_</value>
+    <value>Agora você precisará ter acesso ao banco de dados diretamente e executar o SQL necessário para preencher essa tabela, t_rerun_session_</value>
   </text>
   <text id="TEXT_with_the_session_ids_you_wish">
-    <value>, with the session ids you wish to backout or resubmit.&lt;br&gt;&lt;br&gt;Once you have populated the table with the session ids, select &apos;Next Step: Analyze&apos; below to proceed to the &apos;Identify and Analyze&apos; page where you can review what is going to be backed out and resubmitted before any action is taken on these sessions.</value>
+    <value>, com as ids de sessão cujo backout deseja realizar ou reenviar.&lt;br&gt;&lt;br&gt;Depois de preencher a tabela com as ids de sessão, selecione 'Próxima Etapa: Análise' abaixo para prosseguir para a página 'Identificação e Análise' onde pode analisar o que será incluído no backout e reenviado antes de qualquer ação ser realizada nessas sessões.</value>
   </text>
   <text id="TEXT_I_will_use_SQL_directly_to_identify_the_records_to_be_backed_out">
-    <value>I will use SQL directly to identify the records to be backed out.</value>
+    <value>Eu usarei SQL diretamente para identificar os registros a serem incluídos no backout.</value>
   </text>
   <text id="TEXT_Next_Step_Analyze">
-    <value>Next Step: Analyze</value>
+    <value>Próxima Etapa: Analisar</value>
   </text>
   <text id="TEXT_Examples">
-    <value>Examples</value>
+    <value>Exemplos</value>
   </text>
   <text id="TEXT_Essentially_you_are_just">
-    <value>Essentially you are just inserting the session ids of the transactions you wish to backout but the ids have to be inserted in a particular way. In addition, the query for inserting failed transaction ids is different from the query for inserting successful transaction ids.&lt;br&gt;&lt;br&gt;If you make a mistake, no problem. As long as you haven't deleted or resubmitted the transactions, even if you have proceed to the next page (the Identify and Analyze page) and discover you have made a mistake, you can update the &lt;b&gt;t_rerun_session_</value>
+    <value>Basicamente, você está apenas inserindo as ids de sessão das transações que deseja incluir no backout, mas as ids têm que ser inseridas de uma determinada forma. Além disso, a consulta para inserção de ids de transação com falhas é diferente da consulta para inserção de ids de transação bem-sucedidas.&lt;br&gt;&lt;br&gt;Se você cometer um erro, sem problema. Desde que não tenha excluído ou reenviado as transações, mesmo que tenha prosseguido para a página seguinte (a página Identificação e Análise) e descubra que cometeu um erro, você poderá atualizar a tabela &lt;b&gt;t_rerun_session_</value>
   </text>
   <text id="TEXT_table_by_adding_or">
-    <value> table by adding or deleting records with out starting over as long as you select &apos;Reanalyze&apos; at the top of the next page to update the summary information before continuing on to actually delete or resubmit the transactions.</value>
+    <value> adicionando ou excluindo registros sem começar novamente, desde que selecione 'Reanalisar' na parte superior da próxima página para atualizar as informações de resumo antes de continuar para realmente excluir ou reenviar as transações.</value>
   </text>
   <text id="TEXT_Usage_Transaction_Example">
-    <value>Usage Transaction Example</value>
+    <value>Exemplo de Transação de Uso</value>
   </text>
   <text id="TEXT_For_Example">
-    <value>For example, if the following query selecting usage for account 137 that was processed before February 2005 represented the sessions you wanted to backout</value>
+    <value>Por exemplo, se a seguinte consulta de seleção de uso para a conta 137 que foi processada antes de fevereiro de 2005 representava as sessões cujo backout você queria realizar</value>
   </text>  
   <text id="TEXT_Then_you_would_execute">
-    <value>Then you would execute the following query to insert these same records into the rerun table</value>
+    <value>Você teria que executar a seguinte consulta para inserir esses mesmos registros na tabela de reexecução</value>
   </text>
   <text id="TEXT_Failed_Transaction_Example">
-    <value>Failed Transaction Example</value>
+    <value>Exemplo de Transação com Falha</value>
   </text>
   <text id="TEXT_Failed_Transaction_Example_Content">
-    <value>For example, if the following query selecting failed transactions that are new, happened in a service whose name ends with &apos;testservice&apos; and were metered before February 2005 represented the sessions you wanted to backout</value>
+    <value>Por exemplo, se a seguinte consulta de seleção de transações com falha que são novas acontecessem no serviço cujo nome termina com 'testservice' e fossem medidas antes de Fevereiro de 2005 representassem as sessões cujo backout você queria realizar</value>
   </text>
   <text id="TEXT_Then_you_would_execute_the_following_query">
-    <value>Then you would execute the following query to insert these same records into the rerun table</value>
+    <value>Você teria que executar a seguinte consulta para inserir esses mesmos registros na tabela de reexecução</value>
   </text>
 </texts>

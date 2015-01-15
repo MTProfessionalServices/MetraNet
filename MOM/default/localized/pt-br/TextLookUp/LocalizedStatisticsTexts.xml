@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_USAGE_STATISTICS_FILTER">
-    <value>[pt-BR]Usage Statistics Filter</value>
+    <value>Filtro de Estatísticas de Uso</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_SEARCH_BUTTON">
-    <value>[pt-BR]Search</value>
+    <value>Buscar</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_ID">
-    <value>[pt-BR]View Id</value>
+    <value>Exibir ID</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_NAME">
-    <value>[pt-BR]View Name</value>
+    <value>Exibir nome</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_COUNT">
-    <value>[pt-BR]Count</value>
+    <value>Contagem</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_AMOUNT">
-    <value>[pt-BR]Amount</value>
+    <value>Valor</value>
   </text>
 </texts>

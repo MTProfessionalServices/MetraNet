@@ -6,7 +6,7 @@
     <description></description>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE">
-    <value>Afficher tous les prix par type d’[TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <value>Afficher tous les prix par type d'[TEXT_KEYTERM_PRICEABLE_ITEM]</value>
     <description></description>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_TITLE">
@@ -16,7 +16,7 @@
     <value>Modification des abonnements en vrac</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_SOURCE">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] source</value>
+    <value>Source [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_DESTINATION">
     <value>[TEXT_KEYTERM_PRODUCT_OFFERING] cible</value>
@@ -25,13 +25,13 @@
     <value>Date de validité</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE_BILLING_CYCLE_RELATIVE">
-    <value>Appliquer une date d’entrée en vigueur du changement d’abonnement au cours du cycle de facturation suivant par rapport à cette date</value>
+    <value>Appliquer une date d'entrée en vigueur du changement d'abonnement au cours du cycle de facturation suivant par rapport à cette date</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_SELECT_PRODUCT_OFFERING">
     <value>Sélectionnez une [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_ADVANCED_DIALOG_DESCRIPTION">
-    <value>Sélectionnez l’action à exécuter.</value>
+    <value>Sélectionnez l'action à exécuter.</value>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_DESCRIPTION">
     <value>Afficher une page contenant tous les prix du catalogue produits, regroupés par [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
@@ -40,7 +40,7 @@
     <value>Afficher une page contenant tous les prix regroupés par type de [TEXT_KEYTERM_PRICEABLE_ITEM].</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_DESCRIPTION">
-    <value>Transférer tous les abonnements clients d’une [TEXT_KEYTERM_PRODUCT_OFFERING] vers une autre [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>Transférer tous les abonnements clients d'une [TEXT_KEYTERM_PRODUCT_OFFERING] vers une autre [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
   </text>
   <text id="TEXT_EDIT_PRICELIST_DESCRIPTION">
     <value>Ajouter de nouvelles [TEXT_KEYTERM_PRICE_LISTS] et modifier les descriptions des [TEXT_KEYTERM_PRICE_LISTS] existantes.</value>
@@ -56,11 +56,11 @@
     <description></description>
   </text>
   <text id="TEXT_MANAGE_HIDDEN_POS_DESCRIPTION">
-    <value>Afficher les [TEXT_KEYTERM_PRODUCT_OFFERINGS] masquées lors de l’utilisation courante de MetraOffer et annuler l’option de masquage.</value>
+    <value>Afficher les [TEXT_KEYTERM_PRODUCT_OFFERINGS] masquées lors de l'utilisation courante de MetraOffer et annuler l'option de masquage.</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_CHARGES">
-    <value>Frais de l’abonnement groupé</value>
+    <value>Frais de l'abonnement groupé</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_CHARGE_GENERATED">

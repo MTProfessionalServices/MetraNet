@@ -23,6 +23,11 @@ file mam\custom\linklookup\GlobalLinks.xml.
 			<description></description>
 		</link>
     
+		<link id="SYSTEM_USER_HIERARCHY_MOVE_DATE_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/SystemUserHierarchyMoveDate.asp</value>
+			<description></description>
+		</link>
+    
 		<link id="HIERARCHY_MOVE_DATE_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/HierarchyMoveDate.asp</value>
 			<description></description>
@@ -64,7 +69,28 @@ file mam\custom\linklookup\GlobalLinks.xml.
 			<value>[APP_HTTP_PATH]/default/dialog/hierarchyview.asp</value>
       <description></description>
 		</link>
+			
 		
+ 	  <link id="BATCH_ERROR_LIST_FILTER_OFF_NO_BACK_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?PopUpWindowMode=TRUE&amp;FilterOff=TRUE&amp;Close=TRUE&amp;MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+    
+ 	  <link id="BATCH_ERROR_LIST_FILTER_OFF_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?FilterOff=TRUE&amp;MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+ 	  
+ 	  <link id="BATCH_ERROR_LIST_MENU_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?FilterOff=TRUE&amp;Close=TRUE&amp;MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+		    
+ 	  <link id="BATCH_ERROR_LIST_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/BatchErrorList.asp?MDMReload=TRUE</value>
+      <description>Displays last batch errors</description>
+		</link>
+        
  	  <link id="FOLDER_OWNER_DELETE_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/FolderOwnerDelete.asp</value>
       <description></description>
@@ -299,6 +325,11 @@ file mam\custom\linklookup\GlobalLinks.xml.
 		<link id="GROUP_MEMBER_ADD_DIALOG">
 			<value>[APP_HTTP_PATH]/default/dialog/GroupMemberAdd.asp</value>
       <description>Link to the dialog to add members.</description>
+		</link>
+
+		<link id="GROUP_MEMBER_REMOVE_DIALOG">
+			<value>[APP_HTTP_PATH]/default/dialog/GroupMemberRemove.asp</value>
+      <description>Link to the dialog to bulk unsubscribe members.</description>
 		</link>
 
 		<link id="GROUP_ADD_DIALOG">

@@ -1707,28 +1707,28 @@ PUBLIC FUNCTION GetAssociation(mgr, acc)
 
   assoc.RelationType = Service.Properties("Relationship").Value
   assoc.PercentOwnership = Service.Properties("Percentage").Value
-  assoc.StartDate = CDate(Service.Properties("StartDate").Value)
+  assoc.StartDate = mam_DateFromLocaleString(Service.Properties("StartDate").Value)
   If Len(Service.Properties("EndDate")) > 0 Then  
-    assoc.EndDate = CDate(Service.Properties("EndDate").Value)    
+    assoc.EndDate = mam_DateFromLocaleString(Service.Properties("EndDate").Value)    
   Else
-    assoc.EndDate = CDate(FrameWork.RCD().GetMaxDate())
+    assoc.EndDate = FrameWork.RCD().GetMaxDate()
   End If
   assoc.OwnedAccount = acc
   
   If Not Form Is Nothing Then
     If Form.Exist("OldStartDate")Then
       If IsEmpty(Form("OldStartDate")) Then
-        assoc.OldStartDate = CDate(FrameWork.RCD().GetMinDate())
+        assoc.OldStartDate = FrameWork.RCD().GetMinDate()
       else 
-        assoc.OldStartDate = CDate(Form("OldStartDate"))    
+        assoc.OldStartDate = mam_DateFromLocaleString(Form("OldStartDate"))    
       End If
     End IF
     
     If Form.Exist("OldEndDate")Then
       If IsEmpty(Form("OldEndDate")) Then
-        assoc.OldEndDate = CDate(FrameWork.RCD().GetMaxDate())
+        assoc.OldEndDate = FrameWork.RCD().GetMaxDate()
       else 
-        assoc.OldEndDate = CDate(Form("OldEndDate"))    
+        assoc.OldEndDate = mam_DateFromLocaleString(Form("OldEndDate"))    
       End If
     End If
   
@@ -1748,28 +1748,28 @@ PUBLIC FUNCTION GetAssociationAsOwned(mgr, acc)
 
   assoc.RelationType = Service.Properties("Relationship").Value
   assoc.PercentOwnership = Service.Properties("Percentage").Value
-  assoc.StartDate = CDate(mam_NormalDateFormat(Service.Properties("StartDate").Value))
+  assoc.StartDate = mam_DateFromLocaleString(Service.Properties("StartDate").Value)
   If Len(Service.Properties("EndDate")) > 0 Then  
-    assoc.EndDate = CDate(mam_NormalDateFormat(Service.Properties("EndDate").Value))    
+    assoc.EndDate = mam_DateFromLocaleString(Service.Properties("EndDate").Value)    
   Else
-    assoc.EndDate = CDate(mam_NormalDateFormat(FrameWork.RCD().GetMaxDate()))
+    assoc.EndDate = FrameWork.RCD().GetMaxDate()
   End If
   assoc.OwnerAccount = acc
 
   If Not Form Is Nothing Then
     If Form.Exist("OldStartDate")Then
       If IsEmpty(Form("OldStartDate")) Then
-        assoc.OldStartDate = CDate(FrameWork.RCD().GetMinDate())
+        assoc.OldStartDate = FrameWork.RCD().GetMinDate()
       else 
-        assoc.OldStartDate = CDate(Form("OldStartDate"))    
+        assoc.OldStartDate = mam_DateFromLocaleString(Form("OldStartDate"))    
       End If
     End IF
     
     If Form.Exist("OldEndDate")Then
       If IsEmpty(Form("OldEndDate")) Then
-        assoc.OldEndDate = CDate(FrameWork.RCD().GetMaxDate())
+        assoc.OldEndDate = FrameWork.RCD().GetMaxDate()
       else 
-        assoc.OldEndDate = CDate(Form("OldEndDate"))    
+        assoc.OldEndDate = mam_DateFromLocaleString(Form("OldEndDate"))    
       End If
     End If
   

@@ -207,6 +207,212 @@
   <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
     <value>[DE]Accounts with Bill-To addresses residing in a South American country</value>
   </text>
+  <text id="TEXT_BG_TITLE_BILLING_GROUP_STATE">
+    <value>[DE]Billing Group State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_NEW_STATE">
+    <value>[DE]New State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_DESCRIPTION">
+    <value>[DE]Description</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_OK_NAME">
+    <value>[DE]OK</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_CANCEL_NAME">
+    <value>[DE]Cancel</value>
+  </text>
+  <text id="TEXT_BG_BILLING_GROUP_STATE_GRID_TITLE">
+    <value>[DE]The current state of this Billing Group is</value>
+  </text>
+  <text id="TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT">
+    <value>[DE]Billing Management</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READYTORUN">
+    <value>[DE]Ready To Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READYTOREVERSE">
+    <value>[DE]Ready To Reverse</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_NOTYETRUN">
+    <value>[DE]Not Yet Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_ACKNOWLEDGE">
+    <value>[DE]Acknowledge</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_RUNNING">
+    <value>[DE]Running</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_SUCCEEDED">
+    <value>[DE]Succeeded</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_FAILED">
+    <value>[DE]Failed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_INPROGRESS">
+    <value>[DE]In Progress</value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_EXECUTE">
+    <value>[DE]Execute </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_REVERSE">
+    <value>[DE]Reverse </value>
+  </text>
+  <text id="TEXT_Unassigned_Accounts_That_Are_Hard_Closed">
+    <value>[DE]Unassigned Accounts That Are Hard Closed</value>
+  </text>
+  <text id="TEXT_Unassigned_Accounts_That_Are_Open">
+    <value>[DE]Unassigned Accounts That Are Open</value>
+  </text>
+  <text id="TEXT_Account">
+    <value>[DE]Account</value>
+  </text>
+  <text id="TEXT_Account_ID">
+    <value>[DE]Account ID</value>
+  </text>
+  <text id="TEXT_User_Name">
+    <value>[DE]User Name</value>
+  </text>
+  <text id="TEXT_Namespace">
+    <value>[DE]Namespace</value>
+  </text>
+  <text id="TEXT_Members_of">
+    <value>[DE]Members of</value>
+  </text>
+  <text id="TEXT_Search">
+    <value>[DE]Search</value>
+  </text>
+  <text id="TEXT_Locate_Billing_Group_for_Payer_in_Interval">
+    <value>[DE]Locate Billing Group for Payer in Interval</value>
+  </text>
+  <text id="TEXT_Go_to_this_Group">
+    <value>[DE]Go to this Group</value>
+  </text>
+  <text id="TEXT_OPEN">
+    <value>[DE]Open</value>
+  </text>
+  <text id="TEXT_Soft_Closed">
+    <value>[DE]Soft Closed</value>
+  </text>
+  <text id="TEXT_Hard_Closed">
+    <value>[DE]Hard Closed</value>
+  </text>
+  <text id="TEXT_unknown">
+    <value>[DE]unknown</value>
+  </text>
+  <text id="TEXT_Payer_not_found_in_billing_group_for_interval_">
+    <value>[DE]Payer not found in billing group for interval </value>
+  </text>
+  <text id="TEXT_Both_the_User_Name_and_Namespace_are_required_when_not_searching_by_account_id">
+    <value>[DE]Both the User Name and Namespace are required when not searching by account id.</value>
+  </text>
+  <text id="TEXT_Locate_Billing_Group">
+    <value>[DE]Locate Billing Group</value>
+  </text>
+  <text id="TEXT_Create_Billing_Group_from_Pull_List">
+    <value>[DE]Create Billing Group from Pull List</value>
+  </text>
+  <text id="TEXT_New_Group_Name">
+    <value>[DE]New Group Name</value>
+  </text>
+  <text id="TEXT_What_accounts_should_be_included">
+    <value>[DE]What accounts should be included in this new billing group?</value>
+  </text>
+  <text id="TEXT_All_Failed_Accounts">
+    <value>[DE]All Failed Accounts</value>
+  </text>
+  <text id="TEXT_Include_all_failed_accounts">
+    <value>[DE]  Include all failed accounts from the run.</value>
+  </text>
+  <text id="TEXT_Specify_Accounts_in_a_Pull_List">
+    <value>[DE]Specify Accounts in a Pull List</value>
+  </text>
+  <text id="TEXT_A_pull_list_is_used_to_remove">
+    <value>[DE]
+      A pull list is used to remove accounts from the current billing group. These
+      accounts will be placed in this newly created billing group. Specify either
+      account IDs separated by returns or username\namespace pairs separated by
+      returns. You may also use the inline account finder below to add accounts to
+      the textbox.
+    </value>
+  </text>
+  <text id="TEXT_Find_Account">
+    <value>[DE]Find Account</value>
+  </text>
+  <text id="TEXT_A_pull_list_is_used_to_remove2">
+    <value>[DE]
+      A pull list file is used to remove accounts from the current billing group.
+      These accounts will be placed in this newly created billing group. The file
+      format is a UTF-8 encoded text file that specifies either account IDs separated
+      by returns or username comma namespace pairs separated by returns.
+    </value>
+  </text>
+  <text id="TEXT_Create_Pull_List_From_File">
+    <value>[DE]Create Pull List From File</value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASNOTYETRUN">
+    <value>[DE]Mark as not yet Run </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASFAILED">
+    <value>[DE]Mark as Failed </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASSUCCEEDED">
+    <value>[DE]Mark as Succeeded </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_CANCEL">
+    <value>[DE]Cancel </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_UNACKNOWLEDGE">
+    <value>[DE]Unacknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_ACKNOWLEDGE">
+    <value>[DE]Acknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFORREVERSAL">
+    <value>[DE]Submit For Reversal </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFOREXECUTION">
+    <value>[DE]Submit For Execution </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_WAS_FORCED">
+    <value>[DE]The adapter run was forced to ignore dependencies</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_CHECKPOINT">
+    <value>[DE]Checkpoint</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ENDOFPERIOD">
+    <value>[DE]End Of Period</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_SCHEDULED">
+    <value>[DE]Scheduled</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ROOT">
+    <value>[DE]Root</value>
+  </text>
+  <text id="TEXT_Payee_Account">
+    <value>[DE]Payee Account</value>
+  </text>
+  <text id="TEXT_Payee_Account_ID">
+    <value>[DE]Payee Account ID</value>
+  </text>
+  <text id="TEXT_Payee_User_Name">
+    <value>[DE]Payee User Name</value>
+  </text>
+  <text id="TEXT_Payee_Namespace">
+    <value>[DE]Payee Namespace</value>
+  </text>
+  <text id="TEXT_SECOND_SINGULAR">
+    <value>[DE]second</value>
+  </text>
+  <text id="TEXT_MINUTE_SINGULAR">
+    <value>[DE]minute</value>
+  </text>
+  <text id="TEXT_SECOND_PLURAL">
+    <value>[DE]seconds</value>
+  </text>
+  <text id="TEXT_MINUTE_PLURAL">
+    <value>[DE]minutes</value>
+  </text>
   <text id="TEXT_RETURN_TO_INTERVAL_LIST">
     <value>[DE]Return To Interval List</value>
   </text>

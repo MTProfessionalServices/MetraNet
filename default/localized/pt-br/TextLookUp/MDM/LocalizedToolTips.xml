@@ -4,107 +4,107 @@
     This file defines the MAM tool tips localization.
   </description>
   <text id="TEXT_OK">
-    <value>[pt-BR]OK</value>
+    <value>OK</value>
     <description></description>
   </text>
   <text id="TEXT_CANCEL">
-    <value>[pt-BR]Cancel</value>
+    <value>Cancelar</value>
     <description></description>
   </text>
   <text id="TEXT_CLEAR">
-    <value>[pt-BR]Clear</value>
+    <value>Limpar</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT">
-    <value>[pt-BR]Edit</value>
+    <value>Editar</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW">
-    <value>[pt-BR]View</value>
+    <value>Exibir</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE">
-    <value>[pt-BR]Delete</value>
+    <value>Excluir</value>
     <description></description>
   </text>
   <text id="TEXT_ADD">
-    <value>[pt-BR]Add</value>
+    <value>Adicionar</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE">
-    <value>[pt-BR]Update</value>
+    <value>Atualizar</value>
     <description></description>
   </text>
   <text id="TEXT_HELP">
-    <value>[pt-BR]MetraControl Help</value>
+    <value>Ajuda de MetraControl</value>
     <description></description>
   </text>
   <text id="TEXT_FULLSCREEN">
-    <value>[pt-BR]Toggle Full Screen View</value>
+    <value>Alternar exibição de tela cheia</value>
     <description></description>
   </text>
   <text id="TEXT_GO">
-    <value>[pt-BR]Find Account</value>
+    <value>Localizar conta</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED">
-    <value>[pt-BR]Advanced Find</value>
+    <value>Localização avançada</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_DOWN">
-    <value>[pt-BR]Show Detailed Information</value>
+    <value>Mostrar informações detalhadas</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_UP">
-    <value>[pt-BR]Hide Detailed Information</value>
+    <value>Ocultar informações detalhadas</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSEWINDOW">
-    <value>[pt-BR]Close Account</value>
+    <value>Fechar conta</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_PAYMENT_METHOD">
-    <value>[pt-BR]Add Payment Method</value>
+    <value>Adicionar método de pagamento</value>
     <description></description>
   </text>
   <text id="TEXT_ENTER">
-    <value>[pt-BR]Enter</value>
+    <value>Inserir</value>
     <description></description>
   </text>
   <text id="TEXT_GO_BACK">
-    <value>[pt-BR]Go Back to Find Results</value>
+    <value>Voltar para encontrar resultados</value>
     <description></description>
   </text>
   <text id="TEXT_APPLY">
-    <value>[pt-BR]Apply</value>
+    <value>Aplicar</value>
     <description></description>
   </text>
   <text id="TEXT_SUCCEED">
-    <value>[pt-BR]Succeed</value>
+    <value>Bem-sucedido</value>
     <description></description>
   </text>
   <text id="TEXT_FAILED">
-    <value>[pt-BR]Failed</value>
+    <value>Falhou</value>
     <description></description>
   </text>
   <text id="TEXT_NONE">
-    <value>[pt-BR]None</value>
+    <value>Nenhum</value>
     <description></description>
   </text>
   <text id="TEXT_NO">
-    <value>[pt-BR]No</value>
+    <value>Não</value>
     <description></description>
   </text>
   <text id="TEXT_YES">
-    <value>[pt-BR]Yes</value>
+    <value>Sim</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSE">
-    <value>[pt-BR]Close</value>
+    <value>Fechar</value>
     <description></description>
   </text>
   <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-    <value>[pt-BR]The information was successfully added.</value>
+    <value>As informações foram adicionadas com sucesso.</value>
     <description></description>
   </text>
 </texts>

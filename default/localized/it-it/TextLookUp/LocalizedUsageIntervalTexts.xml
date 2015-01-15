@@ -201,4 +201,100 @@
   <text id="TEXT_NO_PERMISSION_TO_VIEW_BILLING_GROUP">
     <value><![CDATA[[IT]You do not have permission to view this billing group.]]></value>
   </text>
+  <text id="TEXT_Force_the_selected_adapter">
+    <value>[IT] Force the selected adapter(s) to run/reverse without running/reversing any dependencies.</value>
+  </text>
+  <text id="TEXT_Continue">
+    <value>[IT]Continue</value>
+  </text>
+  <text id="TEXT_Because_of_run">
+    <value>[IT]Because of dependencies, these adapters and checkpoints will also need to be run or cancelled:</value>
+  </text>
+  <text id="TEXT_Because_of_reverce">
+    <value>[IT]Because of dependencies, these adapters and checkpoints will also need to be reversed or cancelled:</value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_1">
+    <value>[IT]The missing period for this scheduled adapter is from </value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_2">
+    <value>[IT] until </value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_3">
+    <value><![CDATA[[IT].<BR>Proceeding will run this scheduled adapter from when it was last run until ]]></value>
+  </text>
+  <text id="TEXT_ReadyToReverse_ERROR">
+    <value>[IT]The adapter is currently marked as 'ReadyToReverse'. The submitted Reverse action will be cancelled.</value>
+  </text>
+  <text id="TEXT_ReadyToRun_ERROR">
+    <value>[IT]The adapter is currently marked as 'ReadyToRun'. The submitted Run action will be cancelled.</value>
+  </text>
+  <text id="TEXT_In_a_previous_interval">
+    <value>[IT]In a previous interval (</value>
+  </text>
+  <text id="TEXT_the_adapter_was_not_run">
+    <value>[IT]), the adapter was not run. </value>
+  </text>
+  <text id="TEXT_In_an_interval">
+    <value>[IT]In an interval (</value>
+  </text>
+  <text id="TEXT_after_this_interval_the_adapter_was_not_reversed">
+    <value>[IT]) after this interval, the adapter was not reversed. </value>
+  </text>
+  <text id="TEXT_Instance_doesnt_exist">
+    <value>[IT]Instance doesn't exist.</value>
+  </text>
+  <text id="TEXT_Instance">
+    <value>[IT]Instance: </value>
+  </text>
+  <text id="TEXT_Billing_Group_">
+    <value>[IT]Billing Group: </value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_1">
+    <value><![CDATA[[IT]<strong>ERROR: One or more of the adapters you selected cannot be run.</strong><BR>One or more of the adapters you selected or their dependencies cannot be run. As a consequence, none of the adapters you selected will be run. Please review the error and click 'OK' to return to the interval and select different adapters or a different action.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_2">
+    <value><![CDATA[[IT]One or more of the adapters you selected cannot be run without additional actions also taking place. Please review the dependencies and click 'Continue' to run the requested adapters and perform any additional actions that may be required.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_3">
+    <value><![CDATA[[IT]<strong>ERROR: One or more of the adapters you selected cannot be reversed.</strong><BR>One or more of the adapters you selected or their dependencies cannot be reversed. As a consequence, none of the adapters you selected will be reversed. Please review the error and click 'OK' to return to the interval and select different adapters or a different action.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_4">
+    <value><![CDATA[[IT]One or more of the adapters you selected cannot be reversed without additional actions also taking place. Please review the dependencies and click 'Continue' to reverse the requested adapters and perform any additional actions that may be required.]]></value>
+  </text>
+  <text id="TEXT_You_have_selected_to_run_the_following_adapter">
+    <value>[IT]You have selected to run the following adapter(s):</value>
+  </text>
+  <text id="TEXT_You_have_selected_to_reverse_the_following_adapter">
+    <value>[IT]You have selected to reverse the following adapter(s):</value>
+  </text>
+  <text id="TEXT_No_adapter_instances_selected">
+    <value>[IT]No adapter instances selected.</value>
+  </text>
+  <text id="TEXT_NO_RUNS_INSTANCE">
+    <value>[IT]No runs have been associated with this instance.</value>
+  </text>
+  <text id="TEXT_VIEW_RUN_DETAIL">
+    <value>[IT]View Run Details</value>
+  </text>
+  <text id="TEXT_SUMMARY_DETAIL">
+    <value>[IT]Summary Details</value>
+  </text>
+  <text id="TEXT_REVERSED_RUN_ID">
+    <value>[IT]Reversed Run Id</value>
+  </text>
+  <text id="TEXT_Adapter_List">
+    <value>[IT]Adapter List</value>
+  </text>
+  <text id="TEXT_These_Adapters_On">
+    <value>[IT]These Adapters On</value>
+  </text>
+  <text id="TEXT_Adapter_At_Scheduled_Time">
+    <value>[IT] Adapter(s) At Scheduled Time</value>
+  </text>
+  <text id="TEXT_RUN">
+    <value>[IT]Run</value>
+  </text>
+  <text id="TEXT_REVERSE">
+    <value>[IT]Reverse</value>
+  </text>
 </texts>

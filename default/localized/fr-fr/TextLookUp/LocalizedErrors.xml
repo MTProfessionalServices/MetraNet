@@ -1,42 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="MOM_ERROR_1000">
-    <value>[FR]1000-MOM ERROR-E-mail is not valid</value>
+    <value>1000-MOM-ERREUR E-mail invalide</value>
   </text>
   <text id="MOM_ERROR_1001">
-    <value>[FR]1001-MOM ERROR-A system error has occurred.  Please have your administrator check the system log, and try again later.</value>
+    <value>1001-MOM-ERREUR Une erreur système s'est produite. Demandez à votre administrateur d'examiner le journal système, puis réessayez ultérieurement.</value>
   </text>
   <text id="MOM_ERROR_1002">
-    <value>[FR]1002-MOM ERROR-A unknown error occured.  Please have your administrator check the system log, and try again later.</value>
+    <value>1002-MOM-ERREUR Une erreur inconnue s'est produite. Demandez à votre administrateur d'examiner le journal système, puis réessayez ultérieurement.</value>
   </text>
   <text id="MOM_ERROR_1003">
-    <value>[FR]1003-MOM ERROR-CSR loading information failed.</value>
+    <value>1003-MOM-ERREUR Echec de chargement des informations CSR.</value>
   </text>
   <text id="MOM_ERROR_1004">
-    <value>[FR]1004-MOM ERROR-This feature is only supported in IE version 4.0 and above.</value>
+    <value>1004-MOM-ERREUR Cette fonctionnalité n'est prise en charge que dans IE versions 4.0 et ultérieures.</value>
   </text>
   <text id="MOM_ERROR_1005">
-    <value>[FR]1005-MOM ERROR-Cannot find the csr id from table t_account_mapper.</value>
+    <value>1005-MOM-ERREUR Impossible de trouver l'ID du CSR dans le tableau t_account_mapper.</value>
   </text>
   <text id="MOM_ERROR_1006">
-    <value>[FR]1006-MOM ERROR-Cannot create the name space. Check if the name space already exists.</value>
+    <value>1006-MOM-ERREUR Impossible de créer l'espace de nom. Vérifiez s'il n'existe pas déjà.</value>
   </text>
   <text id="MOM_ERROR_1007">
-    <value>[FR]1007-MOM ERROR-Invalid login or password.</value>
+    <value>1007-MOM-ERREUR Identifiant ou mot de passe invalide.</value>
   </text>
   <text id="MOM_ERROR_1008">
-    <value>[FR]1008-MOM ERROR-No items selected.</value>
+    <value>1008-MOM-ERREUR Pas d'élément sélectionné.</value>
   </text>
   <text id="MOM_ERROR_1009">
-    <value><![CDATA[[FR]Failed to resubmit transactions due to errors in the selected group.  None of the transactions were resubmitted.  To view the detailed error information click <span style="text-decoration:underline;cursor:hand;" onclick="window.open('[FAILED_TRANSACTION_ERROR_ROWSET_DIALOG]', 'ErrorWindow', 'width=640, height=480, menubar=no, status=no, location=no, toolbar=no, scrollbars=yes, resizable=yes');">here</span>.]]></value>
+    <value><![CDATA[Echec du renvoi des transactions à cause d'erreurs dans le groupe sélectionné.  Aucune transaction n'a été renvoyée.  Pour afficher les informations d'erreur détaillées, cliquez <span style="text-decoration:underline;cursor:hand;" onclick="window.open('[FAILED_TRANSACTION_ERROR_ROWSET_DIALOG]', 'ErrorWindow', 'width=640, height=480, menubar=no, status=no, location=no, toolbar=no, scrollbars=yes, resizable=yes');">ici</span>.]]></value>
   </text>
   <text id="MOM_ERROR_1010">
-    <value>[FR]1010-MOM ERROR-One or more sessions identified for resubmit could not be found.</value>
+    <value>1010-MOM-ERREUR Une ou plusieurs sessions marquées pour renvoi sont introuvables.</value>
   </text>
   <text id="MoM_ERROR_ERROR_DETAIL">
-    <value>[FR]Detail</value>
+    <value>Détails</value>
   </text>
   <text id="MoM_ERROR_ERROR_DETAIL_DESCRIPTION">
-    <value>[FR]View Error Number and Source If Available</value>
+    <value>Voir le numéro et la source de l'erreur si disponibles</value>
+  </text>  
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Succeeded">
+    <value>[FR]This adapter has already run and succeeded.  It needs to be reversed before it can be run again.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Failed">
+    <value>[FR]This adapter has already run and failed.  It needs to be reversed before it can be run again.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_ReadyToRun">
+    <value>[FR]This adapter has been marked as Ready To Run and needs to be reversed before it can be run again.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Running">
+    <value>[FR]This adapter is currently running.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Reversing">
+    <value>[FR]This adapter is currently reversing.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotImplemented">
+    <value>[FR]This adapter cannot be reversed.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotYetRun">
+    <value>[FR]This adapter has not completed a run. Adapter must have a 'Failed' or 'Succeeded' status on a completed run to be reversed.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Missing">
+    <value>[FR]This scheduled adapter has not completed a run for all or part of the time period.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotCreated">
+    <value>[FR]This adapter has not been run. Execute the adapter after soft closing the parent billing group.</value>
+  </text>
+  <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_UNKOWN">
+    <value>[FR]UNKOWN Error Code: </value>
   </text>
 </texts>

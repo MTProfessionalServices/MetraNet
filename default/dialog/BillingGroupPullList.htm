@@ -1,6 +1,6 @@
 <HTML>
   <HEAD>
-    <title>Create Billing Group from Pull List</title>
+    <title><MDMLABEL Name="TEXT_Create_Billing_Group_from_Pull_List">Create Billing Group from Pull List</MDMLABEL></title>
     <LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/MAMMenu.css">
       <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/en-us/styles/Styles.css">
         <!-- Suggest Box Inludes -->
@@ -57,62 +57,61 @@
     <FORM name='mdm'>
       <TABLE border="0" cellpadding="1" cellspacing="0" width="100%" s>
         <tr>
-          <td Class='CaptionBar' nowrap>Create Billing Group from Pull List</td>
+          <td Class='CaptionBar' nowrap><MDMLABEL Name="TEXT_Create_Billing_Group_from_Pull_List">Create Billing Group from Pull List</MDMLABEL></td>
         </tr>
       </TABLE>
       <TABLE width="100%" BORDER="0" CELLPADDING="3" CELLSPACING="0">
         <TR>
-          <TD class="captionEWRequired">Interval:&nbsp;</TD>
+          <TD class="captionEWRequired"><MDMLABEL Name="TEXT_Interval">Interval</MDMLABEL>:&nbsp;</TD>
           <TD class="fieldRequired"><MDMLABEL Name="IntervalID"></MDMLABEL></TD>
         </TR>
         <TR>
-          <TD class="captionEWRequired" nowrap>Billing Group:&nbsp;</TD>
+          <TD class="captionEWRequired" nowrap><MDMLABEL Name="TEXT_Billing_Group">Billing Group</MDMLABEL>:&nbsp;</TD>
           <TD class="fieldRequired"><MDMLABEL Name="BillingGroupName"></MDMLABEL></TD>
         </TR>
         <TR>
-          <TD class="captionEWRequired">Type:&nbsp;</TD>
+          <TD class="captionEWRequired"><MDMLABEL Name="TEXT_Type">Type</MDMLABEL>:&nbsp;</TD>
           <TD class="fieldRequired"><MDMLABEL Name="IntervalType"></MDMLABEL></TD>
         </TR>
         <TR>
-          <TD class="captionEWRequired">Start:&nbsp;</TD>
+          <TD class="captionEWRequired"><MDMLABEL Name="TEXT_Start">Start</MDMLABEL>:&nbsp;</TD>
           <TD class="fieldRequired"><MDMLABEL Name="IntervalStartDateTime"></MDMLABEL></TD>
         </TR>
         <TR>
-          <TD class="captionEWRequired">End:&nbsp;</TD>
+          <TD class="captionEWRequired"><MDMLABEL Name="TEXT_End">End</MDMLABEL>:&nbsp;</TD>
           <TD class="fieldRequired"><MDMLABEL Name="IntervalEndDateTime"></MDMLABEL></TD>
         </TR>
         <TR>
-          <TD class="captionEWRequired" nowrap>New Group Name:&nbsp;</TD>
+          <TD class="captionEWRequired" nowrap><MDMLABEL Name="TEXT_New_Group_Name">New Group Name</MDMLABEL>:&nbsp;</TD>
           <TD class="fieldRequired"><input name="Name" type="text"></TD>
         </TR>
         <TR>
-          <TD class="captionEWRequired">Description:&nbsp;</TD>
+          <TD class="captionEWRequired"><MDMLABEL Name="TEXT_Description">Description</MDMLABEL>:&nbsp;</TD>
           <TD class="fieldRequired"><textarea name="Description" rows="4" cols="50"></textarea></TD>
         </TR>
       </TABLE>
-      <div class="sectionCaptionBar" style="FONT-SIZE:11px">What accounts should be 
-        included in this new billing group?</div>
+      <div class="sectionCaptionBar" style="FONT-SIZE:11px"><MDMLABEL Name="TEXT_What_accounts_should_be_included">What accounts should be included in this new billing group?</MDMLABEL></div>
       <TABLE width="90%" BORDER="0" CELLPADDING="3" CELLSPACING="0" ID="Table1" style="MARGIN-LEFT:30px">
         #MDMIF USE_RUNID
         <TR>
-          <TD name="AccountsCell" width="300"><input type="radio" name="RadioType" value="ALL_FAILED_ACCOUNTS" ID="Radio1"><b>All 
-              Failed Accounts</b><br>
-            Include all failed accounts from the run.</TD>
+          <TD name="AccountsCell" width="300"><input type="radio" name="RadioType" value="ALL_FAILED_ACCOUNTS" ID="Radio1">
+          <b><MDMLABEL Name="TEXT_All_Failed_Accounts">All Failed Accounts</MDMLABEL></b><br>
+          <MDMLABEL Name="TEXT_Include_all_failed_accounts">  Include all failed accounts from the run.</MDMLABEL></TD>
         </TR>
         #MDMENDIF #MDMNOTIF USE_RUNID
         <TR>
-          <TD name="AccountsCell" width="300"><input id="RadioTypeSpecifyAccounts" type="radio" name="RadioType" checked value="SPECIFY_ACCOUNTS"><b>Specify 
-              Accounts in a Pull List</b><br>
-            A pull list is used to remove accounts from the current billing group. These 
+          <TD name="AccountsCell" width="300"><input id="RadioTypeSpecifyAccounts" type="radio" name="RadioType" checked value="SPECIFY_ACCOUNTS">
+          <b><MDMLABEL Name="TEXT_Specify_Accounts_in_a_Pull_List">Specify Accounts in a Pull List</MDMLABEL></b><br>
+            <MDMLABEL Name="TEXT_A_pull_list_is_used_to_remove">A pull list is used to remove accounts from the current billing group. These 
             accounts will be placed in this newly created billing group. Specify either 
             account IDs separated by returns or username\namespace pairs separated by 
             returns. You may also use the inline account finder below to add accounts to 
-            the textbox.
+            the textbox.</MDMLABEL>
             <br>
             <br>
             <!-- INLINE ACCOUNT FINDER -->
             <div id="Div1" class="TableCell" style="BORDER-RIGHT:black 1px solid;BORDER-TOP:black 1px solid;BORDER-LEFT:black 1px solid;WIDTH:230px;BORDER-BOTTOM:black 1px solid">
-              <b>Find Account</b><br>
+              <b><MDMLABEL Name="TEXT_Find_Account">Find Account</MDMLABEL></b><br>
               <SELECT class="clsFindInputBox" style="WIDTH:130px" name="SearchOn" ID="Select1">
               </SELECT><br>
               <input name="Value" id="Value" type="text" onFocus= "selectRadioButtonForSpecifyAccounts();" onkeyup="SendQuery(this, 'ACCOUNT_FINDER', document.mdm.SearchOn.value + ',' + document.mdm.Value.value + ',' + '_NAMESPACETYPE' + ',' + 'system_mps' + ',' + 'ACCOUNTTYPENAME' + ',' + '\'CORPORATEACCOUNT\'|\'CORESUBSCRIBER\'|\'DEPARTMENTACCOUNT\'|\'INDEPENDENTACCOUNT\''+ ',INCLUDEACCOUNTID,TRUE', '[SERIALIZED_CONTEXT]');"
@@ -134,13 +133,12 @@
         </TR>
         <TR>
           <TD width="300"><br>
-            <input type="radio" name="RadioType" value="CREATE_GROUP_FROM_FILE"><b>Create 
-              Pull List From File</b>
+            <input type="radio" name="RadioType" value="CREATE_GROUP_FROM_FILE"><b><MDMLABEL Name="TEXT_Create_Pull_List_From_File">Create Pull List From File</MDMLABEL></b>
             <br>
-            A pull list file is used to remove accounts from the current billing group. 
+            <MDMLABEL Name="TEXT_A_pull_list_is_used_to_remove2">A pull list file is used to remove accounts from the current billing group. 
             These accounts will be placed in this newly created billing group. The file 
             format is a UTF-8 encoded text file that specifies either account IDs separated 
-            by returns or username comma namespace pairs separated by returns.
+            by returns or username comma namespace pairs separated by returns.</MDMLABEL>
           </TD>
         </TR>
         #MDMENDIF

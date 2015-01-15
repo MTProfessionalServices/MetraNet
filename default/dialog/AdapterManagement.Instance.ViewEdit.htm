@@ -42,9 +42,55 @@ function isAdapterSelected(){
 }
 
 function goBack() {
-  window.top.getFrameMetraNet().history.back();
-  return false;
+    var targetURL = getCookie("previousPage");
+    if (targetURL != undefined) {
+      deleteCookie("previousPage");
+      window.parent.location.href = targetURL;
+    }
+    return false;
 }
+
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function deleteCookie(name) {
+  setCookie(name, "", { expires: -1 })
+}
+
+function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires*1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) { 
+  	options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for(var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];    
+    if (propValue !== true) { 
+      updatedCookie += "=" + propValue;
+     }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+
 </SCRIPT>
  </HEAD>
 
@@ -55,7 +101,7 @@ function goBack() {
 <!-- Title Bar -->
 <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
  <TR>
-  <TD Class="CaptionBar" nowrap><MDMLABEL Name="IntervalDescription"></MDMLABEL> Adapter Instance Information</TD>
+  <TD Class="CaptionBar" nowrap><MDMLABEL Name="IntervalDescription"></MDMLABEL> [TEXT_ADAPTER_INSTANCE_INFO]</TD>
  </TR>
 </TABLE>
 <BR>
@@ -67,14 +113,14 @@ function goBack() {
   <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0">
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Adapter:&nbsp;</TD>
+      <TD class="captionEWRequired" >[TEXT_ADAPTER]:&nbsp;</TD>
       <TD class="fieldRequired">
         <MDMLABEL Name="DisplayName"></MDMLABEL>
       </TD>
    </TR>  
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Status:&nbsp;</TD>
+      <TD class="captionEWRequired" >[TEXT_STATUS]:&nbsp;</TD>
       <TD class="fieldRequired">
         <MDMLABEL Name="Status"></MDMLABEL>
       </TD>
@@ -83,19 +129,19 @@ function goBack() {
    <TR><TD>&nbsp;</TD></TR>  
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Arg Start:&nbsp;</TD>
+      <TD class="captionEWRequired" >[TEXT_START]:&nbsp;</TD>
       <TD class="fieldRequired"><MDMLABEL Name="ArgStartDate"></MDMLABEL></TD>
    </TR>
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Arg End:&nbsp;</TD>
+      <TD class="captionEWRequired" >[TEXT_END]:&nbsp;</TD>
       <TD class="fieldRequired"><MDMLABEL Name="ArgEndDate"></MDMLABEL></TD>
    </TR>
 #MDMENDIF    
    <TR><TD>&nbsp;</TD></TR>   
    <TR>
       <TD width="32">&nbsp;</TD> 
-      <TD class="captionEWRequired" >Instance Id:&nbsp;</TD>
+      <TD class="captionEWRequired" >[TEXT_INSTANCE_ID]:&nbsp;</TD>
       <TD class="fieldRequired"><MDMLABEL Name="InstanceID"></MDMLABEL></TD>
    </TR>   
   </TABLE>
@@ -104,7 +150,7 @@ function goBack() {
   <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0">
    <TR>
       <TD colspan=3>
-      <button class='clsButtonBlueLarge' onclick="window.open('IntervalManagement.RunHistory.List.asp?InstanceId=<MDMLABEL Name="InstanceID"></MDMLABEL>&Title=<MDMLABEL Name="DisplayNameEncoded"></MDMLABEL>','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes');return false;">View History</button><BR>
+      <button class='clsButtonBlueLarge' onclick="window.open('IntervalManagement.RunHistory.List.asp?InstanceId=<MDMLABEL Name="InstanceID"></MDMLABEL>&Title=<MDMLABEL Name="DisplayNameEncoded"></MDMLABEL>','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes');return false;">[TEXT_VIEW_HISTORY]</button><BR>
       </TD>
    </TR>
 
@@ -121,8 +167,10 @@ function goBack() {
 <BR>
 <!-- Buttons -->
 <center>
-<button onclick="mdm_RefreshDialog(this); return false;" name="refresh" Class="clsOkButton">Refresh</button>
-<button onclick="goBack();" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CLOSE"></MDMLABEL></button>
+  <button onclick="mdm_RefreshDialog(this); return false;" name="refresh" Class="clsOkButton"><MDMLABEL Name="TEXT_REFRESH">Refresh</MDMLABEL></button>
+  <button onclick="goBack();" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CLOSE">Close</MDMLABEL></button>
+</center>
+</center>
 </FORM>
 </BODY>
 </HTML>

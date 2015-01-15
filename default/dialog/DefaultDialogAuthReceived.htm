@@ -1,0 +1,64 @@
+<HTML>
+ <HEAD>
+  <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">  
+ </HEAD>
+<BODY>
+<FORM name="mdm">
+<!-- Title Bar -->
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+ <TR>
+  <TD Class="CaptionBar" nowrap><LABEL Name="TEXT_AUTHRECEIVED" Type="Caption">Authentication Form Received</LABEL></TD>
+ </TR>
+</TABLE>
+<BR>
+  <!--  <dn>_AccountID</dn>
+    <dn>routingnumber</dn>
+    <dn>lastfourdigits</dn>
+    <dn>bankaccounttype</dn>
+    <dn>creditcardtype</dn>
+    <dn>paymenttype</dn>
+    <dn>effectivedate</dn>
+    <dn>_Amount</dn>
+    <dn>username</dn>
+    <dn>password_</dn>
+    <dn>description</dn> -->
+<P class="captionNS"><LABEL Name="TEXT_AUTH_DESCRIPTION" Type="Caption">description</LABEL></P>
+<!-- Update ACH Table -->
+<table width="100%"><tr><td align="center">
+  <TABLE BORDER="0" CELLPADDING="2" CELLSPACING="1">
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_AUTH_USERNAME" Type="Caption">User 
+        Name</LABEL>:</TD>
+      <TD class="fieldNonEditable"><LABEL Name="username" Type="Value">demo</LABEL></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_LAST_FOUR_DIGITS" Type="Caption">Last 
+        four digits</LABEL>:</TD>
+      <TD class="fieldNonEditable"><LABEL Name="lastfourdigits" Type="Value">1234</LABEL></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_BANK_ACCOUNT_TYPE" Type="Caption">Bank 
+        Account Type</LABEL>:</TD>
+      <TD class="fieldNonEditable"><LABEL Name="bankaccounttype" Type="LocalizedValue">checking</LABEL></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_ROUTING_NUMBER" Type="Caption">ABA 
+        / Routing Number</LABEL>:</TD>
+      <TD class="fieldNonEditable"><LABEL Name="routingnumber" Type="value">12345</Label></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW" style="vertical-align: top;"><LABEL Name="TEXT_DESCRIPTION_OF_AUTH" Type="Caption">Description</LABEL>:</TD>
+      <TD>
+        <TEXTAREA class="field" cols="50" rows="5" name="description"></textarea>
+      </TD>
+    </TR>
+	<tr>
+      <TD align="center" colspan="2"><BR>
+        <button onclick="mdm_RefreshDialog(this)" name="ok"     Class='clsOkButton'><MDMLABEL Name="TEXT_OK"    >OK</MDMLABEL></button> <button onclick="mdm_RefreshDialog(this)" name="cancel" Class='clsOkButton'><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></button>
+        </TD>
+	</tr>
+  </TABLE>
+</td></tr></table>
+</FORM>
+</BODY>
+</HTML>

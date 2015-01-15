@@ -1,0 +1,34 @@
+<HTML>
+ <HEAD>
+  <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">  
+ </HEAD>
+
+<BODY>
+
+<FORM name="mdm">
+
+<!-- Title Bar -->
+<TABLE BORDER="0" BGCOLOR="#FFFFFF" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+ <TR>
+  <TD Class="CaptionBar" nowrap><LABEL Name="TEXT_PAYMENT_METHODS_SCHEDULER" Type="Caption">Payment Methods Scheduler</LABEL></TD>
+ </TR>
+</TABLE>
+<BR>
+
+<!-- Payment Methods Scheduler -->
+<table width="100%"><tr><td align="center">
+<TABLE BORDER="0" CELLPADDING="2" CELLSPACING="0">
+ <TR>
+    <TD class="captionEW"><LABEL Name="TEXT_CONFIRMATION_REQUESTED" Type="Caption">Confirmation Requested</LABEL>:</TD>
+    <TD><input type="checkbox" name="confirmrequested"></TD>
+ </TR>
+<tr>
+      <TD align="center" colspan="2"> <BR>
+        <button onclick="mdm_RefreshDialog(this)" name="ok"     Class='clsOkButton'><MDMLABEL Name="TEXT_OK"    >OK</MDMLABEL></button> <button onclick="mdm_RefreshDialog(this)" name="cancel" Class='clsOkButton'><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></button></TD>
+</tr>
+</TABLE>
+</td></tr></table>
+</FORM>
+
+</BODY>
+</HTML>

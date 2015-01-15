@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/Styles.css">
+<script language="JavaScript1.2">
+
+// msgBox - takes in display text, and URL to navigate to on OK
+////////////////////////////////////////////////////////////////
+function msgBox(strText, strOnOK){
+  var bOK = false;
+  bOK = confirm(strText);
+  if(bOK){
+   location.href = strOnOK;
+  }
+}
+
+</script>
+</head>
+<body onLoad="SizeWindow();">
+
+<form name='mdm'>
+
+  <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <tr>
+      <td class='captionbar' nowrap>
+        <mdmlabel name='text_account_status_history'></mdmlabel>
+      </td>
+    </tr>
+  </table>
+
+<!-- Do not close the FORM tag for a HTML Template file for the MDM Product View Browser -->

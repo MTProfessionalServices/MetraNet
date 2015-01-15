@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link localized="true" rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
+  </head>
+
+  <body>
+    <form name="mdm">
+      <table cellpadding="1" cellspacing="0" width="100%" border="0">
+        <tr>
+          <td class="captionbar" nowrap>
+        		<label name="text_edit_account_template" type="caption">Edit Template</label>
+          </td>
+        </tr>
+      </table>
+      <table cellpadding="1" cellspacing="0" width="100%" border="0">
+        <tr>
+          <td align="center">
+            <table width="50%">
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <b>
+                    <MDMLabel name="TEXT_NO_TEMPLATE_EXISTS" type="value">Message</MDMLabel>
+                  </b>
+                  <br><br>
+                  <MDMLabel name="USE_ANCESTOR_TEMPLATE" type="value">Message</MDMLabel>
+                  <MDMLabel name="ANCESTOR_NAME" type="value">Message</MDMLabel>?
+                  <br><br>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <button onclick="mdm_RefreshDialog(this)" name="ok"	class="clsokbutton"><mdmlabel name="TEXT_YES"></mdmlabel></button> 
+                  <button onclick="mdm_RefreshDialog(this)" name="cancel" class="clsokbutton"><mdmlabel name="TEXT_NO"></mdmlabel></button>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

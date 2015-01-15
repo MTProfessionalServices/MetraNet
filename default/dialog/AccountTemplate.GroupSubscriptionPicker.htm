@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<title>Account Manager</title>
+<LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
+   <SCRIPT language="JavaScript" src="/mdm/common/mdmPicker.Library.js"></SCRIPT>
+  <script language="JavaScript1.2">
+ 
+   function Info(url)
+   {
+    window.open(url, 'info', 'height=500,width=600, resizable=yes, scrollbars=yes, status=yes')
+   }
+
+  </script>
+</HEAD>
+<BODY>
+
+<FORM name="mdm">
+
+<TABLE border="0" cellpadding="1" cellspacing="0" width="100%">
+ <tr>
+  <td Class='CaptionBar' nowrap><MDMLabel name="TEXT_ADD_TEMPLATE_AVAILABLE_GROUP_SUBSCRIPTION" type="value">Available Group Subscriptions</MDMLabel></td>
+ </tr>
+</TABLE>
+
+#MDMIf SHOW_ROWSET_FILTERED_MESSAGE
+  <span style='margin:2px;background-color:#efefef;width:375px;border:solid #848284 1px;padding:5px;text-align: center; white-space:nowrap; display: inline;'>
+    <img align="absmiddle" src="/MAM/default/localized/en-us/images/infosmall.gif" alt="" width="16" height="16" border="0">
+      &nbsp;&nbsp;This display is limited to 1000 results. Use the 'Name' filter to see results not listed here.
+  </span>
+#MDMEndIf
+
+<!-- Do not close the FORM tag for a HTML Template file for the MDM Product View Browser -->

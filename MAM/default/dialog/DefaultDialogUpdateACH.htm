@@ -1,0 +1,122 @@
+<HTML>
+ <HEAD>
+  <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">  
+ </HEAD>
+<BODY>
+<FORM name="mdm">
+<!-- Title Bar -->
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+ <TR>
+  <TD Class="CaptionBar" nowrap><LABEL Name="TEXT_UPDATE_ACH" Type="Caption">Update ACH</LABEL></TD>
+ </TR>
+</TABLE>
+<BR>
+<!-- Update ACH Table -->
+<table width="100%"><tr><td align="center">
+  <TABLE BORDER="0" CELLPADDING="2" CELLSPACING="1">
+    <TR> 
+      <TD class="captionEWRequired"><LABEL Name="TEXT_BANK_NAME" Type="Caption">Bank 
+        Name</LABEL>:</TD>
+      <TD>
+        <INPUT type="text" class="fieldRequired" size="50" name="bankname"></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_BANK_ACCOUNT_TYPE" Type="Caption">Bank 
+        Account Type</LABEL>:</TD>
+      <TD class="fieldNonEditable"><LABEL Name="bankaccounttype" Type="LocalizedValue">Savings</Label></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_LAST_FOUR_DIGITS" Type="Caption">Bank 
+        Account #</LABEL>:</TD>
+      <TD class="fieldNonEditable"><LABEL Name="lastfourdigits" Type="LocalizedValue">2452</Label></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_ROUTING_NUMBER" Type="Caption">ABA 
+        / Routing Number</LABEL>:</TD>
+      <TD class="fieldNonEditable"><LABEL Name="routingnumber" Type="LocalizedValue">12345</Label></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEWRequired"><LABEL Name="TEXT_CUSTOMER_NAME_ACH" Type="Caption">Customer 
+        Name</LABEL>:</TD>
+      <TD>
+        <INPUT type="text" class="fieldRequired" size="50" name="customername"></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEWRequired"><LABEL Name="TEXT_ADDRESS" Type="Caption">Billing 
+        Address</LABEL>:</TD>
+      <TD>
+        <INPUT type="text" class="fieldRequired" size="50" name="address"></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEWRequired"><LABEL Name="TEXT_CITY" Type="Caption">City</LABEL>:</TD>
+      <TD>
+        <INPUT type="text" class="fieldRequired" size="50" name="city"></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEWRequired"><LABEL Name="TEXT_STATE" Type="Caption">State 
+        / Province</LABEL>:</TD>
+      <TD>
+        <INPUT type="text" class="fieldRequired" size="50" name="state"></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEWRequired"><LABEL Name="TEXT_ZIP" Type="Caption">Zip / 
+        Postal Code</LABEL>:</TD>
+      <TD>
+        <INPUT type="text" class="fieldRequired" size="50" name="zip"></TD>
+    </TR>
+    <TR> 
+      <TD class="captionEWRequired"><LABEL Name="TEXT_COUNTRY" Type="Caption">Country</LABEL>:</TD>
+      <TD>
+        <SELECT class="fieldRequired" name="COUNTRY">
+        </SELECT></TD>
+    </TR>
+    <!--
+ <TR>
+    <TD width="32">&nbsp;</TD> 
+    <TD class="clsStandardText"><LABEL Name="TEXT_ENABLED" Type="Caption">enabled</LABEL>:</TD>
+    <TD class="clsStandardText"><input type=checkbox name="enabled"></TD>
+ </TR>   
+ -->
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_AUTHRECEIVED" Type="Caption">authreceived</LABEL>:</TD>
+      <TD class="field">[AUTHRECEIVED_CONTROL]</TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_VALIDATED" Type="Caption">validated</LABEL>:</TD>
+      <TD class="field">[VALIDATED_CONTROL]</TD>
+    </TR>
+    <TR> 
+      <TD class="captionEW"><LABEL Name="TEXT_DEFAULT_PAYMENT" Type="Caption">Default 
+        Payment</LABEL>:</TD>
+      <TD class="field">[DEFAULT_PAYMENT_CONTROL]</TD>
+    </TR>
+	<tr>
+      <TD align="center" colspan="2"><BR>
+        <button onclick="mdm_RefreshDialog(this)" name="ok"     Class='clsOkButton'><MDMLABEL Name="TEXT_OK"    >OK</MDMLABEL></button> <button onclick="mdm_RefreshDialog(this)" name="cancel" Class='clsOkButton'><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></button>
+        </TD>
+	</tr>
+  </TABLE>
+  
+<td valign="top">
+
+<TABLE border=0>
+  <TR>
+    <TD COLSPAN="2" ALIGN="center"><img SRC='/mam/default/localized/en-us/images/ACHcheck.gif'></TD>
+    <TD></TD>
+  </TR>
+  <TR>
+    <TD><img SRC="/samplesite/us/images/payment/symbol_route.gif" BORDER="0" ALIGN="MIDDLE" ALT=""><FONT FACE="Arial" SIZE="1" COLOR="BLACK">123456789<img SRC="/samplesite/us/images/payment/symbol_route.gif" BORDER="0" ALIGN="MIDDLE" ALT=""></TD><TD><FONT FACE="Arial" SIZE="1" COLOR="BLACK">123 4567890<img SRC="/samplesite/us/images/payment/symbol_account.gif" BORDER="0" ALIGN="MIDDLE" ALT=""></TD>
+  </TR>
+  <TR>
+    <TD><FONT FACE="Arial" SIZE="1" COLOR="NAVY">Routing Number</TD>
+    <TD><FONT FACE="Arial" SIZE="1" COLOR="NAVY">Account Number</TD>
+  </TR>
+</TABLE>
+
+</td>
+</tr>
+  
+</table>
+</FORM>
+</BODY>
+</HTML>

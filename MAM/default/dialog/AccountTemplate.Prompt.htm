@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <link localized="true" rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
+  </head>
+  <body leftmargin=15  bgcolor="#FFFFFF" text="#000000">
+    <form name="mdm">
+      <table cellpadding="1" cellspacing="0" width="100%" border="0">
+        <tr>
+          <td class="captionbar" nowrap>
+        		<label name="text_edit_account_template" type="caption">Appy Template</label>
+		      </td>
+        </tr>
+      </table>
+      <br>
+      <table width="100%">
+        <tr>
+          <td style="padding-left:15px"><b>[TEXT_ACCOUNTS_MOVED_SUCCESSFULLY]</b></td>
+        </tr>
+        <tr>
+          <td style="padding-left:15px">[ACCOUNT_TEMPLATE_APPLY_PROMPT]</td>
+        </tr>
+        <tr>
+        <tr>
+          <td align="center">
+            <br><br>
+
+                  #MDMIF bCloseOnly
+                   <button onclick="mdm_RefreshDialog(this)" name="cancel"	class="clsOkButton" ID="Button1"><mdmlabel name="TEXT_CLOSE">Close</mdmlabel></button>                 
+                  #MDMENDIF                 
+                  #MDMNOTIF bCloseOnly
+    		           <button onclick="mdm_RefreshDialog(this)" name="ok"	class="clsOkButton" ID="Button2"><mdmlabel name="TEXT_YES">Yes</mdmlabel></button>
+   		             <button onclick="mdm_RefreshDialog(this)" name="cancel"	class="clsOkButton" ID="Button3"><mdmlabel name="TEXT_NO">No</mdmlabel></button>                 
+   		           #MDMENDIF 
+                              
+
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

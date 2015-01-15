@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<LINK Localized="TRUE" rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
+</HEAD>
+<BODY>
+<FORM name="mdm">
+<!-- Title --> <TABLE cellpadding="1" cellspacing="0" width="100%" border="0"><TR><TD class="CaptionBar" nowrap>
+
+<LABEL Name="TEXT_APPLY_TEMPLATE_TO_ACCOUNT" Type="Caption"></LABEL></td></TR></TABLE>
+<div style="padding-left:20px">
+
+  <BR>
+  <div Class="clsStandardTitle">Property values suggested to be changed<hr size="1"></div>
+  <MDMGrid Name="PropertiesGrid"></MDMGrid>
+  <BR>
+  <div class="clsNavy">&nbsp;&nbsp;All template property changes will take effect immediately.</div>
+  <BR>
+
+#MDMIF bSubscriptions
+<div Class="clsStandardTitle"><label name="TEXT_FOLDER_SUBSCRIPTIONS">Folder Subscriptions</label><hr size="1"></div>
+<TABLE cellpadding="2" cellspacing="1" border="0">
+  <TR>
+    <TD><LABEL name="Subscribe_EffectiveStartDate" Type="Caption"></LABEL>:</TD>
+    <TD>
+      <INPUT Type="Text" Class="captionEW" name="Subscribe_EffectiveStartDate" Size="20">
+      <a href="#" onClick="getCalendarForStartDate(document.mdm.Subscribe_EffectiveStartDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
+      &nbsp;<input type="checkbox" name="StartNextBillingPeriod"><MDMLabel Name="StartNextBillingPeriod" type="Caption">Start after next biling period</MDMLabel>  
+    </TD>
+  </TR>
+  <TR>
+    <TD><LABEL name="Subscribe_EffectiveEndDate" Type="Caption"></LABEL>:</TD>
+    <TD>
+      <INPUT Type="Text" Class="captionEW" name="Subscribe_EffectiveEndDate" Size="20">
+      <a href="#" onClick="getCalendarForEndDate(document.mdm.Subscribe_EffectiveEndDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>  
+      &nbsp;<input type="checkbox" name="EndNextBillingPeriod"><MDMLabel Name="EndNextBillingPeriod" type="Caption">End after next biling period</MDMLabel>
+    </TD>
+  </tr>
+</TABLE>
+
+
+<BR>
+<MDMGrid Name='SubscriptionsGrid'></MDMGrid>
+#MDMENDIF
+<BR>
+<BR>
+<BR>
+
+<CENTER>
+    <BUTTON class="clsButtonSmall" onclick="mdm_RefreshDialog(this)" name="OK"><LABEL name="TEXT_OK" type="Value">OK</LABEL></BUTTON>
+    <BUTTON class="clsButtonSmall" onclick="mdm_RefreshDialog(this)" name="CANCEL"><LABEL name="TEXT_CANCEL" type="Value">Cancel</LABEL></BUTTON>
+</CENTER>
+</div>
+</FORM>
+</BODY>
+</HTML>

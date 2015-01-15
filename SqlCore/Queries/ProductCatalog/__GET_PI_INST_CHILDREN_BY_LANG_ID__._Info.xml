@@ -6,24 +6,22 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_INSTANCE</Name>
+            <Name>ID_LANG</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>ID_LANG_CODE</Name>
+            <Name>ID_PARENT</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile>R:\Config\Queries\mom\CommonQueries.xml</CommonQuerySourceFile>
+        <CommonQuerySourceFile>R:\Config\Queries\ProductCatalog\CommonQueries.xml</CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

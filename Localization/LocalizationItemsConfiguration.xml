@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LocalizationItemsConfiguration>
+  <LocalizationItem>
+    <ItemName>RecurringAdapters</ItemName>
+    <TableName>t_recevent</TableName>
+    <PkColumnName>id_event</PkColumnName>
+    <PkColumnNameSecond></PkColumnNameSecond>
+  </LocalizationItem>
+  <LocalizationItem>
+    <ItemName>CompositeCapability</ItemName>
+    <TableName>t_composite_capability_type</TableName>
+    <PkColumnName>id_cap_type</PkColumnName>
+    <PkColumnNameSecond></PkColumnNameSecond>
+  </LocalizationItem>
+  <LocalizationItem>
+    <ItemName>AtomicCapability</ItemName>
+    <TableName>t_compositor</TableName>
+    <PkColumnName>id_composite</PkColumnName>
+    <PkColumnNameSecond>id_atomic</PkColumnNameSecond>
+  </LocalizationItem>
+  <LocalizationItem>
+    <ItemName>Role</ItemName>
+    <TableName>t_role</TableName>
+    <PkColumnName>id_role</PkColumnName>
+    <PkColumnNameSecond></PkColumnNameSecond>
+  </LocalizationItem>  
+</LocalizationItemsConfiguration>

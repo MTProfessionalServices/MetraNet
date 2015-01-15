@@ -9,7 +9,8 @@
 			bp.nm_name,
       bp.n_display_name,
 			bp.nm_display_name,
-			bp.nm_desc
+			bp.nm_desc,
+			bp.n_desc
 			FROM t_adjustment aj
 			INNER JOIN t_base_props bp ON aj.id_prop=bp.id_prop
 			WHERE

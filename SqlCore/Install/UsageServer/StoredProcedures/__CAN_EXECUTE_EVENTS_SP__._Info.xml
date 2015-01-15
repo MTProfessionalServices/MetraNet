@@ -22,6 +22,12 @@
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
+        <Parameter>
+            <Name>lang_code</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

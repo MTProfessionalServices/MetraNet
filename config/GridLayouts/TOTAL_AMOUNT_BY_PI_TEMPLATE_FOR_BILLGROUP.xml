@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>DiscountNumberAndAmountByGroupSubscription</Name>
+    <Name>TOTAL_AMOUNT_BY_PI_TEMPLATE_FOR_BILLGROUP</Name>
     <Title>
         <LocalizationTag>GRID_TITLE</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
@@ -8,15 +8,15 @@
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
-    <Expandable>false</Expandable>
-    <Buttons>None</Buttons>
+    <Expandable>true</Expandable>
+    <Buttons>Back</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
-    <Description>Discount Number and Amount by group subscription</Description>
+    <Description>Grid layout for report Amounts Summarized Priceable Item Template for Billing Group</Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
@@ -47,11 +47,16 @@
         <URLParameter>
             <ParameterName>q</ParameterName>
             <SQLQuery>
-                <QueryName>__NUMBER_AND_AMOUNT_OF_DISCOUNTS_GENERATED_BY_GROUP_SUBSCRIPTION__</QueryName>
+                <QueryName>__AMOUNT_SUMMARIZED_BY_PI_TEMPLATE_FOR_BILLING_GROUP__</QueryName>
                 <QueryDir></QueryDir>
                 <QueryParameters>
                     <QueryParameter>
                         <Name>%%ID_INTERVAL%%</Name>
+                        <Value></Value>
+                        <DataType>String</DataType>
+                    </QueryParameter>
+                    <QueryParameter>
+                        <Name>%%ID_BILLINGGROUP%%</Name>
                         <Value></Value>
                         <DataType>String</DataType>
                     </QueryParameter>
@@ -62,28 +67,20 @@
                     </QueryParameter>
                 </QueryParameters>
                 <QueryColumns>
-					<QueryColumn>
+                    <QueryColumn>
                         <Name>ID</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                        <Type>System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
-					<QueryColumn>
+    	            <QueryColumn>
                         <Name>Partition</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>Group Subscription</Name>
+                        <Name>PI Template</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>PO Subscribed to</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Discount Name</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name># of Discounts Generated</Name>
+                        <Name># Transactions Affected</Name>
                         <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
@@ -91,7 +88,7 @@
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>Amount</Name>
+                        <Name>Monetary Amount</Name>
                         <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                 </QueryColumns>
@@ -100,7 +97,7 @@
     </URLParameters>
     <SubGrid></SubGrid>
     <Elements>
-		<Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -135,7 +132,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-        <Element>
+       <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -170,18 +167,18 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
-        </Element>
+        </Element>	
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>group subscription</ID>
+            <ID>pi template</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>group subscription</DataIndex>
+            <DataIndex>pi template</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_GROUP_SUBSCRIPTION</LocalizationTag>
+                <LocalizationTag>TEXT_PI_TEMPLATE</LocalizationTag>
                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
@@ -211,85 +208,13 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>po subscribed to</ID>
+            <ID># transactions affected</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>po subscribed to</DataIndex>
+            <DataIndex># transactions affected</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_PO_SUBSCRIBED_TO</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>discount name</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>discount name</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_DISCOUNT_NAME</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID># of discounts generated</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex># of discounts generated</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_NUM_DISCOUNTS_GENERATED</LocalizationTag>
+                <LocalizationTag>TEXT_NUM_TRANS_AFFECTED</LocalizationTag>
                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
@@ -355,13 +280,13 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>amount</ID>
+            <ID>monetary amount</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>amount</DataIndex>
+            <DataIndex>monetary amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
+                <LocalizationTag>TEXT_MONETARY_AMOUNT</LocalizationTag>
                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>

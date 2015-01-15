@@ -3,6 +3,7 @@
     <Action>Get</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>		
     </Implementations>
     <Parameters></Parameters>
     <Description>Retrieve accounts that have a Tax Exemption association</Description>

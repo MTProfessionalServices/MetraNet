@@ -4,7 +4,7 @@
     <locale_space name="BusinessEntity/MetraTech.SystemConfig.Reports.Report">
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Category/Label</Name>
-            <Value>Category</Value>
+            <Value>Catégorie</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Description/Label</Name>
@@ -16,35 +16,35 @@
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/GridLayoutName/Label</Name>
-            <Value>Grid Layout Name</Value>
+            <Value>Nom de la présentation en grille</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Name/Label</Name>
-            <Value>Name</Value>
+            <Value>Nom</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/QueryName/Label</Name>
-            <Value>Query Tag Name</Value>
+            <Value>Nom de la balise de requête</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Report</Name>
-            <Value>Report</Value>
+            <Value>Rapport</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/ManageSystemReport</Name>
-            <Value>Manage System Report</Value>
+            <Value>Gérer le rapport système</Value>
         </locale_entry>        
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/ReqdCapability/Label</Name>
-            <Value>Required Capability</Value>
+            <Value>Fonctionnalité requise</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/RequiresInput/Label</Name>
-            <Value>Requires Input</Value>
+            <Value>Saisie requise</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/SubCategory/Label</Name>
-            <Value>Sub Category</Value>
+            <Value>Sous-catégorie</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/MetraTech.SystemConfig.Reports.Report/Type/Label</Name>

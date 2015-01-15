@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xmlconfig>
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
@@ -9,11 +9,12 @@
             <ConfigFile>GenerateAnalyticsDatamart.xml</ConfigFile>
             <Description><![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]></Description>
-            <LocalizedItems>
-                <item lang="FR">
-                    <DisplayName>[FR] Generate and/or Populate Analytics Data Mart</DisplayName>
-                    <Description>[FR] <![CDATA[
+      ]]>
+      </Description>
+      <LocalizedItems>
+        <item lang="FR">
+          <DisplayName>Générer et/ou compléter le Datamart d'analyse</DisplayName>
+          <Description>[FR] <![CDATA[
         Generates and/or populates the Analytics Data Mart
       ]]></Description>
                 </item>
@@ -39,11 +40,12 @@
                     <DisplayName>[es-MX] Generate and/or Populate Analytics Data Mart</DisplayName>
                     <Description>[es-MX] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]></Description>
-                </item>
-                <item lang="pt-BR">
-                    <DisplayName>[pt-BR] Generate and/or Populate Analytics Data Mart</DisplayName>
-                    <Description>[pt-BR] <![CDATA[
+      ]]>
+      </Description>
+        </item>
+        <item lang="pt-BR">
+          <DisplayName>Gerar e/ou preencher Analytics Data Mart</DisplayName>
+          <Description>[pt-BR] <![CDATA[
         Generates and/or populates the Analytics Data Mart
       ]]></Description>
                 </item>
@@ -235,10 +237,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-                </item>
-                <item lang="pt-BR">
-                    <DisplayName>[pt-BR] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                    <Description>[pt-BR] <![CDATA[
+              </item>
+              <item lang="pt-BR">
+                <DisplayName>Adaptador de estado de conta de alteração genérico (agendado)</DisplayName>
+                <Description>[pt-BR] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -303,9 +305,9 @@
         in which the adapter is run.
       </Description>
             <LocalizedItems>
-                <item lang="FR">
-                    <DisplayName>[FR] NonRecurring Charge Adapter</DisplayName>
-                    <Description>[FR] MetraTech standard adapter to generate non-recurring charges from
+              <item lang="FR">
+                <DisplayName>Adaptateur de frais non récurrents</DisplayName>
+                <Description>[FR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
@@ -337,10 +339,10 @@
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-                </item>
-                <item lang="pt-BR">
-                    <DisplayName>[pt-BR] NonRecurring Charge Adapter</DisplayName>
-                    <Description>[pt-BR] MetraTech standard adapter to generate non-recurring charges from
+              </item>
+              <item lang="pt-BR">
+                <DisplayName>Adaptador de encargo não recorrente</DisplayName>
+                <Description>[pt-BR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
@@ -376,9 +378,9 @@
         certain number of days after they have been resubmitted.
       ]]></Description>
             <LocalizedItems>
-                <item lang="FR">
-                    <DisplayName>[FR] Delete Dismissed Failed Transactions</DisplayName>
-                    <Description>[FR] <![CDATA[
+              <item lang="FR">
+                <DisplayName>Supprimer les transactions en échec ignorées</DisplayName>
+                <Description>[FR] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
@@ -415,10 +417,10 @@
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-                </item>
-                <item lang="pt-BR">
-                    <DisplayName>[pt-BR] Delete Dismissed Failed Transactions</DisplayName>
-                    <Description>[pt-BR] <![CDATA[
+              </item>
+              <item lang="pt-BR">
+                <DisplayName>Excluir Transações com Falha Ignoradas</DisplayName>
+                <Description>[pt-BR] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
@@ -453,137 +455,137 @@
             <ActivationDate>10/1/2002 00:00:00</ActivationDate>
             <Description>Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
             <LocalizedItems>
-                <item lang="FR">
-                    <DisplayName>[FR] Pipeline Failover Adapter</DisplayName>
-                    <Description>[FR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
-                <item lang="IT">
-                    <DisplayName>[IT] Pipeline Failover Adapter</DisplayName>
-                    <Description>[IT] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
-                <item lang="ES">
-                    <DisplayName>[ES] Pipeline Failover Adapter</DisplayName>
-                    <Description>[ES] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
-                <item lang="DE">
-                    <DisplayName>[DE] Pipeline Failover Adapter</DisplayName>
-                    <Description>[DE] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
-                <item lang="es-MX">
-                    <DisplayName>[es-MX] Pipeline Failover Adapter</DisplayName>
-                    <Description>[es-MX] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
-                <item lang="pt-BR">
-                    <DisplayName>[pt-BR] Pipeline Failover Adapter</DisplayName>
-                    <Description>[pt-BR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
-                <item lang="en-GB">
-                    <DisplayName>[en-GB] Pipeline Failover Adapter</DisplayName>
-                    <Description>[en-GB] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
-                <item lang="JA">
-                    <DisplayName>[JA] Pipeline Failover Adapter</DisplayName>
-                    <Description>[JA] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-                </item>
+              <item lang="FR">
+                <DisplayName>Adaptateur de basculement de pipeline</DisplayName>
+                <Description>[FR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>
+              <item lang="IT">
+                <DisplayName>[IT] Pipeline Failover Adapter</DisplayName>
+                <Description>[IT] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>
+              <item lang="ES">
+                <DisplayName>[ES] Pipeline Failover Adapter</DisplayName>
+                <Description>[ES] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>
+              <item lang="DE">
+                <DisplayName>[DE] Pipeline Failover Adapter</DisplayName>
+                <Description>[DE] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>
+              <item lang="es-MX">
+                <DisplayName>[es-MX] Pipeline Failover Adapter</DisplayName>
+                <Description>[es-MX] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>
+              <item lang="pt-BR">
+                <DisplayName>Adaptador de failover de pipeline</DisplayName>
+                <Description>[pt-BR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>
+              <item lang="en-GB">
+                <DisplayName>[en-GB] Pipeline Failover Adapter</DisplayName>
+                <Description>[en-GB] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>
+              <item lang="JA">
+                <DisplayName>[JA] Pipeline Failover Adapter</DisplayName>
+                <Description>[JA] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+              </item>	
             </LocalizedItems>
             <RecurrencePattern>
                 <IntervalInMinutes>60</IntervalInMinutes>
             </RecurrencePattern>
         </Adapter>
-        <Adapter>
-            <Name>CleanupAdapter</Name>
-            <DisplayName>Failed Payment Cleanup Adapter </DisplayName>
-            <ClassID>MetraTech.UsageServer.Adapters.CleanupFailedTransactionsAdapter,MetraTech.UsageServer.Adapters</ClassID>
-            <ConfigFile>CleanupAdapter.xml</ConfigFile>
-            <ActivationDate>10/1/2002 00:00:00</ActivationDate>
-            <Description>Cleanup and void failed transactions.</Description>
-            <LocalizedItems>
-                <item lang="FR">
-                    <DisplayName>[FR] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[FR] Cleanup and void failed transactions.</Description>
-                </item>
-                <item lang="IT">
-                    <DisplayName>[IT] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[IT] Cleanup and void failed transactions.</Description>
-                </item>
-                <item lang="ES">
-                    <DisplayName>[ES] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[ES] Cleanup and void failed transactions.</Description>
-                </item>
-                <item lang="DE">
-                    <DisplayName>[DE] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[DE] Cleanup and void failed transactions.</Description>
-                </item>
-                <item lang="es-MX">
-                    <DisplayName>[es-MX] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[es-MX] Cleanup and void failed transactions.</Description>
-                </item>
-                <item lang="pt-BR">
-                    <DisplayName>[pt-BR] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[pt-BR] Cleanup and void failed transactions.</Description>
-                </item>
-                <item lang="en-GB">
-                    <DisplayName>[en-GB] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[en-GB] Cleanup and void failed transactions.</Description>
-                </item>
-                <item lang="JA">
-                    <DisplayName>[JA] Failed Payment Cleanup Adapter </DisplayName>
-                    <Description>[JA] Cleanup and void failed transactions.</Description>
-                </item>
-            </LocalizedItems>
-            <RecurrencePattern>
-                <IntervalInMinutes>60</IntervalInMinutes>
-            </RecurrencePattern>
-        </Adapter>
-        <Adapter>
-            <Name>GenerateNotificationEventsAdapter</Name>
-            <DisplayName>Generate Notification Events Adapter</DisplayName>
-            <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
-            <ConfigFile>GenerateNotificationEventsAdapter.xml</ConfigFile>
-            <Description>Generate notification events.</Description>
-            <LocalizedItems>
-                <item lang="FR">
-                    <DisplayName>[FR] Generate Notification Events Adapter</DisplayName>
-                    <Description>[FR] Generate notification events.</Description>
-                </item>
-                <item lang="IT">
-                    <DisplayName>[IT] Generate Notification Events Adapter</DisplayName>
-                    <Description>[IT] Generate notification events.</Description>
-                </item>
-                <item lang="ES">
-                    <DisplayName>[ES] Generate Notification Events Adapter</DisplayName>
-                    <Description>[ES] Generate notification events.</Description>
-                </item>
-                <item lang="DE">
-                    <DisplayName>[DE] Generate Notification Events Adapter</DisplayName>
-                    <Description>[DE] Generate notification events.</Description>
-                </item>
-                <item lang="es-MX">
-                    <DisplayName>[es-MX] Generate Notification Events Adapter</DisplayName>
-                    <Description>[es-MX] Generate notification events.</Description>
-                </item>
-                <item lang="pt-BR">
-                    <DisplayName>[pt-BR] Generate Notification Events Adapter</DisplayName>
-                    <Description>[pt-BR] Generate notification events.</Description>
-                </item>
-                <item lang="en-GB">
-                    <DisplayName>[en-GB] Generate Notification Events Adapter</DisplayName>
-                    <Description>[en-GB] Generate notification events.</Description>
-                </item>
-                <item lang="JA">
-                    <DisplayName>[JA] Generate Notification Events Adapter</DisplayName>
-                    <Description>[JA] Generate notification events.</Description>
-                </item>
-            </LocalizedItems>
-            <RecurrencePattern>
-                <Daily>
-                    <Start>1/1/2010 12:00:00 AM</Start>
-                    <Interval>1</Interval>
-                    <Times>5:00 AM</Times>
-                </Daily>
-            </RecurrencePattern>
-        </Adapter>
-        <!-- <Adapter>
+		<Adapter>
+			<Name>CleanupAdapter</Name>
+			<DisplayName>Failed Payment Cleanup Adapter </DisplayName>
+			<ClassID>MetraTech.UsageServer.Adapters.CleanupFailedTransactionsAdapter,MetraTech.UsageServer.Adapters</ClassID>
+			<ConfigFile>CleanupAdapter.xml</ConfigFile>
+			<ActivationDate>10/1/2002 00:00:00</ActivationDate>
+			<Description>Cleanup and void failed transactions.</Description>
+      <LocalizedItems>
+        <item lang="FR">
+          <DisplayName>Adaptateur de nettoyage des paiements en échec </DisplayName>
+          <Description>Nettoie et annule les transactions en échec.</Description>
+        </item>
+        <item lang="IT">
+          <DisplayName>[IT] Failed Payment Cleanup Adapter </DisplayName>
+          <Description>[IT] Cleanup and void failed transactions.</Description>
+        </item>
+        <item lang="ES">
+          <DisplayName>[ES] Failed Payment Cleanup Adapter </DisplayName>
+          <Description>[ES] Cleanup and void failed transactions.</Description>
+        </item>
+        <item lang="DE">
+          <DisplayName>[DE] Failed Payment Cleanup Adapter </DisplayName>
+          <Description>[DE] Cleanup and void failed transactions.</Description>
+        </item>
+        <item lang="es-MX">
+          <DisplayName>[es-MX] Failed Payment Cleanup Adapter </DisplayName>
+          <Description>[es-MX] Cleanup and void failed transactions.</Description>
+        </item>
+        <item lang="pt-BR">
+          <DisplayName>Adaptador de limpeza de pagamento com falha </DisplayName>
+          <Description>Limpa e evita transações com falha.</Description>
+        </item>
+        <item lang="en-GB">
+          <DisplayName>[en-GB] Failed Payment Cleanup Adapter </DisplayName>
+          <Description>[en-GB] Cleanup and void failed transactions.</Description>
+        </item>
+        <item lang="JA">
+          <DisplayName>[JA] Failed Payment Cleanup Adapter </DisplayName>
+          <Description>[JA] Cleanup and void failed transactions.</Description>
+        </item>	
+      </LocalizedItems>
+			<RecurrencePattern>
+				<IntervalInMinutes>60</IntervalInMinutes>
+			</RecurrencePattern>
+		</Adapter>
+		<Adapter>
+      <Name>GenerateNotificationEventsAdapter</Name>
+      <DisplayName>Generate Notification Events Adapter</DisplayName>
+      <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
+      <ConfigFile>GenerateNotificationEventsAdapter.xml</ConfigFile>
+      <Description>Generate notification events.</Description>
+      <LocalizedItems>
+        <item lang="FR">
+          <DisplayName>[FR] Generate Notification Events Adapter</DisplayName>
+          <Description>[FR] Generate notification events.</Description>
+        </item>
+        <item lang="IT">
+          <DisplayName>[IT] Generate Notification Events Adapter</DisplayName>
+          <Description>[IT] Generate notification events.</Description>
+        </item>
+        <item lang="ES">
+          <DisplayName>[ES] Generate Notification Events Adapter</DisplayName>
+          <Description>[ES] Generate notification events.</Description>
+        </item>
+        <item lang="DE">
+          <DisplayName>[DE] Generate Notification Events Adapter</DisplayName>
+          <Description>[DE] Generate notification events.</Description>
+        </item>
+        <item lang="es-MX">
+          <DisplayName>[es-MX] Generate Notification Events Adapter</DisplayName>
+          <Description>[es-MX] Generate notification events.</Description>
+        </item>
+        <item lang="pt-BR">
+          <DisplayName>[pt-BR] Generate Notification Events Adapter</DisplayName>
+          <Description>[pt-BR] Generate notification events.</Description>
+        </item>
+        <item lang="en-GB">
+          <DisplayName>[en-GB] Generate Notification Events Adapter</DisplayName>
+          <Description>[en-GB] Generate notification events.</Description>
+        </item>
+        <item lang="JA">
+          <DisplayName>[JA] Generate Notification Events Adapter</DisplayName>
+          <Description>[JA] Generate notification events.</Description>
+        </item>	
+      </LocalizedItems>
+      <RecurrencePattern>
+        <Daily>
+          <Start>1/1/2010 12:00:00 AM</Start>
+          <Interval>1</Interval>
+          <Times>5:00 AM</Times>
+        </Daily>
+      </RecurrencePattern>
+    </Adapter>
+    <!-- <Adapter>
       <Name>CleanupNotificationEventsAdapter</Name>
       <DisplayName>Cleanup Notification Events Adapter</DisplayName>
       <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>

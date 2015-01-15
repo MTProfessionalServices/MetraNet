@@ -15,6 +15,10 @@
             <Value>Basic</Value>
         </locale_entry>
         <locale_entry>
+            <Name>MetraTech.MetraNet.Reporting/ReportType/BillingGroupStatistics</Name>
+            <Value>Billing Group Statistics</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Configured</Name>
             <Value>Configured</Value>
         </locale_entry>

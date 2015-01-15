@@ -1,4 +1,6 @@
-SELECT  concat(TRAIL.id_acc, TRAIL.decision_unique_id, TRAIL.end_date) AS "Unique Identifier", 
+SELECT  
+        dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/	
+		COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
         TRAIL.DECISION_UNIQUE_ID,
         TRAIL.ID_USAGE_INTERVAL,
         TRAIL.END_DATE,
@@ -48,4 +50,5 @@ SELECT  concat(TRAIL.id_acc, TRAIL.decision_unique_id, TRAIL.end_date) AS "Uniqu
         TRAIL.TT_END
 FROM agg_decision_audit_trail TRAIL
 inner join agg_decision_info INFO on INFO.decision_unique_id = TRAIL.decision_unique_id 
+left outer join vw_bus_partition_accounts bpt on bpt.id_acc = INFO.id_acc
 where id_usage_interval = %%ID_INTERVAL%%

@@ -19,6 +19,9 @@
                         <entry name="IntervalStatistics">
                             <value>3</value>
                         </entry>
+                        <entry name="BillingGroupStatistics">
+                            <value>4</value>
+                        </entry>
                     </entries>
                 </enum>
                 <enum name="SystemReportCapabilities">

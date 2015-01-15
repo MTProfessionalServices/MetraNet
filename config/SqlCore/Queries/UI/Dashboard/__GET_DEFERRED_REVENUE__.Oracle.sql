@@ -35,7 +35,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 
@@ -57,7 +57,7 @@ WHERE
 						)
 		  )
       OR
-      ('%%ACCOUNTINGCYCLEID%%' = '00000000-0000-0000-0000-000000000000'
+      ('%%ACCOUNTINGCYCLEID%%' = '00000000000000000000000000000000'
       AND 
       NOT EXISTS (
           SELECT 1
@@ -68,9 +68,7 @@ WHERE
           )
       )
       )
-
 UNION
-
 SELECT 
 	acc.am_currency
 	,frc.id_usage_interval
@@ -108,7 +106,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 
@@ -130,7 +128,7 @@ WHERE
 						)
 		  )
       OR
-      ('%%ACCOUNTINGCYCLEID%%' = '00000000-0000-0000-0000-000000000000'
+      ('%%ACCOUNTINGCYCLEID%%' = '00000000000000000000000000000000'
       AND 
       NOT EXISTS (
           SELECT 1
@@ -140,9 +138,7 @@ WHERE
           WHERE itanc.id_descendent = acc.id_payee
           )
       ))
-
 UNION
-
 SELECT 
 	acc.am_currency
 	,nrc.id_usage_interval
@@ -175,7 +171,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 
@@ -197,7 +193,7 @@ WHERE
 						)
 		  )
       OR
-      ('%%ACCOUNTINGCYCLEID%%' = '00000000-0000-0000-0000-000000000000'
+      ('%%ACCOUNTINGCYCLEID%%' = '00000000000000000000000000000000'
       AND 
       NOT EXISTS (
           SELECT 1
@@ -207,9 +203,7 @@ WHERE
           WHERE itanc.id_descendent = acc.id_payee
           )
       ))
-
 UNION
-
 SELECT 
 	acc.am_currency
 	,nsc.id_usage_interval
@@ -236,7 +230,7 @@ WHERE
 			  FROM t_be_sys_rep_accountingcycle cycl
 			  LEFT JOIN t_be_sys_rep_accountingcycl cyclto ON cycl.c_AccountingCycle_Id = cyclto.c_AccountingCycle_Id
 			  LEFT JOIN t_account_ancestor tanc ON tanc.id_ancestor = cyclto.c_AccountId or cyclto.c_AccountId is NULL
-			  WHERE cycl.c_AccountingCycle_Id like '%%ACCOUNTINGCYCLEID%%'
+			  WHERE cycl.c_AccountingCycle_Id = '%%ACCOUNTINGCYCLEID%%'
 			  AND tanc.id_descendent = acc.id_payee
 			  AND (
 						cycl.c_IsDefault = 'T' 
@@ -258,7 +252,7 @@ WHERE
 						)
 		  )
       OR
-      ('%%ACCOUNTINGCYCLEID%%' = '00000000-0000-0000-0000-000000000000'
+      ('%%ACCOUNTINGCYCLEID%%' = '00000000000000000000000000000000'
       AND 
       NOT EXISTS (
           SELECT 1

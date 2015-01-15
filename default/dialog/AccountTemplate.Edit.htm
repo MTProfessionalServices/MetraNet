@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <link localized="true" rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
+    
+    <script>
+      // msgBox - takes in display text, and URL to navigate to on OK
+      ////////////////////////////////////////////////////////////////
+      function msgBox(strText, strOnOK){
+      	var bOK = false;
+      	bOK = confirm(strText);
+      	if(bOK){
+		    	location.href = strOnOK;
+      	}
+      }
+    </script>
+    
+		<!-- Drag & Drop Functions --> 
+    <script language="Javascript" src="js/dragdrop.js"></script>
+
+  </head>
+  <BODY onDrag="fOnDrag();" onDragEnd="fOnDragEnd();" onDragLeave="fOnDragLeave();" onDragEnter="fOnDragEnter();" onDragStart="fOnDragStart();" onDragOver="fOnDragOver();" onDrop="fOnDrop();" leftmargin=15  bgcolor="#FFFFFF" text="#000000">
+  
+  <!-- DIV for dragable shadow --> 
+  <div class="clsDragDiv" id="dragDiv"></div>
+  
+    <form name="mdm">
+      <table cellpadding="1" cellspacing="0" width="100%" border="0">
+        <tr>
+          <td class="captionbar" nowrap>
+        		<label name="text_edit_account_template" type="caption">Edit Template</label>
+		      </td>
+        </tr>
+      </table>
+
+      <div id="TemplateOptions" style="padding:10px;white-space:nowrap;">
+        <fieldset>
+          <legend>[TEXT_TEMPLATE_OPTIONS]</legend>
+
+            <div id="ApplyTemplateDiv" style="float:left;vertical-align:top;">
+              #MDMIF bCurrentNodeExists
+              <input type='radio' name='MTWILDCARD' value='0' ID="Radio1">[TEXT_CURRENT_NODE] &nbsp;
+              #MDMENDIF
+              #MDMNOTIF bCurrentNodeExists
+              <input type='radio' name='MTWILDCARD' value='0' ID="Radio4" disabled><font color=Gray>[TEXT_CURRENT_NODE]</font> &nbsp;
+              #MDMENDIF              
+              <input type='radio' name='MTWILDCARD' value='1' ID="Radio2">[TEXT_DIRECT_DESCENDANTS]&nbsp;
+              <input type='radio' name='MTWILDCARD' value='2' checked ID="Radio3">[TEXT_ALL_DESCENDANTS]
+              <button onclick="mdm_RefreshDialog(this)" name="Apply"	class="clsButtonBlueXXLarge" ID="Button1">[TEXT_SAVE_AND_APPLY_TEMPLATE]</button>
+              
+              #MDMIF bTemplateExists
+                &nbsp;&nbsp;&nbsp;<button onclick="mdm_RefreshDialog(this)" name="Delete"	class="clsButtonBlueXXLarge" ID="Button4">[TEXT_DELETE_ACCOUNT_TEMPLATE]</button>
+              #MDMENDIF                 
+              #MDMNOTIF bTemplateExists
+                &nbsp;&nbsp;&nbsp;<button DISABLED onclick="mdm_RefreshDialog(this)" name="Delete"	class="clsButtonBlueXXLarge" ID="Button5">[TEXT_DELETE_ACCOUNT_TEMPLATE]</button>
+              #MDMENDIF        
+            </div>
+        </fieldset>   
+      </div>      
+ 
+      <div id="MainTemplateDiv">        		
+            <table>
+              <tr>
+                <td align="left" style="padding-left:15px">
+                  <table cellpadding="2" cellspacing="1">
+                    <tr>
+                      <td>#MDMINCLUDE DEFAULT_ACCOUNT_TEMPLATE_PROPERTIES</td>
+                    </tr>
+                    <tr>
+                      <td align="left" style="padding-left:75px">#MDMINCLUDE DEFAULT_ACCOUNT_TEMPLATE_DEFAULT_SECURITY_POLICY</td>
+                    </tr>
+                    <!-- Spacer -->
+                    <tr><td>&nbsp;</td></tr>
+                    <tr>
+                      <td>#MDMINCLUDE DEFAULT_ACCOUNT_TEMPLATE_SUBSCRIPTIONS_AND_GROUP_SUBSCRIPTIONS</td>
+                    </tr>
+          	      </table>
+                </td>
+              </tr>
+                      
+              <tr>
+                <td style="padding-left:15px"></td>
+              </tr>        
+              <tr>
+                <td align="center">
+                  <br><br>
+   		            <button onclick="mdm_RefreshDialog(this)" name="ok"	class="clsOkButton"><mdmlabel name="TEXT_OK">OK</mdmlabel></button>
+   		            <button onclick="mdm_RefreshDialog(this)" name="cancel"	class="clsOkButton"><mdmlabel name="TEXT_CANCEL">Cancel</mdmlabel></button>
+                </td>
+              </tr>
+            </table>
+      </div>    
+ 
+    <br />  
+
+    </form>
+  </body>
+</html>

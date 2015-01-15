@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">
+</HEAD>
+<BODY>
+<FORM name='mdm'>
+
+<!-- Here we will replace [] Tag with a HTML that print the credit request -->
+[CREDIT_REQUEST_HTML]
+
+<br>
+<table width="100%"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="1">
+    <tr> 
+      <td ColSpan="2" class='clsStandardTitle'>Credit 
+        <hr size=1>
+      </td>
+    </tr>
+    <tr> 
+      <td class='captionEW'><LABEL Name='REASON' Type='Caption'>Reason</LABEL>: 
+      </td>
+      <td> 
+        <SELECT name="Reason" size="1" Class='field'>
+        </select>
+      </td>
+
+    </tr>
+    <tr> 
+      <td class='captionEW'><label name='OTHER' type='Caption'>Other</label>:</td>
+      <td> 
+        <input class='field' type="text" size="40" name="Other">
+      </td>
+    </tr>
+    <tr> 
+      <td class='captionEW' style="vertical-align: top;"><LABEL Name='INVOICECOMMENT' Type='Caption'>Invoice 
+        Comment</LABEL>:</td>
+      <td> 
+        <TEXTAREA class='clsInputBox'  name="InvoiceComment" rows="5" cols="60"></textarea>
+      </td>
+    </tr>
+    <tr> 
+      <td class='captionEWRequired'><LABEL Name='_AMOUNT' Type='Caption'>Amount</LABEL> 
+        (<LABEL Name='_Currency' >FRF</LABEL>):</td>
+      <td> 
+        <INPUT class='fieldRequired'   type="text" size="50" name="_Amount"></td>
+    </tr>
+    <tr> 
+      <td class='captionEWRequired'><LABEL Name='STATUS' Type='Caption'>Status</LABEL>: 
+      </td>
+      <td> 
+        <select name="Status" class='fieldRequired' size="1">
+        </select></td>
+    </tr>
+    <tr> 
+      <td class='captionEW' style="vertical-align: top;"><LABEL Name='INTERNALCOMMENT' Type='Caption'>Internal 
+        Comment</LABEL>:</td>
+      <td> 
+        <TEXTAREA class='field'  name="InternalComment" rows="5" cols="60"></textarea>
+      </td>
+    </tr>
+    <tr> 
+      <td class='captionEW'><LABEL Name='ACCOUNTINGCODE' Type='Caption'>Accounting 
+        Code</LABEL>:</td>
+      <td> 
+        <INPUT class='field'   type="text" size="20" name="AccountingCode">
+      </td>
+    </tr>
+      <td class='captionEW'> 
+       <LABEL Name='EMAILNOTIFICATION' Type='Caption'>E-Mail Notification</LABEL>:</td>
+	  <td><INPUT Type="CheckBox" name="EmailNotification"></td>
+    </tr>
+    <tr> 
+      <td class='captionEW'><LABEL Name='EMAILADDRESS' Type='Caption'>E-Mail 
+        Address</LABEL>:</td>
+      <td> 
+        <INPUT class='field'   type="text" size="30" name="EmailAddress">
+      </td>
+    </tr>
+    <tr> 
+      <td class='captionEW' style="vertical-align: top;"><LABEL Name='EMAILTEXT' Type='Caption'>E-Mail 
+        Text</LABEL>:</td>
+      <td> 
+        <TEXTAREA class='field' name="EMailText" rows="5" cols="60"></textarea>
+      </td>
+	 <tr>
+      <TD align="center" colspan="2"><BR>
+        <button onclick="mdm_RefreshDialog(this)" name="ok"     Class='clsOkButton'><MDMLABEL Name="TEXT_OK"    >OK</MDMLABEL></button> <button onclick="mdm_RefreshDialog(this)" name="cancel" Class='clsOkButton'><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></button>
+        </TD>
+	 </tr>
+  </table>
+</td></tr></table>
+</FORM>
+</BODY>
+</HTML>
+

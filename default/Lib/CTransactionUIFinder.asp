@@ -135,7 +135,7 @@ CLASS CTransactionUIFinder
             rs.ExecuteDisconnected
 
             While Not CBool(rs.EOF)
-                PriceAbleItemTypeInfoEnumType.Add CStr(rs.Value("nm_name")),Int(rs.Value("id_template")),,,CStr(rs.Value("nm_display_name")), CBool(rs.Value("supportsRebill"))
+                PriceAbleItemTypeInfoEnumType.Add CStr(rs.Value("nm_name")),CInt(rs.Value("id_template")),,,CStr(rs.Value("nm_display_name")), CBool(rs.Value("supportsRebill"))
 
                 rs.MoveNext
             Wend

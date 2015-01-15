@@ -145,19 +145,31 @@
         <description>Mapping browser dialog.</description>
       </link>             
       
-
+      <link id="ADD_CSR_DIALOG">
+        <value>[APP_HTTP_PATH]/default/dialog/DefaultDialogAddCSR.asp</value> 
+        <description>Add CSR dialog.</description>
+      </link>             
+      
       <link id="UPDATE_CSR_DIALOG">
         <value>[APP_HTTP_PATH]/default/dialog/DefaultDialogUpdateCSR.asp</value> 
         <description>Update CSR dialog.</description>
       </link>    
       
-
+      <link id="FIND_CSR_DIALOG">
+        <value>[APP_HTTP_PATH]/default/dialog/DefaultPVBUpdateCSR.asp</value> 
+        <description>CSR Browser.</description>
+      </link>  
+      
       <link id="SUBSCRIBER_CONTACTS_BROWSER">
         <value>[APP_HTTP_PATH]/default/dialog/DefaultPVContact.asp</value> 
         <description>Subscriber contact browser. By default each subscriber must have a bill-to contact and may have a ship-to contact. Other type of contact can be added.</description>
       </link>   
       
-      
+      <link id="INTERACTIVE_BILL_LOGON">
+        <value>[APP_HTTP_PATH]/mps.asp</value> 
+        <description>See kevin boucher for this one.</description>
+      </link>
+
       <link id="SYSTEMUSER_FIND_BROWSER">
         <value>[APP_HTTP_PATH]/default/dialog/SystemUserFindBrowser.asp</value> 
         <description>System user browser.</description>
@@ -183,7 +195,11 @@
         <description>Issue a credit from a request dialog</description>            
       </link>
       
-
+      <link id='VIEW_CREDIT_FROM_REQUEST'>      
+        <value>[APP_HTTP_PATH]/default/dialog/DefaultDialogViewCredit.asp</value> 
+        <description>View credit dialog.</description>
+      </link>
+      
       <link id="APPLICATION_LOG_BROWSER">
         <value>[APP_HTTP_PATH]/default/dialog/DefaultPVBApplicationAuditLog.asp</value> 
         <description>Audit log product view browser. Browse for all the accounts.</description>
@@ -219,8 +235,16 @@
         <description>The payment method browser.</description>
       </link>    
       
-
+      <link id="NEW_CSR_PASSWORD_DIALOG">                
+        <value>[APP_HTTP_PATH]/default/dialog/DefaultDialogNewCSRPassword.asp</value>
+        <description>The change csr password dialog.</description>
+      </link>   
 			
+      <link id="BEFORE_VIEW_ACCOUNT_TEMPLATE">
+        <value>[APP_HTTP_PATH]/default/dialog/AccountTemplate.Selector.Frame.asp</value>
+        <description></description>
+      </link>         
+
       <link id="HIERARCHY_MOVE_DATE_INDIVIDUAL_DIALOG">
 			  <value>[APP_HTTP_PATH]/default/dialog/HierarchyMoveDate.asp?INDIVIDUAL=TRUE</value>
 			  <description>Move an account via the account menu instead of drag and drop</description>
@@ -262,6 +286,10 @@
         <description>View accounts owned either directly or indirectly by the system user.</description>
       </link>   
 
-
+	    <link id="ADD_ACCOUNT_SELECTOR_DIALOG">
+        <value>[APP_HTTP_PATH]/default/dialog/AddAccount.Selector.Frame.asp</value>
+        <description>Add an account for a specific Account Type.</description>
+      </link>         
       
+                
 </links>

@@ -187,7 +187,7 @@ function ShowWindow(grid, title, page) {
 
 function popupStatusChange(ids, respJson, action, grid) {
   // Popup a window to set the status so we don't lose the current search filters.
-  var page = "/MetraNet/MetraControl/FailedTransactions/ChangeStatus.aspx?Action=" + action;
+  var page = "/MetraNet/MetraControl/FailedTransactions/ChangeFailedTransactionStatus.aspx?Action=" + action;
   if (ids != "all") {
     page += "&FailureIDs=" + encodeURIComponent(ids);
   }

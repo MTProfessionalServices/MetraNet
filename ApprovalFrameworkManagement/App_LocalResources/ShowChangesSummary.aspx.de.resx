@@ -159,4 +159,16 @@
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
     <value>[DE]Modified Item</value>
   </data>
+  <data name="TEXT_SUMMARY" xml:space="preserve">
+    <value>[DE]Summary</value>
+  </data>
+  <data name="lblShowAllChangesSummaryTitleResource1.Text" xml:space="preserve">
+    <value>[DE]All Changes Summary</value>
+  </data>
+  <data name="ChangesSummaryResource1.NoRecordsText" xml:space="preserve">
+    <value>[DE]No records found</value>
+  </data>
+  <data name="MTSection2Resource1.Text" xml:space="preserve">
+    <value>[DE]Change Details</value>
+  </data>    
 </root>

@@ -32,6 +32,7 @@ public partial class AjaxServices_LoadExpectedRevRecData : MTListServicePage
       var accountingCycleId = (accountingCycleIdLinq == null ? "" : accountingCycleIdLinq.Value.ToString().Replace("%", ""));
 
       var revRec = new DeferredRevenueHelper().GetRevRec(currency, revenueCode, "S", deferredRevenueCode, productId, accountingCycleId, 0);
+      revRec.ForEach(x => x.RevenuePart = (GetGlobalResourceObject("Reports", "TEXT_" + x.RevenuePart.ToUpper() + "_CODE")?? x.RevenuePart).ToString());
       items.Items.AddRange(revRec);
       if (Page.Request["mode"] == "csv")
       {

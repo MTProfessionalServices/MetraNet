@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,281 +59,476 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="TEXT_ACCOUNTING_CYCLE" xml:space="preserve">
-        <value>Accounting Ciclo</value>
-    </data>
-    <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
-        <value>Nome do adaptador</value>
-    </data>
-    <data name="TEXT_AMOUNT" xml:space="preserve">
-        <value>Valor</value>
-    </data>
-    <data name="TEXT_AMOUNT_IF_NOT_PRORATED" xml:space="preserve">
-        <value>Valor que teria se não fosse rateado</value>
-    </data>
-    <data name="TEXT_AVERAGE_PAYMENT" xml:space="preserve">
-        <value>Pagamento média</value>
-    </data>
-    <data name="TEXT_CARD_TYPE" xml:space="preserve">
-        <value>Tipo de cartão</value>
-    </data>
-    <data name="TEXT_CITY" xml:space="preserve">
-        <value>Cidade</value>
-    </data>
-    <data name="TEXT_CODE" xml:space="preserve">
-        <value>Código</value>
-    </data>
-    <data name="TEXT_COMPLETED" xml:space="preserve">
-        <value>Concluído</value>
-    </data>
-    <data name="TEXT_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
-        <value>Modelo PI composto</value>
-    </data>
-    <data name="TEXT_CONTRIBUTING_ACCOUNTS" xml:space="preserve">
-        <value>Contas contribuintes</value>
-    </data>
-    <data name="TEXT_COUNT" xml:space="preserve">
-        <value>Contagem</value>
-    </data>
-    <data name="TEXT_COUNTRY" xml:space="preserve">
-        <value>País</value>
-    </data>
-    <data name="TEXT_CURRENCY" xml:space="preserve">
-        <value>Moeda</value>
-    </data>
-    <data name="TEXT_DATE_FIRST" xml:space="preserve">
-        <value>Data primeiro</value>
-    </data>
-    <data name="TEXT_DATE_HISTORY" xml:space="preserve">
-        <value>Histórico de data</value>
-    </data>
-    <data name="TEXT_DATE_LAST" xml:space="preserve">
-        <value>Data último</value>
-    </data>
-    <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
-        <value>Código de receita diferida</value>
-    </data>
-    <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
-        <value>Nome do desconto</value>
-    </data>
-    <data name="TEXT_DISMISSED" xml:space="preserve">
-        <value>Rejeitado</value>
-    </data>
-    <data name="TEXT_DISTINCT_PAYEES" xml:space="preserve">
-        <value>Favorecidos distintos</value>
-    </data>
-    <data name="TEXT_DISTINCT_PAYERS" xml:space="preserve">
-        <value>Pagadores distintos</value>
-    </data>
-    <data name="TEXT_EXPECTED" xml:space="preserve">
-        <value>Esperado</value>
-    </data>
-    <data name="TEXT_FAILED" xml:space="preserve">
-        <value>Falhou</value>
-    </data>
-    <data name="TEXT_GENERATION_REASON" xml:space="preserve">
-        <value>Motivo para geração</value>
-    </data>
-    <data name="TEXT_GROUP_SUBSCRIPTION" xml:space="preserve">
-        <value>Assinatura em grupo</value>
-    </data>
-    <data name="TEXT_INVOICE_METHOD" xml:space="preserve">
-        <value>Método de fatura</value>
-    </data>
-    <data name="TEXT_INVOICE_NUMBER" xml:space="preserve">
-        <value>Número da fatura</value>
-    </data>
-    <data name="TEXT_LAST_TRANSACTION_DATE" xml:space="preserve">
-        <value>Última Transaction Data</value>
-    </data>
-    <data name="TEXT_LAST_TRANSACTION_OF_TYPE" xml:space="preserve">
-        <value>Última Transação de Tipo</value>
-    </data>
-    <data name="TEXT_MAXIMUM_PAYMENT" xml:space="preserve">
-        <value>Pagamento máxima</value>
-    </data>
-    <data name="TEXT_MESSAGE" xml:space="preserve">
-        <value>Mensagem</value>
-    </data>
-    <data name="TEXT_METERED" xml:space="preserve">
-        <value>Medido</value>
-    </data>
-    <data name="TEXT_MINIMUM_PAYMENT" xml:space="preserve">
-        <value>Pagamento Mínimo</value>
-    </data>
-    <data name="TEXT_MONETARY_AMOUNT" xml:space="preserve">
-        <value>Valor monetário</value>
-    </data>
-    <data name="TEXT_NAME" xml:space="preserve">
-        <value>Nome</value>
-    </data>
-    <data name="TEXT_NAMESPACE" xml:space="preserve">
-        <value>Espaço de nomes</value>
-    </data>
-    <data name="TEXT_NON_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
-        <value>Modelo PI não composto</value>
-    </data>
-    <data name="TEXT_NUM_ADV_RCS_CREDITS_GENERATED" xml:space="preserve">
-        <value>nº de créditos RCs avançados gerados</value>
-    </data>
-    <data name="TEXT_NUM_ADV_RCS_GENERATED" xml:space="preserve">
-        <value>nº de RCs avançados gerados</value>
-    </data>
-    <data name="TEXT_NUM_ARREARS_GENERATED" xml:space="preserve">
-        <value>nº de obrigações vencidas geradas</value>
-    </data>
-    <data name="TEXT_NUM_DAYS_IN_PERIOD" xml:space="preserve">
-        <value>nº de dias no período</value>
-    </data>
-    <data name="TEXT_NUM_DAYS_PRORATED" xml:space="preserve">
-        <value>nº de dias rateados</value>
-    </data>
-    <data name="TEXT_NUM_DISCOUNTS_GENERATED" xml:space="preserve">
-        <value>nº de descontos gerados</value>
-    </data>
-    <data name="TEXT_NUM_INVOICES" xml:space="preserve">
-        <value>nº de faturas</value>
-    </data>
-    <data name="TEXT_NUM_NRCS_GENERATED" xml:space="preserve">
-        <value>Número de NRCs gerados</value>
-    </data>
-    <data name="TEXT_NUM_TRANS_AFFECTED" xml:space="preserve">
-        <value>nº de transações afetadas</value>
-    </data>
-    <data name="TEXT_NUM_TRANS_GENERATED" xml:space="preserve">
-        <value>nº de transações geradas</value>
-    </data>
-    <data name="TEXT_NUMBER_OF_PAYMENTS" xml:space="preserve">
-        <value>Número de pagamentos</value>
-    </data>
-    <data name="TEXT_PAYER" xml:space="preserve">
-        <value>Pagador</value>
-    </data>
-    <data name="TEXT_PAYMENT_CURRENCY" xml:space="preserve">
-        <value>Moeda de Pagamento</value>
-    </data>
-    <data name="TEXT_PAYMENT_METHOD" xml:space="preserve">
-        <value>Método de pagamento</value>
-    </data>
-    <data name="TEXT_PERCENTAGE" xml:space="preserve">
-        <value>Porcentagem</value>
-    </data>
-    <data name="TEXT_PI_TEMPLATE" xml:space="preserve">
-        <value>Modelo de PI</value>
-    </data>
-    <data name="TEXT_PO_SUBSCRIBED_TO" xml:space="preserve">
-        <value>PO assinado para</value>
-    </data>
-    <data name="TEXT_PRICEABLE_ITEM" xml:space="preserve">
-        <value>Item cobrável</value>
-    </data>
-    <data name="TEXT_PRORATION_REASON" xml:space="preserve">
-        <value>Motivo para rateio</value>
-    </data>
-    <data name="TEXT_RC_TYPE" xml:space="preserve">
-        <value>Tipo de RC</value>
-    </data>
-    <data name="TEXT_REGISTERED_USERS" xml:space="preserve">
-        <value>Usuários cadastrados</value>
-    </data>
-    <data name="TEXT_REVENUE_CODE" xml:space="preserve">
-        <value>Código da receita</value>
-    </data>
-    <data name="TEXT_REVENUE_PART" xml:space="preserve">
-        <value>Receita Parte</value>
-    </data>
-    <data name="TEXT_STATE" xml:space="preserve">
-        <value>Estado</value>
-    </data>
-    <data name="TEXT_STATUS" xml:space="preserve">
-        <value>Estado</value>
-    </data>
-    <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
-        <value>Valores do imposto</value>
-    </data>
-    <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
-        <value>Isentas de impostos, Data de Validade</value>
-    </data>
-    <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
-        <value>ID de isenção de imposto</value>
-    </data>
-    <data name="TEXT_TOTAL" xml:space="preserve">
-        <value>Total</value>
-    </data>
-    <data name="TEXT_TOTAL_MONETARY_AMOUNT" xml:space="preserve">
-        <value>Valor monetário total</value>
-    </data>
-    <data name="TEXT_UNIQUE_IDENTIFIER" xml:space="preserve">
-        <value>Unique Identifier</value>
-    </data>
-    <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
-        <value>Identificador de Usuário</value>
-    </data>
-    <data name="TEXT_VIEW_ID" xml:space="preserve">
-        <value>Exibir ID</value>
-    </data>
-    <data name="TEXT_VIEW_NAME" xml:space="preserve">
-        <value>Exibir nome</value>
-    </data>
-    <data name="TEXT_ZIP" xml:space="preserve">
-        <value>CEP</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TEXT_ACCOUNTING_CYCLE" xml:space="preserve">
+    <value>Accounting Ciclo</value>
+  </data>
+  <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
+    <value>Nome do adaptador</value>
+  </data>
+  <data name="TEXT_AMOUNT" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="TEXT_AMOUNT_IF_NOT_PRORATED" xml:space="preserve">
+    <value>Valor que teria se não fosse rateado</value>
+  </data>
+  <data name="TEXT_AVERAGE_PAYMENT" xml:space="preserve">
+    <value>Pagamento média</value>
+  </data>
+  <data name="TEXT_CARD_TYPE" xml:space="preserve">
+    <value>Tipo de cartão</value>
+  </data>
+  <data name="TEXT_CITY" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="TEXT_CODE" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="TEXT_COMPLETED" xml:space="preserve">
+    <value>Concluído</value>
+  </data>
+  <data name="TEXT_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
+    <value>Modelo PI composto</value>
+  </data>
+  <data name="TEXT_CONTRIBUTING_ACCOUNTS" xml:space="preserve">
+    <value>Contas contribuintes</value>
+  </data>
+  <data name="TEXT_COUNT" xml:space="preserve">
+    <value>Contagem</value>
+  </data>
+  <data name="TEXT_COUNTRY" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="TEXT_CURRENCY" xml:space="preserve">
+    <value>Moeda</value>
+  </data>
+  <data name="TEXT_DATE_FIRST" xml:space="preserve">
+    <value>Data primeiro</value>
+  </data>
+  <data name="TEXT_DATE_HISTORY" xml:space="preserve">
+    <value>Histórico de data</value>
+  </data>
+  <data name="TEXT_DATE_LAST" xml:space="preserve">
+    <value>Data último</value>
+  </data>
+  <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
+    <value>Código de receita diferida</value>
+  </data>
+  <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
+    <value>Nome do desconto</value>
+  </data>
+  <data name="TEXT_DISMISSED" xml:space="preserve">
+    <value>Rejeitado</value>
+  </data>
+  <data name="TEXT_DISTINCT_PAYEES" xml:space="preserve">
+    <value>Favorecidos distintos</value>
+  </data>
+  <data name="TEXT_DISTINCT_PAYERS" xml:space="preserve">
+    <value>Pagadores distintos</value>
+  </data>
+  <data name="TEXT_EXPECTED" xml:space="preserve">
+    <value>Esperado</value>
+  </data>
+  <data name="TEXT_FAILED" xml:space="preserve">
+    <value>Falhou</value>
+  </data>
+  <data name="TEXT_GENERATION_REASON" xml:space="preserve">
+    <value>Motivo para geração</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>Assinatura em grupo</value>
+  </data>
+  <data name="TEXT_INVOICE_METHOD" xml:space="preserve">
+    <value>Método de fatura</value>
+  </data>
+  <data name="TEXT_INVOICE_NUMBER" xml:space="preserve">
+    <value>Número da fatura</value>
+  </data>
+  <data name="TEXT_LAST_TRANSACTION_DATE" xml:space="preserve">
+    <value>Última Transaction Data</value>
+  </data>
+  <data name="TEXT_LAST_TRANSACTION_OF_TYPE" xml:space="preserve">
+    <value>Última Transação de Tipo</value>
+  </data>
+  <data name="TEXT_MAXIMUM_PAYMENT" xml:space="preserve">
+    <value>Pagamento máxima</value>
+  </data>
+  <data name="TEXT_MESSAGE" xml:space="preserve">
+    <value>Mensagem</value>
+  </data>
+  <data name="TEXT_METERED" xml:space="preserve">
+    <value>Medido</value>
+  </data>
+  <data name="TEXT_MINIMUM_PAYMENT" xml:space="preserve">
+    <value>Pagamento Mínimo</value>
+  </data>
+  <data name="TEXT_MONETARY_AMOUNT" xml:space="preserve">
+    <value>Valor monetário</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="TEXT_NAMESPACE" xml:space="preserve">
+    <value>Espaço de nomes</value>
+  </data>
+  <data name="TEXT_NON_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
+    <value>Modelo PI não composto</value>
+  </data>
+  <data name="TEXT_NUM_ADV_RCS_CREDITS_GENERATED" xml:space="preserve">
+    <value>nº de créditos RCs avançados gerados</value>
+  </data>
+  <data name="TEXT_NUM_ADV_RCS_GENERATED" xml:space="preserve">
+    <value>nº de RCs avançados gerados</value>
+  </data>
+  <data name="TEXT_NUM_ARREARS_GENERATED" xml:space="preserve">
+    <value>nº de obrigações vencidas geradas</value>
+  </data>
+  <data name="TEXT_NUM_DAYS_IN_PERIOD" xml:space="preserve">
+    <value>nº de dias no período</value>
+  </data>
+  <data name="TEXT_NUM_DAYS_PRORATED" xml:space="preserve">
+    <value>nº de dias rateados</value>
+  </data>
+  <data name="TEXT_NUM_DISCOUNTS_GENERATED" xml:space="preserve">
+    <value>nº de descontos gerados</value>
+  </data>
+  <data name="TEXT_NUM_INVOICES" xml:space="preserve">
+    <value>nº de faturas</value>
+  </data>
+  <data name="TEXT_NUM_NRCS_GENERATED" xml:space="preserve">
+    <value>Número de NRCs gerados</value>
+  </data>
+  <data name="TEXT_NUM_TRANS_AFFECTED" xml:space="preserve">
+    <value>nº de transações afetadas</value>
+  </data>
+  <data name="TEXT_NUM_TRANS_GENERATED" xml:space="preserve">
+    <value>nº de transações geradas</value>
+  </data>
+  <data name="TEXT_NUMBER_OF_PAYMENTS" xml:space="preserve">
+    <value>Número de pagamentos</value>
+  </data>
+  <data name="TEXT_PAYER" xml:space="preserve">
+    <value>Pagador</value>
+  </data>
+  <data name="TEXT_PAYMENT_CURRENCY" xml:space="preserve">
+    <value>Moeda de Pagamento</value>
+  </data>
+  <data name="TEXT_PAYMENT_METHOD" xml:space="preserve">
+    <value>Método de pagamento</value>
+  </data>
+  <data name="TEXT_PERCENTAGE" xml:space="preserve">
+    <value>Porcentagem</value>
+  </data>
+  <data name="TEXT_PI_TEMPLATE" xml:space="preserve">
+    <value>Modelo de PI</value>
+  </data>
+  <data name="TEXT_PO_SUBSCRIBED_TO" xml:space="preserve">
+    <value>PO assinado para</value>
+  </data>
+  <data name="TEXT_PRICEABLE_ITEM" xml:space="preserve">
+    <value>Item cobrável</value>
+  </data>
+  <data name="TEXT_PRORATION_REASON" xml:space="preserve">
+    <value>Motivo para rateio</value>
+  </data>
+  <data name="TEXT_RC_TYPE" xml:space="preserve">
+    <value>Tipo de RC</value>
+  </data>
+  <data name="TEXT_REGISTERED_USERS" xml:space="preserve">
+    <value>Usuários cadastrados</value>
+  </data>
+  <data name="TEXT_REVENUE_CODE" xml:space="preserve">
+    <value>Código da receita</value>
+  </data>
+  <data name="TEXT_REVENUE_PART" xml:space="preserve">
+    <value>Receita Parte</value>
+  </data>
+  <data name="TEXT_STATE" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
+    <value>Valores do imposto</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
+    <value>Isentas de impostos, Data de Validade</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
+    <value>ID de isenção de imposto</value>
+  </data>
+  <data name="TEXT_TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TEXT_TOTAL_MONETARY_AMOUNT" xml:space="preserve">
+    <value>Valor monetário total</value>
+  </data>
+  <data name="TEXT_UNIQUE_IDENTIFIER" xml:space="preserve">
+    <value>Unique Identifier</value>
+  </data>
+  <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
+    <value>Identificador de Usuário</value>
+  </data>
+  <data name="TEXT_VIEW_ID" xml:space="preserve">
+    <value>Exibir ID</value>
+  </data>
+  <data name="TEXT_VIEW_NAME" xml:space="preserve">
+    <value>Exibir nome</value>
+  </data>
+  <data name="TEXT_ZIP" xml:space="preserve">
+    <value>CEP</value>
+  </data>
+  <data name="TEXT_PARTITION" xml:space="preserve">
+    <value>Divisória</value>
+  </data>
+  <data name="TEXT_AUDIT_ONLY" xml:space="preserve">
+    <value>Apenas auditoria</value>
+  </data>
+  <data name="TEXT_AVERAGE_AMOUNT" xml:space="preserve">
+    <value>Valor médio</value>
+  </data>
+  <data name="TEXT_CHARGE_KIND" xml:space="preserve">
+    <value>carga Tipo</value>
+  </data>
+  <data name="TEXT_DECISION_TYPE" xml:space="preserve">
+    <value>Decisão Tipo</value>
+  </data>
+  <data name="TEXT_DECISION_UNIQUE_ID" xml:space="preserve">
+    <value>Decisão Unique ID</value>
+  </data>
+  <data name="TEXT_END_DATE" xml:space="preserve">
+    <value>Data de Término</value>
+  </data>
+  <data name="TEXT_EXPIRATION_DATE" xml:space="preserve">
+    <value>data de validade</value>
+  </data>
+  <data name="TEXT_EXPIRED" xml:space="preserve">
+    <value>expirado</value>
+  </data>
+  <data name="TEXT_FINALIZATION_DATE" xml:space="preserve">
+    <value>finalização Data</value>
+  </data>
+  <data name="TEXT_FINALIZED" xml:space="preserve">
+    <value>finalizado</value>
+  </data>
+  <data name="TEXT_ID_ACC" xml:space="preserve">
+    <value>Id conta</value>
+  </data>
+  <data name="TEXT_ID_USAGE_INTERVAL" xml:space="preserve">
+    <value>Uso Interval ID</value>
+  </data>
+  <data name="TEXT_INTERVALS_REMAINING" xml:space="preserve">
+    <value>intervalos restantes</value>
+  </data>
+  <data name="TEXT_INTERVAL_END" xml:space="preserve">
+    <value>End Interval</value>
+  </data>
+  <data name="TEXT_INTERVAL_START" xml:space="preserve">
+    <value>intervalo de partida</value>
+  </data>
+  <data name="TEXT_MAXIMUM_AMOUNT" xml:space="preserve">
+    <value>Montante Máximo</value>
+  </data>
+  <data name="TEXT_MESSAGE_TYPE" xml:space="preserve">
+    <value>Tipo de mensagem</value>
+  </data>
+  <data name="TEXT_MINIMUM_AMOUNT" xml:space="preserve">
+    <value>Montante Mínimo</value>
+  </data>
+  <data name="TEXT_PARENT_DECISION_UNIQUE_ID" xml:space="preserve">
+    <value>Decisão Parent Unique ID</value>
+  </data>
+  <data name="TEXT_PAYMENT_TYPE" xml:space="preserve">
+    <value>Tipo de pagamento</value>
+  </data>
+  <data name="TEXT_PIPELINE_ID" xml:space="preserve">
+    <value>gasoduto ID</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_AMOUNT" xml:space="preserve">
+    <value>Montante Qualified Pre</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_EVENTS" xml:space="preserve">
+    <value>Pré Eventos Qualificados</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_TOTAL" xml:space="preserve">
+    <value>Pré total Qualificado</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_UNITS" xml:space="preserve">
+    <value>Unidades Pré Qualificados</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNTED_AMOUNT" xml:space="preserve">
+    <value>Pré Valor Total com desconto</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNTED_EVENTS" xml:space="preserve">
+    <value>Pré Total de desconto Eventos</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNTED_UNITS" xml:space="preserve">
+    <value>Pré Unidades totais reduzidas</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
+    <value>Montante total Pré Discount</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
+    <value>Pré Valor Total Gerado</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_GENERATED_EVENTS" xml:space="preserve">
+    <value>Pré total gerado Eventos</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_AMOUNT_AFTER" xml:space="preserve">
+    <value>Pré total nominal Valor Depois</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_AMOUNT_DELTA" xml:space="preserve">
+    <value>Pré total Classificado Valor Delta</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_EVENTS" xml:space="preserve">
+    <value>Pré nominal total Eventos</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_UNITS" xml:space="preserve">
+    <value>Unidades Pré Total Estimada</value>
+  </data>
+  <data name="TEXT_QUALIFIED_AMOUNT" xml:space="preserve">
+    <value>Montante qualificado</value>
+  </data>
+  <data name="TEXT_QUALIFIED_EVENTS" xml:space="preserve">
+    <value>Eventos qualificados</value>
+  </data>
+  <data name="TEXT_QUALIFIED_TOTAL" xml:space="preserve">
+    <value>total de Qualified</value>
+  </data>
+  <data name="TEXT_QUALIFIED_UNITS" xml:space="preserve">
+    <value>Unidades qualificados</value>
+  </data>
+  <data name="TEXT_START_DATE" xml:space="preserve">
+    <value>data de início</value>
+  </data>
+  <data name="TEXT_TIER_END" xml:space="preserve">
+    <value>Nível End</value>
+  </data>
+  <data name="TEXT_TIER_START" xml:space="preserve">
+    <value>Nível Iniciar</value>
+  </data>
+  <data name="TEXT_TOTAL_ADJUSTMENT_AMOUNT" xml:space="preserve">
+    <value>Valor Total do Ajuste</value>
+  </data>
+  <data name="TEXT_TOTAL_AMOUNT" xml:space="preserve">
+    <value>montante total</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNTED_AMOUNT" xml:space="preserve">
+    <value>Valor Total com desconto</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNTED_EVENTS" xml:space="preserve">
+    <value>Total de Eventos com desconto</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNTED_UNITS" xml:space="preserve">
+    <value>Total de Unidades de desconto</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
+    <value>Valor Total Discount</value>
+  </data>
+  <data name="TEXT_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
+    <value>Total gerado</value>
+  </data>
+  <data name="TEXT_TOTAL_GENERATED_EVENTS" xml:space="preserve">
+    <value>Total de Eventos Gerados</value>
+  </data>
+  <data name="TEXT_TOTAL_PAYMENT_AMOUNT" xml:space="preserve">
+    <value>Valor Total Pagamento</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_AMOUNT_AFTER" xml:space="preserve">
+    <value>Valor Total nominal após</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_AMOUNT_DELTA" xml:space="preserve">
+    <value>Montante total Classificado Delta</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_EVENTS" xml:space="preserve">
+    <value>Total de Eventos Classificado</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_UNITS" xml:space="preserve">
+    <value>Total de unidades classificadas</value>
+  </data>
+  <data name="TEXT_TOTAL_TAX_AMOUNT" xml:space="preserve">
+    <value>Valor do imposto total</value>
+  </data>
+  <data name="TEXT_TRANSACTION_COUNT" xml:space="preserve">
+    <value>Contagem de transação</value>
+  </data>
+  <data name="TEXT_UNPROCESSED_MESSAGES" xml:space="preserve">
+    <value>mensagens não transformados</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_DT_END" xml:space="preserve">
+    <value>data de Término</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_DT_START" xml:space="preserve">
+    <value>data de Início</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_ID_INTERVAL" xml:space="preserve">
+    <value>Interval Id</value>
+  </data>
+  <data name="TEXT_DEFERRED_CODE" xml:space="preserve">
+    <value>[pt-BR]Deferred</value>
+  </data>
+  <data name="TEXT_EARNED_CODE" xml:space="preserve">
+    <value>[pt-BR]Earned</value>
+  </data>
+  <data name="TEXT_INCREMENTAL_CODE" xml:space="preserve">
+    <value>[pt-BR]Incremental</value>
+  </data>
 </root>

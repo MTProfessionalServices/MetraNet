@@ -118,102 +118,102 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionCycle.Text" xml:space="preserve">
-    <value>[FR]Your Decision Type can aggregate events or usage across different billing intervals or time periods.</value>
+    <value>Votre type de décision peut consolider des événements ou l’utilisation sur différents intervalles de facturation ou périodes.</value>
   </data>
   <data name="lblDecisionEffect.Text" xml:space="preserve">
-    <value>[FR]How long should the Decision Type be in effect?</value>
+    <value>Pendant combien de temps le type de décision doit-il être valide ?</value>
   </data>
   <data name="lblNumberBIBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of billing intervals from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre d’intervalles de facturation depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblNumberDaysBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of days from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre de jours depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblNumberMonthBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of months from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre de mois depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblNumberOfBillingIntervals.Text" xml:space="preserve">
-    <value>[FR]Number of billing intervals in the Decision Cycle:</value>
+    <value>Nombre d’intervalles de facturation dans le cycle de décision :</value>
   </data>
   <data name="lblNumberOfDays.Text" xml:space="preserve">
-    <value>[FR]Number of days in the Decision Cycle:</value>
+    <value>Nombre de jours dans le cycle de décision :</value>
   </data>
   <data name="lblNumberOfMonth.Text" xml:space="preserve">
-    <value>[FR]Number of months in the Decision Cycle:</value>
+    <value>Nombre de mois dans le cycle de décision :</value>
   </data>
   <data name="lblNumberOfQuarters.Text" xml:space="preserve">
-    <value>[FR]Number of quarters in the Decision Cycle:</value>
+    <value>Nombre de trimestres dans le cycle de décision :</value>
   </data>
   <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
-    <value>[FR]Number of time units in the Decision Cycle:</value>
+    <value>Nombre d’unités de temps dans le cycle de décision :</value>
   </data>
   <data name="lblNumberOfWeeks.Text" xml:space="preserve">
-    <value>[FR]Number of weeks in the Decision Cycle:</value>
+    <value>Nombre de semaines dans le cycle de décision :</value>
   </data>
   <data name="lblNumberOfX.Text" xml:space="preserve">
-    <value>[FR]Number of {0} in the Decision Cycle:</value>
+    <value>Nombre de {0} dans le cycle de décision :</value>
   </data>
   <data name="lblNumberOfYears.Text" xml:space="preserve">
-    <value>[FR]Number of years in the Decision Cycle:</value>
+    <value>Nombre d’années dans le cycle de décision :</value>
   </data>
   <data name="lblNumberQuartersBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of quarters from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre de trimestres depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of time units from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre d’unités de temps depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblNumberWeeksBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of weeks from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre de semaines depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblNumberXBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of {0} from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre de {0} depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblNumberYearsBillingInterval.Text" xml:space="preserve">
-    <value>[FR]Number of years from the subscription start to the start of the Decision Cycle:</value>
+    <value>Nombre d’années depuis le début de l’abonnement jusqu’au début du cycle de décision :</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Decision Cycle for {0}</value>
+    <value>Cycle de décision pour {0}</value>
   </data>
   <data name="lblUnitOfTime.Label" xml:space="preserve">
-    <value>[FR]Time cycle unit:</value>
+    <value>Unité du cycle de temps :</value>
   </data>
   <data name="LIST_DD_TIME_CYCLE_UNIT" xml:space="preserve">
-    <value>[FR]Billing Interval,Day,Week,Month,Quarter,Year,Get from parameter table</value>
+    <value>Intervalle de facturation,Jour,Semaine,Mois,Trimestre,Année,A partir du tableau des paramètres</value>
   </data>
   <data name="rblDays.Text" xml:space="preserve">
-    <value>[FR]Days</value>
+    <value>Jours</value>
   </data>
   <data name="rblDecisionCycleBillingInterval.Text" xml:space="preserve">
-    <value>[FR]The Decision Cycle matches the billing interval</value>
+    <value>Le cycle de décision correspond à l’intervalle de facturation</value>
   </data>
   <data name="rblIndefinitely.Text" xml:space="preserve">
-    <value>[FR]Indefinitely</value>
+    <value>Indéfiniment</value>
   </data>
   <data name="rblMonths.Text" xml:space="preserve">
-    <value>[FR]Months</value>
+    <value>Mois</value>
   </data>
   <data name="rblQuarters.Text" xml:space="preserve">
-    <value>[FR]Quarters</value>
+    <value>Trimestres</value>
   </data>
   <data name="rblSpecified.Text" xml:space="preserve">
-    <value>[FR]For a specific number of Decision Cycles:</value>
+    <value>Pour un nombre spécifique de cycles de décision :</value>
   </data>
   <data name="rblUnitOfTimeFromParamTable.Label" xml:space="preserve">
-    <value>[FR]Get unit of time from parameter table:</value>
+    <value>Unité de temps à partir du tableau des paramètres :</value>
   </data>
   <data name="rblWeeks.Text" xml:space="preserve">
-    <value>[FR]Weeks</value>
+    <value>Semaines</value>
   </data>
   <data name="rblYears.Text" xml:space="preserve">
-    <value>[FR]Years</value>
+    <value>Années</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME" xml:space="preserve">
-    <value>[FR]Error: You must specify the number of units in the Decision Cycle.</value>
+    <value>Erreur : vous devez spécifier le nombre d’unités dans le cycle de décision.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL" xml:space="preserve">
-    <value>[FR]Error: You must specify the Decision Cycles offset from the subscription start.</value>
+    <value>Erreur : vous devez spécifier le décalage des cycles de décision depuis le début de l’abonnement.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
-    <value>[FR]Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
+    <value>Erreur : vous devez spécifier le nombre de cycles de décision pour lequel la décision sera effective.</value>
   </data>
 </root>

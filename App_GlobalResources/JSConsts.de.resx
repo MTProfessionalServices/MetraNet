@@ -127,7 +127,7 @@
     <value>d.m.Y H:i:s|d.m.Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>d.m.Y H:i:s A</value>
+    <value>d.m.Y H:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
     <value>d.m.Y H:i:s</value>
@@ -1400,5 +1400,8 @@
   </data>
   <data name="TEXT_THIRD" xml:space="preserve">
     <value>3.</value>
+  </data>
+  <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
+    <value>[DE]Pending Changes Waiting For Approval</value>
   </data>
 </root>

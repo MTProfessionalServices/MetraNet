@@ -136,7 +136,7 @@
         <value>Date de fin</value>
     </data>
     <data name="EndDateResource1.Label" xml:space="preserve">
-        <value>Abonnements Date de fin</value>
+        <value>Date de fin des abonnements</value>
     </data>
     <data name="EXTERN_URL_NAME" xml:space="preserve">
         <value>Nom de l’URL externe</value>
@@ -187,9 +187,9 @@
         <value>Date de début</value>
     </data>
     <data name="StartDateResource1.Label" xml:space="preserve">
-        <value>Abonnements Date de départ</value>
+        <value>Date de début des abonnements</value>
     </data>
     <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-        <value>Abonnement Span</value>
+        <value>Période d’abonnement</value>
     </data>
 </root>

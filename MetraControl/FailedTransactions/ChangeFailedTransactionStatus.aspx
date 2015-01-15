@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="ChangeStatus.aspx.cs" Inherits="MetraControl_FailedTransactions_ChangeStatus" Culture="auto" UICulture="auto" meta:resourcekey="PageResource1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="ChangeFailedTransactionStatus.aspx.cs" Inherits="MetraControl_FailedTransactions_ChangeStatus" Culture="auto" UICulture="auto" meta:resourcekey="PageResource1" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 

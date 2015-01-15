@@ -40,7 +40,26 @@ public partial class ReportsTree : MTPage
     get { return mAccCapabilities; }
     set { mAccCapabilities = value; }
   }
+  private string intervalID;
+  public string IntervalID
+  {
+    get { return intervalID; }
+    set { intervalID = value; }
+  }
 
+  private string reportType;
+  public string ReportType
+  {
+    get { return reportType; }
+    set { reportType = value; }
+  }
+
+  private string billingGroupId;
+  public string BillingGroupId
+  {
+    get { return billingGroupId; }
+    set { billingGroupId = value; }
+  }
   #endregion
 
   #region Events
@@ -50,6 +69,20 @@ public partial class ReportsTree : MTPage
     {
       SetError(Resources.ErrorMessages.ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY);
       pnlReport.Visible = false;
+    }
+
+    if (Request.QueryString["IntervalID"] != null)
+    {
+      IntervalID = Convert.ToString(Request.QueryString["IntervalID"]);
+      ManageReports.Visible = false;
+    }
+    if (Request.QueryString["ReportType"] != null)
+    {
+      ReportType= Convert.ToString(Request.QueryString["ReportType"]);
+    }
+    if (Request.QueryString["BillingGroupId"] != null)
+    {
+      BillingGroupId = Convert.ToString(Request.QueryString["BillingGroupId"]);
     }
 
     //Get capabilities for given account 

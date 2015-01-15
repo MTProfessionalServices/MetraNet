@@ -121,7 +121,7 @@
         <value>Erreur lors du désabonnement d’un membre de l’abonnement groupé.</value>
     </data>
     <data name="InfoMsg.Text" xml:space="preserve">
-        <value>Un ou plusieurs membres sont sur le point d’être désabonnés, ce qui signifie qu'ils ne pourront plus être abonnés à cet abonnement groupé. Cela n’affectera pas leur historique d’utilisation en cours. Ces membres apparaîtront néanmoins dans la liste des abonnés, et l’enregistrement de leurs abonnements sera conservé.</value>
+        <value>Un ou plusieurs membres sont sur le point d’être désabonnés, ce qui signifie qu’ils ne pourront plus être abonnés à cet abonnement groupé. Cela n’affectera pas leur historique d’utilisation en cours. Ces membres apparaîtront néanmoins dans la liste des abonnés, et l’enregistrement de leurs abonnements sera conservé.</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
         <value>Messages d’erreur</value>

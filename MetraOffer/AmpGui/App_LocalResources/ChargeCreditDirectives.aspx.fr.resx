@@ -118,60 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DIRECTIVES_GRID_TITLE" xml:space="preserve">
-    <value>[FR]Directives in Order of Execution:</value>
+    <value>Directives dans l’ordre d’exécution :</value>
   </data>
   <data name="lbDescription.Text" xml:space="preserve">
-    <value>[FR]Specify how the fields in the Product View and in the account usage table (t_acc_usage) should be set for the new Charge/Credit that is being generated. To do so, you must define an ordered set of "directives" of the following types: Database Table Inclusion, Field Population and Procedure Execution.</value>
+    <value>Indiquez comment les zones de la vue produit et du tableau d’utilisation des comptes (t_acc_usage) doivent être définies pour les nouveaux frais/crédit en cours de création. Pour cela, vous devez définir un ensemble ordonné de "directives" des types suivants : Inclusion de table de base de données, Renseignement des zones et Exécution de procédures.</value>
   </data>
   <data name="lbGrid2TitleResource1.Text" xml:space="preserve">
-    <value>[FR]Fields to populate:</value>
+    <value>Zones à renseigner :</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Charge/Credit: Directives</value>
+    <value>Frais/Crédit :  Directives</value>
   </data>
   <data name="POPULATEDFIELDS_GRID_TITLE" xml:space="preserve">
-    <value>[FR]Product View and t_acc_usage Fields:</value>
+    <value>Vue produit et zones t_acc_usage :</value>
   </data>
   <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
-    <value>[FR]Charge/Credit:</value>
+    <value>Frais/crédit :</value>
   </data>
   <data name="tbProductViewNameResource1.LabelSeparator" xml:space="preserve">
-    <value>[FR]Product View:</value>
+    <value>Vue produit :</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[FR]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
     <value>Ajouter</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>[FR]Add a new Directive to this Generated Charge or Credit</value>
+    <value>Ajouter une nouvelle directive à ces frais ou ce crédit générés</value>
   </data>
   <data name="TEXT_DETAILS" xml:space="preserve">
     <value>Détails</value>
   </data>
   <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>[FR]An error occurred while moving the directive earlier in order of execution.</value>
+    <value>Une erreur s’est produite lors de la remontée de la directive dans l’ordre d’exécution.</value>
   </data>
   <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>[FR]An error occurred while moving the directive later in order of execution.</value>
+    <value>Une erreur s’est produite lors de la descente de la directive dans l’ordre d’exécution.</value>
   </data>
   <data name="TEXT_FIELDNAME" xml:space="preserve">
-    <value>[FR]Field Name</value>
+    <value>Nom de la zone</value>
   </data>
   <data name="TEXT_ORDER" xml:space="preserve">
-    <value>[FR]Order</value>
+    <value>Ordre</value>
   </data>
   <data name="TEXT_POPULATED" xml:space="preserve">
-    <value>[FR]Populated</value>
+    <value>Renseignée</value>
   </data>
   <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
-    <value>[FR]Move earlier</value>
+    <value>Remonter</value>
   </data>
   <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
-    <value>[FR]Move later</value>
+    <value>Descendre</value>
   </data>
   <data name="TEXT_TYPE" xml:space="preserve">
-    <value>[FR]Type</value>
+    <value>Type</value>
   </data>
 </root>

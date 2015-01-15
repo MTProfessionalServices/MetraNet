@@ -16,14 +16,17 @@ namespace MetraNet.MetraControl.Usage
 
     protected void ButtonSearchClick(object sender, EventArgs e)
     {
+      var startDate = DateTime.Parse(MTDatePickerFrom.Text, System.Threading.Thread.CurrentThread.CurrentCulture);
+      var endDate = DateTime.Parse(MTDatePickerTo.Text, System.Threading.Thread.CurrentThread.CurrentCulture);
+
+      var startDateProgramFormat = startDate.ToString("MM/dd/yyyy");
+      var endDateProgramFormat = endDate.ToString("MM/dd/yyyy");
+
       var title = String.Format("Statistics from {0} to {1}", MTDatePickerFrom.Text, MTDatePickerTo.Text);
-      //[TODO]: Convert localized dates to format, that Usage.Statistics.Frame.asp page expects
-      var queryParams = String.Format("Title={0}&StartTime={1}&EndTime={2}",
-                                      HttpContext.Current.Server.UrlEncode(title),
-                                      HttpContext.Current.Server.UrlEncode(MTDatePickerFrom.Text),
-                                      HttpContext.Current.Server.UrlEncode(MTDatePickerTo.Text));
-      Response.Redirect(
-        String.Format("/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/Usage.Statistics.Frame.asp?{0}", queryParams));
+      var queryParams = String.Format("Title={0}&StartTime={1}&EndTime={2}", title, startDateProgramFormat, endDateProgramFormat);
+      var momUrl = String.Format("/mom/default/dialog/Usage.Statistics.Frame.asp?{0}", queryParams);
+
+      Response.Redirect(String.Format("/MetraNet/TicketToMOM.aspx?URL={0}", HttpContext.Current.Server.UrlEncode(momUrl)));
     }
 
     private void SetLocalization()

@@ -118,8 +118,11 @@ public partial class login : MTPage
         }
         catch (Exception exp)
         {
-          divChangePasswdFailureText.InnerHtml = Server.HtmlEncode(exp.Message);
-            showChangePasswdFailureText = "true"; 
+          divChangePasswdFailureText.InnerHtml =
+            Server.HtmlEncode(exp.Message.Contains("The new password does not meet security requirements")
+                                ? Resources.ErrorMessages.ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS
+                                : exp.Message);
+          showChangePasswdFailureText = "true";
         }
     var currLanguage = Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
 

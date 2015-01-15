@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllDecisionsAccessToUsageRecord.Text" xml:space="preserve">
-    <value>[FR]Countable – This Decision Type will process all qualified usage records regardless of any previous Decision application. Subsequent Decisions, regardless of their domain, will not be impacted by the usage records processed by a Decision of this Decision Type.</value>
+    <value>Comptable – Ce type de décision traite tous les enregistrements d’utilisation éligibles quelles que soient les autres décisions appliquées. Les décisions ultérieures, quel que soit leur domaine, ne seront pas impactées par les enregistrements d’utilisation traités par une décision de ce type.</value>
   </data>
   <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
@@ -145,16 +145,16 @@
     <value>False</value>
   </data>
   <data name="DecisionApportionQuestion.Text" xml:space="preserve">
-    <value>[FR]What is the domain of this Decision Type?  (This affects how usage records are processed by multiple Decisions.)</value>
+    <value>Quel est le domaine de ce type de décision ?  (Affecte la manière dont les enregistrements d’utilisation sont traités par les décisions multiples.)</value>
   </data>
   <data name="ExclusiveAccessToConsumedUsage.Text" xml:space="preserve">
-    <value>[FR]Ratable – This Decision Type will not process any portion of a usage record that was processed by a previous Ratable domain Decision. Subsequent Ratable domain Decisions will not process any portion of a usage record that was processed by a Decision of this Decision Type.</value>
+    <value>Facturable – Ce type de décision ne traite aucune partie d’un enregistrement d’utilisation traité par une décision du domaine Facturable. Les décisions ultérieures du domaine Facturable ne traiteront aucune partie d’un enregistrement d’utilisation traité par une décision de ce type.</value>
   </data>
   <data name="IntroInfo.Text" xml:space="preserve">
-    <value>[FR]If you have more than one configured Decision, consider how the Decisions might interact.</value>
+    <value>Si plusieurs décisions sont configurées, il est recommandé d’étudier leurs interactions éventuelles.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Decision Interactions</value>
+    <value>Interactions des décisions</value>
   </data>
   <data name="ListItemResource1.Value" xml:space="preserve">
     <value>[FR]ExclusiveAccessToConsumedUsage</value>

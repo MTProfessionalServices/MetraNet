@@ -23,8 +23,8 @@
 
   function iDColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
-   return String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp?ID={0}&ReturnUrl={1}'>{0}</a>"
-              , value, encodeURIComponent("/MetraNet/MetraControl/ScheduledAdaptersInstanceList.aspx?AdapterName=<%=AdapterNameBase64%>&ID=<%=IdAdapter%>")); 
+   return String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/MetraControl/ScheduledAdapters/AdapterInstanceInformation.aspx?ID={0}&ReturnUrl={1}'>{0}</a>"
+              , value, encodeURIComponent("/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdaptersInstanceList.aspx?AdapterName=<%=AdapterNameBase64%>&ID=<%=IdAdapter%>")); 
   }
 
   </script>

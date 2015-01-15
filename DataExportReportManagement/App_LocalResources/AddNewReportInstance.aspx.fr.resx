@@ -172,7 +172,7 @@
         <value>ID de rapport</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
-        <value>Nom du fichier de sortie</value>
+        <value>[FR]Output File Distribution Method</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
         <value>Type de sortie</value>

@@ -130,7 +130,7 @@
         <value>Data da cobrança</value>
     </data>
     <data name="MTPanel1Resource1.Text" xml:space="preserve">
-        <value>Emitir carga fora do padrão</value>
+        <value>Emitir cobrança extraordinária</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>

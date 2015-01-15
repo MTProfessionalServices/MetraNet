@@ -118,66 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DECISIONS_GRID_TITLE" xml:space="preserve">
-    <value>[FR]Decision Types</value>
+    <value>Types de décisions</value>
   </data>
   <data name="lblDecisionDescriptionResource1.Text" xml:space="preserve">
-    <value>[FR]A Decision Type defines a set of actions to take on a specified set of accounts when a summed quantity meets certain criteria.&lt;br/&gt;A Decision, which is an instance of a Decision Type, is processed by the Aggregate Metrics Processor.</value>
+    <value>Un type de décision définit un ensemble d’actions à faire sur un ensemble de comptes spécifié lorsqu’un montant cumulé respecte certains critères.&lt;br/&gt;La décision, qui est une instance d’un type de décision, est traitée par le processeur de mesures consolidées.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Manage Aggregate Metrics Processor (AMP) Decision Types</value>
+    <value>Gérer les types de décisions du processeur de mesures consolidées (AMP)</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[FR]Account Group</value>
+    <value>Groupe de comptes</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[FR]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="TEXT_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[FR]Amount Chain Group</value>
+    <value>Groupe de chaînes de montants</value>
   </data>
   <data name="TEXT_CREATE" xml:space="preserve">
-    <value>[FR]Create New Decision Type</value>
+    <value>Créer nouveau type de décision</value>
   </data>
   <data name="TEXT_CREATE_TOOLTIP" xml:space="preserve">
-    <value>[FR]Create a new Decision Type</value>
+    <value>Créer un nouveau type de décision</value>
   </data>
   <data name="TEXT_DB_PARAMETER_TABLE_NAME" xml:space="preserve">
-    <value>[FR]Internal Parameter Table Name</value>
+    <value>Nom du tableau de paramètres internes</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_ERROR_GET_PARAMETER_TABLE_NAMES" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving Parameter Table Names</value>
+    <value>Erreur pendant la récupération des noms de tableaux de paramètres</value>
   </data>
   <data name="TEXT_IS_ACTIVE" xml:space="preserve">
-    <value>[FR]Is Active?</value>
+    <value>Actif ?</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nom</value>
   </data>
   <data name="TEXT_PARAMETER_TABLE_NAME" xml:space="preserve">
-    <value>[FR]Parameter Table</value>
+    <value>Tableau des paramètres</value>
   </data>
   <data name="TEXT_PRIORITY" xml:space="preserve">
     <value>Priorité</value>
   </data>
   <data name="TEXT_PT_NOT_EXIST" xml:space="preserve">
-    <value>[FR]This action cannot be performed because the parameter table associated with the Decision Type does not exist.</value>
+    <value>Cette action est impossible car le tableau de paramètres associé au type de décision n’existe pas.</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[FR]Unique ID</value>
+    <value>ID unique</value>
   </data>
   <data name="TEXT_USAGE_QUAL_GROUP" xml:space="preserve">
-    <value>[FR]Usage Qual. Group</value>
+    <value>Groupe qual. utilis.</value>
   </data>
   <data name="TITLE_UNABLE_TO_ACTIVATE" xml:space="preserve">
-    <value>[FR]Unable to Activate Decision Type</value>
+    <value>Impossible d’activer le type de décision</value>
   </data>
   <data name="TITLE_UNABLE_TO_CLONE" xml:space="preserve">
-    <value>[FR]Unable to Clone Decision Type</value>
+    <value>Impossible de cloner le type de décision</value>
   </data>
 </root>

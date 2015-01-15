@@ -193,6 +193,6 @@
         <value>[pr-BR]Unhide Product Offering</value>
     </data>
     <data name="TEXT_ViewPO" xml:space="preserve">
-        <value>Ver oferta de produtos</value>
+        <value>Selecionar oferta de produto</value>
     </data>
 </root>

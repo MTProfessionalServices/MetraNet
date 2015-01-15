@@ -124,7 +124,7 @@
         <value>Gérer les ajustements divers</value>
     </data>
     <data name="NO_RECORDS_TEXT" xml:space="preserve">
-        <value>Aucun enregistrement trouvé.</value>
+        <value>Aucun enregistrement trouvé</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet - Gérer les ajustements divers</value>
@@ -193,7 +193,7 @@
         <value>ID de l’intervalle</value>
     </data>
     <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-        <value>Taxe, locale</value>
+        <value>Taxe locale</value>
     </data>
     <data name="TEXT_NO_IDS" xml:space="preserve">
         <value>Sélectionnez les ajustements à traiter.</value>
@@ -202,7 +202,7 @@
         <value>Autre</value>
     </data>
     <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-        <value>Taxe, autre</value>
+        <value>Autre taxe</value>
     </data>
     <data name="TEXT_PENDING_STATUS" xml:space="preserve">
         <value>En attente</value>
@@ -217,7 +217,7 @@
         <value>Type de session</value>
     </data>
     <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-        <value>Etat appliquant la taxe</value>
+        <value>Taxe appliquée par l’État</value>
     </data>
     <data name="TEXT_STATUS" xml:space="preserve">
         <value>État</value>

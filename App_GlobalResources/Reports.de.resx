@@ -156,6 +156,9 @@
   <data name="TEXT_DATE_LAST" xml:space="preserve">
     <value>[DE]Date Last</value>
   </data>
+  <data name="TEXT_DEFERRED_CODE" xml:space="preserve">
+    <value>[DE]Deferred</value>
+  </data>
   <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
     <value>[DE]Deferred revenue code</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="TEXT_DISTINCT_PAYERS" xml:space="preserve">
     <value>[DE]Distinct Payers</value>
   </data>
+  <data name="TEXT_EARNED_CODE" xml:space="preserve">
+    <value>[DE]Earned</value>
+  </data>
   <data name="TEXT_EXPECTED" xml:space="preserve">
     <value>[DE]Expected</value>
   </data>
@@ -182,6 +188,9 @@
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION" xml:space="preserve">
     <value>[DE]Group Subscription</value>
+  </data>
+  <data name="TEXT_INCREMENTAL_CODE" xml:space="preserve">
+    <value>[DE]Incremental</value>
   </data>
   <data name="TEXT_INVOICE_METHOD" xml:space="preserve">
     <value>[DE]Invoice Method</value>
@@ -281,5 +290,194 @@
   </data>
   <data name="TEXT_VIEW_NAME" xml:space="preserve">
     <value>[DE]View Name</value>
+  </data>
+  <data name="TEXT_PARTITION" xml:space="preserve">
+    <value>[DE]Partition</value>
+  </data>
+  <data name="TEXT_AUDIT_ONLY" xml:space="preserve">
+    <value>[DE]Audit Only</value>
+  </data>
+  <data name="TEXT_AVERAGE_AMOUNT" xml:space="preserve">
+    <value>[DE]Average Amount</value>
+  </data>
+  <data name="TEXT_CHARGE_KIND" xml:space="preserve">
+    <value>[DE]Charge Kind</value>
+  </data>
+  <data name="TEXT_DECISION_TYPE" xml:space="preserve">
+    <value>[DE]Decision Type</value>
+  </data>
+  <data name="TEXT_DECISION_UNIQUE_ID" xml:space="preserve">
+    <value>[DE]Decision Unique Id</value>
+  </data>
+  <data name="TEXT_END_DATE" xml:space="preserve">
+    <value>[DE]End Date</value>
+  </data>
+  <data name="TEXT_EXPIRATION_DATE" xml:space="preserve">
+    <value>[DE]Expiration Date</value>
+  </data>
+  <data name="TEXT_EXPIRED" xml:space="preserve">
+    <value>[DE]Expired</value>
+  </data>
+  <data name="TEXT_FINALIZATION_DATE" xml:space="preserve">
+    <value>[DE]Finalization Date</value>
+  </data>
+  <data name="TEXT_FINALIZED" xml:space="preserve">
+    <value>[DE]Finalized</value>
+  </data>
+  <data name="TEXT_ID_ACC" xml:space="preserve">
+    <value>[DE]Account Id</value>
+  </data>
+  <data name="TEXT_ID_USAGE_INTERVAL" xml:space="preserve">
+    <value>[DE]Usage Interval ID</value>
+  </data>
+  <data name="TEXT_INTERVALS_REMAINING" xml:space="preserve">
+    <value>[DE]Intervals Remaining</value>
+  </data>
+  <data name="TEXT_INTERVAL_END" xml:space="preserve">
+    <value>[DE]Interval End</value>
+  </data>
+  <data name="TEXT_INTERVAL_START" xml:space="preserve">
+    <value>[DE]Interval Start</value>
+  </data>
+  <data name="TEXT_MAXIMUM_AMOUNT" xml:space="preserve">
+    <value>[DE]Maximum Amount</value>
+  </data>
+  <data name="TEXT_MESSAGE_TYPE" xml:space="preserve">
+    <value>[DE]Message Type</value>
+  </data>
+  <data name="TEXT_MINIMUM_AMOUNT" xml:space="preserve">
+    <value>[DE]Minimum Amount</value>
+  </data>
+  <data name="TEXT_PARENT_DECISION_UNIQUE_ID" xml:space="preserve">
+    <value>[DE]Parent Decision Unique Id</value>
+  </data>
+  <data name="TEXT_PAYMENT_TYPE" xml:space="preserve">
+    <value>[DE]Payment Type</value>
+  </data>
+  <data name="TEXT_PIPELINE_ID" xml:space="preserve">
+    <value>[DE]Pipeline ID</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_AMOUNT" xml:space="preserve">
+    <value>[DE]Pre Qualified Amount</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_EVENTS" xml:space="preserve">
+    <value>[DE]Pre Qualified Events</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_TOTAL" xml:space="preserve">
+    <value>[DE]Pre Qualified Total</value>
+  </data>
+  <data name="TEXT_PRE_QUALIFIED_UNITS" xml:space="preserve">
+    <value>[DE]Pre Qualified Units</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNTED_AMOUNT" xml:space="preserve">
+    <value>[DE]Pre Total Discounted Amount</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNTED_EVENTS" xml:space="preserve">
+    <value>[DE]Pre Total Discounted Events</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNTED_UNITS" xml:space="preserve">
+    <value>[DE]Pre Total Discounted Units</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
+    <value>[DE]Pre Total Discount Amount</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
+    <value>[DE]Pre Total Generated Amount</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_GENERATED_EVENTS" xml:space="preserve">
+    <value>[DE]Pre Total Generated Events</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_AMOUNT_AFTER" xml:space="preserve">
+    <value>[DE]Pre Total Rated Amount After</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_AMOUNT_DELTA" xml:space="preserve">
+    <value>[DE]Pre Total Rated Amount Delta</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_EVENTS" xml:space="preserve">
+    <value>[DE]Pre Total Rated Events</value>
+  </data>
+  <data name="TEXT_PRE_TOTAL_RATED_UNITS" xml:space="preserve">
+    <value>[DE]Pre Total Rated Units</value>
+  </data>
+  <data name="TEXT_QUALIFIED_AMOUNT" xml:space="preserve">
+    <value>[DE]Qualified Amount</value>
+  </data>
+  <data name="TEXT_QUALIFIED_EVENTS" xml:space="preserve">
+    <value>[DE]Qualified Events</value>
+  </data>
+  <data name="TEXT_QUALIFIED_TOTAL" xml:space="preserve">
+    <value>[DE]Qualified total</value>
+  </data>
+  <data name="TEXT_QUALIFIED_UNITS" xml:space="preserve">
+    <value>[DE]Qualified Units</value>
+  </data>
+  <data name="TEXT_START_DATE" xml:space="preserve">
+    <value>[DE]Start Date</value>
+  </data>
+  <data name="TEXT_TIER_END" xml:space="preserve">
+    <value>[DE]Tier End</value>
+  </data>
+  <data name="TEXT_TIER_START" xml:space="preserve">
+    <value>[DE]Tier Start</value>
+  </data>
+  <data name="TEXT_TOTAL_ADJUSTMENT_AMOUNT" xml:space="preserve">
+    <value>[DE]Total Adjustment Amount</value>
+  </data>
+  <data name="TEXT_TOTAL_AMOUNT" xml:space="preserve">
+    <value>[DE]Total Amount</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNTED_AMOUNT" xml:space="preserve">
+    <value>[DE]Total Discounted Amount</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNTED_EVENTS" xml:space="preserve">
+    <value>[DE]Total Discounted Events</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNTED_UNITS" xml:space="preserve">
+    <value>[DE]Total Discounted Units</value>
+  </data>
+  <data name="TEXT_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
+    <value>[DE]Total Discount Amount</value>
+  </data>
+  <data name="TEXT_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
+    <value>[DE]Total Generated Amount</value>
+  </data>
+  <data name="TEXT_TOTAL_GENERATED_EVENTS" xml:space="preserve">
+    <value>[DE]Total Generated Events</value>
+  </data>
+  <data name="TEXT_TOTAL_PAYMENT_AMOUNT" xml:space="preserve">
+    <value>[DE]Total Payment Amount</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_AMOUNT_AFTER" xml:space="preserve">
+    <value>[DE]Total Rated Amount After</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_AMOUNT_DELTA" xml:space="preserve">
+    <value>[DE]Total Rated Amount Delta</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_EVENTS" xml:space="preserve">
+    <value>[DE]Total Rated Events</value>
+  </data>
+  <data name="TEXT_TOTAL_RATED_UNITS" xml:space="preserve">
+    <value>[DE]Total Rated Units</value>
+  </data>
+  <data name="TEXT_TOTAL_TAX_AMOUNT" xml:space="preserve">
+    <value>[DE]Total Tax Amount</value>
+  </data>
+  <data name="TEXT_TRANSACTION_COUNT" xml:space="preserve">
+    <value>[DE]Transaction Count</value>
+  </data>
+  <data name="TEXT_UNPROCESSED_MESSAGES" xml:space="preserve">
+    <value>[DE]Unprocessed Messages</value>
+  </data>
+  <data name="TEXT_ZIP" xml:space="preserve">
+    <value>[DE]Zip</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_DT_END" xml:space="preserve">
+    <value>[DE]Date End</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_DT_START" xml:space="preserve">
+    <value>[DE]Date Start</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_ID_INTERVAL" xml:space="preserve">
+    <value>[DE]Interval Id</value>
   </data>
 </root>

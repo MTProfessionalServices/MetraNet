@@ -118,69 +118,68 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GENERATEDCHARGES_GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]Generated Charges/Credits</value>
+    <value>Encargos/créditos gerados</value>
   </data>
   <data name="lbChargeValueResource1.Text" xml:space="preserve">
-    <value>[pt-BR]What should the value of the Charge/Credit be?</value>
+    <value>Qual deve ser o valor do encargo/crédito?</value>
   </data>
   <data name="lbHowApplied.Text" xml:space="preserve">
-    <value>[pt-BR]How should the Charge/Credit be applied?</value>
+    <value>Ajuda: como deveria a cobrança/crédito ser aplicada?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[pt-BR]Charge/Credit: Attributes</value>
+    <value>Cobrança/Crédito: Atributos</value>
   </data>
   <data name="lbNegativeValueResource1.Text" xml:space="preserve">
-    <value>[pt-BR]A negative value indicates a credit.</value>
+    <value>Um valor negativo indica um crédito.</value>
   </data>
   <data name="lbPositiveValueResource1.Text" xml:space="preserve">
-    <value>[pt-BR]A positive value indicates a charge.</value>
+    <value>Um valor positivo indica um encargo.</value>
   </data>
   <data name="lbSelectFromGrid.Text" xml:space="preserve">
-    <value>[pt-BR]Select a Generated Charge/Credit from the grid or add a new one:</value>
+    <value>Selecione um encargo/crédito gerado da grade ou adicione um novo:</value>
   </data>
   <data name="lbWhenGenerate.Text" xml:space="preserve">
-    <value>[pt-BR]When should the new Charge/Credit be generated?</value>
+    <value>Quando o novo encargo/crédito deve ser gerado?</value>
   </data>
   <data name="radAggrMultText" xml:space="preserve">
-    <value>[pt-BR]As an aggregate multiplier</value>
+    <value>Como um multiplicador agregado</value>
   </data>
   <data name="radEntireValueText" xml:space="preserve">
-    <value>[pt-BR]Apply the entire charge/credit value</value>
+    <value>Aplicar todo o valor de encargo/crédito</value>
   </data>
   <data name="radEveryTimeText" xml:space="preserve">
-    <value>[pt-BR]Every time a usage record falls within the Decision Range.</value>
+    <value>Cada vez que um registro de uso fica dentro do Intervalo de decisão.</value>
   </data>
   <data name="radInvPropText" xml:space="preserve">
-    <value>[pt-BR]Inversely proportionally</value>
+    <value>Inversamente proporcional</value>
   </data>
   <data name="radOnceAfterSummedText" xml:space="preserve">
-    <value>[pt-BR]Only once, after all the usage records have been summed, if the total falls within the Decision Range.</value>
+    <value>Somente uma vez, após a soma de todos os registros de uso, se o total ficar dentro do Intervalo de decisão.</value>
   </data>
   <data name="radOnceFirstEnterText" xml:space="preserve">
-    <value>[pt-BR]Only once, when a usage record first causes the total to &lt;i&gt;enter&lt;/i&gt; the Decision Range.</value>
+    <value>Somente uma vez, quando um registro de uso faz com que o total &lt;i&gt;entre&lt;/i&gt; pela primeira vez no Intervalo de decisão.</value>
   </data>
   <data name="radOnceFirstExitText" xml:space="preserve">
-    <value>[pt-BR]Only once, when a usage record first causes the total to &lt;i&gt;exit&lt;/i&gt; the Decision Range.</value>
+    <value>Somente uma vez, quando um registro de uso faz com que o total &lt;i&gt;saia&lt;/i&gt; pela primeira vez do Intervalo de decisão.</value>
   </data>
   <data name="radParamTableText" xml:space="preserve">
-    <value>[pt-BR]From parameter table</value>
+    <value>Da tabela de parâmetros</value>
   </data>
   <data name="radPropText" xml:space="preserve">
-    <value>[pt-BR]Proportionally</value>
+    <value>proporcional</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>[pt-BR]Create New Generated Charge</value>
+    <value>Criar novo encargo gerado</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>[pt-BR]Create a new Generated Charge or Credit</value>
+    <value>Criar um novo encargo ou crédito gerado</value>
   </data>
   <data name="TEXT_ERROR_NO_GENERATED_CHARGE" xml:space="preserve">
-    <value>[pt-BR]Error: You must select a Charge/Credit in the grid</value>
+    <value>Erro: você deve selecionar um encargo/crédito na grade</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_CHARGE_COLUMN_NAMES" xml:space="preserve">
-    <value>[pt-BR]An error occurred while retrieving Charge Column Names from table '{0}'</value>
+    <value>Ocorreu um erro ao recuperar nomes de coluna para tabela de banco de dados '{0}'</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_CHARGE_CREDIT_ATTRIBUTE" xml:space="preserve">
-    <value>[pt-BR]An error occurred while updating the generated charge attributes of Decision Type: </value>
-  </data>
+    <value>Ocorreu um erro ao atualizar os atributos de encargo gerados de Tipo de decisão: </value>  </data>
 </root>

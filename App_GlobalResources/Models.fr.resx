@@ -133,7 +133,7 @@
         <value>Valeur par défaut :</value>
     </data>
     <data name="SpecCharacteristicModel_Description" xml:space="preserve">
-        <value>Description:</value>
+        <value>Description :</value>
     </data>
     <data name="SpecCharacteristicModel_DisplayOrder" xml:space="preserve">
         <value>Ordre d’affichage :</value>
@@ -229,7 +229,7 @@
         <value>Type de propriété :</value>
     </data>
     <data name="SpecCharacteristicValueModel_StringValue" xml:space="preserve">
-        <value>Valeur de chaîne</value>
+        <value>Valeur de chaîne :</value>
     </data>
     <data name="SpecCharacteristicValueModel_UserEditable" xml:space="preserve">
         <value>Modifiable :</value>

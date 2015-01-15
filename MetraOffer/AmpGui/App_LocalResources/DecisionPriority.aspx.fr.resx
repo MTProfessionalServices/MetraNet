@@ -142,22 +142,22 @@
     <value>False</value>
   </data>
   <data name="DecisionPriority.Text" xml:space="preserve">
-    <value>[FR]Decision Priority</value>
+    <value>Priorité de décision</value>
   </data>
   <data name="DECISIONS_GRID_TITLE" xml:space="preserve">
-    <value>[FR]Decision Types Ordered by Priority (lower number means earlier execution):</value>
+    <value>Types de décisions classés par priorité (plus le nombre est petit, plus l’exécution est tôt) :</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Decision Interactions</value>
+    <value>Interactions des décisions</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="PriorityLevelLabel.Text" xml:space="preserve">
-    <value>[FR]Priority Level:</value>
+    <value>Niveau de priorité :</value>
   </data>
   <data name="tbPriorityLevel" xml:space="preserve">
-    <value>[FR]Fixed value</value>
+    <value>Valeur fixe</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
@@ -166,6 +166,6 @@
     <value>Nom</value>
   </data>
   <data name="TEXT_NUMERIC_PRIORITY_LEVEL" xml:space="preserve">
-    <value>[FR]Numeric Priority Level</value>
+    <value>Niveau de priorité numérique</value>
   </data>
 </root>

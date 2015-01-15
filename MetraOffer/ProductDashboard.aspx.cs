@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
 
 public partial class ProductDashboard : MTPage
 {
-
   #region Localization Fields
 
   protected string MrrTotalGraphTitle;
@@ -39,10 +40,9 @@ public partial class ProductDashboard : MTPage
 
   protected override void OnLoadComplete(EventArgs e)
   {
-
     try
     {
-      loadGrids();
+      LoadGrids();
     }
     catch (Exception ex)
     {
@@ -51,46 +51,39 @@ public partial class ProductDashboard : MTPage
     base.OnLoadComplete(e);
   }
 
-
-  private void loadGrids()
+  private void LoadGrids()
   {
-    string querydir = "..\\Extensions\\SystemConfig\\config\\SqlCore\\Queries\\UI\\Dashboard";
+    const string querydir = "..\\Extensions\\SystemConfig\\config\\SqlCore\\Queries\\UI\\Dashboard";
 
-    Dictionary<string, object> paramDictForRecentOfferingChanges = new Dictionary<string, object>();
-    paramDictForRecentOfferingChanges.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy"));
-    ConfigureAndLoadGrid(grdRecentOfferingChanges, "__GET_RECENT_OFFERING_CHANGES__", querydir, paramDictForRecentOfferingChanges);
-
-    Dictionary<string, object> paramDictForRecentRateChanges = new Dictionary<string, object>();
-    paramDictForRecentRateChanges.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy"));
+    var paramDictForRecentOfferingChanges = new Dictionary<string, object>
+      {
+        {"%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)}
+      };
+    ConfigureAndLoadGrid(grdRecentOfferingChanges, "__GET_RECENT_OFFERING_CHANGES__", querydir,
+                         paramDictForRecentOfferingChanges);
+    
+    var paramDictForRecentRateChanges = new Dictionary<string, object>
+      {
+        {"%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)}
+      };
     ConfigureAndLoadGrid(grdRecentRateChanges, "__GET_RECENT_RATE_CHANGES__", querydir, paramDictForRecentRateChanges);
 
-    Dictionary<string, object> paramDict = new Dictionary<string, object>();
-    paramDict.Add("%%USERNAME%%", UI.User.UserName);
-    paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy"));
+    var paramDict = new Dictionary<string, object>
+      {
+        {"%%USERNAME%%", UI.User.UserName},
+        {"%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture)}
+      };
     ConfigureAndLoadGrid(grdMyRecentChanges, "__GET_MY_RECENT_CHANGES__", querydir, paramDict);
   }
 
-
-
   private void ConfigureAndLoadGrid(MTFilterGrid grid, string queryName, string queryPath, Dictionary<string, object> paramDict)
   {
-    SQLQueryInfo sqi = new SQLQueryInfo();
-    sqi.QueryName = queryName;
-    sqi.QueryDir = queryPath;
+    var sqi = new SQLQueryInfo {QueryName = queryName, QueryDir = queryPath};
 
-    if (paramDict != null)
-    {
-      foreach (var pair in paramDict)
-      {
-        SQLQueryParam param = new SQLQueryParam();
-        param = new SQLQueryParam();
-        param.FieldName = pair.Key;
-        param.FieldValue = pair.Value;
-        sqi.Params.Add(param);
-      }
-    }
+    foreach (var param in paramDict.Select(pair => new SQLQueryParam {FieldName = pair.Key, FieldValue = pair.Value}))
+      sqi.Params.Add(param);
 
-    string qsParam = MetraTech.UI.Common.SQLQueryInfo.Compact(sqi);
+    var qsParam = MetraTech.UI.Common.SQLQueryInfo.Compact(sqi);
     grid.DataSourceURLParams.Add("q", qsParam);
     grid.DataSourceURLParams.Add("batchsize", "100");
   }
@@ -107,11 +100,9 @@ public partial class ProductDashboard : MTPage
     MrrTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_MRR_TOOLTIP"));
     SubscriptionsTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_SUBSCRIPTIONS_TOOLTIP"));
     GainTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_GAIN_TOOLTIP"));
-    LossTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_LOSS_TOOLTIP"));    
-  	RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP"));
+    LossTooltipText = Convert.ToString(GetLocalResourceObject("TEXT_LOSS_TOOLTIP"));
+    RevenueText = Convert.ToString(GetLocalResourceObject("TEXT_REVENUE_TOOLTIP"));
     DateStampForGraph = String.Format("{0} {1}", MetraTech.MetraTime.Now.AddMonths(-1).ToString("MMMM"), MetraTech.MetraTime.Now.AddMonths(-1).Year);
     Last30DaysText = Convert.ToString(GetLocalResourceObject("TEXT_LAST_30_DAYS"));
   }
 }
-
-

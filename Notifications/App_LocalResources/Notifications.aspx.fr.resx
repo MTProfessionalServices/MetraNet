@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>[FR]No records found.</value>
+    <value>Aucun enregistrement trouvé</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>[FR]Date</value>
+    <value>d’exp.</value>
   </data>
   <data name="TEXT_NOTIFICATIONS_EVENT_TYPE" xml:space="preserve">
-    <value>[FR]Type</value>
+    <value>Type</value>
   </data>
   <data name="TEXT_NOTIFICATION_BODY" xml:space="preserve">
-    <value>[FR]Notification</value>
+    <value>Notification</value>
   </data>
   <data name="TEXT_PARTITION" xml:space="preserve">
-    <value>[FR]Partition</value>
+    <value>Partition</value>
   </data>
   <data name="TEXT_PARTITION_ID" xml:space="preserve">
-    <value>[FR]Partition ID</value>
+    <value>ID de partition</value>
   </data>
 </root>

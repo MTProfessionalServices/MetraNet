@@ -130,25 +130,25 @@
         <value>Recentes alterações da taxa de</value>
     </data>
     <data name="pnlTop10MMRResource1.Text" xml:space="preserve">
-        <value>{PT-BR}Top 10 MRR</value>
+        <value>10 MRRs principais</value>
     </data>
     <data name="pnlTop10NewCustomersResource1.Text" xml:space="preserve">
-        <value>{PT-BR}Top 10 New Customers (Last 30 days)</value>
+        <value>10 principais clientes novos (últimos 30 dias)</value>
     </data>
     <data name="pnlTop10RevenueResource1.Text" xml:space="preserve">
-        <value>{PT-BR}Top 10 Revenue</value>
+        <value>10 receitas principais</value>
     </data>
     <data name="pnlTop10SubsResource1.Text" xml:space="preserve">
-        <value>{PT-BR}Top 10 Subscriptions</value>
+        <value>Assinaturas de pasta</value>
     </data>
     <data name="pnlTop10UniqueCustomersResource1.Text" xml:space="preserve">
-        <value>{PT-BR}Top 10 Customers</value>
+        <value>10 clientes principais</value>
     </data>
     <data name="TEXT_CHANGE_DATE" xml:space="preserve">
-        <value>Alterar Data</value>
+        <value>Data da cobrança</value>
     </data>
     <data name="TEXT_CHANGE_DESCRIPTION" xml:space="preserve">
-        <value>Alterar Descrição</value>
+        <value>Descrição da cobrança</value>
     </data>
     <data name="TEXT_DETAILS" xml:space="preserve">
         <value>Detalhes</value>
@@ -160,25 +160,25 @@
         <value>(Últimos 30 dias)</value>
     </data>
     <data name="TEXT_LOSS_TOOLTIP" xml:space="preserve">
-        <value>Perda</value>
+        <value>Logs</value>
     </data>
     <data name="TEXT_MRR_GAIN" xml:space="preserve">
-        <value>MRR Gain</value>
+        <value>Ganho de MRR</value>
     </data>
     <data name="TEXT_MRR_LOSS" xml:space="preserve">
-        <value>MRR Loss</value>
+        <value>Perda de MRR</value>
     </data>
     <data name="TEXT_MRR_TOOLTIP" xml:space="preserve">
         <value>MRR</value>
     </data>
     <data name="TEXT_MRR_TOTAL" xml:space="preserve">
-        <value>MRR Total</value>
+        <value>Total de MRR</value>
     </data>
     <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
         <value>Não foram encontrados dados</value>
     </data>
     <data name="TEXT_NO_RECORDS" xml:space="preserve">
-        <value>Sem registos</value>
+        <value>Sem registros</value>
     </data>
     <data name="TEXT_PO_ID" xml:space="preserve">
         <value>Id de PO</value>
@@ -199,7 +199,7 @@
         <value>ID da agenda</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_GAIN" xml:space="preserve">
-        <value>Assinaturas Gain</value>
+        <value>Duração da assinatura</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_LOSS" xml:space="preserve">
         <value>Perda de Assinaturas</value>
@@ -208,7 +208,7 @@
         <value>Assinaturas</value>
     </data>
     <data name="TEXT_SUBSCRIPTIONS_TOTAL" xml:space="preserve">
-        <value>Assinaturas total</value>
+        <value>Detalhes da assinatura</value>
     </data>
     <data name="TEXT_USER_NAME" xml:space="preserve">
         <value>Nome do usuário</value>
@@ -217,6 +217,6 @@
         <value>por</value>
     </data>
     <data name="VIEW_PO_TEXT" xml:space="preserve">
-        <value>Ver oferta de produtos</value>
+        <value>Adicionar oferta de produto</value>
     </data>
 </root>

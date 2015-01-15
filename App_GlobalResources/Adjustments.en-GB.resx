@@ -117,40 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tbCommentResource1.Label" xml:space="preserve">
-    <value>Commentaire</value>
+  <data name="TEXT_Details_for_ajustment_not_found" xml:space="preserve">
+    <value>Details for ajustment not found!</value>
   </data>
-  <data name="cbResubmitNowResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]Resubmit Now</value>
+  <data name="TEXT_Successfully_approved_adjustments" xml:space="preserve">
+    <value>Successfully approved adjustments.</value>
   </data>
-  <data name="ddDismissedReasonCodeResource1.Label" xml:space="preserve">
-    <value>[FR]Reason Code</value>
+  <data name="TEXT_Successfully_approved_all_miscellaneous_adjustments" xml:space="preserve">
+    <value>Successfully approved all miscellaneous adjustments.</value>
   </data>
-  <data name="ddInvestigationReasonCodeResource1.Label" xml:space="preserve">
-    <value>[FR]Reason Code</value>
+  <data name="TEXT_Successfully_approved_all_selected_adjustments" xml:space="preserve">
+    <value>Successfully approved all selected adjustments.</value>
   </data>
-  <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[FR]Change Case / Failed Transaction Status</value>
+  <data name="TEXT_Successfully_approved_miscellaneous_adjustment" xml:space="preserve">
+    <value>Successfully approved miscellaneous adjustment.</value>
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
+  <data name="TEXT_Successfully_deleted_all_selected_adjustments" xml:space="preserve">
+    <value>Successfully deleted all selected adjustments.</value>
   </data>
-  <data name="pleaseSelectNewStatusMessage.Text" xml:space="preserve">
-    <value>[FR]Please select a new status for the selected transaction(s) or click the "Close" button to cancel.</value>
+  <data name="TEXT_Successfully_denied_all_miscellaneous_adjustments" xml:space="preserve">
+    <value>Successfully denied all miscellaneous adjustments.</value>
   </data>
-  <data name="radCorrectedResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Corrected&lt;/b&gt; - This transaction has been resolved and is ready to be resubmitted</value>
+  <data name="TEXT_Successfully_denied_miscellaneous_adjustment" xml:space="preserve">
+    <value>Successfully denied miscellaneous adjustment.</value>
   </data>
-  <data name="radDismissedResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Dismissed&lt;/b&gt; - This transaction cannot be resolved or it is not cost effective to do so.</value>
+  <data name="TEXT_Successfully_denyed_adjustments" xml:space="preserve">
+    <value>Successfully denied adjustments.</value>
   </data>
-  <data name="radOpenResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Open&lt;/b&gt; - This transaction is currently unresolved.</value>
-  </data>
-  <data name="radUnderResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]&lt;b&gt;Under Investigation&lt;/b&gt; - This transaction is currently unresolved but is being investigated.</value>
-  </data>
-  <data name="ResubmitProgress.Text" xml:space="preserve">
-    <value>[FR]Resubmit failed transactions in progress...</value>
+  <data name="TEXT_Successfully_submitted_request_to_generate_Credit_Note_pdf" xml:space="preserve">
+    <value>Successfully submitted request to generate Credit Note pdf.</value>
   </data>
 </root>

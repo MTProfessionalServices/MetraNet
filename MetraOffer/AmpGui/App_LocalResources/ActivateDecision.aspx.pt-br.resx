@@ -121,7 +121,7 @@
     <value>True</value>
   </data>
   <data name="ErrorCheckFirstLabel.Text" xml:space="preserve">
-    <value>[pt-BR]You must do an Error Check before activating your Decision Type.</value>
+    <value>Você deve fazer uma Verificação de erro antes de ativar seu Tipo de decisão.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Resultados da ativação</value>

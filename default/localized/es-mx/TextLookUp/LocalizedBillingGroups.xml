@@ -413,4 +413,7 @@
   <text id="TEXT_MINUTE_PLURAL">
     <value>[ES-MX]minutes</value>
   </text>
+  <text id="TEXT_RETURN_TO_INTERVAL_LIST">
+    <value>[es-MX]Return To Interval List</value>
+  </text>
 </texts>

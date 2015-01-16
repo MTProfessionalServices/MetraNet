@@ -80,6 +80,18 @@
     <SupportedDataTypes>
       <DataType>String</DataType>
     </SupportedDataTypes>
+  </Validator> 
+   <Validator>
+    <Name>allsymbolnum</Name>
+    <DisplayName> All Alpha Numeric</DisplayName>
+    <Description></Description>
+    <SupportedDataTypes>
+      <DataType>String</DataType>
+      <DataType>Int32</DataType>
+      <DataType>Int64</DataType>
+      <DataType>Double</DataType>
+      <DataType>Decimal</DataType>
+    </SupportedDataTypes>
   </Validator>  
 </Validators>
 </PageLayout>

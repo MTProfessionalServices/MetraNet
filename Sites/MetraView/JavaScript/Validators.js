@@ -69,5 +69,17 @@ Ext.onReady(function(){
   }(),
     'digitsText': TEXT_ACCOUNTNO_VALIDATION_MESSAGE
 });
+
+//AllSymbolNum
+  Ext.apply(Ext.form.VTypes, {
+    'allsymbolnum': function () {
+      var re = /^[\u00BF-\u1FFF\u2C00-\uD7FF\w]+$/;
+      return function (v) {
+        return re.test(v);
+      }
+    } (),
+    'allsymbolnumText': 'This field should only contain letters(including Unicode), numbers and _'
+  });
+
   
 });

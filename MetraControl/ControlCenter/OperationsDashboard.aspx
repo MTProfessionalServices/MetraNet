@@ -23,21 +23,25 @@
 
     <style>
    
+    body { 
+      overflow-y: hidden;
+    }
+      
     .dc-chart g.row text {
-    fill: black;
-    /*cursor: pointer;*/
-    font: bold 11px tahoma,arial,verdana,sans-serif;
-  }
+      fill: black;
+      /*cursor: pointer;*/
+      font: bold 11px tahoma,arial,verdana,sans-serif;
+    }
   
-  .dc-chart rect.bar {
-    cursor: default !important;
-  }
+    .dc-chart rect.bar {
+      cursor: default !important;
+    }
 
-   .x-panel-bwrap,.x-panel-body
-   {
+    .x-panel-bwrap,.x-panel-body
+    {
       width: 100% !important;
       height: 100% !important;
-   }
+    }
     
     .x-panel-body
     {

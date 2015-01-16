@@ -378,14 +378,13 @@ AdapterNameLinkRenderer = function(value, meta, record, rowIndex, colIndex, stor
   str += String.format("<a style='cursor:hand; cursor:pointer;' href='/MetraNet/MetraControl/ScheduledAdapters/AdapterInstanceInformation.aspx?ID={0}", record.data.id_instance);
   if (record.data.id_billgroup)
   {
-	str += String.format("**BillingGroupId={0}", record.data.id_billgroup);
+	str += String.format("&BillingGroupId={0}", record.data.id_billgroup);
   }
   if (record.data.id_interval)
   {
-	str += String.format("**IntervalId={0}", record.data.id_interval);
+	str += String.format("&IntervalId={0}", record.data.id_interval);
   }
-  str += String.format("**ReturnUrl=%2FMetraNet%2FMetraControl%2FControlCenter%2FOperationsDashboard%2Easpx'>{0}</a>", value);
-  
+  str += String.format("&ReturnUrl=%2FMetraNet%2FMetraControl%2FControlCenter%2FOperationsDashboard%2Easpx'>{0}</a>", value);
   return str;
 };      
 

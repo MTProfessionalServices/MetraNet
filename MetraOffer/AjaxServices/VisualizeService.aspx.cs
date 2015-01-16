@@ -37,10 +37,6 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
         MTList<SQLRecord> items = new MTList<SQLRecord>();
         Dictionary<string, object> paramDict = new Dictionary<string, object>();
 
-        //System.Diagnostics.Debugger.Break();
-        string connectionInfo = "NetMeter";
-        string catalog = "NetMeter";
-
 
         if (operation.Equals("ftoverxdays"))
         {
@@ -55,57 +51,57 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           }
 
           paramDict.Add("%%AGE_THRESHOLD%%", int.Parse(threshold));
-          VisualizeService.GetData(connectionInfo, catalog, "__GET_FAILEDTRANSACTIONS_OVERXDAYS__", paramDict, ref items);
+          VisualizeService.GetData("__GET_FAILEDTRANSACTIONS_OVERXDAYS__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopMRR") && showFinancialData)
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRR__", paramDict, ref items);
+          VisualizeService.GetData("__SubscriptionSummary_TopMRR__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopMRRGain")  && showFinancialData)
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRGain__", paramDict, ref items);
+          VisualizeService.GetData("__SubscriptionSummary_TopMRRGain__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopMRRLoss")  && showFinancialData)
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopMRRLoss__", paramDict, ref items);
+          VisualizeService.GetData("__SubscriptionSummary_TopMRRLoss__", paramDict, ref items);
         }
 
         else if (operation.Equals("AnalyticsTopSubscriptions")  && showFinancialData)
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptions__", paramDict, ref items);
+          VisualizeService.GetData("__SubscriptionSummary_TopSubscriptions__", paramDict, ref items);
         }
         else if (operation.Equals("AnalyticsTopSubscriptionGain")  && showFinancialData)
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsGain__", paramDict,
+          VisualizeService.GetData("__SubscriptionSummary_TopSubscriptionsGain__", paramDict,
                                    ref items);
         }
         else if (operation.Equals("AnalyticsTopSubscriptionLoss")  && showFinancialData)
         {
           paramDict.Add("%%ID_LANG%%", UI.SessionContext.LanguageID);
           paramDict.Add("%%CURRENT_DATETIME%%", MetraTech.MetraTime.Now);
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsLoss__", paramDict,
+          VisualizeService.GetData("__SubscriptionSummary_TopSubscriptionsLoss__", paramDict,
                                    ref items);
         }
 
         else if (operation.Equals("AnalyticsTopOfferingsByNewCustomers")  && showFinancialData)
         {
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_TopSubscriptionsByNewCustomers__",
+          VisualizeService.GetData("__SubscriptionSummary_TopSubscriptionsByNewCustomers__",
                                    null, ref items);
         }
 
         else if (operation.Equals("AnalyticsSingleProductOverTime")  && showFinancialData)
         {
-          VisualizeService.GetData(connectionInfo, catalog, "__SubscriptionSummary_SingleProductOverTime__", null,
+          VisualizeService.GetData("__SubscriptionSummary_SingleProductOverTime__", null,
                                    ref items);
         }
 
@@ -127,9 +123,9 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
           paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
 
           if (operation.Equals("billclosedetails"))
-            VisualizeService.GetData(connectionInfo, catalog, "__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
+            VisualizeService.GetData("__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
           else
-            VisualizeService.GetData(connectionInfo, catalog, "__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
+            VisualizeService.GetData("__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
 
         }
 

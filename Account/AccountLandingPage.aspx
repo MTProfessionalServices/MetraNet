@@ -219,9 +219,9 @@ white-space:nowrap;
     </MT:MTPanel>
     <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid>   --%>
   </div>
-  <table style="width:100%; height:100%;">
+  <table style="width:100%; height:100%; border-spacing: 0px">
     <tr style="vertical-align: top;">
-      <td style="width: 380px; height: 336px;"> 
+      <td style="width: 380px;"> 
         <div class="widget" data-row="3" data-col="1" data-sizex="3" data-sizey="3">
           <MT:MTPanel ID="billingActivityPanel" runat="server"  Width="380" meta:resourcekey="billingActivityPanel">
             <div id="billsPaymentsChart" style="width: 100%; height: 100%;">

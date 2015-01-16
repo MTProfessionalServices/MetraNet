@@ -9,6 +9,7 @@
     var pageno = 1;
     Ext.onReady(function () {
       <%=defineJavaScriptDictionary() %>;
+      var l = <%=getLimit()%>;
       p = new Ext.Panel({
         items: [{
             title: TEXT_RECENT_NOTIFICATION,
@@ -19,7 +20,7 @@
                 Ext.Ajax.request({
                   url: '/MetraNet/Notifications/AjaxServices/GetNotifications.aspx',
                   timeout: 10000,
-                  params: { pageSize: 5, currentPage: pageno },
+                  params: { limit:l, currentPage: pageno },
                   success: function(response) {
                       var template = '';
                       var items;

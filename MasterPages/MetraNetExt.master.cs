@@ -160,9 +160,9 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
 
         MetraTech.Security.Auth auth = new Auth();
         auth.Initialize(BaseUI.User.UserName, BaseUI.User.NameSpace);
-    var addMetraCare = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MAM");
-    var addMetraControl = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MOM");
-    var addMetraOffer = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MCM");
+    var addMetraCare = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MAM", false);
+    var addMetraControl = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MOM", false);
+    var addMetraOffer = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MCM", false);
 
     var strMetraNetMenu = @"{
               contentEl: 'metranet',

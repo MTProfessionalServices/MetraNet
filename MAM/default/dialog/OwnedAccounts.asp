@@ -120,8 +120,8 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A HRef='" & mam_GetDictionary("OWNED_UPDATE_DIALOG") & "?Update=TRUE&id=" &  ProductView.Properties("id_owned") 
 						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&Percentage=" &  ProductView.Properties("n_percent")
 						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&Relationship=" &  ProductView.Properties("id_relation_type")
-						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldStartDate=" &  mam_GetDisplayEndDate(ProductView.Properties("VT_Start"))
-						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldEndDate=" & mam_GetDisplayEndDate(ProductView.Properties("VT_End"))
+						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldStartDate=" &  ProductView.Properties("VT_Start")
+						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldEndDate=" & ProductView.Properties("VT_End")
 						HTML_LINK_EDIT = HTML_LINK_EDIT  & "'><img src='" & mam_GetImagesPath() &  "/edit.gif' Border='0'></A>"						
 
 ' 				  	strMsgBox = mam_GetDictionary("TEXT_WOULD_YOU_LIKE_TO_REMOVE") & " " & server.HTMLEncode(Trim(ProductView.Properties("hierarchyname"))) & " " & mam_GetDictionary("TEXT_FROM") & " " & Server.HTMLEncode(mam_GetSystemUser().AccountName) & "?" 

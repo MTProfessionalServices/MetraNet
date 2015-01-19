@@ -2,7 +2,7 @@
 				DECLARE
 					l_TotalRows number(10,0);
 				BEGIN
-					SELECT COUNT(1) TotalRows into l_TotalRows FROM (%%INNER_QUERY%%) %%TOP_ROWS%%;
+					SELECT COUNT(1) TotalRows into l_TotalRows FROM (%%QUERY_To_RETURN_COUNT%%) %%TOP_ROWS%%;
 					
 					Open :TotalRows for
 						Select l_TotalRows from Dual;

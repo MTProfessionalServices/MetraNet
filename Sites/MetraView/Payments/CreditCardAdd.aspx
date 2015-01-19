@@ -208,6 +208,13 @@
       if (Boolean("<%=UsePaymentBroker%>") != true) { return true; }
 
       // Collect information from user inputs.
+      var typeName = document.getElementById('<%=ddCardType.ClientID%>').value;
+      var type = GetPaymentBrokerCreditCardType(typeName);
+      if (type == 'Unknown') {
+        window.Ext.Msg.alert(window.TEXT_INFO, typeName + ' ' + '<%=CreditCardTypeErrorMessage%>');
+        return false;
+      }
+
       var serverAddress = "<%=PaymentBrokerAddress%>";
       var firstName = document.getElementById('<%=tbFirstName.ClientID%>').value;
       var middleInitial = document.getElementById('<%=tbMiddleInitial.ClientID%>').value;
@@ -219,7 +226,6 @@
       var state = document.getElementById('<%=tbState.ClientID%>').value;
       var zip = document.getElementById('<%=tbZipCode.ClientID%>').value;
       var email = document.getElementById('<%=tbEmail.ClientID%>').value;
-      var type = document.getElementById('<%=ddCardType.ClientID%>').value;
       var cardNumber = document.getElementById('<%=tbCCNumber.ClientID%>').value;
       var verificationCode = document.getElementById('<%=tbCVNNumber.ClientID%>').value;
       var expirationMonth = document.getElementById('<%=ddExpMonth.ClientID%>').value;
@@ -268,13 +274,19 @@
 
     // Handle errors which occur while requesting the payment broker.
     function completeErrorRequest() {
-      document.getElementById('<%=tbCCNumber.ClientID%>').value = 'error';
+      document.getElementById('<%=tbCCNumber.ClientID%>').value = 'PaymentBroker request error occurred';
     }
 
     // Process response from the payment broker.
     function callback(obj) {
       if (obj.ResponseType != 'Success') {
-        document.getElementById('<%=tbCCNumber.ClientID%>').value = 'error';
+        document.getElementById('<%=tbCCNumber.ClientID%>').value = '';
+        Ext.Msg.show({
+          title: TEXT_ERROR,
+          msg: obj.ResponseValue,
+          buttons: Ext.Msg.OK,
+          icon: Ext.MessageBox.ERROR
+        });
       }
       else {
         document.getElementById('<%=tbCCSafeNumber.ClientID%>').value = "******" + document.getElementById('<%=tbCCNumber.ClientID%>').value.substr(12); //document.getElementById('<%=tbCCNumber.ClientID%>').length - 4);

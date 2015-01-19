@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.MetraPay;
+using MetraTech.DomainModel.AccountTypes;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 using MetraTech.Xml;
@@ -37,6 +38,8 @@ public partial class Payments_CreditCardAdd : MTPage
     set { ViewState["PaymentBrokerAddress"] = value; }
   }
 
+  protected string CreditCardTypeErrorMessage { get { return (string)GetLocalResourceObject("CreditCardTypeError"); } }
+
   private bool PayNow
   {
     get { return !String.IsNullOrEmpty(Request.QueryString["pay"]); }
@@ -62,6 +65,23 @@ public partial class Payments_CreditCardAdd : MTPage
       UsePaymentBroker = false;
     }
 
+    var contactView = GetContactView();
+    tbEmail.Text = contactView.Email;
+    CreditCard.FirstName = contactView.FirstName;
+    CreditCard.MiddleName = contactView.MiddleInitial;
+    CreditCard.LastName = contactView.LastName;
+    CreditCard.Street = contactView.Address1;
+    CreditCard.Street2 = contactView.Address2;
+    CreditCard.ZipCode = contactView.Zip;
+    CreditCard.State = contactView.State;
+    CreditCard.City = contactView.City;
+
+    //set country default to USA
+    var country = contactView.Country.ToString();
+    CreditCard.Country = string.IsNullOrEmpty(country)
+      ? PaymentMethodCountry.USA
+      : (PaymentMethodCountry)Enum.Parse(typeof(PaymentMethodCountry), country);
+
     //populate priorities
     PopulatePriority();
 
@@ -85,11 +105,7 @@ public partial class Payments_CreditCardAdd : MTPage
       Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
     }
 
-    //set country default to USA
-    ddCountry.SelectedValue = PaymentMethodCountry.USA.ToString();
-
     PopulatePaymentData();
-
     PrepopulateSubscriberInformation();
     GetIsoCode();
     Response.AppendHeader("Access-Control-Allow-Origin", "*");
@@ -205,6 +221,23 @@ public partial class Payments_CreditCardAdd : MTPage
     sb.Append("</script>");
 
     ClientScript.RegisterStartupScript(GetType(), "GetIsoCode", sb.ToString());
+  }
+
+  private ContactView GetContactView()
+  {
+    ContactView contactView = null;
+    var viewDictionary = UI.Subscriber.SelectedAccount.GetViews();
+    foreach (var views in viewDictionary.Values)
+      foreach (MetraTech.DomainModel.BaseTypes.View view in views)
+      {
+        var cv = view as ContactView;
+        if (cv != null && cv.ContactType == MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation.ContactType.Bill_To)
+        {
+          contactView = cv;
+          return contactView;
+        }
+      }
+    return contactView;
   }
 
   #endregion

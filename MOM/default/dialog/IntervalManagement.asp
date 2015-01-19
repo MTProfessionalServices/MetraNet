@@ -65,6 +65,11 @@ FUNCTION Form_Initialize(EventArg)
   Service.Properties.Add "Status", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
  
   'Service.Properties.Add "Percentage", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
+   If Len(Request.QueryString("ReturnURL")) > 0 Then
+    Service.Properties.Add "ReturnURL", "string", 0, TRUE, Request.QueryString("ReturnURL"), eMSIX_PROPERTY_FLAG_NONE
+  Else
+    Service.Properties.Add "ReturnURL", "string", 0, TRUE, "/MetraNet/MetraControl/BillingManagement/IntervalManagementList.aspx", eMSIX_PROPERTY_FLAG_NONE
+  End If
   
   Form_Initialize = Form_Refresh(EventArg)
 END FUNCTION

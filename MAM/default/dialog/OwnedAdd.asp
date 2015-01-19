@@ -57,8 +57,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "Relationship", "String", 0, TRUE, Empty 
   Service.Properties("Relationship").SetPropertyType "ENUM", "metratech.com", "SaleForceRelationship"	
   Service.Properties.Add "Percentage", "DECIMAL", 0, FALSE, Empty 
-  Service.Properties.Add "StartDate", "TIMESTAMP", 0, TRUE, Empty    
-  Service.Properties.Add "EndDate", "TIMESTAMP", 0, FALSE, Empty    	
+  Service.Properties.Add "StartDate",  "String",  0, TRUE,  Empty    
+  Service.Properties.Add "EndDate",    "String",  0, FALSE, Empty    	
   
 	' Set Captions 
   Service.Properties("Relationship").caption = mam_GetDictionary("TEXT_OWNED_RELATION_TYPE")

@@ -290,5 +290,20 @@
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_AUDIT_HISTORY">
     <value>[ES]Audit History For Failed Transaction Case Number</value>
-  </text>  
+  </text>
+  <text id="TEXT_Message_ID">
+    <value>[ES]Message ID</value>
+  </text>
+  <text id="TEXT_Metered_On">
+    <value>[ES]Metered On</value>
+  </text>
+  <text id="TEXT_Assigned_On">
+    <value>[ES]Assigned On</value>
+  </text>
+  <text id="TEXT_Assigned_To">
+    <value>[ES]Assigned To</value>
+  </text>
+  <text id="TEXT_Session_Count">
+    <value>[ES]Session Count</value>
+  </text> 
 </texts>

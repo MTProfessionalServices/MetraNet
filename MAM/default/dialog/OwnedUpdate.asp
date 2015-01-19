@@ -49,12 +49,12 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 					        ' The Product view if allocated is cleared too.
 
   ' Add dialog properties
-  Service.Properties.Add "Account", "String", 0, TRUE, Empty   
-  Service.Properties.Add "Relationship", "String", 0, TRUE, Empty 
+  Service.Properties.Add "Account",      "String",  0, TRUE,  Empty   
+  Service.Properties.Add "Percentage",   "DECIMAL", 0, FALSE, Empty 
+  Service.Properties.Add "StartDate",    "String",  0, TRUE,  Empty    
+  Service.Properties.Add "EndDate",      "String",  0, FALSE, Empty
+  Service.Properties.Add "Relationship", "String",  0, TRUE,  Empty 
   Service.Properties("Relationship").SetPropertyType "ENUM", "metratech.com", "SaleForceRelationship"	
-  Service.Properties.Add "Percentage", "DECIMAL", 0, FALSE, Empty 
-  Service.Properties.Add "StartDate", "TIMESTAMP", 0, TRUE, Empty    
-  Service.Properties.Add "EndDate", "TIMESTAMP", 0, FALSE, Empty    	
   
 	' Set Captions 
   Service.Properties("Account").caption = mam_GetDictionary("TEXT_OWNED_HIERARCHYNAME")  
@@ -63,19 +63,19 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 	Service.Properties("StartDate").caption = mam_GetDictionary("TEXT_START_DATE")
 	Service.Properties("EndDate").caption = mam_GetDictionary("TEXT_END_DATE")	
 	
-  If FrameWork.IsInfinity(request.QueryString("OldStartDate")) Then
+  If FrameWork.IsInfinity(mam_DateFromLocaleString(request.QueryString("OldStartDate"))) Then
     Form("OldStartDate") = Empty
   Else
   	Form("OldStartDate") = request.QueryString("OldStartDate")
   End If
-  If FrameWork.IsInfinity(request.QueryString("OldEndDate")) Then
+  If FrameWork.IsInfinity(mam_DateFromLocaleString(request.QueryString("OldEndDate"))) Then
     Form("OldEndDate") = Empty
   Else
 	  Form("OldEndDate") = request.QueryString("OldEndDate")
   End If
 
-  Service.Properties("StartDate").Value = CDate(Form("OldStartDate"))
-	Service.Properties("EndDate").Value = CDate(Form("OldEndDate"))	
+  Service.Properties("StartDate").Value = Form("OldStartDate")
+	Service.Properties("EndDate").Value = Form("OldEndDate")
   
   Form("AccountID") = request.QueryString("ID")
   Service.Properties("Account").Value = mam_GetFieldIDFromAccountID(CLng(Form("AccountID")))

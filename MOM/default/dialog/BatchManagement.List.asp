@@ -40,7 +40,7 @@ Form.Version                    = MDM_VERSION     ' Set the dialog version - we 
 Form.ErrorHandler               = TRUE  
 Form.ShowExportIcon             = TRUE
 'Form.Page.MaxRow                = CLng(FrameWork.GetDictionary("MAX_ROW_PER_LIST_PAGE"))
-'Form.Page.NoRecordUserMessage   = FrameWork.GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
+Form.Page.NoRecordUserMessage   = FrameWork.GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
 
 mdm_PVBrowserMain ' invoke the mdm framework
 

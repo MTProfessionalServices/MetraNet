@@ -407,4 +407,7 @@
   <text id="TEXT_MINUTE_PLURAL">
     <value>[FR]minutes</value>
   </text>
+  <text id="TEXT_RETURN_TO_INTERVAL_LIST">
+    <value>[FR]Return To Interval List</value>
+  </text>  
 </texts>

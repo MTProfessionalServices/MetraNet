@@ -196,13 +196,13 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
 
     strTmp = strTmp & "<div class='clsButtonBox'>"       
     strTmp = strTmp & "<button  name='butAdjustSelectedTransaction' Class='clsButtonLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this); return false;'>[TEXT_ADJUST_SELECTED_TRANSACTION]</button><br/>"
-    strTmp = strTmp & "You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</div>"
+    strTmp = strTmp & mam_GetDictionary("TEXT_YOU_MAY_MAKE") & "</div>"
     strTmp = strTmp & "<br/><br/><br/><br/><br/><br/><br/>"
       
     'We do not support bulk re-assignment in pre-bill case, so we added an explination in Kona - CR13822
     strTmp = strTmp & "<div class='clsButtonBox'>"
     strTmp = strTmp & "<button  name='butAdjustRebillTransaction' Class='clsButtonLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this); return false;'>Reassign Selected Transactions</button><br/>"
-    strTmp = strTmp & "You may only bulk reassign transactions when the status is Hard Closed.</div>"
+    strTmp = strTmp & mam_GetDictionary("TEXT_YOU_MAY_ONLY") & "</div>"    
     strTmp = strTmp & "<br/><br/><br/><br/><br/><br/><br/>"
 
     strTmp = strTmp & "<div style='text-align:center'>"

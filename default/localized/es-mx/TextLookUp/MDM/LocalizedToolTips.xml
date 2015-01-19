@@ -119,4 +119,12 @@
     <value>[es-MX]Operation</value>
     <description></description>
   </text>
+  <text id="TEXT_YOU_MAY_MAKE">
+    <value>[es-MX]You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_MAY_ONLY">
+    <value>[es-MX]You may only bulk reassign transactions when the status is Hard Closed.</value>
+    <description></description>
+  </text>
 </texts>

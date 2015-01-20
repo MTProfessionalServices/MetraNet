@@ -20,7 +20,7 @@
       <table cellspacing="0">
         <tr>
           <td  class="x-panel-btn-td">
-              <MT:MTButton  ID="btnManage" runat="server" Text="Manage Newly Created Account"  meta:resourcekey="btnManageResource1" />
+              <MT:MTButton  ID="btnManage" runat="server" Text="Manage Newly Created Account"  meta:resourcekey="btnManageResource1"  OnClientClick="return AccountLoad();" />
           </td>
         </tr>
       </table>  
@@ -30,11 +30,15 @@
   
   
   <script type="text/javascript">
-    Ext.onReady(function(){
-      if(Ext.get('<%=btnManage.ClientID %>'))
-      {
-       Ext.get('<%=btnManage.ClientID %>').on('click', function(e){ Account.Load(<%= NewAccountId %>); }); 
-      }
+    function AccountLoad() {
+      Account.Load(<%= NewAccountId %>);
+      return false;
+    }
+    Ext.onReady(function () {
+     // if(Ext.get('<%=btnManage.ClientID %>'))
+    //  {
+     // Ext.get('<%=btnManage.ClientID %>').on('click', function(e){ Account.Load(<%= NewAccountId %>); }); 
+    //  }
   
     });    
   </script>

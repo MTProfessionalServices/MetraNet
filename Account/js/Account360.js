@@ -250,7 +250,8 @@ function drawGraph(items, displayMRRData) {
     d3.select("#billsPaymentsChart").text(TEXT_NO_DATA_FOR_GRAPH).attr("x", "2").attr("y", "2").style("color", "gray");
     composite.height(275);
   }
-
+  composite.render();
+  composite.redraw();
   dc.renderAll();
 }
 

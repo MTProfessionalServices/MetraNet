@@ -247,8 +247,8 @@ function addTemplateEvents() {
 
 function enableCheckBoxBillable() {
 
-  document.getElementById('cbBillable').parentElement.disabled = false;
-  document.getElementById('cbBillable').disabled = false;
+    document.getElementById('<%=cbBillable.ClientID %>').parentElement.disabled = false;
+    document.getElementById('<%=cbBillable.ClientID %>').disabled = false;
 }
   </script>
 
@@ -578,12 +578,9 @@ function enableCheckBoxBillable() {
     
     Ext.onReady(function () {
       onAuthTypeChange(null, Ext.get("<%=ddAuthenticationType.ClientID %>").dom.value);
-    });
-    Ext.onReady(function () {
       enableCheckBoxBillable();
       addTemplateEvents();
       getTemplateData();
-      
     });
   </script>
 </asp:Content>

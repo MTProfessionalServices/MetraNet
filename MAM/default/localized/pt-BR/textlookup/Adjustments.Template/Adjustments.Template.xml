@@ -17,7 +17,7 @@
   <text id="TransactionFinder.Template:metratech.com/audioconfcall(6)"><value>ScheduledStartTime</value></text>
 
   <!-- metratech.com/songdownloads -->
-  <text id="TransactionFinder.Template:metratech.com/songdownloads(1)"><value>músicas</value></text>
+  <text id="TransactionFinder.Template:metratech.com/songdownloads(1)"><value>songs</value></text>
   <text id="TransactionFinder.Template:metratech.com/songdownloads(2)"><value>mp3bytes</value></text>
   <text id="TransactionFinder.Template:metratech.com/songdownloads(3)"><value>wavbytes</value></text>
   <text id="TransactionFinder.Template:metratech.com/songdownloads(4)"><value>TotalSongs</value></text>

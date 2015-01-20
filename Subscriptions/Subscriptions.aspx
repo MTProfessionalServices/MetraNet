@@ -27,9 +27,9 @@
 
     function dateWithin(beginDate,endDate,checkDate) {
       var b,e,c;
-      b = Date.parseDate(beginDate, DATE_FORMAT);
-      e = Date.parseDate(endDate, DATE_FORMAT);
-      c = Date.parseDate(checkDate, DATE_FORMAT);
+      b = beginDate;
+      e = endDate;
+      c = checkDate;
       if((c <= e && c >= b)) {
         return true;
       }

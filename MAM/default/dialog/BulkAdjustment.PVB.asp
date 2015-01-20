@@ -201,7 +201,8 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
       
     'We do not support bulk re-assignment in pre-bill case, so we added an explination in Kona - CR13822
     strTmp = strTmp & "<div class='clsButtonBox'>"
-    strTmp = strTmp & "<button  name='butAdjustRebillTransaction' Class='clsButtonLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this); return false;'>Reassign Selected Transactions</button><br/>"
+    strTmp = strTmp & "<button  name='butAdjustRebillTransaction' Class='clsButtonLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this); return false;'>"
+    strTmp = strTmp & mam_GetDictionary("TEXT_Reassign_Selected_Transactions") & "</button><br/>"
     strTmp = strTmp & mam_GetDictionary("TEXT_YOU_MAY_ONLY") & "</div>"    
     strTmp = strTmp & "<br/><br/><br/><br/><br/><br/><br/>"
 

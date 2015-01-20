@@ -126,5 +126,9 @@
   <text id="TEXT_YOU_MAY_ONLY">
     <value>[FR]You may only bulk reassign transactions when the status is Hard Closed.</value>
     <description></description>
-  </text>   
+  </text>
+  <text id="TEXT_Reassign_Selected_Transactions">
+    <value>Réaffecter Transactions sélectionnés</value>
+    <description></description>
+  </text>  
 </texts>

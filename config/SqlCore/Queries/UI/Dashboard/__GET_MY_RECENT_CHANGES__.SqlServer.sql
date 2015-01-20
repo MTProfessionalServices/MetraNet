@@ -12,9 +12,9 @@ INNER JOIN t_audit_events ae WITH (nolock)
   ON a.id_event = ae.id_event
 INNER JOIN t_audit_details ad WITH (nolock)
   ON a.id_audit = ad.id_audit
-INNER JOIN t_rsched rs WITH (nolock)
+LEFT OUTER JOIN t_rsched rs WITH (nolock)
   ON rs.id_sched = a.id_entity
-INNER JOIN t_rulesetdefinition rd WITH (nolock)
+LEFT OUTER JOIN t_rulesetdefinition rd WITH (nolock)
   ON rd.id_paramtable = rs.id_pt
 LEFT OUTER JOIN t_account_mapper am WITH (nolock)
   ON am.id_acc = a.id_userid 

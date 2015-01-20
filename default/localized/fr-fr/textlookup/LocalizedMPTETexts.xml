@@ -5,7 +5,7 @@
  
     <!-- Columns -->
     <text id="TEXT_MPTE_BUTTON_SETEFFDATE">
-        <value>Définir la date d'entrée en vigueur et la description</value>
+        <value>Définir la date d`entrée en vigueur et la description</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_FILTERON">
@@ -21,7 +21,7 @@
 		<description></description>
     </text>
     <text id="TEXT_MPTE_WARNING_NORATE_CONFIGURED">
-        <value>Avertissement : aucun prix n'est actuellement configuré</value>
+        <value>Avertissement : aucun prix n`est actuellement configuré</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_AND">
@@ -57,7 +57,7 @@
     </text>
 
 		<text id="TEXT_MPTE_DEFAULTRULE_NOT_ALLOWED">
-        <value>La règle par défaut n'est pas autorisée dans cette table de paramètres</value>
+        <value>La règle par défaut n`est pas autorisée dans cette table de paramètres</value>
 		<description></description>
     </text>
 		
@@ -82,7 +82,7 @@
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_UNSAVED_CHANGES">
-        <value>Vous avez choisi d'actualiser ou de fermer, mais les modifications n'ont pas été enregistrées. Voulez-vous vraiment continuer ?</value>
+        <value>Vous avez choisi d`actualiser ou de fermer, mais les modifications n`ont pas été enregistrées. Voulez-vous vraiment continuer ?</value>
 		<description></description>
     </text>
 
@@ -147,11 +147,11 @@
     </text>	            
 
 		<text id="TEXT_MPTE_MOREINFO">
-        <value>Plus d'infos</value>
+        <value>Plus d`infos</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_FILTERPAGING_ERROR">
-        <value>La pagination n'est pas disponible lorsque le filtrage est activé</value>
+        <value>La pagination n`est pas disponible lorsque le filtrage est activé</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_FIRSTPAGE">
@@ -262,7 +262,7 @@
     </text>
 
 		<text id="TEXT_MPTE_WRONG_TYPE_ERROR">
-      <value>Absence d'éléments de ce type</value>
+      <value>Absence d`éléments de ce type</value>
 			<description></description>
     </text>
 		
@@ -333,7 +333,7 @@
     </text>
 		
 		<text id="TEXT_MPTE_CANNOT_SAVE_CALENDAR">
-        <value>Impossible d'enregistrer ce calendrier dans la base de données</value>
+        <value>Impossible d`enregistrer ce calendrier dans la base de données</value>
 		<description></description>
     </text>
 
@@ -343,7 +343,7 @@
     </text>
 
 		<text id="TEXT_MTPE_CANNOT_SET_WEEKDAY_TO_DEFAULT">
-        <value>Impossible d'utiliser la valeur par défaut pour définir le jour de la semaine</value>
+        <value>Impossible d`utiliser la valeur par défaut pour définir le jour de la semaine</value>
 		<description></description>
     </text>
 				
@@ -388,7 +388,7 @@
     </text>
 
 		<text id="TEXT_MPTE_HOLIDAY_DATE">
-        <value>d'exp.</value>
+        <value>d`exp.</value>
 		<description></description>
     </text>
 				
@@ -437,11 +437,11 @@
     </text>
 		
     <text id="TEXT_MPTE_NEW_CALENDAR_SAVED">
-        <value>L'enregistrement du calendrier a abouti.</value>
+        <value>L`enregistrement du calendrier a abouti.</value>
     </text>
 		
     <text id="TEXT_MPTE_CALENDAR_SAVED">
-        <value>Le calendrier a été enregistré. Si l'utilisation a déjà été évaluée à l'aide de ce calendrier, le pipeline doit peut-être redémarrer afin que les nouvelles valeurs soient prises en considération.</value>
+        <value>Le calendrier a été enregistré. Si l`utilisation a déjà été évaluée à l`aide de ce calendrier, le pipeline doit peut-être redémarrer afin que les nouvelles valeurs soient prises en considération.</value>
     </text>
 		
 		<text id="TEXT_RATESCHEDULE_PICKER_TITLE">
@@ -461,7 +461,7 @@
     </text>
 		
 		<text id="TEXT_SUBSCRIPTIONRELATIVE_DATE_TYPE">
-        <value>jour(s) après l'abonnement</value><description></description>
+        <value>jour(s) après l`abonnement</value><description></description>
     </text>
 		
 		<text id="TEXT_BILLINGCYCLE_DATE_TYPE">
@@ -493,7 +493,7 @@
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DATE">
-        <value>d'exp.</value><description></description>
+        <value>d`exp.</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_STARTTIME">
@@ -521,7 +521,7 @@
     </text>		
 		
 		<text id="TEXT_MPTE_ERROR_PERIODSTART_AFTER_END">
-        <value>L'heure de début doit être antérieure à l'heure de fin</value><description></description>
+        <value>L`heure de début doit être antérieure à l`heure de fin</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDARNAME_BLANK">
@@ -529,7 +529,7 @@
     </text>		
 
 		<text id="TEXT_MPTE_HOLIDAYNAME_DUPLICATE">
-        <value>Ce nom est déjà utilisé par d'autres vacances dans ce calendrier</value><description></description>
+        <value>Ce nom est déjà utilisé par d`autres vacances dans ce calendrier</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_HOLIDAYNAME_BLANK">
@@ -545,7 +545,7 @@
     </text>		
 
 		<text id="TEXT_MPTE_CANNOT_REMOVE_HOLIDAY">
-        <value>Les vacances n'ont pas pu être supprimées de ce calendrier.</value><description></description>
+        <value>Les vacances n`ont pas pu être supprimées de ce calendrier.</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_SET_DAY_TO_DEFAULT">
@@ -602,7 +602,7 @@
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-        <value>L'énumérateur de cette valeur est introuvable</value><description></description>
+        <value>L`énumérateur de cette valeur est introuvable</value><description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ERROR_FILE_NOT_LOCATED">
@@ -610,11 +610,11 @@
     </text>
 
 		<text id="TEXT_MPTE_ERROR_FILE_NOT_READABLE">
-        <value>Une erreur s'est produite pendant la lecture du fichier</value><description></description>
+        <value>Une erreur s`est produite pendant la lecture du fichier</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-        <value>L'énumérateur de cette valeur est introuvable</value><description></description>
+        <value>L`énumérateur de cette valeur est introuvable</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_NOT_BLANK1">
@@ -650,11 +650,11 @@
     </text>
 
     <text id="TEXT_MPTE_ERROR_UNKNOWN">
-        <value>Une erreur inconnue s'est produite. Réessayez ultérieurement. Si le problème persiste, contactez votre administrateur système.</value><description></description>
+        <value>Une erreur inconnue s`est produite. Réessayez ultérieurement. Si le problème persiste, contactez votre administrateur système.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ">
-        <value>L'objet n'a pas pu être créé. Vérifiez que cet objet est disponible et enregistré.</value><description></description>
+        <value>L`objet n`a pas pu être créé. Vérifiez que cet objet est disponible et enregistré.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_NOT_FOUND">
@@ -662,19 +662,19 @@
     </text>
 
 		<text id="TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED">
-        <value>Impossible d'enregistrer [TEXT_KEYTERM_RATE_SCHEDULE] avec les règles de la base de données. Vérifiez votre fichier journal.</value><description></description>
+        <value>Impossible d`enregistrer [TEXT_KEYTERM_RATE_SCHEDULE] avec les règles de la base de données. Vérifiez votre fichier journal.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ">
-        <value>L'exécution de la fonction par l'objet a échoué.</value><description></description>
+        <value>L`exécution de la fonction par l`objet a échoué.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-        <value>L'objet n'a pas pu charger les types énumérés.</value><description></description>
+        <value>L`objet n`a pas pu charger les types énumérés.</value><description></description>
     </text>	
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-        <value>L'objet n'a pas pu charger les types énumérés.</value><description></description>
+        <value>L`objet n`a pas pu charger les types énumérés.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_WARNING_EDIT_PAST_RATES">
@@ -686,7 +686,7 @@
     </text>
 
     <text id="TEXT_MPTE_VALUE_NOT_CONFIGURED">
-        <value>cette valeur n'est pas configurée</value><description></description>
+        <value>cette valeur n`est pas configurée</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_NO_PERIODS_CONFIGURED">
@@ -702,7 +702,7 @@
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_WARNING_WHEN_EDITING">
-        <value>Avertissement : de nombreuses [TEXT_KEYTERM_RATE_SCHEDULES] peuvent utiliser ce calendrier. Toute modification apportée affectera la totalité d'entre elles. </value>
+        <value>Avertissement : de nombreuses [TEXT_KEYTERM_RATE_SCHEDULES] peuvent utiliser ce calendrier. Toute modification apportée affectera la totalité d`entre elles. </value>
 				<description></description>
     </text>
 
@@ -727,7 +727,7 @@
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-        <value><![CDATA[<b>Les deux jeux de règles sont identiques.</b><BR>Cela peut se produire lorsqu'un jeu de règles est enregistré mais qu'aucune modification n'y est apportée.&nbsp;&nbsp;
+        <value><![CDATA[<b>Les deux jeux de règles sont identiques.</b><BR>Cela peut se produire lorsqu`un jeu de règles est enregistré mais qu`aucune modification n`y est apportée.&nbsp;&nbsp;
 ]]></value>
 				<description></description>
     </text>
@@ -736,7 +736,7 @@
 				<description></description>
     </text>
   <text id="TEXT_APPROVALS_RATESCHEDULE_ALREADY_HAS_PENDING_CHANGE">
-    <value>Cette échelle tarifaire contient une mise à jour en attente d'approbation. Pour des raisons de cohérence, aucune autre mise à jour ne peut être effectuée tant que cette mise à jour n'a pas été approuvée ou refusée.</value>
+    <value>Cette échelle tarifaire contient une mise à jour en attente d`approbation. Pour des raisons de cohérence, aucune autre mise à jour ne peut être effectuée tant que cette mise à jour n`a pas été approuvée ou refusée.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">

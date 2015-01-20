@@ -287,8 +287,8 @@ BEGIN
 	inner join t_account_type atype on atype.id_type = acc.id_type
 	where
 	atype.b_isCorporate = '1' and
-	aa.id_ancestor <> gs.id_corporate_account
-	and
+	aa.num_generations = 0 and
+	aa.id_ancestor <> gs.id_corporate_account and
 	ar.status = 0
 END
 

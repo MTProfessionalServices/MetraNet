@@ -847,4 +847,17 @@
     <value>[FR] to </value>
     <description></description>
   </text>
+
+  <text id="TEXT_IMPORT_FROM_EXCEL">
+    <value>Importer depuis Excel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXPORT_TO_EXCEL">
+    <value>Exporter dans Excel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
+    <value>Vous avez des modifications non enregistrées.</value>
+    <description></description>
+  </text>
 </texts>

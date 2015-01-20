@@ -777,4 +777,17 @@
     <value>[JA] to </value>
     <description></description>
   </text>
+
+  <text id="TEXT_IMPORT_FROM_EXCEL">
+    <value>[JA]Import From Excel File</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXPORT_TO_EXCEL">
+    <value>[JA]Export To Excel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
+    <value>[JA]You have unsaved changes.</value>
+    <description></description>
+  </text>
 </texts>

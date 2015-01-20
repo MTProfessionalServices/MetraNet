@@ -246,6 +246,9 @@
   <text id="TEXT_BG_STATUS_CODE_INPROGRESS">
     <value>[FR]In Progress</value>
   </text>
+  <text id="TEXT_BG_STATUS_CODE_REVERSING">
+    <value>Inverser</value>
+  </text>
   <text id="TEXT_BG_RUN_ACTION_EXECUTE">
     <value>[FR]Execute </value>
   </text>

@@ -208,7 +208,7 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     ' Becare full this function is setting     EventArg.HTMLRendered
     Inherited("Form_DisplayEndOfPage()")
     
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BR><CENTER><BUTTON Name='CANCEL' Class='clsOKButton' OnClick='mdm_RefreshDialog(this);'>Back</BUTTON></center>"
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BR><CENTER><BUTTON Name='CANCEL' Class='clsOKButton' OnClick='mdm_RefreshDialog(this); return false;'>Back</BUTTON></center>"
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"    
     EventArg.HTMLRendered= EventArg.HTMLRendered & strEndOfPageHTMLCode 
     

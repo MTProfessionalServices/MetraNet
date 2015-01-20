@@ -56,7 +56,7 @@
       if (checkButtonClickCount() == true) {
         var args = "SubscriptionId=" + n;
         document.location.href = "/MetraNet/TicketToMAM.aspx?URL=/mam/default/dialog/DefaultDialogRates.asp|id_sub=" + n + "**LinkColumnMode=TRUE**NewMetraCare=TRUE";
-        pageNav.Execute("SubscriptionsEvents_Rates_Client", args, null);
+        //pageNav.Execute("SubscriptionsEvents_Rates_Client", args, null);
       }
     }
 

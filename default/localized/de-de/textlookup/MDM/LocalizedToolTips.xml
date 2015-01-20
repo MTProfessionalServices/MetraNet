@@ -127,4 +127,8 @@
     <value>[DE]You may only bulk reassign transactions when the status is Hard Closed.</value>
     <description></description>
   </text>
+  <text id="TEXT_Reassign_Selected_Transactions">
+    <value>[DE]Reassign Selected Transactions</value>
+    <description></description>
+  </text>
 </texts>

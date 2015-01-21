@@ -7,7 +7,7 @@
       bpPo.nm_display_name as ProductOfferingName,
       tbpPiTpl.nm_name AS PriceableItemType,
       COALESCE(bpPiTpl.nm_display_name, tbpPiTpl.nm_display_name) as PriceableItemName,
-      bpPiInst.nm_display_name as PriceableItemInstanceName,
+      COALESCE(bpPiInst.nm_display_name, tbpPiInst.nm_display_name) as PriceableItemInstanceName,
       au.id_prod as ProductOfferingId,
       au.id_pi_instance as PriceableItemInstanceId,
       au.id_pi_template as PriceableItemTemplateId,
@@ -468,11 +468,12 @@
 	) au
     /* vw_aj_info */
       join t_base_props tbpPiTpl on au.id_pi_template = tbpPiTpl.id_prop
+      join t_base_props tbpPiInst on au.id_pi_instance = tbpPiInst.id_prop
       left outer join t_pi_template piTemplated2 on piTemplated2.id_template=au.id_pi_template
       left outer join t_vw_base_props bpPo on au.id_prod=bpPo.id_prop and bpPo.id_lang_code=%%ID_LANG%%
       left outer join t_vw_base_props bpPiTpl on au.id_pi_template=bpPiTpl.id_prop and bpPiTpl.id_lang_code=%%ID_LANG%%
       left outer join t_vw_base_props bpPiInst on au.id_pi_instance=bpPiInst.id_prop and bpPiInst.id_lang_code=%%ID_LANG%%
-	  inner join t_description descd2 on au.id_view=descd2.id_desc and descd2.id_lang_code=%%ID_LANG%%
+      left outer join t_description descd2 on au.id_view=descd2.id_desc and descd2.id_lang_code=%%ID_LANG%%
       %%FROM_CLAUSE%%
       where
       rownum <= 1001
@@ -489,6 +490,7 @@
       bpPo.nm_display_name,
       bpPiTpl.nm_display_name,
       bpPiInst.nm_display_name,
+      tbpPiInst.nm_display_name,
       au.id_pi_instance,
       au.id_pi_template,
       piTemplated2.id_template_parent,

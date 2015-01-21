@@ -2,8 +2,7 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+        <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>

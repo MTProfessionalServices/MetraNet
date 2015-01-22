@@ -902,6 +902,8 @@ COMMENT ON COLUMN T_BILLGROUP.ID_PARENT_BILLGROUP  IS 'Id of the parent billing 
 ;
 COMMENT ON COLUMN T_BILLGROUP.TX_TYPE              IS 'The type of materialization - Full, Rematerialization, PullList'
 ;
+COMMENT ON COLUMN T_BILLGROUP.ID_PARTITION         IS 'Unique Partition identifier'
+;
 
 
 
@@ -991,6 +993,8 @@ COMMENT ON COLUMN T_BILLGROUP_MEMBER_TMP.ID_ACC              IS 'Member account 
 ;
 COMMENT ON COLUMN T_BILLGROUP_MEMBER_TMP.B_EXTRA             IS 'If this account is added to satisfy billing group constraints during pull list creation then the value is 1 else NULL'
 ;
+COMMENT ON COLUMN T_BILLGROUP_MEMBER_TMP.ID_PARTITION        IS 'Unique Partition identifier'
+;
 
 
 COMMENT ON TABLE T_BILLGROUP_SOURCE_ACC IS 'This is a driver table and is populated with the paying accounts for the specified interval before the process of billing group creation. (Package:Billing Groups)'
@@ -1010,6 +1014,8 @@ COMMENT ON COLUMN T_BILLGROUP_TMP.TX_NAME             IS 'Unique name of this bi
 COMMENT ON COLUMN T_BILLGROUP_TMP.TX_DESCRIPTION      IS 'Description for this billing group'
 ;
 COMMENT ON COLUMN T_BILLGROUP_TMP.ID_BILLGROUP        IS 'Billing group identifier'
+;
+COMMENT ON COLUMN T_BILLGROUP_TMP.ID_PARTITION        IS 'Unique Partition identifier'
 ;
 
 
@@ -4217,6 +4223,10 @@ COMMENT ON COLUMN CUSTOMER.HIERARCHYEMAIL             IS 'The email address for 
 ;
 COMMENT ON COLUMN CUSTOMER.HIERARCHYPHONE             IS 'The phone number for the billing contact of the top-level hierarchy account'
 ;
+COMMENT ON COLUMN CUSTOMER.STARTDATE                  IS 'Active Start Date for the Customer'
+;
+COMMENT ON COLUMN CUSTOMER.ENDDATE                    IS 'Active End Date for the Customer'
+;
 
 
 COMMENT ON TABLE PRODUCTOFFERING IS 'This ProductOffering table stores descriptions for product offerings.'
@@ -4306,6 +4316,8 @@ COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.SUBSCRIPTIONREVPRIMARYCURRENCY   IS 'Subs
 COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.DAYSINMONTH                      IS 'The number of days in the month'
 ;
 COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.DAYSACTIVEINMONTH                IS 'The number of days in the month that the subscription is deemed active'
+;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.REPORTINGCURRENCY                IS 'Currency for the Subscription'
 ;
 
 

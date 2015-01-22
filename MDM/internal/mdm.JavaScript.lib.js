@@ -192,6 +192,11 @@ function IsNetscape(){
   return(objBrowser.ns);
 }
 
+function IsNeedReturnValue(){
+  objBrowser = new BrowserCheck();
+  return(objBrowser.ns || (objBrowser.ie && objBrowser.v >= 11));
+}
+
 function mdm_PVBPageEventRaiser(strPageAction,lngPageIndex){
 
   mdm_PVBPageUpdateSelectedIDs(null);
@@ -296,7 +301,7 @@ function GetCustomKey(e){
 	}
 }
 function CancelKey(){
-	if(IsNetscape()){
+	if(IsNeedReturnValue()){
 		return false; // Must return false for Netscape to cancel the char
 	}
 	else{
@@ -396,7 +401,7 @@ function CustomKeyManager(objEvent){
 	if((strObjDataType=="DECIMAL")||(strObjDataType=="FLOAT")||(strObjDataType=="DOUBLE")){ // Check if char is allowed
   
   		strKey = String.fromCharCode(lngKey); // is it a valid number
-  		if(!CheckChar(strKey,MDM_VALID_CHARS_FOR_DECIMAL+DECIMAL_SEPARATOR+THOUSAND_SEPARATOR)){  
+  		if(!CheckChar(strKey,MDM_VALID_CHARS_FOR_DECIMAL_POSITIVE+DECIMAL_SEPARATOR+THOUSAND_SEPARATOR)){  
   			  return CancelKey(); 		//  The key is cancled! Return false to cancel the char
   		}
   		else{

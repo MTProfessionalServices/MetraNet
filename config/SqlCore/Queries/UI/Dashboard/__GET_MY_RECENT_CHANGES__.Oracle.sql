@@ -16,6 +16,9 @@ FROM
     ON a.id_audit = ad.id_audit
   LEFT OUTER JOIN t_rsched rs 
     ON rs.id_sched = a.id_entity
+  /*Only show recent changes for rates associated with product offerings that have not been deleted*/
+  INNER JOIN t_pl_map map
+    ON map.id_paramtable = rs.id_pt and map.id_pi_template = rs.id_pi_template and map.id_pricelist = rs.id_pricelist    
   LEFT OUTER JOIN t_rulesetdefinition rd 
     ON rd.id_paramtable = rs.id_pt
   LEFT OUTER JOIN t_account_mapper am 
@@ -28,5 +31,6 @@ FROM
     AND a.id_event in (1400,1401,1402,1403)
     AND a.dt_crt > TO_DATE('%%CURRENT_DATETIME%%', 'MM/dd/yyyy')-30
     AND nm_login = '%%USERNAME%%'
+    AND map.id_sub is null
   ORDER BY dt_crt DESC)
 WHERE ROWNUM <= 100

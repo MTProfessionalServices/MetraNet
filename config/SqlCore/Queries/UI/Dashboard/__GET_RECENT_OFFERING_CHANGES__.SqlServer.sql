@@ -10,7 +10,7 @@ d.tx_desc as tx_desc
 from t_audit a with(nolock)
 inner join t_audit_events ae with(nolock) on a.id_event = ae.id_event
 left outer join t_audit_details ad with(nolock) on a.id_audit = ad.id_audit
-left outer join t_base_props bp with(nolock) on bp.id_prop = a.id_entity
+inner join t_base_props bp with(nolock) on bp.id_prop = a.id_entity
 left outer join t_account_mapper am with(nolock) on am.id_acc = a.id_userid and am.nm_space = 'system_user'
 left outer join t_description d with(nolock) on d.id_desc = ae.id_desc and d.id_lang_code = 840
 where 1=1

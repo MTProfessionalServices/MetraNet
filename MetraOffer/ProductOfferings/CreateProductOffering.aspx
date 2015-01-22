@@ -48,10 +48,7 @@
       var selectAccount = window.Ext.get('selectAccountsctl00_ContentPlaceHolder1_tbPOPartitionId').dom;
       var isPartition = <%=IsPartition.ToString().ToLower()%>;
       tbPartId.disabled = isPartition;
-      selectAccount.hidden = isPartition;
-      
-      var partitionZone = window.Ext.get('dropzone').dom;
-      partitionZone.hidden = <%=IsMaster.ToString().ToLower()%>;
+      selectAccount.hidden = isPartition;      
     });
   </script>
 </asp:Content>

@@ -6076,3 +6076,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The localized 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dictionary table for t_localized_items.id_local_type colum. Contains id localization type and their description', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_localized_items_type'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primary key.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_localized_items_type', @level2type=N'COLUMN',@level2name=N'id_local_type'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Description type.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_localized_items_type', @level2type=N'COLUMN',@level2name=N'local_type_description'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Mapping table for linking between parents messages and childs messages.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Child message.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping', @level2type=N'COLUMN',@level2name=N'id_message'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primary key. Parents message', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping', @level2type=N'COLUMN',@level2name=N'id_origin_message'

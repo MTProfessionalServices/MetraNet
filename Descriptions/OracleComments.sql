@@ -4377,4 +4377,7 @@ COMMENT ON TABLE t_localized_items_type							IS  'Dictionary table for t_locali
 COMMENT ON COLUMN t_localized_items_type.id_local_type 			IS	'Primary key.';
 COMMENT ON COLUMN t_localized_items_type.local_type_description	IS	'Description type';
 
+COMMENT ON TABLE t_message_mapping							IS  'Mapping table for linking between parents messages and childs messages.';
+COMMENT ON COLUMN t_message_mapping.id_message 			IS	'Child message';
+COMMENT ON COLUMN t_message_mapping.id_origin_message	IS	'Primary key. Parents message';
 

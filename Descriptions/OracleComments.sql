@@ -644,6 +644,29 @@ COMMENT ON COLUMN T_APPLICABILITY_RULE.ID_FORMULA  IS 'Associated formula identi
 
 COMMENT ON TABLE T_APPROVALS IS 'Description for table t_approvals (Package: Misc. Feature)'
 ;
+COMMENT ON COLUMN T_APPROVALS.c_SubmittedDate          IS 'When the change was submitted'
+;
+COMMENT ON COLUMN T_APPROVALS.c_SubmitterId            IS 'Id of account, who did the change'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ChangeType             IS 'Type of the Change ("RateUpdate", "AccountUpdate", "ProductOfferingUpdate", ect.)'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ChangeDetails          IS 'Encrypted full information about the change, that will be given to MT Service on Apply'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ApproverId             IS 'Id of account, who Approved, Denied or Dissmissed the change'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ChangeLastModifiedDate IS 'When the change was modified last time'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ItemDisplayName        IS 'Change’s description that will be displayed for user'
+;
+COMMENT ON COLUMN T_APPROVALS.c_UniqueItemId           IS 'Field with unique value'
+;
+COMMENT ON COLUMN T_APPROVALS.c_Comment                IS 'Comment that Approver provided on changing state of the Change'
+;
+COMMENT ON COLUMN T_APPROVALS.c_CurrentState           IS 'State of the change ("Pending", "Approved", "FailedToApply"…)'
+;
+COMMENT ON COLUMN T_APPROVALS.c_PartitionId            IS 'Partition ID of the Change (e.g.: For Subscription, Product Offering or Rate updates, the Partition Id of the related Product Offering will be saved)'
+;
+
 
 
 COMMENT ON TABLE T_AR_BUCKET_DEF IS 'Description for table t_ar_bucket_def (Package: Account Receivable)'
@@ -3432,6 +3455,7 @@ COMMENT ON COLUMN T_RECUR_WINDOW.C_MEMBERSHIPEND             IS 'Membership end 
 
 COMMENT ON TABLE t_rec_win_bcp_for_reverse IS 'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse';
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C_BILLEDTHROUGHDATE         IS 'The last time the RC adapter was run (not currently used)';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C_CYCLEEFFECTIVEDATE        IS 'The date in the cycle for this PO/sub'
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMINSTANCEID  IS 'Priceable item instance for this subscription';
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMTEMPLATEID  IS 'Priceable item template for this subscription';
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRODUCTOFFERINGID        IS 'Product offering for this subscription';

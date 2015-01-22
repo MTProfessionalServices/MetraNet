@@ -1519,9 +1519,31 @@ EXEC sp_addextendedproperty 'MS_Description', 'Global external identifier for ap
 EXEC sp_addextendedproperty 'MS_Description', 'Associated formula identifier(foreign key to t_calc_formula)', 'Schema', dbo, 'table', t_applicability_rule, 'column', id_formula
 ;
 
+
 EXEC sp_addextendedproperty 'MS_Description', 'Description for table t_approvals (Package: Misc. Feature)', 'Schema', dbo, 'table', t_approvals
 ;
-
+EXEC sp_addextendedproperty 'MS_Description', 'When the change was submitted', 'Schema', dbo, 'table', t_approvals, 'column', c_SubmittedDate
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Id of account, who did the change', 'Schema', dbo, 'table', t_approvals, 'column', c_SubmitterId
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Type of the Change ("RateUpdate", "AccountUpdate", "ProductOfferingUpdate", ect.)', 'Schema', dbo, 'table', t_approvals, 'column', c_ChangeType
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Encrypted full information about the change, that will be given to MT Service on Apply', 'Schema', dbo, 'table', t_approvals, 'column', c_ChangeDetails
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Id of account, who Approved, Denied or Dissmissed the change', 'Schema', dbo, 'table', t_approvals, 'column', c_ApproverId
+;
+EXEC sp_addextendedproperty 'MS_Description', 'When the change was modified last time', 'Schema', dbo, 'table', t_approvals, 'column', c_ChangeLastModifiedDate
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Change’s description that will be displayed for user', 'Schema', dbo, 'table', t_approvals, 'column', c_ItemDisplayName
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Field with unique value', 'Schema', dbo, 'table', t_approvals, 'column', c_UniqueItemId
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Comment that Approver provided on changing state of the Change', 'Schema', dbo, 'table', t_approvals, 'column', c_Comment
+;
+EXEC sp_addextendedproperty 'MS_Description', 'State of the change ("Pending", "Approved", "FailedToApply"…)', 'Schema', dbo, 'table', t_approvals, 'column', c_CurrentState
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Partition ID of the Change (e.g.: For Subscription, Product Offering or Rate updates, the Partition Id of the related Product Offering will be saved)', 'Schema', dbo, 'table', t_approvals, 'column', c_PartitionId
+;
 
 
 EXEC sp_addextendedproperty 'MS_Description', 'Description for table t_ar_bucket_def (Package: Account Receivable)', 'Schema', dbo, 'table', t_ar_bucket_def
@@ -5085,6 +5107,7 @@ EXEC sp_addextendedproperty 'MS_Description', 'Membership end for a group subscr
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_rec_win_bcp_for_reverse';
 EXEC sp_addextendedproperty 'MS_Description', 'The last time the RC adapter was run (not currently used)', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c_BilledThroughDate;
+EXEC sp_addextendedproperty 'MS_Description', 'The date in the cycle for this PO/sub', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c_CycleEffectiveDate;
 EXEC sp_addextendedproperty 'MS_Description', 'Priceable item instance for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemInstanceID;
 EXEC sp_addextendedproperty 'MS_Description', 'Priceable item template for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemTemplateID;
 EXEC sp_addextendedproperty 'MS_Description', 'Product offering for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__ProductOfferingID;

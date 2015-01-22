@@ -119,4 +119,16 @@
     <value>[IT]Operation</value>
     <description></description>
   </text>
+  <text id="TEXT_YOU_MAY_MAKE">
+    <value>[IT]You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_MAY_ONLY">
+    <value>[IT]You may only bulk reassign transactions when the status is Hard Closed.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Reassign_Selected_Transactions">
+    <value>[IT]Reassign Selected Transactions</value>
+    <description></description>
+  </text>
 </texts>

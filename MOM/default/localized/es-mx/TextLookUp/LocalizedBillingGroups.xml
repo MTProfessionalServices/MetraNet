@@ -252,6 +252,9 @@
   <text id="TEXT_BG_STATUS_CODE_INPROGRESS">
     <value>[es-MX]In Progress</value>
   </text>
+  <text id="TEXT_BG_STATUS_CODE_REVERSING">
+    <value>[es-MX]Reversing</value>
+  </text>
   <text id="TEXT_BG_RUN_ACTION_EXECUTE">
     <value>[es-MX]Execute </value>
   </text>

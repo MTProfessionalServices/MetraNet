@@ -224,6 +224,7 @@ END IF;
                    AND aa.vt_start <= ar.tt_now
                    AND ar.tt_now <= aa.vt_end
                    AND atype.b_iscorporate = '1'
+                   AND aa.num_generations = 0
                    AND aa.id_ancestor <> gs.id_corporate_account
                    AND ar.status = 0);
    END IF;

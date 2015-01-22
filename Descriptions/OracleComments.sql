@@ -4393,3 +4393,44 @@ COMMENT ON TABLE t_message_mapping							IS  'Mapping table for linking between 
 COMMENT ON COLUMN t_message_mapping.id_message 			IS	'Child message';
 COMMENT ON COLUMN t_message_mapping.id_origin_message	IS	'Primary key. Parents message';
 
+COMMENT ON TABLE  SubscriptionParticipants  IS  'The SubscriptionParticipants reports on a total number of subscriptions (including both indivudal subscriptions and group subscription partipants) to each product offering in a calendar month. The SubscriptionParticipants table holds data for the current calendar month and the two preceeding calendar months.';
+COMMENT ON COLUMN SubscriptionParticipants.InstanceId IS 'The MetraNet instance from which the data originated.';
+COMMENT ON COLUMN SubscriptionParticipants.ProductOfferingId  IS                'Product Offering Identifier.';
+COMMENT ON COLUMN SubscriptionParticipants.Year IS 'The calendar year in which the subscription participants were active.';
+COMMENT ON COLUMN SubscriptionParticipants.Month  IS       'The calendar month in which the subscription participants were active.';
+COMMENT ON COLUMN SubscriptionParticipants.TotalParticipants  IS   'Total number of subscriptions to  this product offering that were active during the calendar month.';
+COMMENT ON COLUMN SubscriptionParticipants.DistinctHierarchies  IS               'The number of unique customers. For example, a company may have 200 users with the subscription, that would be ONE here and 200 in Subscriptions above.';
+COMMENT ON COLUMN SubscriptionParticipants.NewParticipants  IS 'Total number of new subscriptions to this product offering that became active during this calendar month that were not active in the previous calendar month.';
+COMMENT ON COLUMN SubscriptionParticipants.UnsubscribedParticipants IS 'Total number of subscriptions to this product offering that expired during this calendar month.';
+
+
+COMMENT ON TABLE T_NOTIFICATION_EVENT_TYPES IS 'The table contains notification event types configured in the system.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENT_TYPES.ID_NOTIFICATION_EVENT_TYPE IS 'Unique identifier of the notification event type.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENT_TYPES.NOTIFICATION_EVENT_NAME    IS 'Name of the notification event type.'
+;
+
+COMMENT ON TABLE T_NOTIFICATION_EVENTS IS 'The table contains notification events generated for notification types configured in the system.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENTS.ID_NOTIFICATION_EVENT           IS 'Unique identifier of the notification event.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENTS.ID_NOTIFICATION_EVENT_TYPE      IS 'Unique identifier of the notification event type.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENTS.NOTIFICATION_EVENT_PROP_VALUES  IS 'XML string containing property names and values for the notification event.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENTS.ID_PARTITION                    IS 'Partition Id of the notification event if applicable otherwise null.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENTS.DT_CRT                          IS 'Notification event creation date.'
+;
+
+COMMENT ON TABLE T_NOTIFICATION_EVENT_CONSUMERS IS 'The table maps notification events to account ids who can see the generated notification events.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENT_CONSUMERS.ID_NOT_EVNT_CONSUMER   IS 'Unique row identifier.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENT_CONSUMERS.ID_NOTIFICATION_EVENT  IS 'Unique identifier of the notification event.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENT_CONSUMERS.ID_ACC                 IS 'Unique identifier of the account to which the notification event should be displayed.'
+;
+COMMENT ON COLUMN T_NOTIFICATION_EVENT_CONSUMERS.DT_CRT                 IS 'Row creation date.'
+;

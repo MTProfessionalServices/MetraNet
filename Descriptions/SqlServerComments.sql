@@ -6092,3 +6092,44 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Description ty
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Mapping table for linking between parents messages and childs messages.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Child message.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping', @level2type=N'COLUMN',@level2name=N'id_message'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primary key. Parents message', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping', @level2type=N'COLUMN',@level2name=N'id_origin_message'
+
+EXEC sp_addextendedproperty 'MS_Description', 'The SubscriptionParticipants reports on a total number of subscriptions (including both indivudal subscriptions and group subscription partipants) to each product offering in a calendar month. The SubscriptionParticipants table holds data for the current calendar month and the two preceeding calendar months.', 'Schema', dbo, 'table', SubscriptionParticipants;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'InstanceId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Product Offering Identifier.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'ProductOfferingId'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The calendar year in which the subscription participants were active.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'Year'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The calendar month in which the subscription participants were active.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'Month'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Total number of subscriptions to  this product offering that were active during the calendar month.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'TotalParticipants'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of unique customers. For example, a company may have 200 users with the subscription, that would be ONE here and 200 in Subscriptions above.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'DistinctHierarchies'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Total number of new subscriptions to this product offering that became active during this calendar month that were not active in the previous calendar month.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'NewParticipants'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Total number of subscriptions to this product offering that expired during this calendar month.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'UnsubscribedParticipants'
+
+EXEC sp_addextendedproperty 'MS_Description', 'The table contains notification event types configured in the system.', 'Schema', dbo, 'table', t_notification_event_types
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier of the notification event type.', 'Schema', dbo, 'table', t_notification_event_types, 'column', id_notification_event_type
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Name of the notification event type.', 'Schema', dbo, 'table', t_notification_event_types, 'column', notification_event_name
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The table contains notification events generated for notification types configured in the system.', 'Schema', dbo, 'table', t_notification_events
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier of the notification event.', 'Schema', dbo, 'table', t_notification_events, 'column', id_notification_event
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier of the notification event type.', 'Schema', dbo, 'table', t_notification_events, 'column', id_notification_event_type
+;
+EXEC sp_addextendedproperty 'MS_Description', 'XML string containing property names and values for the notification event.', 'Schema', dbo, 'table', t_notification_events, 'column', notification_event_prop_values
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Partition Id of the notification event if applicable otherwise null.', 'Schema', dbo, 'table', t_notification_events, 'column', id_partition
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Notification event creation date.', 'Schema', dbo, 'table', t_notification_events, 'column', dt_crt
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'The table maps notification events to account ids who can see the generated notification events.', 'Schema', dbo, 'table', t_notification_event_consumers
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Unique row identifier', 'Schema', dbo, 'table', t_notification_event_consumers, 'column', id_not_evnt_consumer
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier of the notification event.', 'Schema', dbo, 'table', t_notification_event_consumers, 'column', id_notification_event
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Unique identifier of the account to which the notification event should be displayed.', 'Schema', dbo, 'table', t_notification_event_consumers, 'column', id_acc
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Row creation date.', 'Schema', dbo, 'table', t_notification_event_consumers, 'column', dt_crt
+;

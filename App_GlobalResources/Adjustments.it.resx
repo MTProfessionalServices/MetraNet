@@ -147,4 +147,13 @@
   <data name="TEXT_Successfully_submitted_request_to_generate_Credit_Note_pdf" xml:space="preserve">
     <value>[IT]Successfully submitted request to generate Credit Note pdf.</value>
   </data>
+  <data name="TEXT_Successfully_approved_all_selected_charges" xml:space="preserve">
+    <value>[IT]Successfully denied all selected charges.</value>
+  </data>
+  <data name="TEXT_Successfully_approved_nonstandard_charges" xml:space="preserve">
+    <value>[IT]Successfully approved nonstandard charges.</value>
+  </data>
+  <data name="TEXT_Successfully_denied_nonstandard_charges" xml:space="preserve">
+    <value>[IT]Successfully denied nonstandard charges.</value>
+  </data>
 </root>

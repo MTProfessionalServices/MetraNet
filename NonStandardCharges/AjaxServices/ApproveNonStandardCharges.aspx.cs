@@ -44,8 +44,10 @@ public partial class NonStandardCharges_AjaxServices_ApproveNonStandardCharges :
           sessionIds.Add(item);
         }
         client.ApproveNonStandardCharges(sessionIds);
-        response.Success = true;
-        response.Message = "Successfully approved nonstandard charges.";
+        response.Success = true;        
+        var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_nonstandard_charges");
+        if (message != null)
+          response.Message = message.ToString(); 
         client.Close();
         client = null;
       }

@@ -1,6 +1,6 @@
 <!--  MDM Client Side JavaScript -->
-<SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>
-<SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js?v=6.5"></SCRIPT>
+<SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js?v=6.5"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript1.2">
 // MetraTech Dialog Manager Client Side. This JavaScript was generated.
 var DECIMAL_SEPARATOR	                                        =	"[DECIMAL_SEPARATOR]";  // Should be replaced by . or ,
@@ -12,8 +12,9 @@ var MDM_TYPE_TIMESTAMP_CHARS                                  = "[MDM_TYPE_TIMES
 var MDM_TYPE_STRINGID_CHARS                                   = "[MDM_TYPE_STRINGID_CHARS]";
 var MDM_CALL_PARENT_POPUP_WITH_NO_URL_PARAMETERS              = [MDM_CALL_PARENT_POPUP_WITH_NO_URL_PARAMETERS];
 
-var MDM_VALID_CHARS_FOR_LONG                                  = "0123456789-";
-var MDM_VALID_CHARS_FOR_DECIMAL                               = "0123456789-";
+var MDM_VALID_CHARS_FOR_LONG                                  = "0-123456789";
+var MDM_VALID_CHARS_FOR_DECIMAL                               = "0-123456789";
+var MDM_VALID_CHARS_FOR_DECIMAL_POSITIVE                      = "0123456789";
 
 var MDM_PICKER_PARAMETER_VALUE                                = "[MDM_PICKER_PARAMETER_VALUE]"; // MDM V2 Picker Support
 var MDM_PICKER_NEXT_PAGE                                      = "[MDM_PICKER_NEXT_PAGE]";

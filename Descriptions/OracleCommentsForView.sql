@@ -56,3 +56,5 @@ COMMENT ON TABLE VW_NOTDELETED_ADJ_DETAILS IS 'The view consists of fives tables
 COMMENT ON TABLE vw_paying_accounts IS 'The view consists of three tables "t_acc_usage_interval", "t_account_mapper" and "t_namespace"';
 
 COMMENT ON TABLE vw_unassigned_accounts IS 'The view consists of three tables "vw_paying_accounts", "t_billgroup_member" and "t_billgroup"';
+
+COMMENT ON TABLE vw_bus_partition_accounts IS 'The view gets list of business partition accounts and it consists of four tables "t_account", "t_account_type", "t_account_ancestor" and "t_account_mapper" ';

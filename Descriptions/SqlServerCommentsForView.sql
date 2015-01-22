@@ -213,3 +213,9 @@ EXEC sys.sp_addextendedproperty
 @name=N'MS_Description', @value='The view consists of three tables "vw_paying_accounts", "t_billgroup_member" and "t_billgroup"',
 @level0type=N'SCHEMA',@level0name=N'dbo',
 @level1type=N'VIEW',@level1name='vw_unassigned_accounts'
+
+--37
+EXEC sys.sp_addextendedproperty
+@name=N'MS_Description', @value='The view gets list of business partition accounts and it consists of four tables "t_account", "t_account_type", "t_account_ancestor" and "t_account_mapper" ',
+@level0type=N'SCHEMA',@level0name=N'dbo',
+@level1type=N'VIEW',@level1name='vw_bus_partition_accounts'

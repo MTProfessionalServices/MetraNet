@@ -44,8 +44,10 @@ public partial class NonStandardCharges_AjaxServices_DenyNonStandardCharges : MT
           sessionIds.Add(item);
         }
         client.DenyNonStandardCharges(sessionIds); ;
-        response.Success = true;
-        response.Message = "Successfully denied nonstandard charges.";
+        response.Success = true;        
+        var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_denied_nonstandard_charges");
+        if (message != null)
+          response.Message = message.ToString();
         client.Close();
         client = null;
       }

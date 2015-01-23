@@ -106,7 +106,8 @@ CREATE OR REPLACE TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL
         ON      ( rw.c__AccountID = cur_sub.id_acc AND rw.c__SubscriptionID = cur_sub.id_sub)
         WHEN MATCHED THEN
         UPDATE
-        SET     rw.c_SubscriptionStart = cur_sub.vt_start, rw.c_SubscriptionEnd = cur_sub.vt_end;
+        SET     rw.c_SubscriptionStart   = cur_sub.vt_start, rw.c_SubscriptionEnd   = cur_sub.vt_end,
+                rw.c_CycleEffectiveStart = cur_sub.vt_start, rw.c_CycleEffectiveEnd = cur_sub.vt_end;
 
         DELETE
         FROM   t_recur_window

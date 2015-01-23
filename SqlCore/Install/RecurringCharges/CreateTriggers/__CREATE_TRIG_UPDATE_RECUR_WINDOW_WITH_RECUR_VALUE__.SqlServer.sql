@@ -36,7 +36,9 @@ On 7 time we have insert (INSERTED only have rows)
 
     UPDATE rw
     SET rw.c_SubscriptionStart = current_sub.vt_start,
-        rw.c_SubscriptionEnd = current_sub.vt_end
+        rw.c_SubscriptionEnd = current_sub.vt_end,
+        rw.c_CycleEffectiveStart = current_sub.vt_start,
+        rw.c_CycleEffectiveEnd = current_sub.vt_end
     FROM #recur_window_holder rw
         INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID
             AND new_sub.id_sub = rw.c__SubscriptionID

@@ -12,10 +12,17 @@ function BrowserCheck() {
   	this.ns5 = (this.b=="ns" && this.v==5)
   	this.ie = (this.b=="ie" && this.v>=4)
   	this.ie4 = (navigator.userAgent.indexOf('MSIE 4')>0)
-  	this.ie5 = (navigator.userAgent.indexOf('MSIE 5')>0)
-
-  	if (this.ie5) this.v = 5
-  	  this.min = (this.ns||this.ie)
+  	this.ie5 = (navigator.userAgent.indexOf('MSIE 5')>0)	
+	
+	if (this.ie5) this.v = 5
+	else if (this.ie) {
+		var ua = navigator.userAgent;
+		var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+		if (re.exec(ua) != null)
+		  this.v= parseFloat( RegExp.$1 );
+	}		
+  	  
+    this.min = (this.ns||this.ie)
   }
 
 

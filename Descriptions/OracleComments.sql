@@ -644,6 +644,29 @@ COMMENT ON COLUMN T_APPLICABILITY_RULE.ID_FORMULA  IS 'Associated formula identi
 
 COMMENT ON TABLE T_APPROVALS IS 'Description for table t_approvals (Package: Misc. Feature)'
 ;
+COMMENT ON COLUMN T_APPROVALS.c_SubmittedDate          IS 'When the change was submitted'
+;
+COMMENT ON COLUMN T_APPROVALS.c_SubmitterId            IS 'Id of account, who did the change'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ChangeType             IS 'Type of the Change ("RateUpdate", "AccountUpdate", "ProductOfferingUpdate", ect.)'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ChangeDetails          IS 'Encrypted full information about the change, that will be given to MT Service on Apply'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ApproverId             IS 'Id of account, who Approved, Denied or Dissmissed the change'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ChangeLastModifiedDate IS 'When the change was modified last time'
+;
+COMMENT ON COLUMN T_APPROVALS.c_ItemDisplayName        IS 'Change’s description that will be displayed for user'
+;
+COMMENT ON COLUMN T_APPROVALS.c_UniqueItemId           IS 'Field with unique value'
+;
+COMMENT ON COLUMN T_APPROVALS.c_Comment                IS 'Comment that Approver provided on changing state of the Change'
+;
+COMMENT ON COLUMN T_APPROVALS.c_CurrentState           IS 'State of the change ("Pending", "Approved", "FailedToApply"…)'
+;
+COMMENT ON COLUMN T_APPROVALS.c_PartitionId            IS 'Partition ID of the Change (e.g.: For Subscription, Product Offering or Rate updates, the Partition Id of the related Product Offering will be saved)'
+;
+
 
 
 COMMENT ON TABLE T_AR_BUCKET_DEF IS 'Description for table t_ar_bucket_def (Package: Account Receivable)'
@@ -879,6 +902,8 @@ COMMENT ON COLUMN T_BILLGROUP.ID_PARENT_BILLGROUP  IS 'Id of the parent billing 
 ;
 COMMENT ON COLUMN T_BILLGROUP.TX_TYPE              IS 'The type of materialization - Full, Rematerialization, PullList'
 ;
+COMMENT ON COLUMN T_BILLGROUP.ID_PARTITION         IS 'Unique Partition identifier'
+;
 
 
 
@@ -968,6 +993,8 @@ COMMENT ON COLUMN T_BILLGROUP_MEMBER_TMP.ID_ACC              IS 'Member account 
 ;
 COMMENT ON COLUMN T_BILLGROUP_MEMBER_TMP.B_EXTRA             IS 'If this account is added to satisfy billing group constraints during pull list creation then the value is 1 else NULL'
 ;
+COMMENT ON COLUMN T_BILLGROUP_MEMBER_TMP.ID_PARTITION        IS 'Unique Partition identifier'
+;
 
 
 COMMENT ON TABLE T_BILLGROUP_SOURCE_ACC IS 'This is a driver table and is populated with the paying accounts for the specified interval before the process of billing group creation. (Package:Billing Groups)'
@@ -987,6 +1014,8 @@ COMMENT ON COLUMN T_BILLGROUP_TMP.TX_NAME             IS 'Unique name of this bi
 COMMENT ON COLUMN T_BILLGROUP_TMP.TX_DESCRIPTION      IS 'Description for this billing group'
 ;
 COMMENT ON COLUMN T_BILLGROUP_TMP.ID_BILLGROUP        IS 'Billing group identifier'
+;
+COMMENT ON COLUMN T_BILLGROUP_TMP.ID_PARTITION        IS 'Unique Partition identifier'
 ;
 
 
@@ -3432,6 +3461,7 @@ COMMENT ON COLUMN T_RECUR_WINDOW.C_MEMBERSHIPEND             IS 'Membership end 
 
 COMMENT ON TABLE t_rec_win_bcp_for_reverse IS 'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse';
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C_BILLEDTHROUGHDATE         IS 'The last time the RC adapter was run (not currently used)';
+COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C_CYCLEEFFECTIVEDATE        IS 'The date in the cycle for this PO/sub'
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMINSTANCEID  IS 'Priceable item instance for this subscription';
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRICEABLEITEMTEMPLATEID  IS 'Priceable item template for this subscription';
 COMMENT ON COLUMN t_rec_win_bcp_for_reverse.C__PRODUCTOFFERINGID        IS 'Product offering for this subscription';
@@ -4193,6 +4223,10 @@ COMMENT ON COLUMN CUSTOMER.HIERARCHYEMAIL             IS 'The email address for 
 ;
 COMMENT ON COLUMN CUSTOMER.HIERARCHYPHONE             IS 'The phone number for the billing contact of the top-level hierarchy account'
 ;
+COMMENT ON COLUMN CUSTOMER.STARTDATE                  IS 'Active Start Date for the Customer'
+;
+COMMENT ON COLUMN CUSTOMER.ENDDATE                    IS 'Active End Date for the Customer'
+;
 
 
 COMMENT ON TABLE PRODUCTOFFERING IS 'This ProductOffering table stores descriptions for product offerings.'
@@ -4283,6 +4317,8 @@ COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.DAYSINMONTH                      IS 'The 
 ;
 COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.DAYSACTIVEINMONTH                IS 'The number of days in the month that the subscription is deemed active'
 ;
+COMMENT ON COLUMN SUBSCRIPTIONSBYMONTH.REPORTINGCURRENCY                IS 'Currency for the Subscription'
+;
 
 
 
@@ -4353,6 +4389,10 @@ COMMENT ON TABLE t_localized_items_type							IS  'Dictionary table for t_locali
 COMMENT ON COLUMN t_localized_items_type.id_local_type 			IS	'Primary key.';
 COMMENT ON COLUMN t_localized_items_type.local_type_description	IS	'Description type';
 
+COMMENT ON TABLE t_message_mapping							IS  'Mapping table for linking between parents messages and childs messages.';
+COMMENT ON COLUMN t_message_mapping.id_message 			IS	'Child message';
+COMMENT ON COLUMN t_message_mapping.id_origin_message	IS	'Primary key. Parents message';
+
 COMMENT ON TABLE  SubscriptionParticipants  IS  'The SubscriptionParticipants reports on a total number of subscriptions (including both indivudal subscriptions and group subscription partipants) to each product offering in a calendar month. The SubscriptionParticipants table holds data for the current calendar month and the two preceeding calendar months.';
 COMMENT ON COLUMN SubscriptionParticipants.InstanceId IS 'The MetraNet instance from which the data originated.';
 COMMENT ON COLUMN SubscriptionParticipants.ProductOfferingId  IS                'Product Offering Identifier.';
@@ -4362,7 +4402,6 @@ COMMENT ON COLUMN SubscriptionParticipants.TotalParticipants  IS   'Total number
 COMMENT ON COLUMN SubscriptionParticipants.DistinctHierarchies  IS               'The number of unique customers. For example, a company may have 200 users with the subscription, that would be ONE here and 200 in Subscriptions above.';
 COMMENT ON COLUMN SubscriptionParticipants.NewParticipants  IS 'Total number of new subscriptions to this product offering that became active during this calendar month that were not active in the previous calendar month.';
 COMMENT ON COLUMN SubscriptionParticipants.UnsubscribedParticipants IS 'Total number of subscriptions to this product offering that expired during this calendar month.';
-
 
 COMMENT ON TABLE T_NOTIFICATION_EVENT_TYPES IS 'The table contains notification event types configured in the system.'
 ;

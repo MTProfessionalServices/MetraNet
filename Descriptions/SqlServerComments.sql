@@ -1519,9 +1519,31 @@ EXEC sp_addextendedproperty 'MS_Description', 'Global external identifier for ap
 EXEC sp_addextendedproperty 'MS_Description', 'Associated formula identifier(foreign key to t_calc_formula)', 'Schema', dbo, 'table', t_applicability_rule, 'column', id_formula
 ;
 
+
 EXEC sp_addextendedproperty 'MS_Description', 'Description for table t_approvals (Package: Misc. Feature)', 'Schema', dbo, 'table', t_approvals
 ;
-
+EXEC sp_addextendedproperty 'MS_Description', 'When the change was submitted', 'Schema', dbo, 'table', t_approvals, 'column', c_SubmittedDate
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Id of account, who did the change', 'Schema', dbo, 'table', t_approvals, 'column', c_SubmitterId
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Type of the Change ("RateUpdate", "AccountUpdate", "ProductOfferingUpdate", ect.)', 'Schema', dbo, 'table', t_approvals, 'column', c_ChangeType
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Encrypted full information about the change, that will be given to MT Service on Apply', 'Schema', dbo, 'table', t_approvals, 'column', c_ChangeDetails
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Id of account, who Approved, Denied or Dissmissed the change', 'Schema', dbo, 'table', t_approvals, 'column', c_ApproverId
+;
+EXEC sp_addextendedproperty 'MS_Description', 'When the change was modified last time', 'Schema', dbo, 'table', t_approvals, 'column', c_ChangeLastModifiedDate
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Change’s description that will be displayed for user', 'Schema', dbo, 'table', t_approvals, 'column', c_ItemDisplayName
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Field with unique value', 'Schema', dbo, 'table', t_approvals, 'column', c_UniqueItemId
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Comment that Approver provided on changing state of the Change', 'Schema', dbo, 'table', t_approvals, 'column', c_Comment
+;
+EXEC sp_addextendedproperty 'MS_Description', 'State of the change ("Pending", "Approved", "FailedToApply"…)', 'Schema', dbo, 'table', t_approvals, 'column', c_CurrentState
+;
+EXEC sp_addextendedproperty 'MS_Description', 'Partition ID of the Change (e.g.: For Subscription, Product Offering or Rate updates, the Partition Id of the related Product Offering will be saved)', 'Schema', dbo, 'table', t_approvals, 'column', c_PartitionId
+;
 
 
 EXEC sp_addextendedproperty 'MS_Description', 'Description for table t_ar_bucket_def (Package: Account Receivable)', 'Schema', dbo, 'table', t_ar_bucket_def
@@ -1801,6 +1823,9 @@ EXEC sp_addextendedproperty 'MS_Description', 'Id of the parent billing group if
 EXEC sp_addextendedproperty 'MS_Description', 'The type of materialization - Full, Rematerialization, PullList', 'Schema', dbo, 'table', t_billgroup, 'column', tx_type
 ;
 
+EXEC sp_addextendedproperty 'MS_Description', 'Unique Partition identifier', 'Schema', dbo, 'table', t_billgroup, 'column', id_partition
+;
+
 EXEC sp_addextendedproperty 'MS_Description', 'This table contains information about the constraints imposed by the adapters in the system. The constraint is collection of accounts identified by the groupid and need to be processed together by the adapters. (Package:Billing Groups)', 'Schema', dbo, 'table', t_billgroup_constraint
 ;
 EXEC sp_addextendedproperty 'MS_Description', 'Associated usage interval identifier', 'Schema', dbo, 'table', t_billgroup_constraint, 'column', id_usage_interval
@@ -1903,6 +1928,9 @@ EXEC sp_addextendedproperty 'MS_Description', 'Member account assigned to this b
 EXEC sp_addextendedproperty 'MS_Description', 'If this account is added to satisfy billing group constraints during pull list creation then the value is 1 else NULL', 'Schema', dbo, 'table', t_billgroup_member_tmp, 'column', b_extra
 ;
 
+EXEC sp_addextendedproperty 'MS_Description', 'Unique Partition identifier', 'Schema', dbo, 'table', t_billgroup_member_tmp, 'column', id_partition
+;
+
 EXEC sp_addextendedproperty 'MS_Description', 'This is a driver table and is populated with the paying accounts for the specified interval before the process of billing group creation. (Package:Billing Groups)', 'Schema', dbo, 'table', t_billgroup_source_acc
 ;
 EXEC sp_addextendedproperty 'MS_Description', 'The materialization for which this account is used as a source', 'Schema', dbo, 'table', t_billgroup_source_acc, 'column', id_materialization
@@ -1923,6 +1951,9 @@ EXEC sp_addextendedproperty 'MS_Description', 'Description for this billing grou
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'Billing group identifier', 'Schema', dbo, 'table', t_billgroup_tmp, 'column', id_billgroup
+;
+
+EXEC sp_addextendedproperty 'MS_Description', 'Unique Partition identifier', 'Schema', dbo, 'table', t_billgroup_tmp, 'column', id_partition
 ;
 
 EXEC sp_addextendedproperty 'MS_Description', 'This table stores system wide billing server settings from configuration and set from the MetraControl Usager Server settings screen (Package:Billing Server)', 'Schema', dbo, 'table', t_billing_server_settings
@@ -5085,6 +5116,7 @@ EXEC sp_addextendedproperty 'MS_Description', 'Membership end for a group subscr
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Table for storing c_BilledThroughDate values, that t_recur_window had before reverse' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_rec_win_bcp_for_reverse';
 EXEC sp_addextendedproperty 'MS_Description', 'The last time the RC adapter was run (not currently used)', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c_BilledThroughDate;
+EXEC sp_addextendedproperty 'MS_Description', 'The date in the cycle for this PO/sub', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c_CycleEffectiveDate;
 EXEC sp_addextendedproperty 'MS_Description', 'Priceable item instance for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemInstanceID;
 EXEC sp_addextendedproperty 'MS_Description', 'Priceable item template for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__PriceableItemTemplateID;
 EXEC sp_addextendedproperty 'MS_Description', 'Product offering for this subscription', 'Schema', dbo, 'table', t_rec_win_bcp_for_reverse, 'column', c__ProductOfferingID;
@@ -5959,6 +5991,8 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The zip code t
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The country that the customer is located in for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyCountry'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The email address for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyEmail'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The phone number for the billing contact of the top-level hierarchy account' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'HierarchyPhone'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Active Start Date for the Customer' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'StartDate'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Active End Date for the Customer' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Customer', @level2type=N'COLUMN',@level2name=N'EndDate'
 
 EXEC sp_addextendedproperty 'MS_Description', 'Contains the sales representatives and their territories', 'Schema', dbo, 'table', SalesRep;
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SalesRep', @level2type=N'COLUMN',@level2name=N'InstanceId'
@@ -5992,6 +6026,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The monetary a
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'SubscriptionRevenue converted to the Primary Currency.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'SubscriptionRevPrimaryCurrency'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of days in the month' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'DaysInMonth'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of days in the month that the subscription is deemed active' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'DaysActiveInMonth'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Currency for the Subscription' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionsByMonth', @level2type=N'COLUMN',@level2name=N'ReportingCurrency'
 
 EXEC sp_addextendedproperty 'MS_Description', 'The SubscriptionUnits table tracks the initial units any changes to the bundled (i.e., included) number of units during the term of subscription', 'Schema', dbo, 'table', SubscriptionUnits;
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates what MetraNet instance generated the data' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionUnits', @level2type=N'COLUMN',@level2name=N'InstanceId'
@@ -6053,6 +6088,10 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The localized 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Dictionary table for t_localized_items.id_local_type colum. Contains id localization type and their description', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_localized_items_type'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primary key.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_localized_items_type', @level2type=N'COLUMN',@level2name=N'id_local_type'
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Description type.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_localized_items_type', @level2type=N'COLUMN',@level2name=N'local_type_description'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Mapping table for linking between parents messages and childs messages.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Child message.', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping', @level2type=N'COLUMN',@level2name=N'id_message'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Primary key. Parents message', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_message_mapping', @level2type=N'COLUMN',@level2name=N'id_origin_message'
 
 EXEC sp_addextendedproperty 'MS_Description', 'The SubscriptionParticipants reports on a total number of subscriptions (including both indivudal subscriptions and group subscription partipants) to each product offering in a calendar month. The SubscriptionParticipants table holds data for the current calendar month and the two preceeding calendar months.', 'Schema', dbo, 'table', SubscriptionParticipants;
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The MetraNet instance from which the data originated.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'SubscriptionParticipants', @level2type=N'COLUMN',@level2name=N'InstanceId'

@@ -145,11 +145,28 @@ begin
 			--	aa2.vt_end > aa.vt_end	
 			)
 		)
-		begin
-		-- MT_GROUP_SUB_CORPORATE_ACCOUNT_INVALID
-		select @p_status = -486604786
-		return
-		end
+    begin
+    declare @accStart datetime, @accEnd datetime
+
+    select @accStart = vt_start, @accEnd = vt_end from t_account_ancestor
+    where id_descendent = @p_CorporateAccount and num_generations = 0 -- Clustered Index
+
+    if (@p_startdate < @accStart)
+      begin
+        -- MT_GROUP_SUB_STARTS_BEFORE_ACCOUNT
+        select @p_status = -486604710
+        return
+      end
+    if (@p_enddate > @accEnd)
+      begin
+        -- MT_GROUP_SUB_ENDS_AFTER_ACCOUNT
+        select @p_status = -486604709
+        return
+      end
+    -- MT_GROUP_SUB_CORPORATE_ACCOUNT_INVALID
+    select @p_status = -486604786
+    return
+    end
 end
  -- make sure start date is before end date
 	-- MT_GROUPSUB_STARTDATE_AFTER_ENDDATE

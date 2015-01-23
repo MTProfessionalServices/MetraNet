@@ -111,9 +111,34 @@ BEGIN
                              ));
 
       IF var_condn <> 0
-      THEN /* MT_GROUP_SUB_CORPORATE_ACCOUNT_INVALID*/
-         p_status := -486604786;
-         RETURN;
+      THEN
+      
+        DECLARE
+          v_accStart  DATE;
+          v_accEnd    DATE;
+        BEGIN
+          SELECT vt_start, vt_end
+          INTO v_accStart, v_accEnd
+          FROM t_account_ancestor
+          WHERE id_descendent = p_corporateaccount AND num_generations = 0
+                AND ROWNUM <= 1;
+          
+          IF p_startdate < v_accStart THEN
+            /* MT_GROUP_SUB_STARTS_BEFORE_ACCOUNT*/
+            p_status := -486604710;
+            RETURN;
+          END IF;
+          
+          IF var_p_enddate > v_accEnd THEN
+            /* MT_GROUP_SUB_ENDS_AFTER_ACCOUNT*/
+            p_status := -486604709;
+            RETURN;
+          END IF;          
+        END;
+      
+        /* MT_GROUP_SUB_CORPORATE_ACCOUNT_INVALID*/
+        p_status := -486604786;
+        RETURN;
       END IF;
    END IF; /* make sure start date is before end date   MT_GROUPSUB_STARTDATE_AFTER_ENDDATE*/
 

@@ -1,16 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Web.UI;
-using MetraTech.DomainModel.BaseTypes;
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
-using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.ActivityServices.Common;
 
 public partial class GroupSubscriptions_SetUDRCValues : MTPage
 {
-
   public List<UDRCInstance> UDRCInstances
   {
     get { return ViewState["UDRCInstances"] as List<UDRCInstance>; }
@@ -28,8 +24,7 @@ public partial class GroupSubscriptions_SetUDRCValues : MTPage
     get { return ViewState["GroupSubscriptionInstance"] as GroupSubscription; }
     set { ViewState["GroupSubscriptionInstance"] = value; }
   }
-
-
+  
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
@@ -50,7 +45,7 @@ public partial class GroupSubscriptions_SetUDRCValues : MTPage
   protected void btnSave_Click(object sender, EventArgs eventArgs)
   {
     try
-    {          
+    {
       GroupSubscriptionsEvents_SaveSetUDRCValues_Client saveSetUDRCValuesClient = new GroupSubscriptionsEvents_SaveSetUDRCValues_Client();
       saveSetUDRCValuesClient.In_AccountId = new AccountIdentifier(UI.User.AccountId);      
       saveSetUDRCValuesClient.In_GroupSubscriptionInstance = GroupSubscriptionInstance;
@@ -63,5 +58,4 @@ public partial class GroupSubscriptions_SetUDRCValues : MTPage
       Logger.LogError(ex.Message);
     }
   }
-
 }

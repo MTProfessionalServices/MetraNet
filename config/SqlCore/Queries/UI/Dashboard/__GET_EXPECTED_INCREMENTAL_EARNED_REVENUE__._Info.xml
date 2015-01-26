@@ -50,7 +50,7 @@
         </Parameter>
         <Parameter>
             <Name>ACCOUNTINGCYCLEID</Name>
-            <DataType>string</DataType>
+            <DataType>guid</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>Accounting Cycle Id</Description>

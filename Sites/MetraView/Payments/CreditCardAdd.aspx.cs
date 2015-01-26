@@ -225,7 +225,7 @@ public partial class Payments_CreditCardAdd : MTPage
 
   private ContactView GetContactView()
   {
-    ContactView contactView = null;
+    ContactView contactView = new ContactView();
     var viewDictionary = UI.Subscriber.SelectedAccount.GetViews();
     foreach (var views in viewDictionary.Values)
       foreach (MetraTech.DomainModel.BaseTypes.View view in views)

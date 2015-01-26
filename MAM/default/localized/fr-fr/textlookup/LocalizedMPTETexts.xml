@@ -860,4 +860,8 @@
     <value>Vous avez des modifications non enregistrées.</value>
     <description></description>
   </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>Voir changements</value>
+    <description></description>
+  </text>
 </texts>

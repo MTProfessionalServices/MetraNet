@@ -790,4 +790,8 @@
     <value>You have unsaved changes.</value>
     <description></description>
   </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>View changes</value>
+    <description></description>
+  </text>
 </texts>

@@ -860,4 +860,8 @@
     <value>Você tem alterações não salvas.</value>
     <description></description>
   </text>
+  <text id="TEXT_VIEW_CHANGES">
+    <value>Veja as mudanças</value>
+    <description></description>
+  </text>
 </texts>

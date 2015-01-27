@@ -237,7 +237,7 @@
     <description></description>
   </text>
   <text id="TEXT_NO_RATE_SCHEDULES">
-    <value><![CDATA[<span style='font-weight:normal;'><b>Atualmente, não há cronogramas de tarifas nessa lista de preços dessa tabela de parâmetros.</b><BR><BR> Use o botão 'Novo Cronograma de Tarifas'acima para criar um ou use esse botão para criar automaticamente um cronograma de tarifas padrão que sempre estará em efeito (sem data de início ou término):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>Criar Cronograma de Tarifas Padrão</button><BR></span>]]></value>
+    <value><![CDATA[<span style='font-weight:normal;'><b>Atualmente, não há cronogramas de tarifas nessa lista de preços dessa tabela de parâmetros.</b><BR><BR> Use o botão 'Novo Cronograma de Tarifas'acima para criar um ou use esse botão para criar automaticamente um cronograma de tarifas padrão que sempre estará em efeito (sem data de início ou término):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this); return false;'>Criar Cronograma de Tarifas Padrão</button><BR></span>]]></value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">

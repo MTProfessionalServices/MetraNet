@@ -123,9 +123,20 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   'new_pricelist_currency = Service.Properties("NewCurrency").Value
 
   if Service.Properties("ChangeCurrencyOnNewPricelist").Value then
-    new_pricelist_currency = Service.Properties("NewCurrency").Value
+
+   'Code added to retrieve the corresponding Currency code in Label format instaed of Currency ISO code (eg: USD instead of "840") 
+  
+  dim i
+   'loop through the total count of enum entries and compare the currency code with new currency value and display the corresponding Label of Currency
+  for i = 1 to Service.Properties("NewCurrency").EnumType.Entries.Count
+  IF Service.Properties("NewCurrency").EnumType.Entries(i).Value = Service.Properties("NewCurrency").Value Then
+      new_pricelist_currency= Service.Properties("NewCurrency").EnumType.Entries(i).Name
+  End If 
+  next
+
   else
-    new_pricelist_currency = Service.Properties("OriginalCurrency").Value
+    new_pricelist_currency = Service.Properties("OriginalCurrency").Value 'Retains old Currency value if ChangeCurrencyOnNewPricelist is unchecked
+
   end if
   
   'mdm_TerminateDialogAndExecuteDialog "PriceList.Copy.Execute.asp?PricelistId=" & Form("PL_ID") & "&NewName=" & Server.UrlEncode(Service.Properties("NewName").Value) & "&NewDescription=" & Server.UrlEncode(Service.Properties("NewDescription").Value) & "&NewCurrency=" & Server.UrlEncode(new_pricelist_currency)

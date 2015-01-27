@@ -98,33 +98,6 @@ SELECT
                     ORDER BY rer.dt_start DESC
                   )
   ) AS last_eop_adapter_status
-, (
-SELECT
-  case when
-        /*Past_three_month_average*/
-        (select SUM(AVERAGE) from TABLE(active_bill_run_pkg.getActvCurAverage(%%ID_USAGE_INTERVAL%%)))
-  != 0.0 then
-    ROUND(
-      (
-        /*EOP_Interval_run_time*/
-        (select SUM(DURATION) from TABLE(active_bill_run_pkg.getActvCurAverage(%%ID_USAGE_INTERVAL%%))) 
-
-        - 
-        
-        /*Past_three_month_average*/
-        (select SUM(AVERAGE) from TABLE(active_bill_run_pkg.getActvCurAverage(%%ID_USAGE_INTERVAL%%)))
-      ) *  
-        
-        (100 / 
-        /*Past_three_month_average*/
-        (select SUM(AVERAGE) from TABLE(active_bill_run_pkg.getActvCurAverage(%%ID_USAGE_INTERVAL%%)))     
-        )
-       , 2) /*round off the Variance to 2 decimal places*/
-  else 
-    0.0 
-  end
-  FROM DUAL
-  ) AS "Variance"  
 , (SELECT 
 /*This is the 3 month average run time (in seconds) for the adapters that have *not* yet run successfully for the current interval*/
 (SELECT  case when count(distinct rei.id_arg_interval) != 0 then sum(ROUND((rer.dt_end - rer.dt_start) * 24,0)) / count(distinct rei.id_arg_interval) else 0 end

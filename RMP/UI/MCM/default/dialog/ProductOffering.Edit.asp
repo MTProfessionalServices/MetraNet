@@ -234,10 +234,10 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     COMObject.Properties("EffectiveDate__EndDate").Value = Empty
   end if
 
-  COMObject.Properties.Remove "EffDate_StartDate"    
-  COMObject.Properties.Remove "EffDate_EndDate"    	
-  COMObject.Properties.Remove "AvDate_StartDate"   
-  COMObject.Properties.Remove "AvDate_EndDate"
+  COMObject.Properties("EffDate_StartDate").Value = Empty    
+  COMObject.Properties("EffDate_EndDate").Value = Empty   	
+  COMObject.Properties("AvDate_StartDate").Value = Empty      
+  COMObject.Properties("AvDate_EndDate").Value = Empty
 
   If COMObject.Instance.DisplayName = "" then
    COMObject.Instance.DisplayName = "Dummy"

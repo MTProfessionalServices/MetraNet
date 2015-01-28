@@ -291,7 +291,7 @@ case when UPPER(state.status) != 'AC' then state.vt_start else state.vt_end end 
 DENSE_RANK() OVER (PARTITION BY c.id_acc, p.id_acc ORDER BY cam.nm_space, pam.nm_space) as priority_col		
 from tmp_accs r
 inner join t_account c on c.id_acc = r.id_descendent
-inner join t_account_state state on state.id_acc = c.id_acc
+inner join t_account_state state on state.id_acc = c.id_acc and state.vt_end = dbo.mtmaxdate
 inner join t_account_type ct on ct.id_type = c.id_type
 inner join t_account_mapper cam on cam.id_acc = c.id_acc and cam.nm_space not in ('ar')
 left outer join t_av_internal cavi on cavi.id_acc = c.id_acc

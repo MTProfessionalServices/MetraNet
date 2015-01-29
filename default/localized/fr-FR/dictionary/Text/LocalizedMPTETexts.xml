@@ -718,112 +718,112 @@
     <description></description>
   </text>
   <text id="TEXT_Add_Parameter_Table_to_Price_List">
-    <value>[FR]Add Parameter Table to Price List</value>
+    <value>Add Parameter Table to Price List</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules_For">
-    <value>[FR]Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <value>Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules">
-    <value>[FR]Create Rate Schedule(s)</value>
+    <value>Create Rate Schedule(s)</value>
     <description></description>
   </text>
   <text id="TEXT_Usage">
-    <value>[FR]Usage</value>
+    <value>Usage</value>
     <description></description>
   </text>
   <text id="TEXT_RC">
-    <value>[FR]RC</value>
+    <value>RC</value>
     <description></description>
   </text>
   <text id="TEXT_NRC">
-    <value>[FR]NRC</value>
+    <value>NRC</value>
     <description></description>
   </text>
   <text id="TEXT_Discounts">
-    <value>[FR]Discounts</value>
+    <value>Discounts</value>
     <description></description>
   </text>
   <text id="TEXT_Work_On_New_Pricelist">
-    <value>[FR]Work On New Pricelist</value>
+    <value>Work On New Pricelist</value>
     <description></description>
   </text>
   <text id="TEXT_Return_to_current_Pricelist">
-    <value>[FR]Return to current Pricelist</value>
+    <value>Return to current Pricelist</value>
     <description></description>
   </text>
 
   <text id="TEXT_January">
-    <value>[FR]January</value>
+    <value>January</value>
     <description></description>
   </text>
   <text id="TEXT_February">
-    <value>[FR]February</value>
+    <value>February</value>
     <description></description>
   </text>
   <text id="TEXT_March">
-    <value>[FR]March</value>
+    <value>March</value>
     <description></description>
   </text>
   <text id="TEXT_April">
-    <value>[FR]April</value>
+    <value>April</value>
     <description></description>
   </text>
   <text id="TEXT_May">
-    <value>[FR]May</value>
+    <value>May</value>
     <description></description>
   </text>
   <text id="TEXT_June">
-    <value>[FR]June</value>
+    <value>June</value>
     <description></description>
   </text>
   <text id="TEXT_July">
-    <value>[FR]July</value>
+    <value>July</value>
     <description></description>
   </text>
   <text id="TEXT_August">
-    <value>[FR]August</value>
+    <value>August</value>
     <description></description>
   </text>
   <text id="TEXT_September">
-    <value>[FR]September</value>
+    <value>September</value>
     <description></description>
   </text>
   <text id="TEXT_October">
-    <value>[FR]October</value>
+    <value>October</value>
     <description></description>
   </text>
   <text id="TEXT_November">
-    <value>[FR]November</value>
+    <value>November</value>
     <description></description>
   </text>
   <text id="TEXT_December">
-    <value>[FR]December</value>
+    <value>December</value>
     <description></description>
   </text>
   <text id="TEXT_PRICE_LIST">
-    <value>[FR]Price list</value>
+    <value>Price list</value>
     <description></description>
   </text>
   <text id="TEXT_MODIFIED_BY">
-    <value>[FR]modified by</value>
+    <value>modified by</value>
     <description></description>
   </text>
   <text id="TEXT_AT">
-    <value>[FR]at</value>
+    <value>at</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_CHANGES">
-    <value>[FR]View changes</value>
+    <value>View changes</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_HISTORY">
-    <value>[FR]View history</value>
+    <value>View history</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
-    <value>[FR]You have unsaved changes.</value>
+    <value>You have unsaved changes.</value>
     <description></description>
   </text>
 </texts>

@@ -4,81 +4,81 @@
     Texts for the billing cycles sub dialog
   </description>
   <text id="TEXT_PC_CYCLE_TITLE">
-    <value>[JA]Cycle</value>
+    <value>Cycle</value>
   </text>
   <text id="TEXT_PC_CYCLE_FIXED_CYCLE">
-    <value>[JA]Fixed cycle</value>
+    <value>Fixed cycle</value>
   </text>
   <text id="TEXT_PC_CYCLE_SAME_AS_SUBSCRIBER_BILLING_CYCLE">
-    <value>[JA]Same as subscriber's payer's billing cycle</value>
+    <value>Same as subscriber's payer's billing cycle</value>
   </text>
   <text id="TEXT_PC_CYCLE_REQUIRE_CYCLE_IS">
-    <value>[JA]Require that subscriber's payer's billing cycle be</value>
+    <value>Require that subscriber's payer's billing cycle be</value>
   </text>
   <text id="TEXT_PC_CYCLE_ALIGNED_TO_SUBSCRIBER_BILLING_CYCLE">
-    <value>[JA]Aligned to subscriber's payer's billing cycle</value>
+    <value>Aligned to subscriber's payer's billing cycle</value>
   </text>
   <text id="TEXT_PC_CYCLE_ALIGNED_OCURRING">
-    <value>[JA]Occurring</value>
+    <value>Occurring</value>
   </text>
   <text id="TEXT_PC_CYCLE_DAILY">
-    <value>[JA]Daily</value>
+    <value>Daily</value>
   </text>
   <text id="TEXT_PC_CYCLE_WEEKLY">
-    <value>[JA]Weekly</value>
+    <value>Weekly</value>
   </text>
   <text id="TEXT_PC_CYCLE_WEEKLY_LABEL1">
-    <value>[JA]Ending on</value>
+    <value>Ending on</value>
   </text>
   <text id="TEXT_PC_CYCLE_BIWEEKLY">
-    <value>[JA]Bi-weekly</value>
+    <value>Bi-weekly</value>
   </text>
   <text id="TEXT_PC_CYCLE_BIWEEKLY_LABEL1">
     <value></value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIMONTHLY">
-    <value>[JA]Semi-monthly</value>
+    <value>Semi-monthly</value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL1">
-    <value>[JA]Ending on days</value>
+    <value>Ending on days</value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL2">
-    <value>[JA]and</value>
+    <value>and</value>
   </text>
   <text id="TEXT_PC_CYCLE_MONTHLY">
-    <value>[JA]Monthly</value>
+    <value>Monthly</value>
   </text>
   <text id="TEXT_PC_CYCLE_MONTHLY_LABEL1">
-    <value>[JA]Ending on day</value>
+    <value>Ending on day</value>
   </text>
   <text id="TEXT_PC_CYCLE_QUARTERLY">
-    <value>[JA]Quarterly</value>
+    <value>Quarterly</value>
   </text>
   <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL1">
-    <value>[JA]Starting on</value>
+    <value>Starting on</value>
   </text>
   <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL2">
     <value></value>
   </text>
   <text id="TEXT_PC_CYCLE_ANNUAL">
-    <value>[JA]Annual</value>
+    <value>Annual</value>
   </text>
   <text id="TEXT_PC_CYCLE_ANNUAL_LABEL1">
-    <value>[JA]Starting on</value>
+    <value>Starting on</value>
   </text>
   <text id="TEXT_PC_CYCLE_ANNUAL_LABEL2">
     <value></value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIANNUAL">
-    <value>[JA]Semi-annual</value>
+    <value>Semi-annual</value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIANNUAL_LABEL1">
-    <value>[JA]Starting on</value>
+    <value>Starting on</value>
   </text>
   <text id="TEXT_PC_CYCLE_SEMIANNUAL_LABEL2">
     <value></value>
   </text>
   <text id="TEXT_END_OF_THE_MONTH">
-    <value>[JA]End of Month</value>
+    <value>End of Month</value>
   </text>
 </texts>

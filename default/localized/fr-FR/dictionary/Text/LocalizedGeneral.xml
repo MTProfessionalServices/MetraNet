@@ -209,7 +209,7 @@
     <description></description>
   </text>
   <text id="TEXT_Change_the_price_list">
-    <value>[FR]Change the price list mappings for one or more items in this product offering.</value>
+    <value>Change the price list mappings for one or more items in this product offering.</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
@@ -321,7 +321,7 @@
     <description></description>
   </text>
   <text id="TEXT_RATE_SCHEDULE_HISTORY">
-    <value>[FR]Rate Schedule History</value>
+    <value>Rate Schedule History</value>
     <description></description>
   </text>
 </texts>

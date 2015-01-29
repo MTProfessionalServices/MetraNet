@@ -2,39 +2,39 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_RATES_PRODUCT_OFFERING_LIST">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING][es-MX]-based Rates</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING]-based Rates</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_PRICELIST_LIST">
-    <value>[TEXT_KEYTERM_PRICE_LIST][es-MX]-based Rates For Priceable Item</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST]-based Rates For Priceable Item</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_ALLPRICELISTS_LIST">
-    <value>[TEXT_KEYTERM_PRICE_LIST][es-MX]-based Rates</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST]-based Rates</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_PRICEABLE_ITEM_LIST">
-    <value>[es-MX]Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <value>Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_PARAMETER_TABLE">
-    <value>[es-MX]Select [TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <value>Select [TEXT_KEYTERM_PARAMETER_TABLE]</value>
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_PRICELIST">
-    <value>[es-MX]Select [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Select [TEXT_KEYTERM_PRICE_LIST]</value>
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_PRODUCT_OFFERING">
-    <value>[es-MX]Select [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Select [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_PRICEABLE_ITEM">
-    <value>[es-MX]Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <value>Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_ALLPRICELISTS_CHOOSE_PRICEABLE_ITEM">
-    <value>[es-MX]Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <value>Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
     <description></description>
   </text>
   <text id="TEXT_CHOOSE_RATE_SCHEDULE">
@@ -42,119 +42,119 @@
     <description></description>
   </text>
   <text id="TEXT_COLUMN_CURRENCY_CODE">
-    <value>[es-MX]Currency</value>
+    <value>Currency</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_NUMBER_OF_RATES">
-    <value>[es-MX]Number of [TEXT_KEYTERM_RATE_SCHEDULES]</value>
+    <value>Number of [TEXT_KEYTERM_RATE_SCHEDULES]</value>
     <description></description>
   </text>
   <text id="TEXT_HAS_NO_RATES">
-    <value>[es-MX]None</value>
+    <value>None</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_RATES_OPTIONS">
-    <value>[es-MX]Options</value>
+    <value>Options</value>
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_PICKER_TITLE">
-    <value>[es-MX]Select [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>Select [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_LIST_TITLE">
-    <value>[es-MX]Select [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>Select [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_EDIT_PROPERTIES">
-    <value>[es-MX]Edit Properties</value>
+    <value>Edit Properties</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_COLUMN_PRICELIST">
-    <value>[es-MX]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_COLUMN_START_DATE">
-    <value>[es-MX]Starts</value>
+    <value>Starts</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_COLUMN_END_DATE">
-    <value>[es-MX]Ends</value>
+    <value>Ends</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_NEW_RATE">
-    <value>[es-MX]New [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>New [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_WIZARD_STARTDATE_TITLE">
-    <value>[es-MX]When should this [TEXT_KEYTERM_RATE_SCHEDULE] become effective?</value>
+    <value>When should this [TEXT_KEYTERM_RATE_SCHEDULE] become effective?</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_WIZARD_ENDDATE_TITLE">
-    <value>[es-MX]When should this [TEXT_KEYTERM_RATE_SCHEDULE] cease to be effective?</value>
+    <value>When should this [TEXT_KEYTERM_RATE_SCHEDULE] cease to be effective?</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_WIZARD_DESCRIPTION_TITLE">
-    <value>[es-MX]You may optionally enter a description for this [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>You may optionally enter a description for this [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_EFFECTIVE_DATE_TIP">
-    <value>[es-MX]Effective Dates control when a particular set of rules should be applied in rating.</value>
+    <value>Effective Dates control when a particular set of rules should be applied in rating.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_EFFECTIVE_DATE_NULL_TIP">
-    <value>[es-MX]Selecting "[TEXT_NULL_START_DATE_TYPE]" means your [TEXT_KEYTERM_RATE_SCHEDULE] start date is infinitely in the past. Similarly, selecting "[TEXT_NULL_END_DATE_TYPE]" means your [TEXT_KEYTERM_RATE_SCHEDULE] end date is infinitely in the future.</value>
+    <value>Selecting "[TEXT_NULL_START_DATE_TYPE]" means your [TEXT_KEYTERM_RATE_SCHEDULE] start date is infinitely in the past. Similarly, selecting "[TEXT_NULL_END_DATE_TYPE]" means your [TEXT_KEYTERM_RATE_SCHEDULE] end date is infinitely in the future.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_DESCRIPTION_TIP">
-    <value>[es-MX]A simple, optional mechanism to identify your [TEXT_KEYTERM_RATE_SCHEDULE].</value>
+    <value>A simple, optional mechanism to identify your [TEXT_KEYTERM_RATE_SCHEDULE].</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_RATES">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] [es-MX]Rates</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] Rates</value>
     <description></description>
   </text>
   <text id="TEXT_CHILD_PRICEABLE_ITEM">
-    <value>[es-MX]Select Child [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <value>Select Child [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_SOURCE_FILE">
-    <value>[es-MX]Select Child [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <value>Select Child [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
     <description></description>
   </text>
   <text id="TEXT_RATESCHEDULE_DESCRIPTION">
-    <value>[TEXT_KEYTERM_RATE_SCHEDULE] [es-MX]Description</value>
+    <value>[TEXT_KEYTERM_RATE_SCHEDULE] Description</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_RULES_NUMBER">
-    <value>[es-MX]Number of rules to import</value>
+    <value>Number of rules to import</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_RULES">
-    <value>[es-MX]Import Rules</value>
+    <value>Import Rules</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_RULES_FIELDSET_LABEL">
-    <value>[es-MX]Import Rules from Rate Schedule</value>
+    <value>Import Rules from Rate Schedule</value>
     <description></description>
   </text>
   <text id="COPY_SHARED_RSCHED">
-    <value>[es-MX]Copy from a Shared [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>Copy from a Shared [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="COPY_NONSHARED_RSCHED">
-    <value>[es-MX]Copy from a Nonshared [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>Copy from a Nonshared [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_QUANTITY">
-    <value>[es-MX]Quantity</value>
+    <value>Quantity</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_ID">
-    <value>[es-MX]Subscription ID</value>
+    <value>Subscription ID</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SUBSCRIPTION">
-    <value>[es-MX]Subscribers Currently Using Rate Schedule</value>
+    <value>Subscribers Currently Using Rate Schedule</value>
     <description></description>
   </text>
 </texts>

@@ -2,69 +2,69 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_VIEW_ALL_RATES">
-    <value>[es-MX]View All Rates By [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>View All Rates By [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE">
-    <value>[es-MX]View All Rates By [TEXT_KEYTERM_PRICEABLE_ITEM] Type</value>
+    <value>View All Rates By [TEXT_KEYTERM_PRICEABLE_ITEM] Type</value>
     <description></description>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_TITLE">
-    <value>[es-MX]Bulk Subscription Change</value>
+    <value>Bulk Subscription Change</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE">
-    <value>[es-MX]Bulk Subscription Change</value>
+    <value>Bulk Subscription Change</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_SOURCE">
-    <value>[es-MX]Source [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Source [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_DESTINATION">
-    <value>[es-MX]Destination [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Destination [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE">
-    <value>[es-MX]Effective Date</value>
+    <value>Effective Date</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE_BILLING_CYCLE_RELATIVE">
-    <value>[es-MX]Make subscription change effective on the next billing cycle after this date</value>
+    <value>Make subscription change effective on the next billing cycle after this date</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_SELECT_PRODUCT_OFFERING">
-    <value>[es-MX]Select a [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Select a [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_ADVANCED_DIALOG_DESCRIPTION">
-    <value>[es-MX]Select the action you wish to perform.</value>
+    <value>Select the action you wish to perform.</value>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_DESCRIPTION">
-    <value>[es-MX]View a page containing all rates in the Product Catalog grouped by [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>View a page containing all rates in the Product Catalog grouped by [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE_DESCRIPTION">
-    <value>[es-MX]View a page with all rates grouped by [TEXT_KEYTERM_PRICEABLE_ITEM] Type.</value>
+    <value>View a page with all rates grouped by [TEXT_KEYTERM_PRICEABLE_ITEM] Type.</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_DESCRIPTION">
-    <value>[es-MX]Transfer all customer Subscriptions from one [TEXT_KEYTERM_PRODUCT_OFFERING] to another [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>Transfer all customer Subscriptions from one [TEXT_KEYTERM_PRODUCT_OFFERING] to another [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
   </text>
   <text id="TEXT_EDIT_PRICELIST_DESCRIPTION">
-    <value>[es-MX]Add new [TEXT_KEYTERM_PRICE_LISTS] and edit the descriptions of existing [TEXT_KEYTERM_PRICE_LISTS].</value>
+    <value>Add new [TEXT_KEYTERM_PRICE_LISTS] and edit the descriptions of existing [TEXT_KEYTERM_PRICE_LISTS].</value>
   </text>
   <text id="TEXT_MANAGE_CALENDARS">
-    <value>[es-MX]Manage Calendars</value>
+    <value>Manage Calendars</value>
   </text>
   <text id="TEXT_MANAGE_CALENDARS_DESCRIPTION">
-    <value>[es-MX]Create and configure Calendars.</value>
+    <value>Create and configure Calendars.</value>
   </text>
   <text id="TEXT_MANAGE_HIDDEN_POS">
-    <value>[es-MX]Manage Hidden [TEXT_KEYTERM_PRODUCT_OFFERINGS]</value>
+    <value>Manage Hidden [TEXT_KEYTERM_PRODUCT_OFFERINGS]</value>
     <description></description>
   </text>
   <text id="TEXT_MANAGE_HIDDEN_POS_DESCRIPTION">
-    <value>[es-MX]View [TEXT_KEYTERM_PRODUCT_OFFERINGS] that are hidden from regular MetraOffer use and un-hide them.</value>
+    <value>View [TEXT_KEYTERM_PRODUCT_OFFERINGS] that are hidden from regular MetraOffer use and un-hide them.</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_CHARGES">
-    <value>[es-MX]group subscription charges</value>
+    <value>group subscription charges</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_CHARGE_GENERATED">
-    <value>[es-MX]How should [TEXT_GROUP_SUBSCRIPTION_CHARGES] be generated?</value>
+    <value>How should [TEXT_GROUP_SUBSCRIPTION_CHARGES] be generated?</value>
     <description></description>
   </text>
 </texts>

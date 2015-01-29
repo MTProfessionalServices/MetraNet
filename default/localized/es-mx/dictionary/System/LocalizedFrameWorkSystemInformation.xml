@@ -4,7 +4,7 @@
     This file defines the MAM system information that must be localized.
   </description>
   <text id="TEXT_PRODUCT_OFFERING_LIST">
-    <value>[es-MX]List</value>
+    <value>List</value>
     <description></description>
   </text>
   <text id="DEFAULT_PATH_SEARCH">
@@ -32,7 +32,7 @@
     <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
   </text>
   <text id="TEXT_JAVASCRIPT_ERROR">
-    <value>[es-MX]Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
+    <value>Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
     <description></description>
   </text>
   <text id="MAX_ROW_PER_PICKER_PAGE">

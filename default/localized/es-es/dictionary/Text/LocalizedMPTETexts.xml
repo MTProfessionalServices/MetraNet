@@ -4,15 +4,15 @@
 
   <!-- Columns -->
   <text id="TEXT_MPTE_BUTTON_SETEFFDATE">
-    <value>[ES]Set Effective Date and Description</value>
+    <value>Set Effective Date and Description</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERON">
-    <value>[ES]Filter on</value>
+    <value>Filter on</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTEROFF">
-    <value>[ES]Filter off</value>
+    <value>Filter off</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_OWNER_APP">
@@ -20,641 +20,641 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_WARNING_NORATE_CONFIGURED">
-    <value>[ES]Warning: no rates currently configured</value>
+    <value>Warning: no rates currently configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_AND">
-    <value>[ES]and</value>
+    <value>and</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_IF">
-    <value>[ES]if</value>
+    <value>if</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_THEN">
-    <value>[ES]then</value>
+    <value>then</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_MOVE">
-    <value>[ES]Move</value>
+    <value>Move</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_ADD">
-    <value>[ES]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_EDIT">
-    <value>[ES]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DEFAULTRULE">
-    <value>[ES]The default rule</value>
+    <value>The default rule</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DEFAULTRULE_NOT_ALLOWED">
-    <value>[ES]Default rule not allowed on this parameter table</value>
+    <value>Default rule not allowed on this parameter table</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_DEFAULTRULE">
-    <value>[ES]No default rule configured</value>
+    <value>No default rule configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_DEFAULTRULE">
-    <value>[ES]Add default rule</value>
+    <value>Add default rule</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_TOTAL">
-    <value>[ES]Total:</value>
+    <value>Total:</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_RULES">
-    <value>[ES]Rules</value>
+    <value>Rules</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERED">
-    <value>[ES]Filtered out</value>
+    <value>Filtered out</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_UNSAVED_CHANGES">
-    <value>[ES]You have chosen to refresh or close, but you currently have unsaved changes. Are you sure you want to proceed?</value>
+    <value>You have chosen to refresh or close, but you currently have unsaved changes. Are you sure you want to proceed?</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_BTN">
-    <value>[ES]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVE_BTN">
-    <value>[ES]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_COMMITREMOVE_BTN">
-    <value>[ES]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTER_BTN">
-    <value>[ES]Filter</value>
+    <value>Filter</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_OK_BTN">
-    <value>[ES]OK</value>
+    <value>OK</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANCEL_BTN">
-    <value>[ES]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_IMPORT_BTN">
-    <value>[ES]Copy Rules</value>
+    <value>Copy Rules</value>
     <description>Copy Rules From Another Rate Schedule</description>
   </text>
   <text id="TEXT_MPTE_EDIT_AS_XML_BTN">
-    <value>[ES]Edit As XML</value>
+    <value>Edit As XML</value>
     <description>Edit these rules in XML form</description>
   </text>
   <text id="TEXT_MPTE_EDIT_AS_XML">
-    <value>[ES]Edit Current Rule Set As XML</value>
+    <value>Edit Current Rule Set As XML</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_SAVE_BTN">
-    <value>[ES]Save</value>
+    <value>Save</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_EDIT_BTN">
-    <value>[ES]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CLOSE_BTN">
-    <value>[ES]Close</value>
+    <value>Close</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_MOREINFO">
-    <value>[ES]More Info</value>
+    <value>More Info</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERPAGING_ERROR">
-    <value>[ES]Paging is not available when filtering is on</value>
+    <value>Paging is not available when filtering is on</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_FIRSTPAGE">
-    <value>[ES]First Page</value>
+    <value>First Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_LASTPAGE">
-    <value>[ES]Last Page</value>
+    <value>Last Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_PREVIOUSPAGE">
-    <value>[ES]Previous Page</value>
+    <value>Previous Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_NEXTPAGE">
-    <value>[ES]Next Page</value>
+    <value>Next Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_EDITGLOBALSETTINGS">
-    <value>[ES]Edit Global Settings</value>
+    <value>Edit Global Settings</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_MOVERULEUP">
-    <value>[ES]Move Rule Up</value>
+    <value>Move Rule Up</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_MOVERULEDOWN">
-    <value>[ES]Move Rule Down</value>
+    <value>Move Rule Down</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_EDITROW">
-    <value>[ES]Edit Row</value>
+    <value>Edit Row</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_ADDROW">
-    <value>[ES]Add Row Before This Row</value>
+    <value>Add Row Before This Row</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_EDITDEFAULTRULE">
-    <value>[ES]Edit Default Rule</value>
+    <value>Edit Default Rule</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_REMOVE">
-    <value>[ES]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_REMOVEITEMSCLICK">
-    <value>[ES]Check all items that you want to remove</value>
+    <value>Check all items that you want to remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_OK">
-    <value>[ES]OK</value>
+    <value>OK</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_CANCEL">
-    <value>[ES]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_CALENDAR_EDITDAY">
-    <value>[ES]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_ALLCONDITIONSBLANK">
-    <value>[ES]At least one condition must have a value</value>
+    <value>At least one condition must have a value</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_GLOBALACTIONS">
-    <value>[ES]Global Actions</value>
+    <value>Global Actions</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERDEFINE">
-    <value>[ES]Define the filters you would like to use</value>
+    <value>Define the filters you would like to use</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_EDITCALENDAR">
-    <value>[ES]Edit Properties</value>
+    <value>Edit Properties</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_IMPORTCALENDAR">
-    <value>[ES]Import Calendar</value>
+    <value>Import Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_SELECTCALENDAR">
-    <value>[ES]Select Calendar</value>
+    <value>Select Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NEWCALENDAR">
-    <value>[ES]New Calendar</value>
+    <value>New Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_WRONG_TYPE_ERROR">
-    <value>[ES]No items of this type</value>
+    <value>No items of this type</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_EDIT_DAY">
-    <value>[ES]Weekdays</value>
+    <value>Weekdays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKDAYS_CHOICE">
-    <value>[ES]Weekdays</value>
+    <value>Weekdays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKENDS_CHOICE">
-    <value>[ES]Weekends</value>
+    <value>Weekends</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_HOLIDAYS_CHOICE">
-    <value>[ES]Holidays</value>
+    <value>Holidays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKDAY">
-    <value>[ES]Weekday</value>
+    <value>Weekday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKDAYS">
-    <value>[ES]Weekdays</value>
+    <value>Weekdays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKEND">
-    <value>[ES]Weekend</value>
+    <value>Weekend</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKENDS">
-    <value>[ES]Weekends</value>
+    <value>Weekends</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_HOLIDAY">
-    <value>[ES]Holiday</value>
+    <value>Holiday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DATE">
-    <value>[ES]Date</value>
+    <value>Date</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DAY_OF_WEEK">
-    <value>[ES]Day of Week</value>
+    <value>Day of Week</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_HOLIDAYS">
-    <value>[ES]Holidays</value>
+    <value>Holidays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_CREATE_CALENDAR">
-    <value>[ES]Could not create calendar object</value>
+    <value>Could not create calendar object</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CALENDAR_NAME_DUPLICATE">
-    <value>[ES]A calendar with this name already exists on the system. Please rename this calendar and try again.</value>
+    <value>A calendar with this name already exists on the system. Please rename this calendar and try again.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_SAVE_CALENDAR">
-    <value>[ES]Could not save this calendar to the database</value>
+    <value>Could not save this calendar to the database</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_LINK_TO_CALENDAR">
-    <value>[ES]Could not map rateschedule to this calendar.</value>
+    <value>Could not map rateschedule to this calendar.</value>
     <description></description>
   </text>
   <text id="TEXT_MTPE_CANNOT_SET_WEEKDAY_TO_DEFAULT">
-    <value>[ES]Could not set weekday to default</value>
+    <value>Could not set weekday to default</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_CANNOT_CREATE_WEEKDAY">
-    <value>[ES]Could not create weekday</value>
+    <value>Could not create weekday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_LOAD_CALENDAR">
-    <value>[ES]Could not load calendar</value>
+    <value>Could not load calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADDWEEKDAY">
-    <value>[ES]Customize Day</value>
+    <value>Customize Day</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVEDAY">
-    <value>[ES]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADDHOLIDAY_BTN">
-    <value>[ES]New Holiday</value>
+    <value>New Holiday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVEHOLIDAY_BTN">
-    <value>[ES]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_NEW_HOLIDAY">
-    <value>[ES]New Holiday</value>
+    <value>New Holiday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAY_NAME">
-    <value>[ES]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAY_DATE">
-    <value>[ES]Date</value>
+    <value>Date</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_PERIOD_BTN">
-    <value>[ES]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVE_PERIOD_BTN">
-    <value>[ES]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVE_PERIODS_TITLE">
-    <value>[ES]Remove Periods</value>
+    <value>Remove Periods</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_PERIOD_TITLE">
-    <value>[ES]Add Period</value>
+    <value>Add Period</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_RECURRING_CHARGE_AMOUNT">
-    <value>[ES]Recurring Charge Amount</value>
+    <value>Recurring Charge Amount</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED">
-    <value>[ES]Warning: No Calendar configured</value>
+    <value>Warning: No Calendar configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_SUGESTION_MSG">
-    <value>[ES]Please select an existing one or create a new one.</value>
+    <value>Please select an existing one or create a new one.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_MAM_SUGESTION_MSG">
-    <value>[ES]Please create a new one.</value>
+    <value>Please create a new one.</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_PICKER_TITLE">
-    <value>[ES]Select Calendar</value>
+    <value>Select Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NEW_CALENDAR_SAVED">
-    <value>[ES]The calendar has been successfully saved.</value>
+    <value>The calendar has been successfully saved.</value>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SAVED">
-    <value>[ES]The calendar has been successfully saved.  If usage has already been rated using this calendar, the pipeline may need to be restarted in order for the new values to take effect.</value>
+    <value>The calendar has been successfully saved.  If usage has already been rated using this calendar, the pipeline may need to be restarted in order for the new values to take effect.</value>
   </text>
   <text id="TEXT_RATESCHEDULE_PICKER_TITLE">
-    <value>[ES]Select [TEXT_KEYTERM_RATE_SCHEDULE] to import rules from</value>
+    <value>Select [TEXT_KEYTERM_RATE_SCHEDULE] to import rules from</value>
     <description></description>
   </text>
   <text id="TEXT_NULL_START_DATE_TYPE">
-    <value>[ES]No start date</value>
+    <value>No start date</value>
     <description></description>
   </text>
   <text id="TEXT_NULL_END_DATE_TYPE">
-    <value>[ES]No end date</value>
+    <value>No end date</value>
     <description></description>
   </text>
   <text id="TEXT_ABSOLUTE_DATE_TYPE">
-    <value>[ES]Absolute date on</value>
+    <value>Absolute date on</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTIONRELATIVE_DATE_TYPE">
-    <value>[ES]day(s) after subscription</value>
+    <value>day(s) after subscription</value>
     <description></description>
   </text>
   <text id="TEXT_BILLINGCYCLE_DATE_TYPE">
-    <value>[ES]Next billing cycle after</value>
+    <value>Next billing cycle after</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_START_DATE">
-    <value>[ES]Starts</value>
+    <value>Starts</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_END_DATE">
-    <value>[ES]Ends</value>
+    <value>Ends</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_NAME">
-    <value>[ES]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_DESCRIPTION">
-    <value>[ES]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_PROPERTIES">
-    <value>[ES]Calendar Properties</value>
+    <value>Calendar Properties</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DAY">
-    <value>[ES]Day</value>
+    <value>Day</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DATE">
-    <value>[ES]Date</value>
+    <value>Date</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_STARTTIME">
-    <value>[ES]Start Time</value>
+    <value>Start Time</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_ENDTIME">
-    <value>[ES]End Time</value>
+    <value>End Time</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_CODE">
-    <value>[ES]Code</value>
+    <value>Code</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DEFCODE">
-    <value>[ES]Default Code</value>
+    <value>Default Code</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_GRAPH">
-    <value>[ES]Graph</value>
+    <value>Graph</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_PERIODS">
-    <value>[ES]Periods</value>
+    <value>Periods</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_PERIODSTART_AFTER_END">
-    <value>[ES]The start time must be before the end time</value>
+    <value>The start time must be before the end time</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDARNAME_BLANK">
-    <value>[ES]Calendar name can not be blank</value>
+    <value>Calendar name can not be blank</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_DUPLICATE">
-    <value>[ES]This name is already in use by another holiday on this calendar</value>
+    <value>This name is already in use by another holiday on this calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_BLANK">
-    <value>[ES]Holiday name can not be blank</value>
+    <value>Holiday name can not be blank</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_INVALID">
-    <value>[ES]Holiday name has invalid characters</value>
+    <value>Holiday name has invalid characters</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYDATE_INVALID">
-    <value>[ES]Holiday date is invalid</value>
+    <value>Holiday date is invalid</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_REMOVE_HOLIDAY">
-    <value>[ES]Holiday could not be removed from this calendar.</value>
+    <value>Holiday could not be removed from this calendar.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_SET_DAY_TO_DEFAULT">
-    <value>[ES]Make Default</value>
+    <value>Make Default</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CUSTOMIZE_DAY">
-    <value>[ES]Customize</value>
+    <value>Customize</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_EDITDAY">
-    <value>[ES]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_EDITDAY">
-    <value>[ES]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_MONDAY">
-    <value>[ES]Monday</value>
+    <value>Monday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_TUESDAY">
-    <value>[ES]Tuesday</value>
+    <value>Tuesday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEDNESDAY">
-    <value>[ES]Wednesday</value>
+    <value>Wednesday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_THURSDAY">
-    <value>[ES]Thursday</value>
+    <value>Thursday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_FRIDAY">
-    <value>[ES]Friday</value>
+    <value>Friday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SATURDAY">
-    <value>[ES]Saturday</value>
+    <value>Saturday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SUNDAY">
-    <value>[ES]Sunday</value>
+    <value>Sunday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKEND">
-    <value>[ES]Default Weekend</value>
+    <value>Default Weekend</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKDAY">
-    <value>[ES]Default Weekday</value>
+    <value>Default Weekday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_ADDPERIOD">
-    <value>[ES]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_REMOVEPERIOD">
-    <value>[ES]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-    <value>[ES]Unable to find enumerator for this value</value>
+    <value>Unable to find enumerator for this value</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_FILE_NOT_LOCATED">
-    <value>[ES]Could not locate the file</value>
+    <value>Could not locate the file</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_FILE_NOT_READABLE">
-    <value>[ES]Error occurred while reading the file</value>
+    <value>Error occurred while reading the file</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-    <value>[ES]Unable to find enumerator for this value</value>
+    <value>Unable to find enumerator for this value</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_BLANK1">
-    <value>[ES]cannot be blank.</value>
+    <value>cannot be blank.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_BLANK2">
-    <value>[ES]The default value of</value>
+    <value>The default value of</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_BLANK3">
-    <value>[ES]is being used.</value>
+    <value>is being used.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_INTEGER">
-    <value>[ES]must be an integer</value>
+    <value>must be an integer</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_NUMBER">
-    <value>[ES]must be a number</value>
+    <value>must be a number</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_AMOUNT">
-    <value>[ES]Input Error. Please type an amount.</value>
+    <value>Input Error. Please type an amount.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_DATE">
-    <value>[ES]must be a date</value>
+    <value>must be a date</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_LONG_OVERFLOW">
-    <value>[ES] does not fit in the range of a long integer</value>
+    <value>does not fit in the range of a long integer</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_UNKNOWN">
-    <value>[ES]An unknown error has occurred.  Please try again later. If this problem persists, please contact your system administrator.</value>
+    <value>An unknown error has occurred.  Please try again later. If this problem persists, please contact your system administrator.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ">
-    <value>[ES]Object could not be created. Please make sure that object is available and registered.</value>
+    <value>Object could not be created. Please make sure that object is available and registered.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_FOUND">
-    <value>[ES]was not found ID=</value>
+    <value>was not found ID=</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED">
-    <value>[ES]Could not save [TEXT_KEYTERM_RATE_SCHEDULE] with rules to the database. Please check your log file.</value>
+    <value>Could not save [TEXT_KEYTERM_RATE_SCHEDULE] with rules to the database. Please check your log file.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ">
-    <value>[ES]Object failed to run initialize function.</value>
+    <value>Object failed to run initialize function.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-    <value>[ES]Object could not load enumerated types.</value>
+    <value>Object could not load enumerated types.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-    <value>[ES]Object could not load enumerated types.</value>
+    <value>Object could not load enumerated types.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_WARNING_EDIT_PAST_RATES">
-    <value><![CDATA[<b>[ES]Warning:</b> You are editing rates that may be (or may have been) effective.]]></value>
+    <value><![CDATA[<b>Warning:</b> You are editing rates that may be (or may have been) effective.]]></value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_OVERFLOW">
-    <value>[ES]value is out of bounds</value>
+    <value>value is out of bounds</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_VALUE_NOT_CONFIGURED">
-    <value>[ES]value not configured</value>
+    <value>value not configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_PERIODS_CONFIGURED">
-    <value>[ES]No periods configured</value>
+    <value>No periods configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_CREATE_PERIOD">
-    <value>[ES]Could not create calendar period</value>
+    <value>Could not create calendar period</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SAVE_OK">
-    <value>[ES]Calendar saved</value>
+    <value>Calendar saved</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WARNING_WHEN_EDITING">
-    <value>[ES]Warning: Many [TEXT_KEYTERM_RATE_SCHEDULES] may be using this calendar. Any changes you make will affect all of them. </value>
+    <value>Warning: Many [TEXT_KEYTERM_RATE_SCHEDULES] may be using this calendar. Any changes you make will affect all of them. </value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NULLVALUE">
-    <value>[ES]BLANK</value>
+    <value>BLANK</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_DELETED">
-    <value>[ES]Deleted</value>
+    <value>Deleted</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_UPDATED">
-    <value>[ES]Modified</value>
+    <value>Modified</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_ADDED">
-    <value>[ES]Added</value>
+    <value>Added</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE">
@@ -662,167 +662,167 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-    <value><![CDATA[<b>[ES]The two rulesets are identical.</b><BR>This can happen when a ruleset is saved but no edits were made to the ruleset.&nbsp;&nbsp;]]></value>
+    <value><![CDATA[<b>The two rulesets are identical.</b><BR>This can happen when a ruleset is saved but no edits were made to the ruleset.&nbsp;&nbsp;]]></value>
     <description></description>
   </text>
   <text id="TEXT_ICB_PRICELIST_DISPLAY_NAME">
-    <value><![CDATA[[ES]Customer Specific (Custom Rate)]]></value>
+    <value><![CDATA[Customer Specific (Custom Rate)]]></value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_RATESCHEDULE_ALREADY_HAS_PENDING_CHANGE">
-    <value>[ES]This Rate Schedule currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
+    <value>This Rate Schedule currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">
-    <value>[ES]View Pending Change</value>
+    <value>View Pending Change</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_DAY">
-    <value>[ES]Calendar Day</value>
+    <value>Calendar Day</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_PERIOD">
-    <value>[ES]Calendar Period</value>
+    <value>Calendar Period</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_CONFIGURATION">
-    <value>[ES]Calendar Configuration</value>
+    <value>Calendar Configuration</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_EDITOR">
-    <value>[ES]Ruleset Editor</value>
+    <value>Ruleset Editor</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_CHANGES">
-    <value>[ES]Ruleset Changes</value>
+    <value>Ruleset Changes</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_FROM_EXCEL">
-    <value>[ES]Import From Excel File</value>
+    <value>Import From Excel File</value>
     <description></description>
   </text>
   <text id="TEXT_LOCATION_OF_EXCEL">
-    <value>[ES]Location of Excel file to import</value>
+    <value>Location of Excel file to import</value>
     <description></description>
   </text>
   <text id="TEXT_TABULAR_RULESET_EDITOR">
-    <value>[ES]Tabular Ruleset Editor - Define Filter</value>
+    <value>Tabular Ruleset Editor - Define Filter</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_NEW_CALENDAR">
-    <value>[ES]Create New Calendar</value>
+    <value>Create New Calendar</value>
     <description></description>
   </text>        
   <text id="TEXT_SET_CHARGE_AMOUNT">
-    <value>[ES]Set Charge Amount</value>
+    <value>Set Charge Amount</value>
     <description></description>
   </text>
   <text id="TEXT_Add_Parameter_Table_to_Price_List">
-    <value>[ES]Add Parameter Table to Price List</value>
+    <value>Add Parameter Table to Price List</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules_For">
-    <value>[ES]Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <value>Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules">
-    <value>[ES]Create Rate Schedule(s)</value>
+    <value>Create Rate Schedule(s)</value>
     <description></description>
   </text>
   <text id="TEXT_Usage">
-    <value>[ES]Usage</value>
+    <value>Usage</value>
     <description></description>
   </text>
   <text id="TEXT_RC">
-    <value>[ES]RC</value>
+    <value>RC</value>
     <description></description>
   </text>
   <text id="TEXT_NRC">
-    <value>[ES]NRC</value>
+    <value>NRC</value>
     <description></description>
   </text>
   <text id="TEXT_Discounts">
-    <value>[ES]Discounts</value>
+    <value>Discounts</value>
     <description></description>
   </text>
   <text id="TEXT_Work_On_New_Pricelist">
-    <value>[ES]Work On New Pricelist</value>
+    <value>Work On New Pricelist</value>
     <description></description>
   </text>
   <text id="TEXT_Return_to_current_Pricelist">
-    <value>[ES]Return to current Pricelist</value>
+    <value>Return to current Pricelist</value>
     <description></description>
   </text>
   <text id="TEXT_January">
-    <value>[ES]January</value>
+    <value>January</value>
     <description></description>
   </text>
   <text id="TEXT_February">
-    <value>[ES]February</value>
+    <value>February</value>
     <description></description>
   </text>
   <text id="TEXT_March">
-    <value>[ES]March</value>
+    <value>March</value>
     <description></description>
   </text>
   <text id="TEXT_April">
-    <value>[ES]April</value>
+    <value>April</value>
     <description></description>
   </text>
   <text id="TEXT_May">
-    <value>[ES]May</value>
+    <value>May</value>
     <description></description>
   </text>
   <text id="TEXT_June">
-    <value>[ES]June</value>
+    <value>June</value>
     <description></description>
   </text>
   <text id="TEXT_July">
-    <value>[ES]July</value>
+    <value>July</value>
     <description></description>
   </text>
   <text id="TEXT_August">
-    <value>[ES]August</value>
+    <value>August</value>
     <description></description>
   </text>
   <text id="TEXT_September">
-    <value>[ES]September</value>
+    <value>September</value>
     <description></description>
   </text>
   <text id="TEXT_October">
-    <value>[ES]October</value>
+    <value>October</value>
     <description></description>
   </text>
   <text id="TEXT_November">
-    <value>[ES]November</value>
+    <value>November</value>
     <description></description>
   </text>
   <text id="TEXT_December">
-    <value>[ES]December</value>
+    <value>December</value>
     <description></description>
   </text>
   <text id="TEXT_PRICE_LIST">
-    <value>[ES]Price list</value>
+    <value>Price list</value>
     <description></description>
   </text>
   <text id="TEXT_MODIFIED_BY">
-    <value>[ES]modified by</value>
+    <value>modified by</value>
     <description></description>
   </text>
   <text id="TEXT_AT">
-    <value>[ES]at</value>
+    <value>at</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_CHANGES">
-    <value>[ES]View changes</value>
+    <value>View changes</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_HISTORY">
-    <value>[ES]View history</value>
+    <value>View history</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
-    <value>[ES]You have unsaved changes.</value>
+    <value>You have unsaved changes.</value>
     <description></description>
   </text>
 </texts>

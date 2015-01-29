@@ -2,73 +2,73 @@
 <texts id="Main" type="collection">
   <description>The file defines MetraOffer errors. The error message are localized.</description>
   <text id="MCM_ERROR_999">
-    <value>[DE]The system was unable to process your request.  Please have your administrator check the system logs.</value>
+    <value>The system was unable to process your request.  Please have your administrator check the system logs.</value>
   </text>
   <text id="MCM_ERROR_1000">
-    <value>[DE]Billing Cycle error, the first day of the month should not be greater or equal to the second day of the month.</value>
+    <value>Billing Cycle error, the first day of the month should not be greater or equal to the second day of the month.</value>
   </text>
   <text id="MCM_ERROR_1001">
-    <value>[FIELD_NAME] [DE]must be specified.</value>
+    <value>[FIELD_NAME] must be specified.</value>
   </text>
   <text id="MCM_ERROR_1002">
-    <value>[DE]Date input is invalid. Please check the values.</value>
+    <value>Date input is invalid. Please check the values.</value>
   </text>
   <text id="MCM_ERROR_1003">
-    <value>[DE]Warning: you are setting an effective date in the past, and this might cause problems with sessions that have been already metered in. Click on OK again to proceed with these dates, or set new dates in the future.</value>
+    <value>Warning: you are setting an effective date in the past, and this might cause problems with sessions that have been already metered in. Click on OK again to proceed with these dates, or set new dates in the future.</value>
   </text>
   <text id="MCM_ERROR_1004">
-    <value>[DE]Start Date must be earlier than End Date.</value>
+    <value>Start Date must be earlier than End Date.</value>
   </text>
   <text id="MCM_ERROR_1005">
-    <value>[DE]Please select a [TEXT_KEYTERM_RATE_SCHEDULE] before clicking [TEXT_OK].</value>
+    <value>Please select a [TEXT_KEYTERM_RATE_SCHEDULE] before clicking [TEXT_OK].</value>
   </text>
   <text id="MCM_ERROR_1006">
-    <value>[DE]One or more enumeration value were ignored</value>
+    <value>One or more enumeration value were ignored</value>
   </text>
   <text id="MCM_ERROR_1007">
-    <value>[DE]Each adjustment must have at least one reason code</value>
+    <value>Each adjustment must have at least one reason code</value>
   </text>
   <text id="MCM_ERROR_1008">
-    <value>[DE]Effective and availability dates may not be empty.</value>
+    <value>Effective and availability dates may not be empty.</value>
   </text>
   <text id="MCM_ERROR_1009">
-    <value>[DE]Bulk Subscription Changes may not be made if the Destination [TEXT_KEYTERM_PRODUCT_OFFERING] contains any [TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES].</value>
+    <value>Bulk Subscription Changes may not be made if the Destination [TEXT_KEYTERM_PRODUCT_OFFERING] contains any [TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES].</value>
   </text>
   <text id="MCM_ERROR_ERROR_DETAIL">
-    <value>[DE]Details</value>
+    <value>Details</value>
   </text>
 
   <!-- 
     I removed this entry because it is not used and it is defined with a new value in mcm 3.0
-    text id="FrameWork_ERROR_1000"><value>[DE]E-Mail is not valid</value></text -->
+    text id="FrameWork_ERROR_1000"><value>E-Mail is not valid</value></text -->
   <text id="ERROR_ITEM_NOT_FOUND">
-    <value>[DE]Cannot find the item for ID:</value>
+    <value>Cannot find the item for ID:</value>
     <description></description>
   </text>
   <text id="ERROR_ITEM_NO_PARAMETER_TABLES">
-    <value>[DE]No [TEXT_KEYTERM_PARAMETER_TABLES]</value>
+    <value>No [TEXT_KEYTERM_PARAMETER_TABLES]</value>
     <description></description>
   </text>
   <text id="MCM_ERROR_STARTDATE_INVALID">
-    <value>[DE]The start date value is invalid</value>
+    <value>The start date value is invalid</value>
   </text>
   <text id="MCM_ERROR_ENDDATE_INVALID">
-    <value>[DE]The end date value is invalid</value>
+    <value>The end date value is invalid</value>
   </text>
   <text id="MCM_ERROR_START_AFTER_END">
-    <value>[DE]The start date must be before the end date</value>
+    <value>The start date must be before the end date</value>
   </text>
   <text id="MCM_ERROR_STARTDATE_IN_PAST">
-    <value>[DE]The start date is in the past, this might cause information loss.</value>
+    <value>The start date is in the past, this might cause information loss.</value>
   </text>
   <text id="MCM_ERROR_ENDDATE_IN_PAST">
-    <value>[DE]The end date is in the past, this might cause information loss.</value>
+    <value>The end date is in the past, this might cause information loss.</value>
   </text>
   <text id="MCM_ERROR_PARTITION_NOT_EQUAL">
-    <value>[DE]The source product offering and destination product offering must have the same partition.</value>
+    <value>The source product offering and destination product offering must have the same partition.</value>
   </text>
   <text id="ERROR_WIZARD_NOTIFICATION">
-    <value>[DE]Please note:</value>
+    <value>Please note:</value>
     <description></description>
   </text>
 </texts>

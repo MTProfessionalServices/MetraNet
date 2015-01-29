@@ -4,118 +4,118 @@
 
   <!-- used in breadcrumbs -->
   <text id="TEXT_SELECT_RATE_SCHEDULE">
-    <value>[ES]Select [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>Select [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_PRICEABLE_ITEM">
-    <value>[ES]Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+    <value>Select [TEXT_KEYTERM_PRICEABLE_ITEM]</value>
     <description></description>
   </text>
 
   <!-- Columns -->
   <text id="TEXT_UDRC">
-    <value>[ES]Unit Dependent [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>Unit Dependent [TEXT_KEYTERM_RECURRING_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_UNIT_NAME">
-    <value>[ES]Unit Name</value>
+    <value>Unit Name</value>
     <description></description>
   </text>
   <text id="TEXT_UNIT_DISPLAY_NAME">
-    <value>[ES]Unit Display Name</value>
+    <value>Unit Display Name</value>
     <description></description>
   </text>
   <text id="TEXT_TIERED_TAPER_USER_HINT">
-    <value>[ES]Rating</value>
+    <value>Rating</value>
   </text>
   <text id="TEXT_MAX_UNIT_VALUE">
-    <value>[ES]Max Unit Value</value>
+    <value>Max Unit Value</value>
   </text>
   <text id="TEXT_MIN_UNIT_VALUE">
-    <value>[ES]Min Unit Value</value>
+    <value>Min Unit Value</value>
   </text>
   <text id="TEXT_TIERED">
-    <value>[ES]Tiered</value>
+    <value>Tiered</value>
     <description></description>
   </text>
   <text id="TEXT_RATING_TYPE">
-    <value>[ES]Rating Type</value>
+    <value>Rating Type</value>
     <description></description>
   </text>
   <text id="TEXT_TAPERED">
-    <value>[ES]Tapered</value>
+    <value>Tapered</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_NAME">
-    <value>[ES]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_DISPLAY_NAME">
-    <value>[ES]Display Name</value>
+    <value>Display Name</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_KIND">
-    <value>[ES]Kind</value>
+    <value>Kind</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_DESCRIPTION">
-    <value>[ES]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_VALUE">
-    <value>[ES]Value</value>
+    <value>Value</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_OPTIONS">
-    <value>[ES]Options</value>
+    <value>Options</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_COLUMN_OPTIONS">
-    <value>[ES]Options</value>
+    <value>Options</value>
     <description></description>
   </text>
 
   <!-- Shared Field Names -->
   <text id="TEXT_FIELD_NAME">
-    <value>[ES]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_FIELD_DISPLAY_NAME">
-    <value>[ES]Display Name</value>
+    <value>Display Name</value>
     <description></description>
   </text>
   <text id="TEXT_FIELD_DESCRIPTION">
-    <value>[ES]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
 
   <!-- Product View Property Picker Dialog -->
   <text id="TEXT_PV_NAME">
-    <value>[ES]Product View Name</value>
+    <value>Product View Name</value>
     <description></description>
   </text>
   <text id="TEXT_PV_PROPERTY">
-    <value>[ES]Product View Property</value>
+    <value>Product View Property</value>
     <description></description>
   </text>
   <text id="TEXT_PV_DESCRIPTION">
-    <value>[ES]Product View Description</value>
+    <value>Product View Description</value>
     <description></description>
   </text>
   <text id="MCM_PRODUCT_VIEW_PROPERTY_PICKER">
-    <value>[ES]Select a product view and property</value>
+    <value>Select a product view and property</value>
     <description></description>
   </text>
   <text id="TEXT_NAME">
-    <value>[ES]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_DESCRIPTION">
-    <value>[ES]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_CURRENCY">
-    <value>[ES]Currency</value>
+    <value>Currency</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">
@@ -123,205 +123,205 @@
     <description></description>
   </text>
   <text id="TEXT_PRICELIST_MAPPING">
-    <value>[TEXT_KEYTERM_PRICE_LIST] [ES]Mapping</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST] Mapping</value>
     <description></description>
   </text>
   <text id="TEXT_PERSONAL_RATES_ALLOWED">
-    <value>[TEXT_KEYTERM_PERSONAL_RATES] [ES]Allowed</value>
+    <value>[TEXT_KEYTERM_PERSONAL_RATES] Allowed</value>
     <description></description>
   </text>
 
   <!-- Wizard (General Text) -->
   <text id="TEXT_WIZARD_SUMMARY_INFORMATION">
-    <value>[ES]General Information</value>
+    <value>General Information</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_DEBUG_INFORMATION">
-    <value>[ES]Debug Information</value>
+    <value>Debug Information</value>
     <description></description>
   </text>
   <text id="TEXT_YES">
-    <value>[ES]Yes</value>
+    <value>Yes</value>
     <description></description>
   </text>
   <text id="TEXT_NO">
-    <value>[ES]No</value>
+    <value>No</value>
     <description></description>
   </text>
   <text id="TEXT_USAGE_CHILD_TITLE">
-    <value>[ES]This [TEXT_KEYTERM_PRICEABLE_ITEM] contains the following child [TEXT_KEYTERM_PRICEABLE_ITEMS]</value>
+    <value>This [TEXT_KEYTERM_PRICEABLE_ITEM] contains the following child [TEXT_KEYTERM_PRICEABLE_ITEMS]</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE_TITLE">
-    <value>[ES]This [TEXT_KEYTERM_PRICEABLE_ITEM] has the following [TEXT_KEYTERM_PARAMETER_TABLES] mapped to the following [TEXT_KEYTERM_PRICE_LISTS]</value>
+    <value>This [TEXT_KEYTERM_PRICEABLE_ITEM] has the following [TEXT_KEYTERM_PARAMETER_TABLES] mapped to the following [TEXT_KEYTERM_PRICE_LISTS]</value>
     <description></description>
   </text>
   <text id="TEXT_NO_CHILD_ITEMS">
-    <value>[ES]There are no child [TEXT_KEYTERM_PRICEABLE_ITEMS]</value>
+    <value>There are no child [TEXT_KEYTERM_PRICEABLE_ITEMS]</value>
     <description></description>
   </text>
   <text id="TEXT_NEW">
-    <value>[ES]New</value>
+    <value>New</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD">
-    <value>[ES]Wizard</value>
+    <value>Wizard</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIGURE_CHARGE">
-    <value>[ES]Configure Charge</value>
+    <value>Configure Charge</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_OK_CANCEL">
-    <value>[ES]Click OK to confirm or Cancel to return.</value>
+    <value>Click OK to confirm or Cancel to return.</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_QUESTION">
-    <value>[ES] Are you sure you want to delete this</value>
+    <value>Are you sure you want to delete this</value>
     <description></description>
   </text>
   <text id="TEXT_UNHIDE">
-    <value>[ES]Unhide</value>
+    <value>Unhide</value>
     <description></description>
   </text>
   <text id="TEXT_HIDE">
-    <value>[ES]Hide</value>
+    <value>Hide</value>
     <description></description>
   </text>
   <text id="TEXT_FILTER_WILDCARD_CONSTRAINT_MESSAGE">
-    <value>[ES]The * wildcard can only be used either at the end of the search string or at the beginning and the end.\nExamples:\n\tEnterprise Bundle*\n\t*Bundle*</value>
+    <value>The * wildcard can only be used either at the end of the search string or at the beginning and the end.\nExamples:\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
   <text id="TEXT_EXTENDED_PROPERTIES">
-    <value>[ES]Extended Properties</value>
+    <value>Extended Properties</value>
     <description></description>
   </text>
   <text id="TEXT_WHAT_IS_EXTENDED_PROPERTIES">
-    <value>[ES]What are extended properties?</value>
+    <value>What are extended properties?</value>
     <description></description>
   </text>
   <text id="TEXT_OTHER_ACTIONS">
-    <value>[ES]Other Actions</value>
+    <value>Other Actions</value>
     <description></description>
   </text>
   <text id="TEXT_CHECK_CONFIGURATION">
-    <value>[ES]Check Configuration</value>
+    <value>Check Configuration</value>
     <description></description>
   </text>
   <text id="TEXT_Change_the_price_list">
-    <value>[ES]Change the price list mappings for one or more items in this product offering.</value>
+    <value>Change the price list mappings for one or more items in this product offering.</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
-    <value>[ES]Update Price List Mappings</value>
+    <value>Update Price List Mappings</value>
     <description></description>
   </text>
   <text id="TEXT_COPY">
-    <value>[ES]Copy</value>
+    <value>Copy</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_RATES">
-    <value>[ES]Add Rates For Additional Parameter Tables</value>
+    <value>Add Rates For Additional Parameter Tables</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_SUBSCR_AND_ASSOCIATIONS">
-    <value>[ES]View Subscriptions and Default Pricelist Associations</value>
+    <value>View Subscriptions and Default Pricelist Associations</value>
     <description></description>
   </text>
   <text id="TEXT_CHANGES_POTENTIALLY_AFFECT1">
-    <value><![CDATA[&nbsp;&nbsp;[ES]Changes to these rate schedules potentially affect <b>]]></value>
+    <value><![CDATA[&nbsp;&nbsp;Changes to these rate schedules potentially affect <b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_CHANGES_POTENTIALLY_AFFECT2">
-    <value><![CDATA[</b> [ES]subscribers.&nbsp;&nbsp;]]></value>
+    <value><![CDATA[</b> subscribers.&nbsp;&nbsp;]]></value>
     <description></description>
   </text>
   <text id="TEXT_NO_RATE_SCHEDULES">
-    <value><![CDATA[<span style='font-weight:normal;'><b>[ES]There are currently no rate schedules on this price list for this parameter table.</b><BR><BR> Use the 'New Rate Schedule' button above to create one or use this button to automatically create a default rate schedule that would always be in effect (no start date and no end date):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>[ES]Create Default Rate Schedule</button><BR></span>]]></value>
+    <value><![CDATA[<span style='font-weight:normal;'><b>There are currently no rate schedules on this price list for this parameter table.</b><BR><BR> Use the 'New Rate Schedule' button above to create one or use this button to automatically create a default rate schedule that would always be in effect (no start date and no end date):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this); return false;'>Create Default Rate Schedule</button><BR></span>]]></value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">
-    <value><![CDATA[[ES]Parameter Table: <b>]]></value>
+    <value><![CDATA[Parameter Table: <b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_RATES_STORED_ON_PO">
-    <value><![CDATA[</b><br>[ES]Rates are stored on the Product Offering's non-shared price list.<br>]]></value>
+    <value><![CDATA[</b><br>Rates are stored on the Product Offering's non-shared price list.<br>]]></value>
     <description></description>
   </text>
   <text id="TEXT_RATES_STORED_ON_SHARED_PL">
-    <value><![CDATA[</b><br>[ES]Rates are stored on the shared price list '<b>]]></value>
+    <value><![CDATA[</b><br>Rates are stored on the shared price list '<b>]]></value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_RATE_SCHEDULE_TITLE">
-    <value>[ES]Create a new rate schedule and copy the rates from this rate schedule</value>
+    <value>Create a new rate schedule and copy the rates from this rate schedule</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_RATE_SCHEDULE">
-    <value>[ES]New Rate Schedule From This One</value>
+    <value>New Rate Schedule From This One</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_HISTORY">
-    <value>[ES]View History</value>
+    <value>View History</value>
     <description></description>
   </text>
   <text id="TEXT_EXPORT_TO_EXCEL">
-    <value>[ES]Export To Excel</value>
+    <value>Export To Excel</value>
     <description></description>
   </text>
   <text id="TEXT_IMPORT_FROM_EXCEL">
-    <value>[ES]Import From Excel</value>
+    <value>Import From Excel</value>
     <description></description>
   </text>
   <text id="TEXT_BULK_UPDATE">
-    <value>[ES]Bulk Update</value>
+    <value>Bulk Update</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_INFO">
-    <value>[ES]Update Price List Information</value>
+    <value>Update Price List Information</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ALLOW_PERS_RATES_INFO">
-    <value>[ES]Update 'Allow Personal Rates' Information</value>
+    <value>Update 'Allow Personal Rates' Information</value>
     <description></description>
   </text>
   <text id="TEXT_PRICE_LIST">
-    <value>[ES]Price List</value>
+    <value>Price List</value>
     <description></description>
   </text>
   <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
-    <value>[ES]Do not allow Personal Rates to be set</value>
+    <value>Do not allow Personal Rates to be set</value>
     <description></description>
   </text>
   <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
-    <value>[ES]Do not allow Personal Rates to be set</value>
+    <value>Do not allow Personal Rates to be set</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PL_MAPPINGS">
-    <value>[ES]Update Selected Price List Mappings</value>
+    <value>Update Selected Price List Mappings</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSE">
-    <value>[ES]Close</value>
+    <value>Close</value>
     <description></description>
   </text>
   <text id="TEXT_GENERAL_TAB">
-    <value>[ES]General</value>
+    <value>General</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMEETR_TABL_MAPPINGS_TAB">
-    <value>[ES]Parameter Table Mappings</value>
+    <value>Parameter Table Mappings</value>
     <description></description>
   </text>
   <text id="TEXT_COUNTERS_TAB">
-    <value>[ES]Counters</value>
+    <value>Counters</value>
     <description></description>
   </text>
   <text id="TEXT_OVERVIEW_TAB">
-    <value>[ES]Overview</value>
+    <value>Overview</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SCHEDULE_HISTORY">
-    <value>[ES]Rate Schedule History</value>
+    <value>Rate Schedule History</value>
     <description></description>
   </text>
 </texts>

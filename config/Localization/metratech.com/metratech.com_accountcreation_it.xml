@@ -120,7 +120,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-      <Value>[IT]ApplyAccountTemplate</Value>
+      <Value>ApplyAccountTemplate</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
@@ -224,11 +224,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/Standard</Name>
-      <Value>[IT]Standard</Value>
+      <Value>Standard</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
-      <Value>[IT]Standard With Bill Messages</Value>
+      <Value>Standard With Bill Messages</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/Language</Name>
@@ -332,7 +332,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-      <Value>[IT]What is the name of the first school you attended?</Value>
+      <Value>What is the name of the first school you attended?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>
@@ -344,11 +344,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/PIN</Name>
-      <Value>[IT]What was the name of your first car?</Value>
+      <Value>What was the name of your first car?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/SSN</Name>
-      <Value>[IT]What school did you attend for sixth grade?</Value>
+      <Value>What school did you attend for sixth grade?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/startday</Name>
@@ -420,11 +420,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/transactioncookie</Name>
-      <Value>[IT]Transactioncookie</Value>
+      <Value>Transactioncookie</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-      <Value>[IT]TruncateOldSubscriptions</Value>
+      <Value>TruncateOldSubscriptions</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/usagecycletype</Name>

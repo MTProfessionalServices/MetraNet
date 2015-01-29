@@ -12,11 +12,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/accountstartdate</Name>
-      <Value>[en-GB]Account Start Date</Value>
+      <Value>Account Start Date</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus</Name>
-      <Value>[en-GB]Account State</Value>
+      <Value>Account State</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Active</Name>
@@ -52,7 +52,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountType</Name>
-      <Value>[en-GB]Account Type</Value>
+      <Value>Account Type</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountType/CSR</Name>
@@ -108,7 +108,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ancestorAccount</Name>
-      <Value>[en-GB]Parent Account</Value>
+      <Value>Parent Account</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ancestorAccountID</Name>

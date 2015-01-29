@@ -32,11 +32,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingActiveApproval</Name>
-      <Value>[es-MX]PendingActiveApproval</Value>
+      <Value>PendingActiveApproval</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingFinalBill</Name>
-      <Value>[es-MX]PendingFinalBill</Value>
+      <Value>PendingFinalBill</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Suspended</Name>
@@ -120,7 +120,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-      <Value>[es-MX]ApplyAccountTemplate</Value>
+      <Value>ApplyAccountTemplate</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
@@ -128,11 +128,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
-      <Value>[es-MX]LDAP Authentication</Value>
+      <Value>LDAP Authentication</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
-      <Value>[es-MX]MetraNet Authentication</Value>
+      <Value>MetraNet Authentication</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/billable</Name>
@@ -228,7 +228,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
-      <Value>[es-MX]Standard With Bill Messages</Value>
+      <Value>Standard With Bill Messages</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/Language</Name>
@@ -332,7 +332,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-      <Value>[es-MX]What is the name of the first school you attended?</Value>
+      <Value>What is the name of the first school you attended?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>
@@ -420,11 +420,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/transactioncookie</Name>
-      <Value>[es-MX]Transactioncookie</Value>
+      <Value>Transactioncookie</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-      <Value>[es-MX]TruncateOldSubscriptions</Value>
+      <Value>TruncateOldSubscriptions</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/usagecycletype</Name>

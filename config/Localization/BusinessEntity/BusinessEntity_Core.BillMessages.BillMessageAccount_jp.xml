@@ -4,15 +4,15 @@
   <locale_space name="BusinessEntity/Core.BillMessages.BillMessageAccount">
     <locale_entry>
       <Name>BusinessEntity/Core.BillMessages.BillMessageAccount/EndDate/Label</Name>
-      <Value>[JA]Message End Date</Value>
+      <Value>Message End Date</Value>
     </locale_entry>
     <locale_entry>
       <Name>BusinessEntity/Core.BillMessages.BillMessageAccount/MessageCode/Label</Name>
-      <Value>[JA]Message Code</Value>
+      <Value>Message Code</Value>
     </locale_entry>
     <locale_entry>
       <Name>BusinessEntity/Core.BillMessages.BillMessageAccount/StartDate/Label</Name>
-      <Value>[JA]Message Start Date</Value>
+      <Value>Message Start Date</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

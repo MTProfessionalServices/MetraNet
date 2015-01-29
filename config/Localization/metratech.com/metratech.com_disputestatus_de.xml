@@ -12,7 +12,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DisputeStatus/DisputeStatus/PendingApproval</Name>
-      <Value>[DE]PendingApproval</Value>
+      <Value>PendingApproval</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DisputeStatus/DisputeStatus/Rejected</Name>

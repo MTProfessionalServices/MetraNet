@@ -24,7 +24,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/TRACKINGID</Name>
-      <Value>[IT]TRACKINGID</Value>
+      <Value>TRACKINGID</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ALWAYS</Name>
@@ -40,7 +40,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ONRESUBMIT</Name>
-      <Value>[IT]ONRESUBMIT</Value>
+      <Value>ONRESUBMIT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/COMPLETED</Name>
@@ -56,7 +56,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/TEMP</Name>
-      <Value>[IT]TEMP</Value>
+      <Value>TEMP</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/WATCHED</Name>
@@ -168,7 +168,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/ImproperN</Name>
-      <Value>[IT]ImproperN</Value>
+      <Value>ImproperN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/INTERFERENCE</Name>
@@ -184,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NoReason</Name>
-      <Value>[IT]NoReason</Value>
+      <Value>NoReason</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NOT_ENOUGH_FILES</Name>
@@ -216,7 +216,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ESecurityTokenType/TOKEN</Name>
-      <Value>[IT]TOKEN</Value>
+      <Value>TOKEN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EServiceState/Active</Name>
@@ -256,7 +256,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eTargetType/GENERATED</Name>
-      <Value>[IT]ASSEMBLY</Value>
+      <Value>ASSEMBLY</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ScriptArgumentType/FILE</Name>

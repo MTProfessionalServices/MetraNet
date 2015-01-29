@@ -36,11 +36,11 @@
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/Subscription.Add</Name>
-      <Value>[JA]New Subscription</Value>
+      <Value>New Subscription</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/Subscription.Update</Name>
-      <Value>[JA]Subscription Update</Value>
+      <Value>Subscription Update</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.AddMemberHierarchies</Name>

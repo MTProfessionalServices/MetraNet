@@ -8,7 +8,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/AccountID</Name>
-      <Value>[DE]Account</Value>
+      <Value>Account</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/Amount</Name>
@@ -76,11 +76,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
-      <Value>[DE]Is tax inclusive?</Value>
+      <Value>Is tax inclusive?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
-      <Value>[DE]Is tax informational?</Value>
+      <Value>Is tax informational?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsPostBillAdjusted</Name>

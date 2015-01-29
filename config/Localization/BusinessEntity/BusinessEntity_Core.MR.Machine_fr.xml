@@ -4,15 +4,15 @@
     <locale_space name="BusinessEntity/Core.MR.Machine">
         <locale_entry>
             <Name>BusinessEntity/Core.MR.Machine/Machine</Name>
-            <Value>[FR]Machine</Value>
+            <Value>Machine</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.MR.Machine/MachineIdentifier/Label</Name>
-            <Value>[FR]Machine Identifier</Value>
+            <Value>Machine Identifier</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.MR.Machine/Description/Label</Name>
-            <Value>[FR]Description</Value>
+            <Value>Description</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

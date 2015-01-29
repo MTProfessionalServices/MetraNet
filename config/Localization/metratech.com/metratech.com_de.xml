@@ -48,19 +48,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/FOOTER</Name>
-      <Value>[DE]Footer</Value>
+      <Value>Footer</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/HEADER</Name>
-      <Value>[DE]Header</Value>
+      <Value>Header</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/INSERT</Name>
-      <Value>[DE]Insert</Value>
+      <Value>Insert</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/OTHER</Name>
-      <Value>[DE]Other</Value>
+      <Value>Other</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CountyTaxAmount</Name>
@@ -96,7 +96,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/None</Name>
-      <Value>[DE]None</Value>
+      <Value>None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/Visa</Name>
@@ -176,15 +176,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Engineer</Name>
-      <Value>[DE]Engineer</Value>
+      <Value>Engineer</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Executive</Name>
-      <Value>[DE]Executive</Value>
+      <Value>Executive</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Manager</Name>
-      <Value>[DE]Manager</Value>
+      <Value>Manager</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/PostbillAdjustmentAmount</Name>
@@ -196,27 +196,27 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Actualized</Name>
-      <Value>[DE]Actualized</Value>
+      <Value>Actualized</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Complete</Name>
-      <Value>[DE]Complete</Value>
+      <Value>Complete</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Converted</Name>
-      <Value>[DE]Converted</Value>
+      <Value>Converted</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Failed</Name>
-      <Value>[DE]Failed</Value>
+      <Value>Failed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/InProgress</Name>
-      <Value>[DE]InProgress</Value>
+      <Value>InProgress</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/None</Name>
-      <Value>[DE]None</Value>
+      <Value>None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SaleForceRelationship/Account Development</Name>
@@ -272,35 +272,35 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/BadService</Name>
-      <Value>[DE]BadService</Value>
+      <Value>BadService</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/DroppedCall</Name>
-      <Value>[DE]DroppedCall</Value>
+      <Value>DroppedCall</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/GeneralDissatisfaction</Name>
-      <Value>[DE]GeneralDissatisfaction</Value>
+      <Value>GeneralDissatisfaction</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
-      <Value>[DE]Other</Value>
+      <Value>Other</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
-      <Value>[DE]PoorConnection</Value>
+      <Value>PoorConnection</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
-      <Value>[DE]APPROVED</Value>
+      <Value>APPROVED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/DENIED</Name>
-      <Value>[DE]DENIED</Value>
+      <Value>DENIED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/PENDING</Name>
-      <Value>[DE]PENDING</Value>
+      <Value>PENDING</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TaxAmount</Name>

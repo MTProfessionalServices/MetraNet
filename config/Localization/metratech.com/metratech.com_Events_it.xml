@@ -4,27 +4,27 @@
     <locale_space name="metratech.com/Events">
         <locale_entry>
             <Name>metratech.com/Events/Action/Execute</Name>
-            <Value>[IT] Execute</Value>
+            <Value>Execute</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Events/Action/Reverse</Name>
-            <Value>[IT] Reverse</Value>
+            <Value>Reverse</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Events/Status/Failed</Name>
-            <Value>[IT] Failed</Value>
+            <Value>Failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Events/Status/NotYetRun</Name>
-            <Value>[IT] NotYetRun</Value>
+            <Value>NotYetRun</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Events/Status/ReadyToRun</Name>
-            <Value>[IT] ReadyToRun</Value>
+            <Value>ReadyToRun</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Events/Status/Succeeded</Name>
-            <Value>[IT] Succeeded</Value>
+            <Value>Succeeded</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

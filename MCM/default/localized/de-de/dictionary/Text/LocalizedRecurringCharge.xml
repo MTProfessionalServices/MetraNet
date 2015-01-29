@@ -4,75 +4,75 @@
 
   <!-- Recurring Charge-->
   <text id="TEXT_CHARGE_IN">
-    <value>[DE]Charge in</value>
+    <value>Charge in</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATION">
-    <value>[DE]Proration</value>
+    <value>Proration</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_ON">
-    <value>[DE]Prorate On</value>
+    <value>Prorate On</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_LENGTH">
-    <value>[DE]Proration Length</value>
+    <value>Proration Length</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_ACTIVATION">
-    <value>[DE]Prorate on activation</value>
+    <value>Prorate on activation</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_INSTANTLY">
-    <value>[DE]Prorate instantly</value>
+    <value>Prorate instantly</value>
   </text>
   <text id="TEXT_PRORATE_DEACTIVATION">
-    <value>[DE]Prorate on the date of deactivation</value>
+    <value>Prorate on the date of deactivation</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_UNSUBSCRIPTION">
-    <value>[DE]Prorate based on unsubscription date</value>
+    <value>Prorate based on unsubscription date</value>
   </text>
   <text id="TEXT_PRORATE_RATE_CHANGE">
-    <value>[DE]Prorate on rate change</value>
+    <value>Prorate on rate change</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_BASEDON">
-    <value>[DE]Prorate based on</value>
+    <value>Prorate based on</value>
     <description></description>
   </text>
   <text id="TEXT_DAYS_IN_PERIOD">
-    <value>[DE] days in period</value>
+    <value>days in period</value>
     <description></description>
   </text>
   <text id="TEXT_WHAT_TYPE_REC_CHARGE">
-    <value>[DE]What type of [TEXT_KEYTERM_RECURRING_CHARGE] would you like to create?</value>
+    <value>What type of [TEXT_KEYTERM_RECURRING_CHARGE] would you like to create?</value>
     <description></description>
   </text>
   <text id="TEXT_EXISTING_OR_NEW_REC_CHARGE">
-    <value>[DE]Would you like to use an existing [TEXT_KEYTERM_RECURRING_CHARGE] or add a new one?</value>
+    <value>Would you like to use an existing [TEXT_KEYTERM_RECURRING_CHARGE] or add a new one?</value>
     <description></description>
   </text>
   <text id="TEXT_EXISTING_REC_CHARGE">
-    <value>[DE]Existing [TEXT_KEYTERM_RECURRING_CHARGES]</value>
+    <value>Existing [TEXT_KEYTERM_RECURRING_CHARGES]</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_NEW_RECURRING_CHARGE">
-    <value>[DE]Create New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>Create New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
   </text>
   <text id="TEXT_ADD_NEW_RECURRING_CHARGE">
-    <value>[DE]Add New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>Add New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
   </text>
   <text id="TEXT_SUMMARY">
-    <value>[DE]Summary</value>
+    <value>Summary</value>
     <description></description>
   </text>
   <text id="TEXT_SUMMARY_DESCRIPTION1">
-    <value>[DE]Here is a summary of the [TEXT_KEYTERM_RECURRING_CHARGE] you are about to create.</value>
+    <value>Here is a summary of the [TEXT_KEYTERM_RECURRING_CHARGE] you are about to create.</value>
     <description></description>
   </text>
   <text id="TEXT_SUMMARY_DESCRIPTION2">
-    <value>[DE]Click Finish to create this [TEXT_KEYTERM_RECURRING_CHARGE].</value>
+    <value>Click Finish to create this [TEXT_KEYTERM_RECURRING_CHARGE].</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING">
@@ -80,131 +80,131 @@
     <description></description>
   </text>
   <text id="TEXT_ADD_RECURRING">
-    <value>[DE]Add [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>Add [TEXT_KEYTERM_RECURRING_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING_CHARGE_TYPE">
-    <value>[TEXT_KEYTERM_RECURRING_CHARGE] [DE]Type</value>
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] Type</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING_PERIOD">
-    <value>[TEXT_KEYTERM_RECURRING_CHARGE] [DE]Period</value>
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE] Period</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT">
-    <value>[DE]Select</value>
+    <value>Select</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_TYPE">
-    <value>[TEXT_SELECT] [DE]Type</value>
+    <value>[TEXT_SELECT] Type</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_PERIOD">
-    <value>[TEXT_SELECT] [DE]Period</value>
+    <value>[TEXT_SELECT] Period</value>
     <description></description>
   </text>
   <text id="TEXT_NAME_TIP">
-    <value>[DE]This is a short name for the [TEXT_KEYTERM_RECURRING_CHARGE] in the [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>This is a short name for the [TEXT_KEYTERM_RECURRING_CHARGE] in the [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
     <description></description>
   </text>
   <text id="TEXT_DISPLAY_NAME_TIP">
-    <value>[DE]The name of the [TEXT_KEYTERM_RECURRING_CHARGE] as it appears in other applications and to subscribers.</value>
+    <value>The name of the [TEXT_KEYTERM_RECURRING_CHARGE] as it appears in other applications and to subscribers.</value>
     <description></description>
   </text>
   <text id="TEXT_DESCRIPTION_TIP">
-    <value>[DE]The description of the [TEXT_KEYTERM_RECURRING_CHARGE] used only for reference.</value>
+    <value>The description of the [TEXT_KEYTERM_RECURRING_CHARGE] used only for reference.</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCE">
-    <value>[DE]Advance</value>
+    <value>Advance</value>
     <description></description>
   </text>
   <text id="TEXT_ARREARS">
-    <value>[DE]Arrears</value>
+    <value>Arrears</value>
     <description></description>
   </text>
   <text id="TEXT_ACTUAL">
-    <value>[DE]Actual</value>
+    <value>Actual</value>
     <description></description>
   </text>
   <text id="TEXT_FIXED">
-    <value>[DE]Fixed</value>
+    <value>Fixed</value>
     <description></description>
   </text>
   <text id="TEXT_PER_SUBSCRIPTION">
-    <value>[DE]One charge per subscription</value>
+    <value>One charge per subscription</value>
     <description></description>
   </text>
   <text id="TEXT_PER_PARTICIPANT">
-    <value>[DE]One charge per participant</value>
+    <value>One charge per participant</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_CHARGES">
-    <value>[DE]Group Subscriptions</value>
+    <value>Group Subscriptions</value>
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION">
-    <value>[DE]Valid Enumeration Values</value>
+    <value>Valid Enumeration Values</value>
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION_SEPARATOR_HELP">
-    <value>[DE]Use the space char as separator</value>
+    <value>Use the space char as separator</value>
     <description></description>
   </text>
   <text id="TEXT_UDRCIntegerUnitValue">
-    <value>[DE]Integer Type</value>
+    <value>Integer Type</value>
     <description></description>
   </text>
   <text id="TEXT_UDRCMinUnitValue">
-    <value>[DE]Minimum Unit Value</value>
+    <value>Minimum Unit Value</value>
     <description></description>
   </text>
   <text id="TEXT_UDRCMaxUnitValue">
-    <value>[DE]Maximum Unit Value</value>
+    <value>Maximum Unit Value</value>
     <description></description>
   </text>
   <text id="TEXT_CANCEL">
-    <value>[DE]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_FINISH">
-    <value>[DE]Finish</value>
+    <value>Finish</value>
     <description></description>
   </text>
   <text id="TEXT_BACK">
-    <value>[DE]&lt; Back</value>
+    <value>&lt; Back</value>
     <description></description>
   </text>
   <text id="TEXT_NEXT">
-    <value>[DE]Next &gt;</value>
+    <value>Next &gt;</value>
     <description></description>
   </text>
   <text id="TEXT_VALUE_TYPE">
-    <value>[DE]Value type</value>
+    <value>Value type</value>
     <description></description>
   </text>
   <text id="TEXT_Should_this_item_be_charged_in">
-    <value>[DE]Should this item be charged in advance or arrears?</value>
+    <value>Should this item be charged in advance or arrears?</value>
     <description></description>
   </text>
   <text id="TEXT_Should_this_item_be_prorated">
-    <value>[DE]Should this item be prorated?</value>
+    <value>Should this item be prorated?</value>
     <description></description>
   </text>
   <text id="TEXT_INTEGER">
-    <value>[DE]Integer</value>
+    <value>Integer</value>
     <description></description>
   </text>
   <text id="TEXT_DECIMAL">
-    <value>[DE]Decimal</value>
+    <value>Decimal</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_BASED_ON">
-    <value>[DE]Prorate based on</value>
+    <value>Prorate based on</value>
     <description></description>
   </text>
   <text id="TEXT_number_of_days">
-    <value>[DE]number of days.</value>
+    <value>number of days.</value>
     <description></description>
   </text>
 </texts>

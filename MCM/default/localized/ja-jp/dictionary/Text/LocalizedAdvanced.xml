@@ -2,69 +2,69 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_VIEW_ALL_RATES">
-    <value>[JA]View All Rates By [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>View All Rates By [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE">
-    <value>[JA]View All Rates By [TEXT_KEYTERM_PRICEABLE_ITEM] Type</value>
+    <value>View All Rates By [TEXT_KEYTERM_PRICEABLE_ITEM] Type</value>
     <description></description>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_TITLE">
-    <value>[JA]Bulk Subscription Change</value>
+    <value>Bulk Subscription Change</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE">
-    <value>[JA]Bulk Subscription Change</value>
+    <value>Bulk Subscription Change</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_SOURCE">
-    <value>[JA]Source [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Source [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_PO_DESTINATION">
-    <value>[JA]Destination [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Destination [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE">
-    <value>[JA]Effective Date</value>
+    <value>Effective Date</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE_BILLING_CYCLE_RELATIVE">
-    <value>[JA]Make subscription change effective on the next billing cycle after this date</value>
+    <value>Make subscription change effective on the next billing cycle after this date</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_SELECT_PRODUCT_OFFERING">
-    <value>[JA]Select a [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Select a [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
   </text>
   <text id="TEXT_ADVANCED_DIALOG_DESCRIPTION">
-    <value>[JA]Select the action you wish to perform.</value>
+    <value>Select the action you wish to perform.</value>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_DESCRIPTION">
-    <value>[JA]View a page containing all rates in the Product Catalog grouped by [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>View a page containing all rates in the Product Catalog grouped by [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
   </text>
   <text id="TEXT_VIEW_ALL_RATES_BY_PRICEABLE_ITEM_TYPE_DESCRIPTION">
-    <value>[JA]View a page with all rates grouped by [TEXT_KEYTERM_PRICEABLE_ITEM] Type.</value>
+    <value>View a page with all rates grouped by [TEXT_KEYTERM_PRICEABLE_ITEM] Type.</value>
   </text>
   <text id="TEXT_BULK_SUBSCRIPTION_CHANGE_DESCRIPTION">
-    <value>[JA]Transfer all customer Subscriptions from one [TEXT_KEYTERM_PRODUCT_OFFERING] to another [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>Transfer all customer Subscriptions from one [TEXT_KEYTERM_PRODUCT_OFFERING] to another [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
   </text>
   <text id="TEXT_EDIT_PRICELIST_DESCRIPTION">
-    <value>[JA]Add new [TEXT_KEYTERM_PRICE_LISTS] and edit the descriptions of existing [TEXT_KEYTERM_PRICE_LISTS].</value>
+    <value>Add new [TEXT_KEYTERM_PRICE_LISTS] and edit the descriptions of existing [TEXT_KEYTERM_PRICE_LISTS].</value>
   </text>
   <text id="TEXT_MANAGE_CALENDARS">
-    <value>[JA]Manage Calendars</value>
+    <value>Manage Calendars</value>
   </text>
   <text id="TEXT_MANAGE_CALENDARS_DESCRIPTION">
-    <value>[JA]Create and configure Calendars.</value>
+    <value>Create and configure Calendars.</value>
   </text>
   <text id="TEXT_MANAGE_HIDDEN_POS">
-    <value>[JA]Manage Hidden [TEXT_KEYTERM_PRODUCT_OFFERINGS]</value>
+    <value>Manage Hidden [TEXT_KEYTERM_PRODUCT_OFFERINGS]</value>
     <description></description>
   </text>
   <text id="TEXT_MANAGE_HIDDEN_POS_DESCRIPTION">
-    <value>[JA]View [TEXT_KEYTERM_PRODUCT_OFFERINGS] that are hidden from regular MetraOffer use and un-hide them.</value>
+    <value>View [TEXT_KEYTERM_PRODUCT_OFFERINGS] that are hidden from regular MetraOffer use and un-hide them.</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_CHARGES">
-    <value>[JA]group subscription charges</value>
+    <value>group subscription charges</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_CHARGE_GENERATED">
-    <value>[JA]How should [TEXT_GROUP_SUBSCRIPTION_CHARGES] be generated?</value>
+    <value>How should [TEXT_GROUP_SUBSCRIPTION_CHARGES] be generated?</value>
     <description></description>
   </text>
 </texts>

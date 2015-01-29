@@ -2,21 +2,21 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_COUNTER_PARAMETER">
-    <value>[TEXT_KEYTERM_COUNTER] [IT]Parameter</value>
+    <value>[TEXT_KEYTERM_COUNTER] Parameter</value>
   </text>
   <text id="TEXT_ADD_NEW_COUNTER">
-    <value>[IT]Add New [TEXT_KEYTERM_COUNTER]</value>
+    <value>Add New [TEXT_KEYTERM_COUNTER]</value>
   </text>
   <text id="TEXT_COUNTER_EDIT">
-    <value>[IT]Edit [TEXT_KEYTERM_COUNTER]</value>
+    <value>Edit [TEXT_KEYTERM_COUNTER]</value>
   </text>
   <text id="TEXT_EDIT_COUNTER_PARAMETER">
-    <value>[IT]Select</value>
+    <value>Select</value>
   </text>
   <text id="TEXT_COUNTER_ARGUMENT">
-    <value>[IT]Argument</value>
+    <value>Argument</value>
   </text>
   <text id="TEXT_COUNTER_Value">
-    <value>[IT]Value</value>
+    <value>Value</value>
   </text>
 </texts>

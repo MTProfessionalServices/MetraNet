@@ -1,133 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BATCH_MANANAGEMENT">
-    <value>[DE]Batch Management</value>
+    <value>Batch Management</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_UPDATE_STATUS_TITLE">
-    <value>[DE]Update Batch Status</value>
+    <value>Update Batch Status</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_ACTION">
-    <value>[DE]Mark As Failed</value>
+    <value>Mark As Failed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_TITLE">
-    <value>[DE]Mark Batch As Failed</value>
+    <value>Mark Batch As Failed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_ACTION">
-    <value>[DE]Mark As Completed</value>
+    <value>Mark As Completed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_TITLE">
-    <value>[DE]Mark Batch As Completed</value>
+    <value>Mark Batch As Completed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_ACTION">
-    <value>[DE]Mark As Dismissed</value>
+    <value>Mark As Dismissed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_TITLE">
-    <value>[DE]Mark Batch As Dismissed</value>
+    <value>Mark Batch As Dismissed</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_ACTION">
-    <value>[DE]Backout</value>
+    <value>Backout</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_TITLE">
-    <value>[DE]Backout Batch</value>
+    <value>Backout Batch</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_ACTION">
-    <value>[DE]Resubmit</value>
+    <value>Resubmit</value>
   </text>
   <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_TITLE">
-    <value>[DE]Resubmit Batch</value>
+    <value>Resubmit Batch</value>
   </text>
   <text id="TEXT_BATCH_STATE_ACTIVE">
-    <value>[DE]Active/Open</value>
+    <value>Active/Open</value>
   </text>
   <text id="TEXT_BATCH_STATE_ACTIVE_DESCRIPTION">
-    <value>[DE]This batch is open and can have transactions metered against it.</value>
+    <value>This batch is open and can have transactions metered against it.</value>
   </text>
   <text id="TEXT_BATCH_STATE_COMPLETED">
-    <value>[DE]Completed</value>
+    <value>Completed</value>
   </text>
   <text id="TEXT_BATCH_STATE_COMPLETED_DESCRIPTION">
-    <value>[DE]This batch is complete. No more transactions can be metered against it.</value>
+    <value>This batch is complete. No more transactions can be metered against it.</value>
   </text>
   <text id="TEXT_BATCH_STATE_FAILED">
-    <value>[DE]Failed</value>
+    <value>Failed</value>
   </text>
   <text id="TEXT_BATCH_STATE_FAILED_DESCRIPTION">
-    <value>[DE]This batch has failed.</value>
+    <value>This batch has failed.</value>
   </text>
   <text id="TEXT_BATCH_STATE_BACKEDOUT">
-    <value>[DE]Backed Out</value>
+    <value>Backed Out</value>
   </text>
   <text id="TEXT_BATCH_STATE_BACKEDOUT_DESCRIPTION">
-    <value>[DE]This batch has been backed out.</value>
+    <value>This batch has been backed out.</value>
   </text>
   <text id="TEXT_BATCH_STATE_RESUBMIT">
-    <value>[DE]Resubmit</value>
+    <value>Resubmit</value>
   </text>
   <text id="TEXT_BATCH_STATE_RESUBMIT_DESCRIPTION">
-    <value>[DE]This batch has been resubmitted after it was backed out.</value>
+    <value>This batch has been resubmitted after it was backed out.</value>
   </text>
   <text id="TEXT_BATCH_STATE_DISMISSED">
-    <value>[DE]Dismissed</value>
+    <value>Dismissed</value>
   </text>
   <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION">
-    <value>[DE]This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value>
+    <value>This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value>
   </text>
   <text id="TEXT_Namespace">
-    <value>[DE]Namespace</value>
+    <value>Namespace</value>
   </text>
   <text id="TEXT_Name">
-    <value>[DE]Name</value>
+    <value>Name</value>
   </text>
   <text id="TEXT_Sequence">
-    <value>[DE]Sequence</value>
+    <value>Sequence</value>
   </text>
   <text id="TEXT_Source">
-    <value>[DE]Source</value>
+    <value>Source</value>
   </text>
   <text id="TEXT_Created">
-    <value>[DE]Created</value>
+    <value>Created</value>
   </text>
   <text id="TEXT_First_Transaction">
-    <value>[DE]First Transaction</value>
+    <value>First Transaction</value>
   </text>
   <text id="TEXT_Most_Recent_Transaction">
-    <value>[DE]Most Recent Transaction</value>
+    <value>Most Recent Transaction</value>
   </text>
   <text id="TEXT_Internal_Batch_Id">
-    <value>[DE]Internal Batch Id</value>
+    <value>Internal Batch Id</value>
   </text>
   <text id="TEXT_Status">
-    <value>[DE]Status</value>
+    <value>Status</value>
   </text>
   <text id="TEXT_Expected">
-    <value>[DE]Expected</value>
+    <value>Expected</value>
   </text>
   <text id="TEXT_Completed">
-    <value>[DE]Completed</value>
+    <value>Completed</value>
   </text>
   <text id="TEXT_Failed">
-    <value>[DE]Failed</value>
+    <value>Failed</value>
   </text>
   <text id="TEXT_Dismissed">
-    <value>[DE]Dismissed</value>
+    <value>Dismissed</value>
   </text>
   <text id="TEXT_Difference">
-    <value>[DE]Difference</value>
+    <value>Difference</value>
   </text>
   <text id="TEXT_View_Statistics">
-    <value>[DE]View Statistics</value>
+    <value>View Statistics</value>
   </text>
   <text id="TEXT_Comment">
-    <value>[DE]Comment</value>
+    <value>Comment</value>
   </text>
 
   <text id="TEXT_Mark_As_Hard_Closed">
-    <value>[DE]Mark As Hard Closed</value>
+    <value>Mark As Hard Closed</value>
   </text>
   <text id="TEXT_Manually_Assign_Accounts">
-    <value>[DE]Manually Assign Accounts</value>
+    <value>Manually Assign Accounts</value>
   </text>
   <text id="TEXT_CLOSE">
-    <value>[DE]Close</value>
+    <value>Close</value>
   </text>
 </texts>

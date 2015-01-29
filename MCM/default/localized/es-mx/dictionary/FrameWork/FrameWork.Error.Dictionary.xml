@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Framework Errors" type="collection">
   <text id="FRAMEWORK_LOGON_ERROR_200">
-    <value><![CDATA[<br>[es-MX]Your account has been locked for security reasons. <br> Please contact customer service to inquire about <br> the status of your account. ]]></value>
+    <value><![CDATA[<br>Your account has been locked for security reasons. <br> Please contact customer service to inquire about <br> the status of your account. ]]></value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_201">
-    <value>[es-MX]Invalid user name or password.  Please try again.</value>
+    <value>Invalid user name or password.  Please try again.</value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_300">
-    <value>[es-MX]Your account is not allowed to login.  Please contact customer service to inquire about the status of your account.</value>
+    <value>Your account is not allowed to login.  Please contact customer service to inquire about the status of your account.</value>
   </text>
   <text id="FRAMEWORK_LOGON_ERROR_1003">
-    <value>[es-MX]User name or password may not be blank.  Please try again.</value>
+    <value>User name or password may not be blank.  Please try again.</value>
   </text>
   <text id="TEXT_PASSWORD_EXPIRING">
-    <value>[es-MX]Your password is expiring in {0} day(s).  If you have time, why not change it now?</value>
+    <value>Your password is expiring in {0} day(s).  If you have time, why not change it now?</value>
   </text>
 </texts>

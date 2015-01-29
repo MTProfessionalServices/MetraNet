@@ -7,46 +7,46 @@
   </description>
   <text id="ROADMAP-516947931">
     <description>Synchronous metering timed out.</description>
-    <value><![CDATA[[JA] It appears the MetraTech Pipeline is not running on the server.  Please have your administrator check to make sure the server is running correctly.  The action will be submitted when the pipeline starts. ]]></value>
+    <value><![CDATA[It appears the MetraTech Pipeline is not running on the server.  Please have your administrator check to make sure the server is running correctly.  The action will be submitted when the pipeline starts. ]]></value>
   </text>
   <text id="ROADMAP-486604795">
     <description>The paying account is not billable.</description>
-    <value><![CDATA[[JA] You must first mark the paying account as billable before you can set it up to pay for other accounts.  This is done on the Account Info screen. ]]></value>
+    <value><![CDATA[You must first mark the paying account as billable before you can set it up to pay for other accounts.  This is done on the Account Info screen. ]]></value>
   </text>
   <text id="ROADMAP-469368830">
     <description>This account is a payee.  It cannot be suspended.</description>
-    <value><![CDATA[[JA] You must first mark the paying account as non billable before you can suspend it.]]></value>
+    <value><![CDATA[You must first mark the paying account as non billable before you can suspend it.]]></value>
   </text>
   <text id="ROADMAP1025">
     <description>Batch failed</description>
-    <value><![CDATA[[JA] For more information on the batch operations that failed click <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">here</a>. ]]></value>
+    <value><![CDATA[For more information on the batch operations that failed click <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">here</a>. ]]></value>
   </text>
   <text id="ROADMAP1036">
     <description>Batch failed</description>
-    <value><![CDATA[[JA] For more information on the accounts that failed to subscribe click <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">here</a>. ]]></value>
+    <value><![CDATA[For more information on the accounts that failed to subscribe click <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">here</a>. ]]></value>
   </text>
   <text id="ROADMAP1052">
     <description>Batch template failed</description>
-    <value><![CDATA[[JA] The batch template operation failed for some accounts.  For more information on the accounts that failed click <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">here</a>. ]]></value>
+    <value><![CDATA[The batch template operation failed for some accounts.  For more information on the accounts that failed click <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">here</a>. ]]></value>
   </text>
   <text id="ROADMAP-492896235">
     <description>Role cannot be deleted with members</description>
-    <value><![CDATA[[JA] The role you are trying to delete currently has members.  You must first remove all members from the role before you can delete it.  Click <a target="MainContentIframe" href="[MANAGE_ROLES_DIALOG]">here</a> to go back to Manage Roles and then select the Members icon to see who is currently assigned to this role. ]]></value>
+    <value><![CDATA[The role you are trying to delete currently has members.  You must first remove all members from the role before you can delete it.  Click <a target="MainContentIframe" href="[MANAGE_ROLES_DIALOG]">here</a> to go back to Manage Roles and then select the Members icon to see who is currently assigned to this role. ]]></value>
   </text>
   <text id="ROADMAP-492896216">
     <description>Manage Account Hierarchies capability cannot be associated with Subscriber Assignable Role</description>
-    <value><![CDATA[[JA] In order to assign the Manage Account Hierarchies capability to a subscriber you must place the capability directly on the account.  <a target="MainContentIframe" href="[LAST_ROLE_PAGE]">Back to Configure Capabilities</a>. ]]></value>
+    <value><![CDATA[In order to assign the Manage Account Hierarchies capability to a subscriber you must place the capability directly on the account.  <a target="MainContentIframe" href="[LAST_ROLE_PAGE]">Back to Configure Capabilities</a>. ]]></value>
   </text>
   <text id="ROADMAP-OVERRIDESUBDATE">
     <description>Subscription date override according to group sub or product offering effective dates.</description>
-    <value><![CDATA[[JA] The subscription date you selected was replaced by the maximum allowed date conforming to the Product Offering or Group Subscription effective dates.]]></value>
+    <value><![CDATA[The subscription date you selected was replaced by the maximum allowed date conforming to the Product Offering or Group Subscription effective dates.]]></value>
   </text>
   <text id="ROADMAP-OVERRIDEGROUPSUBDATE">
     <description>Group Subscription date override according to product offering effective date.</description>
-    <value><![CDATA[[JA] Your group subscription effective date was replaced by the maximum allowed conforming to the product offering effective date. ]]></value>
+    <value><![CDATA[Your group subscription effective date was replaced by the maximum allowed conforming to the product offering effective date. ]]></value>
   </text>
   <text id="ROADMAP-OVERRIDEMEMBERSHIPDATE">
     <description>Group Subscription membership date override according to product offering or group subscription effective dates.</description>
-    <value><![CDATA[[JA] Your group membership date was replaced by the maximum allowed conforming to the product offering or group subscription effective date. ]]></value>
+    <value><![CDATA[Your group membership date was replaced by the maximum allowed conforming to the product offering or group subscription effective date. ]]></value>
   </text>
 </texts>

@@ -5,443 +5,443 @@
     supplied by the MetraTech plate form.
   </description>
   <text id="TEXT_MANUAL_PAYMENT_SUCCESS">
-    <value>[JA]The manual payment was added successfully.</value>
+    <value>The manual payment was added successfully.</value>
     <description></description>
   </text>
   <text id="TEXT_MANUAL_PAYMENT_TITLE">
-    <value>[JA]Manual Payment</value>
+    <value>Manual Payment</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_NAME">
-    <value>[JA]Account Name</value>
+    <value>Account Name</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_NAME">
-    <value>[JA]Login Name</value>
+    <value>Login Name</value>
     <description></description>
   </text>
   <text id="TEXT_CURRENCY">
-    <value>[JA]Currency</value>
+    <value>Currency</value>
     <description></description>
   </text>
   <text id="TEXT_CHILD_NAME">
-    <value>[JA]Child Name</value>
+    <value>Child Name</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_ID">
-    <value>[JA]Account ID</value>
+    <value>Account ID</value>
     <description></description>
   </text>
   <text id="TEXT_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_ERROR_DESCRIPTION">
-    <value>[JA]Error Description</value>
+    <value>Error Description</value>
     <description></description>
   </text>
   <text id="TEXT_MOVE_ACROSS_CORPORATE">
-    <value><![CDATA[ [JA]<br>&nbsp;&nbsp;You may only move accounts within the same corporate hierarchy. ]]></value>
+    <value><![CDATA[ <br>&nbsp;&nbsp;You may only move accounts within the same corporate hierarchy. ]]></value>
     <description></description>
   </text>
   <text id="TEXT_BATCH_OPERATION_WARNING">
-    <value>[JA]Batch operations can take a long time and should only be done when the system is not busy.</value>
+    <value>Batch operations can take a long time and should only be done when the system is not busy.</value>
     <description>Batch warning</description>
   </text>
   <text id="TEXT_FOLDER">
-    <value>[JA]Folder</value>
+    <value>Folder</value>
     <description></description>
   </text>
   <text id="TEXT_SYSTEM_FOLDER">
-    <value>[JA]System Folder</value>
+    <value>System Folder</value>
     <description></description>
   </text>
   <text id="TEXT_UNABLE_TO_MANAGE_ACCOUNT">
-    <value><![CDATA[ [JA]<br>&nbsp;&nbsp;Unable to manage the account.  This may be a security restriction <br>&nbsp;&nbsp;or the account may not exist at the current time in the hierarchy. ]]></value>
+    <value><![CDATA[ <br>&nbsp;&nbsp;Unable to manage the account.  This may be a security restriction <br>&nbsp;&nbsp;or the account may not exist at the current time in the hierarchy. ]]></value>
     <description></description>
   </text>
   <text id="TEXT_APPLY_CURRENT_TEMPLATE">
-    <value>[JA]Apply Current Template</value>
+    <value>Apply Current Template</value>
     <description></description>
   </text>
   <text id="TEXT_APPLY_TEMPLATE">
-    <value>[JA]Apply Template</value>
+    <value>Apply Template</value>
     <description></description>
   </text>
   <text id="TEXT_SAVE_AND_APPLY_TEMPLATE">
-    <value>[JA]Save and Apply Template</value>
+    <value>Save and Apply Template</value>
     <description></description>
   </text>
   <text id="TEXT_INCLUDING_FOLDERS">
-    <value>[JA](including folders)</value>
+    <value>(including folders)</value>
     <description></description>
   </text>
   <text id="TEXT_EXCLUDING_FOLDERS">
-    <value>[JA](excluding folders)</value>
+    <value>(excluding folders)</value>
     <description></description>
   </text>
   <text id="TEXT_PAY_FOR_ME">
-    <value>[JA]Edit Payers</value>
+    <value>Edit Payers</value>
     <description></description>
   </text>
   <text id="TEXT_FOLDER_OWNER_UPDATE">
-    <value>[JA]Account Administrator Updated</value>
+    <value>Account Administrator Updated</value>
     <description></description>
   </text>
   <text id="TEXT_FOLDER_OWNER_UPDATED_SUCCESS">
-    <value>[JA]The account administrator was updated successfully.</value>
+    <value>The account administrator was updated successfully.</value>
     <description></description>
   </text>
   <text id="TEXT_APP_MAM">
-    <value><![CDATA[ [JA]<b>MetraCare</b> - Customer self-care and account management ]]></value>
+    <value><![CDATA[ <b>MetraCare</b> - Customer self-care and account management ]]></value>
     <description></description>
   </text>
   <text id="TEXT_APP_MCM">
-    <value><![CDATA[ [JA]<b>MetraOffer</b> - Product and service offerings ]]></value>
+    <value><![CDATA[ <b>MetraOffer</b> - Product and service offerings ]]></value>
     <description></description>
   </text>
   <text id="TEXT_APP_MOM">
-    <value><![CDATA[ [JA]<b>MetraControl</b> - Operations control center ]]></value>
+    <value><![CDATA[ <b>MetraControl</b> - Operations control center ]]></value>
     <description></description>
   </text>
   <text id="TEXT_APP_MPS">
-    <value><![CDATA[ [JA]<b>MetraView</b> - Interactive reporting and bill presentation ]]></value>
+    <value><![CDATA[ <b>MetraView</b> - Interactive reporting and bill presentation ]]></value>
     <description></description>
   </text>
   <text id="TEXT_PAYMENT_HISTORY">
-    <value>[JA]Payment History</value>
+    <value>Payment History</value>
     <description>Payment History</description>
   </text>
   <text id="TEXT_ADVANCED_ENTRY">
-    <value>[JA]Advanced</value>
+    <value>Advanced</value>
     <description>Advanced</description>
   </text>
   <text id="TEXT_ACCOUNTS_TO_MOVE">
-    <value>[JA]Select Accounts to Move</value>
+    <value>Select Accounts to Move</value>
     <description>Select Accounts to Move</description>
   </text>
   <text id="TEXT_ACCOUNT_IDS">
-    <value>[JA]Add Account IDs</value>
+    <value>Add Account IDs</value>
     <description>Add Account IDs</description>
   </text>
   <text id="TEXT_UPDATE">
-    <value>[JA]Update</value>
+    <value>Update</value>
     <description>Update</description>
   </text>
   <text id="TEXT_ADD_FOLDER_OWNERSHIP">
-    <value>[JA]Add Account for Administration</value>
+    <value>Add Account for Administration</value>
     <description>Add folder for ownership</description>
   </text>
   <text id="TEXT_DRAG_FOLDERS_HERE">
-    <value>[JA]Drag and drop accounts here...</value>
+    <value>Drag and drop accounts here...</value>
     <description>Drag and drop folders here...</description>
   </text>
   <text id="TEXT_DRAG_ONLY_FOLDERS_HERE">
-    <value>[JA]You may only add folders.</value>
+    <value>You may only add folders.</value>
     <description>folders only</description>
   </text>
   <text id="TEXT_ACCOUNT_STATE">
-    <value>[JA]Account State</value>
+    <value>Account State</value>
     <description>Account State</description>
   </text>
   <text id="TEXT_LOGIN_INFORMATION">
-    <value>[JA]Login Information</value>
+    <value>Login Information</value>
     <description>Login Information</description>
   </text>
   <text id="TEXT_OTHER">
-    <value>[JA]Other</value>
+    <value>Other</value>
     <description>Other</description>
   </text>
   <text id="TEXT_ANCESTOR">
-    <value>[JA]Parent</value>
+    <value>Parent</value>
     <description>Parent</description>
   </text>
   <text id="TEXT_ACCOUNT">
-    <value>[JA]Account</value>
+    <value>Account</value>
     <description>Account</description>
   </text>
   <text id="TEXT_PAYER">
-    <value>[JA]Payer</value>
+    <value>Payer</value>
     <description>Payer</description>
   </text>
   <text id="TEXT_PAYING_ACCOUNT">
-    <value>[JA]Paying Account</value>
+    <value>Paying Account</value>
     <description>Paying Account</description>
   </text>
   <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
-    <value>[JA]Adding Member to Group</value>
+    <value>Adding Member to Group</value>
     <description>Adding Member to Group</description>
   </text>
   <text id="TEXT_REMOVING_MEMBER_FROM_GROUP_SUB">
-    <value>[JA]Removing Member from Group</value>
+    <value>Removing Member from Group</value>
     <description>Removing Member from Group</description>
   </text>
   <text id="TEXT_SETTING_PAYER">
-    <value>[JA]Setting Payer</value>
+    <value>Setting Payer</value>
     <description>Setting Payer</description>
   </text>
   <text id="TEXT_ADDING_ROLE_TO_MEMBER">
-    <value>[JA]Adding Members to Role</value>
+    <value>Adding Members to Role</value>
     <description>Adding Members to Role</description>
   </text>
   <text id="TEXT_FOLDERS_IMPERSONETED_BY">
-    <value>[JA]Accounts Administrated By</value>
+    <value>Accounts Administrated By</value>
     <description>Folders Owned By</description>
   </text>
   <text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
-    <value>[JA]Account owner of </value>
+    <value>Account owner of </value>
     <description>owner</description>
   </text>
   <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-    <value>[JA]Accounts Paid for by </value>
+    <value>Accounts Paid for by </value>
     <description>Accounts Paid for by</description>
   </text>
   <text id="TEXT_MOVING_ACCOUNTS">
-    <value>[JA]Moving Accounts</value>
+    <value>Moving Accounts</value>
     <description>Moving Accounts</description>
   </text>
   <text id="TEXT_CURRENT_ACCOUNT_STATE">
-    <value>[JA]Current Account State</value>
+    <value>Current Account State</value>
     <description>Current Account State</description>
   </text>
   <text id="TEXT_NEW_ACCOUNT_STATE">
-    <value>[JA]New Account State</value>
+    <value>New Account State</value>
     <description>New Account State</description>
   </text>
   <text id="ACCOUNT_STATE_UPDATE">
-    <value>[JA]Update Account State</value>
+    <value>Update Account State</value>
     <description>Update Account State</description>
   </text>
   <text id="TEXT_ACCOUNT_STATE">
-    <value>[JA]Account State</value>
+    <value>Account State</value>
     <description>Account State</description>
   </text>
   <text id="TEXT_BACK">
-    <value>[JA]Back</value>
+    <value>Back</value>
     <description>Back</description>
   </text>
   <text id="TEXT_CSR_DEFAULT_POLICY">
-    <value>[JA]Default Security</value>
+    <value>Default Security</value>
     <description>Default Security</description>
   </text>
   <text id="TEXT_ADD_ACCOUNTS_FOR_PAYMENT">
-    <value>[JA]Add Accounts for Payment</value>
+    <value>Add Accounts for Payment</value>
     <description>Add Accounts for Payment</description>
   </text>
   <text id="TEXT_MOVE_ACCOUNTS">
-    <value>[JA]Move Accounts</value>
+    <value>Move Accounts</value>
     <description>Move Accounts</description>
   </text>
   <text id="TEXT_MOVE_ACCOUNT">
-    <value>[JA]Move Account</value>
+    <value>Move Account</value>
     <description>Move Account</description>
   </text>
   <text id="TEXT_MEMBERS">
-    <value>[JA]Members</value>
+    <value>Members</value>
     <description>Members</description>
   </text>
   <text id="TEXT_MOVE_DATE">
-    <value>[JA]Move Effective Date</value>
+    <value>Move Effective Date</value>
     <description>Move Date</description>
   </text>
   <text id="TEXT_UPDATE_PAYER_TITLE">
-    <value>[JA]Update Payer Information for Account [USERNAME]</value>
+    <value>Update Payer Information for Account [USERNAME]</value>
     <description>Accounts</description>
   </text>
   <text id="TEXT_ACCOUNTS">
-    <value>[JA]Accounts</value>
+    <value>Accounts</value>
     <description>Accounts</description>
   </text>
   <text id="TEXT_USER">
-    <value>[JA]User</value>
+    <value>User</value>
     <description>User</description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTIONS_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description>Group Subscription Name</description>
   </text>
   <text id="TEXT_SET_GROUP_PRICEABLE_ITEMS">
-    <value>[JA]Support Group Operations</value>
+    <value>Support Group Operations</value>
     <description>Support Group Operations</description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTIONS_NOTE">
-    <value>[JA]Select a Corporate Account to see a list of [TEXT_GROUP_SUBSCRIPTIONS]:</value>
+    <value>Select a Corporate Account to see a list of [TEXT_GROUP_SUBSCRIPTIONS]:</value>
     <description>Group Subscriptions Note</description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTIONS">
-    <value>[JA]Group Subscriptions</value>
+    <value>Group Subscriptions</value>
     <description>Group Subscriptions</description>
   </text>
   <text id="TEXT_SUBSCRIBE_PO">
-    <value>[JA]Subscribe to [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Subscribe to [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description>Group Subscriptions</description>
   </text>
   <text id="TEXT_SUBSCRIBE_GROUP">
-    <value>[JA]Join [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Join [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description>Group Subscriptions</description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_SUBSCRIPTIONS">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] [JA]Subscriptions</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] Subscriptions</value>
     <description>PO Subscriptions</description>
   </text>
   <text id="TEXT_AVAILABLE_GROUPSUBSCRIPTION_PO_SELECTION">
-    <value>[JA]Available [TEXT_KEYTERM_PRODUCT_OFFERINGS] for Group Subscription</value>
+    <value>Available [TEXT_KEYTERM_PRODUCT_OFFERINGS] for Group Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_AVAILABLE_GROUPSUBSCRIPTIONS">
-    <value>[JA]Available [TEXT_KEYTERM_GROUP_SUBSCRIPTIONS] for membership</value>
+    <value>Available [TEXT_KEYTERM_GROUP_SUBSCRIPTIONS] for membership</value>
     <description></description>
   </text>
   <text id="TEXT_MANAGE_DEFAULT_SECURITY">
-    <value>[JA]Default Security Permissions</value>
+    <value>Default Security Permissions</value>
     <description>Default Security</description>
   </text>
   <text id="TEXT_ADD_ROLE_TO_ACCOUNT_TITLE">
-    <value>[JA]Add [TEXT_KEYTERM_ROLE]</value>
+    <value>Add [TEXT_KEYTERM_ROLE]</value>
     <description>Add role to account</description>
   </text>
   <text id="TEXT_NO_ROLES">
-    <value>[JA]No [TEXT_KEYTERM_ROLES] have been set up.</value>
+    <value>No [TEXT_KEYTERM_ROLES] have been set up.</value>
     <description>No roles</description>
   </text>
   <text id="TEXT_NO_CAPABILITIES">
-    <value>[JA]No [TEXT_KEYTERM_CAPABILITIES] have been set up.</value>
+    <value>No [TEXT_KEYTERM_CAPABILITIES] have been set up.</value>
     <description>No capabilities</description>
   </text>
   <text id="TEXT_ROLES_ON_ACCOUNT">
-    <value>[JA]This account has the following [TEXT_KEYTERM_ROLES]:</value>
+    <value>This account has the following [TEXT_KEYTERM_ROLES]:</value>
     <description>roles on account</description>
   </text>
   <text id="TEXT_CAPABILITIES_ON_ACCOUNT">
-    <value>[JA]This account has the following [TEXT_KEYTERM_CAPABILITIES]:</value>
+    <value>This account has the following [TEXT_KEYTERM_CAPABILITIES]:</value>
     <description>capabilities on account</description>
   </text>
   <text id="TEXT_ADD_CAPABILITY">
-    <value>[JA]Add [TEXT_KEYTERM_CAPABILITY]</value>
+    <value>Add [TEXT_KEYTERM_CAPABILITY]</value>
     <description>Add Capability</description>
   </text>
   <text id="TEXT_MANAGE_SECURITY">
-    <value>[JA]Security Permissions</value>
+    <value>Security Permissions</value>
     <description>Security</description>
   </text>
   <text id="TEXT_MANAGE_SECURITY_HINT">
-    <value>[JA]Manage Security Roles and Capabilities</value>
+    <value>Manage Security Roles and Capabilities</value>
     <description>Security</description>
   </text>
   <text id="TEXT_MANAGE">
-    <value>[JA]Manage</value>
+    <value>Manage</value>
     <description>Manage</description>
   </text>
   <text id="TEXT_ACTION">
-    <value>[JA]Action</value>
+    <value>Action</value>
     <description>Action</description>
   </text>
   <text id="TEXT_SUBSCRIBER_ASSIGNABLE">
-    <value>[JA]Subscriber Assignable</value>
+    <value>Subscriber Assignable</value>
     <description>subscriber assignable</description>
   </text>
   <text id="TEXT_CSR_ASSIGNABLE">
-    <value>[JA]CSR Assignable</value>
+    <value>CSR Assignable</value>
     <description>CSR assignable</description>
   </text>
   <text id="TEXT_PATH_CAPABILITY_HELP">
-    <value>[JA]You may use the Account Hierarchy to locate a node in the hierarchy and drag it into the path field.</value>
+    <value>You may use the Account Hierarchy to locate a node in the hierarchy and drag it into the path field.</value>
     <description>Access Type Capability</description>
   </text>
   <text id="TEXT_CAPABILITY_ACCESS_TYPE">
-    <value>[JA]Access [TEXT_KEYTERM_CAPABILITY]</value>
+    <value>Access [TEXT_KEYTERM_CAPABILITY]</value>
     <description>Access Type Capability</description>
   </text>
   <text id="TEXT_CAPABILITY_PATH_TYPE">
-    <value>[JA]Path [TEXT_KEYTERM_CAPABILITY]</value>
+    <value>Path [TEXT_KEYTERM_CAPABILITY]</value>
     <description>Path Type Capability</description>
   </text>
   <text id="TEXT_ADD_PATH">
-    <value>[JA]Add Another Path</value>
+    <value>Add Another Path</value>
     <description>Add Another Path</description>
   </text>
   <text id="TEXT_ALL_DESCENDANTS">
-    <value>[JA]All Descendants</value>
+    <value>All Descendants</value>
     <description>All Descendants</description>
   </text>
   <text id="TEXT_DIRECT_DESCENDANTS">
-    <value>[JA]Direct Descendants</value>
+    <value>Direct Descendants</value>
     <description>Direct Descendants</description>
   </text>
   <text id="TEXT_CURRENT_NODE">
-    <value>[JA]Current Node</value>
+    <value>Current Node</value>
     <description>Current Node</description>
   </text>
   <text id="TEXT_WOULD_YOU_LIKE_TO_REMOVE">
-    <value>[JA]Would you like to remove</value>
+    <value>Would you like to remove</value>
     <description>Would you like to remove</description>
   </text>
   <text id="TEXT_MSGBOX_DELETE_ITEM">
-    <value>[JA]Delete [ITEM] ?</value>
+    <value>Delete [ITEM] ?</value>
     <description></description>
   </text>
   <text id="TEXT_FROM">
-    <value>[JA]from</value>
+    <value>from</value>
     <description>from</description>
   </text>
   <text id="TEXT_THIS">
-    <value>[JA]this</value>
+    <value>this</value>
     <description>this</description>
   </text>
   <text id="TEXT_ACCOUNT_OWNED_BY">
-    <value>[JA]Account owned by</value>
+    <value>Account owned by</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
-    <value>[JA]Add [TEXT_KEYTERM_CAPABILITY]</value>
+    <value>Add [TEXT_KEYTERM_CAPABILITY]</value>
     <description>Select capability to add to role</description>
   </text>
   <text id="TEXT_CAPABILITY_DESCRIPTION">
-    <value>[TEXT_KEYTERM_CAPABILITY] [JA]Description</value>
+    <value>[TEXT_KEYTERM_CAPABILITY] Description</value>
     <description>Capability</description>
   </text>
   <text id="TEXT_MANAGE_ACCOUNT_HIERARCHIES">
-    <value>[JA]Requires Manage Account Hierarchies</value>
+    <value>Requires Manage Account Hierarchies</value>
     <description>Hierarchy</description>
   </text>
   <text id="TEXT_CAPABILITY_NAME">
-    <value>[TEXT_KEYTERM_CAPABILITY] [JA]Name</value>
+    <value>[TEXT_KEYTERM_CAPABILITY] Name</value>
     <description>Capability Name</description>
   </text>
   <text id="TEXT_BACK_SECURITY">
-    <value>[JA]Back</value>
+    <value>Back</value>
     <description>Back</description>
   </text>
   <text id="TEXT_BACK_TO_MANAGE_ROLES">
-    <value>[JA]Back to Manage Roles</value>
+    <value>Back to Manage Roles</value>
     <description>Back to Manage Roles</description>
   </text>
   <text id="TEXT_ROLE_SETUP_READONLY">
-    <value>[JA]View [TEXT_KEYTERM_CAPABILITIES] for </value>
+    <value>View [TEXT_KEYTERM_CAPABILITIES] for </value>
     <description>view capabilities for role</description>
   </text>
   <text id="TEXT_ROLE_SETUP">
-    <value>[JA]Configure [TEXT_KEYTERM_CAPABILITIES] for </value>
+    <value>Configure [TEXT_KEYTERM_CAPABILITIES] for </value>
     <description>Configure capabilities for role</description>
   </text>
   <text id="TEXT_ROLE_ADD_CAPABILITY">
-    <value>[JA]Add [TEXT_KEYTERM_CAPABILITY]</value>
+    <value>Add [TEXT_KEYTERM_CAPABILITY]</value>
     <description>Add Capability</description>
   </text>
   <text id="TEXT_ADD_ROLE">
-    <value>[JA]Add [TEXT_KEYTERM_ROLE]</value>
+    <value>Add [TEXT_KEYTERM_ROLE]</value>
     <description></description>
   </text>
   <text id="TEXT_ROLE_NAME">
-    <value>[TEXT_KEYTERM_ROLE] [JA]Name</value>
+    <value>[TEXT_KEYTERM_ROLE] Name</value>
     <description></description>
   </text>
   <text id="TEXT_ROLE_DESCRIPTION">
-    <value>[TEXT_KEYTERM_ROLE] [JA]Description</value>
+    <value>[TEXT_KEYTERM_ROLE] Description</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_PARAMETER_TABLE">
-    <value>[JA]Select a [TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <value>Select a [TEXT_KEYTERM_PARAMETER_TABLE]</value>
     <description></description>
   </text>
   <text id="TEXT_TIME_FORMAT">
@@ -449,55 +449,55 @@
     <description></description>
   </text>
   <text id="TEXT_PERSONAL_PRICELIST">
-    <value>[JA]Custom [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Custom [TEXT_KEYTERM_PRICE_LIST]</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT_PROPERTIES">
-    <value>[JA]Edit Properties</value>
+    <value>Edit Properties</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_START_DATE">
-    <value>[JA]Start Date</value>
+    <value>Start Date</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_END_DATE">
-    <value>[JA]End Date</value>
+    <value>End Date</value>
     <description></description>
   </text>
   <text id="TEXT_EFFECTIVE_START_DATE">
-    <value>[JA]Effective Start Date</value>
+    <value>Effective Start Date</value>
     <description></description>
   </text>
   <text id="TEXT_EFFECTIVE_END_DATE">
-    <value>[JA]Effective End Date</value>
+    <value>Effective End Date</value>
     <description></description>
   </text>
   <text id="TEXT_APPLICATION_TITLE">
-    <value>[JA]MetraCare</value>
+    <value>MetraCare</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_SOURCE_FILE">
-    <value>[JA]Source File</value>
+    <value>Source File</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_TITLE">
-    <value>[JA]Select Calendar:</value>
+    <value>Select Calendar:</value>
     <description></description>
   </text>
   <text id="MAM_SELECT_RATE_SCHEDULE_TO_COPY">
-    <value>[JA]Select the [TEXT_KEYTERM_RATE_SCHEDULE] to copy rules from:</value>
+    <value>Select the [TEXT_KEYTERM_RATE_SCHEDULE] to copy rules from:</value>
     <description></description>
   </text>
   <text id="TEXT_NO_RATE_FOUND">
-    <value>[JA]No rates found.</value>
+    <value>No rates found.</value>
     <description></description>
   </text>
   <text id="TEXT_HAS_PERSONAL_RATES">
@@ -505,47 +505,47 @@
     <description></description>
   </text>
   <text id="TEXT_CAN_ICB">
-    <value>[TEXT_KEYTERM_PERSONAL_RATE] [JA]Allowed</value>
+    <value>[TEXT_KEYTERM_PERSONAL_RATE] Allowed</value>
     <description></description>
   </text>
   <text id="TEXT_NEW_PERSONAL_RATES">
-    <value>[JA]New [TEXT_KEYTERM_PERSONAL_RATES]</value>
+    <value>New [TEXT_KEYTERM_PERSONAL_RATES]</value>
     <description></description>
   </text>
   <text id="TEXT_PERSONAL_RATES_NOT_ALLOWED">
-    <value>[TEXT_KEYTERM_PERSONAL_RATES] [JA]are not allowed on this [TEXT_KEYTERM_PARAMETER_TABLE].</value>
+    <value>[TEXT_KEYTERM_PERSONAL_RATES] are not allowed on this [TEXT_KEYTERM_PARAMETER_TABLE].</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_COLUMN_START_DATE">
-    <value>[JA]Starts</value>
+    <value>Starts</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_COLUMN_END_DATE">
-    <value>[JA]Ends</value>
+    <value>Ends</value>
     <description></description>
   </text>
   <text id="TEXT_NO_DEFAULT_ACCOUNT_PRICELIST">
-    <value>[JA]None</value>
+    <value>None</value>
     <description></description>
   </text>
   <text id="TEXT_DEFAULT_ACCOUNT_PRICELIST">
-    <value>[JA]Default Account [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Default Account [TEXT_KEYTERM_PRICE_LIST]</value>
     <description></description>
   </text>
   <text id="TEXT_NEW_RATE_SCHEDULE">
-    <value>[JA]New Personal [TEXT_KEYTERM_RATE_SCHEDULE]</value>
+    <value>New Personal [TEXT_KEYTERM_RATE_SCHEDULE]</value>
     <description></description>
   </text>
   <text id="TEXT_COPY_EXISTING">
-    <value>[JA]Copy from existing [TEXT_KEYTERM_RATE_SCHEDULE]?</value>
+    <value>Copy from existing [TEXT_KEYTERM_RATE_SCHEDULE]?</value>
     <description></description>
   </text>
   <text id="TEXT_NEXT_BILLING_PERIOD">
-    <value>[JA]Next billing period</value>
+    <value>Next billing period</value>
     <description></description>
   </text>
   <text id="TEXT_AVAILABLE_SUBSCRIPTONS">
-    <value>[JA]Available Subscriptions</value>
+    <value>Available Subscriptions</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_ITEM">
@@ -557,51 +557,51 @@
     <description></description>
   </text>
   <text id="TEXT_BUTTON_VALIDATE_USER_NAME">
-    <value>[JA]Validate User Name</value>
+    <value>Validate User Name</value>
     <description></description>
   </text>
   <text id="TEXT_BUTTON_GENERATE_PASSWORD">
-    <value>[JA]Generate Password</value>
+    <value>Generate Password</value>
     <description></description>
   </text>
   <text id="TEXT_START_DATE">
-    <value>[JA]Start Date</value>
+    <value>Start Date</value>
     <description></description>
   </text>
   <text id="TEXT_STATUS">
-    <value>[JA]Status</value>
+    <value>Status</value>
   </text>
   <text id="TEXT_CHOOSE_RATE_SCHEDULE">
-    <value>[JA]Select a [TEXT_KEYTERM_RATE_SCHEDULE] or create new [TEXT_KEYTERM_PERSONAL_RATES]</value>
+    <value>Select a [TEXT_KEYTERM_RATE_SCHEDULE] or create new [TEXT_KEYTERM_PERSONAL_RATES]</value>
     <description></description>
   </text>
   <text id="TEXT_END_DATE">
-    <value>[JA]End Date</value>
+    <value>End Date</value>
     <description></description>
   </text>
   <text id="TEXT_PERIOD_OF_TIME">
-    <value>[JA]Period</value>
+    <value>Period</value>
   </text>
   <text id="TEXT_BILLING_INTERVAL">
-    <value>[JA]Billing Interval</value>
+    <value>Billing Interval</value>
   </text>
   <text id="TEXT_FIXED_DATE">
-    <value>[JA]Fixed Date</value>
+    <value>Fixed Date</value>
   </text>
   <text id="TEXT_COLUMN_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_KIND">
-    <value>[JA]Type</value>
+    <value>Type</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLES">
@@ -609,103 +609,103 @@
     <description></description>
   </text>
   <text id="TEXT_COLUMN_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_LIST_RATES_TITLE">
-    <value>[JA]Click on the rates you are interested in</value>
+    <value>Click on the rates you are interested in</value>
     <description></description>
   </text>
   <text id="TEXT_RATES">
-    <value>[JA]Rates</value>
+    <value>Rates</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_DISABLED">
-    <value>[JA]View disabled subscriptions</value>
+    <value>View disabled subscriptions</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIBE">
-    <value>[JA]Subscribe</value>
+    <value>Subscribe</value>
     <description></description>
   </text>
   <text id="TEXT_UNSUBSCRIBE">
-    <value>[JA]Unsubscribe</value>
+    <value>Unsubscribe</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_SUBSCRIPTION">
-    <value>[JA]Delete Subscription</value>
+    <value>Delete Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_NO_SUBSCRIPTIONS">
-    <value>[JA]There are no subscriptions for this account</value>
+    <value>There are no subscriptions for this account</value>
     <description></description>
   </text>
   <text id="TEXT_NO_GROUP_SUBSCRIPTIONS">
-    <value>[JA]This account is not a member on any group subscription</value>
+    <value>This account is not a member on any group subscription</value>
     <description></description>
   </text>
   <text id="TEXT_NO_INACTIVE_SUBSCRIPTIONS">
-    <value>[JA]There are no disabled subscriptions for this account</value>
+    <value>There are no disabled subscriptions for this account</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTIONS">
-    <value>[JA]Subscriptions</value>
+    <value>Subscriptions</value>
     <description></description>
   </text>
   <text id="TEXT_ACTIVE_SUBSCRIPTIONS">
-    <value>[JA]Active</value>
+    <value>Active</value>
     <description></description>
   </text>
   <text id="TEXT_DISABLED_SUBSCRIPTIONS">
-    <value>[JA]Disabled</value>
+    <value>Disabled</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION">
-    <value>[JA]Subscription</value>
+    <value>Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_DATE">
-    <value>[JA]Enter Subscription Dates</value>
+    <value>Enter Subscription Dates</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_DATE_EDIT">
-    <value>[JA]Edit or Delete Subscription</value>
+    <value>Edit or Delete Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_NEW_SUBSCRIPTION_DATE">
-    <value>[JA]New Subscription</value>
+    <value>New Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_ID">
-    <value>[JA]Subscription ID</value>
+    <value>Subscription ID</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_END_DATE">
-    <value>[JA]Subscription End Date</value>
+    <value>Subscription End Date</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_START_DATE">
-    <value>[JA]Subscription Start Date</value>
+    <value>Subscription Start Date</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_START">
-    <value>[JA]Next start of payer's billing period after this date</value>
+    <value>Next start of payer's billing period after this date</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_END">
-    <value>[JA]Next end of payer's billing period after this date</value>
+    <value>Next end of payer's billing period after this date</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING_CHARGE">
-    <value>[TEXT_KEYTERM_RECURRING_CHARGE][JA](s)</value>
+    <value>[TEXT_KEYTERM_RECURRING_CHARGE](s)</value>
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT">
-    <value>[TEXT_KEYTERM_DISCOUNT][JA](s)</value>
+    <value>[TEXT_KEYTERM_DISCOUNT](s)</value>
     <description></description>
   </text>
   <text id="TEXT_PERSONAL_RATE">
@@ -717,403 +717,403 @@
     <description></description>
   </text>
   <text id="TEXT_OPTIONS">
-    <value>[JA]Options</value>
+    <value>Options</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTIONS">
-    <value>[JA]Subscriptions</value>
+    <value>Subscriptions</value>
     <description></description>
   </text>
   <text id="TEXT_INVOICE_NUMBER">
-    <value>[JA]Invoice Number</value>
+    <value>Invoice Number</value>
     <description></description>
   </text>
   <text id="TEXT_NAMESPACE">
-    <value>[JA]Namespace</value>
+    <value>Namespace</value>
     <description></description>
   </text>
   <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
-    <value>[JA]No data found.</value>
+    <value>No data found.</value>
     <description></description>
   </text>
   <text id="TEXT_INFO_SUCCEFULLY_UPDATED">
-    <value>[JA]The information was successfully updated.</value>
+    <value>The information was successfully updated.</value>
     <description></description>
   </text>
   <text id="TEXT_REQUIRED_FIELD">
-    <value>[JA]* denotes required fields</value>
+    <value>* denotes required fields</value>
     <description></description>
   </text>
   <text id="TEXT_CHANGE_PASSWORD">
-    <value>[JA]Change Password</value>
+    <value>Change Password</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_TITLE">
-    <value>[JA]MetraCare Login</value>
+    <value>MetraCare Login</value>
     <description></description>
   </text>
   <text id="TEXT_NO_AUTH">
-    <value>[JA]Your session has timed out.  Please Log In again.</value>
+    <value>Your session has timed out.  Please Log In again.</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_NAME">
-    <value>[JA]User Name</value>
+    <value>User Name</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
-    <value>[JA]Password</value>
+    <value>Password</value>
     <description></description>
   </text>
   <text id="TEXT_INVALID_LOGIN">
-    <value>[JA]Please check your user name and password and select enter to try again.</value>
+    <value>Please check your user name and password and select enter to try again.</value>
     <description></description>
   </text>
   <text id="TEXT_INVALID_BLANK_LOGIN">
-    <value>[JA]User name or password may not be blank.  Please try again.</value>
+    <value>User name or password may not be blank.  Please try again.</value>
     <description></description>
   </text>
   <text id="TEXT_GENERATE_PASSWORD">
-    <value>[JA]Generate Password</value>
+    <value>Generate Password</value>
     <description></description>
   </text>
   <text id="TEXT_NEW_PASSWORD">
-    <value>[JA]New Password</value>
+    <value>New Password</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT">
-    <value>[JA]Add Account</value>
+    <value>Add Account</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_PRIMARYALIAS">
-    <value>[JA]Alias</value>
+    <value>Alias</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_LOGIN_VALIDATED">
-    <value>[JA]User Name has been validated.</value>
+    <value>User Name has been validated.</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_LOGIN_NOT_VALIDATED">
-    <value>[JA]User Name is invalid, please try another one.</value>
+    <value>User Name is invalid, please try another one.</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_PRIMARYALIAS_STATUS">
-    <value>[JA]Alias Status</value>
+    <value>Alias Status</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_EMAILNOTIFICATION_STATUS">
-    <value>[JA]E-Mail Notification Status</value>
+    <value>E-Mail Notification Status</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ACCOUNT">
-    <value>[JA]Account Information</value>
+    <value>Account Information</value>
     <description></description>
   </text>
   <text id="TEXT_CONTACT">
-    <value>[JA]Contact</value>
+    <value>Contact</value>
     <description></description>
   </text>
   <text id="TEXT_BRANDED_SITE">
-    <value>[JA]Branded Site</value>
+    <value>Branded Site</value>
     <description></description>
   </text>
   <text id="TEXT_EXTERNAL_SYSTEM">
-    <value>[JA]External System</value>
+    <value>External System</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_CAPTION">
-    <value>[JA]Login</value>
+    <value>Login</value>
     <description></description>
   </text>
   <text id="TEXT_BIWEEKLYLABELINFO">
-    <value>[JA]Bi-Weekly Label</value>
+    <value>Bi-Weekly Label</value>
     <description></description>
   </text>
   <text id="TEXT_GENERAL_INFO">
-    <value>[JA]Billing Information</value>
+    <value>Billing Information</value>
     <description></description>
   </text>
   <text id="TEXT_BILLING_INFO">
-    <value>[JA]Billing Information</value>
+    <value>Billing Information</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_INFO">
-    <value>[JA]Account Information</value>
+    <value>Account Information</value>
     <description></description>
   </text>
   <text id="TEXT_CONTACTS">
-    <value>[JA]Contact Information</value>
+    <value>Contact Information</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_CONTACT">
-    <value>[JA]Add Contact</value>
+    <value>Add Contact</value>
     <description></description>
   </text>
   <text id="TEXT_MPS_FAIL_TITLE">
-    <value>[JA]Interactive Bill</value>
+    <value>Interactive Bill</value>
     <description></description>
   </text>
   <text id="TEXT_MPS_FAIL">
-    <value>[JA]Unable to log on to account's interactive bill.  Please check that the subscriber has the correct logon capability for MetraView.  If there is still a problem have your administrator check the system log, and try again later.</value>
+    <value>Unable to log on to account's interactive bill.  Please check that the subscriber has the correct logon capability for MetraView.  If there is still a problem have your administrator check the system log, and try again later.</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED_FIND">
-    <value>[JA]Advanced Find</value>
+    <value>Advanced Find</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED_FIND_DESCRIPTION">
-    <value>[JA]Search criterias</value>
+    <value>Search criterias</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED_FIND_DESCRIPTION_PART2">
-    <value>[JA] You may narrow down your search by filling in multiple fields in that category.</value>
+    <value>You may narrow down your search by filling in multiple fields in that category.</value>
     <description></description>
   </text>
   <text id="TEXT_ADDRESS_1">
-    <value>[JA]Address 1</value>
+    <value>Address 1</value>
     <description></description>
   </text>
   <text id="TEXT_ADDRESS_2">
-    <value>[JA]Address 2</value>
+    <value>Address 2</value>
     <description></description>
   </text>
   <text id="TEXT_ADDRESS_3">
-    <value>[JA]Address 3</value>
+    <value>Address 3</value>
     <description></description>
   </text>
   <text id="TEXT_CITY">
-    <value>[JA]City</value>
+    <value>City</value>
     <description></description>
   </text>
   <text id="TEXT_STATE">
-    <value>[JA]State</value>
+    <value>State</value>
     <description></description>
   </text>
   <text id="TEXT_ZIP">
-    <value>[JA]Zip</value>
+    <value>Zip</value>
     <description></description>
   </text>
   <text id="TEXT_COUNTRY">
-    <value>[JA]Country</value>
+    <value>Country</value>
     <description></description>
   </text>
   <text id="TEXT_PHONENUMBER">
-    <value>[JA]Phonenumber</value>
+    <value>Phonenumber</value>
     <description></description>
   </text>
   <text id="TEXT_FAX">
-    <value>[JA]Fax</value>
+    <value>Fax</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_TYPE">
-    <value>[JA]Account Type</value>
+    <value>Account Type</value>
     <description></description>
   </text>
   <text id="TEXT_EMAIL">
-    <value>[JA]E-mail</value>
+    <value>E-mail</value>
     <description></description>
   </text>
   <text id="TEXT_COMPANY">
-    <value>[JA]Company</value>
+    <value>Company</value>
     <description></description>
   </text>
   <text id="TEXT_NICKNAME">
-    <value>[JA]Nickname</value>
+    <value>Nickname</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_FOUND">
-    <value>[JA]Account(s) Found</value>
+    <value>Account(s) Found</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ADDITIONAL_CHARGE">
-    <value>[JA]Additional Charge</value>
+    <value>Additional Charge</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT_ACCOUNT_TEMPLATE">
-    <value>[JA]Edit Account Template</value>
+    <value>Edit Account Template</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_TEMPLATE_SUBSCRIPTION">
-    <value>[JA]Add Subscription</value>
+    <value>Add Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_TEMPLATE_GROUP_SUBSCRIPTION">
-    <value>[JA]Add Group Subscription</value>
+    <value>Add Group Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_TEMPLATE_AVAILABLE_SUBSCRIPTION">
-    <value>[JA]Available Subscriptions</value>
+    <value>Available Subscriptions</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_ADD_CHARGE_TITLE">
-    <value>[JA]Additional Charge Added</value>
+    <value>Additional Charge Added</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_ADD_CHARGE">
-    <value>[JA]A new charge was added successfully to the account.</value>
+    <value>A new charge was added successfully to the account.</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_CSR">
-    <value>[JA]Add System User</value>
+    <value>Add System User</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_CSR">
-    <value>[JA]Update System User</value>
+    <value>Update System User</value>
     <description></description>
   </text>
   <text id="TEXT_FOUND_CSR">
-    <value>[JA]Update System User(s)</value>
+    <value>Update System User(s)</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_UPDATE_CSR_CONFIRM_PASSWORD">
-    <value>[JA]Confirm Password</value>
+    <value>Confirm Password</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_UPDATE_CSR_LOCATION">
-    <value>[JA]Location</value>
+    <value>Location</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_UPDATE_CSR_GENERAL">
-    <value>[JA]General</value>
+    <value>General</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_UPDATE_CSR_STATUS">
-    <value>[JA]Account Status</value>
+    <value>Account Status</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_UPDATE_CSR_REASON">
-    <value>[JA]Reason</value>
+    <value>Reason</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_ADD_CSR_TITLE">
-    <value>[JA]Account Added</value>
+    <value>Account Added</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_ADD_CSR">
-    <value>[JA]The new account [ACCOUNT] was added successfully.</value>
+    <value>The new account [ACCOUNT] was added successfully.</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_UPDATE_CSR_TITLE">
-    <value>[JA]Account Updated</value>
+    <value>Account Updated</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_UPDATE_CSR">
-    <value>[JA]The account [ACCOUNT] was updated successfully.</value>
+    <value>The account [ACCOUNT] was updated successfully.</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_MAPPING">
-    <value>[JA]Edit Aliases</value>
+    <value>Edit Aliases</value>
     <description></description>
   </text>
   <text id="TEXT_MAPPING_LIST">
-    <value>[JA]Edit Aliases</value>
+    <value>Edit Aliases</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_MAPPING">
-    <value>[JA]Add Account Alias</value>
+    <value>Add Account Alias</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_MAPPING_NAMESPACE">
-    <value>[JA]Name Space</value>
+    <value>Name Space</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_MAPPING_NAME">
-    <value>[JA]Alias</value>
+    <value>Alias</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_MAPPING_NAMESPACE_TEMPLATE">
-    <value>[JA]Name Space Template</value>
+    <value>Name Space Template</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ACCOUNT_MAPPING">
-    <value>[JA]Edit Account Alias</value>
+    <value>Edit Account Alias</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ACCOUNT_MAPPING_NAMESPACE">
-    <value>[JA]Name Space</value>
+    <value>Name Space</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ACCOUNT_MAPPING_NAME">
-    <value>[JA]Alias</value>
+    <value>Alias</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_ACCOUNT_MAPPING">
-    <value>[JA]Delete Account Alias</value>
+    <value>Delete Account Alias</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_ACCOUNT_MAPPING_NAMESPACE">
-    <value>[JA]External System</value>
+    <value>External System</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_ACCOUNT_MAPPING_NAME">
-    <value>[JA]Alias</value>
+    <value>Alias</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_DELETE_ACCOUNT_MAPPING">
-    <value>[JA]Delete external system: [MAPPING_NAME], alias: [LOGIN_NAME]?</value>
+    <value>Delete external system: [MAPPING_NAME], alias: [LOGIN_NAME]?</value>
     <description></description>
   </text>
   <text id="TEXT_ALIAS">
-    <value>[JA]Alias</value>
+    <value>Alias</value>
     <description></description>
   </text>
   <text id="TEXT_SPACE">
-    <value>[JA]External System</value>
+    <value>External System</value>
     <description></description>
   </text>
   <text id="TEXT_CREDIT_TITLE">
-    <value>[JA]^^Credit^^</value>
+    <value>^^Credit^^</value>
     <description></description>
   </text>
   <text id="TEXT_ISSUE_CREDIT_TITLE">
-    <value>[JA]Issue Miscellaneous Adjustment</value>
+    <value>Issue Miscellaneous Adjustment</value>
     <description></description>
   </text>
   <text id="TEXT_ISSUE_CREDIT_REQUEST_TITLE">
-    <value>[JA]^^Credit Request^^</value>
+    <value>^^Credit Request^^</value>
     <description></description>
   </text>
   <text id="TEXT_ISSUE_ISSUE_CREDIT_FROM_CREDIT_REQUEST_TITLE">
-    <value>[JA]^^Issue Credit From Credit Request^^</value>
+    <value>^^Issue Credit From Credit Request^^</value>
     <description></description>
   </text>
   <text id="TEXT_ISSUE_CREDIT_CONFIRM">
-    <value>[JA]^^A new credit was issued successfully.^^</value>
+    <value>^^A new credit was issued successfully.^^</value>
     <description></description>
   </text>
   <text id="TEXT_ISSUE_CREDIT_CONFIRM_DENIED">
-    <value>[JA]^^Credit was denied successfully.^^</value>
+    <value>^^Credit was denied successfully.^^</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIBER_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_CONFIRMATION_TITLE">
-    <value>[JA]Add Account Summary Page</value>
+    <value>Add Account Summary Page</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACCOUNT_ADD_PAYMENT_METHOD_QUESTION">
-    <value>[JA]Do you wish to add a payment method?</value>
+    <value>Do you wish to add a payment method?</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIBER_EMAIL_NOTIFICATION">
-    <value>[JA]E-Mail Notification</value>
+    <value>E-Mail Notification</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_SUMMARY_TITLE">
-    <value>[JA]Account Summary</value>
+    <value>Account Summary</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_CONTACT_SUB_TITLE">
-    <value>[JA]Contact</value>
+    <value>Contact</value>
     <description></description>
   </text>
   <text id="TEXT_ABOUT">
-    <value>[JA]About</value>
+    <value>About</value>
     <description></description>
   </text>
   <text id="TEXT_MAM">
-    <value>[JA]MetraCare</value>
+    <value>MetraCare</value>
     <description></description>
   </text>
   <text id="TEXT_MAM_VERSION">
@@ -1121,491 +1121,491 @@
     <description></description>
   </text>
   <text id="NEXT_PAGE_TOOL_TIP">
-    <value>[JA]Next Page</value>
+    <value>Next Page</value>
     <description></description>
   </text>
   <text id="PREVIOUS_PAGE_TOOL_TIP">
-    <value>[JA]Previous Page</value>
+    <value>Previous Page</value>
     <description></description>
   </text>
   <text id="FIRST_PAGE_TOOL_TIP">
-    <value>[JA]First Page</value>
+    <value>First Page</value>
     <description></description>
   </text>
   <text id="LAST_PAGE_TOOL_TIP">
-    <value>[JA]Last Page</value>
+    <value>Last Page</value>
     <description></description>
   </text>
   <text id="REFRESH_PAGE_TOOL_TIP">
-    <value>[JA]Refresh Page</value>
+    <value>Refresh Page</value>
     <description></description>
   </text>
   <text id="TEXT_WELCOME_TITLE">
-    <value>[JA]Welcome to MetraCare</value>
+    <value>Welcome to MetraCare</value>
     <description></description>
   </text>
   <text id="TEXT_CREDIT_REQUEST_BROWSER_PERIOD">
-    <value>[JA]Period</value>
+    <value>Period</value>
     <description></description>
   </text>
   <text id="TEXT_APPLICATION_AUDIT_LOG">
-    <value>[JA]Application Audit Log</value>
+    <value>Application Audit Log</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_AUDIT_LOG">
-    <value>[JA]Account Log</value>
+    <value>Account Log</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_AUDIT_LOG_CREATE_EVENT">
-    <value>[JA]Add Event To Account Log</value>
+    <value>Add Event To Account Log</value>
     <description></description>
   </text>
   <text id="TEXT_EVENT_TYPE">
-    <value>[JA]Event</value>
+    <value>Event</value>
     <description></description>
   </text>
   <text id="TEXT_DETAILS">
-    <value>[JA]Details</value>
+    <value>Details</value>
     <description></description>
   </text>
   <text id="TEXT_HELP_TITLE">
-    <value>[JA]MetraCare Help</value>
+    <value>MetraCare Help</value>
     <description></description>
   </text>
   <text id="TEXT_CSR_ID">
-    <value>[JA]Timestamp</value>
+    <value>Timestamp</value>
     <description></description>
   </text>
   <text id="TEXT_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_ID">
-    <value>[JA]Account</value>
+    <value>Account</value>
     <description></description>
   </text>
   <text id="TEXT_CSR_ID">
-    <value>[JA]CSR ID</value>
+    <value>CSR ID</value>
     <description></description>
   </text>
   <text id="TEXT_TIMESTAMP">
-    <value>[JA]Timestamp</value>
+    <value>Timestamp</value>
     <description></description>
   </text>
   <text id="TEXT_AMOUNT">
-    <value>[JA]Amount</value>
+    <value>Amount</value>
     <description></description>
   </text>
   <text id="TEXT_JAVASCRIPT_ERROR">
-    <value>[JA]Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
+    <value>Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_GROUP_SUBSCRIPTION">
-    <value>[JA]Create a new [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Create a new [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT_GROUP_SUBSCRIPTION">
-    <value>[JA]Edit [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Edit [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_DISCOUNT_DISTRIBUTION">
-    <value>[JA]Discount Distribution</value>
+    <value>Discount Distribution</value>
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT_PROPORTIONAL_DISTRIBUTION">
-    <value>[JA]proportional</value>
+    <value>proportional</value>
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT_TO_ONE_ACCOUNT">
-    <value>[JA]full amount to one account</value>
+    <value>full amount to one account</value>
     <description></description>
   </text>
   <text id="TEXT_DISCOUNT_ACCOUNT">
-    <value>[JA]Account for group discount</value>
+    <value>Account for group discount</value>
     <description></description>
   </text>
   <text id="TEXT_BUTTON_ADD_NEW_GROUP_SUBSCRIPTION">
-    <value>[JA]Create Group Subscription</value>
+    <value>Create Group Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_MEMBERS_TO_GROUP_SUBSCRIPTION_BUTTON">
-    <value>[JA]Add Members</value>
+    <value>Add Members</value>
     <description></description>
   </text>
   <text id="TEXT_REMOVE_MEMBERS_FROM_GROUP_SUBSCRIPTION_BUTTON">
-    <value>[JA]Unsubscribe Members</value>
+    <value>Unsubscribe Members</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_MEMBERS_TO_GROUP_SUBSCRIPTION">
-    <value>[JA]Add Members to [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Add Members to [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description></description>
   </text>
   <text id="TEXT_REMOVE_MEMBERS_FROM_GROUP_SUBSCRIPTION">
-    <value>[JA]Unsubscribe Members from [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Unsubscribe Members from [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_EDIT_MEMBERSHIP">
-    <value>[JA]Edit or Delete [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Edit or Delete [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE">
-    <value>[JA]Unsubscribe Account from [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Unsubscribe Account from [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_UNSUBSCRIBE">
-    <value>[JA]Unsubscribe Account from [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Unsubscribe Account from [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_JOIN">
-    <value>[JA]Join [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    <value>Join [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_MEMBERS">
-    <value>[TEXT_KEYTERM_GROUP_SUBSCRIPTION] [JA]Members</value>
+    <value>[TEXT_KEYTERM_GROUP_SUBSCRIPTION] Members</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_PROPERTIES">
-    <value>[TEXT_KEYTERM_GROUP_SUBSCRIPTION] [JA]Properties</value>
+    <value>[TEXT_KEYTERM_GROUP_SUBSCRIPTION] Properties</value>
     <description></description>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION_DISCOUNT_DISTRIBUTION_CONFIG">
-    <value>[JA]Discount Configuration</value>
+    <value>Discount Configuration</value>
     <description></description>
   </text>
   <text id="TEXT_GSUB_CYCLE_CONFIGURATION">
-    <value>[JA]Usage Cycle Configuration</value>
+    <value>Usage Cycle Configuration</value>
     <description></description>
   </text>
   <text id="TEXT_GSUB_USE_CYCLE_FROM_TEMPLATE">
-    <value>[JA]Use cycle from corporate account template</value>
+    <value>Use cycle from corporate account template</value>
     <description></description>
   </text>
   <text id="TEXT_GSUB_USE_OTHER_CYCLE">
-    <value>[JA]Specify other</value>
+    <value>Specify other</value>
     <description></description>
   </text>
   <text id="TEXT_GSUB_USE_CYCLE_ENFORCED_BY_PO">
-    <value>[JA]Use cycle enforced by the product offering</value>
+    <value>Use cycle enforced by the product offering</value>
     <description></description>
   </text>
   <text id="TEXT_DRAGDROP_ACCOUNTS_MESSAGE">
-    <value>[JA]Drag and drop accounts here...</value>
+    <value>Drag and drop accounts here...</value>
     <description></description>
   </text>
   <text id="TEXT_IS_FOLDER">
-    <value>[JA]Is Folder</value>
+    <value>Is Folder</value>
     <description></description>
   </text>
   <text id="TEXT_NO_TEMPLATE_SUBSCRIPTIONS">
-    <value>[JA]No subscriptions have been defined for this template.</value>
+    <value>No subscriptions have been defined for this template.</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_UPDATE_TEMPLATE_PROPERTIES">
-    <value>[JA]Update Properties</value>
+    <value>Update Properties</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_MSGBOX_REMOVE_TEMPLATE_SUBSCRIPTION">
-    <value>[JA]Remove product offering [ITEM] from the template?</value>
+    <value>Remove product offering [ITEM] from the template?</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_VIEW_ACCOUNT_STATUS_HISTORY">
-    <value>[JA]View Status History</value>
+    <value>View Status History</value>
   </text>
   <text id="TEXT_ACCOUNT_STATUS_HISTORY">
-    <value>[JA]Account Status History</value>
+    <value>Account Status History</value>
   </text>
   <text id="TEXT_APPLY_TEMPLATE_TO_ACCOUNT">
-    <value>[JA]Apply Template To Account</value>
+    <value>Apply Template To Account</value>
   </text>
   <text id="TEXT_ACCOUNT_TEMPLATE_PROPERTY_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
   </text>
   <text id="TEXT_ACCOUNT_TEMPLATE_TEMPLATE_VALUE">
-    <value>[JA]Template Value</value>
+    <value>Template Value</value>
   </text>
   <text id="TEXT_ACCOUNT_TEMPLATE_ACCOUNT_VALUE">
-    <value>[JA]Account Value</value>
+    <value>Account Value</value>
   </text>
   <text id="TEXT_ACCOUNT_TEMPLATE_APPLY_PROMPT">
-    <value>[JA]Would you like to apply the template from [FOLDER_NAME] to the moved account(s)?</value>
+    <value>Would you like to apply the template from [FOLDER_NAME] to the moved account(s)?</value>
   </text>
   <text id="TEXT_ACCOUNTS_MOVED_SUCCESSFULLY">
-    <value>[JA]Account(s) moved successfully.</value>
+    <value>Account(s) moved successfully.</value>
   </text>
   <text id="TEXT_ISSUE_CREDIT_MAX_AUTHORIZED_AMOUNT">
-    <value>[JA]Max Authorized Amount</value>
+    <value>Max Authorized Amount</value>
   </text>
   <text id="TEXT_MOVED_ACCOUNTS_WARNING_TITLE">
-    <value>[JA]Moved Accounts Warning</value>
+    <value>Moved Accounts Warning</value>
   </text>
   <text id="TEXT_MOVED_ACCOUNTS_WARNING_MESSAGE">
-    <value>[JA]You just moved accounts to another folder, you should verify for each accounts their properties, subscriptions and security policies.</value>
+    <value>You just moved accounts to another folder, you should verify for each accounts their properties, subscriptions and security policies.</value>
   </text>
   <text id="TEXT_HIERARCHY_ACCOUNT_INFO">
-    <value>[JA]Hierarchy Account Info</value>
+    <value>Hierarchy Account Info</value>
   </text>
   <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_START_DATE">
-    <value>[JA]Subscriptions Effective Start Date</value>
+    <value>Subscriptions Effective Start Date</value>
   </text>
   <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_END_DATE">
-    <value>[JA]Subscriptions Effective End Date</value>
+    <value>Subscriptions Effective End Date</value>
   </text>
   <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_DATE_NEXT_BILLING_PERIODE">
-    <value>[JA]Subscriptions Effective Next Billing Period</value>
+    <value>Subscriptions Effective Next Billing Period</value>
   </text>
   <text id="TEXT_APPLY_TEMPLATE_TO_MOVED_ACCOUNT">
-    <value>[JA]Apply Template</value>
+    <value>Apply Template</value>
   </text>
   <text id="TEXT_EDIT_DEFAULT_POLICY">
-    <value>[JA]Edit default policy</value>
+    <value>Edit default policy</value>
   </text>
   <text id="TEXT_APPLY_DEFAULT_SECURITY">
-    <value>[JA]Apply Default policy</value>
+    <value>Apply Default policy</value>
   </text>
   <text id="TEXT_ACCOUNT_SUMMARY">
-    <value>[JA]Account Summary</value>
+    <value>Account Summary</value>
   </text>
   <text id="TEXT_FOLDER_SUBSCRIPTIONS">
-    <value>[JA]Folder Subscriptions</value>
+    <value>Folder Subscriptions</value>
   </text>
   <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS">
-    <value>[JA]Apply Template Subscriptions</value>
+    <value>Apply Template Subscriptions</value>
   </text>
   <text id="TEXT_UPDATE_STATUS_BUTTON">
-    <value>[JA]Update Status</value>
+    <value>Update Status</value>
   </text>
   <text id="TEXT_DO_YOU_WANT_TO_COPY_PARENT_TEMPLATE">
-    <value>[JA]The folder has no template. Do you want to copy the parent template ?</value>
+    <value>The folder has no template. Do you want to copy the parent template ?</value>
   </text>
   <text id="TEXT_NEW_PARENT">
-    <value>[JA]New Parent</value>
+    <value>New Parent</value>
   </text>
   <text id="TEXT_GROUP_SUBSCRIPTION">
-    <value>[JA]Group Subscription</value>
+    <value>Group Subscription</value>
   </text>
   <text id="TEXT_SUBSCRIPTION_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
   </text>
   <text id="TEXT_DAYS_AFTER">
-    <value>[JA] day(s) after </value>
+    <value>day(s) after </value>
   </text>
   <text id="TEXT_SUBSCRIPTIONS_AND_GROUP_SUBSCRIPTIONS">
-    <value>[JA]Subscriptions And Group Subscriptions</value>
+    <value>Subscriptions And Group Subscriptions</value>
   </text>
   <text id="TEXT_NO_TEMPLATE_EXISTS">
-    <value>[JA]No template exists for this folder, so a new one will be created.</value>
+    <value>No template exists for this folder, so a new one will be created.</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_USE_ANCESTOR_TEMPLATE">
-    <value>[JA]Would you like to pre-populate the new template with information from the template for </value>
+    <value>Would you like to pre-populate the new template with information from the template for </value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_CREATE_NEW_TEMPLATE">
-    <value>[JA]Would you like to create a new template</value>
+    <value>Would you like to create a new template</value>
     <description>Create New Template?</description>
   </text>
   <text id="TEXT_TEMPLATE_NAME">
-    <value>[JA]Account Template Name</value>
+    <value>Account Template Name</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_TEMPLATE_DESCRIPTION">
-    <value>[JA]Account Template Description</value>
+    <value>Account Template Description</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_TEMPLATE_APPLY_SECURITY">
-    <value>[JA]Apply Default Security Policy</value>
+    <value>Apply Default Security Policy</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES">
-    <value>[JA]No roles have been defined for the default security policy.</value>
+    <value>No roles have been defined for the default security policy.</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_DELETE_SUBSCRIPTION_EXPLANATION">
-    <value>[JA]Only use this Delete Subscription button when you want to entirely remove all history that this account was ever subscribed to this product offering.  Otherwise, use the Unsubscribe button on the previous Subscriptions page. See the About Deleting Subscriptions help topic for more details.</value>
+    <value>Only use this Delete Subscription button when you want to entirely remove all history that this account was ever subscribed to this product offering.  Otherwise, use the Unsubscribe button on the previous Subscriptions page. See the About Deleting Subscriptions help topic for more details.</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_SUBSCRIPTION_WARNING">
-    <value>[JA]You are about to permanently delete this subscription from the system. To simply terminate it at a given date, use the unsubscribe feature.</value>
+    <value>You are about to permanently delete this subscription from the system. To simply terminate it at a given date, use the unsubscribe feature.</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_WARNING">
-    <value>[JA]You are about to permanently delete this group subscription and all contained data from the system. This is only allowed if there was never any participation in this group subscription.  This group subscription will be removed from any account templates it may have been assigned to.</value>
+    <value>You are about to permanently delete this group subscription and all contained data from the system. This is only allowed if there was never any participation in this group subscription.  This group subscription will be removed from any account templates it may have been assigned to.</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_MEMBERSHIP_WARNING">
-    <value>[JA]You are about to permanently remove this subscription. Click OK to proceed or Cancel to go back.</value>
+    <value>You are about to permanently remove this subscription. Click OK to proceed or Cancel to go back.</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE_MESSAGE_WARNING_COMPLEMENT">
-    <value>[JA]Click OK to confirm the deletion or CANCEL to go back.</value>
+    <value>Click OK to confirm the deletion or CANCEL to go back.</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT_ACCOUNT_TEMPLATE_SUCCESS">
-    <value>[JA]Account Template successfully updated.</value>
+    <value>Account Template successfully updated.</value>
     <description>Templates Dialog</description>
   </text>
   <text id="TEXT_CURRENT_SUBSCRIPTION">
-    <value>[JA]Current</value>
+    <value>Current</value>
     <description>Current Subscription</description>
   </text>
   <text id="TEXT_PAST_SUBSCRIPTION">
-    <value>[JA]Past</value>
+    <value>Past</value>
     <description>Past Subscription</description>
   </text>
   <text id="TEXT_FUTURE_SUBSCRIPTION">
-    <value>[JA]Future</value>
+    <value>Future</value>
     <description>Future Subscription</description>
   </text>
   <text id="TEXT_SUBSCRIPTION_FILTER_MESSAGE">
-    <value>[JA]Showing subscriptions that were active in the last [SUBSCRIPTION_FILTERING_INTERVAL] days</value>
+    <value>Showing subscriptions that were active in the last [SUBSCRIPTION_FILTERING_INTERVAL] days</value>
     <description>Subscription Message</description>
   </text>
   <text id="TEXT_CALCULATE">
-    <value>[JA]Calculate</value>
+    <value>Calculate</value>
   </text>
   <text id="TEXT_SAVE">
-    <value>[JA]Save</value>
+    <value>Save</value>
     <description></description>
   </text>
   <text id="TEXT_COMPUTE">
-    <value>[JA]Compute</value>
+    <value>Compute</value>
     <description></description>
   </text>
   <text id="TEXT_RESULTS_ACCOUNTS">
-    <value>[JA]Return a list of accounts matching the search criteria.</value>
+    <value>Return a list of accounts matching the search criteria.</value>
     <description />
   </text>
   <text id="TEXT_RESULTS_SERVICE_ENDPOINTS">
-    <value>[JA]Return a list of [TEXT_KEYTERM_SERVICE_ENDPOINTS] connected to accounts that match the search criteria.</value>
+    <value>Return a list of [TEXT_KEYTERM_SERVICE_ENDPOINTS] connected to accounts that match the search criteria.</value>
     <description />
   </text>
   <text id="TEXT_RESULTS">
-    <value>[JA]Results</value>
+    <value>Results</value>
     <description />
   </text>
   <text id="TEXT_EVENT_DETAILS">
-    <value>[JA]Characters Left for Details</value>
+    <value>Characters Left for Details</value>
     <description>Caption for event details</description>
   </text>
   <text id="TEXT_EVENT_TYPE">
-    <value>[JA]Event Type</value>
+    <value>Event Type</value>
     <description />
   </text>
   <text id="TEXT_NOTE">
-    <value>[JA]Note</value>
+    <value>Note</value>
     <description />
   </text>
   <text id="TEXT_TELEPHONE_CALL">
-    <value>[JA]Telephone Call</value>
+    <value>Telephone Call</value>
     <description />
   </text>
   <text id="TEXT_UNABLE_TO_LOAD_ACCOUNT">
-    <value>[JA]Unable To Load Account</value>
+    <value>Unable To Load Account</value>
     <description />
   </text>
   <text id="TEXT_PAYEE_DISPLAY_NAME">
-    <value>[JA]Subscriber</value>
+    <value>Subscriber</value>
     <description />
   </text>
   <text id="TEXT_TAX_AMOUNT">
-    <value>[JA]Tax Amount</value>
+    <value>Tax Amount</value>
     <description />
   </text>
   <text id="TEXT_WARNING_EBCR_START_DATE_CHANGE">
-    <value>[JA]Changing this start date may adversely affect billing cycle aligned charges contained in the associated [TEXT_KEYTERM_PRODUCT_OFFERING]!</value>
+    <value>Changing this start date may adversely affect billing cycle aligned charges contained in the associated [TEXT_KEYTERM_PRODUCT_OFFERING]!</value>
     <description />
   </text>
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE">
-    <value>[JA]Delete Account Template</value>
+    <value>Delete Account Template</value>
     <description />
   </text>
   <text id="ADD_FOLDER_OWNER">
-    <value>[JA]Add Account Administrator</value>
+    <value>Add Account Administrator</value>
     <description />
   </text>
   <text id="ADD_ACCOUNT_FOR_ADMINISTRATION">
-    <value>[JA]Add Account for Administration</value>
+    <value>Add Account for Administration</value>
     <description />
   </text>
   <text id="TEXT_FOLDER_OWNER">
-    <value>[JA]Account Administrator</value>
+    <value>Account Administrator</value>
     <description />
   </text>
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE_SUCCESS">
-    <value>[JA]Account Template successfully deleted.</value>
+    <value>Account Template successfully deleted.</value>
     <description />
   </text>
   <text id="TEXT_TEMPLATE_OPTIONS">
-    <value>[JA]Template Options</value>
+    <value>Template Options</value>
     <description />
   </text>
   <text id="TEXT_DISPLAY_RESTRICTED_TO_1000_RESULTS">
-    <value>[JA]This display is limited to 1000 results. Use filter criteria to see results not listed here.</value>
+    <value>This display is limited to 1000 results. Use filter criteria to see results not listed here.</value>
     <description />
   </text>
   <text id="TEXT_ACCOUNT_ADDED_SUCCESSFULLY">
-    <value>[JA]The account was added successfully.</value>
+    <value>The account was added successfully.</value>
     <description />
   </text>
   <text id="TEXT_SUCCESSFUL">
-    <value>[JA]Successful</value>
+    <value>Successful</value>
     <description />
   </text>
   <text id="TEXT_MANAGE_AH_CANNOT_ASSIGNED_TO_ROLE">
-    <value>[JA]Manage account hierarchy cannot be assigned to this role</value>
+    <value>Manage account hierarchy cannot be assigned to this role</value>
   </text>
   <text id="TEXT_OPTIONS">
-    <value>[JA]Options</value>
+    <value>Options</value>
   </text>
   <text id="TEXT_VIEW_DEFAULT_SECURITY_OWNERS">
-    <value>[JA]View Default Security Owners</value>
+    <value>View Default Security Owners</value>
   </text>
   <text id="TEXT_ADD_MEMBERS_TO_ROLE">
-    <value>[JA]Add Members to Role</value>
+    <value>Add Members to Role</value>
   </text>
   <text id="TEXT_SELECT_ACCOUNTS">
-    <value>[JA]Select Accounts</value>
+    <value>Select Accounts</value>
   </text>
   <text id="TEXT_ACCOUNTS_TO_MOVE">
-    <value>[JA]Select Accounts to Move</value>
+    <value>Select Accounts to Move</value>
   </text>
   <text id="TEXT_CAPABILITIES">
-    <value>[JA]Capabilities</value>
+    <value>Capabilities</value>
   </text>
   <text id="TEXT_PROG_ID">
-    <value>[JA]ProgID</value>
+    <value>ProgID</value>
   </text>
   <text id="TEXT_NUMBER_OF_ATOMICS">
-    <value>[JA]Number of Atomics</value>
+    <value>Number of Atomics</value>
   </text>
   <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
-    <value>[JA]Requires Manage Account Hierarchies</value>
+    <value>Requires Manage Account Hierarchies</value>
   </text>
   <text id="TEXT_CHARACTERS_LEFT">
-    <value>[JA]characters left for</value>
+    <value>characters left for</value>
   </text>
   <text id="TEXT_MetraNet_Users_Hierarchy_members">
-    <value>[JA]Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</value>
+    <value>Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</value>
     <description></description>
   </text>
   <text id="TEXT_Select_Access_Level">
-    <value>[JA]Select Access Level:</value>
+    <value>Select Access Level:</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_directly">
-    <value>[JA]Owned directly</value>
+    <value>Owned directly</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_by_immediate_subordinates">
-    <value>[JA]Owned by immediate subordinates</value>
+    <value>Owned by immediate subordinates</value>
     <description></description>
   </text>
   <text id="TEXT_Owned_by_all_subordinates">
-    <value>[JA]Owned by all subordinates</value>
+    <value>Owned by all subordinates</value>
     <description></description>
   </text>
 </texts>

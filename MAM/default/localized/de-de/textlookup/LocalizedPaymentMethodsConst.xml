@@ -5,283 +5,283 @@
     The MAM/MDM use also the localization supplied by the MetraTech plate form.
   </description>
   <text id="TEXT_CARD_VERIFY_VALUE">
-    <value>[DE]Card Verify Value</value>
+    <value>Card Verify Value</value>
     <description>This is the 3-digit number that appears on the back of MasterCard and Visa cards in the signature box. The purpose is to aid in reducing fraud in card-not-present transactions. The cardholder provides this information to prove they are in possession of the card.</description>
   </text>
   <text id="TEXT_CONFIRM_REQUESTED">
-    <value>[DE]Confirmation Requested</value>
+    <value>Confirmation Requested</value>
     <description></description>
   </text>
   <text id="TEXT_PAYMENT_METHODS">
-    <value>[DE]Payment Methods</value>
+    <value>Payment Methods</value>
     <description></description>
   </text>
   <text id="TEXT_PAPER_INVOICE">
-    <value>[DE]Cash / Check</value>
+    <value>Cash / Check</value>
     <description></description>
   </text>
   <text id="TEXT_SELECTED">
-    <value>[DE]Selected</value>
+    <value>Selected</value>
     <description></description>
   </text>
   <text id="TEXT_SELECTED_ELECTRONIC">
-    <value>[DE]This is the selected Electronic Payment type</value>
+    <value>This is the selected Electronic Payment type</value>
     <description>Message to display if this is the preferred electronic payment type</description>
   </text>
   <text id="TEXT_ERROR_ROWSET">
-    <value>[DE]No payment information found.  Please have your administrator check your configuration.</value>
+    <value>No payment information found.  Please have your administrator check your configuration.</value>
     <description></description>
   </text>
   <text id="TEXT_DEFAULT_PAYMENT">
-    <value>[DE]Preferred</value>
+    <value>Preferred</value>
     <description></description>
   </text>
   <text id="TEXT_PAYMENT_TYPE">
-    <value>[DE]Payment Type</value>
+    <value>Payment Type</value>
     <description></description>
   </text>
   <text id="TEXT_BANK">
-    <value>[DE]Bank Name</value>
+    <value>Bank Name</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_TYPE">
-    <value>[DE]Account Type</value>
+    <value>Account Type</value>
     <description></description>
   </text>
   <text id="TEXT_ACCOUNT_NUMBER">
-    <value>[DE]Last Four Digits</value>
+    <value>Last Four Digits</value>
     <description></description>
   </text>
   <text id="TEXT_EXPIRATION">
-    <value>[DE]Expiration (MM.YYYY)</value>
+    <value>Expiration (MM.YYYY)</value>
     <description></description>
   </text>
   <text id="TEXT_ACTION_ICONS">
-    <value>[DE]Actions</value>
+    <value>Actions</value>
     <description></description>
   </text>
   <text id="TEXT_EXPERATION_DATE">
-    <value>[DE]Expiration Date (MM.YYYY)</value>
+    <value>Expiration Date (MM.YYYY)</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_CREDIT_CARD">
-    <value>[DE]Add Credit Card</value>
+    <value>Add Credit Card</value>
     <description></description>
   </text>
   <text id="TEXT_CREDIT_CARD_TYPE">
-    <value>[DE]Credit Card Type</value>
+    <value>Credit Card Type</value>
     <description></description>
   </text>
   <text id="TEXT_CREDIT_CARD_NUM">
-    <value>[DE]Credit Card Number</value>
+    <value>Credit Card Number</value>
     <description></description>
   </text>
   <text id="TEXT_BANK_NAME">
-    <value>[DE]Bank Name</value>
+    <value>Bank Name</value>
     <description></description>
   </text>
   <text id="TEXT_CUSTOMER_NAME">
-    <value>[DE]Name (as it appears on card)</value>
+    <value>Name (as it appears on card)</value>
     <description></description>
   </text>
   <text id="TEXT_ADDRESS">
-    <value>[DE]Address</value>
+    <value>Address</value>
     <description></description>
   </text>
   <text id="TEXT_CITY">
-    <value>[DE]City</value>
+    <value>City</value>
     <description></description>
   </text>
   <text id="TEXT_STATE">
-    <value>[DE]State / Province</value>
+    <value>State / Province</value>
     <description></description>
   </text>
   <text id="TEXT_ZIP">
-    <value>[DE]Zip / Postal Code</value>
+    <value>Zip / Postal Code</value>
     <description></description>
   </text>
   <text id="TEXT_COUNTRY">
-    <value>[DE]Country</value>
+    <value>Country</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_CREDIT_CARD">
-    <value>[DE]Update Credit Card</value>
+    <value>Update Credit Card</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_DELETE_CREDIT_CARD">
-    <value>[DE]Are you sure you want to remove the credit card ending with the last four digits of:  [DIGITS]?</value>
+    <value>Are you sure you want to remove the credit card ending with the last four digits of:  [DIGITS]?</value>
     <description></description>
   </text>
   <text id="TEXT_LAST_FOUR_DIGITS">
-    <value>[DE]Last Four Digits of Acct. Num.</value>
+    <value>Last Four Digits of Acct. Num.</value>
     <description></description>
   </text>
   <text id="TEXT_PURCHASE_CARD">
-    <value>[DE]Purchase Card</value>
+    <value>Purchase Card</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_PURCHASE_CARD">
-    <value>[DE]Add Purchase Card</value>
+    <value>Add Purchase Card</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PURCHASE_CARD">
-    <value>[DE]Update Purchase Card</value>
+    <value>Update Purchase Card</value>
     <description></description>
   </text>
   <text id="TEXT_CARD_ID">
-    <value>[DE]Card ID</value>
+    <value>Card ID</value>
     <description></description>
   </text>
   <text id="TEXT_CUSTOMER_REFERENCE_ID">
-    <value>[DE]Customer Reference ID</value>
+    <value>Customer Reference ID</value>
     <description></description>
   </text>
   <text id="TEXT_CUSTOMER_VAT_NUMBER">
-    <value>[DE]Customer VAT Number</value>
+    <value>Customer VAT Number</value>
     <description></description>
   </text>
   <text id="TEXT_COMPANY_ADDRESS">
-    <value>[DE]Company Address</value>
+    <value>Company Address</value>
     <description></description>
   </text>
   <text id="TEXT_COMPANY_POSTAL_CODE">
-    <value>[DE]Company Zip / Postal Code</value>
+    <value>Company Zip / Postal Code</value>
     <description></description>
   </text>
   <text id="TEXT_COMPANY_PHONE">
-    <value>[DE]Company Phone Number</value>
+    <value>Company Phone Number</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_ACH">
-    <value>[DE]Add ACH</value>
+    <value>Add ACH</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_ACH">
-    <value>[DE]Update ACH</value>
+    <value>Update ACH</value>
     <description></description>
   </text>
   <text id="TEXT_BANK_ACCOUNT_TYPE">
-    <value>[DE]Bank Account Type</value>
+    <value>Bank Account Type</value>
     <description></description>
   </text>
   <text id="TEXT_BANK_ACCOUNT_NUMBER">
-    <value>[DE]Bank Account Number</value>
+    <value>Bank Account Number</value>
     <description></description>
   </text>
   <text id="TEXT_TEXT_EMAIL">
-    <value>[DE]E-Mail</value>
+    <value>E-Mail</value>
     <description></description>
   </text>
   <text id="TEXT_ROUTING_NUMBER">
-    <value>[DE]Routing Number</value>
+    <value>Routing Number</value>
     <description></description>
   </text>
   <text id="TEXT_CUSTOMER_NAME_ACH">
-    <value>[DE]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_DELETE_ACH">
-    <value>[DE]Are you sure you want to remove the ACH account ending with the last four digits of: [DIGITS]?</value>
+    <value>Are you sure you want to remove the ACH account ending with the last four digits of: [DIGITS]?</value>
     <description></description>
   </text>
   <text id="TEXT_AUTHRECEIVED">
-    <value>[DE]Authorization Form Received</value>
+    <value>Authorization Form Received</value>
     <description></description>
   </text>
   <text id="TEXT_VALIDATED">
-    <value>[DE]Validated</value>
+    <value>Validated</value>
     <description></description>
   </text>
   <text id="TEXT_ENABLED">
-    <value>[DE]Enabled</value>
+    <value>Enabled</value>
     <description></description>
   </text>
   <text id="TEXT_AUTHRECEIVED_CONTROL">
-    <value>[DE]Yes</value>
+    <value>Yes</value>
     <description></description>
   </text>
   <text id="TEXT_AUTH_DESCRIPTION">
-    <value>[DE]Please enter information about the ACH account agreement in the description.</value>
+    <value>Please enter information about the ACH account agreement in the description.</value>
     <description></description>
   </text>
   <text id="TEXT_AUTH_USERNAME">
-    <value>[DE]User Name</value>
+    <value>User Name</value>
     <description></description>
   </text>
   <text id="TEXT_DESCRIPTION_OF_AUTH">
-    <value>[DE]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_AMOUNT">
-    <value>[DE]Amount</value>
+    <value>Amount</value>
     <description></description>
   </text>
   <text id="TEXT_VALIDATED_YES">
-    <value>[DE]Yes</value>
+    <value>Yes</value>
     <description></description>
   </text>
   <text id="TEXT_VALIDATED_NO">
-    <value>[DE]No</value>
+    <value>No</value>
     <description></description>
   </text>
   <text id="TEXT_PAYMENT_METHODS_SCHEDULER">
-    <value>[DE]Payment Methods Scheduler</value>
+    <value>Payment Methods Scheduler</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRMATION_REQUESTED">
-    <value>[DE]Confirmation Requested</value>
+    <value>Confirmation Requested</value>
     <description></description>
   </text>
   <text id="TEXT_SETUP_PAYMENT_METHOD">
-    <value>[DE]Please setup a payment method first.</value>
+    <value>Please setup a payment method first.</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE_PAPER_INVOICE">
-    <value>[DE]Update Cash / Check</value>
+    <value>Update Cash / Check</value>
     <description></description>
   </text>
   <text id="TEXT_INVOICE_METHOD">
-    <value>[DE]Payment Type</value>
+    <value>Payment Type</value>
     <description></description>
   </text>
   <text id="TEXT_CREDIT_CREDIT_CARD_TITLE">
-    <value>[DE]Apply Credit To Credit Card</value>
+    <value>Apply Credit To Credit Card</value>
     <description></description>
   </text>
   <text id="TEXT_DEBIT_CREDIT_CARD_TITLE">
-    <value>[DE]Apply Debit To Credit Card</value>
+    <value>Apply Debit To Credit Card</value>
     <description></description>
   </text>
   <text id="TEXT_CREDIT_ACH_TITLE">
-    <value>[DE]Apply Credit To ACH</value>
+    <value>Apply Credit To ACH</value>
     <description></description>
   </text>
   <text id="TEXT_DEBIT_ACH_TITLE">
-    <value>[DE]Apply Debit To ACH</value>
+    <value>Apply Debit To ACH</value>
     <description></description>
   </text>
   <text id="TEXT_CREDIT_CONFIRM">
-    <value>[DE]The credit was issued successfully.</value>
+    <value>The credit was issued successfully.</value>
     <description></description>
   </text>
   <text id="TEXT_DEBIT_CONFIRM">
-    <value>[DE]The debit was issued successfully.</value>
+    <value>The debit was issued successfully.</value>
     <description></description>
   </text>
   <text id="TEXT_PS_PRENOTE_FAILURE">
-    <value>[DE]Error running ACH Prenote.  Please have your administrator check your payment server setup.</value>
+    <value>Error running ACH Prenote.  Please have your administrator check your payment server setup.</value>
     <description></description>
   </text>
   <text id="TEXT_AUTH_FAILURE">
-    <value>[DE]Error running ACH Archive Authorization.  Please have your administrator check your payment server setup.</value>
+    <value>Error running ACH Archive Authorization.  Please have your administrator check your payment server setup.</value>
     <description></description>
   </text>
   <text id="TEXT_ISSUER_NUMBER">
-    <value>[DE](Maestro Only) Issue Number</value>
+    <value>(Maestro Only) Issue Number</value>
     <description></description>
   </text>
   <text id="TEXT_STARTDATE_DATE">
-    <value>[DE](Maestro Only) Start Date (MM.YYYY)</value>
+    <value>(Maestro Only) Start Date (MM.YYYY)</value>
     <description></description>
   </text>
 </texts>

@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
-    <value>[JA]No data</value>
+    <value>No data</value>
   </text>
   <text id="TEXT_ADD_NAME_SPACE">
-    <value>[JA]Add Name Space</value>
+    <value>Add Name Space</value>
   </text>
   <text id="TEXT_NAME_SPACE">
-    <value>[JA]Name Space</value>
+    <value>Name Space</value>
   </text>
   <text id="TEXT_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
   </text>
   <text id="TEXT_TYPE">
-    <value>[JA]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_TELL_USER_SYSTEM_ERROR_OCCUR_TRY_LATER">
-    <value>[JA]A system error has occurred. Contact your MAM Administrator.</value>
+    <value>A system error has occurred. Contact your MAM Administrator.</value>
   </text>
   <text id="TEXT_MOM">
-    <value>[JA]MetraTech Operations Manager</value>
+    <value>MetraTech Operations Manager</value>
   </text>
   <text id="TEXT_LOGIN_TITLE">
-    <value>[JA]MetraControl Login</value>
+    <value>MetraControl Login</value>
   </text>
   <text id="TEXT_USERNAME">
-    <value>[JA]User Name</value>
+    <value>User Name</value>
   </text>
   <text id="TEXT_PASSWORD">
-    <value>[JA]Password</value>
+    <value>Password</value>
   </text>
   <text id="TEXT_LOGIN_USERNAME">
-    <value>[JA]User Name</value>
+    <value>User Name</value>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
-    <value>[JA]Password</value>
+    <value>Password</value>
   </text>
   <text id="TEXT_LOGOUT">
-    <value>[JA]Log Out</value>
+    <value>Log Out</value>
   </text>
   <text id="TEXT_NO_AUTH">
-    <value>[JA]Your session has timed out.  Please login again.</value>
+    <value>Your session has timed out.  Please login again.</value>
     <description>Session timeout message</description>
   </text>
   <text id="TEXT_JAVASCRIPT_ERROR">
-    <value>[JA]Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
+    <value>Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
     <description></description>
   </text>
   <text id="TEXT_ADAPTER_NAME">
-    <value>[JA]Adapter Name</value>
+    <value>Adapter Name</value>
     <description></description>
   </text>
   <text id="TEXT_RUN_ID">
-    <value>[JA]Run Id</value>
+    <value>Run Id</value>
     <description></description>
   </text>
   <text id="TEXT_ADAPTER_RUN_DETAILS">
-    <value>[JA]Adapter Run Details</value>
+    <value>Adapter Run Details</value>
     <description></description>
   </text>
   <text id="TEXT_DETAIL_TYPE">
-    <value>[JA]Detail Type</value>
+    <value>Detail Type</value>
     <description></description>
   </text>
   <text id="TEXT_DETAIL">
-    <value>[JA]Detail</value>
+    <value>Detail</value>
     <description></description>
   </text>
   <text id="TEXT_TIMESTAMP">
-    <value>[JA]Timestamp</value>
+    <value>Timestamp</value>
     <description></description>
   </text>
   <text id="TEXT_SUMMARY_DETAILS">
-    <value>[JA]Summary Details</value>
+    <value>Summary Details</value>
     <description></description>
   </text>
 </texts>

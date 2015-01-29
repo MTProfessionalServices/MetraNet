@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_MOM_WELCOME_TO_THE_PAYMENT_SERVER_MOM">
-    <value>[ES]Welcome to MetraControl</value>
+    <value>Welcome to MetraControl</value>
     <description></description>
   </text>
   <text id="TEXT_MOM_WELCOME_TO_THE_MOM">
-    <value>[ES]Welcome to MetraControl</value>
+    <value>Welcome to MetraControl</value>
     <description></description>
   </text>
   <text id="TEXT_MOM_ADMINISTRATOR_RIGHTS_NEEDED">
-    <value>[ES]You need Administrator rights to start and stop the pipeline.</value>
+    <value>You need Administrator rights to start and stop the pipeline.</value>
     <description></description>
   </text>
   <text id="TEXT_APPLY_DEFAULT_SECURITY">
-    <value>[ES]Apply Default policy</value>
+    <value>Apply Default policy</value>
   </text>
 </texts>

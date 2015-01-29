@@ -116,15 +116,15 @@
     <description></description>
   </text>
   <text id="TEXT_OPERATION">
-    <value>[FR]Operation</value>
+    <value>Operation</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_MAKE">
-    <value>[FR]You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
+    <value>You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_ONLY">
-    <value>[FR]You may only bulk reassign transactions when the status is Hard Closed.</value>
+    <value>You may only bulk reassign transactions when the status is Hard Closed.</value>
     <description></description>
   </text>
   <text id="TEXT_Reassign_Selected_Transactions">

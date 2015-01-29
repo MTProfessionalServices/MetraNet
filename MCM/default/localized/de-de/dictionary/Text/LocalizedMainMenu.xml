@@ -2,23 +2,23 @@
 <texts id="Main" type="collection">
   <description>The file defines the localization of the main menu options.</description>
   <text id="TEXT_MENU_RATES">
-    <value>[DE]Rates</value>
+    <value>Rates</value>
     <description></description>
   </text>
   <text id="TEXT_MENU_ADVANCED_DIALOG">
-    <value>[DE]Advanced</value>
+    <value>Advanced</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED_DIALOG">
-    <value>[DE]Advanced Options</value>
+    <value>Advanced Options</value>
     <description></description>
   </text>
   <text id="TEXT_MENU_PRICEABLE_ITEM_CHARGES">
-    <value>[DE][TEXT_KEYTERM_SERVICE CHARGES]</value>
+    <value>[TEXT_KEYTERM_SERVICE CHARGES]</value>
     <description></description>
   </text>
   <text id="TEXT_HOME">
-    <value>[DE]Home</value>
+    <value>Home</value>
     <description></description>
   </text>
 
@@ -28,7 +28,7 @@
     <description>Menu Heading: Product Offerings</description>
   </text>
   <text id="TEXT_KEYTERM_MENU_RATES">
-    <value>[DE]Rates</value>
+    <value>Rates</value>
     <description>Menu Heading: Rates</description>
   </text>
   <text id="TEXT_KEYTERM_MENU_PRICEABLE_ITEMS">
@@ -40,7 +40,7 @@
     <description>Menu Heading: Discounts</description>
   </text>
   <text id="TEXT_KEYTERM_MENU_ADVANCED_OPTIONS">
-    <value>[DE]Advanced Options</value>
+    <value>Advanced Options</value>
     <description>Menu Heading: Advanced Options</description>
   </text>
 </texts>

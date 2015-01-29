@@ -4,143 +4,143 @@
 
   <!-- Product Offerting Properties -->
   <text id="TEXT_PRODUCT_OFFERING_SELFSUBSCRIBABLE">
-    <value>[es-MX]Self-Subscribable</value>
+    <value>Self-Subscribable</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_SELFUNSUBSCRIBABLE">
-    <value>[es-MX]Self-Unsubscribable</value>
+    <value>Self-Unsubscribable</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE">
-    <value>[es-MX]Effective Start Date</value>
+    <value>Effective Start Date</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE">
-    <value>[es-MX]Effective End Date</value>
+    <value>Effective End Date</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE">
-    <value>[es-MX]Available Start Date</value>
+    <value>Available Start Date</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_POPARTITIONID">
-    <value>[es-MX]PO Partition ID</value>
+    <value>PO Partition ID</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE">
-    <value>[es-MX]Available End Date</value>
+    <value>Available End Date</value>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_NO_CHILD_ITEMS">
-    <value>[es-MX]Currently, this [TEXT_KEYTERM_PRODUCT_OFFERING] does not contain any [TEXT_KEYTERM_PRICEABLE_ITEMS] or [TEXT_KEYTERM_DISCOUNTS].</value>
+    <value>Currently, this [TEXT_KEYTERM_PRODUCT_OFFERING] does not contain any [TEXT_KEYTERM_PRICEABLE_ITEMS] or [TEXT_KEYTERM_DISCOUNTS].</value>
   </text>
   <text id="TEXT_PO_CONFIGURATION_NOT_COMPLETE">
-    <value>[es-MX]The [TEXT_KEYTERM_PRODUCT_OFFERING] configuration is incomplete for the following reasons:</value>
+    <value>The [TEXT_KEYTERM_PRODUCT_OFFERING] configuration is incomplete for the following reasons:</value>
     <description></description>
   </text>
   <text id="TEXT_CHECK_PO_CONFIGURATION">
-    <value>[es-MX]Check [TEXT_KEYTERM_PRODUCT_OFFERING] Configuration</value>
+    <value>Check [TEXT_KEYTERM_PRODUCT_OFFERING] Configuration</value>
     <description></description>
   </text>
   <text id="TEXT_GOOD_CONFIGURATION">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] [es-MX]is completely configured.</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING] is completely configured.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
-    <value>[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore priceable items cannot be modified.</value>
+    <value>This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore priceable items cannot be modified.</value>
     <description></description>
   </text>
   <text id="TEXT_TOOLTIP_PRODUCT_OFFERING_CANNOT_BE_MODIFIED">
-    <value>[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore priceable items cannot be modified.</value>
+    <value>This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore priceable items cannot be modified.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_PRICELIST_MAPPINGS_CANNOT_BE_MODIFIED">
-    <value><![CDATA[[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore the price list mappings cannot be updated. <br />[es-MX]However, whether or not a user is allowed to enter [TEXT_KEYTERM_PERSONAL_RATES] for a subscriber can be updated.]]></value>
+    <value><![CDATA[This [TEXT_KEYTERM_PRODUCT_OFFERING] is available for subscription and therefore the price list mappings cannot be updated. <br />However, whether or not a user is allowed to enter [TEXT_KEYTERM_PERSONAL_RATES] for a subscriber can be updated.]]></value>
     <description></description>
   </text>
   <text id="TEXT_CREATE_NEW_PRODUCT_OFFERING">
-    <value>[es-MX]Create New [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Create New [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ADD_USAGE_ITEM">
-    <value>[es-MX]Add [TEXT_KEYTERM_USAGE_CHARGE]</value>
+    <value>Add [TEXT_KEYTERM_USAGE_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ADD_RECURRING">
-    <value>[es-MX]Add [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>Add [TEXT_KEYTERM_RECURRING_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ADD_NON_RECURRING">
-    <value>[es-MX]Add [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <value>Add [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ADD_DISCOUNT">
-    <value>[es-MX]Add [TEXT_KEYTERM_DISCOUNT]</value>
+    <value>Add [TEXT_KEYTERM_DISCOUNT]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ITEMS_INCLUDED">
-    <value>[es-MX]Items Included In This [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Items Included In This [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ACCOUNT_TYPE_RESTRICTIONS">
-    <value>[es-MX]Types Of Accounts That Can Subscribe To This [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Types Of Accounts That Can Subscribe To This [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_NO_ACCOUNT_TYPE_RESTRICTIONS_MESSAGE">
-    <value><![CDATA[[es-MX]<b>All account types can subscribe to this product offering</b><br>Currently there are no account type restrictions for this [TEXT_KEYTERM_PRODUCT_OFFERING]. Any account type that allows subscription can subscribe to this product offering.]]></value>
+    <value><![CDATA[<b>All account types can subscribe to this product offering</b><br>Currently there are no account type restrictions for this [TEXT_KEYTERM_PRODUCT_OFFERING]. Any account type that allows subscription can subscribe to this product offering.]]></value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_ADD_ACCOUNT_TYPE_RESTRICTION">
-    <value>[es-MX]Add Account Type Restriction</value>
+    <value>Add Account Type Restriction</value>
     <description></description>
   </text>
   <text id="TEXT_SELECT_ACCOUNT_TYPES_THAT_SHOULD_BE_ABLE_TO_SUBSCRIBE">
-    <value>[es-MX]Select One or More Account Types that should be added as restrictions for subscription to this [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Select One or More Account Types that should be added as restrictions for subscription to this [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
 
   <!-- Wizard -->
   <text id="TEXT_WIZARD_PROMPT_CREATE_COPY_OF_EXISTING">
-    <value>[es-MX]Would you like to make a copy of an existing [TEXT_KEYTERM_PRODUCT_OFFERING]?</value>
+    <value>Would you like to make a copy of an existing [TEXT_KEYTERM_PRODUCT_OFFERING]?</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_CREATE_NEW_PRODUCT_OFFERING">
-    <value>[es-MX]Create [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Create [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING">
-    <value>[es-MX]Select Existing</value>
+    <value>Select Existing</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_COPY_NAME_PREFIX">
-    <value>[es-MX]Copy of </value>
+    <value>Copy of </value>
     <description>The new product offering name will be the original name prepended with this text.</description>
   </text>
   <text id="TEXT_WIZARD_SUMMARY_COPY_NAME">
-    <value>[es-MX]Creating copy of</value>
+    <value>Creating copy of</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_EFFECTIVEDATE">
-    <value>[es-MX]When will this [TEXT_KEYTERM_PRODUCT_OFFERING] be effective in the system?</value>
+    <value>When will this [TEXT_KEYTERM_PRODUCT_OFFERING] be effective in the system?</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_CURRENCY">
-    <value>[es-MX]Select a currency for this [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <value>Select a currency for this [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT1">
-    <value>[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] currency can not be changed because the source [TEXT_KEYTERM_PRODUCT_OFFERING] has shared mappings.</value>
+    <value>This [TEXT_KEYTERM_PRODUCT_OFFERING] currency can not be changed because the source [TEXT_KEYTERM_PRODUCT_OFFERING] has shared mappings.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_CURRENCY_ALT2">
-    <value>[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] currency can not be changed because the source [TEXT_KEYTERM_PRODUCT_OFFERING] already has rates.</value>
+    <value>This [TEXT_KEYTERM_PRODUCT_OFFERING] currency can not be changed because the source [TEXT_KEYTERM_PRODUCT_OFFERING] already has rates.</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_PROMPT_AVAILABILITYDATE">
-    <value>[es-MX]When will this [TEXT_KEYTERM_PRODUCT_OFFERING] be available for subscription?</value>
+    <value>When will this [TEXT_KEYTERM_PRODUCT_OFFERING] be available for subscription?</value>
     <description></description>
   </text>
 
   <!-- Price List Mapping Screen -->
   <text id="TEXT_PRICELIST_MAPPING_CAN_ICB">
-    <value>[es-MX]Allow [TEXT_KEYTERM_PERSONAL_RATES]</value>
+    <value>Allow [TEXT_KEYTERM_PERSONAL_RATES]</value>
     <description></description>
   </text>
   <text id="TEXT_NO_PRICE_LIST_MAPPING_MESSAGE">
-    <value>[es-MX]WARNING: No [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>WARNING: No [TEXT_KEYTERM_PRICE_LIST]</value>
     <description></description>
   </text>
   <text id="TEXT_COLUMN_OPTIONS">
@@ -148,60 +148,60 @@
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING_PICKER">
-    <value>[TEXT_KEYTERM_PRODUCT_OFFERING][es-MX] Picker</value>
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERING]Picker</value>
     <description></description>
   </text>
   <text id="TEXT_BUTTON_REMOVE_PRICEABLE_ITEM">
-    <value>[es-MX]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_REMOVE_PRICEABLE_ITEM">
-    <value>[es-MX]Remove {PI_NAME} from [TEXT_KEYTERM_PRODUCT_OFFERING]?</value>
+    <value>Remove {PI_NAME} from [TEXT_KEYTERM_PRODUCT_OFFERING]?</value>
     <!--  I used the tag {} because this is a run-time replacement -->
     <description></description>
   </text>
   <text id="TEXT_EFFECTIVE_DATES">
-    <value>[es-MX]Effective Dates</value>
+    <value>Effective Dates</value>
     <description></description>
   </text>
   <text id="TEXT_WIZARD_CURRENCY">
-    <value>[es-MX]Currency</value>
+    <value>Currency</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_HIDE_PRODUCT_OFFERING">
-    <value>[es-MX]Click OK to hide this [TEXT_KEYTERM_PRODUCT_OFFERING] from regular MetraOffer use.</value>
+    <value>Click OK to hide this [TEXT_KEYTERM_PRODUCT_OFFERING] from regular MetraOffer use.</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIRM_UNHIDE_PRODUCT_OFFERING">
-    <value>[es-MX]Click OK to unhide this [TEXT_KEYTERM_PRODUCT_OFFERING] for regular MetraOffer use.</value>
+    <value>Click OK to unhide this [TEXT_KEYTERM_PRODUCT_OFFERING] for regular MetraOffer use.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_PRODUCTOFFERING_ALREADY_HAS_PENDING_CHANGE">
-    <value>[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
+    <value>This [TEXT_KEYTERM_PRODUCT_OFFERING] currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_BLOCKING_CHANGES">
-    <value>[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
+    <value>This [TEXT_KEYTERM_PRODUCT_OFFERING] currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
     <description></description>
   </text>
   <text id="TEXT_WARNING_PRODUCT_OFFERING_HAS_PENDING_CHANGES">
-    <value>[es-MX]This [TEXT_KEYTERM_PRODUCT_OFFERING] currently has an update pending approval.</value>
+    <value>This [TEXT_KEYTERM_PRODUCT_OFFERING] currently has an update pending approval.</value>
     <description></description>
   </text>
   <text id="TEXT_GENERAL_TAB">
-    <value>[es-MX]General</value>
+    <value>General</value>
     <description></description>
   </text>
   <text id="TEXT_PROPERTIES_TAB">
-    <value>[es-MX]Properties</value>
+    <value>Properties</value>
     <description></description>
   </text>
   <text id="TEXT_INCLUDED_ITEMS_TAB">
-    <value>[es-MX]Included Items</value>
+    <value>Included Items</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_RESTRICTIONS_TAB">
-    <value>[es-MX]Subscription Restrictions</value>
+    <value>Subscription Restrictions</value>
     <description></description>
   </text>
 </texts>

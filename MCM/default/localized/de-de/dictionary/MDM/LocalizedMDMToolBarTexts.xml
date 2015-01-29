@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Toolbar Texts" type="collection">
   <text id="GO_TOOL_TIP">
-    <value>[DE]Go</value>
+    <value>Go</value>
     <description></description>
   </text>
   <text id="RESET_TOOL_TIP">
-    <value>[DE]Reset</value>
+    <value>Reset</value>
     <description></description>
   </text>
   <text id="NEXT_PAGE_TOOL_TIP">
-    <value>[DE]Next Page</value>
+    <value>Next Page</value>
     <description></description>
   </text>
   <text id="PREVIOUS_PAGE_TOOL_TIP">
-    <value>[DE]Previous Page</value>
+    <value>Previous Page</value>
     <description></description>
   </text>
   <text id="FIRST_PAGE_TOOL_TIP">
-    <value>[DE]First Page</value>
+    <value>First Page</value>
     <description></description>
   </text>
   <text id="LAST_PAGE_TOOL_TIP">
-    <value>[DE]Last Page</value>
+    <value>Last Page</value>
     <description></description>
   </text>
   <text id="REFRESH_PAGE_TOOL_TIP">
-    <value>[DE]Refresh Page</value>
+    <value>Refresh Page</value>
     <description></description>
   </text>
   <text id="EXPORT_PAGE_TOOL_TIP">
-    <value>[DE]Export</value>
+    <value>Export</value>
     <description></description>
   </text>
   <text id="MDM_TOOL_BAR_PAGE_WORD">
-    <value>[DE]Page</value>
+    <value>Page</value>
   </text>
   <text id="MDM_TOOL_BAR_OF_WORD">
-    <value>[DE]of</value>
+    <value>of</value>
   </text>
   <text id="MDM_SELECT_ALL">
-    <value>[DE]Select All</value>
+    <value>Select All</value>
   </text>
   <text id="MDM_UNSELECT_ALL">
-    <value>[DE]UnSelect All</value>
+    <value>UnSelect All</value>
   </text>
   <text id="MDM_SELECT_PAGE">
-    <value>[DE]Select Page</value>
+    <value>Select Page</value>
   </text>
   <text id="MDM_UNSELECT_PAGE">
-    <value>[DE]UnSelect Page</value>
+    <value>UnSelect Page</value>
   </text>
   <text id="MDM_DATETIME_BETWEEN">
-    <value>[DE]Between</value>
+    <value>Between</value>
   </text>
 </texts>

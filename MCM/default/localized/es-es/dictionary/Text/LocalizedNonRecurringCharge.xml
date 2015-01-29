@@ -2,45 +2,45 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_CREATE_NEW_NON_RECURRING_CHARGE">
-    <value>[ES]Create New [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <value>Create New [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
   </text>
   <text id="TEXT_ADD_NEW_NON_RECURRING_CHARGE">
-    <value>[ES]Add New [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <value>Add New [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
   </text>
   <text id="TEXT_EVENT">
-    <value>[ES]Event</value>
+    <value>Event</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION">
-    <value>[ES]Subscription</value>
+    <value>Subscription</value>
     <description></description>
   </text>
   <text id="TEXT_UNSUBSCRIPTION">
-    <value>[ES]Unsubscription</value>
+    <value>Unsubscription</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_CHANGE">
-    <value>[ES]Subscription Change</value>
+    <value>Subscription Change</value>
     <description></description>
   </text>
   <text id="TEXT_EXISTING_OR_NEW_NON_REC_CHARGE">
-    <value>[ES]Would you like to use an existing [TEXT_KEYTERM_NON_RECURRING_CHARGE] or add a new one?</value>
+    <value>Would you like to use an existing [TEXT_KEYTERM_NON_RECURRING_CHARGE] or add a new one?</value>
     <description></description>
   </text>
   <text id="TEXT_EXISTING_NON_REC_CHARGE">
-    <value>[ES]Existing [TEXT_KEYTERM_NON_RECURRING_CHARGES]</value>
+    <value>Existing [TEXT_KEYTERM_NON_RECURRING_CHARGES]</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_NON_RECURRING">
-    <value>[ES]Add [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
+    <value>Add [TEXT_KEYTERM_NON_RECURRING_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_WHAT_TYPE_NON_REC_CHARGE">
-    <value>[ES]What type of [TEXT_KEYTERM_NON_RECURRING_CHARGE] would you like to create?</value>
+    <value>What type of [TEXT_KEYTERM_NON_RECURRING_CHARGE] would you like to create?</value>
     <description></description>
   </text>
   <text id="TEXT_NON_RECURRING_CHARGE_TYPE">
-    <value>[TEXT_KEYTERM_NON_RECURRING_CHARGE] [ES]Type</value>
+    <value>[TEXT_KEYTERM_NON_RECURRING_CHARGE] Type</value>
     <description></description>
   </text>
   <text id="TEXT_NON_RECURRING">
@@ -48,23 +48,23 @@
     <description></description>
   </text>
   <text id="TEXT_WHAT_EVENT">
-    <value>[ES]To what event will this [TEXT_KEYTERM_NON_RECURRING_CHARGE] apply?</value>
+    <value>To what event will this [TEXT_KEYTERM_NON_RECURRING_CHARGE] apply?</value>
     <description></description>
   </text>
   <text id="TEXT_EVENT">
-    <value>[ES]Event</value>
+    <value>Event</value>
     <description></description>
   </text>
   <text id="TEXT_NON_REC_SUMMARY_DESCRIPTION1">
-    <value>[ES]Here is a summary of the [TEXT_KEYTERM_NON_RECURRING_CHARGE] you are about to create.</value>
+    <value>Here is a summary of the [TEXT_KEYTERM_NON_RECURRING_CHARGE] you are about to create.</value>
     <description></description>
   </text>
   <text id="TEXT_NON_REC_SUMMARY_DESCRIPTION2">
-    <value>[ES]Click Finish to create this [TEXT_KEYTERM_NON_RECURRING_CHARGE].</value>
+    <value>Click Finish to create this [TEXT_KEYTERM_NON_RECURRING_CHARGE].</value>
     <description></description>
   </text>
   <text id="TEXT_CONFIGURE_EVENT">
-    <value>[ES]Configure [TEXT_EVENT]</value>
+    <value>Configure [TEXT_EVENT]</value>
     <description></description>
   </text>
 </texts>

@@ -2,43 +2,43 @@
 <texts id="Main" type="collection">
   <description>This is the name to display on the screen for a particular language code.</description>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_US">
-    <value>[DE]English (US)</value>
+    <value>English (US)</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_DE">
-    <value>[DE]German</value>
+    <value>German</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_FR">
-    <value>[DE]French</value>
+    <value>French</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_IT">
-    <value>[DE]Italian</value>
+    <value>Italian</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_JP">
-    <value>[DE]Japanese</value>
+    <value>Japanese</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_ES-MX">
-    <value>[DE]Mexican</value>
+    <value>Mexican</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_ES">
-    <value>[DE]Spanish</value>
+    <value>Spanish</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_PT-BR">
-    <value>[DE]Brazilian</value>
+    <value>Brazilian</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_DA">
-    <value>[DE]Danish</value>
+    <value>Danish</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_GB">
-    <value>[DE]English (UK)</value>
+    <value>English (UK)</value>
     <description></description>
   </text>
 </texts>

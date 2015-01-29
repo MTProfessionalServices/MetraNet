@@ -2,23 +2,23 @@
 <texts id="Main" type="collection">
   <description>This is the name to display on the screen for a particular language code.</description>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_US">
-    <value>[es-MX]English (US)</value>
+    <value>English (US)</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_DE">
-    <value>[es-MX]German</value>
+    <value>German</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_FR">
-    <value>[es-MX]French</value>
+    <value>French</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_IT">
-    <value>[es-MX]Italian</value>
+    <value>Italian</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_JP">
-    <value>[es-MX]Japanese</value>
+    <value>Japanese</value>
     <description></description>
   </text>
   <text id="LANGUAGECODE_DISPLAYINFORMATION_ES-MX">

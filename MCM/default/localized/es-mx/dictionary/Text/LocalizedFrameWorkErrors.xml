@@ -6,6 +6,6 @@
     (Actually this task is performed by the MDM.)
   </description>
   <text id="FRAMEWORK_ERROR_9000">
-    <value>[es-MX]This feature is only supported in IE version 4.0 and above.</value>
+    <value>This feature is only supported in IE version 4.0 and above.</value>
   </text>
 </texts>

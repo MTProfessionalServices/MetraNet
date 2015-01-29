@@ -292,18 +292,18 @@
     <value>Histórico de auditoria para número de casos de transações com falha</value>
   </text>
   <text id="TEXT_Message_ID">
-    <value>[PT-BR]Message ID</value>
+    <value>Message ID</value>
   </text>
   <text id="TEXT_Metered_On">
-    <value>[PT-BR]Metered On</value>
+    <value>Metered On</value>
   </text>
   <text id="TEXT_Assigned_On">
-    <value>[PT-BR]Assigned On</value>
+    <value>Assigned On</value>
   </text>
   <text id="TEXT_Assigned_To">
-    <value>[PT-BR]Assigned To</value>
+    <value>Assigned To</value>
   </text>
   <text id="TEXT_Session_Count">
-    <value>[PT-BR]Session Count</value>
+    <value>Session Count</value>
   </text>
 </texts>

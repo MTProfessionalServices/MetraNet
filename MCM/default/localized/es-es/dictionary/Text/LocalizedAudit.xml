@@ -2,83 +2,83 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-    <value>[ES]Product Catalog Audit Log</value>
+    <value>Product Catalog Audit Log</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_AUDIT_LOG">
-    <value>[ES]View Audit Log</value>
+    <value>View Audit Log</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOG_DESCRIPTION">
-    <value>[ES]View events that have been performed against the Product Catalog.</value>
+    <value>View events that have been performed against the Product Catalog.</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TIME">
-    <value>[ES]Time</value>
+    <value>Time</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USERNAME">
-    <value>[ES]User</value>
+    <value>User</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENTNAME">
-    <value>[ES]Event</value>
+    <value>Event</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITYNAME">
-    <value>[ES]Item</value>
+    <value>Item</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DETAILS">
-    <value>[ES]Details</value>
+    <value>Details</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOGGED_IN_AS">
-    <value>[ES]Logged in as</value>
+    <value>Logged in as</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_APPLICATION_NAME">
-    <value>[ES]Application name</value>
+    <value>Application name</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>[ES]Entity ID</value>
+    <value>Entity ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_AUDIT_ID">
-    <value>[ES]Audit ID</value>
+    <value>Audit ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENT_ID">
-    <value>[ES]Event ID</value>
+    <value>Event ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USER_ID">
-    <value>[ES]User ID</value>
+    <value>User ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-    <value>[ES]Entity Type ID</value>
+    <value>Entity Type ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>[ES]Entity ID</value>
+    <value>Entity ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DT_CRT">
-    <value>[ES]Date CRT</value>
+    <value>Date CRT</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
-    <value>[ES]tx_logged_in_as</value>
+    <value>tx_logged_in_as</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_APPLICATION_NAME">
-    <value>[ES]tx_application_name</value>
+    <value>tx_application_name</value>
     <description></description>
   </text>
   <text id="TEXT_CURRENT_GMT_TIME_IS">
-    <value>[ES]Current GMT time is</value>
+    <value>Current GMT time is</value>
     <description></description>
   </text>
 </texts>

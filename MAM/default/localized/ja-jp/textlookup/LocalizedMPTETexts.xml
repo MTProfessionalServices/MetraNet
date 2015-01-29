@@ -4,15 +4,15 @@
 
   <!-- Columns -->
   <text id="TEXT_MPTE_BUTTON_SETEFFDATE">
-    <value>[JA]Set Effective Date and Description</value>
+    <value>Set Effective Date and Description</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERON">
-    <value>[JA]Filter on</value>
+    <value>Filter on</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTEROFF">
-    <value>[JA]Filter off</value>
+    <value>Filter off</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_OWNER_APP">
@@ -20,637 +20,637 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_WARNING_NORATE_CONFIGURED">
-    <value>[JA]Warning: no rates currently configured</value>
+    <value>Warning: no rates currently configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_AND">
-    <value>[JA]and</value>
+    <value>and</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_IF">
-    <value>[JA]if</value>
+    <value>if</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_THEN">
-    <value>[JA]then</value>
+    <value>then</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_MOVE">
-    <value>[JA]Move</value>
+    <value>Move</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_ADD">
-    <value>[JA]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_EDIT">
-    <value>[JA]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DEFAULTRULE">
-    <value>[JA]The default rule</value>
+    <value>The default rule</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DEFAULTRULE_NOT_ALLOWED">
-    <value>[JA]Default rule not allowed on this parameter table</value>
+    <value>Default rule not allowed on this parameter table</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_DEFAULTRULE">
-    <value>[JA]No default rule configured</value>
+    <value>No default rule configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_DEFAULTRULE">
-    <value>[JA]Add default rule</value>
+    <value>Add default rule</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_TOTAL">
-    <value>[JA]Total:</value>
+    <value>Total:</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_RULES">
-    <value>[JA]Rules</value>
+    <value>Rules</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERED">
-    <value>[JA]Filtered out</value>
+    <value>Filtered out</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_UNSAVED_CHANGES">
-    <value>[JA]You have chosen to refresh or close, but you currently have unsaved changes. Are you sure you want to proceed?</value>
+    <value>You have chosen to refresh or close, but you currently have unsaved changes. Are you sure you want to proceed?</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_BTN">
-    <value>[JA]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVE_BTN">
-    <value>[JA]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_COMMITREMOVE_BTN">
-    <value>[JA]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTER_BTN">
-    <value>[JA]Filter</value>
+    <value>Filter</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_OK_BTN">
-    <value>[JA]OK</value>
+    <value>OK</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANCEL_BTN">
-    <value>[JA]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_IMPORT_BTN">
-    <value>[JA]Copy Rules</value>
+    <value>Copy Rules</value>
     <description>Copy Rules From Another Rate Schedule</description>
   </text>
   <text id="TEXT_MPTE_EDIT_AS_XML_BTN">
-    <value>[JA]Edit As XML</value>
+    <value>Edit As XML</value>
     <description>Edit these rules in XML form</description>
   </text>
   <text id="TEXT_MPTE_EDIT_AS_XML">
-    <value>[JA]Edit Current Rule Set As XML</value>
+    <value>Edit Current Rule Set As XML</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_SAVE_BTN">
-    <value>[JA]Save</value>
+    <value>Save</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_EDIT_BTN">
-    <value>[JA]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CLOSE_BTN">
-    <value>[JA]Close</value>
+    <value>Close</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_MOREINFO">
-    <value>[JA]More Info</value>
+    <value>More Info</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERPAGING_ERROR">
-    <value>[JA]Paging is not available when filtering is on</value>
+    <value>Paging is not available when filtering is on</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_FIRSTPAGE">
-    <value>[JA]First Page</value>
+    <value>First Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_LASTPAGE">
-    <value>[JA]Last Page</value>
+    <value>Last Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_PREVIOUSPAGE">
-    <value>[JA]Previous Page</value>
+    <value>Previous Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_NEXTPAGE">
-    <value>[JA]Next Page</value>
+    <value>Next Page</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_EDITGLOBALSETTINGS">
-    <value>[JA]Edit Global Settings</value>
+    <value>Edit Global Settings</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_MOVERULEUP">
-    <value>[JA]Move Rule Up</value>
+    <value>Move Rule Up</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_MOVERULEDOWN">
-    <value>[JA]Move Rule Down</value>
+    <value>Move Rule Down</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_EDITROW">
-    <value>[JA]Edit Row</value>
+    <value>Edit Row</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_ADDROW">
-    <value>[JA]Add Row Before This Row</value>
+    <value>Add Row Before This Row</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_EDITDEFAULTRULE">
-    <value>[JA]Edit Default Rule</value>
+    <value>Edit Default Rule</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CONNECTOR_REMOVE">
-    <value>[JA]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_REMOVEITEMSCLICK">
-    <value>[JA]Check all items that you want to remove</value>
+    <value>Check all items that you want to remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_OK">
-    <value>[JA]OK</value>
+    <value>OK</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_CANCEL">
-    <value>[JA]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ALT_CALENDAR_EDITDAY">
-    <value>[JA]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_ALLCONDITIONSBLANK">
-    <value>[JA]At least one condition must have a value</value>
+    <value>At least one condition must have a value</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_GLOBALACTIONS">
-    <value>[JA]Global Actions</value>
+    <value>Global Actions</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_FILTERDEFINE">
-    <value>[JA]Define the filters you would like to use</value>
+    <value>Define the filters you would like to use</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_EDITCALENDAR">
-    <value>[JA]Edit Properties</value>
+    <value>Edit Properties</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_IMPORTCALENDAR">
-    <value>[JA]Import Calendar</value>
+    <value>Import Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_SELECTCALENDAR">
-    <value>[JA]Select Calendar</value>
+    <value>Select Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NEWCALENDAR">
-    <value>[JA]New Calendar</value>
+    <value>New Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_WRONG_TYPE_ERROR">
-    <value>[JA]No items of this type</value>
+    <value>No items of this type</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_EDIT_DAY">
-    <value>[JA]Weekdays</value>
+    <value>Weekdays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKDAYS_CHOICE">
-    <value>[JA]Weekdays</value>
+    <value>Weekdays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKENDS_CHOICE">
-    <value>[JA]Weekends</value>
+    <value>Weekends</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_HOLIDAYS_CHOICE">
-    <value>[JA]Holidays</value>
+    <value>Holidays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKDAY">
-    <value>[JA]Weekday</value>
+    <value>Weekday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKDAYS">
-    <value>[JA]Weekdays</value>
+    <value>Weekdays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKEND">
-    <value>[JA]Weekend</value>
+    <value>Weekend</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEEKENDS">
-    <value>[JA]Weekends</value>
+    <value>Weekends</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_HOLIDAY">
-    <value>[JA]Holiday</value>
+    <value>Holiday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DAY_OF_WEEK">
-    <value>[JA]Day of Week</value>
+    <value>Day of Week</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_HOLIDAYS">
-    <value>[JA]Holidays</value>
+    <value>Holidays</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_CREATE_CALENDAR">
-    <value>[JA]Could not create calendar object</value>
+    <value>Could not create calendar object</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CALENDAR_NAME_DUPLICATE">
-    <value>[JA]A calendar with this name already exists on the system. Please rename this calendar and try again.</value>
+    <value>A calendar with this name already exists on the system. Please rename this calendar and try again.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_SAVE_CALENDAR">
-    <value>[JA]Could not save this calendar to the database</value>
+    <value>Could not save this calendar to the database</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_LINK_TO_CALENDAR">
-    <value>[JA]Could not map rate schedule to this calendar.</value>
+    <value>Could not map rate schedule to this calendar.</value>
     <description></description>
   </text>
   <text id="TEXT_MTPE_CANNOT_SET_WEEKDAY_TO_DEFAULT">
-    <value>[JA]Could not set weekday to default</value>
+    <value>Could not set weekday to default</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_CANNOT_CREATE_WEEKDAY">
-    <value>[JA]Could not create weekday</value>
+    <value>Could not create weekday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_LOAD_CALENDAR">
-    <value>[JA]Could not load calendar</value>
+    <value>Could not load calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADDWEEKDAY">
-    <value>[JA]Customize Day</value>
+    <value>Customize Day</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVEDAY">
-    <value>[JA]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADDHOLIDAY_BTN">
-    <value>[JA]New Holiday</value>
+    <value>New Holiday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVEHOLIDAY_BTN">
-    <value>[JA]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_NEW_HOLIDAY">
-    <value>[JA]New Holiday</value>
+    <value>New Holiday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAY_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAY_DATE">
-    <value>[JA]Date</value>
+    <value>Date</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_PERIOD_BTN">
-    <value>[JA]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVE_PERIOD_BTN">
-    <value>[JA]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_REMOVE_PERIODS_TITLE">
-    <value>[JA]Remove Periods</value>
+    <value>Remove Periods</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ADD_PERIOD_TITLE">
-    <value>[JA]Add Period</value>
+    <value>Add Period</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_RECURRING_CHARGE_AMOUNT">
-    <value>[JA]Recurring Charge Amount</value>
+    <value>Recurring Charge Amount</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED">
-    <value>[JA]Warning: No Calendar configured</value>
+    <value>Warning: No Calendar configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_SUGESTION_MSG">
-    <value>[JA]Please select an existing one or create a new one.</value>
+    <value>Please select an existing one or create a new one.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_MAM_SUGESTION_MSG">
-    <value>[JA]Please create a new one.</value>
+    <value>Please create a new one.</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_PICKER_TITLE">
-    <value>[JA]Select Calendar</value>
+    <value>Select Calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NEW_CALENDAR_SAVED">
-    <value>[JA]The calendar has been successfully saved.</value>
+    <value>The calendar has been successfully saved.</value>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SAVED">
-    <value>[JA]The calendar has been successfully saved.  If usage has already been rated using this calendar, the pipeline may need to be restarted in order for the new values to take effect.</value>
+    <value>The calendar has been successfully saved.  If usage has already been rated using this calendar, the pipeline may need to be restarted in order for the new values to take effect.</value>
   </text>
   <text id="TEXT_RATESCHEDULE_PICKER_TITLE">
-    <value>[JA]Select [TEXT_KEYTERM_RATE_SCHEDULE] to import rules from</value>
+    <value>Select [TEXT_KEYTERM_RATE_SCHEDULE] to import rules from</value>
     <description></description>
   </text>
   <text id="TEXT_NULL_START_DATE_TYPE">
-    <value>[JA]No start date</value>
+    <value>No start date</value>
     <description></description>
   </text>
   <text id="TEXT_NULL_END_DATE_TYPE">
-    <value>[JA]No end date</value>
+    <value>No end date</value>
     <description></description>
   </text>
   <text id="TEXT_ABSOLUTE_DATE_TYPE">
-    <value>[JA]Absolute date on</value>
+    <value>Absolute date on</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTIONRELATIVE_DATE_TYPE">
-    <value>[JA]day(s) after subscription</value>
+    <value>day(s) after subscription</value>
     <description></description>
   </text>
   <text id="TEXT_BILLINGCYCLE_DATE_TYPE">
-    <value>[JA]Next billing cycle after</value>
+    <value>Next billing cycle after</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_START_DATE">
-    <value>[JA]Starts</value>
+    <value>Starts</value>
     <description></description>
   </text>
   <text id="TEXT_RATES_END_DATE">
-    <value>[JA]Ends</value>
+    <value>Ends</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_NAME">
-    <value>[JA]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_CALENDAR_PROPERTIES">
-    <value>[JA]Calendar Properties</value>
+    <value>Calendar Properties</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DAY">
-    <value>[JA]Day</value>
+    <value>Day</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DATE">
-    <value>[JA]Date</value>
+    <value>Date</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_STARTTIME">
-    <value>[JA]Start Time</value>
+    <value>Start Time</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_ENDTIME">
-    <value>[JA]End Time</value>
+    <value>End Time</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_CODE">
-    <value>[JA]Code</value>
+    <value>Code</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DEFCODE">
-    <value>[JA]Default Code</value>
+    <value>Default Code</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_GRAPH">
-    <value>[JA]Graph</value>
+    <value>Graph</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_PERIODS">
-    <value>[JA]Periods</value>
+    <value>Periods</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_PERIODSTART_AFTER_END">
-    <value>[JA]The start time must be before the end time</value>
+    <value>The start time must be before the end time</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDARNAME_BLANK">
-    <value>[JA]Calendar name cannot be blank</value>
+    <value>Calendar name cannot be blank</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_DUPLICATE">
-    <value>[JA]This name is already in use by another holiday on this calendar</value>
+    <value>This name is already in use by another holiday on this calendar</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_BLANK">
-    <value>[JA]Holiday name cannot be blank</value>
+    <value>Holiday name cannot be blank</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYNAME_INVALID">
-    <value>[JA]Holiday name has invalid characters</value>
+    <value>Holiday name has invalid characters</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_HOLIDAYDATE_INVALID">
-    <value>[JA]Holiday date is invalid</value>
+    <value>Holiday date is invalid</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_REMOVE_HOLIDAY">
-    <value>[JA]Holiday could not be removed from this calendar.</value>
+    <value>Holiday could not be removed from this calendar.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_SET_DAY_TO_DEFAULT">
-    <value>[JA]Make Default</value>
+    <value>Make Default</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CUSTOMIZE_DAY">
-    <value>[JA]Customize</value>
+    <value>Customize</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_EDITDAY">
-    <value>[JA]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_EDITDAY">
-    <value>[JA]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_MONDAY">
-    <value>[JA]Monday</value>
+    <value>Monday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_TUESDAY">
-    <value>[JA]Tuesday</value>
+    <value>Tuesday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WEDNESDAY">
-    <value>[JA]Wednesday</value>
+    <value>Wednesday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_THURSDAY">
-    <value>[JA]Thursday</value>
+    <value>Thursday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_FRIDAY">
-    <value>[JA]Friday</value>
+    <value>Friday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SATURDAY">
-    <value>[JA]Saturday</value>
+    <value>Saturday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SUNDAY">
-    <value>[JA]Sunday</value>
+    <value>Sunday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKEND">
-    <value>[JA]Default Weekend</value>
+    <value>Default Weekend</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKDAY">
-    <value>[JA]Default Weekday</value>
+    <value>Default Weekday</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_ADDPERIOD">
-    <value>[JA]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_REMOVEPERIOD">
-    <value>[JA]Remove</value>
+    <value>Remove</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-    <value>[JA]Unable to find enumerator for this value</value>
+    <value>Unable to find enumerator for this value</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_FILE_NOT_LOCATED">
-    <value>[JA]Could not locate the file</value>
+    <value>Could not locate the file</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_FILE_NOT_READABLE">
-    <value>[JA]Error occurred while reading the file</value>
+    <value>Error occurred while reading the file</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-    <value>[JA]Unable to find enumerator for this value</value>
+    <value>Unable to find enumerator for this value</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_BLANK1">
-    <value>[JA]cannot be blank.</value>
+    <value>cannot be blank.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_BLANK2">
-    <value>[JA]The default value of</value>
+    <value>The default value of</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_BLANK3">
-    <value>[JA]is being used.</value>
+    <value>is being used.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_INTEGER">
-    <value>[JA]must be an integer</value>
+    <value>must be an integer</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_NUMBER">
-    <value>[JA]must be a number</value>
+    <value>must be a number</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_AMOUNT">
-    <value>[JA]Input Error. Please type an amount.</value>
+    <value>Input Error. Please type an amount.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_MUSTBE_DATE">
-    <value>[JA]must be a date</value>
+    <value>must be a date</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_LONG_OVERFLOW">
-    <value>[JA] does not fit in the range of a long integer</value>
+    <value>does not fit in the range of a long integer</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_UNKNOWN">
-    <value>[JA]An unknown error has occurred.  Please try again later. If this problem persists, please contact your system administrator.</value>
+    <value>An unknown error has occurred.  Please try again later. If this problem persists, please contact your system administrator.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ">
-    <value>[JA]Object could not be created. Please make sure that object is available and registered.</value>
+    <value>Object could not be created. Please make sure that object is available and registered.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_NOT_FOUND">
-    <value>[JA]was not found ID=</value>
+    <value>was not found ID=</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED">
-    <value>[JA]Could not save [TEXT_KEYTERM_RATE_SCHEDULE] with rules to the database. Please check your log file.</value>
+    <value>Could not save [TEXT_KEYTERM_RATE_SCHEDULE] with rules to the database. Please check your log file.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ">
-    <value>[JA]Object failed to run initialize function.</value>
+    <value>Object failed to run initialize function.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-    <value>[JA]Object could not load enumerated types.</value>
+    <value>Object could not load enumerated types.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-    <value>[JA]Object could not load enumerated types.</value>
+    <value>Object could not load enumerated types.</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_WARNING_EDIT_PAST_RATES">
-    <value><![CDATA[[JA]<b>Warning:</b> you are editing rates that may be (or may have been) effective.]]></value>
+    <value><![CDATA[<b>Warning:</b> you are editing rates that may be (or may have been) effective.]]></value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_ERROR_OVERFLOW">
-    <value>[JA]value is out of bounds</value>
+    <value>value is out of bounds</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_VALUE_NOT_CONFIGURED">
-    <value>[JA]value not configured</value>
+    <value>value not configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_NO_PERIODS_CONFIGURED">
-    <value>[JA]No periods configured</value>
+    <value>No periods configured</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CANNOT_CREATE_PERIOD">
-    <value>[JA]Could not create calendar period</value>
+    <value>Could not create calendar period</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_SAVE_OK">
-    <value>[JA]Calendar saved</value>
+    <value>Calendar saved</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_CALENDAR_WARNING_WHEN_EDITING">
-    <value>[JA]Warning: Many [TEXT_KEYTERM_RATE_SCHEDULES] may be using this calendar. Any changes you make will affect all of them. </value>
+    <value>Warning: Many [TEXT_KEYTERM_RATE_SCHEDULES] may be using this calendar. Any changes you make will affect all of them. </value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NULLVALUE">
-    <value>[JA]BLANK</value>
+    <value>BLANK</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_DELETED">
-    <value>[JA]Deleted</value>
+    <value>Deleted</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_UPDATED">
-    <value>[JA]Modified</value>
+    <value>Modified</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_ADDED">
-    <value>[JA]Added</value>
+    <value>Added</value>
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE">
@@ -658,140 +658,140 @@
     <description></description>
   </text>
   <text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-    <value><![CDATA[[JA]<b>The two rulesets are identical.</b><BR>This can happen when a ruleset is saved but no edits were made to the ruleset.&nbsp;&nbsp;]]></value>
+    <value><![CDATA[<b>The two rulesets are identical.</b><BR>This can happen when a ruleset is saved but no edits were made to the ruleset.&nbsp;&nbsp;]]></value>
     <description></description>
   </text>
   <text id="TEXT_ICB_PRICELIST_DISPLAY_NAME">
-    <value><![CDATA[[JA]Customer Specific (Custom Rate)]]></value>
+    <value><![CDATA[Customer Specific (Custom Rate)]]></value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_RATESCHEDULE_ALREADY_HAS_PENDING_CHANGE">
-    <value>[JA]This Rate Schedule currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
+    <value>This Rate Schedule currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">
-    <value>[JA]View Pending Change</value>
+    <value>View Pending Change</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_RATE_SCHEDULE_RULES_WERE_UPDATED">
-    <value>[JA]Rate Schedule Rules Were Updated</value>
+    <value>Rate Schedule Rules Were Updated</value>
     <description></description>
   </text>
   <text id="TEXT_Add_Parameter_Table_to_Price_List">
-    <value>[JA]Add Parameter Table to Price List</value>
+    <value>Add Parameter Table to Price List</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules_For">
-    <value>[JA]Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <value>Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules">
-    <value>[JA]Create Rate Schedule(s)</value>
+    <value>Create Rate Schedule(s)</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_CATALOG">
-    <value>[JA]Product Catalog</value>
+    <value>Product Catalog</value>
     <description></description>
   </text>
   <text id="TEXT_TABULAR_RULESET_READER">
-    <value>[JA]Tabular Ruleset Reader</value>
+    <value>Tabular Ruleset Reader</value>
     <description></description>
   </text>
   <text id="TEXT_RETRIEVED_PC_OBJECTS">
-    <value>[JA]Retrieved Product Catalog objects</value>
+    <value>Retrieved Product Catalog objects</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_ENUMS">
-    <value>[JA]Loaded Enums</value>
+    <value>Loaded Enums</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_START">
-    <value>[JA]Ruleset START</value>
+    <value>Ruleset START</value>
     <description></description>
   </text>
   <text id="TEXT_UNABLE_READ_CONFIGURATION">
-    <value>[JA]Unable to read configuration from input. Error returned is:</value>
+    <value>Unable to read configuration from input. Error returned is:</value>
     <description></description>
   </text>
   <text id="TEXT_UNABLE_CRATE_RULESET">
-    <value>[JA]Unable to create ruleset from propset object. Error returned is:</value>
+    <value>Unable to create ruleset from propset object. Error returned is:</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING">
-    <value>[JA]Product Offering</value>
+    <value>Product Offering</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_ITEM">
-    <value>[JA]Priceable Item</value>
+    <value>Priceable Item</value>
     <description></description>
   </text>
   <text id="TEXT_PRICELIST">
-    <value>[JA]Pricelist</value>
+    <value>Pricelist</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">
-    <value>[JA]Parameter Table</value>
+    <value>Parameter Table</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SCHEDULE">
-    <value>[JA]Rate Schedule</value>
+    <value>Rate Schedule</value>
     <description></description>
   </text>
   <text id="TEXT_EFFECTIVE">
-    <value>[JA]Effective</value>
+    <value>Effective</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_RULESET1">
-    <value>[JA]Loaded Ruleset 1</value>
+    <value>Loaded Ruleset 1</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_RULESET2">
-    <value>[JA]Loaded Ruleset 2</value>
+    <value>Loaded Ruleset 2</value>
     <description></description>
   </text>
   <text id="TEXT_DISPLAYING_XML_SETTINGS">
-    <value>[JA]Displaying XML versions</value>
+    <value>Displaying XML versions</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET1_HAS">
-    <value>[JA]Ruleset 1 has </value>
+    <value>Ruleset 1 has </value>
     <description></description>
   </text>
   <text id="TEXT_RULESET2_HAS">
-    <value>[JA] and Ruleset 2 has </value>
+    <value>and Ruleset 2 has </value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_DIFF_START">
-    <value>[JA]Ruleset Diff START</value>
+    <value>Ruleset Diff START</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_DIFF_END">
-    <value>[JA]Ruleset Diff End</value>
+    <value>Ruleset Diff End</value>
     <description></description>
   </text>
   <text id="TEXT_CHARGED_FROM">
-    <value>[JA]Charged From</value>
+    <value>Charged From</value>
     <description></description>
   </text>
   <text id="TEXT_CHARGED_TO">
-    <value>[JA] to </value>
+    <value>to </value>
     <description></description>
   </text>
 
   <text id="TEXT_IMPORT_FROM_EXCEL">
-    <value>[JA]Import From Excel File</value>
+    <value>Import From Excel File</value>
     <description></description>
   </text>
   <text id="TEXT_EXPORT_TO_EXCEL">
-    <value>[JA]Export To Excel</value>
+    <value>Export To Excel</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
-    <value>[JA]You have unsaved changes.</value>
+    <value>You have unsaved changes.</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_CHANGES">
-    <value>[JA]View changes</value>
+    <value>View changes</value>
     <description></description>
   </text>
 </texts>

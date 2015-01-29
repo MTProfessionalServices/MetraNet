@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Batch Error Terms" type="collection">
   <text id="TEXT_ERROR_TITLE">
-    <value>[ES]Batch Error List</value>
+    <value>Batch Error List</value>
   </text>
   <text id="TEXT_WARNING_TITLE">
-    <value>[ES]Batch Warning List</value>
+    <value>Batch Warning List</value>
   </text>
 </texts>

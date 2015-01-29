@@ -4,7 +4,7 @@
     The file defines the HTML code for the log out page.
   </description>
   <text id="TEXT_LOG_OUT_MESSAGE">
-    <value><![CDATA[<center><b>[DE]Goodbye.</b><br><br>Click <a href='[START_PAGE]'>here</a> to login again.</center>]]></value>
+    <value><![CDATA[<center><b>Goodbye.</b><br><br>Click <a href='[START_PAGE]'>here</a> to login again.</center>]]></value>
     <description></description>
   </text>
 </texts>

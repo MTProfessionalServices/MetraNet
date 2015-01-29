@@ -165,7 +165,7 @@
     <description>Payer</description>
   </text>
   <text id="TEXT_PAYING_ACCOUNT">
-    <value>[FR]Paying Account</value>
+    <value>Paying Account</value>
     <description>Paying Account</description>
   </text>
   <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
@@ -1609,7 +1609,7 @@
     <description></description>
   </text>
   <text id="TEXT_Requires_Manage_Account_Hierarchies">
-    <value>[FR]Requires Manage Account Hierarchies</value>
+    <value>Requires Manage Account Hierarchies</value>
     <description></description>
   </text>
 </texts>

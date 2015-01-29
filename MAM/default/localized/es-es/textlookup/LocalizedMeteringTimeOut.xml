@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="MeteringTimeOut" type="collection">
   <text id="TEXT_METERING_TIME_OUT_DO_YOU_WANT_TO_RE_TRY">
-    <value>[ES]Do you want to try again ?</value>
+    <value>Do you want to try again ?</value>
   </text>
   <text id="TEXT_RETRY_COUNTER">
-    <value>[ES]Retry Counter</value>
+    <value>Retry Counter</value>
   </text>
   <text id="TEXT_METERING_TIME_OUT_MANAGER_TITLE">
-    <value>[ES]Metering Time-Out Manager</value>
+    <value>Metering Time-Out Manager</value>
   </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_TIME_OUT">
-    <value>[ES]The operation timed out.</value>
+    <value>The operation timed out.</value>
   </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_UPDATE_TIME_OUT">
-    <value>[ES]The update timed out.</value>
+    <value>The update timed out.</value>
   </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_SUCCEEDED">
-    <value>[ES]The operation succeeded.</value>
+    <value>The operation succeeded.</value>
   </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_WILL_BE_EXECUTED_LATED">
-    <value>[ES]The operation will be executed later.</value>
+    <value>The operation will be executed later.</value>
   </text>
   <text id="TEXT_PLEASE_RELOAD_THE_ACCOUNT">
-    <value>[ES]Please Find and Display the Account to continue working with it.</value>
+    <value>Please Find and Display the Account to continue working with it.</value>
   </text>
 </texts>

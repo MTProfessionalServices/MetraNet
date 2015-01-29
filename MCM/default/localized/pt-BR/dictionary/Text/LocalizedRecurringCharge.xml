@@ -164,47 +164,47 @@
     <description></description>
   </text>
   <text id="TEXT_CANCEL">
-    <value>[PT-BR]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_FINISH">
-    <value>[PT-BR]Finish</value>
+    <value>Finish</value>
     <description></description>
   </text>
   <text id="TEXT_BACK">
-    <value>[PT-BR]&lt; Back</value>
+    <value>&lt; Back</value>
     <description></description>
   </text>
   <text id="TEXT_NEXT">
-    <value>[PT-BR]Next &gt;</value>
+    <value>Next &gt;</value>
     <description></description>
   </text>
   <text id="TEXT_VALUE_TYPE">
-    <value>[PT-BR]Value type</value>
+    <value>Value type</value>
     <description></description>
   </text>
   <text id="TEXT_Should_this_item_be_charged_in">
-    <value>[PT-BR]Should this item be charged in advance or arrears?</value>
+    <value>Should this item be charged in advance or arrears?</value>
     <description></description>
   </text>
   <text id="TEXT_Should_this_item_be_prorated">
-    <value>[PT-BR]Should this item be prorated?</value>
+    <value>Should this item be prorated?</value>
     <description></description>
   </text>
   <text id="TEXT_INTEGER">
-    <value>[PT-BR]Integer</value>
+    <value>Integer</value>
     <description></description>
   </text>
   <text id="TEXT_DECIMAL">
-    <value>[PT-BR]Decimal</value>
+    <value>Decimal</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_BASED_ON">
-    <value>[PT-BR]Prorate based on</value>
+    <value>Prorate based on</value>
     <description></description>
   </text>
   <text id="TEXT_number_of_days">
-    <value>[PT-BR]number of days.</value>
+    <value>number of days.</value>
     <description></description>
   </text>
 </texts>

@@ -2,93 +2,93 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_SELECT_PRICE_LIST">
-    <value>[DE]Select [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Select [TEXT_KEYTERM_PRICE_LIST]</value>
   </text>
   <text id="TEXT_CREATE_NEW_PRICE_LIST">
-    <value>[DE]Create New [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Create New [TEXT_KEYTERM_PRICE_LIST]</value>
   </text>
   <text id="TEXT_SELECT_A_PRICE_LIST">
-    <value>[DE]Select a [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Select a [TEXT_KEYTERM_PRICE_LIST]</value>
   </text>
   <text id="TEXT_CURRENCY">
-    <value>[DE]Currency</value>
+    <value>Currency</value>
   </text>
   <text id="TEXT_NEW_PRICELIST">
-    <value>[DE]New [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>New [TEXT_KEYTERM_PRICE_LIST]</value>
   </text>
   <text id="TEXT_EDIT_PRICELIST">
-    <value>[DE]Manage [TEXT_KEYTERM_PRICE_LISTS]</value>
+    <value>Manage [TEXT_KEYTERM_PRICE_LISTS]</value>
   </text>
   <text id="TEXT_NEW_PRICELIST_DESCRIPTION">
-    <value>[DE]Define the properties for the new [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Define the properties for the new [TEXT_KEYTERM_PRICE_LIST]</value>
   </text>
   <text id="TEXT_PRICELIST_SUMMARY_DESCRIPTION1">
-    <value>[DE]Here is a summary of the [TEXT_KEYTERM_PRICE_LIST] you are about to create.</value>
+    <value>Here is a summary of the [TEXT_KEYTERM_PRICE_LIST] you are about to create.</value>
   </text>
   <text id="TEXT_PRICELIST_SUMMARY_DESCRIPTION2">
-    <value>[DE]Click \'Finish\' to create this [TEXT_KEYTERM_PRICE_LIST].</value>
+    <value>Click \'Finish\' to create this [TEXT_KEYTERM_PRICE_LIST].</value>
   </text>
   <text id="TEXT_PRICELIST_EDIT_PROPERTIES">
-    <value>[DE]Edit Properties</value>
+    <value>Edit Properties</value>
   </text>
   <text id="TEXT_PRICELIST_LIST_TITLE">
-    <value>[DE]Manage [TEXT_KEYTERM_PRICE_LISTS]</value>
+    <value>Manage [TEXT_KEYTERM_PRICE_LISTS]</value>
   </text>
   <text id="TEXT_SHARED_PRICELIST_LIST_TITLE">
     <value>[TEXT_SHARED] [TEXT_KEYTERM_PRICE_LISTS]</value>
   </text>
   <text id="TEXT_PRICELIST_LIST">
-    <value>[DE]Manage [TEXT_KEYTERM_PRICE_LISTS]</value>
+    <value>Manage [TEXT_KEYTERM_PRICE_LISTS]</value>
   </text>
   <text id="TEXT_PRICELIST_MAPPING_NO_NAME">
-    <value>[DE]Please specify a price list.</value>
+    <value>Please specify a price list.</value>
   </text>
   <text id="TEXT_NONSHARED_PRICE_LIST">
-    <value>[DE]Non-shared [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Non-shared [TEXT_KEYTERM_PRICE_LIST]</value>
   </text>
   <text id="TEXT_NONSHARED">
-    <value>[DE]Non-shared</value>
+    <value>Non-shared</value>
   </text>
   <text id="TEXT_SHARED">
-    <value>[DE]Shared</value>
+    <value>Shared</value>
   </text>
   <text id="TEXT_KEYTERM_PRICE_LIST_TYPE">
-    <value>[TEXT_KEYTERM_PRICE_LIST] [DE]type</value>
+    <value>[TEXT_KEYTERM_PRICE_LIST] type</value>
   </text>
   <text id="TEXT_EDIT_PRICE_LIST_MAPPING">
-    <value>[DE]Edit [TEXT_PRICELIST_MAPPING]</value>
+    <value>Edit [TEXT_PRICELIST_MAPPING]</value>
   </text>
   <text id="TEXT_SHARED_RATES">
-    <value>[TEXT_SHARED] [DE]Rates</value>
+    <value>[TEXT_SHARED] Rates</value>
   </text>
   <text id="TEXT_PRICELIST_PLPARTITIONID">
-    <value>[DE]Partition Id</value>
+    <value>Partition Id</value>
   </text>
   <text id="TEXT_PRICELIST_CURRENCY_CHANGE_WARNING">
-    <value><![CDATA[<strong>[DE]WARNING: Changing Currency of [TEXT_KEYTERM_PRICE_LIST]</strong><BR>The copy of the [TEXT_KEYTERM_PRICE_LIST] will be created with a different currency, however, the rates will not be changed and must be updated to reflect the appropriate value in the new currency.<BR>]]></value>
+    <value><![CDATA[<strong>WARNING: Changing Currency of [TEXT_KEYTERM_PRICE_LIST]</strong><BR>The copy of the [TEXT_KEYTERM_PRICE_LIST] will be created with a different currency, however, the rates will not be changed and must be updated to reflect the appropriate value in the new currency.<BR>]]></value>
   </text>
   <text id="TEXT_CREATE_COPY_OF_PL">
-    <value>[DE]Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</value>
+    <value>Create Copy of Existing [TEXT_KEYTERM_PRICE_LIST]</value>
   </text>
   <text id="TEXT_ORIGINAL_PL_NAME">
-    <value>[DE]Original Pricelist Name</value>
+    <value>Original Pricelist Name</value>
   </text>
   <text id="TEXT_PL_NAME">
-    <value>[DE]New Pricelist Name</value>
+    <value>New Pricelist Name</value>
   </text>
   <text id="TEXT_PL_DESCRIPTION">
-    <value>[DE]New Pricelist Description</value>
+    <value>New Pricelist Description</value>
   </text>
   <text id="TEXT_PL_DESCRIPTION">
-    <value>[DE]New Pricelist Description</value>
+    <value>New Pricelist Description</value>
   </text>
   <text id="TEXT_CHANGE_CURRENCY_TO">
-    <value>[DE]Change to currency of the new pricelist from </value>
+    <value>Change to currency of the new pricelist from </value>
   </text>
   <text id="TEXT_TO">
-    <value>[DE] to </value>
+    <value>to </value>
   </text>
   <text id="TEXT_CREATE">
-    <value>[DE]Create</value>
+    <value>Create</value>
   </text>
 </texts>

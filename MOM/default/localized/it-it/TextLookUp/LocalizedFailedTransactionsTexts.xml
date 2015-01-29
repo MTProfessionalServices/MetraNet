@@ -1,309 +1,312 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_FAILED_TRANSACTIONS_FAILED_TRANSACTION_BROWSER">
-    <value>[IT]Failed Transactions</value>
+    <value>Failed Transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_FAILED_TRANSACTION">
-    <value>[IT]Edit Failed Transaction</value>
+    <value>Edit Failed Transaction</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SERVICE_NAME">
-    <value>[IT]Service Name</value>
+    <value>Service Name</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SESSION_UID">
-    <value>[IT]Session UID</value>
+    <value>Session UID</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SESSION_ID">
-    <value>[IT]Session ID</value>
+    <value>Session ID</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_HOST">
-    <value>[IT]Host</value>
+    <value>Host</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METERED_TIME">
-    <value>[IT]Metered Time</value>
+    <value>Metered Time</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_CODE">
-    <value>[IT]Error Code</value>
+    <value>Error Code</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_DESCRIPTION">
-    <value>[IT]Error Description</value>
+    <value>Error Description</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STAGE">
-    <value>[IT]Stage</value>
+    <value>Stage</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_PLUGIN">
-    <value>[IT]PlugIn</value>
+    <value>PlugIn</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_POSSIBLE_ACCOUNT_ID">
-    <value>[IT]Account ID</value>
+    <value>Account ID</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_LINE">
-    <value>[IT]Line</value>
+    <value>Line</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METHOD">
-    <value>[IT]Method</value>
+    <value>Method</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_MODULE">
-    <value>[IT]Module</value>
+    <value>Module</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATE">
-    <value>[IT]State</value>
+    <value>State</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_FAILURETIME">
-    <value>[IT]Failure Time</value>
+    <value>Failure Time</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_COMPOUND_ID">
-    <value>[IT]Compound ID</value>
+    <value>Compound ID</value>
   </text>
   <text id="TEXT_RESUBMIT_TRANSACTION">
-    <value>[IT]ReSubmit Failed Transaction</value>
+    <value>ReSubmit Failed Transaction</value>
   </text>
   <text id="TEXT_RESUBMIT_TRANSACTION_SUCCEED">
-    <value>[IT]The transaction was sent with success to the pipeline.</value>
+    <value>The transaction was sent with success to the pipeline.</value>
   </text>
   <text id="TEXT_RESUBMIT_TRANSACTION_FAILED">
-    <value>[IT]Error found sending the transaction to the pipeline. View the log file.</value>
+    <value>Error found sending the transaction to the pipeline. View the log file.</value>
   </text>
   <text id="TEXT_INTERVAL_ID">
-    <value>[IT]Interval ID</value>
+    <value>Interval ID</value>
   </text>
   <text id="TEXT_SESSION_ID">
-    <value>[IT]Session ID</value>
+    <value>Session ID</value>
   </text>
   <text id="TEXT_SESSION_TYPE">
-    <value>[IT]Session Type</value>
+    <value>Session Type</value>
   </text>
   <text id="TEXT_VIEW_ID">
-    <value>[IT]View ID</value>
+    <value>View ID</value>
   </text>
   <text id="TEXT_SERVICE_NAME">
-    <value>[IT]Service Name</value>
+    <value>Service Name</value>
   </text>
   <text id="TEXT_ERROR_MESSAGE">
-    <value>[IT]Error Message</value>
+    <value>Error Message</value>
   </text>
   <text id="TEXT_ERROR">
-    <value>[IT]Error</value>
+    <value>Error</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METERED_STATUS">
-    <value>[IT]Metered</value>
+    <value>Metered</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_NOT_METERED_STATUS">
-    <value>[IT]Not Metered</value>
+    <value>Not Metered</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_METER">
-    <value>[IT]Meter</value>
+    <value>Meter</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SUBMIT_TITLE">
-    <value>[IT]Submit</value>
+    <value>Submit</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT">
-    <value>[IT]ReSubmit As Sender</value>
+    <value>ReSubmit As Sender</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SUBMIT_PRESS_OK_TO_REFRESH_FAILED_TRANSACTION_SCREEN">
-    <value>[IT]Press OK to refresh the screen.</value>
+    <value>Press OK to refresh the screen.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_FAILED_PVB_COMBOX_BOX_TITLE">
-    <value>[IT]Period</value>
+    <value>Period</value>
   </text>
   <text id="TEXT_PLEASE_SELECT">
-    <value>[IT]Please select at least one transaction to act on.</value>
+    <value>Please select at least one transaction to act on.</value>
   </text>
   <text id="TEXT_EXPORT">
-    <value>[IT]Export</value>
+    <value>Export</value>
   </text>
   <text id="TEXT_SAVE">
-    <value>[IT]Save</value>
+    <value>Save</value>
   </text>
   <text id="TEXT_LOST_TRANSACTIONS_LOST_TRANSACTION_BROWSER">
-    <value>[IT]Suspended Transactions</value>
+    <value>Suspended Transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_TITLE">
-    <value>[IT]Bulk Change</value>
+    <value>Bulk Change</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE">
-    <value>[IT]Mode</value>
+    <value>Mode</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE_CHANGE_ALL">
-    <value>[IT]Change All</value>
+    <value>Change All</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE_CHANGE_IF_PREVIOUS_VALUE_IS">
-    <value>[IT]Change Only If Previous Value Is</value>
+    <value>Change Only If Previous Value Is</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_NEW_VALUE">
-    <value>[IT]New Value</value>
+    <value>New Value</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_PREVIOUS_VALUE">
-    <value>[IT]Previous Value</value>
+    <value>Previous Value</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_PROPERTY">
-    <value>[IT]Property</value>
+    <value>Property</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ALL">
-    <value>[IT]Failed Transactions</value>
+    <value>Failed Transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
-    <value>[IT]Open Failed Transactions</value>
+    <value>Open Failed Transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_UNDER_INVESTIGATION">
-    <value>[IT]Failed Transactions Under Investigation</value>
+    <value>Failed Transactions Under Investigation</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_CORRECTED">
-    <value>[IT]Corrected Failed Transactions Waiting To Be Resubmitted</value>
+    <value>Corrected Failed Transactions Waiting To Be Resubmitted</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
-    <value>[IT]Dismissed Failed Transactions</value>
+    <value>Dismissed Failed Transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_RESUBMITTED">
-    <value>[IT]Resubmitted Failed Transactions</value>
+    <value>Resubmitted Failed Transactions</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_FOR_BATCH">
-    <value>[IT]Failed Transactions For Batch</value>
+    <value>Failed Transactions For Batch</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_OPEN">
-    <value>[IT]Open</value>
+    <value>Open</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_UNDER_INVESTIGATION">
-    <value>[IT]Under Investigation</value>
+    <value>Under Investigation</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_CORRECTED">
-    <value>[IT]Corrected - Pending Resubmit</value>
+    <value>Corrected - Pending Resubmit</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_DISMISSED">
-    <value>[IT]Dismissed</value>
+    <value>Dismissed</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_RESUBMITTED">
-    <value>[IT]Resubmitted</value>
+    <value>Resubmitted</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_OPEN">
-    <value>[IT]Open</value>
+    <value>Open</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS_DELETED">
-    <value>[IT]Deleted</value>
+    <value>Deleted</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DELETE_CHILD_TRANSACTION">
-    <value>[IT]Are you sure you wish to delete this child transaction ?</value>
+    <value>Are you sure you wish to delete this child transaction ?</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_NEW_STATUS">
-    <value>[IT]New Status</value>
+    <value>New Status</value>
   </text>
   <text id="TEXT_ERROR_TITLE">
-    <value>[IT]Failed Transaction Resubmit Errors</value>
+    <value>Failed Transaction Resubmit Errors</value>
   </text>
   <text id="TEXT_TX_UID_ENCODED">
-    <value>[IT]Failure Compound Session ID</value>
+    <value>Failure Compound Session ID</value>
   </text>
   <text id="TEXT_EXCEPTION">
-    <value>[IT]Exception</value>
+    <value>Exception</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_CASE_NUMBER">
-    <value>[IT]Case Number</value>
+    <value>Case Number</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_CASE_STATUS">
-    <value>[IT]Case Status</value>
+    <value>Case Status</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ID">
-    <value>[IT]Failed Transaction Id</value>
+    <value>Failed Transaction Id</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_SERVICE_ERROR">
-    <value>[IT]Service With Error</value>
+    <value>Service With Error</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_ERROR_MESSAGE">
-    <value>[IT]Error Message</value>
+    <value>Error Message</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATUS">
-    <value>[IT]Status</value>
+    <value>Status</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_OPEN">
-    <value>[IT]Open</value>
+    <value>Open</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION">
-    <value>[IT]Under Investigation</value>
+    <value>Under Investigation</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE">
-    <value>[IT]Reason Code</value>
+    <value>Reason Code</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT">
-    <value>[IT]Corrected - Pending Resubmit</value>
+    <value>Corrected - Pending Resubmit</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_RESUBMIT_NOW">
-    <value>[IT]Resubmit Now</value>
+    <value>Resubmit Now</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED">
-    <value>[IT]Dismissed</value>
+    <value>Dismissed</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_REASONE_CODE2">
-    <value>[IT]Reason Code</value>
+    <value>Reason Code</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_COMMENT">
-    <value>[IT]Comment</value>
+    <value>Comment</value>
   </text>
   <text id="TEXT_VIEW_AUDIT_TRAIL">
-    <value>[IT]View Audit Trail</value>
+    <value>View Audit Trail</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_REQUIRED_FIELDS">
-    <value>[IT]Check For Required Fields</value>
+    <value>Check For Required Fields</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_PROPERTY">
-    <value>[IT]Property</value>
+    <value>Property</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_TYPE">
-    <value>[IT]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_LENGTH">
-    <value>[IT]Length</value>
+    <value>Length</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_REQUIRED">
-    <value>[IT]Required</value>
+    <value>Required</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS1">
-    <value>[IT]Metered Status</value>
+    <value>Metered Status</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_STATUS2">
-    <value>[IT]Meter Status</value>
+    <value>Meter Status</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_EDIT_COLUMN_VALUE">
-    <value>[IT]Value</value>
+    <value>Value</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_OPEN_DESCRIPTION">
-    <value>[IT]This case/failed transaction is currently unresolved.</value>
+    <value>This case/failed transaction is currently unresolved.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_INVESTIGATION_DESCRIPTION">
-    <value>[IT]This case/failed transaction is currently unresolved but is being investigated.</value>
+    <value>This case/failed transaction is currently unresolved but is being investigated.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_PENDING_RESUBMIT_DESCRIPTION">
-    <value>[IT]This case/failed transaction has been resolved and is ready to be resubmitted to the system for processing.</value>
+    <value>This case/failed transaction has been resolved and is ready to be resubmitted to the system for processing.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_DISMISSED_DESCRIPTION">
-    <value>[IT]This case/failed transaction cannot be resolved or it is not cost effective to do so.</value>
+    <value>This case/failed transaction cannot be resolved or it is not cost effective to do so.</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_MAKE_BULK_CHANGE">
-    <value>[IT]Make Bulk Change</value>
+    <value>Make Bulk Change</value>
   </text>
   <text id="TEXT_REFRESH">
-    <value>[IT]Refresh</value>
+    <value>Refresh</value>
   </text>
   <text id="TEXT_PARENT_TRANSACTIONS_ID">
-    <value>[IT]Parent Transaction Id</value>
+    <value>Parent Transaction Id</value>
   </text>
   <text id="TEXT_PARENT_TRANSACTION">
-    <value>[IT]Parent</value>
+    <value>Parent</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_AUDIT_HISTORY">
-    <value>[IT]Audit History For Failed Transaction Case Number</value>
+    <value>Audit History For Failed Transaction Case Number</value>
   </text>
   <text id="TEXT_Message_ID">
-    <value>[IT]Message ID</value>
+    <value>Message ID</value>
   </text>
   <text id="TEXT_Metered_On">
-    <value>[IT]Metered On</value>
+    <value>Metered On</value>
   </text>
   <text id="TEXT_Assigned_On">
-    <value>[IT]Assigned On</value>
+    <value>Assigned On</value>
   </text>
   <text id="TEXT_Assigned_To">
-    <value>[IT]Assigned To</value>
+    <value>Assigned To</value>
   </text>
   <text id="TEXT_Session_Count">
-    <value>[IT]Session Count</value>
+    <value>Session Count</value>
+  </text>
+  <text id="TEXT_Children">
+    <value>Children</value>
   </text>
 </texts>

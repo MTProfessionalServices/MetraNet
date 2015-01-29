@@ -754,75 +754,75 @@
     <description></description>
   </text>
   <text id="TEXT_January">
-    <value>[PT-BR]January</value>
+    <value>January</value>
     <description></description>
   </text>
   <text id="TEXT_February">
-    <value>[PT-BR]February</value>
+    <value>February</value>
     <description></description>
   </text>
   <text id="TEXT_March">
-    <value>[PT-BR]March</value>
+    <value>March</value>
     <description></description>
   </text>
   <text id="TEXT_April">
-    <value>[PT-BR]April</value>
+    <value>April</value>
     <description></description>
   </text>
   <text id="TEXT_May">
-    <value>[PT-BR]May</value>
+    <value>May</value>
     <description></description>
   </text>
   <text id="TEXT_June">
-    <value>[PT-BR]June</value>
+    <value>June</value>
     <description></description>
   </text>
   <text id="TEXT_July">
-    <value>[PT-BR]July</value>
+    <value>July</value>
     <description></description>
   </text>
   <text id="TEXT_August">
-    <value>[PT-BR]August</value>
+    <value>August</value>
     <description></description>
   </text>
   <text id="TEXT_September">
-    <value>[PT-BR]September</value>
+    <value>September</value>
     <description></description>
   </text>
   <text id="TEXT_October">
-    <value>[PT-BR]October</value>
+    <value>October</value>
     <description></description>
   </text>
   <text id="TEXT_November">
-    <value>[PT-BR]November</value>
+    <value>November</value>
     <description></description>
   </text>
   <text id="TEXT_December">
-    <value>[PT-BR]December</value>
+    <value>December</value>
     <description></description>
   </text>
   <text id="TEXT_PRICE_LIST">
-    <value>[PT-BR]Price list</value>
+    <value>Price list</value>
     <description></description>
   </text>
   <text id="TEXT_MODIFIED_BY">
-    <value>[PT-BR]modified by</value>
+    <value>modified by</value>
     <description></description>
   </text>
   <text id="TEXT_AT">
-    <value>[PT-BR]at</value>
+    <value>at</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_CHANGES">
-    <value>[PT-BR]View changes</value>
+    <value>View changes</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_HISTORY">
-    <value>[PT-BR]View history</value>
+    <value>View history</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_HAVE_UNSAVED_CHANGES">
-    <value>[pt-BR]You have unsaved changes.</value>
+    <value>You have unsaved changes.</value>
     <description></description>
   </text>
 </texts>

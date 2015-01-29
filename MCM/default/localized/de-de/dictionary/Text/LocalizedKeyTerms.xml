@@ -4,195 +4,195 @@
 
   <!-- Product Offering -->
   <text id="TEXT_KEYTERM_PRODUCT_OFFERING">
-    <value>[DE]Product Offering</value>
+    <value>Product Offering</value>
     <description>Product Offering</description>
   </text>
   <text id="TEXT_KEYTERM_PRODUCT_OFFERINGS">
-    <value>[DE]Product Offerings</value>
+    <value>Product Offerings</value>
     <description>Product Offerings</description>
   </text>
 
   <!-- Priceable Items -->
   <text id="TEXT_KEYTERM_PRICEABLE_ITEM">
-    <value>[DE]Priceable Item</value>
+    <value>Priceable Item</value>
     <description>Priceable Item</description>
   </text>
   <text id="TEXT_KEYTERM_PRICEABLE_ITEMS">
-    <value>[DE]Priceable Items</value>
+    <value>Priceable Items</value>
     <description>Priceable Items</description>
   </text>
 
   <!-- Usage Charge -->
   <text id="TEXT_KEYTERM_USAGE_CHARGE">
-    <value>[DE]Usage Charge</value>
+    <value>Usage Charge</value>
     <description>Usage Charge</description>
   </text>
   <text id="TEXT_KEYTERM_USAGE_CHARGES">
-    <value>[DE]Usage Charges</value>
+    <value>Usage Charges</value>
     <description>Usage Charges</description>
   </text>
 
   <!-- Usage Charge (aggregate) -->
   <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
-    <value>[DE]Usage Charge (Aggregate)</value>
+    <value>Usage Charge (Aggregate)</value>
     <description>Usage Charge (Aggregate)</description>
   </text>
   <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
-    <value>[DE]Usage Charges (Aggregate)</value>
+    <value>Usage Charges (Aggregate)</value>
     <description>Usage Charges (Aggregate)</description>
   </text>
 
   <!-- Recurring Charge -->
   <text id="TEXT_KEYTERM_RECURRING_CHARGE">
-    <value>[DE]Recurring Charge</value>
+    <value>Recurring Charge</value>
     <description>Recurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_RECURRING_CHARGES">
-    <value>[DE]Recurring Charges</value>
+    <value>Recurring Charges</value>
     <description>Recurring Charges</description>
   </text>
 
   <!-- Non-Recurring Charge -->
   <text id="TEXT_KEYTERM_NON_RECURRING_CHARGE">
-    <value>[DE]Non-Recurring Charge</value>
+    <value>Non-Recurring Charge</value>
     <description>Nonrecurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_NON_RECURRING_CHARGES">
-    <value>[DE]Non-Recurring Charges</value>
+    <value>Non-Recurring Charges</value>
     <description>Nonrecurring Charges</description>
   </text>
 
   <!-- Discounts -->
   <text id="TEXT_KEYTERM_DISCOUNT">
-    <value>[DE]Discount</value>
+    <value>Discount</value>
     <description>Discount</description>
   </text>
   <text id="TEXT_KEYTERM_DISCOUNTS">
-    <value>[DE]Discounts</value>
+    <value>Discounts</value>
     <description>Discounts</description>
   </text>
 
   <!-- Price List -->
   <text id="TEXT_KEYTERM_PRICE_LIST">
-    <value>[DE]Price List</value>
+    <value>Price List</value>
     <description>Price List</description>
   </text>
   <text id="TEXT_KEYTERM_PRICE_LISTS">
-    <value>[DE]Price Lists</value>
+    <value>Price Lists</value>
     <description>Price Lists</description>
   </text>
 
   <!-- Rate Schedule -->
   <text id="TEXT_KEYTERM_RATE_SCHEDULE">
-    <value>[DE]Rate Schedule</value>
+    <value>Rate Schedule</value>
     <description>Rate Schedule</description>
   </text>
   <text id="TEXT_KEYTERM_RATE_SCHEDULES">
-    <value>[DE]Rate Schedules</value>
+    <value>Rate Schedules</value>
     <description>Rate Schedules</description>
   </text>
 
   <!-- Personal Rate -->
   <text id="TEXT_KEYTERM_PERSONAL_RATE">
-    <value>[DE]Custom Rate</value>
+    <value>Custom Rate</value>
     <description>Custom Rate</description>
   </text>
   <text id="TEXT_KEYTERM_PERSONAL_RATES">
-    <value>[DE]Custom Rates</value>
+    <value>Custom Rates</value>
     <description>Custom Rates</description>
   </text>
 
   <!-- Counter -->
   <text id="TEXT_KEYTERM_COUNTER">
-    <value>[DE]Counter</value>
+    <value>Counter</value>
     <description>Counter</description>
   </text>
   <text id="TEXT_KEYTERM_COUNTERS">
-    <value>[DE]Counters</value>
+    <value>Counters</value>
     <description>Counters</description>
   </text>
 
   <!-- Parameter Table -->
   <text id="TEXT_KEYTERM_PARAMETER_TABLE">
-    <value>[DE]Parameter Table</value>
+    <value>Parameter Table</value>
     <description>Parameter Table</description>
   </text>
   <text id="TEXT_KEYTERM_PARAMETER_TABLES">
-    <value>[DE]Parameter Tables</value>
+    <value>Parameter Tables</value>
     <description>Parameter Tables</description>
   </text>
 
   <!-- Calendars -->
   <text id="TEXT_KEYTERM_CALENDAR">
-    <value>[DE]Calendar</value>
+    <value>Calendar</value>
     <description>Calendar</description>
   </text>
   <text id="TEXT_KEYTERM_CALENDARS">
-    <value>[DE]Calendars</value>
+    <value>Calendars</value>
     <description>Calendars</description>
   </text>
   <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTION">
-    <value>[DE]Group Subscription</value>
+    <value>Group Subscription</value>
     <description>Group Subscription</description>
   </text>
   <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS">
-    <value>[DE]Group Subscriptions</value>
+    <value>Group Subscriptions</value>
     <description>Group Subscriptions</description>
   </text>
   <text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
-    <value>[DE]Corporate Account</value>
+    <value>Corporate Account</value>
     <description>Corporate Account</description>
   </text>
   <text id="PAYER_ACCOUNT">
-    <value>[DE]Payer</value>
+    <value>Payer</value>
     <description>Payer</description>
   </text>
   <text id="PAYEE_ACCOUNT">
-    <value>[DE]Payee</value>
+    <value>Payee</value>
     <description>Payee</description>
   </text>
   <text id="INDEPENDENT_ACCOUNT">
-    <value>[DE]Indepdendent account</value>
+    <value>Indepdendent account</value>
     <description>Independent Account</description>
   </text>
 
   <!-- Service Endpoint(s) -->
   <text id="TEXT_KEYTERM_SERVICE_ENDPOINT">
-    <value>[DE]Service Endpoint</value>
+    <value>Service Endpoint</value>
     <description>Service Endpoint</description>
   </text>
   <text id="TEXT_KEYTERM_SERVICE_ENDPOINTS">
-    <value>[DE]Service Endpoints</value>
+    <value>Service Endpoints</value>
     <description>Service Endpoints</description>
   </text>
 
   <!-- Unit-Dependent Recurring Charge(s) -->
   <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE">
-    <value>[DE]Unit-Dependent Recurring Charge</value>
+    <value>Unit-Dependent Recurring Charge</value>
     <description>Unit-Dependent Recurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES">
-    <value>[DE]Unit-Dependent Recurring Charges</value>
+    <value>Unit-Dependent Recurring Charges</value>
     <description>Unit-Dependent Recurring Charges</description>
   </text>
 
   <!-- Shared Price List(s) -->
   <text id="TEXT_KEYTERM_SHARED_PRICE_LIST">
-    <value>[DE]Shared Price List</value>
+    <value>Shared Price List</value>
     <description>Shared Price List</description>
   </text>
   <text id="TEXT_KEYTERM_SHARED_PRICE_LISTS">
-    <value>[DE]Shared Price Lists</value>
+    <value>Shared Price Lists</value>
     <description>Shared Price Lists</description>
   </text>
 
   <!-- Non-Shared Price List(s) -->
   <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LIST">
-    <value>[DE]Non-Shared Price List</value>
+    <value>Non-Shared Price List</value>
     <description>Nonshared Price List</description>
   </text>
   <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS">
-    <value>[DE]Non-Shared Price Lists</value>
+    <value>Non-Shared Price Lists</value>
     <description>Nonshared Price Lists</description>
   </text>
 </texts>

@@ -292,18 +292,18 @@
     <value>Historique des audits pour le numéro de dossier de transaction échoué</value>
   </text>
   <text id="TEXT_Message_ID">
-    <value>[FR]Message ID</value>
+    <value>Message ID</value>
   </text>
   <text id="TEXT_Metered_On">
-    <value>[FR]Metered On</value>
+    <value>Metered On</value>
   </text>
   <text id="TEXT_Assigned_On">
-    <value>[FR]Assigned On</value>
+    <value>Assigned On</value>
   </text>
   <text id="TEXT_Assigned_To">
-    <value>[FR]Assigned To</value>
+    <value>Assigned To</value>
   </text>
   <text id="TEXT_Session_Count">
-    <value>[FR]Session Count</value>
+    <value>Session Count</value>
   </text>
 </texts>

@@ -80,15 +80,15 @@
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="TODAY_TEXT">
-    <value>[IT]Today</value>
+    <value>Today</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="MONTH_NAMES">
-    <value>[IT]January,February,March,April,May,June,July,August,September,October,November,December</value>
+    <value>January,February,March,April,May,June,July,August,September,October,November,December</value>
     <description>Define if the day light saving mode must be used when the date are localized.</description>
   </text>
   <text id="DAY_NAMES">
-    <value>[IT]Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
+    <value>Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
     <description>weekdays.</description>
   </text>
   <text id="START_DAY_OF_WEEK">
@@ -96,15 +96,15 @@
     <description></description>
   </text>
   <text id="CALENDAR_CANCEL">
-    <value>[IT]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="NEXT_MONTH_TEXT">
-    <value>[IT]Next Month</value>
+    <value>Next Month</value>
     <description></description>
   </text>
   <text id="PREV_MONTH_TEXT">
-    <value>[IT]Previous month</value>
+    <value>Previous month</value>
     <description></description>
   </text>
   <text id="DATE_SEPARATOR">

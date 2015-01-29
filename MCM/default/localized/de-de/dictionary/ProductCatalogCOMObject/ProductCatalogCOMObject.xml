@@ -7,27 +7,27 @@
 
   <!-- Priceable Items Properties -->
   <text id="TEXT_PRICEABLE_ITEM_USAGE">
-    <value>[DE]Usage Charge</value>
+    <value>Usage Charge</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_NAME">
-    <value>[DE]Name</value>
+    <value>Name</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_DISPLAYNAME">
-    <value>[DE]Display Name</value>
+    <value>Display Name</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_DESCRIPTION">
-    <value>[DE]Description</value>
+    <value>Description</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_TYPE">
-    <value>[DE]Type</value>
+    <value>Type</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_SERVICE_DEFINITION">
-    <value>[DE]Service Definition</value>
+    <value>Service Definition</value>
     <description></description>
   </text>
 </texts>

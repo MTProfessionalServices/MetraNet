@@ -6,52 +6,52 @@
 
   <!-- Subscription Effective Date Errors -->
   <text id="MAM_ERROR_5000">
-    <value>[es-MX]You cannot leave Start or End dates blank.</value>
+    <value>You cannot leave Start or End dates blank.</value>
   </text>
   <text id="MAM_ERROR_5001">
-    <value>[es-MX]You cannot leave Start date blank.</value>
+    <value>You cannot leave Start date blank.</value>
   </text>
   <text id="MAM_ERROR_5002">
-    <value>[es-MX]Date cannot be in the past.</value>
+    <value>Date cannot be in the past.</value>
   </text>
   <text id="MAM_ERROR_5003">
-    <value>[es-MX]End date cannot be before Start date.</value>
+    <value>End date cannot be before Start date.</value>
   </text>
   <text id="MAM_ERROR_5004">
-    <value>[es-MX]Start and End date cannot be the same date and End date cannot be in the past.</value>
+    <value>Start and End date cannot be the same date and End date cannot be in the past.</value>
   </text>
   <text id="MAM_ERROR_5005">
-    <value>[es-MX]Subscription Start date cannot be before effective Start date</value>
+    <value>Subscription Start date cannot be before effective Start date</value>
   </text>
   <text id="MAM_ERROR_5006">
-    <value>[es-MX]The system cannot calculate the next billing cycle after the given start date for this subscription because it is too far in the future or past. You can either adjust the start date or make it an absolute date.</value>
+    <value>The system cannot calculate the next billing cycle after the given start date for this subscription because it is too far in the future or past. You can either adjust the start date or make it an absolute date.</value>
   </text>
   <text id="MAM_ERROR_5007">
-    <value>[es-MX]The system cannot calculate the next billing cycle after the given end date for this subscription because it is too far in the future or past. You can either adjust the end date or make it an absolute date.</value>
+    <value>The system cannot calculate the next billing cycle after the given end date for this subscription because it is too far in the future or past. You can either adjust the end date or make it an absolute date.</value>
   </text>
 
   <!-- Rate Schedule Effective Date Errors -->
   <text id="MAM_ERROR_6001">
-    <value>[es-MX]If no Start date, then End date must be after today.</value>
+    <value>If no Start date, then End date must be after today.</value>
   </text>
   <text id="MAM_ERROR_6002">
-    <value>[es-MX]If no End date, then Start date cannot be in the past.</value>
+    <value>If no End date, then Start date cannot be in the past.</value>
   </text>
   <text id="MAM_ERROR_6003">
-    <value>[es-MX]End Date cannot be before Start date.</value>
+    <value>End Date cannot be before Start date.</value>
   </text>
   <text id="MAM_ERROR_6004">
-    <value>[es-MX]Start and End date cannot be the same date.</value>
+    <value>Start and End date cannot be the same date.</value>
   </text>
 
   <!-- Format error -->
   <text id="MAM_ERROR_7004">
-    <value>[es-MX]Invalid time format.  An example of a valid time is (DD/MM/YYYY HH:MM:SS).</value>
+    <value>Invalid time format.  An example of a valid time is (DD/MM/YYYY HH:MM:SS).</value>
   </text>
   <text id="MAM_WARNING_8000">
-    <value>[es-MX]WARNING-Start Date is in the past. Press OK again to confirm.</value>
+    <value>WARNING-Start Date is in the past. Press OK again to confirm.</value>
   </text>
   <text id="MAM_WARNING_8001">
-    <value>[es-MX]WARNING-End Date is in the past. Press OK again to confirm.</value>
+    <value>WARNING-End Date is in the past. Press OK again to confirm.</value>
   </text>
 </texts>

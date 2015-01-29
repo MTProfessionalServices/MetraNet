@@ -1,338 +1,337 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_BILLING_GROUP">
-    <value>[JA]Billing Group</value>
+    <value>Billing Group</value>
   </text>
   <text id="TEXT_SUCCEED">
-    <value>[JA]Succeed</value>
+    <value>Succeed</value>
   </text>
   <text id="TEXT_FAILED">
-    <value>[JA]Failed</value>
+    <value>Failed</value>
   </text>
   <text id="TEXT_ADAPTERS">
-    <value>[JA]Adapters</value>
+    <value>Adapters</value>
   </text>
   <text id="TEXT_MEMBERS">
-    <value>[JA]Members</value>
+    <value>Members</value>
   </text>
   <text id="TEXT_STATUS">
-    <value>[JA]Status</value>
+    <value>Status</value>
   </text>
   <text id="TEXT_BILLING_GROUPS">
-    <value>[JA]Billing Groups</value>
+    <value>Billing Groups</value>
   </text>
   <text id="TEXT_BILLING_GROUPS_FOR_INTERVAL">
-    <value>[JA]Billing Groups for Interval</value>
+    <value>Billing Groups for Interval</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS_DESCRIPTION">
-    <value>[JA]Select to view statistics for all billing groups in this interval.</value>
+    <value>Select to view statistics for all billing groups in this interval.</value>
   </text>
   <text id="TEXT_LOCATE_PAYER_DESCRIPTION">
-    <value>[JA]Find a payer's billing group for this interval.</value>
+    <value>Find a payer's billing group for this interval.</value>
   </text>
   <text id="TEXT_MATERIALIZE">
-    <value>[JA]Create Billing Groups for Interval</value>
+    <value>Create Billing Groups for Interval</value>
   </text>
   <text id="TEXT_REMATERIALIZE">
-    <value>[JA]Recreate Billing Groups for Interval</value>
+    <value>Recreate Billing Groups for Interval</value>
   </text>
   <text id="TEXT_MATERIALIZE_WAIT">
-    <value>[JA]Please wait while billing groups are populated...</value>
+    <value>Please wait while billing groups are populated...</value>
   </text>
   <text id="TEXT_CREATE_GROUP_DESCRIPTION">
-    <value>[JA]Create a pull list for this billing group.</value>
+    <value>Create a pull list for this billing group.</value>
   </text>
   <text id="TEXT_VIEW_HISTORY_DESCRIPTION">
-    <value>[JA]View Billing Process Adapter history for this billing group in this interval.</value>
+    <value>View Billing Process Adapter history for this billing group in this interval.</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION">
-    <value>[JA]Select to view statistics for this billing group and interval.</value>
+    <value>Select to view statistics for this billing group and interval.</value>
   </text>
   <text id="TEXT_CREATE_PULL_LIST_ACCOUNT_DESCRIPTION">
-    <value>[JA]A pull list is used to remove accounts from the current billing group. These accounts will be placed in this newly created billing group. Specify either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
+    <value>A pull list is used to remove accounts from the current billing group. These accounts will be placed in this newly created billing group. Specify either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
   </text>
   <text id="TEXT_CREATE_PULL_LIST_FILE_DESCRIPTION">
-    <value>[JA]A pull list file is used to remove accounts from the current billing group.  These accounts will be placed in this newly created billing group.  The file format is a UTF-8 encoded text file that specifies either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
+    <value>A pull list file is used to remove accounts from the current billing group.  These accounts will be placed in this newly created billing group.  The file format is a UTF-8 encoded text file that specifies either account IDs separated by returns or username comma namespace pairs separated by returns.</value>
   </text>
   <text id="TEXT_NO_BILLING_GROUPS">
-    <value>[JA]Your system has valid billing group definitions, but the system has not assigned payers to groups for this interval. Please click the Create Billing Groups for Interval button above.</value>
+    <value>Your system has valid billing group definitions, but the system has not assigned payers to groups for this interval. Please click the Create Billing Groups for Interval button above.</value>
   </text>
   <text id="TEXT_NO_PAYING_ACCOUNTS_IN_INTERVAL_DESCRIPTION">
-    <value>[JA]This interval does not have any paying accounts or any accounts to invoice. It can be hard closed directly by clicking on the button below.</value>
+    <value>This interval does not have any paying accounts or any accounts to invoice. It can be hard closed directly by clicking on the button below.</value>
   </text>
   <text id="TEXT_TOGGLE_HIERARCHY_DISPLAY">
-    <value>[JA]Toggle Hierarchy Display</value>
+    <value>Toggle Hierarchy Display</value>
   </text>
   <text id="TEXT_HARD_CLOSE_THIS_INTERVAL">
-    <value>[JA]Hard Close This Interval</value>
+    <value>Hard Close This Interval</value>
   </text>
   <text id="TEXT_SUB_BILLING_GROUPS">
-    <value>[JA]Sub-Billing Groups Created from Pull Lists:</value>
+    <value>Sub-Billing Groups Created from Pull Lists:</value>
   </text>
   <text id="TEXT_BG_INTERVALID">
-    <value>[JA]Interval</value>
+    <value>Interval</value>
   </text>
   <text id="TEXT_BG_CYCLE_TYPE">
-    <value>[JA]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_BG_START">
-    <value>[JA]Start</value>
+    <value>Start</value>
   </text>
   <text id="TEXT_BG_END">
-    <value>[JA]End</value>
+    <value>End</value>
   </text>
   <text id="TEXT_BG_TOTAL_GROUP_COUNT">
-    <value>[JA]Groups</value>
+    <value>Groups</value>
   </text>
   <text id="TEXT_BG_OPEN_BILLING_GROUP_COUNT">
-    <value>[JA]Open</value>
+    <value>Open</value>
   </text>
   <text id="TEXT_BG_SOFT_CLOSED_GROUP_COUNT">
-    <value>[JA]Soft Closed</value>
+    <value>Soft Closed</value>
   </text>
   <text id="TEXT_BG_HARD_CLOSED_GROUP_COUNT">
-    <value>[JA]Hard Closed</value>
+    <value>Hard Closed</value>
   </text>
   <text id="TEXT_BG_UNASSIGNED">
-    <value>[JA]Unassigned Accounts</value>
+    <value>Unassigned Accounts</value>
   </text>
   <text id="TEXT_BG_PROGRESS">
-    <value>[JA]Progress</value>
+    <value>Progress</value>
   </text>
   <text id="TEXT_VIEW_STATISTICS">
-    <value>[JA]View Statistics</value>
+    <value>View Statistics</value>
   </text>
   <text id="TEXT_REFRESH_INTERVAL_DETAILS">
-    <value>[JA]Refresh interval details</value>
+    <value>Refresh interval details</value>
   </text>
   <text id="TEXT_LOCATE_PAYER">
-    <value>[JA]Locate Payer</value>
+    <value>Locate Payer</value>
   </text>
   <text id="TEXT_MANUALLY_ASSIGN_ACCOUNTS">
-    <value>[JA]Manually Assign Accounts</value>
+    <value>Manually Assign Accounts</value>
   </text>
   <text id="TEXT_TEMP_BILLING_GROUP">
-    <value>[JA]Create a temporary billing group for this interval in order to bill for unassigned accounts.</value>
+    <value>Create a temporary billing group for this interval in order to bill for unassigned accounts.</value>
   </text>
   <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_TITLE">
-    <value>[JA]Accounts That Had Reported Failures For This Adapter Run</value>
+    <value>Accounts That Had Reported Failures For This Adapter Run</value>
   </text>
   <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_NO_ACCOUNTS_FOUND">
-    <value>[JA]No accounts with reported failures were found. Either this adapter did not report any batches or in the reported batches there were no failures against particular accounts. </value>
+    <value>No accounts with reported failures were found. Either this adapter did not report any batches or in the reported batches there were no failures against particular accounts. </value>
   </text>
   <text id="TEXT_OPENUNASSIGNED_ACCOUNTS">
-    <value>[JA]Open Unassigned Accounts</value>
+    <value>Open Unassigned Accounts</value>
   </text>
   <text id="TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS">
-    <value>[JA]Hard closed Unassigned Accounts</value>
+    <value>Hard closed Unassigned Accounts</value>
   </text>
   <text id="TEXT_ACCOUNTS_INVOICED">
-    <value>[JA]New Accounts Can Be Invoiced For This Interval</value>
+    <value>New Accounts Can Be Invoiced For This Interval</value>
   </text>
   <text id="TEXT_CHANGE">
-    <value>[JA]Change</value>
+    <value>Change</value>
   </text>
   <text id="TEXT_ACCOUNTS_NOT_INVOICED">
-    <value>[JA]New Accounts Will Not Be Invoiced For This Interval</value>
+    <value>New Accounts Will Not Be Invoiced For This Interval</value>
   </text>
   <text id="TEXT_REFRESH_INTERVAL_DETAILS">
-    <value>[JA]Refresh Interval Details</value>
+    <value>Refresh Interval Details</value>
   </text>
   <text id="TEXT_SUCCEEDED">
-    <value>[JA]Succeeded</value>
+    <value>Succeeded</value>
   </text>
   <text id="TEXT_BG_TITLE_INTERVAL">
-    <value>[JA]Interval</value>
+    <value>Interval</value>
   </text>
   <text id="TEXT_BG_CYCLE_MONTHLY">
-    <value>[JA]Monthly</value>
+    <value>Monthly</value>
   </text>
   <text id="TEXT_BG_CYCLE_DAILY">
-    <value>[JA]Daily</value>
+    <value>Daily</value>
   </text>
   <text id="TEXT_BG_CYCLE_WEEKLY">
-    <value>[JA]Weekly</value>
+    <value>Weekly</value>
   </text>
   <text id="TEXT_BG_CYCLE_BIWEEKLY">
-    <value>[JA]BiWeekly</value>
+    <value>BiWeekly</value>
   </text>
   <text id="TEXT_BG_CYCLE_QUARTERLY">
-    <value>[JA]Quarterly</value>
+    <value>Quarterly</value>
   </text>
   <text id="TEXT_BG_CYCLE_SEMI_ANNUAL">
-    <value>[JA]Semi-Annually</value>
+    <value>Semi-Annually</value>
   </text>
   <text id="TEXT_BG_CYCLE_ANNUAL">
-    <value>[JA]Annual</value>
+    <value>Annual</value>
   </text>
   <text id="TEXT_BG_CYCLE_ALL">
-    <value>[JA]All</value>
+    <value>All</value>
   </text>
   <text id="TEXT_BG_CYCLE_ERROR">
-    <value>[JA](unknown cycle type)</value>
+    <value>(unknown cycle type)</value>
   </text>
   <text id="TEXT_BG_STATUS_OPEN">
-    <value>[JA]Open</value>
+    <value>Open</value>
   </text>
   <text id="TEXT_BG_STATUS_HARD_CLOSED">
-    <value>[JA]Hard Closed</value>
+    <value>Hard Closed</value>
   </text>
   <text id="TEXT_BG_STATUS_SOFT_CLOSED">
-    <value>[JA]Soft Closed</value>
+    <value>Soft Closed</value>
   </text>
   <text id="TEXT_BG_STATUS_UNKOWN">
-    <value>[JA]UNKOWN</value>
+    <value>UNKOWN</value>
   </text>
   <text id="TEXT_BG_NAME_DEFAULT">
-    <value>[JA]Default</value>
+    <value>Default</value>
   </text>
   <text id="TEXT_BG_DESCRIPTION_DEFAULT">
-    <value>[JA]Accounts that did not match other billing group rules</value>
+    <value>Accounts that did not match other billing group rules</value>
   </text>
   <text id="TEXT_BG_NAME_EUROPE">
-    <value>[JA]Europe</value>
+    <value>Europe</value>
   </text>
   <text id="TEXT_BG_DESCRIPTION_EUROPE">
-    <value>[JA]Accounts with Bill-To addresses residing in an European country</value>
+    <value>Accounts with Bill-To addresses residing in an European country</value>
   </text>
   <text id="TEXT_BG_NAME_NORTH_AMERICA">
-    <value>[JA]North America</value>
+    <value>North America</value>
   </text>
   <text id="TEXT_BG_DESCRIPTION_NORTH_AMERICA">
-    <value>[JA]Accounts with Bill-To addresses residing in a North American country</value>
+    <value>Accounts with Bill-To addresses residing in a North American country</value>
   </text>
   <text id="TEXT_BG_NAME_SOUTH_AMERICA">
-    <value>[JA]South America</value>
+    <value>South America</value>
   </text>
   <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
-    <value>[JA]Accounts with Bill-To addresses residing in a South American country</value>
+    <value>Accounts with Bill-To addresses residing in a South American country</value>
   </text>
   <text id="TEXT_BG_TITLE_BILLING_GROUP_STATE">
-    <value>[JA]Billing Group State</value>
+    <value>Billing Group State</value>
   </text>
   <text id="TEXT_BG_GRID_TITLE_NEW_STATE">
-    <value>[JA]New State</value>
+    <value>New State</value>
   </text>
   <text id="TEXT_BG_GRID_TITLE_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
   </text>
   <text id="TEXT_BG_BUTTON_OK_NAME">
-    <value>[JA]OK</value>
+    <value>OK</value>
   </text>
   <text id="TEXT_BG_BUTTON_CANCEL_NAME">
-    <value>[JA]Cancel</value>
+    <value>Cancel</value>
   </text>
   <text id="TEXT_BG_BILLING_GROUP_STATE_GRID_TITLE">
-    <value>[JA]The current state of this Billing Group is</value>
+    <value>The current state of this Billing Group is</value>
   </text>
   <text id="TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT">
-    <value>[JA]Billing Management</value>
+    <value>Billing Management</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_READYTORUN">
-    <value>[JA]Ready To Run</value>
+    <value>Ready To Run</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_READYTOREVERSE">
-    <value>[JA]Ready To Reverse</value>
+    <value>Ready To Reverse</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_NOTYETRUN">
-    <value>[JA]Not Yet Run</value>
+    <value>Not Yet Run</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_ACKNOWLEDGE">
-    <value>[JA]Acknowledge</value>
+    <value>Acknowledge</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_RUNNING">
-    <value>[JA]Running</value>
+    <value>Running</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_SUCCEEDED">
-    <value>[JA]Succeeded</value>
+    <value>Succeeded</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_FAILED">
-    <value>[JA]Failed</value>
+    <value>Failed</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_INPROGRESS">
-    <value>[JA]In Progress</value>
+    <value>In Progress</value>
   </text>
   <text id="TEXT_BG_STATUS_CODE_REVERSING">
-    <value>[JA]Reversing</value>
+    <value>Reversing</value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_EXECUTE">
-    <value>[JA]Execute </value>
+    <value>Execute </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_REVERSE">
-    <value>[JA]Reverse </value>
+    <value>Reverse </value>
   </text>
   <text id="TEXT_Unassigned_Accounts_That_Are_Hard_Closed">
-    <value>[JA]Unassigned Accounts That Are Hard Closed</value>
+    <value>Unassigned Accounts That Are Hard Closed</value>
   </text>
   <text id="TEXT_Unassigned_Accounts_That_Are_Open">
-    <value>[JA]Unassigned Accounts That Are Open</value>
+    <value>Unassigned Accounts That Are Open</value>
   </text>
   <text id="TEXT_Account">
-    <value>[JA]Account</value>
+    <value>Account</value>
   </text>
   <text id="TEXT_Account_ID">
-    <value>[JA]Account ID</value>
+    <value>Account ID</value>
   </text>
   <text id="TEXT_User_Name">
-    <value>[JA]User Name</value>
+    <value>User Name</value>
   </text>
   <text id="TEXT_Namespace">
-    <value>[JA]Namespace</value>
+    <value>Namespace</value>
   </text>
   <text id="TEXT_Members_of">
-    <value>[JA]Members of</value>
+    <value>Members of</value>
   </text>
   <text id="TEXT_Search">
-    <value>[JA]Search</value>
+    <value>Search</value>
   </text>
   <text id="TEXT_Locate_Billing_Group_for_Payer_in_Interval">
-    <value>[JA]Locate Billing Group for Payer in Interval</value>
+    <value>Locate Billing Group for Payer in Interval</value>
   </text>
   <text id="TEXT_Go_to_this_Group">
-    <value>[JA]Go to this Group</value>
+    <value>Go to this Group</value>
   </text>
   <text id="TEXT_OPEN">
-    <value>[JA]Open</value>
+    <value>Open</value>
   </text>
   <text id="TEXT_Soft_Closed">
-    <value>[JA]Soft Closed</value>
+    <value>Soft Closed</value>
   </text>
   <text id="TEXT_Hard_Closed">
-    <value>[JA]Hard Closed</value>
+    <value>Hard Closed</value>
   </text>
   <text id="TEXT_unknown">
-    <value>[JA]unknown</value>
+    <value>unknown</value>
   </text>
   <text id="TEXT_Payer_not_found_in_billing_group_for_interval_">
-    <value>[JA]Payer not found in billing group for interval </value>
+    <value>Payer not found in billing group for interval </value>
   </text>
   <text id="TEXT_Both_the_User_Name_and_Namespace_are_required_when_not_searching_by_account_id">
-    <value>[JA]Both the User Name and Namespace are required when not searching by account id.</value>
+    <value>Both the User Name and Namespace are required when not searching by account id.</value>
   </text>
   <text id="TEXT_Locate_Billing_Group">
-    <value>[JA]Locate Billing Group</value>
+    <value>Locate Billing Group</value>
   </text>
   <text id="TEXT_Create_Billing_Group_from_Pull_List">
-    <value>[JA]Create Billing Group from Pull List</value>
+    <value>Create Billing Group from Pull List</value>
   </text>
   <text id="TEXT_New_Group_Name">
-    <value>[JA]New Group Name</value>
+    <value>New Group Name</value>
   </text>
   <text id="TEXT_What_accounts_should_be_included">
-    <value>[JA]What accounts should be included in this new billing group?</value>
+    <value>What accounts should be included in this new billing group?</value>
   </text>
   <text id="TEXT_All_Failed_Accounts">
-    <value>[JA]All Failed Accounts</value>
+    <value>All Failed Accounts</value>
   </text>
   <text id="TEXT_Include_all_failed_accounts">
-    <value>[JA]  Include all failed accounts from the run.</value>
+    <value>Include all failed accounts from the run.</value>
   </text>
   <text id="TEXT_Specify_Accounts_in_a_Pull_List">
-    <value>[JA]Specify Accounts in a Pull List</value>
+    <value>Specify Accounts in a Pull List</value>
   </text>
   <text id="TEXT_A_pull_list_is_used_to_remove">
-    <value>[JA]
-      A pull list is used to remove accounts from the current billing group. These
+    <value>A pull list is used to remove accounts from the current billing group. These
       accounts will be placed in this newly created billing group. Specify either
       account IDs separated by returns or username\namespace pairs separated by
       returns. You may also use the inline account finder below to add accounts to
@@ -340,83 +339,82 @@
     </value>
   </text>
   <text id="TEXT_Find_Account">
-    <value>[JA]Find Account</value>
+    <value>Find Account</value>
   </text>
   <text id="TEXT_A_pull_list_is_used_to_remove2">
-    <value>[JA]
-      A pull list file is used to remove accounts from the current billing group.
+    <value>A pull list file is used to remove accounts from the current billing group.
       These accounts will be placed in this newly created billing group. The file
       format is a UTF-8 encoded text file that specifies either account IDs separated
       by returns or username comma namespace pairs separated by returns.
     </value>
   </text>
   <text id="TEXT_Create_Pull_List_From_File">
-    <value>[JA]Create Pull List From File</value>
+    <value>Create Pull List From File</value>
   </text>
   <text id="TEXT_Payee_Account">
-    <value>[JA]Payee Account</value>
+    <value>Payee Account</value>
   </text>
   <text id="TEXT_Payee_Account_ID">
-    <value>[JA]Payee Account ID</value>
+    <value>Payee Account ID</value>
   </text>
   <text id="TEXT_Payee_User_Name">
-    <value>[JA]Payee User Name</value>
+    <value>Payee User Name</value>
   </text>
   <text id="TEXT_Payee_Namespace">
-    <value>[JA]Payee Namespace</value>
+    <value>Payee Namespace</value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_MARKASNOTYETRUN">
-    <value>[JA]Mark as not yet Run </value>
+    <value>Mark as not yet Run </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_MARKASFAILED">
-    <value>[JA]Mark as Failed </value>
+    <value>Mark as Failed </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_MARKASSUCCEEDED">
-    <value>[JA]Mark as Succeeded </value>
+    <value>Mark as Succeeded </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_CANCEL">
-    <value>[JA]Cancel </value>
+    <value>Cancel </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_UNACKNOWLEDGE">
-    <value>[JA]Unacknowledge </value>
+    <value>Unacknowledge </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_ACKNOWLEDGE">
-    <value>[JA]Acknowledge </value>
+    <value>Acknowledge </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_SUBMITFORREVERSAL">
-    <value>[JA]Submit For Reversal </value>
+    <value>Submit For Reversal </value>
   </text>  
   <text id="TEXT_BG_RUN_ACTION_SUBMITFOREXECUTION">
-    <value>[JA]Submit For Execution </value>
+    <value>Submit For Execution </value>
   </text>
   <text id="TEXT_BG_RUN_ACTION_WAS_FORCED">
-    <value>[JA]The adapter run was forced to ignore dependencies</value>
+    <value>The adapter run was forced to ignore dependencies</value>
   </text>
   <text id="TEXT_BG_RUN_TYPE_CHECKPOINT">
-    <value>[JA]Checkpoint</value>
+    <value>Checkpoint</value>
   </text>
   <text id="TEXT_BG_RUN_TYPE_ENDOFPERIOD">
-    <value>[JA]End Of Period</value>
+    <value>End Of Period</value>
   </text>
   <text id="TEXT_BG_RUN_TYPE_SCHEDULED">
-    <value>[JA]Scheduled</value>
+    <value>Scheduled</value>
   </text>
   <text id="TEXT_BG_RUN_TYPE_ROOT">
-    <value>[JA]Root</value>
+    <value>Root</value>
   </text>  
   <text id="TEXT_SECOND_SINGULAR">
-    <value>[JA]second</value>
+    <value>second</value>
   </text>
   <text id="TEXT_MINUTE_SINGULAR">
-    <value>[JA]minute</value>
+    <value>minute</value>
   </text>
   <text id="TEXT_SECOND_PLURAL">
-    <value>[JA]seconds</value>
+    <value>seconds</value>
   </text>
   <text id="TEXT_MINUTE_PLURAL">
-    <value>[JA]minutes</value>
+    <value>minutes</value>
   </text>
   <text id="TEXT_RETURN_TO_INTERVAL_LIST">
-    <value>[JA]Return To Interval List</value>
+    <value>Return To Interval List</value>
   </text>
 </texts>

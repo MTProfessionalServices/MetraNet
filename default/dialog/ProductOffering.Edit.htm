@@ -6,10 +6,17 @@
     <script type="text/javascript" src="/Res/Ext/ext-all.js"></script> 
       <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" /> 
     <script type="text/javascript" src="/Res/JavaScript/DatePicker.js"></script>
-   
+    <script type="text/javascript">
+    function setStyle() {
+      var e1 = window.frameElement.ownerDocument.getElementById("MainContent");
+      e1.style.overflow = 'hidden';
+      var e2 = window.frameElement;
+      e2.style.height = '100%';
+    }
+    </script>
     <title><MDMLABEL Name="TEXT_KEYTERM_PRODUCT_OFFERING"></MDMLABEL></title>                 
   </HEAD>
-<BODY onLoad="SizeWindow();">
+<BODY onLoad="SizeWindow(); setStyle();">
 <FORM name='mdm'>
 <!-- The title of the dialog-->
 <table border="0" cellpadding="0" cellspacing="0" width="100%" >

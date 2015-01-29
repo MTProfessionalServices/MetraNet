@@ -148,6 +148,8 @@ function NavigateToRates(id,pi_id)
     var targetURL="/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx";
     window.parent.location.href = targetURL;
     window.parent.close();
+    var e = window.parent.parent.document.getElementById('MainContent');
+    e.style.display = 'none';        
   }
 
   var last;

@@ -4,63 +4,63 @@
   <locale_space name="metratech.com/tax">
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/County</Name>
-      <Value>[DE]County</Value>
+      <Value>County</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/Federal</Name>
-      <Value>[DE]Federal</Value>
+      <Value>Federal</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/Local</Name>
-      <Value>[DE]Local</Value>
+      <Value>Local</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/Other</Name>
-      <Value>[DE]Other</Value>
+      <Value>Other</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/State</Name>
-      <Value>[DE]State</Value>
+      <Value>State</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/exempt</Name>
-      <Value>[DE]Exempt</Value>
+      <Value>Exempt</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce1</Name>
-      <Value>[DE]Reduce1</Value>
+      <Value>Reduce1</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce2</Name>
-      <Value>[DE]Reduce2</Value>
+      <Value>Reduce2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce3</Name>
-      <Value>[DE]Reduce3</Value>
+      <Value>Reduce3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce4</Name>
-      <Value>[DE]Reduce4</Value>
+      <Value>Reduce4</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/standard</Name>
-      <Value>[DE]Standard</Value>
+      <Value>Standard</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxDetail/Other</Name>
-      <Value>[DE]Other</Value>
+      <Value>Other</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxDetail/tax_details</Name>
-      <Value>[DE]tax_details</Value>
+      <Value>tax_details</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxExemptReason/NotExempt</Name>
-      <Value>[DE]NotExempt</Value>
+      <Value>NotExempt</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxExemptReason/Other</Name>
-      <Value>[DE]Other</Value>
+      <Value>Other</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxVendor/BillSoft</Name>

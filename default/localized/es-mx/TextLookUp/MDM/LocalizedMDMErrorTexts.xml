@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="MDM_ERROR_1000">
-    <value>[es-MX]1000-MDM/ASP-WARNING-Event [EVENT], dialog [NAME] is not implemented.</value>
+    <value>1000-MDM/ASP-WARNING-Event [EVENT], dialog [NAME] is not implemented.</value>
   </text>
   <text id="MDM_ERROR_1001">
-    <value>[es-MX]1001-MDM/ASP-Service COM Instance not found. Internal Error. Consult the MTLog.txt file.</value>
+    <value>1001-MDM/ASP-Service COM Instance not found. Internal Error. Consult the MTLog.txt file.</value>
   </text>
   <text id="MDM_ERROR_1002">
-    <value>[es-MX]1002-MDM/ASP-WARNING-Dictionary instance not found in Session()</value>
+    <value>1002-MDM/ASP-WARNING-Dictionary instance not found in Session()</value>
   </text>
   <text id="MDM_ERROR_1003">
-    <value>[es-MX]1002-MDM/ASP-WARNING-Dictionary instance found in Session()</value>
+    <value>1002-MDM/ASP-WARNING-Dictionary instance found in Session()</value>
   </text>
   <text id="MDM_ERROR_1004">
-    <value>[es-MX]1004-MDM/ASP-WARNING-Free from session object [NAME]</value>
+    <value>1004-MDM/ASP-WARNING-Free from session object [NAME]</value>
   </text>
   <text id="MDM_ERROR_1005">
-    <value>[es-MX]1005-MDM/ASP-WARNING-Store in session object [NAME]</value>
+    <value>1005-MDM/ASP-WARNING-Store in session object [NAME]</value>
   </text>
   <text id="MDM_ERROR_1006">
-    <value>[es-MX]1006-MDM/ASP-MDM Session Variable [NAME] not found</value>
+    <value>1006-MDM/ASP-MDM Session Variable [NAME] not found</value>
   </text>
   <text id="MDM_ERROR_1007">
-    <value>[es-MX]1007-MDM/ASP-MTService.Service.Initialize() function failed</value>
+    <value>1007-MDM/ASP-MTService.Service.Initialize() function failed</value>
   </text>
   <text id="MDM_ERROR_1008">
-    <value>[es-MX]1008-MDM/ASP-Default Form_Refresh() event was called. Form_Refresh() event is not implemented in the dialog!</value>
+    <value>1008-MDM/ASP-Default Form_Refresh() event was called. Form_Refresh() event is not implemented in the dialog!</value>
   </text>
   <text id="MDM_ERROR_1009">
-    <value>[es-MX]1009-MDM/ASP-Object Session Variable [NAME] not in session</value>
+    <value>1009-MDM/ASP-Object Session Variable [NAME] not in session</value>
   </text>
   <text id="MDM_ERROR_1010">
-    <value>[es-MX]1010-MDM/ASP-WARNING-MDM Garbage collector executed</value>
+    <value>1010-MDM/ASP-WARNING-MDM Garbage collector executed</value>
   </text>
   <text id="MDM_ERROR_1011">
-    <value>[es-MX]1011-MDM/ASP-WARNING-MDM Garbage collector clear [NAME]</value>
+    <value>1011-MDM/ASP-WARNING-MDM Garbage collector clear [NAME]</value>
   </text>
   <text id="MDM_ERROR_1012">
-    <value>[es-MX]1012-MDM/ASP-WARNING-MDM Clear Cache executed</value>
+    <value>1012-MDM/ASP-WARNING-MDM Clear Cache executed</value>
   </text>
   <text id="MDM_ERROR_1013">
-    <value>[es-MX]1013-MDM/ASP</value>
+    <value>1013-MDM/ASP</value>
   </text>
   <text id="MDM_ERROR_1014">
-    <value>[es-MX]1014-MDM/ASP-Event Form_LoadProductView() must be implemented</value>
+    <value>1014-MDM/ASP-Event Form_LoadProductView() must be implemented</value>
   </text>
   <text id="MDM_ERROR_1015">
-    <value>[es-MX]1015-MDM/ASP-WARNING-Event [EVENT] failed!</value>
+    <value>1015-MDM/ASP-WARNING-Event [EVENT] failed!</value>
   </text>
   <text id="MDM_ERROR_1016">
-    <value>[es-MX]1016-MDM/ASP-Dialog Service not found in memory! Event=[EVENT]. (Do not use the back button)</value>
+    <value>1016-MDM/ASP-Dialog Service not found in memory! Event=[EVENT]. (Do not use the back button)</value>
   </text>
   <text id="MDM_ERROR_1017">
-    <value>[es-MX]1017-MDM/ASP-Rowset type not supported columns [COLUMN]</value>
+    <value>1017-MDM/ASP-Rowset type not supported columns [COLUMN]</value>
   </text>
   <text id="MDM_ERROR_1018">
-    <value>[es-MX]1018-MDM/ASP-Cache object not found in session</value>
+    <value>1018-MDM/ASP-Cache object not found in session</value>
   </text>
   <text id="MDM_ERROR_1019">
-    <value>[es-MX]1019-MDM/ASP-IIS Session Time Out</value>
+    <value>1019-MDM/ASP-IIS Session Time Out</value>
   </text>
   <text id="MDM_ERROR_1020">
-    <value>[es-MX]1020-MDM/ASP-Rowset.Sort(""[PROPERTY]"") raised an error. Please look at the MTLog.txt file.</value>
+    <value>1020-MDM/ASP-Rowset.Sort(""[PROPERTY]"") raised an error. Please look at the MTLog.txt file.</value>
   </text>
   <text id="MDM_ERROR_1021">
-    <value>[es-MX]1021-MDM/ASP-MDM caugth an COM Error Event=[EVENT_NAME]; Number=[ERR_NUMBER]; Description=[ERR_DESCRIPTION]; Localization=[ERR_LOCALIZATION]</value>
+    <value>1021-MDM/ASP-MDM caugth an COM Error Event=[EVENT_NAME]; Number=[ERR_NUMBER]; Description=[ERR_DESCRIPTION]; Localization=[ERR_LOCALIZATION]</value>
   </text>
   <text id="MDM_ERROR_1022">
-    <value>[es-MX]1022-MDM/ASP-Method Service.RenderHTML() failed</value>
+    <value>1022-MDM/ASP-Method Service.RenderHTML() failed</value>
   </text>
   <text id="MDM_ERROR_1023">
-    <value>[es-MX]1023-MDM/ASP-Type mismatch on a filter</value>
+    <value>1023-MDM/ASP-Type mismatch on a filter</value>
   </text>
   <text id="MDM_ERROR_1024">
-    <value>[es-MX]1024-MDM/ASP-The filter data is not correct.  Please Reset the filter.</value>
+    <value>1024-MDM/ASP-The filter data is not correct.  Please Reset the filter.</value>
   </text>
   <text id="MDM_ERROR_1025">
-    <value>[es-MX]Your session has timed out.  Please login again.</value>
+    <value>Your session has timed out.  Please login again.</value>
   </text>
 </texts>

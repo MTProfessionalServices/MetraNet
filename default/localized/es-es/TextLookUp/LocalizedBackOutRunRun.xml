@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_GENERIC_BACK_OUT_DIALOG_TITLE">
-    <value>[ES]Generic BackOut Dialog</value>
+    <value>Generic BackOut Dialog</value>
   </text>
   <text id="TEXT_BACK_OUT_OPERATION_IS_NOT_COMPLETE">
-    <value>[ES] The last step of this backout operation is either still running or there was an issue and it did not complete. If the backout operation is not currently running you can select to try to resume it or abandon it by selecting one of the actions below.</value>
+    <value>The last step of this backout operation is either still running or there was an issue and it did not complete. If the backout operation is not currently running you can select to try to resume it or abandon it by selecting one of the actions below.</value>
   </text>
 </texts>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_ADD_NAME_SPACE_NAME_SPACE">
-    <value>[JA]Name Space</value>
+    <value>Name Space</value>
   </text>
   <text id="TEXT_ADD_NAME_SPACE_TYPE">
-    <value>[JA]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_ADD_NAME_SPACE_DESCRIPTION">
-    <value>[JA]Description</value>
+    <value>Description</value>
   </text>
 </texts>

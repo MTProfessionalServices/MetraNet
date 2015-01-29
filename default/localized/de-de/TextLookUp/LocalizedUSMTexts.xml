@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_USM_MANUAL">
-    <value>[DE]Run Usage Server Maintenance</value>
+    <value>Run Usage Server Maintenance</value>
   </text>
   <text id="TEXT_USM_CLOSE">
-    <value>[DE]Close</value>
+    <value>Close</value>
   </text>
   <text id="TEXT_USM_RUN">
-    <value>[DE]Run</value>
+    <value>Run</value>
   </text>
   <text id="TEXT_USM_ACTION">
-    <value>[DE]Action</value>
+    <value>Action</value>
   </text>
   <text id="TEXT_USM_DESCRIPTION">
-    <value>[DE]Description</value>
+    <value>Description</value>
   </text>
   <text id="TEXT_USM_CLOSE_DESCRIPTION">
-    <value><![CDATA[<strong>[DE]Automatically Soft Close the Billing Groups of Expired Usage Intervals.</strong><br>Each night the platform will check for intervals that have ended and using the grace period configuration below, automatically create billing groups and change their state to 'Soft Closed'.]]></value>
+    <value><![CDATA[<strong>Automatically Soft Close the Billing Groups of Expired Usage Intervals.</strong><br>Each night the platform will check for intervals that have ended and using the grace period configuration below, automatically create billing groups and change their state to 'Soft Closed'.]]></value>
   </text>
   <text id="TEXT_USM_CLOSE_INTERVAL_HEADER">
-    <value><![CDATA[[DE]Automatically create and Soft Close Billing Groups for:]]></value>
+    <value><![CDATA[Automatically create and Soft Close Billing Groups for:]]></value>
   </text>
   <text id="TEXT_USM_CLOSE_BLOCK_ACCOUNT_DESCRIPTION">
-    <value><![CDATA[[DE]When automatically closing intervals, block the intervals to new accounts.]]></value>
+    <value><![CDATA[When automatically closing intervals, block the intervals to new accounts.]]></value>
   </text>
   <text id="TEXT_USM_RUN_DESCRIPTION">
-    <value><![CDATA[<strong>[DE]Automatically Run End Of Period Adapters On Soft Closed Billing Groups</strong><BR>Once a Billing Group has been Soft Closed, either automatically or manually, the platform will automatically start running End Of Period adapters.]]></value>
+    <value><![CDATA[<strong>Automatically Run End Of Period Adapters On Soft Closed Billing Groups</strong><BR>Once a Billing Group has been Soft Closed, either automatically or manually, the platform will automatically start running End Of Period adapters.]]></value>
   </text>
   <text id="TEXT_USM_RUN_SCHEDULED_ADAPTERS_DESCRIPTION">
-    <value><![CDATA[<strong>[DE]Run Scheduled Adapters</strong><BR>The platform will periodically run configured scheduled adapters. Note: If this setting is not selected, all scheduled adapters will need to be run manually.]]></value>
+    <value><![CDATA[<strong>Run Scheduled Adapters</strong><BR>The platform will periodically run configured scheduled adapters. Note: If this setting is not selected, all scheduled adapters will need to be run manually.]]></value>
   </text>
   <text id="TEXT_USM_AUTO_CONFIG_TITLE">
-    <value>[DE]Usage Server Maintenance Configuration</value>
+    <value>Usage Server Maintenance Configuration</value>
   </text>
   <text id="TEXT_USM_AUTO_INFORMATION">
-    <value>[DE]These settings control various aspects of Usage Server Maintenance.</value>
+    <value>These settings control various aspects of Usage Server Maintenance.</value>
   </text>
   <text id="TEXT_USM_AUTO_ENABLED">
-    <value>[DE]Enabled</value>
+    <value>Enabled</value>
   </text>
   <text id="TEXT_USM_UPDATE_CONFIG">
-    <value>[DE]Save Configuration</value>
+    <value>Save Configuration</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_CONFIG_TITLE">
-    <value>[DE]Usage Server Maintenance Grace Period Configuration</value>
+    <value>Usage Server Maintenance Grace Period Configuration</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_CONFIG_INFORMATION">
-    <value>[DE]Grace periods used by UsageServerMaintenance.exe for determining when to Soft Close or Hard Close intervals automatically.</value>
+    <value>Grace periods used by UsageServerMaintenance.exe for determining when to Soft Close or Hard Close intervals automatically.</value>
   </text>
   <text id="TEXT_USM_SETTINGS">
-    <value>[DE]Settings</value>
+    <value>Settings</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_SOFT">
-    <value>[DE]Soft Close Grace Period</value>
+    <value>Soft Close Grace Period</value>
   </text>
   <text id="TEXT_USM_GRACE_PERIOD_HARD">
-    <value>[DE]Hard Close Grace Period</value>
+    <value>Hard Close Grace Period</value>
   </text>
 </texts>

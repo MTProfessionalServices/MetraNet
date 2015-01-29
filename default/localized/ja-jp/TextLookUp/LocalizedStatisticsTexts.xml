@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_USAGE_STATISTICS_FILTER">
-    <value>[JA]Usage Statistics Filter</value>
+    <value>Usage Statistics Filter</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_SEARCH_BUTTON">
-    <value>[JA]Search</value>
+    <value>Search</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_ID">
-    <value>[JA]View Id</value>
+    <value>View Id</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_NAME">
-    <value>[JA]View Name</value>
+    <value>View Name</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_COUNT">
-    <value>[JA]Count</value>
+    <value>Count</value>
   </text>
   <text id="TEXT_USAGE_STATISTICS_PRODUCTVIEW_AMOUNT">
-    <value>[JA]Amount</value>
+    <value>Amount</value>
   </text>
 </texts>

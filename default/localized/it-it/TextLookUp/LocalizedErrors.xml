@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="MOM_ERROR_1000">
-    <value>[IT]1000-MOM ERROR-E-mail is not valid</value>
+    <value>1000-MOM ERROR-E-mail is not valid</value>
   </text>
   <text id="MOM_ERROR_1001">
-    <value>[IT]1001-MOM ERROR-A system error has occurred.  Please have your administrator check the system log, and try again later.</value>
+    <value>1001-MOM ERROR-A system error has occurred.  Please have your administrator check the system log, and try again later.</value>
   </text>
   <text id="MOM_ERROR_1002">
-    <value>[IT]1002-MOM ERROR-A unknown error occured.  Please have your administrator check the system log, and try again later.</value>
+    <value>1002-MOM ERROR-A unknown error occured.  Please have your administrator check the system log, and try again later.</value>
   </text>
   <text id="MOM_ERROR_1003">
-    <value>[IT]1003-MOM ERROR-CSR loading information failed.</value>
+    <value>1003-MOM ERROR-CSR loading information failed.</value>
   </text>
   <text id="MOM_ERROR_1004">
-    <value>[IT]1004-MOM ERROR-This feature is only supported in IE version 4.0 and above.</value>
+    <value>1004-MOM ERROR-This feature is only supported in IE version 4.0 and above.</value>
   </text>
   <text id="MOM_ERROR_1005">
-    <value>[IT]1005-MOM ERROR-Cannot find the csr id from table t_account_mapper.</value>
+    <value>1005-MOM ERROR-Cannot find the csr id from table t_account_mapper.</value>
   </text>
   <text id="MOM_ERROR_1006">
-    <value>[IT]1006-MOM ERROR-Cannot create the name space. Check if the name space already exists.</value>
+    <value>1006-MOM ERROR-Cannot create the name space. Check if the name space already exists.</value>
   </text>
   <text id="MOM_ERROR_1007">
-    <value>[IT]1007-MOM ERROR-Invalid login or password.</value>
+    <value>1007-MOM ERROR-Invalid login or password.</value>
   </text>
   <text id="MOM_ERROR_1008">
-    <value>[IT]1008-MOM ERROR-No items selected.</value>
+    <value>1008-MOM ERROR-No items selected.</value>
   </text>
   <text id="MOM_ERROR_1009">
-    <value><![CDATA[[IT]Failed to resubmit transactions due to errors in the selected group.  None of the transactions were resubmitted.  To view the detailed error information click <span style="text-decoration:underline;cursor:hand;" onclick="window.open('[FAILED_TRANSACTION_ERROR_ROWSET_DIALOG]', 'ErrorWindow', 'width=640, height=480, menubar=no, status=no, location=no, toolbar=no, scrollbars=yes, resizable=yes');">here</span>.]]></value>
+    <value><![CDATA[Failed to resubmit transactions due to errors in the selected group.  None of the transactions were resubmitted.  To view the detailed error information click <span style="text-decoration:underline;cursor:hand;" onclick="window.open('[FAILED_TRANSACTION_ERROR_ROWSET_DIALOG]', 'ErrorWindow', 'width=640, height=480, menubar=no, status=no, location=no, toolbar=no, scrollbars=yes, resizable=yes');">here</span>.]]></value>
   </text>
   <text id="MOM_ERROR_1010">
-    <value>[IT]1010-MOM ERROR-One or more sessions identified for resubmit could not be found.</value>
+    <value>1010-MOM ERROR-One or more sessions identified for resubmit could not be found.</value>
   </text>
   <text id="MoM_ERROR_ERROR_DETAIL">
-    <value>[IT]Detail</value>
+    <value>Detail</value>
   </text>
   <text id="MoM_ERROR_ERROR_DETAIL_DESCRIPTION">
-    <value>[IT]View Error Number and Source If Available</value>
+    <value>View Error Number and Source If Available</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Succeeded">
-    <value>[IT]This adapter has already run and succeeded.  It needs to be reversed before it can be run again.</value>
+    <value>This adapter has already run and succeeded.  It needs to be reversed before it can be run again.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Failed">
-    <value>[IT]This adapter has already run and failed.  It needs to be reversed before it can be run again.</value>
+    <value>This adapter has already run and failed.  It needs to be reversed before it can be run again.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_ReadyToRun">
-    <value>[IT]This adapter has been marked as Ready To Run and needs to be reversed before it can be run again.</value>
+    <value>This adapter has been marked as Ready To Run and needs to be reversed before it can be run again.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Running">
-    <value>[IT]This adapter is currently running.</value>
+    <value>This adapter is currently running.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Reversing">
-    <value>[IT]This adapter is currently reversing.</value>
+    <value>This adapter is currently reversing.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotImplemented">
-    <value>[IT]This adapter cannot be reversed.</value>
+    <value>This adapter cannot be reversed.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotYetRun">
-    <value>[IT]This adapter has not completed a run. Adapter must have a 'Failed' or 'Succeeded' status on a completed run to be reversed.</value>
+    <value>This adapter has not completed a run. Adapter must have a 'Failed' or 'Succeeded' status on a completed run to be reversed.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_Missing">
-    <value>[IT]This scheduled adapter has not completed a run for all or part of the time period.</value>
+    <value>This scheduled adapter has not completed a run for all or part of the time period.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotCreated">
-    <value>[IT]This adapter has not been run. Execute the adapter after soft closing the parent billing group.</value>
+    <value>This adapter has not been run. Execute the adapter after soft closing the parent billing group.</value>
   </text>
   <text id="MoM_ERROR_AdapterRunReverseStatusErrorMessage_UNKOWN">
-    <value>[IT]UNKOWN Error Code: </value>
+    <value>UNKOWN Error Code: </value>
   </text>
 </texts>

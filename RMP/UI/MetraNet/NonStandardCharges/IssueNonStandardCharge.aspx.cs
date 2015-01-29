@@ -14,7 +14,6 @@ using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
-using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
 
 public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
@@ -44,26 +43,23 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
           if (!UI.SessionContext.SecurityContext.IsSuperUser())
           {
             maxAdjAmount = GetMaxCapabilityAmount();
-            /*lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount,
-                                              ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Currency);*/
           }
         }
 
-        lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount,
-                                          ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+        lblMaxAmount.Text = String.Format("{0}", maxAdjAmount);
       }
 
       ddReasonCode.EnumSpace = "metratech.com/NonStandardCharge";
       ddReasonCode.EnumType = "NonStandardChargeReason";
-      var enumType = MetraTech.DomainModel.Enums.EnumHelper.GetGeneratedEnumType("metratech.com/NonStandardCharge", "NonStandardChargeReason", Path.GetDirectoryName(new Uri(this.GetType().Assembly.CodeBase).AbsolutePath));
+      var enumType = EnumHelper.GetGeneratedEnumType("metratech.com/NonStandardCharge", "NonStandardChargeReason", Path.GetDirectoryName(new Uri(GetType().Assembly.CodeBase).AbsolutePath));
 
       if (enumType != null)
       {
-        List<MetraTech.DomainModel.BaseTypes.EnumData> enums = BaseObject.GetEnumData(enumType);
+        var enums = BaseObject.GetEnumData(enumType);
 
         foreach (MetraTech.DomainModel.BaseTypes.EnumData enumData in enums)
         {
-          ListItem itm = new ListItem(enumData.DisplayName /*localized*/, enumData.EnumInstance.ToString());
+          var itm = new ListItem(enumData.DisplayName /*localized*/, enumData.EnumInstance.ToString());
           ddReasonCode.Items.Add(itm);
         }
       }
@@ -71,14 +67,14 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
       ddAdditionalCode.EnumSpace = "metratech.com/NonStandardCharge";
       ddReasonCode.EnumType = "AdditionalCode";
 
-      var additionalEnumCodes = MetraTech.DomainModel.Enums.EnumHelper.GetGeneratedEnumType("metratech.com/NonStandardCharge", "AdditionalCode", Path.GetDirectoryName(new Uri(this.GetType().Assembly.CodeBase).AbsolutePath));
+      var additionalEnumCodes = EnumHelper.GetGeneratedEnumType("metratech.com/NonStandardCharge", "AdditionalCode", Path.GetDirectoryName(new Uri(GetType().Assembly.CodeBase).AbsolutePath));
       if (additionalEnumCodes != null)
       {
         List<MetraTech.DomainModel.BaseTypes.EnumData> enums = BaseObject.GetEnumData(additionalEnumCodes);
 
         foreach (MetraTech.DomainModel.BaseTypes.EnumData enumData in enums)
         {
-          ListItem itm = new ListItem(enumData.DisplayName, enumData.EnumInstance.ToString());
+          var itm = new ListItem(enumData.DisplayName, enumData.EnumInstance.ToString());
           ddAdditionalCode.Items.Add(itm);
         }
       }
@@ -91,13 +87,13 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
 
       if (UI.Subscriber.SelectedAccount._AccountID != null)
         accountIntervalsClient.In_accountID = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID);
+
       accountIntervalsClient.Invoke();
       var returnIntervals = accountIntervalsClient.Out_acctIntervals;
       foreach (MetraTech.DomainModel.Billing.Interval interval in returnIntervals)
       {
-        ListItem item = new ListItem();
-        item.Text = String.Format("{0} " + GetLocalResourceObject("TEXT_THROUGH").ToString() + " {1}", interval.StartDate.ToShortDateString(), interval.EndDate.Date.ToShortDateString());
-        item.Value = interval.ID.ToString(); ;
+        var itemText = String.Format("{0} " + GetLocalResourceObject("TEXT_THROUGH") + " {1}", interval.StartDate.ToShortDateString(), interval.EndDate.Date.ToShortDateString());
+        var item = new ListItem {Text = itemText, Value = Convert.ToString(interval.ID)};
         ddBillingPeriod.Items.Add(item);
       }
     }
@@ -106,9 +102,6 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
     {
       PipelineMeteringHelper helper = null;      
       bool errorOccurred = false;
-      bool allowed = false;
-      
-
       decimal chargeAmount = 0.0M;
       decimal additionalRate = 1.0M;
       int quantity = 1;
@@ -121,7 +114,7 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
         quantity = Convert.ToInt32(tbQuantity.Text);
       
        if (!string.IsNullOrEmpty(tbRate.Text))
-         rate = System.Convert.ToDecimal(tbRate.Text);
+         rate = Convert.ToDecimal(tbRate.Text);
 
       chargeAmount = additionalRate * quantity * rate;
       try
@@ -129,7 +122,7 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
         cache.PoolSize = 30;
         cache.PollingInterval = 0;
         helper = cache.GetMeteringHelper();
-
+       
         // Create instance of data row for root service definition, row is already added to internal store
         DataRow row = helper.CreateRowForServiceDef("metratech.com/NonStandardCharge");
         row["_AccountID"] = UI.Subscriber.SelectedAccount._AccountID;
@@ -143,10 +136,10 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
         row["GuideIntervalID"] = ddBillingPeriod.SelectedValue;
         row["IssueTime"] = MetraTime.Now;
         row["Description"] = taDescription.Text;
-        object o = Enum.Parse(typeof (MetraTech.DomainModel.Enums.Core.Metratech_com_NonStandardCharge.NonStandardChargeReason), ddReasonCode.SelectedValue, true);
+        var o = Enum.Parse(typeof (MetraTech.DomainModel.Enums.Core.Metratech_com_NonStandardCharge.NonStandardChargeReason), ddReasonCode.SelectedValue, true);
         row["ReasonCode"] = EnumHelper.GetDbValueByEnum(o);
         row["_Currency"] = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency;
-        object code = Enum.Parse(typeof(MetraTech.DomainModel.Enums.Core.Metratech_com_NonStandardCharge.AdditionalCode), ddAdditionalCode.SelectedValue, true);
+        var code = Enum.Parse(typeof(MetraTech.DomainModel.Enums.Core.Metratech_com_NonStandardCharge.AdditionalCode), ddAdditionalCode.SelectedValue, true);
         if (code == null)
           row["AdditionalCode"] = null;
         else
@@ -162,23 +155,14 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
         if (errorRows.Length != 0)
         {
           var error = new StringBuilder();
-          // CORE-6182 Security: /MetraNet/MetraOffer/AmpGui/EditAccountGroup.aspx page is vulnerable to Cross-Site Scripting 
-          // Removed insecure formatting
-          //string errorMsg = String.Format("{0} <br/><br/>", GetLocalResourceObject("TEXT_PROCESSING_ERROR"));
           string errorMsg = String.Format("{0} {1}{1}", GetLocalResourceObject("TEXT_PROCESSING_ERROR"), Environment.NewLine);
           error.Append(errorMsg);
-
-          //ErrorMessage
-          //error.Append("<ul>");
           error.Append(Environment.NewLine);
           foreach (var errorRow in errorRows)
           {
-            //error.Append("<li>");
             error.Append(errorRow["ErrorMessage"]);
-            //error.Append("</li>");
             error.Append(Environment.NewLine);
           }
-          //error.Append("</ul>");
           error.Append(Environment.NewLine);
 
           CleanFailedTransactions(errorRows);
@@ -189,7 +173,7 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
       catch (Exception exp)
       {        
         errorOccurred = true;
-        Session[MetraTech.UI.Common.Constants.ERROR] = exp.Message.ToString();
+        Session[MetraTech.UI.Common.Constants.ERROR] = exp.Message;
       }
       finally
       {
@@ -198,55 +182,81 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
 
       if (!errorOccurred)
       {
-        if ((!UI.SessionContext.SecurityContext.IsSuperUser()) && (UI.SessionContext.SecurityContext.GetCapabilitiesOfType("Manage NonStandardCharges")).Count == 0)
+        if (IsAllowedCreate(chargeAmount))
         {
-          string max = GetMaxCapabilityAmount();
-          string[] data = max.Split(' ');
-          int last = data.Length - 1;
-
-          // Build expression to have the DataTable evaluation based on the adjustment amount allowed
-          string expr = String.Format("{0}{1}{2}", chargeAmount, data[last - 1], data[last]);
-          DataTable dataTable = new DataTable();
-          dataTable.Columns.Add("col1", typeof(bool), expr);
-          dataTable.Rows.Add(new object[] { });
-          object result = dataTable.Rows[0][0];
-          allowed = System.Convert.ToBoolean(result);
-        }
-        else
-          allowed = true;
-
-        if (!allowed)
-        {
-          ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
-                         String.Format("{0}", GetLocalResourceObject("TEXT_PENDING")));
+          ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")), String.Format("{0}", GetLocalResourceObject("TEXT_CREATED")));
         }
         else
         {
-          ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
-                         String.Format("{0}", GetLocalResourceObject("TEXT_CREATED")));
-        }       
+          ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")), String.Format("{0}", GetLocalResourceObject("TEXT_PENDING")));
+        }    
       }
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
+  private bool IsAllowedCreate(decimal totalAmount)
+  {
+    var allowed = true;
+    if ((!UI.SessionContext.SecurityContext.IsSuperUser()) && (UI.SessionContext.SecurityContext.GetCapabilitiesOfType("Manage NonStandardCharges")).Count == 0)
+    {
+      var conditions = GetMaxCapabilityAmount().Split(';');
+      for (var i = 0; allowed && i < conditions.Length; i++)
+      {
+        Func<decimal, decimal, bool> expression;
+        string[] data = conditions[i].Trim().Split(' ');
+        string op = data[data.Length - 3];
+        switch (op)
+        {
+          case "=":
+            expression = (x, y) => x == y;
+            break;
+          case "<>":
+          case "!=":
+            expression = (x, y) => x != y;
+            break;
+          case ">":
+            expression = (x, y) => x > y;
+            break;
+          case ">=":
+            expression = (x, y) => x >= y;
+            break;
+          case "<":
+            expression = (x, y) => x < y;
+            break;
+          case "<=":
+            expression = (x, y) => x <= y;
+            break;
+          default:
+            expression = (x, y) => false;
+            break;
+        }
+        allowed = expression(totalAmount, Convert.ToDecimal(data[data.Length - 2]));
+      }
+    }
+
+    return allowed;
+  }
+
+  protected void btnCancel_Click(object sender, EventArgs e)
     {
       Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
     }
 
   private string GetMaxCapabilityAmount()
   {
-    string amount = "-1";
-    IMTSecurity security = new MTSecurityClass();
+    string amount = "";
+    string concop = "";
     var capabilites = UI.SessionContext.SecurityContext.GetCapabilitiesOfType("Apply NonStandardCharges");
-
     foreach (ApplyNonStandardChargesCapability cap in capabilites)
     {
-      decimal authAmount = System.Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
+      decimal authAmount = Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
       string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
-      amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), cap.GetAtomicEnumCapability().GetParameter().Value, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
+      amount = amount + concop +
+               String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"),
+                             cap.GetAtomicDecimalCapability().GetParameter().Test,
+                             display,
+                             ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+      concop = "; ";
     }
-
-
     return amount;
   }
 

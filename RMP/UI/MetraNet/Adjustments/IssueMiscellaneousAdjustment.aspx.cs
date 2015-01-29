@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Web;
@@ -19,9 +18,7 @@ using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
-using MetraTech.UI.Controls;
 using RCD = MetraTech.Interop.RCD;
 
 public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
@@ -76,7 +73,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 = adjAmountFldTaxCounty.DecimalPrecision
                 = adjAmountFldTaxLocal.DecimalPrecision
                 = adjAmountFldTaxOther.DecimalPrecision
-              = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits.ToString();
+              = Convert.ToString(System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits);
 
             string maxAdjAmount = String.Format("{0} {1}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), GetLocalResourceObject("TEXT_UNLIMITED"));
             if (!UI.SessionContext.SecurityContext.IsSuperUser())
@@ -103,20 +100,19 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
         if (UI.Subscriber.SelectedAccount._AccountID != null)
             accountIntervalsClient.In_accountID = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID);
+
         accountIntervalsClient.Invoke();
         var returnIntervals = accountIntervalsClient.Out_acctIntervals;
         foreach (MetraTech.DomainModel.Billing.Interval interval in returnIntervals)
         {
-            ListItem item = new ListItem();
-            item.Text = String.Format("{0} " + GetLocalResourceObject("TEXT_THROUGH").ToString() + " {1}", interval.StartDate.ToShortDateString(), interval.EndDate.Date.ToShortDateString());
-            item.Value = interval.ID.ToString(); ;
+            var itemText = String.Format("{0} " + GetLocalResourceObject("TEXT_THROUGH") + " {1}", interval.StartDate.ToShortDateString(), interval.EndDate.Date.ToShortDateString());
+            var item = new ListItem {Text = itemText, Value = Convert.ToString(interval.ID)};
             ddBillingPeriod.Items.Add(item);
         }
 
-        MTDropDown d = new MTDropDown();
         ddReasonCode.EnumSpace = "metratech.com";
         ddReasonCode.EnumType = "SubscriberCreditAccountRequestReason";
-        var enumType = MetraTech.DomainModel.Enums.EnumHelper.GetGeneratedEnumType("metratech.com", "SubscriberCreditAccountRequestReason", Path.GetDirectoryName(new Uri(this.GetType().Assembly.CodeBase).AbsolutePath));
+        var enumType = EnumHelper.GetGeneratedEnumType("metratech.com", "SubscriberCreditAccountRequestReason", Path.GetDirectoryName(new Uri(GetType().Assembly.CodeBase).AbsolutePath));
 
         if (enumType != null)
         {
@@ -125,7 +121,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             foreach (MetraTech.DomainModel.BaseTypes.EnumData enumData in enums)
             {
 
-                ListItem itm = new ListItem(enumData.DisplayName /*localized*/, enumData.EnumInstance.ToString());
+                var itm = new ListItem(enumData.DisplayName /*localized*/, enumData.EnumInstance.ToString());
                 ddReasonCode.Items.Add(itm);
             }
         }
@@ -157,7 +153,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
             foreach (var item in items.Items)
             {
-                ddTemplateTypes.Items.Add(new ListItem(item.TemplateName, item.CreditNoteTemplateID.ToString()));
+                ddTemplateTypes.Items.Add(new ListItem(item.TemplateName, Convert.ToString(item.CreditNoteTemplateID)));
             }
         }
         catch (Exception ex)
@@ -292,7 +288,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 if (taxLocal.HasValue) row["_LocalTax"] = -taxLocal;
                 if (taxOther.HasValue) row["_OtherTax"] = -taxOther;
                 row["IgnorePaymentRedirection"] = 0;
-                long ticks = System.DateTime.UtcNow.Ticks;
+                long ticks = DateTime.UtcNow.Ticks;
                 row["MiscAdjustmentID"] = ticks;
                 if (_creditNotesEnabled && cbIssueCreditNote.Checked)
                 {
@@ -414,7 +410,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             Logger.LogDebug("Creating a Credit Note for AccountCredit with sessionid: {0}, AccountID: {1},  creditNoteTemplateID: {2}, creditNoteDescription: {3}",
                             sessionId, UI.Subscriber.SelectedAccount._AccountID.Value, creditNoteTemplateID, creditNoteDescription);
             
-            client.CreateCreditNote(new List<Tuple<long, MetraTech.CreditNotes.CreditNoteAdjustmentType>> { new Tuple<long, MetraTech.CreditNotes.CreditNoteAdjustmentType>(sessionId, MetraTech.CreditNotes.CreditNoteAdjustmentType.MiscAdjustment) }, UI.Subscriber.SelectedAccount._AccountID.Value,
+            client.CreateCreditNote(new List<Tuple<long, CreditNoteAdjustmentType>> { new Tuple<long,CreditNoteAdjustmentType>(sessionId, CreditNoteAdjustmentType.MiscAdjustment) }, UI.Subscriber.SelectedAccount._AccountID.Value,
                                     UI.SessionContext.ToXML(), creditNoteTemplateID, creditNoteDescription);
         }
         catch (Exception ex)
@@ -510,28 +506,45 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
     private bool IsAllowedCreate(decimal totalAmount)
     {
-        bool allowed = false;
-        if (!UI.SessionContext.SecurityContext.IsSuperUser())
+      var allowed = true;
+      if (!UI.SessionContext.SecurityContext.IsSuperUser())
+      {
+        var conditions = GetMaxCapabilityAmount().Split(';');
+        for (var i = 0; allowed && i < conditions.Length; i++)
         {
-            string max = GetMaxCapabilityAmount();
-            string[] data = max.Split(' ');
-            int last = data.Length - 1;
-            // Build expression to have the DataTable evaluation based on the adjustment amount allowed
-            // != not supported and needs to be passed as <>
-            string op = data[last - 1];
-            if (op.Equals("!="))
-                op = "<>";
-            string expr = String.Format("{0}{1}{2}", totalAmount.ToString(CultureInfo.InvariantCulture), op, Convert.ToDecimal(data[last]).ToString(CultureInfo.InvariantCulture));
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("col1", typeof(bool), expr);
-            dataTable.Rows.Add(new object[] { });
-            object result = dataTable.Rows[0][0];
-            allowed = System.Convert.ToBoolean(result);
+          Func<decimal, decimal, bool> expression;
+          string[] data = conditions[i].Trim().Split(' ');
+          string op = data[data.Length - 3];
+          switch (op)
+          {
+            case "=":
+              expression = (x, y) => x == y;
+              break;
+            case "<>":
+            case "!=":
+              expression = (x, y) => x != y;
+              break;
+            case ">":
+              expression = (x, y) => x > y;
+              break;
+            case ">=":
+              expression = (x, y) => x >= y;
+              break;
+            case "<":
+              expression = (x, y) => x < y;
+              break;
+            case "<=":
+              expression = (x, y) => x <= y;
+              break;
+            default:
+              expression = (x, y) => false;
+              break;
+          }
+          allowed = expression(totalAmount, Convert.ToDecimal(data[data.Length - 2]));
         }
-        else
-            allowed = true;
+      }
 
-        return allowed;
+      return allowed;
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
@@ -549,21 +562,16 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             foreach (MetraTech.DomainModel.BaseTypes.View view in views)
             {
-                ContactView cv = view as ContactView;
+                var cv = view as ContactView;
                 if (cv != null && cv.ContactType == MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation.ContactType.Bill_To)
                 {
                     contactView = cv;
                     foundView = true;
                     break;
                 }
-
-                if (foundView == true)
-                {
-                    break;
-                }
             }
 
-            if (foundView == true)
+            if (foundView)
             {
                 break;
             }
@@ -574,19 +582,22 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
     private string GetMaxCapabilityAmount()
     {
-        string amount = "-1";
-        IMTSecurity security = new MTSecurityClass();
-        var capabilites = UI.SessionContext.SecurityContext.GetCapabilitiesOfType("Apply Adjustments");
+      string amount = "";
+      string concop = "";
+      var capabilites = UI.SessionContext.SecurityContext.GetCapabilitiesOfType("Apply Adjustments");
 
-        foreach (ApplyAdjustmentsCapability cap in capabilites)
-        {
-            decimal authAmount = System.Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
-            string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
-            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
-        }
-
-        return amount;
-
+      foreach (ApplyAdjustmentsCapability cap in capabilites)
+      {
+        decimal authAmount = Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
+        string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
+        amount = amount + concop +
+           String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"),
+                         cap.GetAtomicDecimalCapability().GetParameter().Test,
+           display,
+                         ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+        concop = "; ";
+      }
+      return amount;
     }
 
     // TODO: Need to move this to a library
@@ -599,7 +610,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             ids += error["FailureId"] + ",";
         }
-        ids = ids.Trim(new char[] { ',' });
+        ids = ids.Trim(new[] { ',' });
 
         rawQuery = String.Format(rawQuery, ids);
 

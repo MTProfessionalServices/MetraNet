@@ -116,33 +116,38 @@ function onValidateUsername()
 }
 
 function onAuthTypeChange(selectField, value) {
-  var el;
+  var el,
+      ext = window.Ext;
   if (value == '<%=AuthenticationType.MetraNetInternal.ToString()%>') {
-    el = Ext.getCmp("<%=tbPassword.ClientID%>");
-    if (el != null) { el.enable(); }
-    el = Ext.getCmp("<%=tbConfirmPassword.ClientID%>");
-    if (el != null) { el.enable(); }
-    el = Ext.getCmp("<%=btnGeneratePassword.ClientID%>");
-    if (el != null) { el.enable(); }
-    el = Ext.getCmp("<%=ddSecurityQuestion.ClientID%>");
-    if (el != null) { el.enable(); }
-    el = Ext.getCmp("<%=tbSecurityQuestionText.ClientID%>");
-    if (el != null) { el.enable(); }
-    el = Ext.getCmp("<%=tbSecurityAnswer.ClientID%>");
-    if (el != null) { el.enable(); }
+    el = ext.getCmp("<%=tbPassword.ClientID%>");
+    if (el) { el.enable(); }
+    el = ext.getCmp("<%=tbConfirmPassword.ClientID%>");
+    if (el) { el.enable(); }
+    el = ext.getCmp("<%=btnGeneratePassword.ClientID%>");
+    if (el) { el.enable(); }
+    el = ext.getCmp("<%=ddSecurityQuestion.ClientID%>");
+    if (el) { el.enable(); }
+    el = ext.getCmp("<%=tbSecurityQuestionText.ClientID%>");
+    if (el) { el.enable(); }
+    el = ext.getCmp("<%=tbSecurityAnswer.ClientID%>");
+    if (el) { el.enable(); }
+    el = ext.getCmp("<%=btnValidate.ClientID%>");
+    if(el) {el.enable();}
   } else {
-    el = Ext.getCmp("<%=tbPassword.ClientID%>");
-    if (el != null) { el.el.dom.value = ""; el.disable(); }
-    el = Ext.getCmp("<%=tbConfirmPassword.ClientID%>");
-    if (el != null) { el.el.dom.value = ""; el.disable(); }
-    el = Ext.getCmp("<%=btnGeneratePassword.ClientID%>");
-    if (el != null) { el.disable(); }
-    el = Ext.getCmp("<%=ddSecurityQuestion.ClientID%>");
-    if (el != null) { el.disable(); }
-    el = Ext.getCmp("<%=tbSecurityQuestionText.ClientID%>");
-    if (el != null) { el.disable(); }
-    el = Ext.getCmp("<%=tbSecurityAnswer.ClientID%>");
-    if (el != null) { el.disable(); }
+    el = ext.getCmp("<%=tbPassword.ClientID%>");
+    if (el) { el.el.dom.value = ""; el.disable(); }
+    el = ext.getCmp("<%=tbConfirmPassword.ClientID%>");
+    if (el) { el.el.dom.value = ""; el.disable(); }
+    el = ext.getCmp("<%=btnGeneratePassword.ClientID%>");
+    if (el) { el.disable(); }
+    el = ext.getCmp("<%=ddSecurityQuestion.ClientID%>");
+    if (el) { el.disable(); }
+    el = ext.getCmp("<%=tbSecurityQuestionText.ClientID%>");
+    if (el) { el.disable(); }
+    el = ext.getCmp("<%=tbSecurityAnswer.ClientID%>");
+    if (el) { el.disable(); }
+    el = ext.getCmp("<%=btnValidate.ClientID%>");
+    if (el) { el.disable(); }
   }
 }
 

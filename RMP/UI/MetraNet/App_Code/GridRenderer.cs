@@ -102,6 +102,7 @@ public static class GridRenderer
             }
 
             priceListTypeElement.FilterDropdownItems.Add(filterItem);
+           
           }
         }
       }
@@ -110,7 +111,7 @@ public static class GridRenderer
 
   public static void AddAccountTypeFilter(MTFilterGrid MyGrid1)
   {
-    MTGridDataElement accountTypeElement = FindElementByID(MyGrid1, "AccountTypeID");
+    var accountTypeElement = FindElementByID(MyGrid1, "AccountTypeID");
     if (accountTypeElement == null)
     {
       return;
@@ -119,36 +120,68 @@ public static class GridRenderer
     var col = new AccountTypeCollection();
     var sortList = new List<string>();
     var map = new Dictionary<string, int>();
-    var exList = new List<string>();
+    var exList =  new List<string>();
     //Retrieve "Root" account type from web.config (excluded from display on account type dropdown on advanced find filter) 
-    exList.Add(ConfigurationManager.AppSettings["ExcludeAccountType"].ToString());
-
+    exList.Add(Convert.ToString(ConfigurationManager.AppSettings["ExcludeAccountType"]));
     //Retrieve "AllTypes" account type from AccountTemplate service config (excluded from display on account type dropdown on advanced find filter) 
-    AccountService_GetAllAccountsTypeName_Client client = new AccountService_GetAllAccountsTypeName_Client();
-    UserData userData = ((MTPage)MyGrid1.Page).UI.User;
+    var client = new AccountService_GetAllAccountsTypeName_Client();
+    var userData = ((MTPage)MyGrid1.Page).UI.User;
     client.UserName = userData.UserName;
     client.Password = userData.SessionPassword;
     client.Invoke();
     exList.Add(client.InOut_typeName);
-
     foreach (AccountType accType in col.AccountTypes)
     {
-      if (!exList.Contains(accType.Name))
-      {
-        sortList.Add(accType.Name);
-        map[accType.Name] = accType.ID;
-      }
-    }
+      if (exList.Contains(accType.Name)) continue;
+      sortList.Add(accType.Name);
+      map[accType.Name] = accType.ID;
+    }    
     sortList.Sort();
 
     foreach (string sortedItem in sortList)
     {
-      MTFilterDropdownItem filterItem = new MTFilterDropdownItem();
-      filterItem.Key = map[sortedItem].ToString();
-      filterItem.Value = sortedItem;
+      var filterItem = new MTFilterDropdownItem {Key = Convert.ToString(map[sortedItem]), Value = sortedItem};
       accountTypeElement.FilterDropdownItems.Add(filterItem);
     }
   }
+
+  public static void AddAccountTypeFilterTemplateHistory(MTFilterGrid targetGrid, bool isAllTypes, string allTypeName)
+  {
+    var accountTypeElement = FindElementByID(targetGrid, "AccountType");
+    if (accountTypeElement == null) return;
+    if (isAllTypes)
+    {
+      var filterItem = new MTFilterDropdownItem();
+      filterItem.Key = filterItem.Value = allTypeName;
+      accountTypeElement.FilterDropdownItems.Add(filterItem);
+    }
+    else
+    {
+      var col = new AccountTypeCollection();
+      var sortList = new List<string>();
+      var exList = new List<string>();
+      exList.Add(Convert.ToString(ConfigurationManager.AppSettings["ExcludeAccountType"]));
+      var client = new AccountService_GetAllAccountsTypeName_Client();
+      var userData = ((MTPage) targetGrid.Page).UI.User;
+      client.UserName = userData.UserName;
+      client.Password = userData.SessionPassword;
+      client.Invoke();
+      exList.Add(client.InOut_typeName);
+      foreach (AccountType accType in col.AccountTypes)
+      {
+        if (exList.Contains(accType.Name)) continue;
+        sortList.Add(accType.Name);
+      }
+      sortList.Sort();
+      foreach (string sortedItem in sortList)
+      {
+        var filterItem = new MTFilterDropdownItem();
+        filterItem.Key = filterItem.Value = sortedItem;
+        accountTypeElement.FilterDropdownItems.Add(filterItem);
+      }
+    }
+  }
+
 
   public static void PopulateProductCatalogBooleanFilter(MTFilterGrid MyGrid1, string idElement)
   {

@@ -363,12 +363,12 @@ public partial class AjaxServices_QueryService : MTListServicePage
 
   protected string ConvertObjectToCSV(MTList<SQLRecord> mtList, bool bIncludeHeaders)
   {
-    StringBuilder sb = new StringBuilder();
-
+    var sb = new StringBuilder();
     //add headers if necessary
     if (bIncludeHeaders)
     {
-      sb.Append(base.GenerateCSVHeader());
+      sb.AppendLine("sep=,");
+      sb.Append(GenerateCSVHeader());
       if (sb.ToString().Length > 0)
       {
         sb.Append("\n");

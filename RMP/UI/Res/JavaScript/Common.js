@@ -687,7 +687,7 @@ ServerState.clear = function(name) {
     var f = document.getElementById('MainContentIframe');
     var el = document.getElementById('hideAllDiv');
     try {
-      if (forceClose || oldUrl == null || (f.contentDocument.readyState != "loading" && f.contentWindow.location.href != oldUrl)) {
+      if (forceClose || oldUrl == null || f.contentDocument.readyState == "complete" || (f.contentDocument.readyState != "loading" && f.contentWindow.location.href != oldUrl)) {
         if (el) {
           el.style.display = 'none';
           clearTimeout(checkTimeOut);

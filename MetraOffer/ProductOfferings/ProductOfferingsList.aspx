@@ -22,6 +22,16 @@
     <script type="text/javascript" language="javascript" src="/mcm/default/lib/PopupEdit.js"></script>
 
     <script language="javascript" type="text/javascript">
+      // Sometimes when we come back from old MAM or MetraView we may have an extra frame.
+      // This code busts out of it.
+      Ext.onReady(function () { 
+        if (getFrameMetraNet().MainContentIframe) {
+          if (getFrameMetraNet().MainContentIframe.location != document.location) {
+            getFrameMetraNet().MainContentIframe.location.replace(document.location);
+          }
+        }
+      });
+      
       function CreateProductOffering_<%=MTFilterGrid1.ClientID%> () {
         location.href = '/MetraNet/MetraOffer/ProductOfferings/CreateProductOffering.aspx?Master=' + <%=IsMaster.ToString().ToLower()%>;
       };

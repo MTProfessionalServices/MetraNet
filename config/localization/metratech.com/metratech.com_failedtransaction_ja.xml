@@ -4,27 +4,27 @@
     <locale_space name="metratech.com/failedtransaction">
         <locale_entry>
             <Name>metratech.com/failedtransaction/DismissedReasonCode/ResendOriginal</Name>
-            <Value>[JA]Original transaction will be remetered</Value>
+            <Value>Original transaction will be remetered</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/DismissedReasonCode/Test</Name>
-            <Value>[JA]Test Record</Value>
+            <Value>Test Record</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/DismissedReasonCode/UnableToResolve</Name>
-            <Value>[JA]Unable To Resolve</Value>
+            <Value>Unable To Resolve</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/InvestigationReasonCode/AccountResolution</Name>
-            <Value>[JA]Account Resolution Issue</Value>
+            <Value>Account Resolution Issue</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/InvestigationReasonCode/OperationsIssue</Name>
-            <Value>[JA]Operations Issue</Value>
+            <Value>Operations Issue</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/InvestigationReasonCode/RateResolution</Name>
-            <Value>[JA]Rate Resolution Issue</Value>
+            <Value>Rate Resolution Issue</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

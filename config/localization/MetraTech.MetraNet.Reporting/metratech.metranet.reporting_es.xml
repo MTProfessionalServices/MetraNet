@@ -4,31 +4,31 @@
     <locale_space name="MetraTech.MetraNet.Reporting">
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/SystemReportCapabilities/View Summary Financial Information</Name>
-            <Value>[ES]View Summary Financial Information</Value>
+            <Value>View Summary Financial Information</Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Accounting</Name>
-            <Value>[ES]Accounting</Value>
+            <Value>Accounting</Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Basic</Name>
-            <Value>[ES]Basic</Value>
+            <Value>Basic</Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/BillingGroupStatistics</Name>
-            <Value>[ES]Billing Group Statistics</Value>
+            <Value>Billing Group Statistics</Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Configured</Name>
-            <Value>[ES]Configured</Value>
+            <Value>Configured</Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/Custom</Name>
-            <Value>[ES]Custom</Value>
+            <Value>Custom</Value>
         </locale_entry>
         <locale_entry>
             <Name>MetraTech.MetraNet.Reporting/ReportType/IntervalStatistics</Name>
-            <Value>[ES]Interval Statistics</Value>
+            <Value>Interval Statistics</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

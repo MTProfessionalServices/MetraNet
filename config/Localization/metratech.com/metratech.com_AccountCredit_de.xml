@@ -60,15 +60,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/IgnorePaymentRedirection</Name>
-      <Value>[DE]IgnorePaymentRedirection</Value>
+      <Value>IgnorePaymentRedirection</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/InternalComment</Name>
-      <Value>[DE]Internal Description</Value>
+      <Value>Internal Description</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/InvoiceComment</Name>
-      <Value>[DE]Invoice Description</Value>
+      <Value>Invoice Description</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/Issuer</Name>

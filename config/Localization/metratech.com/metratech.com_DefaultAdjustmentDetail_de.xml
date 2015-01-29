@@ -24,11 +24,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentAmount</Name>
-      <Value>[DE]Adjustment Amount</Value>
+      <Value>Adjustment Amount</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentAmountAsString</Name>
-      <Value>[DE]Adjustment Amount</Value>
+      <Value>Adjustment Amount</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentAmountWithTax</Name>

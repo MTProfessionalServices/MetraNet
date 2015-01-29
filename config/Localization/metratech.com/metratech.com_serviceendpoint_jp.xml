@@ -4,7 +4,7 @@
   <locale_space name="metratech.com/ServiceEndpoint">
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/AddIDMapping</Name>
-      <Value>[JA]AddIDMapping</Value>
+      <Value>AddIDMapping</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/Connect</Name>
@@ -16,7 +16,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/CreateAndConnect</Name>
-      <Value>[JA]CreateAndConnect</Value>
+      <Value>CreateAndConnect</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/Disconnect</Name>
@@ -24,7 +24,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/DisconnectAndEnd</Name>
-      <Value>[JA]DisconnectAndEnd</Value>
+      <Value>DisconnectAndEnd</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/Move</Name>
@@ -32,19 +32,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/RemoveIDMapping</Name>
-      <Value>[JA]RemoveIDMapping</Value>
+      <Value>RemoveIDMapping</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/UpdateEffectiveDate</Name>
-      <Value>[JA]UpdateEffectiveDate</Value>
+      <Value>UpdateEffectiveDate</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/UpdateExtendedProperties</Name>
-      <Value>[JA]UpdateExtendedProperties</Value>
+      <Value>UpdateExtendedProperties</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/UpdateIDMapping</Name>
-      <Value>[JA]UpdateIDMapping</Value>
+      <Value>UpdateIDMapping</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

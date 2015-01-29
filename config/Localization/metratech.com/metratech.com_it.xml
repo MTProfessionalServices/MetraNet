@@ -196,27 +196,27 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Actualized</Name>
-      <Value>[IT]Actualized</Value>
+      <Value>Actualized</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Complete</Name>
-      <Value>[IT]Complete</Value>
+      <Value>Complete</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Converted</Name>
-      <Value>[IT]Converted</Value>
+      <Value>Converted</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Failed</Name>
-      <Value>[IT]Failed</Value>
+      <Value>Failed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/InProgress</Name>
-      <Value>[IT]InProgress</Value>
+      <Value>InProgress</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/None</Name>
-      <Value>[IT]None</Value>
+      <Value>None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SaleForceRelationship/Account Development</Name>
@@ -272,35 +272,35 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/BadService</Name>
-      <Value>[IT]BadService</Value>
+      <Value>BadService</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/DroppedCall</Name>
-      <Value>[IT]DroppedCall</Value>
+      <Value>DroppedCall</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/GeneralDissatisfaction</Name>
-      <Value>[IT]GeneralDissatisfaction</Value>
+      <Value>GeneralDissatisfaction</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
-      <Value>[IT]Other</Value>
+      <Value>Other</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
-      <Value>[IT]PoorConnection</Value>
+      <Value>PoorConnection</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
-      <Value>[IT]APPROVED</Value>
+      <Value>APPROVED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/DENIED</Name>
-      <Value>[IT]DENIED</Value>
+      <Value>DENIED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/PENDING</Name>
-      <Value>[IT]PENDING</Value>
+      <Value>PENDING</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TaxAmount</Name>

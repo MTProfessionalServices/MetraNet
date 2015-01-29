@@ -96,7 +96,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/None</Name>
-      <Value>[JA]None</Value>
+      <Value>None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/Visa</Name>
@@ -176,7 +176,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Engineer</Name>
-      <Value>[JA]Engineer</Value>
+      <Value>Engineer</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Executive</Name>
@@ -184,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/Position/Manager</Name>
-      <Value>[JA]Manager</Value>
+      <Value>Manager</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/PostbillAdjustmentAmount</Name>
@@ -196,27 +196,27 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Actualized</Name>
-      <Value>[JA]Actualized</Value>
+      <Value>Actualized</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Complete</Name>
-      <Value>[JA]Complete</Value>
+      <Value>Complete</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Converted</Name>
-      <Value>[JA]Converted</Value>
+      <Value>Converted</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Failed</Name>
-      <Value>[JA]Failed</Value>
+      <Value>Failed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/InProgress</Name>
-      <Value>[JA]InProgress</Value>
+      <Value>InProgress</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/None</Name>
-      <Value>[JA]None</Value>
+      <Value>None</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SaleForceRelationship/Account Development</Name>
@@ -272,35 +272,35 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/BadService</Name>
-      <Value>[JA]BadService</Value>
+      <Value>BadService</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/DroppedCall</Name>
-      <Value>[JA]DroppedCall</Value>
+      <Value>DroppedCall</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/GeneralDissatisfaction</Name>
-      <Value>[JA]GeneralDissatisfaction</Value>
+      <Value>GeneralDissatisfaction</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
-      <Value>[JA]Other</Value>
+      <Value>Other</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
-      <Value>[JA]PoorConnection</Value>
+      <Value>PoorConnection</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
-      <Value>[JA]APPROVED</Value>
+      <Value>APPROVED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/DENIED</Name>
-      <Value>[JA]DENIED</Value>
+      <Value>DENIED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/PENDING</Name>
-      <Value>[JA]PENDING</Value>
+      <Value>PENDING</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TaxAmount</Name>
@@ -312,11 +312,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/BeginDistributed</Name>
-      <Value>[JA]BeginDistributed</Value>
+      <Value>BeginDistributed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/BeginLocal</Name>
-      <Value>[JA]BeginLocal</Value>
+      <Value>BeginLocal</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/Commit</Name>
@@ -324,7 +324,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TransactionTypes/JoinDistributed</Name>
-      <Value>[JA]JoinDistributed</Value>
+      <Value>JoinDistributed</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ViewID</Name>

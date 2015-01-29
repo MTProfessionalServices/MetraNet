@@ -142,34 +142,34 @@
     <value>Error on exchanging ranks of OnBoard Template with Id {0} and {1}</value>
   </data>
   <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
-    <value>[en-GB] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
+    <value>Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
-    <value>[en-GB] Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
+    <value>Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
-    <value>[en-GB] Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
+    <value>Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
-    <value>[en-GB] Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
+    <value>Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[en-GB] Unable to terminate member with ID '{0}' for Group Subscription with ID '{1}'. Exception: {2}</value>
+    <value>Unable to terminate member with ID '{0}' for Group Subscription with ID '{1}'. Exception: {2}</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_TERMINATED" xml:space="preserve">
-    <value>[en-GB] Member with ID '{0}' was terminated for Group Subscription with ID '{1}'</value>
+    <value>Member with ID '{0}' was terminated for Group Subscription with ID '{1}'</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
-    <value>[en-GB] {0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
+    <value>{0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>[en-GB] Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
+    <value>Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[en-GB] Unable to terminated '{0}' Group Subscription with Corporate Account ID '{1}'. Exception: {2}</value>
+    <value>Unable to terminated '{0}' Group Subscription with Corporate Account ID '{1}'. Exception: {2}</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_TERMINATED" xml:space="preserve">
-    <value>[en-GB] {0}' GroupSubscription with Corporate Account ID '{1}' was terminated for All members.</value>
+    <value>{0}' GroupSubscription with Corporate Account ID '{1}' was terminated for All members.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FAIL" xml:space="preserve">
     <value>Account with ID {0} not found or not available</value>
@@ -211,10 +211,10 @@
     <value>Property '{0}' was not found.</value>
   </data>
   <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
-    <value>[en-GB] Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
+    <value>Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>[en-GB] Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
+    <value>Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
     <value>Unable to terminated subscription with ID {0}. Exception: {1}</value>
@@ -250,10 +250,10 @@
     <value>Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
   </data>
   <data name="ACS_VALIDATION_GroupSab_GroupName_NOT_SET" xml:space="preserve">
-    <value>[en-GB] The Corporate Account with ID '{0}' is set, but Group Subscription Name - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    <value>The Corporate Account with ID '{0}' is set, but Group Subscription Name - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
   </data>
   <data name="ACS_VALIDATION_GroupSub_CorporateAccountId_NOT_SET" xml:space="preserve">
-    <value>[en-GB] The '{0}' Group Subscription Name is set, but CorporateAccountId - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    <value>The '{0}' Group Subscription Name is set, but CorporateAccountId - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
   </data>
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
     <value>ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>

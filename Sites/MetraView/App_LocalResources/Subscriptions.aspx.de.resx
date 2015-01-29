@@ -139,6 +139,6 @@
     <value>Meine Nutzungsanmeldungen</value>
   </data>
   <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>[DE]No Records Found</value>
+    <value>No Records Found</value>
   </data>
 </root>

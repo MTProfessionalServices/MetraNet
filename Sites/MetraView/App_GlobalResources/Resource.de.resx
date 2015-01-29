@@ -247,10 +247,10 @@
     <value>Rechnungen und Berichte herunterladen</value>
   </data>
   <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
-    <value>[DE]Download Quotes</value>
+    <value>Download Quotes</value>
   </data>
   <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
-    <value>[DE]Download Credit Notes</value>
+    <value>Download Credit Notes</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Bearbeiten</value>
@@ -265,7 +265,7 @@
     <value>Hierbei handelt es sich um einen Schätzwert und nicht die Endabrechnung.</value>
   </data>
   <data name="TEXT_FR" xml:space="preserve">
-    <value>[DE]French</value>
+    <value>French</value>
   </data>
   <data name="TEXT_GENERAL" xml:space="preserve">
     <value>Allgemein</value>
@@ -355,7 +355,7 @@
     <value>PageURL</value>
   </data>
   <data name="TEXT_POSITION" xml:space="preserve">
-    <value>[DE]Position</value>
+    <value>Position</value>
   </data>
   <data name="TEXT_PRIORITY" xml:space="preserve">
     <value>Priorität</value>
@@ -403,7 +403,7 @@
     <value>Sitzungs-ID</value>
   </data>
   <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
-    <value>[DE]Show Only Hard Closed Intervals</value>
+    <value>Show Only Hard Closed Intervals</value>
   </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>Daten aus zweitem Durchlauf anzeigen</value>
@@ -469,22 +469,22 @@
     <value>Ja</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>[DE]Product View Mappings</value>
+    <value>Product View Mappings</value>
   </data>
   <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>[DE]Bill Setting</value>
+    <value>Bill Setting</value>
   </data>
   <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>[DE]Dashboards</value>
+    <value>Dashboards</value>
   </data>
   <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>[DE]Entry Points</value>
+    <value>Entry Points</value>
   </data>
   <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>[DE]Report Inventories</value>
+    <value>Report Inventories</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
-    <value>[DE]Site</value>
+    <value>Site</value>
   </data>
   <data name="TEXT_CHECKING" xml:space="preserve">
     <value>Girokonto</value>

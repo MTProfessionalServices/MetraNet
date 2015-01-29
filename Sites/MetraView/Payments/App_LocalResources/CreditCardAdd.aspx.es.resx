@@ -187,9 +187,9 @@
     <value>Código postal</value>
   </data>
   <data name="tbEmail.Label" xml:space="preserve">
-    <value>[ES]Email</value>
+    <value>Email</value>
   </data>
   <data name="CreditCardTypeError" xml:space="preserve">
-    <value>[ES]is not a supported card type for this payment integration</value>
+    <value>is not a supported card type for this payment integration</value>
   </data>
 </root>

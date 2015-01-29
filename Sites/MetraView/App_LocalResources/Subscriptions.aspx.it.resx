@@ -139,6 +139,6 @@
     <value>Abbonamenti personali</value>
   </data>
   <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>[IT]No Records Found</value>
+    <value>No Records Found</value>
   </data>
 </root>

@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActualTax.Text" xml:space="preserve">
-    <value>[IT]Actual Tax</value>
+    <value>Actual Tax</value>
   </data>
   <data name="ImpliedTax.Text" xml:space="preserve">
-    <value>[IT]Included Tax</value>
+    <value>Included Tax</value>
   </data>
   <data name="IncludedInformationalTax.Text" xml:space="preserve">
-    <value>[IT]Included Informational Tax</value>
+    <value>Included Informational Tax</value>
   </data>
   <data name="InformationalTax.Text" xml:space="preserve">
-    <value>[IT]Informational Tax</value>
+    <value>Informational Tax</value>
   </data>
   <data name="PrebillAdjustments.Text" xml:space="preserve">
     <value>Rettifiche pre-fatturazione</value>
@@ -136,7 +136,7 @@
     <value>Subtotale</value>
   </data>
   <data name="Tax.Text" xml:space="preserve">
-    <value>[IT]Tax</value>
+    <value>Tax</value>
   </data>
   <data name="TaxAdjustments.Text" xml:space="preserve">
     <value>Rettifiche imposta</value>
@@ -148,6 +148,6 @@
     <value>Addebiti totali</value>
   </data>
   <data name="Usage.Text" xml:space="preserve">
-    <value>[IT]Usage</value>
+    <value>Usage</value>
   </data>
 </root>

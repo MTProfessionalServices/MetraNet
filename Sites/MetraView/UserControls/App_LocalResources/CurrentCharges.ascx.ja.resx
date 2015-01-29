@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActualTax.Text" xml:space="preserve">
-    <value>[JA]Actual Tax</value>
+    <value>Actual Tax</value>
   </data>
   <data name="ImpliedTax.Text" xml:space="preserve">
-    <value>[JA]Included Tax</value>
+    <value>Included Tax</value>
   </data>
   <data name="IncludedInformationalTax.Text" xml:space="preserve">
-    <value>[JA]Included Informational Tax</value>
+    <value>Included Informational Tax</value>
   </data>
   <data name="InformationalTax.Text" xml:space="preserve">
-    <value>[JA]Informational Tax</value>
+    <value>Informational Tax</value>
   </data>
   <data name="PrebillAdjustments.Text" xml:space="preserve">
     <value>請求前の調整</value>
@@ -148,6 +148,6 @@
     <value>料金合計</value>
   </data>
   <data name="Usage.Text" xml:space="preserve">
-    <value>[JA]Usage</value>
+    <value>Usage</value>
   </data>
 </root>

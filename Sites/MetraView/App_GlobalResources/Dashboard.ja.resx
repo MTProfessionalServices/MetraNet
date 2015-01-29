@@ -127,10 +127,10 @@
     <value>自分の申し込み</value>
   </data>
   <data name="TEXT_MY_COUNTERS" xml:space="preserve">
-    <value>[JA]My Counters</value>
+    <value>My Counters</value>
   </data>
   <data name="TEXT_NO_COUNTERS" xml:space="preserve">
-    <value>[JA]No Counters Defined</value>
+    <value>No Counters Defined</value>
   </data>
   <data name="TEXT_USAGE_BY_DEPARTMENT" xml:space="preserve">
     <value>部門別の現在の利用状況</value>

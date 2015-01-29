@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddReport.Text" xml:space="preserve">
-    <value>[es-MX]Add report {0} to InvioceList</value>
+    <value>Add report {0} to InvioceList</value>
   </data>
   <data name="AddCreditNoteReport.Text" xml:space="preserve">
-    <value>[es-MX]Add report {0} to CreditNotesList</value>
+    <value>Add report {0} to CreditNotesList</value>
   </data>
   <data name="ErrorDownload.Text" xml:space="preserve">
-    <value>[es-MX]Unable to download reports</value>
+    <value>Unable to download reports</value>
   </data>
   <data name="NoInvoices.Text" xml:space="preserve">
     <value>No se encontraron facturas</value>
@@ -133,7 +133,7 @@
     <value>No hay citas encontradas</value>
   </data>
   <data name="NoCreditNotes.Text" xml:space="preserve">
-    <value>[es-MX]No Credit Notes Found</value>
+    <value>No Credit Notes Found</value>
   </data>
   <data name="SelectInterval.Text" xml:space="preserve">
     <value>Seleccionar intervalo</value>

@@ -118,111 +118,111 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NAV_PANEL_HEADER" xml:space="preserve">
-    <value>[JA]Manage AMP Decision Type</value>
+    <value>Manage AMP Decision Type</value>
   </data>
   <data name="PAGETITLE_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[JA]2. Account Group</value>
+    <value>2. Account Group</value>
   </data>
   <data name="PAGETITLE_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[JA]8. Amount Chain Group</value>
+    <value>8. Amount Chain Group</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_ATTRIBUTES" xml:space="preserve">
-    <value>[JA]Charge/Credit:  Attributes</value>
+    <value>Charge/Credit:  Attributes</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>[JA]Charge/Credit:  Directive</value>
+    <value>Charge/Credit:  Directive</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_DIRECTIVES" xml:space="preserve">
-    <value>[JA]Charge/Credit:  Directives</value>
+    <value>Charge/Credit:  Directives</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_PRODUCT_VIEW" xml:space="preserve">
-    <value>[JA]Charge/Credit:  Product View</value>
+    <value>Charge/Credit:  Product View</value>
   </data>
   <data name="PAGETITLE_DECISION_ACTION" xml:space="preserve">
-    <value>[JA]Decision Action</value>
+    <value>Decision Action</value>
   </data>
   <data name="PAGETITLE_DECISION_CYCLE" xml:space="preserve">
-    <value>[JA]6. Decision Cycle</value>
+    <value>6. Decision Cycle</value>
   </data>
   <data name="PAGETITLE_DECISION_INTERACTIONS" xml:space="preserve">
-    <value>[JA]10. Decision Interactions</value>
+    <value>10. Decision Interactions</value>
   </data>
   <data name="PAGETITLE_DECISION_RANGE" xml:space="preserve">
-    <value>[JA]5. Decision Range</value>
+    <value>5. Decision Range</value>
   </data>
   <data name="PAGETITLE_DECISION_SETTINGS" xml:space="preserve">
-    <value>[JA]Decision Settings</value>
+    <value>Decision Settings</value>
   </data>
   <data name="PAGETITLE_END" xml:space="preserve">
-    <value>[JA]13. End</value>
+    <value>13. End</value>
   </data>
   <data name="PAGETITLE_ERROR_CHECK" xml:space="preserve">
-    <value>[JA]12. Error Check</value>
+    <value>12. Error Check</value>
   </data>
   <data name="PAGETITLE_EXECUTION_FREQUENCY" xml:space="preserve">
-    <value>[JA]9. Execution Frequency</value>
+    <value>9. Execution Frequency</value>
   </data>
   <data name="PAGETITLE_GENERAL_INFORMATION" xml:space="preserve">
-    <value>[JA]1. General Information</value>
+    <value>1. General Information</value>
   </data>
   <data name="PAGETITLE_GENERATE_A_NEW_CHARGE_CREDIT" xml:space="preserve">
-    <value>[JA]New Charge/Credit</value>
+    <value>New Charge/Credit</value>
   </data>
   <data name="PAGETITLE_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>[JA]4. Items to Aggregate</value>
+    <value>4. Items to Aggregate</value>
   </data>
   <data name="PAGETITLE_MISCELLANEOUS_ATTRIBUTES" xml:space="preserve">
-    <value>[JA]11. Miscellaneous Attributes</value>
+    <value>11. Miscellaneous Attributes</value>
   </data>
   <data name="PAGETITLE_SELECT_DECISION_ACTION" xml:space="preserve">
-    <value>[JA]7. Decision Action</value>
+    <value>7. Decision Action</value>
   </data>
   <data name="PAGETITLE_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[JA]3. Usage Qualification</value>
+    <value>3. Usage Qualification</value>
   </data>
   <data name="PAGETITLE_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[JA]Usage Qualification</value>
+    <value>Usage Qualification</value>
   </data>
   <data name="TEXT_ADVANCED_FEATURE" xml:space="preserve">
-    <value>[JA]Advanced Feature</value>
+    <value>Advanced Feature</value>
   </data>
   <data name="TEXT_ERROR_MISSING_MISC_ATTRIBUTE_TEXT_VALUE" xml:space="preserve">
-    <value>[JA]You must supply a value for this attribute.</value>
+    <value>You must supply a value for this attribute.</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
-    <value>[JA]An error occurred while retrieving Account Qualification Group '{0}'</value>
+    <value>An error occurred while retrieving Account Qualification Group '{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_DECISION" xml:space="preserve">
-    <value>[JA]An error occurred while retrieving Decision '{0}'</value>
+    <value>An error occurred while retrieving Decision '{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[JA]An error occurred while retrieving Generated Charge'{0}'</value>
+    <value>An error occurred while retrieving Generated Charge'{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_PARAM_TABLE_COLUMN_NAMES" xml:space="preserve">
-    <value>[JA]An error occurred while retrieving parameter table column names</value>
+    <value>An error occurred while retrieving parameter table column names</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_TABLE_COLUMN_NAMES" xml:space="preserve">
-    <value>[JA]An error occurred while retrieving column names for database table '{0}'</value>
+    <value>An error occurred while retrieving column names for database table '{0}'</value>
   </data>
   <data name="TEXT_ERROR_SAVE_DECISION" xml:space="preserve">
-    <value>[JA]An error occurred while saving Decision '{0}'</value>
+    <value>An error occurred while saving Decision '{0}'</value>
   </data>
   <data name="TEXT_ERROR_SAVE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[JA]An error occurred while saving Generated Charge '{0}'</value>
+    <value>An error occurred while saving Generated Charge '{0}'</value>
   </data>
   <data name="TEXT_ERROR_STORE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
-    <value>[JA]An error occurred while storing Account Qualification Group '{0}'</value>
+    <value>An error occurred while storing Account Qualification Group '{0}'</value>
   </data>
   <data name="TEXT_FIXED_VALUE" xml:space="preserve">
-    <value>[JA]Fixed Value</value>
+    <value>Fixed Value</value>
   </data>
   <data name="TEXT_GET_FROM_PARAM_TABLE_COLUMN" xml:space="preserve">
-    <value>[JA]Get from Parameter Table</value>
+    <value>Get from Parameter Table</value>
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
-    <value>[JA]&lt;u&gt;More...&lt;/u&gt;</value>
+    <value>&lt;u&gt;More...&lt;/u&gt;</value>
   </data>
   <data name="TEXT_SUCCESS_SAVE_DECISION" xml:space="preserve">
-    <value>[JA]Successfully saved Decision '{0}'</value>
+    <value>Successfully saved Decision '{0}'</value>
   </data>
 </root>

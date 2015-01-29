@@ -306,156 +306,156 @@
     <value>0</value>
   </data>
   <data name="btnGeneratePasswordResource1.Text" xml:space="preserve">
-    <value>[IT]Generate</value>
+    <value>Generate</value>
   </data>
   <data name="btnGeneratePasswordResource1.Tooltip" xml:space="preserve">
-    <value>[IT]Generate Password</value>
+    <value>Generate Password</value>
   </data>
   <data name="btnValidateResource1.Text" xml:space="preserve">
-    <value>[IT]Validate</value>
+    <value>Validate</value>
   </data>
   <data name="btnValidateResource1.Tooltip" xml:space="preserve">
-    <value>[IT]Validate User Name</value>
+    <value>Validate User Name</value>
   </data>
   <data name="cbApplyDefaultPolicyResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Apply Default Policy</value>
+    <value>Apply Default Policy</value>
   </data>
   <data name="cbApplyTemplateResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Apply Template</value>
+    <value>Apply Template</value>
   </data>
   <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Billable</value>
+    <value>Billable</value>
   </data>
   <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]E-Mail Notification</value>
+    <value>E-Mail Notification</value>
   </data>
   <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Tax Exempt</value>
+    <value>Tax Exempt</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>[IT]Authentication Type</value>
+    <value>Authentication Type</value>
   </data>
   <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
-    <value>[IT]Billing Cycle</value>
+    <value>Billing Cycle</value>
   </data>
   <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
-    <value>[IT]Branded Site</value>
+    <value>Branded Site</value>
   </data>
   <data name="ddCurrencyResource1.Label" xml:space="preserve">
-    <value>[IT]Currency</value>
+    <value>Currency</value>
   </data>
   <data name="ddLanguageResource1.Label" xml:space="preserve">
-    <value>[IT]Language</value>
+    <value>Language</value>
   </data>
   <data name="ddPaperInvoiceResource1.Label" xml:space="preserve">
-    <value>[IT]Paper Invoice</value>
+    <value>Paper Invoice</value>
   </data>
   <data name="ddPriceListResource1.Label" xml:space="preserve">
-    <value>[IT]Price List</value>
+    <value>Price List</value>
   </data>
   <data name="ddSecurityQuestionResource1.Label" xml:space="preserve">
-    <value>[IT]Security Question</value>
+    <value>Security Question</value>
   </data>
   <data name="ddStatusReasonResource1.Label" xml:space="preserve">
-    <value>[IT]Status Reason</value>
+    <value>Status Reason</value>
   </data>
   <data name="ddTimeZoneResource1.Label" xml:space="preserve">
-    <value>[IT]Time Zone</value>
+    <value>Time Zone</value>
   </data>
   <data name="LblCyclelist" xml:space="preserve">
-    <value>[IT]Billing Cycle</value>
+    <value>Billing Cycle</value>
   </data>
   <data name="LblEndDayOfMonth" xml:space="preserve">
-    <value>[IT]End Day of Month</value>
+    <value>End Day of Month</value>
   </data>
   <data name="LblEndDayOfWeek" xml:space="preserve">
-    <value>[IT]End Day of Week</value>
+    <value>End Day of Week</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>[IT]Error Messages</value>
+    <value>Error Messages</value>
   </data>
   <data name="LblFirstEndDayOfMonth" xml:space="preserve">
-    <value>[IT]1st End Day of Month</value>
+    <value>1st End Day of Month</value>
   </data>
   <data name="lblIsValidUsernameResource1.Text" xml:space="preserve">
-    <value>[IT]Invalid Username</value>
+    <value>Invalid Username</value>
   </data>
   <data name="LblSecondEndDayOfMonth" xml:space="preserve">
-    <value>[IT]2nd End Day of Month</value>
+    <value>2nd End Day of Month</value>
   </data>
   <data name="LblSelectInterval" xml:space="preserve">
-    <value>[IT]Select Interval</value>
+    <value>Select Interval</value>
   </data>
   <data name="LblStartDay" xml:space="preserve">
-    <value>[IT]Start Day</value>
+    <value>Start Day</value>
   </data>
   <data name="lblStartMonth" xml:space="preserve">
-    <value>[IT]Start Month</value>
+    <value>Start Month</value>
   </data>
   <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-    <value>[IT]User Name OK</value>
+    <value>User Name OK</value>
   </data>
   <data name="ListItemResource1.Text" xml:space="preserve">
-    <value>[IT]None</value>
+    <value>None</value>
   </data>
   <data name="ListItemResource2.Text" xml:space="preserve">
-    <value>[IT]US English</value>
+    <value>US English</value>
   </data>
   <data name="MTSection2Resource1.Text" xml:space="preserve">
-    <value>[IT]Login Information</value>
+    <value>Login Information</value>
   </data>
   <data name="MTSection3Resource1.Text" xml:space="preserve">
-    <value>[IT]Account Information</value>
+    <value>Account Information</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>[IT]Add Partition</value>
+    <value>Add Partition</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[IT]MetraNet</value>
+    <value>MetraNet</value>
   </data>
   <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
     <value>Conto principale</value>
   </data>
   <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-    <value>[IT]Confirm Password</value>
+    <value>Confirm Password</value>
   </data>
   <data name="tbOtherResource1.Label" xml:space="preserve">
-    <value>[IT]Other</value>
+    <value>Other</value>
   </data>
   <data name="tbPasswordResource1.Label" xml:space="preserve">
-    <value>[IT]Password</value>
+    <value>Password</value>
   </data>
   <data name="tbPayerResource1.Label" xml:space="preserve">
     <value>Pagatore</value>
   </data>
   <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
-    <value>[IT]Security Answer</value>
+    <value>Security Answer</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>[IT]Custom Security Question</value>
+    <value>Custom Security Question</value>
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
-    <value>[IT]Account Start Date</value>
+    <value>Account Start Date</value>
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
-    <value>[IT]User Name</value>
+    <value>User Name</value>
   </data>
   <data name="MTSection5Resource1.Text" xml:space="preserve">
-    <value>[IT]Containers to be created</value>
+    <value>Containers to be created</value>
   </data>
   <data name="cbChannelsResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Channels</value>
+    <value>Channels</value>
   </data>
   <data name="cbResellersResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Resellers</value>
+    <value>Resellers</value>
   </data>
   <data name="cbRetailResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Retail</value>
+    <value>Retail</value>
   </data>
   <data name="cbSystemUsersResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]System Users</value>
+    <value>System Users</value>
   </data>
   <data name="cbVendorsResource1.BoxLabel" xml:space="preserve">
-    <value>[IT]Vendors</value>
+    <value>Vendors</value>
   </data>
 </root>

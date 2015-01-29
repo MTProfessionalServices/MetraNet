@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ddModeResource1.Label" xml:space="preserve">
-    <value>[FR]Mode</value>
+    <value>Mode</value>
   </data>
   <data name="lblAccountQualificationResource1.Text" xml:space="preserve">
     <value>Sur cette page, vous devez définir une qualification de compte pour un groupe de comptes.  Une qualification de compte est un filtre qui inclut ou exclut certains comptes.</value>

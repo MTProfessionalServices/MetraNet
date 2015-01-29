@@ -118,102 +118,102 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionCycle.Text" xml:space="preserve">
-    <value>[IT]Your Decision Type can aggregate events or usage across different billing intervals or time periods.</value>
+    <value>Your Decision Type can aggregate events or usage across different billing intervals or time periods.</value>
   </data>
   <data name="lblDecisionEffect.Text" xml:space="preserve">
-    <value>[IT]How long should the Decision Type be in effect?</value>
+    <value>How long should the Decision Type be in effect?</value>
   </data>
   <data name="lblNumberDaysBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of days from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of days from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberMonthBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of months from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of months from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfDays.Text" xml:space="preserve">
-    <value>[IT]Number of days in the Decision Cycle:</value>
+    <value>Number of days in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfMonth.Text" xml:space="preserve">
-    <value>[IT]Number of months in the Decision Cycle:</value>
+    <value>Number of months in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfQuarters.Text" xml:space="preserve">
-    <value>[IT]Number of quarters in the Decision Cycle:</value>
+    <value>Number of quarters in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfWeeks.Text" xml:space="preserve">
-    <value>[IT]Number of weeks in the Decision Cycle:</value>
+    <value>Number of weeks in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfYears.Text" xml:space="preserve">
-    <value>[IT]Number of years in the Decision Cycle:</value>
+    <value>Number of years in the Decision Cycle:</value>
   </data>
   <data name="lblNumberQuartersBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of quarters from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of quarters from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberWeeksBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of weeks from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of weeks from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberYearsBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of years from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of years from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[IT]Decision Cycle for {0}</value>
+    <value>Decision Cycle for {0}</value>
   </data>
   <data name="lblUnitOfTime.Label" xml:space="preserve">
-    <value>[IT]Time cycle unit:</value>
+    <value>Time cycle unit:</value>
   </data>
   <data name="rblDays.Text" xml:space="preserve">
-    <value>[IT]Days</value>
+    <value>Days</value>
   </data>
   <data name="rblDecisionCycleBillingInterval.Text" xml:space="preserve">
-    <value>[IT]The Decision Cycle matches the billing interval</value>
+    <value>The Decision Cycle matches the billing interval</value>
   </data>
   <data name="rblIndefinitely.Text" xml:space="preserve">
-    <value>[IT]Indefinitely</value>
+    <value>Indefinitely</value>
   </data>
   <data name="rblMonths.Text" xml:space="preserve">
-    <value>[IT]Months</value>
+    <value>Months</value>
   </data>
   <data name="rblQuarters.Text" xml:space="preserve">
-    <value>[IT]Quarters</value>
+    <value>Quarters</value>
   </data>
   <data name="rblSpecified.Text" xml:space="preserve">
-    <value>[IT]For a specific number of Decision Cycles:</value>
+    <value>For a specific number of Decision Cycles:</value>
   </data>
   <data name="rblWeeks.Text" xml:space="preserve">
-    <value>[IT]Weeks</value>
+    <value>Weeks</value>
   </data>
   <data name="rblYears.Text" xml:space="preserve">
-    <value>[IT]Years</value>
+    <value>Years</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME" xml:space="preserve">
-    <value>[IT]Error: You must specify the number of units in the Decision Cycle.</value>
+    <value>Error: You must specify the number of units in the Decision Cycle.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL" xml:space="preserve">
-    <value>[IT]Error: You must specify the Decision Cycles offset from the subscription start.</value>
+    <value>Error: You must specify the Decision Cycles offset from the subscription start.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
-    <value>[IT]Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
+    <value>Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
   </data>
   <data name="rblUnitOfTimeFromParamTable.Label" xml:space="preserve">
-    <value>[IT]Get unit of time from parameter table:</value>
+    <value>Get unit of time from parameter table:</value>
   </data>
   <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
-    <value>[IT]Number of time units in the Decision Cycle:</value>
+    <value>Number of time units in the Decision Cycle:</value>
   </data>
   <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of time units from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of time units from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="LIST_DD_TIME_CYCLE_UNIT" xml:space="preserve">
-    <value>[IT]Billing Interval,Day,Week,Month,Quarter,Year,Get from parameter table</value>
+    <value>Billing Interval,Day,Week,Month,Quarter,Year,Get from parameter table</value>
   </data>
 	<data name="lblNumberXBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of {0} from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of {0} from the subscription start to the start of the Decision Cycle:</value>
   </data>
 	<data name="lblNumberOfX.Text" xml:space="preserve">
-    <value>[IT]Number of {0} in the Decision Cycle:</value>
+    <value>Number of {0} in the Decision Cycle:</value>
   </data>
 	<data name="lblNumberOfBillingIntervals.Text" xml:space="preserve">
-    <value>[IT]Number of billing intervals in the Decision Cycle:</value>
+    <value>Number of billing intervals in the Decision Cycle:</value>
   </data>
 	<data name="lblNumberBIBillingInterval.Text" xml:space="preserve">
-    <value>[IT]Number of billing intervals from the subscription start to the start of the Decision Cycle:</value>
+    <value>Number of billing intervals from the subscription start to the start of the Decision Cycle:</value>
   </data>
 </root>

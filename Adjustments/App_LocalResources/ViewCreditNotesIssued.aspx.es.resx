@@ -118,54 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>[ES]No records found.</value>
+    <value>No records found.</value>
   </data>
   <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
-    <value>[ES]Credit Note Documents</value>
+    <value>Credit Note Documents</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[ES]MetraNet - View Credit Notes Issued</value>
+    <value>MetraNet - View Credit Notes Issued</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[ES]Account</value>
+    <value>Account</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>[ES]Amount</value>
+    <value>Amount</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value>[ES]Amount</value>
+    <value>Amount</value>
   </data>
   <data name="TEXT_CREATED_BY" xml:space="preserve">
-    <value>[ES]Created By</value>
+    <value>Created By</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
-    <value>[ES]Credit Note Identifier</value>
+    <value>Credit Note Identifier</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>[ES]Date</value>
+    <value>Date</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>[ES]Id</value>
+    <value>Id</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>[ES]Tax</value>
+    <value>Tax</value>
   </data>
   <data name="TEXT_DISPLAY_TAX" xml:space="preserve">
-    <value>[ES]Tax</value>
+    <value>Tax</value>
   </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
-    <value>[ES]Total</value>
+    <value>Total</value>
   </data>
   <data name="TEXT_DISPLAY_TOTAL" xml:space="preserve">
-    <value>[ES]Total</value>
+    <value>Total</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[ES]Status</value>
+    <value>Status</value>
   </data>
   <data name="TEXT_STATUS_INFORMATION" xml:space="preserve">
-    <value>[ES]Status Information</value>
+    <value>Status Information</value>
   </data>
   <data name="lblViewCreditNotesTitle.Text" xml:space="preserve">
-    <value>[ES]View Credit Notes Issued</value>
+    <value>View Credit Notes Issued</value>
   </data>    
 </root>

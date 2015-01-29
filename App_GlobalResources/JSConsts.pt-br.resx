@@ -1324,7 +1324,7 @@
     <value>Notificações recentes</value>
   </data>
   <data name="TEXT_NO_RECENT_NOTIFICATIONS" xml:space="preserve">
-    <value>[pt-BR]No recent notifications.</value>
+    <value>No recent notifications.</value>
   </data> 
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>Alterar senha</value>
@@ -1378,10 +1378,10 @@
     <value>No parameter was selected. Please select at least one parameter for assignment</value>
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
-    <value>[pt-BR]View Log</value>
+    <value>View Log</value>
   </data>
   <data name="TEXT_VIEW_ALL" xml:space="preserve">
-    <value>[pt-BR]View All...</value>
+    <value>View All...</value>
   </data>
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Dia</value>
@@ -1402,6 +1402,6 @@
     <value>Terceiro</value>
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
-    <value>[PT-BR]Pending Changes Waiting For Approval</value>
+    <value>Pending Changes Waiting For Approval</value>
   </data>
 </root>

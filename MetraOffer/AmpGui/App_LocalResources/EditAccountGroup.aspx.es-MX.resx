@@ -118,78 +118,78 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_QUALIFICATIONS_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Account Qualifications in Order of Execution:</value>
+    <value>Account Qualifications in Order of Execution:</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[es-MX]Account Group</value>
+    <value>Account Group</value>
   </data>
   <data name="lblEditAccountGroupResource1.Text" xml:space="preserve">
-    <value>[es-MX]Here you define an Account Group that specifies a particular set of accounts to operate on.</value>
+    <value>Here you define an Account Group that specifies a particular set of accounts to operate on.</value>
   </data>
   <data name="lblAcctQualGridResource1.Text" xml:space="preserve">
-    <value>[es-MX]Specify the steps to take so that the accounts on which this Decision Type will operate can be selected. &lt;br/&gt;To do so, you must define an ordered set of Account Qualifications</value>
+    <value>Specify the steps to take so that the accounts on which this Decision Type will operate can be selected. &lt;br/&gt;To do so, you must define an ordered set of Account Qualifications</value>
   </data>
   <data name="tbAcctGroupNameResource1.Label" xml:space="preserve">
-    <value>[es-MX]Name</value>
+    <value>Name</value>
   </data>
   <data name="tbAcctGroupDescriptionResource1.Label" xml:space="preserve">
-    <value>[es-MX]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_ORDER" xml:space="preserve">
-    <value>[es-MX]Order</value>
+    <value>Order</value>
   </data>
   <data name="TEXT_INCLUDE_TABLE" xml:space="preserve">
-    <value>[es-MX]Table to Include</value>
+    <value>Table to Include</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[es-MX]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>[es-MX]Add</value>
+    <value>Add</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>[es-MX]Add a new Account Qualification to this Account Group</value>
+    <value>Add a new Account Qualification to this Account Group</value>
   </data>
   <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
-    <value>[es-MX]Move earlier</value>
+    <value>Move earlier</value>
   </data>
   <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
-    <value>[es-MX]Move later</value>
+    <value>Move later</value>
   </data>
   <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>[es-MX]An error occurred while moving the Account Qualification earlier in order of execution:</value>
+    <value>An error occurred while moving the Account Qualification earlier in order of execution:</value>
   </data>
   <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>[es-MX]An error occurred while moving the Account Qualification later in order of execution:</value>
+    <value>An error occurred while moving the Account Qualification later in order of execution:</value>
   </data>
   <data name="TEXT_ERROR_DELETING" xml:space="preserve">
-    <value>[es-MX]An error occurred while deleting Account Qualification:</value>
+    <value>An error occurred while deleting Account Qualification:</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_ACCT_GROUP_DESCRIPTION" xml:space="preserve">
-    <value>[es-MX]An error occurred while updating the description of Account Group:</value>
+    <value>An error occurred while updating the description of Account Group:</value>
   </data>
   <data name="TEXT_DB_FILTER" xml:space="preserve">
-    <value>[es-MX]Database Filter</value>
+    <value>Database Filter</value>
   </data>
   <data name="TEXT_MATCH_FIELD" xml:space="preserve">
-    <value>[es-MX]Match Field</value>
+    <value>Match Field</value>
   </data>
   <data name="TEXT_MODE" xml:space="preserve">
-    <value>[es-MX]Mode</value>
+    <value>Mode</value>
   </data>
   <data name="TEXT_MVM_FILTER" xml:space="preserve">
-    <value>[es-MX]MVM Filter</value>
+    <value>MVM Filter</value>
   </data>
   <data name="TEXT_OUTPUT_FIELD" xml:space="preserve">
-    <value>[es-MX]Output Field</value>
+    <value>Output Field</value>
   </data>
   <data name="TEXT_SOURCE_FIELD" xml:space="preserve">
-    <value>[es-MX]Source Field</value>
+    <value>Source Field</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[es-MX]Description:</value>
+    <value>Description:</value>
   </data>
 </root>

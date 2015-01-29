@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Shared Price Lists</value>
+    <value>Shared Price Lists</value>
   </data>
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>[es-MX]Shared Price Lists</value>
+    <value>Shared Price Lists</value>
   </data>
   <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>[es-MX]Group subscription</value>
+    <value>Group subscription</value>
   </data>
   <data name="ID_QUOTE" xml:space="preserve">
-    <value>[es-MX]Id Quote</value>
+    <value>Id Quote</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[es-MX]MetraNet</value>
+    <value>MetraNet</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[es-MX]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="TEXT_CREATE_PRICELIST" xml:space="preserve">
-    <value>[es-MX]Create Price List</value>
+    <value>Create Price List</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>[es-MX]Currency</value>
+    <value>Currency</value>
   </data>
   <data name="QuoteListTitle.Text" xml:space="preserve">
-    <value>[es-MX]Quotes List</value>
+    <value>Quotes List</value>
   </data>
   <data name="REPORT_LINK" xml:space="preserve">
-    <value>[es-MX]Report link</value>
+    <value>Report link</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[es-MX]Name</value>
+    <value>Name</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[es-MX]Partition Id</value>
+    <value>Partition Id</value>
   </data>
   <data name="TOTAL_AMOUNT" xml:space="preserve">
-    <value>[es-MX]Total amount</value>
+    <value>Total amount</value>
   </data>
   <data name="TOTAL_TAX" xml:space="preserve">
-    <value>[es-MX]Total Tax</value>
+    <value>Total Tax</value>
   </data>
 </root>

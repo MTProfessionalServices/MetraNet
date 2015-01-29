@@ -118,12 +118,12 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>      
   <data name="btnBackResource1.Text" xml:space="preserve">
-    <value>[FR]Back</value>
+    <value>Back</value>
   </data>
   <data name="Label2Resource1.Text" xml:space="preserve">
-    <value>[FR]Report Parameter Created</value>
+    <value>Report Parameter Created</value>
   </data>
   <data name="Label1Resource1.Text" xml:space="preserve">
-    <value>[FR]The new report parameter was created successfully.</value>
+    <value>The new report parameter was created successfully.</value>
   </data>
 </root>

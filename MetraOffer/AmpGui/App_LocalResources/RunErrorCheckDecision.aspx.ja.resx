@@ -125,24 +125,24 @@
     <value>MetraNet</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[JA]Errors</value>
+    <value>Errors</value>
   </data>
   <data name="VALIDATION_ERROR_MESSAGE" xml:space="preserve">
-    <value>[JA]Message</value>
+    <value>Message</value>
   </data>
   <data name="VALIDATION_ERROR_SEVERITY" xml:space="preserve">
-    <value>[JA]Level</value>
+    <value>Level</value>
   </data>
   <data name="TEXT_RAN_VALIDATE_FOR_DECISION" xml:space="preserve">
-    <value>[JA]Ran validation for Decision Type</value>
+    <value>Ran validation for Decision Type</value>
   </data>
   <data name="ErrorLabel.Text" xml:space="preserve">
-    <value>[JA]Your Decision Type contains configuration errors:</value>
+    <value>Your Decision Type contains configuration errors:</value>
   </data>
   <data name="NavigateLabel.Text" xml:space="preserve">
-    <value>[JA]Navigate back to the appropriate pages to correct your errors. Then redo the Error Check.</value>
+    <value>Navigate back to the appropriate pages to correct your errors. Then redo the Error Check.</value>
   </data>
   <data name="CheckMarkLabel.Text" xml:space="preserve">
-    <value>[JA]No configuration errors were detected.</value>
+    <value>No configuration errors were detected.</value>
   </data>
 </root>

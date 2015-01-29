@@ -133,10 +133,10 @@
     <value>ID membro</value>
   </data>
     <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUB_NAME" xml:space="preserve">
-    <value>[it]Group Subscription name</value>
+    <value>Group Subscription name</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNT_NAME" xml:space="preserve">
-    <value>[it]Member Name</value>
+    <value>Member Name</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_PROPERTYNAME" xml:space="preserve">
     <value>Nome della proprietà</value>
@@ -154,6 +154,6 @@
     <value>Membri abbonamento di gruppo aggiornati</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
-    <value>[IT]Member Name</value>
+    <value>Member Name</value>
   </data>
 </root>

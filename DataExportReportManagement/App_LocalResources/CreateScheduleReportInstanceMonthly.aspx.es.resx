@@ -199,6 +199,6 @@
     <value>Tipo de plan</value>
   </data>
   <data name="TEXT_DEF_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
-    <value>[ES]Execute Day Of Month</value>
+    <value>Execute Day Of Month</value>
   </data>
 </root>

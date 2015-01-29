@@ -217,7 +217,7 @@
     <value>Sitzungs-ID</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[DE]Status</value>
+    <value>Status</value>
   </data>
   <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
     <value>Teilnehmerkonto-ID</value>

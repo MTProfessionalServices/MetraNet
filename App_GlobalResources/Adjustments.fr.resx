@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_Details_for_ajustment_not_found" xml:space="preserve">
-    <value>[FR]Details for ajustment not found!</value>
+    <value>Details for ajustment not found!</value>
   </data>
   <data name="TEXT_Successfully_approved_adjustments" xml:space="preserve">
-    <value>[FR]Successfully approved adjustments.</value>
+    <value>Successfully approved adjustments.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_miscellaneous_adjustments" xml:space="preserve">
-    <value>[FR]Successfully approved all miscellaneous adjustments.</value>
+    <value>Successfully approved all miscellaneous adjustments.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_selected_adjustments" xml:space="preserve">
-    <value>[FR]Successfully approved all selected adjustments.</value>
+    <value>Successfully approved all selected adjustments.</value>
   </data>
   <data name="TEXT_Successfully_approved_miscellaneous_adjustment" xml:space="preserve">
-    <value>[FR]Successfully approved miscellaneous adjustment.</value>
+    <value>Successfully approved miscellaneous adjustment.</value>
   </data>
   <data name="TEXT_Successfully_deleted_all_selected_adjustments" xml:space="preserve">
-    <value>[FR]Successfully deleted all selected adjustments.</value>
+    <value>Successfully deleted all selected adjustments.</value>
   </data>
   <data name="TEXT_Successfully_denied_all_miscellaneous_adjustments" xml:space="preserve">
-    <value>[FR]Successfully denied all miscellaneous adjustments.</value>
+    <value>Successfully denied all miscellaneous adjustments.</value>
   </data>
   <data name="TEXT_Successfully_denied_miscellaneous_adjustment" xml:space="preserve">
-    <value>[FR]Successfully denied miscellaneous adjustment.</value>
+    <value>Successfully denied miscellaneous adjustment.</value>
   </data>
   <data name="TEXT_Successfully_denyed_adjustments" xml:space="preserve">
-    <value>[FR]Successfully denied adjustments.</value>
+    <value>Successfully denied adjustments.</value>
   </data>
   <data name="TEXT_Successfully_submitted_request_to_generate_Credit_Note_pdf" xml:space="preserve">
-    <value>[FR]Successfully submitted request to generate Credit Note pdf.</value>
+    <value>Successfully submitted request to generate Credit Note pdf.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_selected_charges" xml:space="preserve">
     <value>Succès nié toutes les accusations sélectionnés.</value>

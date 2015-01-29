@@ -118,57 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>[DE]Approver ID</value>
+    <value>Approver ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>[DE]Comment</value>
+    <value>Comment</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>[DE]Current State</value>
+    <value>Current State</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>[DE]Action</value>
+    <value>Action</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>[DE]Last Modified Date</value>
+    <value>Last Modified Date</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>[DE]Submitted Date</value>
+    <value>Submitted Date</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>[DE]Submitter</value>
+    <value>Submitter</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>[DE]Submitter ID</value>
+    <value>Submitter ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>[DE]Type</value>
+    <value>Type</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>[DE]Modified Item ID</value>
+    <value>Modified Item ID</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>[DE]No Records Found</value>
+    <value>No Records Found</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[DE]View Changes</value>
+    <value>View Changes</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
-    <value>[DE]State</value>
+    <value>State</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
-    <value>[DE]Modified Item</value>
+    <value>Modified Item</value>
   </data>
   <data name="TEXT_SUMMARY" xml:space="preserve">
-    <value>[DE]Summary</value>
+    <value>Summary</value>
   </data>
   <data name="lblShowAllChangesSummaryTitleResource1.Text" xml:space="preserve">
-    <value>[DE]All Changes Summary</value>
+    <value>All Changes Summary</value>
   </data>
   <data name="ChangesSummaryResource1.NoRecordsText" xml:space="preserve">
-    <value>[DE]No records found</value>
+    <value>No records found</value>
   </data>
   <data name="MTSection2Resource1.Text" xml:space="preserve">
-    <value>[DE]Change Details</value>
+    <value>Change Details</value>
   </data>    
 </root>

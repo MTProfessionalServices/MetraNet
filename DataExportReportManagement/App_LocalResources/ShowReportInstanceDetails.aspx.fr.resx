@@ -141,7 +141,7 @@
         <value>Description</value>
     </data>
     <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
-        <value>[FR]Destination</value>
+        <value>Destination</value>
     </data>
     <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
         <value>Type d’exécution</value>
@@ -192,12 +192,12 @@
         <value>Valeur</value>
     </data>
     <data name="TEXT_REPORT_INSTANCE_DETAILS" xml:space="preserve">
-        <value>[FR]Report Instance Details </value>
+        <value>Report Instance Details </value>
     </data>
   <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
-        <value>[FR]Delete Report Instance</value>
+        <value>Delete Report Instance</value>
     </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>[FR]Update Report Instance</value>
+        <value>Update Report Instance</value>
     </data>
 </root>

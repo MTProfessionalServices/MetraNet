@@ -169,7 +169,7 @@
     <value>Associer la zone</value>
   </data>
   <data name="TEXT_MODE" xml:space="preserve">
-    <value>[FR]Mode</value>
+    <value>Mode</value>
   </data>
   <data name="TEXT_MVM_FILTER" xml:space="preserve">
     <value>Filtre MVM</value>

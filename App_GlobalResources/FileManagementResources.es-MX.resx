@@ -148,7 +148,7 @@
     <value>Código de error actual</value>
   </data>
   <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-    <value>[es-MX]Current Error Message</value>
+    <value>Current Error Message</value>
   </data>
   <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
     <value>Estado actual</value>
@@ -184,7 +184,7 @@
     <value>expiración</value>
   </data>
   <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-    <value>[es-MX]Error Message</value>
+    <value>Error Message</value>
   </data>
   <data name="FILE_GENERAL_TITLE" xml:space="preserve">
     <value>Archivos</value>

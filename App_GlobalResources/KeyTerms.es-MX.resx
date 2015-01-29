@@ -259,12 +259,12 @@
     <value>Cargos por uso (Total)</value>
   </data>
   <data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-	<value>[es-MX]Core Subscriber</value>
+	<value>Core Subscriber</value>
   </data>
   <data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-	<value>[es-MX]Department Account</value>
+	<value>Department Account</value>
   </data>
   <data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-	<value>[es-MX]GSM Service Account</value>
+	<value>GSM Service Account</value>
   </data>
 </root>

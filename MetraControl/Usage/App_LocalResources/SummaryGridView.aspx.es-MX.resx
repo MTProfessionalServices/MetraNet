@@ -108,6 +108,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblUsageCalcDecisionDetails.Text" xml:space="preserve">
-    <value>[es-MX]Usage Calculation Decision Details</value>
+    <value>Usage Calculation Decision Details</value>
   </data>      
 </root>

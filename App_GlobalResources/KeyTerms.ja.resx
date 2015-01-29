@@ -259,12 +259,12 @@
     <value>利用料金 (総計)</value>
   </data>
   <data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-    <value>[JA]Core Subscriber</value>
+    <value>Core Subscriber</value>
   </data>
   <data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-    <value>[JA]Department Account</value>
+    <value>Department Account</value>
   </data>
   <data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-    <value>[JA]GSM Service Account</value>
+    <value>GSM Service Account</value>
   </data>
 </root>

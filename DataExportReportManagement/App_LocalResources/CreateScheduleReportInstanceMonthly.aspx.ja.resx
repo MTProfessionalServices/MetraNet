@@ -199,6 +199,6 @@
     <value>スケジュール種別</value>
   </data>
   <data name="TEXT_DEF_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
-    <value>[JA]Execute Day Of Month</value>
+    <value>Execute Day Of Month</value>
   </data>
 </root>

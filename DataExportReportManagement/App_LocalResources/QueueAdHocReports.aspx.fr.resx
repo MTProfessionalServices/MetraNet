@@ -380,6 +380,6 @@
         <value>Valeur</value>
     </data>
     <data name="TEXT_QUEUSE_ADHOC_REPORTS" xml:space="preserve">
-        <value>[FR]Queue Adhoc Reports</value>
+        <value>Queue Adhoc Reports</value>
     </data>
 </root>

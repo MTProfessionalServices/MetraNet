@@ -139,7 +139,7 @@
     <value>Validation du type de décision lancée</value>
   </data>
   <data name="VALIDATION_ERROR_MESSAGE" xml:space="preserve">
-    <value>[FR]Message</value>
+    <value>Message</value>
   </data>
   <data name="VALIDATION_ERROR_SEVERITY" xml:space="preserve">
     <value>Niveau</value>

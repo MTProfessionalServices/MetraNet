@@ -523,12 +523,12 @@
     <value>Interval Id</value>
   </data>
   <data name="TEXT_DEFERRED_CODE" xml:space="preserve">
-    <value>[pt-BR]Deferred</value>
+    <value>Deferred</value>
   </data>
   <data name="TEXT_EARNED_CODE" xml:space="preserve">
-    <value>[pt-BR]Earned</value>
+    <value>Earned</value>
   </data>
   <data name="TEXT_INCREMENTAL_CODE" xml:space="preserve">
-    <value>[pt-BR]Incremental</value>
+    <value>Incremental</value>
   </data>
 </root>

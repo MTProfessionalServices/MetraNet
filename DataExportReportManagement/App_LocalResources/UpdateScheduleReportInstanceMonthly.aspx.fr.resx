@@ -332,18 +332,18 @@
         <value>Valeur</value>
     </data>
     <data name="TEXT_EXECUTE_DAY_OF_MONTH" xml:space="preserve">
-        <value>[FR]Execute day of Monthly Schedule </value>
+        <value>Execute day of Monthly Schedule </value>
     </data>
     <data name="TEXT_EXECUTE_TIME_OF_MONTHLY" xml:space="preserve">
-        <value>[FR]Execute Time of Monthly Schedule</value>
+        <value>Execute Time of Monthly Schedule</value>
     </data>
     <data name="TEXT_SKIP_THE_FOLLOWING_MONTH" xml:space="preserve">
-        <value>[FR]Skip The Following Months</value>
+        <value>Skip The Following Months</value>
     </data>
   <data name="TEXT_Delete_Monthly_Report_Schedule" xml:space="preserve">
-        <value>[FR]Delete Monthly Report Schedule</value>
+        <value>Delete Monthly Report Schedule</value>
     </data>
   <data name="TEXT_Update_Monthly_Report_Schedule" xml:space="preserve">
-        <value>[FR]Update Monthly Report Schedule</value>
+        <value>Update Monthly Report Schedule</value>
     </data>
 </root>

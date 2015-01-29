@@ -178,12 +178,12 @@
         <value>Mettre à jour la définition de rapport existante</value>
     </data>
   <data name="btnBackResource1.Text" xml:space="preserve">
-    <value>[FR]Back</value>
+    <value>Back</value>
   </data>
   <data name="Label1Resource1.Text" xml:space="preserve">
-    <value>[FR]The Report Definition was deleted successfully.</value>
+    <value>The Report Definition was deleted successfully.</value>
   </data>
   <data name="Label2Resource1.Text" xml:space="preserve">
-    <value>[FR]Report Definition Deleted</value>
+    <value>Report Definition Deleted</value>
   </data>
 </root>

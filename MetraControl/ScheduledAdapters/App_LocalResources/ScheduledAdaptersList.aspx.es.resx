@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>[ES] Scheduled Adapters Event List</value>
+    <value>Scheduled Adapters Event List</value>
   </data>
   <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[ES] MetraNet - Scheduled Adapters Event List</value>
+    <value>MetraNet - Scheduled Adapters Event List</value>
   </data>
   <data name="ScheduledAdaptersListGridResource1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[ES] Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>[ES] Adapters</value>
+    <value>Adapters</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>[ES] Scheduled Adapters</value>
+    <value>Scheduled Adapters</value>
   </data>
   <data name="TEXT_ISPAUSED" xml:space="preserve">
-    <value>[ES] Next Run</value>
+    <value>Next Run</value>
   </data>
   <data name="TEXT_ON_SCHEDULE" xml:space="preserve">
-    <value>[ES] On Schedule</value>
+    <value>On Schedule</value>
   </data>
   <data name="TEXT_PAUSED" xml:space="preserve">
-    <value>[ES] Paused</value>
+    <value>Paused</value>
   </data>
   <data name="TEXT_SCHEDULE" xml:space="preserve">
-    <value>[ES] Schedule</value>
+    <value>Schedule</value>
   </data>
   <data name="TEXT_SCHEDULE_DAY" xml:space="preserve">
-    <value>[ES] Every {0} day(s) at {1}</value>
+    <value>Every {0} day(s) at {1}</value>
   </data>
   <data name="TEXT_SCHEDULE_MANUAL" xml:space="preserve">
-    <value>[ES] Manual</value>
+    <value>Manual</value>
   </data>
   <data name="TEXT_SCHEDULE_MINUTES" xml:space="preserve">
-    <value>[ES] Every {0} minutes</value>
+    <value>Every {0} minutes</value>
   </data>
   <data name="TEXT_SCHEDULE_MONTH" xml:space="preserve">
-    <value>[ES] Every {0} month(s) at {1} on {2}</value>
+    <value>Every {0} month(s) at {1} on {2}</value>
   </data>
   <data name="TEXT_SCHEDULE_WEEK" xml:space="preserve">
-    <value>[ES] Every {0} week(s) at {1} on {2}</value>
+    <value>Every {0} week(s) at {1} on {2}</value>
   </data>
 </root>

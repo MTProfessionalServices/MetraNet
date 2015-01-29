@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ManageReports.Text" xml:space="preserve">
-    <value>[ES]Manage Reports</value>
+    <value>Manage Reports</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>[ES]Reports</value>
+    <value>Reports</value>
   </data>
   <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>[ES]List of Reports</value>
+    <value>List of Reports</value>
   </data>
 </root>

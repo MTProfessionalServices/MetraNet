@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_DB_STATUS" xml:space="preserve">
-    <value>[DE]DB Status</value>
+    <value>DB Status</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>[DE]End Date</value>
+    <value>End Date</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>[DE]All Intervals</value>
+    <value>All Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_ACTIVE_INTERVALS" xml:space="preserve">
-    <value>[DE]Active Intervals</value>
+    <value>Active Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>[DE]Billable Intervals</value>
+    <value>Billable Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-    <value>[DE]Completed Intervals</value>
+    <value>Completed Intervals</value>
   </data>
   <data name="TEXT_GROUP" xml:space="preserve">
-    <value>[DE]Groups</value>
+    <value>Groups</value>
   </data>
   <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-    <value>[DE]Hard Closed</value>
+    <value>Hard Closed</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>[DE]Interval ID</value>
+    <value>Interval ID</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>[DE]Open</value>
+    <value>Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED" xml:space="preserve">
-    <value>[DE]Soft Closed</value>
+    <value>Soft Closed</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>[DE]Start Date</value>
+    <value>Start Date</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[DE]Status</value>
+    <value>Status</value>
   </data>
   <data name="TEXT_UNKNOWN" xml:space="preserve">
-    <value>[DE]Unknown</value>
+    <value>Unknown</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>[DE]Usage Cycle Type</value>
+    <value>Usage Cycle Type</value>
   </data>
 </root>

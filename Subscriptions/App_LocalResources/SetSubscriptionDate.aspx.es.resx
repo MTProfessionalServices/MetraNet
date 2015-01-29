@@ -148,9 +148,9 @@
     <value>Propiedades</value>
   </data>
   <data name="pendingChangeUiErrorFormat" xml:space="preserve">
-    <value>[ES]This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
+    <value>This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
   </data>
   <data name="pendingChangeWarningFormat" xml:space="preserve">
-    <value>[ES]This Subscription already has a '{0}' change pending approval. &lt;a href='{1}'&gt;Click here to view the pending change.&lt;/a&gt;</value>
+    <value>This Subscription already has a '{0}' change pending approval. &lt;a href='{1}'&gt;Click here to view the pending change.&lt;/a&gt;</value>
   </data>
 </root>

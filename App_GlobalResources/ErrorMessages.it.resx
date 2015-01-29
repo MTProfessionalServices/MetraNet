@@ -247,7 +247,7 @@
     <value>Impossibile salvare le modifiche apportate alla configurazione. Per informazioni dettagliate, consultare il registro.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>[IT]This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
+    <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
   </data>
   <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
     <value>Eliminazione spec. non riuscita</value>
@@ -277,40 +277,40 @@
     <value>Impossibile trovare proprietà.</value>
   </data>
   <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
-    <value>[IT]You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+    <value>You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
   </data>
   <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
-    <value>[IT]Invalid or Missing Payer</value>
+    <value>Invalid or Missing Payer</value>
   </data>
   <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
-    <value>[IT]Invalid Currency</value>
+    <value>Invalid Currency</value>
   </data>
   <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
-    <value>[IT]Invalid Partition ID</value>
+    <value>Invalid Partition ID</value>
   </data>
   <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
-    <value>[IT]Error in config ReportFormat file</value>
+    <value>Error in config ReportFormat file</value>
   </data>
   <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>[IT]Error in config ReportFormat file. Report format type isn't defined.</value>
+    <value>Error in config ReportFormat file. Report format type isn't defined.</value>
   </data>
   <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
-    <value>[IT]Error in config ReportFormat file. Incorrect file structure.</value>
+    <value>Error in config ReportFormat file. Incorrect file structure.</value>
   </data>
   <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-    <value>[IT]Error in config ReportFormat file. Report image  isn't defined.</value>
+    <value>Error in config ReportFormat file. Report image  isn't defined.</value>
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
-    <value>[IT]Unable open and save report</value>
+    <value>Unable open and save report</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
-    <value>[IT]Name of product offering must be unique</value>
+    <value>Name of product offering must be unique</value>
   </data>
   <data name="ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY" xml:space="preserve">
-    <value>[IT]Access denied, insufficient capability</value>
+    <value>Access denied, insufficient capability</value>
   </data>
   <data name="ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS" xml:space="preserve">
-    <value><![CDATA[[IT]The new password does not meet security requirements:       
+    <value><![CDATA[The new password does not meet security requirements:       
             * Must be at least 7 characters and less than 1024 
             * Must contain at least one lower case letter, one upper case letter, one digit and one special character 
             * Valid special characters including space are _ !@#$%^&*+= 

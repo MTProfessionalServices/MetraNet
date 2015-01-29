@@ -179,18 +179,18 @@
         <value>Mettre à jour la définition de rapport existante</value>
     </data>
   <data name="chkPreventAdhocExecutionResource1.BoxLabel" xml:space="preserve">
-    <value>[FR]Prevent Adhoc Execution</value>
+    <value>Prevent Adhoc Execution</value>
   </data>
   <data name="ddQueryTagListResource1.Label" xml:space="preserve">
-    <value>[FR]Query Tag</value>
+    <value>Query Tag</value>
   </data>
   <data name="tbReportDescriptionResource1.Label" xml:space="preserve">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </data>
   <data name="tbReportTitleResource1.Label" xml:space="preserve">
-    <value>[FR]Report Title</value>
+    <value>Report Title</value>
   </data>
   <data name="MTSection2Resource1.Text" xml:space="preserve">
-    <value>[FR]Report Definition Details</value>
+    <value>Report Definition Details</value>
   </data>
 </root>

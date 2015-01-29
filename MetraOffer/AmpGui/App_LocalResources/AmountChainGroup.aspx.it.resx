@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNTCHAINGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>[IT]Amount Chain Groups</value>
+    <value>Amount Chain Groups</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[IT]Amount Chain Group</value>
+    <value>Amount Chain Group</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[IT]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[IT]Name</value>
+    <value>Name</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[IT]Unique ID</value>
+    <value>Unique ID</value>
   </data>
   <data name="lblAmountChainGroupResource1.Text" xml:space="preserve">
-    <value>[IT]An &lt;i&gt;Amount Chain&lt;/i&gt;  is a collection of usage charge fields that are related to the charge amount.  Some fields are used to determine the amount; some fields are derived from the amount. &lt;b/&gt;&lt;b/&gt; An &lt;i&gt;Amount Chain Group&lt;/i&gt; is a set of Amount Chains that are associated with a Decision.</value>
+    <value>An &lt;i&gt;Amount Chain&lt;/i&gt;  is a collection of usage charge fields that are related to the charge amount.  Some fields are used to determine the amount; some fields are derived from the amount. &lt;b/&gt;&lt;b/&gt; An &lt;i&gt;Amount Chain Group&lt;/i&gt; is a set of Amount Chains that are associated with a Decision.</value>
   </data>
   <data name="lblSelectResource1.Text" xml:space="preserve">
-    <value>[IT]Select the Amount Chain Group for this Decision Type:</value>
+    <value>Select the Amount Chain Group for this Decision Type:</value>
   </data>
   <data name="TEXT_ERROR_NO_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[IT]Error: You must select an Amount Chain Group</value>
+    <value>Error: You must select an Amount Chain Group</value>
   </data>
 </root>

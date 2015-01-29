@@ -118,168 +118,168 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Usage Events</value>
+    <value>Usage Events</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>[es-MX]No records found.</value>
+    <value>No records found.</value>
   </data>
   <data name="TEXT_ID_SESS" xml:space="preserve">
-    <value>[es-MX]Session Id</value>
+    <value>Session Id</value>
   </data>
   <data name="TEXT_ID_ACC" xml:space="preserve">
-    <value>[es-MX]Account</value>
+    <value>Account</value>
   </data>
   <data name="TEXT_ID_USAGE_INTERVAL" xml:space="preserve">
-    <value>[es-MX]Interval</value>
+    <value>Interval</value>
   </data>
   <data name="TEXT_DT_SESSION" xml:space="preserve">
-    <value>[es-MX]Metered Date</value>
+    <value>Metered Date</value>
   </data>
   <data name="TEXT_DT_CRT" xml:space="preserve">
-    <value>[es-MX]Processed Date</value>
+    <value>Processed Date</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>[es-MX]Amount</value>
+    <value>Amount</value>
   </data>
   <data name="TEXT_AM_CURRENCY" xml:space="preserve">
-    <value>[es-MX]Currency</value>
+    <value>Currency</value>
   </data>
   <data name="TEXT_INDEX" xml:space="preserve">
-    <value>[es-MX]Index</value>
+    <value>Index</value>
   </data>
   <data name="TEXT_NM_VIEW" xml:space="preserve">
-    <value>[es-MX]Product View</value>
+    <value>Product View</value>
   </data>
   <data name="TEXT_NM_PO" xml:space="preserve">
-    <value>[es-MX]Product Offering</value>
+    <value>Product Offering</value>
   </data>
   <data name="TEXT_NM_PI_TEMPLATE" xml:space="preserve">
-    <value>[es-MX]Priceable Item Template</value>
+    <value>Priceable Item Template</value>
   </data>
   <data name="TEXT_NM_PI_INSTANCE" xml:space="preserve">
-    <value>[es-MX]Priceable Item Instance</value>
+    <value>Priceable Item Instance</value>
   </data>
   <data name="TEXT_ID_DECISION" xml:space="preserve">
-    <value>[es-MX]Decision Id</value>
+    <value>Decision Id</value>
   </data>
   <data name="TEXT_AMOUNT_BEFORE" xml:space="preserve">
-    <value>[es-MX]Amount Before</value>
+    <value>Amount Before</value>
   </data>
   <data name="TEXT_AMOUNT_AFTER" xml:space="preserve">
-    <value>[es-MX]Amount After</value>
+    <value>Amount After</value>
   </data>
   <data name="TEXT_PERCENT_ELIGIBLE" xml:space="preserve">
-    <value>[es-MX]% Eligible</value>
+    <value>% Eligible</value>
   </data>
   <data name="TEXT_QUALIFIED_BEFORE" xml:space="preserve">
-    <value>[es-MX]Counter Before</value>
+    <value>Counter Before</value>
   </data>
   <data name="TEXT_QUALIFIED_AFTER" xml:space="preserve">
-    <value>[es-MX]Counter After</value>
+    <value>Counter After</value>
   </data>
   <data name="TEXT_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[es-MX]Amount Chain Group</value>
+    <value>Amount Chain Group</value>
   </data>
   <data name="TEXT_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
-    <value>[es-MX]Contributing Accounts</value>
+    <value>Contributing Accounts</value>
   </data>
   <data name="TEXT_USAGE_QUALIFICATION_GROUP" xml:space="preserve">
-    <value>[es-MX]Contributing Usage</value>
+    <value>Contributing Usage</value>
   </data>
   <data name="TEXT_TX_DESCRIPTION" xml:space="preserve">
-    <value>[es-MX]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_NM_DECISION" xml:space="preserve">
-    <value>[es-MX]Decision Type</value>
+    <value>Decision Type</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Usage Audit</value>
+    <value>Usage Audit</value>
   </data>
   <data name="BEFORE_AFTER_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Usage Changes</value>
+    <value>Usage Changes</value>
   </data>
   <data name="TEXT_NM_COLUMN" xml:space="preserve">
-    <value>[es-MX]Column</value>
+    <value>Column</value>
   </data>
   <data name="TEXT_TX_BEFORE" xml:space="preserve">
-    <value>[es-MX]Value Before</value>
+    <value>Value Before</value>
   </data>
   <data name="TEXT_TX_AFTER" xml:space="preserve">
-    <value>[es-MX]Value After</value>
+    <value>Value After</value>
   </data>
   <data name="TEXT_B_CHANGED" xml:space="preserve">
-    <value>[es-MX]Changed?</value>
+    <value>Changed?</value>
   </data>
   <data name="TEXT_NM_PV_TABLE" xml:space="preserve">
-    <value>[es-MX]Product View Table</value>
+    <value>Product View Table</value>
   </data>
   <data name="TEXT_TIER_PRIORITY" xml:space="preserve">
-    <value>[es-MX]Priority</value>
+    <value>Priority</value>
   </data>
   <data name="TEXT_TIER_DISCOUNT" xml:space="preserve">
-    <value>[es-MX]Discount</value>
+    <value>Discount</value>
   </data>
   <data name="TEXT_TIER_DOMAIN" xml:space="preserve">
-    <value>[es-MX]Domain</value>
+    <value>Domain</value>
   </data>
   <data name="TEXT_TIER_DOMAIN_APPLY" xml:space="preserve">
-    <value>[es-MX]Apply to Domain</value>
+    <value>Apply to Domain</value>
   </data>
   <data name="TEXT_TIER_DOMAIN_IMPACT" xml:space="preserve">
-    <value>[es-MX]Impact Domain</value>
+    <value>Impact Domain</value>
   </data>
   <data name="TEXT_CYCLES" xml:space="preserve">
-    <value>[es-MX]Cycle Count</value>
+    <value>Cycle Count</value>
   </data>
   <data name="TEXT_CYCLE_UNIT_TYPE" xml:space="preserve">
-    <value>[es-MX]Cycle Type</value>
+    <value>Cycle Type</value>
   </data>
   <data name="TEXT_CYCLE_UNITS_PER_TIER" xml:space="preserve">
-    <value>[es-MX]Cycles per Tier</value>
+    <value>Cycles per Tier</value>
   </data>
   <data name="TEXT_TIER_NAME" xml:space="preserve">
-    <value>[es-MX]Tier Name</value>
+    <value>Tier Name</value>
   </data>
   <data name="TEXT_TITLE" xml:space="preserve">
-    <value>[es-MX]NowCast Title</value>
+    <value>NowCast Title</value>
   </data>
   <data name="TEXT_SUBTITLE" xml:space="preserve">
-    <value>[es-MX]NowCast Subtitle</value>
+    <value>NowCast Subtitle</value>
   </data>
   <data name="TEXT_CHARGE_TYPE" xml:space="preserve">
-    <value>[es-MX]Charge Method</value>
+    <value>Charge Method</value>
   </data>
   <data name="TEXT_CHARGE_TYPE_ID" xml:space="preserve">
-    <value>[es-MX]Generate Charge of Type</value>
+    <value>Generate Charge of Type</value>
   </data>
   <data name="TEXT_TIER_START" xml:space="preserve">
-    <value>[es-MX]Tier Start</value>
+    <value>Tier Start</value>
   </data>
   <data name="TEXT_TIER_END" xml:space="preserve">
-    <value>[es-MX]Tier End</value>
+    <value>Tier End</value>
   </data>
   <data name="TEXT_TIER_METRIC" xml:space="preserve">
-    <value>[es-MX]Tier Metric</value>
+    <value>Tier Metric</value>
   </data>
   <data name="TEXT_TIER_TYPE" xml:space="preserve">
-    <value>[es-MX]Tier Type</value>
+    <value>Tier Type</value>
   </data>
   <data name="TEXT_CHARGE_ON_FINAL" xml:space="preserve">
-    <value>[es-MX]Generate Charge upon Finalization</value>
+    <value>Generate Charge upon Finalization</value>
   </data>
   <data name="TEXT_CHARGE_ON_EVERY" xml:space="preserve">
-    <value>[es-MX]Generate Charge Every Time</value>
+    <value>Generate Charge Every Time</value>
   </data>
   <data name="TEXT_CHARGE_ON_INBOUND" xml:space="preserve">
-    <value>[es-MX]Generate Charge upon Tier Entry</value>
+    <value>Generate Charge upon Tier Entry</value>
   </data>
   <data name="TEXT_CHARGE_ON_OUTBOUND" xml:space="preserve">
-    <value>[es-MX]Generate Charge upon Tier Exit</value>
+    <value>Generate Charge upon Tier Exit</value>
   </data>
   <data name="TEXT_PER_UNIT_RATE" xml:space="preserve">
-    <value>[es-MX]Per Unit Rate</value>
+    <value>Per Unit Rate</value>
   </data>
   <data name="TEXT_PER_EVENT_RATE" xml:space="preserve">
-    <value>[es-MX]Per Event Rate</value>
+    <value>Per Event Rate</value>
   </data>
 </root>

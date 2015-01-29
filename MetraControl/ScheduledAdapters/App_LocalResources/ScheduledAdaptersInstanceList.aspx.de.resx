@@ -108,42 +108,42 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ArgEndDate" xml:space="preserve">
-        <value>[DE] Arg End Date</value>
+        <value>Arg End Date</value>
     </data>
     <data name="ArgStartDate" xml:space="preserve">
-        <value>[DE] Arg Start Date</value>
+        <value>Arg Start Date</value>
     </data>
     <data name="EffectiveDate" xml:space="preserve">
-        <value>[DE] Effective Date</value>
+        <value>Effective Date</value>
     </data>
     <data name="GridTitle" xml:space="preserve">
-        <value>[DE] Scheduled Adapter Instances</value>
+        <value>Scheduled Adapter Instances</value>
     </data>
     <data name="IgnoreDeps" xml:space="preserve">
-        <value>[DE] Ignore Deps</value>
+        <value>Ignore Deps</value>
     </data>
     <data name="InstanceID" xml:space="preserve">
-        <value>[DE] Instance Id</value>
+        <value>Instance Id</value>
     </data>
     <data name="LastRunAction" xml:space="preserve">
-        <value>[DE] Last Run Action</value>
+        <value>Last Run Action</value>
     </data>
     <data name="LastRunEnd" xml:space="preserve">
-        <value>[DE] Last Run End</value>
+        <value>Last Run End</value>
     </data>
     <data name="LastRunMachine" xml:space="preserve">
-        <value>[DE] Last Run Machine</value>
+        <value>Last Run Machine</value>
     </data>
     <data name="LastRunStart" xml:space="preserve">
-        <value>[DE] Last Run Start</value>
+        <value>Last Run Start</value>
     </data>
     <data name="LastRunStatus" xml:space="preserve">
-        <value>[DE] Last Run Status</value>
+        <value>Last Run Status</value>
     </data>
     <data name="PageTitle" xml:space="preserve">
-        <value>[DE] Scheduled Adapter Instance List For</value>
+        <value>Scheduled Adapter Instance List For</value>
     </data>
     <data name="Status" xml:space="preserve">
-        <value>[DE] Status</value>
+        <value>Status</value>
     </data>
 </root>

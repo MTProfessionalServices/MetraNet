@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_APPROVAL_AUDIT_DATE" xml:space="preserve">
-    <value>[ES]Date</value>
+    <value>Date</value>
   </data>
   <data name="TEXT_APPROVAL_AUDIT_DETAILS" xml:space="preserve">
-    <value>[ES]Details</value>
+    <value>Details</value>
   </data>
   <data name="TEXT_APPROVAL_AUDIT_EVENT" xml:space="preserve">
-    <value>[ES]History Event </value>
+    <value>History Event </value>
   </data>
   <data name="TEXT_APPROVAL_AUDIT_EVENTDISPLAYNAME" xml:space="preserve">
-    <value>[ES]Event </value>
+    <value>Event </value>
   </data>
   <data name="TEXT_APPROVAL_AUDIT_ID" xml:space="preserve">
-    <value>[ES]Id</value>
+    <value>Id</value>
   </data>
   <data name="TEXT_APPROVAL_AUDIT_USER" xml:space="preserve">
-    <value>[ES]User Name</value>
+    <value>User Name</value>
   </data>
 </root>

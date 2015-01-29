@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnGeneratePasswordResource1.Text" xml:space="preserve">
-    <value>[DE]Generate</value>
+    <value>Generate</value>
   </data>
   <data name="btnGeneratePasswordResource1.Tooltip" xml:space="preserve">
     <value>Kennwort generieren</value>
@@ -235,6 +235,6 @@
     <value>Postleitzahl</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>[DE]Authentication Type</value>
+    <value>Authentication Type</value>
   </data>
 </root>

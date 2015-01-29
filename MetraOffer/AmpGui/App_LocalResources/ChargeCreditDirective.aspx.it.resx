@@ -118,54 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDirectiveType.Text" xml:space="preserve">
-    <value>[IT]What type of work will this directive do?</value>
+    <value>What type of work will this directive do?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[IT]Charge/Credit: Directive</value>
+    <value>Charge/Credit: Directive</value>
   </data>
   <data name="rblFieldPopulation.Text" xml:space="preserve">
-    <value>[IT]Field Population</value>
+    <value>Field Population</value>
   </data>
   <data name="rblProcedureExecution.Text" xml:space="preserve">
-    <value>[IT]Procedure Execution</value>
+    <value>Procedure Execution</value>
   </data>
   <data name="rblTableInclusion.Text" xml:space="preserve">
-    <value>[IT]Table Inclusion</value>
+    <value>Table Inclusion</value>
   </data>
   <data name="tbChargeCreditName.LabelSeparator" xml:space="preserve">
-    <value>[IT]Charge/Credit:</value>
+    <value>Charge/Credit:</value>
   </data>
   <data name="tbDefaultValue.Label" xml:space="preserve">
-    <value>[IT]Default Value</value>
+    <value>Default Value</value>
   </data>
   <data name="tbFieldName.Label" xml:space="preserve">
-    <value>[IT]Field Name</value>
+    <value>Field Name</value>
   </data>
   <data name="tbFilter.Label" xml:space="preserve">
-    <value>[IT]Condition for Execution</value>
+    <value>Condition for Execution</value>
   </data>
   <data name="tbIncludedFieldPrefix.Label" xml:space="preserve">
-    <value>[IT]Included Field Prefix</value>
+    <value>Included Field Prefix</value>
   </data>
   <data name="tbIncludePredicate.Label" xml:space="preserve">
-    <value>[IT]Include Predicate</value>
+    <value>Include Predicate</value>
   </data>
   <data name="tbIncludeTableName.Label" xml:space="preserve">
-    <value>[IT]Include Table Name</value>
+    <value>Include Table Name</value>
   </data>
   <data name="tbMvmProcedure.Label" xml:space="preserve">
-    <value>[IT]MVM Procedure</value>
+    <value>MVM Procedure</value>
   </data>
   <data name="tbPopulationString.Label" xml:space="preserve">
-    <value>[IT]Population String</value>
+    <value>Population String</value>
   </data>
   <data name="tbProductView.Label" xml:space="preserve">
-    <value>[IT]Product View</value>
+    <value>Product View</value>
   </data>
   <data name="tbSourceValue.Label" xml:space="preserve">
-    <value>[IT]Source Value</value>
+    <value>Source Value</value>
   </data>
   <data name="tbTargetField.Label" xml:space="preserve">
-    <value>[IT]Target Field</value>
+    <value>Target Field</value>
   </data>
 </root>

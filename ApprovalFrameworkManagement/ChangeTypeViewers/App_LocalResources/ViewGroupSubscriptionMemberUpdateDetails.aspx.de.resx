@@ -130,13 +130,13 @@
     <value>Gruppennutzungsanmeldung-ID</value>
   </data>
     <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUB_NAME" xml:space="preserve">
-    <value>[de]Group Subscription name</value>
+    <value>Group Subscription name</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_MEMBERID" xml:space="preserve">
     <value>Mitglieds-ID</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNT_NAME" xml:space="preserve">
-    <value>[de]Member Name</value>
+    <value>Member Name</value>
   </data>
 <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_PROPERTYNAME" xml:space="preserve">
     <value>Eigenschaftsname</value>
@@ -154,6 +154,6 @@
     <value>Mitglieder der Gruppennutzungsanmeldung aktualisiert</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
-    <value>[DE]Member Name</value>
+    <value>Member Name</value>
   </data>
 </root>

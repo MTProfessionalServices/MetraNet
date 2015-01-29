@@ -125,7 +125,7 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>[JA]ERROR!  Decision Type '{0}' is associated with parameter table '{1}', which does not exist on the system.
+    <value>ERROR!  Decision Type '{0}' is associated with parameter table '{1}', which does not exist on the system.
 You cannot edit this Decision Type.  You can view and/or deactivate the Decision Type.</value>
   </data>
 </root>

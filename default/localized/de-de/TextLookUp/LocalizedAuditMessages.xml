@@ -2,91 +2,91 @@
 <texts id="Audit Messages" type="collection">
   <description>Audit texts used in subscriptions</description>
   <text id="AUDIT_NEW_RATE_SCHEDULE">
-    <value>[DE]New rate schedule:  </value>
+    <value>New rate schedule:  </value>
     <description></description>
   </text>
   <text id="AUDIT_NEW_RATE_SCHEDULE_PROPERTIES">
-    <value>[DE]Edit rate schedule properties:  </value>
+    <value>Edit rate schedule properties:  </value>
     <description></description>
   </text>
   <text id="AUDIT_SUBSCRIBE">
-    <value>[DE]Subscribed to:  </value>
+    <value>Subscribed to:  </value>
     <description></description>
   </text>
   <text id="AUDIT_UNSUBSCRIBE">
-    <value>[DE]UnSubscribed to:  </value>
+    <value>UnSubscribed to:  </value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TIME">
-    <value>[DE]Time</value>
+    <value>Time</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USERNAME">
-    <value>[DE]User</value>
+    <value>User</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENTNAME">
-    <value>[DE]Event</value>
+    <value>Event</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITYNAME">
-    <value>[DE]Item</value>
+    <value>Item</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DETAILS">
-    <value>[DE]Details</value>
+    <value>Details</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOGGED_IN_AS">
-    <value>[DE]Logged in as</value>
+    <value>Logged in as</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_APPLICATION_NAME">
-    <value>[DE]Application name</value>
+    <value>Application name</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-    <value>[DE]Product Catalog Audit Log</value>
+    <value>Product Catalog Audit Log</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW_AUDIT_LOG">
-    <value>[DE]View Audit Log</value>
+    <value>View Audit Log</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_LOG_DESCRIPTION">
-    <value>[DE]View events that have been performed against the Product Catalog.</value>
+    <value>View events that have been performed against the Product Catalog.</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_AUDIT_ID">
-    <value>[DE]Audit ID</value>
+    <value>Audit ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_EVENT_ID">
-    <value>[DE]Event ID</value>
+    <value>Event ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_USER_ID">
-    <value>[DE]User ID</value>
+    <value>User ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-    <value>[DE]Entity Type ID</value>
+    <value>Entity Type ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_ENTITY_ID">
-    <value>[DE]Entity ID</value>
+    <value>Entity ID</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DT_CRT">
-    <value>[DE]Date CRT</value>
+    <value>Date CRT</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
-    <value>[DE]tx_logged_in_as</value>
+    <value>tx_logged_in_as</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_APPLICATION_NAME">
-    <value>[DE]tx_application_name</value>
+    <value>tx_application_name</value>
     <description></description>
   </text>
 </texts>

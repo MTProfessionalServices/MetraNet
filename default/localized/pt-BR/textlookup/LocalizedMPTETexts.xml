@@ -760,91 +760,91 @@
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_CATALOG">
-    <value>[pt-BR]Product Catalog</value>
+    <value>Product Catalog</value>
     <description></description>
   </text>
   <text id="TEXT_TABULAR_RULESET_READER">
-    <value>[pt-BR]Tabular Ruleset Reader</value>
+    <value>Tabular Ruleset Reader</value>
     <description></description>
   </text>
   <text id="TEXT_RETRIEVED_PC_OBJECTS">
-    <value>[pt-BR]Retrieved Product Catalog objects</value>
+    <value>Retrieved Product Catalog objects</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_ENUMS">
-    <value>[pt-BR]Loaded Enums</value>
+    <value>Loaded Enums</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_START">
-    <value>[pt-BR]Ruleset START</value>
+    <value>Ruleset START</value>
     <description></description>
   </text>
   <text id="TEXT_UNABLE_READ_CONFIGURATION">
-    <value>[pt-BR]Unable to read configuration from input. Error returned is:</value>
+    <value>Unable to read configuration from input. Error returned is:</value>
     <description></description>
   </text>
   <text id="TEXT_UNABLE_CRATE_RULESET">
-    <value>[pt-BR]Unable to create ruleset from propset object. Error returned is:</value>
+    <value>Unable to create ruleset from propset object. Error returned is:</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING">
-    <value>[pt-BR]Product Offering</value>
+    <value>Product Offering</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_ITEM">
-    <value>[pt-BR]Priceable Item</value>
+    <value>Priceable Item</value>
     <description></description>
   </text>
   <text id="TEXT_PRICELIST">
-    <value>[pt-BR]Pricelist</value>
+    <value>Pricelist</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">
-    <value>[pt-BR]Parameter Table</value>
+    <value>Parameter Table</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SCHEDULE">
-    <value>[pt-BR]Rate Schedule</value>
+    <value>Rate Schedule</value>
     <description></description>
   </text>
   <text id="TEXT_EFFECTIVE">
-    <value>[pt-BR]Effective</value>
+    <value>Effective</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_RULESET1">
-    <value>[pt-BR]Loaded Ruleset 1</value>
+    <value>Loaded Ruleset 1</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_RULESET2">
-    <value>[pt-BR]Loaded Ruleset 2</value>
+    <value>Loaded Ruleset 2</value>
     <description></description>
   </text>
   <text id="TEXT_DISPLAYING_XML_SETTINGS">
-    <value>[pt-BR]Displaying XML versions</value>
+    <value>Displaying XML versions</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET1_HAS">
-    <value>[pt-BR]Ruleset 1 has </value>
+    <value>Ruleset 1 has </value>
     <description></description>
   </text>
   <text id="TEXT_RULESET2_HAS">
-    <value>[pt-BR] and Ruleset 2 has </value>
+    <value>and Ruleset 2 has </value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_DIFF_START">
-    <value>[pt-BR]Ruleset Diff START</value>
+    <value>Ruleset Diff START</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_DIFF_END">
-    <value>[pt-BR]Ruleset Diff End</value>
+    <value>Ruleset Diff End</value>
     <description></description>
   </text>
   <text id="TEXT_CHARGED_FROM">
-    <value>[pt-BR]Charged From</value>
+    <value>Charged From</value>
     <description></description>
   </text>
   <text id="TEXT_CHARGED_TO">
-    <value>[pt-BR] to </value>
+    <value>to </value>
     <description></description>
   </text>
 

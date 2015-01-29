@@ -4,39 +4,39 @@
     The file defines localized string for MAM ticketing functions.
   </description>
   <text id="TEXT_MPS_TICKET_FAILED">
-    <value>[IT]View Interactive Bill -- Error</value>
+    <value>View Interactive Bill -- Error</value>
   </text>
   <text id="TEXT_MPS_TICKET_SUCCESS">
-    <value>[IT]View Interactive Bill</value>
+    <value>View Interactive Bill</value>
   </text>
   <text id="TEXT_MPS_TICKET_SESSION_ENDED">
-    <value>[IT]View Interactive Bill session ended.</value>
+    <value>View Interactive Bill session ended.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_1">
-    <value>[IT]An error occurred while logging the user in.  This may be due to incorrect credentials or an invalid ticket.</value>
+    <value>An error occurred while logging the user in.  This may be due to incorrect credentials or an invalid ticket.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_3">
-    <value>[IT]Unable to log in because the account is pending.</value>
+    <value>Unable to log in because the account is pending.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_4">
-    <value>[IT]Unable to log in because the account is inactive.</value>
+    <value>Unable to log in because the account is inactive.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_6">
-    <value>[IT]An error occurred while creating necessary objects.</value>
+    <value>An error occurred while creating necessary objects.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_7">
-    <value>[IT]Unable to log in because it is disallowed by the account's state.</value>
+    <value>Unable to log in because it is disallowed by the account's state.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_8">
-    <value>[IT]Attempt to create the COM secure store failed.</value>
+    <value>Attempt to create the COM secure store failed.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_9">
-    <value>[IT]Unable to create ticket.</value>
+    <value>Unable to create ticket.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_10">
-    <value>[IT]Gateway.xml is not valid XML or does not exist.</value>
+    <value>Gateway.xml is not valid XML or does not exist.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_11">
-    <value>[IT]Unable to find a localized site for the specified provider ID.</value>
+    <value>Unable to find a localized site for the specified provider ID.</value>
   </text>
 </texts>

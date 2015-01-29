@@ -2,27 +2,27 @@
 <texts id="fred" type="collection">
   <description></description>
   <text id="TEXT_LOGIN_TITLE">
-    <value>[DE]MetraOffer Login</value>
+    <value>MetraOffer Login</value>
     <description></description>
   </text>
   <text id="TEXT_NO_AUTH">
-    <value>[DE]Your session has timed out.  Please Log In again.</value>
+    <value>Your session has timed out.  Please Log In again.</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_NAME">
-    <value>[DE]User Name</value>
+    <value>User Name</value>
     <description></description>
   </text>
   <text id="TEXT_LOGIN_PASSWORD">
-    <value>[DE]Password</value>
+    <value>Password</value>
     <description></description>
   </text>
   <text id="TEXT_INVALID_LOGIN">
-    <value>[DE]Please check your user name and password and select Enter to try again.</value>
+    <value>Please check your user name and password and select Enter to try again.</value>
     <description></description>
   </text>
   <text id="TEXT_INVALID_BLANK_LOGIN">
-    <value>[DE]User name or password may not be blank.  Please try again.</value>
+    <value>User name or password may not be blank.  Please try again.</value>
     <description></description>
   </text>
 </texts>

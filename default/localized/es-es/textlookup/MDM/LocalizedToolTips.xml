@@ -4,131 +4,131 @@
     This file defines the MAM tool tips localization.
   </description>
   <text id="TEXT_NEW_SESSION">
-    <value>[ES]Launch New MetraCare Window</value>
+    <value>Launch New MetraCare Window</value>
     <description></description>
   </text>
   <text id="TEXT_OK">
-    <value>[ES]OK</value>
+    <value>OK</value>
     <description></description>
   </text>
   <text id="TEXT_CANCEL">
-    <value>[ES]Cancel</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id="TEXT_CLEAR">
-    <value>[ES]Clear</value>
+    <value>Clear</value>
     <description></description>
   </text>
   <text id="TEXT_EDIT">
-    <value>[ES]Edit</value>
+    <value>Edit</value>
     <description></description>
   </text>
   <text id="TEXT_VIEW">
-    <value>[ES]View</value>
+    <value>View</value>
     <description></description>
   </text>
   <text id="TEXT_DELETE">
-    <value>[ES]Delete</value>
+    <value>Delete</value>
     <description></description>
   </text>
   <text id="TEXT_ADD">
-    <value>[ES]Add</value>
+    <value>Add</value>
     <description></description>
   </text>
   <text id="TEXT_UPDATE">
-    <value>[ES]Update</value>
+    <value>Update</value>
     <description></description>
   </text>
   <text id="TEXT_HELP">
-    <value>[ES]MetraCare Help</value>
+    <value>MetraCare Help</value>
     <description></description>
   </text>
   <text id="TEXT_FULLSCREEN">
-    <value>[ES]Toggle Full Screen View</value>
+    <value>Toggle Full Screen View</value>
     <description></description>
   </text>
   <text id="TEXT_GO">
-    <value>[ES]Go</value>
+    <value>Go</value>
     <description></description>
   </text>
   <text id="TEXT_FIND_ACCOUNT_OR_SERVICE_END_POINT">
-    <value>[ES]Find Accounts or [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
+    <value>Find Accounts or [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
     <description></description>
   </text>
   <text id="TEXT_ADVANCED">
-    <value>[ES]Advanced Find</value>
+    <value>Advanced Find</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_DOWN">
-    <value>[ES]Show Detailed Information</value>
+    <value>Show Detailed Information</value>
     <description></description>
   </text>
   <text id="TEXT_TURN_UP">
-    <value>[ES]Hide Detailed Information</value>
+    <value>Hide Detailed Information</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSEWINDOW">
-    <value>[ES]Close Account</value>
+    <value>Close Account</value>
     <description></description>
   </text>
   <text id="TEXT_ADD_PAYMENT_METHOD">
-    <value>[ES]Add Payment Method</value>
+    <value>Add Payment Method</value>
     <description></description>
   </text>
   <text id="TEXT_ENTER">
-    <value>[ES]Enter</value>
+    <value>Enter</value>
     <description></description>
   </text>
   <text id="TEXT_GO_BACK">
-    <value>[ES]Return to list of results returned from Find Accounts</value>
+    <value>Return to list of results returned from Find Accounts</value>
     <description></description>
   </text>
   <text id="TEXT_APPLY">
-    <value>[ES]Apply</value>
+    <value>Apply</value>
     <description></description>
   </text>
   <text id="TEXT_SUCCEED">
-    <value>[ES]Succeed</value>
+    <value>Succeed</value>
     <description></description>
   </text>
   <text id="TEXT_FAILED">
-    <value>[ES]Failed</value>
+    <value>Failed</value>
     <description></description>
   </text>
   <text id="TEXT_NONE">
-    <value>[ES]None</value>
+    <value>None</value>
     <description></description>
   </text>
   <text id="TEXT_NO">
-    <value>[ES]No</value>
+    <value>No</value>
     <description></description>
   </text>
   <text id="TEXT_YES">
-    <value>[ES]Yes</value>
+    <value>Yes</value>
     <description></description>
   </text>
   <text id="TEXT_CLOSE">
-    <value>[ES]Close</value>
+    <value>Close</value>
     <description></description>
   </text>
   <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-    <value>[ES]The information was successfully added.</value>
+    <value>The information was successfully added.</value>
     <description></description>
   </text>
   <text id="TEXT_OPERATION">
-    <value>[ES]Operation</value>
+    <value>Operation</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_MAKE">
-    <value>[ES]You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
+    <value>You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_ONLY">
-    <value>[ES]You may only bulk reassign transactions when the status is Hard Closed.</value>
+    <value>You may only bulk reassign transactions when the status is Hard Closed.</value>
     <description></description>
   </text>
   <text id="TEXT_Reassign_Selected_Transactions">
-    <value>[ES]Reassign Selected Transactions</value>
+    <value>Reassign Selected Transactions</value>
     <description></description>
   </text>
 </texts>

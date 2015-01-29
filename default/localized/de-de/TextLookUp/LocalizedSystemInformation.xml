@@ -84,23 +84,23 @@
     <description>When you open add account define if the Add Account dialog Email notification check box is checked.</description>
   </text>
   <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_CURRENT_MONTH">
-    <value>[START_DATE] [DE]Through today</value>
+    <value>[START_DATE] Through today</value>
     <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
   <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_NON_CLOSED_MONTH">
-    <value>[START_DATE] [DE]Through [END_DATE]</value>
+    <value>[START_DATE] Through [END_DATE]</value>
     <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
   <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH">
-    <value>[START_DATE] [DE]Through [END_DATE] #invoice:[INVOICE_NUMBER]</value>
+    <value>[START_DATE] Through [END_DATE] #invoice:[INVOICE_NUMBER]</value>
     <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
   <text id="MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH_WITH_NO_INVOICE_NUMBER">
-    <value>[START_DATE] [DE]Through [END_DATE]</value>
+    <value>[START_DATE] Through [END_DATE]</value>
     <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
   <text id="QUICKFINDALIAS1">
-    <value>[DE]Alias</value>
+    <value>Alias</value>
     <description>The Quick Search allow to perform search on Alias, the word Alias will appear in the Quick Find ComboBox and need a translation..</description>
   </text>
   <text id="ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER">

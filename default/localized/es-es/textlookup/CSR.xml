@@ -4,7 +4,7 @@
     This file defines the system information that does not need to be localized.
   </description>
   <text id="SUPER_USER_ISSUE_CREDITS_MAX_AMOUNT">
-    <value>[ES]Unlimited</value>
+    <value>Unlimited</value>
     <description></description>
   </text>
 </texts>

@@ -2,231 +2,231 @@
 <texts id="Localized Key Terms" type="collection">
   <description>Key Terms. When editing through MPM, the Localized Key Terms screen under Applications...MCM should be used.</description>
   <text id="TEXT_KEYTERM_ACCOUNT_TYPE">
-    <value>[DE]Account Type</value>
+    <value>Account Type</value>
     <description>Account Type</description>
   </text>
   <text id="TEXT_KEYTERM_ACCOUNT_TYPES">
-    <value>[DE]Account Types</value>
+    <value>Account Types</value>
     <description>Account Types</description>
   </text>
 
   <!-- Auth / Auth -->
   <text id="TEXT_KEYTERM_ROLE">
-    <value>[DE]Role</value>
+    <value>Role</value>
     <description>Security Role</description>
   </text>
   <text id="TEXT_KEYTERM_ROLES">
-    <value>[DE]Roles</value>
+    <value>Roles</value>
     <description>Security Roles</description>
   </text>
   <text id="TEXT_KEYTERM_CAPABILITY">
-    <value>[DE]Capability</value>
+    <value>Capability</value>
     <description>Capability</description>
   </text>
   <text id="TEXT_KEYTERM_CAPABILITIES">
-    <value>[DE]Capabilities</value>
+    <value>Capabilities</value>
     <description>Capabilities</description>
   </text>
 
   <!-- Product Offering -->
   <text id="TEXT_KEYTERM_PRODUCT_OFFERING">
-    <value>[DE]Product Offering</value>
+    <value>Product Offering</value>
     <description>Product Offering</description>
   </text>
   <text id="TEXT_KEYTERM_PRODUCT_OFFERINGS">
-    <value>[DE]Product Offerings</value>
+    <value>Product Offerings</value>
     <description>Product Offerings</description>
   </text>
 
   <!-- Service Charge -->
   <text id="TEXT_KEYTERM_SERVICE_CHARGE">
-    <value>[DE]Service Charge</value>
+    <value>Service Charge</value>
     <description>Service Charge</description>
   </text>
   <text id="TEXT_KEYTERM_SERVICE_CHARGES">
-    <value>[DE]Service Charges</value>
+    <value>Service Charges</value>
     <description>Service Charges</description>
   </text>
 
   <!-- Priceable Items -->
   <text id="TEXT_KEYTERM_PRICEABLE_ITEM">
-    <value>[DE]Priceable Item</value>
+    <value>Priceable Item</value>
     <description>Priceable Item</description>
   </text>
   <text id="TEXT_KEYTERM_PRICEABLE_ITEMS">
-    <value>[DE]Priceable Items</value>
+    <value>Priceable Items</value>
     <description>Priceable Items</description>
   </text>
 
   <!-- Usage Charge -->
   <text id="TEXT_KEYTERM_USAGE_CHARGE">
-    <value>[DE]Usage Charge</value>
+    <value>Usage Charge</value>
     <description>Usage Charge</description>
   </text>
   <text id="TEXT_KEYTERM_USAGE_CHARGES">
-    <value>[DE]Usage Charges</value>
+    <value>Usage Charges</value>
     <description>Usage Charges</description>
   </text>
 
   <!-- Usage Charge (aggregate) -->
   <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
-    <value>[DE]Usage Charge (Aggregate)</value>
+    <value>Usage Charge (Aggregate)</value>
     <description>Usage Charge (Aggregate)</description>
   </text>
   <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
-    <value>[DE]Usage Charges (Aggregate)</value>
+    <value>Usage Charges (Aggregate)</value>
     <description>Usage Charges (Aggregate)</description>
   </text>
 
   <!-- Recurring Charge -->
   <text id="TEXT_KEYTERM_RECURRING_CHARGE">
-    <value>[DE]Recurring Charge</value>
+    <value>Recurring Charge</value>
     <description>Recurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_RECURRING_CHARGES">
-    <value>[DE]Recurring Charges</value>
+    <value>Recurring Charges</value>
     <description>Recurring Charges</description>
   </text>
 
   <!-- Non-Recurring Charge -->
   <text id="TEXT_KEYTERM_NON_RECURRING_CHARGE">
-    <value>[DE]Non-Recurring Charge</value>
+    <value>Non-Recurring Charge</value>
     <description>Non-Recurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_NON_RECURRING_CHARGES">
-    <value>[DE]Non-Recurring Charges</value>
+    <value>Non-Recurring Charges</value>
     <description>Non-Recurring Charges</description>
   </text>
 
   <!-- Discounts -->
   <text id="TEXT_KEYTERM_DISCOUNT">
-    <value>[DE]Discount</value>
+    <value>Discount</value>
     <description>Discount</description>
   </text>
   <text id="TEXT_KEYTERM_DISCOUNTS">
-    <value>[DE]Discounts</value>
+    <value>Discounts</value>
     <description>Discounts</description>
   </text>
 
   <!-- Price List -->
   <text id="TEXT_KEYTERM_PRICE_LIST">
-    <value>[DE]Price List</value>
+    <value>Price List</value>
     <description>Price List</description>
   </text>
   <text id="TEXT_KEYTERM_PRICE_LISTS">
-    <value>[DE]Price Lists</value>
+    <value>Price Lists</value>
     <description>Price Lists</description>
   </text>
 
   <!-- Rate Schedule -->
   <text id="TEXT_KEYTERM_RATE_SCHEDULE">
-    <value>[DE]Rate Schedule</value>
+    <value>Rate Schedule</value>
     <description>Rate Schedule</description>
   </text>
   <text id="TEXT_KEYTERM_RATE_SCHEDULES">
-    <value>[DE]Rate Schedules</value>
+    <value>Rate Schedules</value>
     <description>Rate Schedules</description>
   </text>
 
   <!-- Personal Rate -->
   <text id="TEXT_KEYTERM_PERSONAL_RATE">
-    <value>[DE]Custom Rate</value>
+    <value>Custom Rate</value>
     <description>Custom Rate</description>
   </text>
   <text id="TEXT_KEYTERM_PERSONAL_RATES">
-    <value>[DE]Custom Rates</value>
+    <value>Custom Rates</value>
     <description>Custom Rates</description>
   </text>
 
   <!-- Counter -->
   <text id="TEXT_KEYTERM_COUNTER">
-    <value>[DE]Counter</value>
+    <value>Counter</value>
     <description>Counter</description>
   </text>
   <text id="TEXT_KEYTERM_COUNTERS">
-    <value>[DE]Counters</value>
+    <value>Counters</value>
     <description>Counters</description>
   </text>
 
   <!-- Parameter Table -->
   <text id="TEXT_KEYTERM_PARAMETER_TABLE">
-    <value>[DE]Parameter Table</value>
+    <value>Parameter Table</value>
     <description>Parameter Table</description>
   </text>
   <text id="TEXT_KEYTERM_PARAMETER_TABLES">
-    <value>[DE]Parameter Tables</value>
+    <value>Parameter Tables</value>
     <description>Parameter Tables</description>
   </text>
   <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTION">
-    <value>[DE]Group Subscription</value>
+    <value>Group Subscription</value>
     <description>group subscription</description>
   </text>
   <text id="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS">
-    <value>[DE]Group Subscriptions</value>
+    <value>Group Subscriptions</value>
     <description>group subscriptions</description>
   </text>
   <text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
-    <value>[DE]Corporate Account</value>
+    <value>Corporate Account</value>
     <description>Corporate Account</description>
   </text>
   <text id="PAYER_ACCOUNT">
-    <value>[DE]Payer</value>
+    <value>Payer</value>
     <description>The paying account</description>
   </text>
   <text id="PAYEE_ACCOUNT">
-    <value>[DE]Payee</value>
+    <value>Payee</value>
     <description>The paying account</description>
   </text>
   <text id="INDEPENDENT_ACCOUNT">
-    <value>[DE]Independent account</value>
+    <value>Independent account</value>
     <description>Independent account</description>
   </text>
 
   <!-- Service Endpoint(s) -->
   <text id="TEXT_KEYTERM_SERVICE_ENDPOINT">
-    <value>[DE]Service Endpoint</value>
+    <value>Service Endpoint</value>
     <description>Service Endpoint</description>
   </text>
   <text id="TEXT_KEYTERM_SERVICE_ENDPOINTS">
-    <value>[DE]Service Endpoints</value>
+    <value>Service Endpoints</value>
     <description>Service Endpoints</description>
   </text>
 
   <!-- Unit-Dependent Recurring Charge(s) -->
   <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE">
-    <value>[DE]Unit-Dependent Recurring Charge</value>
+    <value>Unit-Dependent Recurring Charge</value>
     <description>Unit-Dependent Recurring Charge</description>
   </text>
   <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES">
-    <value>[DE]Unit-Dependent Recurring Charges</value>
+    <value>Unit-Dependent Recurring Charges</value>
     <description>Unit-Dependent Recurring Charges</description>
   </text>
 
   <!-- Shared Price List(s) -->
   <text id="TEXT_KEYTERM_SHARED_PRICE_LIST">
-    <value>[DE]Shared Price List</value>
+    <value>Shared Price List</value>
     <description>Shared Price List</description>
   </text>
   <text id="TEXT_KEYTERM_SHARED_PRICE_LISTS">
-    <value>[DE]Shared Price Lists</value>
+    <value>Shared Price Lists</value>
     <description>Shared Price Lists</description>
   </text>
 
   <!-- Non-Shared Price List(s) -->
   <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LIST">
-    <value>[DE]Non-Shared Price List</value>
+    <value>Non-Shared Price List</value>
     <description>Non-Shared Price List</description>
   </text>
   <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS">
-    <value>[DE]Non-Shared Price Lists</value>
+    <value>Non-Shared Price Lists</value>
     <description>Non-Shared Price Lists</description>
   </text>
   <text id="TEXT_KEYTERM_REBILL_VERB">
-    <value>[DE]Reassign</value>
+    <value>Reassign</value>
     <description></description>
   </text>
   <text id="TEXT_KEYTERM_REBILL_NAME">
-    <value>[DE]Reassignment</value>
+    <value>Reassignment</value>
     <description></description>
   </text>
 </texts>

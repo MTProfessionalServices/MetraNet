@@ -2,114 +2,114 @@
 <texts id="Account Hierarchy Terms" type="collection">
   <description>Account Hierarchy Terms</description>
   <text id="TEXT_DROP_ACCOUNTS">
-    <value>[IT]Drag and drop here...</value>
+    <value>Drag and drop here...</value>
     <description>drag and drop</description>
   </text>
   <text id="TEXT_LOADING_DONE">
-    <value>[IT]Done</value>
+    <value>Done</value>
     <description>done</description>
   </text>
   <text id="TEXT_LOADING_HIERARCHY">
-    <value>[IT]Loading Hierarchy Control...</value>
+    <value>Loading Hierarchy Control...</value>
     <description>loading hierarchy control</description>
   </text>
   <text id="START_ACCOUNT_HIERARCHY_WEBSERVICE">
-    <value>[IT]Please ensure your account hierarchy webservice is running at:</value>
+    <value>Please ensure your account hierarchy webservice is running at:</value>
     <description>make sure webservice is running message</description>
   </text>
   <text id="TEXT_ALL_CORPORATE_ACCOUNTS">
-    <value>[IT]All Corporate Accounts</value>
+    <value>All Corporate Accounts</value>
     <description>All Corporate Accounts</description>
   </text>
   <text id="TEXT_HIERARCHY">
-    <value>[IT]Hierarchy</value>
+    <value>Hierarchy</value>
     <description>Hierarchy</description>
   </text>
   <text id="TEXT_MENU">
-    <value>[IT]Menu</value>
+    <value>Menu</value>
     <description>Menu</description>
   </text>
   <text id="TEXT_ACCOUNT_HIERARCHY">
-    <value>[IT]Account Hierarchy</value>
+    <value>Account Hierarchy</value>
     <description>Account Hierarchy</description>
   </text>
   <text id="TEXT_CORPORATE_ACCOUNT">
-    <value>[IT]Corporate Accounts</value>
+    <value>Corporate Accounts</value>
     <description>Corporate Accounts</description>
   </text>
   <text id="TEXT_ADD_TEMPLATE_AVAILABLE_GROUP_SUBSCRIPTION">
-    <value>[IT]Available Group Subscriptions</value>
+    <value>Available Group Subscriptions</value>
   </text>
   <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP">
-    <value>[IT]Group</value>
+    <value>Group</value>
   </text>
   <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP_SUB_NAME">
-    <value>[IT]Group Subscription Name</value>
+    <value>Group Subscription Name</value>
   </text>
   <text id="TEXT_ADD_ACCOUNTS_TO_ROLE">
-    <value>[IT]Add Accounts to Role</value>
+    <value>Add Accounts to Role</value>
   </text>
   <text id="TEXT_HIERARCHY_VIEW_DATE">
-    <value>[IT]View Date</value>
+    <value>View Date</value>
   </text>
   <text id="TEXT_CTX_MENU_ADD_ACCOUNT">
-    <value>[IT]Add Account</value>
+    <value>Add Account</value>
   </text>
   <text id="TEXT_CTX_MENU_MANAGE">
-    <value>[IT]Manage</value>
+    <value>Manage</value>
   </text>
   <text id="TEXT_CTX_MENU_NEW_CORPORATE">
-    <value>[IT]New Corporate</value>
+    <value>New Corporate</value>
   </text>
   <text id="TEXT_CTX_MENU_GROUP_SUBSCRIPTIONS">
-    <value>[IT]Group Subscriptions</value>
+    <value>Group Subscriptions</value>
   </text>
   <text id="TEXT_CTX_MENU_SEARCH">
-    <value>[IT]Search</value>
+    <value>Search</value>
   </text>
   <text id="TEXT_CTX_MENU_OPERATIONS">
-    <value>[IT]Operations</value>
+    <value>Operations</value>
   </text>
   <text id="TEXT_CTX_MENU_ISSUE_MISC_ADJUSTMENT">
-    <value>[IT]Issue Misc. Adjustment</value>
+    <value>Issue Misc. Adjustment</value>
   </text>
   <text id="TEXT_CTX_MENU_VIEW_ONLINE_BILL">
-    <value>[IT]Interactive Bill</value>
+    <value>Interactive Bill</value>
   </text>
   <text id="TEXT_CTX_MENU_UPDATE_ACCOUNT">
-    <value>[IT]Update Account</value>
+    <value>Update Account</value>
   </text>
   <text id="TEXT_CTX_MENU_REFRESH">
-    <value>[IT]Refresh</value>
+    <value>Refresh</value>
   </text>
   <text id="TEXT_CTX_MENU_HIDE">
-    <value>[IT]Hide</value>
+    <value>Hide</value>
   </text>
   <text id="TEXT_CTX_MENU_SHOW_ONLY">
-    <value>[IT]Show Only</value>
+    <value>Show Only</value>
   </text>
   <text id="TEXT_CTX_MENU_SHOWALL">
-    <value>[IT]Show All</value>
+    <value>Show All</value>
   </text>
   <text id="TEXT_HIERARCHY_LOADING">
-    <value>[IT]Loading...</value>
+    <value>Loading...</value>
   </text>
   <text id="TEXT_HIERARCHY_DONE">
-    <value>[IT]Done.</value>
+    <value>Done.</value>
   </text>
   <text id="TEXT_REFRESH_CLICK">
-    <value>[IT]Click the refresh icon to load the hierarchy as of the selected date.</value>
+    <value>Click the refresh icon to load the hierarchy as of the selected date.</value>
   </text>
   <text id="TEXT_CTX_MENU_OWNED_ACCOUNTS">
-    <value>[IT]Owned Accounts</value>
+    <value>Owned Accounts</value>
   </text>
   <text id="TEXT_CTX_MENU_SECURITY">
-    <value>[IT]Security</value>
+    <value>Security</value>
   </text>
   <text id="TEXT_CTX_MENU_ADD_USER">
-    <value>[IT]Add User</value>
+    <value>Add User</value>
   </text>
   <text id="TEXT_CTX_MENU_ADD_GSM">
-    <value>[IT]Add GSM</value>
+    <value>Add GSM</value>
   </text>
 </texts>

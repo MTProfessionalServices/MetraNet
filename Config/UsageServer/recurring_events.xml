@@ -13,32 +13,32 @@
           <Description>A planifié des rapports de lancement de BPA</Description>
         </item>
         <item lang="IT">
-          <DisplayName>[IT] Queue Scheduled Export Reports</DisplayName>
-          <Description>[IT] This scheduled BPA kick off reports</Description>
+          <DisplayName>Queue Scheduled Export Reports</DisplayName>
+          <Description>This scheduled BPA kick off reports</Description>
         </item>
         <item lang="ES">
-          <DisplayName>[ES] Queue Scheduled Export Reports</DisplayName>
-          <Description>[ES] This scheduled BPA kick off reports</Description>
+          <DisplayName>Queue Scheduled Export Reports</DisplayName>
+          <Description>This scheduled BPA kick off reports</Description>
         </item>
         <item lang="DE">
-          <DisplayName>[DE] Queue Scheduled Export Reports</DisplayName>
-          <Description>[DE] This scheduled BPA kick off reports</Description>
+          <DisplayName>Queue Scheduled Export Reports</DisplayName>
+          <Description>This scheduled BPA kick off reports</Description>
         </item>
         <item lang="es-MX">
-          <DisplayName>[es-MX] Queue Scheduled Export Reports</DisplayName>
-          <Description>[es-MX] This scheduled BPA kick off reports</Description>
+          <DisplayName>Queue Scheduled Export Reports</DisplayName>
+          <Description>This scheduled BPA kick off reports</Description>
         </item>
         <item lang="pt-BR">
           <DisplayName>Enfileirar relatórios de exportação agendados</DisplayName>
           <Description>Este BPA agendado dispara relatórios</Description>
         </item>
         <item lang="en-GB">
-          <DisplayName>[en-GB] Queue Scheduled Export Reports</DisplayName>
-          <Description>[en-GB] This scheduled BPA kick off reports</Description>
+          <DisplayName>Queue Scheduled Export Reports</DisplayName>
+          <Description>This scheduled BPA kick off reports</Description>
         </item>
         <item lang="JA">
-          <DisplayName>[JA] Queue Scheduled Export Reports</DisplayName>
-          <Description>[JA] This scheduled BPA kick off reports</Description>
+          <DisplayName>Queue Scheduled Export Reports</DisplayName>
+          <Description>This scheduled BPA kick off reports</Description>
         </item>
       </LocalizedItems>
       <RecurrencePattern>
@@ -56,36 +56,36 @@
       <Description>Start Generating EOP Export Reports</Description>
       <LocalizedItems>
         <item lang="FR">
-          <DisplayName>[FR] Queue EOP Export Reports</DisplayName>
-          <Description>[FR] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
         <item lang="IT">
-          <DisplayName>[IT] Queue EOP Export Reports</DisplayName>
-          <Description>[IT] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
         <item lang="ES">
-          <DisplayName>[ES] Queue EOP Export Reports</DisplayName>
-          <Description>[ES] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
         <item lang="DE">
-          <DisplayName>[DE] Queue EOP Export Reports</DisplayName>
-          <Description>[DE] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
         <item lang="es-MX">
-          <DisplayName>[es-MX] Queue EOP Export Reports</DisplayName>
-          <Description>[es-MX] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
         <item lang="pt-BR">
-          <DisplayName>[pt-BR] Queue EOP Export Reports</DisplayName>
-          <Description>[pt-BR] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
         <item lang="en-GB">
-          <DisplayName>[en-GB] Queue EOP Export Reports</DisplayName>
-          <Description>[en-GB] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
         <item lang="JA">
-          <DisplayName>[JA] Queue EOP Export Reports</DisplayName>
-          <Description>[JA] Start Generating EOP Export Reports</Description>
+          <DisplayName>Queue EOP Export Reports</DisplayName>
+          <Description>Start Generating EOP Export Reports</Description>
         </item>
       </LocalizedItems>
       <RecurrencePattern>

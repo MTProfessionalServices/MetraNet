@@ -119,135 +119,135 @@
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[DE]MetraNet - Adapter Instance Information</value>
+    <value>MetraNet - Adapter Instance Information</value>
   </data>
   <data name="TX_TYPE" xml:space="preserve">
-    <value>[DE]Action</value>
+    <value>Action</value>
   </data>
   <data name="TitleResource1.Text" xml:space="preserve">
-    <value>[DE]Adapter Instance Information</value>
+    <value>Adapter Instance Information</value>
   </data>
   <data name="lblAdapter.Text" xml:space="preserve">
-    <value>[DE]Adapter:</value>
+    <value>Adapter:</value>
   </data>
   <data name="lblStatus.Text" xml:space="preserve">
-    <value>[DE]Status:</value>
+    <value>Status:</value>
   </data>
   <data name="lblArgStart.Text" xml:space="preserve">
-    <value>[DE]Arg Start:</value>
+    <value>Arg Start:</value>
   </data>
   <data name="lblArgEnd.Text" xml:space="preserve">
-    <value>[DE]Arg End:</value>
+    <value>Arg End:</value>
   </data>
   <data name="lblInstanceId.Text" xml:space="preserve">
-    <value>[DE]Instance Id:</value>
+    <value>Instance Id:</value>
   </data>
   <data name="btnHistory.Text" xml:space="preserve">
-    <value>[DE]View History</value>
+    <value>View History</value>
   </data>
   <data name="AdapterInstanceRunHistoryGrid.Title" xml:space="preserve">
-    <value>[DE]Instance Run History</value>
+    <value>Instance Run History</value>
   </data>
   <data name="DT_START" xml:space="preserve">
-    <value>[DE]Start Time [Duration]</value>
+    <value>Start Time [Duration]</value>
   </data>
   <data name="TX_DETAIL" xml:space="preserve">
-    <value>[DE]Summary Details</value>
+    <value>Summary Details</value>
   </data>
   <data name="TX_MACHINE" xml:space="preserve">
-    <value>[DE]Machine</value>
+    <value>Machine</value>
   </data>
   <data name="TX_STATUS" xml:space="preserve">
-    <value>[DE]Status</value>
+    <value>Status</value>
   </data>
   <data name="pnlInfo.Text" xml:space="preserve">
-    <value>[DE]Instance Details</value>
+    <value>Instance Details</value>
   </data>
   <data name="btnRunAdapters.Text" xml:space="preserve">
-    <value>[DE]Run Adapter</value>
+    <value>Run Adapter</value>
   </data>
   <data name="btnRunAdaptersLater.Text" xml:space="preserve">
-    <value>[DE]Run Adapter Later</value>
+    <value>Run Adapter Later</value>
   </data>
   <data name="btnReverseAdapters.Text" xml:space="preserve">
-    <value>[DE]Reverse Adapter</value>
+    <value>Reverse Adapter</value>
   </data>
   <data name="btnReverseAdaptersLater.Text" xml:space="preserve">
-    <value>[DE]Reverse Adapter Later</value>
+    <value>Reverse Adapter Later</value>
   </data>
   <data name="btnCancelSubmittedAction.Text" xml:space="preserve">
-    <value>[DE]Cancel Submitted Action</value>
+    <value>Cancel Submitted Action</value>
   </data>
   <data name="ViewRunDetails" xml:space="preserve">
-    <value>[DE]View Run Details</value>
+    <value>View Run Details</value>
   </data>
   <data name="SecondPlural" xml:space="preserve">
-    <value>[DE]seconds</value>
+    <value>seconds</value>
   </data>
   <data name="SecondSingular" xml:space="preserve">
-    <value>[DE]second</value>
+    <value>second</value>
   </data>
   <data name="RunLaterOn.Text" xml:space="preserve">
-    <value>[DE]Run this adapter on</value>
+    <value>Run this adapter on</value>
   </data>
   <data name="ReverseLaterOn.Text" xml:space="preserve">
-    <value>[DE]Reverse this adapter on</value>
+    <value>Reverse this adapter on</value>
   </data>
   <data name="AdapterInstanceAuditHistoryGrid.Title" xml:space="preserve">
-    <value>[DE]Instance Audit History</value>
+    <value>Instance Audit History</value>
   </data>
   <data name="Action_HeaderText" xml:space="preserve">
-    <value>[DE]Action</value>
+    <value>Action</value>
   </data>
   <data name="AuditId_HeaderText" xml:space="preserve">
-    <value>[DE]Audit Id</value>
+    <value>Audit Id</value>
   </data>
   <data name="Details_HeaderText" xml:space="preserve">
-    <value>[DE]Details</value>
+    <value>Details</value>
   </data>
   <data name="Forced_HeaderText" xml:space="preserve">
-    <value>[DE]Forced</value>
+    <value>Forced</value>
   </data>
   <data name="InstanceId_HeaderText" xml:space="preserve">
-    <value>[DE]Instance Id</value>
+    <value>Instance Id</value>
   </data>
   <data name="Time_HeaderText" xml:space="preserve">
-    <value>[DE]Time</value>
+    <value>Time</value>
   </data>
   <data name="Type_HeaderText" xml:space="preserve">
-    <value>[DE]Type</value>
+    <value>Type</value>
   </data>
   <data name="UserId_HeaderText" xml:space="preserve">
-    <value>[DE]User Id</value>
+    <value>User Id</value>
   </data>
   <data name="UserName_HeaderText" xml:space="preserve">
-    <value>[DE]User Name</value>
+    <value>User Name</value>
   </data>
   <data name="Adapter_HeaderText" xml:space="preserve">
-    <value>[DE]Adapter</value>
+    <value>Adapter</value>
   </data>
   <data name="AdapterInstanceRunDetailsGrid.Title" xml:space="preserve">
-    <value>[DE]Instance Run Details</value>
+    <value>Instance Run Details</value>
   </data>
   <data name="DetailType_HeaderText" xml:space="preserve">
-    <value>[DE]Detail Type</value>
+    <value>Detail Type</value>
   </data>
   <data name="Timestamp_HeaderText" xml:space="preserve">
-    <value>[DE]Timestamp</value>
+    <value>Timestamp</value>
   </data>
   <data name="BatchDetails" xml:space="preserve">
-    <value>[DE]View Details Of The Batches For This Run Of The Adapter</value>
+    <value>View Details Of The Batches For This Run Of The Adapter</value>
   </data>
   <data name="FailedAccounts" xml:space="preserve">
-    <value>[DE]View List Of Accounts That Had Failures</value>
+    <value>View List Of Accounts That Had Failures</value>
   </data>
   <data name="lblRunId.Text" xml:space="preserve">
-    <value>[DE]Run Id:</value>
+    <value>Run Id:</value>
   </data>
   <data name="lblSummaryDetails.Text" xml:space="preserve">
-    <value>[DE]Summary Details:</value>
+    <value>Summary Details:</value>
   </data>
   <data name="pnlRunDetails.Text" xml:space="preserve">
-    <value>[DE]Details:</value>
+    <value>Details:</value>
   </data>
 </root>

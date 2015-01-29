@@ -175,9 +175,9 @@
     <value>郵便番号</value>
   </data>
   <data name="tbEmail.Label" xml:space="preserve">
-    <value>[JA]Email</value>
+    <value>Email</value>
   </data>
   <data name="CreditCardTypeError" xml:space="preserve">
-    <value>[JA]is not a supported card type for this payment integration</value>
+    <value>is not a supported card type for this payment integration</value>
   </data>
 </root>

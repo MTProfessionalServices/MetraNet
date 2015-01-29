@@ -160,6 +160,6 @@
     <value>開始日</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[JA]Partition Id</value>
+    <value>Partition Id</value>
   </data>
 </root>

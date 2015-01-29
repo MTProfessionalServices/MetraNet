@@ -139,7 +139,7 @@
         <value>Data de início disponível</value>
     </data>
     <data name="TEXT_CopyPO" xml:space="preserve">
-        <value>[pr-BR]Copy Product Offering</value>
+        <value>Copy Product Offering</value>
     </data>
     <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
         <value>Criar oferta de produto</value>
@@ -148,7 +148,7 @@
         <value>Moeda</value>
     </data>
     <data name="TEXT_DeletePO" xml:space="preserve">
-        <value>[pr-BR]Delete Product Offering</value>
+        <value>Delete Product Offering</value>
     </data>
     <data name="TEXT_DESCRIPTION" xml:space="preserve">
         <value>Descrição</value>
@@ -157,7 +157,7 @@
         <value>Nome exibido</value>
     </data>
     <data name="TEXT_EditPO" xml:space="preserve">
-        <value>[pr-BR]Edit Product Offering</value>
+        <value>Edit Product Offering</value>
     </data>
     <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
         <value>Data de término da vigência</value>
@@ -172,7 +172,7 @@
         <value>Código GL</value>
     </data>
     <data name="TEXT_HidePO" xml:space="preserve">
-        <value>[pr-BR]Hide Product Offering</value>
+        <value>Hide Product Offering</value>
     </data>
     <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
         <value>URL da informação interna</value>
@@ -181,7 +181,7 @@
         <value>Oculto</value>
     </data>
     <data name="TEXT_MASTER" xml:space="preserve">
-        <value>[pr-BR]Master Product Offerings</value>
+        <value>Master Product Offerings</value>
     </data>
     <data name="TEXT_NAME" xml:space="preserve">
         <value>Nome</value>
@@ -190,7 +190,7 @@
         <value>Id da partição</value>
     </data>
     <data name="TEXT_UnhidePO" xml:space="preserve">
-        <value>[pr-BR]Unhide Product Offering</value>
+        <value>Unhide Product Offering</value>
     </data>
     <data name="TEXT_ViewPO" xml:space="preserve">
         <value>Selecionar oferta de produto</value>

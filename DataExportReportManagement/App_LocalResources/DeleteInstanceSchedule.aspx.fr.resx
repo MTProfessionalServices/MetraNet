@@ -406,12 +406,12 @@
         <value>Delete Report Instance </value>
     </data>  
   <data name="btnBackResource1.Text" xml:space="preserve">
-    <value>[FR]Back</value>
+    <value>Back</value>
   </data>
   <data name="Label1Resource1.Text" xml:space="preserve">
-    <value>[FR]The Instance Schedule was deleted successfully.</value>
+    <value>The Instance Schedule was deleted successfully.</value>
   </data>
   <data name="Label2Resource1.Text" xml:space="preserve">
-    <value>[FR]Instance Schedule Deleted</value>
+    <value>Instance Schedule Deleted</value>
   </data>
 </root>

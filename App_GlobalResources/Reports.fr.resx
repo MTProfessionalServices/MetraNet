@@ -286,7 +286,7 @@
     <value>Élément à prix</value>
   </data>
   <data name="TEXT_PRODUCT" xml:space="preserve">
-    <value>[FR]Product</value>
+    <value>Product</value>
   </data>
   <data name="TEXT_PRORATION_REASON" xml:space="preserve">
     <value>Motif de proration</value>
@@ -349,7 +349,7 @@
     <value>Montant moyen</value>
   </data>
   <data name="TEXT_CHARGE_KIND" xml:space="preserve">
-    <value>[FR]charge Kind</value>
+    <value>charge Kind</value>
   </data>
   <data name="TEXT_DECISION_TYPE" xml:space="preserve">
     <value>type de décision</value>
@@ -403,7 +403,7 @@
     <value>Type de paiement</value>
   </data>
   <data name="TEXT_PIPELINE_ID" xml:space="preserve">
-    <value>[FR]pipeline ID</value>
+    <value>pipeline ID</value>
   </data>
   <data name="TEXT_PRE_QUALIFIED_AMOUNT" xml:space="preserve">
     <value>Pré Montant qualifié</value>
@@ -484,7 +484,7 @@
     <value>Unités totales réduits</value>
   </data>
   <data name="TEXT_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
-    <value>[FR]Total Discount Amount</value>
+    <value>Total Discount Amount</value>
   </data>
   <data name="TEXT_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
     <value>Montant total généré</value>
@@ -526,12 +526,12 @@
     <value>intervalle Id</value>
   </data>
   <data name="TEXT_DEFERRED_CODE" xml:space="preserve">
-    <value>[FR]Deferred</value>
+    <value>Deferred</value>
   </data>
   <data name="TEXT_EARNED_CODE" xml:space="preserve">
-    <value>[FR]Earned</value>
+    <value>Earned</value>
   </data>
   <data name="TEXT_INCREMENTAL_CODE" xml:space="preserve">
-    <value>[FR]Incremental</value>
+    <value>Incremental</value>
   </data>
 </root>

@@ -292,7 +292,7 @@
         <value>Adicionar modelo OnBoard</value>
     </data>
     <data name="TEXT_CREATE_ACS_SUB_PARAMS" xml:space="preserve">
-        <value>[pt-BR]Add Model</value>
+        <value>Add Model</value>
     </data>
     <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
         <value>Criar retornos/reexecuções</value>
@@ -325,7 +325,7 @@
         <value>Pseudônimos</value>
     </data>
     <data name="TEXT_EDIT_NAMESPACES" xml:space="preserve">
-        <value>[pt-BR]Namespaces</value>
+        <value>Namespaces</value>
     </data>
     <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
         <value>Editar modelo</value>
@@ -355,7 +355,7 @@
         <value>Resumo por estágio e plugin</value>
     </data>
     <data name="TEXT_FEEDS" xml:space="preserve">
-        <value>[pt-BR]Feeds</value>
+        <value>Feeds</value>
     </data>
     <data name="TEXT_FILE_MANAGEMENT" xml:space="preserve">
         <value>Processamento de arquivos</value>

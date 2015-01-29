@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1.Text" xml:space="preserve">
-    <value>[IT]Create Product Offering</value>
+    <value>Create Product Offering</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>[IT]Currency</value>
+    <value>Currency</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[IT]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>[IT]Display name</value>
+    <value>Display name</value>
   </data>
   <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
-    <value>[IT]Effective Start Date</value>
+    <value>Effective Start Date</value>
   </data>
   <data name="TEXT_MASTER" xml:space="preserve">
-    <value>[IT]Create Master Product Offering</value>
+    <value>Create Master Product Offering</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[IT]Name</value>
+    <value>Name</value>
   </data>
   <data name="TEXT_PAGE_TITLE" xml:space="preserve">
-    <value>[IT]Add Product Offering</value>
+    <value>Add Product Offering</value>
   </data>
   <data name="TEXT_PARTITION_ID" xml:space="preserve">
-    <value>[IT]Partition Id</value>
+    <value>Partition Id</value>
   </data>
 </root>

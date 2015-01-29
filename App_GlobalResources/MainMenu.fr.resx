@@ -130,13 +130,13 @@
         <value>État du compte</value>
     </data>
     <data name="TEXT_AccountConfigSets" xml:space="preserve">
-        <value>[FR]Manage OnBoard Templates</value>
+        <value>Manage OnBoard Templates</value>
     </data>
     <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
-        <value>[FR]OnBoard Templates List</value>
+        <value>OnBoard Templates List</value>
     </data>
     <data name="TEXT_AccountConfigSetsSubParams_LIST" xml:space="preserve">
-        <value>[FR]Sub. Params For OnBoard Templates</value>
+        <value>Sub. Params For OnBoard Templates</value>
     </data>
     <data name="TEXT_ACTIVE_FILES" xml:space="preserve">
         <value>Tâches actives</value>
@@ -289,10 +289,10 @@
         <value>Corrigé et en attente</value>
     </data>
     <data name="TEXT_CREATE_ACS" xml:space="preserve">
-        <value>[FR]Add OnBoard Template</value>
+        <value>Add OnBoard Template</value>
     </data>
     <data name="TEXT_CREATE_ACS_SUB_PARAMS" xml:space="preserve">
-        <value>[FR]Add Model</value>
+        <value>Add Model</value>
     </data>
     <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
         <value>Créer une annulation/réexécution</value>

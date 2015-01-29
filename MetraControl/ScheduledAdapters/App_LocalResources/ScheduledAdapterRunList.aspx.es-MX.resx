@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArgEndDate_HeaderText" xml:space="preserve">
-    <value>[es-MX]ArgEndDate</value>
+    <value>ArgEndDate</value>
   </data>
   <data name="ArgStartDate_HeaderText" xml:space="preserve">
-    <value>[es-MX]ArgStartDate</value>
+    <value>ArgStartDate</value>
   </data>
   <data name="EventDisplayName_HeaderText" xml:space="preserve">
-    <value>[es-MX]Event Display Name</value>
+    <value>Event Display Name</value>
   </data>
   <data name="InstanceId_HeaderText" xml:space="preserve">
-    <value>[es-MX]Instance Id</value>
+    <value>Instance Id</value>
   </data>
   <data name="LastRunMachine_HeaderText" xml:space="preserve">
-    <value>[es-MX]LastRunMachine</value>
+    <value>LastRunMachine</value>
   </data>
   <data name="LastRunStart_HeaderText" xml:space="preserve">
-    <value>[es-MX]LastRunStart</value>
+    <value>LastRunStart</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[es-MX]MetraNet - Scheduled Adapter Run List</value>
+    <value>MetraNet - Scheduled Adapter Run List</value>
   </data>
   <data name="ScheduledAdapterRunListGrid.Title" xml:space="preserve">
-    <value>[es-MX]Scheduled Adapter Run List</value>
+    <value>Scheduled Adapter Run List</value>
   </data>
   <data name="ScheduledAdapterRunListMTTitle.Text" xml:space="preserve">
-    <value>[es-MX]Scheduled Adapter Run List</value>
+    <value>Scheduled Adapter Run List</value>
   </data>
   <data name="Status_HeaderText" xml:space="preserve">
-    <value>[es-MX]Status</value>
+    <value>Status</value>
   </data>
 </root>

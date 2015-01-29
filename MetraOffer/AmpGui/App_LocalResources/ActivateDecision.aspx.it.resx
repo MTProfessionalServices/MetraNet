@@ -122,12 +122,12 @@
     <value>True</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[IT]Activation Results</value>
+    <value>Activation Results</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="ErrorCheckFirstLabel.Text" xml:space="preserve">
-    <value>[IT]You must do an Error Check before activating your Decision Type.</value>
+    <value>You must do an Error Check before activating your Decision Type.</value>
   </data>
 </root>

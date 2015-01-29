@@ -1333,55 +1333,55 @@
     <value>Mes paramètres de sécurité</value>
   </data>
   <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
-    <value>[FR]Notifications</value>
+    <value>Notifications</value>
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
     <value>Plus...</value>
   </data>
   <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
-    <value>[FR]Edit Report Definition</value>
+    <value>Edit Report Definition</value>
   </data>
   <data name="TEXT_Manage_Report_Instances" xml:space="preserve">
-    <value>[FR]Manage Report Instances</value>
+    <value>Manage Report Instances</value>
   </data>
   <data name="TEXT_Manage_Report_Parameters" xml:space="preserve">
-    <value>[FR]Manage Report Parameters</value>
+    <value>Manage Report Parameters</value>
   </data>
   <data name="TEXT_Delete_Report" xml:space="preserve">
-    <value>[FR]Delete Report</value>
+    <value>Delete Report</value>
   </data>
   <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
-    <value>[FR]Edit Report Instance</value>
+    <value>Edit Report Instance</value>
   </data>
   <data name="TEXT_Manage_Report_Instance_Schedule" xml:space="preserve">
-    <value>[FR]Manage Report Instance Schedule</value>
+    <value>Manage Report Instance Schedule</value>
   </data>
   <data name="TEXT_Manage_Report__InstanceParameters" xml:space="preserve">
-    <value>[FR]Edit Instance Parameter Values</value>
+    <value>Edit Instance Parameter Values</value>
   </data>
   <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
-    <value>[FR]Delete Report Instance</value>
+    <value>Delete Report Instance</value>
   </data>
   <data name="TEXT_Delete_Queue_AdHoc_Reports" xml:space="preserve">
-    <value>[FR]Queue AdHoc Reports</value>
+    <value>Queue AdHoc Reports</value>
   </data>
   <data name="TEXT_Update_Report_Instance_Schedule" xml:space="preserve">
-    <value>[FR]Update Report Instance Schedule</value>
+    <value>Update Report Instance Schedule</value>
   </data>
   <data name="TEXT_Delete_Report_Instance_Schedule" xml:space="preserve">
-    <value>[FR]Delete Report Instance Schedule</value>
+    <value>Delete Report Instance Schedule</value>
   </data>
   <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
-    <value>[FR]Delete Report Parameter</value>
+    <value>Delete Report Parameter</value>
   </data>
   <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
-    <value>[FR]No parameter was selected. Please select at least one parameter for assignment</value>
+    <value>No parameter was selected. Please select at least one parameter for assignment</value>
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
-    <value>[FR]View Log</value>
+    <value>View Log</value>
   </data>
   <data name="TEXT_VIEW_ALL" xml:space="preserve">
-    <value>[FR]View All...</value>
+    <value>View All...</value>
   </data>
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Jour</value>
@@ -1402,6 +1402,6 @@
     <value>Troisième</value>
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
-    <value>[FR]Pending Changes Waiting For Approval</value>
+    <value>Pending Changes Waiting For Approval</value>
   </data>
 </root>

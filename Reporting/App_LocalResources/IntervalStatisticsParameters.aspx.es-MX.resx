@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ddBillGroupId.Label" xml:space="preserve">
-    <value>[es-MX]Billing Group</value>
+    <value>Billing Group</value>
   </data>
   <data name="ddBillingCycle.Label" xml:space="preserve">
-    <value>[es-MX]Billing Cycle</value>
+    <value>Billing Cycle</value>
   </data>
   <data name="ddIntervalId.Label" xml:space="preserve">
-    <value>[es-MX]Billing Interval</value>
+    <value>Billing Interval</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>[es-MX]Interval Statistics Parameters</value>
+    <value>Interval Statistics Parameters</value>
   </data>
 </root>

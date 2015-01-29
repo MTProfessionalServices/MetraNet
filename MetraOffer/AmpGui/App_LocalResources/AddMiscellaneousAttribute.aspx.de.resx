@@ -134,12 +134,12 @@
     <value>MetraNet</value>
   </data>
   <data name="ValueLabel.Text" xml:space="preserve">
-    <value>[DE]Value:</value>
+    <value>Value:</value>
   </data>
   <data name="TEXT_ERROR_DUPLICATE_MISC_ATTRIBUTE_NAME" xml:space="preserve">
-    <value>[DE]An attribute with that name already exists for this Decision Type. Please enter a different name for this new Miscellaneous Attribute.</value>
+    <value>An attribute with that name already exists for this Decision Type. Please enter a different name for this new Miscellaneous Attribute.</value>
   </data>
   <data name="MiscAttributeNameLabel.Label" xml:space="preserve">
-    <value>[DE]Name</value>
+    <value>Name</value>
   </data>
 </root>

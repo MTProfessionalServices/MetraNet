@@ -108,42 +108,42 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ArgEndDate" xml:space="preserve">
-        <value>[pt-br] Arg End Date</value>
+        <value>Arg End Date</value>
     </data>
     <data name="ArgStartDate" xml:space="preserve">
         <value>[ptbr] Arg Start Date</value>
     </data>
     <data name="EffectiveDate" xml:space="preserve">
-        <value>[pt-br] Effective Date</value>
+        <value>Effective Date</value>
     </data>
     <data name="GridTitle" xml:space="preserve">
-        <value>[pt-br] Scheduled Adapter Instances</value>
+        <value>Scheduled Adapter Instances</value>
     </data>
     <data name="IgnoreDeps" xml:space="preserve">
-        <value>[pt-br] Ignore Deps</value>
+        <value>Ignore Deps</value>
     </data>
     <data name="InstanceID" xml:space="preserve">
-        <value>[pt-br] Instance Id</value>
+        <value>Instance Id</value>
     </data>
     <data name="LastRunAction" xml:space="preserve">
-        <value>[pt-br] Last Run Action</value>
+        <value>Last Run Action</value>
     </data>
     <data name="LastRunEnd" xml:space="preserve">
-        <value>[pt-br] Last Run End</value>
+        <value>Last Run End</value>
     </data>
     <data name="LastRunMachine" xml:space="preserve">
-        <value>[pt-br] Last Run Machine</value>
+        <value>Last Run Machine</value>
     </data>
     <data name="LastRunStart" xml:space="preserve">
-        <value>[pt-br] Last Run Start</value>
+        <value>Last Run Start</value>
     </data>
     <data name="LastRunStatus" xml:space="preserve">
-        <value>[pt-br] Last Run Status</value>
+        <value>Last Run Status</value>
     </data>
     <data name="PageTitle" xml:space="preserve">
-        <value>[pt-br] Scheduled Adapter Instance List For</value>
+        <value>Scheduled Adapter Instance List For</value>
     </data>
     <data name="Status" xml:space="preserve">
-        <value>[pt-br] Status</value>
+        <value>Status</value>
     </data>
 </root>

@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BothEOPandScheduledLabelResource.Text" xml:space="preserve">
-    <value>[es-MX]Both EOP and Scheduled</value>
+    <value>Both EOP and Scheduled</value>
   </data>
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -128,21 +128,21 @@
     <value>True</value>
   </data>
   <data name="EOPLabelResource.Text" xml:space="preserve">
-    <value>[es-MX]End-of-Period (EOP)</value>
+    <value>End-of-Period (EOP)</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>[es-MX]A Decision can be processed by AMP as part of End-of-Period (EOP) processing and/or on a scheduled basis, independent of billing intervals.</value>
+    <value>A Decision can be processed by AMP as part of End-of-Period (EOP) processing and/or on a scheduled basis, independent of billing intervals.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>[es-MX]What is the execution frequency for this Decision Type?</value>
+    <value>What is the execution frequency for this Decision Type?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[es-MX]Execution Frequency</value>
+    <value>Execution Frequency</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="ScheduledLabelResource.Text" xml:space="preserve">
-    <value>[es-MX]Scheduled - periodic, but independent of billing intervals</value>
+    <value>Scheduled - periodic, but independent of billing intervals</value>
   </data>
 </root>

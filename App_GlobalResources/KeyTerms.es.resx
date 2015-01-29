@@ -306,15 +306,15 @@
     <comment>Usage Charges (Aggregate)</comment>
   </data>
   <data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-	<value>[ES]Core Subscriber</value>
+	<value>Core Subscriber</value>
     <comment>Core Subscriber</comment>
   </data>
   <data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-    <value>[ES]Department Account</value>
+    <value>Department Account</value>
     <comment>Department Account</comment>
   </data>
   <data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-    <value>[ES]GSM Service Account</value>
+    <value>GSM Service Account</value>
     <comment>GSM Service Account</comment>
   </data>
 </root>

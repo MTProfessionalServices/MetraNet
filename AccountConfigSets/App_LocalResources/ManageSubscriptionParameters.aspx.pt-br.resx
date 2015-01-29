@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnAddAccountConfigSetResource.Text" xml:space="preserve">
-    <value>[pt-BR]Add</value>
+    <value>Add</value>
   </data>
   <data name="btnGoToUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>[pt-BR]Edit</value>
+    <value>Edit</value>
   </data>
   <data name="btnUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>[pt-BR]Update</value>
+    <value>Update</value>
   </data>
   <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
     <value>Data de término da assinatura</value>
@@ -136,34 +136,34 @@
     <value>Conta corporativa</value>
   </data>
   <data name="ITEM" xml:space="preserve">
-    <value>[pt-BR]Item</value>
+    <value>Item</value>
   </data>
   <data name="ITEMS" xml:space="preserve">
-    <value>[pt-BR]Items</value>
+    <value>Items</value>
   </data>
   <data name="manageSubscriptionParameterTitle.Text" xml:space="preserve">
     <value>Template Subscription Parameters</value>
   </data>
   <data name="MTbtnCancelResource.Text" xml:space="preserve">
-    <value>[pt-BR]Cancel</value>
+    <value>Cancel</value>
   </data>
   <data name="MTPanelUDRCResource.Text" xml:space="preserve">
-    <value>[pt-BR]UDRC Metrics</value>
+    <value>UDRC Metrics</value>
   </data>
   <data name="panelAccountConfigSetParametersResource.Text" xml:space="preserve">
-    <value>[pt-BR]Model Information</value>
+    <value>Model Information</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>[pt-BR]Product Offering Information</value>
+    <value>Product Offering Information</value>
   </data>
   <data name="PIID" xml:space="preserve">
-    <value>[pt-BR]Priсeable Item Id</value>
+    <value>Priсeable Item Id</value>
   </data>
   <data name="PINAME" xml:space="preserve">
-    <value>[pt-BR]Priсeable Item Name</value>
+    <value>Priсeable Item Name</value>
   </data>
   <data name="REMOVE_UDRC" xml:space="preserve">
-    <value>[pt-BR]Remove UDRC Metric</value>
+    <value>Remove UDRC Metric</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
     <value>Nome da assinatura em grupo</value>
@@ -172,51 +172,51 @@
     <value>Descrição</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
-    <value>[pt-BR]Sub. Parameters Id</value>
+    <value>Sub. Parameters Id</value>
   </data>
   <data name="tbSubParamsPoNameResource.Label" xml:space="preserve">
-    <value>[pt-BR]Product Offering Name</value>
+    <value>Product Offering Name</value>
   </data>
   <data name="tbSubParamsPoResource.Label" xml:space="preserve">
     <value>Oferta de produto</value>
   </data>
   <data name="TEXT_ADD_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>[pt-BR]Add Subscription Model</value>
+    <value>Add Subscription Model</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
-    <value>[pt-BR]Add UDRC Metric</value>
+    <value>Add UDRC Metric</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
-    <value>[pt-BR]Cancel</value>
+    <value>Cancel</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>[pt-BR]End Date</value>
+    <value>End Date</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>[pt-BR]Manage Subscription Parameters</value>
+    <value>Manage Subscription Parameters</value>
   </data>
   <data name="TEXT_MISSED_PO" xml:space="preserve">
-    <value>[pt-BR]Product offering should be selected!</value>
+    <value>Product offering should be selected!</value>
   </data>
   <data name="TEXT_MISSED_UDRC" xml:space="preserve">
-    <value>[pt-BR]UDRC metrics set not for all Priceable Items</value>
+    <value>UDRC metrics set not for all Priceable Items</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
-    <value>[pt-BR]OK</value>
+    <value>OK</value>
   </data>
   <data name="TEXT_SELECT_POS" xml:space="preserve">
-    <value>[pt-BR]Select Product Offering</value>
+    <value>Select Product Offering</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>[pt-BR]Start Date</value>
+    <value>Start Date</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
-    <value>[pt-BR]Value</value>
+    <value>Value</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]UDRC Metrics For Priceable Items</value>
+    <value>UDRC Metrics For Priceable Items</value>
   </data>
   <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]UDRC Priсeable Items</value>
+    <value>UDRC Priсeable Items</value>
   </data>
 </root>

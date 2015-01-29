@@ -181,7 +181,7 @@
     <value>Ninguno</value>
   </data>
   <data name="ListItemResource2.Text" xml:space="preserve">
-    <value>[ES]US English</value>
+    <value>US English</value>
   </data>
   <data name="MTSection2Resource1.Text" xml:space="preserve">
     <value>Información de inicio de sesión</value>
@@ -217,9 +217,9 @@
     <value>Nombre de usuario</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>[ES]Custom Security Question</value>
+    <value>Custom Security Question</value>
   </data>
   <data name="tbAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>[ES]Authentication Type</value>
+    <value>Authentication Type</value>
   </data>
 </root>

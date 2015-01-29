@@ -130,7 +130,7 @@
         <value>Rapports ad hoc</value>
     </data>
     <data name="TEXT_ACTIONS" xml:space="preserve">
-        <value>[FR]Actions</value>
+        <value>Actions</value>
     </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -139,6 +139,6 @@
         <value>Titre du rapport</value>
     </data>
     <data name="TEXT_TITLE" xml:space="preserve">
-        <value>[FR]Show All Report Definitions</value>
+        <value>Show All Report Definitions</value>
     </data>
 </root>

@@ -130,7 +130,7 @@
         <value>Paramètres de rapport affectés</value>
     </data>
     <data name="TEXT_Assign_Parameters" xml:space="preserve">
-        <value>[FR]Assign Parameters</value>
+        <value>Assign Parameters</value>
     </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -145,9 +145,9 @@
         <value>Valeur</value>
     </data>
     <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-        <value>[FR]Currently there are no parameters assigned to this report definition</value>
+        <value>Currently there are no parameters assigned to this report definition</value>
     </data>
     <data name="TEXT_TITLE" xml:space="preserve">
-        <value>[FR]Currently Assigned Report Parameters</value>
+        <value>Currently Assigned Report Parameters</value>
     </data>
 </root>

@@ -118,22 +118,22 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TEXT_ACCOUNT" xml:space="preserve">
-        <value>[IT]Account</value>
+        <value>Account</value>
     </data>
     <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
         <value>Dettagli conto</value>
     </data>
     <data name="TEXT_ACCOUNT_QUOTING_LIST" xml:space="preserve">
-        <value>[IT]Quotes</value>
+        <value>Quotes</value>
     </data>
     <data name="TEXT_ACCOUNT_STATE" xml:space="preserve">
         <value>Stato del conto</value>
     </data>
     <data name="TEXT_AccountConfigSets" xml:space="preserve">
-        <value>[IT]Manage OnBoard Templates</value>
+        <value>Manage OnBoard Templates</value>
     </data>
     <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
-        <value>[IT]OnBoard Templates List</value>
+        <value>OnBoard Templates List</value>
     </data>
     <data name="TEXT_AccountConfigSetsSubParams_LIST" xml:space="preserve">
         <value>Sub. Params For OnBoard Templates</value>
@@ -154,7 +154,7 @@
         <value>Aggiungi conto con servizio Web</value>
     </data>
     <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-        <value>[IT]Add child Account</value>
+        <value>Add child Account</value>
     </data>
     <data name="TEXT_ADD_CSR" xml:space="preserve">
         <value>Aggiungi CSR</value>
@@ -166,10 +166,10 @@
         <value>Aggiungi nuovi parametri rapporto</value>
     </data>
     <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-        <value>[IT]Add Partition</value>
+        <value>Add Partition</value>
     </data>
     <data name="TEXT_ADD_TENANT" xml:space="preserve">
-        <value>[IT]Add Partition</value>
+        <value>Add Partition</value>
     </data>
     <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
         <value>Rettifica transazioni</value>
@@ -184,10 +184,10 @@
         <value>Opzioni avanzate</value>
     </data>
     <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
-        <value>[IT]Agreement Templates</value>
+        <value>Agreement Templates</value>
     </data>
     <data name="TEXT_AGREEMENTS" xml:space="preserve">
-        <value>[IT]Agreements</value>
+        <value>Agreements</value>
     </data>
     <data name="TEXT_ALL_FILES" xml:space="preserve">
         <value>Tutti i processi</value>
@@ -196,16 +196,16 @@
         <value>Tutti gli intervalli</value>
     </data>
     <data name="TEXT_ANALYTICS" xml:space="preserve">
-        <value>[IT]Analytics</value>
+        <value>Analytics</value>
     </data>
     <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
         <value>Registro verifiche applicazione</value>
     </data>
     <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-        <value>[IT]Approvals</value>
+        <value>Approvals</value>
     </data>
     <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-        <value>[IT]Assign Bill Messages</value>
+        <value>Assign Bill Messages</value>
     </data>
     <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
         <value>Assegna parametri rapporto</value>
@@ -247,7 +247,7 @@
         <value>Responsabili fatturazione</value>
     </data>
     <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-        <value>[IT]Bill Messages</value>
+        <value>Bill Messages</value>
     </data>
     <data name="TEXT_BILLABLE_INTERVALS" xml:space="preserve">
         <value>Intervalli fatturabili</value>
@@ -298,13 +298,13 @@
         <value>Crea ritiro/nuova esecuzione</value>
     </data>
     <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-        <value>[IT]Create Credit Note</value>
+        <value>Create Credit Note</value>
     </data>
     <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
         <value>Aggiungi nuova istanza rapporto</value>
     </data>
     <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-        <value>[IT]Create Quote</value>
+        <value>Create Quote</value>
     </data>
     <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
         <value>Crea rimessa</value>
@@ -367,7 +367,7 @@
         <value>Processi dell'ultima settimana</value>
     </data>
     <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-        <value>[IT]Finance Dashboard</value>
+        <value>Finance Dashboard</value>
     </data>
     <data name="TEXT_FOLDER_OWNER" xml:space="preserve">
         <value>Amministratore conto</value>
@@ -385,13 +385,13 @@
         <value>Elenca tutte le entità</value>
     </data>
     <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-        <value>[IT]</value>
+        <value></value>
     </data>
     <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
         <value>Effettua un pagamento</value>
     </data>
     <data name="TEXT_MANAGE" xml:space="preserve">
-        <value>[IT]Manage</value>
+        <value>Manage</value>
     </data>
     <data name="TEXT_MANAGE_ACCOUNTS" xml:space="preserve">
         <value>Gestisci conti</value>
@@ -400,19 +400,19 @@
         <value>Gestisci rettifiche</value>
     </data>
     <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
-        <value>[IT]Manage Agreement Templates</value>
+        <value>Manage Agreement Templates</value>
     </data>
     <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-        <value>[IT]Decision Types</value>
+        <value>Decision Types</value>
     </data>
     <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-        <value>[IT]Manage Bill Messages</value>
+        <value>Manage Bill Messages</value>
     </data>
     <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
-        <value>[IT]Manage BillSoft Exemptions</value>
+        <value>Manage BillSoft Exemptions</value>
     </data>
     <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
-        <value>[IT]Manage BillSoft Overrides</value>
+        <value>Manage BillSoft Overrides</value>
     </data>
     <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
         <value>Gestisci calendari</value>
@@ -442,7 +442,7 @@
         <value>Gestisci sicurezza</value>
     </data>
     <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-        <value>[IT]Master Product Offerings</value>
+        <value>Master Product Offerings</value>
     </data>
     <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
         <value>Genera password</value>
@@ -490,7 +490,7 @@
         <value>Apri</value>
     </data>
     <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-        <value>[IT]Operations Dashboard</value>
+        <value>Operations Dashboard</value>
     </data>
     <data name="TEXT_ORPHAN_ADJUSTMENTS" xml:space="preserve">
         <value>Rettifiche orfane</value>
@@ -514,7 +514,7 @@
         <value>Metodi di pagamento</value>
     </data>
     <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
-        <value>[IT]Payment Transactions</value>
+        <value>Payment Transactions</value>
     </data>
     <data name="TEXT_PAYMENTS" xml:space="preserve">
         <value>Pagamenti</value>
@@ -529,7 +529,7 @@
         <value>Articoli prezzabili</value>
     </data>
     <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-        <value>[IT]Product Dashboard</value>
+        <value>Product Dashboard</value>
     </data>
     <data name="TEXT_QUEUE_ADHOC_REPORT_FOR_EXECUTION" xml:space="preserve">
         <value>Accoda rapporti ad hoc per esecuzione</value>
@@ -538,13 +538,13 @@
         <value>Accoda rapporti ad hoc</value>
     </data>
     <data name="TEXT_QUOTING" xml:space="preserve">
-        <value>[IT]Manage Quotes</value>
+        <value>Manage Quotes</value>
     </data>
     <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-        <value>[IT]View All Quotes</value>
+        <value>View All Quotes</value>
     </data>
     <data name="TEXT_REFRESH" xml:space="preserve">
-        <value>[IT]Refresh</value>
+        <value>Refresh</value>
     </data>
     <data name="TEXT_REJECTED_FILES" xml:space="preserve">
         <value>File rifiutati</value>
@@ -553,7 +553,7 @@
         <value>Relazioni</value>
     </data>
     <data name="TEXT_REPORTS" xml:space="preserve">
-        <value>[IT]Reports</value>
+        <value>Reports</value>
     </data>
     <data name="TEXT_RESUBMITTED_FAILED_TRANSACTIONS" xml:space="preserve">
         <value>Nuovo invio effettuato</value>
@@ -583,19 +583,19 @@
         <value>Adattatori programmati</value>
     </data>
     <data name="TEXT_SEARCH" xml:space="preserve">
-        <value>[IT]Search</value>
+        <value>Search</value>
     </data>
     <data name="TEXT_SECURITY" xml:space="preserve">
         <value>Sicurezza</value>
     </data>
     <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
-        <value>[IT]Self Care Portal</value>
+        <value>Self Care Portal</value>
     </data>
     <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
         <value>Invia e-mail</value>
     </data>
     <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-        <value>[IT]Shared Properties</value>
+        <value>Shared Properties</value>
     </data>
     <data name="TEXT_SHARED_RATES" xml:space="preserve">
         <value>Tariffe condivise</value>
@@ -604,7 +604,7 @@
         <value>Mostra dettagli dell'istanza rapporto</value>
     </data>
     <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-        <value>[IT]View All Changes</value>
+        <value>View All Changes</value>
     </data>
     <data name="TEXT_SHOW_ALL_REPORT_PARAMETERS" xml:space="preserve">
         <value>Mostra tutti i parametri dei rapporti</value>
@@ -616,13 +616,13 @@
         <value>Coda di esportazione dati</value>
     </data>
     <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-        <value>[IT]View Failed Changes</value>
+        <value>View Failed Changes</value>
     </data>
     <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-        <value>[IT]View Item History</value>
+        <value>View Item History</value>
     </data>
     <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-        <value>[IT]View Pending Changes</value>
+        <value>View Pending Changes</value>
     </data>
     <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
         <value>Aggiungi voce registro</value>
@@ -670,10 +670,10 @@
         <value>Aggiorna definizione rapporto esistente</value>
     </data>
     <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-        <value>[IT]Usage Audit</value>
+        <value>Usage Audit</value>
     </data>
     <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-        <value>[IT]Usage Processing</value>
+        <value>Usage Processing</value>
     </data>
     <data name="TEXT_USM" xml:space="preserve">
         <value>Manutenzione server di utilizzo</value>
@@ -685,7 +685,7 @@
         <value>Informazioni sulla versione</value>
     </data>
     <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-        <value>[IT]View Credit Notes Issued</value>
+        <value>View Credit Notes Issued</value>
     </data>
     <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
         <value>Visualizza</value>

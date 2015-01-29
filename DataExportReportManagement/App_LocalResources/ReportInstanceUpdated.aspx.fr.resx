@@ -118,12 +118,12 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
   <data name="Label2Resource1.Text" xml:space="preserve">
-    <value>[FR]Report Instance Updated</value>
+    <value>Report Instance Updated</value>
   </data>
   <data name="Label1Resource1.Text" xml:space="preserve">
-    <value>[FR]The report instance was updated sucessfully.</value>
+    <value>The report instance was updated sucessfully.</value>
   </data>
   <data name="btnBackResource1.Text" xml:space="preserve">
-    <value>[FR]Back</value>
+    <value>Back</value>
   </data>
 </root>

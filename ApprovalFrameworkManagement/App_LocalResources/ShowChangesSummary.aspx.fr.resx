@@ -169,15 +169,15 @@
         <value>Afficher les modifications</value>
     </data>
     <data name="TEXT_SUMMARY" xml:space="preserve">
-        <value>[FR]Summary</value>
+        <value>Summary</value>
     </data>
     <data name="lblShowAllChangesSummaryTitleResource1.Text" xml:space="preserve">
-        <value>[FR]All Changes Summary</value>
+        <value>All Changes Summary</value>
     </data>
     <data name="ChangesSummaryResource1.NoRecordsText" xml:space="preserve">
-        <value>[FR]No records found</value>
+        <value>No records found</value>
     </data>
     <data name="MTSection2Resource1.Text" xml:space="preserve">
-        <value>[FR]Change Details</value>
+        <value>Change Details</value>
     </data>    
 </root>

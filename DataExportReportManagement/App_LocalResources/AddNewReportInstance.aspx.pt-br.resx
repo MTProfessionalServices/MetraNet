@@ -172,7 +172,7 @@
         <value>ID do relatório</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
-        <value>[pt-BR]Output File Distribution Method</value>
+        <value>Output File Distribution Method</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
         <value>Tipo de saída</value>

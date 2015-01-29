@@ -175,21 +175,21 @@
     <value>140</value>
   </data>
   <data name="NEW_PASSWORD_TEXT" xml:space="preserve">
-    <value>[DE]New Password</value>
+    <value>New Password</value>
   </data>
   <data name="CONFIRM_PASSWORD_TEXT" xml:space="preserve">
-    <value>[DE]Confirm New Password</value>
+    <value>Confirm New Password</value>
   </data>
   <data name="ENTER_PASSWORD" xml:space="preserve">
-    <value>[DE]Enter Password</value>
+    <value>Enter Password</value>
   </data>
   <data name="ENTER_NEW_PASSWORD" xml:space="preserve">
-    <value>[DE]Enter New Password</value>
+    <value>Enter New Password</value>
   </data>
   <data name="ENTER_CONFIRM_PASSWORD" xml:space="preserve">
-    <value>[DE]Enter Confirm Password</value>
+    <value>Enter Confirm Password</value>
   </data>
   <data name="PASSWORDS_DONT_MATCH" xml:space="preserve">
-    <value>[DE]Passwords do not match</value>
+    <value>Passwords do not match</value>
   </data>
 </root>

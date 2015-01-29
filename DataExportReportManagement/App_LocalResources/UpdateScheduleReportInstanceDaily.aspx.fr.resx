@@ -143,7 +143,7 @@
         <value>Mettre à jour le calendrier de rapports quotidien</value>
     </data>
     <data name="TEXT_DAILY_SCHEDULE" xml:space="preserve">
-        <value>[FR]Daily Report Schedule</value>
+        <value>Daily Report Schedule</value>
     </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -191,9 +191,9 @@
         <value>Ignorer le dernier jour du mois</value>
     </data>
   <data name="TEXT_Delete_Daily_Report_Schedule" xml:space="preserve">
-        <value>[FR]Delete Daily Report Schedule</value>
+        <value>Delete Daily Report Schedule</value>
     </data>
   <data name="TEXT_Update_Daily_Report_Schedule" xml:space="preserve">
-        <value>[FR]Update Daily Report Schedule</value>
+        <value>Update Daily Report Schedule</value>
     </data>
 </root>

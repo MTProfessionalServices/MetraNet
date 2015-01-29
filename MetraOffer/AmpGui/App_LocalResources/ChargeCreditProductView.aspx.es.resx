@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lbChooseProductViewResource1.Text" xml:space="preserve">
-    <value>[ES]Which Product View is associated with the new Charge/Credit?</value>
+    <value>Which Product View is associated with the new Charge/Credit?</value>
   </data>
   <data name="lbSelectAmountChGr.Text" xml:space="preserve">
-    <value>[ES]Select the Amount Chain Group to use for the new Charge/Credit:</value>
+    <value>Select the Amount Chain Group to use for the new Charge/Credit:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[ES]Charge/Credit: Product View</value>
+    <value>Charge/Credit: Product View</value>
   </data>
   <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
-    <value>[ES]Charge/Credit Name</value>
+    <value>Charge/Credit Name</value>
   </data>
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>[ES]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_ERROR_INIT_CONTROLS" xml:space="preserve">
-    <value>[ES]An error occurred on control initialization</value>
+    <value>An error occurred on control initialization</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[ES]An error occurred while retrieving Generated Charge '{0}'</value>
+    <value>An error occurred while retrieving Generated Charge '{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE_ACTION" xml:space="preserve">
-    <value>[ES]An error occurred while retrieving the Generated Charge Action</value>
+    <value>An error occurred while retrieving the Generated Charge Action</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE_NAME" xml:space="preserve">
-    <value>[ES]An error occurred while retrieving the Generated Charge Name</value>
+    <value>An error occurred while retrieving the Generated Charge Name</value>
   </data>
   <data name="TEXT_ERROR_CREATE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[ES]Error while creating Generated Charge '{0}'</value>
+    <value>Error while creating Generated Charge '{0}'</value>
   </data>
   <data name="AMOUNTCHAINGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>[ES]Amount Chain Groups</value>
+    <value>Amount Chain Groups</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[ES]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[ES]Name</value>
+    <value>Name</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[ES]Unique ID</value>
+    <value>Unique ID</value>
   </data>
   <data name="TEXT_ERROR_NO_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[ES]Error: You must select an Amount Chain Group in the grid</value>
+    <value>Error: You must select an Amount Chain Group in the grid</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[ES]Description:</value>
+    <value>Description:</value>
   </data>
 </root>

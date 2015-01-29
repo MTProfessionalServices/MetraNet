@@ -215,10 +215,10 @@
         <value>Berichtsparameter verwalten</value>
     </data>
     <data name="TEXT_DEF_MONTH_APRIL" xml:space="preserve">
-        <value>[DE]April</value>
+        <value>April</value>
     </data>
     <data name="TEXT_DEF_MONTH_AUGUST" xml:space="preserve">
-        <value>[DE]August</value>
+        <value>August</value>
     </data>
     <data name="TEXT_DEF_MONTH_DECEMBER" xml:space="preserve">
         <value>Dezember</value>
@@ -242,13 +242,13 @@
         <value>Mai</value>
     </data>
     <data name="TEXT_DEF_MONTH_NOVEMBER" xml:space="preserve">
-        <value>[DE]November</value>
+        <value>November</value>
     </data>
     <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
         <value>Oktober</value>
     </data>
     <data name="TEXT_DEF_MONTH_SEPTEMBER" xml:space="preserve">
-        <value>[DE]September</value>
+        <value>September</value>
     </data>
     <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
         <value>Monat bis heute</value>

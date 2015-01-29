@@ -124,7 +124,7 @@
     <value>Cuenta madre</value>
   </data>
   <data name="LblAuthenticationType.Label" xml:space="preserve">
-    <value>[ES]Authentication Type</value>
+    <value>Authentication Type</value>
   </data>
   <data name="LblBrandedSite.Label" xml:space="preserve">
     <value>Sitio de marca</value>
@@ -148,7 +148,7 @@
     <value>MetraView</value>
   </data>
   <data name="ListItemResource1.Text1" xml:space="preserve">
-    <value>[ES]US English</value>
+    <value>US English</value>
   </data>
   <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
     <value>10</value>
@@ -160,7 +160,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>[ES]This account already has a pending change in the approval framework queue. {0} Click here to view pending changes.</value>
+    <value>This account already has a pending change in the approval framework queue. {0} Click here to view pending changes.</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Información de la cuenta</value>

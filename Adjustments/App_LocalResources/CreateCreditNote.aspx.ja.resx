@@ -118,54 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnIssueCreditNoteResource1.Text" xml:space="preserve">
-    <value>[JA]Issue Credit Note</value>
+    <value>Issue Credit Note</value>
   </data>
   <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>[JA]Cancel</value>
+    <value>Cancel</value>
   </data>
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>[JA]Comment</value>
+    <value>Comment</value>
   </data>
    <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>[JA]Credit Note Template To Use</value>
+    <value>Credit Note Template To Use</value>
   </data>
   <data name="ddTimeIntervalsResource1.Text" xml:space="preserve">
-    <value>7 [JA]Days,30 [JA]Days,90 [JA]Days,120 [JA]Days,365 [JA]Days</value>
+    <value>7 Days,30 Days,90 Days,120 Days,365 Days</value>
   </data>
   <data name="ddTimeIntervalsResource1.Label" xml:space="preserve">
-    <value>[JA]Adjustments Issued In The Past</value>
+    <value>Adjustments Issued In The Past</value>
   </data>
   <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
-    <value>[JA]Credit Note Documents</value>
+    <value>Credit Note Documents</value>
   </data>
   <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>[JA]Create Credit Note Document for Adjustment Issued</value>
+    <value>Create Credit Note Document for Adjustment Issued</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>[JA]No records found.</value>
+    <value>No records found.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[JA]MetraNet - Create Credit Note Document for Adjustments Issued</value>
+    <value>MetraNet - Create Credit Note Document for Adjustments Issued</value>
   </data>   
   <data name="TEXT_ADJUSTMENT_TYPE" xml:space="preserve">
-    <value>[JA]Adjustment</value>
+    <value>Adjustment</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>[JA]Amount</value>
+    <value>Amount</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
-    <value>[JA]Credit Note Identifier</value>
+    <value>Credit Note Identifier</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>[JA]Date </value>
+    <value>Date </value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[JA]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_DISPLAY_ADJUSTMENT_TYPE" xml:space="preserve">
-    <value>[JA]Adjustment</value>
+    <value>Adjustment</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value>[JA]Amount</value>
+    <value>Amount</value>
   </data>  
 </root>

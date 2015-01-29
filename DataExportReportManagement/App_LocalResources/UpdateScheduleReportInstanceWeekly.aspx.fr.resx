@@ -170,15 +170,15 @@
         <value>Mercredi</value>
     </data>
     <data name="TEXT_SKIP_EXECUTION" xml:space="preserve">
-        <value>[FR]Skip Execution on These Weekdays</value>
+        <value>Skip Execution on These Weekdays</value>
     </data>
     <data name="TEXT_WEEKLY_SCHEDULE" xml:space="preserve">
-        <value>[FR]Weekly Schedule</value>
+        <value>Weekly Schedule</value>
     </data>
   <data name="TEXT_Delete_Weekly_Report_Schedule" xml:space="preserve">
-        <value>[FR]Delete Weekly Report Schedule</value>
+        <value>Delete Weekly Report Schedule</value>
     </data>
   <data name="TEXT_Update_Weekly_Report_Schedule" xml:space="preserve">
-        <value>[FR]Update Weekly Report Schedule</value>
+        <value>Update Weekly Report Schedule</value>
     </data>
 </root>

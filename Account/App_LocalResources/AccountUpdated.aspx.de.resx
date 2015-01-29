@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="accountchangesubmittedSuccessMsg" xml:space="preserve">
-    <value>[DE]Account Change submitted to Approval Framework</value>
+    <value>Account Change submitted to Approval Framework</value>
   </data>
   <data name="accountchangesubmittedSuccessTitle" xml:space="preserve">
-    <value>[DE]Account Change Submitted</value>
+    <value>Account Change Submitted</value>
   </data>
   <data name="Label1Resource1.Text" xml:space="preserve">
     <value>Das Konto wurde erfolgreich aktualisiert.</value>

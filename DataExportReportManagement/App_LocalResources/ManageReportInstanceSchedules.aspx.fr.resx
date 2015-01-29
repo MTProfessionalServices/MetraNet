@@ -130,7 +130,7 @@
         <value>Gérer le calendrier des instances de rapport</value>
     </data>
     <data name="TEXT_Daily_Schedule" xml:space="preserve">
-        <value>[FR]Daily Schedule</value>
+        <value>Daily Schedule</value>
     </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -142,15 +142,15 @@
         <value>Type de calendrier</value>
     </data>
     <data name="TEXT_Monthly_Schedule" xml:space="preserve">
-        <value>[FR] Monthly Schedule</value>
+        <value>Monthly Schedule</value>
     </data>
     <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-        <value>[FR]No schedule found for this instance </value>
+        <value>No schedule found for this instance </value>
     </data>
     <data name="TEXT_TITLE" xml:space="preserve">
-        <value>[FR]Report Instance Schedule</value>
+        <value>Report Instance Schedule</value>
     </data>
     <data name="TEXT_Weekly_Schedule" xml:space="preserve">
-        <value>[FR]Weekly Schedule</value>
+        <value>Weekly Schedule</value>
     </data>
 </root>

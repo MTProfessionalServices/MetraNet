@@ -157,10 +157,10 @@
     <value>Interações de decisão</value>
   </data>
   <data name="ListItemResource1.Value" xml:space="preserve">
-    <value>[pt-BR]ExclusiveAccessToConsumedUsage</value>
+    <value>ExclusiveAccessToConsumedUsage</value>
   </data>
   <data name="ListItemResource2.Value" xml:space="preserve">
-    <value>[pt-BR]AllDecisionsAccessToUsageRecord</value>
+    <value>AllDecisionsAccessToUsageRecord</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>

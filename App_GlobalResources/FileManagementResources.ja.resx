@@ -139,7 +139,7 @@
     <value>引数のプロパティ</value>
   </data>
   <data name="ASSEMBLY_TITLE" xml:space="preserve">
-    <value>[JA]Assembly</value>
+    <value>Assembly</value>
   </data>
   <data name="DETAIL_COMMAND" xml:space="preserve">
     <value>発行されたコマンド</value>
@@ -148,7 +148,7 @@
     <value>現在のエラー コード</value>
   </data>
   <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-    <value>[JA]Current Error Message</value>
+    <value>Current Error Message</value>
   </data>
   <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
     <value>現在の状態</value>
@@ -184,7 +184,7 @@
     <value>日付</value>
   </data>
   <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-    <value>[JA]Error Message</value>
+    <value>Error Message</value>
   </data>
   <data name="FILE_GENERAL_TITLE" xml:space="preserve">
     <value>ファイル</value>
@@ -217,7 +217,7 @@
     <value>ファイル</value>
   </data>
   <data name="GLOBAL_ACTIVE_DIR" xml:space="preserve">
-    <value>[JA]Active Directory</value>
+    <value>Active Directory</value>
   </data>
   <data name="GLOBAL_COMPLETED_DIR" xml:space="preserve">
     <value>完了したディレクトリ</value>

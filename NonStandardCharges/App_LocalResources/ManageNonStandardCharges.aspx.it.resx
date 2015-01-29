@@ -223,7 +223,7 @@
     <value>ID account abbonato</value>
   </data>
   <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value>[IT]Timestamp</value>
+    <value>Timestamp</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>ID visualizzazione</value>

@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="lblManageReportInstanceParameterValuesTitleResource1.Text" xml:space="preserve">
-        <value>[JA]Report Instance Parameter Values</value>
+        <value>Report Instance Parameter Values</value>
     </data>
     <data name="lblManageReportInstanceParameterValuesTitleResource1.ToolTip" xml:space="preserve">
         <value></value>
@@ -127,22 +127,22 @@
         <value></value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>[JA]Manage Report Instance Parameter Values</value>
+        <value>Manage Report Instance Parameter Values</value>
     </data>
     <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
     </data>
     <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
-        <value>[JA]Month To Date</value>
+        <value>Month To Date</value>
     </data>
     <data name="TEXT_DEF_NAME" xml:space="preserve">
-        <value>[JA]Name</value>
+        <value>Name</value>
     </data>
     <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
-        <value>[JA]Parameter ID</value>
+        <value>Parameter ID</value>
     </data>
     <data name="TEXT_DEF_VALUE" xml:space="preserve">
-        <value>[JA]Value</value>
+        <value>Value</value>
     </data>
     <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
         <value>No Parameters are associated with this instance</value>

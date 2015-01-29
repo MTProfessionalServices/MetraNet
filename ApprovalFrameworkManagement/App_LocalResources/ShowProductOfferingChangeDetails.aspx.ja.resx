@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_APPROVAL_VIEW_PRODUCT_OFFERING_CHANGE_DETAILS" xml:space="preserve">
-    <value>[JA]Product Offering Change Details</value>
+    <value>Product Offering Change Details</value>
   </data>
   <data name="TEXT_APPROVAL_PRODUCTOFFERINGCHANGEDETAILS_PROPERTYNAME" xml:space="preserve">
-    <value>[JA]Property Name</value>
+    <value>Property Name</value>
   </data>
   <data name="TEXT_APPROVAL_PRODUCTOFFERINGCHANGEDETAILS_CURRENTVALUE" xml:space="preserve">
-    <value>[JA]Current Value</value>
+    <value>Current Value</value>
   </data>
   <data name="TEXT_APPROVAL_PRODUCTOFFERINGCHANGEDETAILS_UPDATEDVALUE" xml:space="preserve">
-    <value>[JA]Updated Value</value>
+    <value>Updated Value</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_APPROVE_CHANGE" xml:space="preserve">
-    <value>[JA]Approve</value>
+    <value>Approve</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_DISMISS_CHANGE" xml:space="preserve">
-    <value>[JA]Dismiss</value>
+    <value>Dismiss</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_BACK" xml:space="preserve">
-    <value>[JA]Back</value>
+    <value>Back</value>
   </data>
 </root>

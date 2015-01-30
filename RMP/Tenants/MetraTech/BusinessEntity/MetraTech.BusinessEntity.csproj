@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.BusinessEntity</RootNamespace>
     <AssemblyName>MetraTech.BusinessEntity</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+   <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <OutDir>.\bin\$(Configuration)</OutDir>
     <SignAssembly>true</SignAssembly>

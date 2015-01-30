@@ -43,7 +43,7 @@ mdm_PVBrowserMain
 ' DESCRIPTION: Initialize the form, set link mode, and check capabilities
 ' RETURNS:     Return TRUE if ok else FALSE
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
-    Framework.AssertCourseCapability "Manage Usage Intervals And Scheduled Adapters", EventArg
+Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
 
     ProductView.Clear  
    	ProductView.Properties.ClearSelection

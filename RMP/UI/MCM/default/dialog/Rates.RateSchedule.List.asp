@@ -82,7 +82,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   	gObjMTTabs.Tab = 0    
     'Form.HelpFile   = "PO.Rates.RateSchedule.List.hlp.htm"
 	Else
-    ' Let's save the pricelist and paramtable id that was selected in the screen before, in case we go to the wizard
+    ' Let's save the price list and paramtable id that was selected in the screen before, in case we go to the wizard
     session("RATES_PRICELIST_ID") = Request.QueryString("PL_ID")
     session("RATES_PARAMTABLE_ID") = Request.QueryString("PT_ID")
     gObjMTTabs.Tab = 1
@@ -109,7 +109,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 	session("ownerapp_return_page") = FrameWork.GetDictionary("RATES_RATESCHEDULE_LIST_DIALOG") & "?" & Request.QueryString()
 	
 
-  Form.Page.NoRecordUserMessage     = "<span style='font-weight:normal;'><b>There are currently no rate schedules on this pricelist for this parameter table.</b><BR><BR> Use the 'New Rate Schedule' button above to create one or use this button to automatically create a default rate schedule that would always be in effect (no start date and no end date):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>Create Default Rate Schedule</button><BR></span>"
+  Form.Page.NoRecordUserMessage     = FrameWork.GetDictionary("TEXT_NO_RATE_SCHEDULES")
   
 	Form_Initialize = MDMListDialog.Initialize(EventArg)
 	Form.Grid.FilterMode          = FALSE ' We don't want filter capability on this product view
@@ -152,7 +152,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
         
 		Set COMObject.Instance  = objMTProductCatalog.GetParamTableDefinition(Form("PT_ID"))
     
-    ' Now we need the pricelist name for display purposes
+    ' Now we need the price list name for display purposes
     dim objPricelist
     set objPricelist = objPricelistMap.GetPricelist()
 
@@ -172,15 +172,15 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
     end if
    
     if not objPricelist.GetOwnerProductOffering() is nothing then
-      sPricelistInformation = "Parameter Table: <b>" & sParamTableName & "</b><br>Rates are stored on the Product Offering's non-shared pricelist.<br>"
+      sPricelistInformation = FrameWork.GetDictionary("TEXT_PARAMETER_TABLE") & sParamTableName & FrameWork.GetDictionary("TEXT_RATES_STORED_ON_PO")
     else
       'SECENG: CORE-4797 CLONE - MSOL 30262 MetraOffer: Stored cross-site scripting - All output should be properly encoded
       'Adding HTML Encoding
-      'sPricelistInformation = "Parameter Table: <b>" & sParamTableName & "</b><br>Rates are stored on the shared pricelist '<b>" & objPricelist.Name & "</b>'.<br>"  
-      sPricelistInformation = "Parameter Table: <b>" & sParamTableName & "</b><br>Rates are stored on the shared pricelist '<b>" & SafeForHtml(objPricelist.Name) & "</b>'.<br>"
+      'sPricelistInformation = "Parameter Table: <b>" & sParamTableName & "</b><br>Rates are stored on the shared price list '<b>" & objPricelist.Name & "</b>'.<br>"  
+      sPricelistInformation = FrameWork.GetDictionary("TEXT_PARAMETER_TABLE") & sParamTableName & FrameWork.GetDictionary("TEXT_RATES_STORED_ON_SHARED_PL") & SafeForHtml(objPricelist.Name) & "</b>'.<br>"
     end if    
   Else
-   	' We are editing rates on the context of a pricelist
+   	' We are editing rates on the context of a price list
 		' These rates are for the priceable item template!!!
 		Set objParamTabDef = objMTProductCatalog.GetParamTableDefinition(Form("PT_ID"))
     if Form("ShowSummaryInformation") then
@@ -197,14 +197,14 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
       sParamTableName = objParamTabDef.DisplayName
     end if
     
-    sPricelistInformation = "Parameter Table: <b>" & sParamTableName & "</b><br>" ' & "Rates are stored on the shared pricelist '<b>" & COMObject.Instance.Name & "</b>'.<br>"
+    sPricelistInformation = FrameWork.GetDictionary("TEXT_PARAMETER_TABLE") & sParamTableName & "</b><br>" 
   End If
 
   Dim strButton
   strButton = "<br><br>"
   If Form("isEditable") Then 
     strButton = "<button class=""clsButtonLarge"" name=""butNewRateSchedule"" onClick=""javascript:OpenDialogWindow('[NEW_RATESCHEDULE_WIZARD]', 'height=400,width=600,resizable=yes,scrollbars=yes'); return false;"">"
-    strButton = strButton & "<MDMLABEL Name='TEXT_RATES_NEW_RATE'>New Rates</MDMLABEL></button>"
+    strButton = strButton & "<MDMLABEL Name='TEXT_RATES_NEW_RATE'></MDMLABEL></button>"
   End If
   Form.HTMLTemplateSource = Replace(Form.HTMLTemplateSource, "<DYNAMIC_BUTTON_TEMPLATE />", strButton)    
 
@@ -302,7 +302,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
 
 	Dim HTML_LINK_EDIT, objProdCat, b_delete
 	
-	' Check if this system allows deletion of rate schedules and pricelists by checking a business rule
+	' Check if this system allows deletion of rate schedules and price lists by checking a business rule
 	' Then check if the user has the necessary capability to do so
 	' Then use this information when deciding to hide the Delete button or not. Only check cap if system allows deletion in the first place.
 	Set objProdCat = GetProductCatalogObject
@@ -386,7 +386,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
   		HTML_LINK_EDIT = HTML_LINK_EDIT & "<td nowrap class='[CLASS]' align='center'>"
 
       If Form("isEditable") Then
-  		  HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='copy[RS_ID]' class='clsButtonXLarge' onclick=""OpenDialogWindow('[NEW_RATESCHEDULE_WIZARD]&CopyRateScheduleId=[RS_ID]', 'height=400,width=600,resizable=yes,scrollbars=yes'); return false;"" title=""Create a new rate schedule and copy the rates from this rate schedule""><span style='font-size:8pt;'>New Rate Schedule From This One</span></button>"
+  		  HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='copy[RS_ID]' class='clsButtonXLarge' onclick=""OpenDialogWindow('[NEW_RATESCHEDULE_WIZARD]&CopyRateScheduleId=[RS_ID]', 'height=400,width=600,resizable=yes,scrollbars=yes'); return false;"" title=""[CREATE_RATE_SCHEDULE_TITLE]""><span style='font-size:8pt;'>[CREATE_RATE_SCHEDULE]</span></button>"
  			  HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
         HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='properties[RS_ID]' class='clsButtonBlueLarge' onclick=""OpenDialogWindow('[PROPERTIES_POPUP]?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]','_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;"">[PROPERTIES_BUTTON]</button>"
         HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
@@ -397,7 +397,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
         End If
       End If
   		      
-  		HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='viewhistory[RS_ID]' class='clsButtonBlueMedium' onclick=""window.open('Rates.RateSchedule.ViewHistory.asp?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]&PL_ID=[PL_ID]','_blank', 'height=600,width=800,resizable=yes,scrollbars=yes'); return false;"">View History</button>"
+  		HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='viewhistory[RS_ID]' class='clsButtonBlueMedium' onclick=""window.open('Rates.RateSchedule.ViewHistory.asp?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]&PL_ID=[PL_ID]','_blank', 'height=600,width=800,resizable=yes,scrollbars=yes'); return false;"">[VIEW_HISTORY_BUTTON]</button>"
   
   		MDMListDialog.PreProcessor.Clear
   		MDMListDialog.PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
@@ -405,9 +405,14 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
   		MDMListDialog.PreProcessor.Add "DELETE_POPUP"    , FrameWork.GetDictionary("RATESCHEDULE_DELETE_DIALOG")
   		MDMListDialog.PreProcessor.Add "PROPERTIES_BUTTON"   , FrameWork.GetDictionary("TEXT_RATESCHEDULE_EDIT_PROPERTIES")
   		MDMListDialog.PreProcessor.Add "DELETE_BUTTON"   , FrameWork.GetDictionary("TEXT_DELETE")
-  		MDMListDialog.PreProcessor.Add "PT_ID"    	 , Form("PT_ID")
+      MDMListDialog.PreProcessor.Add "VIEW_HISTORY_BUTTON"   , FrameWork.GetDictionary("TEXT_VIEW_HISTORY")
+      MDMListDialog.PreProcessor.Add "PT_ID"    	 , Form("PT_ID")
   		MDMListDialog.PreProcessor.Add "RS_ID"    	 , ProductView.Properties.Rowset.Value("id_sched")
   		MDMListDialog.PreProcessor.Add "PL_ID"    	 , Service.Properties("PL_ID").value
+      MDMListDialog.PreProcessor.Add "CREATE_RATE_SCHEDULE_TITLE"   , FrameWork.GetDictionary("TEXT_CREATE_RATE_SCHEDULE_TITLE")
+      MDMListDialog.PreProcessor.Add "CREATE_RATE_SCHEDULE"   , FrameWork.GetDictionary("TEXT_CREATE_RATE_SCHEDULE")
+      
+      
   		EventArg.HTMLRendered = MDMListDialog.PreProcess(HTML_LINK_EDIT)
 		End If
     

@@ -33,7 +33,7 @@ PUBLIC FUNCTION mcm_CheckEndDate(objEventArg,strProperty)
 
       If objEventArg.UIParameters.Exist(strProperty) Then      
       
-          objEventArg.UIParameters(strProperty).Value = mcm_SetTimeToDefaultEndDateTimeIfTimeNotSet(objEventArg.UIParameters(strProperty).Value)
+          objEventArg.UIParameters(strProperty).Value = mdm_format(mcm_SetTimeToDefaultEndDateTimeIfTimeNotSet(objEventArg.UIParameters(strProperty).Value), mdm_GetDictionary().GetValue("DATE_FORMAT"))
       End If
       mcm_CheckEndDate = TRUE
 END FUNCTION
@@ -84,7 +84,7 @@ FUNCTION mcm_SetTimeToDefaultEndDateTimeIfTimeNotSet(strDate)
     End If
     
     On Error Resume Next
-    varDate = CDate(strDate)
+    varDate = CDate(mdm_NormalDateFormat(strDate))
     
     If Err.Number Then ' Date convertion error we just give up the mdm will take care of it+
         Err.Clear
@@ -318,16 +318,17 @@ PRIVATE FUNCTION mcmDrawTabsForPriceableItem(sPriceableItemName,iPriceableItemKi
     
     ' Dynamically Add Tabs to template
     if mcmPriceableItemHasCustomOverviewScreen(sPriceableItemName) then
-      gObjMTTabs.AddTab "Overview" , "/mcm/default/dialog/PriceAbleItem.Usage.ViewEdit.Overview.asp?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=0"
+      gObjMTTabs.AddTab Framework.GetDictionary("TEXT_OVERVIEW_TAB"), "/mcm/default/dialog/PriceAbleItem.Usage.ViewEdit.Overview.asp?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=0"
     else
       iSelectedTab = iSelectedTab - 1
     end if
     
-    gObjMTTabs.AddTab "General", Framework.GetDictionary("PRICEABLE_ITEM_" & sTypeLinkName & "_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=1"
-    gObjMTTabs.AddTab "Parameter Table Mappings", Framework.GetDictionary("PRICEABLE_ITEM_PARAMTABLE_MAPPINGS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
-    if iPriceableItemKind=40 then
-      gObjMTTabs.AddTab "Counters", Framework.GetDictionary("PRICEABLE_ITEM_DISCOUNT_COUNTERS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
-    end if    
+    gObjMTTabs.AddTab Framework.GetDictionary("TEXT_GENERAL_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_" & sTypeLinkName & "_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=1"
+    gObjMTTabs.AddTab Framework.GetDictionary("TEXT_PARAMEETR_TABL_MAPPINGS_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_PARAMTABLE_MAPPINGS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
+    'FEAT-4216  Switch/Remove Legacy Discount and Aggregate Rating In Favor Of CDE
+    'if iPriceableItemKind=40 then
+    '  gObjMTTabs.AddTab Framework.GetDictionary("TEXT_COUNTERS_TAB"), Framework.GetDictionary("PRICEABLE_ITEM_DISCOUNT_COUNTERS_VIEW_EDIT_DIALOG") & "?ID=" & FORM("ID") & "&POID=" & FORM("POID") & "&POBased=" & FORM("POBased") & "&Tab=2"
+    'end if    
     gObjMTTabs.Tab = iSelectedTab
     
     sTabs                 = gObjMTTabs.DrawTabMenu(g_int_TAB_TOP)
@@ -462,4 +463,26 @@ PRIVATE FUNCTION mcm_DefaultFilterValueHandler(sValue)
   end if
   
 END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		:
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mcm_GetDictionary(strName) ' As String
+	  mcm_GetDictionary = Session("mdm_LOCALIZATION_DICTIONARY").item(strName).value
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mcm_FormatDate(strValue) 
+' PARAMETERS	: Format the date.
+' DESCRIPTION :
+' RETURNS			:
+Public Function mcm_FormatDate(varValue, varFormat)
+  if len(varFormat) = 0 then
+    mcm_FormatDate = FrameWork.MSIXTools.Format(varValue, mcm_GetDictionary("DATE_FORMAT"))
+  else
+    mcm_FormatDate = FrameWork.MSIXTools.Format(varValue, varFormat)
+  end if
+End Function
 %>

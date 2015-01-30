@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<texts id="Main" type='collection'>
-
-    <text id="TEXT_ADD_NAME_SPACE_NAME_SPACE"><value>Name Space</value></text>      
-    <text id="TEXT_ADD_NAME_SPACE_TYPE"><value>Type</value></text>      
-    <text id="TEXT_ADD_NAME_SPACE_DESCRIPTION"><value>Description</value></text>      
+<texts id="Main" type="collection">
+  <text id="TEXT_ADD_NAME_SPACE_NAME_SPACE">
+    <value>Espace de nommage</value>
+  </text>
+  <text id="TEXT_ADD_NAME_SPACE_TYPE">
+    <value>Type</value>
+  </text>
+  <text id="TEXT_ADD_NAME_SPACE_DESCRIPTION">
+    <value>Description</value>
+  </text>
 </texts>

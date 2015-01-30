@@ -40,6 +40,7 @@ mdm_Main
 ' DESCRIPTION:
 ' RETURNS:     Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
+  Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
 
   Call FrameWork.Dictionary().Add("SERIALIZED_CONTEXT", FrameWork.SessionContext.ToXML)
   

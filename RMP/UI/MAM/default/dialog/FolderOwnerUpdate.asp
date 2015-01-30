@@ -104,9 +104,9 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     Call objYAAC.AddOwnedFolderByID(CLng(Session("ActiveYAAC").AccountID))
     
     If Session("FOLDER_OWNER_MODE") = "SYSTEM_USER" Then
-        Session("ActiveYAAC").Refresh(mam_GetSystemUserHierarchyTime())
+        Session("ActiveYAAC").Refresh(mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
     Else
-        Session("ActiveYAAC").Refresh(mam_GetHierarchyTime())
+        Session("ActiveYAAC").Refresh(mam_ConvertToSysDate(mam_GetHierarchyTime()))
     End If
     Form.RouteTo = mam_ConfirmDialogEncodeAllURL(mam_GetDictionary("TEXT_FOLDER_OWNER_UPDATE"), mam_GetDictionary("TEXT_FOLDER_OWNER_UPDATED_SUCCESS"), mam_GetDictionary("WELCOME_DIALOG"))
     Else

@@ -1,128 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="System Users" type="collection">
   <description>
     The file defines localized string for system users and Sales Force Hierarchy
   </description>
-
   <text id="TEXT_SELECT_OWNED_ACCOUNT_MESSAGE">
     <value>Because you do not have top level access to accounts, your account hierarchy view is currently empty. To view accounts in the hierarchy, go to the menu tab and select the 'My Accounts' screen and select the 'Find Account In Hierarchy' icon next to the account.&lt;br&gt;&lt;br&gt;</value>
   </text>
-  
   <text id="TEXT_DELETING_OWNED_ACCOUNTS">
     <value>Deleting owned subscribers</value>
   </text>
-  
   <text id="TEXT_DELETE_OWNED_QUESTION">
     <value>Are you sure you want to delete all owned subscribers? </value>
   </text>
-
   <text id="TEXT_SYSTEM_USER">
     <value>System User</value>
   </text>
-  
   <text id="TEXT_USERS">
     <value>Users</value>
   </text>
-    
   <text id="TEXT_SYTEM_USER_UNABLE_TO_LOAD">
     <value>Unable to load system user.  It may not be in the hierarchy at this time, or you may not have the security to manage it.</value>
   </text>
-  
   <text id="TEXT_SYSTEM_USER_ACCOUNT_SUMMARY">
     <value>Account Summary</value>
   </text>
-
   <text id="TEXT_SYSTEM_USER_ACCOUNT_INFO">
     <value>Account Info</value>
   </text>
-  
   <text id="TEXT_SYSTEM_USER_OWNED_ACCOUNTS">
     <value>Owned Subscribers</value>
   </text>
-  
   <text id="TEXT_SYSTEM_USER_OWNED_SYSTEM_FOLDERS">
     <value>Administrated Accounts</value>
   </text>
-  
   <text id="TEXT_SYSTEM_USER_SECURITY">
     <value>Security</value>
   </text>
-  
   <text id="TEXT_ID_OWNER">
     <value>ID Owner</value>
-  </text>  
-
+  </text>
   <text id="TEXT_ID_OWNED">
     <value>ID Owned</value>
-  </text>  
-
+  </text>
   <text id="TEXT_PERCENT_OWNERSHIP">
     <value>Percentage Ownership</value>
-  </text>  
-
+  </text>
   <text id="TEXT_OWNED_HIERARCHYNAME">
     <value>Account</value>
-  </text>  
-
+  </text>
   <text id="TEXT_OWNED_RELATION_TYPE">
     <value>Relationship</value>
-  </text>  
-
+  </text>
   <text id="TEXT_ADD_OWNED_ACCOUNTS">
     <value>Add Owned Subscribers</value>
-  </text> 
-
+  </text>
   <text id="TEXT_ADD_OWNER_ACCOUNTS">
     <value>Add Owner Accounts</value>
-  </text> 
-  
+  </text>
   <text id="TEXT_SETTING_OWNERS">
     <value>Setting Owners</value>
-  </text> 
-
+  </text>
   <text id="TEXT_UPDATE_OWNED_ACCOUNT">
     <value>Update Owned Account</value>
-  </text>     
-
+  </text>
   <text id="TEXT_UPDATE_OWNER_ACCOUNT">
     <value>Update Owner Account</value>
-  </text> 
-  
+  </text>
   <text id="TEXT_CONTACT_INFO">
     <value>Contact Information</value>
-  </text>     
-
+  </text>
   <text id="TEXT_OWNER_ACCOUNTS">
     <value>Account Owners</value>
-  </text>  
-
+  </text>
   <text id="TEXT_OWNER_ACCOUNT">
     <value>Account Owner</value>
-  </text>  
-     
+  </text>
   <text id="TEXT_MY_ACCOUNTS_DIALOG">
     <value>My Accounts</value>
-  </text>      
-
+  </text>
   <text id="TEXT_DIRECT_OWNER">
     <value>Direct Owner</value>
-  </text>      
-
+  </text>
   <text id="TEXT_FIND_METRANET_USER">
     <value>Find MetraNet User</value>
-  </text>       
-  
+  </text>
   <text id="TEXT_SYTEM_USER_FOUND">
     <value>MetraNet User(s) Found</value>
-  </text>         
-
+  </text>
   <text id="TEXT_FIND_IN_HIERARCHY">
     <value>Find Account In Hierarchy</value>
-  </text>  
-  
+  </text>
   <text id="TEXT_VIEW_ONLINE_BILL">
     <value>View Online Bill</value>
-  </text>  
-      
+  </text>
 </texts>

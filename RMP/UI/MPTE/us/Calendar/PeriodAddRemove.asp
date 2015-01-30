@@ -196,17 +196,22 @@ Function GetCalendarCodeSelect()
 	Dim objEnumCfg
 	Dim objEnumColl
 	Dim varEnum
-	Dim enumVal
+	Dim enumVal  
 	Set objEnumCfg = Server.CreateObject("Metratech.MTEnumConfig")
 	Set objEnumColl = objEnumCfg.GetEnumerators("metratech.com/calendar", "CalendarCode")
 	' TODO: Check if enum was successfully loaded
+  Dim lang
+  lang = session.Contents("FRAMEWORK_APP_LANGUAGE_SHORT")
+  Set lc = Server.CreateObject("Metratech.LocaleConfig")
+  lc.Initialize("Core")
+  lc.LoadLanguage(lang)
 
 	strHTML = ""
 	strHTML = strHTML & "<select class='clsInputBox' name='selectCalCode'>"
 	For Each varEnum in objEnumColl
 		' First figure out the enum value
 		enumVal = objEnumCfg.GetEnumeratorValueByID(objEnumCfg.GetID("metratech.com/calendar", "CalendarCode", varEnum.Name))
-		strHTML = strHTML & "<option value=" & CStr(enumVal) & ">" & varEnum.Name & "</option>"
+		strHTML = strHTML & "<option value=" & CStr(enumVal) & ">" & lc.GetLocalizedString("metratech.com/calendar/CalendarCode/" & varEnum.Name, lang)  & "</option>"
 	Next
 	
 	strHTML = strHTML & "</select>"
@@ -360,11 +365,13 @@ end if
 
 <html>
   <head>
-	<title>Calendar Period</title><!-- Localize this -->
+  
+	<title><%=FrameWork.GetDictionary("TEXT_CALENDAR_PERIOD")%></title>
 	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">
-	
+	<meta charset="UTF-8">
+  
   <script language="JavaScript1.2" src="/mpte/shared/browsercheck.js"></script>    
   <script language="JavaScript1.2" src="/mpte/shared/PopupModalDialog.js"></script>
   <script LANGUAGE="JavaScript1.2">  

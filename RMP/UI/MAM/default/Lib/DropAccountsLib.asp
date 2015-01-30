@@ -93,7 +93,7 @@ FUNCTION DropGrid_Click(EventArg)
     If Len(DropAction) > 0 Then
       If UCase(DropAction) = "SINGLE" Then
         AccountID = Child
-        Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_GetHierarchyTime())
+        Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))
         If Not CBool(objYAAC.IsFolder) Then 
           mam_ShowGuide(mam_GetDictionary("TEXT_DRAG_ONLY_FOLDERS_HERE"))
           Exit Function 
@@ -102,7 +102,7 @@ FUNCTION DropGrid_Click(EventArg)
         arr = Split(Child, ",")
         For i = 0 to Ubound(arr) 
           AccountID = arr(i)
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_GetHierarchyTime())
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))
           If Not CBool(objYAAC.IsFolder) Then 
             mam_ShowGuide(mam_GetDictionary("TEXT_DRAG_ONLY_FOLDERS_HERE"))
             Exit Function       
@@ -117,7 +117,7 @@ FUNCTION DropGrid_Click(EventArg)
     If UCase(DropAction) = "SINGLE" Then
       
       AccountID = Child
-      Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_GetHierarchyTime())
+      Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))
       UserName = objYAAC.AccountName & " (" & AccountID & ")"
 
       rs.Initialize 1, 4 
@@ -154,7 +154,7 @@ FUNCTION DropGrid_Click(EventArg)
             Exit Function       
           End If
           
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_GetHierarchyTime())          
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))          
           UserName = objYAAC.AccountName & " (" & AccountID & ")"
 
           rs.Value(0) = objYAAC.IsFolder
@@ -283,13 +283,13 @@ PRIVATE FUNCTION GetAccountIDCollection()
 
            If Service.Properties("folderAction" & Form.Grids("DropGrid").Properties("id").Value).Value =  mam_GetDictionary("TEXT_ALL_DESCENDANTS") Then
              ' Add all descendants
-             Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form.Grids("DropGrid").Properties("id").Value), mam_GetHierarchyTime())
-             Call objYAAC.GetDescendents(col, mam_GetHierarchyTime(), RECURISVE, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
+             Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form.Grids("DropGrid").Properties("id").Value), mam_ConvertToSysDate(mam_GetHierarchyTime()))
+             Call objYAAC.GetDescendents(col, mam_ConvertToSysDate(mam_GetHierarchyTime()), RECURISVE, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
   
            ELseIf Service.Properties("folderAction" & Form.Grids("DropGrid").Properties("id").Value).Value =  mam_GetDictionary("TEXT_DIRECT_DESCENDANTS") Then
              ' Add direct descendants
-             Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form.Grids("DropGrid").Properties("id").Value), mam_GetHierarchyTime())
-             Call objYAAC.GetDescendents(col, mam_GetHierarchyTime(), DIRECT_DESCENDENTS, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
+             Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form.Grids("DropGrid").Properties("id").Value), mam_ConvertToSysDate(mam_GetHierarchyTime()))
+             Call objYAAC.GetDescendents(col, mam_ConvertToSysDate(mam_GetHierarchyTime()), DIRECT_DESCENDENTS, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS")))  '	STDMETHOD(GetDescendents)(/*[in]*/ IMTCollection* pCol,DATE RefDate,/*[in]*/ MTHierarchyPathWildCard treeHint,/*[in]*/ VARIANT_BOOL IncludeFolders);
   
            Else
              col.Add CLng(Form.Grids("DropGrid").Properties("id").Value)  

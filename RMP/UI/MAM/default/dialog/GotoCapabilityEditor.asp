@@ -44,7 +44,7 @@ If Len(request.QueryString("OPTIONALVALUES")) = 0 Then
 	If UCase(Session("IsAccount")) = "TRUE" Then
 			
       On error resume next
-      Set	objAuthAccount = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_GetHierarchyTime())
+      Set	objAuthAccount = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_ConvertToSysDate(mam_GetHierarchyTime()))
       If err.number <> 0 then
         Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
       End If

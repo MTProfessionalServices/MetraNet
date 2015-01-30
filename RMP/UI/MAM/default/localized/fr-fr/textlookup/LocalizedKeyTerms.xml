@@ -66,21 +66,21 @@
 
     <!-- Usage Charge -->   
     <text id="TEXT_KEYTERM_USAGE_CHARGE">
-        <value>Frais d’utilisation</value>
+        <value>Frais d'utilisation</value>
 	<description>Usage Charge</description>
     </text>              
     <text id="TEXT_KEYTERM_USAGE_CHARGES">
-        <value>Frais d’utilisation</value>
+        <value>Frais d'utilisation</value>
 	<description>Usage Charges</description>
     </text>              
 
     <!-- Usage Charge (aggregate) -->   
     <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
-        <value>Frais d’utilisation (Consolidés)</value>
+        <value>Frais d'utilisation (Consolidés)</value>
 	<description>Usage Charge (Aggregate)</description>
     </text>              
     <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
-        <value>Frais d’utilisation (Consolidés)</value>
+        <value>Frais d'utilisation (Consolidés)</value>
 	<description>Usage Charges (Aggregate)</description>
     </text>              
 
@@ -176,7 +176,7 @@
 		</text>		
 				            
 		<text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
-			<value>Compte d’entreprise</value>
+			<value>Compte d'entreprise</value>
 			<description>Corporate Account</description>
 		</text> 
 				
@@ -208,11 +208,11 @@
 
     <!-- Unit-Dependent Recurring Charge(s) -->
     <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE">
-      <value>Frais récurrents dépendant de l’unité</value>
+      <value>Frais récurrents dépendant de l'unité</value>
       <description>Unit-Dependent Recurring Charge</description>
     </text>
     <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES">
-      <value>Frais récurrents dépendant de l’unité</value>
+      <value>Frais récurrents dépendant de l'unité</value>
       <description>Unit-Dependent Recurring Charges</description>
     </text>
 

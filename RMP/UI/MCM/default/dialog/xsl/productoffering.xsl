@@ -4,9 +4,9 @@
     <xsl:for-each select="/productoffering">
                     <a>
                     <xsl:attribute name="href">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
-                    Return To Previous Search Results
+                    [TEXT_RETURN_TO_PREVIOUS_SEARCH]
                     </a>
-                    <img src="/MCM/default/localized/en-us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
+                    <img src="/MCM/default/localized/en-us/images/Icons/goback.gif" alt="[TEXT_RETURN_TO_PREVIOUS_SEARCH]" border="0" align="absmiddle" style="cursor:hand;">
                     <xsl:attribute name="OnClick">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
                     </img>
       <!-- PO Properties -->
@@ -16,7 +16,7 @@
       <tr> 
         <td width="100%">
           <table width="100%" cellspacing="0" cellpadding="0">
-            <td class="NavigationPaneHeader" colspan="1" style="font-size:10;padding-left:8px;">Selected Product Offering</td>
+            <td class="NavigationPaneHeader" colspan="1" style="font-size:10;padding-left:8px;">[TEXT_SELECTED_PO]</td>
             <td class="NavigationPaneHeader" align="right" style='padding-top:4px;'>
 
               <img src="/MCM/default/localized/en-us/images/Icons/refresh.gif" alt="" border="0" align="bottom" style="cursor:hand;">
@@ -46,11 +46,7 @@
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-                <tr class="NavigationPaneItem"><td style="padding-left:4px;padding-top:4px;">Currently, this Product Offering does not contain any Priceable Items or Discounts.<br /><br />Click 
-                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
-              <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,-2);</xsl:attribute>
-              here</a>
-             to go to the product offering screen to add items</td></tr>
+                <tr class="NavigationPaneItem"><td style="padding-left:4px;padding-top:4px;">[TEXT_PO_WITHOUT_PI_MESSAGE]</td></tr>
       </xsl:otherwise>
       </xsl:choose>
       </table> <!-- End Of Product Offering -->
@@ -162,12 +158,12 @@
   <xsl:choose>        
    <xsl:when test="not(string(pricelist_id))">
         <a class="ParamTableA">
-        <xsl:attribute name="title">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../name" />' priceable item above and create a mapping.'</xsl:attribute>
-        <xsl:attribute name="href">javascript:alert('This parameter table is not mapped to a pricelist for this product offering. Please select the \'<xsl:value-of select="../../name" />\' priceable item above and create a mapping.');</xsl:attribute>
+        <xsl:attribute name="title">[TEXT_PARAMETER_NOT_MAPPED_MESSAGE]</xsl:attribute>
+        <xsl:attribute name="href">javascript:alert('TEXT_PARAMETER_NOT_MAPPED_MESSAGE');</xsl:attribute>
        <xsl:value-of select="paramtable_displayname" />
        <xsl:text>&#160;</xsl:text>
        <img src="/mcm/default/localized/en-us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
-          <xsl:attribute name="alt">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../name" />' priceable item above and create a mapping.'</xsl:attribute>
+          <xsl:attribute name="alt">[TEXT_PARAMETER_NOT_MAPPED_MESSAGE]</xsl:attribute>
         </a> 
                                     
    </xsl:when>

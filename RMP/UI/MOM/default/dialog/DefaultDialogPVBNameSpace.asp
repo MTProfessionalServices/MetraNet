@@ -36,6 +36,8 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp"          -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
+
 <%
 
 Form.Page.MaxRow                = CLng(mom_GetDictionary("PV_ROW_PER_PAGE"))
@@ -45,7 +47,7 @@ Form.Page.NoRecordUserMessage   = mom_GetDictionary("PRODUCT_VIEW_BROWSER_NO_REC
 mdm_PVBrowserMain ' invoke the mdm framework
 
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
-    
+    Framework.AssertCourseCapability "Update Runtime Configuration", EventArg
 	  ProductView.Clear  ' Set all the property of the service to empty or to the default value
 	  Form_Initialize = TRUE
 END FUNCTION
@@ -137,7 +139,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     ' Need to pass in the current subscribers login and namespace
     'strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<A HRef='" & mom_GetDictionary("UPDATE_NAME_SPACE_DIALOG") & "'><img src='" & mom_GetImagesPath() &  "/add.gif' Border='0'></A>"
     
-    strTmp = "<button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""'>Add</button>"
+    strTmp = "<button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""'>[TEXT_ADD]</button>"
     strTmp = ProductView.Tools.PreProcess(strTmp,"LINK",mom_GetDictionary("UPDATE_NAME_SPACE_DIALOG"))
     
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp

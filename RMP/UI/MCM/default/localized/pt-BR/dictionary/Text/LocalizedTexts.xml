@@ -17,4 +17,64 @@
     <value>Selecione a [TEXT_KEYTERM_PRICE_LIST] dessa [TEXT_KEYTERM_PARAMETER_TABLE]</value>
     <description></description>
   </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE">
+    <value><![CDATA[Atualmente, esta Oferta de Produto não contém nenhum Item a Ser Apreçado ou com Descontos.<br /><br />Clique 
+                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
+              <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,-2);</xsl:attribute>
+              aqui</a>
+             para acessar a tela da oferta de produto para adicionar itens]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_NOT_MAPPED_MESSAGE">
+    <value><![CDATA[Essa tabela de parâmetros não está mapeada para uma lista de preços dessa oferta de produto. Selecione o '<xsl:value-of select="../../name" />' item apreçável acima e crie um mapeamento.]]></value>
+    <description></description>
+  </text>  
+  <text id="TEXT_SELECTED_PO">
+    <value>Selecionar oferta de produto</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLES_PLM_UPDATED">
+    <value>Tabelas de Parâmetros que Terão seus Mapeamentos de Listas de Preços Atualizados</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE2">
+    <value><![CDATA[Atualmente, esta Oferta de Produto não contém nenhum Item com Preço a Definir ou Descontos.<br /><br />Volte para a tela Oferta de Produto to para adicionar os itens a serem incluídos na oferta de produto.]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE_NOT_MAPPED">
+    <value>Esta tabela de parâmetros não está mapeada para uma lista de preços.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE3">
+    <value>Atualmente, não itens apreçáveis desse tipo no Catálogo de Produtos</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RETURN_TO_PREVIOUS_SEARCH">
+    <value>Voltar para os Resultados da Pesquisa Anterior</value>
+    <description></description>
+  </text>  
+  <text id="TEXT_SELECTED_PL">
+    <value>Lista de Preços Selecionada</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PL_CONTAINS_RATES">
+    <value>Esta Lista de Preços contém tarifas ou informações de configuração para os itens a seguir</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE4">
+    <value><![CDATA[Atualmente, essa Lista de Preços não contém nenhum cronograma de tarifas para nenhum Item Apreçável.<br /><br />Clique 
+                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
+              <xsl:attribute name="href">javascript:OpenAddRateScheduleWindow();</xsl:attribute>
+              aqui</a>
+             para ir para a tela Lista de Preços para adicionar tarifas ou informações de configuração]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_CAN_BE_SET">
+    <value>É possível definir Tarifas Pessoais para esse item</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_CANNOT_BE_SET">
+    <value>Não é possível definir Tarifas Pessoais para esse item</value>
+    <description></description>
+  </text>
 </texts>

@@ -53,8 +53,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "Relationship", "String", 0, TRUE, Empty 
   Service.Properties("Relationship").SetPropertyType "ENUM", "metratech.com", "SaleForceRelationship"	
   Service.Properties.Add "Percentage", "DECIMAL", 0, FALSE, Empty 
-  Service.Properties.Add "StartDate", "TIMESTAMP", 0, TRUE, Empty    
-  Service.Properties.Add "EndDate", "TIMESTAMP", 0, FALSE, Empty    	
+  Service.Properties.Add "StartDate", "String", 0, TRUE, Empty  
+  Service.Properties.Add "EndDate", "String", 0, FALSE, Empty    	
   
 	' Set Captions 
   Service.Properties("Account").caption = mam_GetDictionary("TEXT_OWNED_HIERARCHYNAME")  
@@ -70,12 +70,14 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   End If
   If FrameWork.IsInfinity(request.QueryString("OldEndDate")) Then
     Form("OldEndDate") = Empty
+    Service.Properties("EndDate").Value = Empty
   Else
 	  Form("OldEndDate") = request.QueryString("OldEndDate")
+    Service.Properties("EndDate").Value = mam_FormatDate(CDate(Form("OldEndDate")), mam_GetDictionary("DATE_FORMAT"))
   End If
 
-  Service.Properties("StartDate").Value = CDate(Form("OldStartDate"))
-	Service.Properties("EndDate").Value = CDate(Form("OldEndDate"))	
+  Service.Properties("StartDate").Value = mam_FormatDate(CDate(Form("OldStartDate")), mam_GetDictionary("DATE_FORMAT")) 
+	 
   
   Form("AccountID") = request.QueryString("ID")
   Service.Properties("Account").Value = mam_GetFieldIDFromAccountID(CLng(Form("AccountID")))

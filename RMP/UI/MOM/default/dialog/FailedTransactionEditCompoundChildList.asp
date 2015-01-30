@@ -33,6 +33,8 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp"          -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
+
 <%
 Form.Version                    = MDM_VERSION     ' Set the dialog version - we are version 2.0.
 Form.ErrorHandler               = FALSE 'TRUE  
@@ -47,7 +49,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     'ProductView.Clear  ' Set all the property of the service to empty or to the default value
     
     
-    
+    Framework.AssertCourseCapability "Update Failed Transactions", EventArg
    	ProductView.Properties.ClearSelection
     ProductView.Properties.Flags = eMSIX_PROPERTIES_FLAG_PRODUCTVIEW
 
@@ -125,9 +127,12 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   end if
   
   mdm_GetDictionary().Add "FAILED_TRANSACTION_CHILD_TYPE_SELECT", sHTML
-    
+  
+  Dim serviceFailedTransaction
+  Set serviceFailedTransaction = Session("FailedTransaction_Compound_Parent")
+  
   Dim Rowset
-  Set Rowset = Session("FailedTransaction_Compound_Parent").GetChildrenAsRowset(Form("ChildServiceName"), True, mdm_GetDictionary.Item("TEXT_FAILED_TRANSACTION_FAILURE_ID").Value)
+  Set Rowset = serviceFailedTransaction.GetChildrenAsRowset(Form("ChildServiceName"), True, mdm_GetDictionary.Item("TEXT_FAILED_TRANSACTION_FAILURE_ID").Value)
   
   If IsValidObject(Rowset) Then
   
@@ -226,7 +231,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
   			    Form_DisplayCell = TRUE
   	     Case else
             'In the case of embedded symbols, escape out the HTML
-            EventArg.HTMLRendered = "<td Class='" & Form.Grid.CellClass & "'>" & Server.HTMLEncode(Form.Grid.SelectedProperty.Value) & "</td>"
+            If (IsDate(Form.Grid.SelectedProperty.Value)) Then 
+              EventArg.HTMLRendered = "<td Class='" & Form.Grid.CellClass & "'>" & Server.HTMLEncode(mom_FormatDateTime(Form.Grid.SelectedProperty.Value, "")) & "</td>"
+            Else
+              EventArg.HTMLRendered = "<td Class='" & Form.Grid.CellClass & "'>" & Server.HTMLEncode(Form.Grid.SelectedProperty.Value) & "</td>"
+            End If
             Form_DisplayCell = TRUE 'Inherited("Form_DisplayCell(EventArg)")
       End Select
      end if

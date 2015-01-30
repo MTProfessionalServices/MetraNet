@@ -45,108 +45,120 @@ function isAdapterSelected(){
  </HEAD>
 
 <BODY>
-
-<FORM name="mdm">
-
-<!-- Title Bar -->
+<MDMLABEL Name="NO_PERMISSION_DIV_HTML"></MDMLABEL>
+    <MDMLABEL Name="TEXT_NO_PERMISSION_TO_VIEW_BILLING_GROUP"></MDMLABEL>
+    <!-- Buttons -->
+    <div align="center">
+      <button onclick="mdm_RefreshDialog(this); return false;" name="cancel" Class="clsButtonLarge"><MDMLABEL Name="TEXT_RETURN_TO_INTERVAL_DIALOG"></MDMLABEL></button>
+    </div>
+  </div>
+<MDMLABEL Name="MAIN_DIV_HTML"></MDMLABEL>
+  <FORM name="mdm">
+  <!-- Title Bar -->
 <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
  <TR>
-  <TD Class="CaptionBar" nowrap>Billing Management:<small>&nbsp;<MDMLABEL Name="BillingGroup"></MDMLABEL></small></TD>
+  <TD Class="CaptionBar" nowrap>[TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT]:<small>&nbsp;<MDMLABEL Name="BillingGroup"></MDMLABEL></small></TD>
  </TR>
 </TABLE>
 
-<center>
-
-<TABLE width="100%" BORDER="0"  CELLPADDING="0" CELLSPACING="0">
-<TR>
-<TD valign="top">
-  <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-      <TD class="captionEWRequired">Interval:&nbsp;</TD>
-      <TD class="fieldRequired"><MDMLABEL Name="IntervalID"></MDMLABEL></TD>
-      <TD></TD>
-   </TR>   
-   <TR>
-      <TD class="captionEWRequired" >Billing Group:&nbsp;</TD>
-      <TD class="fieldRequired"><MDMLABEL Name="BillingGroup"></MDMLABEL> (<a title="View Members" href="#" OnClick="window.open('BillingGroup.MemberList.asp?MDMReload=TRUE&BillingGroupID=[BillingGroupID]&IntervalID=[IntervalId]&Title=Members of [BillingGroup]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="BillingGroupMemberCount"></MDMLABEL> Members</a>)</TD>
-      <TD></TD>
-   </TR>     
-   <TR>
-      <TD class="captionEWRequired" >Type:&nbsp;</TD>
-      <TD colspan=2 class="fieldRequired"><MDMLABEL Name="IntervalType"></MDMLABEL></TD>
-   </TR>   
- <TR>
-    <TD class="captionEWRequired">Start:&nbsp;</TD>
-    <TD class="fieldRequired"><MDMLABEL Name="IntervalStartDateTime"></MDMLABEL></TD>
- </TR>  
-  <TR>
-    <TD class="captionEWRequired">End:&nbsp;</TD>
-    <TD class="fieldRequired"><MDMLABEL Name="IntervalEndDateTime"></MDMLABEL></TD>
- </TR>     
-   <TR>
-      <TD class="captionEWRequired" >Status:&nbsp;</TD>
-      <TD class="fieldRequired"><MDMLABEL Name="IntervalStatusIcon"></MDMLABEL><MDMLABEL Name="IntervalStatus"></MDMLABEL> <MDMLABEL Name="CHANGESTATE_HTML_LINK"></MDMLABEL></TD>
-      <TD></TD>
-   </TR>
- <TR>
-    <TD class="captionEWRequired">Interval-Only Adapters:&nbsp;</TD>
-    <TD class="fieldRequired"><MDMLABEL Name="IntervalOnlyAdapterCount"></MDMLABEL></TD>
- </TR>
- <TR>
-    <TD class="captionEWRequired">Adapters:&nbsp;</TD>
-    <TD class="fieldRequired"><MDMLABEL Name="AdapterCount"></MDMLABEL></TD>
- </TR>  
-  <TR>
-    <TD class="captionEWRequired">Succeeded:&nbsp;</TD>
-    <TD class="fieldRequired"><MDMLABEL Name="SucceededAdapterCount"></MDMLABEL></TD>
- </TR>  
-  <TR>
-    <TD class="captionEWRequired">Failed:&nbsp;</TD>
-    <TD class="fieldRequired"><MDMLABEL Name="FailedAdapterCount"></MDMLABEL></TD>
- </TR>   
-  </TABLE>
-</TD>
-<TD valign="top">
-  <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0" width="100%">
-   <TR>
-      <TD colspan=3>
-        <div id="actions" class="TableCell" style="width:300px;float:right;border:solid 2px black;margin-right:13px; -moz-border-radius: 15px; border-radius: 15px;padding: 10px 5px 10px 15px;">
-          <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/chart_line.png"></div>
-          <div style='margin-left:30px; margin-bottom:10px;'><b><a href="javascript:void(0)" OnClick="window.open('IntervalManagement.Statistics.Frame.asp?IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>&BillingGroupId=<MDMLABEL Name="BillingGroupId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View Statistics</a></b><br>
-          [TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION]</div>
-          
-          <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/script.png"></div>    
-          <div style='margin-left:30px; margin-bottom:10px;'><b><a href="javascript:void(0)" OnClick="window.open('IntervalManagement.RunHistory.List.asp?Title=' + '<MDMLABEL Name="BillingGroup"></MDMLABEL>' + ' In Interval ' + '<MDMLABEL Name="IntervalId"></MDMLABEL>' + '&BillingGroupID=<MDMLABEL Name="BillingGroupId"></MDMLABEL>&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View History</a></b><br>
-          [TEXT_VIEW_HISTORY_DESCRIPTION]</div>
-#MDMIf SHOW_CREATE_PULL_LIST_OPTION          
-          
-          <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/table_edit.png"></div> 
-          <div style='margin-left:30px; margin-bottom:5px;'><b><a href="#" OnClick="window.open('BillingGroupPullList.asp?BillingGroupID=[BillingGroupID]&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=660,width=800, resizable=yes, scrollbars=yes, status=yes');">Create Pull List</a></b><br></div>
-          [TEXT_CREATE_GROUP_DESCRIPTION]   
-#MDMENDIF       
-        </div>      
+  <TABLE width="100%" BORDER="0"  CELLPADDING="0" CELLSPACING="0">
+    <TR>
+      <TD valign="top">
+        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
+          <TR>
+            <TD class="captionEWRequired">[TEXT_INTERVAL]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="IntervalID"></MDMLABEL></TD>
+            <TD></TD>
+          </TR>   
+          <TR>
+            <TD class="captionEWRequired" >[TEXT_BILLING_GROUP]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="BillingGroup"></MDMLABEL> (<a title="View Members" href="#" OnClick="window.open('BillingGroup.MemberList.asp?MDMReload=TRUE&BillingGroupID=[BillingGroupID]&IntervalID=[IntervalId]&Title=[TEXT_Members_of] [BillingGroup]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="BillingGroupMemberCount"></MDMLABEL> [Members]</a>)</TD>
+            <TD></TD>
+          </TR>   
+          #MDMIf SHOW_PARTITION_NAME  
+          <TR>
+            <TD class="captionEWRequired" >[TEXT_PARTITION]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="Partition"></MDMLABEL> </TD>
+            <TD></TD>
+          </TR>               
+           #MDMENDIF 
+          <TR>
+            <TD class="captionEWRequired" >[TEXT_TYPE]:&nbsp;</TD>
+            <TD colspan=2 class="fieldRequired"><MDMLABEL Name="IntervalType"></MDMLABEL></TD>
+          </TR>   
+          <TR>
+            <TD class="captionEWRequired">[TEXT_START]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="IntervalStartDateTime"></MDMLABEL></TD>
+          </TR>  
+          <TR>
+            <TD class="captionEWRequired">[TEXT_END]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="IntervalEndDateTime"></MDMLABEL></TD>
+          </TR>     
+          <TR>
+            <TD class="captionEWRequired" >[TEXT_STATUS]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="IntervalStatusIcon"></MDMLABEL><MDMLABEL Name="IntervalStatus"></MDMLABEL> <MDMLABEL Name="CHANGESTATE_HTML_LINK"></MDMLABEL></TD>
+            <TD></TD>
+          </TR>
+          <TR>
+            <TD class="captionEWRequired">[TEXT_INTERVAL_ONLY_ADAPTERS]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="IntervalOnlyAdapterCount"></MDMLABEL></TD>
+          </TR>
+          <TR>
+            <TD class="captionEWRequired">[TEXT_ADAPTERS]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="AdapterCount"></MDMLABEL></TD>
+          </TR>  
+          <TR>
+            <TD class="captionEWRequired">[TEXT_SUCCEEDED]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="SucceededAdapterCount"></MDMLABEL></TD>
+          </TR>  
+          <TR>
+            <TD class="captionEWRequired">[TEXT_FAILED]:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="FailedAdapterCount"></MDMLABEL></TD>
+          </TR>   
+        </TABLE>
       </TD>
-   </TR>
+      <TD valign="top">
+        <TABLE BORDER="0"  CELLPADDING="0" CELLSPACING="0" width="100%">
+          <TR>
+            <TD colspan=3>
+              <div id="actions" class="TableCell" style="width:300px;float:right;border:solid 2px black;margin-right:13px; -moz-border-radius: 15px; border-radius: 15px;padding: 10px 5px 10px 15px;">
+                <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/chart_line.png"></div>
+                <div style='margin-left:30px; margin-bottom:10px;'><b><a href="javascript:void(0)" OnClick="window.open('/MetraNet/Reporting/ReportsTree.aspx?IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>&BillingGroupId=<MDMLABEL Name="BillingGroupId"></MDMLABEL>&ReportType=BillingGroupStatistics','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">[TEXT_VIEW_STATISTICS]</a></b><br>
+                                                                                                                                                                                                                                                                                                                                                                                        [TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION]</div>
+          
+                <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/script.png"></div>    
+                <div style='margin-left:30px; margin-bottom:10px;'><b><a href="javascript:void(0)" OnClick="window.open('IntervalManagement.RunHistory.List.asp?Title=' + '<MDMLABEL Name="BillingGroup"></MDMLABEL>' + ' [TEXT_IN_INTERVAL] ' + '<MDMLABEL Name="IntervalId"></MDMLABEL>' + '&BillingGroupID=<MDMLABEL Name="BillingGroupId"></MDMLABEL>&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">[TEXT_VIEW_HISTORY]</a></b><br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   [TEXT_VIEW_HISTORY_DESCRIPTION]</div>
+                #MDMIf SHOW_CREATE_PULL_LIST_OPTION          
+          
+                <div style='float:left; margin-right:10px;'><img src="/Res/Images/icons/table_edit.png"></div> 
+                <div style='margin-left:30px; margin-bottom:5px;'><b><a href="#" OnClick="window.open('BillingGroupPullList.asp?BillingGroupID=[BillingGroupID]&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=660,width=800, resizable=yes, scrollbars=yes, status=yes');">[TEXT_CREATE_PULL_LIST]</a></b><br></div>
+                [TEXT_CREATE_GROUP_DESCRIPTION]   
+                #MDMENDIF       
+              </div>      
+            </TD>
+          </TR>
 
+        </TABLE>
+      </TD>
+    </TR>
+    <TR><TD>&nbsp;</TD></TR>
+    <TR><TD colspan=2>
+          <MDMLABEL Name="ADAPTERRUN_HTML"></MDMLABEL>
+        </TD></TR>
   </TABLE>
-</TD>
-</TR>
-<TR><TD>&nbsp;</TD></TR>
-<TR><TD colspan=2>
-<MDMLABEL Name="ADAPTERRUN_HTML"></MDMLABEL>
-</TD></TR>
-</TABLE>
 
-<MDMLABEL Name="ACTION_HTML"></MDMLABEL>
+  <MDMLABEL Name="ACTION_HTML"></MDMLABEL>
 
-<BR><BR>
+  <BR><BR>
 
-<!-- Buttons -->
-<div align="center">
-  <button onclick="mdm_RefreshDialog(this);return false;" name="refresh" Class="clsOkButton">Refresh</button>
-  <button onclick="mdm_RefreshDialog(this); return false;" name="cancel" Class="clsButtonLarge"><MDMLABEL Name="TEXT_RETURN_TO_INTERVAL_DIALOG"></MDMLABEL></button>
+      <!-- Buttons -->
+      <div align="center">
+        <button onclick="mdm_RefreshDialog(this);return false;" name="refresh" Class="clsOkButton"><MDMLABEL Name="TEXT_REFRESH"></MDMLABEL></button>
+        <button onclick="mdm_RefreshDialog(this); return false;" name="cancel" Class="clsButtonLarge"><MDMLABEL Name="TEXT_RETURN_TO_INTERVAL_DIALOG"></MDMLABEL></button>
+      </div>
+</FORM>
 </div>
 
-</FORM>
 </BODY>
 </HTML>

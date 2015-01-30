@@ -42,6 +42,7 @@ mdm_Main
 ' DESCRIPTION:
 ' RETURNS:     Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) 
+Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
 
   ' If we are passed in an interval id store it in the form and clear any old results
   If Len(Request.QueryString("IntervalID")) > 1 Then
@@ -83,7 +84,7 @@ FUNCTION OK_Click(EventArg)
   Else
     if len(Service.Properties("UserName"))=0 OR len(Service.Properties("NameSpace"))=0 then
       EventArg.Error.Number = -99
-      EventArg.Error.Description = "Both the User Name and Namespace are required when not searching by account id."
+      EventArg.Error.Description = mom_GetDictionary("TEXT_Both_the_User_Name_and_Namespace_are_required_when_not_searching_by_account_id")
       OK_Click = FALSE
       On Error Goto 0
       exit function
@@ -101,7 +102,7 @@ FUNCTION OK_Click(EventArg)
 
   If billingGroupID = -1 Then
     EventArg.Error.Number = -99
-    EventArg.Error.Description = "Payer not found in billing group for interval " & Form("IntervalID")
+    EventArg.Error.Description = mom_GetDictionary("TEXT_Payer_not_found_in_billing_group_for_interval_") & Form("IntervalID")
     OK_Click = FALSE
     on error goto 0
     exit function
@@ -111,30 +112,51 @@ FUNCTION OK_Click(EventArg)
   Set bg = objUSM.GetBillingGroup(CLng(billingGroupID))
   
   Dim status
+  Dim statusNotLocalized
+  dim nameLocalize
+  nameLocalize = UCase(Replace(bg.Name, " ", "_"))
+
   Select Case bg.Status
     Case BillingGroupStatus_Open
-      status = "Open"        
+      status = mom_GetDictionary("TEXT_OPEN") 
+      statusNotLocalized = "Open"
     Case BillingGroupStatus_SoftClosed
-      status = "Soft Closed"
+      status = mom_GetDictionary("TEXT_Soft_Closed")
+      statusNotLocalized = "Soft Closed"
     Case BillingGroupStatus_HardClosed
-      status = "Hard Closed"
+      status = mom_GetDictionary("TEXT_Hard_Closed")
+      statusNotLocalized = "Hard Closed"
     Case Else
-      status = "unknown"
-  End Select  
-          
+      status = mom_GetDictionary("TEXT_unknown")
+  End Select 
+  
+  dim descriptionLocalize
+        
+  descriptionLocalize = bg.Name
+
+  If (nameLocalize = "DEFAULT" Or nameLocalize = "EUROPE" Or nameLocalize = "NORTH_AMERICA" Or nameLocalize = "SOUTH_AMERICA") Then
+      nameLocalize = mom_GetDictionary("TEXT_BG_NAME_" & nameLocalize)
+      descriptionLocalize = mom_GetDictionary("TEXT_BG_DESCRIPTION_" & nameLocalize)
+  Else     
+     nameLocalize = bg.Name
+     descriptionLocalize = bg.Description
+  End If
+           
   Dim html
   html = html & "<table border='0' cellpadding='3' cellspacing='0' width='100%'>"
   html = html & "<tr>"
-  html = html & "<td nowrap Class='TableHeader'>Billing Group</td>"
-  html = html & "<td nowrap Class='TableHeader'>Status</td>"
-  html = html & "<td nowrap Class='TableHeader'>Members</td>"
-  html = html & "<td nowrap Class='TableHeader'>Adapters</td>"
-  html = html & "<td nowrap Class='TableHeader'>Succeeded</td>"
-  html = html & "<td nowrap Class='TableHeader'>Failed</td>"
+  html = html & "<td nowrap Class='TableHeader'>" & mom_GetDictionary("TEXT_BILLING_GROUP") & "</td>"
+  html = html & "<td nowrap Class='TableHeader'>" & mom_GetDictionary("TEXT_STATUS") & "</td>"
+  html = html & "<td nowrap Class='TableHeader'>" & mom_GetDictionary("TEXT_MEMBERS") & "</td>"
+  html = html & "<td nowrap Class='TableHeader'>" & mom_GetDictionary("TEXT_ADAPTERS") & "</td>"
+  html = html & "<td nowrap Class='TableHeader'>" & mom_GetDictionary("TEXT_SUCCEEDED") & "</td>"
+  html = html & "<td nowrap Class='TableHeader'>" & mom_GetDictionary("TEXT_FAILED") & "</td>"
   html = html & "</tr>"
   html = html & "<tr>"
-  html = html & "<td class='TableCell' align='left'><b><a target='fmeMain' onclick='window.close()' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& "'>" & bg.Name & "</a></b><br>" & bg.Description & "<br><br>" & "<button OnClick='window.opener.location = ""IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& """;window.close();' name='goto' Class='clsButtonBlueLarge' ID='Button1'>Go to this Group</button>" & "</td>"
-  html = html & "<td class='TableCell'><img src='" & GetIntervalStateIcon(status) & "' align='absmiddle'>" & status & "</td>"
+  html = html & "<td class='TableCell' align='left'><b><a target='fmeMain' onclick='window.close()' href='IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& "'>" 
+  html = html & nameLocalize & "</a></b><br>" & descriptionLocalize & "<br><br>"   
+  html = html & "<button OnClick='window.opener.location = ""IntervalManagement.ViewEdit.asp?BillingGroupID=" & billingGroupID & "&ID=" & Form("IntervalID")& """;window.close();' name='goto' Class='clsButtonBlueLarge' ID='Button1'>" & mom_GetDictionary("TEXT_Go_to_this_Group") & "</button>" & "</td>"
+  html = html & "<td class='TableCell'><img src='" & GetIntervalStateIcon(statusNotLocalized) & "' align='absmiddle'>" & status & "</td>"
   html = html & "<td style='text-align:right;' class='TableCell'>" & bg.MemberCount & "</td>"
   html = html & "<td name='AdapterCount(1)' class='TableCell' align='RIGHT'>" & bg.AdapterCount & "</td>"
   html = html & "<td name='AdapterSucceededCount(1)' class='TableCell' align='RIGHT'>" & bg.SucceededAdapterCount & "</td>"

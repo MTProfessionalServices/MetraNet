@@ -88,7 +88,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 
   ' Get Values from YAAC
   If CLng(Request.QueryString("ID")) <> MAM_HIERARCHY_ROOT_ACCOUNT_ID Then
-    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Request.QueryString("ID")), mam_GetHierarchyTime())
+    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Request.QueryString("ID")), mam_ConvertToSysDate(mam_GetHierarchyTime()))
 
     Service.Properties("AccountName").Value = objYAAC.AccountName
     Service.Properties("LoginName").Value = objYAAC.LoginName

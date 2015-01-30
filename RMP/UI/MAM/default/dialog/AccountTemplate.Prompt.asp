@@ -71,11 +71,11 @@ Private Function Form_Initialize(EventArg)
   Set col = Server.CreateObject(MT_COLLECTION_PROG_ID)
 
   ' Get the name of the ancestor account
-  Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Request.QueryString("AncestorAccountID")), mam_GetHierarchyTime())
+  Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Request.QueryString("AncestorAccountID")), mam_ConvertToSysDate(mam_GetHierarchyTime()))
   ancestorName = objYAAC.AccountName
 
   For Each id in objAccountCol
-    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(id), mam_GetHierarchyTime())
+    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(id), mam_ConvertToSysDate(mam_GetHierarchyTime()))
     
     accType = objYAAC.AccountType
     If bFirst Then

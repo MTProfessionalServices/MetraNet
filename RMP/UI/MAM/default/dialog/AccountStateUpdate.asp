@@ -49,14 +49,14 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
         
   Dim objTempYAAC
   'Set objTempYAAC = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), CDate(mam_GetDictionary("END_OF_TIME")))
-  Set objTempYAAC = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), Session("MAX_END_DATE"))
+  Set objTempYAAC = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_ConvertToSysDate(Session("MAX_END_DATE")))
   
   Set Form("CurrentState") = objTempYAAC.GetAccountStateMgr().GetStateObject()    
     
   ' Add dialog properties
   Service.Properties.Add "CurrentStatus",    "String",      0,   TRUE, Empty
   Service.Properties.Add "AccountStatus",    "String",      0,   TRUE, Empty 
-  Service.Properties.Add "StartDate",        "TIMESTAMP", 0,   TRUE, Empty    
+  Service.Properties.Add "StartDate",        "String", 0,   TRUE, Empty    
   
   Service.Properties("AccountStatus").SetPropertyType "ENUM", FrameWork.Dictionary.Item("ACCOUNT_CREATION_SERVICE_ENUM_TYPE_LOADING").Value , "AccountStatus"
   Service.Properties("CurrentStatus").SetPropertyType "ENUM", FrameWork.Dictionary.Item("ACCOUNT_CREATION_SERVICE_ENUM_TYPE_LOADING").Value , "AccountStatus"
@@ -95,7 +95,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
 									 CLng(mam_GetSubscriberAccountID()), _
 									 -1, _
 									 CStr(Service.Properties("AccountStatus")),  _
-									 CDate(Service.Properties("StartDate").Value), _
+									 mam_DateFromLocaleString(Service.Properties("StartDate").Value), _
 									 CDate(0)
 								
     If(CBool(Err.Number = 0)) then

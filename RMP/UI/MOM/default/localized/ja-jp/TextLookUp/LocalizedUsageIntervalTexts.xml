@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<texts id="Main" type="collection">
+  <text id="TEXT_INTERVAL_MANANAGEMENT">
+    <value>Interval Management</value>
+  </text>
+  <text id="TEXT_BILLING_MANANAGEMENT">
+    <value>Billing Management</value>
+  </text>
+  <text id="TEXT_INTERVAL_MANANAGEMENT_EXPIRED">
+    <value>Expired Interval Management</value>
+  </text>
+  <text id="TEXT_INTERVAL_MANANAGEMENT_ACTIVE">
+    <value>Active/Open Interval Management</value>
+  </text>
+  <text id="TEXT_INTERVAL_MANANAGEMENT_HARDCLOSED">
+    <value>Hard Closed Interval Management</value>
+  </text>
+  <text id="TEXT_CHANGE_INTERVAL_STATE">
+    <value>Change Interval State</value>
+  </text>
+  <text id="TEXT_NEW_INTERVAL_STATE">
+    <value>Change State To</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_NEW">
+    <value>New</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_NEW_DESCRIPTION">
+    <value>Indicates that this interval is recently created.</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_OPEN">
+    <value>Open</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_OPEN_DESCRIPTION">
+    <value>This billing group is able to accept usage data.</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_SOFT_CLOSE_PENDING">
+    <value>Soft Close Pending</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_SOFT_CLOSE_PENDING_DESCRIPTION">
+    <value>This billing group is closed to new usage data and during the next usm.exe Run operation, its state will be changed to [TEXT_INTERVAL_STATE_SOFT_CLOSED] and the Soft Close Event adapters will be run for this interval.</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_SOFT_CLOSED">
+    <value>Soft Closed</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_HARD_CLOSE_PENDING">
+    <value>Hard Close Pending</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_HARD_CLOSE_PENDING_DESCRIPTION">
+    <value>This interval is closed to new usage data and during the next usm.exe Run operation, its state will be changed to [TEXT_INTERVAL_STATE_HARD_CLOSED] and the Hard Close Event adapters will be run for this interval.</value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_HARD_CLOSED">
+    <value>Hard Closed</value>
+  </text>
+  <text id="TEXT_BILLING_GROUP">
+    <value>Billing Group</value>
+  </text>
+  <text id="TEXT_PARTITION">
+    <value>Partition</value>
+  </text>    
+  <text id="TEXT_INTERVAL">
+    <value>Interval</value>
+  </text>
+  <text id="TEXT_MEMBERS">
+    <value>Members</value>
+  </text>
+  <text id="TEXT_TYPE">
+    <value>Type</value>
+  </text>
+  <text id="TEXT_START">
+    <value>Start</value>
+  </text>
+  <text id="TEXT_END">
+    <value>End</value>
+  </text>
+  <text id="TEXT_STATUS">
+    <value>Status</value>
+  </text>
+  <text id="TEXT_INTERVAL_ONLY_ADAPTERS">
+    <value>Interval-Only Adapters</value>
+  </text>
+  <text id="TEXT_ADAPTERS">
+    <value>Adapters</value>
+  </text>
+  <text id="TEXT_SUCCEEDED">
+    <value>Succeeded</value>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>Failed</value>
+  </text>
+  <text id="TEXT_VIEW_STATISTICS">
+    <value>View Statistics</value>
+  </text>
+  <text id="TEXT_IN_INTERVAL">
+    <value>In Interval</value>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>View History</value>
+  </text>
+  <text id="TEXT_CREATE_PULL_LIST">
+    <value>Create Pull List</value>
+  </text>
+  <text id="TEXT_CHANGE_STATE">
+    <value>Change State</value>
+  </text>
+  <text id="TEXT_FORCE_HARD_CLOSE">
+    <value>Force Hard Close</value>
+  </text>
+  <text id="TEXT_ADAPTER">
+    <value>Adapter</value>
+  </text>
+  <text id="TEXT_INSTANCE_ID">
+    <value>Instance Id</value>
+  </text>
+  <text id="TEXT_START_TIME">
+    <value>Start Time [Duration]</value>
+  </text>
+  <text id="TEXT_RESULT">
+    <value>Result</value>
+  </text>
+  <text id="TEXT_MACHINE">
+    <value>Machine</value>
+  </text>
+  <text id="TEXT_NO_ADAPTER_EVENTS">
+    <value>No adapter event runs for this interval currently.</value>
+  </text>
+  <text id="TEXT_BILLING_PROCESS_ADAPTERS">
+    <value>Billing Process Adapters</value>
+  </text>
+  <text id="TEXT_VIEW_ADAPTER_RUN_HISTORY">
+    <value>View Adapter Instance Run History</value>
+  </text>
+  <text id="TEXT_SUCCEEDED_WITH_WARNINGS">
+    <value>Succeeded With Warnings</value>
+  </text>
+  <text id="TEXT_VIEW_BATH_INFORMATION">
+    <value>View Batch Information</value>
+  </text>
+  <text id="TEXT_BATCHES">
+    <value>batches</value>
+  </text>
+  <text id="TEXT_INTERVAL_ONLY">
+    <value>Interval Only</value>
+  </text>
+  <text id="TEXT_SELECT_ADAPTERS">
+    <value>Please select one or more adapters</value>
+  </text>
+  <text id="TEXT_RUN_ADAPTER">
+    <value>Run Adapter</value>
+  </text>
+  <text id="TEXT_BACKOUT_ADAPTER">
+    <value>Backout Adapter</value>
+  </text>
+  <text id="TEXT_RUN_ADAPTER_LATER">
+    <value>Run Adapter Later</value>
+  </text>
+  <text id="TEXT_REVERCE_ADAPTER">
+    <value>Reverse Adapter</value>
+  </text>
+  <text id="TEXT_REVERCE_ADAPTER_LATER">
+    <value>Reverse Adapter Later</value>
+  </text>
+  <text id="TEXT_CANCEL_SUBMITTED_ACTION">
+    <value>Cancel Submitted Action</value>
+  </text>
+  <text id="TEXT_FORCE_RUN_ADAPTER">
+    <value>Force Run Adapter</value>
+  </text>
+  <text id="TEXT_LAST_ACTION">
+    <value><![CDATA[Last<br>Action]]></value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_HARD_CLOSED_DESCRIPTION">
+    <value><![CDATA[This interval is closed to new usage data.<BR><BR>NOTE: Only explicitly set the interval state to Hard             Closed as opposed to Hard Close Pending when you wish to prevent the Hard Close Adapters from being run automatically. In this case, you will need to run the Hard Close Adapters manually for this interval.]]></value>
+  </text>
+  <text id="TEXT_ADAPTER_CANNOT_FORCE_MULTIPLE_INSTANCES_WARNING">
+    <value><![CDATA[You are not allowed to Force more than one adapter at a time.]]></value>
+  </text>
+  <text id="TEXT_ADAPTER_CAN_ONLY_CONTINUE_BY_FORCING_WARNING">
+    <value><![CDATA[<strong>WARNING: This interval has dependencies that cannot be run/reversed at this time.</strong><BR>The only way to continue is to force this particular adapter to ignore the dependencies. Normally it is recommended that you do not continue to force this adapter and instead resolve the issues with adapter dependencies by running/reversing them, including adapters from previous intervals.<BR>]]></value>
+  </text>
+  <text id="TEXT_RETURN_TO_INTERVAL_DIALOG">
+    <value><![CDATA[Back to Interval]]></value>
+  </text>
+  <text id="TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS">
+    <value><![CDATA[Create New Accounts As Hard Closed]]></value>
+  </text>
+  <text id="TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS_TITLE">
+    <value><![CDATA[Change Default State For Accounts Created In This Interval]]></value>
+  </text>
+  <text id="TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS_WARNING">
+    <value><![CDATA[Currently any new back-dated accounts will have mappings created for this interval in the 'Open' state and these accounts will accept usage for this interval.<br><br> To disallow any new accounts from receiving usage in this interval, please click '[TEXT_INTERVAL_BLOCK_TO_NEW_ACCOUNTS]' below. You would do this once you no longer intend to accept new back dated accounts to be included in billing for this interval. ]]></value>
+  </text>
+  <text id="TEXT_REFRESH">
+    <value><![CDATA[Refresh]]></value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_ACTIVE_INTERVAL_WARNING">
+    <value><![CDATA[<strong>WARNING: This Interval Is Currently Active.</strong><BR>Normally this interval should not be changed from its 'Open' state until the end date of the interval has passed. Closing this interval prematurely should only be done when it is assured that there is no more usage data for this interval.<BR>]]></value>
+  </text>
+  <text id="TEXT_INTERVAL_STATE_SOFT_CLOSED_DESCRIPTION">
+    <value><![CDATA[This billing group is closed to new usage data.<BR><BR>Setting a billing groups state to [TEXT_INTERVAL_STATE_SOFT_CLOSED] will create adapter instances for this billing group. You will need to run the adapters manually for this billing group since the adapters are not run automatically.]]></value>
+  </text>
+  <text id="TEXT_NO_PERMISSION_TO_VIEW_BILLING_GROUP">
+    <value><![CDATA[You do not have permission to view this billing group.]]></value>
+  </text>
+  <text id="TEXT_Force_the_selected_adapter">
+    <value>Force the selected adapter(s) to run/reverse without running/reversing any dependencies.</value>
+  </text>
+  <text id="TEXT_Continue">
+    <value>Continue</value>
+  </text>
+  <text id="TEXT_Because_of_run">
+    <value>Because of dependencies, these adapters and checkpoints will also need to be run or cancelled:</value>
+  </text>
+  <text id="TEXT_Because_of_reverce">
+    <value>Because of dependencies, these adapters and checkpoints will also need to be reversed or cancelled:</value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_1">
+    <value>The missing period for this scheduled adapter is from </value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_2">
+    <value>until </value>
+  </text>
+  <text id="TEXT_Missing_SCHEDULED_ERROR_3">
+    <value><![CDATA[.<BR>Proceeding will run this scheduled adapter from when it was last run until ]]></value>
+  </text>
+  <text id="TEXT_ReadyToReverse_ERROR">
+    <value>The adapter is currently marked as 'ReadyToReverse'. The submitted Reverse action will be cancelled.</value>
+  </text>
+  <text id="TEXT_ReadyToRun_ERROR">
+    <value>The adapter is currently marked as 'ReadyToRun'. The submitted Run action will be cancelled.</value>
+  </text>
+  <text id="TEXT_In_a_previous_interval">
+    <value>In a previous interval (</value>
+  </text>
+  <text id="TEXT_the_adapter_was_not_run">
+    <value>), the adapter was not run. </value>
+  </text>
+  <text id="TEXT_In_an_interval">
+    <value>In an interval (</value>
+  </text>
+  <text id="TEXT_after_this_interval_the_adapter_was_not_reversed">
+    <value>) after this interval, the adapter was not reversed. </value>
+  </text>
+  <text id="TEXT_Instance_doesnt_exist">
+    <value>Instance doesn't exist.</value>
+  </text>
+  <text id="TEXT_Instance">
+    <value>Instance: </value>
+  </text>
+  <text id="TEXT_Billing_Group_">
+    <value>Billing Group: </value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_1">
+    <value><![CDATA[<strong>ERROR: One or more of the adapters you selected cannot be run.</strong><BR>One or more of the adapters you selected or their dependencies cannot be run. As a consequence, none of the adapters you selected will be run. Please review the error and click 'OK' to return to the interval and select different adapters or a different action.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_2">
+    <value><![CDATA[One or more of the adapters you selected cannot be run without additional actions also taking place. Please review the dependencies and click 'Continue' to run the requested adapters and perform any additional actions that may be required.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_3">
+    <value><![CDATA[<strong>ERROR: One or more of the adapters you selected cannot be reversed.</strong><BR>One or more of the adapters you selected or their dependencies cannot be reversed. As a consequence, none of the adapters you selected will be reversed. Please review the error and click 'OK' to return to the interval and select different adapters or a different action.]]></value>
+  </text>
+  <text id="TEXT_RUN_ERROR_WARNING_MESSAGE_4">
+    <value><![CDATA[One or more of the adapters you selected cannot be reversed without additional actions also taking place. Please review the dependencies and click 'Continue' to reverse the requested adapters and perform any additional actions that may be required.]]></value>
+  </text>
+  <text id="TEXT_You_have_selected_to_run_the_following_adapter">
+    <value>You have selected to run the following adapter(s):</value>
+  </text>
+  <text id="TEXT_You_have_selected_to_reverse_the_following_adapter">
+    <value>You have selected to reverse the following adapter(s):</value>
+  </text>
+  <text id="TEXT_No_adapter_instances_selected">
+    <value>No adapter instances selected.</value>
+  </text>
+  <text id="TEXT_NO_RUNS_INSTANCE">
+    <value>No runs have been associated with this instance.</value>
+  </text>
+  <text id="TEXT_VIEW_RUN_DETAIL">
+    <value>View Run Details</value>
+  </text>
+  <text id="TEXT_SUMMARY_DETAIL">
+    <value>Summary Details</value>
+  </text>
+  <text id="TEXT_REVERSED_RUN_ID">
+    <value>Reversed Run Id</value>
+  </text>
+  <text id="TEXT_Adapter_List">
+    <value>Adapter List</value>
+  </text>
+  <text id="TEXT_These_Adapters_On">
+    <value>These Adapters On</value>
+  </text>
+  <text id="TEXT_Adapter_At_Scheduled_Time">
+    <value>Adapter(s) At Scheduled Time</value>
+  </text>
+  <text id="TEXT_RUN">
+    <value>Run</value>
+  </text>
+  <text id="TEXT_REVERSE">
+    <value>Reverse</value>
+  </text>
+</texts>

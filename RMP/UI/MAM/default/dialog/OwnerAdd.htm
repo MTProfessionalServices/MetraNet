@@ -3,8 +3,9 @@
   <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css"> 
     <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css" /> 
    <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js"></script>
-   <script type="text/javascript" src="/Res/Ext/ext-all.js"></script>  
-      <script type="text/javascript" src="js/DatePicker.js"></script>
+  <script type="text/javascript" src="/Res/Ext/ext-all.js"></script>  
+   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" /> 
+  <script type="text/javascript" src="/Res/JavaScript/DatePicker.js"></script>
   <!-- Drag & Drop Functions -->
   <script language="Javascript" src="js/dragdrop.js"></script>
   <script language="Javascript">parent.showUserHierarchy();</script>
@@ -32,7 +33,7 @@
       [TEXT_DRAGDROP_ACCOUNTS_MESSAGE]
     </div>  
  -->
- <button onclick="getFrameMetraNet().getMultiSelection('setMultiSelection', 'DropGrid');return false;" name="selectAccounts" Class='clsOkButton'>Select Accounts</button>
+ <button onclick="getFrameMetraNet().getMultiSelection('setMultiSelection', 'DropGrid');return false;" name="selectAccounts" Class='clsOkButton'><mdmlabel name="TEXT_SELECT_ACCOUNTS">Select Accounts</mdmlabel></button>
 
 <!-- *** Drag and Drop Form - and manual entry mode *** -->   
 #MDMIf ENABLE_ADVANCED_MANUAL_ENTRY   
@@ -78,7 +79,7 @@
           <img style="cursor:pointer"  id="openCalendarStartDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
           <div id="divStartDate" style="position:absolute"></div>
           <script language="javascript" type="text/javascript">
-            generateDatePicker("StartDate", '[JS_DATE_FORMAT]');
+            generateDatePicker('StartDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
           </script>
         </TD>
      </TR>       
@@ -89,7 +90,7 @@
           <img style="cursor:pointer"  id="openCalendarEndDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
           <div id="divEndDate" style="position:absolute"></div>
           <script language="javascript" type="text/javascript">
-            generateDatePicker("EndDate", '[JS_DATE_FORMAT]');
+            generateDatePicker('EndDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
           </script>
         </TD>    
      </TR>

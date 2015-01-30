@@ -123,6 +123,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("dt_end").Caption 	                 = mam_GetDictionary("TEXT_RATES_COLUMN_END_DATE")
   ProductView.Properties("b_PersonalRate").Caption 	         = mam_GetDictionary("TEXT_HAS_PERSONAL_RATES")
   ProductView.Properties("b_canICB").Caption 	             	 = mam_GetDictionary("TEXT_CAN_ICB")  
+  Service.Properties("dt_start").Format = FrameWork.GetDictionary("DATE_FORMAT") 
+  Service.Properties("dt_end").Format = FrameWork.GetDictionary("DATE_FORMAT")
   end if
       
   ProductView.Properties("instance_nm_name").Sorted = MTSORT_ORDER_ASCENDING
@@ -206,7 +208,7 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     ' Becare full this function is setting     EventArg.HTMLRendered
     Inherited("Form_DisplayEndOfPage()")
     
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BR><CENTER><BUTTON Name='CANCEL' Class='clsOKButton' OnClick='mdm_RefreshDialog(this);'>Back</BUTTON></center>"
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<BR><CENTER><BUTTON Name='CANCEL' Class='clsOKButton' OnClick='mdm_RefreshDialog(this); return false;'>Back</BUTTON></center>"
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"    
     EventArg.HTMLRendered= EventArg.HTMLRendered & strEndOfPageHTMLCode 
     

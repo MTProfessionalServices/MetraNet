@@ -47,8 +47,8 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS    : Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 
+  Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
 	Service.Clear
-	
   Form("IntervalID") = Request.QueryString("IntervalID")
   Form("BillingGroupID") = Request.QueryString("BillingGroupID")
   Form("StateName") = Request.QueryString("StateName")

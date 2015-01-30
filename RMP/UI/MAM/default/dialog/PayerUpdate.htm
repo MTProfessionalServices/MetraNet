@@ -4,7 +4,8 @@
     <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css" /> 
    <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js"></script>
    <script type="text/javascript" src="/Res/Ext/ext-all.js"></script> 
-      <script type="text/javascript" src="js/DatePicker.js"></script>
+   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" /> 
+   <script type="text/javascript" src="/Res/JavaScript/DatePicker.js"></script>
   <!-- Drag & Drop Functions -->
   <script language="Javascript" src="js/dragdrop.js"></script>
   <MDMSecurity Capabilities="Manage Account Hierarchies">  
@@ -33,29 +34,29 @@
     <TABLE BORDER="0" CELLPADDING="2" CELLSPACING="1">
 
      <TR valign="top">
-        <TD class="captionEWRequired">Paying Account:&nbsp;&nbsp;</TD>
+        <TD class="captionEWRequired">[TEXT_PAYING_ACCOUNT]:&nbsp;&nbsp;</TD>
         <TD><input id="Payer" name="Payer" type="text" size="40"><a href="JavaScript:getFrameMetraNet().getSelection('setSelection','Payer');" name="selectAccounts" id="selectAccounts"><img src='/Res/Images/icons/find.png' alt='Select Account' border='0' /></a></TD>        
      </TR>
      <TR><TD colspan="2">&nbsp;</TD></TR>
      <TR>
-        <TD class="captionEWRequired">Start Date:&nbsp;&nbsp;</TD>
+        <TD class="captionEWRequired">[TEXT_START_DATE]:&nbsp;&nbsp;</TD>
         <TD>
           <INPUT type="text" class="fieldRequired" size="20" id="StartDate" name="StartDate">
           <img style="cursor:pointer"  id="openCalendarStartDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
           <div id="divStartDate" style="position:absolute"></div>
           <script language="javascript" type="text/javascript">
-            generateDatePicker("StartDate", '[JS_DATE_FORMAT]');
+            generateDatePicker('StartDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
           </script>    
         </TD>
      </TR>       
      <TR>
-        <TD class="captionEW">End Date:&nbsp;&nbsp;</TD>
+        <TD class="captionEW">[TEXT_END_DATE]:&nbsp;&nbsp;</TD>
         <TD> 
           <INPUT type="text" class="fieldRequired" size="20" id="EndDate" name="EndDate">
           <img style="cursor:pointer"  id="openCalendarEndDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
           <div id="divEndDate" style="position:absolute"></div>
           <script language="javascript" type="text/javascript">
-            generateDatePicker("EndDate", '[JS_DATE_FORMAT]');
+            generateDatePicker('EndDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
           </script>
         </TD> 
      </TR>      

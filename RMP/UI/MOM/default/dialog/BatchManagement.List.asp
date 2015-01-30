@@ -40,7 +40,7 @@ Form.Version                    = MDM_VERSION     ' Set the dialog version - we 
 Form.ErrorHandler               = TRUE  
 Form.ShowExportIcon             = TRUE
 'Form.Page.MaxRow                = CLng(FrameWork.GetDictionary("MAX_ROW_PER_LIST_PAGE"))
-'Form.Page.NoRecordUserMessage   = FrameWork.GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
+Form.Page.NoRecordUserMessage   = FrameWork.GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
 
 mdm_PVBrowserMain ' invoke the mdm framework
 
@@ -138,8 +138,19 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
 
   ProductView.Properties("Creation").Sorted               = MTSORT_ORDER_DESCENDING
   end if
-  ProductView.Properties.CancelLocalization
 
+  ProductView.Properties("Name").Caption            = mom_GetDictionary("TEXT_NAME")
+  ProductView.Properties("Status").Caption          = mom_GetDictionary("TEXT_Status")
+  ProductView.Properties("Namespace").Caption       = mom_GetDictionary("TEXT_NAMESPACE")
+  ProductView.Properties("Source").Caption          = mom_GetDictionary("TEXT_Source")
+  ProductView.Properties("Sequence").Caption        = mom_GetDictionary("TEXT_Sequence")
+  ProductView.Properties("Completed").Caption       = mom_GetDictionary("TEXT_Completed")  
+  ProductView.Properties("Failed").Caption          = mom_GetDictionary("TEXT_Failed")
+  ProductView.Properties("Dismissed").Caption       = mom_GetDictionary("TEXT_Dismissed")
+  ProductView.Properties("Expected").Caption        = mom_GetDictionary("TEXT_Expected")
+  ProductView.Properties("Creation").Caption        = mom_GetDictionary("TEXT_Creation")  
+
+  'ProductView.Properties.CancelLocalization
 
   mdm_SetMultiColumnFilteringMode TRUE  
 
@@ -191,7 +202,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             
             dim strEditStateButton
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr align='right'>"  & _
-                  "<td align='left'><img src='" & strImage & "' align='absmiddle'>&nbsp;<nobr>" & ProductView.Properties.RowSet.Value("status") & "</nobr></td>" & _
+                  "<td align='left'><img src='" & strImage & "' align='absmiddle'>&nbsp;<nobr>" & mom_GetDictionary("TEXT_Completed") & "</nobr></td>" & _
                   "<td align='right'>" & strEditStateButton & "</td>" & _
                   "</tr></table></td>"
                   
@@ -208,7 +219,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
              EventArg.HTMLRendered = EventArg.HTMLRendered & nFailedTransactions
            else
              'EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('FailedTransaction.List.asp?BatchView_ID=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"
-              EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionViewFromBatch.aspx?Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"
+              EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title="""& mom_GetDictionary("TEXT_Click_To_View") & """ href=""javascript:void(0);"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionViewFromBatch.aspx?Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"
 			end if
            EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
 

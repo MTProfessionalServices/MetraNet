@@ -29,14 +29,14 @@
         </td>
 #MDMIf DisplayDependencyCounts
 <td align=right>
-<span style='background-color:#efefef;width:375px;border:solid #848284 1px;padding:5px;text-align: center; white-space:nowrap; display: inline;'><img align="absmiddle" src="/MCM/default/localized/en-us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0">&nbsp;&nbsp;Changes to these rate schedules potentially affect <b><MDMLabel Name="DependencyCountMessage" type="value"></MDMLabel></b> subscribers.&nbsp;&nbsp;
-    <SCRIPT>if (<MDMLabel Name="DependencyCountMessage" type="value"></MDMLabel>>0) document.write('<a href="Rates.ViewEffectedSubscribersForRateSchedules.asp?ParamTableId=<MDMLABEL Name="PT_ID"></MDMLABEL>&PriceListId=<MDMLABEL Name="PL_ID"></MDMLABEL>" target="_blank">View Subscriptions and Default Pricelist Associations</a>');</SCRIPT>
+<span style='background-color:#efefef;width:375px;border:solid #848284 1px;padding:5px;text-align: center; white-space:nowrap; display: inline;'><img align="absmiddle" src="/MCM/default/localized/en-us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0"><MDMLABEL Name="TEXT_CHANGES_POTENTIALLY_AFFECT1"></MDMLABEL><MDMLabel Name="DependencyCountMessage" type="value"></MDMLabel><MDMLABEL Name="TEXT_CHANGES_POTENTIALLY_AFFECT2"> subscribers.&nbsp;&nbsp;</MDMLABEL>
+    <SCRIPT>if (<MDMLabel Name="DependencyCountMessage" type="value"></MDMLabel>>0) document.write('<a href="Rates.ViewEffectedSubscribersForRateSchedules.asp?ParamTableId=<MDMLABEL Name="PT_ID"></MDMLABEL>&PriceListId=<MDMLABEL Name="PL_ID"></MDMLABEL>" target="_blank"><MDMLABEL Name="TEXT_VIEW_SUBSCR_AND_ASSOCIATIONS"></MDMLABEL></a>');</SCRIPT>
     </span>
 </td>
 #MDMEndIf
 #MDMIf DisplayDependencyLinkOnly
 <td align=right>
-<span style="background-color:#efefef; width:300px; border:solid #848284 1px; padding:5px; text-align: left;"><img align="absmiddle" src="/MCM/default/localized/en-us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0">&nbsp;&nbsp;<a href="Rates.ViewEffectedSubscribersForRateSchedules.asp?ParamTableId=<MDMLABEL Name="PT_ID"></MDMLABEL>&PriceListId=<MDMLABEL Name="PL_ID"></MDMLABEL>" target="_blank">View Subscriptions and Default Pricelist Associations</a>
+<span style="background-color:#efefef; width:300px; border:solid #848284 1px; padding:5px; text-align: left;"><img align="absmiddle" src="/MCM/default/localized/en-us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0">&nbsp;&nbsp;<a href="Rates.ViewEffectedSubscribersForRateSchedules.asp?ParamTableId=<MDMLABEL Name="PT_ID"></MDMLABEL>&PriceListId=<MDMLABEL Name="PL_ID"></MDMLABEL>" target="_blank"><MDMLABEL Name="TEXT_VIEW_SUBSCR_AND_ASSOCIATIONS">View Subscriptions and Default Pricelist Associations</MDMLABEL></a>
     </span></td>
 #MDMEndIf
 </tr>

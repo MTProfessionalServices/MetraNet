@@ -1,148 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Tool Tips" type="collection">
-
-<description>
-This file defines the MAM tool tips localization.
-</description>
-
-
-    <text id="TEXT_NEW_SESSION">
-        <value>Ouvrir une nouvelle fenêtre MetraCare</value>
-        <description></description>
-    </text>
-    
-    <text id="TEXT_OK">
-        <value>OK</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_CANCEL">
-        <value>Annuler</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_CLEAR">
-        <value>Effacer</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_EDIT">
-        <value>Modifier</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_VIEW">
-        <value>Afficher</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_DELETE">
-        <value>Supprimer</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_ADD">
-        <value>Ajouter</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_UPDATE">
-        <value>Mettre à jour</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_HELP">
-        <value>Aide de MetraCare</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_FULLSCREEN">
-        <value>Alterner avec la vue Plein écran</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_GO">
-        <value>Aller</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_FIND_ACCOUNT_OR_SERVICE_END_POINT">
-        <value>Rechercher des comptes ou des [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
-        <description></description>
-    </text>    
-
-    <text id="TEXT_ADVANCED">
-        <value>Recherche avancée</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_TURN_DOWN">
-        <value>Afficher les informations détaillées</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_TURN_UP">
-        <value>Masquer les informations détaillées</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_CLOSEWINDOW">
-        <value>Fermer le compte</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_ADD_PAYMENT_METHOD">
-        <value>Ajouter une méthode de paiement</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_ENTER">
-        <value>Entrer</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_GO_BACK">
-        <value>Revenir à la liste de résultats de la recherche de comptes</value>
-        <description></description>
-    </text>
-    <text id="TEXT_APPLY">
-        <value>Appliquer</value>
-        <description></description>
-    </text>		
-    
-    <text id="TEXT_SUCCEED">
-        <value>Opération réussie</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_FAILED">
-        <value>Échec de l'opération</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_NONE">
-        <value>Aucun(e)</value>
-        <description></description>
-    </text>
-    
-   <text id="TEXT_NO">
-        <value>Non</value>
-        <description></description>
-    </text>    
-    
-    <text id="TEXT_YES">
-        <value>Oui</value>
-        <description></description>
-    </text>       
-    
-    <text id="TEXT_CLOSE">
-        <value>Fermer</value>
-        <description></description>
-    </text>
-    
-    <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-        <value>Les informations ont été ajoutées.</value>
-        <description></description>
-    </text>
-        
+  <description>
+    This file defines the MAM tool tips localization.
+  </description>
+  <text id="TEXT_NEW_SESSION">
+    <value>Ouvrir une nouvelle fenêtre MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OK">
+    <value>OK</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CANCEL">
+    <value>Annuler</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLEAR">
+    <value>Effacer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT">
+    <value>Modifier</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW">
+    <value>Afficher</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE">
+    <value>Supprimer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD">
+    <value>Ajouter</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE">
+    <value>Mettre à jour</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HELP">
+    <value>Aide de MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FULLSCREEN">
+    <value>Alterner avec la vue Plein écran</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO">
+    <value>Aller</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FIND_ACCOUNT_OR_SERVICE_END_POINT">
+    <value>Rechercher des comptes ou des [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED">
+    <value>Recherche avancée</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_DOWN">
+    <value>Afficher les informations détaillées</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_UP">
+    <value>Masquer les informations détaillées</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSEWINDOW">
+    <value>Fermer le compte</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_PAYMENT_METHOD">
+    <value>Ajouter une méthode de paiement</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ENTER">
+    <value>Entrer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO_BACK">
+    <value>Revenir à la liste de résultats de la recherche de comptes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY">
+    <value>Appliquer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUCCEED">
+    <value>Opération réussie</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>Échec</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NONE">
+    <value>Aucun(e)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO">
+    <value>Non</value>
+    <description></description>
+  </text>    
+  <text id="TEXT_YES">
+    <value>Oui</value>
+    <description></description>
+  </text>       
+  <text id="TEXT_CLOSE">
+    <value>Fermer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INFO_SUCCEFULLY_ADDED">
+    <value>Les informations ont été ajoutées.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OPERATION">
+    <value>Operation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_MAY_MAKE">
+    <value>You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YOU_MAY_ONLY">
+    <value>You may only bulk reassign transactions when the status is Hard Closed.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Reassign_Selected_Transactions">
+    <value>Réaffecter Transactions sélectionnés</value>
+    <description></description>
+  </text>  
 </texts>

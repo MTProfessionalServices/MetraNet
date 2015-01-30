@@ -1,0 +1,237 @@
+.NavigationPaneHeader{
+/*	BACKGROUND-COLOR: #D9E7F8;
+	PADDING-BOTTOM: 0px;
+	text-align:left;
+	font-weight : bold;
+     color: #15428B;
+      padding-left:0px;
+      border-bottom: solid 1px #d0d0d0;*/
+    color: #333;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: tahoma,arial,verdana,sans-serif;
+    border-color: #d0d0d0;
+    /*background-image: url(/res/ext/resources/images/metranet/panel/white-top-bottom.gif);*/
+    BACKGROUND-COLOR: #F0F0F0;
+}
+
+.NavigationPaneItem{
+	BACKGROUND-COLOR: #F0F0F0;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN : left;
+  color: black;
+}
+
+a.NavigationPaneItemA{
+	text-decoration: none;
+  color:black;
+	PADDING-TOP: 2px;
+}
+
+a.NavigationPaneItemASelected{
+	text-decoration: none;
+	color:black;
+	PADDING-TOP: 2px;
+}
+
+a.NavigationPaneItemA:hover{
+/*	text-decoration: none;
+  color:navy;
+	PADDING-TOP: 2px;*/
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	background: #ebf3fd url(/Res/Ext/resources/images/gray/menu/item-over.gif) repeat-x left bottom;
+    border: 1px solid #ddd;
+	
+}
+
+.clsDiv{
+	position:relative;
+	font-size:8pt;
+	font-weight:bold;
+	cursor:hand;
+  overflow:hidden;
+  color:black;
+}
+.MenuBody
+	{
+	font-size: 11px;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  margin: 0;
+	}
+
+.TabContainer
+{
+	/*width:150;*/
+	position:relative;
+	padding:4px;
+	behavior:url(tabs.htc);
+    /*border:1px solid #99BBE8;*/
+    border-color: #ccc;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    BACKGROUND-COLOR: #F0F0F0;
+    border-style: solid;
+    border-width : 1px;
+}
+
+.MenuTabLeft
+{
+	BACKGROUND-COLOR: #20336A;
+	text-align:center;
+	font-weight : bold;
+  color: white;
+}
+
+.MenuTabLeftHidden
+{
+	BACKGROUND-COLOR: #cccccc;
+	text-align:center;
+	font-weight : bold;
+  color: white;
+}
+
+.MenuTab{
+	BACKGROUND-COLOR: #20336A;
+	text-align:left;
+	font-weight : bold;
+  color: white;
+  padding-left:0px;
+}
+
+.MenuTabHidden{
+	BACKGROUND-COLOR: #cccccc;
+	text-align:center;
+	font-weight : bold;
+  color: black;
+}
+
+.MenuTabRight
+{
+	BACKGROUND-COLOR: #20336A;
+	text-align:center;
+	font-weight : bold;
+  color: white;
+	background-image: url(../images/chevronUp.gif);
+	background-position: top right;
+	background-repeat:no-repeat;
+	cursor:hand;
+}
+
+.MenuTabRightHidden
+{
+	BACKGROUND-COLOR: #20336A;
+	text-align:center;
+	font-weight : bold;
+  color: white;
+	background-image: url(../images/chevronDown.gif);
+	background-position: top right;
+	background-repeat:no-repeat;
+	cursor:hand;
+}
+
+.MenuTabEnd{
+	BACKGROUND-COLOR: #003B8E;
+}
+
+a.MenuItemA{
+	text-decoration: none;
+  color:white;
+	PADDING-TOP: 2px;
+}
+
+a.MenuItemASelected{
+	text-decoration: none;
+	color:navy;
+	PADDING-TOP: 2px;
+}
+
+a.MenuItemA:hover{
+	text-decoration: none;
+	PADDING-TOP: 2px;
+	background: #ebf3fd url(/Res/Ext/resources/images/gray/menu/item-over.gif) repeat-x left bottom;
+    border: 1px solid #ddd;
+}
+
+a.ParamTableA{
+	PADDING-TOP: 2px;
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #222;
+    -moz-outline: 0 none;
+    outline: 0 none;
+    cursor: pointer;
+}
+
+a.ParamTableASelected{
+	text-decoration: none;
+	color:black;
+	PADDING-TOP: 2px;
+	font-weight: bold;
+}
+a.ParamTableA:hover{
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	background: #ebf3fd url(/Res/Ext/resources/images/gray/menu/item-over.gif) repeat-x left bottom;
+    border: 1px solid #ddd;
+}
+
+.MenuBackground{
+BACKGROUND-COLOR: white;
+}
+
+.MenuItem{
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN : left;
+}
+
+.MenuItem:hover{
+	BACKGROUND-COLOR: red;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN : left
+}
+
+a.MenuItemNotEnableA{
+	text-decoration: none;
+	PADDING-TOP: 2px;
+	color: Silver; 
+	filter: alpha(opacity=80);  
+}
+
+.MenuItemNotEnable{
+	BACKGROUND-COLOR: Gray;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN: left;
+	filter: alpha(opacity=80);  	
+}
+
+.MenuItemSeparator{
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 5px;
+	PADDING-RIGHT: 5px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN : left;
+}
+
+.MenuImage{
+	BACKGROUND-COLOR: :#E7E5E6;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN: left
+}
+

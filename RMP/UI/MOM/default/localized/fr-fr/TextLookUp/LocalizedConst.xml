@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="MOM Static Texts" type="collection">
+  <description>
+    The file define most of the MAM static texts. The MAM/MDM use also the localization
+    supplied by the MetraTech plate form.
+  </description>
+  <text id="TEXT_Description1">
+    <value>Description</value>
+    <description></description>
+  </text>
+  <text id="TEXT_View_Name1">
+    <value>Afficher le nom</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Count1">
+    <value>Nombre</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Amount1">
+    <value>Montant</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Currency1">
+    <value>Devise</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BatchId">
+    <value>ID de lot</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Comment1">
+    <value>Commentaire</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RerunId1">
+    <value>ID réexécution</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Filter1">
+    <value>Filtre</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Tag1">
+    <value>Balise</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LastAction1">
+    <value>Dernière action</value>
+    <description/>
+  </text>
+  <text id="TEXT_Action1">
+    <value>Action</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Time1">
+    <value>Heure</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UserName1">
+    <value>Nom d'utilisateur</value>
+    <description></description>
+  </text>
+  <text id="TEXT_How_will_you_identify_the_transactions_to_be_rerun">
+    <value>[How will you identify the transactions to be rerun?]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Identify_and_Analyze_In_Progress">
+    <value>Identification et analyse en cours</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Please_reenter_search_criteria">
+    <value>Saisissez à nouveau les critères de recherche</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Invalid_Batch_Id">
+    <value>ID de lot invalide</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Product_View">
+    <value>Vue produit :</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Remove">
+    <value>Supprimer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Service_Definition">
+    <value>Définition du service :</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Account_Property_Name">
+    <value>Nom de propriété de compte :</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_Prepare_Extract_In_Progress">
+    <value>Annulation, préparation et extraction en cours</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Resubmit">
+    <value>"Annulation et renvoi"</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Resubmit_In_Progress">
+    <value>Annulation et renvoi en cours</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Resubmit_Complete">
+    <value>Annulation et renvoi réussis</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Delete">
+    <value>"Annulation et suppression"</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Delete_In_Progress">
+    <value>Annulation et suppression en cours</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_and_Delete_Complete">
+    <value>Annulation et suppression réussies</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Identify_Complete_Analyze_In_Progress">
+    <value>Identification terminée&lt;BR&gt;Analyse en cours</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Next_Step_Resubmit_These_Records">
+    <value>Etape suivante : renvoyer ces enregistrements</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon_This_Backout_And_Start_Over">
+    <value>Abandonner cette annulation et recommencer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Next_Step_Delete_These_Records">
+    <value>Etape suivante : supprimer ces enregistrements</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Are_you_sure_you_wish">
+    <value>Voulez-vous supprimer définitivement ces enregistrements ?\nCliquez sur OK pour continuer et supprimer ces enregistrements</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout_Rerun_History">
+    <value>Historique des annulations/réexécutions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Backout">
+    <value>Annulation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismiss">
+    <value>Ignorer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_EVENTS1">
+    <value>Aucun événement n'a été enregistré pour cette annulation.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resume_Backout">
+    <value>Reprendre l'annulation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon_Backout">
+    <value>Abandonner l'annulation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_History">
+    <value>Historique des lots</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EventName">
+    <value>Nom de l'événement</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Details">
+    <value>Détails</value>
+    <description></description>
+  </text>
+  <text id="TEXT_User">
+    <value>Utilisateur</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>Aucun événement d'audit n'a été enregistré pour ce lot.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Batch_Backout_Rerun_List">
+    <value>Liste des annulations/réexécutions de lots</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_audit_events">
+    <value>Aucun événement d'audit n'a été enregistré pour ce lot.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_No_backouts">
+    <value>Il n'existe explicitement aucune annulation pour ce lot.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resume_Backout">
+    <value>Reprendre l'annulation</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Abandon">
+    <value>Abandonner</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete">
+    <value>Supprimer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit">
+    <value>Renvoyer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Completed">
+    <value>Marquer comme terminé</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Mark_As_Failed">
+    <value>Marquer comme échoué</value>
+    <description></description>
+  </text>
+  <text id="TEXT_View_Failed_Transactions">
+    <value>Voir les transactions en échec</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Remove_Title">
+    <value>Supprimez cette annulation du système. L'annulation a commencé mais aucun enregistrement n'a été annulé.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Resubmit_the_records">
+    <value>Renvoyez les enregistrements annulés.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Delete_the_records">
+    <value>Supprimez les enregistrements annulés. Ces enregistrements ne pourront plus être renvoyés</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAMESPACE">
+    <value>Espace de nommage</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NAME">
+    <value>Nom</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Source">
+    <value>Source</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Sequence">
+    <value>Séquence</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Completed">
+    <value>Terminé</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Failed">
+    <value>Échec</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Dismissed">
+    <value>Ignoré</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Expected">
+    <value>Prévu</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Creation">
+    <value>Création</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Click_To_View">
+    <value>Cliquez pour voir la liste des transactions en échec pour ce lot</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Property">
+    <value>Propriété</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Value">
+    <value>Valeur</value>
+    <description></description>
+  </text>
+</texts>

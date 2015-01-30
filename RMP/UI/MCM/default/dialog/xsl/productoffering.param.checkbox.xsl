@@ -8,7 +8,7 @@
       <tr> 
         <td width="100%">
           <table width="100%" cellspacing="0" cellpadding="0">
-            <td class="NavigationPaneHeader" colspan="1" style="font-size:10;padding-left:8px;">Parameter Tables To Have Their Price List Mappings Updated</td>
+            <td class="NavigationPaneHeader" colspan="1" style="font-size:10;padding-left:8px;">[TEXT_PARAMETER_TABLES_PLM_UPDATED]</td>
 
           </table>
         </td>
@@ -32,9 +32,7 @@
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-                <tr class="NavigationPaneItem"><td style="padding-left:4px;padding-top:4px;">Currently, this Product Offering does not contain any Priceable Items or Discounts.<br /><br />
-                Please return to the Product Offering screen to add items to be included in the product offering.
-                </td></tr>
+                <tr class="NavigationPaneItem"><td style="padding-left:4px;padding-top:4px;">[TEXT_PO_WITHOUT_PI_MESSAGE2]</td></tr>
       </xsl:otherwise>
       </xsl:choose>
       </table> <!-- End Of Product Offering -->
@@ -123,10 +121,10 @@
         <xsl:value-of select="paramtable_displayname" />
         
         <xsl:if test="allowicb='TRUE'">
-        &#160;<img src="/mcm/default/localized/en-us/images/icons/icb_allowed.gif" alt="Personal Rates can be set for this item" border="0" align="absmiddle" />
+        &#160;<img src="/mcm/default/localized/en-us/images/icons/icb_allowed.gif" alt="[TEXT_RATES_CAN_BE_SET]" border="0" align="absmiddle" />
         </xsl:if>
         <xsl:if test="allowicb='FALSE'">
-        &#160;<img src="/mcm/default/localized/en-us/images/icons/icb_not_allowed.gif" alt="Personal Rates cannot be set for this item" border="0" align="absmiddle" />
+        &#160;<img src="/mcm/default/localized/en-us/images/icons/icb_not_allowed.gif" alt="TEXT_RATES_CANNOT_BE_SET" border="0" align="absmiddle" />
         </xsl:if>
         <br />
         <span style="font-size:10px;color:silver;">
@@ -134,7 +132,7 @@
         <xsl:choose>
           <xsl:when test="not(pricelist_name)">
             <img src="/mcm/default/localized/en-us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
-            This parameter table is not mapped to a pricelist.
+            [TEXT_PARAMETER_TABLE_NOT_MAPPED]
           </xsl:when>
           <xsl:when test="nonsharedpricelist='FALSE'">
             <xsl:value-of select="pricelist_name" />

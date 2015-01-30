@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<texts id="Main" type='collection'>
-    <text id="TEXT_GENERIC_BACK_OUT_DIALOG_TITLE"><value>Generic BackOut Dialog</value></text>   
-    <text id="TEXT_BACK_OUT_OPERATION_IS_NOT_COMPLETE"><value> The last step of this backout operation is either still running or there was an issue and it did not complete. If the backout operation is not currently running you can select to try to resume it or abandon it by selecting one of the actions below.</value></text>   
+<texts id="Main" type="collection">
+  <text id="TEXT_GENERIC_BACK_OUT_DIALOG_TITLE">
+    <value>Boîte de dialogue d'annulation générique</value>
+  </text>
+  <text id="TEXT_BACK_OUT_OPERATION_IS_NOT_COMPLETE">
+    <value> La dernière étape de l'annulation est en cours d'exécution ou il y a eu un problème et elle ne s'est pas terminée. Si l'annulation n'est pas en cours d'exécution, vous pouvez essayer de la reprendre ou de l'abandonner en choisissant l'une des actions ci-dessous.</value>
+  </text>
 </texts>

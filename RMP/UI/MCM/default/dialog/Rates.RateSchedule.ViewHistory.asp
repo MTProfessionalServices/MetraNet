@@ -72,29 +72,32 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   rowset2.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
   'rowset2.SetQueryString("select nm_name from t_base_props bp join t_rsched rs on bp.id_prop = rs.id_pricelist and rs.id_sched=%%RS_ID%%")
   rowset2.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
-  rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
+  rowset2.AddParam "%%ID_LANG%%", Framework.SessionContext.LanguageID
   rowset2.Execute
 
-  Form("PT_ID") = rowset2.value("ParamTableId")
+    dim pt_id
+    pt_id = rowset2.value("ParamTableId")
+    
+    Form("PT_ID") = pt_id 
   
-  dim rowset
-  set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
-  rowset.Init "queries\audit"
-  rowset.SetQueryTag("__GET_PARAMTABLE_TABLENAME_FROM_PARAMTABLE_ID__")
-  rowset.AddParam "%%PT_ID%%", Clng(Form("PT_ID"))
-  rowset.Execute
+    dim rowset
+    set rowset = server.CreateObject("MTSQLRowset.MTSQLRowset.1")
+    rowset.Init "queries\audit"
+    rowset.SetQueryTag("__GET_PARAMTABLE_TABLENAME_FROM_PARAMTABLE_ID__")
+    rowset.AddParam "%%PT_ID%%", Clng(Form("PT_ID"))
+    rowset.Execute
   
-  dim sPT
-  sPT = rowset.Value("nm_instance_tablename")
+    dim sPT
+    sPT = rowset.Value("nm_instance_tablename")
   
-  rowset.SetQueryTag("__SELECT_AUDIT_ENTRIES_FOR_RULESET_UPDATE_ON_PARAMETER_TABLE__")
-  rowset.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
-  rowset.AddParam "%%PARAM_TABLE_DB_NAME%%", sPT
-  rowset.Execute
+    rowset.SetQueryTag("__SELECT_AUDIT_ENTRIES_FOR_RULESET_UPDATE_ON_PARAMETER_TABLE__")
+    rowset.AddParam "%%RS_ID%%", Clng(Form("RS_ID"))
+    rowset.AddParam "%%PARAM_TABLE_DB_NAME%%", sPT
+    rowset.Execute
   
-  ' Load a Rowset from a SQL Queries and build the properties collection of the product view based on the columns of the rowset
-  Set ProductView.Properties.RowSet = rowset
-  ProductView.Properties.AddPropertiesFromRowset rowset
+    ' Load a Rowset from a SQL Queries and build the properties collection of the product view based on the columns of the rowset
+    Set ProductView.Properties.RowSet = rowset
+    ProductView.Properties.AddPropertiesFromRowset rowset
   
   'ProductView.Properties.SelectAll
   ProductView.Properties.ClearSelection                       ' Select the properties I want to print in the PV Browser   Order
@@ -181,11 +184,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             if EventId=1402 then 'Ruleset Update
               dim sPageInfo
               'SECENG: CORE-4797 CLONE - MSOL 30262 MetraOffer: Stored cross-site scripting - All output should be properly encoded
-              sPageInfo = "Pricelist <strong>" & SafeForHtml(Service.Properties("PriceListName")) & "</strong><br>modified by <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("UserName")) & "</strong> at <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("Time")) & "</strong>"
+              sPageInfo = FrameWork.GetDictionary("TEXT_PRICE_LIST") & " <strong>" & SafeForHtml(Service.Properties("PriceListName")) & "</strong><br>" & FrameWork.GetDictionary("TEXT_MODIFIED_BY") & " <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("UserName")) & "</strong> " & FrameWork.GetDictionary("TEXT_AT") & " <strong>" & SafeForHtml(ProductView.Properties.RowSet.Value("Time")) & "</strong>"
               sPageInfo = SafeForHtmlAttr(SafeForUrl(sPageInfo))
               'Updating HTML Encoding
               'strHTML = "<button name='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1');"">View Changes</button>"
-              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & SafeForHtmlAttr(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">View Changes</button>"
+              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & SafeForHtmlAttr(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">" & FrameWork.GetDictionary("TEXT_VIEW_CHANGES") & "</button>"
             else
               strHTML = "&nbsp;"       
             end if
@@ -262,7 +265,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim strEndOfPageHTMLCode, strTmp
     
     
-    strTmp = "</table><div align=center><BR><BR><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button><BR>" & vbNewLine
+    strTmp = "</table><div align=center><BR><BR><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>" & FrameWork.GetDictionary("TEXT_CLOSE") & "</button><BR>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"

@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="ProductCatalogCOMObject" type="collection">
-
-    <description>
+  <description>
     This dictionary file contains the ProductCatalog.dll COM Object localization.
     Generally the Object property name localization!
-    </description>
-    
-    <!-- Priceable Items Properties -->
-    <text id="TEXT_PRICEABLE_ITEM_USAGE">
-        <value>Taxa de utilização</value><description></description>
-    </text>   
+  </description>
 
-    <text id="TEXT_PRICEABLE_NAME">
-        <value>Nome</value><description></description>
-    </text>   
-
-    <text id="TEXT_PRICEABLE_DISPLAYNAME">
-        <value>Nome exibido</value><description></description>
-    </text>   
-    
-    <text id="TEXT_PRICEABLE_DESCRIPTION">
-        <value>Descrição</value><description></description>
-    </text>   
-
-    <text id="TEXT_PRICEABLE_TYPE">
-        <value>Tipo</value><description></description>
-    </text>   
-    
-    <text id="TEXT_PRICEABLE_SERVICE_DEFINITION">
-        <value>Definição de serviço</value><description></description>
-    </text>   	
-    
- 
+  <!-- Priceable Items Properties -->
+  <text id="TEXT_PRICEABLE_ITEM_USAGE">
+    <value>Taxa de utilização</value>
+    <description/>
+  </text>
+  <text id="TEXT_PRICEABLE_NAME">
+    <value>Nome</value>
+    <description/>
+  </text>
+  <text id="TEXT_PRICEABLE_DISPLAYNAME">
+    <value>Nome exibido</value>
+    <description/>
+  </text>
+  <text id="TEXT_PRICEABLE_DESCRIPTION">
+    <value>Descrição</value>
+    <description/>
+  </text>
+  <text id="TEXT_PRICEABLE_TYPE">
+    <value>Tipo</value>
+    <description/>
+  </text>
+  <text id="TEXT_PRICEABLE_SERVICE_DEFINITION">
+    <value>Definição de serviço</value>
+    <description/>
+  </text>
 </texts>

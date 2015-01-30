@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_Step2_TITLE">
+    <value>Fazer Backout da Etapa 2: Resultados da Identificação e Análise</value>
+  </text>
+  <text id="TEXT_Step2_Status">
+    <value>Status da Etapa 2:</value>
+  </text>
+  <text id="TEXT_Analyze_Complete">
+    <value>Análise Completa</value>
+  </text>
+  <text id="TEXT_Identify_Complete">
+    <value>Identificação Completa</value>
+  </text>
+  <text id="TEXT_Reanalyze">
+    <value>Reanalisar</value>
+  </text>
+  <text id="TEXT_Rerun_Id">
+    <value>Reexecutar Id:</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>Comentário:</value>
+  </text>
+  <text id="TEXT_Items_To_Be_Backed_Out">
+    <value>Itens a Serem Incluídos no Backout</value>
+  </text>
+  <text id="TEXT_Transactions">
+    <value>Transação</value>
+  </text>
+  <text id="TEXT_Failed_Transactions">
+    <value>Transações com falha</value>
+  </text>  
+  <text id="TEXT_Items_That_Can_t_Be_Backed_Out">
+    <value>Itens Que Não Podem Sofrer Backout</value>
+  </text>  
+  <text id="TEXT_Database_Transactions_In_Hard_Closed_Billing_Groups">
+    <value>Transações do Banco de Dados em Grupos de Cobrança Fechados Permanentemente:</value>
+  </text>    
+  <text id="TEXT_Transactions_Vetoed_After_Analysis">
+    <value>Transações Vetadas Após Análise:</value>
+  </text>
+  <text id="TEXT_Synchronously_Metered_Transactions">
+    <value>Transações Medidas com Sincronia:</value>
+  </text>
+  <text id="TEXT_Summary_Of_Database_Transactions_Being_Backed_Out">
+    <value>Resumo das Transações de Banco de Dados Cujo Backout Está Sendo Realizado</value>
+  </text>  
+  <text id="TEXT_Reanalyze">
+    <value>Reanalisar</value>
+  </text>
+  
+</texts>

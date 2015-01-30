@@ -1,153 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Account Hierarchy Terms" type="collection">
-
-    <description>Account Hierarchy Terms</description>
-
-
-    <text id="TEXT_DROP_ACCOUNTS">
-      <value>Drag and drop here...</value>
-      <description>drag and drop</description>
-    </text> 
-
-    <text id="TEXT_LOADING_DONE">
-      <value>Done</value>
-      <description>done</description>
-    </text> 
-
-    <text id="TEXT_LOADING_HIERARCHY">
-      <value>Loading Hierarchy Control...</value>
-      <description>loading hierarchy control</description>
-    </text> 
-
-    <text id="START_ACCOUNT_HIERARCHY_WEBSERVICE">
-      <value>Please ensure your account hierarchy webservice is running at:</value>
-      <description>make sure webservice is running message</description>
-    </text> 
-
-    <text id="TEXT_ALL_CORPORATE_ACCOUNTS">
-      <value>All Corporate Accounts</value>
-      <description>All Corporate Accounts</description>
-    </text> 
-
-    <text id="TEXT_HIERARCHY">
-      <value>Hierarchy</value>
-      <description>Hierarchy</description>
-    </text> 
-
-    <text id="TEXT_MENU">
-      <value>Menu</value>
-      <description>Menu</description>
-    </text> 
-
-    <text id="TEXT_ACCOUNT_HIERARCHY">
-      <value>Account Hierarchy</value>
-      <description>Account Hierarchy</description>
-    </text> 
-    
-    <text id="TEXT_CORPORATE_ACCOUNT">
-      <value>Corporate Accounts</value>
-      <description>Corporate Accounts</description>
-    </text> 
-
-    <text id="TEXT_ADD_TEMPLATE_AVAILABLE_GROUP_SUBSCRIPTION">
-        <value>Available Group Subscriptions</value>
-    </text> 
-		
-    <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP">
-        <value>Group</value>
-    </text>
-     
-    <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP_SUB_NAME">
-        <value>Group Subscription Name</value>
-    </text> 
-    
-    <text id="TEXT_ADD_ACCOUNTS_TO_ROLE">
-        <value>Add Accounts to Role</value>
-    </text>     
-    
-    <text id="TEXT_HIERARCHY_VIEW_DATE">
-        <value>View Date</value>
-    </text>     
-    
-    <text id="TEXT_CTX_MENU_ADD_ACCOUNT">
-        <value>Add Account</value>
-    </text>     
-    
-    <text id="TEXT_CTX_MENU_MANAGE">
-        <value>Manage</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_NEW_CORPORATE">
-        <value>New Corporate</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_GROUP_SUBSCRIPTIONS">
-        <value>Group Subscriptions</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_SEARCH">
-        <value>Search</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_OPERATIONS">
-        <value>Operations</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_ISSUE_MISC_ADJUSTMENT">
-        <value>Issue Misc. Adjustment</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_VIEW_ONLINE_BILL">
-        <value>Interactive Bill</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_UPDATE_ACCOUNT">
-        <value>Update Account</value>
-    </text>     
-
-    <text id="TEXT_CTX_MENU_REFRESH">
-        <value>Refresh</value>
-    </text>   
-    
-    <text id="TEXT_CTX_MENU_HIDE">
-        <value>Hide</value>
-    </text> 
-      
-    <text id="TEXT_CTX_MENU_SHOW_ONLY">
-        <value>Show Only</value>
-    </text>      
-    
-    <text id="TEXT_CTX_MENU_SHOWALL">
-        <value>Show All</value>
-    </text>   
-    
-    <text id="TEXT_HIERARCHY_LOADING">
-        <value>Loading...</value>
-    </text> 
-    
-   <text id="TEXT_HIERARCHY_DONE">
-        <value>Done.</value>
-    </text> 
-    
-   <text id="TEXT_REFRESH_CLICK">
-        <value>Click the refresh icon to load the hierarchy as of the selected date.</value>
-   </text>          
-
-   <text id="TEXT_CTX_MENU_OWNED_ACCOUNTS">
-        <value>Owned Accounts</value>
-   </text>          
-   
-   <text id="TEXT_CTX_MENU_SECURITY">
-        <value>Security</value>
-   </text>          
-
-   <text id="TEXT_CTX_MENU_ADD_USER">
-        <value>Add User</value>
-   </text>          
-
-   <text id="TEXT_CTX_MENU_ADD_GSM">
-        <value>Add GSM</value>
-   </text>     
-   
+  <description>Account Hierarchy Terms</description>
+  <text id="TEXT_DROP_ACCOUNTS">
+    <value>Drag and drop here...</value>
+    <description>drag and drop</description>
+  </text>
+  <text id="TEXT_LOADING_DONE">
+    <value>Done</value>
+    <description>done</description>
+  </text>
+  <text id="TEXT_LOADING_HIERARCHY">
+    <value>Loading Hierarchy Control...</value>
+    <description>loading hierarchy control</description>
+  </text>
+  <text id="START_ACCOUNT_HIERARCHY_WEBSERVICE">
+    <value>Please ensure your account hierarchy webservice is running at:</value>
+    <description>make sure webservice is running message</description>
+  </text>
+  <text id="TEXT_ALL_CORPORATE_ACCOUNTS">
+    <value>All Corporate Accounts</value>
+    <description>All Corporate Accounts</description>
+  </text>
+  <text id="TEXT_HIERARCHY">
+    <value>Hierarchy</value>
+    <description>Hierarchy</description>
+  </text>
+  <text id="TEXT_MENU">
+    <value>Menu</value>
+    <description>Menu</description>
+  </text>
+  <text id="TEXT_ACCOUNT_HIERARCHY">
+    <value>Account Hierarchy</value>
+    <description>Account Hierarchy</description>
+  </text>
+  <text id="TEXT_CORPORATE_ACCOUNT">
+    <value>Corporate Accounts</value>
+    <description>Corporate Accounts</description>
+  </text>
+  <text id="TEXT_ADD_TEMPLATE_AVAILABLE_GROUP_SUBSCRIPTION">
+    <value>Available Group Subscriptions</value>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP">
+    <value>Group</value>
+  </text>
+  <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP_SUB_NAME">
+    <value>Group Subscription Name</value>
+  </text>
+  <text id="TEXT_ADD_ACCOUNTS_TO_ROLE">
+    <value>Add Accounts to Role</value>
+  </text>
+  <text id="TEXT_HIERARCHY_VIEW_DATE">
+    <value>View Date</value>
+  </text>
+  <text id="TEXT_CTX_MENU_ADD_ACCOUNT">
+    <value>Add Account</value>
+  </text>
+  <text id="TEXT_CTX_MENU_MANAGE">
+    <value>Manage</value>
+  </text>
+  <text id="TEXT_CTX_MENU_NEW_CORPORATE">
+    <value>New Corporate</value>
+  </text>
+  <text id="TEXT_CTX_MENU_GROUP_SUBSCRIPTIONS">
+    <value>Group Subscriptions</value>
+  </text>
+  <text id="TEXT_CTX_MENU_SEARCH">
+    <value>Search</value>
+  </text>
+  <text id="TEXT_CTX_MENU_OPERATIONS">
+    <value>Operations</value>
+  </text>
+  <text id="TEXT_CTX_MENU_ISSUE_MISC_ADJUSTMENT">
+    <value>Issue Misc. Adjustment</value>
+  </text>
+  <text id="TEXT_CTX_MENU_VIEW_ONLINE_BILL">
+    <value>Interactive Bill</value>
+  </text>
+  <text id="TEXT_CTX_MENU_UPDATE_ACCOUNT">
+    <value>Update Account</value>
+  </text>
+  <text id="TEXT_CTX_MENU_REFRESH">
+    <value>Refresh</value>
+  </text>
+  <text id="TEXT_CTX_MENU_HIDE">
+    <value>Hide</value>
+  </text>
+  <text id="TEXT_CTX_MENU_SHOW_ONLY">
+    <value>Show Only</value>
+  </text>
+  <text id="TEXT_CTX_MENU_SHOWALL">
+    <value>Show All</value>
+  </text>
+  <text id="TEXT_HIERARCHY_LOADING">
+    <value>Loading...</value>
+  </text>
+  <text id="TEXT_HIERARCHY_DONE">
+    <value>Done.</value>
+  </text>
+  <text id="TEXT_REFRESH_CLICK">
+    <value>Click the refresh icon to load the hierarchy as of the selected date.</value>
+  </text>
+  <text id="TEXT_CTX_MENU_OWNED_ACCOUNTS">
+    <value>Owned Accounts</value>
+  </text>
+  <text id="TEXT_CTX_MENU_SECURITY">
+    <value>Security</value>
+  </text>
+  <text id="TEXT_CTX_MENU_ADD_USER">
+    <value>Add User</value>
+  </text>
+  <text id="TEXT_CTX_MENU_ADD_GSM">
+    <value>Add GSM</value>
+  </text>
 </texts>

@@ -46,6 +46,15 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS     : Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 	Dim bReturn 
+
+   Form("Update") = request.QueryString("Update")
+   Form("RoleID") =  request.QueryString("RoleID")
+   Form("CapabilityID") = request.QueryString("capabilityID") 
+   Form("CompositeCollection") = Empty
+  
+   Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))	 
+   Form("CompositeCapabilityTypeDescription") = ProductView.Properties.Rowset.Value("tx_desc")  
+
 	Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.
 
@@ -54,21 +63,15 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "APP_MCM", "Boolean", 0, FALSE, FALSE    
   Service.Properties.Add "APP_MOM", "Boolean", 0, FALSE, FALSE     
   Service.Properties.Add "APP_MPS", "Boolean", 0, FALSE, FALSE                        
-                  
-  Form("Update") = request.QueryString("Update")
- 	Form("RoleID") =  request.QueryString("RoleID")
-	Form("CapabilityID") = request.QueryString("capabilityID") 
-  Form("CompositeCollection") = Empty
-	
+  	
   If UCase(Session("IsAccount")) = "TRUE" Then
 		
     On error resume next
-    Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_GetHierarchyTime())
+    Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_ConvertToSysDate(mam_GetHierarchyTime()))
     If err.number <> 0 then
       Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
     End If
     On error goto 0     
-
   
 		If UCase(Session("DefaultPolicy")) = "TRUE" Then
 		  Form("AccountPolicy") = Form("AuthAccount").GetDefaultPolicy(FrameWork.SessionContext)
@@ -80,7 +83,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   	Form("Role") = FrameWork.Policy.GetRoleByID(FrameWork.SessionContext, Form("RoleID"))
 	  Form("CompositeCapabilityType") = FrameWork.Policy.GetCapabilityTypeByID(CLng(Form("CapabilityID")))
 	End If	
-	
+
   bReturn = DynamicCapabilites(EventArg) ' Load the correct template for the dynmaic capabilities
 		
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
@@ -104,8 +107,8 @@ FUNCTION DynamicCapabilites(EventArg)
 
   on error resume next
 	
-  ' Set Title
-	mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
+  ' Set Title	
+  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityTypeDescription")
 
 	If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then
@@ -136,7 +139,7 @@ FUNCTION DynamicCapabilites(EventArg)
 	
 				  If IsValidObject(atomic.GetParameter()) Then
             Dim strPName
-            strPName = "APP_" & CStr(Atomic.GetParameter().Value)
+            strPName = "APP_" & CStr(atomic.GetParameter().Value)
             Service.Properties(strPName).value = TRUE
 					End If
 														

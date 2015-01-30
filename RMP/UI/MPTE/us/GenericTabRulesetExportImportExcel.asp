@@ -113,7 +113,7 @@ else
 
 <html>
 <head>
-	<title>Import From Excel File</title>
+	<title><%=FrameWork.GetDictionary("TEXT_IMPORT_FROM_EXCEL")%></title>
   <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   <link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">
@@ -123,7 +123,7 @@ else
      
 <body onBlur="javascript:LostFocus();" onFocus="javascript:GotFocus('window');" onLoad="javascript:SizeWindow();"> 
 <table border="0" cellpadding="1" cellspacing="0" width="100%"><tr><td Class='CaptionBar' nowrap>
-Import From Excel File
+<%=FrameWork.GetDictionary("TEXT_IMPORT_FROM_EXCEL")%>
 </td></tr></table>
 <%
 if len(sErrorMessage)>0 then
@@ -157,7 +157,7 @@ end if
 
 <FORM METHOD=POST ENCTYPE="multipart/form-data" ACTION="">
 <table>
-<tr><td><b>Location of Excel file to import:</b></td></tr>
+<tr><td><b><%=FrameWork.GetDictionary("TEXT_LOCATION_OF_EXCEL")%>:</b></td></tr>
 <tr><td><input type="file" name="upfile" size="80"></td></tr>
 </table>
 <BR><BR>

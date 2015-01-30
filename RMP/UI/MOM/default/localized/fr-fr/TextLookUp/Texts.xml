@@ -1,36 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<texts id="Main" type='collection'>
-
-
-		<text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND"><value>No data</value></text>    
-		<text id="TEXT_ADD_NAME_SPACE"><value>Add Name Space</value></text>      
-    <text id="TEXT_NAME_SPACE"><value>Name Space</value></text>  
-    <text id="TEXT_DESCRIPTION"><value>Description</value></text>  
-    <text id="TEXT_TYPE"><value>Type</value></text>  
-    
-    
-    <text id="TEXT_TELL_USER_SYSTEM_ERROR_OCCUR_TRY_LATER"><value>A system error has occurred. Contact your MAM Administrator.</value></text>  
-
-    
-   <text id="TEXT_MOM"><value>MetraTech Operations Manager</value></text>  
-   
-   <text id="TEXT_LOGIN_TITLE"><value>MetraControl Login</value></text>  
- 
-   <text id="TEXT_USERNAME"><value>User Name</value></text>  
-   <text id="TEXT_PASSWORD"><value>Password</value></text>  
-     
-   <text id="TEXT_LOGIN_USERNAME"><value>User Name</value></text>  
-   <text id="TEXT_LOGIN_PASSWORD"><value>Password</value></text>  
-   <text id="TEXT_LOGOUT"><value>Log Out</value></text>  
- 
-   <text id="TEXT_NO_AUTH">
-        <value>Your session has timed out.  Please login again.</value>
-        <description>Session timeout message</description>
-   </text>
-   
-    <text id="TEXT_JAVASCRIPT_ERROR">
-        <value>Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
-        <description></description>
-    </text>       
+<texts id="Main" type="collection">
+  <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
+    <value>Pas de donnée</value>
+  </text>
+  <text id="TEXT_ADD_NAME_SPACE">
+    <value>Ajouter un espace de nom</value>
+  </text>
+  <text id="TEXT_NAME_SPACE">
+    <value>Espace de nommage</value>
+  </text>
+  <text id="TEXT_DESCRIPTION">
+    <value>Description</value>
+  </text>
+  <text id="TEXT_TYPE">
+    <value>Type</value>
+  </text>
+  <text id="TEXT_TELL_USER_SYSTEM_ERROR_OCCUR_TRY_LATER">
+    <value>Une erreur système s'est produite. Contactez votre administrateur MAM.</value>
+  </text>
+  <text id="TEXT_MOM">
+    <value>Gestionnaire d'opérations MetraTech</value>
+  </text>
+  <text id="TEXT_LOGIN_TITLE">
+    <value>Connexion MetraControl</value>
+  </text>
+  <text id="TEXT_USERNAME">
+    <value>Nom d'utilisateur</value>
+  </text>
+  <text id="TEXT_PASSWORD">
+    <value>Mot de passe</value>
+  </text>
+  <text id="TEXT_LOGIN_USERNAME">
+    <value>Nom d'utilisateur</value>
+  </text>
+  <text id="TEXT_LOGIN_PASSWORD">
+    <value>Mot de passe</value>
+  </text>
+  <text id="TEXT_LOGOUT">
+    <value>Fermer la session</value>
+  </text>
+  <text id="TEXT_NO_AUTH">
+    <value>Votre session est arrivée à expiration. Veuillez vous reconnecter.</value>
+    <description>Session timeout message</description>
+  </text>
+  <text id="TEXT_JAVASCRIPT_ERROR">
+    <value>JavaScript ne semble pas activé sur votre navigateur. Cliquez sur ce lien pour corriger ce problème.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO">
+    <value>Go</value>
+  </text>
+  <text id="TEXT_ADAPTER_NAME">
+    <value>Adapter Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RUN_ID">
+    <value>Run Id</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_RUN_DETAILS">
+    <value>Adapter Run Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL_TYPE">
+    <value>Detail Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL">
+    <value>Detail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TIMESTAMP">
+    <value>Timestamp</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUMMARY_DETAILS">
+    <value>Summary Details</value>
+    <description></description>
+  </text>
 </texts>

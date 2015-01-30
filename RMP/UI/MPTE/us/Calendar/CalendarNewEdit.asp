@@ -179,7 +179,7 @@ end if
 
 <html>
   <head>
-	<title>Create New Calendar</title>
+	<title><%=FrameWork.GetDictionary("TEXT_CREATE_NEW_CALENDAR")%></title>
 	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">

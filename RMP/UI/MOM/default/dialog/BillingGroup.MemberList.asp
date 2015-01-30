@@ -41,7 +41,7 @@ mdm_PVBrowserMain ' invoke the mdm framework
 ' DESCRIPTION: 
 ' RETURNS:     Return TRUE if ok else FALSE
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
-
+Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
     Form.Modal = TRUE
 
     ProductView.Clear 
@@ -52,12 +52,15 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     Form("IntervalID") = Request.QueryString("IntervalID")
     Form("Title") = Request.QueryString("Title")
     
+    Dim title
     'Set the screen title
     If Len(Form("Title"))>0 Then
-      mdm_GetDictionary().Add "BILLING_GROUPS_FIND_PAYER_TITLE", Form("Title") 
+      title = Form("Title") 
     Else
-      mdm_GetDictionary().Add "BILLING_GROUPS_FIND_PAYER_TITLE", "Locate Payer" 
+      title = mom_GetDictionary("TEXT_Locate_Payer") 
     End If
+
+    mdm_GetDictionary().Add "BILLING_GROUPS_FIND_PAYER_TITLE", title
     
 	  Form_Initialize = TRUE
 END FUNCTION
@@ -104,10 +107,10 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("UserName").Selected =    i : i=i+1
   ProductView.Properties("NameSpace").Selected =   i : i=i+1
 
-  ProductView.Properties("DisplayName").Caption = "Account"
-  ProductView.Properties("AccountID").Caption 	= "Account ID"  
-  ProductView.Properties("UserName").Caption    = "User Name"
-  ProductView.Properties("NameSpace").Caption   = "Namespace"
+  ProductView.Properties("DisplayName").Caption = mom_GetDictionary("TEXT_Account")
+  ProductView.Properties("AccountID").Caption 	= mom_GetDictionary("TEXT_Account_ID")
+  ProductView.Properties("UserName").Caption    = mom_GetDictionary("TEXT_User_Name")
+  ProductView.Properties("NameSpace").Caption    = mom_GetDictionary("TEXT_Namespace") 
  
   mdm_SetMultiColumnFilteringMode TRUE  
   ProductView.LoadJavaScriptCode
@@ -145,7 +148,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim html
     html = html & "</table><div align=center><BR><BR>"
     'html = html & "<button  name='REFRESH' Class='clsOkButton' onclick='window.location=window.location'>Refresh</button>"
-    html = html & "<button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button>"
+    html = html & "<button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>" & mom_GetDictionary("TEXT_CLOSE") & "</button>"
     html = html & "</FORM></BODY></HTML>"
     
     ' Here we must not forget to concat rather than set because we want to keep the result of the inherited event.

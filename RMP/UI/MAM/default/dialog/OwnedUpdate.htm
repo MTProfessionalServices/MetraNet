@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css" /> 
    <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js"></script>
    <script type="text/javascript" src="/Res/Ext/ext-all.js"></script> 
-      <script type="text/javascript" src="js/DatePicker.js"></script>
+      <script type="text/javascript" src="/Res/JavaScript/DatePicker.js"></script>
  </HEAD>
 
 <BODY onDrag="fOnDrag();" onDragEnd="fOnDragEnd();" onDragLeave="fOnDragLeave();" onDragEnter="fOnDragEnter();" onDragStart="fOnDragStart();" onDragOver="fOnDragOver();" onDrop="fOnDrop();">
@@ -51,7 +51,7 @@
           <img style="cursor:pointer"  id="openCalendarStartDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
           <div id="divStartDate" style="position:absolute"></div>
           <script language="javascript" type="text/javascript">
-            generateDatePicker("StartDate", '[JS_DATE_FORMAT]');
+            generateDatePicker('StartDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
           </script> 
         </TD>
      </TR>       
@@ -62,7 +62,7 @@
           <img style="cursor:pointer"  id="openCalendarEndDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
           <div id="divEndDate" style="position:absolute"></div>
           <script language="javascript" type="text/javascript">
-            generateDatePicker("EndDate", '[JS_DATE_FORMAT]');
+            generateDatePicker('EndDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
           </script>
         </TD>    
      </TR>

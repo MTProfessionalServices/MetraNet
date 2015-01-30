@@ -130,12 +130,12 @@
 
 <link id="RATES_ALLPRICELISTS_LIST_DIALOG">    
 <value>[APP_HTTP_PATH]/default/dialog/Rates.AllPricelists.List.asp?LinkColumnMode=TRUE&amp;POBased=FALSE&amp;Parameters=LinkColumnMode|TRUE;Rates|TRUE;POBased|FALSE;Title|TEXT_RATES_ALLPRICELISTS_CHOOSE_PRICEABLE_ITEM;kind=10&amp;NextPage=Rates.PriceableItem.List.asp&amp;Title=TEXT_RATES_ALLPRICELISTS_LIST&amp;Rates=TRUE</value>
-<description>Product Offering Based, or Pricelist Based</description>
+<description>Product Offering Based, or Price List Based</description>
 </link>
 
 <link id="RATES_PRODUCT_OFFERING_LIST_DIALOG">    
 <value>[APP_HTTP_PATH]/default/dialog/Rates.ProductOffering.List.asp?LinkColumnMode=TRUE&amp;POBased=TRUE&amp;Parameters=LinkColumnMode|TRUE;Rates|TRUE;POBased|TRUE;Title|TEXT_CHOOSE_PRICEABLE_ITEM;kind=10&amp;NextPage=Rates.PriceableItem.List.asp&amp;Title=TEXT_CHOOSE_PRODUCT_OFFERING&amp;Rates=TRUE</value>
-<description>Product Offering Based, or Pricelist Based</description>
+<description>Product Offering Based, or Price List Based</description>
 </link>
     
 <link id="RATES_PARAMTABLE_VIEW_EDIT_DIALOG">
@@ -192,13 +192,13 @@
     
     <link id="BULK_SUBSCRIPTION_CHANGE_DIALOG_SELECT_SOURCE">
       <value>
-        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_name&amp;Parameters=POMode|source
+        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_display_name&amp;Parameters=POMode|source
       </value>
       <description></description>
     </link>
     <link id="BULK_SUBSCRIPTION_CHANGE_DIALOG_SELECT_DESTINATION">
       <value>
-        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_name&amp;Parameters=POMode|destination&amp;ShowAvailableOnly=Y
+        [PRODUCT_OFFERING_PICKER_DIALOG]?NextPage=[BULK_SUBSCRIPTION_CHANGE_DIALOG]&amp;mdmReload=TRUE&amp;MonoSelect=TRUE&amp;OptionalColumn=nm_display_name&amp;Parameters=POMode|destination&amp;ShowAvailableOnly=Y
       </value>
       <description></description>
     </link>

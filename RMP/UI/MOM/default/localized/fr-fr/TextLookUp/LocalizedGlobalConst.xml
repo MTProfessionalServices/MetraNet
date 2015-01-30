@@ -1,23 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
-
-
-    <text id="TEXT_MOM_WELCOME_TO_THE_PAYMENT_SERVER_MOM">
-        <value>Welcome dans MetraControl</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_MOM_WELCOME_TO_THE_MOM">
-        <value>Welcome dans MetraControl</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_MOM_ADMINISTRATOR_RIGHTS_NEEDED">
-        <value>Vous devez disposer de droits d'administrateur pour démarrer et arrêter le pipeline.</value>
-        <description></description>
-      </text>
-    <text id="TEXT_APPLY_DEFAULT_SECURITY">
-          <value>Appliquer la stratégie par défaut</value>
-    </text>    
+  <text id="TEXT_MOM_WELCOME_TO_THE_PAYMENT_SERVER_MOM">
+    <value>Welcome dans MetraControl</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MOM_WELCOME_TO_THE_MOM">
+    <value>Welcome dans MetraControl</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MOM_ADMINISTRATOR_RIGHTS_NEEDED">
+    <value>Vous devez disposer de droits d'administrateur pour démarrer et arrêter le pipeline.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY_DEFAULT_SECURITY">
+    <value>Appliquer la stratégie par défaut</value>
+  </text>
 </texts>
-

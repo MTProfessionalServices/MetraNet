@@ -8,7 +8,7 @@ The file defines the HTML code for the log out page.
   <text id="TEXT_LOG_OUT_MESSAGE">
         <value>
         <![CDATA[
-            &lt;center&gt;&lt;b&gt;Au revoir.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Cliquez &lt;a href='[START_PAGE]'&gt;ici&lt;/a&gt; pour vous connecter de nouveau.&lt;/center&gt;
+            <center><b>Au revoir.</b><br><br>Cliquez <a href='[START_PAGE]'>ici</a> pour vous reconnecter.</center>
         ]]>            
         </value>
         <description></description>

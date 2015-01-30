@@ -192,4 +192,136 @@
     <value>O curinga * pode ser usado penas no final da string de pesquisa ou no início e no final.\nExemplos:\n\tEnterprise Bundle*\n\t*Bundle*</value>
     <description></description>
   </text>
+  <text id="TEXT_EXTENDED_PROPERTIES">
+    <value>Propriedades estendidas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_WHAT_IS_EXTENDED_PROPERTIES">
+    <value>O que são propriedades estendidas?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OTHER_ACTIONS">
+    <value>Outras Ações</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHECK_CONFIGURATION">
+    <value>Verificar Configuração</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Change_the_price_list">
+    <value>Change the price list mappings for one or more items in this product offering.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_MAPPINGS">
+    <value>Atualizar Mapeamentos da Lista de Preços</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COPY">
+    <value>COP</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_RATES">
+    <value>Adicionar Tarifas a mais Tabelas de Parâmetros</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_SUBSCR_AND_ASSOCIATIONS">
+    <value>Exibir Assinaturas e Associações de Lista de Preços Padrão</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHANGES_POTENTIALLY_AFFECT1">
+    <value><![CDATA[&nbsp;&nbsp;As alterações a esses cronogramas de tarifas potencialmente afetam <b>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_CHANGES_POTENTIALLY_AFFECT2">
+    <value><![CDATA[</b> assinantes.&nbsp;&nbsp;]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO_RATE_SCHEDULES">
+    <value><![CDATA[<span style='font-weight:normal;'><b>Atualmente, não há cronogramas de tarifas nessa lista de preços dessa tabela de parâmetros.</b><BR><BR> Use o botão 'Novo Cronograma de Tarifas'acima para criar um ou use esse botão para criar automaticamente um cronograma de tarifas padrão que sempre estará em efeito (sem data de início ou término):<br>&nbsp;&nbsp;&nbsp; <button name='CreateDefaultRateSchedule' class='clsButtonBlueXXLarge' OnClick='mdm_RefreshDialog(this);'>Criar Cronograma de Tarifas Padrão</button><BR></span>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE">
+    <value><![CDATA[Tabela de Parâmetros: <b>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_STORED_ON_PO">
+    <value><![CDATA[</b><br>As tarifas são armazenadas na lista de produtos não compartilhada da Oferta de Produto.<br>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_STORED_ON_SHARED_PL">
+    <value><![CDATA[</b><br>As tarifas são armazenadas na lista de preços padrão'<b>]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_RATE_SCHEDULE_TITLE">
+    <value>Criar um novo cronograma de tarifas e copiar as tarifa desse cronograma de agendamento</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREATE_RATE_SCHEDULE">
+    <value>Novo Cronograma de Tarifas com Base Neste</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_HISTORY">
+    <value>Exibir histórico</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXPORT_TO_EXCEL">
+    <value>Exportar para Excel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_IMPORT_FROM_EXCEL">
+    <value>Importar do Excel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BULK_UPDATE">
+    <value>Atualização em massa</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_INFO">
+    <value>Atualizar Informações de Lista de Preços</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_ALLOW_PERS_RATES_INFO">
+    <value>Atualizar informações de 'Permitir Tarifas Pessoais'</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRICE_LIST">
+    <value>Lista de preços</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
+    <value>Não permitir a definição de Tarifas Pessoais</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DONT_ALLOW_PERS_RATES_SET">
+    <value>Não permitir a definição de Tarifas Pessoais</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PL_MAPPINGS">
+    <value>Atualizar Mapeamentos de Lista de Preços Selecionada</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>Fechar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GENERAL_TAB">
+    <value>Geral</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMEETR_TABL_MAPPINGS_TAB">
+    <value>Mapeamentos de Tabela de Parâmetros</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COUNTERS_TAB">
+    <value>Contadores</value>
+    <description></description>
+  </text>
+  <text id="TEXT_OVERVIEW_TAB">
+    <value>Visão Geral</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATE_SCHEDULE_HISTORY">
+    <value>Rate Schedule History</value>
+    <description></description>
+  </text>
 </texts>

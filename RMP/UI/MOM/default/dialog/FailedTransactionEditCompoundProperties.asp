@@ -61,6 +61,7 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS       :  Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 
+  Framework.AssertCourseCapability "Update Failed Transactions", EventArg
   Dim i, lngCount, objServiceProperty, strXMLMessage, idChildKey
 
   

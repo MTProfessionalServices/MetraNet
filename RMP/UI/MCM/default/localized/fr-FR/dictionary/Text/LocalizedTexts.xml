@@ -17,4 +17,64 @@
     <value>Sélectionnez [TEXT_KEYTERM_PRICE_LIST] pour ce [TEXT_KEYTERM_PARAMETER_TABLE]</value>
     <description></description>
   </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE">
+    <value><![CDATA[Actuellement, cette offre produit ne contient pas d'élément à prix ni de remise.<br /><br />Cliquez 
+                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
+              <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,-2);</xsl:attribute>
+              ici</a>
+             afin d'accéder à l'écran des offres produit pour ajouter des éléments]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_NOT_MAPPED_MESSAGE">
+    <value><![CDATA[Ce tableau des paramètres n'est pas mappé à un tarif pour cette offre produit. Sélectionnez l'élément à prix '<xsl:value-of select="../../name" />' ci-dessus et créez un mappage.]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECTED_PO">
+    <value>Offre produit sélectionnée</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLES_PLM_UPDATED">
+    <value>Tableaux de paramètres ayant des mappages de tarifs à mettre à jour</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE2">
+    <value><![CDATA[Actuellement, cette offre produit ne contient pas d'élément à prix ni de remise.<br /><br />Retournez à l'écran des offres produit pour ajouter des éléments à inclure dans cette offre produit.]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE_NOT_MAPPED">
+    <value>Ce tableau de paramètres n'est pas mappé à un tarif.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE3">
+    <value>Actuellement, il n'existe aucun élément à prix de ce type dans le catalogue de produits</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RETURN_TO_PREVIOUS_SEARCH">
+    <value>Retourner aux résultats de recherche précédents</value>
+    <description></description>
+  </text>  
+  <text id="TEXT_SELECTED_PL">
+    <value>Tarif sélectionné</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PL_CONTAINS_RATES">
+    <value>Ce tarif contient des prix ou des informations de configuration pour les éléments suivants</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE4">
+    <value><![CDATA[Actuellement, ce tarif ne contient pas d'échelle tarifaire pour les éléments à prix.<br /><br />Cliquez 
+                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
+              <xsl:attribute name="href">javascript:OpenAddRateScheduleWindow();</xsl:attribute>
+              ici</a>
+             afin d'accéder à l'écran des tarifs pour ajouter des prix ou des informations de configuration]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_CAN_BE_SET">
+    <value>Des prix personnels peuvent être définis pour cet élément</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_CANNOT_BE_SET">
+    <value>Impossible de définir des prix personnels pour cet élément</value>
+    <description></description>
+  </text>
 </texts>

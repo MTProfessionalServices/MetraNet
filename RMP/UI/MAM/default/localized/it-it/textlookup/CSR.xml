@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Unlocalized System Information" type='collection'>
+  <description>
+    This file defines the system information that does not need to be localized.
+  </description>
+  <text id="SUPER_USER_ISSUE_CREDITS_MAX_AMOUNT">
+    <value>Unlimited</value>
+    <description></description>
+  </text>
+</texts>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    The file defines localized string for VersionInfo.asp
+  </description>
+  <text id="TEXT_SYSTEM_VERSION_INFORMATION">
+    <value>Informações de Versão do Sistema</value>
+  </text>
+  <text id="TEXT_ITEM">
+    <value>Item</value>
+  </text>
+  <text id="TEXT_DISPLAY_ALL_FILE_VERSIONS">
+    <value>Exibir Todas as Versões do Arquivo</value>
+  </text>
+  <text id="TEXT_OPERATING_SYSTEM">
+    <value>Sistema Operacional</value>
+  </text>
+  <text id="TEXT_DATABASE_SERVER">
+    <value>Servidor de Banco se Dados</value>
+  </text>
+</texts>

@@ -67,6 +67,9 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   ' 6.4 - Take Compound Session id from request and not the rowset
   Dim idFailureCompoundSession
   idFailureCompoundSession = request("FailureCompoundSessionId") 'FailureCompoundSessionId being passed indicates being called from new MetraNet screens
+  If(not IsEmpty(Session("FailedTransaction_Compound_Parent_Session_Id"))) then
+      idFailureCompoundSession = Session("FailedTransaction_Compound_Parent_Session_Id") 
+  End If
   If Len(idFailureCompoundSession)>0 Then
     '6.4 New Screens
     'Create a new rowset for the single entry in t_failedtransactions and set it in the session and also set m_objRowSet
@@ -78,8 +81,10 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     End If
 
     Form("IsPopup") = true
-
-    InitializeRowsetForSingleFailedTransaction(idFailure)
+  If(IsEmpty(Session("FAILED_TRANSACTIONS_ROWSET_SESSION_NAME"))) then
+      FindRowSetAndSetCurrentRow
+  End If
+    InitializeRowsetForSingleFailedTransaction(Form("IdFailure"))
   Else
     Form("IsPopup") = false
 
@@ -96,7 +101,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   iRetryCount = 12
   for i=0 to iRetryCount-1
 
-      Service.XML(Server.MapPath("/mdm"),,,,,,mdm_InternalCache) = strXMLMessage
+      Service.XML(Server.MapPath("/mdm"),Service.Language,,,,,mdm_InternalCache) = strXMLMessage
           If Err.Number Then
             '//If we are on our last retry then display a message
             If i=iRetryCount-1 then

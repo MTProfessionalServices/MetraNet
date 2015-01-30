@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    The file defines the MAM application errors. The error message are localized.
+    When the Metering SDK returns an error to the MAM looks up the message in the MetraTech Global Message Dll.
+    (Actually this task is performed by the MDM.)
+  </description>
+  <text id="FRAMEWORK_ERROR_9000">
+    <value>This feature is only supported in IE version 4.0 and above.</value>
+  </text>
+</texts>

@@ -64,7 +64,7 @@ If Len(Request.QueryString("HierarchyStartNode")) Then
   Session("HierarchyStartNode") = Request.QueryString("HierarchyStartNode")
   on error resume next  
   dim acc
-  set acc = FrameWork.AccountCatalog.GetAccount(CLng(Session("HierarchyStartNode")), mam_GetHierarchyTime())  
+  set acc = FrameWork.AccountCatalog.GetAccount(CLng(Session("HierarchyStartNode")), mam_ConvertToSysDate(mam_GetHierarchyTime()))  
   If err.number <> 0 Then
     response.write "<span style='color:white;'>" &  replace(objDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),"<br>","") & "</span>"  
   Else

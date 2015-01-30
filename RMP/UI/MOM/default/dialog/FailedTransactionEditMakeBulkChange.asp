@@ -28,6 +28,8 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp" -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp"                   -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
+
 <%
 
 PRIVATE CONST enum_FT_BULK_CHANGE_ALL                   = 1
@@ -46,7 +48,7 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS:  Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 
-
+  Framework.AssertCourseCapability "Update Failed Transactions", EventArg
 	Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.
 

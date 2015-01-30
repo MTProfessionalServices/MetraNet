@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<texts id="Main" type='collection'>
-
-    <text id="TEXT_ADD_UPDATE_LOGIN_TITLE"><value>Add Login</value></text>      
-    <text id="TEXT_ADD_UPDATE_LOGIN_ERROR_CONFIRM_PASSWORD_DOES_NOT_MATCH"><value>Confirm password does not match.</value></text>      
-    <text id="TEXT_ADD_UPDATE_LOGIN_GENERAL"><value>General</value></text>      
-    <text id="TEXT_ADD_UPDATE_LOGIN_LOGIN"><value>Login</value></text>      
-    <text id="TEXT_ADD_UPDATE_LOGIN_CONFIRM_PASSWORD"><value>Confirm Password</value></text>      
-    <text id="TEXT_ADD_UPDATE_LOGIN_LOCATION"><value>Location</value></text>    
-    <text id="TEXT_SUCCESS"><value>Action completed successfully.</value></text>    
-      
-</texts>     
+<texts id="Main" type="collection">
+  <text id="TEXT_ADD_UPDATE_LOGIN_TITLE">
+    <value>Ajouter identifiant</value>
+  </text>
+  <text id="TEXT_ADD_UPDATE_LOGIN_ERROR_CONFIRM_PASSWORD_DOES_NOT_MATCH">
+    <value>Le mot de passe de confirmation ne correspond pas.</value>
+  </text>
+  <text id="TEXT_ADD_UPDATE_LOGIN_GENERAL">
+    <value>Général</value>
+  </text>
+  <text id="TEXT_ADD_UPDATE_LOGIN_LOGIN">
+    <value>Ouvrir une session</value>
+  </text>
+  <text id="TEXT_ADD_UPDATE_LOGIN_CONFIRM_PASSWORD">
+    <value>Confirmer le mot de passe</value>
+  </text>
+  <text id="TEXT_ADD_UPDATE_LOGIN_LOCATION">
+    <value>Emplacement</value>
+  </text>
+  <text id="TEXT_SUCCESS">
+    <value>Action réussie.</value>
+  </text>
+</texts>

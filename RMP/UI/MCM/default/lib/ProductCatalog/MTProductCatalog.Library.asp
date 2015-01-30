@@ -401,8 +401,8 @@ PUBLIC FUNCTION SetMSIXPropertyTypeToChargeInEnumType(objMSIXProperty)
     
     ' Temporary Syntax
     Set  objChargeInEnumType = mdm_CreateObject(CVariables)    
-    objChargeInEnumType.Add "Arrears" , CHARGE_AREARS , , , "Arrears"
-    objChargeInEnumType.Add "Advance", CHARGE_ADVANCE, , , "Advance"
+     objChargeInEnumType.Add "Arrears" , CHARGE_AREARS , , , FrameWork.GetDictionary("TEXT_ARREARS")
+     objChargeInEnumType.Add "Advance", CHARGE_ADVANCE, , , FrameWork.GetDictionary("TEXT_ADVANCE")
     
     ' Associate the Cvariables object to the MSIX Properties
     objMSIXProperty.AddValidListOfValues  objChargeInEnumType
@@ -455,8 +455,8 @@ PUBLIC FUNCTION SetMSIXPropertyTypeToProrationLengthOnEnumType(objMSIXProperty)
     
     ' Temporary Syntax
     Set  objProrateOnEnumType = mdm_CreateObject(CVariables)    
-     objProrateOnEnumType.Add "Actual" , PRORATE_ACTUAL_LENGTH , , , "Actual"
-     objProrateOnEnumType.Add "Fixed", PRORATE_FIXED_LENGTH, , , "Fixed"
+     objProrateOnEnumType.Add "Actual" , PRORATE_ACTUAL_LENGTH , , , FrameWork.GetDictionary("TEXT_ACTUAL") '"Actual"
+     objProrateOnEnumType.Add "Fixed", PRORATE_FIXED_LENGTH, , , FrameWork.GetDictionary("TEXT_FIXED") '"Fixed"
     
     ' Associate the Cvariables object to the MSIX Properties
     objMSIXProperty.AddValidListOfValues  objProrateOnEnumType
@@ -545,8 +545,8 @@ PUBLIC FUNCTION SetMSIXPropertyTypeToRecurringChargeEnumType(objMSIXProperty)
    
     ' Temporary Syntax
     Set  objRecurringChargeEnumType = mdm_CreateObject(CVariables)    
-     objRecurringChargeEnumType.Add "Subscription" , NREVENT_TYPE_SUBSCRIBE , , , "Subscription"
-     objRecurringChargeEnumType.Add "UnSubscription" , NREVENT_TYPE_UNSUBSCRIBE , , , "UnSubscription"
+     objRecurringChargeEnumType.Add "Subscription" , NREVENT_TYPE_SUBSCRIBE , , , FrameWork.GetDictionary("TEXT_SUBSCRIPTION") 
+     objRecurringChargeEnumType.Add "UnSubscription" , NREVENT_TYPE_UNSUBSCRIBE , , , FrameWork.GetDictionary("TEXT_UNSUBSCRIPTION") 
 	   'objRecurringChargeEnumType.Add "Subscription Change" , NREVENT_TYPE_CHANGE_SUBSCRIPTION , , , "Subscription Change"
 '   	 objRecurringChargeEnumType.Add "Billing Period Rollover" , BILLING_PERIOD , , , "Billing Period Rollover"
 

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_BILLING_GROUP">
+    <value>Grupo de faturamento</value>
+  </text>
+  <text id="TEXT_SUCCEED">
+    <value>Bem-sucedido</value>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>Falhou</value>
+  </text>
+  <text id="TEXT_ADAPTERS">
+    <value>Adaptador</value>
+  </text>
+  <text id="TEXT_MEMBERS">
+    <value>Membros</value>
+  </text>
+  <text id="TEXT_STATUS">
+    <value>Status</value>
+  </text>
+  <text id="TEXT_BILLING_GROUPS">
+    <value>Grupo de faturamento</value>
+  </text>
+  <text id="TEXT_BILLING_GROUPS_FOR_INTERVAL">
+    <value>Grupos de Cobrança do Intervalo</value>
+  </text>
+  <text id="TEXT_VIEW_STATISTICS_DESCRIPTION">
+    <value>Selecione para exibir estatísticas de todos os grupos de cobrança do intervalo.</value>
+  </text>
+  <text id="TEXT_LOCATE_PAYER_DESCRIPTION">
+    <value>Encontre um grupo de cobrança de contribuinte para esse intervalo.</value>
+  </text>
+  <text id="TEXT_MATERIALIZE">
+    <value>Criar Grupos de Cobrança para o Intervalo</value>
+  </text>
+  <text id="TEXT_REMATERIALIZE">
+    <value>Recriar Grupos de Cobrança para o Intervalo</value>
+  </text>
+  <text id="TEXT_MATERIALIZE_WAIT">
+    <value>Aguarde enquanto os grupos de cobrança são preenchidos...</value>
+  </text>
+  <text id="TEXT_CREATE_GROUP_DESCRIPTION">
+    <value>Crie uma lista de extração para esse grupo de cobrança.</value>
+  </text>
+  <text id="TEXT_VIEW_HISTORY_DESCRIPTION">
+    <value>Exibir o histórico do Adaptador do Processo de Cobrança desse grupo de cobrança nesse intervalo.</value>
+  </text>
+  <text id="TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION">
+    <value>Selecione para exibir as estatísticas desse grupo de cobrança e intervalo.</value>
+  </text>
+  <text id="TEXT_CREATE_PULL_LIST_ACCOUNT_DESCRIPTION">
+    <value>Uma lista de extração foi usada para remover contas do grupo de cobrança atual. Essas contas serão colocadas nesse grupo de cobrança recém-criado. Especifique IDs de conta separadas por retornos ou pares de nome de usuário vírgula namespace separados por retornos.</value>
+  </text>
+  <text id="TEXT_CREATE_PULL_LIST_FILE_DESCRIPTION">
+    <value>Uma lista de extração foi usada para remover contas do grupo de cobrança atual. Essas contas serão colocadas nesse grupo de cobrança recém-criado. O formato de arquivo é arquivo de texto codificado na base UTF-8 que especifica as IDs de conta separadas por retornos ou pares de nome de usuário vírgula namespace separados por retornos.</value>
+  </text>
+  <text id="TEXT_NO_BILLING_GROUPS">
+    <value>O sistema tem definições de grupos de cobrança válidos, mas não atribuiu contribuintes aos grupos desse intervalo. Clique no botão Criar Grupos de Cobrança para o Intervalo acima.</value>
+  </text>
+  <text id="TEXT_NO_PAYING_ACCOUNTS_IN_INTERVAL_DESCRIPTION">
+    <value>O intervalo não tem contas pagadoras ou nenhuma conta para faturar. Ele pode ser fechado permanentemente de modo direto clicando-se no botão abaixo.</value>
+  </text>
+  <text id="TEXT_TOGGLE_HIERARCHY_DISPLAY">
+    <value>Alterar Exibição da Hierarquia</value>
+  </text>
+  <text id="TEXT_HARD_CLOSE_THIS_INTERVAL">
+    <value>Fechar Permanentemente Esse Intervalo</value>
+  </text>
+  <text id="TEXT_SUB_BILLING_GROUPS">
+    <value>Grupos de Subcobrança Criados de Listas de Extração:</value>
+  </text>
+  <text id="TEXT_BG_INTERVALID">
+    <value>Intervalo</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_TYPE">
+    <value>Tipo</value>
+  </text>
+  <text id="TEXT_BG_START">
+    <value>Início</value>
+  </text>
+  <text id="TEXT_BG_END">
+    <value>Término</value>
+  </text>
+  <text id="TEXT_BG_TOTAL_GROUP_COUNT">
+    <value>Grupo</value>
+  </text>
+  <text id="TEXT_BG_OPEN_BILLING_GROUP_COUNT">
+    <value>Abrir</value>
+  </text>
+  <text id="TEXT_BG_SOFT_CLOSED_GROUP_COUNT">
+    <value>Fechado simplificadamente</value>
+  </text>
+  <text id="TEXT_BG_HARD_CLOSED_GROUP_COUNT">
+    <value>Fechado detalhadamente</value>
+  </text>
+  <text id="TEXT_BG_UNASSIGNED">
+    <value>Contas Não Atribuídas</value>
+  </text>
+  <text id="TEXT_BG_PROGRESS">
+    <value>Progresso</value>
+  </text>
+  <text id="TEXT_VIEW_STATISTICS">
+    <value>Exibir Estatísticas</value>
+  </text>
+  <text id="TEXT_REFRESH_INTERVAL_DETAILS">
+    <value>Atualizar detalhes do intervalo</value>
+  </text>
+  <text id="TEXT_LOCATE_PAYER">
+    <value>Localizar Contribuinte</value>
+  </text>
+  <text id="TEXT_MANUALLY_ASSIGN_ACCOUNTS">
+    <value>Atribuir Contas Manualmente</value>
+  </text>
+  <text id="TEXT_TEMP_BILLING_GROUP">
+    <value>Crie um grupo de cobrança temporário para esse intervalo para cobrar contas não atribuídas.</value>
+  </text>
+  <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_TITLE">
+    <value>Contas que Tinham Falhas Relatadas para Execução Desse Adaptador</value>
+  </text>
+  <text id="TEXT_ADAPTER_FAILED_ACCOUNTS_LIST_NO_ACCOUNTS_FOUND">
+    <value>Nenhuma conta com falhas relatadas foi encontrada. Esse adaptador não relatou nenhum lote ou não houve falhas nos lotes relatados em relação a determinadas contas. </value>
+  </text>
+  <text id="TEXT_OPENUNASSIGNED_ACCOUNTS">
+    <value>Abrir Contas Não Atribuídas</value>
+  </text>
+  <text id="TEXT_HARD_CLOSED_UNASSIGN_ACCOUNTS">
+    <value>Contas Não Atribuídas Fechadas Permanentemente</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_INVOICED">
+    <value>Novas Contas Podem Ser Faturadas para Esse Intervalo</value>
+  </text>
+  <text id="TEXT_CHANGE">
+    <value>Alterar</value>
+  </text>
+  <text id="TEXT_ACCOUNTS_NOT_INVOICED">
+    <value>Novas Contas Não Serão Faturadas para Esse Intervalo</value>
+  </text>
+  <text id="TEXT_REFRESH_INTERVAL_DETAILS">
+    <value>Atualizar Detalhes do Intervalo</value>
+  </text>
+  <text id="TEXT_SUCCEEDED">
+    <value>Bem-sucedido</value>
+  </text>
+  <text id="TEXT_BG_TITLE_INTERVAL">
+    <value>Interval</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_MONTHLY">
+    <value>Mensalmente</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_DAILY">
+    <value>Diariamente</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_WEEKLY">
+    <value>Semanalmente</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_BIWEEKLY">
+    <value>Bissemanal</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_QUARTERLY">
+    <value>Trimestralmente</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_SEMI_ANNUAL">
+    <value>Semestralmente</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ANNUAL">
+    <value>Anual</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ALL">
+    <value>All</value>
+  </text>
+  <text id="TEXT_BG_CYCLE_ERROR">
+    <value>(unknown cycle type)</value>
+  </text>
+  <text id="TEXT_BG_STATUS_OPEN">
+    <value>Open</value>
+  </text>
+  <text id="TEXT_BG_STATUS_HARD_CLOSED">
+    <value>Hard Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_SOFT_CLOSED">
+    <value>Soft Closed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_UNKOWN">
+    <value>UNKOWN</value>
+  </text>
+  <text id="TEXT_BG_NAME_DEFAULT">
+    <value>Default</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_DEFAULT">
+    <value>Accounts that did not match other billing group rules</value>
+  </text>
+  <text id="TEXT_BG_NAME_EUROPE">
+    <value>Europe</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_EUROPE">
+    <value>Accounts with Bill-To addresses residing in an European country</value>
+  </text>
+  <text id="TEXT_BG_NAME_NORTH_AMERICA">
+    <value>North America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_NORTH_AMERICA">
+    <value>Accounts with Bill-To addresses residing in a North American country</value>
+  </text>
+  <text id="TEXT_BG_NAME_SOUTH_AMERICA">
+    <value>South America</value>
+  </text>
+  <text id="TEXT_BG_DESCRIPTION_SOUTH_AMERICA">
+    <value>Accounts with Bill-To addresses residing in a South American country</value>
+  </text>
+  <text id="TEXT_BG_TITLE_BILLING_GROUP_STATE">
+    <value>Billing Group State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_NEW_STATE">
+    <value>New State</value>
+  </text>
+  <text id="TEXT_BG_GRID_TITLE_DESCRIPTION">
+    <value>Description</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_OK_NAME">
+    <value>OK</value>
+  </text>
+  <text id="TEXT_BG_BUTTON_CANCEL_NAME">
+    <value>Cancel</value>
+  </text>
+  <text id="TEXT_BG_BILLING_GROUP_STATE_GRID_TITLE">
+    <value>The current state of this Billing Group is</value>
+  </text>
+  <text id="TEXT_BG_PAGE_TITLE_BILLING_MANAGAMENT">
+    <value>Billing Management</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READYTORUN">
+    <value>Ready To Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_READYTOREVERSE">
+    <value>Ready To Reverse</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_NOTYETRUN">
+    <value>Not Yet Run</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_ACKNOWLEDGE">
+    <value>Acknowledge</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_RUNNING">
+    <value>Running</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_SUCCEEDED">
+    <value>Succeeded</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_FAILED">
+    <value>Failed</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_INPROGRESS">
+    <value>In Progress</value>
+  </text>
+  <text id="TEXT_BG_STATUS_CODE_REVERSING">
+    <value>Invertendo</value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_EXECUTE">
+    <value>Execute </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_REVERSE">
+    <value>Reverse </value>
+  </text>
+  <text id="TEXT_Unassigned_Accounts_That_Are_Hard_Closed">
+    <value>Unassigned Accounts That Are Hard Closed</value>
+  </text>
+  <text id="TEXT_Unassigned_Accounts_That_Are_Open">
+    <value>Unassigned Accounts That Are Open</value>
+  </text>
+  <text id="TEXT_Account">
+    <value>Account</value>
+  </text>
+  <text id="TEXT_Account_ID">
+    <value>Account ID</value>
+  </text>
+  <text id="TEXT_User_Name">
+    <value>User Name</value>
+  </text>
+  <text id="TEXT_Namespace">
+    <value>Namespace</value>
+  </text>
+  <text id="TEXT_Members_of">
+    <value>Members of</value>
+  </text>
+  <text id="TEXT_Search">
+    <value>Search</value>
+  </text>
+  <text id="TEXT_Locate_Billing_Group_for_Payer_in_Interval">
+    <value>Locate Billing Group for Payer in Interval</value>
+  </text>
+  <text id="TEXT_Go_to_this_Group">
+    <value>Go to this Group</value>
+  </text>
+  <text id="TEXT_OPEN">
+    <value>Open</value>
+  </text>
+  <text id="TEXT_Soft_Closed">
+    <value>Soft Closed</value>
+  </text>
+  <text id="TEXT_Hard_Closed">
+    <value>Hard Closed</value>
+  </text>
+  <text id="TEXT_unknown">
+    <value>unknown</value>
+  </text>
+  <text id="TEXT_Payer_not_found_in_billing_group_for_interval_">
+    <value>Payer not found in billing group for interval </value>
+  </text>
+  <text id="TEXT_Both_the_User_Name_and_Namespace_are_required_when_not_searching_by_account_id">
+    <value>Both the User Name and Namespace are required when not searching by account id.</value>
+  </text>
+  <text id="TEXT_Locate_Billing_Group">
+    <value>Locate Billing Group</value>
+  </text>
+  <text id="TEXT_Create_Billing_Group_from_Pull_List">
+    <value>Create Billing Group from Pull List</value>
+  </text>
+  <text id="TEXT_New_Group_Name">
+    <value>New Group Name</value>
+  </text>
+  <text id="TEXT_What_accounts_should_be_included">
+    <value>What accounts should be included in this new billing group?</value>
+  </text>
+  <text id="TEXT_All_Failed_Accounts">
+    <value>All Failed Accounts</value>
+  </text>
+  <text id="TEXT_Include_all_failed_accounts">
+    <value>Include all failed accounts from the run.</value>
+  </text>
+  <text id="TEXT_Specify_Accounts_in_a_Pull_List">
+    <value>Specify Accounts in a Pull List</value>
+  </text>
+  <text id="TEXT_A_pull_list_is_used_to_remove">
+    <value>A pull list is used to remove accounts from the current billing group. These
+      accounts will be placed in this newly created billing group. Specify either
+      account IDs separated by returns or username\namespace pairs separated by
+      returns. You may also use the inline account finder below to add accounts to
+      the textbox.
+    </value>
+  </text>
+  <text id="TEXT_Find_Account">
+    <value>Find Account</value>
+  </text>
+  <text id="TEXT_A_pull_list_is_used_to_remove2">
+    <value>A pull list file is used to remove accounts from the current billing group.
+      These accounts will be placed in this newly created billing group. The file
+      format is a UTF-8 encoded text file that specifies either account IDs separated
+      by returns or username comma namespace pairs separated by returns.
+    </value>
+  </text>
+  <text id="TEXT_Create_Pull_List_From_File">
+    <value>Create Pull List From File</value>
+  </text>
+  <text id="TEXT_Payee_Account">
+    <value>Payee Account</value>
+  </text>
+  <text id="TEXT_Payee_Account_ID">
+    <value>Payee Account ID</value>
+  </text>
+  <text id="TEXT_Payee_User_Name">
+    <value>Payee User Name</value>
+  </text>
+  <text id="TEXT_Payee_Namespace">
+    <value>Payee Namespace</value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASNOTYETRUN">
+    <value>Mark as not yet Run </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASFAILED">
+    <value>Mark as Failed </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_MARKASSUCCEEDED">
+    <value>Mark as Succeeded </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_CANCEL">
+    <value>Cancel </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_UNACKNOWLEDGE">
+    <value>Unacknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_ACKNOWLEDGE">
+    <value>Acknowledge </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFORREVERSAL">
+    <value>Submit For Reversal </value>
+  </text>  
+  <text id="TEXT_BG_RUN_ACTION_SUBMITFOREXECUTION">
+    <value>Submit For Execution </value>
+  </text>
+  <text id="TEXT_BG_RUN_ACTION_WAS_FORCED">
+    <value>The adapter run was forced to ignore dependencies</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_CHECKPOINT">
+    <value>Checkpoint</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ENDOFPERIOD">
+    <value>End Of Period</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_SCHEDULED">
+    <value>Scheduled</value>
+  </text>
+  <text id="TEXT_BG_RUN_TYPE_ROOT">
+    <value>Root</value>
+  </text>  
+  <text id="TEXT_SECOND_SINGULAR">
+    <value>second</value>
+  </text>
+  <text id="TEXT_MINUTE_SINGULAR">
+    <value>minute</value>
+  </text>
+  <text id="TEXT_SECOND_PLURAL">
+    <value>seconds</value>
+  </text>
+  <text id="TEXT_MINUTE_PLURAL">
+    <value>minutes</value>
+  </text>
+  <text id="TEXT_RETURN_TO_INTERVAL_LIST">
+    <value>Return To Interval List</value>
+  </text>
+</texts>

@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="MeteringTimeOut" type="collection">
-
-  
   <text id="TEXT_METERING_TIME_OUT_DO_YOU_WANT_TO_RE_TRY">
     <value>Do you want to try again ?</value>
-  </text>  
-  
+  </text>
   <text id="TEXT_RETRY_COUNTER">
     <value>Retry Counter</value>
-  </text>  
-  
+  </text>
   <text id="TEXT_METERING_TIME_OUT_MANAGER_TITLE">
     <value>Metering Time-Out Manager</value>
-  </text>  
-  
+  </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_TIME_OUT">
     <value>The operation timed out.</value>
-  </text>  
-
+  </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_UPDATE_TIME_OUT">
     <value>The update timed out.</value>
-  </text>    
-  
+  </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_SUCCEEDED">
     <value>The operation succeeded.</value>
-  </text>  
-  
+  </text>
   <text id="TEXT_METERING_TIME_OUT_OPERATION_WILL_BE_EXECUTED_LATED">
     <value>The operation will be executed later.</value>
   </text>
-  
   <text id="TEXT_PLEASE_RELOAD_THE_ACCOUNT">
     <value>Please Find and Display the Account to continue working with it.</value>
-  </text>  
-  
+  </text>
 </texts>

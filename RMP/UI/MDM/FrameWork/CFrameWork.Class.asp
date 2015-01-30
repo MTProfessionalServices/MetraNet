@@ -47,13 +47,14 @@ PUBLIC CONST ACCOUNT_TYPE_MOM = "MOM"
 PUBLIC CONST ACCOUNT_TYPE_MCM = "MCM"
 
 ' Internal names used to stored information in the session
-PUBLIC CONST FRAMEWORK_APP_STARTPAGE    = "FRAMEWORK_APP_STARTPAGE"
-PUBLIC CONST FRAMEWORK_APP_FOLDER       = "FRAMEWORK_APP_FOLDER"
-PUBLIC CONST FRAMEWORK_APP_DICTIONARY   = "FRAMEWORK_APP_DICTIONARY"
-PUBLIC CONST FRAMEWORK_APP_LANGUAGE     = "FRAMEWORK_APP_LANGUAGE"
-PUBLIC CONST FRAMEWORK_APP_PATH         = "FRAMEWORK_APP_PATH"
-PUBLIC CONST FRAMEWORK_LOCALIZED_PATH   = "FRAMEWORK_LOCALIZED_PATH"
-PUBLIC CONST FRAMEWORK_APP_RCD          = "FRAMEWORK_APP_RCD"
+PUBLIC CONST FRAMEWORK_APP_STARTPAGE    	= "FRAMEWORK_APP_STARTPAGE"
+PUBLIC CONST FRAMEWORK_APP_FOLDER       	= "FRAMEWORK_APP_FOLDER"
+PUBLIC CONST FRAMEWORK_APP_DICTIONARY   	= "FRAMEWORK_APP_DICTIONARY"
+PUBLIC CONST FRAMEWORK_APP_LANGUAGE     	= "FRAMEWORK_APP_LANGUAGE"
+PUBLIC CONST FRAMEWORK_APP_PATH         	= "FRAMEWORK_APP_PATH"
+PUBLIC CONST FRAMEWORK_APP_LANGUAGE_SHORT   = "FRAMEWORK_APP_LANGUAGE_SHORT"
+PUBLIC CONST FRAMEWORK_LOCALIZED_PATH   	= "FRAMEWORK_LOCALIZED_PATH"
+PUBLIC CONST FRAMEWORK_APP_RCD          	= "FRAMEWORK_APP_RCD"
 
 
 PUBLIC CONST FRAMEWORK_DEFAULT_LANGUAGE = "en-us"
@@ -728,7 +729,11 @@ CLASS CFrameWork ' -- The FrameWork Class --
 	                    Session(alias_mdm_APP_FOLDER)                  =  Application(FRAMEWORK_APP_PATH)
 	                    Session(alias_mdm_APP_LANGUAGE)                =  Session(FRAMEWORK_APP_LANGUAGE)
 	            End If
-	
+
+				dim langFull
+				langFull = Session(FRAMEWORK_APP_LANGUAGE)
+				Session(FRAMEWORK_APP_LANGUAGE_SHORT) = Right(langFull, (Len(langFull)-InStrRev(langFull, "-")))
+				
 	            strMessage = vbNewline  & "*****************************************************************" & vbNewline
 	            strMessage = strMessage & " Starting Framework - " & Now                                      & vbNewline
 	            strMessage = strMessage & "*****************************************************************"
@@ -1363,7 +1368,7 @@ CLASS CFrameWork ' -- The FrameWork Class --
   		' Separate template into the date subtemplate and time subtemplate, and maybe the AMPM piece
   		vFormatTemplate = Split(Framework.GetDictionary("DATE_TIME_FORMAT"), " ")
   		
-  		cDateSep = MID(vFormatTemplate(0), 3, 1)
+  		cDateSep = Framework.GetDictionary("DATE_SEPARATOR")'MID(vFormatTemplate(0), 3, 1)
   		cTimeSep = ":"
   		
   		' Do the same thing for our input string
@@ -1386,13 +1391,13 @@ CLASS CFrameWork ' -- The FrameWork Class --
   			End If
   			
   			Select Case UCase(vDateTemplate(i))
-  				Case "DD"
+  				Case "DD", "D"
   					iDay = Clng(vDateInput(i))
   					If iDay < 1 or iDay > 31 Then
   						IsValidDate = FALSE
   						exit function
   					End If								
-  				Case "MM"
+  				Case "MM", "M"
   					iMonth = Clng(vDateInput(i))
   					If iMonth < 1 or iMonth > 12 Then
   						IsValidDate = FALSE
@@ -1446,19 +1451,19 @@ CLASS CFrameWork ' -- The FrameWork Class --
   			End If
   
   			Select Case UCase(vTimeTemplate(i))
-  				Case "HH"
+  				Case "HH", "H"
   					iHour = Clng(iCurSegment)
   					If iHour < 0 or iHour > 24 Then
   						IsValidDate = FALSE
   						exit function
   					End If
-  				Case "MM"
+  				Case "MM", "M"
   					iMin = Clng(iCurSegment)
   					If iMin < 0 or iMin > 60 Then
   						IsValidDate = FALSE
   						exit function
   					End If								
-  				Case "SS"
+  				Case "SS", "S"
   					iSec = Clng(iCurSegment)
   					If iSec < 0 or iSec > 60 Then
   						IsValidDate = FALSE

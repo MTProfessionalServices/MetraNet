@@ -33,6 +33,7 @@ Option Explicit
 <!-- #INCLUDE FILE="../../auth.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/mdm.asp" -->
 <!-- #INCLUDE FILE="../../default/lib/momLibrary.asp" -->
+<!-- #INCLUDE VIRTUAL="/mdm/FrameWork/CFrameWork.Class.asp" -->
 <%
 Form.Version                    = MDM_VERSION     ' Set the dialog version - we are version 2.0.
 Form.ErrorHandler               = FALSE  
@@ -89,10 +90,13 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   
   ' Load a Rowset from a SQL Queries and build the properties collection of the product view based on the columns of the rowset
   Set ProductView.Properties.RowSet = rowset
-  ProductView.Properties.AddPropertiesFromRowset rowset
-  
+  ProductView.Properties.AddPropertiesFromRowset ProductView.Properties.RowSet
   ProductView.Properties.SelectAll
-  
+
+  ProductView.Properties("DetailType").Caption = mom_GetDictionary("TEXT_DETAIL_TYPE")
+  ProductView.Properties("Detail").Caption = mom_GetDictionary("TEXT_DETAIL")
+  ProductView.Properties("Timestamp").Caption = mom_GetDictionary("TEXT_TIMESTAMP")
+
   Service.Properties.Add "RunId", "int32", 0, False, 0, eMSIX_PROPERTY_FLAG_NOT_STORED_IN_ROWSET
   Service.Properties("RunId").Value=idRun
   
@@ -140,9 +144,9 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ' else one.
   ProductView.LoadJavaScriptCode
   
-  ProductView.Properties.CancelLocalization
+'  ProductView.Properties.CancelLocalization
   
-  Form_LoadProductView                                  = TRUE ' Must Return TRUE To Render The Dialog
+  Form_LoadProductView = TRUE ' Must Return TRUE To Render The Dialog
   
 END FUNCTION
 
@@ -190,7 +194,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim strEndOfPageHTMLCode, strTmp
     
     
-    strTmp = "</table><div align=center><BR><BR><button  onclick='mdm_RefreshDialog(this); return false;' name='refresh' Class='clsOkButton'>Refresh</button><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button>" & vbNewLine
+    strTmp = "</table><div align=center><BR><BR><button  onclick='mdm_RefreshDialog(this); return false;' name='refresh' Class='clsOkButton'>[TEXT_REFRESH]</button><button  name='CLOSE' Class='clsOkButton' onclick='window.close(); return false;'>[TEXT_CLOSE]</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"

@@ -59,6 +59,7 @@ mdm_PVBrowserMain ' invoke the mdm framework
 ' RETURNS       :
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 	  on error resume next  
+    Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
     Dim i      
     Form_Initialize = FALSE
     
@@ -71,14 +72,17 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     ProductView.Properties.ClearSelection ' Select the properties I want to print in the PV Browser Order
     
     Form("Status") = Request.QueryString("Status")
+
+    Dim title
     
     'Set the screen title
     If Form("Status")="HardClosed" Then
-      mdm_GetDictionary().Add "UNASSIGNED_ACCOUNTS_TITLE", "Unassigned Accounts That Are Hard Closed"'mom_GetDictionary(Form("Title"))
+      title = mom_GetDictionary("TEXT_Unassigned_Accounts_That_Are_Hard_Closed")
     Else
-      mdm_GetDictionary().Add "UNASSIGNED_ACCOUNTS_TITLE", "Unassigned Accounts That Are Open" 
+      title = mom_GetDictionary("TEXT_Unassigned_Accounts_That_Are_Open")
     End If
 
+    mdm_GetDictionary().Add "UNASSIGNED_ACCOUNTS_TITLE", title
 
     'ProductView.Properties.Interval.DisplayInvoiceNumber  = FALSE    
 	Form_Initialize                                       = TRUE
@@ -134,6 +138,14 @@ PRIVATE FUNCTION MyForm_LoadProductView(EventArg) ' As Boolean
   'end if
   'CLng(Form("IntervalID"))
   
+  Dim partitionId 
+  partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  if Not IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    if Not (partitionId = 1) then
+      objFilter.PartitionId = (partitionId)
+    end if
+  end if
+
   Set ProductView.Properties.RowSet = objUSM.GetUnassignedAccountsForIntervalAsRowset((objFilter))
   
   ProductView.Properties.AddPropertiesFromRowset ProductView.Properties.RowSet
@@ -156,10 +168,10 @@ ProductView.Properties("AccountID").Selected =   i : i=i+1
 ProductView.Properties("nm_login").Selected =    i : i=i+1
 ProductView.Properties("nm_space").Selected =   i : i=i+1
 
-ProductView.Properties("DisplayName").Caption = "Account"
-ProductView.Properties("AccountID").Caption 	= "Account ID"  
-ProductView.Properties("nm_login").Caption    = "User Name"
-ProductView.Properties("nm_space").Caption   = "Namespace"
+ProductView.Properties("DisplayName").Caption = mom_GetDictionary("TEXT_Account")
+ProductView.Properties("AccountID").Caption 	= mom_GetDictionary("TEXT_Account_ID")
+ProductView.Properties("nm_login").Caption    = mom_GetDictionary("TEXT_User_Name")
+ProductView.Properties("nm_space").Caption    = mom_GetDictionary("TEXT_Namespace")
 
   
   mdm_SetMultiColumnFilteringMode TRUE  
@@ -300,27 +312,27 @@ END FUNCTION
 PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
 
     Dim strEndOfPageHTMLCode, strTmp
-    
-    If Form("Status")<>"HardClosed" AND ProductView.Properties.RowSet.RecordCount>0 Then
-      Form_DisplayEndOfPageAddSelectButtons EventArg, "", FALSE ' No JavaScript, Do not close the form 
-      
-      strTmp = "<div align='center'><BR><button  name='HARDCLOSE' Class='clsButtonXLarge' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>Mark As Hard Closed</button>" & vbNewLine
+
+  If Form("Status")<>"HardClosed" AND ProductView.Properties.RowSet.RecordCount>0 AND FrameWork.CheckCoarseCapability("Manage Intervals") AND (IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) OR Session("MOM_SESSION_CSR_PARTITION_ID")=1) Then
+      Form_DisplayEndOfPageAddSelectButtons EventArg, "", FALSE ' No JavaScript, Do not close the form
+       
+      strTmp = "<div align='center'><BR><button  name='HARDCLOSE' Class='clsButtonXLarge' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>" & mom_GetDictionary("TEXT_Mark_As_Hard_Closed") & "</button>" & vbNewLine
       strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
-	  
-	  'Only display 'Manually Assign Accounts' if interval has been materialized (otherwise we won't be successful on the next screen)
+	    
+      'Only display 'Manually Assign Accounts' if interval has been materialized (otherwise we won't be successful on the next screen)
       Dim objUSM
       Set objUSM = mom_GetUsageServerClientObject()
 	  Dim interval
 	  Set interval = objUSM.GetUsageInterval(CLng(Form("IntervalID")))
 	  If CBool(interval.HasBeenMaterialized) Then
-        strTmp = "&nbsp;<button name='CREATEGROUP' Class='clsButtonXLarge' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>Manually Assign Accounts</button>" & vbNewLine
+        strTmp = "&nbsp;<button name='CREATEGROUP' Class='clsButtonXLarge' onclick='mdm_UpdateSelectedIDsAndReDrawDialog(this);'>" & mom_GetDictionary("TEXT_Manually_Assign_Accounts") & "</button>" & vbNewLine
         strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
-      End If
-	Else
+    End If
+  Else
       strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</TABLE><br><div align='center'>" & vbNewLine
 	End If
 	  
-        strTmp = "&nbsp; <button onclick='window.close()' name='cancel' Class='clsButtonSmall' ID='Button2'><MDMLABEL Name='TEXT_CLOSE'>Close</MDMLABEL></button></div>" & vbNewLine
+        strTmp = "&nbsp; <button onclick='window.close()' name='cancel' Class='clsButtonSmall' ID='Button2'>" & mom_GetDictionary("TEXT_CLOSE") & "</button></div>" & vbNewLine
       strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp  
      
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"

@@ -88,7 +88,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   ElseIf(Session("PARENT") = "") Then
     Service.Properties("Parent").value = "" 
   Else
-    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Session("PARENT")), mam_GetSystemUserHierarchyTime())
+    Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Session("PARENT")), mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
     Form("CorporateAccountID") = objYAAC.CorporateAccountID          
     Service.Properties("Parent").value = objYAAC.AccountName & " (" & CLng(Session("PARENT")) & ")"
   End If
@@ -109,7 +109,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Set pc = GetProductCatalogObject()  
   If pc.IsBusinessRuleEnabled(PCCONFIGLib.MTPC_BUSINESS_RULE_Hierarchy_RestrictedOperations) and mam_GetDictionary("EDIT_PARENT") = FALSE Then
     For each id in GetAccountIDCollection()
-      Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(id), mam_GetSystemUserHierarchyTime())
+      Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(id), mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
       If objYAAC.CorporateAccountID <> Form("CorporateAccountID") Then
         mdm_GetDictionary.Add "ShowCorporateWarning", true
     	  Form_Initialize = TRUE      
@@ -149,7 +149,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     If FrameWork.DecodeFieldID(Service.Properties("Parent").value, strParent) Then
         if strParent <> "1" then
           ' Make sure we have a valid Parent account
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, CDate(Service.Properties("StartDate")))
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, mam_ConvertToSysDate(CDate(Service.Properties("StartDate"))))
           If Err.Number <> 0 Then
               EventArg.Error.number = 1049
               EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1049")
@@ -173,7 +173,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         set col = GetAccountIDCollection()
       	Set newCol = Server.CreateObject(MT_COLLECTION_PROG_ID)
         for each id in col
-           Set objYAAC = FrameWork.AccountCatalog.GetAccount(id, mam_GetSystemUserHierarchyTime())
+           Set objYAAC = FrameWork.AccountCatalog.GetAccount(id, mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
            Call objYAAC.GetDescendents(newCol, mam_GetSystemUserHierarchyTime(), RECURISVE, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS"))) 
         next
     
@@ -259,7 +259,7 @@ FUNCTION DropGrid()
         Exit Function
       End If
       on error resume next
-      Set objYAAC =  FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_GetSystemUserHierarchyTime())
+      Set objYAAC =  FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime())
       UserName = objYAAC.AccountName & " (" & AccountID & ")"      
       if err.number > 0 then
         exit function
@@ -299,7 +299,7 @@ FUNCTION DropGrid()
           If Not IsNumeric(AccountID) Then
             Exit Function
           End If
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_GetSystemUserHierarchyTime())          
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(AccountID), mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))          
           UserName = objYAAC.AccountName & " (" & AccountID & ")"
         
           rs.Value(0) = objYAAC.IsFolder

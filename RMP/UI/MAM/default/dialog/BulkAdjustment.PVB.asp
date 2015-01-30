@@ -140,12 +140,24 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
           EventArg.HTMLRendered = objPreProcessor.Process(strTemplateCheckBox)
           Form_DisplayCell      = TRUE
         Case 2
-          Form_DisplayCell = Inherited("Form_DisplayCell()")    
+          Form_DisplayCell = Inherited("Form_DisplayCell()")   
         Case 9
+        'code fix for core-6775 adjustment amount shows values in timestamp 
+        '****Starts here******
+        'code fix for core-6775 oracle and sql DB Values Form.Grid.SelectedProperty.Name="COMPOUNDPREBILLADJAMT" ||CompoundPrebillAdjAmt
+        if UCase(Form.Grid.SelectedProperty.Name)="COMPOUNDPREBILLADJAMT" then
+        Form_DisplayCell = Inherited("Form_DisplayCell()")
+        else
+        '****End Here******
             EventArg.HTMLRendered = EventArg.HTMLRendered  & "<TD nowrap Class='[CLASS]'>"
             EventArg.HTMLRendered = EventArg.HTMLRendered  & Framework.Format(ProductView.Properties.RowSet.Value("timestamp"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value)
             EventArg.HTMLRendered = EventArg.HTMLRendered  &  "</TD>"
             EventArg.HTMLRendered = PreProcess(EventArg.HTMLRendered,Array("CLASS", Form.Grid.CellClass))
+        
+        'code fix for core-6775 adjustment amount shows values in timestamp 
+        '****Starts here******
+        End if 
+        '****End Here******
         Case Else
               
           Select Case UCase(Form.Grid.SelectedProperty.Name)
@@ -184,13 +196,14 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
 
     strTmp = strTmp & "<div class='clsButtonBox'>"       
     strTmp = strTmp & "<button  name='butAdjustSelectedTransaction' Class='clsButtonLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this); return false;'>[TEXT_ADJUST_SELECTED_TRANSACTION]</button><br/>"
-    strTmp = strTmp & "You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</div>"
+    strTmp = strTmp & mam_GetDictionary("TEXT_YOU_MAY_MAKE") & "</div>"
     strTmp = strTmp & "<br/><br/><br/><br/><br/><br/><br/>"
       
     'We do not support bulk re-assignment in pre-bill case, so we added an explination in Kona - CR13822
     strTmp = strTmp & "<div class='clsButtonBox'>"
-    strTmp = strTmp & "<button  name='butAdjustRebillTransaction' Class='clsButtonLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this); return false;'>Reassign Selected Transactions</button><br/>"
-    strTmp = strTmp & "You may only bulk reassign transactions when the status is Hard Closed.</div>"
+    strTmp = strTmp & "<button  name='butAdjustRebillTransaction' Class='clsButtonLarge' OnClick='mdm_UpdateSelectedIDsAndReDrawDialog(this); return false;'>"
+    strTmp = strTmp & mam_GetDictionary("TEXT_Reassign_Selected_Transactions") & "</button><br/>"
+    strTmp = strTmp & mam_GetDictionary("TEXT_YOU_MAY_ONLY") & "</div>"    
     strTmp = strTmp & "<br/><br/><br/><br/><br/><br/><br/>"
 
     strTmp = strTmp & "<div style='text-align:center'>"

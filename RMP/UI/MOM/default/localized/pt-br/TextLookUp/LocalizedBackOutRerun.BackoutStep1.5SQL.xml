@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_Identify_Sessions_Using_SQL">
+    <value>Identificar Sessões Usando SQL</value>
+  </text>
+  <text id="TEXT_An_empty_table_with_the_name_t_rerun_session_">
+    <value>Uma tabela vazia com o nome &lt;b&gt;t_rerun_session_</value>
+  </text>
+  <text id="TEXT_has_just_been_created_in_the_database_The">
+    <value> acabou de ser criada no banco de dados. O</value>
+  </text>
+  <text id="TEXT_in_the_table_name_is_the_current_rerun_id">
+    <value> no nome da tabela é a id de reexecução atual.</value>
+  </text>
+  <text id="TEXT_You_will_now_need_to_access_the_database_directly">
+    <value>Agora você precisará ter acesso ao banco de dados diretamente e executar o SQL necessário para preencher essa tabela, t_rerun_session_</value>
+  </text>
+  <text id="TEXT_with_the_session_ids_you_wish">
+    <value>, com as ids de sessão cujo backout deseja realizar ou reenviar.&lt;br&gt;&lt;br&gt;Depois de preencher a tabela com as ids de sessão, selecione 'Próxima Etapa: Análise' abaixo para prosseguir para a página 'Identificação e Análise' onde pode analisar o que será incluído no backout e reenviado antes de qualquer ação ser realizada nessas sessões.</value>
+  </text>
+  <text id="TEXT_I_will_use_SQL_directly_to_identify_the_records_to_be_backed_out">
+    <value>Eu usarei SQL diretamente para identificar os registros a serem incluídos no backout.</value>
+  </text>
+  <text id="TEXT_Next_Step_Analyze">
+    <value>Próxima Etapa: Analisar</value>
+  </text>
+  <text id="TEXT_Examples">
+    <value>Exemplos</value>
+  </text>
+  <text id="TEXT_Essentially_you_are_just">
+    <value>Basicamente, você está apenas inserindo as ids de sessão das transações que deseja incluir no backout, mas as ids têm que ser inseridas de uma determinada forma. Além disso, a consulta para inserção de ids de transação com falhas é diferente da consulta para inserção de ids de transação bem-sucedidas.&lt;br&gt;&lt;br&gt;Se você cometer um erro, sem problema. Desde que não tenha excluído ou reenviado as transações, mesmo que tenha prosseguido para a página seguinte (a página Identificação e Análise) e descubra que cometeu um erro, você poderá atualizar a tabela &lt;b&gt;t_rerun_session_</value>
+  </text>
+  <text id="TEXT_table_by_adding_or">
+    <value> adicionando ou excluindo registros sem começar novamente, desde que selecione 'Reanalisar' na parte superior da próxima página para atualizar as informações de resumo antes de continuar para realmente excluir ou reenviar as transações.</value>
+  </text>
+  <text id="TEXT_Usage_Transaction_Example">
+    <value>Exemplo de Transação de Uso</value>
+  </text>
+  <text id="TEXT_For_Example">
+    <value>Por exemplo, se a seguinte consulta de seleção de uso para a conta 137 que foi processada antes de fevereiro de 2005 representava as sessões cujo backout você queria realizar</value>
+  </text>  
+  <text id="TEXT_Then_you_would_execute">
+    <value>Você teria que executar a seguinte consulta para inserir esses mesmos registros na tabela de reexecução</value>
+  </text>
+  <text id="TEXT_Failed_Transaction_Example">
+    <value>Exemplo de Transação com Falha</value>
+  </text>
+  <text id="TEXT_Failed_Transaction_Example_Content">
+    <value>Por exemplo, se a seguinte consulta de seleção de transações com falha que são novas acontecessem no serviço cujo nome termina com 'testservice' e fossem medidas antes de Fevereiro de 2005 representassem as sessões cujo backout você queria realizar</value>
+  </text>
+  <text id="TEXT_Then_you_would_execute_the_following_query">
+    <value>Você teria que executar a seguinte consulta para inserir esses mesmos registros na tabela de reexecução</value>
+  </text>
+</texts>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    This file defines the system information that must be localized.
+  </description>
+  <text id="LANGUAGE_META_TAG">
+    <value>&lt;meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8"&gt; &lt;meta http-equiv="X-UA-Compatible" content="IE=8" /&gt;</value>
+    <!-- For chinese value : &lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=big5"&gt; -->
+    <description>The Language HTML Meta tag definition. This tag is used by MTMSIX.DLL.</description>
+  </text>
+  <text id="SESSION_LCID">
+    <value>1031</value>
+    <description>
+      The LCID of the locale that IIS should use. This affects formatting and should match format specified below.
+      Leave blank to not set a LCID and just accept the default.
+    </description>
+  </text>
+  <text id="MDM_TYPE_TIMESTAMP_CHARS">
+    <value>0123456789 .:</value>
+    <description>Chars allowed for a date</description>
+  </text>
+  <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
+    <value>dd.MM.yyyy</value>
+    <description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar for more information.</description>
+  </text>
+  <text id="MDM_USE_24HOUR_CLOCK">
+    <value>true</value>
+    <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
+  </text>
+  <!--   
+  <text id="MDM_TYPE_TIMESTAMP_CHARS">
+    <value>0123456789.: APMapm</value>
+    <description>Chars allowed for a date</description>
+  </text>
+  <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
+    <value>d.M.yyyy</value>
+    <description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar/pupdate.js for more information.</description>
+  </text>
+  <text id="MDM_USE_24HOUR_CLOCK">
+    <value>true</value>
+    <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
+  </text>
+  -->
+  <text id="DATE_TIME_END_OF_DAY">
+    <value><![CDATA[ 23:59:59]]></value>
+    <description>Do not remove the space at the begin</description>
+  </text>
+  <text id="DATE_FORMAT">
+    <value>dd.MM.yyyy</value>
+    <description>The date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
+  </text>
+  <text id="TIME_FORMAT">
+    <value>HH:mm:ss</value>
+    <description>The time format used all accross the application. See the Visual Basic Format instructor for more help.</description>
+  </text>
+  <text id="DATE_TIME_FORMAT">
+    <value>dd.MM.yyyy HH:mm:ss</value>
+    <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
+  </text>
+  <text id="AMOUNT_FORMAT">
+    <value>0.00;-0.00;</value>
+    <description>The amount format used all accross the application. See the Visual Basic Format instructor for more help.</description>
+  </text>
+  <text id="DECIMAL_SEPARATOR">
+    <value>,</value>
+    <description>The decimal separator. Used by MDM Client Side (JavaScript).</description>
+  </text>
+  <text id="THOUSAND_SEPARATOR">
+    <value> </value>
+    <description>The 1000 separator. Used by MDM Client Side (JavaScript).</description>
+  </text>
+  <text id="DECIMAL_DIGIT_AFTER">
+    <value>10</value>
+    <description>Number of digits after the decimal point for decimal. Used by MDM Client Side (JavaScript).</description>
+  </text>
+  <text id="DECIMAL_DIGIT_BEFORE">
+    <value>12</value>
+    <description>Number of digits before the decimal point for decimal. Used by MDM Client Side (JavaScript).</description>
+  </text>
+  <text id="DAY_LIGHT_SAVING">
+    <value>TRUE</value>
+    <description>Define if the day light saving mode must be used when the date are localized.</description>
+  </text>
+  <text id="DATE_SEPARATOR">
+    <value>.</value>
+    <description>Define if the day light saving mode must be used when the date are localized.</description>
+  </text>
+</texts>

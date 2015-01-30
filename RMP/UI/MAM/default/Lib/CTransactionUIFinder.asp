@@ -135,7 +135,7 @@ CLASS CTransactionUIFinder
             rs.ExecuteDisconnected
 
             While Not CBool(rs.EOF)
-                PriceAbleItemTypeInfoEnumType.Add CStr(rs.Value("nm_name")),Int(rs.Value("id_template")),,,CStr(rs.Value("nm_display_name")), CBool(rs.Value("supportsRebill"))
+                PriceAbleItemTypeInfoEnumType.Add CStr(rs.Value("nm_name")),CInt(rs.Value("id_template")),,,CStr(rs.Value("nm_display_name")), CBool(rs.Value("supportsRebill"))
 
                 rs.MoveNext
             Wend
@@ -225,14 +225,13 @@ CLASS CTransactionUIFinder
         
         Set SessSlice = mdm_CreateObject("MTHierarchyReports.RootSessionSlice")
         
-        If len(Service.Properties("mdmIntervalID").Value)>0  Then
-        
-            Set TimeSlice         = CreateObject("MTHierarchyReports.UsageIntervalSlice")
-            TimeSlice.IntervalID  = Service.Properties("mdmIntervalID").Value
+        If len(Service.Properties("mdmIntervalID").Value)>0 Then        
+            Set TimeSlice = CreateObject("MTHierarchyReports.UsageIntervalSlice")
+            TimeSlice.IntervalID = Service.Properties("mdmIntervalID").Value
         Else
-            Set TimeSlice                                 = CreateObject("MTHierarchyReports.DateRangeSlice")
-            TimeSlice.Begin                               = CDate(Service.Properties("StartDate").Value)
-            TimeSlice.End                                 = CDate(Service.Properties("EndDate").Value)
+            Set TimeSlice = CreateObject("MTHierarchyReports.DateRangeSlice")
+            TimeSlice.Begin = CDate(mam_NormalDateFormat(Service.Properties("StartDate")))
+            TimeSlice.End = CDate(mam_NormalDateFormat(Service.Properties("EndDate")))
         End If
         
         If Service.Properties("CurrentAccountIsThePayer").Value = ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_PAYER Then
@@ -266,41 +265,45 @@ CLASS CTransactionUIFinder
     
     PUBLIC FUNCTION InsertPriceAbleItemProperties()
     
-        Dim Prop, strHTML, strPropertiesList, strProperty, strDisplayName, strHTMLTEMPLATE, strMSIXType
+        Dim Prop, strHTML, strPropertiesList, strProperty, strDisplayName, strHTMLTEMPLATE, strMSIXType, propName
         
         RemovePropertyTagged "INPUT"
 
         ' Read As A Collection Of Entry        
         strPropertiesList = FrameWork.Dictionary.GetCollectionAsCSVString(TRANSACTION_FINDER_TEMPLATE_DICTIONARY_PREFIX & ProductViewFQN)
-        If  Len(strPropertiesList)=0Then 
-        
-            For Each Prop in PriceAbleItemProperties
-            
+        If  Len(strPropertiesList) = 0 Then         
+            For Each Prop in PriceAbleItemProperties            
                 strPropertiesList =  strPropertiesList & LCase(Prop.Dn) & ","
             Next
         End If
 
         For Each strProperty In Split(strPropertiesList,",")
-            
-              Set Prop = GetSearchOnProperty(strProperty)
+            Set Prop = GetSearchOnProperty(strProperty)
 
-             If IsValidObject(Prop) Then
+            If IsValidObject(Prop) Then
              
                 If Prop.Core = FALSE Then ' Exclude properties coming from t_acc_usage
                       
                       strDisplayName = Empty
                       ProductView.Tools.GetLocalizedString MAM().CSR("Language").Value,ProductViewFQN & "/" & Prop.dn,strDisplayName
-                      If  Len(strDisplayName)=0 Then strDisplayName = Prop.dn
+                      If Len(strDisplayName) = 0 Then strDisplayName = Prop.dn
     
                       strMSIXType = mdm_ComputeMSIXHandlerPropertyTypeAsString(Prop.DataType)
                       
-                      If strMSIXType=MSIXDEF_TYPE_ENUM Then strMSIXType=MSIXDEF_TYPE_STRING ' Create the property as string because I prefer to reset the type later, This will avoid to log an error...
+                      ' Create the property as string because I prefer to reset the type later, This will avoid to log an error...
+                      If strMSIXType = MSIXDEF_TYPE_ENUM Then strMSIXType = MSIXDEF_TYPE_STRING 
                       
-                      Service.Properties.Add "_" & prop.dn, strMSIXType,IIF(strMSIXType=MSIXDEF_TYPE_STRING,255,0), False, Empty
-                      Service.Properties("_" & prop.dn).Caption = strDisplayName
-                      Service.Properties("_" & prop.dn).Tag = "INPUT"
+                      propName = "_" & prop.dn
+                      If strMSIXType = MSIXDEF_TYPE_TIMESTAMP Then 
+                        Service.Properties.Add propName, MSIXDEF_TYPE_STRING, 255, False, Empty
+                      Else
+                        Service.Properties.Add propName, strMSIXType, IIF(strMSIXType=MSIXDEF_TYPE_STRING, 255, 0), False, Empty
+                      End If
+
+                      Service.Properties(propName).Caption = strDisplayName
+                      Service.Properties(propName).Tag = "INPUT"
     
-                      If Service.Properties("_" & prop.dn).PropertyType=MSIXDEF_TYPE_TIMESTAMP Then
+                      If strMSIXType = MSIXDEF_TYPE_TIMESTAMP Then
                      
                           strHTMLTEMPLATE = ""
                           strHTMLTEMPLATE = strHTMLTEMPLATE & vbNewLine & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''>" & vbNewLine
@@ -309,25 +312,23 @@ CLASS CTransactionUIFinder
                           strHTMLTEMPLATE = strHTMLTEMPLATE & "</TD></TR>" & vbNewLine                  
                           strHTML         = strHTML & strHTMLTEMPLATE
                           
-                          Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = TRUE
-                          
-                      ElseIf Service.Properties("_" & prop.dn).PropertyType=MSIXDEF_TYPE_BOOLEAN Then
+                      ElseIf strMSIXType = MSIXDEF_TYPE_BOOLEAN Then
                           
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><SELECT Class='clsInputBox' Name='[PROPERTYNAME]'></SELECT></TD></TR>" & vbNewLine
-                          Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = TRUE
-                          Service.Properties("_" & prop.dn).Value = Empty
+                          Service.Properties(propName).EnumTypeSupportEmpty = TRUE
+                          Service.Properties(propName).Value = Empty
                                                 
                       ElseIf Len(Prop.EnumNamespace) Then
                       
-                          Service.Properties("_" & prop.dn).SetPropertyType "ENUM", Prop.EnumNamespace, prop.EnumEnumeration
-                          Service.Properties("_" & prop.dn).Value = ""
-                          Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = true 'CORE-6952 Fix so that when not populating enum filters, MSIXProperty.cls does not try to fill in a default value when no value is selected before performing the search
+                          Service.Properties(propName).SetPropertyType "ENUM", Prop.EnumNamespace, prop.EnumEnumeration
+                          Service.Properties(propName).Value = ""
+                          Service.Properties(propName).EnumTypeSupportEmpty = true 'CORE-6952 Fix so that when not populating enum filters, MSIXProperty.cls does not try to fill in a default value when no value is selected before performing the search
 
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><SELECT Class='clsInputBox' Name='[PROPERTYNAME]'></SELECT></TD></TR>" & vbNewLine
                       Else
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><INPUT Size=30 Type='Text' Class='clsInputBox' Name='[PROPERTYNAME]'></TD></TR>" & vbNewLine
                       End If
-                      strHTML = PreProcess(strHTML,Array("PROPERTYNAME","_" & Prop.dn)) & vbNewLine
+                      strHTML = PreProcess(strHTML,Array("PROPERTYNAME",propName)) & vbNewLine
                   End If                      
               End If
         Next
@@ -426,31 +427,34 @@ CLASS CTransactionUIFinder
     PUBLIC FUNCTION Initialize()
         Initialize = FALSE
         
-        Service.Properties.Clear
-        FrameWork.Dictionary.Add "ADJUSTMENT_FINDER_PRICE_ABLE_ITEM_SUB_TEMPLATE", "<MDMHTML>"
+       ' If Service.Properties("PriceAbleItem").Value = 0 Then
+          Service.Properties.Clear
+          FrameWork.Dictionary.Add "ADJUSTMENT_FINDER_PRICE_ABLE_ITEM_SUB_TEMPLATE", "<MDMHTML>"
       
-        Service.Properties.Add "CurrentAccountIsThePayer", "Int32",0,TRUE, Empty
-        Service.Properties("CurrentAccountIsThePayer").Caption  = PreProcess(FrameWork.Dictionary.Item("ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_CAPTION").Value  ,Array("SUBSCRIBER","<B>" & MAM().Subscriber("UserName").Value & "</B>") )
-        Service.Properties("CurrentAccountIsThePayer").AddValidListOfValueFromDictionaryCollection FrameWork.Dictionary(),"ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH"
-        Service.Properties("CurrentAccountIsThePayer").Value    = CLng(FrameWork.Dictionary.Item("ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER").Value)
+          Service.Properties.Add "CurrentAccountIsThePayer", "Int32",0,TRUE, Empty
+          Service.Properties("CurrentAccountIsThePayer").Caption  = PreProcess(FrameWork.Dictionary.Item("ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_CAPTION").Value  ,Array("SUBSCRIBER","<B>" & MAM().Subscriber("UserName").Value & "</B>") )
+          Service.Properties("CurrentAccountIsThePayer").AddValidListOfValueFromDictionaryCollection FrameWork.Dictionary(),"ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH"
+          Service.Properties("CurrentAccountIsThePayer").Value    = CLng(FrameWork.Dictionary.Item("ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER").Value)
           
-        Service.Properties.Add "StartDate", "TimeStamp",  0, False, Empty
-        Service.Properties("StartDate").Caption = FrameWork.Dictionary.Item("TEXT_START_DATE").Value
+          Service.Properties.Add "StartDate", "String",  0, False, Empty
+          Service.Properties("StartDate").Caption = FrameWork.Dictionary.Item("TEXT_START_DATE").Value
         
-        Service.Properties.Add "EndDate", "TimeStamp", 0, False, Empty
-        Service.Properties("EndDate").Caption = FrameWork.Dictionary.Item("TEXT_END_DATE").Value 
+          Service.Properties.Add "EndDate", "String", 0, False, Empty
+          Service.Properties("EndDate").Caption = FrameWork.Dictionary.Item("TEXT_END_DATE").Value 
 
-        Service.Properties.Add "BillingInterval", "String", 0, False, Empty
-        Service.Properties("BillingInterval").Caption = FrameWork.Dictionary.Item("TEXT_BILLING_INTERVAL").Value 
+          Service.Properties.Add "BillingInterval", "String", 0, False, Empty
+          Service.Properties("BillingInterval").Caption = FrameWork.Dictionary.Item("TEXT_BILLING_INTERVAL").Value 
 
-        Service.Properties.Add "FixedDate", "String", 0, False, Empty
-        Service.Properties("FixedDate").Caption = FrameWork.Dictionary.Item("TEXT_FIXED_DATE").Value 
+          Service.Properties.Add "FixedDate", "String", 0, False, Empty
+          Service.Properties("FixedDate").Caption = FrameWork.Dictionary.Item("TEXT_FIXED_DATE").Value 
                
-        Service.Properties.Add "PeriodOfTime", "String", 0, False, Empty
-        Service.Properties("PeriodOfTime").Caption = FrameWork.Dictionary.Item("TEXT_PERIOD_OF_TIME").Value 
+          Service.Properties.Add "PeriodOfTime", "String", 0, False, Empty
+          Service.Properties("PeriodOfTime").Caption = FrameWork.Dictionary.Item("TEXT_PERIOD_OF_TIME").Value 
         
-        Service.Properties.Add "PriceAbleItem", "Int32" , 0 , TRUE , Empty  
-        Service.Properties("PriceAbleItem").Caption = FrameWork.Dictionary.Item("TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL").Value
+          Service.Properties.Add "PriceAbleItem", "Int32" , 0 , TRUE , Empty  
+          Service.Properties("PriceAbleItem").Caption = FrameWork.Dictionary.Item("TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL").Value
+        'End If 
+
         TransactionUIFinder.SetValidListOfValueAdjustablePriceAbleItem Service.Properties("PriceAbleItem")       
         
         If Service.Properties("PriceAbleItem").EnumType.Entries.Count=0 Then
@@ -468,10 +472,29 @@ CLASS CTransactionUIFinder
           
         Initialize = TRUE
     END FUNCTION
+
+    PUBLIC FUNCTION ReInitialize()
+        ReInitialize = FALSE
+        
+        TransactionUIFinder.SetValidListOfValueAdjustablePriceAbleItem Service.Properties("PriceAbleItem")       
+        
+        If Service.Properties("PriceAbleItem").EnumType.Entries.Count=0 Then
+      
+              EventArg.Error.Description =  FrameWork.Dictionary.Item("MAM_ERROR_1042").Value
+              EventArg.Error.Number      =  1042
+              Form_DisplayErrorMessage EventArg
+              mdm_TerminateDialog
+              Response.End
+        End If        
+        
+        ' Load the interval id
+        Service.Properties.Interval.Load mam_GetSubscriberAccountID()  
+        mdm_pvb_DoToProductViewTheIntervalIDFieldAsEnumType MDM_ACTION_ADD, Service ' Populate the field Interval ID
+          
+        ReInitialize = TRUE
+    END FUNCTION
     
 END CLASS
-
-
 
 Private TransactionUIFinder
 Set TransactionUIFinder = New CTransactionUIFinder

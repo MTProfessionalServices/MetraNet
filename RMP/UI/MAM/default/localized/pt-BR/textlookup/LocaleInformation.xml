@@ -17,7 +17,7 @@
     </description>
   </text>
   <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789/: APMapm</value>
+    <value>0123456789 /:</value>
     <description>Chars allowed for a date</description>
   </text>
   <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
@@ -28,42 +28,28 @@
     <value>true</value>
     <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
   </text>
-  <!--   
-  <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789.: APMapm</value>
-    <description>Chars allowed for a date</description>
-  </text>
-  <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
-    <value>d.M.yyyy</value>
-    <description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar/pupdate.js for more information.</description>
-  </text>
-  <text id="MDM_USE_24HOUR_CLOCK">
-    <value>true</value>
-    <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
-  </text>
-  -->
   <text id="END_OF_DAY">
     <value>23:59:59</value>
     <description>End of day</description>
   </text>
   <text id="DATE_FORMAT">
-    <value>dd/mm/yyyy</value>
+    <value>d/M/yyyy</value>
     <description>The date format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="JS_DATE_FORMAT">
-    <value>j/n/Y</value>
+    <value>d/n/Y</value>
     <description>ExtJS date format definition</description>
   </text>
   <text id="END_OF_TIME">
-    <value>01/01/2038</value>
+    <value>01/1/2038</value>
     <description>End of Time</description>
   </text>
   <text id="TIME_FORMAT">
-    <value>hh:mm:ss</value>
+    <value>H:mm:ss</value>
     <description>The time format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>dd/mm/yyyy hh:mm:ss</value>
+    <value>dd/M/yyyy H:mm:ss</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">
@@ -103,7 +89,7 @@
   </text>
   <text id="DAY_NAMES">
     <value>Domingo,Segunda,Terça,Quarta,Quinta,Sexta,Sábado</value>
-    <description>weekdays.</description>
+    <description>Dias úteis</description>
   </text>
   <text id="START_DAY_OF_WEEK">
     <value>0</value>
@@ -120,5 +106,9 @@
   <text id="PREV_MONTH_TEXT">
     <value>Mês prévio</value>
     <description></description>
+  </text>
+  <text id="DATE_SEPARATOR">
+    <value>/</value>
+    <description>Defina o separador de data.</description>
   </text>
 </texts>

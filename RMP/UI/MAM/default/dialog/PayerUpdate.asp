@@ -50,15 +50,20 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 
   ' Add dialog properties
   Service.Properties.Add "Payer",      "String",    256, TRUE,  ""                   
-  Service.Properties.Add "StartDate",  "TIMESTAMP", 0,   TRUE, Empty    
-  Service.Properties.Add "EndDate",    "TIMESTAMP", 0,   FALSE, Empty    	
-	
-  If FrameWork.IsInfinity(request.QueryString("OldStartDate")) Then
+  Service.Properties.Add "StartDate",  "String",    0,   TRUE,  Empty    
+  Service.Properties.Add "EndDate",    "String",    0,   FALSE, Empty
+
+	If IsEmpty(request.QueryString("OldStartDate")) Then 
+    Form("OldStartDate") = Empty
+  ElseIf FrameWork.IsInfinity(mam_DateFromLocaleString(request.QueryString("OldStartDate"))) Then
     Form("OldStartDate") = Empty
   Else
   	Form("OldStartDate") = request.QueryString("OldStartDate")
   End If
-  If FrameWork.IsInfinity(request.QueryString("OldEndDate")) Then
+
+  If IsEmpty(request.QueryString("OldEndDate")) Then
+    Form("OldEndDate") = Empty
+  ElseIf FrameWork.IsInfinity(mam_DateFromLocaleString(request.QueryString("OldEndDate"))) Then
     Form("OldEndDate") = Empty
   Else
 	  Form("OldEndDate") = request.QueryString("OldEndDate")
@@ -66,7 +71,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 
  	Form("AccountID") = request.QueryString("ID")
 	
-  Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form("AccountID")), CDate(mam_GetDictionary("END_OF_TIME")))
+  Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(Form("AccountID")), mam_DateFromLocaleString(mam_GetDictionary("END_OF_TIME")))
   strName = objYAAC.AccountName
   
   mdm_GetDictionary.Add "TEXT_UPDATE_PAYER", replace(mam_GetDictionary("TEXT_UPDATE_PAYER_TITLE"), "[USERNAME]", strName)
@@ -74,17 +79,26 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Form("OldPayer") = request.QueryString("PayerID")
       
   If Len(request.QueryString("PayerID")) > 0 Then
-    Service.Properties("Payer").Value = mam_GetFieldIDFromAccountIDAtTime(request.QueryString("PayerID"), Form("OldStartDate"))
+    Service.Properties("Payer").Value = mam_GetFieldIDFromAccountIDAtTime(request.QueryString("PayerID"), mam_DateFromLocaleString(Form("OldStartDate")))
   Else
     If UCase(request.QueryString("NewPayer")) <> "TRUE" Then  
    	  Service.Properties("Payer").Value = mam_GetFieldIDFromAccountID(mam_GetSubscriberAccountID())
     End If  
   End If
 
-  Service.Properties("StartDate").Value = CDate(Form("OldStartDate"))
-	Service.Properties("EndDate").Value = CDate(Form("OldEndDate"))	
-			 
-	' Set Captions 
+  If Len(Form("OldStartDate")) <> 0 Then
+  Service.Properties("StartDate").Value = mam_FormatDate(mam_DateFromLocaleString(Form("OldStartDate")), mam_GetDictionary("DATE_FORMAT")) 
+  Else
+    Service.Properties("StartDate").Value = EMPTY
+  End If
+
+  If Len(Form("OldEndDate")) <> 0 Then
+	  Service.Properties("EndDate").Value = mam_FormatDate(mam_DateFromLocaleString(Form("OldEndDate")), mam_GetDictionary("DATE_FORMAT"))	
+  Else
+    Service.Properties("EndDate").Value = EMPTY
+  End If
+
+	' Set Captions
   Service.Properties("Payer").caption = mam_GetDictionary("TEXT_ACCOUNTS")
 	Service.Properties("StartDate").caption = mam_GetDictionary("TEXT_START_DATE")
 	Service.Properties("EndDate").caption = mam_GetDictionary("TEXT_END_DATE")	
@@ -109,15 +123,28 @@ END FUNCTION
 ' RETURNS:  Return TRUE if ok else FALSE
 FUNCTION OK_Click(EventArg) ' As Boolean
    Dim PaymentMgr
-	 Dim objYAAC
+   Dim objYAAC
    Dim PayerAccountID
-   Dim strEndDate
-	 On Error Resume Next
+   
+   Dim StartDateValue
+   Dim EndDateValue
+   Dim OldStartDateValue
+   Dim OldEndDateValue
 
-   strEndDate = Service.Properties("EndDate")
-   If Len(strEndDate) = 0 Then
-      strEndDate = mam_GetDictionary("END_OF_TIME")
+   On Error Resume Next
+
+   If Len(Service.Properties("EndDate")) = 0 Then
+     Service.Properties("EndDate") = mam_GetDictionary("END_OF_TIME")
    End If
+
+   If Len(Form("OldEndDate")) = 0 Then
+     Form("OldEndDate") = Service.Properties("EndDate")
+   End If
+
+   StartDateValue    = mam_DateFromLocaleString(Service.Properties("StartDate").Value)
+   EndDateValue      = mam_DateFromLocaleString(Service.Properties("EndDate").Value)
+   OldStartDateValue = mam_DateFromLocaleString(Form("OldStartDate"))
+   OldEndDateValue   = mam_DateFromLocaleString(Form("OldEndDate"))
 
    If FrameWork.DecodeFieldID(Service.Properties("Payer").value, PayerAccountID) Then
    
@@ -127,14 +154,14 @@ FUNCTION OK_Click(EventArg) ' As Boolean
                    
         If Len(Form("OldStartDate")) = 0 Then
           ' No start date so create new 
-  	      Call PaymentMgr.PayForAccount(Form("AccountID"), CDate(Service.Properties("StartDate")), CDate(strEndDate))
+  	      Call PaymentMgr.PayForAccount(Form("AccountID"), StartDateValue, EndDateValue)
         Else
     		  ' Payer is the same so just do ChangePaymentEffectiveDate
-          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(Form("OldStartDate")), CDate(Form("OldEndDate")), CDate(Service.Properties("StartDate")), CDate(strEndDate)
+          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), OldStartDateValue, OldEndDateValue, StartDateValue, EndDateValue
         End If
         
   		Else
-        Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), mam_GetHierarchyTime())
+        Set objYAAC = FrameWork.AccountCatalog.GetAccount(CLng(PayerAccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))
         If err.number <> 0 then
           EventArg.Error.number = 1037
           EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1037")
@@ -146,10 +173,10 @@ FUNCTION OK_Click(EventArg) ' As Boolean
            
         If CLng(Form("OldPayer")) = CLng(PayerAccountID) Then
     		  ' Payer is the same so just do ChangePaymentEffectiveDate
-          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), CDate(Form("OldStartDate")), CDate(Form("OldEndDate")), CDate(Service.Properties("StartDate")), CDate(strEndDate)
+          PaymentMgr.ChangePaymentEffectiveDate Form("AccountID"), OldStartDateValue, OldEndDateValue, StartDateValue, EndDateValue
         Else
     		  ' There is a new payer so create new pay for account record
-    	     Call PaymentMgr.PayForAccount(Form("AccountID"), CDate(Service.Properties("StartDate")), CDate(strEndDate))
+    	     Call PaymentMgr.PayForAccount(Form("AccountID"), StartDateValue, EndDateValue)
         End If 
  							
   		End If

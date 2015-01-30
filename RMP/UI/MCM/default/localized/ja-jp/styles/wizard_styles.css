@@ -1,0 +1,131 @@
+.clsWizardBody{
+  background-color  : #fff;
+  font-family:tahoma, arial, helvetica, sans-serif;
+  font-size:8pt;
+}
+.clsWizardButton{
+    width: 60px; 
+    height: 24px;
+  	padding: 3px 3px 3px 3px;   
+   	font-size: 12px;
+  	font-family:tahoma, arial, helvetica, sans-serif;   
+    font-weight: bold;
+      
+}
+.clsWizardWideButton{
+    width: 100px; 
+    height: 24px;
+  	padding: 3px 3px 3px 3px;   
+   	font-size: 12px;
+  	font-family:tahoma, arial, helvetica, sans-serif;   
+    font-weight: bold;
+     
+}
+.clsWizardSmallButton{
+    width: 60px; 
+    height: 24px;
+  	padding: 3px 3px 3px 3px;   
+   	font-size: 12px;
+  	font-family:tahoma, arial, helvetica, sans-serif;   
+    font-weight: bold;
+}
+
+.clsWizardButtonLinkDisabled{
+	text-decoration:none;
+    font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    color:#20336A;
+    padding: 1px 0px 2px 0px;
+}
+.clsWizardEditTable{
+	background-color: #C5C1BB;
+}
+
+.clsWizardPrompt{
+	 font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    color:black;	
+    padding : 2px 2px 2px 2px;
+}
+
+.clsWizardPromptRequired{
+	 font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    color:black;	
+  	font-weight: bold;
+    padding : 2px 2px 2px 2px;
+}
+
+.clsWizardPromptOdd{
+	 font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    color:black;	
+    background-color: #C1CBD7;
+    padding : 2px 2px 2px 2px;
+}
+.clsWizardPromptEven{
+	 font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    color:black;	
+    background-color: #CFDBE5;
+    padding : 2px 2px 2px 2px;
+}
+.clsWizardInputBox{
+	font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    color:black;
+}
+.clsWizardSelect{
+	font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    color:black;
+}
+.clsWizardTableHeader{
+	font-size:10pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    font-weight:bold;
+    color:#333;
+    background-color: #d0d0d0;;
+    /*background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);   */
+    
+}
+.clsWizardTableSubHeader{
+	font-size:8pt;
+    font-family:tahoma, arial, helvetica, sans-serif;
+    font-weight:bold;
+    color:#333;
+    background-color: #d0d0d0;;
+    /*background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);    */
+    
+}
+.clsWizardNotesTD{
+	font-family:Arial;
+    font-size:8pt;
+    color:black;
+}
+.clsWizardLegend{
+	 font-family:tahoma, arial, helvetica, sans-serif;
+    font-size:8pt;
+}
+.clsWizardScrollingDiv{
+    overflow-y : auto;
+    overflow-x : hidden;
+}
+
+.clsWizardError{
+	BACKGROUND-COLOR: white;
+	border-radius:3px;
+}
+
+.clsWizardErrorText{  
+	font-family:tahoma, arial, helvetica, sans-serif;
+	font-size: 8pt;
+	color: black;
+}
+
+.cycleTableCell{
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 5px;
+		PADDING-BOTTOM: 4px;
+		PADDING-TOP:		4px;
+}

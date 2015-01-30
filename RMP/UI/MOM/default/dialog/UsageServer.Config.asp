@@ -43,7 +43,7 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS:  Return TRUE if ok else FALSE
 FUNCTION Form_Initialize(EventArg) ' As Boolean
 
-  Framework.AssertCourseCapability "Manage Usage Intervals And Scheduled Adapters", EventArg
+  Framework.AssertCourseCapability "Manage Scheduled Adapters", EventArg
 
   Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.

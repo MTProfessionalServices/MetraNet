@@ -63,7 +63,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   If not IsEmpty(Session("CURRENT_SYSTEM_USER")) Then
     Set mgr = Session("CURRENT_SYSTEM_USER").GetOwnershipMgr()
   Else
-    Set mgr = FrameWork.AccountCatalog.GetAccount(CLng(MAM().CSR("_AccountID").Value), mam_GetSystemUserHierarchyTime()).GetOwnershipMgr() 
+    Set mgr = FrameWork.AccountCatalog.GetAccount(CLng(MAM().CSR("_AccountID").Value), mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime())).GetOwnershipMgr() 
   End If
   Set ProductView.Properties.RowSet = mgr.GetOwnedAccountsHierarchicalAsRowset(CLng(VIEW_HINT_All_DESCENDENTS))
   CheckAndWriteError

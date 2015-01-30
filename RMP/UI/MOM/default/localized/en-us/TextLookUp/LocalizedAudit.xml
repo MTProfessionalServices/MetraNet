@@ -1,119 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Main" type="collection">
-
+  <description></description>
+  <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
+    <value>Product Catalog Audit Log</value>
     <description></description>
-
-    <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-        <value>Product Catalog Audit Log</value>
-        <description></description>
-    </text> 
-
-    <text id="TEXT_SYSTEM_AUDIT_LOG">
-        <value>System Audit Log</value>
-        <description></description>
-    </text> 
-
-    <text id="TEXT_ACCOUNT_AUDIT_LOG">
-        <value>Account Audit Log</value>
-        <description></description>
-    </text> 
-    
-    <text id="TEXT_VIEW_AUDIT_LOG">
-        <value>View Audit Log</value>
-        <description></description>
-    </text> 
-  
-    <text id="TEXT_AUDIT_LOG_DESCRIPTION">
-        <value>View events that have been performed against the Product Catalog.</value>
-        <description></description>
-    </text> 
-  
-    <text id="TEXT_AUDIT_TIME">
-        <value>Time</value>
-        <description></description>
-    </text> 
-
-    <text id="TEXT_AUDIT_USERNAME">
-        <value>User</value>
-        <description></description>
-    </text> 
-
-    <text id="TEXT_AUDIT_EVENTNAME">
-        <value>Event</value>
-        <description></description>
-    </text> 
-
-    <text id="TEXT_AUDIT_ENTITYNAME">
-        <value>Item</value>
-        <description></description>
-    </text> 
-
-    <text id="TEXT_AUDIT_DETAILS">
-        <value>Details</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_LOGGED_IN_AS">
-      <value>Logged in as</value>
-      <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_APPLICATION_NAME">
-      <value>Application name</value>
-      <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_ENTITY_ID">
-        <value>Entity ID</value>
-        <description></description>
-    </text> 
-    
-    <text id="TEXT_AUDIT_AUDIT_ID">
-        <value>Audit ID</value>
-        <description></description>
-    </text> 
-    
-    <text id="TEXT_AUDIT_EVENT_ID">
-        <value>Event ID</value>
-        <description></description>
-    </text>             
-    
-    <text id="TEXT_AUDIT_USER_ID">
-        <value>User ID</value>
-        <description></description>
-    </text>             
-    
-    <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-        <value>Entity Type ID</value>
-        <description></description>
-    </text>  
-  
-    <text id="TEXT_AUDIT_ENTITY_ID">
-        <value>Entity ID</value>
-        <description></description>
-    </text>    
-  
-    <text id="TEXT_AUDIT_DT_CRT">
-        <value>Date CRT</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
-      <value>tx_logged_in_as</value>
-      <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_TX_APPLICATION_NAME">
-      <value>tx_application_name</value>
-      <description></description>
-    </text>
-  
-    <text id="TEXT_CURRENT_GMT_TIME_IS">
-        <value>Current GMT time is</value>
-        <description></description>
-    </text>               
+  </text>
+  <text id="TEXT_SYSTEM_AUDIT_LOG">
+    <value>System Audit Log</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_AUDIT_LOG">
+    <value>Account Audit Log</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW_AUDIT_LOG">
+    <value>View Audit Log</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_LOG_DESCRIPTION">
+    <value>View events that have been performed against the Product Catalog.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_TIME">
+    <value>Time</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_USERNAME">
+    <value>User</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_EVENTNAME">
+    <value>Event</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_ENTITYNAME">
+    <value>Item</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_DETAILS">
+    <value>Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_LOGGED_IN_AS">
+    <value>Logged in as</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_APPLICATION_NAME">
+    <value>Application name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_ENTITY_ID">
+    <value>Entity ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_AUDIT_ID">
+    <value>Audit ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_EVENT_ID">
+    <value>Event ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_USER_ID">
+    <value>User ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
+    <value>Entity Type ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_ENTITY_ID">
+    <value>Entity ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_DT_CRT">
+    <value>Date CRT</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
+    <value>tx_logged_in_as</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUDIT_TX_APPLICATION_NAME">
+    <value>tx_application_name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CURRENT_GMT_TIME_IS">
+    <value>Current GMT time is</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FORCED">
+    <value>Forced</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR">
+    <value>Adapter Run History For</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR_INTERVAL">
+    <value>Adapter Run History For Interval</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HISTORY_FOR_BG">
+    <value>Adapter Run History For Bill Group</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_INSTANCE_INFO">
+    <value>Adapter Instance Information</value>
+    <description></description>
+  </text> 
 </texts>
-
-
-

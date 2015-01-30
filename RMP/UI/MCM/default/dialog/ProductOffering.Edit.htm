@@ -1,8 +1,14 @@
 <HTML>
-<HEAD>
-  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
-  <title><MDMLABEL Name="TEXT_KEYTERM_PRODUCT_OFFERING"></MDMLABEL></title>                 
-</HEAD>
+  <HEAD>
+    <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
+  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css" />
+   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="/Res/Ext/ext-all.js"></script> 
+      <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" /> 
+    <script type="text/javascript" src="/Res/JavaScript/DatePicker.js"></script>
+   
+    <title><MDMLABEL Name="TEXT_KEYTERM_PRODUCT_OFFERING"></MDMLABEL></title>                 
+  </HEAD>
 <BODY onLoad="SizeWindow();">
 <FORM name='mdm'>
 <!-- The title of the dialog-->
@@ -39,19 +45,41 @@
 </tr>
 <tr>
 	<td class="captionEW"><MDMLABEL Name="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE" Type="Caption">Effective Start Date</MDMLABEL>:&nbsp;&nbsp;</td>
-    <td><input name="EffectiveDate__StartDate" class="field" type="text"><a href="#" onClick="getCalendarForStartDate(document.mdm.EffectiveDate__StartDate);return false;"><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>
+  <td><INPUT type="text" class="fieldRequired" size="20" id="EffDate_StartDate" name="EffDate_StartDate">
+          <img style="cursor:pointer"  id="openCalendarEffDate_StartDate" src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
+          <div id="divEffDate_StartDate" style="position:absolute"></div>
+          <script language="javascript" type="text/javascript">
+            generateDatePicker('EffDate_StartDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
+          </script> </td>   
 </tr>
 <tr>
 	<td class="captionEW"><MDMLABEL Name="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE" Type="Caption">Effective End Date</MDMLABEL>:&nbsp;&nbsp;</td>
-    <td><input name="EffectiveDate__EndDate" class="field" type="text"><a href="#" onClick="getCalendarForEndDate(document.mdm.EffectiveDate__EndDate);return false;"><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>
+    <td><input name="EffDate_EndDate" class="field" type="text" size="20" id="EffDate_EndDate">          <div id="divEffDate_EndDate" style="position:absolute"></div>
+          <img style="cursor:pointer"  id="openCalendarEffDate_EndDate" src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
+          <script language="javascript" type="text/javascript">
+            generateDatePicker('EffDate_EndDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
+          </script> </td>   
 </tr>
 <tr>
 	<td class="captionEW"><MDMLABEL Name="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE" Type="Caption">Available Start Date</MDMLABEL>:&nbsp;&nbsp;</td>
-    <td><input name="AvailabilityDate__StartDate" class="field" type="text"><a href="#" onClick="getCalendarForStartDate(document.mdm.AvailabilityDate__StartDate);return false;"><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>
+  <td><input name="AvDate_StartDate" id="AvDate_StartDate" class="field" type="text">         
+          <img style="cursor:pointer"  id="openCalendarAvDate_StartDate" src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
+   <div id="divAvDate_StartDate" style="position:absolute"></div>
+          <script language="javascript" type="text/javascript">
+            generateDatePicker('AvDate_StartDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
+          </script> </td>   
+
 </tr>
 <tr>
 	<td class="captionEW"><MDMLABEL Name="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE" Type="Caption">Available End Date</MDMLABEL>:&nbsp;&nbsp;</td>
-  <td><input name="AvailabilityDate__EndDate" class="field" type="text"><a href="#" onClick="getCalendarForEndDate(document.mdm.AvailabilityDate__EndDate);return false;"><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>
+  <td><input name="AvDate_EndDate" id="AvDate_EndDate" class="field" type="text">   
+          <img style="cursor:pointer"  id="openCalendarAvDate_EndDate" src='/mcm/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
+  <div id="divAvDate_EndDate" style="position:absolute"></div>
+          <script language="javascript" type="text/javascript">
+            generateDatePicker('AvDate_EndDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
+          </script> </td>   
+
+
 </tr>
 <tr>
   <td Class='captionEW' nowrap><MDMLABEL Name="TEXT_PRODUCT_OFFERING_POPARTITIONID">PO PartitionId</MDMLABEL>:&nbsp;&nbsp;</td>
@@ -62,9 +90,9 @@
       <td valign="top">
           <!-- Extended Properties -->
           <fieldset style="padding: 20 10 10 10;">
-          <legend style="font-weight: normal;">Extended Properties</LEGEND>
+          <legend style="font-weight: normal;"><MDMLABEL Name="TEXT_EXTENDED_PROPERTIES">Extended Properties</MDMLABEL></LEGEND>
           
-          <MDMGrid Name="ExtendedProperties">Extended Properties</MDMGrid>
+          <MDMGrid Name="ExtendedProperties"><MDMLABEL Name="TEXT_EXTENDED_PROPERTIES">Extended Properties</MDMLABEL></MDMGrid>
           <br>
           <center>
           <img src='..\localized\en-us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;">What are extended properties?</a>
@@ -77,9 +105,9 @@
 <br><br>
 <div align="center">
   #MDMIF HAS_NO_BLOCKING_CHANGES
-  <button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
+  <button Class='clsOKButton' name="OK" onclick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
   #MDMENDIF
-  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
+  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
 </div>
 </form>
 </body>

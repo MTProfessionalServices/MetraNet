@@ -57,8 +57,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "Relationship", "String", 0, TRUE, Empty 
   Service.Properties("Relationship").SetPropertyType "ENUM", "metratech.com", "SaleForceRelationship"	
   Service.Properties.Add "Percentage", "DECIMAL", 0, FALSE, Empty 
-  Service.Properties.Add "StartDate", "TIMESTAMP", 0, TRUE, Empty    
-  Service.Properties.Add "EndDate", "TIMESTAMP", 0, FALSE, Empty    	
+  Service.Properties.Add "StartDate", "String", 0, TRUE, Empty    
+  Service.Properties.Add "EndDate", "String", 0, FALSE, Empty    	
   
 	' Set Captions 
   Service.Properties("Relationship").caption = mam_GetDictionary("TEXT_OWNED_RELATION_TYPE")
@@ -67,7 +67,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
 	Service.Properties("EndDate").caption = mam_GetDictionary("TEXT_END_DATE")	
 	
   Service.Properties("Percentage").Value = 100
-  
+   Service.Properties("StartDate") = mdm_Format(mam_GetHierarchyTime(),mam_GetDictionary("DATE_FORMAT"))
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
 
   ' Include Calendar javascript    

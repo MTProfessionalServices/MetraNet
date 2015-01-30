@@ -76,8 +76,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   
   ' Add dialog properties
   Service.Properties.Add "Description",           "String",    256, TRUE,  ""                   
-  Service.Properties.Add "StartDate",             "TIMESTAMP", 0,   FALSE, Empty    
-  Service.Properties.Add "EndDate",               "TIMESTAMP", 0,   FALSE, Empty  
+  Service.Properties.Add "StartDate",             "String",    0,   FALSE, Empty    
+  Service.Properties.Add "EndDate",               "String",    0,   FALSE, Empty  
   Service.Properties.Add "StartNextBillingPeriod","boolean",   0,   FALSE, FALSE  
   Service.Properties.Add "EndNextBillingPeriod",  "boolean",   0,   FALSE, FALSE  
 
@@ -86,15 +86,15 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   ' Set default values  
   Service.Properties("Description")            = Form("objMTRateSched").Description
   If Form("objMTRateSched").EffectiveDate.IsStartDateNull Then
-    Service.Properties("StartDate")              = Empty
+    Service.Properties("StartDate")            = Empty
   Else
-    Service.Properties("StartDate")              = Service.Tools.ConvertFromGMT(Form("objMTRateSched").EffectiveDate.StartDate, MAM().CSR("TimeZoneId"))
+    Service.Properties("StartDate")            = mdm_Format(Service.Tools.ConvertFromGMT(Form("objMTRateSched").EffectiveDate.StartDate, MAM().CSR("TimeZoneId")),mam_GetDictionary("DATE_TIME_FORMAT"))
   End If
   
   If Form("objMTRateSched").EffectiveDate.IsEndDateNull Then
-    Service.Properties("EndDate")                = Empty
+    Service.Properties("EndDate")              = Empty
   Else
-    Service.Properties("EndDate")                = Service.Tools.ConvertFromGMT(Form("objMTRateSched").EffectiveDate.EndDate, MAM().CSR("TimeZoneId"))
+    Service.Properties("EndDate")              = mdm_Format(Service.Tools.ConvertFromGMT(Form("objMTRateSched").EffectiveDate.EndDate, MAM().CSR("TimeZoneId")),mam_GetDictionary("DATE_TIME_FORMAT"))
   End If
     
   If Form("objMTRateSched").EffectiveDate.StartDateType = PCDATE_TYPE_BILLCYCLE Then 
@@ -151,7 +151,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     End If
 
     If Len(Service.Properties("StartDate")) Then
-      effDate.StartDate = CDate(Service.Tools.ConvertToGMT(Service.Properties("StartDate"), MAM().CSR("TimeZoneId")))
+      effDate.StartDate = mdm_Format(CDate(Service.Tools.ConvertToGMT(Service.Properties("StartDate"), MAM().CSR("TimeZoneId"))),mam_GetDictionary("DATE_TIME_FORMAT"))
       'ESR-6316
       'Issue - Rate schedule End date selection with popup calendar
       effDate.StartDate=DateAdd("h",-Hour(effDate.StartDate), effDate.StartDate)
@@ -167,7 +167,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     End If    
 
     If Len(Service.Properties("EndDate")) Then
-      effDate.EndDate = CDate(Service.Tools.ConvertToGMT(Service.Properties("EndDate"), MAM().CSR("TimeZoneId")))
+      effDate.EndDate = mdm_Format(CDate(Service.Tools.ConvertToGMT(Service.Properties("EndDate"), MAM().CSR("TimeZoneId"))),mam_GetDictionary("DATE_TIME_FORMAT"))
       'ESR-6316
       'Issue - Rate schedule End date selection with popup calendar 
       effDate.EndDate=DateAdd("h",23-Hour(effDate.EndDate), effDate.EndDate)

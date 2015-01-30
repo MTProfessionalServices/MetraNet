@@ -40,9 +40,15 @@ mdm_Main
 ' DESCRIPTION:
 ' RETURNS    : Return TRUE / FALSE
 FUNCTION Form_Initialize(EventArg) 
-
+  Framework.AssertCourseCapability "Manage EOP Adapters", EventArg
+  
   If Len(Request.QueryString("ID")) > 0 Then
     Form("IntervalID") = Request.QueryString("ID")
+  End If
+  If FrameWork.CheckCoarseCapability("Manage Intervals") Then
+    mdm_GetDictionary.Add "CanSeeChangeLink", true
+  Else
+    mdm_GetDictionary.Add "CanSeeChangeLink", false
   End If  
   Service.Clear 
   Service.Properties.Add "IntervalID", "string", 0, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE
@@ -59,6 +65,11 @@ FUNCTION Form_Initialize(EventArg)
   Service.Properties.Add "Status", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
  
   'Service.Properties.Add "Percentage", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
+   If Len(Request.QueryString("ReturnURL")) > 0 Then
+    Service.Properties.Add "ReturnURL", "string", 0, TRUE, Request.QueryString("ReturnURL"), eMSIX_PROPERTY_FLAG_NONE
+  Else
+    Service.Properties.Add "ReturnURL", "string", 0, TRUE, "/MetraNet/MetraControl/BillingManagement/IntervalManagementList.aspx", eMSIX_PROPERTY_FLAG_NONE
+  End If
   
   Form_Initialize = Form_Refresh(EventArg)
 END FUNCTION
@@ -72,9 +83,17 @@ FUNCTION Form_Refresh(EventArg)
 
   Dim objUSM, objInterval
   Set objUSM = mom_GetUsageServerClientObject()
-  'Set objInterval = objUSM.GetUsageInterval(Form("IntervalID"))
-  Set objInterval = objUSM.GetUsageIntervalWithoutAccountStats(Form("IntervalID"))
 
+  dim partitionId 
+  partitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  if IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) then
+    'show no data if the partition id is empty
+  elseif (partitionId = 1) then
+    Set objInterval = objUSM.GetUsageIntervalWithoutAccountStats(Form("IntervalID"))
+  else
+    Set objInterval = objUSM.GetUsageIntervalWithoutAccountStatsForPartition(Form("IntervalID"),partitionId)
+  end if
+  
   Service.Properties("IntervalID").Value = CStr(objInterval.IntervalID)
   Service.Properties("IntervalType").Value = GetBillingGroupCycleType(objInterval.CycleType)
   Service.Properties("IntervalStartDateTime").Value = CDate(objInterval.StartDate)
@@ -83,11 +102,10 @@ FUNCTION Form_Refresh(EventArg)
   Service.Properties("TotalBillingGroupAdapterCount").Value = objInterval.TotalBillingGroupAdapterCount + objInterval.TotalIntervalOnlyAdapterCount
   Service.Properties("SucceededAdapterCount").Value = objInterval.SucceededAdapterCount
   Service.Properties("FailedAdapterCount").Value = objInterval.FailedAdapterCount
-  'Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
-  'Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
+  Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
+  Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
   'Service.Properties("Percentage").Value = objInterval.Progress
   Service.Properties("Status").Value = objInterval.Status
-
   if objInterval.IsBlockedForNewAccounts Then
     mdm_GetDictionary().Add "INTERVAL_IS_BLOCKED_TO_NEW_ACCOUNTS", 1
     Service.Properties("IntervalBlockedToUsageFromNewAccountsMessage").Value = "New Accounts Will Not Be Invoiced For This Interval"
@@ -96,19 +114,19 @@ FUNCTION Form_Refresh(EventArg)
     Service.Properties("IntervalBlockedToUsageFromNewAccountsMessage").Value = "New Accounts Can Be Invoiced For This Interval"
   end if
   
-  If objInterval.OpenUnassignedAccountsCount>0 AND objInterval.HasBeenMaterialized Then
+  If objInterval.OpenUnassignedAccountsCount>0 AND objInterval.HasBeenMaterialized AND FrameWork.CheckCoarseCapability("Manage Intervals") AND (IsEmpty(Session("MOM_SESSION_CSR_PARTITION_ID")) OR Session("MOM_SESSION_CSR_PARTITION_ID")=1) Then
     mdm_GetDictionary().Add "INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED", 1
   Else
     mdm_GetDictionary().Add "INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED", 0
   End If
  
   if objInterval.Status = UsageIntervalStatus_Open OR objInterval.Status = UsageIntervalStatus_Blocked Then
-    Service.Properties("Status").Value = "Open"
+    Service.Properties("Status").Value = mom_GetDictionary("TEXT_BG_STATUS_OPEN")
   else
     if objInterval.Status = UsageIntervalStatus_HardClosed Then
-      Service.Properties("Status").Value = "Hard Closed"
+      Service.Properties("Status").Value = mom_GetDictionary("TEXT_BG_STATUS_HARD_CLOSED")
     else
-      Service.Properties("Status").Value = "UNKOWN"
+      Service.Properties("Status").Value = mom_GetDictionary("TEXT_BG_STATUS_UNKOWN")
     end if
   end if
     

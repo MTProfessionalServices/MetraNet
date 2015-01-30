@@ -1,0 +1,304 @@
+/**********************************************************
+*	This file should contain MPTE-specific styles, and      *
+* any other style that you might want to override for MPTE*
+***********************************************************/
+
+/* Rule editor grid styles. Note: do not add text alignment to the 2 styles below!!! */
+
+.RuleEditorTableCell{
+    BACKGROUND-COLOR: #FFFFFF;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+
+.RuleEditorTableCellDeleted{
+	BACKGROUND-COLOR: #FF6666;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 9pt;
+	FONT-WEIGHT: normal;
+	CURSOR: default;
+	PADDING-LEFT: 4px;
+	PADDING-RIGHT: 3px;
+	text-decoration : line-through;
+}
+
+.RuleEditorTableCellDeletedSpecial{
+    BACKGROUND-COLOR: #FF6666;
+    COLOR: #009966;
+		WIDTH: 0pt;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+
+.RuleEditorTableCellAdded{
+	BACKGROUND-COLOR: #99CC99;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 9pt;
+	FONT-WEIGHT: normal;
+	CURSOR: default;
+	PADDING-LEFT: 4px;
+	PADDING-RIGHT: 3px;
+}
+
+.RuleEditorTableCellAddedSpecial{
+    BACKGROUND-COLOR: #99CC99;
+    COLOR: #009966;
+		WIDTH: 0pt;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+
+
+.RuleEditorTableCellModified{
+	BACKGROUND-COLOR: #FFFF99;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 9pt;
+	FONT-WEIGHT: normal;
+	CURSOR: default;
+	PADDING-LEFT: 4px;
+	PADDING-RIGHT: 3px;
+}
+
+.RuleEditorTableCellModifiedSpecial{
+    BACKGROUND-COLOR: #FFFF99;
+    COLOR: #009966;
+		WIDTH: 0pt;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+.RuleEditorTableCellAlt{
+    BACKGROUND-COLOR: #EEEEEE;
+    COLOR: black;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+
+.RuleEditorTableCellSpecial{
+    BACKGROUND-COLOR: #FFFFFF;
+    COLOR: #009966;
+		WIDTH: 0pt;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+
+.RuleEditorTableCellAltSpecial {
+    BACKGROUND-COLOR: #EEEEEE;
+    COLOR: #009966;
+		WIDTH: 0pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+
+.RuleEditorTableHeader{
+	/*font-size: 12px; 
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	color: #FFFFFF; 
+	background-color: #0055CE;
+	text-align: center;
+	
+	BORDER-BOTTOM: black solid 1px;
+	BORDER-LEFT: #2075CE solid 1px;
+	BORDER-RIGHT: black solid 1px;
+	BORDER-TOP: #2075CE solid 1px;
+  PADDING-LEFT: 5px;
+  PADDING-RIGHT: 5px*/
+
+text-align: center;
+background-color: #f9f9f9;
+  background-size: contain;
+background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);
+FONT: normal 11px/15px arial, tahoma, helvetica, sans-serif;
+border-right: 1px solid #eee;
+border-left: 1px solid #d0d0d0;
+padding: 4px 3px 4px 5px;
+}
+
+
+.clsHeaderLink{
+    FONT-SIZE: 12px;
+		font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+		text-align: center;
+		color: #BBFFBB;
+		background-color: #0055CE;
+		
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.clsTableText{
+    FONT-SIZE: 12px;
+		font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+		color: #000000;
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+.RuleEditorMessage{
+	font-size: 11px; 
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	text-align: center;
+	color: #FFFFFF; 
+	background-color: #0065CE;
+	
+	BORDER-BOTTOM: black solid 1px;
+	BORDER-LEFT: #0099ff solid 1px;
+	BORDER-RIGHT: black solid 1px;
+	BORDER-TOP: #0099ff solid 1px;
+}
+
+/* End of rule editor grid styles */
+
+/* Style of the panel in which the RuleEditor lies. Right now it is some sort of grey...*/
+
+.clsTextMpteBackPane {  
+    COLOR: white;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px;
+    white-space: -webkit-nowrap;
+    background-color:#d0d0d0;
+    /*background-image:url(/Res/Ext/resources/images/metranet/panel/top-bottom.gif);
+    background-color: rgb(192, 192, 192);*/
+   }
+	
+.clsInfoURL {  
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 9pt;
+		TEXT-ALIGN: RIGHT;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+	}
+	
+.clsInfoBox {  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    text-align: center;
+    font-weight: normal;
+    cursor: default;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: #E7EDF3;
+    width: 600px;
+  }
+	
+.clsCustomErrorMessage {  
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 9pt;
+		TEXT-ALIGN: RIGHT;
+    FONT-WEIGHT: normal;
+		COLOR: Red;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+	}
+	
+.clsCalendarGridHeader {
+	font-size: 12px; 
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	color: #FFFFFF; 
+	background-color: #0055CE;
+	text-align: center;
+	
+	BORDER-BOTTOM: black solid 1px;
+	BORDER-LEFT: #2075CE solid 1px;
+	BORDER-RIGHT: black solid 1px;
+	BORDER-TOP: #2075CE solid 1px;
+  PADDING-LEFT: 5px;
+  PADDING-RIGHT: 5px
+}	
+
+.clsCalendarCell {
+	background-color: #E2EEFD;
+	text-align: center;
+}	
+
+.clsCalendarCellDisabled {
+	background-color: #cccccc;
+	text-align: center;
+}
+
+.clsCalendarGraphDefault {
+	background-color: #FFFFFF;
+	text-align: center;
+	color: #000000;
+}
+
+/**************************************************************************************************************************/
+/* The next styles are used by the calendar time graph - there should be one for each calendar code value in the enum type */
+
+.clsCalendarGraph0 {
+	background-color: #cc0000;
+	text-align: center;
+	color: white;
+}
+
+.clsCalendarGraph1 {
+	background-color: #339900;
+	text-align: center;
+	color: white;
+}
+
+.clsCalendarGraph2 {
+	background-color: #0000cc;
+	text-align: center;
+	color: white;
+}
+
+.clsCalendarGraph3 {
+	background-color: #ffcc33;
+	text-align: center;
+	color: black;
+}
+
+/*																																																												*/			
+/**************************************************************************************************************************/
+
+.clsCalendarGraphScale {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-align: center;
+	color: Black;
+	text-align: left;
+}
+
+.mdmDebuggerCaption{BACKGROUND-COLOR: #A8A8A8;BORDER-BOTTOM: 1px solid #8F8F8F;BORDER-LEFT: 1px solid #D0D0D0;BORDER-RIGHT: 1px solid #8F8F8F;BORDER-TOP: 1px solid #D0D0D0;clipBottom: 0px;clipLeft: 0px;clipRight: 0px;clipTop: 0px;COLOR: #484848;FONT-FAMILY: verdana;FONT-SIZE: 8pt;FONT-WEIGHT: bold;PADDING-BOTTOM: 2px;PADDING-LEFT: 2px;PADDING-RIGHT: 2px;PADDING-TOP: 2px;TEXT-ALIGN: Center;}
+.mdmDebuggerCell{CURSOR:hand;BACKGROUND-COLOR: #B8B8B8;BORDER-BOTTOM: 1px solid #8F8F8F;BORDER-LEFT: 1px solid #D0D0D0;BORDER-RIGHT: 1px solid #8F8F8F;BORDER-TOP: 1px solid #D0D0D0;clipBottom: 0px;clipLeft: 0px;clipRight: 0px;clipTop: 0px;COLOR: #484848;FONT-FAMILY: verdana;FONT-SIZE: 8pt;FONT-WEIGHT: normal;PADDING-BOTTOM:1px;PADDING-LEFT: 1px;PADDING-RIGHT: 1px;PADDING-TOP: 1px;TEXT-ALIGN: left;}
+.mdmDebuggerCellSelected{BACKGROUND-COLOR: #B8B8B8;BORDER-BOTTOM: 1px solid #8F8F8F;BORDER-LEFT: 1px solid #D0D0D0;BORDER-RIGHT: 1px solid #8F8F8F;BORDER-TOP: 1px solid #D0D0D0;clipBottom: 0px;clipLeft: 0px;clipRight: 0px;clipTop: 0px;COLOR: red;FONT-FAMILY: verdana;FONT-SIZE: 8pt;FONT-WEIGHT: bold;PADDING-BOTTOM:1px;PADDING-LEFT: 1px;PADDING-RIGHT: 1px;PADDING-TOP: 1px;TEXT-ALIGN: left;}
+.mdmDebuggerCellProperty{BACKGROUND-COLOR: #B8B8B8;BORDER-BOTTOM: 1px solid #8F8F8F;BORDER-LEFT: 1px solid #D0D0D0;BORDER-RIGHT: 1px solid #8F8F8F;BORDER-TOP: 1px solid #D0D0D0;clipBottom: 0px;clipLeft: 0px;clipRight: 0px;clipTop: 0px;COLOR: #484848;FONT-FAMILY: verdana;FONT-SIZE: 8pt;FONT-WEIGHT: normal;PADDING-BOTTOM: 1px;PADDING-LEFT: 1px;PADDING-RIGHT: 1px;PADDING-TOP: 1px;TEXT-ALIGN: left;}

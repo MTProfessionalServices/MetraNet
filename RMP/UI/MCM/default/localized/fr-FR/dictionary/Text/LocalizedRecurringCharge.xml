@@ -20,7 +20,7 @@
     <description></description>
   </text>
   <text id="TEXT_PRORATE_ACTIVATION">
-    <value>Au prorata à l’activation</value>
+    <value>Au prorata à l'activation</value>
     <description></description>
   </text>
   <text id="TEXT_PRORATE_INSTANTLY">
@@ -80,7 +80,7 @@
     <description></description>
   </text>
   <text id="TEXT_ADD_RECURRING">
-    <value>Ajouter [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+    <value>Ajouter des [TEXT_KEYTERM_RECURRING_CHARGE]</value>
     <description></description>
   </text>
   <text id="TEXT_RECURRING_CHARGE_TYPE">
@@ -100,15 +100,15 @@
     <description></description>
   </text>
   <text id="TEXT_SELECT_PERIOD">
-    <value>Période[TEXT_SELECT]</value>
+    <value>Période de [TEXT_SELECT]</value>
     <description></description>
   </text>
   <text id="TEXT_NAME_TIP">
-    <value>Formulation abrégée pour [TEXT_KEYTERM_RECURRING_CHARGE] dans l’ [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
+    <value>Formulation abrégée pour [TEXT_KEYTERM_RECURRING_CHARGE] dans l' [TEXT_KEYTERM_PRODUCT_OFFERING].</value>
     <description></description>
   </text>
   <text id="TEXT_DISPLAY_NAME_TIP">
-    <value>Nom des [TEXT_KEYTERM_RECURRING_CHARGE] tel qu’il apparaît dans d’autres applications et pour les abonnés.</value>
+    <value>Nom des [TEXT_KEYTERM_RECURRING_CHARGE] tel qu'il apparaît dans d'autres applications et pour les abonnés.</value>
     <description></description>
   </text>
   <text id="TEXT_DESCRIPTION_TIP">
@@ -144,7 +144,7 @@
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION">
-    <value>Valeurs d’énumération valides</value>
+    <value>Valeurs d'énumération valides</value>
     <description></description>
   </text>
   <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION_SEPARATOR_HELP">
@@ -161,6 +161,50 @@
   </text>
   <text id="TEXT_UDRCMaxUnitValue">
     <value>Valeur unitaire maximale</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CANCEL">
+    <value>Cancel</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FINISH">
+    <value>Finish</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BACK">
+    <value>&lt; Back</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NEXT">
+    <value>Next &gt;</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VALUE_TYPE">
+    <value>Value type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_charged_in">
+    <value>Should this item be charged in advance or arrears?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_Should_this_item_be_prorated">
+    <value>Should this item be prorated?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INTEGER">
+    <value>Integer</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DECIMAL">
+    <value>Decimal</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PRORATE_BASED_ON">
+    <value>Prorate based on</value>
+    <description></description>
+  </text>
+  <text id="TEXT_number_of_days">
+    <value>number of days.</value>
     <description></description>
   </text>
 </texts>

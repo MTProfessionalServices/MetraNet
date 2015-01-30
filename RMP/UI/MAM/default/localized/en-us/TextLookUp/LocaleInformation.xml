@@ -28,26 +28,12 @@
     <value>false</value>
     <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
   </text>
-  <!--   
-  <text id="MDM_TYPE_TIMESTAMP_CHARS">
-    <value>0123456789.: APMapm</value>
-    <description>Chars allowed for a date</description>
-  </text>
-  <text id="MDM_CALENDAR_WIDGET_DATEFORMAT">
-    <value>d.M.yyyy</value>
-    <description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar/pupdate.js for more information.</description>
-  </text>
-  <text id="MDM_USE_24HOUR_CLOCK">
-    <value>true</value>
-    <description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
-  </text>
-  -->
   <text id="END_OF_DAY">
     <value>11:59:59 PM</value>
     <description>End of day</description>
   </text>
   <text id="DATE_FORMAT">
-    <value>mm/dd/yyyy</value>
+    <value>M/d/yyyy</value>
     <description>The date format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="JS_DATE_FORMAT">
@@ -55,15 +41,15 @@
     <description>ExtJS date format definition</description>
   </text>
   <text id="END_OF_TIME">
-    <value>01/01/2038</value>
+    <value>1/1/2038</value>
     <description>End of Time</description>
   </text>
   <text id="TIME_FORMAT">
-    <value>hh:mm:ss</value>
+    <value>h:mm:ss</value>
     <description>The time format used all across the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="DATE_TIME_FORMAT">
-    <value>mm/dd/yyyy hh:mm:ss AMPM</value>
+    <value>M/d/yyyy h:mm:ss AMPM</value>
     <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
   </text>
   <text id="AMOUNT_FORMAT">
@@ -120,5 +106,9 @@
   <text id="PREV_MONTH_TEXT">
     <value>Previous month</value>
     <description></description>
+  </text>
+  <text id="DATE_SEPARATOR">
+    <value>/</value>
+    <description>Define the dates separator.</description>
   </text>
 </texts>

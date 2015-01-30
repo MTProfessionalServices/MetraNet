@@ -106,7 +106,7 @@ PUBLIC FUNCTION Form_Initialize(EventArg) ' As Boolean
   End Select
 
   On error resume next
-	Set	objAuthAccount = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,CLng(Session("SecurityAccountID")), mam_GetHierarchyTime())
+	Set	objAuthAccount = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,CLng(Session("SecurityAccountID")), mam_ConvertToSysDate(mam_GetHierarchyTime()))
   If err.number <> 0 then
     Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
   End If

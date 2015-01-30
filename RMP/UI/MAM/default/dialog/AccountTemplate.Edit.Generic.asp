@@ -336,7 +336,7 @@ Function CheckDefaultPolicy()
   Dim objPolicy
   
   On error resume next
-	Set	objAuthAccount  = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, CLng(AccountTemplateHelper.AccountTemplate.AccountID), mam_GetHierarchyTime())
+	Set	objAuthAccount  = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext, CLng(AccountTemplateHelper.AccountTemplate.AccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))
   If err.number <> 0 then
     Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
   End If
@@ -603,7 +603,7 @@ Private Function Delete_Click(EventArg)
   Dim success  
   
   ' Get a Fresh YAAC
-  Set Session("SubscriberYAAC") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_GetHierarchyTime())
+  Set Session("SubscriberYAAC") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_ConvertToSysDate(mam_GetHierarchyTime()))
           
   ' Delete the account template
   success = SubscriberYAAC().DeleteTemplate(AccountTemplateHelper.AccountTemplate.TemplateAccountTypeID)

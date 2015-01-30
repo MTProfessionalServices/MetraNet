@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_BATCH_MANANAGEMENT">
+    <value>Gerenciamento de lote</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_UPDATE_STATUS_TITLE">
+    <value>Atualizar Status do Lote</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_ACTION">
+    <value>Marcar como Com Falha</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_TITLE">
+    <value>Marcar Lote Como Com Falha</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_ACTION">
+    <value>Marcar como Concluído</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_TITLE">
+    <value>Marcar Lote Como Concluído</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_ACTION">
+    <value>Marcar Como Ignorado</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_TITLE">
+    <value>Marcar Lote Como Ignorado</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_ACTION">
+    <value>Fazer Backout</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_TITLE">
+    <value>Fazer Backout de Lote</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_ACTION">
+    <value>Reenviar</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_TITLE">
+    <value>Reenviar Lote</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_ACTIVE">
+    <value>Ativo/Abrir</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_ACTIVE_DESCRIPTION">
+    <value>Esse lote está aberto e pode ter transações medidas em relação a ele.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_COMPLETED">
+    <value>Concluído</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_COMPLETED_DESCRIPTION">
+    <value>Esse lote está completo. Não é possível mais medir transações em relação a ele.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_FAILED">
+    <value>Falhou</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_FAILED_DESCRIPTION">
+    <value>Esse campo falhou.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_BACKEDOUT">
+    <value>Com Backout</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_BACKEDOUT_DESCRIPTION">
+    <value>O backout desse lote foi realizado.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_RESUBMIT">
+    <value>Reenviar</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_RESUBMIT_DESCRIPTION">
+    <value>Esse lote foi reenviado depois do backout.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_DISMISSED">
+    <value>Rejeitado</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION">
+    <value>Esse lote foi ignorado e não é mais relevante. As transações completas sofreram backout.</value>
+  </text>
+  <text id="TEXT_Namespace">
+    <value>Espaço de nomes</value>
+  </text>
+  <text id="TEXT_Name">
+    <value>Nome</value>
+  </text>
+  <text id="TEXT_Sequence">
+    <value>Sequência</value>
+  </text>
+  <text id="TEXT_Source">
+    <value>Fonte</value>
+  </text>
+  <text id="TEXT_Created">
+    <value>CRIADO</value>
+  </text>
+  <text id="TEXT_First_Transaction">
+    <value>Editar transação</value>
+  </text>
+  <text id="TEXT_Most_Recent_Transaction">
+    <value>Transação Mais Recente</value>
+  </text>
+  <text id="TEXT_Internal_Batch_Id">
+    <value>ID do Lote Interno</value>
+  </text>
+  <text id="TEXT_Status">
+    <value>Status</value>
+  </text>
+  <text id="TEXT_Expected">
+    <value>Esperado</value>
+  </text>
+  <text id="TEXT_Completed">
+    <value>Concluído</value>
+  </text>
+  <text id="TEXT_Failed">
+    <value>Falhou</value>
+  </text>
+  <text id="TEXT_Dismissed">
+    <value>Rejeitado</value>
+  </text>
+  <text id="TEXT_Difference">
+    <value>Diferença</value>
+  </text>
+  <text id="TEXT_View_Statistics">
+    <value>Exibir Estatísticas</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>Comentário</value>
+  </text>
+  <text id="TEXT_Mark_As_Hard_Closed">
+    <value>Mark As Hard Closed</value>
+  </text>
+  <text id="TEXT_Manually_Assign_Accounts">
+    <value>Manually Assign Accounts</value>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>Close</value>
+  </text>
+</texts>

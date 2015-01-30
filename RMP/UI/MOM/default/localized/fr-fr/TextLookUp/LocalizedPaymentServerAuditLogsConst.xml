@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<texts id="Main" type='collection'>
-
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_credit_TITLE">   <value>Credit Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_postauth_TITLE"> <value>Post Auth Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_preauth_TITLE">  <value>Pre Auth Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_prenote_TITLE"> <value>ACH Prenote Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_credit_TITLE">  <value>ACH Credit Audit Log</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_debit_TITLE">   <value>ACH Debit Audit Log</value></text>    
-    <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_paymentscheduler_TITLE">   <value>Payment Scheduler</value></text>
-    
-    <text id="TEXT_SYSTEM_LOG_PS_ERROR_OCCUR_CHANGING_THE_STATUS">   <value>An error occured changing the status of the transaction [TRANSACTIONID]. The status of following transaction(s) is not changed.</value></text>
-    <text id="TEXT_SYSTEM_LOG_PS_ERROR">   <value>Error.</value></text>
-    
+<texts id="Main" type="collection">
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_credit_TITLE">
+    <value>Journal d'audit du crédit</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_postauth_TITLE">
+    <value>Journal d'audit post-aut.</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_cc_preauth_TITLE">
+    <value>Journal d'audit pré-aut.</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_prenote_TITLE">
+    <value>Journal d'audit d'ACH Prenote</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_credit_TITLE">
+    <value>Journal d'audit de crédit ACH</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_ach_debit_TITLE">
+    <value>Journal d'audit de débit ACH</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_metratech_com_ps_paymentscheduler_TITLE">
+    <value>Planificateur de paiement</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_ERROR_OCCUR_CHANGING_THE_STATUS">
+    <value>Une erreur s'est produite au changement d'état de la transaction [TRANSACTIONID]. L'état des transactions suivantes n'est pas modifié.</value>
+  </text>
+  <text id="TEXT_SYSTEM_LOG_PS_ERROR">
+    <value>Erreur.</value>
+  </text>
 </texts>

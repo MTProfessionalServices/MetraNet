@@ -74,8 +74,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   
   ' Add dialog properties
   Service.Properties.Add "Description",           "String",    256, TRUE,  ""                   
-  Service.Properties.Add "StartDate",             "TIMESTAMP", 0,   FALSE, Empty    
-  Service.Properties.Add "EndDate",               "TIMESTAMP", 0,   FALSE, Empty  
+  Service.Properties.Add "StartDate",             "String",    0,   FALSE, Empty    
+  Service.Properties.Add "EndDate",               "String",    0,   FALSE, Empty  
   Service.Properties.Add "StartNextBillingPeriod","boolean",   0,   FALSE, FALSE  
   Service.Properties.Add "EndNextBillingPeriod",  "boolean",   0,   FALSE, FALSE  
   
@@ -99,7 +99,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties("StartDate").Caption              = mam_GetDictionary("TEXT_RATE_START_DATE")  
   Service.Properties("EndDate").Caption                = mam_GetDictionary("TEXT_RATE_END_DATE")
   Service.Properties("StartNextBillingPeriod").Caption = mam_GetDictionary("TEXT_NEXT_BILLING_PERIOD")  
-  Service.Properties("EndNextBillingPeriod").Caption = mam_GetDictionary("TEXT_NEXT_BILLING_PERIOD")  
+  Service.Properties("EndNextBillingPeriod").Caption   = mam_GetDictionary("TEXT_NEXT_BILLING_PERIOD")  
       
   ' Include Calendar javascript    
   mam_IncludeCalendar
@@ -155,7 +155,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     End If
 		
     If Len(Service.Properties("StartDate")) Then
-      effDate.StartDate = CDate(Service.Tools.ConvertToGMT(Service.Properties("StartDate"), CLng(MAM().CSR("TimeZoneId"))))
+      effDate.StartDate = mdm_Format(CDate(Service.Tools.ConvertToGMT(Service.Properties("StartDate"), CLng(MAM().CSR("TimeZoneId")))), mam_GetDictionary("DATE_TIME_FORMAT"))
       'ESR-6316
       'Issue - Rate schedule End date selection with popup calendar 
       effDate.StartDate=DateAdd("h",-Hour(effDate.StartDate), effDate.StartDate)
@@ -171,7 +171,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     End If    
 
     If Len(Service.Properties("EndDate")) Then
-      effDate.EndDate = CDate(Service.Tools.ConvertToGMT(Service.Properties("EndDate"), CLng(MAM().CSR("TimeZoneId"))))
+      effDate.EndDate = mdm_Format(CDate(Service.Tools.ConvertToGMT(Service.Properties("EndDate"), CLng(MAM().CSR("TimeZoneId")))), mam_GetDictionary("DATE_TIME_FORMAT"))
       'ESR-6316
       'Issue - Rate schedule End date selection with popup calendar 
       effDate.EndDate=DateAdd("h",23-Hour(effDate.EndDate), effDate.EndDate)

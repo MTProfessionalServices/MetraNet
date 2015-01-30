@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>The file defines the localization of the main menu options.</description>
+  <text id="TEXT_MENU_RATES">
+    <value>Rates</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MENU_ADVANCED_DIALOG">
+    <value>Advanced</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED_DIALOG">
+    <value>Advanced Options</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MENU_PRICEABLE_ITEM_CHARGES">
+    <value>[TEXT_KEYTERM_SERVICE CHARGES]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HOME">
+    <value>Home</value>
+    <description></description>
+  </text>
+
+  <!-- Top Level Menu Headings -->
+  <text id="TEXT_KEYTERM_MENU_PRODUCT_OFFERINGS">
+    <value>[TEXT_KEYTERM_PRODUCT_OFFERINGS]</value>
+    <description>Menu Heading: Product Offerings</description>
+  </text>
+  <text id="TEXT_KEYTERM_MENU_RATES">
+    <value>Rates</value>
+    <description>Menu Heading: Rates</description>
+  </text>
+  <text id="TEXT_KEYTERM_MENU_PRICEABLE_ITEMS">
+    <value>[TEXT_KEYTERM_PRICEABLE_ITEMS]</value>
+    <description>Menu Heading: Priceable Items</description>
+  </text>
+  <text id="TEXT_KEYTERM_MENU_DISCOUNTS">
+    <value>[TEXT_KEYTERM_DISCOUNTS]</value>
+    <description>Menu Heading: Discounts</description>
+  </text>
+  <text id="TEXT_KEYTERM_MENU_ADVANCED_OPTIONS">
+    <value>Advanced Options</value>
+    <description>Menu Heading: Advanced Options</description>
+  </text>
+</texts>

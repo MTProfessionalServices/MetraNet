@@ -56,7 +56,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   If UCase(Session("IsAccount")) = "TRUE" Then
 		
     On error resume next
-    Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_GetHierarchyTime())
+    Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_ConvertToSysDate(mam_GetHierarchyTime()))
     If err.number <> 0 then
       Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
     End If
@@ -72,7 +72,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   	Form("Role") = FrameWork.Policy.GetRoleByID(FrameWork.SessionContext, Form("RoleID"))
 	  Form("CompositeCapabilityType") = FrameWork.Policy.GetCapabilityTypeByID(CLng(Form("CapabilityID")))
 	End If	
-	
+	  
   bReturn = DynamicCapabilites(EventArg) ' Load the correct template for the dynmaic capabilities
 		
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
@@ -97,12 +97,21 @@ FUNCTION DynamicCapabilites(EventArg)
   on error resume next
 
   ' Setup initial template
-  Form.HTMLTemplateSource = Form("InitialTemplate")
-	
-  ' Set Title
-	mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
+  Form.HTMLTemplateSource = Form("InitialTemplate")	  
+  
+  Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))
 
-	If IsEmpty(Form("CompositeCollection")) Then
+  Do While Not ProductView.Properties.RowSet.EOF
+    Form("atomic" & ProductView.Properties.RowSet.Value("atomic_id_cap_type")) = ProductView.Properties.RowSet.Value("CompositionDescription")  
+    Form("CAPABILITY_TITLE") = ProductView.Properties.RowSet.Value("tx_desc")  
+    ProductView.Properties.Rowset.MoveNext
+  LOOP
+    
+  ' Set Title
+	'mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
+  mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CAPABILITY_TITLE")  
+
+  If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then
       If UCase(Session("IsAccount")) = "TRUE" Then			
 			  Form("AccountPolicy").AddCapability(Form("CompositeCapabilityType").CreateInstance())
@@ -119,10 +128,10 @@ FUNCTION DynamicCapabilites(EventArg)
   Else
 	  Form("CompositeCollection") = Form("Role").GetActivePolicy(FrameWork.SessionContext).GetCapabilitiesOfType(Form("CompositeCapabilityType").ID)
   End If
-	 
-	nCount = 1
-	For Each composite in Form("CompositeCollection")
 	
+  nCount = 1
+	For Each composite in Form("CompositeCollection")
+    
 		For Each atomic in composite.AtomicCapabilities
 
 	    Select Case UCase(atomic.capabilityType.name)
@@ -140,7 +149,9 @@ FUNCTION DynamicCapabilites(EventArg)
  				  Service.Properties.Add "MTPATHCAPABILITY" & nCount, "String", 255, TRUE, ""		
 				  Service.Properties.Add "MTWILDCARD" & nCount, "String", 0, TRUE, ""
 			    Service.Properties("MTWILDCARD" & nCount).AddValidListOfValues objDyn	
-					
+
+          mdm_GetDictionary().add "MTPATHCAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID))
+          					
 					strHTML = strHTML & "<tr>"
 					strHTML = strHTML & "	  <td  width='50%' class='captionEWRequired'>[MTPATHCAPABILITY_DESCRIPTION]:</td>"
 					strHTML = strHTML & "	  <td  width='50%' class='clsStandardText'>"
@@ -187,8 +198,8 @@ FUNCTION DynamicCapabilites(EventArg)
 				 
   		'----------------------------------------------------------------------------------------------------------					
 			Case "MTACCESSTYPECAPABILITY"
-					mdm_GetDictionary().add "MTACCESSTYPECAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
-
+          mdm_GetDictionary().add "MTACCESSTYPECAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
+					
 					Service.Properties.Add "MTACCESSTYPECAPABILITY" & nCount, "ENUM", 0, TRUE, ""
 					Service.Properties("MTACCESSTYPECAPABILITY" & nCount).Caption = "Access Type"
 	
@@ -198,6 +209,8 @@ FUNCTION DynamicCapabilites(EventArg)
 	        Service.Properties("MTACCESSTYPECAPABILITY" & nCount).AddValidListOfValues objDyn	
 				  Service.Properties("MTACCESSTYPECAPABILITY" & nCount) = CStr(atomic.GetParameter())
 					
+          mdm_GetDictionary().add "MTACCESSTYPECAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID)) 
+
 					strHTML = strHTML & "   <tr>"
  			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>[MTACCESSTYPECAPABILITY_DESCRIPTION]:</td>"
 				  strHTML = strHTML & "     <td width='50%' class='clsStandardText'><SELECT class='fieldRequired' name='MTACCESSTYPECAPABILITY" & nCount & "'></SELECT></td>"
@@ -205,15 +218,15 @@ FUNCTION DynamicCapabilites(EventArg)
 			
       '----------------------------------------------------------------------------------------------------------					
 			Case "MTDECIMALCAPABILITY"			
-					mdm_GetDictionary().add "MTDECIMALCAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
-
+					 mdm_GetDictionary().add "MTDECIMALCAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
+					
 					Service.Properties.Add "MTDECIMALCAPABILITY" & nCount, "DECIMAL", 0, TRUE, 0
           
           Service.Properties.Add "MTDECIMALCAPABILITYOPERATOR" & nCount, "String", 0, TRUE, ""
   				'Service.Properties.Add "MTDECIMALCAPABILITYOPERATOR" & nCount, "ENUM", 0, TRUE, "" 'old
 
 					Service.Properties("MTDECIMALCAPABILITY" & nCount).Caption = "Decimal"
-          Service.Properties("MTDECIMALCAPABILITYOPERATOR" & nCount).Caption = "Operator"
+          Service.Properties("MTDECIMALCAPABILITYOPERATOR" & nCount).Caption = "Operator" 'mam_GetDictionary("TEXT_OPERATOR") 
 					
 					Set objDyn = mdm_CreateObject(CVariables)					
 				  objDyn.Add "equal", MTDECIMALCAPABILITY_OPERATOR_TYPE_EQUAL, , , "="
@@ -245,19 +258,21 @@ FUNCTION DynamicCapabilites(EventArg)
   					Service.Properties("MTDECIMALCAPABILITY" & nCount) = "0.00"
 						Service.Properties("MTDECIMALCAPABILITYOPERATOR" & nCount) = MTDECIMALCAPABILITY_OPERATOR_TYPE_NONE
 					End If
-					
+					          
+          mdm_GetDictionary().add "MTDECIMALCAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID))
+          
 					strHTML = strHTML & "   <tr>"
  			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>[MTDECIMALCAPABILITY_DESCRIPTION]:</td>"
           strHTML = strHTML & "     <td width='50%' class='clsStandardText'><input class='fieldRequired' size='15' type='text' value='" & Service.Properties("MTDECIMALCAPABILITY" & nCount) & "' name='MTDECIMALCAPABILITY" & nCount & "'></td>"
 					strHTML = strHTML & "   </tr><tr>"
- 			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>Operator:</td>"
+ 			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'><MDMLABEL Name='TEXT_OPERATION'>Operation</MDMLABEL>:</td>"
 					strHTML = strHTML & "     <td width='50%' class='clsStandardText'><SELECT  class='fieldRequired' name='MTDECIMALCAPABILITYOPERATOR" & nCount & "'></SELECT></td>"
 				  strHTML = strHTML & "   </tr>"
 
   		'----------------------------------------------------------------------------------------------------------					
 			Case "MTENUMTYPECAPABILITY"
 					mdm_GetDictionary().add "MTENUMTYPECAPABILITY_DESCRIPTION", atomic.capabilityType.CompositionDescription
-
+					
 					Service.Properties.Add "MTENUMTYPECAPABILITY" & nCount, "String", 0, TRUE, ""
 					Service.Properties("MTENUMTYPECAPABILITY" & nCount).Caption = "Enum Type"
 
@@ -274,7 +289,9 @@ FUNCTION DynamicCapabilites(EventArg)
 					Else
 					  Service.Properties("MTENUMTYPECAPABILITY" & nCount).Value = ""
 					End If
-          	
+
+          mdm_GetDictionary().add "MTENUMTYPECAPABILITY_DESCRIPTION", Form("atomic" & CStr(atomic.CapabilityType.ID))           	          
+
 					If (atomic.capabilityType.CompositionDescription = "Specify currency for adjustments") Then
 					strHTML = strHTML & "   <tr>"
  			    strHTML = strHTML & "     <td width='50%' class='captionEWRequired'>[MTENUMTYPECAPABILITY_DESCRIPTION]:</td>"

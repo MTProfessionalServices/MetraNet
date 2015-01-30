@@ -203,8 +203,8 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
            if ProductView.Properties("EventId") = 1402 then
             dim strEditStateButton
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & _
-              "<button class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & "Rudi" & "&AUDIT_ID=" & ProductView.Properties("id_audit") & "&RS_ID_1=" & ProductView.Properties("EntityId") & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">View Changes</button>&nbsp;" & _
-              "<button class='clsButtonBlueMedium' onclick=""window.open('Rates.RateSchedule.ViewHistory.asp?MDMReload=TRUE&Reload=TRUE&refresh=TRUE&RS_ID=" & ProductView.Properties("EntityId") & "','_blank', 'height=600,width=800,resizable=yes,scrollbars=yes'); return false;"">View History</button>" & _
+              "<button class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & "Rudi" & "&AUDIT_ID=" & ProductView.Properties("id_audit") & "&RS_ID_1=" & ProductView.Properties("EntityId") & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">" & FrameWork.GetDictionary("TEXT_VIEW_CHANGES") & "</button>&nbsp;" & _
+              "<button class='clsButtonBlueMedium' onclick=""window.open('Rates.RateSchedule.ViewHistory.asp?MDMReload=TRUE&Reload=TRUE&refresh=TRUE&RS_ID=" & ProductView.Properties("EntityId") & "','_blank', 'height=600,width=800,resizable=yes,scrollbars=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_VIEW_HISTORY") & "</button>" & _
               "</td>"
                   
                   ' Info for FredRunner Smoke Test                  

@@ -76,7 +76,7 @@ PUBLIC FUNCTION mam_AccountFound(booYes) ' As Boolean
           
 			  ' Set SubscriberYAAC
         On error resume next
-        Set Session("SubscriberYAAC") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_GetHierarchyTime())
+        Set Session("SubscriberYAAC") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_ConvertToSysDate(mam_GetHierarchyTime()))
         If err.number <> 0 then
           Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
         End If

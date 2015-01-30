@@ -551,7 +551,7 @@ PUBLIC FUNCTION GetUserNameFromAccountID(lngAccountID) ' as string
   If Len(lngAccountID) > 0 Then
   
     On Error Resume Next
-    Set objYAAC               = FrameWork.AccountCatalog.GetAccount(CLng(lngAccountID),mam_GetHierarchyTime())    
+    Set objYAAC               = FrameWork.AccountCatalog.GetAccount(CLng(lngAccountID), mam_ConvertToSysDate(mam_GetHierarchyTime()))    
     
     If Err.Number Then
         EventArg.Error.Save Err        
@@ -752,12 +752,65 @@ PUBLIC FUNCTION mam_GetGMTTimeFormatted()
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_ConvertToSysDate()
+' PARAMETERS	: Date
+' DESCRIPTION : Previously fixed some problem with DT localization, that is now absent.
+' Convertion Date Type to String Type is not not needed now. (fix to CORE-8516)
+' [TODO]: Remove this and all usages once regression is complete.
+' RETURNS			: The Same Value
+PUBLIC FUNCTION mam_ConvertToSysDate(localeDate)
+   mam_ConvertToSysDate = localeDate
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_DateFromLocaleString()
+' PARAMETERS	: string with localized date
+' DESCRIPTION : Returns date type from string. (CORE-8563 - CDate converts properly in all localizations. It only does not like "." symbols)
+' RETURNS			: date
+PUBLIC FUNCTION mam_DateFromLocaleString(dateString)
+  If Len(dateString) = 0 Then
+      mam_DateFromLocaleString = ""
+  Else
+      mam_DateFromLocaleString = CDate(Replace(dateString,".","/"))
+  End If
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetNormalDateFormat()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_NormalDateFormat(strdate)
+    if(Len(strdate)=0) Then
+        mam_NormalDateFormat = ""
+    else
+        mam_NormalDateFormat = mdm_NormalDateFormat(strdate, mam_GetDictionary("DATE_TIME_FORMAT"))
+    end If
+END FUNCTION
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetGMTTime()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_GetGMTTime()
+    mam_GetGMTTime = mdm_GetGMTTime()
+END FUNCTION
+' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: mam_GetGMTDateFormatted()
 ' PARAMETERS	:
 ' DESCRIPTION :
 ' RETURNS			:
 PUBLIC FUNCTION mam_GetGMTDateFormatted()
     mam_GetGMTDateFormatted = mdm_GetGMTTimeFormatted(mam_GetDictionary("DATE_FORMAT"))
+END FUNCTION
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetGMTDate()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_GetGMTDate()
+    mam_GetGMTDate = mdm_GetGMTTimeFormatted("mm/dd/yyyy")
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -769,6 +822,15 @@ PUBLIC FUNCTION mam_GetGMTEndOfTheDayFormatted()
    mam_GetGMTEndOfTheDayFormatted = CDate(mam_GetGMTDateFormatted() & " " & mam_GetDictionary("END_OF_DAY"))
 END FUNCTION  
 
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 		: mam_GetGMTEndOfTheDay()
+' PARAMETERS	:
+' DESCRIPTION :
+' RETURNS			:
+PUBLIC FUNCTION mam_GetGMTEndOfTheDay()
+   mam_GetGMTEndOfTheDay = CDate(mam_GetGMTDate() & " " & mam_GetDictionary("END_OF_DAY"))
+END FUNCTION  
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -918,22 +980,13 @@ PUBLIC FUNCTION mam_SetupCSR(strLogon, strNameSpace, strNameSpaceType) ' as bool
   mam_SetupCSR = FALSE
 
   Dim rs
-  Set rs = FrameWork.AccountCatalog.FindAccountByNameAsRowset(mam_GetHierarchyTime(), strLogon, strNameSpace, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByNameAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), strLogon, strNameSpace, NULL)
 
   If rs.RecordCount >= 1 Then 
  
     MAM().SetActiveCSRAccountType "SystemAccount" 
     MAM().CSR.SetPropertiesFromRowset rs    
     
-    Dim objLanguageContext
-    dim objSessionContext
-    mam_LoadDictionary MAM(), PAGE_LANGUAGE'MAM().CSR.Language
-    ' g. cieplik CR 12683 Load the dictionary based upon the CSR's language code, added for localization support of adjustments        
-	  set objLanguageContext = CreateObject("MetraTech.Localization.LanguageList")
-    SET objSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)
-    objSessionContext.LanguageID = objLanguageContext.GetLanguageID(MAM().CSR.Language)
-    SET Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME) = objSessionContext    
-
     MAM().CSR.Language = PAGE_LANGUAGE 'MAM().CSR("Language").EnumType.Entries.ItemByValue(MAM().CSR("Language").Value).Name 
     MAM().CSR("Language").Value = PAGE_LANGUAGE 'MAM().CSR.Language  
     mam_loadDictionary Session("objMAM"), MAM().CSR("Language").value
@@ -941,6 +994,15 @@ PUBLIC FUNCTION mam_SetupCSR(strLogon, strNameSpace, strNameSpaceType) ' as bool
     SET Session("mdm_LOCALIZATION_DICTIONARY") = Session("objMAM").Dictionary
           
     Set Session("CSR_YAAC") = FrameWork.AccountCatalog.GetActorAccount()
+
+    Dim objLanguageContext
+    dim objSessionContext
+    mam_LoadDictionary MAM(), PAGE_LANGUAGE'MAM().CSR.Language
+    ' g. cieplik CR 12683 Load the dictionary based upon the CSR's language code, added for localization support of adjustments        
+	  set objLanguageContext = CreateObject("MetraTech.Localization.LanguageList")
+    SET objSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)    
+    objSessionContext.LanguageID = objLanguageContext.GetLanguageID(PAGE_LANGUAGE)
+    SET Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME) = objSessionContext    
 
     mam_SetupCSR = TRUE
   Else
@@ -1013,7 +1075,7 @@ PUBLIC FUNCTION mam_LoadTempAccount(lngAccountID)
   mam_LoadTempAccount = FALSE
 
   Dim rs
-  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime(), lngAccountID, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), lngAccountID, NULL)
 
   If rs.RecordCount >= 1 Then
     Call MAM().SetActiveTempAccountType(rs.Value("AccountType"))
@@ -1034,7 +1096,7 @@ PUBLIC FUNCTION mam_LoadTempCSRAccount(lngAccountID)
   mam_LoadTempCSRAccount = FALSE
 
   Dim rs
-  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime(), lngAccountID, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), lngAccountID, NULL)
 
   If rs.RecordCount >= 1 Then
     Call MAM().SetActiveTempAccountType(rs.Value("AccountType"))
@@ -1053,7 +1115,7 @@ END FUNCTION
 ' RETURNS		  :
 PRIVATE FUNCTION mam_GetHierarchyTime() 
   If IsEmpty(Session("HIERARCHY_HELPER")) Then
-    mam_GetHierarchyTime = CDate(mam_GetGMTEndOfTheDayFormatted())
+    mam_GetHierarchyTime =  CDate(mam_GetGMTEndOfTheDay())
   Else
     mam_GetHierarchyTime = CDate(Session("HIERARCHY_HELPER").SnapShot)
   End If
@@ -1066,7 +1128,7 @@ End Function
 ' RETURNS		  :
 PRIVATE FUNCTION mam_GetSystemUserHierarchyTime() 
   If IsEmpty(Session("SYSTEM_USER_HIERARCHY_HELPER")) Then
-    mam_GetSystemUserHierarchyTime = CDate(mam_GetGMTEndOfTheDayFormatted())
+    mam_GetSystemUserHierarchyTime = CDate(mam_GetGMTEndOfTheDay())
   Else
     mam_GetSystemUserHierarchyTime = CDate(Session("SYSTEM_USER_HIERARCHY_HELPER").SnapShot)
   End If
@@ -1095,7 +1157,7 @@ PRIVATE FUNCTION mam_GetHierarchyDate() ' returns DATE
   Set objTools = CreateObject(MSIXTOOLS_PROG_ID)
   
   If IsEmpty(Session("HIERARCHY_HELPER")) Then
-     mam_GetHierarchyDate = CDate(objTools.Format(objTools.GetCurrentGMTTime(), mam_GetDictionary("DATE_FORMAT")))
+    mam_GetHierarchyDate = DateValue(objTools.GetCurrentGMTTime())
   Else
     mam_GetHierarchyDate = CDate(objTools.Format(Session("HIERARCHY_HELPER").SnapShot, mam_GetDictionary("DATE_FORMAT")))
   End If
@@ -1110,7 +1172,7 @@ PRIVATE FUNCTION mam_GetUserNameNameSpaceFromAccountID(lngAccountID, strUserName
 
     Dim objParentFolderYaac
   
-    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID,mam_GetHierarchyTime())
+    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(mam_GetHierarchyTime()))
     strUserName               = objParentFolderYaac.LoginName
     strNameSpace              = objParentFolderYaac.NameSpace        
     
@@ -1127,7 +1189,7 @@ PRIVATE FUNCTION mam_GetUserNameNameSpaceFromAccountIDForSystemUser(lngAccountID
 
     Dim objParentFolderYaac
   
-    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID,mam_GetSystemUserHierarchyTime())
+    Set objParentFolderYaac   = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
     strUserName               = objParentFolderYaac.LoginName
     strNameSpace              = objParentFolderYaac.NameSpace        
     
@@ -1207,7 +1269,7 @@ PRIVATE FUNCTION mam_GetFieldIDFromAccountIDAtTime(lngAccountID, strTime)
       If CLng(lngAccountID) = MAM_HIERARCHY_ROOT_ACCOUNT_ID then
         strFullName = mam_GetDictionary("TEXT_CORPORATE_ACCOUNT")
       Else
-        Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID, CDate(strTime))
+        Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(CDate(strTime)))
         strFullName = objYaac.AccountName  
       End If 
   
@@ -1233,7 +1295,7 @@ END FUNCTION
 PRIVATE FUNCTION mam_GetPathFromAccountID(lngAccountID)
   Dim objYaac
   
-  Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID,mam_GetHierarchyTime())
+  Set objYaac = FrameWork.AccountCatalog.GetAccount(lngAccountID, mam_ConvertToSysDate(mam_GetHierarchyTime()))
               
   mam_GetPathFromAccountID = objYaac.HierarchyPath
 END FUNCTION
@@ -1246,7 +1308,7 @@ END FUNCTION
 PRIVATE FUNCTION mam_GetAccountIDFromUserNameNameSpace(strUserName, strNameSpace)
     Dim objYaac
 
-    Set objYaac = FrameWork.AccountCatalog.GetAccountByName(strUserName, strNameSpace,mam_GetHierarchyTime())
+    Set objYaac = FrameWork.AccountCatalog.GetAccountByName(strUserName, strNameSpace, mam_ConvertToSysDate(mam_GetHierarchyTime()))
     mam_GetAccountIDFromUserNameNameSpace = objYaac.AccountID
 END FUNCTION
 
@@ -1450,7 +1512,7 @@ Function mam_LoadSubscriberAccount(lngAccountID)
     
   Dim rs
   On error resume next
-  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_GetHierarchyTime(), lngAccountID, NULL)
+  Set rs = FrameWork.AccountCatalog.FindAccountByIDAsRowset(mam_ConvertToSysDate(mam_GetHierarchyTime()), lngAccountID, NULL)
   If err.number > 0 or IsEmpty(rs) Then
       If mam_AccountFound(FALSE) Then
         mam_LoadSubscriberAccount = FALSE
@@ -1622,7 +1684,7 @@ End Function
 ' RETURNS		  :
 Public Function mam_LoadSystemUser(lngID, bFlipMenu)
   
-  Set Session("CURRENT_SYSTEM_USER") = FrameWork.AccountCatalog.GetAccount(CLng(lngID), mam_GetSystemUserHierarchyTime())
+  Set Session("CURRENT_SYSTEM_USER") = FrameWork.AccountCatalog.GetAccount(CLng(lngID), mam_ConvertToSysDate(mam_GetSystemUserHierarchyTime()))
   
   if not session("CURRENT_SYSTEM_USER") is nothing then
     mam_LoadSystemUser = true
@@ -1645,28 +1707,28 @@ PUBLIC FUNCTION GetAssociation(mgr, acc)
 
   assoc.RelationType = Service.Properties("Relationship").Value
   assoc.PercentOwnership = Service.Properties("Percentage").Value
-  assoc.StartDate = CDate(Service.Properties("StartDate").Value)
+  assoc.StartDate = mam_DateFromLocaleString(Service.Properties("StartDate").Value)
   If Len(Service.Properties("EndDate")) > 0 Then  
-    assoc.EndDate = CDate(Service.Properties("EndDate").Value)    
+    assoc.EndDate = mam_DateFromLocaleString(Service.Properties("EndDate").Value)    
   Else
-    assoc.EndDate = CDate(FrameWork.RCD().GetMaxDate())
+    assoc.EndDate = FrameWork.RCD().GetMaxDate()
   End If
   assoc.OwnedAccount = acc
   
   If Not Form Is Nothing Then
     If Form.Exist("OldStartDate")Then
       If IsEmpty(Form("OldStartDate")) Then
-        assoc.OldStartDate = CDate(FrameWork.RCD().GetMinDate())
+        assoc.OldStartDate = FrameWork.RCD().GetMinDate()
       else 
-        assoc.OldStartDate = CDate(Form("OldStartDate"))    
+        assoc.OldStartDate = mam_DateFromLocaleString(Form("OldStartDate"))    
       End If
     End IF
     
     If Form.Exist("OldEndDate")Then
       If IsEmpty(Form("OldEndDate")) Then
-        assoc.OldEndDate = CDate(FrameWork.RCD().GetMaxDate())
+        assoc.OldEndDate = FrameWork.RCD().GetMaxDate()
       else 
-        assoc.OldEndDate = CDate(Form("OldEndDate"))    
+        assoc.OldEndDate = mam_DateFromLocaleString(Form("OldEndDate"))    
       End If
     End If
   
@@ -1686,28 +1748,28 @@ PUBLIC FUNCTION GetAssociationAsOwned(mgr, acc)
 
   assoc.RelationType = Service.Properties("Relationship").Value
   assoc.PercentOwnership = Service.Properties("Percentage").Value
-  assoc.StartDate = CDate(Service.Properties("StartDate").Value)
+  assoc.StartDate = mam_DateFromLocaleString(Service.Properties("StartDate").Value)
   If Len(Service.Properties("EndDate")) > 0 Then  
-    assoc.EndDate = CDate(Service.Properties("EndDate").Value)    
+    assoc.EndDate = mam_DateFromLocaleString(Service.Properties("EndDate").Value)    
   Else
-    assoc.EndDate = CDate(FrameWork.RCD().GetMaxDate())
+    assoc.EndDate = FrameWork.RCD().GetMaxDate()
   End If
   assoc.OwnerAccount = acc
 
   If Not Form Is Nothing Then
     If Form.Exist("OldStartDate")Then
       If IsEmpty(Form("OldStartDate")) Then
-        assoc.OldStartDate = CDate(FrameWork.RCD().GetMinDate())
+        assoc.OldStartDate = FrameWork.RCD().GetMinDate()
       else 
-        assoc.OldStartDate = CDate(Form("OldStartDate"))    
+        assoc.OldStartDate = mam_DateFromLocaleString(Form("OldStartDate"))    
       End If
     End IF
     
     If Form.Exist("OldEndDate")Then
       If IsEmpty(Form("OldEndDate")) Then
-        assoc.OldEndDate = CDate(FrameWork.RCD().GetMaxDate())
+        assoc.OldEndDate = FrameWork.RCD().GetMaxDate()
       else 
-        assoc.OldEndDate = CDate(Form("OldEndDate"))    
+        assoc.OldEndDate = mam_DateFromLocaleString(Form("OldEndDate"))    
       End If
     End If
   

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="APPSETTING_DISPLAY_RATE_SCHEDULE_DEPENDENCY_COUNTS">
+    <value>true</value>
+  </text>
+  <text id="DEFAULT_PATH_SEARCH">
+    <value>/mom/default/localized/pt-br</value>
+  </text>
+  <text id="CUSTOM_PATH_SEARCH">
+    <value>/mom/custom/localized/pt-br</value>
+  </text>
+  <text id="DEFAULT_PATH_REPLACE">
+    <value>/mom/default/localized/pt-br</value>
+  </text>
+  <text id="CUSTOM_PATH_REPLACE">
+    <value>/mom/custom/localized/pt-br</value>
+  </text>
+  <text id="PV_ROW_PER_PAGE">
+    <value>25</value>
+  </text>
+  <text id="DEFAULT_TIME_ZONE_ID">
+    <value>18</value>
+  </text>
+
+  <!-- Define if the day light saving mode must be used when the date are localized   -->
+  <text id="MDM_BACK_BUTTON_ERROR">
+    <value><![CDATA[Não é possível processar sua solicitação. Repita a ação desejada selecionando a opção de menu novamente ou clique <a target='_top' href='[APP_HTTP_PATH]'>aqui</a> para fazer login de novo.<br><br><center><em>Isso poderá ocorrer se você acessar uma página em cache ou usar o botão Voltar do navegador para acessar uma página de cache inválida.</em></center>]]></value>
+    <description>Localized error message when the user use the Back button bowser.</description>
+  </text>
+</texts>

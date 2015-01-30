@@ -1,66 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Toolbar Texts" type="collection">
-	 
-	 
-		<text id="GO_TOOL_TIP">
-				<value>Go</value>
-				<description></description>
-		</text>
-		<text id="RESET_TOOL_TIP">
-				<value>Reset</value>
-				<description></description>
-		</text>
-		
-			 
-		<text id="NEXT_PAGE_TOOL_TIP">
-				<value>Next Page</value>
-				<description></description>
-		</text>
-
-		<text id="PREVIOUS_PAGE_TOOL_TIP">
-				<value>Previous Page</value>
-				<description></description>
-		</text>
-
-		<text id="FIRST_PAGE_TOOL_TIP">
-				<value>First Page</value>
-				<description></description>
-		</text>
-
-		<text id="LAST_PAGE_TOOL_TIP">
-				<value>Last Page</value>
-				<description></description>
-		</text>
-
-		<text id="REFRESH_PAGE_TOOL_TIP">
-				<value>Refresh Page</value>
-				<description></description>
-		</text>
-
-		<text id="EXPORT_PAGE_TOOL_TIP">
-				<value>Export</value>
-				<description></description>
-		</text>
-
-	 <text id='MDM_TOOL_BAR_PAGE_WORD'>
-			<value>Page</value>
-		</text> 	
-		<text id='MDM_TOOL_BAR_OF_WORD'>
-			<value>of</value>
-    </text> 
-    
-    <text id='MDM_SELECT_ALL'>
-			<value>Select All</value>
-    </text>     
-    <text id='MDM_UNSELECT_ALL'>
-			<value>UnSelect All</value>
-    </text>             
-    <text id='MDM_SELECT_PAGE'>
-			<value>Select Page</value>
-    </text>             
-    <text id='MDM_UNSELECT_PAGE'>
-			<value>UnSelect Page</value>
-    </text>                 
-    
+  <text id="GO_TOOL_TIP">
+    <value>Ir</value>
+    <description></description>
+  </text>
+  <text id="RESET_TOOL_TIP">
+    <value>Redefinir</value>
+    <description></description>
+  </text>
+  <text id="NEXT_PAGE_TOOL_TIP">
+    <value>Próxima página</value>
+    <description></description>
+  </text>
+  <text id="PREVIOUS_PAGE_TOOL_TIP">
+    <value>Página anterior</value>
+    <description></description>
+  </text>
+  <text id="FIRST_PAGE_TOOL_TIP">
+    <value>Primeira página</value>
+    <description></description>
+  </text>
+  <text id="LAST_PAGE_TOOL_TIP">
+    <value>Última página</value>
+    <description></description>
+  </text>
+  <text id="REFRESH_PAGE_TOOL_TIP">
+    <value>Atualizar página</value>
+    <description></description>
+  </text>
+  <text id="EXPORT_PAGE_TOOL_TIP">
+    <value>Exportar</value>
+    <description></description>
+  </text>
+  <text id="MDM_TOOL_BAR_PAGE_WORD">
+    <value>Página</value>
+  </text>
+  <text id="MDM_TOOL_BAR_OF_WORD">
+    <value>de</value>
+  </text>
+  <text id="MDM_SELECT_ALL">
+    <value>Selecionar tudo</value>
+  </text>
+  <text id="MDM_UNSELECT_ALL">
+    <value>Desmarcar tudo</value>
+  </text>
+  <text id="MDM_SELECT_PAGE">
+    <value>Selecionar página</value>
+  </text>
+  <text id="MDM_UNSELECT_PAGE">
+    <value>Desmarcar página</value>
+  </text>
+  <text id="MDM_DATETIME_BETWEEN">
+    <value>Entre</value>
+  </text>
 </texts>
-

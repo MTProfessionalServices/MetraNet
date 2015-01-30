@@ -308,6 +308,21 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
                 EventArg.HTMLRendered = "<td class=" & Form.Grid.CellClass & "></td>"                
             End If
          Case 9
+            'code fix for core-6775 adjustment amount shows values in timestamp 
+             '****Starts here******
+            'code fix for core-6775 oracle and sql DB Values Form.Grid.SelectedProperty.Name="COMPOUNDPREBILLADJAMT" ||CompoundPrebillAdjAmt
+            If UCase(Form.Grid.SelectedProperty.Name)="COMPOUNDPREBILLADJAMT" Then
+            Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 
+            
+            PreProcessor.Clear
+            PreProcessor.Add "ID"                         , ProductView.Properties.Rowset.Value("SessionID")            
+            PreProcessor.Add "COLUMN_NAME"                , Form.Grid.SelectedProperty.Name
+            PreProcessor.Add "VALUE"                      , "" & Form.Grid.SelectedProperty.Value
+            EventArg.HTMLRendered = EventArg.HTMLRendered  & vbNewLine & PreProcessor.Process("<input type=hidden name='_ST_[COLUMN_NAME][ID]' Value='[VALUE]'>") & vbNewLine
+            
+            
+            Else
+            '****Ends here******
             Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 
             
             PreProcessor.Clear
@@ -315,14 +330,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             PreProcessor.Add "COLUMN_NAME"                , Form.Grid.SelectedProperty.Name
             PreProcessor.Add "VALUE"                      , "" & Form.Grid.SelectedProperty.Value
             EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>"  & Framework.Format(ProductView.Properties.RowSet.Value("timestamp"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value) & "</td>"  & vbNewLine & PreProcessor.Process("<input type=hidden name='_ST_[COLUMN_NAME][ID]' Value='[VALUE]'>") & vbNewLine
-        Case 68
-            Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 
             
-            PreProcessor.Clear
-            PreProcessor.Add "ID"                         , ProductView.Properties.Rowset.Value("SessionID")            
-            PreProcessor.Add "COLUMN_NAME"                , Form.Grid.SelectedProperty.Name
-            PreProcessor.Add "VALUE"                      , "" & Form.Grid.SelectedProperty.Value
-            EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>"  & Framework.Format(ProductView.Properties.RowSet.Value("c_ordertime"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value) & "</td>"  & vbNewLine & PreProcessor.Process("<input type=hidden name='_ST_[COLUMN_NAME][ID]' Value='[VALUE]'>") & vbNewLine
+            'code fix for core-6775 adjustment amount shows values in timestamp 
+             '****Starts here******
+            End if
+            '****Ends here******
         Case Else
         
             Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 
@@ -494,7 +506,7 @@ PRIVATE FUNCTION G_DisplayCell(EventArg) ' As Boolean
                                                   "CHILDIDPITEMPLATE"                     , Form.Grids("G").Rowset.Value("PriceableItemTemplateId"), _
                                                   "PITEMPLATE"                            , ProductView.Properties.Rowset.Value("PITemplate"), _
                                                   "PITEMPLATECHILD"                       , Form.Grids("G").Rowset.Value("PriceableItemTemplateId"), _                                                                                                    
-                                                  "CHILDTYPE"                             , Form.Grids("G").Rowset.Value("PriceableItemName") _
+                                                  "CHILDTYPE"                             , Form.Grids("G").Rowset.Value("PriceableItemType") _
                                                   ))
                                                   
 
@@ -575,7 +587,7 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim strEndOfPageHTMLCode, strTmp
     
     strTmp = strTmp & "</TABLE>"   
-    strTmp = strTmp & "<BR><BR><CENTER><button  name='butBack' Class='clsButtonMedium' onclick='document.location.href=""[ADJUSTMENT_FINDER_DIALOG]?PriceAbleItemTemplateID=" & TransactionUIFinder.SelectedPriceAbleItemTemplateID & """;'>" & FrameWork.Dictionary.Item("TEXT_BACK") & "</button></CENTER>" & vbNewLine    
+    strTmp = strTmp & "<BR><BR><CENTER><button  name='butBack' Class='clsButtonMedium' onclick='document.location.href=""[ADJUSTMENT_FINDER_DIALOG]?PriceAbleItemTemplateID=" & TransactionUIFinder.SelectedPriceAbleItemTemplateID & """; return false;'>" & FrameWork.Dictionary.Item("TEXT_BACK") & "</button></CENTER>" & vbNewLine    
     strTmp = strTmp & "</FORM></BODY>"
     
     EventArg.HTMLRendered = FrameWork.Dictionary.PreProcess(strTmp)

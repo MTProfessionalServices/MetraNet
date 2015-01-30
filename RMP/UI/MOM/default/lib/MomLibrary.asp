@@ -228,7 +228,7 @@ End Function
 ' RETURNS			:
 Public Function mom_FormatDateTime(varValue, varFormat)
   if len(varFormat) = 0 then
-    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, mam_GetDictionary("DATE_TIME_FORMAT"))
+    mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, mom_GetDictionary("DATE_TIME_FORMAT"))
   else
     mom_FormatDateTime = FrameWork.MSIXTools.Format(varValue, varFormat)
   end if
@@ -490,10 +490,10 @@ FUNCTION mom_GetDurationMessage(dtStart,dtEnd) ' As String
   iDuration = DateDiff("n",dtStart,dtEnd)
   if not isnull(iDuration)  then
     if iDuration = 0 then
-      iDuration = DateDiff("s",dtStart,dtEnd)
-      sDuration = " [" & iDuration & " second" & iif(iDuration=1,"","s") & "]"
+      iDuration = DateDiff("s",dtStart,dtEnd)      
+      sDuration = " [" & iDuration & iif(iDuration=1,mom_GetDictionary("TEXT_SECOND_SINGULAR"),mom_GetDictionary("TEXT_SECOND_PLURAL")) & "]"
     else
-      sDuration = " [" & iDuration & " minute" & iif(iDuration=1,"","s") & "]"                          
+      sDuration = " [" & iDuration & iif(iDuration=1,mom_GetDictionary("TEXT_MINUTE_SINGULAR"),mom_GetDictionary("TEXT_MINUTE_PLURAL")) & "]"                          
     end if
     mom_GetDurationMessage=dtStart & sDuration
   else
@@ -532,25 +532,25 @@ FUNCTION mom_GetAdapterRunReverseStatusErrorMessage(sErrorCode) ' As Rowset
 
   select case RTRIM(LTRIM(sErrorCode))
     case "Succeeded":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter has already run and succeeded.  It needs to be reversed before it can be run again."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_Succeeded") 
     case "Failed":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter has already run and failed.  It needs to be reversed before it can be run again."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_Failed") 
     case "ReadyToRun":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter has been marked as Ready To Run and needs to be reversed before it can be run again."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_ReadyToRun") 
     case "Running":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter is currently running."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_Running") 
     case "Reversing":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter is currently reversing."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_Reversing") 
     case "NotImplemented":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter cannot be reversed."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotImplemented") 
     case "NotYetRun", "ReadyToRun":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter has not completed a run. Adapter must have a 'Failed' or 'Succeeded' status on a completed run to be reversed."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotYetRun") 
     case "Missing":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This scheduled adapter has not completed a run for all or part of the time period."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_Missing") 
     case "NotCreated":
-      mom_GetAdapterRunReverseStatusErrorMessage = "This adapter has not been run. Execute the adapter after soft closing the parent billing group."
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_NotCreated") 
     case else:
-      mom_GetAdapterRunReverseStatusErrorMessage = "UNKOWN Error Code: " & sErrorCode
+      mom_GetAdapterRunReverseStatusErrorMessage = mom_GetDictionary("MoM_ERROR_AdapterRunReverseStatusErrorMessage_UNKOWN")  & sErrorCode
   end select
 END FUNCTION
 

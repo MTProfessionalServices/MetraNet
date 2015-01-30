@@ -76,14 +76,44 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
       Response.write FrameWork.GetDictionary("ERROR_ITEM_NOT_FOUND") & Request.QueryString("ID")
       Response.end
   End If
+ COMObject.Properties.Add "EffectiveDate__StartDate",  "String", 0,   FALSE, Empty    
+ COMObject.Properties.Add "EffectiveDate__EndDate",    "String", 0,   FALSE, Empty    	
+ COMObject.Properties.Add "AvailabilityDate__StartDate",  "String", 0,   FALSE, Empty    
+ COMObject.Properties.Add "AvailabilityDate__EndDate",    "String", 0,   FALSE, Empty    	
+ 
+
+
+  COMObject.Properties.Add "EffDate_StartDate",  "String", 0,   FALSE, Empty    
+  COMObject.Properties.Add "EffDate_EndDate",    "String", 0,   FALSE, Empty    	
+  COMObject.Properties.Add "AvDate_StartDate",  "String", 0,   FALSE, Empty    
+  COMObject.Properties.Add "AvDate_EndDate",    "String", 0,   FALSE, Empty    	
+  COMObject.Properties.Add "Name",    "String", 0,   FALSE, Empty 	
+  	
+  If StrComp(mdm_NormalDateFormat(objMTProductOffering.EffectiveDate.StartDate, mdm_GetDictionary().GetValue("DATE_FORMAT")), "")<> 0 Then
+    COMObject.Properties("EffDate_StartDate").Value   = mdm_format(objMTProductOffering.EffectiveDate.StartDate, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  End If
+  If StrComp(mdm_NormalDateFormat(objMTProductOffering.EffectiveDate.EndDate, mdm_GetDictionary().GetValue("DATE_FORMAT")), "")<>0 Then
+    COMObject.Properties("EffDate_EndDate").Value   = mdm_format(objMTProductOffering.EffectiveDate.EndDate, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  End If
+  If StrComp(mdm_NormalDateFormat(objMTProductOffering.AvailabilityDate.StartDate, mdm_GetDictionary().GetValue("DATE_FORMAT")), "") <> 0 Then
+    COMObject.Properties("AvDate_StartDate").Value   = mdm_format(objMTProductOffering.AvailabilityDate.StartDate, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  End If
+  If StrComp(mdm_NormalDateFormat(objMTProductOffering.AvailabilityDate.EndDate, mdm_GetDictionary().GetValue("DATE_FORMAT")), "") <> 0 Then
+    COMObject.Properties("AvDate_EndDate").Value   = mdm_format(objMTProductOffering.AvailabilityDate.EndDate, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+  End If
+
+  COMObject.Properties("EffectiveDate__StartDate").Value = COMObject.Properties("EffDate_StartDate").Value
+  COMObject.Properties("EffectiveDate__EndDate").Value = COMObject.Properties("EffDate_EndDate").Value
+  COMObject.Properties("AvailabilityDate__StartDate").Value = COMObject.Properties("AvDate_StartDate").Value
+  COMObject.Properties("AvailabilityDate__EndDate").Value = COMObject.Properties("AvDate_EndDate").Value
 
   ' Not used by MetraNet. Removing
   'COMObject.Properties("SelfUnSubscribable").Caption        = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_SelfUnSubscribable")
   'COMObject.Properties("SelfSubscribable").Caption          = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_SelfSubscribable")
-  COMObject.Properties("EffectiveDate__StartDate").Caption   = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_EffectiveDate.StartDate")
-  COMObject.Properties("EffectiveDate__EndDate").Caption     = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_EffectiveDate.EndDate")
-  COMObject.Properties("AvailabilityDate__StartDate").Caption= FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_AvailabilityDate.StartDate")
-  COMObject.Properties("AvailabilityDate__EndDate").Caption  = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_AvailabilityDate.EndDate")
+  COMObject.Properties("EffDate_StartDate").Caption   = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_EffectiveDate.StartDate")
+  COMObject.Properties("EffDate_EndDate").Caption     = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_EffectiveDate.EndDate")
+  COMObject.Properties("AvDate_StartDate").Caption= FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_AvailabilityDate.StartDate")
+  COMObject.Properties("AvDate_EndDate").Caption  = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_AvailabilityDate.EndDate")
 
   ' If it is a Master PO, don't show effective and availability dates
   If objMTProductOffering.Properties.Item("POPartitionId") = 0 Then
@@ -165,20 +195,48 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   On Error Resume Next
 
   mcmTriggerUpdateOfPONavigationPane   
-  
+ 
   ' An empty start date means no date, not infinitely in the past (CR8205)
-  If IsEmpty(COMObject.Properties("EffectiveDate__StartDate")) Then
-    COMObject.Instance.EffectiveDate.StartDateType = PCDATE_TYPE_NO_DATE
-  End If
-  If IsEmpty(COMObject.Properties("AvailabilityDate__StartDate")) Then 
-    COMObject.Instance.AvailabilityDate.StartDateType = PCDATE_TYPE_NO_DATE
-  End If
-  'If IsEmpty(COMObject.Properties("EffectiveDate__EndDate")) Then
-  '  COMObject.Instance.EffectiveDate.EndDateType = PCDATE_TYPE_NO_DATE
-  'End If
-  'If IsEmpty(COMObject.Properties("AvailabilityDate__EndDate")) Then 
-  '  COMObject.Instance.AvailabilityDate.EndDateType = PCDATE_TYPE_NO_DATE
-  'End If
+    If (not IsEmpty(COMObject.Properties("EffDate_StartDate")) and StrComp(COMObject.Properties("EffDate_StartDate").Value, "")<>0) Then
+      COMObject.Instance.EffectiveDate.StartDate = mdm_NormalDateFormat(COMObject.Properties("EffDate_StartDate").Value,mdm_GetDictionary().GetValue("DATE_FORMAT"))
+      COMObject.Properties("EffectiveDate__StartDate").Value = mdm_NormalDateFormat(COMObject.Properties("EffDate_StartDate").Value,mdm_GetDictionary().GetValue("DATE_FORMAT"))
+    else
+     COMObject.Instance.EffectiveDate.StartDateType = PCDATE_TYPE_NO_DATE
+     COMObject.Instance.EffectiveDate.StartDate = Empty
+     COMObject.Properties("EffectiveDate__StartDate").Value = Empty
+    end if
+    If( not IsEmpty(COMObject.Properties("AvDate_StartDate")) and StrComp(COMObject.Properties("AvDate_StartDate").Value, "")<>0) Then
+      COMObject.Instance.AvailabilityDate.StartDate = mdm_NormalDateFormat(COMObject.Properties("AvDate_StartDate").Value,mdm_GetDictionary().GetValue("DATE_FORMAT"))
+      COMObject.Properties("AvailabilityDate__StartDate").Value = COMObject.Instance.AvailabilityDate.StartDate
+    else
+      COMObject.Instance.AvailabilityDate.StartDate = Empty
+      COMObject.Instance.AvailabilityDate.StartDateType = PCDATE_TYPE_NO_DATE
+      COMObject.Properties("AvailabilityDate__StartDate").Value = Empty
+    end if
+
+  if(not IsEmpty(COMObject.Properties("AvDate_EndDate")) and StrComp(COMObject.Properties("AvDate_EndDate").Value, "")<>0) then
+    COMObject.Instance.AvailabilityDate.EndDate = mdm_NormalDateFormat(COMObject.Properties("AvDate_EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+    COMObject.Properties("AvailabilityDate__EndDate").Value = COMObject.Instance.AvailabilityDate.EndDate
+  end if
+  if (not IsEmpty(COMObject.Properties("AvDate_EndDate")) and StrComp(COMObject.Properties("AvDate_EndDate").Value, "")=0) then
+    COMObject.Instance.AvailabilityDate.EndDate = Empty
+    COMObject.Instance.AvailabilityDate.EndDateType = PCDATE_TYPE_NULL
+    COMObject.Properties("AvailabilityDate__EndDate").Value = Empty
+  end if
+  if(not IsEmpty(COMObject.Properties("EffDate_EndDate")) and StrComp(COMObject.Properties("EffDate_EndDate").Value, "")<>0) then
+    COMObject.Instance.EffectiveDate.EndDate = mdm_NormalDateFormat(COMObject.Properties("EffDate_EndDate").Value, mdm_GetDictionary().GetValue("DATE_FORMAT"))
+    COMObject.Properties("EffectiveDate__EndDate").Value = COMObject.Instance.EffectiveDate.EndDate
+  end if
+  if (not IsEmpty(COMObject.Properties("EffDate_EndDate")) and StrComp(COMObject.Properties("EffDate_EndDate").Value, "")=0) then
+    COMObject.Instance.EffectiveDate.EndDate = Empty
+    COMObject.Instance.EffectiveDate.EndDateType = PCDATE_TYPE_NULL
+    COMObject.Properties("EffectiveDate__EndDate").Value = Empty
+  end if
+
+  COMObject.Properties("EffDate_StartDate").Value = Empty    
+  COMObject.Properties("EffDate_EndDate").Value = Empty     	
+  COMObject.Properties("AvDate_StartDate").Value = Empty   
+  COMObject.Properties("AvDate_EndDate").Value = Empty
 
   If COMObject.Instance.DisplayName = "" then
    COMObject.Instance.DisplayName = "Dummy"
@@ -209,7 +267,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     Set objDetails = objApprovals.Convert(COMObject.Instance)
     objChangeDetailsHelper("productOffering") = objDetails
     objChangeDetailsHelper("productOffering.OLD") = objApprovals.Convert(objMTProductCatalog.GetProductOffering(COMObject.Instance.ID))
-    idChange = objApprovals.SubmitChangeForApproval("ProductOfferingUpdate", COMObject.Instance.ID, COMObject.Instance.Name, "", objChangeDetailsHelper.ToBuffer, errorsSubmit)
+    idChange = objApprovals.SubmitChangeForApproval("ProductOfferingUpdate", COMObject.Instance.ID, COMObject.Instance.Name, "", objChangeDetailsHelper.ToBuffer, COMObject.Properties("POPartitionId").DefaultValue, errorsSubmit)
   Else
     COMObject.Instance.Save
   End If

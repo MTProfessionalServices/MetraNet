@@ -1,12 +1,17 @@
 <HTML>
 <HEAD>
   <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-US/styles/styles.css">
+  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css" /> 
+  <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js"></script>
+  <script type="text/javascript" src="/Res/Ext/ext-all.js"></script> 
+   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" /> 
   <script language="javascript">
     var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
     if (is_chrome) {
       document.writeln(" <style type='text/css'> td {padding:0}</style> ");
     }
   </script>
+  <script type="text/javascript" src="/Res/JavaScript/DatePicker.js"></script>
 </HEAD>
 <BODY>
 <FORM name='mdm'>
@@ -75,18 +80,25 @@
 
 	  <TR>
 	    <TD class='captionEW'><LABEL Name='StartDate' Type='Caption'></LABEL>:</TD>
-	    <TD>
-          <INPUT Type='text' Class='clsInputBox' Name='StartDate'>
-          <a href="#" onClick="getCalendarForStartDate(document.mdm.StartDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
+      <TD>
+          <INPUT type="text" class="fieldRequired" size="20" id="StartDate" name="StartDate">
+          <img style="cursor:pointer"  id="openCalendarStartDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
+          <div id="divStartDate" style="position:absolute"></div>
+          <script language="javascript" type="text/javascript">
+            generateDatePicker('StartDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
+          </script>
       </TD>
-    
    </TR>
 	  <TR>            
 	    <TD class='captionEW'><LABEL Name='EndDate' Type='Caption'></LABEL>:</TD>
-	    <TD>
-          <INPUT Type='text' Class='clsInputBox' Name='EndDate'>
-          <a href="#" onClick="getCalendarForStartDate(document.mdm.EndDate);return false"><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a>
-      </TD>	  
+      <TD>
+          <INPUT type="text" class="fieldRequired" size="20" id="EndDate" name="EndDate">
+          <img style="cursor:pointer"  id="openCalendarEndDate" src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>
+          <div id="divEndDate" style="position:absolute"></div>
+          <script language="javascript" type="text/javascript">
+            generateDatePicker('EndDate', '[JS_DATE_FORMAT]', '[MONTH_NAMES]', '[DAY_NAMES]', '[START_DAY_OF_WEEK]', '[TODAY_TEXT]', '[CALENDAR_CANCEL]', '[NEXT_MONTH_TEXT]', '[PREV_MONTH_TEXT]');
+          </script>
+      </TD>   
 	  </TR>
 
     </table>

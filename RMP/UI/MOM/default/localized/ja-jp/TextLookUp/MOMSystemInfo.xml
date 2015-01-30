@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary id="Main" type="collection">
+  <dictionaryentry id="INTERVAL_MANAGEMENT_ADVANCED_USER">
+    <value>TRUE</value>
+    <description>Deprecated Setting Used By Original Operations Console</description>
+  </dictionaryentry>
+  <dictionaryentry id="MOM_INTERVAL_MANAGEMENT_ALLOW_PREACKNOWLEDGE_OF_CHECKPOINTS">
+    <value>FALSE</value>
+    <description>In GUI, should operators be allowed to acknowledge checkpoints before all dependencies are met.</description>
+  </dictionaryentry>
+  <dictionaryentry id="MOM_HEADER_CLOCK_DISPLAY_FORMAT">
+    <value>yyyy, MMM d h:mm:ss a</value>
+    <description>Format for date/time display in banner of MOM. Special date format used by javascript routines. See MDM/Common/Widgets/Calendar/date.js for more information.</description>
+  </dictionaryentry>
+</dictionary>

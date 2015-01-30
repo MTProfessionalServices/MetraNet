@@ -107,7 +107,7 @@ FUNCTION form_Refresh(EventArg)
   if len(rowset.value("Sequence"))>0 then
    Service.Properties("BatchDisplayName").Value = Service.Properties("BatchDisplayName").Value & "\" & rowset.value("Sequence")
   end if
-  Service.Properties("BatchNamespace").Value       = rowset.value("Namespace")
+  Service.Properties("BatchNamespace").Value       = rowset.value("Namespace")  
   Service.Properties("BatchStatus").Value       = rowset.value("Status")
   Service.Properties("BatchCompletedCount").Value       = rowset.value("Completed")
   Service.Properties("BatchFailedCount").Value       = rowset.value("Failed")
@@ -126,8 +126,11 @@ FUNCTION form_Refresh(EventArg)
   Service.Properties("BatchSource").Value       = rowset.value("Source")
   Service.Properties("BatchSequence").Value       = rowset.value("Sequence")
   Service.Properties("BatchCreatedDateTime").Value       = rowset.value("Creation")
+  Service.Properties("BatchCreatedDateTime").Format          = mom_GetDictionary("DATE_TIME_FORMAT")
   Service.Properties("BatchFirstDateTime").Value       = rowset.value("First")
+  Service.Properties("BatchFirstDateTime").Format          = mom_GetDictionary("DATE_TIME_FORMAT")
   Service.Properties("BatchRecentDateTime").Value       = rowset.value("Recent")
+  Service.Properties("BatchRecentDateTime").Format          = mom_GetDictionary("DATE_TIME_FORMAT")
   
   Service.Properties("METERINGSTATISTICS_HTML_LINK") = "BatchManagement.Statistics.Frame.asp?Title=" & server.urlencode(Service.Properties("BatchDisplayName").Value) & "&BatchId=" &  Server.UrlEncode(Service.Properties("BatchId").Value)
 
@@ -139,7 +142,7 @@ FUNCTION form_Refresh(EventArg)
 
   if rowset.value("Failed")>0 then
     'Service.Properties("FAILEDTRANSACTIONS_HTML_LINK") = "<A href=""#"" onclick=""window.open('FailedTransaction.List.asp?BatchView_ID=" & Server.UrlEncode(Service.Properties("BatchId").Value) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & "View Failed Transactions" & "</A>"
-    Service.Properties("FAILEDTRANSACTIONS_HTML_LINK") = "<A href=""#"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionViewFromBatch.aspx?Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(Service.Properties("BatchId").Value) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & Service.Properties("BatchId").Value) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & "View Failed Transactions" & "</A>"
+    Service.Properties("FAILEDTRANSACTIONS_HTML_LINK") = "<A href=""#"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionViewFromBatch.aspx?Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(Service.Properties("BatchId").Value) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & Service.Properties("BatchId").Value) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">"& mom_GetDictionary("TEXT_View_Failed_Transactions") & "</A>"
     ' "<button class='clsButtonBlueLarge' name='ViewMeteringStatistics' onclick=""window.open('DefaultDialogUsageStatisticsQuery.asp?UsageStatisticsFilter_BatchId=" & Service.Properties("BatchId").Value & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & "Metering Statistics" &  "</button>"
   else
     Service.Properties("FAILEDTRANSACTIONS_HTML_LINK") = ""
@@ -165,11 +168,11 @@ FUNCTION getAuditHistoryHTML
     rowset.Sort "Time", 1
 
     sHTML = "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
-    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='5'>Batch History</td></tr>"    
-    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left'>Time</td><td align='left'>EventName</td><td align='left'>Details</td><td align='left'>User</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='5'>"& mom_GetDictionary("TEXT_Batch_History") & "</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left'>"& mom_GetDictionary("TEXT_Time1") & "</td><td align='left'>"& mom_GetDictionary("TEXT_EventName") & "</td><td align='left'>"& mom_GetDictionary("TEXT_Details") & "</td><td align='left'>"& mom_GetDictionary("TEXT_User") & "</td></tr>"    
 
     if rowset.eof then
-      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>No audit events have been recorded for this batch.</td></tr>"
+      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='4'>"& mom_GetDictionary("TEXT_No_audit_events") & "</td></tr>"
     else  
       do while not rowset.eof 
           dim sToolTip
@@ -206,11 +209,11 @@ FUNCTION getBackoutRerunHistoryHTML
     rowset.Sort "Time", MTSORT_ORDER_ASCENDING
 
     sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
-    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='10'>Batch Backout/Rerun List</td></tr>"    
-    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left'>Rerun Id</td><td align='left'>Time</td><td align='left'>Last Action</td><td align='left'>User</td><td align='left'>Details</td><td align='left'>&nbsp;</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left' colspan='10'>"& mom_GetDictionary("TEXT_Batch_Backout_Rerun_List") & "</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='background-color=#688ABA'><td align='left'>"& mom_GetDictionary("TEXT_RerunId1") & "</td><td align='left'>"& mom_GetDictionary("TEXT_Time1") & "</td><td align='left'>"& mom_GetDictionary("TEXT_LastAction1") & "</td><td align='left'>"& mom_GetDictionary("TEXT_User") & "</td><td align='left'>"& mom_GetDictionary("TEXT_Details") & "</td><td align='left'>&nbsp;</td></tr>"    
 
     if rowset.eof then
-      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='8'>No backouts exist explicitly for this batch.</td></tr>"
+      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='8'>"& mom_GetDictionary("TEXT_No_backouts") & "</td></tr>"
     else  
       do while not rowset.eof 
           dim sToolTip, sActionHTML
@@ -219,12 +222,12 @@ FUNCTION getBackoutRerunHistoryHTML
             case "END ANALYZE"
               'sActionHTML = "<button <A href='BackoutRerun.BackoutStep2.asp?Rerunid=" & rowset.value("Rerun Id") & "&ReturnUrl=" & Server.urlencode("BatchManagement.ViewEdit.asp?BatchEncodedId=" & Form("BatchEncodedId") & "&ID=" & Form("BatchTableId")) & "'>" & "Resume Backout" & "</A>"
             
-              sActionHTML = "<A href='BackoutRerun.BackoutStep2.asp?Rerunid=" & rowset.value("Rerun Id") & "&ReturnUrl=" & Server.urlencode("BatchManagement.ViewEdit.asp?BatchEncodedId=" & Service.Properties("BatchId").Value & "&ID=" & Form("BatchTableId")) & "'>" & "Resume Backout" & "</A>"
-              sActionHTML = sActionHTML & "&nbsp;&nbsp;<A href='#' Title='Remove this backout from the system. The backout was started but no records were ever backedout.' onclick='mdm_RefreshDialogUserCustom(this,""" & rowset.value("Rerun Id") & """);' name='BackoutAbandon'>Abandon</a>"
+              sActionHTML = "<A href='BackoutRerun.BackoutStep2.asp?Rerunid=" & rowset.value("Rerun Id") & "&ReturnUrl=" & Server.urlencode("BatchManagement.ViewEdit.asp?BatchEncodedId=" & Service.Properties("BatchId").Value & "&ID=" & Form("BatchTableId")) & "'>" & mom_GetDictionary("TEXT_Resume_Backout") & "</A>"
+              sActionHTML = sActionHTML & "&nbsp;&nbsp;<A href='#' Title='"& mom_GetDictionary("TEXT_Remove_Title") & "' onclick='mdm_RefreshDialogUserCustom(this,""" & rowset.value("Rerun Id") & """);' name='BackoutAbandon'>" & mom_GetDictionary("TEXT_Abandon") & "</a>"
             case "END EXTRACT"
               'sActionHTML = " <button onclick='mdm_RefreshDialogUserCustom(this,""" & rowset.value("Rerun Id") & """);' name='BackoutResubmit' Class='clsButtonBlueSmall'>Resubmit</button>"
-              sActionHTML = "<A href='#' Title='Resubmit the records that were backed out.' onclick='mdm_RefreshDialogUserCustom(this,""" & rowset.value("Rerun Id") & """);' name='BackoutResubmit'>Resubmit</a>"
-              sActionHTML = sActionHTML & "&nbsp;&nbsp;<A href='#' Title='Delete The Records That Were Backedout. These records will no longer be able to be resubmited' onclick='mdm_RefreshDialogUserCustom(this,""" & rowset.value("Rerun Id") & """);' name='BackoutDelete'>Delete</a>"
+              sActionHTML = "<A href='#' Title='"& mom_GetDictionary("TEXT_Resubmit_the_records") & "' onclick='mdm_RefreshDialogUserCustom(this,""" & rowset.value("Rerun Id") & """);' name='BackoutResubmit'>" & mom_GetDictionary("TEXT_Resubmit") & "</a>"
+              sActionHTML = sActionHTML & "&nbsp;&nbsp;<A href='#' Title='"& mom_GetDictionary("TEXT_Delete_the_records") & "' onclick='mdm_RefreshDialogUserCustom(this,""" & rowset.value("Rerun Id") & """);' name='BackoutDelete'>" & mom_GetDictionary("TEXT_Delete") & "</a>"
             case else
               sActionHTML = "&nbsp;"
           end select
@@ -292,27 +295,27 @@ FUNCTION getAvailableActionsHTML(rowset)
     end if  
     
     if bShowMarkAsCompleted then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name=MarkAsCompleted onclick='mdm_RefreshDialog(this)'>" & "Mark As Completed" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name=MarkAsCompleted onclick='mdm_RefreshDialog(this)'>" & mom_GetDictionary("TEXT_Mark_As_Completed") & "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='MarkAsCompleted'>" & "Mark As Completed" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='MarkAsCompleted'>" & mom_GetDictionary("TEXT_Mark_As_Completed") & "</button>" & vbNewLine
     end if
      
     if bShowMarkAsFailed then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='MarkAsFailed' onclick='mdm_RefreshDialog(this)'>" & "Mark As Failed" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='MarkAsFailed' onclick='mdm_RefreshDialog(this)'>" & mom_GetDictionary("TEXT_Mark_As_Failed") & "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='Backout'>" & "Mark As Failed" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='Backout'>" & mom_GetDictionary("TEXT_Mark_As_Failed") & "</button>" & vbNewLine
     end if
 
     if bShowBackoutOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='Backout' onclick='mdm_RefreshDialog(this)'>" & "Backout" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='Backout' onclick='mdm_RefreshDialog(this)'>" & mom_GetDictionary("TEXT_Backout") & "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='Backout' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & "Backout" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='Backout' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & mom_GetDictionary("TEXT_Backout") & "</button>" & vbNewLine
     end if
     
     if bShowDismiss then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='MarkAsDismissed' onclick='mdm_RefreshDialog(this)'>" & "Dismiss" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='MarkAsDismissed' onclick='mdm_RefreshDialog(this)'>" & mom_GetDictionary("TEXT_Dismiss") & "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='Backout'>" & "Dismiss" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='Backout'>" & mom_GetDictionary("TEXT_Dismiss") & "</button>" & vbNewLine
     end if
     
     sHTML = sHTML & "<BR>"

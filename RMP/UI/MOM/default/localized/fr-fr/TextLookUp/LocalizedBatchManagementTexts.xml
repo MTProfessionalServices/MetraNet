@@ -1,31 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<texts id="Main" type='collection'>
-    <text id="TEXT_BATCH_MANANAGEMENT"><value>Batch Management</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_UPDATE_STATUS_TITLE"><value>Update Batch Status</value></text>
-
-    <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_ACTION"><value>Mark As Failed</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_TITLE"><value>Mark Batch As Failed</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_ACTION"><value>Mark As Completed</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_TITLE"><value>Mark Batch As Completed</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_ACTION"><value>Mark As Dismissed</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_TITLE"><value>Mark Batch As Dismissed</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_ACTION"><value>Backout</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_TITLE"><value>Backout Batch</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_ACTION"><value>Resubmit</value></text>
-    <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_TITLE"><value>Resubmit Batch</value></text>
- 
- 
-    <text id="TEXT_BATCH_STATE_ACTIVE"><value>Active/Open</value></text>
-    <text id="TEXT_BATCH_STATE_ACTIVE_DESCRIPTION"><value>This batch is open and can have transactions metered against it.</value></text>  
-    <text id="TEXT_BATCH_STATE_COMPLETED"><value>Completed</value></text>
-    <text id="TEXT_BATCH_STATE_COMPLETED_DESCRIPTION"><value>This batch is complete. No more transactions can be metered against it.</value></text>  
-    <text id="TEXT_BATCH_STATE_FAILED"><value>Failed</value></text>
-    <text id="TEXT_BATCH_STATE_FAILED_DESCRIPTION"><value>This batch has failed.</value></text>  
-    <text id="TEXT_BATCH_STATE_BACKEDOUT"><value>Backed Out</value></text>
-    <text id="TEXT_BATCH_STATE_BACKEDOUT_DESCRIPTION"><value>This batch has been backed out.</value></text>  
-    <text id="TEXT_BATCH_STATE_RESUBMIT"><value>Resubmit</value></text>
-    <text id="TEXT_BATCH_STATE_RESUBMIT_DESCRIPTION"><value>This batch has been resubmitted after it was backed out.</value></text>  
-    <text id="TEXT_BATCH_STATE_DISMISSED"><value>Dismissed</value></text>
-    <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION"><value>This batch has been dismissed and is no longer relevant. Any completed transactions have been backed out.</value></text>  
-       
+<texts id="Main" type="collection">
+  <text id="TEXT_BATCH_MANANAGEMENT">
+    <value>Gestion des lots</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_UPDATE_STATUS_TITLE">
+    <value>Mettre à jour l'état du lot</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_ACTION">
+    <value>Marquer comme échoué</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_FAILED_TITLE">
+    <value>Marquer le lot comme échoué</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_ACTION">
+    <value>Marquer comme terminé</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_COMPLETED_TITLE">
+    <value>Marquer le lot comme terminé</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_ACTION">
+    <value>Marquer comme ignoré</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_MARK_AS_DISMISSED_TITLE">
+    <value>Marquer le lot comme ignoré</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_ACTION">
+    <value>Annuler</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_BACKOUT_TITLE">
+    <value>Annuler le lot</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_ACTION">
+    <value>Renvoyer</value>
+  </text>
+  <text id="TEXT_BATCH_MANANAGEMENT_RESUBMIT_TITLE">
+    <value>Renvoyer le lot</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_ACTIVE">
+    <value>Actif/ouvert</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_ACTIVE_DESCRIPTION">
+    <value>Ce lot est ouvert et peut faire l'objet d'une mesure des transactions.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_COMPLETED">
+    <value>Terminé</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_COMPLETED_DESCRIPTION">
+    <value>Ce lot est terminé. Il ne peut plus faire l'objet d'une mesure des transactions.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_FAILED">
+    <value>Échec</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_FAILED_DESCRIPTION">
+    <value>Ce lot a échoué.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_BACKEDOUT">
+    <value>Annulé</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_BACKEDOUT_DESCRIPTION">
+    <value>Ce lot a été annulé.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_RESUBMIT">
+    <value>Renvoyer</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_RESUBMIT_DESCRIPTION">
+    <value>Ce lot a été renvoyé après son annulation.</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_DISMISSED">
+    <value>Ignoré</value>
+  </text>
+  <text id="TEXT_BATCH_STATE_DISMISSED_DESCRIPTION">
+    <value>Ce lot a été ignoré et n'est plus pertinent. Les transactions terminées ont été annulées.</value>
+  </text>
+  <text id="TEXT_Namespace">
+    <value>Espace de nommage</value>
+  </text>
+  <text id="TEXT_Name">
+    <value>Nom</value>
+  </text>
+  <text id="TEXT_Sequence">
+    <value>Séquence</value>
+  </text>
+  <text id="TEXT_Source">
+    <value>Source</value>
+  </text>
+  <text id="TEXT_Created">
+    <value>Créé</value>
+  </text>
+  <text id="TEXT_First_Transaction">
+    <value>Première transaction</value>
+  </text>
+  <text id="TEXT_Most_Recent_Transaction">
+    <value>La dernière transaction</value>
+  </text>
+  <text id="TEXT_Internal_Batch_Id">
+    <value>ID de lot interne</value>
+  </text>
+  <text id="TEXT_Status">
+    <value>État</value>
+  </text>
+  <text id="TEXT_Expected">
+    <value>Prévu</value>
+  </text>
+  <text id="TEXT_Completed">
+    <value>Terminé</value>
+  </text>
+  <text id="TEXT_Failed">
+    <value>Échec</value>
+  </text>
+  <text id="TEXT_Dismissed">
+    <value>Ignoré</value>
+  </text>
+  <text id="TEXT_Difference">
+    <value>Différence</value>
+  </text>
+  <text id="TEXT_View_Statistics">
+    <value>Voir statistiques</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>Commentaire</value>
+  </text>
+  <text id="TEXT_Mark_As_Hard_Closed">
+    <value>Mark As Hard Closed</value>
+  </text>
+  <text id="TEXT_Manually_Assign_Accounts">
+    <value>Manually Assign Accounts</value>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>Close</value>
+  </text>
 </texts>

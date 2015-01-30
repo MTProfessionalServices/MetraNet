@@ -5,41 +5,49 @@
   <title>[TEXT_NEW] [TEXT_KEYTERM_DISCOUNT] [TEXT_WIZARD]</title>
   <template>wizard.html</template>
   <name>AddDiscount</name>    <!-- One word, used to store/reference session data -->
-  
+
   <buttons>
-    <back><![CDATA[
+    <back>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button Name="butBack" [BACK_BUTTON_STATE] onClick="javascript:WizardBack();" class="clsWizardButton">&lt; Back</button></td>
+          <td><button Name="butBack" Id="butBack" [BACK_BUTTON_STATE] onClick="javascript:WizardBack();" class="clsWizardWideButton">[TEXT_BACK]</button></td>
         </tr>
       </table>
-    ]]></back>
-    
-    <next><![CDATA[
+    ]]>
+    </back>
+
+    <next>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button name='butNext'  onClick="javascript:WizardNext();" class="clsWizardButton">Next &gt;</button></td>
+          <td><button Name="butNext"  onClick="javascript:WizardNext();" class="clsWizardWideButton">[TEXT_NEXT]</button></td>
         </tr>
       </table>    
-    ]]></next>
-    
-    <finish><![CDATA[
+    ]]>
+    </next>
+
+    <finish>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button name='butFinish' onClick="javascript:WizardFinish();" class="clsWizardButton">Finish</button></td>
+          <td><button Name="butFinish" onClick="javascript:WizardFinish();" class="clsWizardWideButton">[TEXT_FINISH]</button></td>
         </tr>
       </table>    
-    ]]></finish>
-    
-    <cancel><![CDATA[
+    ]]>
+    </finish>
+
+    <cancel>
+      <![CDATA[
       <table cellspacing="0" cellpadding="0">
         <tr>
-          <td><button name='butCancel' onClick="javascript:WizardCancel();" class="clsWizardButton">Cancel</button></td>
+          <td><button Name="butCancel" onClick="javascript:WizardCancel();" class="clsWizardWideButton">[TEXT_CANCEL]</button></td>
         </tr>
       </table>    
-    ]]></cancel>
+    ]]>
+    </cancel>
   </buttons>
-  
+
   <!-- Template for the left_frame -->
   <left_frame_html><![CDATA[
     <td valign="top" width="150" height="100%">
@@ -180,7 +188,7 @@
 
   <page id="NewGeneral">
     <previous_page>NewType</previous_page>
-    <next_page>NewPeriod</next_page>    <!-- Specifies the next page in the wizard, if omitted, this
+    <next_page>summary</next_page>    <!-- Specifies the next page in the wizard, if omitted, this
                                      will be the last page. -->
     <title>[TEXT_NEW] [TEXT_KEYTERM_DISCOUNT]</title>
 		<left_frame_file>[CREATE_DISCOUNT_START]</left_frame_file>                                       
@@ -211,33 +219,33 @@
 	<!--right_frame_html></right_frame_html-->
   </page>
 
-  <page id="NewPeriod">
+  <!--<page id="NewPeriod">
     <previous_page>NewGeneral</previous_page>
-    <next_page>summary</next_page>    <!-- Specifies the next page in the wizard, if omitted, this
-                                     will be the last page. -->
+    <next_page>summary</next_page>    --><!-- Specifies the next page in the wizard, if omitted, this
+                                     will be the last page. --><!--
     <title>[TEXT_NEW] [TEXT_KEYTERM_DISCOUNT]: [TEXT_SELECT_PERIOD]</title> 
 		<left_frame_file>[CREATE_DISCOUNT_PERIOD]</left_frame_file>                                      
-    <!--left_frame_eval>WritePeriodText("[WIZARD_NAME]")</left_frame_eval-->                
-  <!-- Contains the contents of the left frame of the wizard. If
-       omitted, the left frame will not be rendered. -->                                    
-    <!--left_frame_html><![CDATA[
+    --><!--left_frame_eval>WritePeriodText("[WIZARD_NAME]")</left_frame_eval--><!--                
+  --><!-- Contains the contents of the left frame of the wizard. If
+       omitted, the left frame will not be rendered. --><!--                                    
+    --><!--left_frame_html><![CDATA[
 	  <table>
         <tr>
           <td class="clsWizardNotesTD"><b>Discount Period</b><br>
           </td>
         </tr>
       </table>
-    ]]></left_frame_html-->
+    ]]></left_frame_html--><!--
 
-    <!-- The template contains the HTML template for the wizard.  Page processing will first be performed by
-         the wizard, then control can be passed to user-defined ASP               -->      
-   <!-- <right_frame_file>periodsample.html</right_frame_file>   -->-->
+    --><!-- The template contains the HTML template for the wizard.  Page processing will first be performed by
+         the wizard, then control can be passed to user-defined ASP               --><!--      
+   --><!-- <right_frame_file>periodsample.html</right_frame_file>   --><!--
     <right_frame_eval>WriteCycleConfiguration("[WIZARD_NAME]")</right_frame_eval>
-	<!--right_frame_html></right_frame_html-->
-  </page>
+	--><!--right_frame_html></right_frame_html--><!--
+  </page>-->
 
   <page id="NewCharge">
-    <previous_page>NewPeriod</previous_page>
+    <previous_page>NewGeneral</previous_page>
     <next_page>summary</next_page>    <!-- Specifies the next page in the wizard, if omitted, this
                                      will be the last page. -->
     <title>[TEXT_NEW] [TEXT_KEYTERM_DISCOUNT]: [TEXT_CONFIGURE_CHARGE]</title>                                     
@@ -274,7 +282,7 @@
           <next_page>start</next_page>
     </previous_page_condition>
 
-    <previous_page>NewPeriod</previous_page>
+    <previous_page>NewGeneral</previous_page>
     <title>[TEXT_SUMMARY]</title>
 		<left_frame_file>[CREATE_DISCOUNT_SUMMARY]</left_frame_file>                                      
     <!--left_frame_eval>WriteSummaryText("[WIZARD_NAME]")</left_frame_eval-->  

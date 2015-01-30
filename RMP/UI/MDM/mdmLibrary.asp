@@ -1834,6 +1834,64 @@ END FUNCTION
 ' PARAMETERS		:
 ' DESCRIPTION 	:
 ' RETURNS			  :
+PUBLIC FUNCTION mdm_NormalDateFormat(vardate,strFormat)
+  strFormat = LCase(strFormat)
+  if(IsNull(vardate)) Then
+    mdm_NormalDateFormat = ""
+    exit function
+  end if
+    
+  if(Len(vardate)=0) Then
+    mdm_NormalDateFormat = ""
+    exit function
+  end if
+
+  Dim Day, Month, Year
+  Dim formatparts
+  Dim parts
+  if(InStr(strFormat, ".") = 0) then
+    formatparts = Split(strFormat, "/")                   '[dd, MM, yyyy hh:mm:ss AMPM]
+  else
+    formatparts = Split(strFormat, ".")                   '[dd, MM, yyyy hh:mm:ss AMPM]
+end if
+  if(InStr(vardate, ".") = 0 and InStr(vardate, "/") = 0) then
+    mdm_NormalDateFormat = ""
+    exit function
+  elseif(InStr(vardate, ".") = 0) then
+    parts = Split(vardate, "/")                                '[9/1/2013 12:00:01 AM]
+  elseif(InStr(vardate, "/") = 0) then
+    parts = Split(vardate, ".")
+end if
+
+  Dim Rest 
+  Rest = parts(2)
+
+  if ((StrComp(formatparts(0),"dd")= 0) or (StrComp(formatparts(0),"d")= 0) or (StrComp(formatparts(0), "j")= 0))  Then 
+    Month = parts(1)                               '9
+    Day = parts(0)                                          '1
+  elseIf (StrComp(formatparts(0),"yyyy")= 0) Then
+    Month = parts(1)                               '9
+    Dim dayplustime
+    dayplustime = Split(parts(2), " ")
+    Day = dayplustime(0)
+    Year = parts(0)
+    Rest = Year
+    if UBound(dayplustime) > 0 then
+      Rest = Rest & " " +dayplustime(1)
+    elseif UBound(dayplustime) > 1  then
+     Rest = Rest & " " +dayplustime(2)
+    end if
+  else
+    Day = parts(1)                               '9
+    Month = parts(0)     
+  end if 
+  mdm_NormalDateFormat = Month & "/" & Day & "/" & Rest
+END FUNCTION 
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 			:
+' PARAMETERS		:
+' DESCRIPTION 	:
+' RETURNS			  :
 PUBLIC FUNCTION mdm_Format(varValue,strFormat)
 
   Dim objTools
@@ -2059,4 +2117,34 @@ END FUNCTION
 FUNCTION mdm_GetIconUrlForAccountType(sAccountTypeName)
 		mdm_GetIconUrlForAccountType = "/imagehandler/images/Account/" & mdm_EscapeForImageHandler(sAccountTypeName) & "/account.gif"
 END FUNCTION
+
+
+
+' ---------------------------------------------------------------------------------------------------------------------------------------
+' FUNCTION 			: mdm_LocalizeXSL
+' PARAMETERS		:
+' DESCRIPTION   : Return the instance of the dictionary stored in the session else nothing.
+' RETURNS			  : TRUE if ok.
+PUBLIC FUNCTION mdm_LocalizeString(stringToLocalize) ' As Dictionary    
+
+  Dim strTest 
+  Dim strToReplace
+  Dim strTag
+  Set objRegExp = New RegExp
+  objRegExp.Global = True
+  objRegExp.IgnoreCase = True
+  objRegExp.Pattern = "\[[A-Z0-9_]*\]"
+  
+  Set colMatches = objRegExp.Execute(stringToLocalize)
+  For Each objMatch In colMatches
+    strTag = Mid(objMatch.Value, 2, len(objMatch.Value) - 2)
+    strToReplace = mdm_GetDictionaryValue(strTag, objMatch.Value)
+    stringToLocalize = Replace(stringToLocalize, objMatch.Value, strToReplace)
+  Next
+
+  mdm_LocalizeString = stringToLocalize
+END FUNCTION  
+
+
+
 %>

@@ -67,4 +67,28 @@
   <text id="TEXT_PRICELIST_CURRENCY_CHANGE_WARNING">
     <value><![CDATA[<strong>AVISO: alterar a moeda da [TEXT_KEYTERM_PRICE_LIST]</strong><BR>A cópia da[TEXT_KEYTERM_PRICE_LIST] será criada com uma moeda diferente, no entanto, as taxas não serão alteradas e devem ser atualizadas para refletir o valor apropriado na nova moeda.<BR>]]></value>
   </text>
+  <text id="TEXT_CREATE_COPY_OF_PL">
+    <value>Criar Cópia de [TEXT_KEYTERM_PRICE_LIST] Existente</value>
+  </text>
+  <text id="TEXT_ORIGINAL_PL_NAME">
+    <value>Nome da Lista de Preços Original</value>
+  </text>
+  <text id="TEXT_PL_NAME">
+    <value>Nome da Nova Lista de Preços</value>
+  </text>
+  <text id="TEXT_PL_DESCRIPTION">
+    <value>Descrição da Nova Lista de Preços</value>
+  </text>
+  <text id="TEXT_PL_DESCRIPTION">
+    <value>Descrição da Nova Lista de Preços</value>
+  </text>
+  <text id="TEXT_CHANGE_CURRENCY_TO">
+    <value>Alterar para a moeda da nova lista de preços de </value>
+  </text>
+  <text id="TEXT_TO">
+    <value> para </value>
+  </text>
+  <text id="TEXT_CREATE">
+    <value>Criar</value>
+  </text>
 </texts>

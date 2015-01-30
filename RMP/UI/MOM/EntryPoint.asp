@@ -20,6 +20,7 @@ On Error resume next
  Dim strLogon, strPassword, strNamespace, strTicket
  Dim strNamespaceType, strAccountID, strLoadFrame, strURL
  Dim SubscriberUserName, SubscriberNamespace, isNewMetraCare
+ Dim strPartitionId
 
  strLogon             = Request.QueryString("UserName")
  strPassword          = Request.QueryString("Password")
@@ -32,6 +33,7 @@ On Error resume next
  SubscriberUserName   = Request.QueryString("SubscriberUserName")
  SubscriberNamespace  = Request.QueryString("SubscriberNamespace")
  isNewMetraCare       = Request.QueryString("isNewMetraCare")
+ strPartitionId       = Request.QueryString("PartitionID")
 
  ' Check for existing session
  If Session("isAuthenticated") = true Then
@@ -62,7 +64,11 @@ On Error resume next
 
     ' Attempt to login
     Call FrameWork.LogOn("MOM", strLogon , Empty , strNamespace, strTicket, Empty) 
-    
+ 
+    If Len(strPartitionId) > 0 Then
+      Session("MOM_SESSION_CSR_PARTITION_ID") = strPartitionId
+    End If 
+     
     Session("LocalizedPath") = Application("APP_HTTP_PATH") &  "/default/localized/" &Session("mdm_APP_LANGUAGE")
 
     Session("bTickected") = TRUE ' setting this to false will not close the page on logout

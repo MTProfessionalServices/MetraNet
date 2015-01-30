@@ -119,7 +119,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("dt_crt").Caption 	          = FrameWork.GetDictionary("TEXT_AUDIT_DT_CRT")
    
   ProductView.Properties("Time").Sorted               = MTSORT_ORDER_DESCENDING
-  
+  Service.Properties("dt_crt").Format = FrameWork.GetDictionary("DATE_FORMAT") 
+  Service.Properties("Time").Format = FrameWork.GetDictionary("DATE_FORMAT")
   Set Form.Grid.FilterProperty                        = ProductView.Properties("UserName") ' Set the property on which to apply the filter  
 
   '//Get the name of the pricelist and the parameter table for screen display
@@ -140,9 +141,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
     Service.Properties("PriceListName") = FrameWork.GetDictionary("TEXT_ICB_PRICELIST_DISPLAY_NAME")
   end if
   
-  rowset2.SetQueryString("select nm_display_name, nm_name from t_vw_base_props bp join t_language lang on bp.id_lang_code=lang.id_lang_code where id_prop=%%PT_ID%% and lang.tx_lang_code='%%TX_LANG_CODE%%'")
+  rowset2.SetQueryString("select nm_display_name, nm_name from t_base_props where id_prop = %%PT_ID%%")
   rowset2.AddParam "%%PT_ID%%", Clng(Form("PT_ID"))
-  rowset2.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
   rowset2.Execute
 
   Service.Properties("ParamTableName") = rowset2.value("nm_display_name")
@@ -167,9 +167,9 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             RuleSetStartDate = ProductView.Properties.RowSet.Value("RuleSetStartDate")
             if EventId=1402 then 'Ruleset Update
               dim sPageInfo
-              sPageInfo = "Pricelist <strong>" & Service.Properties("PriceListName") & "</strong><br>modified by <strong>" & ProductView.Properties.RowSet.Value("UserName") & "</strong> at <strong>" & ProductView.Properties.RowSet.Value("Time") & "</strong>"
+              sPageInfo = FrameWork.GetDictionary("TEXT_PRICE_LIST") & " <strong>" & SafeForHtml(Service.Properties("PriceListName")) & "</strong><br>" & FrameWork.GetDictionary("TEXT_MODIFIED_BY") & " <strong>" & ProductView.Properties.RowSet.Value("UserName") & "</strong> " & FrameWork.GetDictionary("TEXT_AT") & " <strong>" & ProductView.Properties.RowSet.Value("Time") & "</strong>"              
               sPageInfo = server.urlencode(sPageInfo)
-              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">View Changes</button>"
+              strHTML = "<button id='viewchanges12' class='clsButtonBlueLarge' onclick=""window.open('gotoRuleEditorViewDifference.asp?Title=" & sPageInfo & "&PT_ID=" & Form("PT_ID") & "&RS_ID_1=" & Form("RS_ID") & "&RS_STARTDATE_1=" & Server.UrlEncode(RuleSetStartDate) & "','_blank', 'height=800,width=1000,resizable=1,scrollbars=1'); return false;"">" & FrameWork.GetDictionary("TEXT_VIEW_CHANGES") & "</button>"
             else
               strHTML = "&nbsp;"       
             end if

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Payment Methods" type="collection">
+  <description>
+    The file define most of the MAM static texts related to the payment server.
+    The MAM/MDM use also the localization supplied by the MetraTech plate form.
+  </description>
+  <text id="TEXT_CARD_VERIFY_VALUE">
+    <value>Card Verify Value</value>
+    <description>This is the 3-digit number that appears on the back of MasterCard and Visa cards in the signature box. The purpose is to aid in reducing fraud in card-not-present transactions. The cardholder provides this information to prove they are in possession of the card.</description>
+  </text>
+  <text id="TEXT_CONFIRM_REQUESTED">
+    <value>Confirmation Requested</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PAYMENT_METHODS">
+    <value>Payment Methods</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PAPER_INVOICE">
+    <value>Cash / Check</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECTED">
+    <value>Selected</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECTED_ELECTRONIC">
+    <value>This is the selected Electronic Payment type</value>
+    <description>Message to display if this is the preferred electronic payment type</description>
+  </text>
+  <text id="TEXT_ERROR_ROWSET">
+    <value>No payment information found.  Please have your administrator check your configuration.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DEFAULT_PAYMENT">
+    <value>Preferred</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PAYMENT_TYPE">
+    <value>Payment Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BANK">
+    <value>Bank Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_TYPE">
+    <value>Account Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACCOUNT_NUMBER">
+    <value>Last Four Digits</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXPIRATION">
+    <value>Expiration (MM.YYYY)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ACTION_ICONS">
+    <value>Actions</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EXPERATION_DATE">
+    <value>Expiration Date (MM.YYYY)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_CREDIT_CARD">
+    <value>Add Credit Card</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREDIT_CARD_TYPE">
+    <value>Credit Card Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREDIT_CARD_NUM">
+    <value>Credit Card Number</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BANK_NAME">
+    <value>Bank Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CUSTOMER_NAME">
+    <value>Name (as it appears on card)</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADDRESS">
+    <value>Address</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CITY">
+    <value>City</value>
+    <description></description>
+  </text>
+  <text id="TEXT_STATE">
+    <value>State / Province</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ZIP">
+    <value>Zip / Postal Code</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COUNTRY">
+    <value>Country</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_CREDIT_CARD">
+    <value>Update Credit Card</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_DELETE_CREDIT_CARD">
+    <value>Are you sure you want to remove the credit card ending with the last four digits of:  [DIGITS]?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_LAST_FOUR_DIGITS">
+    <value>Last Four Digits of Acct. Num.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PURCHASE_CARD">
+    <value>Purchase Card</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_PURCHASE_CARD">
+    <value>Add Purchase Card</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PURCHASE_CARD">
+    <value>Update Purchase Card</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CARD_ID">
+    <value>Card ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CUSTOMER_REFERENCE_ID">
+    <value>Customer Reference ID</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CUSTOMER_VAT_NUMBER">
+    <value>Customer VAT Number</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COMPANY_ADDRESS">
+    <value>Company Address</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COMPANY_POSTAL_CODE">
+    <value>Company Zip / Postal Code</value>
+    <description></description>
+  </text>
+  <text id="TEXT_COMPANY_PHONE">
+    <value>Company Phone Number</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_ACH">
+    <value>Add ACH</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_ACH">
+    <value>Update ACH</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BANK_ACCOUNT_TYPE">
+    <value>Bank Account Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_BANK_ACCOUNT_NUMBER">
+    <value>Bank Account Number</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TEXT_EMAIL">
+    <value>E-Mail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ROUTING_NUMBER">
+    <value>Routing Number</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CUSTOMER_NAME_ACH">
+    <value>Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRM_DELETE_ACH">
+    <value>Are you sure you want to remove the ACH account ending with the last four digits of: [DIGITS]?</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUTHRECEIVED">
+    <value>Authorization Form Received</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VALIDATED">
+    <value>Validated</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ENABLED">
+    <value>Enabled</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUTHRECEIVED_CONTROL">
+    <value>Yes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUTH_DESCRIPTION">
+    <value>Please enter information about the ACH account agreement in the description.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUTH_USERNAME">
+    <value>User Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DESCRIPTION_OF_AUTH">
+    <value>Description</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AMOUNT">
+    <value>Amount</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VALIDATED_YES">
+    <value>Yes</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VALIDATED_NO">
+    <value>No</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PAYMENT_METHODS_SCHEDULER">
+    <value>Payment Methods Scheduler</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CONFIRMATION_REQUESTED">
+    <value>Confirmation Requested</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SETUP_PAYMENT_METHOD">
+    <value>Please setup a payment method first.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE_PAPER_INVOICE">
+    <value>Update Cash / Check</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INVOICE_METHOD">
+    <value>Payment Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREDIT_CREDIT_CARD_TITLE">
+    <value>Apply Credit To Credit Card</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DEBIT_CREDIT_CARD_TITLE">
+    <value>Apply Debit To Credit Card</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREDIT_ACH_TITLE">
+    <value>Apply Credit To ACH</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DEBIT_ACH_TITLE">
+    <value>Apply Debit To ACH</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CREDIT_CONFIRM">
+    <value>The credit was issued successfully.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DEBIT_CONFIRM">
+    <value>The debit was issued successfully.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PS_PRENOTE_FAILURE">
+    <value>Error running ACH Prenote.  Please have your administrator check your payment server setup.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_AUTH_FAILURE">
+    <value>Error running ACH Archive Authorization.  Please have your administrator check your payment server setup.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ISSUER_NUMBER">
+    <value>(Maestro Only) Issue Number</value>
+    <description></description>
+  </text>
+  <text id="TEXT_STARTDATE_DATE">
+    <value>(Maestro Only) Start Date (MM.YYYY)</value>
+    <description></description>
+  </text>
+</texts>

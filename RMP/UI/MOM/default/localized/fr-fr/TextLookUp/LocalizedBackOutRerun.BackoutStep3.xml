@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_Step3_TITLE">
+    <value>Etape de l'annulation Etape 3 de l'annulation </value>
+  </text>
+  <text id="TEXT_Step3_Status">
+    <value>Etat de l'étape 3 :</value>
+  </text>
+  <text id="TEXT_Rerun_Id">
+    <value>Relancer l'ID:</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>Commentaire :</value>
+  </text>
+  <text id="TEXT_Done">
+    <value>Aucun(e)</value>
+  </text>  
+</texts>

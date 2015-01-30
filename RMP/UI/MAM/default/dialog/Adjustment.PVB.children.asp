@@ -40,7 +40,8 @@ Option Explicit
 Form.Version                      = MDM_VERSION     ' Set the dialog version
 Form.Page.MaxRow                  = CLng(mam_GetDictionary("PV_ROW_PER_PAGE"))
 Form.Page.NoRecordUserMessage     = mam_GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
-Form.RouteTo                      = mam_GetDictionary("WELCOME_DIALOG")
+Form.RouteTo                      = mam_GetDictionary("ADJUSTMENT_PVB_DIALOG")
+
 
 PRIVATE AdjustmentHelper
 Set AdjustmentHelper = New CAdjustmentHelper
@@ -197,13 +198,19 @@ PUBLIC FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
  '       strEndOfPageHTMLCode  = strEndOfPageHTMLCode & strTmp
   '  End If
     
-    strTmp = "<button  name='Cancel' Class='clsButtonLarge' OnClick='document.location.href=""[ADJUSTMENT_PVB_DIALOG]"";'>[TEXT_CANCEL]</button>" & vbNewLine
+    strTmp = "<button  name=""Cancel"" Class=""clsButtonLarge"" onclick=""mdm_RefreshDialog(this)"" type=""button"">[TEXT_CANCEL]</button>" & vbNewLine
     strEndOfPageHTMLCode  = strEndOfPageHTMLCode & strTmp
     
     strEndOfPageHTMLCode  = strEndOfPageHTMLCode & "</FORM>"
     EventArg.HTMLRendered = EventArg.HTMLRendered & FrameWork.Dictionary.PreProcess(strEndOfPageHTMLCode)
 
     Form_DisplayEndOfPage = TRUE
+END FUNCTION
+
+PRIVATE FUNCTION Cancel_Click(EventArg) ' As Boolean
+
+  Form.Modal   = FALSE
+  Cancel_Click = TRUE
 END FUNCTION
 
 PUBLIC FUNCTION butAdjustSelectedTransaction_Click(EventArg)

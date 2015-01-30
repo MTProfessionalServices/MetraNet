@@ -56,7 +56,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   If UCase(Session("IsAccount")) = "TRUE" Then
 		
     On error resume next
-    Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_GetHierarchyTime())
+    Form("AuthAccount") = FrameWork.Policy.GetAccountByID(FrameWork.SessionContext,Session("SecurityAccountID"), mam_ConvertToSysDate(mam_GetHierarchyTime()))
     If err.number <> 0 then
       Call WriteUnableToLoad(mam_GetDictionary("TEXT_UNABLE_TO_MANAGE_ACCOUNT"),  mam_GetDictionary("SUBSCRIBER_FOUND"))
     End If
@@ -71,8 +71,8 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Else
   	Form("Role") = FrameWork.Policy.GetRoleByID(FrameWork.SessionContext, Form("RoleID"))
 	  Form("CompositeCapabilityType") = FrameWork.Policy.GetCapabilityTypeByID(CLng(Form("CapabilityID")))
-	End If	
-	
+	End If
+  
   bReturn = DynamicCapabilites(EventArg) ' Load the correct template for the dynmaic capabilities
 		
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
@@ -99,8 +99,11 @@ FUNCTION DynamicCapabilites(EventArg)
   ' Setup initial template
   Form.HTMLTemplateSource = Form("InitialTemplate") 
 	
+  Set ProductView.Properties.RowSet = FrameWork.Policy.GetCapabilityTypeAsRowsetLocalized(FrameWork.SessionContext, CLng(Form("CapabilityID")))	
+	 
   ' Set Title
-	mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description
+	'mdm_GetDictionary().add "CAPABILITY_TITLE", Form("CompositeCapabilityType").description  
+  mdm_GetDictionary().add "CAPABILITY_TITLE", ProductView.Properties.Rowset.Value("tx_desc")  
 
 	If IsEmpty(Form("CompositeCollection")) Then
   	If UCase(Form("Update")) <> "TRUE" Then
@@ -123,7 +126,7 @@ FUNCTION DynamicCapabilites(EventArg)
 	nCount = 1		
 	
   strHTML = strHTML & "<tr>"				 
-  strHTML = strHTML & "<td><img src='/mam/default/localized/en-us/images/info.gif'>&nbsp;Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</td>"
+  strHTML = strHTML & "<td><img src='/mam/default/localized/en-us/images/info.gif'>&nbsp;" & mam_GetDictionary("TEXT_MetraNet_Users_Hierarchy_members") & "</td>"
   strHTML = strHTML & "</tr>"
 	
 	For Each composite in Form("CompositeCollection")
@@ -147,10 +150,10 @@ FUNCTION DynamicCapabilites(EventArg)
 			    Service.Properties("MTWILDCARD" & nCount).AddValidListOfValues objDyn						
 					
 					strHTML = strHTML & "<tr>"
-					strHTML = strHTML & "	 <td class='clsStandardText'><span class='sectionCaptionBar'>Select Access Level:&nbsp;&nbsp;</span><hr>"
-					strHTML = strHTML & "	   <input type='radio' name='MTWILDCARD" & nCount & "' value='0'>Owned directly<br>"
-					strHTML = strHTML & "		 <input type='radio' name='MTWILDCARD" & nCount & "' value='1'>Owned by immediate subordinates<br>"
-					strHTML = strHTML & "		 <input type='radio' name='MTWILDCARD" & nCount & "' value='2'>Owned by all subordinates&nbsp;<br>"
+					strHTML = strHTML & "	 <td class='clsStandardText'><span class='sectionCaptionBar'>" & mam_GetDictionary("TEXT_Select_Access_Level") & "&nbsp;&nbsp;</span><hr>"
+					strHTML = strHTML & "	   <input type='radio' name='MTWILDCARD" & nCount & "' value='0'>" & mam_GetDictionary("TEXT_Owned_directly") & "<br>"
+					strHTML = strHTML & "		 <input type='radio' name='MTWILDCARD" & nCount & "' value='1'>" & mam_GetDictionary("TEXT_Owned_by_immediate_subordinates") & "<br>"
+					strHTML = strHTML & "		 <input type='radio' name='MTWILDCARD" & nCount & "' value='2'>" & mam_GetDictionary("TEXT_Owned_by_all_subordinates") & "&nbsp;<br>"
 					strHTML = strHTML & "	 </td>"
 					strHTML = strHTML & "</tr>"				 
 				

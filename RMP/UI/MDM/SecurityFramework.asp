@@ -91,7 +91,8 @@ PRIVATE FUNCTION ExcludeBinaryReads()
 	Dim loadPageValue
 	Dim brPages(2) 
 	Dim brIndPages(1)
-	
+	Dim urlPath 
+  
 	brPages(0) = LCase("/MOM/default/dialog/BillingGroupPullListFromFileUpload.asp")
 	brPages(1) = LCase("/MPTE/us/GenericTabRulesetExport.asp")
 	brPages(2) = LCase("/MPTE/us/GenericTabRulesetExportImportExcelUpload.asp")
@@ -113,7 +114,7 @@ PRIVATE FUNCTION ExcludeBinaryReads()
 		If brIndPages(i) = urlPath Then
 			loadPageValue = Request.QueryString("loadpage")
 			If Len(loadPageValue&"") <> 0 Then
-				If UCase(loadPageValue) = "GENERICTABRULESETEXPORTIMPORTEXCELUPLOAD.ASP" Then
+				If (UCase(loadPageValue) = "GENERICTABRULESETEXPORTIMPORTEXCELUPLOAD.ASP" Or UCase(loadPageValue) = "GENERICTABRULESETEXPORT.ASP") Then 
 					ExcludeBinaryReads = TRUE
 					Exit Function				
 				End If
@@ -136,10 +137,10 @@ PUBLIC FUNCTION RunSafeInputFilter(errorMessage)
 	Dim paramName
 	Dim paramValue
 	
-	'If ExcludeBinaryReads() Then	
-	'	RunSafeInputFilter = "SF_EXCLUDE"
-	'	Exit Function	
-	'End If
+	If ExcludeBinaryReads() Then	
+		RunSafeInputFilter = "SF_EXCLUDE"
+		Exit Function	
+	End If
 	
 	If Not EnsureSecurityFramework() Then
 		RunSafeInputFilter = "SF_LOAD_FAILURE"

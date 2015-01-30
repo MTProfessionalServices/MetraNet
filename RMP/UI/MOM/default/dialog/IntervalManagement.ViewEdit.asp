@@ -59,6 +59,7 @@ FUNCTION Form_Initialize(EventArg)
                         
   Service.Properties.Add "IntervalId", "string", 0, TRUE ,Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalStatus", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "IntervalStatusNotLocalized", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalStatusIcon", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalType", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalStartDateTime", MSIXDEF_TYPE_TIMESTAMP, 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
@@ -68,7 +69,11 @@ FUNCTION Form_Initialize(EventArg)
   Service.Properties.Add "AUDITHISTORY_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "ADAPTERRUN_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "ACTION_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
-  
+
+  Service.Properties.Add "MAIN_DIV_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "NO_PERMISSION_DIV_HTML", "string", 0, FALSE, Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "Partition", "string", 0, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE
+
 	Form_Initialize = Form_Refresh(EventArg)
 END FUNCTION
 
@@ -84,8 +89,58 @@ FUNCTION Form_Refresh(EventArg)
   Set objUSM = mom_GetUsageServerClientObject()
   Set bg = objUSM.GetBillingGroup(Form("BillingGroupID"))  
 
+  dim strShowMainDiv
+  dim strHideMainDiv
+  dim strShowNoPermissionDiv
+  dim strHideNoPermissionDiv
+
+  strShowMainDiv = "<div id='mainDiv'>"
+  strHideMainDiv = "<div id='mainDiv' style='display: none'>"
+  strShowNoPermissionDiv = "<div id='NoPermissionDiv'>"
+  strHideNoPermissionDiv = "<div id='NoPermissionDiv' style='display: none'>"
+
+  dim csrPartitionId
+  csrPartitionId = Session("MOM_SESSION_CSR_PARTITION_ID")
+  
+  ' Only show billing groups who belong to the same partition as the logged in user if the logged in user is part of a partition.
+  ' If the logged in user is not part of a partition, then show all billing groups to the user
+  if IsEmpty(csrPartitionId) then
+    ' Do not show the bill group to the user because the logged in user's partition is unknown
+    Service.Properties("MAIN_DIV_HTML") = strHideMainDiv
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strShowNoPermissionDiv
+  elseif CLng(csrPartitionId) = 1 then
+    ' Show the bill group to the user because the logged in user is not a member of a partition
+    Service.Properties("MAIN_DIV_HTML") = strShowMainDiv
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strHideNoPermissionDiv
+  elseif CLng(csrPartitionId) = bg.PartitionID then
+    ' Show the bill group to the user because the logged in user belongs to the same partition as this bill group
+    Service.Properties("MAIN_DIV_HTML") = strShowMainDiv 
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strHideNoPermissionDiv
+  else
+    ' By default do not show the bill group
+    Service.Properties("MAIN_DIV_HTML") = strHideMainDiv
+    Service.Properties("NO_PERMISSION_DIV_HTML") = strShowNoPermissionDiv  
+  end if
+
   Service.Properties("BillingGroupId").Value          = bg.BillingGroupID
-  Service.Properties("BillingGroup").Value            = bg.Name
+  
+  dim nameLocalize
+  nameLocalize = UCase(Replace(bg.Name, " ", "_"))
+
+  If (nameLocalize = "DEFAULT" Or nameLocalize = "EUROPE" Or nameLocalize = "NORTH_AMERICA" Or nameLocalize = "SOUTH_AMERICA") Then
+      Service.Properties("BillingGroup").Value = mom_GetDictionary("TEXT_BG_NAME_" & nameLocalize)     
+  else 
+      Service.Properties("BillingGroup").Value = nameLocalize
+  End If
+
+  If (IsNull(bg.PartitionName) Or IsEmpty(bg.PartitionName)) Then
+     mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 0
+     Service.Properties("Partition").Value = ""
+  Else
+     mdm_GetDictionary().Add "SHOW_PARTITION_NAME", 1    
+     Service.Properties("Partition").Value = bg.PartitionName
+  End If
+  
   Service.Properties("BillingGroupMemberCount").Value = bg.MemberCount
   Service.Properties("IntervalOnlyAdapterCount").Value  = bg.IntervalOnlyAdapterCount
   Service.Properties("AdapterCount").Value            = bg.AdapterCount 
@@ -105,21 +160,24 @@ FUNCTION Form_Refresh(EventArg)
   select case bg.Status
     case BillingGroupStatus_Open
       bShowChangeIntervalStateLink = true  
-      Service.Properties("IntervalStatus").Value = "Open"
+      Service.Properties("IntervalStatus").Value = mom_GetDictionary("TEXT_INTERVAL_STATE_OPEN")
+      Service.Properties("IntervalStatusNotLocalized").Value = "Open"
     case BillingGroupStatus_SoftClosed
       bShowChangeIntervalStateLink = objUSM.CanOpenBillingGroup(Service.Properties("BillingGroupID").Value)
-      Service.Properties("IntervalStatus").Value = "Soft Closed"
+      Service.Properties("IntervalStatus").Value = mom_GetDictionary("TEXT_INTERVAL_STATE_SOFT_CLOSED")
+      Service.Properties("IntervalStatusNotLocalized").Value = "Soft Closed"
     case BillingGroupStatus_HardClosed  
       bShowChangeIntervalStateLink = objUSM.CanOpenBillingGroup(Service.Properties("BillingGroupID").Value)    
-      Service.Properties("IntervalStatus").Value = "Hard Closed"
+      Service.Properties("IntervalStatus").Value = mom_GetDictionary("TEXT_INTERVAL_STATE_HARD_CLOSED")
+      Service.Properties("IntervalStatusNotLocalized").Value = "Hard Closed"
       bShowCreatePullListLink=false
   end select
   
   if bShowChangeIntervalStateLink then
-    Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;<A href=""#"" onclick=""window.open('IntervalManagement.StateChange.asp?MDMReload=TRUE&BillingGroupID=" & Service.Properties("BillingGroupID").Value & "&IntervalId=" & Service.Properties("IntervalId").Value & "&State=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&StateName=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&IntervalEndDate=" & Server.UrlEncode(Service.Properties("IntervalEndDateTime").Value) & "','', 'height=500,width=650, resizable=yes, scrollbars=yes, status=yes')"">" & "Change State" &  "</A>"
+    Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;<A href=""#"" onclick=""window.open('IntervalManagement.StateChange.asp?MDMReload=TRUE&BillingGroupID=" & Service.Properties("BillingGroupID").Value & "&IntervalId=" & Service.Properties("IntervalId").Value & "&State=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&StateName=" & Server.URLEncode(Service.Properties("IntervalStatusNotLocalized").Value) & "&IntervalEndDate=" & Server.UrlEncode(Service.Properties("IntervalEndDateTime").Value) & "','', 'height=500,width=650, resizable=yes, scrollbars=yes, status=yes')"">" & "[TEXT_CHANGE_STATE]" &  "</A>"
   else 
     if bg.CanBeHardClosed then
-      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);return false;"">" & "<span style='font-size: 10px;'>Force Hard Close</span>" &  "</button>"
+      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);return false;"">" & "<span style='font-size: 10px;'>[TEXT_FORCE_HARD_CLOSE]</span>" &  "</button>"
     else
       Service.Properties("CHANGESTATE_HTML_LINK") = ""
     end if
@@ -152,6 +210,7 @@ FUNCTION getRecurringEventRunHTML
   	set objUSMInstances = CreateObject("MetraTech.UsageServer.RecurringEventInstanceFilter")
 	  objUSMInstances.UsageIntervalID = idInterval
 	  objUSMInstances.BillingGroupID = idBillingGroup
+    objUSMInstances.LanguageId = Session("FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME").LanguageId
 	  set rowset = objUSMInstances.GetEndOfPeriodRowset(true, true)    
 
     dim objUSM
@@ -165,7 +224,7 @@ FUNCTION getRecurringEventRunHTML
     end if
     
     dim sIntervalDescription
-    sIntervalDescription = "Interval " & Service.Properties("IntervalId").Value & " " & Service.Properties("IntervalType").Value & " " & Service.Properties("IntervalStartDateTime").Value & " - " & Service.Properties("IntervalEndDateTime").Value
+    sIntervalDescription = "[TEXT_INTERVAL] " & Service.Properties("IntervalId").Value & " " & Service.Properties("IntervalType").Value & " " & Service.Properties("IntervalStartDateTime").Value & " - " & Service.Properties("IntervalEndDateTime").Value
 
     'DEBUG - dump rowset 
     if false then
@@ -178,14 +237,15 @@ FUNCTION getRecurringEventRunHTML
     Service.Properties("ACTION_HTML") = getAvailableActionsHTML(rowset)     
 
     sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
-    sHTML = sHTML & "<tr class='TableHeader' style='background-color:#C0C0C0;color:black;'><td align='left' colspan='15'><strong><font size=4>Billing Process Adapters</font></strong></td></tr>" 
-    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;color:black'><td align='left' width='10px' style='padding: 0px 0px 0px 0px; '><input type='checkbox' name='selectAllAdapters' " & IIF(bDisableActions,"disabled ","") & "value='' onClick='DoSelectAllAdapters(this);'></td><td align='left'>Adapter</td><td align='left'>Instance Id</td><td valign='bottom' align='left'>Status</td><td align='left'>Last<br>Action</td><td align='left'>Start Time [Duration]</td><td align='left'>Result</td><td align='left'>Machine</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='background-color:#C0C0C0;color:black;'><td align='left' colspan='15'><strong><font size=4>[TEXT_BILLING_PROCESS_ADAPTERS]</font></strong></td></tr>" 
+    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;color:black'><td align='left' width='10px' style='padding: 0px 0px 0px 0px; '><input type='checkbox' name='selectAllAdapters' " & IIF(bDisableActions,"disabled ","") & "value='' onClick='DoSelectAllAdapters(this);'></td><td align='left'>[TEXT_ADAPTER]</td><td align='left'>[TEXT_INSTANCE_ID]</td><td valign='bottom' align='left'>[TEXT_STATUS]</td><td align='left'>[TEXT_LAST_ACTION]</td><td align='left'>[TEXT_START_TIME]</td><td align='left'>[TEXT_RESULT]</td><td align='left'>[TEXT_MACHINE]</td></tr>"    
 
     if rowset.eof then
-      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='15'>No adapter event runs for this interval currently.</td></tr>"
+      sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='15'>[TEXT_NO_ADAPTER_EVENTS]</td></tr>"
     else  
       do while not rowset.eof
           dim sToolTip,sIcon,sStatus,sStatusCode,sInstanceId,sStyle,sTime,sSelectHTML,sLastRunActionHTML, sLastRunResultHTML
+          sLastRunActionHTML = "&nbsp;"
           sTime			= "&nbsp;"
           sToolTip		= "Component: " & rowset.value("ClassName") & vbCRLF & "Config File: " & rowset.value("ConfigFile") & vbCRLF
           sStatusCode	= rowset.value("Status")
@@ -201,7 +261,7 @@ FUNCTION getRecurringEventRunHTML
             sIcon = "../localized/en-us/images/adapters/" & rowset.value("BillGroupSupportType") & ".png"
             sInstanceId = rowset.value("InstanceId")
             'sInstanceId = "<A href=""#"" title=""View Adapter Instance Run History"" onclick=""window.open('AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & sInstanceId & "</A>"
-            sInstanceId = "<A href='AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&DisableActions=" & bDisableActions & "&IntervalDescription=" & Server.UrlEncode(sIntervalDescription) & "&ReturnUrl=" & Server.UrlEncode("IntervalManagement.ViewEdit.asp") & "' title='View Adapter Instance Run History'>" & sInstanceId & "</A>"
+            sInstanceId = "<a href='/MetraNet/MetraControl/ScheduledAdapters/AdapterInstanceInformation.aspx?ID=" & sInstanceId & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&DisableActions=" & bDisableActions & "&IntervalDescription=" & Server.UrlEncode(sIntervalDescription) & "&ReturnUrl=" & Server.UrlEncode("/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.ViewEdit.asp") & "' title='[TEXT_VIEW_ADAPTER_RUN_HISTORY]'>" & sInstanceId & "</a>"
             sSelectHTML = "<input type='checkbox' name='MDM_CB_" & rowset.value("InstanceId") & "' " & IIF(bDisableActions,"disabled ","") & "value=''>"
             sStyle = "vertical-align: top;"
             
@@ -209,39 +269,48 @@ FUNCTION getRecurringEventRunHTML
             if sStatusCode="Failed" or sStatusCode="Running" or sStatusCode="Succeeded" then
             end if
 
-            if not isNull(rowset.value("LastRunAction")) then
+           '// if not isNull(rowset.value("LastRunAction")) then
               if sStatusCode="InProgress" then
                 sTime = rowset.value("LastRunStart")
               else
                 sTime = mom_GetDurationMessage(rowset.value("LastRunStart"),rowset.value("LastRunEnd"))
               end if
-              sLastRunActionHTML = rowset.value("LastRunAction") 
+              
+              if Not IsNull(rowset.value("LastRunAction")) then
+                sLastRunActionHTML = mom_GetDictionary("TEXT_BG_RUN_ACTION_" & UCase(Replace(rowset.value("LastRunAction"), " ", "_"))) 
+              end if
+
               dim sLastRunStatus
+              sLastRunStatus = ""
               dim sLastRunDetail
               if cint(rowset.value("LastRunWarnings")) = 0 then
-                sLastRunStatus = rowset.value("LastRunStatus")
+                if Not IsNull(rowset.value("LastRunStatus")) then
+                  sLastRunStatus = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(rowset.value("LastRunStatus"), " ", "_"))) 
+                end if
                 sLastRunDetail = rowset.value("LastRunDetail")
               else
                 if sStatusCode = "Succeeded" then
-                  sLastRunStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>" & "Succeeded With Warnings"
+                  sLastRunStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>" & "[TEXT_SUCCEEDED_WITH_WARNINGS]"
                 else
-                  sLastRunStatus = rowset.value("LastRunStatus")
+                  if Not IsNull(rowset.value("LastRunStatus")) then
+                    sLastRunStatus = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(rowset.value("LastRunStatus"), " ", "_"))) 
+                  end if
                 end if
                 sLastRunDetail = "The run generated " & rowset.value("LastRunWarnings") & " warnings." & vbNewLine & rowset.value("LastRunDetail")
               end if  
               sLastRunResultHTML = "<A href=""#"" title=""" & sLastRunDetail & vbNewLine & "Click To View Run Details"" onclick=""window.open('AdapterManagement.RunDetails.List.asp?RunId=" & rowset.value("LastRunId") & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&AdapterName=" & server.urlencode("<img alt='" & sToolTip & "' border='0' height='16' src= '" & sIcon & "' align='absmiddle' width='16'>&nbsp;" & rowset.value("EventDisplayName")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & sLastRunStatus & "</A>"
-            else
-              sTime = "&nbsp;"
-              sLastRunActionHTML = "&nbsp;"
-              sLastRunResultHTML = "&nbsp;"
-            end if
+           ' else
+            '  sTime = "&nbsp;"
+            '  sLastRunActionHTML = "&nbsp;"
+            '  sLastRunResultHTML = "&nbsp;"
+           '// end if
                         
             if false then
             if CLng(rowset.value("BatchCount"))>0 then
               if CLng(rowset.value("BatchCount"))=1 then
-                sStatus = sStatus & " (<A href=""#"" title=""View Batch Information"" onclick=""window.open('BatchManagement.ViewEdit.asp?BatchEncodedId=" & server.urlencode(rowset.value("HackBatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & "1 batch" & "</A>)"
+                sStatus = sStatus & " (<A href=""#"" title=""[TEXT_VIEW_BATCH_INFORMATION]"" onclick=""window.open('BatchManagement.ViewEdit.asp?BatchEncodedId=" & server.urlencode(rowset.value("HackBatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & "1 batch" & "</A>)"
               else
-                sStatus = sStatus & " (" & rowset.value("BatchCount") & " batches)"
+                sStatus = sStatus & " (" & rowset.value("BatchCount") & " [TEXT_BATCHES])"
               end if
             end if
             end if
@@ -269,27 +338,33 @@ FUNCTION getRecurringEventRunHTML
             sStyle = "height: 29px;text-align:middle;vertical-align: middle;BACKGROUND-COLOR:#D6D3CE; border-bottom: silver solid 1px;	BORDER-TOP: silver solid 1px;"            
             if sStatusCode = "NotYetRun" then
               'sStatus =  "<button  style='font-weight: bold;padding: 0px 0px 0px 0px;font-size: 8px;height=18px;width=60px;' name='AcknowledgeCheckPoint' onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "Acknowledge" &  "</button>" & vbNewLine
-              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "<span style='font-size: 10px;'>Acknowledge</span>" &  "</button>" & vbNewLine
+              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "<span style='font-size: 10px;'>" & mom_GetDictionary("TEXT_BG_STATUS_CODE_ACKNOWLEDGE") & "</span>" &  "</button>" & vbNewLine
             end if
             if sStatusCode = "ReadyToRun" or sStatusCode = "Succeeded" then
               'sStatus =  "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='EditMapping' onclick=""javascript:alert('Not implemented yet... hold your horses');"">" & "Acknowledge" &  "</button>" & vbNewLine
-              sStatus = "Acknowledged"
+              sStatus = mom_GetDictionary("TEXT_BG_STATUS_CODE_ACKNOWLEDGE")
             end if
             
             
             sIcon = "../localized/en-us/images/adapter_checkpoint.gif"
           end if
 
+          dim status
+          if sInstanceId = "&nbsp;" then
+            status = sStatus
+          else
+            status = mom_GetDictionary("TEXT_BG_STATUS_CODE_" & UCase(Replace(sStatusCode, " ", "_")))
+          end if
           
           if UCase(rowset.value("IsGlobalAdapter")) = "Y" then
             sHTML = sHTML & "<tr class='TableDetailCell' title='" & sToolTip & "' style='" & sStyle & "'>"
-            sHTML = sHTML & "<td align='left' width='10px' style='" & sStyle & "'>" & sSelectHTML & "</td><td style='vertical-align: middle;" & sStyle & "'><img alt='" & sToolTip & "' border='0' height='16' src= '" & sIcon & "' align='absmiddle' width='16'>&nbsp;Interval Only - <strong>" & rowset.value("EventDisplayName") & "</strong></td>"
+            sHTML = sHTML & "<td align='left' width='10px' style='" & sStyle & "'>" & sSelectHTML & "</td><td style='vertical-align: middle;" & sStyle & "'><img alt='" & sToolTip & "' border='0' height='16' src= '" & sIcon & "' align='absmiddle' width='16'>&nbsp;[TEXT_INTERVAL_ONLY] - <strong>" & rowset.value("EventDisplayName") & "</strong></td>"
             sHTML = sHTML & "<INPUT Type='Hidden' Name='" & rowset.value("EventDisplayName") & "' value='" & sStatusCode & "'>"
             sHTML = sHTML & "</td>"
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sInstanceId & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunStart")  & "&nbsp;</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunEnd") & "&nbsp;</td>"  
-            sHTML = sHTML & "<td style='" & sStyle & "'>" & sStatus & "</td>"  
+            sHTML = sHTML & "<td style='" & sStyle & "'>" & status & "</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sLastRunActionHTML  & "&nbsp;</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sTime & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("Details") & "&nbsp;</td>"
@@ -304,7 +379,7 @@ FUNCTION getRecurringEventRunHTML
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sInstanceId & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunStart")  & "&nbsp;</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top;" & sStyle & "'>" & rowset.value("RunEnd") & "&nbsp;</td>"  
-            sHTML = sHTML & "<td style='" & sStyle & "'>" & sStatus & "</td>"  
+            sHTML = sHTML & "<td style='" & sStyle & "'>" & status & "</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sLastRunActionHTML  & "&nbsp;</td>"  
             sHTML = sHTML & "<td style='" & sStyle & "'>" & sTime & "</td>"  
             'sHTML = sHTML & "<td style='vertical-align: top'>" & rowset.value("Details") & "&nbsp;</td>"
@@ -349,39 +424,39 @@ FUNCTION getAvailableActionsHTML(rowset)
 
 
     if bShowRunOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('Please select one or more adapters');}"">" & "Run Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('[TEXT_SELECT_ADAPTERS]');}"">" & "[TEXT_RUN_ADAPTER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='EditMapping' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes')"">" & "Backout Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='EditMapping' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes')"">" & "[TEXT_BACKOUT_ADAPTER]" &  "</button>" & vbNewLine
     end if
 
     if bShowRunLaterOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdaptersLater' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('Please select one or more adapters');}"">" & "Run Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdaptersLater' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('[TEXT_SELECT_ADAPTERS]');}"">" & "[TEXT_RUN_ADAPTER_LATER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='EditMapping' onclick=''>" & "Run Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='EditMapping' onclick=''>" & "[TEXT_RUN_ADAPTER_LATER]" &  "</button>" & vbNewLine
     end if
     
     if bShowBackoutOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('Please select one or more adapters');}"">" & "Reverse Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('[TEXT_SELECT_ADAPTERS]');}"">" & "[TEXT_REVERCE_ADAPTER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdapters' onclick=''>" & "Reverse Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdapters' onclick=''>" & "[TEXT_REVERCE_ADAPTER]" &  "</button>" & vbNewLine
     end if
 
     if bShowBackoutOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('Please select one or more adapters');}"">" & "Reverse Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('[TEXT_SELECT_ADAPTERS]');}"">" & "[TEXT_REVERCE_ADAPTER_LATER]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=''>" & "Reverse Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=''>" & "[TEXT_REVERCE_ADAPTER_LATER]" &  "</button>" & vbNewLine
     end if
 
     if bShowMarkAsNotReadyToRun then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='CancelPendingAction' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('Please select one or more adapters');}"">" & "Cancel Submitted Action" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='CancelPendingAction' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('[TEXT_SELECT_ADAPTERS]');}"">" & "[TEXT_CANCEL_SUBMITTED_ACTION]" &  "</button>" & vbNewLine
     else
-      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='CancelPendingAction' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes')"">" & "Cancel Submitted Action" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='CancelPendingAction' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes')"">" & "[TEXT_CANCEL_SUBMITTED_ACTION]" &  "</button>" & vbNewLine
     end if  
     
     if bShowForceOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ForceAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('Please select one or more adapters');}"">" & "Force Run Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ForceAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('[TEXT_SELECT_ADAPTERS]');}"">" & "[TEXT_FORCE_RUN_ADAPTER]" &  "</button>" & vbNewLine
     else
-      'sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='ForceAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('Please select one or more adapters');}"">" & "Force Run Adapter" &  "</button>" & vbNewLine
+      'sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='ForceAdapters' onclick=""if (isAdapterSelected()) {mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);}else{window.alert('[TEXT_SELECT_ADAPTERS]');}"">" & "[TEXT_FORCE_RUN_ADAPTER]" &  "</button>" & vbNewLine
     end if
         
     sHTML = sHTML & "<BR>"

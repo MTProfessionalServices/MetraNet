@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description>
+    This file defines the MAM tool tips localization.
+  </description>
+  <text id="TEXT_OK">
+    <value>OK</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CANCEL">
+    <value>Cancelar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLEAR">
+    <value>Limpar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_EDIT">
+    <value>Editar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_VIEW">
+    <value>Exibir</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DELETE">
+    <value>Excluir</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD">
+    <value>Adicionar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_UPDATE">
+    <value>Atualizar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_HELP">
+    <value>Ajuda de MetraControl</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FULLSCREEN">
+    <value>Alternar exibição de tela cheia</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO">
+    <value>Localizar conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADVANCED">
+    <value>Localização avançada</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_DOWN">
+    <value>Mostrar informações detalhadas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TURN_UP">
+    <value>Ocultar informações detalhadas</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSEWINDOW">
+    <value>Fechar conta</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADD_PAYMENT_METHOD">
+    <value>Adicionar método de pagamento</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ENTER">
+    <value>Inserir</value>
+    <description></description>
+  </text>
+  <text id="TEXT_GO_BACK">
+    <value>Voltar para encontrar resultados</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY">
+    <value>Aplicar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUCCEED">
+    <value>Bem-sucedido</value>
+    <description></description>
+  </text>
+  <text id="TEXT_FAILED">
+    <value>Falhou</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NONE">
+    <value>Nenhum</value>
+    <description></description>
+  </text>
+  <text id="TEXT_NO">
+    <value>Não</value>
+    <description></description>
+  </text>
+  <text id="TEXT_YES">
+    <value>Sim</value>
+    <description></description>
+  </text>
+  <text id="TEXT_CLOSE">
+    <value>Fechar</value>
+    <description></description>
+  </text>
+  <text id="TEXT_INFO_SUCCEFULLY_ADDED">
+    <value>As informações foram adicionadas com sucesso.</value>
+    <description></description>
+  </text>
+</texts>

@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Date Errors" type="collection">
+  <description>
+    Effective date error strings
+  </description>
 
-<description>
- Effective date error strings
-</description>
+  <!-- Subscription Effective Date Errors -->
+  <text id="MAM_ERROR_5000">
+    <value>You cannot leave Start or End dates blank.</value>
+  </text>
+  <text id="MAM_ERROR_5001">
+    <value>You cannot leave Start date blank.</value>
+  </text>
+  <text id="MAM_ERROR_5002">
+    <value>Date cannot be in the past.</value>
+  </text>
+  <text id="MAM_ERROR_5003">
+    <value>End date cannot be before Start date.</value>
+  </text>
+  <text id="MAM_ERROR_5004">
+    <value>Start and End date cannot be the same date and End date cannot be in the past.</value>
+  </text>
+  <text id="MAM_ERROR_5005">
+    <value>Subscription Start date cannot be before effective Start date</value>
+  </text>
+  <text id="MAM_ERROR_5006">
+    <value>The system cannot calculate the next billing cycle after the given start date for this subscription because it is too far in the future or past. You can either adjust the start date or make it an absolute date.</value>
+  </text>
+  <text id="MAM_ERROR_5007">
+    <value>The system cannot calculate the next billing cycle after the given end date for this subscription because it is too far in the future or past. You can either adjust the end date or make it an absolute date.</value>
+  </text>
 
-    <!-- Subscription Effective Date Errors -->              
-    <text id="MAM_ERROR_5000"><value>You cannot leave Start or End dates blank.</value></text>
-    <text id="MAM_ERROR_5001"><value>You cannot leave Start date blank.</value></text>
-    <text id="MAM_ERROR_5002"><value>Date cannot be in the past.</value></text>
-    <text id="MAM_ERROR_5003"><value>End date cannot be before Start date.</value></text>
-    <text id="MAM_ERROR_5004"><value>Start and End date cannot be the same date and End date cannot be in the past.</value></text>
-    <text id="MAM_ERROR_5005"><value>Subscription Start date cannot be before effective Start date</value></text>
-		<text id="MAM_ERROR_5006"><value>The system cannot calculate the next billing cycle after the given start date for this subscription because it is too far in the future or past. You can either adjust the start date or make it an absolute date.</value></text>
-		<text id="MAM_ERROR_5007"><value>The system cannot calculate the next billing cycle after the given end date for this subscription because it is too far in the future or past. You can either adjust the end date or make it an absolute date.</value></text>		
-    
+  <!-- Rate Schedule Effective Date Errors -->
+  <text id="MAM_ERROR_6001">
+    <value>If no Start date, then End date must be after today.</value>
+  </text>
+  <text id="MAM_ERROR_6002">
+    <value>If no End date, then Start date cannot be in the past.</value>
+  </text>
+  <text id="MAM_ERROR_6003">
+    <value>End Date cannot be before Start date.</value>
+  </text>
+  <text id="MAM_ERROR_6004">
+    <value>Start and End date cannot be the same date.</value>
+  </text>
 
-    <!-- Rate Schedule Effective Date Errors -->  
-    <text id="MAM_ERROR_6001"><value>If no Start date, then End date must be after today.</value></text>
-    <text id="MAM_ERROR_6002"><value>If no End date, then Start date cannot be in the past.</value></text>
-    <text id="MAM_ERROR_6003"><value>End Date cannot be before Start date.</value></text>
-    <text id="MAM_ERROR_6004"><value>Start and End date cannot be the same date.</value></text>
-
-    <!-- Format error -->
-    <text id="MAM_ERROR_7004"><value>Invalid time format.  An example of a valid time is (MM/DD/YYYY HH:MM:SS).</value></text>    
-    
-    <text id="MAM_WARNING_8000"><value>WARNING-Start Date is in the past. Press OK again to confirm.</value></text>
-    <text id="MAM_WARNING_8001"><value>WARNING-End Date is in the past. Press OK again to confirm.</value></text>
-    
-    
+  <!-- Format error -->
+  <text id="MAM_ERROR_7004">
+    <value>Invalid time format.  An example of a valid time is (MM/DD/YYYY HH:MM:SS).</value>
+  </text>
+  <text id="MAM_WARNING_8000">
+    <value>WARNING-Start Date is in the past. Press OK again to confirm.</value>
+  </text>
+  <text id="MAM_WARNING_8001">
+    <value>WARNING-End Date is in the past. Press OK again to confirm.</value>
+  </text>
 </texts>
-
-  

@@ -13,7 +13,7 @@
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-                <tr class="NavigationPaneItem"><td style="padding-left:4px;padding-top:4px;">Currently there are no priceable items of this type in the Product Catalog</td></tr>
+                <tr class="NavigationPaneItem"><td style="padding-left:4px;padding-top:4px;">[TEXT_PO_WITHOUT_PI_MESSAGE3]</td></tr>
       </xsl:otherwise>
       </xsl:choose>
       </table> <!-- End Of Product Offering -->

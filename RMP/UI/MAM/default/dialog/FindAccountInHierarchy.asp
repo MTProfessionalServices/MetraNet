@@ -21,8 +21,8 @@ Dim skipAhead
 
 strID = request.QueryString("ID")
 
-Set YAAC = FrameWork.AccountCatalog.GetAccount(CLng(strID), mam_GetHierarchyTime())
-Set rs = YAAC.GetAncestorMgr().HierarchySlice(CLng(strID), mam_GetHierarchyTime()).GetAncestorList()
+Set YAAC = FrameWork.AccountCatalog.GetAccount(CLng(strID), mam_ConvertToSysDate(mam_GetHierarchyTime()))
+Set rs = YAAC.GetAncestorMgr().HierarchySlice(CLng(strID), mam_ConvertToSysDate(mam_GetHierarchyTime())).GetAncestorList()
 CheckAndWriteError
 
 If rs.recordcount <> 0 Then

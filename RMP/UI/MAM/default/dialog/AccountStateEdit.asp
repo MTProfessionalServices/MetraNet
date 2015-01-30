@@ -51,13 +51,13 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
   Dim newDate
   newDate = DateSerial(request.QueryString("Year"), request.QueryString("Month"), request.QueryString("Day"))
  
-  Set Form("CurrentState") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), CDate(newDate)).GetAccountStateMgr().GetStateObject()                    
+  Set Form("CurrentState") = FrameWork.AccountCatalog.GetAccount(CLng(mam_GetSubscriberAccountID()), mam_ConvertToSysDate(CDate(newDate))).GetAccountStateMgr().GetStateObject()                    
   Form("Status")  = request.QueryString("Status")                    
   Form("OldDate") = CDate(newDate)
     
   ' Add dialog properties
   Service.Properties.Add "AccountStatus",    "String",      0,   TRUE, Empty 
-  Service.Properties.Add "StartDate",        "TIMESTAMP", 0,   TRUE, Empty    
+  Service.Properties.Add "StartDate",        "String", 0,   TRUE, Empty    
   
   Service.Properties("AccountStatus").SetPropertyType "ENUM", FrameWork.Dictionary.Item("ACCOUNT_CREATION_SERVICE_ENUM_TYPE_LOADING").Value , "AccountStatus"	
       
@@ -74,7 +74,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Service.Properties("AccountStatus").Enabled = FALSE
 '  End IF
   
-  Service.properties("StartDate").value = CDate(Form("OldDate"))
+  Service.properties("StartDate").value = mam_FormatDate(CDate(Form("OldDate")), mam_GetDictionary("DATE_FORMAT")) 
   
   Service.LoadJavaScriptCode  ' This line is important to get JavaScript field validation
 
@@ -98,7 +98,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
 									 CLng(mam_GetSubscriberAccountID()), _
 									 -1, _
 									 CStr(Service.Properties("AccountStatus")),  _
-									 CDate(Service.Properties("StartDate").Value), _
+									 mam_NormalDateFormat(Service.Properties("StartDate").Value), _
 									 CDate(0)
 								
     If(CBool(Err.Number = 0)) then

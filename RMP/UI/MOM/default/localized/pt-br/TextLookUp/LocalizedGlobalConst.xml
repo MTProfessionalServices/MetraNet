@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_MOM_WELCOME_TO_THE_PAYMENT_SERVER_MOM">
+    <value>Bem-vindo ao MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MOM_WELCOME_TO_THE_MOM">
+    <value>Bem-vindo ao MetraCare</value>
+    <description></description>
+  </text>
+  <text id="TEXT_MOM_ADMINISTRATOR_RIGHTS_NEEDED">
+    <value>Você precisa ter direitos de Administrador para iniciar e parar o pipeline.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPLY_DEFAULT_SECURITY">
+    <value>Aplicar política padrão</value>
+  </text>
+</texts>

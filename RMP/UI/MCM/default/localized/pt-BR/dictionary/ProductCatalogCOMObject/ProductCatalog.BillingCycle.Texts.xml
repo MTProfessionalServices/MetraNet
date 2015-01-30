@@ -1,65 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="ProductCatalogCOMObject" type="collection">
-
-    <description>
-    Texts for the billing cycles sub dialog 
-    </description>
-    
-    <text id="TEXT_PC_CYCLE_TITLE">
-      <value>Ciclo</value></text>   
-
-    <text id="TEXT_PC_CYCLE_FIXED_CYCLE">
-      <value>Ciclo fixo</value></text>   
-
-    <text id="TEXT_PC_CYCLE_SAME_AS_SUBSCRIBER_BILLING_CYCLE">
-      <value>Mesmo que o ciclo de cobrança do pagador do assinante</value></text>
-    <text id="TEXT_PC_CYCLE_REQUIRE_CYCLE_IS">
-      <value>Exige que o ciclo de cobrança do pagador do assinante seja</value></text>
-
-    <text id="TEXT_PC_CYCLE_ALIGNED_TO_SUBSCRIBER_BILLING_CYCLE">
-      <value>Alinhado com o ciclo de cobrança do pagador do assinante</value></text>
-    <text id="TEXT_PC_CYCLE_ALIGNED_OCURRING">
-      <value>Ocorrendo</value></text>
-
-    <text id="TEXT_PC_CYCLE_DAILY">
-      <value>Diariamente</value></text>
-
-    <text id="TEXT_PC_CYCLE_WEEKLY">
-      <value>Semanalmente</value></text>
-    <text id="TEXT_PC_CYCLE_WEEKLY_LABEL1">
-      <value>Terminando em</value></text>
-
-    <text id="TEXT_PC_CYCLE_BIWEEKLY">
-      <value>Bissemanal</value></text>
-    <text id="TEXT_PC_CYCLE_BIWEEKLY_LABEL1">
-      <value/></text>
-
-    <text id="TEXT_PC_CYCLE_SEMIMONTHLY">
-      <value>Quinzenalmente</value></text>
-    <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL1">
-      <value>Terminando em dias</value></text>
-    <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL2">
-      <value>e</value></text>
-
-    <text id="TEXT_PC_CYCLE_MONTHLY">
-      <value>Mensalmente</value></text>
-    <text id="TEXT_PC_CYCLE_MONTHLY_LABEL1">
-      <value>Terminando no dia</value></text>
-
-    <text id="TEXT_PC_CYCLE_QUARTERLY">
-      <value>Trimestralmente</value></text>
-    <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL1">
-      <value>Começando em</value></text>
-    <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL2">
-      <value/></text>
-
-    <text id="TEXT_PC_CYCLE_ANNUAL">
-      <value>Anual</value></text>
-    <text id="TEXT_PC_CYCLE_ANNUAL_LABEL1">
-      <value>Começando em</value></text>
-    <text id="TEXT_PC_CYCLE_ANNUAL_LABEL2">
-      <value/></text>
-
+  <description>
+    Texts for the billing cycles sub dialog
+  </description>
+  <text id="TEXT_PC_CYCLE_TITLE">
+    <value>Ciclo</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_FIXED_CYCLE">
+    <value>Ciclo fixo</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_SAME_AS_SUBSCRIBER_BILLING_CYCLE">
+    <value>Mesmo que o ciclo de cobrança do pagador do assinante</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_REQUIRE_CYCLE_IS">
+    <value>Exige que o ciclo de cobrança do pagador do assinante seja</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ALIGNED_TO_SUBSCRIBER_BILLING_CYCLE">
+    <value>Alinhado com o ciclo de cobrança do pagador do assinante</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ALIGNED_OCURRING">
+    <value>Ocorrendo</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_DAILY">
+    <value>Diariamente</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_WEEKLY">
+    <value>Semanalmente</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_WEEKLY_LABEL1">
+    <value>Terminando em</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_BIWEEKLY">
+    <value>Bissemanal</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_BIWEEKLY_LABEL1">
+    <value/>
+  </text>
+  <text id="TEXT_PC_CYCLE_SEMIMONTHLY">
+    <value>Quinzenalmente</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL1">
+    <value>Terminando em dias</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_SEMIMONTHLY_LABEL2">
+    <value>e</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_MONTHLY">
+    <value>Mensalmente</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_MONTHLY_LABEL1">
+    <value>Terminando no dia</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_QUARTERLY">
+    <value>Trimestralmente</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL1">
+    <value>Começando em</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_QUARTERLY_LABEL2">
+    <value/>
+  </text>
+  <text id="TEXT_PC_CYCLE_ANNUAL">
+    <value>Anual</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ANNUAL_LABEL1">
+    <value>Começando em</value>
+  </text>
+  <text id="TEXT_PC_CYCLE_ANNUAL_LABEL2">
+    <value/>
+  </text>
   <text id="TEXT_PC_CYCLE_SEMIANNUAL">
     <value>Semestralmente</value>
   </text>
@@ -69,5 +78,7 @@
   <text id="TEXT_PC_CYCLE_SEMIANNUAL_LABEL2">
     <value/>
   </text>
-
+  <text id="TEXT_END_OF_THE_MONTH">
+    <value>End of Month</value>
+  </text>
 </texts>

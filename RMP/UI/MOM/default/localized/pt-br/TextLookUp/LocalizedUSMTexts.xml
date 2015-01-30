@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_USM_MANUAL">
+    <value>Manutenção do servidor de utilização</value>
+  </text>
+  <text id="TEXT_USM_CLOSE">
+    <value>Fechar</value>
+  </text>
+  <text id="TEXT_USM_RUN">
+    <value>Executar</value>
+  </text>
+  <text id="TEXT_USM_ACTION">
+    <value>Ação</value>
+  </text>
+  <text id="TEXT_USM_DESCRIPTION">
+    <value>Descrição</value>
+  </text>
+  <text id="TEXT_USM_CLOSE_DESCRIPTION">
+    <value><![CDATA[<strong>Finalize Automaticamente as Atividades dos Grupos de Cobrança de Intervalos de Uso Expirados.</strong><br>A cada noite, a plataforma procurará intervalos que terminaram e, usando a configuração do período de bonificação abaixo, criará automaticamente os grupos de cobrança e alterará seu status para  'Finalizado.]]></value>
+  </text>
+  <text id="TEXT_USM_CLOSE_INTERVAL_HEADER">
+    <value><![CDATA[Criar e fazer o fechamento simplificado dos grupos para:]]></value>
+  </text>
+  <text id="TEXT_USM_CLOSE_BLOCK_ACCOUNT_DESCRIPTION">
+    <value><![CDATA[Ao fechar intervalos automaticamente, bloquear os intervalos para novas contas.]]></value>
+  </text>
+  <text id="TEXT_USM_RUN_DESCRIPTION">
+    <value><![CDATA[<strong>Executar Automaticamente Adaptadores de Fim do Período em Grupos de Cobrança finalizados</strong><BR>Depois que um grupo de cobrança for finalizado, automatica ou manualmente, a plataforma começará a executar adaptadores de Fim do Período.]]></value>
+  </text>
+  <text id="TEXT_USM_RUN_SCHEDULED_ADAPTERS_DESCRIPTION">
+    <value><![CDATA[A plataforma executará periodicamente os adaptadores programados e configurados. Observação: se esta configuração não for selecionada, todos os adaptadores programados precisarão ser executados manualmente.]]></value>
+  </text>
+  <text id="TEXT_USM_AUTO_CONFIG_TITLE">
+    <value>Configuração der Manutenção do Servidor de Uso</value>
+  </text>
+  <text id="TEXT_USM_AUTO_INFORMATION">
+    <value>Essas configurações controlam vários aspectos da Manutenção do Servidor de Uso.</value>
+  </text>
+  <text id="TEXT_USM_AUTO_ENABLED">
+    <value>Ativado</value>
+  </text>
+  <text id="TEXT_USM_UPDATE_CONFIG">
+    <value>Configurações de gravação</value>
+  </text>
+  <text id="TEXT_USM_GRACE_PERIOD_CONFIG_TITLE">
+    <value>Configuração do Período de Bonificação de Manutenção do Servidor de Uso</value>
+  </text>
+  <text id="TEXT_USM_GRACE_PERIOD_CONFIG_INFORMATION">
+    <value>Os períodos de bonificação usados por UsageServerMaintenance.exe para determinar quando Fechar Permanentemente ou Finalizar intervalos de modo automático.</value>
+  </text>
+  <text id="TEXT_USM_SETTINGS">
+    <value>Configurações</value>
+  </text>
+  <text id="TEXT_USM_GRACE_PERIOD_SOFT">
+    <value>Finalizar o Período de Graça</value>
+  </text>
+  <text id="TEXT_USM_GRACE_PERIOD_HARD">
+    <value>Fechar Permanentemente o Período de Graça</value>
+  </text>
+</texts>

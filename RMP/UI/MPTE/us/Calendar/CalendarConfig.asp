@@ -65,12 +65,17 @@ Function GetPeriodlegend
 	
 	Set objEnumCfg = CreateObject("Metratech.MTEnumConfig")
 	Set objEnumColl = objEnumCfg.GetEnumerators("metratech.com/calendar", "CalendarCode")
+  Dim lang
+  lang = session.Contents("FRAMEWORK_APP_LANGUAGE_SHORT")
+  Set lc = Server.CreateObject("Metratech.LocaleConfig")
+  lc.Initialize("Core")
+  lc.LoadLanguage(lang)
 
 	strHTML = ""
 	strHTML = strHTML & "<table width='0'><tr>"	
 	For Each varEnum in objEnumColl
 		varEnumValue = objEnumCfg.GetEnumeratorValueByID(objEnumCfg.GetID("metratech.com/calendar", "CalendarCode", varEnum.Name))
-		strHTML = strHTML & "<td width='" & Clng(100/objEnumColl.Count) & "%' class='clsCalendarGraph" & varEnumValue & "'>" & varEnum.Name & "</td>"
+		strHTML = strHTML & "<td width='" & Clng(100/objEnumColl.Count) & "%' class='clsCalendarGraph" & varEnumValue & "'>"  & lc.GetLocalizedString("metratech.com/calendar/CalendarCode/" & varEnum.Name, lang) & "</td>"
 	Next
 	strHTML = strHTML & "</tr></table>"
 
@@ -516,9 +521,12 @@ session("HelpContext")  = "gotoCalendar.hlp.htm"
 Function Main ' We will put the HTML writing in a function so we can catch unknown errors
 
 %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
 <html>
   <head>
-    <title>Calendar Configuration</title>
+    <title><%=FrameWork.GetDictionary("TEXT_CALENDAR_CONFIGURATION")%></title>
 		<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET1")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET2")%>">
   	<link rel="STYLESHEET" type="text/css" href="<%=FrameWork.GetDictionary("MPTE_STYLESHEET3")%>">

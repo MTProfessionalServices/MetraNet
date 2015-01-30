@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Framework Errors" type="collection">
-  <text id="FRAMEWORK_LOGON_ERROR_200"><value><![CDATA[<br>Votre compte a été verrouillé pour des raisons de sécurité. <br> Contactez le service d'assistance clientèle pour plus d'informations sur <br> l'état de votre compte. ]]></value></text>
-  <text id="FRAMEWORK_LOGON_ERROR_201"><value>Nom d'utilisateur ou mot de passe incorrect. Réessayez.</value></text>
-  <text id="FRAMEWORK_LOGON_ERROR_300"><value>Votre compte ne peut pas être connecté. Contactez le service d'assistance clientèle pour plus d'informations sur l'état de votre compte.</value></text>
-  <text id="FRAMEWORK_LOGON_ERROR_1003"><value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value></text>
-
+  <text id="FRAMEWORK_LOGON_ERROR_200">
+    <value><![CDATA[<br>Votre compte a été verrouillé pour des raisons de sécurité. <br> Contactez le service d'assistance clientèle pour plus d'informations sur <br> l'état de votre compte. ]]></value>
+  </text>
+  <text id="FRAMEWORK_LOGON_ERROR_201">
+    <value>Nom d'utilisateur ou mot de passe incorrect. Réessayez.</value>
+  </text>
+  <text id="FRAMEWORK_LOGON_ERROR_300">
+    <value>Votre compte ne peut pas être connecté. Contactez le service d'assistance clientèle pour plus d'informations sur l'état de votre compte.</value>
+  </text>
+  <text id="FRAMEWORK_LOGON_ERROR_1003">
+    <value>Le nom d'utilisateur et le mot de passe doivent être renseignés. Réessayez.</value>
+  </text>
   <text id="TEXT_PASSWORD_EXPIRING">
     <value>Votre mot de passe expire dans {0} jour(s).  Si vous le pouvez, pourquoi ne pas le modifier maintenant ?</value>
   </text>
-
 </texts>

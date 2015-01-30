@@ -26,8 +26,9 @@ function CANCEL_Click(){
         ss                      = ss.replace(PICKER_IDS_VAR_NAME+"=",PICKER_IDS_USELESS_VAR_NAME+"="); // Remove the previous entry PickerIDs from the queryString
         window.opener.location  = ss;
  */
+  
        window.close();
-        return true;
+        return false;
   }
   function OK_Click(){
 

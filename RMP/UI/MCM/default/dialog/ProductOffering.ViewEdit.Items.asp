@@ -106,12 +106,12 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
   ' Dynamically Add Tabs to template
   Dim strTabs  
-  gObjMTTabs.AddTab "General", "/mcm/default/dialog/ProductOffering.ViewEdit.asp?ID=" & FORM("ID") & "&Tab=0"
+  gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_GENERAL_TAB"), "/mcm/default/dialog/ProductOffering.ViewEdit.asp?ID=" & FORM("ID") & "&Tab=0"
   
   If Not(Session("isPartitionUser")) Then
-    gObjMTTabs.AddTab "Properties", "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=1"
-    gObjMTTabs.AddTab "Included Items", "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=2"
-    gObjMTTabs.AddTab "Subscription Restrictions", "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
+    gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_PROPERTIES_TAB"), "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=1"
+    gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_INCLUDED_ITEMS_TAB"), "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=2"
+    gObjMTTabs.AddTab FrameWork.GetDictionary("TEXT_SUBSCRIPTION_RESTRICTIONS_TAB"), "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
   End If
       
     gObjMTTabs.Tab          = Clng(Request.QueryString("Tab"))		  
@@ -394,16 +394,20 @@ PRIVATE FUNCTION RemovePriceableItem_Click(EventArg)
 		If(IsNumeric(mdm_UIValue("mdmUserCustom")))Then
 		
 			On Error Resume Next
-			COMObject.Instance.RemovePriceableItem(Clng(mdm_UIValue("mdmUserCustom")))
-			If(Err.Number)Then
+			Dim objPI
+      set objPI = COMObject.Instance.GetPriceableItem(Clng(mdm_UIValue("mdmUserCustom")))
+      If not IsEmpty(objPI)  then
+          COMObject.Instance.RemovePriceableItem(Clng(mdm_UIValue("mdmUserCustom")))
+			    If(Err.Number)Then
 		    
-		        EventArg.Error.Save Err
-		        RemovePriceableItem_Click = FALSE
-		        'Err.Clear  Do not clear the error so it can be returned to the MDM error manager
-		    Else
-            mcmTriggerUpdateOfPONavigationPane
-		        RemovePriceableItem_Click = TRUE
-		    End If
+		            EventArg.Error.Save Err
+		            RemovePriceableItem_Click = FALSE
+		            'Err.Clear  Do not clear the error so it can be returned to the MDM error manager
+		        Else
+                mcmTriggerUpdateOfPONavigationPane
+		            RemovePriceableItem_Click = TRUE
+		        End If
+     End if
 		End if
 	End if						 
 END FUNCTION

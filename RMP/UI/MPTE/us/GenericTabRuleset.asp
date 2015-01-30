@@ -1044,7 +1044,6 @@ end sub
 '   Return Value: none
 '-----------------------------------------------------------------------------
 function writeNumberOutput()
- ' Localize this
   writeNumberOutput = FrameWork.GetDictionary("TEXT_MPTE_TOTAL") & mobjRuleSet.count & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_RULES")
   if mbolFilterAvailable then
     writeNumberOutput = writeNumberOutput & "&nbsp;&nbsp;-&nbsp;&nbsp;" & mintFilteredOut & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_RULES") & "&nbsp;" & FrameWork.GetDictionary("TEXT_MPTE_FILTERED")  
@@ -1319,7 +1318,7 @@ PUBLIC FUNCTION Main
 			On Error resume next
 			'objMTRateSched.SaveWithRules
       dim idChange, errorsSubmit
-      idChange = objApprovals.SubmitChangeForApproval("RateUpdate", session("RATES_RATESCHEDULE_ID"), displayNameForItemInApprovals, "", objChangeDetailsHelper.ToBuffer, errorsSubmit)
+      idChange = objApprovals.SubmitChangeForApproval("RateUpdate", session("RATES_RATESCHEDULE_ID"), displayNameForItemInApprovals, "", objChangeDetailsHelper.ToBuffer, Session("CURRENT_PRODUCTOFFERING_PARTITION_ID"), errorsSubmit)
 
 
 			call WriteRunTimeError(FrameWork.GetDictionary("TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED"), true)
@@ -1460,7 +1459,7 @@ PUBLIC FUNCTION Main
 		
 		<%
 		if session("UnsavedChanges") = true then
-		  response.Write "<br /><div class='clsNote2'>You have unsaved changes.</div><br />"
+		  response.Write "<br /><div class='clsNote2'>" & FrameWork.GetDictionary("TEXT_YOU_HAVE_UNSAVED_CHANGES") & "</div><br />"
 		end if
 		%>
 		    
@@ -1583,9 +1582,9 @@ PUBLIC FUNCTION Main
 
               
               <input type="button" class="clsButtonBlueMedium" name="EditAsXML" value="<%=FrameWork.GetDictionary("TEXT_MPTE_EDIT_AS_XML_BTN")%>" title="<%=Framework.Dictionary.Item("TEXT_MPTE_EDIT_AS_XML_BTN").Description%>"   onClick="javascript:OpenDialogWindow('gotoPopup.asp?loadpage=GenericTabRuleSetExport.asp', '');">
-              <input type="button" class="clsButtonBlueXLarge" name="ExportToExcel" value="Export To Excel" title="Export To Excel"   onClick="javascript:SubmitForm('ExportExcel');">
+              <input type="button" class="clsButtonBlueXLarge" name="ExportToExcel" value="<%=FrameWork.GetDictionary("TEXT_EXPORT_TO_EXCEL")%>" title="<%=FrameWork.GetDictionary("TEXT_EXPORT_TO_EXCEL")%>"   onClick="javascript:SubmitForm('ExportExcel');">
               <input type="hidden" name="ImportExportAction" value="Export">
-	            <input type="button" class="clsButtonBlueXLarge" name="ImportFromExcel" value="Import From Excel" title="Import From Excel"   onClick="javascript:OpenDialogWindow('gotoPopup.asp?loadpage=GenericTabRuleSetExportImportExcel.asp', '');">
+	            <input type="button" class="clsButtonBlueXLarge" name="ImportFromExcel" value="<%=FrameWork.GetDictionary("TEXT_IMPORT_FROM_EXCEL")%>" title="<%=FrameWork.GetDictionary("TEXT_IMPORT_FROM_EXCEL")%>"   onClick="javascript:OpenDialogWindow('gotoPopup.asp?loadpage=GenericTabRuleSetExportImportExcel.asp', '');">
 	        <% end if%>
 		      <% else %>
 		         <input type="button" class="clsButtonBlueSmall" name="Close" value="<%=FrameWork.GetDictionary("TEXT_MPTE_CLOSE_BTN")%>" onClick="javascript:returnToCallerApp();">

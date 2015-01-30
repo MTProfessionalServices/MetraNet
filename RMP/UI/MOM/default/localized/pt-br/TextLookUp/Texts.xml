@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
+    <value>Sem dados</value>
+  </text>
+  <text id="TEXT_ADD_NAME_SPACE">
+    <value>Adicionar Namespace</value>
+  </text>
+  <text id="TEXT_NAME_SPACE">
+    <value>Espaço de nomes</value>
+  </text>
+  <text id="TEXT_DESCRIPTION">
+    <value>Descrição</value>
+  </text>
+  <text id="TEXT_TYPE">
+    <value>Tipo</value>
+  </text>
+  <text id="TEXT_TELL_USER_SYSTEM_ERROR_OCCUR_TRY_LATER">
+    <value>Ocorreu um erro do sistema. Entre em contato com o administrador do MAM.</value>
+  </text>
+  <text id="TEXT_MOM">
+    <value>MetraTech Operations Manager</value>
+  </text>
+  <text id="TEXT_LOGIN_TITLE">
+    <value>Login no MetraControl</value>
+  </text>
+  <text id="TEXT_USERNAME">
+    <value>Nome do usuário</value>
+  </text>
+  <text id="TEXT_PASSWORD">
+    <value>Senha</value>
+  </text>
+  <text id="TEXT_LOGIN_USERNAME">
+    <value>Nome do usuário</value>
+  </text>
+  <text id="TEXT_LOGIN_PASSWORD">
+    <value>Senha</value>
+  </text>
+  <text id="TEXT_LOGOUT">
+    <value>Logout</value>
+  </text>
+  <text id="TEXT_NO_AUTH">
+    <value>Sua sessão expirou. Faça login novamente.</value>
+    <description>Session timeout message</description>
+  </text>
+  <text id="TEXT_JAVASCRIPT_ERROR">
+    <value>Seu navegador não parece ter o JavaScript ativado. Siga esse link para corrigir a situação.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_NAME">
+    <value>Adapter Name</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RUN_ID">
+    <value>Run Id</value>
+    <description></description>
+  </text>
+  <text id="TEXT_ADAPTER_RUN_DETAILS">
+    <value>Adapter Run Details</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL_TYPE">
+    <value>Detail Type</value>
+    <description></description>
+  </text>
+  <text id="TEXT_DETAIL">
+    <value>Detail</value>
+    <description></description>
+  </text>
+  <text id="TEXT_TIMESTAMP">
+    <value>Timestamp</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SUMMARY_DETAILS">
+    <value>Summary Details</value>
+    <description></description>
+  </text>
+</texts>

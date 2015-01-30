@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <text id="TEXT_Step3_TITLE">
+    <value>Fazer Backout da Etapa 3 </value>
+  </text>
+  <text id="TEXT_Step3_Status">
+    <value>Status da Etapa 3:</value>
+  </text>
+  <text id="TEXT_Rerun_Id">
+    <value>Reexecutar Id:</value>
+  </text>
+  <text id="TEXT_Comment">
+    <value>Comentário:</value>
+  </text>
+  <text id="TEXT_Done">
+    <value>Concluído</value>
+  </text>  
+</texts>

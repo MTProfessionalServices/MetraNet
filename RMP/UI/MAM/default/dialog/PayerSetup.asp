@@ -117,8 +117,8 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
          Case 1
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "<td class='[CLASS]' Width='16'>"
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A HRef='" & mam_GetDictionary("PAYER_UPDATE_DIALOG") & "?Update=TRUE&id=" &  ProductView.Properties("ID_Payee") 
-						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldStartDate=" &  ProductView.Properties("VT_Start")
-						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldEndDate=" & ProductView.Properties("VT_End")
+						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldStartDate=" &  mam_FormatDate(ProductView.Properties("VT_Start").NonLocalizedValue,  mam_GetDictionary("DATE_FORMAT"))
+						HTML_LINK_EDIT = HTML_LINK_EDIT  & "&OldEndDate=" & mam_FormatDate(ProductView.Properties("VT_End").NonLocalizedValue, mam_GetDictionary("DATE_FORMAT"))
 						HTML_LINK_EDIT = HTML_LINK_EDIT  & "'><img src='" & mam_GetImagesPath() &  "/edit.gif' Border='0'></A>"						
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "</td>"   
 						

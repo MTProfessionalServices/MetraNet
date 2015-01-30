@@ -30,8 +30,7 @@
   /*  fill-opacity: 0.8;*/
     cursor: default !important;
   }
-    
-    
+     
    .x-panel-bwrap,.x-panel-body, 
    #formPanel_<%=pnlTop10MMR.ClientID%>,
    #formPanel_<%=pnlTop10Subs.ClientID%>,
@@ -130,6 +129,7 @@
 
           var rowChart = dc.rowChart(chartConfig.divId, chartConfig.operation);
           data.forEach(chartConfig.dataConversionFn);
+          
           var ndx = crossfilter(data),
                 dimension = ndx.dimension(chartConfig.dimensionFn),
                 group = dimension.group().reduceSum(chartConfig.groupFn);
@@ -139,13 +139,17 @@
             .margins({ top: 5, left: 10, right: 50, bottom: 20 })
             .dimension(dimension)
             .renderLabel(false)
-            .group(group)
+            .group(ordinal_groups([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], group))
+            .ordering(function(d) {return -d.key;})
             .colors(chartConfig.color)
             .title(null)
             .xAxis().ticks(5);
-          
+            
           rowChart.onClick = function () { return false; };
           dc.renderAll(chartConfig.operation);
+
+          //remove all but the first x grid line
+          d3.select(chartConfig.divId + " svg").selectAll(".grid-line").filter(function(d){ return (d !=0 );}).remove();
 
           if (chartConfig.hideFractionTicks) {
             d3.select(chartConfig.divId + " svg").selectAll(".tick")
@@ -173,6 +177,23 @@
           appendDefs(rowChart);
         }
       });
+    }
+
+    function ordinal_groups(keys, group) {
+      return {
+        all: function () {
+          var values = {};
+          group.all().forEach(function(d, i) {
+            values[d.key] = d.value;
+          });
+          var g = [];
+          keys.forEach(function(key) {
+            g.push({key: key,
+              value: values[key] || 0});
+          });
+          return g;
+        }
+      };
     }
 
   </script>

@@ -1,0 +1,27 @@
+# All Shared Oracle Servers are described in https://doc.metratech.com/Internal/Database/Shared_Oracle_Servers_for_Engineering
+# Copy the file to C:\Oracle\product\11.2.0\client\network\admin and rename it to tnsnames.ora
+
+# 11.2.0.4, General Engineering Use
+# Preferred Server for non-smoke test, general engineering use!
+VMORA11204=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=VMORA11204.metratech.com)
+      (PORT=1521)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=netmeter)
+    )
+  )
+
+# Local Oracle server  
+MT =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = MT_ORACLE_LOCAL)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = netmeter)
+    )
+  )

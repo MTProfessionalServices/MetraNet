@@ -290,6 +290,76 @@
 </policies>
 </principal>
 
+<principal type="role" name = "Partition Operations Manager">
+<description>Partition Operations Manager
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<cs>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MOM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Manage EOP Adapters" guid="">
+  </c>
+  <c name="Manage Intervals" guid="">
+  </c>
+</cs>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "Finance Staff">
+<description>Finance User: Authorizes a finance user to view account, product catalog and finance information
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MCM</v>
+      </ec>
+    </as>
+</c>
+  <c name="Manage Account Hierarchies" guid="">
+    <as>
+      <ec>
+        <v>Read</v>
+      </ec>
+      <pc>
+        <wc>2</wc>
+        <v>/</v>
+      </pc>      
+    </as>  
+  </c>
+  <c name="View Online Bill" guid="">
+  </c>  
+  <c name="View Summary Financial Information" guid="">
+  </c>
+ <c name="Read Business Modeling Entities" guid="">
+  <as>
+      <ec>
+        <v>MetraTech.SystemConfig</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Manage System User Reports" guid="">
+  </c>
+    <c name="Impersonation" guid="">
+  </c>
+</cs>
+</policy>
+</policies>
+</principal>
+
 <principal type="account" name = "demo" namespace = "mt">
 <policies>
 <policy type="a">
@@ -377,12 +447,6 @@
 </policies>
 </principal>
 
-<!--
-
-
--->
-
-
 <principal type="account" name = "csr_folder">
 <policies>
   <policy type="d">
@@ -403,8 +467,6 @@
   </policy>
 </policies>
 </principal>
-
-
 
 <principal type="account" name = "mps_folder">
 <policies>

@@ -44,7 +44,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.AddMemberHierarchies</Name>
-      <Value>Assinatura em grupo: Adição de hierarquia de membro</Value>
+      <Value>Assinatura em grupo: adição de hierarquia de membro</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.AddMembers</Name>
@@ -56,7 +56,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.UpdateMember</Name>
-      <Value>Assinatura em grupo: Atualização do membro</Value>
+      <Value>Assinatura em grupo: atualização do membro</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.DeleteMembers</Name>

@@ -3,8 +3,8 @@
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
     <Name>Core.BillMessages.BillMessage</Name>
     <Title>
-      <LocalizationTag>TEXT_BILL_MESSAGES</LocalizationTag>
-      <ResourceClassKey>Resource</ResourceClassKey>
+        <LocalizationTag>TEXT_BILL_MESSAGES</LocalizationTag>
+        <ResourceClassKey>Resource</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -289,11 +289,11 @@
         <Button>
             <ButtonID>Add</ButtonID>
             <ButtonText>
-                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <LocalizationTag>TEXT_ADD_BILL_MESSAGE</LocalizationTag>
                 <ResourceClassKey>Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <LocalizationTag>TEXT_ADD_BILL_MESSAGE</LocalizationTag>
                 <ResourceClassKey>Resource</ResourceClassKey>
             </ToolTip>
             <IconClass>add</IconClass>

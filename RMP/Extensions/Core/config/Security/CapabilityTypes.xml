@@ -13,16 +13,103 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer les hiérarchies de comptes</DisplayName>
+    <Description>Gérer les hiérarchies de comptes : condition préalable à l'utilisation de la fonctionnalité de gestion des hiérarchies de comptes</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Account Hierarchies</DisplayName>
+    <Description>Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Account Hierarchies</DisplayName>
+    <Description>Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Account Hierarchies</DisplayName>
+    <Description>Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Account Hierarchies</DisplayName>
+    <Description>Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Exige gerenciar hierarquias de conta</DisplayName>
+    <Description>Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Account Hierarchies</DisplayName>
+    <Description>Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Account Hierarchies</DisplayName>
+    <Description>Manage Account Hierarchies: Prerequisite for using account hierarchy management capabilities</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Gérer les hiérarchies de comptes : spécifiez le niveau d'accès - Lecture or Ecriture (quand le niveau Ecriture inclut l'accès en lecture)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
       <mtpathcapability>
         <Description>Specify access to hierarchy branches</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Specify access to hierarchy branches</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify access to hierarchy branches</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify access to hierarchy branches</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify access to hierarchy branches</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify access to hierarchy branches</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Specify access to hierarchy branches</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify access to hierarchy branches</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify access to hierarchy branches</Description>
+          </item>	
+        </LocalizedItems>
       </mtpathcapability>
   </atomictypes>
 </compositetype>
+
 <compositetype>
   <name>Unlimited Capability</name>
   <description>Unlimited Capability: Permits all MetraCare capabilities (super user)</description>
@@ -32,7 +119,42 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Fonctionnalité illimitée</DisplayName>
+    <Description>Fonctionnalité illimitée : autorise toutes les fonctionnalités MetraCare (super utilisateur)</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Unlimited Capability</DisplayName>
+    <Description>Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Unlimited Capability</DisplayName>
+    <Description>Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Unlimited Capability</DisplayName>
+    <Description>Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Unlimited Capability</DisplayName>
+    <Description>Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Capacidade ilimitada</DisplayName>
+    <Description>Capacidade ilimitada: permite todos os recursos MetraCare (superusuário)</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Unlimited Capability</DisplayName>
+    <Description>Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Unlimited Capability</DisplayName>
+    <Description>Unlimited Capability: Permits all MetraCare capabilities (super user)</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
+
 <compositetype>
   <name>Manage System Wide Authorization Policies</name>
   <description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</description>
@@ -42,6 +164,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer les politiques d'autorisation à l'échelle du système</DisplayName>
+    <Description>Gérer les politiques d'autorisation à l'échelle du système : autorise la gestion des paramètres d'authentification et d'autorisation</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage System Wide Authorization Policies</DisplayName>
+    <Description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage System Wide Authorization Policies</DisplayName>
+    <Description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage System Wide Authorization Policies</DisplayName>
+    <Description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage System Wide Authorization Policies</DisplayName>
+    <Description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar políticas de autorização no sistema</DisplayName>
+    <Description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage System Wide Authorization Policies</DisplayName>
+    <Description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage System Wide Authorization Policies</DisplayName>
+    <Description>Manage Systemwide Authorization Policies: Permits managing authentication and authorization settings</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -53,6 +209,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer autor. abonnés</DisplayName>
+    <Description>Gérer autorisation abonnés : autorise la gestion des politiques de sécurité des abonnés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Subscriber Auth</DisplayName>
+    <Description>Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Subscriber Auth</DisplayName>
+    <Description>Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Subscriber Auth</DisplayName>
+    <Description>Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Subscriber Auth</DisplayName>
+    <Description>Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar aut de assinante</DisplayName>
+    <Description>Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Subscriber Auth</DisplayName>
+    <Description>Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Subscriber Auth</DisplayName>
+    <Description>Manage Subscriber Authorization: Permits managing subscriber security policies</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -64,6 +254,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer autor. CSR</DisplayName>
+    <Description>Gérer autorisation CSR : autorise la gestion des politiques de sécurité des CSR</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage CSR Auth</DisplayName>
+    <Description>Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage CSR Auth</DisplayName>
+    <Description>Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage CSR Auth</DisplayName>
+    <Description>Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage CSR Auth</DisplayName>
+    <Description>Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar aut de CSR</DisplayName>
+    <Description>Gerenciar autorização de CSR: permite o gerenciamento de políticas de segurança de CSR</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage CSR Auth</DisplayName>
+    <Description>Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage CSR Auth</DisplayName>
+    <Description>Manage CSR Authorization: Permits managing CSR security policies</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -75,6 +299,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Afficher la facture en ligne</DisplayName>
+    <Description>Voir facture en ligne : autorise l'affichage des factures en ligne en tant qu'abonné</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>View Online Bill</DisplayName>
+    <Description>View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>View Online Bill</DisplayName>
+    <Description>View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>View Online Bill</DisplayName>
+    <Description>View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>View Online Bill</DisplayName>
+    <Description>View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Exibir fatura online</DisplayName>
+    <Description>Exibir fatura online: permite a exibição de faturas online como um assinante</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>View Online Bill</DisplayName>
+    <Description>View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>View Online Bill</DisplayName>
+    <Description>View Online Bill: Permits viewing online bills as a subscriber</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -86,9 +344,69 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Connexion à l'application</DisplayName>
+    <Description>Connexion à l'application : autorise l'ouverture d'une session sur l'application</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Application LogOn</DisplayName>
+    <Description>Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Application LogOn</DisplayName>
+    <Description>Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Application LogOn</DisplayName>
+    <Description>Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Application LogOn</DisplayName>
+    <Description>Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>LogOn de aplicativo</DisplayName>
+    <Description>Logon de aplicativo: permite o logon no aplicativo</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Application LogOn</DisplayName>
+    <Description>Application Logon: Permits application logon</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Application LogOn</DisplayName>
+    <Description>Application Logon: Permits application logon</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Specify which applications can be accessed</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer les applications accessibles</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify which applications can be accessed</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify which applications can be accessed</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify which applications can be accessed</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify which applications can be accessed</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especifique quais aplicativos podem ser acessados</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify which applications can be accessed</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify which applications can be accessed</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/Application</TypeName>
       </mtenumtypecapability>
   </atomictypes>
@@ -103,6 +421,85 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer réacheminement paiement</DisplayName>
+    <Description>Gérer réacheminement paiement : autorise la configuration du réacheminement des paiements pour les comptes d'abonnés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Payment Redirection</DisplayName>
+    <Description>Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Payment Redirection</DisplayName>
+    <Description>Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Payment Redirection</DisplayName>
+    <Description>Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Payment Redirection</DisplayName>
+    <Description>Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar redirecionamento de pagamento</DisplayName>
+    <Description>Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Payment Redirection</DisplayName>
+    <Description>Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Payment Redirection</DisplayName>
+    <Description>Manage Payment Redirection: Permits configuring payment redirection for subscriber accounts</Description>
+    </item>	
+  </LocalizedItems>
+</compositetype>
+
+<compositetype>
+  <name>Manage Payment Server</name>
+  <description>Manage Payment Server: Controls if the user can view and work with payment server related information </description>
+  <editor></editor>
+  <progid>MetraTech.Auth.Capabilities.ManagePaymentServerCapability</progid>
+  <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+  <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+  <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+  <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer serveur de paiement</DisplayName>
+    <Description>Gérer serveur de paiement : contrôle si l'utilisateur peut afficher les informations sur le serveur de paiement et travailler dessus </Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Payment Server</DisplayName>
+    <Description>Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Payment Server</DisplayName>
+    <Description>Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Payment Server</DisplayName>
+    <Description>Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Payment Server</DisplayName>
+    <Description>Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar servidor de pagamento</DisplayName>
+    <Description>Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Payment Server</DisplayName>
+    <Description>Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Payment Server</DisplayName>
+    <Description>Manage Payment Server: Controls if the user can view and work with payment server related information </Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -114,6 +511,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer comptes facturables</DisplayName>
+    <Description>Gérer comptes facturables : autorise la configuration de la propriété d'abonné facturable</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage billable accounts</DisplayName>
+    <Description>Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage billable accounts</DisplayName>
+    <Description>Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage billable accounts</DisplayName>
+    <Description>Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage billable accounts</DisplayName>
+    <Description>Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar contas faturáveis</DisplayName>
+    <Description>Gerenciar contas faturáveis: permite configurar a propriedade de assinante faturável</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage billable accounts</DisplayName>
+    <Description>Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage billable accounts</DisplayName>
+    <Description>Manage Billable Accounts: Permits configuring the billable subscriber property</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
  
 <compositetype>
@@ -125,6 +556,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Créer comptes CSR</DisplayName>
+    <Description>Créer comptes CSR : autorise la création de comptes CSR</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Create CSR accounts</DisplayName>
+    <Description>Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Create CSR accounts</DisplayName>
+    <Description>Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Create CSR accounts</DisplayName>
+    <Description>Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Create CSR accounts</DisplayName>
+    <Description>Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar conta do proprietário</DisplayName>
+    <Description>Criar contas de CSR: permite a criação de contas de CSR</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Create CSR accounts</DisplayName>
+    <Description>Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Create CSR accounts</DisplayName>
+    <Description>Create CSR Accounts: Permits creating CSR accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -136,6 +601,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Mettre à jour comptes CSR</DisplayName>
+    <Description>Mettre à jour comptes CSR : autorise la mise à jour des comptes CSR</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update CSR accounts</DisplayName>
+    <Description>Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update CSR accounts</DisplayName>
+    <Description>Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update CSR accounts</DisplayName>
+    <Description>Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update CSR accounts</DisplayName>
+    <Description>Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar conta do proprietário</DisplayName>
+    <Description>Atualizar contas de CSR: permite a atualização de contas de CSR</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update CSR accounts</DisplayName>
+    <Description>Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update CSR accounts</DisplayName>
+    <Description>Update CSR Accounts: Permits updating CSR accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -147,6 +646,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Créer comptes d'abonnés</DisplayName>
+    <Description>Créer comptes d'abonnés : autorise la création de comptes d'abonnés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Create subscriber accounts</DisplayName>
+    <Description>Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Create subscriber accounts</DisplayName>
+    <Description>Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Create subscriber accounts</DisplayName>
+    <Description>Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Create subscriber accounts</DisplayName>
+    <Description>Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Criar contas de assinante</DisplayName>
+    <Description>Criar contas de assinante: permite a criação de contas de assinante</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Create subscriber accounts</DisplayName>
+    <Description>Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Create subscriber accounts</DisplayName>
+    <Description>Create Subscriber Accounts: Permits creating subscriber accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -158,6 +691,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Mettre à jour comptes d'abonnés</DisplayName>
+    <Description>Mettre à jour comptes d'abonnés : autorise la mise à jour des comptes d'abonnés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update subscriber accounts</DisplayName>
+    <Description>Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update subscriber accounts</DisplayName>
+    <Description>Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update subscriber accounts</DisplayName>
+    <Description>Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update subscriber accounts</DisplayName>
+    <Description>Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar contas de assinante</DisplayName>
+    <Description>Atualizar contas de assinante: permite a atualização de contas de assinante</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update subscriber accounts</DisplayName>
+    <Description>Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update subscriber accounts</DisplayName>
+    <Description>Update Subscriber Accounts: Permits updating subscriber accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -169,6 +736,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Créer comptes d'entreprise</DisplayName>
+    <Description>Créer comptes d'entreprise : autorise la création de comptes d'entreprise</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Create corporate accounts</DisplayName>
+    <Description>Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Create corporate accounts</DisplayName>
+    <Description>Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Create corporate accounts</DisplayName>
+    <Description>Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Create corporate accounts</DisplayName>
+    <Description>Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Todas as contas corporativas</DisplayName>
+    <Description>Criar contas corporativas: permite a criação de contas corporativas</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Create corporate accounts</DisplayName>
+    <Description>Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Create corporate accounts</DisplayName>
+    <Description>Create Corporate Accounts: Permits creating corporate accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -180,6 +781,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Mettre à jour comptes d'entreprise</DisplayName>
+    <Description>Mettre à jour comptes d'entreprise : autorise la mise à jour des comptes d'entreprise</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update corporate accounts</DisplayName>
+    <Description>Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update corporate accounts</DisplayName>
+    <Description>Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update corporate accounts</DisplayName>
+    <Description>Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update corporate accounts</DisplayName>
+    <Description>Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Todas as contas corporativas</DisplayName>
+    <Description>Atualizar contas corporativas: permite a atualização de contas corporativas</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update corporate accounts</DisplayName>
+    <Description>Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update corporate accounts</DisplayName>
+    <Description>Update Corporate Accounts: Permits Updating corporate accounts</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -191,6 +826,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Déplacer compte</DisplayName>
+    <Description>Déplacer compte : autorise le déplacement d'un compte dans la hiérarchie de comptes</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Move account</DisplayName>
+    <Description>Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Move account</DisplayName>
+    <Description>Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Move account</DisplayName>
+    <Description>Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Move account</DisplayName>
+    <Description>Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Mover conta</DisplayName>
+    <Description>Mover contas: permite a movimentação de uma conta em uma hierarquia de contas</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Move account</DisplayName>
+    <Description>Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Move account</DisplayName>
+    <Description>Move Accounts: Permits moving an account within an account hierarchy</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -202,6 +871,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Passer le compte d'actif à clos</DisplayName>
+    <Description>Passer le compte d'actif à clos : autorise le passage des comptes de l'état actif à l'état clos</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update account from active to closed</DisplayName>
+    <Description>Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update account from active to closed</DisplayName>
+    <Description>Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update account from active to closed</DisplayName>
+    <Description>Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update account from active to closed</DisplayName>
+    <Description>Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar conta de ativa para fechada</DisplayName>
+    <Description>Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update account from active to closed</DisplayName>
+    <Description>Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update account from active to closed</DisplayName>
+    <Description>Change Active Accounts to Closed: Permits moving accounts from active to closed state</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -213,6 +916,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Passer le compte d'actif à suspendu</DisplayName>
+    <Description>Passer le compte d'actif à suspendu : autorise le passage d'un compte de l'état actif à l'état suspendu</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update account from active to suspended</DisplayName>
+    <Description>Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update account from active to suspended</DisplayName>
+    <Description>Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update account from active to suspended</DisplayName>
+    <Description>Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update account from active to suspended</DisplayName>
+    <Description>Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar conta de ativa para suspensa</DisplayName>
+    <Description>Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update account from active to suspended</DisplayName>
+    <Description>Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update account from active to suspended</DisplayName>
+    <Description>Change Active Accounts to Suspended: Permits moving an account from active to suspended status</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -224,6 +961,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Passer le compte de suspendu à actif</DisplayName>
+    <Description>Passer le compte de suspendu à actif : autorise le passage d'un compte de l'état suspendu à l'état actif</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update account from suspended to active</DisplayName>
+    <Description>Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update account from suspended to active</DisplayName>
+    <Description>Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update account from suspended to active</DisplayName>
+    <Description>Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update account from suspended to active</DisplayName>
+    <Description>Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar conta de suspensa para ativa</DisplayName>
+    <Description>Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update account from suspended to active</DisplayName>
+    <Description>Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update account from suspended to active</DisplayName>
+    <Description>Change Suspended Accounts to Active: Permits moving an account from suspended to active status</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -235,6 +1006,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">T</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Passer le compte d'en attente de facturation finale à actif</DisplayName>
+    <Description>Passer le compte d'en attente à actif : autorise le passage des comptes de l'état en attente de facturation finale à l'état actif</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update account from pending final bill to active</DisplayName>
+    <Description>Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update account from pending final bill to active</DisplayName>
+    <Description>Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update account from pending final bill to active</DisplayName>
+    <Description>Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update account from pending final bill to active</DisplayName>
+    <Description>Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar conta de fatura final pendente para ativa</DisplayName>
+    <Description>Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update account from pending final bill to active</DisplayName>
+    <Description>Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update account from pending final bill to active</DisplayName>
+    <Description>Change Pending Accounts to Active: Permits moving accounts from pending final bill to active status</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -246,6 +1051,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Créer abonnements groupés</DisplayName>
+    <Description>Créer abonnements groupés : autorise la création d'abonnements groupés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Create group subscriptions</DisplayName>
+    <Description>Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Create group subscriptions</DisplayName>
+    <Description>Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Create group subscriptions</DisplayName>
+    <Description>Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Create group subscriptions</DisplayName>
+    <Description>Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Criar assinatura em grupo</DisplayName>
+    <Description>Criar assinaturas de grupo: permite a criação de assinaturas de grupo</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Create group subscriptions</DisplayName>
+    <Description>Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Create group subscriptions</DisplayName>
+    <Description>Create Group Subscriptions: Permits creating group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -257,6 +1096,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Mettre à jour abonnements groupés</DisplayName>
+    <Description>Mettre à jour abonnements groupés : autorise la modification des abonnements groupés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update group subscriptions</DisplayName>
+    <Description>Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update group subscriptions</DisplayName>
+    <Description>Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update group subscriptions</DisplayName>
+    <Description>Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update group subscriptions</DisplayName>
+    <Description>Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar assinaturas em grupo</DisplayName>
+    <Description>Atualizar assinaturas de grupo: permite a modificação de assinaturas de grupo</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update group subscriptions</DisplayName>
+    <Description>Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update group subscriptions</DisplayName>
+    <Description>Update Group Subscriptions: Permits modifying group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -268,6 +1141,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Ajouter à abonnement groupé</DisplayName>
+    <Description>Ajouter à abonnement groupé : autorise l'ajout d'abonnés à des abonnements groupés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Add to group subscription</DisplayName>
+    <Description>Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Add to group subscription</DisplayName>
+    <Description>Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Add to group subscription</DisplayName>
+    <Description>Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Add to group subscription</DisplayName>
+    <Description>Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Adicionar assinatura em grupo</DisplayName>
+    <Description>Adicionar à assinatura de grupo: permite a adição de assinantes a assinaturas de grupo</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Add to group subscription</DisplayName>
+    <Description>Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Add to group subscription</DisplayName>
+    <Description>Add to Group Subscription: Permits adding subscribers to group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -279,6 +1186,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Modifier appartenance à abonnement groupé</DisplayName>
+    <Description>Modifier appartenance à abonnement groupé : autorise la modification de la participation d'un abonné aux abonnements groupés </Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Modify groupsub membership</DisplayName>
+    <Description>Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Modify groupsub membership</DisplayName>
+    <Description>Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Modify groupsub membership</DisplayName>
+    <Description>Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Modify groupsub membership</DisplayName>
+    <Description>Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Modificar membros de grupo</DisplayName>
+    <Description>Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Modify groupsub membership</DisplayName>
+    <Description>Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Modify groupsub membership</DisplayName>
+    <Description>Modify Group Subscription Membership: Permits modifying subscriber's participation in group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -290,6 +1231,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Créer abonnement</DisplayName>
+    <Description>Créer abonnement : autorise la création d'abonnements individuels</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Create subscription</DisplayName>
+    <Description>Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Create subscription</DisplayName>
+    <Description>Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Create subscription</DisplayName>
+    <Description>Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Create subscription</DisplayName>
+    <Description>Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Excluir assinatura</DisplayName>
+    <Description>Criar assinatura: permite a criação de assinaturas individuais</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Create subscription</DisplayName>
+    <Description>Create Subscription: Permits creating individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Create subscription</DisplayName>
+    <Description>Create Subscription: Permits creating individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -301,6 +1276,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Mettre à jour abonnement</DisplayName>
+    <Description>Mettre à jour abonnement : autorise la modification d'abonnements individuels</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update subscription</DisplayName>
+    <Description>Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update subscription</DisplayName>
+    <Description>Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update subscription</DisplayName>
+    <Description>Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update subscription</DisplayName>
+    <Description>Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Excluir assinatura</DisplayName>
+    <Description>Atualizar assinatura: permite a modificação de assinaturas individuais</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update subscription</DisplayName>
+    <Description>Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update subscription</DisplayName>
+    <Description>Update Subscription: Permits modifying individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -312,6 +1321,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer tarifs personnalisés</DisplayName>
+    <Description>Gérer prix personnalisés : autorise la création de prix personnalisés pour les abonnements individuels</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Custom Rates</DisplayName>
+    <Description>Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Custom Rates</DisplayName>
+    <Description>Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Custom Rates</DisplayName>
+    <Description>Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Custom Rates</DisplayName>
+    <Description>Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar tarifas personalizadas</DisplayName>
+    <Description>Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Custom Rates</DisplayName>
+    <Description>Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Custom Rates</DisplayName>
+    <Description>Manage Custom Rate: Permits creating custom rates for individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -323,6 +1366,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer prix personnalisés de groupe</DisplayName>
+    <Description>Gérer tarifs personnalisés de groupe : autorise la création de tarifs personnalisés pour les abonnements groupés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Group Custom Rates</DisplayName>
+    <Description>Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Group Custom Rates</DisplayName>
+    <Description>Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Group Custom Rates</DisplayName>
+    <Description>Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Group Custom Rates</DisplayName>
+    <Description>Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar tarifas personalizadas de grupo</DisplayName>
+    <Description>Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Group Custom Rates</DisplayName>
+    <Description>Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Group Custom Rates</DisplayName>
+    <Description>Manage Group Custom Rates: Permits creating custom rates for group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -334,6 +1411,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Voir abonnements</DisplayName>
+    <Description>Voir abonnements : autorise l'affichage des abonnements individuels</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>View subscriptions</DisplayName>
+    <Description>View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>View subscriptions</DisplayName>
+    <Description>View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>View subscriptions</DisplayName>
+    <Description>View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>View subscriptions</DisplayName>
+    <Description>View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Nova assinatura</DisplayName>
+    <Description>Exibir assinaturas: permite a exibição de assinaturas individuais</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>View subscriptions</DisplayName>
+    <Description>View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>View subscriptions</DisplayName>
+    <Description>View Subscriptions: Permits viewing individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -345,6 +1456,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Voir abonnements groupés</DisplayName>
+    <Description>Voir abonnements groupés : autorise l'affichage des abonnements groupés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>View group subscriptions</DisplayName>
+    <Description>View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>View group subscriptions</DisplayName>
+    <Description>View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>View group subscriptions</DisplayName>
+    <Description>View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>View group subscriptions</DisplayName>
+    <Description>View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>É assinatura em grupo</DisplayName>
+    <Description>Exibir assinaturas de grupo: permite a exibição de assinaturas de grupo</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>View group subscriptions</DisplayName>
+    <Description>View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>View group subscriptions</DisplayName>
+    <Description>View Group Subscriptions: Permits viewing group subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -356,6 +1501,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Supprimer l'abonnement</DisplayName>
+    <Description>Supprimer abonnement : autorise la suppression des abonnements individuels</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Delete Subscription</DisplayName>
+    <Description>Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Delete Subscription</DisplayName>
+    <Description>Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Delete Subscription</DisplayName>
+    <Description>Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Delete Subscription</DisplayName>
+    <Description>Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Excluir assinatura</DisplayName>
+    <Description>Excluir assinatura: permite a exclusão de assinaturas individuais</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Delete Subscription</DisplayName>
+    <Description>Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Delete Subscription</DisplayName>
+    <Description>Delete Subscription: Permits deleting individual subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 
@@ -368,9 +1547,69 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer comptes indépendants</DisplayName>
+    <Description>Gérer comptes indépendants : autorise la gestion des comptes indépendants</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage independent accounts</DisplayName>
+    <Description>Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage independent accounts</DisplayName>
+    <Description>Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage independent accounts</DisplayName>
+    <Description>Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage independent accounts</DisplayName>
+    <Description>Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Adicionar conta independente</DisplayName>
+    <Description>Gerenciar contas independentes: permite o gerenciamento de contas independentes</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage independent accounts</DisplayName>
+    <Description>Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage independent accounts</DisplayName>
+    <Description>Manage Independent Accounts: Permits managing independent accounts</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer le niveau d'accès - Lecture ou Ecriture (quand le niveau Ecriture inclut l'accès Lecture)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
   </atomictypes>
@@ -385,6 +1624,40 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Auto-abonnement</DisplayName>
+    <Description>Auto-abonnement : autorise l'auto-abonnement dans MetraView</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Self Subscribe</DisplayName>
+    <Description>Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Self Subscribe</DisplayName>
+    <Description>Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Self Subscribe</DisplayName>
+    <Description>Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Self Subscribe</DisplayName>
+    <Description>Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Auto-assinável</DisplayName>
+    <Description>Autoinscrição: permite a autoinscrição no MetraView</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Self Subscribe</DisplayName>
+    <Description>Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Self Subscribe</DisplayName>
+    <Description>Self-Subscribe: Permits self-subscription in MetraView</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -396,6 +1669,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Mettre à jour transactions en échec</DisplayName>
+    <Description>Mettre à jour transactions en échec : autorise l'affichage et la mise à jour des transactions en échec dans MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Update Failed Transactions</DisplayName>
+    <Description>Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Update Failed Transactions</DisplayName>
+    <Description>Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Update Failed Transactions</DisplayName>
+    <Description>Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Update Failed Transactions</DisplayName>
+    <Description>Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Reenviar transação com falha</DisplayName>
+    <Description>Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Update Failed Transactions</DisplayName>
+    <Description>Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Update Failed Transactions</DisplayName>
+    <Description>Update Failed Transactions: Permits viewing/updating of failed transactions in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -407,40 +1714,191 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Appliquer ajustements</DisplayName>
+    <Description>Appliquer ajustements : autorise l'application des ajustements basés sur les frais et divers</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Apply Adjustments</DisplayName>
+    <Description>Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Apply Adjustments</DisplayName>
+    <Description>Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Apply Adjustments</DisplayName>
+    <Description>Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Apply Adjustments</DisplayName>
+    <Description>Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Ajustes AR</DisplayName>
+    <Description>Aplicar ajustes: permite a aplicação de ajustes com base em encargos e de ajustes diversos</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Apply Adjustments</DisplayName>
+    <Description>Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Apply Adjustments</DisplayName>
+    <Description>Apply Adjustments: Permits applying both charge-based and miscellaneous adjustments</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Specify currency for adjustments</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer la devise des ajustements</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especificar moeda para ajustes</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify currency for adjustments</Description>
+          </item>	
+        </LocalizedItems>        
         <TypeName>Global/SystemCurrencies/SystemCurrencies</TypeName>
       </mtenumtypecapability>
       <mtdecimalcapability>
         <Description>Specify adjustments limit</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer la limite d'ajustement</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especificar limite de ajustes</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify adjustments limit</Description>
+          </item>	
+        </LocalizedItems>
       </mtdecimalcapability>
   </atomictypes>
 </compositetype>
 
 <compositetype>
   <name>Manage Adjustments</name>
-  <description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).
-  </description>
+  <description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</description>
   <editor></editor>
   <progid>MetraTech.Auth.Capabilities.ManageAdjustmentsCapability</progid>
   <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer les ajustements</DisplayName>
+    <Description>Gérer ajustements : autorise l'approbation ou la suppression des ajustements existants (dont la fonctionnalité Appliquer ajustements).</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Adjustments</DisplayName>
+    <Description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Adjustments</DisplayName>
+    <Description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Adjustments</DisplayName>
+    <Description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Adjustments</DisplayName>
+    <Description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar ajustes</DisplayName>
+    <Description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Adjustments</DisplayName>
+    <Description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Adjustments</DisplayName>
+    <Description>Manage Adjustments: Permits approving or deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 	<compositetype>
 		<name>Manual Override</name>
-		<description>
-			Manual Override: Allow user to move transaction into manual override state.
-		</description>
+		<description>Manual Override: Allow user to move transaction into manual override state.</description>
 		<editor></editor>
 		<progid>MetraTech.Auth.Capabilities.ManualOverrideCapability</progid>
 		<CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
 		<SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
 		<AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
 		<UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Remplacement manuel</DisplayName>
+    <Description>Remplacement manuel : autorise l'utilisateur à passer la transaction à l'état de remplacement manuel.</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manual Override</DisplayName>
+    <Description>Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manual Override</DisplayName>
+    <Description>Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manual Override</DisplayName>
+    <Description>Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manual Override</DisplayName>
+    <Description>Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Substituição manual</DisplayName>
+    <Description>Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manual Override</DisplayName>
+    <Description>Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manual Override</DisplayName>
+    <Description>Manual Override: Allow user to move transaction into manual override state.</Description>
+    </item>	
+  </LocalizedItems>
 	</compositetype>
 	
   <compositetype>
@@ -452,35 +1910,149 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Créer litiges</DisplayName>
+      <Description>Créer litiges : réglemente la création de litiges et limite le montant total du litige approuvable</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Create Disputes</DisplayName>
+      <Description>Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Create Disputes</DisplayName>
+      <Description>Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Create Disputes</DisplayName>
+      <Description>Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Create Disputes</DisplayName>
+      <Description>Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Criar disputas</DisplayName>
+      <Description>Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Create Disputes</DisplayName>
+      <Description>Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Create Disputes</DisplayName>
+      <Description>Create Disputes:Governs creating disputes and will limit the total amount of the dispute allowed to approve</Description>
+      </item>	
+    </LocalizedItems>
     <atomictypes>
       <mtenumtypecapability>
         <Description>Specify currency for adjustments</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer la devise des ajustements</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especificar moeda para ajustes</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify currency for adjustments</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify currency for adjustments</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/SystemCurrencies/SystemCurrencies</TypeName>
       </mtenumtypecapability>
       <mtdecimalcapability>
         <Description>Specify adjustments limit</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer la limite d'ajustement</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especificar limite de ajustes</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify adjustments limit</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify adjustments limit</Description>
+          </item>	
+        </LocalizedItems>
       </mtdecimalcapability>
     </atomictypes>
   </compositetype>
 
   <compositetype>
     <name>Manage Disputes</name>
-    <description>
-      Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).
-    </description>
+    <description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</description>
     <editor></editor>
     <progid>MetraTech.Auth.Capabilities.ManageDisputesCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer litiges</DisplayName>
+      <Description>Gérer litiges : autorise l'approbation ou la suppression des litiges existants (dont la fonctionnalité Créer litiges).</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage Disputes</DisplayName>
+      <Description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage Disputes</DisplayName>
+      <Description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage Disputes</DisplayName>
+      <Description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage Disputes</DisplayName>
+      <Description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar disputas</DisplayName>
+      <Description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage Disputes</DisplayName>
+      <Description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage Disputes</DisplayName>
+      <Description>Manage Disputes: Permits approving or deleting existing disputes (including the CreateDisputes capability).</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
 
   <compositetype>
-<!--
-  In the future, as we add more auth/auth to MCM, we can use this capability (now only meant to delete
--->
-
   <name>Delete Rates</name>
   <description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</description>
   <editor></editor>
@@ -489,6 +2061,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Supprimer prix</DisplayName>
+    <Description>Supprimer prix : autorise la suppression des échelles tarifaires et des tarifs dans MetraOffer</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Delete Rates</DisplayName>
+    <Description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Delete Rates</DisplayName>
+    <Description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Delete Rates</DisplayName>
+    <Description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Delete Rates</DisplayName>
+    <Description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Excluir tarifas</DisplayName>
+    <Description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Delete Rates</DisplayName>
+    <Description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Delete Rates</DisplayName>
+    <Description>Delete Rates: Permits deleting rate schedules and price lists in MetraOffer</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -500,6 +2106,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Supprimer les offres produit</DisplayName>
+    <Description>Supprimer les offres produit : autorise la suppression des offres produit sans abonné dans MetraOffer.</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Delete Product Offerings</DisplayName>
+    <Description>Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Delete Product Offerings</DisplayName>
+    <Description>Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Delete Product Offerings</DisplayName>
+    <Description>Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Delete Product Offerings</DisplayName>
+    <Description>Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Selecionar ofertas de produto</DisplayName>
+    <Description>Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Delete Product Offerings</DisplayName>
+    <Description>Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Delete Product Offerings</DisplayName>
+    <Description>Delete Product Offerings: Permits deleting product offerings in MetraOffer that have no subscribers.</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -511,17 +2151,130 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Antidater abonnements</DisplayName>
+    <Description>Antidater abonnements : autorise les CSR à antidater les abonnements</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Back Date Subscriptions</DisplayName>
+    <Description>Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Back Date Subscriptions</DisplayName>
+    <Description>Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Back Date Subscriptions</DisplayName>
+    <Description>Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Back Date Subscriptions</DisplayName>
+    <Description>Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Inscrições com data retroativa</DisplayName>
+    <Description>Inscrições com data retroativa: permite que os CSRs façam inscrições com data retroativa</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Back Date Subscriptions</DisplayName>
+    <Description>Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Back Date Subscriptions</DisplayName>
+    <Description>Back Date Subscriptions: Permits CSRs to back date subscriptions</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
-  <name>Manage Usage Intervals And Scheduled Adapters</name>
-  <description>Manage Usage Intervals And Scheduled Adapters: Permits viewing interval information, closing intervals, and running adapters in MetraControl</description>
+  <name>Manage Scheduled Adapters</name>
+  <description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</description>
   <editor></editor>
-  <progid>MetraTech.Auth.Capabilities.OperationsManageIntervalsCapability</progid>
+  <progid>MetraTech.Auth.Capabilities.ManageScheduledAdaptersCapability</progid>
   <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer adaptateurs planifiés</DisplayName>
+    <Description>Gérer adaptateurs planifiés : autorise l'affichage, la modification et l'exécution des adaptateurs planifiés dans MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Scheduled Adapters</DisplayName>
+    <Description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Scheduled Adapters</DisplayName>
+    <Description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Scheduled Adapters</DisplayName>
+    <Description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Scheduled Adapters</DisplayName>
+    <Description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Executar adaptadores agendados</DisplayName>
+    <Description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Scheduled Adapters</DisplayName>
+    <Description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Scheduled Adapters</DisplayName>
+    <Description>Manage Scheduled Adapters: Permits viewing, modifying and running scheduled adapters in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
+</compositetype>
+
+<compositetype>
+  <name>Manage EOP Adapters</name>
+  <description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</description>
+  <editor></editor>
+  <progid>MetraTech.Auth.Capabilities.ManageEOPAdaptersCapability</progid>
+  <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+  <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+  <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+  <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer adaptateurs FDP</DisplayName>
+    <Description>Gérer adaptateurs planifiés : autorise l'affichage, la modification et l'exécution des adaptateurs planifiés dans MetraControl </Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage EOP Adapters</DisplayName>
+    <Description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage EOP Adapters</DisplayName>
+    <Description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage EOP Adapters</DisplayName>
+    <Description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage EOP Adapters</DisplayName>
+    <Description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar adaptadores EOP</DisplayName>
+    <Description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage EOP Adapters</DisplayName>
+    <Description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage EOP Adapters</DisplayName>
+    <Description>Manage EOP Adapters: Permits viewing, modifying and running EOP adapters in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -533,6 +2286,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer les lots</DisplayName>
+    <Description>Gérer les lots : autorise l'affichage des informations sur les lots et l'exécution d'actions sur les lots dans MetraControl</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Batches</DisplayName>
+    <Description>Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Batches</DisplayName>
+    <Description>Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Batches</DisplayName>
+    <Description>Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Batches</DisplayName>
+    <Description>Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar lotes</DisplayName>
+    <Description>Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Batches</DisplayName>
+    <Description>Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Batches</DisplayName>
+    <Description>Manage Batches: Permits viewing batch information and performing actions on batches in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -544,6 +2331,40 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer annulations et réexécutions</DisplayName>
+    <Description>Gérer annulations et réexécutions : autorise l'affichage des informations sur les annulations et l'exécution d'actions d'annulation et de réexécution dans MetraControl </Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Backouts and Reruns</DisplayName>
+    <Description>Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Backouts and Reruns</DisplayName>
+    <Description>Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Backouts and Reruns</DisplayName>
+    <Description>Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Backouts and Reruns</DisplayName>
+    <Description>Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar backouts e novas execuções</DisplayName>
+    <Description>Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Backouts and Reruns</DisplayName>
+    <Description>Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Backouts and Reruns</DisplayName>
+    <Description>Manage Backouts and Reruns: Permits viewing backout information and performing backout and rerun actions in MetraControl</Description>
+    </item>	
+  </LocalizedItems>
 </compositetype>
 
 <compositetype>
@@ -555,13 +2376,99 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer les hiérarchies de commerciaux</DisplayName>
+    <Description>Gérer les hiérarchies d'utilisateurs MetraNet : autorise la gestion des membres de la hiérarchie des utilisateurs</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Sales Force Hierarchies</DisplayName>
+    <Description>Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Sales Force Hierarchies</DisplayName>
+    <Description>Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Sales Force Hierarchies</DisplayName>
+    <Description>Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Sales Force Hierarchies</DisplayName>
+    <Description>Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Gerenciar hierarquias da força de vendas</DisplayName>
+    <Description>Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Sales Force Hierarchies</DisplayName>
+    <Description>Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Sales Force Hierarchies</DisplayName>
+    <Description>Manage MetraNet Users Hierarchies: Permits management of Users Hierarchy members</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Gérer les hiérarchies d'utilisateurs MetraNet : indique le niveau d'accès - Lecture ou Ecriture (quand le niveau Ecriture inclut l'accès Lecture)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>        
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
       <mtpathcapability>
         <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer l'accès aux branches hiérarchiques des utilisateurs de MetraNet</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especificar o acesso às ramificações de hierarquia de usuários MetraNet</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify access to MetraNet Users Hierarchy branches</Description>
+          </item>	
+        </LocalizedItems>
       </mtpathcapability>
   </atomictypes>
 </compositetype>
@@ -575,16 +2482,99 @@
   <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Gérer les comptes détenus</DisplayName>
+    <Description>Gérer les comptes détenus : autorise les membres de la hiérarchie d'utilisateurs MetraNet à gérer les comptes détenus par eux-mêmes ou leurs subordonnés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Manage Owned Accounts</DisplayName>
+    <Description>Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Manage Owned Accounts</DisplayName>
+    <Description>Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Manage Owned Accounts</DisplayName>
+    <Description>Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Manage Owned Accounts</DisplayName>
+    <Description>Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Atualizar conta pertencente</DisplayName>
+    <Description>Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Manage Owned Accounts</DisplayName>
+    <Description>Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Manage Owned Accounts</DisplayName>
+    <Description>Manage Owned Accounts: Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
       <mtenumtypecapability>
         <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Gérer les comptes détenus : indique le niveau d'accès - Lecture ou Ecriture (quand le niveau Ecriture inclut l'accès Lecture)</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="ES">
+          <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="DE">
+          <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>
+          <item lang="JA">
+          <Description>Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
+          </item>	
+        </LocalizedItems>
         <TypeName>Global/AccessLevel</TypeName>
       </mtenumtypecapability>
       <mtpathcapability>
-        <Description>
-          Specify what accounts this user can manage:
-          only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.
-        </Description>
+        <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer les comptes que cet utilisateur peut gérer : seuls ceux détenus directement par l'utilisateur, ceux détenus directement par l'utilisateur ou ses subordonnés directs dans la hiérarchie, ceux détenus directement par l'utilisateur et ses subordonnés directs et indirects.</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user's direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify which applications can be accessed</Description>
+          </item>	
+        </LocalizedItems>
       </mtpathcapability>
   </atomictypes>
 </compositetype>
@@ -598,9 +2588,69 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Entités de modélisation métier en lecture</DisplayName>
+    <Description>Entités de modélisation métier en lecture : autorise l'accès en lecture seule aux BME dans MetraCare pour les CSR et dans MetraView pour les abonnés</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Read Business Modeling Entities</DisplayName>
+    <Description>Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Read Business Modeling Entities</DisplayName>
+    <Description>Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Read Business Modeling Entities</DisplayName>
+    <Description>Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Read Business Modeling Entities</DisplayName>
+    <Description>Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Entidades de modelamento de negócios</DisplayName>
+    <Description>Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Read Business Modeling Entities</DisplayName>
+    <Description>Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Read Business Modeling Entities</DisplayName>
+    <Description>Read Business Modeling Entities:Permits read-only access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
     <mtenumtypecapability>
       <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Entités de modélisation métier en lecture : indique l'extension pour les BME</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="ES">
+          <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="DE">
+          <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Ler entidades de modelagem de negócios: especifique a extensão para BME</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="JA">
+          <Description>Read Business Modeling Entities: Specify extension for BME</Description>
+          </item>	
+        </LocalizedItems>
       <TypeName>metratech.com/BusinessEntity/BusinessEntityExtension</TypeName>
     </mtenumtypecapability>
   </atomictypes>
@@ -615,9 +2665,69 @@
   <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
   <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
   <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  <LocalizedItems>
+    <item lang="FR">
+    <DisplayName>Entités de modélisation métier en écriture</DisplayName>
+    <Description>Entités de modélisation métier en écriture : autorise les CSR à modifier et instancier les BME dans MetraCare et les abonnés à utiliser les BMR dans MetraView</Description>
+    </item>
+    <item lang="IT">
+    <DisplayName>Write Business Modeling Entities</DisplayName>
+    <Description>Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="ES">
+    <DisplayName>Write Business Modeling Entities</DisplayName>
+    <Description>Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="DE">
+    <DisplayName>Write Business Modeling Entities</DisplayName>
+    <Description>Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="es-MX">
+    <DisplayName>Write Business Modeling Entities</DisplayName>
+    <Description>Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="pt-BR">
+    <DisplayName>Lista de entidades de modelamento comercial</DisplayName>
+    <Description>Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="en-GB">
+    <DisplayName>Write Business Modeling Entities</DisplayName>
+    <Description>Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>
+    <item lang="JA">
+    <DisplayName>Write Business Modeling Entities</DisplayName>
+    <Description>Write Business Modeling Entities:Permits CSRs to edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    </item>	
+  </LocalizedItems>
   <atomictypes>
     <mtenumtypecapability>
       <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Entités de modélisation métier en écriture : indique l'extension pour les BME</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="ES">
+          <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="DE">
+          <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Gravar entidades de modelagem de negócios: especifique a extensão para BME</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>
+          <item lang="JA">
+          <Description>Write Business Modeling Entities: Specify extension for BME</Description>
+          </item>	
+        </LocalizedItems>
       <TypeName>metratech.com/BusinessEntity/BusinessEntityExtension</TypeName>
     </mtenumtypecapability>
   </atomictypes>
@@ -632,6 +2742,40 @@
 		<SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
 		<AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
 		<UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Emprunt d'identité</DisplayName>
+      <Description>Emprunt d'identité : permet de créer des tickets d'authentification pour autoriser l'accès à un compte utilisateur MetraView</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Impersonation</DisplayName>
+      <Description>Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Impersonation</DisplayName>
+      <Description>Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Impersonation</DisplayName>
+      <Description>Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Impersonation</DisplayName>
+      <Description>Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Representação</DisplayName>
+      <Description>Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Impersonation</DisplayName>
+      <Description>Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Impersonation</DisplayName>
+      <Description>Impersonation: Grants the ability to create authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      </item>	
+    </LocalizedItems>
 	</compositetype>
   
   <compositetype>
@@ -643,6 +2787,40 @@
 		<SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
 		<AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
 		<UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Connexion au compte</DisplayName>
+      <Description>Connexion : permet de créer des tickets d'authentification en indiquant le nom d'utilisateur et le mot de passe d'un autre compte</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>LogonAccount</DisplayName>
+      <Description>Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>LogonAccount</DisplayName>
+      <Description>Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>LogonAccount</DisplayName>
+      <Description>Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>LogonAccount</DisplayName>
+      <Description>Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Bloquear conta</DisplayName>
+      <Description>Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>LogonAccount</DisplayName>
+      <Description>Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>LogonAccount</DisplayName>
+      <Description>Logon: Grants the ability to create authentication tickets by supplying username and password credentials of another account</Description>
+      </item>	
+    </LocalizedItems>
 	</compositetype>
 
 	<compositetype>
@@ -654,6 +2832,40 @@
     <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Admin MetraView</DisplayName>
+      <Description>Admin MetraView : autorise un compte à voir les pages d'administration du site.</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>MetraView Admin</DisplayName>
+      <Description>MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>MetraView Admin</DisplayName>
+      <Description>MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>MetraView Admin</DisplayName>
+      <Description>MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>MetraView Admin</DisplayName>
+      <Description>MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Login do MetraView</DisplayName>
+      <Description>Admin do MetraView: permite que uma conta exiba as páginas de admin do site.</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>MetraView Admin</DisplayName>
+      <Description>MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>MetraView Admin</DisplayName>
+      <Description>MetraView Admin: Allows an account to view the site admin pages.</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
   <compositetype>
@@ -665,27 +2877,146 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Appliquer frais non standard</DisplayName>
+      <Description>Appliquer frais non standard : autorise l'application de frais non standard à un compte</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Apply NonStandardCharges</DisplayName>
+      <Description>Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Apply NonStandardCharges</DisplayName>
+      <Description>Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Apply NonStandardCharges</DisplayName>
+      <Description>Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Apply NonStandardCharges</DisplayName>
+      <Description>Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar cobranças extraordinárias</DisplayName>
+      <Description>Aplicar NonStandardCharges: permite a aplicação de encargos não padrão a uma conta</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Apply NonStandardCharges</DisplayName>
+      <Description>Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Apply NonStandardCharges</DisplayName>
+      <Description>Apply NonStandardCharges: Permits applying non-standard charges to an account</Description>
+      </item>	
+    </LocalizedItems>
     <atomictypes>
         <mtenumtypecapability>
           <Description>Specify currency for nonstandard charges</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer la devise des frais non standard</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especificar moeda para encargos não padrão</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify currency for nonstandard charges</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify currency for nonstandard charges</Description>
+          </item>	
+        </LocalizedItems>
           <TypeName>Global/SystemCurrencies/SystemCurrencies</TypeName>
         </mtenumtypecapability>
         <mtdecimalcapability>
           <Description>Specify nonstandard charges limit</Description>
+        <LocalizedItems>
+          <item lang="FR">          
+          <Description>Indiquer la limite des frais non standard</Description>
+          </item>
+          <item lang="IT">          
+          <Description>Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="ES">
+          <Description>Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="DE">
+          <Description>Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="es-MX">
+          <Description>Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="pt-BR">
+          <Description>Especificar limite de encargos não padrão</Description>
+          </item>
+          <item lang="en-GB">
+          <Description>Specify nonstandard charges limit</Description>
+          </item>
+          <item lang="JA">
+          <Description>Specify nonstandard charges limit</Description>
+          </item>	
+        </LocalizedItems>
         </mtdecimalcapability>
     </atomictypes>
   </compositetype>
 
   <compositetype>
     <name>Manage NonStandardCharges</name>
-    <description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).
-    </description>
+    <description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</description>
     <editor></editor>
     <progid>MetraTech.Auth.Capabilities.ManageNonStandardChargesCapability</progid>
     <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer les frais non standard</DisplayName>
+      <Description>Gérer les frais non standard : autorise l'approbation et la suppression des frais non standard existants (dont la fonctionnalité Appliquer frais non standard).</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage NonStandardCharges</DisplayName>
+      <Description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage NonStandardCharges</DisplayName>
+      <Description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage NonStandardCharges</DisplayName>
+      <Description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage NonStandardCharges</DisplayName>
+      <Description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar cobranças extraordinárias</DisplayName>
+      <Description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage NonStandardCharges</DisplayName>
+      <Description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage NonStandardCharges</DisplayName>
+      <Description>Manage NonStandardCharges: Permits approving or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
   
     <compositetype>
@@ -697,6 +3028,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer cadre d'exportation des données</DisplayName>
+      <Description>Gérer cadre d'exportation des données : autorise la gestion des définitions, instances et planifications de rapports dans l'IU</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage DataExportFramework</DisplayName>
+      <Description>Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage DataExportFramework</DisplayName>
+      <Description>Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage DataExportFramework</DisplayName>
+      <Description>Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage DataExportFramework</DisplayName>
+      <Description>Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar DataExportFramework</DisplayName>
+      <Description>Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage DataExportFramework</DisplayName>
+      <Description>Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage DataExportFramework</DisplayName>
+      <Description>Manage DataExportFramework: Allow managing report definition/instance/schedule through UI</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
 
     <compositetype>
@@ -708,6 +3073,40 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer caractéristiques de spécifications</DisplayName>
+      <Description>Gérer caractéristiques de spécifications : autorise la gestion des caractéristiques de spécifications.</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage Specification Characteristics</DisplayName>
+      <Description>Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage Specification Characteristics</DisplayName>
+      <Description>Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage Specification Characteristics</DisplayName>
+      <Description>Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage Specification Characteristics</DisplayName>
+      <Description>Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Característica de especificação criada.</DisplayName>
+      <Description>Valores da característica de especificação atualizados.</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage Specification Characteristics</DisplayName>
+      <Description>Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage Specification Characteristics</DisplayName>
+      <Description>Manage Specification Characteristics: Allows managing specification characteristics.</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
 
   <compositetype>
@@ -719,7 +3118,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Autoriser affichage approbations</DisplayName>
+      <Description>Autoriser affichage approbations : autorise la visualisation de toutes les approbations</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Allow ApprovalsView</DisplayName>
+      <Description>Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Allow ApprovalsView</DisplayName>
+      <Description>Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Allow ApprovalsView</DisplayName>
+      <Description>Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Allow ApprovalsView</DisplayName>
+      <Description>Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Permitir ApprovalsView</DisplayName>
+      <Description>Permitir ApprovalsView: permite a exibição de todas as aprovações</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Allow ApprovalsView</DisplayName>
+      <Description>Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Allow ApprovalsView</DisplayName>
+      <Description>Allow ApprovalsView: Allow viewing of all approvals</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
     <compositetype>
     <name>Approve AccountChanges</name>
     <description>Approve AccountChanges: Allow approving account update changes</description>
@@ -729,7 +3163,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Approuver changements de compte</DisplayName>
+      <Description>Approuver changements de compte : autorise l'approbation de la mise à jour des comptes</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Approve AccountChanges</DisplayName>
+      <Description>Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Approve AccountChanges</DisplayName>
+      <Description>Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Approve AccountChanges</DisplayName>
+      <Description>Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Approve AccountChanges</DisplayName>
+      <Description>Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Aprovar AccountChanges</DisplayName>
+      <Description>Aprovar AccountChanges: permite a aprovação de alterações de atualização de conta</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Approve AccountChanges</DisplayName>
+      <Description>Approve AccountChanges: Allow approving account update changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Approve AccountChanges</DisplayName>
+      <Description>Approve AccountChanges: Allow approving account update changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
     <compositetype>
     <name>Approve RateUpdates</name>
     <description>Approve RateUpdates: Allow approving rate updates</description>
@@ -739,7 +3208,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Approuver mise à jour des prix</DisplayName>
+      <Description>Approuver mise à jour des prix : autorise l'approbation de la mise à jour des prix</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Approve RateUpdates</DisplayName>
+      <Description>Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Approve RateUpdates</DisplayName>
+      <Description>Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Approve RateUpdates</DisplayName>
+      <Description>Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Approve RateUpdates</DisplayName>
+      <Description>Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Aprovar RateUpdates</DisplayName>
+      <Description>Aprovar RateUpdates: permite a aprovação de atualizações de taxa</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Approve RateUpdates</DisplayName>
+      <Description>Approve RateUpdates: Allow approving rate updates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Approve RateUpdates</DisplayName>
+      <Description>Approve RateUpdates: Allow approving rate updates</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>ManageAmpDecisions</name>
     <description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</description>
@@ -749,7 +3253,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer décisions AMP</DisplayName>
+      <Description>Gérer décisions AMP : autorise l'affichage et la modification de la configuration AMP</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>ManageAmpDecisions</DisplayName>
+      <Description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>ManageAmpDecisions</DisplayName>
+      <Description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>ManageAmpDecisions</DisplayName>
+      <Description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>ManageAmpDecisions</DisplayName>
+      <Description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>ManageAmpDecisions</DisplayName>
+      <Description>ManageAmpDecisions: permite a exibição e a alteração da configuração de AMP</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>ManageAmpDecisions</DisplayName>
+      <Description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>ManageAmpDecisions</DisplayName>
+      <Description>ManageAmpDecisions: Permit viewing and altering of AMP configuration</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
     <compositetype>
     <name>Approve ProductOfferingChanges</name>
     <description>Approve ProductOfferingChanges: Allow approving product offering changes</description>
@@ -759,7 +3298,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Approuver changements d'offre produit</DisplayName>
+      <Description>Approuver changements d'offre produit : autorise l'approbation de la modification de l'offre produit</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Approve ProductOfferingChanges</DisplayName>
+      <Description>Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Approve ProductOfferingChanges</DisplayName>
+      <Description>Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Approve ProductOfferingChanges</DisplayName>
+      <Description>Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Approve ProductOfferingChanges</DisplayName>
+      <Description>Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Aprovar ProductOfferingChanges</DisplayName>
+      <Description>Aprovar ProductOfferingChanges: permite a aprovação de alterações de oferta de produtos</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Approve ProductOfferingChanges</DisplayName>
+      <Description>Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Approve ProductOfferingChanges</DisplayName>
+      <Description>Approve ProductOfferingChanges: Allow approving product offering changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
     <compositetype>
     <name>Approve GroupSubscriptionChanges</name>
     <description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</description>
@@ -769,7 +3343,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Approuver changements d'abonnements groupés</DisplayName>
+      <Description>Approuver changements d'abonnements groupés : autorise l'approbation des modifications d'abonnements groupés</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Approve GroupSubscriptionChanges</DisplayName>
+      <Description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Approve GroupSubscriptionChanges</DisplayName>
+      <Description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Approve GroupSubscriptionChanges</DisplayName>
+      <Description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Approve GroupSubscriptionChanges</DisplayName>
+      <Description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>alterações de assinatura em grupo</DisplayName>
+      <Description>Aprovar GroupSubscriptionChanges: permite a aprovação de alterações de inscrição de grupo</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Approve GroupSubscriptionChanges</DisplayName>
+      <Description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Approve GroupSubscriptionChanges</DisplayName>
+      <Description>Approve GroupSubscriptionChanges: Allow approving group subscription changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
     <compositetype>
     <name>Approve SubscriptionChanges</name>
     <description>Approve SubscriptionChanges: Allow approving subscription changes</description>
@@ -779,7 +3388,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Approuver changements d'abonnements</DisplayName>
+      <Description>Approuver changements d'abonnements : autorise l'approbation des modifications d'abonnements</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Approve SubscriptionChanges</DisplayName>
+      <Description>Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Approve SubscriptionChanges</DisplayName>
+      <Description>Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Approve SubscriptionChanges</DisplayName>
+      <Description>Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Approve SubscriptionChanges</DisplayName>
+      <Description>Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>alterações de assinatura em grupo</DisplayName>
+      <Description>Aprovar SubscriptionChanges: permite a aprovação de alterações de inscrição</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Approve SubscriptionChanges</DisplayName>
+      <Description>Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Approve SubscriptionChanges</DisplayName>
+      <Description>Approve SubscriptionChanges: Allow approving subscription changes</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>Manage FLS Files</name>
     <description>Manage FLS Files: Permits viewing and moving FLS files</description>
@@ -789,7 +3433,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer fichiers FLS</DisplayName>
+      <Description>Gérer fichiers FLS : autorise l'affichage et le déplacement des fichiers FLS</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage FLS Files</DisplayName>
+      <Description>Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage FLS Files</DisplayName>
+      <Description>Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage FLS Files</DisplayName>
+      <Description>Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage FLS Files</DisplayName>
+      <Description>Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar arquivos FLS</DisplayName>
+      <Description>Gerenciar arquivos FLS: permite a exibição e a movimentação de arquivos FLS</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage FLS Files</DisplayName>
+      <Description>Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage FLS Files</DisplayName>
+      <Description>Manage FLS Files: Permits viewing and moving FLS files</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>View FLS Files</name>
     <description>View FLS files: Permits viewing of FLS files</description>
@@ -799,7 +3478,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Voir fichiers FLS</DisplayName>
+      <Description>Voir fichiers FLS : autorise l'affichage des fichiers FLS</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>View FLS Files</DisplayName>
+      <Description>View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>View FLS Files</DisplayName>
+      <Description>View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>View FLS Files</DisplayName>
+      <Description>View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>View FLS Files</DisplayName>
+      <Description>View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Exibir arquivos FLS</DisplayName>
+      <Description>Exibir arquivos FLS: permite a exibição de arquivos FLS</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>View FLS Files</DisplayName>
+      <Description>View FLS files: Permits viewing of FLS files</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>View FLS Files</DisplayName>
+      <Description>View FLS files: Permits viewing of FLS files</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>View Agreement Template</name>
     <description>View Agreement Template: Permits viewing of Agreement Templates</description>
@@ -809,7 +3523,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Voir le modèle d'accord</DisplayName>
+      <Description>Voir le modèle d'accord : autorise l'affichage des modèles d'accords</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>View Agreement Template</DisplayName>
+      <Description>View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>View Agreement Template</DisplayName>
+      <Description>View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>View Agreement Template</DisplayName>
+      <Description>View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>View Agreement Template</DisplayName>
+      <Description>View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar modelos de conta</DisplayName>
+      <Description>Exibir modelo de contrato: permite a exibição de modelos de contrato</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>View Agreement Template</DisplayName>
+      <Description>View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>View Agreement Template</DisplayName>
+      <Description>View Agreement Template: Permits viewing of Agreement Templates</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>Manage Agreement Template</name>
     <description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</description>
@@ -819,7 +3568,42 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer le modèle d'accord</DisplayName>
+      <Description>Gérer le modèle d'accord : autorise la création et la mise à jour des modèles d'accords</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage Agreement Template</DisplayName>
+      <Description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage Agreement Template</DisplayName>
+      <Description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage Agreement Template</DisplayName>
+      <Description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage Agreement Template</DisplayName>
+      <Description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar modelos de conta</DisplayName>
+      <Description>Gerenciar modelo de contrato: permite a criação ou a atualização de modelos de contrato</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage Agreement Template</DisplayName>
+      <Description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage Agreement Template</DisplayName>
+      <Description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>Manage Quoting</name>
     <description>Manage Quoting: Permits to create and update Quoting entity</description>
@@ -829,7 +3613,42 @@
     <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+      <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer créateur BDC</DisplayName>
+      <Description>Gérer créateur BDC : autorise la création et la mise à jour des entités créant des bons de commande</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage Quoting</DisplayName>
+      <Description>Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage Quoting</DisplayName>
+      <Description>Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage Quoting</DisplayName>
+      <Description>Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage Quoting</DisplayName>
+      <Description>Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar cotação</DisplayName>
+      <Description>Gerenciar cotação: permite criar e atualizar a entidade de Cotação</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage Quoting</DisplayName>
+      <Description>Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage Quoting</DisplayName>
+      <Description>Manage Quoting: Permits to create and update Quoting entity</Description>
+      </item>	
+    </LocalizedItems>
   </compositetype>
+  
   <compositetype>
     <name>View Quoting</name>
     <description>View Quoting: Permits to view Quoting entities</description>
@@ -839,5 +3658,320 @@
     <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
-  </compositetype>  
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Voir créateur BDC</DisplayName>
+      <Description>Voir créateur BDC : autorise l'affichage des entités créant des bons de commande</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>View Quoting</DisplayName>
+      <Description>View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>View Quoting</DisplayName>
+      <Description>View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>View Quoting</DisplayName>
+      <Description>View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>View Quoting</DisplayName>
+      <Description>View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Exibir cotação</DisplayName>
+      <Description>Exibir cotação: permite exibir entidades de Cotação</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>View Quoting</DisplayName>
+      <Description>View Quoting: Permits to view Quoting entities</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>View Quoting</DisplayName>
+      <Description>View Quoting: Permits to view Quoting entities</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype>
+  
+  <compositetype>
+    <name>Manage OnBoard Templates</name>
+    <description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageOnBoardTemplatesCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer modèles embarqués</DisplayName>
+      <Description>Gérer modèles embarqués : autorise la création, la mise à jour et l'affichage des modèles embarqués</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage OnBoard Templates</DisplayName>
+      <Description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage OnBoard Templates</DisplayName>
+      <Description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage OnBoard Templates</DisplayName>
+      <Description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage OnBoard Templates</DisplayName>
+      <Description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar modelos OnBoard</DisplayName>
+      <Description>Gerenciar modelos OnBoard: permite criar, atualizar e exibir modelos OnBoard</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage OnBoard Templates</DisplayName>
+      <Description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage OnBoard Templates</DisplayName>
+      <Description>Manage OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype>
+  
+  <compositetype>
+    <name>Update Runtime Configuration</name>
+    <description>Update Runtime Configuration: Permits to update system configuration at runtime</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.UpdateRuntimeConfigurationCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+      <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Mettre à jour configuration à l'exécution</DisplayName>
+      <Description>Mettre à jour configuration à l'exécution : autorise la mise à jour de la configuration système à l'exécution</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Update Runtime Configuration</DisplayName>
+      <Description>Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Update Runtime Configuration</DisplayName>
+      <Description>Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Update Runtime Configuration</DisplayName>
+      <Description>Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Update Runtime Configuration</DisplayName>
+      <Description>Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Atualizar configuração de tempo de execução</DisplayName>
+      <Description>Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Update Runtime Configuration</DisplayName>
+      <Description>Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Update Runtime Configuration</DisplayName>
+      <Description>Update Runtime Configuration: Permits to update system configuration at runtime</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype> 
+  
+  <compositetype>
+    <name>Manage Usage Processing</name>
+    <description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageUsageProcessingCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer traitement d'utilisation</DisplayName>
+      <Description>Gérer traitement d'utilisation : autorise les utilisateurs à afficher les pages “Gérer traitement d'utilisation” dans MetraControl.</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage Usage Processing</DisplayName>
+      <Description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage Usage Processing</DisplayName>
+      <Description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage Usage Processing</DisplayName>
+      <Description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage Usage Processing</DisplayName>
+      <Description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar processamento de uso</DisplayName>
+      <Description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage Usage Processing</DisplayName>
+      <Description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage Usage Processing</DisplayName>
+      <Description>Manage Usage Processing: Permits users to view the "Manage Usage Processing" related pages in MetraControl.</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype> 
+  
+  <compositetype>
+    <name>Manage Intervals</name>
+    <description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageIntervalsCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer intervalles</DisplayName>
+      <Description>Gérer intervalles : autorise l'utilisateur MetraNet à matérialiser les groupes de factures d'un intervalle ou à fermer l'intervalle aux nouveaux comptes</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage Intervals</DisplayName>
+      <Description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage Intervals</DisplayName>
+      <Description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage Intervals</DisplayName>
+      <Description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage Intervals</DisplayName>
+      <Description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar intervalos</DisplayName>
+      <Description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage Intervals</DisplayName>
+      <Description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage Intervals</DisplayName>
+      <Description>Manage Intervals: Permits MetraNet user to materialize the bill groups on an interval or close the interval to new accounts</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype>
+  
+  <compositetype>
+    <name>Manage Bill Message</name>
+    <description>Manage Bill Message: Allow managing/assigning Bill Message through UI</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageBillMessageCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer message de facture</DisplayName>
+      <Description>Gérer message de facture : autorise la gestion et l'affectation des messages de facture dans l'IU</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage Bill Message</DisplayName>
+      <Description>Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage Bill Message</DisplayName>
+      <Description>Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage Bill Message</DisplayName>
+      <Description>Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage Bill Message</DisplayName>
+      <Description>Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar mensagens de fatura</DisplayName>
+      <Description>Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage Bill Message</DisplayName>
+      <Description>Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage Bill Message</DisplayName>
+      <Description>Manage Bill Message: Allow managing/assigning Bill Message through UI</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype>
+  
+  <compositetype>
+    <name>Manage System User Reports</name>
+    <description>Manage System User Reports: Allow managing/Assigning User Reports through UI</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageSystemUserReportsCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Gérer rapports utilisateur système</DisplayName>
+      <Description>Gérer rapports utilisateur système : autorise la gestion et l'affectation des rapports utilisateur dans l'IU</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>Manage System User Reports</DisplayName>
+      <Description>Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>Manage System User Reports</DisplayName>
+      <Description>Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>Manage System User Reports</DisplayName>
+      <Description>Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>Manage System User Reports</DisplayName>
+      <Description>Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Gerenciar relatórios de usuário do sistema</DisplayName>
+      <Description>Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>Manage System User Reports</DisplayName>
+      <Description>Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>Manage System User Reports</DisplayName>
+      <Description>Manage System User Reports: Allow managing/Assigning User Reports through UI</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype>
+  <compositetype>
+    <name>View Summary Financial Information</name>
+    <description>View Summary Financial Information: Allow viewing financial information through UI</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ViewSummaryFinancialInformationCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype>
+  
 </mt_config>

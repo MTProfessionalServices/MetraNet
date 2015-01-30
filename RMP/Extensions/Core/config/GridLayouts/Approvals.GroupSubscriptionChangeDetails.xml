@@ -52,17 +52,17 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.ChangeDetailsDisplay</ObjectName>
-            <ID>GroupSubId</ID>
-            <DataType>Numeric</DataType>
+            <ID>GroupSubName</ID>
+            <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
-            <DataIndex>GroupSubId</DataIndex>
+            <DataIndex>GroupSubName</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUBID</LocalizationTag>
+                <LocalizationTag>TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUB_NAME</LocalizationTag>
                 <ResourceClassKey>ApprovalFrameworkManagement/ChangeTypeViewers/App_LocalResources/ViewGroupSubscriptionMemberUpdateDetails.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>140</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -84,6 +84,45 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.BaseTypes.ChangeDetailsDisplay</ObjectName>
+            <ID>GroupSubId</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>GroupSubId</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUBID</LocalizationTag>
+                <ResourceClassKey>ApprovalFrameworkManagement/ChangeTypeViewers/App_LocalResources/ViewGroupSubscriptionMemberUpdateDetails.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>false</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+
+
+     
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -130,7 +169,7 @@
             <DataIndex>AccountName</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME</LocalizationTag>
+                <LocalizationTag>TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNT_NAME</LocalizationTag>
                 <ResourceClassKey>ApprovalFrameworkManagement/ChangeTypeViewers/App_LocalResources/ViewGroupSubscriptionMemberUpdateDetails.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>

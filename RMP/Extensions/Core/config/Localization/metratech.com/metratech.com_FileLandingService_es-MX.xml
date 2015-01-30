@@ -16,15 +16,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/KVP</Name>
-      <Value>[es-MX]KVP</Value>
+      <Value>KVP</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/SCRIPT</Name>
-      <Value>[es-MX]SCRIPT</Value>
+      <Value>SCRIPT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/TRACKINGID</Name>
-      <Value>[es-MX]TRACKINGID</Value>
+      <Value>TRACKINGID</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ALWAYS</Name>
@@ -40,7 +40,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ONRESUBMIT</Name>
-      <Value>[es-MX]ONRESUBMIT</Value>
+      <Value>ONRESUBMIT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/COMPLETED</Name>
@@ -168,7 +168,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/ImproperN</Name>
-      <Value>[es-MX]ImproperN</Value>
+      <Value>ImproperN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/INTERFERENCE</Name>
@@ -184,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NoReason</Name>
-      <Value>[es-MX]NoReason</Value>
+      <Value>NoReason</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NOT_ENOUGH_FILES</Name>
@@ -216,7 +216,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ESecurityTokenType/TOKEN</Name>
-      <Value>[es-MX]TOKEN</Value>
+      <Value>TOKEN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EServiceState/Active</Name>

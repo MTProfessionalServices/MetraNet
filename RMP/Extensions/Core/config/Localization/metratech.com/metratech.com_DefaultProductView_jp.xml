@@ -76,11 +76,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
-      <Value>[JA]Is tax inclusive?</Value>
+      <Value>Is tax inclusive?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
-      <Value>[JA]Is tax informational?</Value>
+      <Value>Is tax informational?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsPostBillAdjusted</Name>
@@ -124,7 +124,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/PostBillAdjustmentID</Name>
-      <Value>[JA]Post-bill Adjustment</Value>
+      <Value>Post-bill Adjustment</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/PreBillAdjustmentID</Name>

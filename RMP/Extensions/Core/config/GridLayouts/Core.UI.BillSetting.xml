@@ -299,42 +299,6 @@
             <DropdownItems></DropdownItems>
         </Element>
         <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
-            <ObjectName>Core.UI.BillSetting</ObjectName>
-            <ID>ShowSecondPassData</ID>
-            <DataType>Boolean</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>ShowSecondPassData</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_SHOW_SECOND_PASS_DATA</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
             <RecordElement>false</RecordElement>
             <ID>Actions</ID>
             <DataIndex></DataIndex>

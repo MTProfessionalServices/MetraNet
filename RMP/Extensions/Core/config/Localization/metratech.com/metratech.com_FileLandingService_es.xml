@@ -56,7 +56,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/TEMP</Name>
-      <Value>[ES]TEMP</Value>
+      <Value>TEMP</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/WATCHED</Name>
@@ -256,7 +256,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eTargetType/GENERATED</Name>
-      <Value>[ES]ASSEMBLY</Value>
+      <Value>ASSEMBLY</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ScriptArgumentType/FILE</Name>

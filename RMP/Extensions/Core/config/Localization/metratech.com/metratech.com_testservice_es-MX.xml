@@ -24,7 +24,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/testservice/optionaltime</Name>
-      <Value>[es-MX]optionaltime</Value>
+      <Value>optionaltime</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/testservice/Time</Name>

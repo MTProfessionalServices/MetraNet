@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">ConfigDriven</meta>
+  <class name="Core.AccountConfigSets.AccountConfigSetBME, Core.AccountConfigSets.Entity" table="t_be_cor_acs_AccountConfigSet">
+    <meta attribute="description">General data for account config set</meta>
+    <meta attribute="label">AccountConfigSetBME</meta>
+    <meta attribute="plural-name">AccountConfigSetBMEs</meta>
+    <meta attribute="database">NetMeter</meta>
+    <meta attribute="custom-base-class-name" />
+    <meta attribute="record-history">true</meta>
+    <meta attribute="entity-type">Entity</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.IAccountConfigSetBME, Core.Interface</meta>
+    <meta attribute="metranet-entity-association" />
+    <id name="Id" column="c_AccountConfigSetBME_Id">
+      <type name="guid" />
+      <generator class="guid.comb" />
+    </id>
+    <version name="_Version" column="c__version" />
+    <component class="Core.AccountConfigSets.AccountConfigSetBMEBusinessKey, Core.AccountConfigSets.Entity" name="AccountConfigSetBMEBusinessKey">
+      <meta attribute="business-key">true</meta>
+      <meta attribute="internal-business-key">true</meta>
+      <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">
+        <meta attribute="label">Internal Business Key</meta>
+        <meta attribute="description" />
+        <meta attribute="defaultvalue" />
+        <meta attribute="sortable">true</meta>
+        <meta attribute="searchable">true</meta>
+        <meta attribute="association-entity" />
+        <meta attribute="encrypted">false</meta>
+        <type name="System.Guid" />
+      </property>
+    </component>
+    <property name="CreationDate" column="c_CreationDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UpdateDate" column="c_UpdateDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UID" column="c_UID">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="EffectiveDate" column="c_EffectiveDate">
+      <meta attribute="label">EffectiveDate</meta>
+      <meta attribute="description">Date the config set is started</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="EffectiveEndDate" column="c_EffectiveEndDate">
+      <meta attribute="label">EffectiveEndDate</meta>
+      <meta attribute="description">Date the config set is started</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="Enabled" column="c_Enabled">
+      <meta attribute="label">Enabled</meta>
+      <meta attribute="description">Indicates that accountCS is enabled</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="TrueFalse" />
+    </property>
+    <property name="Description" column="c_Description" length="2000">
+      <meta attribute="label">Description</meta>
+      <meta attribute="description">Custom description of CS</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Rank" column="c_Rank" not-null="true" unique="true">
+      <meta attribute="label">Rank</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AcsId" column="c_AcsId" not-null="true">
+      <meta attribute="label">AcsId</meta>
+      <meta attribute="description">CS id. Should be unique.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AcsCreationDate" column="c_AcsCreationDate">
+      <meta attribute="label">AcsCreationDate</meta>
+      <meta attribute="description">CS creation date</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="SubParamsId" column="c_SubParamsId">
+      <meta attribute="label">SubParamsId</meta>
+      <meta attribute="description">Id of AccConfigSetParamsBme related entity
+</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <bag name="SelectionCriterions" access="field.camelcase-underscore" inverse="true" cascade="delete">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">AccountConfigSetBME_SelectionCriterions</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.AccountConfigSets.AccountConfigSetBME</meta>
+      <meta attribute="source-key-column">c_AccountConfigSetBME_Id</meta>
+      <meta attribute="source-property-name-for-target">SelectionCriterions</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">Core.AccountConfigSets.SelectionCriteriaBme</meta>
+      <meta attribute="target-key-column">c_SelectionCriteria_Id</meta>
+      <meta attribute="target-property-name-for-source">AccountConfigSetBME</meta>
+      <meta attribute="cascade">true</meta>
+      <key column="c_AccountConfigSetBME_Id" />
+      <one-to-many class="Core.AccountConfigSets.SelectionCriteriaBme, Core.AccountConfigSets.Entity" />
+    </bag>
+  </class>
+</hibernate-mapping>

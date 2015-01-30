@@ -22,6 +22,7 @@
                 <Value><![CDATA[Bill Settings]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -33,6 +34,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -40,6 +42,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
@@ -49,6 +52,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -56,6 +60,7 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label />
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
@@ -65,6 +70,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -75,6 +81,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
@@ -84,6 +91,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -94,6 +102,7 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -102,30 +111,12 @@
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
                             <ObjectName>Core.UI.BillSetting</ObjectName>
-                            <ID>ShowSecondPassData</ID>
-                            <Name>ShowSecondPassData</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label>
-                                <LocalizationTag>TEXT_SHOW_SECOND_PASS_DATA</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
-                            </Label>
-                            <RequiredCapabilities />
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
-                            <ObjectName>Core.UI.BillSetting</ObjectName>
                             <ID>InlineAdjustments</ID>
                             <Name>InlineAdjustments</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -136,6 +127,7 @@
                                 <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
@@ -145,6 +137,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -155,6 +148,7 @@
                                 <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>Core.UI.Entity</AssemblyFilename>
@@ -164,6 +158,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -174,10 +169,12 @@
                                 <ResourceClassKey>Resource</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

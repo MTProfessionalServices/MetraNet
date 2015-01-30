@@ -12,7 +12,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ProductCatalog/Test</Name>
-      <Value>[DE]Fred Test</Value>
+      <Value>Fred Test</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

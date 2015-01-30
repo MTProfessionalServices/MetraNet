@@ -4,7 +4,7 @@
   <locale_space name="metratech.com/FileLandingService">
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/BATCHID</Name>
-      <Value>[DE]BATCHID</Value>
+      <Value>BATCHID</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/FILE</Name>
@@ -20,11 +20,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/SCRIPT</Name>
-      <Value>[DE]SCRIPT</Value>
+      <Value>SCRIPT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/TRACKINGID</Name>
-      <Value>[DE]TRACKINGID</Value>
+      <Value>TRACKINGID</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ALWAYS</Name>
@@ -40,7 +40,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ONRESUBMIT</Name>
-      <Value>[DE]ONRESUBMIT</Value>
+      <Value>ONRESUBMIT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/COMPLETED</Name>
@@ -52,27 +52,27 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/METERED</Name>
-      <Value>[DE]METERED</Value>
+      <Value>METERED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/TEMP</Name>
-      <Value>[DE]TEMP</Value>
+      <Value>TEMP</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/WATCHED</Name>
-      <Value>[DE]WATCHED</Value>
+      <Value>WATCHED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/ALL</Name>
-      <Value>[DE]ALL</Value>
+      <Value>ALL</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/CHANGED</Name>
-      <Value>[DE]CHANGED</Value>
+      <Value>CHANGED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/CREATED</Name>
-      <Value>[DE]CREATED</Value>
+      <Value>CREATED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/DELETED</Name>
@@ -80,27 +80,27 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/RENAMED</Name>
-      <Value>[DE]RENAMED</Value>
+      <Value>RENAMED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileNameFilterType/REGEX</Name>
-      <Value>[DE]REGEX</Value>
+      <Value>REGEX</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileNameFilterType/WILDCARD</Name>
-      <Value>[DE]WILDCARD</Value>
+      <Value>WILDCARD</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileSetRequirementType/DEPENDENT</Name>
-      <Value>[DE]DEPENDENT</Value>
+      <Value>DEPENDENT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileSetRequirementType/INDEPENDENT</Name>
-      <Value>[DE]INDEPENDENT</Value>
+      <Value>INDEPENDENT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileState/ASSIGNED</Name>
-      <Value>[DE]ASSIGNED</Value>
+      <Value>ASSIGNED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileState/PENDING</Name>
@@ -124,11 +124,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/MATCHED</Name>
-      <Value>[DE]MATCHED</Value>
+      <Value>MATCHED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/NEW</Name>
-      <Value>[DE]NEW</Value>
+      <Value>NEW</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/PENDING</Name>
@@ -136,7 +136,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/QUEUED</Name>
-      <Value>[DE]QUEUED</Value>
+      <Value>QUEUED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/UNKNOWN</Name>
@@ -144,15 +144,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/UNMATCHED</Name>
-      <Value>[DE]UNMATCHED</Value>
+      <Value>UNMATCHED</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eLanguageType/CSHARP</Name>
-      <Value>[DE]CSHARP</Value>
+      <Value>CSHARP</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eLanguageType/VBASIC</Name>
-      <Value>[DE]VBASIC</Value>
+      <Value>VBASIC</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/CONTROL_NUMBER_REUSED</Name>
@@ -168,7 +168,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/ImproperN</Name>
-      <Value>[DE]ImproperN</Value>
+      <Value>ImproperN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/INTERFERENCE</Name>
@@ -184,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NoReason</Name>
-      <Value>[DE]NoReason</Value>
+      <Value>NoReason</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/NOT_ENOUGH_FILES</Name>
@@ -216,11 +216,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ESecurityTokenType/TOKEN</Name>
-      <Value>[DE]TOKEN</Value>
+      <Value>TOKEN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EServiceState/Active</Name>
-      <Value>[DE]Active</Value>
+      <Value>Active</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EServiceState/READY</Name>
@@ -228,7 +228,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EServiceState/RUNNING</Name>
-      <Value>[DE]Active</Value>
+      <Value>Active</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EServiceState/STARTING</Name>
@@ -256,7 +256,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eTargetType/GENERATED</Name>
-      <Value>[DE]ASSEMBLY</Value>
+      <Value>ASSEMBLY</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ScriptArgumentType/FILE</Name>

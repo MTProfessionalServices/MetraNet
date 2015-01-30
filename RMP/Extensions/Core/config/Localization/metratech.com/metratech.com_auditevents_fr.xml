@@ -404,7 +404,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE_DENIED</Name>
-      <Value> Création PLM refusée</Value>
+      <Value>Création PLM refusée</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE_FAILED</Name>
@@ -416,7 +416,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE_DENIED</Name>
-      <Value> Suppression PLM refusée</Value>
+      <Value>Suppression PLM refusée</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE_FAILED</Name>
@@ -428,7 +428,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE_DENIED</Name>
-      <Value> Mise à jour PLM refusée</Value>
+      <Value>Mise à jour PLM refusée</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE_FAILED</Name>

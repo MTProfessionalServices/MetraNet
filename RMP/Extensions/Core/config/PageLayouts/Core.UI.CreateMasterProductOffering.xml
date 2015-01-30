@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PageLayout>
+    <Name>Core.UI.CreateMasterProductOffering</Name>
+    <AssemblyName>MetraTech.DomainModel.BaseTypes.dll</AssemblyName>
+    <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
+    <Description>Page Layout for creating new Master Product Offering</Description>
+    <Pages>
+        <PageName>~/MetraOffer/PriceLists/CreateProductOffering.aspx</PageName>
+    </Pages>
+    <Header>
+        <!--PageTitle>
+            <Value><![CDATA[Create Product Offering]]></Value>
+        </PageTitle-->
+        <PageTitle>
+            <LocalizationTag>TEXT_PAGE_TITLE</LocalizationTag>
+            <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
+        </PageTitle>
+    </Header>
+    <Help>
+        <Mode>None</Mode>
+        <Name></Name>
+        <URL></URL>
+    </Help>
+    <Sections>
+        <Section>
+            <Title>
+				<LocalizationTag>TEXT_PAGE_TITLE</LocalizationTag>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
+                            <ID>Name</ID>
+                            <Name>Name</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_NAME</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
+                            <ID>DisplayName</ID>
+                            <Name>DisplayName</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DISPLAY_NAME</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
+                            <ID>Description</ID>
+                            <Name>Description</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextArea</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
+                            <ID>Currency</ID>
+                            <Name>Currency</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
+                            <ID>EffectiveTimeSpan.StartDate</ID>
+                            <Name>EffectiveTimeSpan.StartDate</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_EFFECTIVE_START_DATE</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>                        
+                    </Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </Sections>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+</PageLayout>

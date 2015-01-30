@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">ConfigDriven</meta>
+  <class name="Core.AccountConfigSets.AcsAppliedSubscriptionsBme, Core.AccountConfigSets.Entity" table="t_be_cor_acs_AppliedSubs">
+    <meta attribute="description">Applied Subscriptions by AccountConfigSet</meta>
+    <meta attribute="label">AcsAppliedSubscriptionsBme</meta>
+    <meta attribute="plural-name">AcsAppliedSubscriptionsBmes</meta>
+    <meta attribute="database">NetMeter</meta>
+    <meta attribute="custom-base-class-name" />
+    <meta attribute="record-history">false</meta>
+    <meta attribute="entity-type">Entity</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.IAcsAppliedSubscriptionsBme, Core.Interface</meta>
+    <meta attribute="metranet-entity-association" />
+    <id name="Id" column="c_AcsAppliedSubscriptions_Id">
+      <type name="guid" />
+      <generator class="guid.comb" />
+    </id>
+    <version name="_Version" column="c__version" />
+    <component class="Core.AccountConfigSets.AcsAppliedSubscriptionsBmeBusinessKey, Core.AccountConfigSets.Entity" name="AcsAppliedSubscriptionsBmeBusinessKey">
+      <meta attribute="business-key">true</meta>
+      <meta attribute="internal-business-key">true</meta>
+      <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">
+        <meta attribute="label">Internal Business Key</meta>
+        <meta attribute="description" />
+        <meta attribute="defaultvalue" />
+        <meta attribute="sortable">true</meta>
+        <meta attribute="searchable">true</meta>
+        <meta attribute="association-entity" />
+        <meta attribute="encrypted">false</meta>
+        <type name="System.Guid" />
+      </property>
+    </component>
+    <property name="CreationDate" column="c_CreationDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UpdateDate" column="c_UpdateDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UID" column="c_UID">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AccountConfigSetId" column="c_AccountConfigSetId">
+      <meta attribute="label">AccountConfigSetId</meta>
+      <meta attribute="description">AccountConfigSetId</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AccountId" column="c_AccountId">
+      <meta attribute="label">AccountId</meta>
+      <meta attribute="description">AccountId</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="SubscriptionId" column="c_SubscriptionId">
+      <meta attribute="label">SubscriptionId</meta>
+      <meta attribute="description">SubscriptionId</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="ApplyDate" column="c_ApplyDate">
+      <meta attribute="label">ApplyDate</meta>
+      <meta attribute="description">ApplyDate</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="CorporateAccountId" column="c_CorporateAccountId">
+      <meta attribute="label">CorporateAccountId</meta>
+      <meta attribute="description">Corporate Account Id For Group Subscription</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="GroupId" column="c_GroupId">
+      <meta attribute="label">GroupId</meta>
+      <meta attribute="description">Group Subscription Id in case it's Group Subscription</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+  </class>
+</hibernate-mapping>

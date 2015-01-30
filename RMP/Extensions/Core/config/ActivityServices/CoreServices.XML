@@ -19,8 +19,8 @@
         <MASCodeService ElementName="SubscriptionService" Type="MetraTech.Core.Services.SubscriptionService, MetraTech.Core.Services.dll" Description="The Subscription service provides all the methods for clients to display, add, update, and delete subscriptions for accounts. &#xA;">
             <Interface Name="SubscriptionService" ContractType="MetraTech.Core.Services.ISubscriptionService, MetraTech.Core.Services.dll" Description="The Subscription service provides all the methods for clients to display, add, update, and delete subscriptions for accounts. &#xD;&#xA;&#xD;&#xA;" />
         </MASCodeService>
-        <MASCodeService ElementName="PriceListService" Type="MetraTech.Core.Services.PriceListService, MetraTech.Core.Services.dll" Description="The PriceListService defines a set of methods that provide access to retrieve, update and otherwise manage shared pricelists, and it provides access to the rates associated with particular subscriptions, group subscriptions, or product offerings.&#xA;">
-            <Interface Name="PriceListService" ContractType="MetraTech.Core.Services.IPriceListService, MetraTech.Core.Services.dll" Description="The PriceListService defines a set of methods that provide access to retrieve, update and otherwise manage shared pricelists, and it provides access to the rates associated with particular subscriptions, group subscriptions, or product offerings." />
+        <MASCodeService ElementName="PriceListService" Type="MetraTech.Core.Services.PriceListService, MetraTech.Core.Services.dll" Description="The PriceListService defines a set of methods that provide access to retrieve, update and otherwise manage shared price lists, and it provides access to the rates associated with particular subscriptions, group subscriptions, or product offerings.&#xA;">
+            <Interface Name="PriceListService" ContractType="MetraTech.Core.Services.IPriceListService, MetraTech.Core.Services.dll" Description="The PriceListService defines a set of methods that provide access to retrieve, update and otherwise manage shared price lists, and it provides access to the rates associated with particular subscriptions, group subscriptions, or product offerings." />
         </MASCodeService>
         <MASCodeService ElementName="UsageHistoryService" Type="MetraTech.Core.Services.UsageHistoryService, MetraTech.Core.Services.dll" Description="Usage History Service">
             <Interface Name="UsageHistoryService" ContractType="MetraTech.Core.Services.IUsageHistoryService, MetraTech.Core.Services.dll" Description="Usage History Service." />
@@ -93,6 +93,9 @@
         </MASCodeService>
     <MASCodeService ElementName="QuotingService" Type="MetraTech.Core.Services.QuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." >
       <Interface Name="QuotingService" ContractType="MetraTech.Core.Services.IQuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." />
+    </MASCodeService>
+    <MASCodeService ElementName="AccountConfigurationSetService" Type="MetraTech.Core.Services.AccountConfigurationSetService, MetraTech.Core.Services.dll" Description="The Account Configuration Set Service." >
+      <Interface Name="AccountConfigurationSetService" ContractType="MetraTech.Core.Services.IAccountConfigurationSetService, MetraTech.Core.Services.dll" Description="The Account Configuration Set  Service." />
     </MASCodeService>
     </MASServices>
 </MASConfig>

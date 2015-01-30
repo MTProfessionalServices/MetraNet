@@ -4,7 +4,7 @@
   <locale_space name="metratech.com/ProductCatalog">
     <locale_entry>
       <Name>metratech.com/ProductCatalog/PriceAbleItem</Name>
-      <Value>Élément à prix composé</Value>
+      <Value>Elément à prix composé</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ProductCatalog/ProductOffering</Name>

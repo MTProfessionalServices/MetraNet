@@ -76,11 +76,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
-      <Value>[IT]Is tax inclusive?</Value>
+      <Value>Is tax inclusive?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
-      <Value>[IT]Is tax informational?</Value>
+      <Value>Is tax informational?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsPostBillAdjusted</Name>

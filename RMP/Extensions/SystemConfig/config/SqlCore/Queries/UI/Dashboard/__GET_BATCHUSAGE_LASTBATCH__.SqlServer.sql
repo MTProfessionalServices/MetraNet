@@ -26,10 +26,6 @@ SET @previousBatch = (
     )
 
 SELECT @currentBatchID AS BATCHID,
-       DATENAME(MM, @currentBatch) + ' ' + CAST(DAY(@currentBatch) AS VARCHAR(2))
-		 AS [DATE],
-       REPLACE(
-           REPLACE(RIGHT(CONVERT(VARCHAR, @currentBatch), 7), 'AM', ' AM'),
-           'PM', ' PM'
-       ) AS [TIME],
+       @currentBatch AS [DATETIME],
        DATEDIFF(MINUTE, @previousBatch, @currentBatch) AS [TIME DIFF]
+       WHERE @currentBatchID IS NOT NULL

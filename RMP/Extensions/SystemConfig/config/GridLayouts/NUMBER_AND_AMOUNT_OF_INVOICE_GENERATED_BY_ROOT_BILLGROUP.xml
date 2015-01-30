@@ -139,7 +139,8 @@
             <DataIndex>partition</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Partition]]></Value>
+                 <LocalizationTag>TEXT_PARTITION</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -174,7 +175,8 @@
             <DataIndex>currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Currency]]></Value>
+                 <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -209,7 +211,8 @@
             <DataIndex># invoices</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Number of Invoices]]></Value>
+                <LocalizationTag>TEXT_NUM_INVOICES</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -244,7 +247,8 @@
             <DataIndex>total amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total Amount]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -279,7 +283,8 @@
             <DataIndex>total payment amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total Payment Amount]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_PAYMENT_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -314,7 +319,8 @@
             <DataIndex>total tax amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total Tax Amount]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_TAX_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -349,7 +355,8 @@
             <DataIndex>total adjustment amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Total Adjustment Amount]]></Value>
+                 <LocalizationTag>TEXT_TOTAL_ADJUSTMENT_AMOUNT</LocalizationTag>
+                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

@@ -2,7 +2,8 @@
 <Query>
     <Action>Get</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters></Parameters>
     <Description>MetraOffer Dashboard SubscriptionSummary Top Subscriptions By New Subscribers</Description>

@@ -118,8 +118,8 @@
             <DataIndex>unique identifier</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_UNIQUE_IDENTIFIER</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>200</Width>
@@ -144,7 +144,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-        <Element>
+          <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -154,8 +154,9 @@
             <DataIndex>payment method</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_PAYMENT_METHOD</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                
             </HeaderText>
             <Formatter></Formatter>
             <Width>200</Width>
@@ -190,8 +191,9 @@
             <DataIndex>card type</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_CARD_TYPE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+              
             </HeaderText>
             <Formatter></Formatter>
             <Width>200</Width>
@@ -226,8 +228,9 @@
             <DataIndex>payment currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_PAYMENT_CURRENCY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -262,8 +265,9 @@
             <DataIndex>num of payments</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_NUMBER_OF_PAYMENTS</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+               
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -298,8 +302,9 @@
             <DataIndex>registered users</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_REGISTERED_USERS</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+               
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -334,8 +339,9 @@
             <DataIndex>minimum payment</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_MINIMUM_PAYMENT</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+              
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -370,8 +376,9 @@
             <DataIndex>maximum payment</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_MAXIMUM_PAYMENT</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -406,8 +413,9 @@
             <DataIndex>average payment</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_AVERAGE_PAYMENT</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+             
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -442,8 +450,9 @@
             <DataIndex>last transaction of type</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_LAST_TRANSACTION_OF_TYPE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+               
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -478,8 +487,9 @@
             <DataIndex>last Transaction date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag></LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+             <LocalizationTag>TEXT_LAST_TRANSACTION_DATE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+               
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

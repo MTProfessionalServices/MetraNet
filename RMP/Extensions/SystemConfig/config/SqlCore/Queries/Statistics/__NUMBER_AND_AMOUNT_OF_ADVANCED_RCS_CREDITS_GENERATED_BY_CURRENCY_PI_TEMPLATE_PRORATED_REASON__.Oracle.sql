@@ -1,6 +1,7 @@
 
 				  select 
 				    dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+                    COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				    nm_name "PI Template",
 				    count(c_advance) "# of Adv RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",
@@ -18,11 +19,12 @@
 				    on au.id_sess=rc.id_sess
 				    and au.id_usage_interval = rc.id_usage_interval
 				  inner join t_vw_base_props bp on au.id_pi_template=bp.id_prop
+                  left outer join vw_bus_partition_accounts bpt on bpt.id_acc = au.id_acc
 				  where c_advance=1
 				    and amount < 0.0
 				    and au.id_usage_interval=%%ID_INTERVAL%%
 				    and id_lang_code=%%ID_LANG_CODE%%
-				  group by am_currency,nm_name,c_prorateddays,
+				  group by partition_name,am_currency,nm_name,c_prorateddays,
 				    case 
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=1 then 'BOTH'
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=0 then 'SUBSCRIPTION'
@@ -32,6 +34,7 @@
 			  UNION ALL
 				  select 
 					   dbo.GenGuid() "ID", /* dummy filed as identifier for GridLayout*/
+                       COALESCE(partition_name, N'Non-Partitioned') "PARTITION",
 				    nm_name "PI Template",
 				    count(c_advance) "# of Adv RCs Credits Generated",
 				    c_prorateddays "# of Days Prorated",
@@ -49,11 +52,12 @@
 				    on au.id_sess=rc.id_sess
 				    and au.id_usage_interval = rc.id_usage_interval
 				  inner join t_vw_base_props bp on au.id_pi_template=bp.id_prop
+                  left outer join vw_bus_partition_accounts bpt on bpt.id_acc = au.id_acc
 				  where c_advance=1
 				    and amount < 0.0
 				    and au.id_usage_interval=%%ID_INTERVAL%%
 				    and id_lang_code=%%ID_LANG_CODE%%
-				  group by am_currency,nm_name,c_prorateddays,
+				  group by partition_name,am_currency,nm_name,c_prorateddays,
 				    case 
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=1 then 'BOTH'
 				      when c_proratedonsubscription = 1 and c_proratedonunsubscription=0 then 'SUBSCRIPTION'

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PageLayout>
+    <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
+    <Name>MetraTech.SystemConfig.Reports.AccountingCycleToPartition</Name>
+    <Tenant>MetraTech</Tenant>
+    <AssemblyName>MetraTech.SystemConfig.Reports.Entity</AssemblyName>
+    <ObjectName>MetraTech.SystemConfig.Reports.AccountingCycleToPartition</ObjectName>
+    <Description>Accounting cycle</Description>
+    <Header>
+        <PageTitle>
+            <Value><![CDATA[]]></Value>
+        </PageTitle>
+    </Header>
+    <Help>
+        <Mode>None</Mode>
+        <Name></Name>
+        <URL></URL>
+    </Help>
+    <Sections>
+        <Section>
+            <Title>
+                <Value><![CDATA[Accounting cycle to partition]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.AccountingCycleToPartition</ObjectName>
+                            <ID>AccountId</ID>
+                            <Name>AccountId</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTInlineSearch</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Account]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </Sections>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+</PageLayout>

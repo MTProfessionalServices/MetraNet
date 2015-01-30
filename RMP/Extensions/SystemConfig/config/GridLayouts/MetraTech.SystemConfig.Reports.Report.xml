@@ -6,13 +6,13 @@
         <Value><![CDATA[]]></Value>
     </Title>
     <Exportable>true</Exportable>
-	<!--
+    <!--
 	<Height>400</Height>
 	<Width>720</Width>
 	-->
-	<Height>600</Height>
-	<Width>90%</Width>
-	<Expandable>true</Expandable>
+    <Height>600</Height>
+    <Width>90%</Width>
+    <Expandable>true</Expandable>
     <Buttons>Cancel</Buttons>
     <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
     <AssemblyNameHint>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyNameHint>
@@ -27,7 +27,7 @@
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
-     <NoRecordsText>
+    <NoRecordsText>
         <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
     </NoRecordsText>
@@ -41,7 +41,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath>~/MetraNet/Reporting/js/Reports.js</CustomImplementationFilePath>
+    <CustomImplementationFilePath>/MetraNet/Reporting/js/Reports.js</CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <SupportExportSelected>true</SupportExportSelected>
     <ShowFilterPanel>true</ShowFilterPanel>
@@ -147,7 +147,7 @@
             <DataIndex>Name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText />
-            <Formatter>customReportNameColumnRenderer</Formatter>
+            <Formatter>CustomReportNameColumnRenderer</Formatter>
             <Width>200</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>true</PreventSortable>
@@ -446,11 +446,19 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
             <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
-            <ID>Security</ID>
-            <DataType>String</DataType>
+            <ID>ReqdCapability</ID>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>Security</DataIndex>
-            <IsColumn>false</IsColumn>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>MetraTech.MetraNet.Reporting</EnumSpace>
+                <EnumType>SystemReportCapabilities</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
+            <DataIndex>ReqdCapability</DataIndex>
+            <IsColumn>true</IsColumn>
             <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
@@ -461,9 +469,9 @@
             <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>true</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
+            <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
             <ElementValue>
@@ -501,15 +509,15 @@
                         <Field>
                             <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
                             <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
-                            <ID>QueryName</ID>
-                            <Name>QueryName</Name>
-                        </Field>
+                            <ID>Type</ID>
+                            <Name>Type</Name>
+                        </Field>  
                         <Field>
                             <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
                             <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
-                            <ID>URL</ID>
-                            <Name>URL</Name>
-                        </Field>
+                            <ID>ReqdCapability</ID>
+                            <Name>ReqdCapability</Name>
+                        </Field>                        
                     </Fields>
                 </Column>
                 <Column>
@@ -517,15 +525,9 @@
                         <Field>
                             <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
                             <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
-                            <ID>RequiresInput</ID>
-                            <Name>RequiresInput</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
-                            <ID>Type</ID>
-                            <Name>Type</Name>
-                        </Field>
+                            <ID>QueryName</ID>
+                            <Name>QueryName</Name>
+                        </Field>                  
                         <Field>
                             <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
                             <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
@@ -535,9 +537,15 @@
                         <Field>
                             <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
                             <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
-                            <ID>Security</ID>
-                            <Name>Security</Name>
-                        </Field>
+                            <ID>URL</ID>
+                            <Name>URL</Name>
+                        </Field>                        
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>RequiresInput</ID>
+                            <Name>RequiresInput</Name>
+                        </Field>                          
                     </Fields>
                 </Column>
             </Columns>

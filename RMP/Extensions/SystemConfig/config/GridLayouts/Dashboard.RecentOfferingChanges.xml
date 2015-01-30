@@ -7,7 +7,7 @@
     </Title>
     <Exportable>false</Exportable>
     <Height>250</Height>
-    <Width>250</Width>
+    <Width>100</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
@@ -15,7 +15,7 @@
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
-    <PageSize>10</PageSize>
+    <PageSize>100</PageSize>
     <Description>GridLayout template for Product Dashboard</Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>false</ShowFilterPanel>
@@ -28,7 +28,8 @@
     <ShowGridHeader>false</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[No Data]]></Value>
+        <LocalizationTag>TEXT_NO_DATA_AVAILABLE</LocalizationTag>
+        <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>SingleColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -121,9 +122,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_login</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_LOGIN</LocalizationFQN>
+                <LocalizationTag>TEXT_USER_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -131,7 +133,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -156,9 +158,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>dt_crt</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_DATE_CREATE</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DATE</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter>DateRenderer</Formatter>
             <Width>120</Width>
@@ -166,7 +169,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -193,10 +196,11 @@
             <DataIndex>tx_details</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_TX_DETAILS</LocalizationFQN>
+                <LocalizationTag>TEXT_DETAILS</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>278</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -226,9 +230,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_po</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_PO_ID</LocalizationFQN>
+                <LocalizationTag>TEXT_PO_ID</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -236,7 +241,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -261,9 +266,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_po</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_PO_NAME</LocalizationFQN>
+                <LocalizationTag>TEXT_PO_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -271,7 +277,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -296,9 +302,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>tx_desc</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_DESCRIPTION</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -306,7 +313,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>

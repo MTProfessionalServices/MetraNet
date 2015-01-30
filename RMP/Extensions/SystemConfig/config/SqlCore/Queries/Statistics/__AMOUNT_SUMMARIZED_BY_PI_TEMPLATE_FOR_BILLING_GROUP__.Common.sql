@@ -1,5 +1,8 @@
 
-				select bp.nm_name "PI Template", 
+				select 
+          dbo.GenGuid() "ID",
+          COALESCE(pam.nm_login, N'Non-Partitioned') "PARTITION",
+          bp.nm_name "PI Template", 
 				  count(*) "# Transactions Affected",
 				  am_currency Currency, 
 				  SUM({fn ifnull(au.Amount, 0.0)}) "Monetary Amount" 
@@ -10,11 +13,11 @@
 				inner join t_billgroup_member bgm 
 				  on bgm.id_acc = au.id_acc 
 				  and bgm.id_billgroup = %%ID_BILLINGGROUP%%
-				where id_usage_interval = %%ID_INTERVAL%%
+        inner join t_billgroup bg on bgm.id_billgroup = bg.id_billgroup
+        left outer join t_account_mapper pam on pam.id_acc = bg.id_partition
+				where au.id_usage_interval = %%ID_INTERVAL%%
 				  and id_lang_code = %%ID_LANG_CODE%%
 				  and piTemplated2.id_template_parent is null	
 	    		and (bp.n_kind <> 15 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
 	    		and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
-				group by bp.nm_name,am_currency
-				order by bp.nm_name
-			 
+				group by pam.nm_login, bp.nm_name,am_currency		 

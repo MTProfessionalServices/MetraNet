@@ -2,9 +2,25 @@
 <Query>
     <Action>Get</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters></Parameters>
+    <Parameters>
+        <Parameter>
+            <Name>ID_LANG</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>CURRENT_DATETIME</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
     <Description>MetraOffer Dashboard SubscriptionSummary Top Monthly Recurring Revenue Loss</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

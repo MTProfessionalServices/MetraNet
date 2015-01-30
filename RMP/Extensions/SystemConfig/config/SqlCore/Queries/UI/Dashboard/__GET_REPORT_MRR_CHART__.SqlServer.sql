@@ -1,14 +1,8 @@
-/* Subscription table is not implemented yet, so the query was commented out*/
-/*DECLARE @dateFrom DATE, @dateTo DATE
-SET @dateFrom = DATEADD(month, -13, GETUTCDATE());
-SET @dateTo = DATEADD(month, 12, CONVERT(DATE, CONCAT(DATEPART(month, GETUTCDATE()),'-','01','-',DATEPART(year, GETUTCDATE())), 110));
-SELECT CONVERT(DATE, CONCAT(DATEPART(month, sm.[Month]),'-','01','-',DATEPART(year, sm.[Month])), 110) as [Date],
-       st.FeeCurrency as CurrencyCode,
-       SUM(sm.MRRBase + sm.MRRNew + sm.MRRRenewal + sm.MRRPriceChange + sm.MRRChurn + sm.MRRCancellation) as Amount
+SELECT 
+      CONVERT(DATE, CAST(sm.[Month] AS VARCHAR) + '-' + '01' + '-' + CAST(sm.[Year] AS VARCHAR), 110) as [Date],
+      sm.ReportingCurrency as CurrencyCode,
+      SUM(sm.MrrPrimaryCurrency) as Amount
 FROM SubscriptionsByMonth sm
-                          join Subscription st on sm.SubscriptionId = st.SubscriptionId
-                          join Customer c on st.AccountId = c.AccountId
-WHERE sm.[Month] IS NOT NULL
-                           AND sm.[Month] >= @dateFrom
-                           AND sm.[Month] < @dateTo
-GROUP BY CONVERT(DATE, CONCAT(DATEPART(month, sm.[Month]),'-','01','-',DATEPART(year, sm.[Month])), 110), st.FeeCurrency*/
+WHERE CONVERT(DATE, CAST(sm.[Month] AS VARCHAR) + '-' + '01' + '-' + CAST(sm.[Year] AS VARCHAR), 110) >= %%FROM_DATE%%
+	AND CONVERT(DATE, CAST(sm.[Month] AS VARCHAR) + '-' + '01' + '-' + CAST(sm.[Year] AS VARCHAR), 110) < %%TO_DATE%%
+GROUP BY  CONVERT(DATE, CAST(sm.[Month] AS VARCHAR) + '-' + '01' + '-' + CAST(sm.[Year] AS VARCHAR), 110), sm.ReportingCurrency

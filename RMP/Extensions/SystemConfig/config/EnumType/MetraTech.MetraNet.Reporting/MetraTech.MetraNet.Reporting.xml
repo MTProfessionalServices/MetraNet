@@ -2,7 +2,7 @@
 <mt_config>
     <enum_spaces>
         <enum_space name="MetraTech.MetraNet.Reporting">
-            <description></description>
+            <description>Reporting</description>
             <enums>
                 <enum name="ReportType">
                     <description>Report Type</description>
@@ -18,6 +18,17 @@
                         </entry>
                         <entry name="IntervalStatistics">
                             <value>3</value>
+                        </entry>
+                        <entry name="BillingGroupStatistics">
+                            <value>4</value>
+                        </entry>
+                    </entries>
+                </enum>
+                <enum name="SystemReportCapabilities">
+                    <description>List of MetraNet Capabilities used for System Reports access</description>
+                    <entries>
+                        <entry name="View Summary Financial Information">
+                            <value>0</value>
                         </entry>
                     </entries>
                 </enum>

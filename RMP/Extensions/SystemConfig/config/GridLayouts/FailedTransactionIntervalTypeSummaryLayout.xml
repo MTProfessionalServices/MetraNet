@@ -10,7 +10,7 @@
     <Width>720</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
-    <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
+    <DataSourceURL>/MetraNet/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>

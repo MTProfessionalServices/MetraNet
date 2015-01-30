@@ -7,7 +7,7 @@
     </Title>
     <Exportable>false</Exportable>
     <Height>200</Height>
-    <Width>299</Width>
+    <Width>100</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
@@ -15,7 +15,7 @@
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
-    <PageSize>5</PageSize>
+    <PageSize>100</PageSize>
     <Description>GridLayout template for Product Dashboard</Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>false</ShowFilterPanel>
@@ -28,7 +28,8 @@
     <ShowGridHeader>false</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[No Data]]></Value>
+        <LocalizationTag>TEXT_NO_DATA_AVAILABLE</LocalizationTag>
+        <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>SingleColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -83,50 +84,6 @@
             </SQLQuery>
         </URLParameter>
     </URLParameters-->
-    <URLParameters>
-        <URLParameter>
-            <ParameterName>q</ParameterName>
-            <SQLQuery>
-                <QueryName>__GET_RECENT_RATE_CHANGES__</QueryName>
-                <QueryDir></QueryDir>
-                <QueryParameters></QueryParameters>
-                <QueryColumns>
-				    <QueryColumn>
-                        <Name>unique_id</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>nm_login</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>dt_crt</Name>
-                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>id_sched</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>tx_details</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>tx_desc</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>id_pt</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>nm_pt</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                </QueryColumns>
-            </SQLQuery>
-        </URLParameter>
-    </URLParameters>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -137,7 +94,7 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>unique_id</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText> </HeaderText>          
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>false</Resizeable>
@@ -161,7 +118,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-		<Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -169,9 +126,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_login</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_LOGIN</LocalizationFQN>
+                <LocalizationTag>TEXT_USER_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -179,7 +137,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -204,9 +162,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>dt_crt</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_DATE_CREATE</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DATE</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter>DateRenderer</Formatter>
             <Width>120</Width>
@@ -214,7 +173,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -239,9 +198,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_sched</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_ID_SCHED</LocalizationFQN>
+                <LocalizationTag>TEXT_SCHEDULE_ID</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -249,7 +209,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -276,10 +236,11 @@
             <DataIndex>tx_details</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_TX_DETAILS</LocalizationFQN>
+                <LocalizationTag>TEXT_DETAILS</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>278</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -309,9 +270,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>tx_desc</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentOfferingChanges/TEXT_TX_DETAILS</LocalizationFQN>
+                <LocalizationTag>TEXT_CHANGE_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -319,7 +281,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -344,9 +306,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_pt</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_PT_ID</LocalizationFQN>
+                <LocalizationTag>TEXT_PRODUCT_TEMPLATE_ID</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -354,7 +317,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -379,9 +342,10 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_pt</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationFQN>LayoutText/Dashboard.RecentRateChanges.xml/TEXT_PT_NAME</LocalizationFQN>
+                <LocalizationTag>TEXT_PRODUCT_TEMPLATE_NAME</LocalizationTag>
+                <ResourceClassKey>MetraOffer/App_LocalResources/ProductDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -389,7 +353,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>

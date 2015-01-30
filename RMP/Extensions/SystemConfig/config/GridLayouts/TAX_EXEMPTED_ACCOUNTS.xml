@@ -52,7 +52,11 @@
                 <QueryParameters></QueryParameters>
                 <QueryColumns>
                     <QueryColumn>
-                        <Name>Unique Identifier</Name>
+                        <Name>ID</Name>
+                        <Type>System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+    	            <QueryColumn>
+                        <Name>Partition</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
@@ -97,12 +101,14 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>unique identifier</ID>
+            <ID>ID</ID>
             <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
-            <DataIndex>unique identifier</DataIndex>
+            <DataIndex>ID</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText />
+             <HeaderText>
+                <Value><![CDATA[ID]]></Value>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>false</Resizeable>
@@ -130,12 +136,51 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
+            <ID>partition</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>partition</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                 <LocalizationTag>TEXT_PARTITION</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
             <ID>user identifier</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>user identifier</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+             <HeaderText>
+              <LocalizationTag>TEXT_USER_IDENTIFIER</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -169,7 +214,8 @@
             <DataIndex>name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Name]]></Value>
+             <LocalizationTag>TEXT_NAME</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -204,8 +250,9 @@
             <DataIndex>tax exempt id</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Tax Exempt ID]]></Value>
-            </HeaderText>
+             <LocalizationTag>TEXT_TAX_EXEMPT_ID</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -239,7 +286,8 @@
             <DataIndex>tax exempt expiry date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Tax Excempt Expiry Date]]></Value>
+             <LocalizationTag>TEXT_TAX_EXEMPT_EXPIRY_DATE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -274,7 +322,8 @@
             <DataIndex>city</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[City]]></Value>
+             <LocalizationTag>TEXT_CITY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -309,7 +358,8 @@
             <DataIndex>state</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[State]]></Value>
+             <LocalizationTag>TEXT_STATE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -344,7 +394,8 @@
             <DataIndex>zip</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Zip]]></Value>
+             <LocalizationTag>TEXT_ZIP</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -379,7 +430,8 @@
             <DataIndex>country</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Country]]></Value>
+             <LocalizationTag>TEXT_COUNTRY</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

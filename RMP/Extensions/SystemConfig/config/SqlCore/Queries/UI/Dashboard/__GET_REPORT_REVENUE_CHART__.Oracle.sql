@@ -2,6 +2,6 @@ SELECT trunc(i.Invoice_date,'MON'),
   i.Invoice_currency AS Currency,
   SUM(i.Invoice_amount) AS Amount
 FROM T_INVOICE i
-WHERE i.Invoice_date >= add_months(GETUTCDATE(), -13) and i.Invoice_date <= GETUTCDATE()
+WHERE i.Invoice_date >= %%FROM_DATE%% and i.Invoice_date < %%TO_DATE%%
 GROUP BY trunc(i.Invoice_date,'MON'), i.Invoice_currency
-ORDER BY trunc(i.Invoice_date,'MON'), Currency
+ORDER BY trunc(i.Invoice_date,'MON'), i.Invoice_currency

@@ -1,4 +1,4 @@
-SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) ASC) AS 'OrderNum', 
+SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.TotalParticipants, 0.0))-SUM(ISNULL(prev.TotalParticipants, 0.0)) DESC) AS 'OrderNum', 
    po.ProductOfferingId as 'ProductCode',
 	 ISNULL(props.nm_display_name, po.ProductOfferingName) AS 'productname',
 	 ss.Month,

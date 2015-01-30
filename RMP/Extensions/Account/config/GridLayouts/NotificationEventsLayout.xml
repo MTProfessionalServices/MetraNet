@@ -1,48 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Pages>
-        <PageName>~/AdvancedFind.aspx</PageName>
-    </Pages>
+    <Name>NotificationEventsLayout</Name>
     <Title>
         <LocalizationTag>GRID_TITLE</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
     </Title>
-    <Name>AuditLogLayoutTemplate</Name>
-    <Exportable>true</Exportable>
-    <Height>0</Height>
-    <Width>0</Width>
-    <FilterInputWidth>220</FilterInputWidth>
-    <Expandable>true</Expandable>
-    <Buttons>Custom</Buttons>
-    <DataSourceURL>/MetraNet/AjaxServices/QueryService.aspx</DataSourceURL>
-    <PageSize>10</PageSize>
-    <!--
-  <URLParameters>
-  
-    <URLParameter>
-      <ParameterName>q</ParameterName>
-      <SQLQuery>
-        <QueryName>__SELECT_AUDIT_LOG_BY_ENTITY_TYPE__</QueryName>
-        <QueryDir>Queries\Audit</QueryDir>
-        <QueryParameters>
-          <QueryParameter>
-            <Name>%%ENTITY_TYPE%%</Name>
-            <Value>1</Value>
-            <DataType>String</DataType>
-          </QueryParameter>
-        </QueryParameters>
-      </SQLQuery>
-    </URLParameter>
-  </URLParameters>
-  -->
+    <Exportable>false</Exportable>
+    <Height>400</Height>
+    <Width>1030</Width>
+    <Expandable>false</Expandable>
+    <Buttons>None</Buttons>
+    <DataSourceURL>~/Metranet/Notifications/AjaxServices/GetNotifications.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
-    <DisplayCount>true</DisplayCount>
-    <FilterPanelCollapsed>false</FilterPanelCollapsed>
-    <Description>The grid layout for MetraCare's Application Audit Log.</Description>
+    <SelectionModel>Standard</SelectionModel>
+    <TotalProperty>TotalRows</TotalProperty>
+    <RootElement>Items</RootElement>
+    <PageSize>40</PageSize>
+    <Description></Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
-    <FilterLabelWidth>75</FilterLabelWidth>
-    <FilterColumnWidth>350</FilterColumnWidth>
+    <FilterInputWidth>225</FilterInputWidth>
+    <FilterLabelWidth>65</FilterLabelWidth>
+    <FilterColumnWidth>500</FilterColumnWidth>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
     <ShowGridFrame>true</ShowGridFrame>
@@ -50,58 +29,22 @@
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
         <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <ResourceClassKey>Notifications\App_LocalResources\Notifications.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
+    <FilterPanelCollapsed>false</FilterPanelCollapsed>
     <EnableColumnConfig>true</EnableColumnConfig>
     <EnableFilterConfig>true</EnableFilterConfig>
     <Resizeable>true</Resizeable>
-    <SelectionModel>Standard</SelectionModel>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField>dt_crt</DefaultSortField>
     <DefaultSortDirection>Descending</DefaultSortDirection>
+    <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <TotalProperty>TotalRows</TotalProperty>
-    <RootElement>Items</RootElement>
     <CustomImplementationFilePath></CustomImplementationFilePath>
+    <CustomOverrideJavascriptIncludes>~/Metranet/Notifications/Notifications.aspx</CustomOverrideJavascriptIncludes>
     <SubGrid></SubGrid>
     <Elements>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>id_audit</ID>
-            <DataType>Numeric</DataType>
-            <IsIdentity>true</IsIdentity>
-            <DataIndex>id_audit</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>AUDIT_ID</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>80</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
@@ -112,10 +55,10 @@
             <DataIndex>dt_crt</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TIME</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_DATE</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter>DateTimeRenderer</Formatter>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -142,24 +85,60 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>username</ID>
-            <DataType>String</DataType>
+            <ID>notification_event_name</ID>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>username</DataIndex>
-            <IsColumn>true</IsColumn>
+            <DataIndex>notification_event_name</DataIndex>
+            <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag>USERNAME</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_NOTIFICATIONS_EVENT_TYPE</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>180</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>localized_event_name</ID>
+            <DataType>List</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>localized_event_name</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_NOTIFICATIONS_EVENT_TYPE</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>180</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -178,25 +157,25 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>eventname</ID>
+            <ID>notification_event_prop_values</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>eventname</DataIndex>
+            <DataIndex>notification_event_prop_values</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>EVENT_NAME</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_NOTIFICATION_BODY</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>550</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -214,14 +193,14 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>entityname</ID>
-            <DataType>String</DataType>
+            <ID>partition_name</ID>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>entityname</DataIndex>
+            <DataIndex>partition_name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>ENTITY_NAME</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_PARTITION</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -231,8 +210,8 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -250,14 +229,14 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>loggedinas</ID>
-            <DataType>String</DataType>
+            <ID>id_partition</ID>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>loggedinas</DataIndex>
+            <DataIndex>id_partition</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>LOGGED_IN_AS</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
+                <LocalizationTag>TEXT_PARTITION_ID</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -265,14 +244,17 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
+            <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationTag>TEXT_PARTITION</LocalizationTag>
+                <ResourceClassKey>Notifications/App_LocalResources/Notifications.aspx</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>
@@ -281,66 +263,27 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
-        </Element>		
+        </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>applicationname</ID>
+            <ID>id_notification_event</ID>
             <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>applicationname</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>APPLICATION_NAME</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </HeaderText>
+            <IsIdentity>true</IsIdentity>
+            <DataIndex>id_notification_event</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>		
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>details</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>details</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>DETAILS</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>400</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -355,73 +298,7 @@
             <DropdownItems></DropdownItems>
         </Element>
     </Elements>
-    <ExpanderTemplate>
-        <Section>
-            <Title>
-                <LocalizationTag>DETAILS</LocalizationTag>
-                <ResourceClassKey></ResourceClassKey>
-            </Title>
-            <TabOrder>LeftToRight</TabOrder>
-            <Columns>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>id_audit</ID>
-                            <Name>id_audit</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>username</ID>
-                            <Name>username</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>dt_crt</ID>
-                            <Name>dt_crt</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>eventname</ID>
-                            <Name>eventname</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>entityname</ID>
-                            <Name>entityname</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>loggedinas</ID>
-                            <Name>loggedinas</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>applicationname</ID>
-                            <Name>applicationname</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>details</ID>
-                            <Name>details</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-            </Columns>
-        </Section>
-    </ExpanderTemplate>
+    <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons></ToolbarButtons>
 </GridLayout>

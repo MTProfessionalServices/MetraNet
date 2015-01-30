@@ -8,7 +8,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/_Accountid</Name>
-      <Value>Id de conta</Value>
+      <Value>ID de conta</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/accountenddate</Name>
@@ -36,11 +36,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/address2</Name>
-      <Value>Endereço 1</Value>
+      <Value>Endereço 2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/address3</Name>
-      <Value>Endereço 1</Value>
+      <Value>Endereço 3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ancestorAccount</Name>
@@ -52,7 +52,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ancestorAccountNS</Name>
-      <Value>Espaço de nomes da conta pai</Value>
+      <Value>Espaço de nome da conta principal</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/ApplyAccountTemplate</Name>
@@ -96,7 +96,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/email</Name>
-      <Value>E-Mail</Value>
+      <Value>E-mail</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/facsimiletelephonenumber</Name>
@@ -144,7 +144,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/name_space</Name>
-      <Value>NameSpace</Value>
+      <Value>Espaço de nomes</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/operation</Name>
@@ -224,7 +224,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/TruncateOldSubscriptions</Name>
-      <Value>Truncar antigas assinaturas</Value>
+      <Value>Truncar assinaturas antigas</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SystemAccountcreation/usagecycletype</Name>

@@ -4,7 +4,7 @@
   <locale_space name="metratech.com/accountcreation">
     <locale_entry>
       <Name>metratech.com/accountcreation/_Accountid</Name>
-      <Value>Id de conta</Value>
+      <Value>ID de conta</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/accountenddate</Name>
@@ -100,11 +100,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/address2</Name>
-      <Value>Endereço 1</Value>
+      <Value>Endereço 2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/address3</Name>
-      <Value>Endereço 1</Value>
+      <Value>Endereço 3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ancestorAccount</Name>
@@ -116,7 +116,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ancestorAccountNS</Name>
-      <Value>Espaço de nomes da conta pai</Value>
+      <Value>Espaço de nome da conta principal</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
@@ -184,7 +184,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/email</Name>
-      <Value>E-Mail</Value>
+      <Value>E-mail</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/facsimiletelephonenumber</Name>
@@ -424,7 +424,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-      <Value>TruncarAssinaturasVelhos</Value>
+      <Value>TruncateOldSubscriptions</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/usagecycletype</Name>

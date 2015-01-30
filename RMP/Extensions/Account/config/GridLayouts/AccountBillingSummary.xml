@@ -36,8 +36,8 @@
     <EnableFilterConfig>false</EnableFilterConfig>
     <Resizeable>false</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField></DefaultSortField>
-    <DefaultSortDirection>Ascending</DefaultSortDirection>
+    <DefaultSortField>dt_transaction</DefaultSortField>
+    <DefaultSortDirection>Descending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
@@ -61,7 +61,7 @@
             <Width>90</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -89,14 +89,12 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_transaction</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText>
-                <Value><![CDATA[]]></Value>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>90</Width>
             <Resizeable>false</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>false</ColumnHideable>
             <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
@@ -132,7 +130,7 @@
             <Width>90</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -168,7 +166,7 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -204,7 +202,7 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>

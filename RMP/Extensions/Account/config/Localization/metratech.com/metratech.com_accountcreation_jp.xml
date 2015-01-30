@@ -32,11 +32,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingActiveApproval</Name>
-      <Value>[JA]PendingActiveApproval</Value>
+      <Value>PendingActiveApproval</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/PendingFinalBill</Name>
-      <Value>[JA]PendingFinalBill</Value>
+      <Value>PendingFinalBill</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AccountStatus/Suspended</Name>
@@ -96,7 +96,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/address1</Name>
-      <Value>[JA]Address</Value>
+      <Value>Address</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/address2</Name>
@@ -120,7 +120,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-      <Value>[JA]ApplyAccountTemplate</Value>
+      <Value>ApplyAccountTemplate</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
@@ -128,11 +128,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
-      <Value>[JA]LDAP Authentication</Value>
+      <Value>LDAP Authentication</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
-      <Value>[JA]MetraNet Authentication</Value>
+      <Value>MetraNet Authentication</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/billable</Name>
@@ -188,7 +188,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/facsimiletelephonenumber</Name>
-      <Value>[JA]Fax</Value>
+      <Value>Fax</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/firstdayofmonth</Name>
@@ -228,7 +228,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
-      <Value>[JA]Standard With Bill Messages</Value>
+      <Value>Standard With Bill Messages</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/Language</Name>
@@ -332,11 +332,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-      <Value>[JA]What is the name of the first school you attended?</Value>
+      <Value>What is the name of the first school you attended?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>
-      <Value>[JA]What was your childhood nickname?</Value>
+      <Value>What was your childhood nickname?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/None</Name>
@@ -344,11 +344,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/PIN</Name>
-      <Value>[JA]What was the name of your first car?</Value>
+      <Value>What was the name of your first car?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/SecurityQuestion/SSN</Name>
-      <Value>[JA]What school did you attend for sixth grade?</Value>
+      <Value>What school did you attend for sixth grade?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/startday</Name>
@@ -420,11 +420,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/transactioncookie</Name>
-      <Value>[JA]Transactioncookie</Value>
+      <Value>Transactioncookie</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-      <Value>[JA]TruncateOldSubscriptions</Value>
+      <Value>TruncateOldSubscriptions</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/accountcreation/usagecycletype</Name>

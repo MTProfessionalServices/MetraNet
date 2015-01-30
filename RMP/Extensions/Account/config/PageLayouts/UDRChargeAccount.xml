@@ -49,9 +49,9 @@
                     <Fields>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.ProductCatalog.GroupSubscription</ObjectName>
-                            <ID>UDRCInstances[].ChargeAccountSpan.StartDate</ID>
-                            <Name>UDRCInstances[].ChargeAccountSpan.StartDate</Name>
+                            <ObjectName>((MetraTech.DomainModel.ProductCatalog.RecurringCharge)(CurrentUDRCInstance))</ObjectName>
+                            <ID>ChargeAccountSpan.StartDate</ID>
+                            <Name>ChargeAccountSpan.StartDate</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
@@ -68,9 +68,9 @@
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.ProductCatalog.GroupSubscription</ObjectName>
-                            <ID>UDRCInstances[].ChargeAccountSpan.EndDate</ID>
-                            <Name>UDRCInstances[].ChargeAccountSpan.EndDate</Name>
+                            <ObjectName>((MetraTech.DomainModel.ProductCatalog.RecurringCharge)(CurrentUDRCInstance))</ObjectName>
+                            <ID>ChargeAccountSpan.EndDate</ID>
+                            <Name>ChargeAccountSpan.EndDate</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>

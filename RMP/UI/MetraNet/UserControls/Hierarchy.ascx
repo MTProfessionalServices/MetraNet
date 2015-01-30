@@ -105,6 +105,7 @@
       enableDD: false,
       containerScroll: false,
       border: false,
+      timeout: 10000,
       // auto create TreeLoader
       dataUrl: '/MetraNet/AjaxServices/Hierarchy.aspx?type=<%=StartAccountType%>',
       listeners:

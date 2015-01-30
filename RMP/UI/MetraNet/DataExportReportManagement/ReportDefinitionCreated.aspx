@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ReportDefinitionCreated" Title="MetraNet" Culture="auto" meta:resourcekey="PageResource1" UICulture="auto" CodeFile="ReportDefinitionCreated.aspx.cs" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ReportDefinitionCreated" Title="MetraNet" Culture="auto" UICulture="auto" CodeFile="ReportDefinitionCreated.aspx.cs" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -15,7 +15,7 @@
     <div  class="x-panel-btns-ct">
     <div style="width:725px" class="x-panel-btns x-panel-btns-center">   
     <center>
-      <table cellspacing="0">
+      <table>
         <tr>
           <td  class="x-panel-btn-td">
               <MT:MTButton  ID="btnBack" runat="server" Text="Back"  OnClick="btnBack_Click" meta:resourcekey="btnBackResource1" />

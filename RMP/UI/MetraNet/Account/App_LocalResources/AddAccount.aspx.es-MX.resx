@@ -250,6 +250,6 @@
     <value>Nombre de usuario</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>[es-MX]Authentication Type</value>
+    <value>Authentication Type</value>
   </data>
 </root>

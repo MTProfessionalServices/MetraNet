@@ -13,12 +13,12 @@
     <div style="margin-left:10px">
     <MT:MTPanel Collapsible="false" Text="Change Password" meta:resourcekey="MTTitle1Resource1" Width="630" ID="MyPanel1" runat="Server">    
         <div class="InfoMessage" style="margin-left:120px;width:400px;">
-          <asp:Label ID="lblMessage" runat="server" meta:resourcekey="lblMessageResource1"></asp:Label>
+          <asp:Label ID="lblMessage" runat="server"></asp:Label>
         </div>
         <br />
         <table>
           <tr>
-            <td colspan="2"><MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbUserNameResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" /></td>
+            <td colspan="2"><MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbUserNameResource1" ReadOnly="True" XType="TextField" XTypeNameSpace="form" /></td>
           </tr>
           <tr>
             <td>
@@ -41,10 +41,10 @@
       <table cellspacing="0">
         <tr>
           <td  class="x-panel-btn-td">
-            <MT:MTButton ID="btnOK"  OnClientClick="return ValidateForm();" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="150" meta:resourcekey="btnOKResource1" />      
+            <MT:MTButton ID="btnOK"  OnClientClick="return ValidateForm();" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="150" />      
           </td>
           <td  class="x-panel-btn-td">
-            <MT:MTButton ID="btnCancel" runat="server" Text="<%$Resources:Resource,TEXT_CANCEL%>" OnClick="btnCancel_Click" CausesValidation="False" TabIndex="160" meta:resourcekey="btnCancelResource1" />
+            <MT:MTButton ID="btnCancel" runat="server" Text="<%$Resources:Resource,TEXT_CANCEL%>" OnClick="btnCancel_Click" CausesValidation="False" TabIndex="160" />
           </td>
         </tr>
       </table> 

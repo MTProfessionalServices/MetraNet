@@ -117,32 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BothEOPandScheduledLabelResource.Text" xml:space="preserve">
-    <value>Both EOP and Scheduled</value>
+    <value>Tanto EOP quanto agendado</value>
   </data>
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="EOPLabelResource.Text" xml:space="preserve">
-    <value>End-of-Period (EOP)</value>
+    <value>Fim do período (EOP)</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>A Decision can be processed by AMP as part of End-of-Period (EOP) processing and/or on a scheduled basis, independent of billing intervals.</value>
+    <value>Uma Decisão pode ser processada pelo AMP como parte do processamento de Fim do período (EOP) e/ou em uma base agendada, independente dos intervalos de fatura.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>What is the execution frequency for this Decision Type?</value>
+    <value>Qual é a frequência de execução para esse Tipo de decisão?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Execution Frequency</value>
+    <value>Execução frequency</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="ScheduledLabelResource.Text" xml:space="preserve">
-    <value>Scheduled - periodic, but independent of billing intervals</value>
+    <value>Agendado - períodico, mas independente de intervalos de faturamento</value>
   </data>
 </root>

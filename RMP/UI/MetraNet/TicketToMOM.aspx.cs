@@ -1,4 +1,5 @@
 using System;
+using MetraTech.DomainModel.Enums;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 using MetraTech.Security;
@@ -23,6 +24,10 @@ public partial class UserControls_ticketToMOM : MTPage
     try
     {
       gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "language=" + Session["MTSelectedLanguage"];
+
+      if (Request.QueryString["ReturnUrl"] != null)
+        gotoURL = gotoURL + (gotoURL.Contains("?") ? "&" : "?") + "ReturnUrl=" + Uri.EscapeDataString(Request.QueryString["ReturnUrl"]);
+
       var input = new ApiInput(gotoURL);
       SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
     }
@@ -38,8 +43,16 @@ public partial class UserControls_ticketToMOM : MTPage
     }
     HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
+    int partitionId = 1;
+    if (PartitionLibrary.PartitionData.isPartitionUser)
+    {
+      partitionId = PartitionLibrary.PartitionData.PartitionId;
+    }
+
     var auth = new Auth();
-    auth.Initialize(UI.User.UserName, UI.User.NameSpace);
-    URL = auth.CreateEntryPoint("mom", "system_user", 0, gotoURL, false, true);
+    auth.Initialize(UI.User.UserName, UI.User.NameSpace, UI.User.UserName, 
+                    "MetraNet", Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)));
+
+    URL = auth.CreateEntryPointWithPartitionID("mom", "system_user", 0, gotoURL, false, true, partitionId);
   }
 }

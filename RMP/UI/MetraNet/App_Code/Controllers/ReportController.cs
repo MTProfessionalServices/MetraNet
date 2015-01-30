@@ -1,9 +1,9 @@
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Web.Mvc;
 using MetraNet.DbContext;
+using MetraTech.DataAccess;
+using MetraTech.Presentation.Reports;
 using System.Linq;
-using System.Collections.Generic;
 using System;
 
 namespace ASP.Controllers
@@ -11,6 +11,17 @@ namespace ASP.Controllers
   [Authorize]
   public class ReportController : MTController
   {
+    private DeferredRevenueHelper _revenueReportsHelper;
+
+    private DeferredRevenueHelper RevenueReportsHelper
+    {
+      get { return _revenueReportsHelper ?? (_revenueReportsHelper = new DeferredRevenueHelper()); }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public JsonResult NewCustomers()
     {
       using (var dbDataMart = GetDatamartContext())
@@ -30,6 +41,10 @@ namespace ASP.Controllers
       }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public JsonResult Revenue()
     {
       using (var context = GetNetMeterContext())
@@ -54,44 +69,14 @@ namespace ASP.Controllers
                            })
                            .OrderBy(i => i.Date).ThenBy(i => i.Currency)
                            .ToList();
-        //var result = new[] {new {Date = new DateTime(2013, 2, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "USD", Amount = 307678},
-        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "EUR", Amount = 28678},
-        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "YEN", Amount = 7078},
-        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "USD", Amount = 312678},
-        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "EUR", Amount = 29678},
-        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "YEN", Amount = 7678},
-        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "USD", Amount = 309678},
-        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "EUR", Amount = 32678},
-        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "YEN", Amount = 7478},
-        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "USD", Amount = 307978},
-        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 10, 1), Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 10, 1), Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 10, 1), Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2013, 11, 1), Currency = "USD", Amount = 302678},
-        //                    new {Date = new DateTime(2013, 11, 1), Currency = "EUR", Amount = 22678},
-        //                    new {Date = new DateTime(2013, 11, 1), Currency = "YEN", Amount = 6678},
-        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "USD", Amount = 402678},
-        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "EUR", Amount = 62678},
-        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "YEN", Amount = 9678}
-        //                   };
         return Json(result, JsonRequestBehavior.AllowGet);
       }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public JsonResult MRRByProduct()
     {
       using (var dbDataMart = GetDatamartContext())
@@ -109,83 +94,109 @@ namespace ASP.Controllers
                               Date = new DateTime(subByMonth.Month.Value.Year, subByMonth.Month.Value.Month, 1),
                               CurrencyCode = sub.FeeCurrency
                             }
-                          into grp
-                          select new
-                            {
-                              grp.Key.Date,
-                              grp.Key.CurrencyCode,
-                              Amount =
-                            grp.Sum(
-                              x =>
-                              x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
-                            }).ToList();
+                            into grp
+                            select new
+                              {
+                                grp.Key.Date,
+                                grp.Key.CurrencyCode,
+                                Amount =
+                              grp.Sum(
+                                x =>
+                                x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
+                              }).ToList();
 
         return Json(MRRByMonth, JsonRequestBehavior.AllowGet);
       }
     }
 
-    private IEnumerable<SelectListItem> GetProductCodes()
-    {
-      var list = new List<SelectListItem> {new SelectListItem {Selected = true, Text = "All", Value = "all"}};
-
-      using (var dbContext = GetDatamartContext())
-      {
-        var products =
-          (from subByMonth in dbContext.SubscriptionsByMonth
-           join sub in dbContext.SubscriptionTable on subByMonth.SubscriptionId equals sub.SubscriptionId
-           where
-             subByMonth.Month.HasValue &&
-             subByMonth.Month >= DateTime.Today.AddMonths(-13) &&
-             subByMonth.Month <= DateTime.Now
-           select sub.ProductCode).Distinct().OrderBy(x => x).ToList();
-
-        list.AddRange(products.Select(productCode => new SelectListItem { Text = productCode, Value = productCode }));
-      }
-      return list;
-    }
-
-    private IEnumerable<SelectListItem> GetTerritoryCodes()
-    {
-      var list = new List<SelectListItem> { new SelectListItem { Selected = true, Text = "All", Value = "all" } };
-
-      using (var dbContext = GetDatamartContext())
-      {
-        var codes =
-          (from st in dbContext.SubscriptionTable
-           join c in dbContext.Customer on st.AccountId equals c.AccountId
-           where
-             st.StartDate.HasValue &&
-             st.StartDate.Value >= DateTime.Today.AddMonths(-13) &&
-             st.StartDate.Value <= DateTime.Now
-           select c.Territorycode).Distinct().OrderBy(x => x).ToList();
-
-        list.AddRange(codes.Select(code => new SelectListItem { Text = code, Value = code }));
-      }
-      return list;
-    }
-
     private static DataMart GetDatamartContext()
     {
-      return new DataMart(GetDefaultDatabaseConnection("localhost", "AnalyticsDatamart", "nmdbo", "MetraTech1"));
+      return new DataMart(GetDefaultDatabaseConnection("AnalyticsDatamart"));
     }
 
     private static NetMeter GetNetMeterContext()
     {
-      return new NetMeter(GetDefaultDatabaseConnection("localhost", "NetMeter", "nmdbo", "MetraTech1"));
+      return new NetMeter(GetDefaultDatabaseConnection("NetMeter"));
     }
 
-    private static DbConnection GetDefaultDatabaseConnection(string serverName, string dbName, string userName, string password)
+    private static DbConnection GetDefaultDatabaseConnection(string dbName)
     {
-      //var connectionInfo = new ConnectionInfo("NetMeter"){ Catalog = "Subscriptiondatamart" };
-      //return ConnectionBase.GetDbConnection(connectionInfo, false);
-      var connString = new SqlConnectionStringBuilder
+      var connectionInfo = new ConnectionInfo("NetMeter"){ Catalog = dbName };
+      return ConnectionBase.GetDbConnection(connectionInfo, false);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="accountingCycleId"></param>
+    /// <param name="currency"></param>
+    /// <param name="revenueCode"></param>
+    /// <param name="deferredRevenueCode"></param>
+    /// <param name="productId"></param>
+    /// <returns></returns>
+    public ActionResult DefRevScheduleWidgetReport(string accountingCycleId, string currency, string revenueCode, string deferredRevenueCode, int productId)
+    {
+      if (!UI.CoarseCheckCapability("View Summary Financial Information"))
+        Response.End();
+      var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountingCycleId);
+      var revRec = RevenueReportsHelper.GetRevRecRawDataForWidget(accountingCycleId, currency, revenueCode, deferredRevenueCode, productId == 0 ? (int?)null : productId);
+      var result = new {rows = Enumerable.Range(1, headers.Length).Select(x => new {month = x, deferred = 0d, earned = 0d}).ToArray()
+                        ,headers};
+      if(revRec.Count == 0)
+        return Json(result, JsonRequestBehavior.AllowGet);
+      var data = revRec.First().ColumnsData.Keys.ToDictionary(item => item, item => new []{0d,0d});
+      foreach (var revRecItem in revRec.Where(x => x.RevenuePart.Equals("Deferred") || x.RevenuePart.Equals("Earned")))
       {
-        DataSource = serverName,
-        InitialCatalog = dbName,
-        UserID = userName,
-        Password = password
-      };
-      return new SqlConnection(connString.ToString());
+        for (var j = 1; j <= data.Count; j++){
+          data[j][Convert.ToInt32(revRecItem.RevenuePart.Equals("Deferred"))] += revRecItem.ColumnsData[j];
+        }
+      }
+      result = new {rows = Enumerable.Range(1, data.Count).Select(x => new { month = x, deferred = Math.Round(data[x][1]), earned = Math.Round(data[x][0]) }).ToArray()
+                    ,headers};
+      return Json(result, JsonRequestBehavior.AllowGet);
+    }
+
+    /// <summary>
+    /// AJAX method to obtain an array of columns' headers.
+    /// </summary>
+    /// <param name="accountCycleId"></param>
+    /// <returns></returns>
+    public ActionResult RevRecReportHeaders(string accountCycleId)
+    {
+      if (!UI.CoarseCheckCapability("View Summary Financial Information"))
+        Response.End();
+      var headers = RevenueReportsHelper.GetRevRecReportHeaders(accountCycleId);
+      return Json(new { headers = String.Join(",", headers) }, JsonRequestBehavior.AllowGet);
+    }
+
+    /// <summary>
+    /// AJAX method to obtain a list of products.
+    /// </summary>
+    /// <returns></returns>
+    public JsonResult GetProductsFilter()
+    {
+      var products = RevenueReportsHelper.GetProducts();
+      return Json(products, JsonRequestBehavior.AllowGet);
+    }
+
+    /// <summary>
+    /// AJAX method to obtain a list of accounting cycles.
+    /// </summary>
+    /// <returns></returns>
+    public JsonResult GetAccountingCyclesFilter()
+    {
+      var accountingCycles = RevenueReportsHelper.GetAccountingCyclesWithDefault();
+      return Json(accountingCycles, JsonRequestBehavior.AllowGet);
+    }
+
+    /// <summary>
+    /// AJAX method to obtain a list of currencies.
+    /// </summary>
+    /// <returns></returns>
+    public JsonResult GetCurrencyFilter()
+    {
+      var products = RevenueReportsHelper.GetCurrencies();
+      return Json(products, JsonRequestBehavior.AllowGet);
     }
 
     /*public ActionResult Churn()
@@ -446,3 +457,4 @@ namespace ASP.Controllers
 
   }
 }
+

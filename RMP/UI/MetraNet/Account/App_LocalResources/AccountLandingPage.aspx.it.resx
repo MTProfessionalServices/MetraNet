@@ -118,75 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNT_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]Amount</value>
+    <value>Amount</value>
   </data>
   <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]Date</value>
+    <value>Date</value>
   </data>
   <data name="IDENTIFIER_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]Identifier</value>
+    <value>Identifier</value>
   </data>
   <data name="lblAccount360Title.Text" xml:space="preserve">
-    <value>[IT]Account 360</value>
+    <value>Account 360</value>
   </data>
   <data name="TYPE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]Type</value>
+    <value>Type</value>
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
-    <value>[IT]Billing Activity</value>
-  </data>  
+    <value>Billing Activity</value>
+  </data>
   <data name="billingSummaryPanel.Text" xml:space="preserve">
-    <value>[IT]Invoices and Payments</value>
-  </data>     
+    <value>Invoices and Payments</value>
+  </data>
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
-    <value>[IT]This account does not currently have any invoices or payments.</value>
+    <value>This account does not currently have any invoices or payments.</value>
   </data>
   <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
-    <value>[IT]This account currently does not have any subscriptions.</value>
+    <value>This account currently does not have any subscriptions.</value>
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
-    <value>[IT]Subscriptions</value>
-  </data>   
+    <value>Subscriptions</value>
+  </data>
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]End</value>
+    <value>End</value>
   </data>
   <data name="SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]Subscription</value>
+    <value>Subscription</value>
   </data>
   <data name="SUBSCRIPTION_START_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]Start</value>
+    <value>Start</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value>[IT]</value>
-  </data>  
+    <value>Type</value>
+  </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
-    <value>[IT]Add Subscription</value>
+    <value>Add Subscription</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>[IT]Create a new subscription to a Product Offering</value>
-  </data>    
+    <value>Create a new subscription to a Product Offering</value>
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
-    <value>[IT]Join Group Subscription</value>
-  </data>  
+    <value>Join Group Subscription</value>
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>[IT]Add this account as a member of an existing Group Subscription</value>
-  </data>      
+    <value>Add this account as a member of an existing Group Subscription</value>
+  </data>
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>[IT]Subscription</value>
-  </data>      
+    <value>Subscription</value>
+  </data>
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>[IT]Group Subscription</value>
-  </data>          
+    <value>Group Subscription</value>
+  </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
-    <value>[IT]Invoice</value>
-  </data>      
+    <value>Invoice</value>
+  </data>
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
-    <value>[IT]Payment</value>
-  </data>            
+    <value>Payment</value>
+  </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>[IT]No Transactions Found for the Current Interval</value>
-  </data>   
+    <value>No Transactions Found for the Current Interval</value>
+  </data>
   <data name="lblNowCast.Text" xml:space="preserve">
-    <value>[IT] NowCast</value>
-  </data>  
+    <value>NowCast</value>
+  </data>
 </root>

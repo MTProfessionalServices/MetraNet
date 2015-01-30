@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ShowExportQueueDashboardDetails"
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ShowExportQueueDashboardDetails"
   Title="Data Export Framework Work Queue" Culture="auto" UICulture="auto" CodeFile="ShowExportQueueDashboardDetails.aspx.cs" meta:resourcekey="PageResource1" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>

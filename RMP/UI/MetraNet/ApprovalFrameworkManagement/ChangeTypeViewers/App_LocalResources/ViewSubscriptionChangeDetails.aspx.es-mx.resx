@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LblAccountNameResource.Label" xml:space="preserve">
-    <value>[es-MX]Account</value>
+    <value>Account</value>
   </data>
   <data name="LblPoNameResource.Label" xml:space="preserve">
-    <value>[es-MX]Product Offering</value>
+    <value>Product Offering</value>
   </data>
   <data name="SubChangeBasicEndDateResource.Label" xml:space="preserve">
-    <value>[es-MX]End Date</value>
+    <value>End Date</value>
   </data>
   <data name="SubChangeBasicNextEndResource.Label" xml:space="preserve">
-    <value>[es-MX]Next end of payer's billing period after this date</value>
+    <value>Next end of payer's billing period after this date</value>
   </data>
   <data name="SubChangeBasicNextStartResource.Label" xml:space="preserve">
-    <value>[es-MX]Next start of payer's billing period after this date</value>
+    <value>Next start of payer's billing period after this date</value>
   </data>
   <data name="SubChangeBasicStartDateResource.Label" xml:space="preserve">
-    <value>[es-MX]Start Date</value>
+    <value>Start Date</value>
   </data>
   <data name="SUB_PROPS_SECTION_NAME" xml:space="preserve">
-    <value>[es-MX]Subscription Properties</value>
+    <value>Subscription Properties</value>
   </data>
   <data name="UDRC_SECTION_NAME" xml:space="preserve">
-    <value>[es-MX]Product Offering Recurring Charge Metrics</value>
+    <value>Product Offering Recurring Charge Metrics</value>
   </data>
   <data name="UDRC_NAME" xml:space="preserve">
-    <value>[es-MX]Metric Name</value>
+    <value>Metric Name</value>
   </data>
   <data name="NO_END_DATE" xml:space="preserve">
-    <value>[es-MX]No End Date</value>
+    <value>No End Date</value>
   </data>
   <data name="NOT_SET" xml:space="preserve">
-    <value>[es-MX] not set</value>
+    <value>not set</value>
   </data>
   <data name="SET" xml:space="preserve">
-    <value>[es-MX] set</value>
+    <value>set</value>
   </data>
 </root>

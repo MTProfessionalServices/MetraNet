@@ -32,6 +32,11 @@ public partial class DataExportReportManagement_ManageReportInstanceParameterVal
   protected void Page_Load(object sender, EventArgs e)
   {
     //prevPage = string.Empty;
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
 
     if( !IsPostBack )
  

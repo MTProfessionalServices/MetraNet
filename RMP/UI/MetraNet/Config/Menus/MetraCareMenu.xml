@@ -390,6 +390,45 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
+                <MenuSection>
+                    <ID>AccountConfigSets</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_AccountConfigSets</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description></Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>CreateAcs</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_CREATE_ACS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/AccountConfigSets/ManageAccountConfigSet.aspx?mode=ADD</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/add.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage OnBoard Templates</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AccountConfigSetList</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_AccountConfigSets_LIST</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/AccountConfigSets/AccountConfigSetList.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/report.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage OnBoard Templates</Capability>                                
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        
+                    </MenuItems>
+                </MenuSection>
             </MenuSections>
         </Menu>
         <Menu>
@@ -469,8 +508,10 @@
                             <Link>/MetraNet/BillMessages/BillMessageAccounts.aspx?Name=Core.BillMessages.BillMessageAccount&amp;Extension=Core&amp;NewBreadcrumb=True&amp;Association=MetraTech.BusinessEntity.Core.Model.AccountDef</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
-                            <Description>Assign Bill Messages</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <Description>Manage Bill Messages</Description>
+                            <RequiredCapabilities>
+                            	<Capability>Manage Bill Message</Capability>                           
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ViewOnlineBill</ID>
@@ -1034,8 +1075,10 @@
                             <Link>/MetraNet/BillMessages/BillMessageAccounts.aspx?Name=Core.BillMessages.BillMessageAccount&amp;Extension=Core&amp;NewBreadcrumb=True&amp;Association=MetraTech.BusinessEntity.Core.Model.AccountDef</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
-                            <Description>Assign Bill Messages</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <Description>Manage Bill Messages</Description>
+                            <RequiredCapabilities>
+                            	<Capability>Manage Bill Message</Capability>                           
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>

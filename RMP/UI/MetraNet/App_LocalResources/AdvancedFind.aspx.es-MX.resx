@@ -133,9 +133,9 @@
     <value>MetraNet</value>
   </data>
   <data name="InvoiceSearch.Text" xml:space="preserve">
-    <value>[es-MX]Search by Invoice Number</value>
+    <value>Search by Invoice Number</value>
   </data>
   <data name="labelInvoiceNumber.Text" xml:space="preserve">
-    <value>[es-MX]Invoice Number:</value>
+    <value>Invoice Number:</value>
   </data>
 </root>

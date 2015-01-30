@@ -20,6 +20,12 @@ public partial class RecurrencePattern : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage Scheduled Adapters"))
+    {
+      Response.End();
+      return;
+    }
+
     string adapterName = "";
     string eventID = "";
     ScheduleAdapterServiceClient schedAdapterClient = new ScheduleAdapterServiceClient();

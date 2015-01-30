@@ -217,7 +217,7 @@
     </div> 
     <!-- Change password on expiration -->
     <div id="changePasswordContainer">
-      <asp:Panel ID="pnlChangePassword" runat="server" Visible="False">
+      <asp:Panel ID="pnlChangePassword" DefaultButton="ChangePassword" runat="server" Visible="False">
        
           <u1>
                         <li>

@@ -9,6 +9,15 @@ public partial class Metraflow_Step_Log : MTPage
     set { ViewState["RouteTo"] = value; }
   }
 
+  protected void Page_load(EventArgs e)
+  {
+    if (!UI.CoarseCheckCapability("Manage FLS Files") && !UI.CoarseCheckCapability("View FLS Files"))
+    {
+      Response.End();
+      return;
+    }
+  }
+
   protected override void OnLoadComplete(EventArgs e)
   {
     if (Request.UrlReferrer != null)

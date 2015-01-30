@@ -118,44 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllDecisionsAccessToUsageRecord.Text" xml:space="preserve">
-    <value>Countable – This Decision Type will process all qualified usage records regardless of any previous Decision application. Subsequent Decisions, regardless of their domain, will not be impacted by the usage records processed by a Decision of this Decision Type.</value>
+    <value>Contável – Esse Tipo de decisão processará todos os registros de uso qualificados independentemente de qualquer aplicativo de Decisão anterior. As decisões subsequentes, independentemente do seu domínio, não serão afetadas pelos registros de uso processados por uma Decisão desse Tipo de decisão.</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnSaveAndContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnSaveAndContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="ddParamTableResource1.AllowBlank" type="System.Boolean, mscorlib">
+  <data name="ddParamTableResource1.AllowBlank" xml:space="preserve">
     <value>False</value>
   </data>
-  <data name="ddParamTableResource1.HideLabel" type="System.Boolean, mscorlib">
+  <data name="ddParamTableResource1.HideLabel" xml:space="preserve">
     <value>False</value>
   </data>
-  <data name="ddParamTableResource1.MaxLength" type="System.Int32, mscorlib">
+  <data name="ddParamTableResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="ddParamTableResource1.MinLength" type="System.Int32, mscorlib">
+  <data name="ddParamTableResource1.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ddParamTableResource1.ReadOnly" type="System.Boolean, mscorlib">
+  <data name="ddParamTableResource1.ReadOnly" xml:space="preserve">
     <value>False</value>
   </data>
   <data name="DecisionApportionQuestion.Text" xml:space="preserve">
-    <value>What is the domain of this Decision Type?  (This affects how usage records are processed by multiple Decisions.)</value>
+    <value>Qual é o domínio desse Tipo de decisão?  (Isso afeta o modo como os registros de uso são processados por Decisões múltiplas.)</value>
   </data>
   <data name="ExclusiveAccessToConsumedUsage.Text" xml:space="preserve">
-    <value>Ratable – This Decision Type will not process any portion of a usage record that was processed by a previous Ratable domain Decision. Subsequent Ratable domain Decisions will not process any portion of a usage record that was processed by a Decision of this Decision Type.</value>
+    <value>Proporcional – Esse Tipo de decisão não processará nenhuma parte de um registro de uso que foi processado por uma Decisão de domínio Proporcional anterior. As Decisões de domínio Proporcionais seguintes não processarão nenhuma parte de um registro de uso que foi processado por uma Decisão desse tipo.</value>
   </data>
   <data name="IntroInfo.Text" xml:space="preserve">
-    <value>If you have more than one configured Decision, consider how the Decisions might interact.</value>
+    <value>Se houver mais de uma Decisão configurada, considere como as Decisões podem interagir.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Interactions</value>
+    <value>Interações de decisão</value>
   </data>
   <data name="ListItemResource1.Value" xml:space="preserve">
     <value>ExclusiveAccessToConsumedUsage</value>

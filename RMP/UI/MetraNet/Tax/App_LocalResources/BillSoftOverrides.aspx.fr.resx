@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,131 +59,131 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Remplacements</value>
-  </data>
-  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>Gérer les remplacements</value>
-  </data>
-  <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
-    <value>ID du compte</value>
-  </data>
-  <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Actions</value>
-  </data>
-  <data name="TEXT_ADD" xml:space="preserve">
-    <value>Ajouter un remplacement</value>
-  </data>
-  <data name="TEXT_APPLY_TO_ACCOUNT_DESCENDENTS" xml:space="preserve">
-    <value>Appliquer aux descendants des comptes</value>
-  </data>
-  <data name="TEXT_CREATE_DATE" xml:space="preserve">
-    <value>Date de création</value>
-  </data>
-  <data name="TEXT_EDIT" xml:space="preserve">
-    <value>Modifier un remplacement</value>
-  </data>
-  <data name="TEXT_EFFECTIVE_DATE" xml:space="preserve">
-    <value>Date de validité</value>
-  </data>
-  <data name="TEXT_EXCESS_TAX_RATE" xml:space="preserve">
-    <value>Taxe excédentaire</value>
-  </data>
-  <data name="TEXT_EXEMPT_LEVEL" xml:space="preserve">
-    <value>Niveau d’exemption</value>
-  </data>
-  <data name="TEXT_LIMIT_INDICATOR" xml:space="preserve">
-    <value>Indicateur de limite</value>
-  </data>
-  <data name="TEXT_MAXIMUM_BASE" xml:space="preserve">
-    <value>Base maximum</value>
-  </data>
-  <data name="TEXT_PERMANENT_LOCATION_CODE" xml:space="preserve">
-    <value>Code d’emplacement permanent</value>
-  </data>
-  <data name="TEXT_REPLACE_TAX_LEVEL" xml:space="preserve">
-    <value>Remplacer le niveau de taxe</value>
-  </data>
-  <data name="TEXT_SCOPE" xml:space="preserve">
-    <value>Étendue</value>
-  </data>
-  <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>Date de début</value>
-  </data>
-  <data name="TEXT_TAX_LEVEL" xml:space="preserve">
-    <value>Niveau de taxe</value>
-  </data>
-  <data name="TEXT_TAX_RATE" xml:space="preserve">
-    <value>Taxe</value>
-  </data>
-  <data name="TEXT_TAX_TYPE" xml:space="preserve">
-    <value>Type de taxe</value>
-  </data>
-  <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>ID d’exemption de taxe</value>
-  </data>
-  <data name="TEXT_UPDATE_DATE" xml:space="preserve">
-    <value>Date de mise à jour</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Remplacements</value>
+    </data>
+    <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+        <value>Gérer les remplacements</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
+        <value>ID du compte</value>
+    </data>
+    <data name="TEXT_ACTIONS" xml:space="preserve">
+        <value>Actions</value>
+    </data>
+    <data name="TEXT_ADD" xml:space="preserve">
+        <value>Ajouter un remplacement</value>
+    </data>
+    <data name="TEXT_APPLY_TO_ACCOUNT_DESCENDENTS" xml:space="preserve">
+        <value>Appliquer aux descendants des comptes</value>
+    </data>
+    <data name="TEXT_CREATE_DATE" xml:space="preserve">
+        <value>Date de création</value>
+    </data>
+    <data name="TEXT_EDIT" xml:space="preserve">
+        <value>Modifier un remplacement</value>
+    </data>
+    <data name="TEXT_EFFECTIVE_DATE" xml:space="preserve">
+        <value>Date de validité</value>
+    </data>
+    <data name="TEXT_EXCESS_TAX_RATE" xml:space="preserve">
+        <value>Taxe excédentaire</value>
+    </data>
+    <data name="TEXT_EXEMPT_LEVEL" xml:space="preserve">
+        <value>Niveau d’exemption</value>
+    </data>
+    <data name="TEXT_LIMIT_INDICATOR" xml:space="preserve">
+        <value>Indicateur de limite</value>
+    </data>
+    <data name="TEXT_MAXIMUM_BASE" xml:space="preserve">
+        <value>Base maximum</value>
+    </data>
+    <data name="TEXT_PERMANENT_LOCATION_CODE" xml:space="preserve">
+        <value>Code d’emplacement permanent</value>
+    </data>
+    <data name="TEXT_REPLACE_TAX_LEVEL" xml:space="preserve">
+        <value>Remplacer le niveau de taxe</value>
+    </data>
+    <data name="TEXT_SCOPE" xml:space="preserve">
+        <value>Étendue</value>
+    </data>
+    <data name="TEXT_START_DATE" xml:space="preserve">
+        <value>Date de début</value>
+    </data>
+    <data name="TEXT_TAX_LEVEL" xml:space="preserve">
+        <value>Niveau de taxe</value>
+    </data>
+    <data name="TEXT_TAX_RATE" xml:space="preserve">
+        <value>Taxe</value>
+    </data>
+    <data name="TEXT_TAX_TYPE" xml:space="preserve">
+        <value>Type de taxe</value>
+    </data>
+    <data name="TEXT_UNIQUE_ID" xml:space="preserve">
+        <value>ID d’exemption de taxe</value>
+    </data>
+    <data name="TEXT_UPDATE_DATE" xml:space="preserve">
+        <value>Date de mise à jour</value>
+    </data>
 </root>

@@ -368,8 +368,9 @@ Function InstallDatabase()
    If Not ExecuteCommand (MakeBinPath("usm.exe -createref")) Then Exit Function
    WriteLog "     Adding Product Views"
    If Not ExecuteCommand (MakeBinPath("AddProductView.exe -a create -l all")) Then Exit Function
-   If Not RunHook        ("Capability",          "MetraHook.MTCapabilityHook")                    Then Exit Function
-
+   'If Not RunHook        ("Capability",          "MetraHook.MTCapabilityHook")                    Then Exit Function
+   If Not RunHook        ("Capability",         "MetraTech.Security.Hooks.CapabilityHook")       Then Exit Function
+  
    If Not UpgradeSchema(gsDBName, "NetMeter", "PostSync") Then Exit Function
 
    WriteLog "     Adding Sample Accounts"
@@ -552,7 +553,8 @@ Function SynchronizeExtensions()
   If Not RunHook        ("Adjustments",        "MetraTech.Adjustments.Hooks.AdjustmentHook")    Then Exit Function
   If Not RunHook        ("PI Type",            "MetraTech.Product.Hooks.PriceableItemTypeHook") Then Exit Function
 
-  If Not RunHook        ("Capability",         "MetraHook.MTCapabilityHook")                    Then Exit Function
+  'If Not RunHook        ("Capability",         "MetraHook.MTCapabilityHook")                    Then Exit Function
+  If Not RunHook        ("Capability",         "MetraTech.Security.Hooks.CapabilityHook")       Then Exit Function
   If Not RunSecuredHook ("Security Policy",    "MetraHook.MTSecurityPolicyHook")                Then Exit Function
 
   If Not RunSecuredHook ("Usage Server",       "MetraTech.UsageServer.Hook")                    Then Exit Function

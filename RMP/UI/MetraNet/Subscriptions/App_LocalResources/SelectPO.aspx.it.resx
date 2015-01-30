@@ -160,6 +160,6 @@
     <value>Data di inizio</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[IT]Partition Id</value>
+    <value>Partition Id</value>
   </data>
 </root>

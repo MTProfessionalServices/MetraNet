@@ -24,9 +24,11 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/chart_bar.png</Icon>
                             <Description>MetraNet Reports</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage System User Reports</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
-                        <!--MenuItem>
+                        <MenuItem>
                             <ID>ReportsMetraControlDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_OPERATIONS_DASHBOARD</LocalizationTag>
@@ -37,9 +39,8 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>MetraOffer Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem-->
-						<!--
-                        <MenuItem>
+                        </MenuItem>
+						            <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>
                               <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
@@ -50,9 +51,8 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Product Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
-						-->
-						<!--
+                        </MenuItem>	
+                        
                         <MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
@@ -63,9 +63,10 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Finance Dashboard</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
-						-->
+                            <RequiredCapabilities>
+                              <Capability>View Summary Financial Information</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>						
                     </MenuItems>
                 </MenuSection>
             </MenuSections>

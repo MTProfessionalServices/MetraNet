@@ -118,69 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lbChargeValueResource1.Text" xml:space="preserve">
-    <value>[es-MX]What should the value of the Charge/Credit be?</value>
+    <value>What should the value of the Charge/Credit be?</value>
   </data>
   <data name="lbHowApplied.Text" xml:space="preserve">
-    <value>[es-MX]How should the Charge/Credit be applied?</value>
+    <value>How should the Charge/Credit be applied?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[es-MX]Charge/Credit: Attributes</value>
+    <value>Charge/Credit: Attributes</value>
   </data>
   <data name="lbNegativeValueResource1.Text" xml:space="preserve">
-    <value>[es-MX]A negative value indicates a credit.</value>
+    <value>A negative value indicates a credit.</value>
   </data>
   <data name="lbPositiveValueResource1.Text" xml:space="preserve">
-    <value>[es-MX]A positive value indicates a charge.</value>
+    <value>A positive value indicates a charge.</value>
   </data>
   <data name="lbWhenGenerate.Text" xml:space="preserve">
-    <value>[es-MX]When should the new Charge/Credit be generated?</value>
+    <value>When should the new Charge/Credit be generated?</value>
   </data>
   <data name="lbSelectFromGrid.Text" xml:space="preserve">
-    <value>[es-MX]Select a Generated Charge/Credit from the grid or add a new one:</value>
+    <value>Select a Generated Charge/Credit from the grid or add a new one:</value>
   </data>
   <data name="radAggrMultText" xml:space="preserve">
-    <value>[es-MX]As an aggregate multiplier</value>
+    <value>As an aggregate multiplier</value>
   </data>
 	<data name="radParamTableText" xml:space="preserve">
-    <value>[es-MX]From parameter table</value>
+    <value>From parameter table</value>
   </data>
 	<data name="radEntireValueText" xml:space="preserve">
-    <value>[es-MX]Apply the entire charge/credit value</value>
+    <value>Apply the entire charge/credit value</value>
   </data>
   <data name="radEveryTimeText" xml:space="preserve">
-    <value>[es-MX]Every time a usage record falls within the Decision Range.</value>
+    <value>Every time a usage record falls within the Decision Range.</value>
   </data>
   <data name="radInvPropText" xml:space="preserve">
-    <value>[es-MX]Inversely proportionally</value>
+    <value>Inversely proportionally</value>
   </data>
   <data name="radOnceAfterSummedText" xml:space="preserve">
-    <value>[es-MX]Only once, after all the usage records have been summed, if the total falls within the Decision Range.</value>
+    <value>Only once, after all the usage records have been summed, if the total falls within the Decision Range.</value>
   </data>
   <data name="radOnceFirstEnterText" xml:space="preserve">
-    <value>[es-MX]Only once, when a usage record first causes the total to &lt;i&gt;enter&lt;/i&gt; the Decision Range.</value>
+    <value>Only once, when a usage record first causes the total to &lt;i&gt;enter&lt;/i&gt; the Decision Range.</value>
   </data>
   <data name="radOnceFirstExitText" xml:space="preserve">
-    <value>[es-MX]Only once, when a usage record first causes the total to &lt;i&gt;exit&lt;/i&gt; the Decision Range.</value>
+    <value>Only once, when a usage record first causes the total to &lt;i&gt;exit&lt;/i&gt; the Decision Range.</value>
   </data>
   <data name="radPropText" xml:space="preserve">
-    <value>[es-MX]Proportionally</value>
+    <value>Proportionally</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>[es-MX]Create New Generated Charge</value>
+    <value>Create New Generated Charge</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>[es-MX]Create a new Generated Charge or Credit</value>
+    <value>Create a new Generated Charge or Credit</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_CHARGE_COLUMN_NAMES" xml:space="preserve">
-    <value>[es-MX]An error occurred while retrieving Charge Column Names from table '{0}'</value>
+    <value>An error occurred while retrieving Charge Column Names from table '{0}'</value>
   </data>
   <data name="TEXT_ERROR_NO_GENERATED_CHARGE" xml:space="preserve">
-    <value>[es-MX]Error: You must select a Charge/Credit in the grid</value>
+    <value>Error: You must select a Charge/Credit in the grid</value>
   </data>
   <data name="GENERATEDCHARGES_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Generated Charges/Credits</value>
+    <value>Generated Charges/Credits</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_CHARGE_CREDIT_ATTRIBUTE" xml:space="preserve">
-    <value>[es-MX]An error occurred while updating the generated charge attributes of Decision Type: </value>
+    <value>An error occurred while updating the generated charge attributes of Decision Type: </value>
   </data>
 </root>

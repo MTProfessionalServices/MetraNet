@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,131 +59,164 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
-    <value>Activation Date</value>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="TEXT_CONTROL_FILE_LOCATION" xml:space="preserve">
+        <value>Control File Location</value>
+    </data>
+    <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
+        <value>Activation Date</value>
+    </data>
+    <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
+        <value>Compress Report</value>
+    </data>
+    <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
+        <value>Compress Threshold (KB)</value>
+    </data>
+    <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
+        <value>Control File Destination</value>
+    </data>
+    <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
+        <value>Deactivation Date</value>
+    </data>
+    <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
+        <value>Delivery Method</value>
+    </data>
+    <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
+        <value>Destination</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
+        <value>Execution Type</value>
+    </data>
+    <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
+        <value>Generate Control File</value>
+    </data>
+    <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
+        <value>Instance ID</value>
+    </data>
+    <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
+        <value>Last Run Date</value>
+    </data>
+    <data name="TEXT_DEF_NAME" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
+        <value>Next Run Date</value>
+    </data>
+    <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
+        <value>Write Exec Parameters to Output</value>
+    </data>
+    <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
+        <value>FTP Password</value>
+    </data>
+    <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
+        <value>Report ID</value>
+    </data>
+    <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
+        <value>Output File Distribution Method </value>
+    </data>
+    <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
+        <value>Output Type</value>
+    </data>
+    <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
+        <value>Report Title</value>
+    </data>
+    <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
+        <value>Use Quoted Identifiers</value>
+    </data>
+    <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
+        <value>FTP User Name</value>
+    </data>
+    <data name="TEXT_DEF_VALUE" xml:space="preserve">
+        <value>Value</value>
+    </data>
+    <data name="TEXT_EXPORT_FILE_DESTINATION" xml:space="preserve">
+        <value>Export File Location</value>
+    </data>
+    <data name="TEXT_FTP_ACCESS_PASSWORD" xml:space="preserve">
+        <value>FTP Access Password</value>
+    </data>
+    <data name="TEXT_FTP_USER" xml:space="preserve">
+        <value>FTP Access User</value>
+    </data>
+    <data name="TEXT_GENERATE_CONTROL_FILE" xml:space="preserve">
+        <value>Generate Control File</value>
+    </data>
+    <data name="TEXT_REPORT_DESTINATION" xml:space="preserve">
+        <value>Report Destination</value>
+    </data>
+    <data name="TEXT_REPORT_INSTANCE_DETAILS" xml:space="preserve">
+        <value>Report Instance Details </value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>Add New Report Instance</value>
+    </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>Add New Report Instance</value>
   </data>
-  <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
-    <value>Compress Report</value>
+  <data name="btnOKResource1.Text" xml:space="preserve">
+    <value>OK</value>
   </data>
-  <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
-    <value>Compress Threshold(KB)</value>
-  </data>
-  <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
-    <value>Control File Destination</value>
-  </data>
-  <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
-    <value>Deactivation Date</value>
-  </data>
-  <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
-    <value>Delivery Method</value>
-  </data>
-  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
-    <value>Destination</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-    <value>Execution Type</value>
-  </data>
-  <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
-    <value>Generate Control File</value>
-  </data>
-  <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
-    <value>Instance ID</value>
-  </data>
-  <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
-    <value>Last Run Date</value>
-  </data>
-  <data name="TEXT_DEF_NAME" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
-    <value>Next Run Date</value>
-  </data>
-  <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
-    <value>Write Exec Parameters to Output</value>
-  </data>
-  <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
-    <value>FTP Password</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
-    <value>Report ID</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
-    <value>Output File Name</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
-    <value>Output Type</value>
-  </data>
-  <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
-    <value>Report Title</value>
-  </data>
-  <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
-    <value>Use Quoted Identifiers</value>
-  </data>
-  <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
-    <value>FTP User Name</value>
-  </data>
-  <data name="TEXT_DEF_VALUE" xml:space="preserve">
-    <value>Value</value>
+  <data name="btnCancelResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
 </root>

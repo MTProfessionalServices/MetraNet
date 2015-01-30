@@ -150,4 +150,19 @@
   <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
     <value>Titolo del rapporto</value>
   </data>
+  <data name="TEXT_AUDIT_ID" xml:space="preserve">
+    <value>ID di revisione</value>
+  </data>
+  <data name="TEXT_DEF_DELIVERY_TYPE_TEXT" xml:space="preserve">
+    <value>relazione di tipo di distribuzione del testo</value>
+  </data>
+  <data name="TEXT_DEF_INSTANCE_RUN_STATUS" xml:space="preserve">
+    <value>Istanza Run Risultato</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_FILENAME" xml:space="preserve">
+    <value>nome del file di output</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE_TEXT" xml:space="preserve">
+    <value>relazione di tipo output di testo</value>
+  </data>
 </root>

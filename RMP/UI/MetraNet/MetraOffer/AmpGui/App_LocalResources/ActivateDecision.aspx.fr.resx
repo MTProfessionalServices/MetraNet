@@ -117,17 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
+  <data name="ErrorCheckFirstLabel.Text" xml:space="preserve">
+    <value>Vous devez effectuer un contrôle d’erreurs avant d’activer votre type de décision.</value>
+  </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Activation Results</value>
+    <value>Résultats d’activation</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
-  </data>
-  <data name="ErrorCheckFirstLabel.Text" xml:space="preserve">
-    <value>You must do an Error Check before activating your Decision Type.</value>
   </data>
 </root>

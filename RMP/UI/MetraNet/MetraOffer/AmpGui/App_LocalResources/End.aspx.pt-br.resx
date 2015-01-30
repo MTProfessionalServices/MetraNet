@@ -117,15 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnYesResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnYesResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>End</value>
+    <value>Término</value>
   </data>
   <data name="PageResource2.Title" xml:space="preserve">
     <value>MetraNet</value>

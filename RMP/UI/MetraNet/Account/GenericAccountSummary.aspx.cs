@@ -24,8 +24,7 @@ public partial class Account_GenericAccountSummary : MTPage
       MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
       MTGenericForm1.RenderObjectType = ActiveAccount.GetType();
       MTGenericForm1.RenderObjectInstanceName = "ActiveAccount";
-      MTGenericForm1.TemplatePath = TemplatePath;  // +@"\AccountSummary\";
-      MTGenericForm1.TemplateName = MTGenericForm1.RenderObjectType.Name;
+      MTGenericForm1.TemplatePath = TemplatePath;
       MTGenericForm1.ReadOnly = true;
       var Properties = ActiveAccount.GetType().GetProperties();
       foreach (var property in Properties)

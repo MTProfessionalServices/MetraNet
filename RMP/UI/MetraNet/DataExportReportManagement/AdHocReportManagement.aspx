@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_AdHocReportManagement"
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_AdHocReportManagement"
   Title="Adhoc Reports" Culture="auto" UICulture="auto" CodeFile="AdHocReportManagement.aspx.cs" meta:resourcekey="PageResource1" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
@@ -26,25 +26,26 @@
     TotalProperty="TotalRows"></MT:MTFilterGrid>
     
   <script language="javascript" type="text/javascript">
+    var textDelete_Report = '<%=GetGlobalResourceObject("JSConsts", "TEXT_Delete_Queue_AdHoc_Reports")%>';
 
     OverrideRenderer_<%= MyGrid1.ClientID %> = function(cm)
-  {
-    cm.setRenderer(cm.getIndexById('ReportID'), reportidColRenderer); 
-  }
+    {
+      cm.setRenderer(cm.getIndexById('ReportID'), reportidColRenderer); 
+    }
   
-  function reportidColRenderer(value, meta, record, rowIndex, colIndex, store)
-  {
-    var str = "";
-    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}'   href='JavaScript:queueadhocreports(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/database_edit.png' alt='{2}' /></a>", record.data.ReportID, escape(record.data.ReportTitle),"Queue AdHoc Reports");
+    function reportidColRenderer(value, meta, record, rowIndex, colIndex, store)
+    {
+      var str = "";
+      str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}'   href='JavaScript:queueadhocreports(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/database_edit.png' alt='{2}' /></a>", record.data.ReportID, escape(record.data.ReportTitle),textDelete_Report);
 
-    return str;
-  }
+      return str;
+    }
   
     
-  function queueadhocreports(ReportID, ReportTitle)
-  {
-     location.href = '/MetraNet/DataExportReportManagement/QueueAdhocReports.aspx?reportid=' + ReportID + '&reporttitle=' + ReportTitle;
-  }  
-  
+    function queueadhocreports(ReportID, ReportTitle)
+    {
+      location.href = '/MetraNet/DataExportReportManagement/QueueAdhocReports.aspx?reportid=' + ReportID + '&reporttitle=' + ReportTitle;
+    }
+
   </script>
 </asp:Content>

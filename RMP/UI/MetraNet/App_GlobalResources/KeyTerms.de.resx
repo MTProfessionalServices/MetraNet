@@ -259,12 +259,12 @@
     <value>Nutzungsgebühren (aufaddiert)</value>
   </data>
   <data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-	<value>[DE]Core Subscriber</value>
+	<value>Core Subscriber</value>
   </data>
   <data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-	<value>[DE]Department Account</value>
+	<value>Department Account</value>
   </data>
   <data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-	<value>[DE]GSM Service Account</value>
+	<value>GSM Service Account</value>
   </data>
 </root>

@@ -108,29 +108,29 @@
           <div class="editor-field">@Html.TextAreaFor(m => m.StringValue, new { @tabindex = "50" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.StringValue)</span></div>  
           
           <div class="editor-label">@Html.LabelFor(m => m.Length)</div>
-          <div class="editor-field">@Html.TextBoxFor(m => m.Length, new { @tabindex = "60" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Length)</span></div>  
+          <div class="editor-field">@Html.TextBoxFor(m => m.Length, new { @tabindex = "60" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Length, @Resources.Resource.ValidationMustBeNumber)</span></div>  
         </div>
     
         <div id="DivInt" class="dataChoice" style="display: none">
           <div class="editor-label">@Html.LabelFor(m => m.IntValue)</div>
-          <div class="editor-field">@Html.TextBoxFor(m => m.IntValue, new { @tabindex = "70" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.IntValue)</span></div>  
+          <div class="editor-field">@Html.TextBoxFor(m => m.IntValue, new { @tabindex = "70" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.IntValue, @Resources.Resource.ValidationMustBeNumber)</span></div>  
           
           <div class="editor-label">@Html.LabelFor(m => m.Min)</div>
-          <div class="editor-field">@Html.TextBoxFor(m => m.Min, new { @tabindex = "80" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Min)</span></div>  
+          <div class="editor-field">@Html.TextBoxFor(m => m.Min, new { @tabindex = "80" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Min, @Resources.Resource.ValidationMustBeNumber)</span></div>  
    
           <div class="editor-label">@Html.LabelFor(m => m.Max)</div>
-          <div class="editor-field">@Html.TextBoxFor(m => m.Max, new { @tabindex = "90" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Max)</span></div>  
+          <div class="editor-field">@Html.TextBoxFor(m => m.Max, new { @tabindex = "90" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.Max, @Resources.Resource.ValidationMustBeNumber)</span></div>  
         </div>
     
         <div id="DivDecimal" class="dataChoice" style="display: none">
           <div class="editor-label">@Html.LabelFor(m => m.DecimalValue)</div>
-          <div class="editor-field">@Html.TextBoxFor(m => m.DecimalValue, new { @tabindex = "100" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.DecimalValue)</span></div>  
+          <div class="editor-field">@Html.TextBoxFor(m => m.DecimalValue, new { @tabindex = "100" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.DecimalValue, @Resources.Resource.ValidationMustBeNumber)</span></div>  
 
           <div class="editor-label">@Html.LabelFor(m => m.MinDecimal)</div>
-          <div class="editor-field">@Html.TextBoxFor(m => m.MinDecimal, new { @tabindex = "110" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.MinDecimal)</span></div>  
+          <div class="editor-field">@Html.TextBoxFor(m => m.MinDecimal, new { @tabindex = "110" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.MinDecimal, @Resources.Resource.ValidationMustBeNumber)</span></div>  
    
           <div class="editor-label">@Html.LabelFor(m => m.MaxDecimal)</div>
-          <div class="editor-field">@Html.TextBoxFor(m => m.MaxDecimal, new { @tabindex = "120" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.MaxDecimal)</span></div>  
+          <div class="editor-field">@Html.TextBoxFor(m => m.MaxDecimal, new { @tabindex = "120" }) <span class="editor-validate">@Html.ValidationMessageFor(m => m.MaxDecimal, @Resources.Resource.ValidationMustBeNumber)</span></div>  
         </div>
     
         <div id="DivList" class="dataChoice" style="display: none">

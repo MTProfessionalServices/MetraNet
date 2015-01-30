@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,134 +59,134 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="AMOUNT_COL_HEADER_TEXT" xml:space="preserve">
-    <value>Amount</value>
-  </data>
-  <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="IDENTIFIER_COL_HEADER_TEXT" xml:space="preserve">
-    <value>Identifier</value>
-  </data>
-  <data name="lblAccount360Title.Text" xml:space="preserve">
-    <value>Account 360</value>
-  </data>
-  <data name="TYPE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="billingActivityPanel.Text" xml:space="preserve">
-    <value>Billing Activity</value>
-  </data>
-  <data name="billingSummaryPanel.Text" xml:space="preserve">
-    <value>Invoices and Payments</value>
-  </data>
-  <data name="NO_INVOICES_TEXT" xml:space="preserve">
-    <value>This account does not currently have any invoices or payments.</value>
-  </data>
-  <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
-    <value>This account currently does not have any subscriptions.</value>
-  </data>
-  <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
-    <value>Subscriptions</value>
-  </data>
-  <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
-    <value>End</value>
-  </data>
-  <data name="SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT" xml:space="preserve">
-    <value>Subscription</value>
-  </data>
-  <data name="SUBSCRIPTION_START_HEADER_TEXT" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
-    <value>Add Subscription</value>
-  </data>
-  <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>Create a new subscription to a Product Offering</value>
-  </data>  
-  <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
-    <value>Join Group Subscription</value>
-  </data>
-  <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>Add this account as a member of an existing Group Subscription</value>
-  </data>    
-  <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>Subscription</value>
-  </data>      
-  <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>Group Subscription</value>
-  </data>        
-  <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
-    <value>Invoice</value>
-  </data>      
-  <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
-    <value>Payment</value>
-  </data>          
-  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>No Transactions Found for the Current Interval</value>
-  </data>   
-  <data name="lblNowCast.Text" xml:space="preserve">
-    <value>NowCast</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AMOUNT_COL_HEADER_TEXT" xml:space="preserve">
+        <value>Amount</value>
+    </data>
+    <data name="billingActivityPanel.Text" xml:space="preserve">
+        <value>Billing Activity</value>
+    </data>
+    <data name="billingSummaryPanel.Text" xml:space="preserve">
+        <value>Invoices and Payments</value>
+    </data>
+    <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
+        <value>Date</value>
+    </data>
+    <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
+        <value>Group Subscription</value>
+    </data>
+    <data name="IDENTIFIER_COL_HEADER_TEXT" xml:space="preserve">
+        <value>Identifier</value>
+    </data>
+    <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
+        <value>Invoice</value>
+    </data>
+    <data name="lblAccount360Title.Text" xml:space="preserve">
+        <value>Account 360</value>
+    </data>
+    <data name="lblNowCast.Text" xml:space="preserve">
+        <value>NowCast</value>
+    </data>
+    <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+        <value>No Transactions Found for the Current Interval</value>
+    </data>
+    <data name="NO_INVOICES_TEXT" xml:space="preserve">
+        <value>This account does not currently have any invoices or payments.</value>
+    </data>
+    <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
+        <value>This account currently does not have any subscriptions.</value>
+    </data>
+    <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
+        <value>Payment</value>
+    </data>
+    <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
+        <value>Add Subscription</value>
+    </data>
+    <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
+        <value>Create a new subscription to a Product Offering</value>
+    </data>
+    <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
+        <value>End</value>
+    </data>
+    <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
+        <value>Subscriptions</value>
+    </data>
+    <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
+        <value>Join Group Subscription</value>
+    </data>
+    <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
+        <value>Add this account as a member of an existing Group Subscription</value>
+    </data>
+    <data name="SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT" xml:space="preserve">
+        <value>Subscription</value>
+    </data>
+    <data name="SUBSCRIPTION_START_HEADER_TEXT" xml:space="preserve">
+        <value>Start</value>
+    </data>
+    <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
+        <value>Type</value>
+    </data>
+    <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
+        <value>Subscription</value>
+    </data>
+    <data name="TYPE_COL_HEADER_TEXT" xml:space="preserve">
+        <value>Type</value>
+    </data>
 </root>

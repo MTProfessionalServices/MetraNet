@@ -168,7 +168,7 @@ function fnVisualizeLineChart(objLineChartConfig) {
 
 
 function fnVisualizeLineChart2(objLineChartConfig) {
-
+    d3.select(objLineChartConfig.elementId).selectAll("svg > *").remove();
     var data = objLineChartConfig.data;
     var colordata = objLineChartConfig.colordata;
 
@@ -215,7 +215,7 @@ function fnVisualizeLineChart2(objLineChartConfig) {
         var colorData = {
             name: name,
             values: data.map(function (d) {
-                var dataObj = { x_axis: d[X_AXIS_COLUMN], y_axis: +d[name] };
+                var dataObj = { x_axis: d[X_AXIS_COLUMN], y_axis: +d[name] , name : d.adapter};
                 return dataObj;
             }
                )
@@ -322,15 +322,128 @@ function fnVisualizeLineChart2(objLineChartConfig) {
           .attr("transform", function (d) { return "translate(" + x(d.value.x_axis) + "," + y(d.value.y_axis) + ")"; })
           .attr("x", 3)
           .attr("dy", ".35em");
-    //.text(function (d) { return d.name; });
 
+          
+          var mygforeachline = currLine.append("g")          
+          .attr("class","dc-tooltip-0");
+          
+          var inners = mygforeachline.selectAll("circle")
+          .data(function (d) { return d.values;})
+          .enter()
+          .append("circle").attr("cx",function (d) { 
+                  var body = d3.select("body");
+                  var tmp = body.append("div")
+                  .attr("class", "d3-tip e")
+                  .attr("id", "_" +parseInt(x(d.x_axis) , 10)+ "_" + parseInt(y(d.y_axis), 10))
+                  .style("top","\""+x(d.x_axis)+"\"")
+                  .style("left","\""+y(d.y_axis)+"\"")
+                  .style("position", "absolute")
+                  .style("opacity", "0")
+                  .style("pointer-events", "none")
+                  .append("div")
+                  .style("width", "250px");
+                  tmp.append("div").html(d.name);
+                  tmp.append("div")
+                  .html(d.y_axis + " Seconds");
+         
+                return x(d.x_axis);})
+          .attr("cy",function (d) { return y(d.y_axis);})
+          .attr("class", "dot")
+          .attr("r", "3")
+          .attr("fill","#00B0F0")
+          .style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6")
+          .on("mouseover", function(d, i) {
+          var dpX = d3.select(this).attr('cx');
+          var dpY = d3.select(this).attr('cy');
+          d3.select(this).attr("r", "5").style("fill-opacity", "0.8")
+          .style("stroke-opacity", "0.8");
+          svg.append("svg:line")
+                    .attr("x1", dpX)
+                    .attr("y1", dpY)
+                    .attr("x2", 0)
+                    .attr("y2", dpY)
+                    .style("stroke-dasharray", ("5, 4"))
+                    .style("stroke-opacity", 0.9)
+                    .style("stroke","gray").attr("class","mylegend");
+          svg.append("svg:line")
+                    .attr("x1", dpX)
+                    .attr("y1", dpY)
+                    .attr("x2", dpX)
+                    .attr("y2", height)
+                    .style("stroke-dasharray", ("5, 4"))
+                    .style("stroke-opacity", 0.9)
+                    .style("stroke","gray").attr("class","mylegend");
+          var scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
+          scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+          d3.select("#_"+ parseInt(x(d.x_axis),10) + "_" + parseInt(y(d.y_axis), 10)).style("opacity", "1").style("pointer-events", "all");
+          d3.select("#_"+ parseInt(x(d.x_axis),10) + "_" + parseInt(y(d.y_axis),10)).style(
+          {top: (d3.event.pageY) + scrollTop - 40+ 'px',
+           left: (d3.event.pageX) +  scrollLeft + 10+'px'});
+          })
+          .on('mouseout', function(d, i) {
+            d3.select(this).attr("r", "3").style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6");
+            d3.selectAll(".mylegend").remove();
+          d3.select("#_"+ parseInt(x(d.x_axis),10) + "_" + parseInt(y(d.y_axis),10)).style("opacity", "0").style("pointer-events", "none");
+          });
+          
 
+/*          var body = d3.select("body");
+          var mydivs = body.selectAll(".div")
+          .data(series)
+          .enter()
+          .append("div")
+          .attr("class", function (d) { return d.name;});
+          
+          mydivs
+          .selectAll("div")
+          .data(function(d) { return d.values;})
+          .enter()
+          .append("div")
+          .attr("class", "d3-tip e")
+          .style("top",function (d) { return x(d.x_axis);})
+          .style("left",function (d) { return y(d.y_axis);})
+          .style("position", "absolute")
+          .style("opacity", "0")
+          .style("pointer-events", "none")
+          .on('mouseover', function(d){
+              d3.select(this).attr("opacity", "1").attr("pointer-events", "all");
+              })
+          .on('mouseout', function(d){
+              d3.select(this).attr("opacity", "0").attr("pointer-events", "none");
+          })          
+          .append("div")
+          .style("width", "150px")
+          .attr("class", "mywrapper");
+          var wrapper = d3.selectAll(".mywrapper");
+          wrapper.append("div")
+          .html(function(d){
+            return d.name;
+            });
+          wrapper.append("div")
+          .html(function(d){
+            return d.y_axis + " Seconds" ;
+            });
+          
+
+*/
+/*          var tooltipsdivs = svg.select("#divActiveBillRun").append mygforeachline.selectAll("div")
+          .data(function (d) { return d.values;})
+          .enter()
+          .append("div")
+          .attr("top",function (d) { return x(d.x_axis);})
+          .attr("left",function (d) { return y(d.y_axis);})
+          .attr("class", "d3-tip e")
+          .attr("position", "absolute")
+          .attr("fill","#00B0F0")
+          .style("fill-opacity", "0.3")
+          .style("stroke-opacity", "0.6")*/
+ //         .append("title").text(function (d) { return  d.name + " : " + d.y_axis +" Seconds";}).attr("class", "d3-tip");
     return this;
 }
 
-
 //CreateLegend('legend', svglegend);
-
 function CreateLegend(data,svglegend) {
     
     rectangle = svglegend.selectAll("rect").data(data).enter().append("rect");
@@ -338,7 +451,56 @@ function CreateLegend(data,svglegend) {
                        .attr("y", function (d) { return d.y_axis; })
                        .attr("width", 30)
                        .attr("height", 10)
-                       .style("fill", function (d) { return d.color; });
+                       .style("fill", function (d) { return d.color; })
+                        .on("mouseover", function (d, i) {
+                          gs = d3.select("#svgActiveBillRun").selectAll(".currLine");
+                          paths = gs.selectAll(".line").each(function (p, i) {
+                            if (d.text == "Current Run") {
+                              if (p.name != "duration") {
+                                d3.select(this).attr("opacity", "0.5")
+                                                .attr("stroke-dasharray", "(3,3)");
+                              } else {
+                                d3.select(this)
+                                  .attr("stroke-width", "2")
+                              }
+                            } else {
+                              if (p.name == "duration") {
+                                d3.select(this).attr("opacity", "0.5")
+                                .attr("stroke-width", "0.5")
+                                .attr("stroke-dasharray", "(3,3)");
+                              } else {
+                                d3.select(this)
+                                  .attr("stroke-width", "2")
+                              }
+                            }
+                          });
+                        })
+                          .on("mouseout", function (d, i) {
+
+                            gs = d3.select("#svgActiveBillRun").selectAll(".currLine");
+                            paths = gs.selectAll(".line").each(function (p, i) {
+                              if (d.text == "Current Run") {
+                                if (p.name != "duration") {
+                                  d3.select(this).attr("opacity", "1")
+                                                  .attr("stroke-dasharray", "");
+                                } else {
+                                  d3.select(this)
+                                    .attr("stroke-width", "1")
+                                }
+                              } else {
+                                if (p.name == "duration") {
+                                  d3.select(this).attr("opacity", "1")
+                                  .attr("stroke-width", "1")
+                                  .attr("stroke-dasharray", "");
+                                } else {
+                                  d3.select(this)
+                                    .attr("stroke-width", "1")
+                                }
+                              }
+                            });
+
+                          });
+
 
 
 

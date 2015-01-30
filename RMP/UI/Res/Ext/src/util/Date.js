@@ -845,7 +845,7 @@ dt = Date.parseDate("2006-02-29 03:20:01", "Y-m-d H:i:s", true); // returns null
             c:"if (/(am)/i.test(results[{0}])) {\n"
                 + "if (!h || h == 12) { h = 0; }\n"
                 + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
-            s:"(AM|PM|am|pm)"
+            s:"(AM|PM|am|pm|p.m.|a.m.)"
         },
         g: function() {
             return $f("G");

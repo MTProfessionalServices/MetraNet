@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Create Weekly Report Schedule" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="CreateScheduleReportInstanceWeekly.aspx.cs" Inherits="DataExportReportManagement_CreateScheduleReportInstanceWeekly" meta:resourcekey="PageResource1"  Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="Create Weekly Report Schedule" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="CreateScheduleReportInstanceWeekly.aspx.cs" Inherits="DataExportReportManagement_CreateScheduleReportInstanceWeekly" meta:resourcekey="PageResource1"  Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 

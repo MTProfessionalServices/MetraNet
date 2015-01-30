@@ -148,7 +148,7 @@
     <value>Zusätzliche Rate</value>
   </data>
   <data name="tbRateResource1.Label" xml:space="preserve">
-    <value>[DE]Rate</value>
+    <value>Rate</value>
   </data>
   <data name="tbReasonCodeResource1.Label" xml:space="preserve">
     <value>Ursachencode</value>

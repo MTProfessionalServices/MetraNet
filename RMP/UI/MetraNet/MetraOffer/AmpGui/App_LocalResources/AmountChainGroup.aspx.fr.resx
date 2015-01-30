@@ -118,10 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNTCHAINGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>Amount Chain Groups</value>
+    <value>Groupes de chaînes de montants</value>
+  </data>
+  <data name="lblAmountChainGroupResource1.Text" xml:space="preserve">
+    <value>Une &lt;i&gt;chaîne de montants&lt;/i&gt; est un ensemble de zones de frais d’utilisation qui sont associées au montant des frais.  Certaines zones permettent de déterminer le montant et d’autres sont dérivées de celui-ci. &lt;b/&gt;&lt;b/&gt; Un &lt;i&gt;groupe de chaînes de montants&lt;/i&gt; est un ensemble de chaînes de montants associées à une décision.</value>
+  </data>
+  <data name="lblSelectResource1.Text" xml:space="preserve">
+    <value>Sélectionnez le groupe de chaînes de montants pour ce type de décision :</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Amount Chain Group</value>
+    <value>Groupe de chaînes de montants</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -129,19 +135,13 @@
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="TEXT_ERROR_NO_AMOUNT_CHAIN_GROUP" xml:space="preserve">
+    <value>Erreur : vous devez sélectionner un groupe de chaînes de montants</value>
+  </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>Nom</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>Unique ID</value>
-  </data>
-  <data name="lblAmountChainGroupResource1.Text" xml:space="preserve">
-    <value>An &lt;i&gt;Amount Chain&lt;/i&gt;  is a collection of usage charge fields that are related to the charge amount.  Some fields are used to determine the amount; some fields are derived from the amount. &lt;b/&gt;&lt;b/&gt; An &lt;i&gt;Amount Chain Group&lt;/i&gt; is a set of Amount Chains that are associated with a Decision.</value>
-  </data>
-  <data name="lblSelectResource1.Text" xml:space="preserve">
-    <value>Select the Amount Chain Group for this Decision Type:</value>
-  </data>
-  <data name="TEXT_ERROR_NO_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Error: You must select an Amount Chain Group</value>
+    <value>ID unique</value>
   </data>
 </root>

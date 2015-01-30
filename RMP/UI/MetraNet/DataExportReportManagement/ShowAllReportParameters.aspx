@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ShowAllReportParameters"
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="DataExportReportManagement_ShowAllReportParameters"
   Title="Select Report Parameters" Culture="auto" UICulture="auto" CodeFile="ShowAllReportParameters.aspx.cs" meta:resourcekey="PageResource1" %>
 <%@ Import Namespace="MetraTech.UI.Tools" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
@@ -33,8 +33,13 @@
       var parameterids = GetParameterIDs();
       if (parameterids.length == 0)
         {
-          Ext.UI.SystemError("No parameter was selected. Please select at least one parameter for assignment");
-          return;
+          Ext.UI.SystemError('<%=GetGlobalResourceObject("JSConsts", "TEXT_No_parameter_was_selected_MESSAGE")%>'); 
+          var dlg = top.Ext.MessageBox.getDialog();
+	        var buttons = dlg.buttons;
+          for (i = 0; i < buttons.length; i++) {
+            buttons[i].addClass('custom-class');
+          }
+        return;
         }      
         
         // do ajax request

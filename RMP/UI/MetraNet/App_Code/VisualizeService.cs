@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
+using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 using MetraTech;
 using MetraTech.UI.Controls;
 using System.Web.UI.WebControls;
+
 
 /// <summary>
 /// Summary description for VisualizeService
@@ -18,13 +22,11 @@ public class VisualizeService
   protected static readonly Logger logger = new Logger("[VisualizeService]");
   private const int MaxDdCount = 50;
 
-  public static void GetData(string connectionInfo, string catalog, string sqlQueryTag,
+  public static void GetData(string sqlQueryTag,
                              Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
   {
-    var ciDbServer = new ConnectionInfo(connectionInfo) {Catalog = catalog};
-    logger.LogInfo("Connection Ifno:" + connectionInfo);
-
-    using (var conn = ConnectionManager.CreateConnection(ciDbServer))
+    
+    using (var conn = ConnectionManager.CreateConnection())
     {
       using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, sqlQueryTag))
       {
@@ -159,13 +161,21 @@ public class VisualizeService
     grid.DataSourceURLParams.Add("q", qsParam);
   }
 
-  public static void ConfigureAndLoadDropDowns(MTDropDown dropDown, string colDisplay, string colValue, string queryName,
-                                               string queryPath = SqlQueriesPath,
-                                               Dictionary<string, object> paramDict = null)
+  public static void ConfigureAndLoadIntervalDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
+  {
+    ConfigureAndLoadIntervalDropDownsInternal("__GET_AVAILABLE_INTERVALS__", ddIntervalsList, paramDict);
+  }
+
+  public static void ConfigureAndLoadSoftClosedIntervalDropDowns(List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
+  {
+    ConfigureAndLoadIntervalDropDownsInternal("__GET_SOFT_CLOSED_INTERVALS__", ddIntervalsList, paramDict);
+  }
+
+  private static void ConfigureAndLoadIntervalDropDownsInternal(string query, List<MTDropDown> ddIntervalsList, Dictionary<string, object> paramDict = null)
   {
     using (var conn = ConnectionManager.CreateConnection())
     {
-      using (var stmt = conn.CreateAdapterStatement(queryPath, queryName))
+      using (var stmt = conn.CreateAdapterStatement(SqlQueriesPath, query))
       {
         if (paramDict != null)
         {
@@ -177,30 +187,15 @@ public class VisualizeService
 
         using (var reader = stmt.ExecuteReader())
         {
-          var items = new ListItem[MaxDdCount];
-          int count = 0;
-          int displayOrdinal = 0;
-          int valueOrdinal = 0;
-
           while (reader.Read())
           {
-            items[count] = new ListItem();
-            if (count == 0)
+            ListItem item =  new ListItem();
+            item.Text = string.Format("{0}: {1}", BaseObject.GetDisplayName(EnumHelper.GetEnumByValue(typeof(UsageCycleType), reader.GetValue("id_cycle_type").ToString())), Convert.ToDateTime(reader.GetValue("dt_end")).ToString("d"));
+            item.Value = reader.GetValue("id_interval").ToString();
+            foreach (MTDropDown dd in ddIntervalsList)
             {
-              for (int i = 0; i < reader.FieldCount; i++)
-              {
-                if (reader.GetName(i).Equals(colDisplay))
-                  displayOrdinal = i;
-                if (reader.GetName(i).Equals(colValue))
-                  valueOrdinal = i;
-              }
-              items[count].Selected = true;
+              dd.Items.Add(item);  
             }
-            items[count].Text = reader.GetValue(displayOrdinal).ToString();
-            items[count].Value = reader.GetValue(valueOrdinal).ToString();
-
-            dropDown.Items.Add(items[count]);
-            count = count + 1;
           }
         }
       }

@@ -118,207 +118,210 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnGenerateQuoteResource1.Text" xml:space="preserve">
-    <value>[es-MX]Generate Quote</value>
+    <value>Generate Quote</value>
   </data>
   <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
-    <value>[es-MX]Quote Information</value>
+    <value>Quote Information</value>
   </data>
   <data name="dpStartDateResource1.Label" xml:space="preserve">
-    <value>[es-MX]Start date</value>
+    <value>Start date</value>
   </data>
   <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
-    <value>[es-MX]Accounts and product offerings</value>
+    <value>Accounts and product offerings</value>
   </data>
   <data name="dpEndDateResource1.Label" xml:space="preserve">
-    <value>[es-MX]End date</value>
+    <value>End date</value>
   </data>
   <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">
-    <value>[es-MX]Generate PDF report</value>
+    <value>Generate PDF report</value>
   </data>
   <data name="MTCheckBoxPdfResource.BoxLabel" xml:space="preserve">
-    <value>[es-MX]Generate PDF report</value>
+    <value>Generate PDF report</value>
   </data>
   <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
-    <value>[es-MX]Quote Description</value>
+    <value>Quote Description</value>
   </data>
   <data name="MTPanelUDRCResource.Text" xml:space="preserve">
-    <value>[es-MX]UDRC metrics</value>
+    <value>UDRC metrics</value>
   </data>
   <data name="MTPanelICBResource.Text" xml:space="preserve">
-    <value>[es-MX]Custom Rates</value>
+    <value>Custom Rates</value>
   </data>
   <data name="ACTIONS" xml:space="preserve">
-    <value>[es-MX]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Accounts</value>
+    <value>Accounts</value>
   </data>
   <data name="REMOVE_ACCOUNT" xml:space="preserve">
-    <value>[es-MX]Remove Account</value>
+    <value>Remove Account</value>
   </data>
   <data name="SELECT_ACCOUNTS" xml:space="preserve">
-    <value>[es-MX]Select Accounts</value>
+    <value>Select Accounts</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>[es-MX]User Name</value>
+    <value>User Name</value>
   </data>
   <data name="POID" xml:space="preserve">
-    <value>[es-MX]PO Id</value>
+    <value>PO Id</value>
   </data>
   <data name="PONAME" xml:space="preserve">
-    <value>[es-MX]PO Name</value>
+    <value>PO Name</value>
   </data>
   <data name="PO_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Product Offerings</value>
+    <value>Product Offerings</value>
   </data>
   <data name="REMOVE_PO" xml:space="preserve">
-    <value>[es-MX]Remove Product Offering</value>
+    <value>Remove Product Offering</value>
   </data>
   <data name="SELECT_POS" xml:space="preserve">
-    <value>[es-MX]Select Product Offerings</value>
+    <value>Select Product Offerings</value>
   </data>
   <data name="EDIT_UDRC_VALUE" xml:space="preserve">
-    <value>[es-MX]Edit UDRC value</value>
+    <value>Edit UDRC value</value>
   </data>
   <data name="ADD_ICB" xml:space="preserve">
-    <value>[es-MX]Add ICB</value>
+    <value>Add ICB</value>
   </data>
   <data name="BASE_AMOUNT" xml:space="preserve">
-    <value>[es-MX]Base Amount</value>
+    <value>Base Amount</value>
   </data>
   <data name="ICB_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]ICBs</value>
+    <value>ICBs</value>
   </data>
   <data name="PIID" xml:space="preserve">
-    <value>[es-MX]PI Id</value>
+    <value>PI Id</value>
   </data>
   <data name="PINAME" xml:space="preserve">
-    <value>[es-MX]PI Name</value>
+    <value>PI Name</value>
   </data>
   <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]Priсeable Items That Allows Custom Rates</value>
+    <value>Priсeable Items That Allows Custom Rates</value>
   </data>
   <data name="PRICE" xml:space="preserve">
-    <value>[es-MX]Price</value>
+    <value>Price</value>
   </data>
   <data name="UNIT_AMOUNT" xml:space="preserve">
-    <value>[es-MX]Unit Amount</value>
+    <value>Unit Amount</value>
   </data>
   <data name="UNIT_VALUE" xml:space="preserve">
-    <value>[es-MX]Unit Value</value>
+    <value>Unit Value</value>
   </data>
   <data name="ISGROUP.BoxLabel" xml:space="preserve">
-    <value>[es-MX]Is Group Subscription</value>
+    <value>Is Group Subscription</value>
   </data>
   <data name="ISGROUP" xml:space="preserve">
-    <value>[es-MX]Is corp.</value>
+    <value>Is corp.</value>
   </data>
   <data name="ADD_UDRC" xml:space="preserve">
-    <value>[es-MX]Add UDRC</value>
+    <value>Add UDRC</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]UDRC metrics</value>
+    <value>UDRC metrics</value>
   </data>
   <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
-    <value>[es-MX]UDRC Priсeable Items</value>
+    <value>UDRC Priсeable Items</value>
   </data>
   <data name="TEXT_ADD_ICB" xml:space="preserve">
-    <value>[es-MX]Add Custom Rate</value>
+    <value>Add Custom Rate</value>
   </data>
   <data name="MTbtnCancelResource1.Text" xml:space="preserve">
-    <value>[es-MX]Cancel</value>
+    <value>Cancel</value>
   </data>
-  <data name="MTTitleCreateQuoteResource.Text" xml:space="preserve">
-    <value>[es-MX]Manage Quote</value>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>Create Quote</value>
   </data>
   <data name="REMOVE_ICB" xml:space="preserve">
-    <value>[es-MX]Remove ICB</value>
+    <value>Remove ICB</value>
   </data>
   <data name="REMOVE_UDRC" xml:space="preserve">
-    <value>[es-MX]Remove UDRC</value>
+    <value>Remove UDRC</value>
   </data>
   <data name="TEXT_ADDING_ICB" xml:space="preserve">
-    <value>[es-MX]Adding ICB</value>
+    <value>Adding ICB</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
-    <value>[es-MX]Add UDRC metric</value>
+    <value>Add UDRC metric</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
-    <value>[es-MX]Cancel</value>
+    <value>Cancel</value>
   </data>
   <data name="TEXT_DATES_ERROR" xml:space="preserve">
-    <value>[es-MX]Start Date should be less then End Date</value>
+    <value>Start Date should be less then End Date</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>[es-MX]End Date</value>
+    <value>End Date</value>
   </data>
   <data name="TEXT_MISSED_UDRC" xml:space="preserve">
-    <value>[es-MX]UDRC metrics set not for all Priceable Items</value>
+    <value>UDRC metrics set not for all Priceable Items</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
-    <value>[es-MX]OK</value>
+    <value>OK</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>[es-MX]Start Date</value>
+    <value>Start Date</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
-    <value>[es-MX]Value</value>
+    <value>Value</value>
   </data>
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
-    <value>[es-MX]ICB for group subscriptions will not be applied (current limitation)</value>
+    <value>ICB for group subscriptions will not be applied (current limitation)</value>
   </data>
   <data name="btnConvertQuoteResource.Text" xml:space="preserve">
-    <value>[es-MX]Convert to Subscription</value>
+    <value>Convert to Subscription</value>
   </data>
   <data name="MTPanelLog.Text" xml:space="preserve">
-    <value>[es-MX]Quote Log / Failed Message</value>
+    <value>Quote Log / Failed Message</value>
   </data>
   <data name="MTPanelResult.Text" xml:space="preserve">
-    <value>[es-MX]Quote Details</value>
+    <value>Quote Details</value>
   </data>
   <data name="QuoteFailed.Label" xml:space="preserve">
-    <value>[es-MX]Failed Message</value>
+    <value>Failed Message</value>
   </data>
   <data name="QuoteLog.Label" xml:space="preserve">
-    <value>[es-MX]Quote Log</value>
+    <value>Quote Log</value>
   </data>
   <data name="MTPanelUDRCandICBResource.Text" xml:space="preserve">
-    <value>[es-MX]UDRC metrics and ICBs</value>
+    <value>UDRC metrics and ICBs</value>
   </data>
   <data name="MTdpCreationDateResource.Label" xml:space="preserve">
-    <value>[es-MX]Creation Date</value>
+    <value>Creation Date</value>
   </data>
   <data name="MTTextBoxControlStatusResource.Label" xml:space="preserve">
-    <value>[es-MX]Quote Status</value>
+    <value>Quote Status</value>
   </data>
   <data name="MTTextBoxControlGroupResource.Label" xml:space="preserve">
-    <value>[es-MX]Group Subscription</value>
+    <value>Group Subscription</value>
   </data>
   <data name="MTTextBoxControlTotalResource.Label" xml:space="preserve">
-    <value>[es-MX]Total Amount</value>
+    <value>Total Amount</value>
   </data>
   <data name="MTTextBoxControlTotalTaxResource.Label" xml:space="preserve">
-    <value>[es-MX]Total Tax</value>
+    <value>Total Tax</value>
   </data>
   <data name="MTtbQuoteIdentifierResource.Label" xml:space="preserve">
-    <value>[es-MX]Quote Identifier</value>
+    <value>Quote Identifier</value>
   </data>
   <data name="MTtbQuoteDescriptionResource.Label" xml:space="preserve">
-    <value>[es-MX]Quote Description</value>
+    <value>Quote Description</value>
   </data>
   <data name="REPORT_LINK_TEXT" xml:space="preserve">
-    <value>[es-MX]PDF report for quote</value>
+    <value>PDF report for quote</value>
   </data>
   <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
-    <value>[es-MX]Corporate account for group subscription should be selected.</value>
+    <value>Corporate account for group subscription should be selected.</value>
   </data>
   <data name="CONDITIONS" xml:space="preserve">
-    <value>[es-MX]Conditions</value>
+    <value>Conditions</value>
   </data>
   <data name="CONDITION_SIGN" xml:space="preserve">
-    <value>[es-MX]Condition</value>
+    <value>Condition</value>
   </data>
   <data name="DEFAULT_RULE" xml:space="preserve">
-    <value>[es-MX]Default rule</value>
+    <value>Default rule</value>
+  </data>
+  <data name="TEXT_MANAGE_QUOTE" xml:space="preserve">
+    <value>Manage Quote</value>
   </data>
 </root>

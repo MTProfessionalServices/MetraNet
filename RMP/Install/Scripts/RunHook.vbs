@@ -53,8 +53,10 @@ Function RunAllHooks ()
   Dim oXMLDOM
   Dim oHookList, oHookLists
   Dim oRCD
+  Dim oFso  
 
   Set oXMLDOM              = CreateObject("Microsoft.XMLDOM")
+  Set oFso                 = CreateObject("Scripting.FileSystemObject")
   oXMLDOM.Async            = FALSE
   oXMLDOM.ValidateOnParse  = FALSE
   oXMLDOM.ResolveExternals = FALSE
@@ -73,19 +75,31 @@ Function RunAllHooks ()
     For Each oHook In oHooks
       Dim oHookAttrs
       Dim oHookSecuredAttr
-      Dim bSecure
+      Dim oHookExtensiondAttr            
+      Dim sExtensionFilePath
+      Dim bSecure      
 
       bSecure = False
-
+      Set oExtensiondName = Nothing
       Set oHookAttrs = oHook.attributes
       Set oHookSecuredAttr = oHookAttrs.GetNamedItem("secured")
+      Set oHookExtensiondAttr = oHookAttrs.GetNamedItem("extension_name")                  
+      
       If Not oHookSecuredAttr Is Nothing Then
         If oHookSecuredAttr.nodeValue = "true" Then
           bSecure = True
         End If
       End If
-
-      RunHook oHook.NodeTypedValue, bSecure
+      
+      If oHookExtensiondAttr Is Nothing Then
+        RunHook oHook.NodeTypedValue, bSecure
+      Else
+        sExtensionFilePath = oRCD.InstallDir & "\extensions\" & oHookExtensiondAttr.nodeValue & "\config\extension.xml"
+        If oFso.FileExists(sExtensionFilePath) Then
+          RunHook oHook.NodeTypedValue, bSecure
+        End If
+      End If
+     
     Next
   Next
 

@@ -103,5 +103,19 @@ Ext.onReady(function () {
     } (),
     'decisionRelatedNameText': TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR
   });
+  
+ //AllSymbolNum
+  Ext.apply(Ext.form.VTypes, {
+    'allsymbolnum': function () {
+      var re = /^[\u00BF-\u1FFF\u2C00-\uD7FF\w]+$/;
+      return function (v) {
+        return re.test(v);
+      }
+    } (),
+    'allsymbolnumText': 'This field should only contain letters(including Unicode), numbers and _'
+  });
+
+  
+  
 
 });

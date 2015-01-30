@@ -118,42 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNTGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>Account Groups</value>
+    <value>Groupes de comptes</value>
+  </data>
+  <data name="customAccountGroupLinkResource1.Text" xml:space="preserve">
+    <value>&lt;u&gt;Groupe de comptes personnalisé&lt;/u&gt;</value>
+  </data>
+  <data name="lblAccountGroupResource1.Text" xml:space="preserve">
+    <value>Pour prendre une décision à propos d’un compte, vous devez l’analyser ainsi que les autres comptes liés.</value>
+  </data>
+  <data name="lblSelectResource1.Text" xml:space="preserve">
+    <value>Sélectionnez le groupe de comptes pour ce type de décision :</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Select Account Group</value>
+    <value>Sélectionner un groupe de comptes</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
-  </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>Unique ID</value>
-  </data>
-  <data name="lblAccountGroupResource1.Text" xml:space="preserve">
-    <value>When you consider a decision for an account, you might want to analyze the account and other related accounts.</value>
-  </data>
-  <data name="lblSelectResource1.Text" xml:space="preserve">
-    <value>Select the Account Group for this Decision Type:</value>
-  </data>
-  <data name="customAccountGroupLinkResource1.Text" xml:space="preserve">
-    <value>&lt;u&gt;Custom Account Group&lt;/u&gt;</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
     <value>Actions</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Create New Account Group</value>
+    <value>Créer nouveau groupe de comptes</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Create a new Account Group</value>
+    <value>Créer un nouveau groupe de comptes</value>
+  </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="TEXT_ERROR_NO_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Error: You must select an Account Group</value>
+    <value>Erreur : vous devez sélectionner un groupe de comptes</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="TEXT_UNIQUE_ID" xml:space="preserve">
+    <value>ID unique</value>
   </data>
 </root>

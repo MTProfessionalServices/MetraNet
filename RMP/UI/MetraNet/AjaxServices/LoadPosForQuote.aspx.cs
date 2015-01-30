@@ -178,7 +178,7 @@ namespace MetraNet.AjaxServices
 
         json.Append("\"Name\":");
         json.Append("\"");
-        json.Append(item.Name.EncodeForJavaScript());
+        json.Append(item.DisplayName.EncodeForJavaScript());
         json.Append("\",");
 
         json.Append("\"Description\":");

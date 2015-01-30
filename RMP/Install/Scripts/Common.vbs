@@ -25,7 +25,7 @@ Option Explicit
 
 '*** Product information
 Const PRODUCT_NAME        = "MetraNet"
-Const PRODUCT_VERSION     = "8.0.0"
+Const PRODUCT_VERSION     = "8.1.0"
 
 '*** Global Constants
 Const kRetVal_SUCCESS     = 1

@@ -7,6 +7,7 @@ using MetraTech.UI.Common;
 using Core.FileLandingService;
 using MetraTech.UI.Tools;
 using Resources;
+using System.Globalization;
 
 public partial class ConfigureFileManagementGlobals : MTPage
 {
@@ -15,6 +16,15 @@ public partial class ConfigureFileManagementGlobals : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    object title = GetGlobalResourceObject("FileManagementResources", "SUCCESSFUL_SAVE");
+    if (title != null)
+      confirmationMsg = title.ToString();
+    if (!UI.CoarseCheckCapability("Manage FLS Files") && !UI.CoarseCheckCapability("View FLS Files"))
+    {
+      Response.End();
+      return;
+    }
+
     if (!IsPostBack)
     {
       if (!LoadDialogWithConfigInDatabase())

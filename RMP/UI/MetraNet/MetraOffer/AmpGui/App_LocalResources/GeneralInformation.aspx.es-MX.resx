@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>[es-MX]Enter information used to describe this decision type.</value>
+    <value>Enter information used to describe this decision type.</value>
   </data>
   <data name="lblEnterInfoResource1.Text" xml:space="preserve">
-    <value>[es-MX]Enter information about this Decision Type:</value>
+    <value>Enter information about this Decision Type:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[es-MX]General Information for {0}</value>
+    <value>General Information for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_DECISION" xml:space="preserve">
-    <value>[es-MX]Successfully created Decision Type</value>
+    <value>Successfully created Decision Type</value>
   </data>
   <data name="TEXT_ERROR_ADD_EDIT_DECISION" xml:space="preserve">
-    <value>[es-MX]Error while creating/editing Decision Type</value>
+    <value>Error while creating/editing Decision Type</value>
   </data>
   <data name="TEXT_ERROR_DUPLICATE_DECISION_NAME" xml:space="preserve">
-    <value>[es-MX]Error: Decision Type name already in use</value>
+    <value>Error: Decision Type name already in use</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_PARAM_TABLE_NAMES" xml:space="preserve">
-    <value>[es-MX]Error while retrieving parameter table names</value>
+    <value>Error while retrieving parameter table names</value>
   </data>
   <data name="ddParamTableResource1.Label" xml:space="preserve">
-    <value>[es-MX]Parameter Table</value>
+    <value>Parameter Table</value>
   </data>
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>[es-MX]Description</value>
+    <value>Description</value>
   </data>
   <data name="tbGenInfoNameResource1.Label" xml:space="preserve">
-    <value>[es-MX]Decision Type Name</value>
+    <value>Decision Type Name</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[es-MX]Description:</value>
+    <value>Description:</value>
   </data>
 </root>

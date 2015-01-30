@@ -42,7 +42,10 @@ public partial class Adjustments_AjaxServices_ApproveAllMiscellaneousAdjustments
         client.Open();        
         client.ApproveAllAccountCredits(ref miscAdjustments, UI.User.AccountId);
         response.Success = true;
-        response.Message = "Successfully approved all miscellaneous adjustments.";
+        //response.Message = "Successfully approved all miscellaneous adjustments.";
+        var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_all_miscellaneous_adjustments");
+        if (message != null)
+          response.Message = message.ToString();
         client.Close();
         client = null;
       }

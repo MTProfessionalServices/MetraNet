@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Delete Existing Report Instance" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="DeleteExistingReportInstance.aspx.cs" Inherits="DataExportReportManagement_DeleteExistingReportInstance" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="Delete Existing Report Instance" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="DeleteExistingReportInstance.aspx.cs" Inherits="DataExportReportManagement_DeleteExistingReportInstance" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 

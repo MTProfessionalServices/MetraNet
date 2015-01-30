@@ -117,53 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ActivateDecisionLabel.Text" xml:space="preserve">
-    <value>Do you want to activate your Decision Type now? Doing so makes it eligible for processing by the AMP engine.</value>
+    <value>Voulez-vous activer votre type de décision maintenant ? Il sera alors éligible au traitement par le moteur AMP.</value>
   </data>
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnSaveAndContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnSaveAndContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="CheckForErrorsLabel.Text" xml:space="preserve">
-    <value>Check your Decision Type for configuration errors.</value>
+    <value>Vérifiez les erreurs de configuration dans votre type de décision.</value>
+  </data>
+  <data name="DeactivateDecisionLabel.Text" xml:space="preserve">
+    <value>Votre type de décision est actif. Voulez-vous le désactiver maintenant ? Il sera alors inéligible au traitement par le moteur AMP.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Error Check</value>
+    <value>Contrôle d’erreur</value>
   </data>
-  <data name="MTButtonActivateDecisionResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="MTButtonActivateDecisionResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="MTButtonCheckForErrorsResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="MTButtonCheckForErrorsResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_ACTIVATE_DECISION" xml:space="preserve">
-    <value>Activate Decision Type</value>
-  </data>
-  <data name="TEXT_CHECK_FOR_ERRORS" xml:space="preserve">
-    <value>Check for Errors Now</value>
+    <value>Activer le type de décision</value>
   </data>
   <data name="TEXT_ACTIVATED_DECISION" xml:space="preserve">
-    <value>Activated Decision Type</value>
+    <value>Type de décision activé</value>
   </data>
-  <data name="DeactivateDecisionLabel.Text" xml:space="preserve">
-    <value>Your Decision Type is currently active. Do you want to deactivate your Decision Type now? Doing so makes it ineligible for processing by the AMP engine.</value>
+  <data name="TEXT_CHECK_FOR_ERRORS" xml:space="preserve">
+    <value>Contrôler les erreurs</value>
   </data>
   <data name="TEXT_DEACTIVATE_DECISION" xml:space="preserve">
-    <value>Deactivate Decision Type</value>
+    <value>Désactiver le type de décision</value>
   </data>
   <data name="TEXT_ERROR_ACTIVATING_DECISION" xml:space="preserve">
-    <value>An error occurred while activating Decision Type </value>
+    <value>Erreur d’activation du type de décision </value>
   </data>
   <data name="TEXT_ERROR_DEACTIVATING_DECISION1" xml:space="preserve">
-    <value>An error occurred while deactivating Decision Type </value>
+    <value>Une erreur s’est produite à la désactivation du type de décision </value>
   </data>
 </root>

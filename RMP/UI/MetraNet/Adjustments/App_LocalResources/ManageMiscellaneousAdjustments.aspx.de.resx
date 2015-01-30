@@ -157,7 +157,7 @@
     <value>Konflikt Sitzungs-ID</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[DE]County Tax</value>
+    <value>County Tax</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Währung</value>
@@ -172,7 +172,7 @@
     <value>Möchten Sie wirklich fortfahren?  Durch diesen Schritt werden alle Anpassungen verweigert, die mit Ihren Filterkriterien übereinstimmen.  Wenn keine Filter vorhanden sind, werden alle Anpassungen verweigert.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[DE]Internal Beschreibung</value>
+    <value>Internal Beschreibung</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>E-Mail-Adresse</value>
@@ -184,16 +184,16 @@
     <value>Bei der Bearbeitung der sonstigen Anpassung ist ein Fehler aufgetreten.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[DE]Federal Tax</value>
+    <value>Federal Tax</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
-    <value>[DE]Guide Interval Id</value>
+    <value>Guide Interval Id</value>
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
     <value>Intervall-ID</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[DE]Local Tax</value>
+    <value>Local Tax</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Bitte wählen Sie Anpassungen zur Bearbeitung aus.</value>
@@ -202,7 +202,7 @@
     <value>Andere</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[DE]Other Tax</value>
+    <value>Other Tax</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>Ausstehend</value>
@@ -217,7 +217,7 @@
     <value>Sitzungstyp</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[DE]State Tax</value>
+    <value>State Tax</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>Status</value>

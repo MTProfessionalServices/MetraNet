@@ -133,7 +133,7 @@
     <value>Anmerkung</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>[DE]Details</value>
+    <value>Details</value>
   </data>
   <data name="InvoiceNumber" xml:space="preserve">
     <value>Rechnungsnummer</value>
@@ -142,7 +142,7 @@
     <value>Zahler</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>[DE]Status</value>
+    <value>Status</value>
   </data>
   <data name="TransactionDate" xml:space="preserve">
     <value>Transaktionsdatum</value>

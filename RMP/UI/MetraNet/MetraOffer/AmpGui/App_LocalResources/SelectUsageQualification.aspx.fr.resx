@@ -117,40 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="USAGEQUALIFICATIONGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>Usage Qualifications</value>
+  <data name="lblSelectResource1.Text" xml:space="preserve">
+    <value>Sélectionnez la qualification d’utilisation pour ce type de décision :</value>
+  </data>
+  <data name="lblSelectUsageQualResource1.Text" xml:space="preserve">
+    <value>L'&lt;i&gt;utilisation&lt;/i&gt; (unité de facturation) est un ensemble de zones d’enregistrement de vue produit.  Une &lt;i&gt;qualification d’utilisation&lt;/i&gt; limite l’utilisation qu’une décision peut analyser aux enregistrements d’utilisation possédant certaines propriétés.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Select Usage Qualification</value>
+    <value>Sélectionner qualification d’utilisation</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>Actions</value>
+  </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Create New Usage Qualification</value>
+    <value>Créer nouvelle qualification d’utilisation</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Create a new Usage Qualification</value>
+    <value>Créer une nouvelle qualification d’utilisation</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="TEXT_ERROR_NO_USAGE_QUAL" xml:space="preserve">
+    <value>Aucune qualification d’utilisation sélectionnée pour la décision </value>
+  </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>Nom</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>Unique ID</value>
+    <value>ID unique</value>
   </data>
-  <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Actions</value>
-  </data>
-  <data name="lblSelectUsageQualResource1.Text" xml:space="preserve">
-    <value>&lt;i&gt;Usage&lt;/i&gt; (a rated billing record) is a collection of product view record fields.  A &lt;i&gt;Usage Qualification&lt;/i&gt; limits the usage that a Decision can analyze to those usage records that have certain properties.</value>
-  </data>
-  <data name="lblSelectResource1.Text" xml:space="preserve">
-    <value>Select the Usage Qualification for this Decision Type:</value>
-  </data>
-  <data name="TEXT_ERROR_NO_USAGE_QUAL" xml:space="preserve">
-    <value>No usage qualification was selected for Decision </value>
+  <data name="USAGEQUALIFICATIONGROUPS_GRID_TITLE" xml:space="preserve">
+    <value>Qualifications d’utilisation</value>
   </data>
 </root>

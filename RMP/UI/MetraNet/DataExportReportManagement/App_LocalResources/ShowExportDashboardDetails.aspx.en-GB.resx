@@ -150,4 +150,19 @@
   <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
     <value>Report Title</value>
   </data>
+  <data name="TEXT_AUDIT_ID" xml:space="preserve">
+    <value>Audit ID</value>
+  </data>
+  <data name="TEXT_DEF_DELIVERY_TYPE_TEXT" xml:space="preserve">
+    <value>Report Distribution Type Text</value>
+  </data>
+  <data name="TEXT_DEF_INSTANCE_RUN_STATUS" xml:space="preserve">
+    <value>Instance Run Result</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_FILENAME" xml:space="preserve">
+    <value>Output File Name</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE_TEXT" xml:space="preserve">
+    <value>Report Output Type Text</value>
+  </data>
 </root>

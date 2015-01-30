@@ -8,7 +8,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.DomainModel;
@@ -22,34 +21,27 @@ public partial class Templates_TemplateHistory : MTPage
     get { return ViewState["SessionId"] as int?; }
     set { ViewState["SessionId"] = value; }
   }
-
-  protected void Page_Load(object sender, EventArgs e)
-  {
-
-  }
-
   protected override void OnLoadComplete(EventArgs e)
   {
-    GridRenderer.AddAccountTypeFilter(MTFilterGrid1);
-
     try
     {
       SessionId = (int?)PageNav.Data.Out_StateInitData["SessionIdInstance"];
+      var isAllType = Convert.ToBoolean(PageNav.Data.Out_StateInitData["IsAllType"]);
+      var allTypeString = Convert.ToString(PageNav.Data.Out_StateInitData["AllTypeString"]);
+      GridRenderer.AddAccountTypeFilterTemplateHistory(MTFilterGrid1, isAllType, allTypeString);
     }
     catch (Exception)
     {
       // continue rendering the grid anyway
     }
-
     if (SessionId.HasValue && SessionId != 0)
     {
-      MTGridDataElement el = MTFilterGrid1.FindElementByID("SessionId");
+      var el = MTFilterGrid1.FindElementByID("SessionId");
       if (el != null)
       {
-        el.ElementValue = SessionId.Value.ToString();
+        el.ElementValue = Convert.ToString(SessionId.Value);
       }
     }
-
     base.OnLoadComplete(e);
   }
 }

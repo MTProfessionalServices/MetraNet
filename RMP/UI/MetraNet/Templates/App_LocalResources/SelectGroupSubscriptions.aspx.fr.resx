@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,128 +59,128 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="CORP_ID" xml:space="preserve">
-    <value>ID du compte d’entreprise</value>
-  </data>
-  <data name="DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="DETAILS" xml:space="preserve">
-    <value>Détails</value>
-  </data>
-  <data name="DISCOUNT_DISTRIBUTION" xml:space="preserve">
-    <value>Répartition des remises</value>
-  </data>
-  <data name="DISCOUNT_ID" xml:space="preserve">
-    <value>ID du compte de remise</value>
-  </data>
-  <data name="END_DATE" xml:space="preserve">
-    <value>Date de fin</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Abonnements groupés</value>
-  </data>
-  <data name="GROUP_ID" xml:space="preserve">
-    <value>ID du groupe</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Sélectionner des abonnements groupés</value>
-  </data>
-  <data name="NAME" xml:space="preserve">
-    <value>Nom</value>
-  </data>
-  <data name="NO_RECORDS" xml:space="preserve">
-    <value>Aucun abonnement groupé trouvé pour le modèle.</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="PO_DISPLAYNAME" xml:space="preserve">
-    <value>Nom d’affichage de l’offre produit</value>
-  </data>
-  <data name="PO_ID" xml:space="preserve">
-    <value>ID de l’offre produit</value>
-  </data>
-  <data name="PROPORTIONAL_DISTRIBUTION" xml:space="preserve">
-    <value>Distribution proportionnelle</value>
-  </data>
-  <data name="START_DATE" xml:space="preserve">
-    <value>Date de début</value>
-  </data>
-  <data name="SUBSCRIPTION_ID" xml:space="preserve">
-    <value>ID de l’abonnement</value>
-  </data>
-  <data name="SUPPORTS_GROUP" xml:space="preserve">
-    <value>Fournit une assistance sur les opérations groupées</value>
-  </data>
-  <data name="WARNONEBCR" xml:space="preserve">
-    <value>Signaler la modification de la date de début EBCR</value>
-  </data>
-  <data name="EndDateResource1.Label" xml:space="preserve">
-    <value>Abonnements Date de fin</value>
-  </data>
-  <data name="StartDateResource1.Label" xml:space="preserve">
-    <value>Abonnements Date de départ</value>
-  </data>
-  <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-    <value>Abonnement Span</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="CORP_ID" xml:space="preserve">
+        <value>ID du compte d’entreprise</value>
+    </data>
+    <data name="DESCRIPTION" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="DETAILS" xml:space="preserve">
+        <value>Détails</value>
+    </data>
+    <data name="DISCOUNT_DISTRIBUTION" xml:space="preserve">
+        <value>Répartition des remises</value>
+    </data>
+    <data name="DISCOUNT_ID" xml:space="preserve">
+        <value>ID du compte de remise</value>
+    </data>
+    <data name="END_DATE" xml:space="preserve">
+        <value>Date de fin</value>
+    </data>
+    <data name="EndDateResource1.Label" xml:space="preserve">
+        <value>Date de fin des abonnements</value>
+    </data>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Abonnements groupés</value>
+    </data>
+    <data name="GROUP_ID" xml:space="preserve">
+        <value>ID du groupe</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Sélectionner des abonnements groupés</value>
+    </data>
+    <data name="NAME" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+    <data name="NO_RECORDS" xml:space="preserve">
+        <value>Aucun abonnement groupé trouvé pour le modèle.</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="PO_DISPLAYNAME" xml:space="preserve">
+        <value>Nom d’affichage de l’offre produit</value>
+    </data>
+    <data name="PO_ID" xml:space="preserve">
+        <value>ID de l’offre produit</value>
+    </data>
+    <data name="PROPORTIONAL_DISTRIBUTION" xml:space="preserve">
+        <value>Distribution proportionnelle</value>
+    </data>
+    <data name="START_DATE" xml:space="preserve">
+        <value>Date de début</value>
+    </data>
+    <data name="StartDateResource1.Label" xml:space="preserve">
+        <value>Date de début des abonnements</value>
+    </data>
+    <data name="SUBSCRIPTION_ID" xml:space="preserve">
+        <value>ID de l’abonnement</value>
+    </data>
+    <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
+        <value>Période d’abonnement</value>
+    </data>
+    <data name="SUPPORTS_GROUP" xml:space="preserve">
+        <value>Fournit une assistance sur les opérations groupées</value>
+    </data>
+    <data name="WARNONEBCR" xml:space="preserve">
+        <value>Signaler la modification de la date de début EBCR</value>
+    </data>
 </root>

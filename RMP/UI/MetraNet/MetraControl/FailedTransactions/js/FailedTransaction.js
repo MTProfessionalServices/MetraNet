@@ -104,9 +104,13 @@ function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {
 
 function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
   var str = ""; 
-	str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}' href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.casenumber, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid); 
- 	 
- 	return str; 
+  str += String.format(
+    "<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}' href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>{3}&nbsp;</a></span>",
+    record.data.casenumber,
+    window.TEXT_VIEW_AUDIT_FAILED_TRANSACTION,
+    record.data.failurecompoundsessionid,
+    window.TEXT_VIEW_LOG);  
+   return str; 
 }
 
 function errorMessageColRenderer(value, meta, record, rowIndex, colIndex, store) {
@@ -154,7 +158,8 @@ function statusColRenderer(value, meta, record, rowIndex, colIndex, store) {
 
 function onViewFailedTransactionAuditLog(idFailedTransaction, idFailureCompoundSession) {
   //http://localhost/mom/default/dialog/AuditLog.List.asp?EntityType=5&EntityId=3004&Title=Audit%20History%20For%20Failed%20Transaction%20Case%20Number%203004
-  window.open("/MetraNet/TicketToMOMNoMenu.aspx?Title=Audit Log&URL=/mom/default/dialog/AuditLog.List.asp?EntityType=5**EntityId=" + idFailedTransaction + "**Title=" + encodeURIComponent(TEXT_AUDIT_HISTORY_FAILED + idFailedTransaction));
+  var title = String.format("{0} {1}", window.TEXT_AUDIT_HISTORY_FAILED, idFailedTransaction);
+  window.open("/MetraNet/TicketToMOMNoMenu.aspx?Title=Audit Log&URL=/mom/default/dialog/AuditLog.List.asp?EntityType=5**EntityId=" + idFailedTransaction + "**Title=" + encodeURIComponent(title));
 }
 
 function onEditFailedTransaction(idFailedTransaction, title, idFailureCompoundSession, isCompound, gridId) {
@@ -182,7 +187,7 @@ function ShowWindow(grid, title, page) {
 
 function popupStatusChange(ids, respJson, action, grid) {
   // Popup a window to set the status so we don't lose the current search filters.
-  var page = "/MetraNet/MetraControl/FailedTransactions/ChangeStatus.aspx?Action=" + action;
+  var page = "/MetraNet/MetraControl/FailedTransactions/ChangeFailedTransactionStatus.aspx?Action=" + action;
   if (ids != "all") {
     page += "&FailureIDs=" + encodeURIComponent(ids);
   }

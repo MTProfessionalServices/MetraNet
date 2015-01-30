@@ -6,8 +6,7 @@
 <%@ Register src="../UserControls/BreadCrumb.ascx" tagname="BreadCrumb" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <MT:MTTitle ID="MTTitle1" Text="BE" runat="server" 
-    meta:resourcekey="MTTitle1Resource1" />
+  <MT:MTTitle ID="MTTitle1" Text="BE" runat="server"/>
 
 
 
@@ -168,7 +167,7 @@
                 tabs.add({                                               
                         title: nameArray[i],
                         id: "tab" + i,                                           
-                        html: String.format("<iframe src='/MetraNet/BE/BEList.aspx?Name={0}' width='100%' height='100%' frameborder='0' scrolling='yes'/>", urlString),                                             
+                        html: String.format("<iframe src='/MetraNet/BME/BEList.aspx?Name={0}' width='100%' height='100%' frameborder='0' scrolling='yes'/>", urlString),                                             
                         closable: false                                                                  
                     }).show();   
               } 

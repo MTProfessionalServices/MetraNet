@@ -1,9 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="SummaryGridView.aspx.cs" Inherits="SummaryGridView" Title="<%$Resources:Resource,TEXT_TITLE%>"  Culture="auto" UICulture="auto" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="SummaryGridView.aspx.cs" Inherits="SummaryGridView" Title="<%$Resources:Resource,TEXT_TITLE%>"  Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <div class="CaptionBar">
-    <asp:Label ID="lblUsageCalcDecisionDetails" runat="server" meta:resourcekey="lblUsageCalcDecisionDetails"></asp:Label>
- </div>
  <MT:MTFilterGrid ID="SummaryGrid" runat="Server" ExtensionName="SystemConfig"></MT:MTFilterGrid>
  <MT:MTFilterGrid ID="SummaryDetailsGrid" runat="Server"  ExtensionName="SystemConfig" TemplateFileName="UsageBeforeAfterAuditLayout"></MT:MTFilterGrid>
  <MT:MTFilterGrid ID="BeforeAfterGrid" runat="Server"  ExtensionName="SystemConfig" TemplateFileName="UsageBeforeAfterAuditLayout"></MT:MTFilterGrid>

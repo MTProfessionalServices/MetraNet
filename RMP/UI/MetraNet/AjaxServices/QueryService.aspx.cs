@@ -23,6 +23,7 @@ using MetraTech.UI.Common;
 public partial class AjaxServices_QueryService : MTListServicePage
 {
   private const int MAX_RECORDS_PER_BATCH = 50;
+  protected int maximumRecordsPerBatch;
   protected SQLQueryInfo QueryInfo;
   protected List<int> exportColumns = new List<int>();
 
@@ -174,15 +175,15 @@ public partial class AjaxServices_QueryService : MTListServicePage
     }
 
     //if there are more records to process than we can process at once, we need to break up into multiple batches
-    if ((items.PageSize > MAX_RECORDS_PER_BATCH) && ((Page.Request["mode"] == "csv") || (Page.Request["mode"] == "SelectAll")))
+    if ((items.PageSize > maximumRecordsPerBatch) && ((Page.Request["mode"] == "csv") || (Page.Request["mode"] == "SelectAll")))
     {
-      int advancePage = (items.PageSize % MAX_RECORDS_PER_BATCH != 0) ? 1 : 0;
+      int advancePage = (items.PageSize % maximumRecordsPerBatch != 0) ? 1 : 0;
 
       var sb = new StringBuilder();
-      int numBatches = advancePage + (items.PageSize / MAX_RECORDS_PER_BATCH);
+      int numBatches = advancePage + (items.PageSize / maximumRecordsPerBatch);
       for (int batchID = 0; batchID < numBatches; batchID++)
       {
-        ExtractDataInternal(ref items, batchID + 1, MAX_RECORDS_PER_BATCH);
+        ExtractDataInternal(ref items, batchID + 1, maximumRecordsPerBatch);
         if (Page.Request["mode"] == "csv")
         {
           string strCSV = ConvertObjectToCSV(items, (batchID == 0));
@@ -275,6 +276,26 @@ public partial class AjaxServices_QueryService : MTListServicePage
 		generateMetaData = bool.Parse(qm);
 	}
 
+    maximumRecordsPerBatch = MAX_RECORDS_PER_BATCH;
+    String qsMaxRecordsPerBatch = Request["urlparam_batchsize"];
+    if (!string.IsNullOrEmpty(qsMaxRecordsPerBatch))
+    {
+      try
+      {
+        maximumRecordsPerBatch = Convert.ToInt32(qsMaxRecordsPerBatch);
+        if (maximumRecordsPerBatch <= 0)
+        {
+          Logger.LogWarning("Invalid value for batchsize in query string: " + qsMaxRecordsPerBatch + ", defaulting maximumRecordsPerBatch to " + MAX_RECORDS_PER_BATCH);
+          maximumRecordsPerBatch = MAX_RECORDS_PER_BATCH;
+        }
+      }
+      catch 
+      {
+        Logger.LogWarning("Invalid value for batchsize in query string: " + qsMaxRecordsPerBatch + ", defaulting maximumRecordsPerBatch to " + MAX_RECORDS_PER_BATCH);
+        maximumRecordsPerBatch = MAX_RECORDS_PER_BATCH;
+      }
+    }
+
     //populate the object
     try
     {
@@ -363,11 +384,11 @@ public partial class AjaxServices_QueryService : MTListServicePage
 
   protected string ConvertObjectToCSV(MTList<SQLRecord> mtList, bool bIncludeHeaders)
   {
-    StringBuilder sb = new StringBuilder();
-
+    var sb = new StringBuilder();
     //add headers if necessary
     if (bIncludeHeaders)
     {
+      sb.AppendLine("sep=,");
       sb.Append(base.GenerateCSVHeader());
       if (sb.ToString().Length > 0)
       {

@@ -34,7 +34,9 @@ public partial class NonStandardCharges_AjaxServices_DenyAllNonsStandardCharges 
         client.Open();
         client.DenyAllNonStandardCharges(ref charges);
         response.Success = true;
-        response.Message = "Successfully denied all selected charges.";
+        var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_all_selected_charges");
+        if (message != null)
+          response.Message = message.ToString();        
         client.Close();
         client = null;
       }

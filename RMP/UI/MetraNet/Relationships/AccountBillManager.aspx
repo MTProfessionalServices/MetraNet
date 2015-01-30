@@ -24,10 +24,20 @@
     {
       grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().getSelections()
       var managerIds = GetManagerIds();
-      // TODO: Localize
-        if (managerIds.length == 0)
+      if (managerIds.length == 0)
         {
-          Ext.UI.SystemError("Localize me");
+           top.Ext.Msg.show({
+                           title:TEXT_ERROR_MSG,
+                           msg: TEXT_ERROR_SELECT,
+                           buttons: Ext.Msg.OK,               
+                           icon: Ext.MessageBox.ERROR
+                       });   
+          
+          var dlg = top.Ext.MessageBox.getDialog();
+	        var buttons = dlg.buttons;
+	        for (i = 0; i < buttons.length; i++) {
+          buttons[i].addClass('custom-class');
+          }                
           return;
         }      
         

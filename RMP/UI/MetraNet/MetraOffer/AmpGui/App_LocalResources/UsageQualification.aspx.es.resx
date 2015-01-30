@@ -128,13 +128,13 @@
     <value>True</value>
   </data>
   <data name="lblInfoResource.Text" xml:space="preserve">
-    <value>[ES]Specify the properties that usage records must have in order to be analyzed by this Decision Type.</value>
+    <value>Specify the properties that usage records must have in order to be analyzed by this Decision Type.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[ES]Usage Qualification</value>
+    <value>Usage Qualification</value>
   </data>
   <data name="UsageQualificationDescriptionResource.Label" xml:space="preserve">
-    <value>[ES]Description</value>
+    <value>Description</value>
   </data>
   <data name="UsageQualificationDescriptionResource.LabelSeparator" xml:space="preserve">
     <value>:</value>
@@ -164,72 +164,72 @@
     <value>0</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_ACTION" xml:space="preserve">
-    <value>[ES]An error occurred while retrieving Usage Qualification Action from session state value</value>
+    <value>An error occurred while retrieving Usage Qualification Action from session state value</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_FILTER" xml:space="preserve">
-    <value>[ES]An error occurred while retrieving the filter for usage qualification: </value>
+    <value>An error occurred while retrieving the filter for usage qualification: </value>
   </data>
   <data name="TEXT_ERROR_ADD_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[ES]An error occured while adding Usage Qualification with name = '{0}'.</value>
+    <value>An error occured while adding Usage Qualification with name = '{0}'.</value>
   </data>
   <data name="TEXT_ERROR_MUST_USE_UNIQUE_NAME_FOR_NEW_UQ" xml:space="preserve">
-    <value>[ES]An error occurred while creating the new Usage Qualification because the name '{0}' is already the name for another Usage Qualificaion. Please use a unique name for the new Usage Qualification.</value>
+    <value>An error occurred while creating the new Usage Qualification because the name '{0}' is already the name for another Usage Qualificaion. Please use a unique name for the new Usage Qualification.</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[ES]Successfully created Usage Qualification with name '{0}'.</value>
+    <value>Successfully created Usage Qualification with name '{0}'.</value>
   </data>
   <data name="FilterLabelResource.Text" xml:space="preserve">
-    <value>[ES]Filter:</value>
+    <value>Filter:</value>
   </data>
   <data name="FieldLabelResource.Text" xml:space="preserve">
-    <value>[ES]Field:</value>
+    <value>Field:</value>
   </data>
   <data name="LogicLabelResource.Text" xml:space="preserve">
-    <value>[ES]Logic:</value>
+    <value>Logic:</value>
   </data>
 	<data name="ValueLabelResource.Text" xml:space="preserve">
-    <value>[ES]Value:</value>
+    <value>Value:</value>
   </data>
 	<data name="TableLabelResource.Text" xml:space="preserve">
-    <value>[ES]Table:</value>
+    <value>Table:</value>
   </data>
   <data name="TEXT_INSERT" xml:space="preserve">
-    <value>[ES]Insert</value>
+    <value>Insert</value>
   </data>
   <data name="UsageQualificationFilterResource.Label" xml:space="preserve">
-    <value>[ES]Filter</value>
+    <value>Filter</value>
   </data>
   <data name="UsageQualificationFilterResource.LabelSeparator" xml:space="preserve">
     <value>:</value>
   </data>
   <data name="AnotherUQGLogicLabelResource.Text" xml:space="preserve">
-    <value>[ES]Logic:</value>
+    <value>Logic:</value>
   </data>
   <data name="lblAnotherUQGPanelResource.Text" xml:space="preserve">
-    <value>[ES]Another Usage Qualification</value>
+    <value>Another Usage Qualification</value>
   </data>
   <data name="lblUsageFieldPanelResource.Text" xml:space="preserve">
-    <value>[ES]t_acc_usage/Product View Field</value>
+    <value>t_acc_usage/Product View Field</value>
   </data>
   <data name="LOGIC_DOES_NOT_MEET_THIS_QUALIFICATION" xml:space="preserve">
-    <value>[ES]Does not meet this qualification</value>
+    <value>Does not meet this qualification</value>
   </data>
   <data name="LOGIC_MEETS_THIS_QUALIFICATION" xml:space="preserve">
-    <value>[ES]Meets this qualification</value>
+    <value>Meets this qualification</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_UQGS" xml:space="preserve">
-    <value>[ES]An error occurred while retrieving the list of usage qualification group names.</value>
+    <value>An error occurred while retrieving the list of usage qualification group names.</value>
   </data>
   <data name="UsageQualificationLabelResource.Text" xml:space="preserve">
-    <value>[ES]Usage Qualification:</value>
+    <value>Usage Qualification:</value>
   </data>
   <data name="TEXT_ERROR_GETTING_DATA" xml:space="preserve">
-    <value>[ES]An error occurred while retrieving data for the page.</value>
+    <value>An error occurred while retrieving data for the page.</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[ES]Description:</value>
+    <value>Description:</value>
   </data>
   <data name="ViewUsageQualificationFilterLabelResource.Text" xml:space="preserve">
-    <value>[ES]Filter:</value>
+    <value>Filter:</value>
   </data>
 </root>

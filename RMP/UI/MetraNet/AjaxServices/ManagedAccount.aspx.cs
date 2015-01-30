@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Text;
 using System.Threading;
+using agsXMPP.protocol.x.data;
 using MetraTech;
 using MetraTech.ActivityServices.Common;
+using MetraTech.BusinessEntity.Core;
 using MetraTech.DataAccess;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Interop.QueryAdapter;
@@ -46,8 +50,19 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
   #endregion
 
+  private struct SqlParameter
+  {
+    public string ParamName;
+    public MTParameterType SqlType;
+    public object Value ;
+  }
+
+  private bool ShowFinancialData { get; set; }
+
   protected void Page_Load(object sender, EventArgs e)
   {
+    ShowFinancialData = true; //UI.CoarseCheckCapability("View Summary Financial Information");
+
     //parse query name
     String operation = Request["operation"];
     if (string.IsNullOrEmpty(operation))
@@ -65,11 +80,13 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
       try
       {
         MTList<SQLRecord> items = new MTList<SQLRecord>();
-        Dictionary<string, object> paramDict = new Dictionary<string, object>();
-
+        IList<SqlParameter> paramDict = new List<SqlParameter>();
+        
         if (!String.IsNullOrEmpty(UI.Subscriber["_AccountID"]))
         {
-          paramDict.Add("%%ACCOUNT_ID%%", int.Parse(UI.Subscriber["_AccountID"]));
+          paramDict.Add(new SqlParameter{ParamName = "%%ACCOUNT_ID%%"
+                                        , SqlType = MTParameterType.Integer
+                                        , Value = int.Parse(UI.Subscriber["_AccountID"])});
         }
         else
         {
@@ -77,6 +94,15 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
           Response.Write("{\"Items\":[]}");
           Response.End();
           return;
+        }
+
+        if (operation == "subscriptionsummary")
+        {
+          paramDict.Add(new SqlParameter
+            { ParamName = "%%LANG_ID%%",
+              SqlType = MTParameterType.Integer,
+              Value = UI.SessionContext.LanguageID
+            });
         }
 
         GetDataForOperation(operation, paramDict, ref items);
@@ -113,90 +139,53 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
   }
 
-  private void GetDataForOperation(string operation, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
+  private void GetDataForOperation(string operation, IEnumerable<SqlParameter> paramLst, ref MTList<SQLRecord> items)
   {
-    string sqlQuery = string.Empty;
     switch (operation)
     {
       case "subscriptionsummary":
-        sqlQuery = "__ACCOUNT_SUBSCRIPTIONSUMMARY__";
-        SetSorting(items);
-        GetSortableData(sqlQuery, Convert.ToInt32(paramDict["%%ACCOUNT_ID%%"]), ref items);
+        GetData("__ACCOUNT_SUBSCRIPTIONSUMMARY__", paramLst, ref items, true);
         break;
       case "paymentsummary":
-        sqlQuery = "__ACCOUNT_PAYMENTSUMMARY__";
-        GetData(sqlQuery, paramDict, ref items);
+        GetData("__ACCOUNT_PAYMENTSUMMARY__", paramLst, ref items);
         break;
-      //case "invoicesummary":
-      //  sqlQuery = "__ACCOUNT_INVOICESUMMARY__";
-      //  break;
       case "balancesummary":
-        sqlQuery = "__ACCOUNT_BALANCESUMMARY__";
-        GetData(sqlQuery, paramDict, ref items);
+        GetData("__ACCOUNT_BALANCESUMMARY__", paramLst, ref items);
         break;
       case "billingsummary":
-        sqlQuery = "__ACCOUNT_BILLINGSUMMARY__";
-        GetData(sqlQuery, paramDict, ref items);
+        GetData("__ACCOUNT_BILLINGSUMMARY__", paramLst, ref items, true);
         break;
-      //case "discountcommitmentsummary":
-      //  sqlQuery = "__ACCOUNT_DISCOUNTANDCOMMITMENTSUMMARY__";
-      //  break;
       case "salessummary":
-        sqlQuery = "__ACCOUNT_SALESSUMMARY__";
-        GetData(sqlQuery, paramDict, ref items);
+        GetData("__ACCOUNT_SALESSUMMARY__", paramLst, ref items);
         break;
       case "failedtransactionsummary":
-        sqlQuery = "__ACCOUNT_FAILEDTRANSACTION_COUNT__";
-        GetData(sqlQuery, paramDict, ref items);
+        GetData("__ACCOUNT_FAILEDTRANSACTION_COUNT__", paramLst, ref items);
         break;
     }
   }
 
-  private void GetData(string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
+  private void GetData(string sqlQueryTag, IEnumerable<SqlParameter> paramsList, ref MTList<SQLRecord> items, bool isSortable = false)
   {
-
     using (IMTConnection conn = ConnectionManager.CreateConnection())
     {
-      
       using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(sqlQueriesPath, sqlQueryTag))
       {
-        if (paramDict != null)
+        if (paramsList != null)
         {
-          foreach (var pair in paramDict)
+          foreach (var pair in paramsList)
           {
-            stmt.AddParam(pair.Key, pair.Value);
+            stmt.AddParam(pair.ParamName, pair.Value);
           }
         }
 
-        using (IMTDataReader reader = stmt.ExecuteReader())
+        if (isSortable)
         {
-
-          ConstructItems(reader, ref items);
-        }
-      }
-
-      conn.Close();
-    }
-
-
-
-  }
-
-  private void GetSortableData(string sqlQueryTag, int accountId, ref MTList<SQLRecord> items)
-  {
-    using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
-        {
-          queryAdapter.Item = new MTQueryAdapterClass();
-          queryAdapter.Item.Init(sqlQueriesPath);
-          queryAdapter.Item.SetQueryTag(sqlQueryTag);
+          SetSorting(items);
 
           using (IMTPreparedFilterSortStatement filterSortStmt =
-              conn.CreatePreparedFilterSortStatement(queryAdapter.Item.GetRawSQLQuery(true)))
+            conn.CreatePreparedFilterSortStatement(stmt.Query))
           {
-            filterSortStmt.AddParam("AccountId", MTParameterType.Integer, accountId);
-            MTListFilterSort.ApplyFilterSortCriteria(filterSortStmt, items);
+           MTListFilterSort.ApplyFilterSortCriteria(filterSortStmt, items);
             using (IMTDataReader reader = filterSortStmt.ExecuteReader())
             {
               ConstructItems(reader, ref items);
@@ -204,8 +193,18 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
             items.TotalRows = filterSortStmt.TotalRows;
           }
         }
-        conn.Close();
+        else
+        {
+          using (IMTDataReader reader = stmt.ExecuteReader())
+          {
+
+            ConstructItems(reader, ref items);
+          }
+        }
       }
+
+      conn.Close();
+    }
   }
 
   protected void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)
@@ -293,10 +292,17 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
             json.Append(item);
             item = string.Format("\"n_invoiceamountAsString\":{0},", FormatCurrencyValueForGraph(record.Fields[billingSummary_InvoiceAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
             json.Append(item);
-            item = string.Format("\"n_mrr_amount\":{0},", FormatFieldValue(record.Fields[billingSummary_MrrAmount_Index], invariantCulture));
-            json.Append(item);
-            item = string.Format("\"n_mrramountAsString\":{0},", FormatCurrencyValueForGraph(record.Fields[billingSummary_MrrAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
-            json.Append(item);
+            if (ShowFinancialData)
+            {
+              item = string.Format("\"n_mrr_amount\":{0},",
+                                   FormatFieldValue(record.Fields[billingSummary_MrrAmount_Index], invariantCulture));
+              json.Append(item);
+              item = string.Format("\"n_mrramountAsString\":{0},",
+                                   FormatCurrencyValueForGraph(record.Fields[billingSummary_MrrAmount_Index],
+                                                               record.Fields[billingSummary_Currency_Index].FieldValue
+                                                                                                           .ToString()));
+              json.Append(item);
+            }
             item = string.Format("\"item_desc\":{0}", FormatFieldValue(record.Fields[billingSummary_ItemDesc_Index]));
             json.Append(item);
             break;

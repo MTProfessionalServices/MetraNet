@@ -118,37 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddUpMonetaryChargeAmountsLabel.BoxLabel" xml:space="preserve">
-    <value> Add up monetary charge amounts.</value>
+    <value>Additionner les montants monétaires.</value>
   </data>
   <data name="AddUpUnitsOfUsageLabel.BoxLabel" xml:space="preserve">
-    <value> Add up units of usage.</value>
+    <value>Additionner les unités d’utilisation.</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="CountTheNumberOfEventsLabel.BoxLabel" xml:space="preserve">
-    <value> Count the number of events.</value>
+    <value>Compter le nombre d’événements.</value>
+  </data>
+  <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
+    <value>Depuis le tableau de paramètres.</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>Decisions count monetary amounts, units or number of events. This screen allows the selection of what a decision type will aggregate.</value>
+    <value>Les décisions comptent les montants monétaires, les unités ou le nombre d’événements. Cet écran permet de sélectionner les éléments consolidés par un type de décision.</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>Adjust the settings for this Decision Type.</value>
+    <value>Ajustez les réglages pour ce type de décision.</value>
   </data>
   <data name="lblGenInfoResource3.Text" xml:space="preserve">
-    <value>How should usage be aggregated?</value>
+    <value>Comment consolider l’utilisation ?</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Items to Aggregate for {0}</value>
+    <value>Eléments à consolider pour {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
-  </data>
-  <data name="GetItemAggregatedFromParamTable.BoxLabel" xml:space="preserve">
-    <value> From Parameter Table.</value>
   </data>
 </root>

@@ -100,8 +100,7 @@ CurrencyRenderer = function (value, meta, record, rowIndex, colIndex, store) {
 
   var regOnlyDec = /^-?\d+\.?\d+$/;
   if (regOnlyDec.test(value)) {
-    var result = parseFloat(value).toFixed(2);
-    return "<span class='amount'>" + result.replace(result.charAt(result.length - 3), DECIMAL_SEPARATOR) + "</span>";
+    return "<span class='amount'>" + parseFloat(value).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: FRACTION_DIGITS, minimumFractionDigits: FRACTION_DIGITS }) + "</span>";
   } else
     return "<span class='amount'>" + value + "</span>";
 };

@@ -34,6 +34,11 @@ public partial class DataExportReportManagement_DeleteExistingReportInstance : M
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
     strincomingReportInstanceId = Request.QueryString["idreportinstance"];
     intincomingReportInstanceID = System.Convert.ToInt32(strincomingReportInstanceId);
 

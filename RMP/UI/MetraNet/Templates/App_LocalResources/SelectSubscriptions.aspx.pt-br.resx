@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
   Microsoft ResX Schema 
   
   Version 2.0
@@ -59,137 +59,137 @@
       : using a System.ComponentModel.TypeConverter
       : and then encoded with base64 encoding.
   -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="CAN_USER_SUB" xml:space="preserve">
-    <value>Pode criar assinatura de usuário</value>
-  </data>
-  <data name="CAN_USER_Unsub" xml:space="preserve">
-    <value>Pode cancelar a assinatura do usuário</value>
-  </data>
-  <data name="DESCRIPTION" xml:space="preserve">
-    <value>Descrição</value>
-  </data>
-  <data name="DETAILS" xml:space="preserve">
-    <value>Detalhes</value>
-  </data>
-  <data name="DISPLAY_NAME" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="END_DATE" xml:space="preserve">
-    <value>Data de término</value>
-  </data>
-  <data name="EXTERN_URL_NAME" xml:space="preserve">
-    <value>Nome do URL externo</value>
-  </data>
-  <data name="EXTERNAL_URL" xml:space="preserve">
-    <value>URL externo</value>
-  </data>
-  <data name="GLCODE" xml:space="preserve">
-    <value>Glcode</value>
-  </data>
-  <data name="GLCODE_DISPLAY_NAME" xml:space="preserve">
-    <value>Nome de exibição do Glcode</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Assinaturas</value>
-  </data>
-  <data name="HAS_DISCOUNTS" xml:space="preserve">
-    <value>tem descontos</value>
-  </data>
-  <data name="HAS_PERSONAL_RATES" xml:space="preserve">
-    <value>tem taxas pessoais</value>
-  </data>
-  <data name="HAS_REC_CHARGES" xml:space="preserve">
-    <value>tem cobranças recorrentes</value>
-  </data>
-  <data name="INTERNAL_URL" xml:space="preserve">
-    <value>URL interno</value>
-  </data>
-  <data name="INTERNAL_URL_NAME" xml:space="preserve">
-    <value>Nome do URL interno</value>
-  </data>
-  <data name="lblSelectSubscriptionsResource1.Text" xml:space="preserve">
-    <value>Selecionar assinaturas</value>
-  </data>
-  <data name="NAME" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="NO_RECORDS" xml:space="preserve">
-    <value>Nenhuma assinatura encontrada para o modelo.</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet </value>
-  </data>
-  <data name="PO_ID" xml:space="preserve">
-    <value>ID da oferta de produto</value>
-  </data>
-  <data name="START_DATE" xml:space="preserve">
-    <value>Data de início</value>
-  </data>
-  <data name="EndDateResource1.Label" xml:space="preserve">
-    <value>Data Assinaturas Fim</value>
-  </data>
-  <data name="StartDateResource1.Label" xml:space="preserve">
-    <value>Assinaturas Data de Início</value>
-  </data>
-  <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
-    <value>Assinatura Span</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="CAN_USER_SUB" xml:space="preserve">
+        <value>Pode criar assinatura de usuário</value>
+    </data>
+    <data name="CAN_USER_Unsub" xml:space="preserve">
+        <value>Pode cancelar a assinatura do usuário</value>
+    </data>
+    <data name="DESCRIPTION" xml:space="preserve">
+        <value>Descrição</value>
+    </data>
+    <data name="DETAILS" xml:space="preserve">
+        <value>Detalhes</value>
+    </data>
+    <data name="DISPLAY_NAME" xml:space="preserve">
+        <value>Nome</value>
+    </data>
+    <data name="END_DATE" xml:space="preserve">
+        <value>Data de término</value>
+    </data>
+    <data name="EndDateResource1.Label" xml:space="preserve">
+        <value>Data de término das assinaturas</value>
+    </data>
+    <data name="EXTERN_URL_NAME" xml:space="preserve">
+        <value>Nome do URL externo</value>
+    </data>
+    <data name="EXTERNAL_URL" xml:space="preserve">
+        <value>URL externo</value>
+    </data>
+    <data name="GLCODE" xml:space="preserve">
+        <value>Glcode</value>
+    </data>
+    <data name="GLCODE_DISPLAY_NAME" xml:space="preserve">
+        <value>Nome de exibição do Glcode</value>
+    </data>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Assinaturas</value>
+    </data>
+    <data name="HAS_DISCOUNTS" xml:space="preserve">
+        <value>tem descontos</value>
+    </data>
+    <data name="HAS_PERSONAL_RATES" xml:space="preserve">
+        <value>tem taxas pessoais</value>
+    </data>
+    <data name="HAS_REC_CHARGES" xml:space="preserve">
+        <value>tem cobranças recorrentes</value>
+    </data>
+    <data name="INTERNAL_URL" xml:space="preserve">
+        <value>URL interno</value>
+    </data>
+    <data name="INTERNAL_URL_NAME" xml:space="preserve">
+        <value>Nome do URL interno</value>
+    </data>
+    <data name="lblSelectSubscriptionsResource1.Text" xml:space="preserve">
+        <value>Selecionar assinaturas</value>
+    </data>
+    <data name="NAME" xml:space="preserve">
+        <value>Nome</value>
+    </data>
+    <data name="NO_RECORDS" xml:space="preserve">
+        <value>Nenhuma assinatura encontrada para o modelo.</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet </value>
+    </data>
+    <data name="PO_ID" xml:space="preserve">
+        <value>ID da oferta de produto</value>
+    </data>
+    <data name="START_DATE" xml:space="preserve">
+        <value>Data de início</value>
+    </data>
+    <data name="StartDateResource1.Label" xml:space="preserve">
+        <value>Data de início das assinaturas</value>
+    </data>
+    <data name="SubscriptionSpanPanel.Text" xml:space="preserve">
+        <value>Duração da assinatura</value>
+    </data>
 </root>

@@ -37,6 +37,11 @@ public partial class DataExportReportManagement_CreateScheduleReportInstanceDail
   
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
     strincomingIDReportInstance = Request.QueryString["idreportinstance"];
     intincomingIDReportInstance = System.Convert.ToInt32(strincomingIDReportInstance);
     

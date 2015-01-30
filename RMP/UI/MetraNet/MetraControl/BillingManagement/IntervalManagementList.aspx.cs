@@ -9,11 +9,18 @@ using MetraTech.UI.Controls;
 
 public partial class MetraControl_BillingManagement_IntervalManagementList : MTPage
 {
+  protected string statusFilterValue;
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage EOP Adapters"))
+    {
+      Response.End();
+      return;
+    }
+
     if (!IsPostBack)
     {
-      string statusFilterValue = Request["Intervals"];
+      statusFilterValue = Request["Intervals"];
 
       if (!String.IsNullOrEmpty(statusFilterValue))
       {

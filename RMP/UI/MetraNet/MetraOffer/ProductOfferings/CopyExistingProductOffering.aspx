@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="CopyExistingProductOffering.aspx.cs" Inherits="MetraNet.MetraOffer.ProductOfferings.CopyExistingProductOffering" Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="CopyExistingProductOffering.aspx.cs" Inherits="MetraNet.MetraOffer.ProductOfferings.CopyExistingProductOffering" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<MT:MTTitle ID="MTTitle1" Text="Copy Existing Product Offering" runat="server" />
+<MT:MTTitle ID="MTTitle1" Text="<%$ Resources:Resource,TEXT_COPY_PO %>" runat="server" />
   <br />
   <br />
   <div style="width:810px">

@@ -157,7 +157,7 @@
     <value>競合セッション ID</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[JA]County Tax</value>
+    <value>County Tax</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>通貨</value>
@@ -172,7 +172,7 @@
     <value>続行しますか?これによって、フィルタ条件に一致するすべての調整が拒否されます。フィルタがない場合、すべての調整が拒否されます。</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[JA]Internal 内容</value>
+    <value>Internal 内容</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>電子メール アドレス</value>
@@ -184,7 +184,7 @@
     <value>各種調整の処理中にエラーが発生しました。</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[JA]Federal Tax</value>
+    <value>Federal Tax</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>ガイド期間 ID</value>
@@ -193,7 +193,7 @@
     <value>間隔 ID</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[JA]Local Tax</value>
+    <value>Local Tax</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>処理する調整を選択してください。</value>
@@ -202,7 +202,7 @@
     <value>その他</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[JA]Other Tax</value>
+    <value>Other Tax</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>保留</value>
@@ -217,7 +217,7 @@
     <value>セッション種別</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[JA]State Tax</value>
+    <value>State Tax</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>状況</value>

@@ -117,28 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cbDeactivateDecisionResource1.BoxLabel" xml:space="preserve">
+    <value>Marque essa caixa para desativar '{0}'.</value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="cbDeactivateDecisionResource1.BoxLabel" xml:space="preserve">
-    <value>Check this box to deactivate '{0}'.</value>
-  </data>
-  <data name="tbOrigDecisionNameResource1.Label" xml:space="preserve">
-    <value>Decision Type to be Cloned</value>
+  <data name="tbDescriptionResource1.Label" xml:space="preserve">
+    <value>Descrição</value>
   </data>
   <data name="tbNewDecisionNameResource1.Label" xml:space="preserve">
-    <value>New Decision Type Name</value>
+    <value>Novo nome do tipo de decisão</value>
   </data>
-  <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>Description</value>
+  <data name="tbOrigDecisionNameResource1.Label" xml:space="preserve">
+    <value>Tipo de decisão a ser clonado</value>
   </data>
   <data name="TEXT_ERROR_CLONE_DECISION" xml:space="preserve">
-    <value>Error while cloning Decision Type</value>
-  </data>
-  <data name="TEXT_SUCCESS_CLONE_DECISION" xml:space="preserve">
-    <value>Successfully created new Decision Type clone</value>
+    <value>Erro ao clonar tipo de decisão</value>
   </data>
   <data name="TEXT_ERROR_DUPLICATE_DECISION_NAME" xml:space="preserve">
-    <value>Error: Decision Type name already in use</value>
+    <value>Erro: o nome do Tipo de decisão já está em uso</value>
+  </data>
+  <data name="TEXT_SUCCESS_CLONE_DECISION" xml:space="preserve">
+    <value>Novo clone do Tipo de decisão criado com êxito</value>
   </data>
 </root>

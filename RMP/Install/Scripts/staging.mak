@@ -276,6 +276,8 @@ BINARIES = \
   MetraTech.Core.Activities.pdb \
   MetraTech.Core.Client.Dll \
   MetraTech.Core.Client.pdb \
+  MetraTech.Core.RESTAPI.dll \
+  MetraTech.Core.RESTAPI.pdb \
   MetraTech.Core.Services.ClientProxies.dll \
   MetraTech.Core.Services.ClientProxies.pdb \
   MetraTech.Core.Services.Dll \
@@ -340,6 +342,8 @@ BINARIES = \
   MetraTech.FileLandingService.exe.config \
   MetraTech.Events.dll \
   MetraTech.Events.pdb \
+  MetraTech.NotificationEvents.EventHandler.dll \
+  MetraTech.NotificationEvents.EventHandler.pdb \
   MetraTech.Messaging.Framework.dll \
   MetraTech.Messaging.Framework.pdb \
   MetraTech.Messaging.MessagingService.exe \
@@ -358,6 +362,8 @@ BINARIES = \
   MetraTech.Security.DPAPI.dll \
   MetraTech.Security.DPAPI.pdb \
   MetraTech.Security.pdb \
+  MetraTech.Security.Hooks.dll \
+  MetraTech.Security.Hooks.pdb \
   MetraTech.SecurityFramework.Core.Common.dll \
   MetraTech.SecurityFramework.Core.Common.pdb \
   MetraTech.SecurityFramework.MTLogging.dll \
@@ -383,6 +389,8 @@ BINARIES = \
   MetraTech.Test.Plugins.pdb \
   MetraTech.Tools.Library.dll \
   MetraTech.Tools.Library.pdb \
+  MetraTech.Presentation.dll \
+  MetraTech.Presentation.pdb \
   MetraTech.UI.CDT.dll \
   MetraTech.UI.CDT.pdb \
   MetraTech.UI.Common.dll \
@@ -545,7 +553,7 @@ BINARIES = \
   XMLConfig.pdb \
   xmlconfigtest.exe \
   xmlconfigtest.pdb \
-  zlib.dll \
+  zlib1.dll \
   gudusoft.gsqlparser.dll \
   $(MPI_DLLS) \
   $(MEMALLOC_DLL) \
@@ -845,12 +853,8 @@ COM_DLLSPDB = \
   MTLeaderPlugin.pdb \
   MTLocaleConfig.pdb \
   MTLogin.pdb \
-  MTMAM.pdb \
   MTModuleReader.pdb \
-  MTMSIX.pdb \
   MTNonRecurringChargeAdapter.pdb \
-  MTPaymentServerHelper.pdb \
-  MTPCImportExportExec.pdb \
   MTPhoneCrack.pdb \
   MTProductCatalog.pdb \
   MTProductCatalogExec.pdb \
@@ -872,7 +876,6 @@ COM_DLLSPDB = \
   MTSubscriptionExec.pdb \
   MTSubStr.pdb \
   MTUsageServer.pdb \
-  MTVBLib.pdb \
   MTYAAC.pdb \
   MTYAACExec.pdb \
   NameID.pdb \
@@ -915,7 +918,6 @@ COM_DLLSPDB = \
   UpdatePaymentScheduler.pdb \
   UpdatePaymentSchedulerWithConfirm.pdb \
   VersionReporting.pdb \
-  ViewAllRates.pdb \
   WeightedRate.pdb \
   MetraTech.MTPCImportDynamicProperties.pdb \
   
@@ -1088,6 +1090,7 @@ ASSEMBLIES_PDB = \
   MetraTech.DataAccess.DMO.pdb \
   MetraTech.DataAccess.MaterializedViews.pdb \
   MetraTech.Debug.Transaction.pdb \
+  MetraTech.Localization.pdb \
   MetraTech.Localization.pdb \
   MetraTech.MTSQL.pdb \
   MetraTech.OnlineBill.pdb \
@@ -1456,11 +1459,13 @@ RMP_Samples:
 S_BATCH_WEBSVC_DIR     = $(S_METRATECH_DIR)\Pipeline\Batch\Listener
 S_RERUN_WEBSVC_DIR     = $(S_METRATECH_DIR)\Pipeline\ReRun\Listener
 S_HIERARCHY_WEBSVC_DIR = $(S_METRATECH_DIR)\Accounts\Hierarchy\WebService
+S_RESTAPI_WEBSVC_DIR = $(S_METRATECH_DIR)\RESTAPI
 
 P_WEBSVCS_DIR          = $(P_BASE_DIR)\WebServices
 P_BATCH_WEBSVC_DIR     = $(P_WEBSVCS_DIR)\Batch
 P_RERUN_WEBSVC_DIR     = $(P_WEBSVCS_DIR)\BillingRerun
 P_HIERARCHY_WEBSVC_DIR = $(P_WEBSVCS_DIR)\AccountHierarchy
+P_RESTAPI_WEBSVC_DIR = $(P_WEBSVCS_DIR)\RESTAPI
 
 RMP_WebServices:
   @echo $(DELIM)
@@ -1496,7 +1501,19 @@ RMP_WebServices:
   $(CP) Web.Config $(P_HIERARCHY_WEBSVC_DIR)
   $(CD) $(O_BIN_DIR)
   $(CPWEBSVC) $(S_HIERARCHY_WEBSVC_DIR) $(P_HIERARCHY_WEBSVC_DIR)
-
+ 
+ 
+  @echo $(DELIM)
+  @echo   RESTAPI
+  $(MKDIR) $(P_RESTAPI_WEBSVC_DIR)
+  $(MKDIR) $(P_RESTAPI_WEBSVC_DIR)\bin
+  $(CD) $(S_RESTAPI_WEBSVC_DIR)
+  $(CP) *.asax  $(P_RESTAPI_WEBSVC_DIR)
+  $(CP) packages.config  $(P_RESTAPI_WEBSVC_DIR)
+  $(CP) Web.Config $(P_RESTAPI_WEBSVC_DIR)
+  $(CD) $(O_BIN_DIR)
+  $(CPWEBSVC) $(S_RESTAPI_WEBSVC_DIR) $(P_RESTAPI_WEBSVC_DIR)
+ 
 ###############################################
 # Installer
 ###############################################
@@ -1721,7 +1738,7 @@ METRACONNECT_DLLS = \
   sdk_msg.dll \
   mtglobal_msg.dll \
   xmlconfig.dll \
-  zlib.dll \
+  zlib1.dll \
   
 METRACONNECT_DLLSPDB = \
   mtsdk.pdb \
@@ -1750,7 +1767,6 @@ METRACONNECT_DBMETERING = \
 METRACONNECT_DBMETERINGPDB = \
   MetraTech.Metering.DatabaseMetering.pdb \
   MetraConnect-DB.pdb \
-  msix2sql.pdb \
 
 METRACONNECT_LIBRARIES = \
   mtsdk.lib \

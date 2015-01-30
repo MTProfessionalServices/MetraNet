@@ -139,7 +139,7 @@
     <value>Proprietà dell'argomento</value>
   </data>
   <data name="ASSEMBLY_TITLE" xml:space="preserve">
-    <value>[IT]Assembly</value>
+    <value>Assembly</value>
   </data>
   <data name="DETAIL_COMMAND" xml:space="preserve">
     <value>Comando eseguito</value>
@@ -148,7 +148,7 @@
     <value>Codice errore corrente</value>
   </data>
   <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-    <value>[IT]Current Error Message</value>
+    <value>Current Error Message</value>
   </data>
   <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
     <value>Stato corrente</value>
@@ -184,7 +184,7 @@
     <value>Data</value>
   </data>
   <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-    <value>[IT]Error Message</value>
+    <value>Error Message</value>
   </data>
   <data name="FILE_GENERAL_TITLE" xml:space="preserve">
     <value>File</value>

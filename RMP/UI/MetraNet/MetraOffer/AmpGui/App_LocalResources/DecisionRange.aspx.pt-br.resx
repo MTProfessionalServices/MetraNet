@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionRange.Text" xml:space="preserve">
-    <value>The aggregate value for the Decision Type has a range of values within which the Decision Type is applicable.</value>
+    <value>O valor agregado para o tipo de decisão tem um intervalo de valores dentro do qual o Tipo de decisão é aplicável.</value>
   </data>
   <data name="lblDecisionRangeProration.Text" xml:space="preserve">
-    <value>Prorate the range at subscription activation and/or termination?</value>
+    <value>Ratear o intervalo em uma ativação e/ou término de inscrição?</value>
   </data>
   <data name="lblDecisionRangeRestart.Text" xml:space="preserve">
-    <value>Restart the count after the end of the range has been reached?</value>
-  </data>
-  <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>5. Range for {0}</value>
-  </data>
-  <data name="rblRangeNo.Text" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="rblRangeYes.Text" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_END_RANGE" xml:space="preserve">
-    <value>Error: You must specify the end of range.</value>
-  </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_START_RANGE" xml:space="preserve">
-    <value>Error: You must specify the start of range.</value>
-  </data>
-  <data name="lblProrate.Text" xml:space="preserve">
-    <value>How should the decision prorate the range?</value>
-  </data>
-  <data name="PRORATE_BOTH_TEXT" xml:space="preserve">
-    <value>Prorate the range on both activation and termination</value>
-  </data>
-  <data name="PRORATE_NONE_TEXT" xml:space="preserve">
-    <value>Do not prorate the range on activation or termination</value>
-  </data>
-  <data name="PRORATE_TIER_END_TEXT" xml:space="preserve">
-    <value>Prorate the range only on termination</value>
-  </data>
-  <data name="PRORATE_TIER_START_TEXT" xml:space="preserve">
-    <value>Prorate the range only on activation</value>
+    <value>Reiniciar a contagem depois do fim do intervalo?</value>
   </data>
   <data name="lblEndOfRange.Text" xml:space="preserve">
-    <value>End of range:</value>
+    <value>Fim do intervalo:</value>
+  </data>
+  <data name="lblProrate.Text" xml:space="preserve">
+    <value>Como a decisão deve ratear o intervalo?</value>
   </data>
   <data name="lblStartOfRange.Text" xml:space="preserve">
-    <value>Start of range:</value>
+    <value>Início do intervalo:</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>5. Intervalo para {0}</value>
+  </data>
+  <data name="PRORATE_BOTH_TEXT" xml:space="preserve">
+    <value>Ratear o intervalo tanto na ativação quanto no término</value>
+  </data>
+  <data name="PRORATE_NONE_TEXT" xml:space="preserve">
+    <value>Não ratear o intervalo na ativação ou no término</value>
+  </data>
+  <data name="PRORATE_TIER_END_TEXT" xml:space="preserve">
+    <value>Ratear o intervalo somente no término</value>
+  </data>
+  <data name="PRORATE_TIER_START_TEXT" xml:space="preserve">
+    <value>Ratear o intervalo somente na ativação</value>
+  </data>
+  <data name="rblRangeNo.Text" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="rblRangeYes.Text" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_END_RANGE" xml:space="preserve">
+    <value>Erro: você deve especificar o fim do intervalo.</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_START_RANGE" xml:space="preserve">
+    <value>Erro: você deve especificar o início do intervalo.</value>
   </data>
 </root>

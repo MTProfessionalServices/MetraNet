@@ -16,9 +16,9 @@
     });
 
   function goBack() {
-    parent.parent.location.href = "/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.List.asp";
+    window.getFrameMetraNet().MainContentIframe.location.href = 'ScheduledAdaptersList.aspx';
+    return false;
   }
-  
 
   function onCheck() {
   }

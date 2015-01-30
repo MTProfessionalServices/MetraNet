@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,155 +59,167 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>Aprovador ID</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>Comentário</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>Estado actual</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>Ação</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>Última data de modificação</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>Nome de envio</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Remetente</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>ID do remetente</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>Tipo</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>ID de item modificado</value>
-  </data>
-  <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>Nenhum registro encontrado</value>
-  </data>
-  <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Exibir alterações</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
-    <value>Estado</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
-    <value>Item modificado</value>
-  </data>
-  <data name="TEXT_APPROVAL_ALL_CHANGES" xml:space="preserve">
-    <value>Todas as alterações</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
-    <value>Mudanças de status tudo</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_APPLIED" xml:space="preserve">
-    <value>Aplicado</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_DISMISSED" xml:space="preserve">
-    <value>Demitido</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_FAILEDTOAPPLY" xml:space="preserve">
-    <value>Falha ao aplicar</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_PENDING" xml:space="preserve">
-    <value>Pendente</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_WAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>Esperando para serem aplicados</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATUS" xml:space="preserve">
-    <value>Alterar Estado</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
-    <value>Tipo</value>
-  </data>
-  <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
-    <value>Negar</value>
-  </data>
-  <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
-    <value>Negar tudo</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
-    <value>Demitir</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
-    <value>Dispensar tudo</value>
-  </data>
-  <data name="TEXT_APPROVAL_FAILED_CHANGES" xml:space="preserve">
-    <value>Mudanças Falharam</value>
-  </data>
-  <data name="TEXT_APPROVAL_PENDING_CHANGES" xml:space="preserve">
-    <value>Alterações pendentes</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
-    <value>Reenviar</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
-    <value>Reenviar todos</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="TEXT_APPROVAL_ALL_CHANGES" xml:space="preserve">
+        <value>Aplicar alterações</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
+        <value>Mudanças de status tudo</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
+        <value>ID do aprovador</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
+        <value>Comentário</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
+        <value>Estado atual</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
+        <value>Ação</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
+        <value>Última data de modificação</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_APPLIED" xml:space="preserve">
+        <value>Aplicado</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_DISMISSED" xml:space="preserve">
+        <value>Demitido</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
+        <value>Estado</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_FAILEDTOAPPLY" xml:space="preserve">
+        <value>Falha ao aplicar</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_PENDING" xml:space="preserve">
+        <value>Pendente</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_WAITINGTOBEAPPLIED" xml:space="preserve">
+        <value>Esperando para serem aplicados</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATUS" xml:space="preserve">
+        <value>Alterar Estado</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
+        <value>Nome de envio</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
+        <value>Remetente</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
+        <value>ID do remetente</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
+        <value>Tipo</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
+        <value>Tipo</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
+        <value>Item modificado</value>
+    </data>
+    <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
+        <value>ID de item modificado</value>
+    </data>
+    <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
+        <value>Negar</value>
+    </data>
+    <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
+        <value>Negar tudo</value>
+    </data>
+    <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
+        <value>Demitir</value>
+    </data>
+    <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
+        <value>Dispensar tudo</value>
+    </data>
+    <data name="TEXT_APPROVAL_FAILED_CHANGES" xml:space="preserve">
+        <value>Mudanças Falharam</value>
+    </data>
+    <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
+        <value>Nenhum registro encontrado</value>
+    </data>
+    <data name="TEXT_APPROVAL_PENDING_CHANGES" xml:space="preserve">
+        <value>Alterações pendentes</value>
+    </data>
+    <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
+        <value>Reenviar</value>
+    </data>
+    <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
+        <value>Reenviar todos</value>
+    </data>
+    <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
+        <value>Exibir alterações</value>
+    </data>
+    <data name="TEXT_SUMMARY" xml:space="preserve">
+        <value>Summary</value>
+    </data>
+    <data name="lblShowAllChangesSummaryTitleResource1.Text" xml:space="preserve">
+        <value>All Changes Summary</value>
+    </data>
+    <data name="ChangesSummaryResource1.NoRecordsText" xml:space="preserve">
+        <value>No records found</value>
+    </data>
+    <data name="MTSection2Resource1.Text" xml:space="preserve">
+        <value>Change Details</value>
+    </data>    
 </root>

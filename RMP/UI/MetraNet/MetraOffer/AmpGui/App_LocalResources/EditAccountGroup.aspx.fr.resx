@@ -118,78 +118,78 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_QUALIFICATIONS_GRID_TITLE" xml:space="preserve">
-    <value>Account Qualifications in Order of Execution:</value>
+    <value>Qualifications des comptes dans l’ordre d’exécution :</value>
+  </data>
+  <data name="lblAcctQualGridResource1.Text" xml:space="preserve">
+    <value>Indiquez les mesures à prendre pour que les comptes visés par le type de décision puissent être sélectionnés. &lt;br/&gt;Pour cela, vous devez définir un ensemble de qualifications de comptes répondant à un ordre précis.</value>
+  </data>
+  <data name="lblEditAccountGroupResource1.Text" xml:space="preserve">
+    <value>Ici vous pouvez définir un groupe spécifiant un ensemble de comptes visés par l’opération.</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>Groupe de comptes</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Account Group</value>
-  </data>
-  <data name="lblEditAccountGroupResource1.Text" xml:space="preserve">
-    <value>Here you define an Account Group that specifies a particular set of accounts to operate on.</value>
-  </data>
-  <data name="lblAcctQualGridResource1.Text" xml:space="preserve">
-    <value>Specify the steps to take so that the accounts on which this Decision Type will operate can be selected. &lt;br/&gt;To do so, you must define an ordered set of Account Qualifications</value>
-  </data>
-  <data name="tbAcctGroupNameResource1.Label" xml:space="preserve">
-    <value>Name</value>
-  </data>
   <data name="tbAcctGroupDescriptionResource1.Label" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="TEXT_ORDER" xml:space="preserve">
-    <value>Order</value>
-  </data>
-  <data name="TEXT_INCLUDE_TABLE" xml:space="preserve">
-    <value>Table to Include</value>
+  <data name="tbAcctGroupNameResource1.Label" xml:space="preserve">
+    <value>Nom</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
     <value>Actions</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Add</value>
+    <value>Ajouter</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Add a new Account Qualification to this Account Group</value>
-  </data>
-  <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
-    <value>Move earlier</value>
-  </data>
-  <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
-    <value>Move later</value>
-  </data>
-  <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>An error occurred while moving the Account Qualification earlier in order of execution:</value>
-  </data>
-  <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>An error occurred while moving the Account Qualification later in order of execution:</value>
-  </data>
-  <data name="TEXT_ERROR_DELETING" xml:space="preserve">
-    <value>An error occurred while deleting Account Qualification:</value>
-  </data>
-  <data name="TEXT_ERROR_UPDATING_ACCT_GROUP_DESCRIPTION" xml:space="preserve">
-    <value>An error occurred while updating the description of Account Group:</value>
+    <value>Ajouter une nouvelle qualification à ce groupe de comptes</value>
   </data>
   <data name="TEXT_DB_FILTER" xml:space="preserve">
-    <value>Database Filter</value>
+    <value>Filtre de base de données</value>
+  </data>
+  <data name="TEXT_ERROR_DELETING" xml:space="preserve">
+    <value>Erreur de suppression de la qualification de compte :</value>
+  </data>
+  <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
+    <value>Une erreur s’est produite pendant la remontée de la qualification de compte dans l’ordre d’exécution :</value>
+  </data>
+  <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
+    <value>Une erreur s’est produite pendant la descente de la qualification de compte dans l’ordre d’exécution :</value>
+  </data>
+  <data name="TEXT_ERROR_UPDATING_ACCT_GROUP_DESCRIPTION" xml:space="preserve">
+    <value>Erreur pendant la mise à jour de la description du groupe de comptes :</value>
+  </data>
+  <data name="TEXT_INCLUDE_TABLE" xml:space="preserve">
+    <value>Tableau à inclure</value>
   </data>
   <data name="TEXT_MATCH_FIELD" xml:space="preserve">
-    <value>Match Field</value>
+    <value>Associer la zone</value>
   </data>
   <data name="TEXT_MODE" xml:space="preserve">
     <value>Mode</value>
   </data>
   <data name="TEXT_MVM_FILTER" xml:space="preserve">
-    <value>MVM Filter</value>
+    <value>Filtre MVM</value>
+  </data>
+  <data name="TEXT_ORDER" xml:space="preserve">
+    <value>Ordre</value>
   </data>
   <data name="TEXT_OUTPUT_FIELD" xml:space="preserve">
-    <value>Output Field</value>
+    <value>Zone de sortie</value>
+  </data>
+  <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
+    <value>Remonter</value>
+  </data>
+  <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
+    <value>Descendre</value>
   </data>
   <data name="TEXT_SOURCE_FIELD" xml:space="preserve">
-    <value>Source Field</value>
+    <value>Zone source</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>Description:</value>
+    <value>Description :</value>
   </data>
 </root>

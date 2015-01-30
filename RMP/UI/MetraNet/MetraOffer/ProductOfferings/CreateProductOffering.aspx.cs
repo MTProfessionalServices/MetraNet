@@ -46,20 +46,21 @@ namespace MetraNet.MetraOffer.ProductOfferings
         //This should be same as the public property defined above 
         MTGenericForm1.RenderObjectInstanceName = "productoffering";
 
-        //This is the Page Layout Template name
-        MTGenericForm1.TemplateName = "Core.UI.CreateProductOffering";
+        //This is the Page Layout Template name        
         MTGenericForm1.ReadOnly = false;
 
         ProductOffering.Currency = SystemCurrencies.USD; //Default Currency set to USD on page load
 
         if (IsMaster)
         {
-          ProductOffering.POPartitionId = 0;
+          MTGenericForm1.TemplateName = "Core.UI.CreateMasterProductOffering";
           var masterLocalizedText = GetLocalResourceObject("TEXT_MASTER") ?? "Create Master Product Offering";
           MTTitle1.Text = masterLocalizedText.ToString();
+          ProductOffering.POPartitionId = 0;
         }
         else
         {
+          MTGenericForm1.TemplateName = "Core.UI.CreateProductOffering";
           if (IsPartition)
           {
             ProductOffering.POPartitionId = PartitionId;

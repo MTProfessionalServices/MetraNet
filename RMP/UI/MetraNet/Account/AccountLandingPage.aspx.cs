@@ -26,7 +26,7 @@ public partial class Account_AccountLandingPage : MTPage
 {
   protected string NoDecisionsText;
   public bool IsPrototypePage { get; set; }
-  public bool ShowFinancialInformation { get; set; } //TODO: Hook to financial capability
+  public bool ShowFinancialData { get; set; } 
   public bool AccountCanSubscribe { get; set; }
   
   public string MetraTimeNow
@@ -47,7 +47,6 @@ public partial class Account_AccountLandingPage : MTPage
   {
     //Some experimental settings for now
     IsPrototypePage = true;
-    ShowFinancialInformation = true;
     AccountCanSubscribe = true;
   
     CheckIsCorporate();
@@ -71,6 +70,7 @@ public partial class Account_AccountLandingPage : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    ShowFinancialData = true; //UI.CoarseCheckCapability("View Summary Financial Information");
     if (!IsPostBack)
     {
       NoDecisionsText = string.Format("{0}", GetLocalResourceObject("NO_DECISIONS_TEXT"));

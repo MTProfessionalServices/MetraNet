@@ -45,7 +45,10 @@ public partial class Adjustments_AjaxServices_ApproveAdjustments : MTListService
         }
         client.ApproveAdjustments(sessionIds); ;
         response.Success = true;
-        response.Message = "Successfully approved adjustments.";
+        //response.Message = "Successfully approved adjustments.";
+        var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_adjustments");
+        if (message != null)
+          response.Message = message.ToString();
         client.Close();
         client = null;
       }

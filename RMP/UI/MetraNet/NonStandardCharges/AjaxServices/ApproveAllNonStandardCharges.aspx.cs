@@ -33,8 +33,10 @@ public partial class NonStandardCharges_AjaxServices_ApproveAllNonStandardCharge
 
           client.Open();
           client.ApproveAllNonStandardCharges(ref charges);
-          response.Success = true;
-          response.Message = "Successfully approved all selected charges.";
+          response.Success = true;          
+          var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_all_selected_charges");
+          if (message != null)
+            response.Message = message.ToString(); 
           client.Close();
           client = null;
         }

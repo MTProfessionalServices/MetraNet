@@ -137,6 +137,11 @@ white-space:nowrap;
 {
   font-weight:bolder;
 }
+
+.dc-chart rect.bar {
+  cursor: default !important;
+}
+  
 </style>
   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/jquery.gridster.min.js"></script>
@@ -200,10 +205,10 @@ white-space:nowrap;
   </div>
 
 
-  <%--<div class="widgetpanel" style="width:318px;">
-    <div id="LTVInformation" style="float:left;margin-left: 10px;"><span class="valueLabel">LTV</span><span class="valueHighlighted" style='padding-left: 10px;'></span></div>
-    <div id="MRRInformation" style="float:left;margin-left: 10px"><span class="valueLabel">MRR</span><span class="valueHighlighted" style="padding: 10px;"></span></div>
-  </div>--%>
+  <div id="MRRInformation" class="widgetpanel" style="width:150px; display:none;">
+    <%-- <div id="LTVInformation" style="float:left;margin-left: 10px;"><span class="valueLabel">LTV</span><span class="valueHighlighted" style='padding-left: 10px;'></span></div> --%>
+    <div><span class="valueLabel">MRR</span><span class="valueHighlighted"></span></div>
+  </div>
 
   <br style="clear: both;" />
    
@@ -214,9 +219,9 @@ white-space:nowrap;
     </MT:MTPanel>
     <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid>   --%>
   </div>
-  <table style="width:100%; height:100%;">
+  <table style="width:100%; height:100%; border-spacing: 0px">
     <tr style="vertical-align: top;">
-      <td style="width: 380px; height: 336px;"> 
+      <td style="width: 380px;"> 
         <div class="widget" data-row="3" data-col="1" data-sizex="3" data-sizey="3">
           <MT:MTPanel ID="billingActivityPanel" runat="server"  Width="380" meta:resourcekey="billingActivityPanel">
             <div id="billsPaymentsChart" style="width: 100%; height: 100%;">
@@ -479,8 +484,7 @@ white-space:nowrap;
       displayAccountStatusInformation();
       displayBalanceInformation();
       displayFailedTransactionCount(<% =int.Parse(UI.Subscriber["_AccountID"]) %>);
-      //displayLtvAndMrrInformation();
-      displayBillingActivityGraph();
+      displayBillingActivityAndMRR(<%=ShowFinancialData.ToString().ToLower()%>);
       resize_to_fit();
     });
     
@@ -557,7 +561,7 @@ white-space:nowrap;
           });
 
           svg = svg.append("g")
-            .attr("transform", "translate(" + margin.left + "," + (margin.top + 20) + ")")
+            .attr("transform", "translate(" + margin.left + "," + (margin.top + 30) + ")")
             .call(chart);
 
           var title = svg.append("g")
@@ -565,13 +569,14 @@ white-space:nowrap;
 
           title.append("text")
             .attr("class", "title")
-            .attr("dx", "-1em")
+            .attr("dx", "0.5em")
+            .attr("dy", "-0.3em")
             .text(function (d) { return d.title; });
 
           title.append("text")
             .attr("class", "subtitle")
-            .attr("dx", "-1em")
-            .attr("dy", "1.2em")
+            .attr("dx", "0.8em")
+            .attr("dy", "1em")
             .text(function (d) { return d.subtitle; });
 
           //title.append("text")

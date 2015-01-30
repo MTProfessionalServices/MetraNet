@@ -188,7 +188,7 @@
     // Custom rendering Template
   var resultTpl = new Ext.XTemplate(
     '<tpl for="."><div class="search-item">',
-    '<h3><img align="middle" src="/ImageHandler/images/Account/{AccountType}/account.gif?State={AccountStatus}&Folder={Folder}">{UserName} ({_AccountID})</h3>',
+    '<h3><img align="middle" src="/ImageHandler/images/Account/{AccountType}/account.gif?State={AccountStatus}&Folder={Folder}" height="16" width="16">{UserName} ({_AccountID})</h3>',
 
     '<tpl if="this.isNull(FirstName)==false && this.isNull(LastName)==false">',
     '{FirstName:htmlEncode} {LastName:htmlEncode}',
@@ -276,14 +276,19 @@
         // Menus can be built/referenced by using nested menu config objects
         menu : {
           items: [{
-              text: 'Change Password',
+              text: TEXT_CHANGE_PASSWORD,
               icon: '/Res/Images/icons/lock_edit.png',
               handler: function() { Ext.UI.LoadPage('/MetraNet/ChangePassword.aspx'); }
             },{
-              text: 'My Security Settings',
+              text: TEXT_MY_SECURITY_SETTINGS,
               icon: '/Res/Images/icons/key_go.png',
               handler: function() { Ext.UI.LoadPage('/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=CSR_DEFAULT_POLICY'); }
-            }]
+            },{
+              text: TEXT_NOTIFICATIONS,
+              icon: '/Res/Images/icons/email.png',
+              handler: function() { Ext.UI.LoadPage('/MetraNet/Notifications/Notifications.aspx'); }
+            }
+          ]
         }
       }),
        

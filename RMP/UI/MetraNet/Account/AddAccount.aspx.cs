@@ -41,15 +41,19 @@ public partial class AddAccount : MTAccountPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    
     if (!IsPostBack)
     {
       Account = PageNav.Data.Out_StateInitData["Account"] as Account;
+     
       if (!IsPostBack)
       {
+        
         if (Account != null)
         {
           Account.AccountStartDate = DateTime.Now;
         }
+
         MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
         MTGenericForm1.RenderObjectType = BillTo.GetType();
         MTGenericForm1.RenderObjectInstanceName = "BillTo";
@@ -104,7 +108,7 @@ public partial class AddAccount : MTAccountPage
       if (!templatesApplied)
       {
         // Set defaults for the page
-        Internal.Billable = true;
+        //Internal.Billable = true;
         Internal.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
         Internal.Language = LanguageCode.US;
         Internal.UsageCycleType = UsageCycleType.Monthly;
@@ -137,21 +141,18 @@ public partial class AddAccount : MTAccountPage
 
         if (accountType.Name == "Endpoint")
         {
-          cbBillable.Checked = false;
-          cbBillable.ReadOnly = true;
-          cbBillable.Visible = true;
-          //Payer is required 
+          Internal.Billable = false;
+          cbBillable.Enabled = false;
+          ////Payer is required 
           tbPayer.AllowBlank = false;
         }
-
-
       }
 
       if (!MTDataBinder1.DataBind())
       {
         Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
       }
-
+      
       // PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
       // PopulatePriceList(ddPriceList);
       PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
@@ -175,7 +176,7 @@ public partial class AddAccount : MTAccountPage
           ddAuthenticationType.Items.Add(itm);
         }
       }
-
+      
     }
   }
 

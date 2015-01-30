@@ -4,5 +4,3 @@ SC DELETE MessagingServer
 SC DELETE MetraPay
 SC DELETE Pipeline
 SC DELETE MetraTech.FileService
-pause
-

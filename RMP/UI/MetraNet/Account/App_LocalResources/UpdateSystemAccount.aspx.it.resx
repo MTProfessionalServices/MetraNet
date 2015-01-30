@@ -124,7 +124,7 @@
     <value>Conto principale</value>
   </data>
   <data name="LblAuthenticationType.Label" xml:space="preserve">
-    <value>[IT]Authentication Type</value>
+    <value>Authentication Type</value>
   </data>
   <data name="LblBrandedSite.Label" xml:space="preserve">
     <value>Sito con marchio</value>
@@ -160,7 +160,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>[IT]This account already has a pending change in the approval framework queue. {0} Click here to view pending changes.</value>
+    <value>This account already has a pending change in the approval framework queue. {0} Click here to view pending changes.</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Informazioni sull'account</value>

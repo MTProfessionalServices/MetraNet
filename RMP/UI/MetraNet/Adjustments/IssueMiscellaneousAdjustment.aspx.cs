@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using MetraTech;
@@ -20,14 +18,10 @@ using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
-using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.Enums.Core.Global;
-using MetraTech.DomainModel.ProductView;
 using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
-using MetraTech.UI.Tools;
-using MetraTech.Security.Crypto;
 using RCD = MetraTech.Interop.RCD;
 
 public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
@@ -47,19 +41,19 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-  private bool _creditNotesEnabled = false ;
-  private RCD.IMTRcd rcd = new RCD.MTRcd();
+  private bool _creditNotesEnabled;
+  private readonly RCD.IMTRcd _rcd = new RCD.MTRcd();
   
     protected void Page_Load(object sender, EventArgs e)
     {
-      CreditNoteServiceClient client = new CreditNoteServiceClient();
+      var client = new CreditNoteServiceClient();
       if (client.ClientCredentials != null)
       {
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
 
-      string reportingDir = Path.Combine(rcd.ExtensionDir, "Reporting");
+      string reportingDir = Path.Combine(_rcd.ExtensionDir, "Reporting");
       if (Directory.Exists(reportingDir)) // check if Reporting extension exists
       {
         CreditNotePDFConfiguration config = null;
@@ -84,13 +78,17 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 = adjAmountFldTaxOther.DecimalPrecision
               = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits.ToString();
 
+            
+          if (!UI.SessionContext.SecurityContext.IsSuperUser())
+          {
+            lblMaxAmount.Text = GetMaxCapabilityAmount();
+          }
+          else
+          {
             string maxAdjAmount = String.Format("{0} {1}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), GetLocalResourceObject("TEXT_UNLIMITED"));
-            if (!UI.SessionContext.SecurityContext.IsSuperUser())
-            {
-                maxAdjAmount = GetMaxCapabilityAmount();
-            }
-
-            lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount, ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+            lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount,
+                                              ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+          }
 
           if (_creditNotesEnabled)
           {
@@ -226,12 +224,12 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     {
         PipelineMeteringHelper helper = null;
 
-        StringBuilder errorBuilder = new StringBuilder();
+        var errorBuilder = new StringBuilder();
 
         decimal? adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther, totalAmount;
         totalAmount = null;
 
-        bool errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
+        var errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
 
         if (!ConvertToDecimal(adjAmountFldTaxFederal.Text, adjAmountFldTaxFederal.Label, errorBuilder, out taxFederal))
             errorOccurred = true;
@@ -516,28 +514,45 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
     private bool IsAllowedCreate(decimal totalAmount)
     {
-        bool allowed = false;
-        if (!UI.SessionContext.SecurityContext.IsSuperUser())
+      var allowed = true;
+      if (!UI.SessionContext.SecurityContext.IsSuperUser())
+      {
+        var conditions = GetMaxCapabilityAmount().Split(';');
+        for (var i = 0; allowed && i < conditions.Length; i++)
         {
-            string max = GetMaxCapabilityAmount();
-            string[] data = max.Split(' ');
-            int last = data.Length - 1;
-            // Build expression to have the DataTable evaluation based on the adjustment amount allowed
-            // != not supported and needs to be passed as <>
-            string op = data[last - 1];
-            if (op.Equals("!="))
-                op = "<>";
-            string expr = String.Format("{0}{1}{2}", totalAmount.ToString(CultureInfo.InvariantCulture), op, Convert.ToDecimal(data[last]).ToString(CultureInfo.InvariantCulture));
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("col1", typeof(bool), expr);
-            dataTable.Rows.Add(new object[] { });
-            object result = dataTable.Rows[0][0];
-            allowed = System.Convert.ToBoolean(result);
+          Func<decimal, decimal, bool> expression;
+          string[] data = conditions[i].Trim().Split(' ');
+          string op = data[data.Length - 3];
+          switch (op)
+          {
+            case "=":
+              expression = (x, y) => x == y;
+              break;
+            case "<>":
+            case "!=":
+              expression = (x, y) => x != y;
+              break;
+            case ">":
+              expression = (x, y) => x > y;
+              break;
+            case ">=":
+              expression = (x, y) => x >= y;
+              break;
+            case "<":
+              expression = (x, y) => x < y;
+              break;
+            case "<=":
+              expression = (x, y) => x <= y;
+              break;
+            default:
+              expression = (x, y) => false;
+              break;
+          }
+          allowed = expression(totalAmount, Convert.ToDecimal(data[data.Length - 2]));
         }
-        else
-            allowed = true;
+      }
 
-        return allowed;
+      return allowed;
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
@@ -580,7 +595,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
     private string GetMaxCapabilityAmount()
     {
-        string amount = "-1";
+        string amount = "";
+        string concop = "";
         IMTSecurity security = new MTSecurityClass();
         var capabilites = UI.SessionContext.SecurityContext.GetCapabilitiesOfType("Apply Adjustments");
 
@@ -588,7 +604,12 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             decimal authAmount = System.Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
             string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
-            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
+            amount = amount + concop +
+               String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"),
+                             cap.GetAtomicDecimalCapability().GetParameter().Test, 
+							 display,
+                             ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
+            concop = "; ";
         }
 
         return amount;

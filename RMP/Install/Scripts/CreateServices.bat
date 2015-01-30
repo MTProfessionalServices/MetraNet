@@ -2,13 +2,13 @@
 %MTRMPBIN%\pipeline create-service
 
 @echo billing service
-call s:\Install\Scripts\BillingServer.vbs
+call cscript.exe %ROOTDIR%\Install\Scripts\BillingServer.vbs
 
 @echo activity services
-call s:\MetraTech\ActivityServices\Service\install.bat
+call %ROOTDIR%\MetraTech\ActivityServices\Service\install.bat
 
 @echo metrapay
-call s:\Metratech\MetraPay\install.bat
+call %ROOTDIR%\Metratech\MetraPay\install.bat
 
 @echo data export service
 installutil %MTRMPBIN%\MetraTechDataExportService.exe
@@ -16,7 +16,5 @@ installutil %MTRMPBIN%\MetraTechDataExportService.exe
 @echo file landing service
 installutil %MTRMPBIN%\MetraTech.FileLandingService.exe
 
-@echo file landing service
+@echo Messaging Service
 installutil %MTRMPBIN%\MetraTech.Messaging.MessagingService.exe
-
-pause

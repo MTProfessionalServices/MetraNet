@@ -38,7 +38,11 @@ public partial class DataExportReportManagement_EditInstanceParameterValue : MTP
 
   protected void Page_Load(object sender, EventArgs e)
   {
-
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
     strincomingIDParameterValueInstance = Request.QueryString["idparametervalueinstance"];
     intincomingIDParameterValueInstance = System.Convert.ToInt32(strincomingIDParameterValueInstance);
     strincomingParameterValueInstance = Request.QueryString["parametervalueinstance"];

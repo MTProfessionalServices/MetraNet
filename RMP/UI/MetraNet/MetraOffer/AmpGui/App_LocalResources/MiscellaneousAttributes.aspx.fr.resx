@@ -117,47 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnSaveAndContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnSaveAndContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
+  </data>
+  <data name="COLUMN_NAME" xml:space="preserve">
+    <value>Zone du tableau de paramètres</value>
+  </data>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>Attributs divers :</value>
+  </data>
+  <data name="HARDCODED_VALUE" xml:space="preserve">
+    <value>Valeur fixe</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>On this page, you can manage miscellaneous Decision Type attributes that were not covered elsewhere in the wizard.</value>
+    <value>Sur cette page, vous pouvez gérer les attributs des types de décisions qui ne sont pas couverts ailleurs dans l’assistant.</value>
+  </data>
+  <data name="lblGenInfoResource2.Text" xml:space="preserve">
+    <value>Avertissement : Ne modifiez rien ici si vous n’êtes pas absolument sûr de ce que vous faites !</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Miscellaneous Attributes</value>
+    <value>Attributs divers</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>Nom de l’attribut</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>Warning: Don't change anything here unless you're very sure of what you're doing!</value>
-  </data>
-  <data name="COLUMN_NAME" xml:space="preserve">
-    <value>Parameter Table Field</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Miscellaneous Attributes:</value>
-  </data>
-  <data name="HARDCODED_VALUE" xml:space="preserve">
-    <value>Fixed Value</value>
-  </data>
-  <data name="NAME" xml:space="preserve">
-    <value>Attribute Name</value>
-  </data>
-  <data name="TEXT_ADD" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Define another attribute for this Decision Type</value>
-  </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
     <value>Actions</value>
+  </data>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
+    <value>Définir un autre attribut pour ce type de décision</value>
   </data>
 </root>

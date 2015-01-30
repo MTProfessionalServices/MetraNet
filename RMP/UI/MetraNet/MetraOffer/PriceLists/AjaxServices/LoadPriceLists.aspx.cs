@@ -12,6 +12,8 @@ using MetraTech.ActivityServices.Common;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using MetraTech.UI.Common;
 
 public partial class AjaxServices_LoadPriceLists : MTListServicePage
@@ -20,38 +22,61 @@ public partial class AjaxServices_LoadPriceLists : MTListServicePage
 
     protected bool ExtractDataInternal(PriceListServiceClient client, ref MTList<PriceList> items, int batchID, int limit)
     {
-        try
-        {
-            items.Items.Clear();
+      try
+      {
+        items.Items.Clear();
 
-            items.PageSize = limit;
-            items.CurrentPage = batchID;
+        items.PageSize = limit;
+        items.CurrentPage = batchID;
 
-            client.GetSharedPriceLists(ref items);
-        }
-        catch (FaultException<MASBasicFaultDetail> ex)
+        // This logis is to address the issue with filter statement where as the Curreny is stored as currency code instead of ENUM type in t_pricelist table. 
+        var currencyFilters = new MTList<MTFilterElement>();
+        foreach (MTFilterElement filterElement in items.Filters)
         {
-            Response.StatusCode = 500;
-            Logger.LogError(ex.Detail.ErrorMessages[0]);
-            Response.End();
-            return false;
-        }
-        catch (CommunicationException ex)
-        {
-            Response.StatusCode = 500;
-            Logger.LogError(ex.Message);
-            Response.End();
-            return false;
-        }
-        catch (Exception ex)
-        {
-            Response.StatusCode = 500;
-            Logger.LogError(ex.Message);
-            Response.End();
-            return false;
+          if (filterElement.PropertyName == "Currency")
+          {
+            currencyFilters.Items.Add(filterElement);
+          }
         }
 
-        return true;
+        foreach (MTFilterElement currencyFilterElement in currencyFilters.Items)
+        {
+          var currency = EnumHelper.GetEnumByValue(typeof(SystemCurrencies), currencyFilterElement.Value.ToString()) == null
+                           ? EnumHelper.GetCSharpEnum(Convert.ToInt32(currencyFilterElement.Value))
+                           : EnumHelper.GetEnumByValue(typeof(SystemCurrencies), currencyFilterElement.Value.ToString());
+
+          var newCurrencyFilterElement = new MTFilterElement(currencyFilterElement.PropertyName,
+                                                             currencyFilterElement.Operation,
+                                                             currency.ToString());
+          items.Filters.Remove(currencyFilterElement);
+          items.Filters.Add(newCurrencyFilterElement);
+        }
+
+        client.GetSharedPriceLists(ref items);
+      }
+      catch (FaultException<MASBasicFaultDetail> ex)
+      {
+        Response.StatusCode = 500;
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        Response.End();
+        return false;
+      }
+      catch (CommunicationException ex)
+      {
+        Response.StatusCode = 500;
+        Logger.LogError(ex.Message);
+        Response.End();
+        return false;
+      }
+      catch (Exception ex)
+      {
+        Response.StatusCode = 500;
+        Logger.LogError(ex.Message);
+        Response.End();
+        return false;
+      }
+
+      return true;
     }
 
     protected bool ExtractData(PriceListServiceClient client, ref MTList<PriceList> items)
@@ -62,6 +87,14 @@ public partial class AjaxServices_LoadPriceLists : MTListServicePage
             Response.ContentType = "application/csv";
             Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
             Response.BinaryWrite(BOM);
+        }
+
+        if (PartitionLibrary.IsPartition)
+        {
+          var partitionfilterElement = new MTFilterElement("PLPartitionId",
+                                                           MTFilterElement.OperationType.Equal,
+                                                           PartitionLibrary.PartitionData.PLPartitionId);
+          items.Filters.Add(partitionfilterElement);
         }
 
         //if there are more records to process than we can process at once, we need to break up into multiple batches

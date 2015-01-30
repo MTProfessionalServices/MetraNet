@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,137 +59,137 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action for {0}</value>
-  </data>
-  <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
-    <value>How should records be processed?</value>
-  </data>
-  <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>Multi-Bucket</value>
-  </data>
-  <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>Single-Bucket</value>
-  </data>
-  <data name="rblParamTableResource1.Text" xml:space="preserve">
-    <value>From Paramter Table</value>
-  </data>
-  <data name="lblDecisionActionResource1.Text" xml:space="preserve">
-    <value>What action should this decision take?</value>
-  </data>
-  <data name="radUnitRateResource1.Text" xml:space="preserve">
-    <value>Apply a new rate for units</value>
-  </data>
-  <data name="radEventRateResource1.Text" xml:space="preserve">
-    <value>Apply a new rate for events</value>
-  </data>
-  <data name="radDiscountResource1.Text" xml:space="preserve">
-    <value>Apply a percentage discount</value>
-  </data>
-  <data name="radGenChargeResource1.Text" xml:space="preserve">
-    <value>Generate a charge/credit</value>
-  </data>
-  <data name="noChargeResource1.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
-    <value>Product View</value>
-  </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Actions</value>
-  </data>
-  <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>Unique ID</value>
-  </data>
-  <data name="TEXT_ERROR_NO_INCREMENTAL_OR_BULK_OR_PT" xml:space="preserve">
-    <value>Error: You must choose how the Decision Type will process records </value>
-  </data>
-  <data name="TEXT_ERROR_NO_DECISION_ACTION" xml:space="preserve">
-    <value>Error: You must select the action that the Decision Type will take</value>
-  </data>
-  <data name="TEXT_ERROR_NO_UNIT_RATE_VALUE" xml:space="preserve">
-    <value>Error: You must specify the value of the new unit rate to be applied by this Decision Type</value>
-  </data>
-  <data name="TEXT_ERROR_NO_EVENT_RATE_VALUE" xml:space="preserve">
-    <value>Error: You must specify the value of the new event rate to be applied by this Decision Type</value>
-  </data>
-  <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
-    <value>Error: You must specify the percentage discount to be applied by this Decision Type</value>
-  </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS" xml:space="preserve">
-    <value>Error: You must specify a rate for units</value>
-  </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_DISCOUNT" xml:space="preserve">
-    <value>Error: You must specify a percentage for discount</value>
-  </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS" xml:space="preserve">
-    <value>Error: You must specify a rate for events</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="lblDecisionActionResource1.Text" xml:space="preserve">
+        <value>What action should this decision take?</value>
+    </data>
+    <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
+        <value>How should records be processed?</value>
+    </data>
+    <data name="lblTitleResource1.Text" xml:space="preserve">
+        <value>Decision Action for {0}</value>
+    </data>
+    <data name="noChargeResource1.Text" xml:space="preserve">
+        <value>None</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="radDiscountResource1.Text" xml:space="preserve">
+        <value>Apply a percentage discount</value>
+    </data>
+    <data name="radEventRateResource1.Text" xml:space="preserve">
+        <value>Apply a new rate for events</value>
+    </data>
+    <data name="radGenChargeResource1.Text" xml:space="preserve">
+        <value>Generate a charge/credit</value>
+    </data>
+    <data name="radUnitRateResource1.Text" xml:space="preserve">
+        <value>Apply a new rate for units</value>
+    </data>
+    <data name="rblInBulkResource1.Text" xml:space="preserve">
+        <value>Single-Bucket</value>
+    </data>
+    <data name="rblIncrementallyResource1.Text" xml:space="preserve">
+        <value>Multi-Bucket</value>
+    </data>
+    <data name="rblParamTableResource1.Text" xml:space="preserve">
+        <value>From Paramter Table</value>
+    </data>
+    <data name="TEXT_ACTIONS" xml:space="preserve">
+        <value>Actions</value>
+    </data>
+    <data name="TEXT_DESCRIPTION" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="TEXT_ERROR_NO_DECISION_ACTION" xml:space="preserve">
+        <value>Error: You must select the action that the Decision Type will take</value>
+    </data>
+    <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
+        <value>Error: You must specify the percentage discount to be applied by this Decision Type</value>
+    </data>
+    <data name="TEXT_ERROR_NO_EVENT_RATE_VALUE" xml:space="preserve">
+        <value>Error: You must specify the value of the new event rate to be applied by this Decision Type</value>
+    </data>
+    <data name="TEXT_ERROR_NO_INCREMENTAL_OR_BULK_OR_PT" xml:space="preserve">
+        <value>Error: You must choose how the Decision Type will process records </value>
+    </data>
+    <data name="TEXT_ERROR_NO_UNIT_RATE_VALUE" xml:space="preserve">
+        <value>Error: You must specify the value of the new unit rate to be applied by this Decision Type</value>
+    </data>
+    <data name="TEXT_ERROR_NO_VALUE_FOR_DISCOUNT" xml:space="preserve">
+        <value>Error: You must specify a percentage for discount</value>
+    </data>
+    <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS" xml:space="preserve">
+        <value>Error: You must specify a rate for events</value>
+    </data>
+    <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS" xml:space="preserve">
+        <value>Error: You must specify a rate for units</value>
+    </data>
+    <data name="TEXT_NAME" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
+        <value>Product View</value>
+    </data>
+    <data name="TEXT_UNIQUE_ID" xml:space="preserve">
+        <value>Unique ID</value>
+    </data>
 </root>

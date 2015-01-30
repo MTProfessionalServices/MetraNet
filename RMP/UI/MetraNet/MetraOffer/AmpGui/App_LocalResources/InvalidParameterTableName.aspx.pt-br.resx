@@ -117,15 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>ERROR!  Decision Type '{0}' is associated with parameter table '{1}', which does not exist on the system.
-You cannot edit this Decision Type.  You can view and/or deactivate the Decision Type.</value>
+    <value>ERRO!  O tipo de decisão '{0}' está associado à tabela de parâmetros '{1}', que não existe no sistema.
+Você não pode editar esse Tipo de decisão, mas pode exibi-lo e/ou desativá-lo.</value>
   </data>
 </root>

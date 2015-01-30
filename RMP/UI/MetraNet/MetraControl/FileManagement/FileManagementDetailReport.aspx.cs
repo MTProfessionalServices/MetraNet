@@ -41,6 +41,11 @@ public partial class FileManagementDetailReport : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage FLS Files") && !UI.CoarseCheckCapability("View FLS Files"))
+    {
+      Response.End();
+      return;
+    }
     string selectedControlNo = Request.QueryString["controlNumber"];
     if (!String.IsNullOrEmpty(selectedControlNo))
     {

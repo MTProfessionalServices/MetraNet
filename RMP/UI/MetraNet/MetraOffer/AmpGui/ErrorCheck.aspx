@@ -129,29 +129,30 @@
     });
 
     function onErrorCheck() {
-        var errorCheckWindow = new top.Ext.Window({
-          title: TITLE_AMPWIZARD_ERROR_CHECK_RESULTS,
-          id: 'errorCheckWin',
-          width: 450,
-          height: 300,
-          minWidth: 450,
-          minHeight: 300,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizable: false,
-          maximizable: false,
-          closable: true,
-          closeAction: 'close',
-          html: '<iframe id="errorCheckWindow" src="/MetraNet/MetraOffer/AmpGui/RunErrorCheckDecision.aspx" width="100%" height="100%" frameborder="0" />'
-        });
+      var errorCheckWindow = new top.Ext.Window({
+        title: window.TITLE_AMPWIZARD_ERROR_CHECK_RESULTS,
+        id: 'errorCheckWin',
+        width: 450,
+        height: 300,
+        minWidth: 450,
+        minHeight: 300,
+        layout: 'fit',
+        plain: true,
+        bodyStyle: 'padding:5px;',
+        buttonAlign: 'center',
+        collapsible: true,
+        resizable: false,
+        maximizable: false,
+        closable: true,
+        closeAction: 'close',
+        html: '<iframe id="errorCheckWindow" src="/MetraNet/MetraOffer/AmpGui/RunErrorCheckDecision.aspx" width="100%" height="100%" frameborder="0" />'
+      });
 
-        errorCheckWindow.show();
+      errorCheckWindow.show();
+      errorCheckWindow.on('close', function() { window.checkFrameLoading(); });
     }
 
-  function onActivateDecision() {
+    function onActivateDecision() {
     var activateWindow = new top.Ext.Window({
           title: TITLE_AMPWIZARD_ACTIVATION_RESULTS,
           id: 'activateWin',

@@ -117,32 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
     <value>True</value>
+  </data>
+  <data name="CheckMarkLabel.Text" xml:space="preserve">
+    <value>Aucune erreur de configuration détectée.</value>
+  </data>
+  <data name="ErrorLabel.Text" xml:space="preserve">
+    <value>Votre type de décision contient des erreurs de configuration :</value>
+  </data>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>Erreurs</value>
+  </data>
+  <data name="NavigateLabel.Text" xml:space="preserve">
+    <value>Revenez aux pages appropriées pour corriger les erreurs. Ensuite, relancez le contrôle d’erreurs.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Errors</value>
+  <data name="TEXT_RAN_VALIDATE_FOR_DECISION" xml:space="preserve">
+    <value>Validation du type de décision lancée</value>
   </data>
   <data name="VALIDATION_ERROR_MESSAGE" xml:space="preserve">
     <value>Message</value>
   </data>
   <data name="VALIDATION_ERROR_SEVERITY" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="TEXT_RAN_VALIDATE_FOR_DECISION" xml:space="preserve">
-    <value>Ran validation for Decision Type</value>
-  </data>
-  <data name="ErrorLabel.Text" xml:space="preserve">
-    <value>Your Decision Type contains configuration errors:</value>
-  </data>
-  <data name="NavigateLabel.Text" xml:space="preserve">
-    <value>Navigate back to the appropriate pages to correct your errors. Then redo the Error Check.</value>
-  </data>
-  <data name="CheckMarkLabel.Text" xml:space="preserve">
-    <value>No configuration errors were detected.</value>
+    <value>Niveau</value>
   </data>
 </root>

@@ -1,26 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Text;
-using System.Web;
-using System.Web.UI.WebControls;
-using MetraTech;
-using MetraTech.ActivityServices.Common;
-using MetraTech.ActivityServices.Services.Common;
-using MetraTech.Auth.Capabilities;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.DataAccess;
-using MetraTech.DomainModel.AccountTypes;
-using MetraTech.DomainModel.BaseTypes;
-using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Billing;
-using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
-using System.ServiceModel;
-using MetraTech.Debug.Diagnostics;
 using MetraTech.Security.Crypto;
-
+using MetraTech.UI.Controls;
 
 
 public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPage
@@ -38,27 +21,45 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
   public int intincomingReportID { get; set; }
   public string strincomingAction { get; set; } //so we can read it any time in the session 
 
+
+  protected void Page_LoadComplete(object sender, EventArgs e)
+  {
+    PopulateReportDistributionTypeDropDownControls();
+
+  }
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage DataExportFramework"))
+    {
+      Response.End();
+      return;
+    }
     strincomingReportInstanceId = Request.QueryString["idreportinstance"];
-    intincomingReportInstanceID = System.Convert.ToInt32(strincomingReportInstanceId);
+    intincomingReportInstanceID = Convert.ToInt32(strincomingReportInstanceId);
 
     strincomingReportId = Request.QueryString["idreport"];
-    intincomingReportID = System.Convert.ToInt32(strincomingReportId);
+    intincomingReportID = Convert.ToInt32(strincomingReportId);
     strincomingAction = Request.QueryString["action"];
 
     Logger.LogDebug("The report instance id is {0} ..", strincomingReportInstanceId);
 
     btnManageInstanceParameterValues.Visible = false;// This button may be completely removed later
-    
+
     if (strincomingAction == "Update")
     {
-      MTTitle1.Text = "Update Report Instance";
+      var title = GetLocalResourceObject("MTTitle1Resource1.Text"); //"Update Report Instance";
+      if (title != null)
+        MTTitle1.Text = title.ToString();
     }
     else
     {
-      MTTitle1.Text = "Delete Report Instance";
-      btnOK.Text = "Delete Report Instance";
+      var title = GetLocalResourceObject("TEXT_Delete_Report_Instance"); //"Delete Report Instance";
+      if (title != null)
+        MTTitle1.Text = title.ToString();
+
+      title = GetLocalResourceObject("TEXT_Delete_Report_Instance"); //"Delete Report Instance"
+      if (title != null)
+        btnOK.Text = title.ToString();
     }
 
     if (!IsPostBack)
@@ -71,73 +72,51 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
       MTGenericForm1.TemplateName = "DataExportFramework.ShowReportInstanceDetails"; //This should be the <Name> tag from the page layout config file, not the file name itself
       MTGenericForm1.ReadOnly = false;
 
-     //Gather Report Instance Details
-
+      //Gather Report Instance Details
       try
       {
-        GetReportInstanceInfo();       
+        GetReportInstanceInfo();
       }
-                
-
       catch (Exception ex)
       {
         SetError(ex.Message);
-        this.Logger.LogError(ex.Message);
+        Logger.LogError(ex.Message);
         //client.Abort();
       }
-      
-      //ddDistributionType_SelectedIndexChanged(object sender, EventArgs e);
 
       if (!MTDataBinder1.DataBind())
       {
         Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
       }
-
-
-      if (ddDistributionType.SelectedValue == "FTP")
-      {
-        tbFTPUser.Visible = true;
-        pmFTPPassword.Visible = true;
-        chkGenerateControlFile.Visible = true;
-        tbControlFileLocation.Visible = true;
-        tbReportDestination.Visible = true;
-      }
-      else
-      {
-        tbFTPUser.Visible = false;
-        pmFTPPassword.Visible = false;
-        chkGenerateControlFile.Visible = false;
-        tbControlFileLocation.Visible = false;
-        tbReportDestination.Visible = true;
-      }
-
-
     }
   }
 
-    protected void btnOK_Click(object sender, EventArgs e)
+  protected void btnOK_Click(object sender, EventArgs e)
+  {
+    if (!MTDataBinder1.Unbind())
     {
-      if (!this.MTDataBinder1.Unbind())
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
+    }
+
+    DataExportReportManagementServiceClient client = null;
+
+    try
+    {
+      client = new DataExportReportManagementServiceClient();
+
+      if (client.ClientCredentials != null)
       {
-        this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-      }
-
-      DataExportReportManagementServiceClient client = null;
-
-      try
-      {
-        client = new DataExportReportManagementServiceClient();
-
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
 
-        //Call Instance Update Proc here
-        var cryptoManager = new CryptoManager();
+      //Call Instance Update Proc here
+      var cryptoManager = new CryptoManager();
 
-        int idreport = intincomingReportID;
+      int idreport = intincomingReportID;
       //int idreport = exportreportinstance.IDReport;
       int idreportinstance = intincomingReportInstanceID;// exportreportinstance.IDReportInstance;
-      string instancedescr=exportreportinstance.ReportInstanceDescription;
+      string instancedescr = exportreportinstance.ReportInstanceDescription;
       string reportoutputtype;
       if (exportreportinstance.ReportOutputType == ReportOutputTypeEnum.CSV)
       {
@@ -155,46 +134,40 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
         }
       }
 
-        string reportdistributiontype;
+      string reportdistributiontype;
       if (exportreportinstance.ReportDistributionType == ReportDeliveryTypeEnum.Disk)
       {
-      reportdistributiontype="Disk";
+        reportdistributiontype = "Disk";
       }
-      else 
+      else
       {
-      reportdistributiontype="FTP";
+        reportdistributiontype = "FTP";
       }
-        
+
       string reportdestination = exportreportinstance.ReportDestination;
-      
-      string reportexecutiontype;
-      if (exportreportinstance.ReportExecutionType == ReportExecutionTypeEnum.EOP)
+
+      string reportexecutiontype = exportreportinstance.ReportExecutionType == ReportExecutionTypeEnum.EOP ? "EOP" : "Scheduled";
+      if (reportdistributiontype == "Disk")
       {
-      reportexecutiontype="EOP";
+        if (reportdestination.Length > 2)
+        {
+          string slash = "\\";
+          if (reportdestination.Substring(reportdestination.Length - 1) != slash)
+          {
+            reportdestination = reportdestination + '\\';
+          }
+        }
       }
-      else 
-      {
-      reportexecutiontype="Scheduled";
-      }
-      
+
       DateTime reportactivationdate = exportreportinstance.InstanceActivationDate;
       DateTime reportdeactivationdate = exportreportinstance.InstanceDeactivationDate;
       string destinationaccessuser = exportreportinstance.FTPAccessUser;
       string destinationaccesspassword = exportreportinstance.FTPAccessPassword;
       destinationaccesspassword = cryptoManager.Encrypt(CryptKeyClass.DatabasePassword, destinationaccesspassword);
-      
-     int compressreport;
-      if (!exportreportinstance.bCompressReport)
-      //if (exportreportinstance.CompressReport == CompressReportEnum.No)
-      {
-      compressreport=0;
-      }
-      else 
-      {
-      compressreport=1;
-      }
-        
-      int compressthreshold=exportreportinstance.CompressThreshold;
+
+      int compressreport = !exportreportinstance.bCompressReport ? 0 : 1;
+
+      int compressthreshold = exportreportinstance.CompressThreshold;
 
       string eopinstancename = "NA";
 
@@ -202,44 +175,16 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
       {
         eopinstancename = "QueueEOPExportReports";
       }
-      
-      int dsid=1;
-             
-      int createcontrolfile;
 
-      if (!exportreportinstance.bGenerateControlFile)
-      //if (exportreportinstance.GenerateControlFile == GenerateControlFileEnum.No)
-      {
-      createcontrolfile=0;
-      }
-      else 
-      {
-      createcontrolfile =1;
-      }
-      
-      string controlfiledestination=exportreportinstance.ControlFileDeliveryLocation;
-      
-      int outputexecutionparameters;
-      if (!exportreportinstance.bOutputExecParameters)
-      //if (exportreportinstance.OutputExecParameters == WriteExecParamsToReportEnum.No)
-      {
-      outputexecutionparameters=0;
-      }
-      else 
-      {
-      outputexecutionparameters =1;
-      }
-        
-        int usequotedidentifiers;
-      if (!exportreportinstance.bUseQuotedIdentifiers)
-      //if (exportreportinstance.UseQuotedIdentifiers == UseQuotedIdentifiersEnum.No)
-      {
-      usequotedidentifiers=0;
-      }
-      else 
-      {
-      usequotedidentifiers =1;
-      }
+      int dsid = 1;
+
+      int createcontrolfile = !exportreportinstance.bGenerateControlFile ? 0 : 1;
+
+      string controlfiledestination = exportreportinstance.ControlFileDeliveryLocation;
+
+      int outputexecutionparameters = !exportreportinstance.bOutputExecParameters ? 0 : 1;
+
+      int usequotedidentifiers = !exportreportinstance.bUseQuotedIdentifiers ? 0 : 1;
 
       DateTime lastundatetime = exportreportinstance.LastRunDate;
       DateTime nextrundatetime = exportreportinstance.NextRunDate;
@@ -267,81 +212,80 @@ public partial class DataExportReportManagement_ShowReportInstanceDetails : MTPa
       }
       else
       {
-          Response.Redirect("ReportInstanceDeleted.aspx?reportid=" + strincomingReportId, false);
+        Response.Redirect("ReportInstanceDeleted.aspx?reportid=" + strincomingReportId, false);
       }
-        client.Close();
-      }
-
-      catch (Exception ex)
-      {
-        SetError(ex.Message);
-        this.Logger.LogError(ex.Message);
-        client.Abort();
-      }
-
+      client.Close();
     }
 
-    protected void GetReportInstanceInfo()
+    catch (Exception ex)
     {
-      DataExportReportManagementServiceClient client = null;
+      SetError(ex.Message);
+      Logger.LogError(ex.Message);
+      if (client != null) client.Abort();
+    }
 
-      try
+  }
+
+  protected void GetReportInstanceInfo()
+  {
+    DataExportReportManagementServiceClient client = null;
+
+    try
+    {
+      client = new DataExportReportManagementServiceClient();
+
+      if (client.ClientCredentials != null)
       {
-        client = new DataExportReportManagementServiceClient();
-
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-        int idreportinstance = intincomingReportInstanceID; //hardcoded for timebeing 
-        ExportReportInstance exportReportInstance;
-        client.GetAReportInstance(idreportinstance, out exportReportInstance); 
-        exportreportinstance = (ExportReportInstance)exportReportInstance;
-        client.Close();
-        
       }
 
-      catch (Exception ex)
-      {
-        this.Logger.LogError(ex.Message);
-        client.Abort();
-        throw;
-      }
+      int idreportinstance = intincomingReportInstanceID; //hardcoded for timebeing 
+      ExportReportInstance exportReportInstance;
+      client.GetAReportInstance(idreportinstance, out exportReportInstance);
+      exportreportinstance = exportReportInstance;
+      client.Close();
+
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
+    catch (Exception ex)
     {
-      //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
-      Response.Redirect("ManageReportInstances.aspx?reportid="+strincomingReportId, false);
+      Logger.LogError(ex.Message);
+      if (client != null) client.Abort();
+      throw;
     }
+  }
 
-    protected void btnManageInstanceParameterValues_Click(object sender, EventArgs e)
+  protected void btnCancel_Click(object sender, EventArgs e)
+  {
+    //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
+    Response.Redirect("ManageReportInstances.aspx?reportid=" + strincomingReportId, false);
+  }
+
+  protected void btnManageInstanceParameterValues_Click(object sender, EventArgs e)
+  {
+    //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
+    Response.Redirect("ManageReportInstanceParameterValues.aspx?reportinstanceid=" + strincomingReportInstanceId, false);
+  }
+
+  #region
+  private void PopulateReportDistributionTypeDropDownControls()
+  {
+    var ddReportDistributionType = FindControlRecursive(MTGenericForm1, "ddReportDistributionType") as MTDropDown;
+
+    if (ddReportDistributionType != null)
     {
-      //Response.Redirect("ShowReportInstanceDetails.aspx?idreportinstance="+strincomingReportInstanceId, false);
-      Response.Redirect("ManageReportInstanceParameterValues.aspx?reportinstanceid=" + strincomingReportInstanceId, false);
+      ddReportDistributionType.Listeners = "{select:ddReportDistributionTypeSelected}";
     }
 
-    protected void ddDistributionType_SelectedIndexChanged(object sender, EventArgs e)
-    {
+    //Bind the database values to the drop down selected values
+    //ddReportDistributionType.SelectedValue = exportreportinstance.ReportDistributionType.ToString();
+  }
 
-      if (ddDistributionType.SelectedValue == "FTP")
-      {
-        tbFTPUser.Visible = true;
-        pmFTPPassword.Visible = true;
-        chkGenerateControlFile.Visible = true;
-        tbControlFileLocation.Visible = true;
-        tbReportDestination.Visible = true;
-      }
-      else
-      {
-        tbFTPUser.Visible = false;
-        pmFTPPassword.Visible = false;
-        chkGenerateControlFile.Visible = false;
-        tbControlFileLocation.Visible = false;
-        tbReportDestination.Visible = true;
+  #endregion
 
-      }
-
-    }
 
 
 }
+
+

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllDecisionsAccessToUsageRecord.Text" xml:space="preserve">
-    <value>[es-MX]Countable – This Decision Type will process all qualified usage records regardless of any previous Decision application. Subsequent Decisions, regardless of their domain, will not be impacted by the usage records processed by a Decision of this Decision Type.</value>
+    <value>Countable – This Decision Type will process all qualified usage records regardless of any previous Decision application. Subsequent Decisions, regardless of their domain, will not be impacted by the usage records processed by a Decision of this Decision Type.</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
@@ -146,22 +146,22 @@
     <value>False</value>
   </data>
   <data name="DecisionApportionQuestion.Text" xml:space="preserve">
-    <value>[es-MX]What is the domain of this Decision Type?  (This affects how usage records are processed by multiple Decisions.)</value>
+    <value>What is the domain of this Decision Type?  (This affects how usage records are processed by multiple Decisions.)</value>
   </data>
   <data name="ExclusiveAccessToConsumedUsage.Text" xml:space="preserve">
-    <value>[es-MX]Ratable – This Decision Type will not process any portion of a usage record that was processed by a previous Ratable domain Decision. Subsequent Ratable domain Decisions will not process any portion of a usage record that was processed by a Decision of this Decision Type.</value>
+    <value>Ratable – This Decision Type will not process any portion of a usage record that was processed by a previous Ratable domain Decision. Subsequent Ratable domain Decisions will not process any portion of a usage record that was processed by a Decision of this Decision Type.</value>
   </data>
   <data name="IntroInfo.Text" xml:space="preserve">
-    <value>[es-MX]If you have more than one configured Decision, consider how the Decisions might interact.</value>
+    <value>If you have more than one configured Decision, consider how the Decisions might interact.</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[es-MX]Decision Interactions</value>
+    <value>Decision Interactions</value>
   </data>
   <data name="ListItemResource1.Value" xml:space="preserve">
-    <value>[es-MX]ExclusiveAccessToConsumedUsage</value>
+    <value>ExclusiveAccessToConsumedUsage</value>
   </data>
   <data name="ListItemResource2.Value" xml:space="preserve">
-    <value>[es-MX]AllDecisionsAccessToUsageRecord</value>
+    <value>AllDecisionsAccessToUsageRecord</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>

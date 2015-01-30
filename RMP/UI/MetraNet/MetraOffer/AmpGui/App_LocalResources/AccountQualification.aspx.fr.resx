@@ -117,52 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ddModeResource1.Label" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="lblAccountQualificationResource1.Text" xml:space="preserve">
+    <value>Sur cette page, vous devez définir une qualification de compte pour un groupe de comptes.  Une qualification de compte est un filtre qui inclut ou exclut certains comptes.</value>
+  </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Account Qualification</value>
+    <value>Qualification de compte</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="lblAccountQualificationResource1.Text" xml:space="preserve">
-    <value>On this page you define an Account Qualification for an account group.  An Account Qualification is a filter that includes or excludes certain accounts from consideration.</value>
-  </data>
-  <data name="tbSourceFieldResource1.Label" xml:space="preserve">
-    <value>Source Field</value>
-  </data>
-  <data name="tbTableToIncludeResource1.Label" xml:space="preserve">
-    <value>Table to Include</value>
-  </data>
-  <data name="tbMatchFieldResource1.Label" xml:space="preserve">
-    <value>Match Field</value>
-  </data>
-  <data name="tbOutputFieldResource1.Label" xml:space="preserve">
-    <value>Output Field</value>
+  <data name="tbFilterResource1.Label" xml:space="preserve">
+    <value>Filtre (script MVM)</value>
   </data>
   <data name="tbIncludeFilterResource1.Label" xml:space="preserve">
-    <value>Include Filter (SQL)</value>
+    <value>Inclure le filtre (SQL)</value>
   </data>
-  <data name="tbFilterResource1.Label" xml:space="preserve">
-    <value>Filter (MVM script)</value>
+  <data name="tbMatchFieldResource1.Label" xml:space="preserve">
+    <value>Association de zones</value>
   </data>
-  <data name="ddModeResource1.Label" xml:space="preserve">
-    <value>Mode</value>
+  <data name="tbOutputFieldResource1.Label" xml:space="preserve">
+    <value>Zone de sortie</value>
   </data>
-  <data name="TEXT_MODE_ENGINE_FILTER" xml:space="preserve">
-    <value>Engine Filter</value>
+  <data name="tbSourceFieldResource1.Label" xml:space="preserve">
+    <value>Zone source</value>
+  </data>
+  <data name="tbTableToIncludeResource1.Label" xml:space="preserve">
+    <value>Tableau à inclure</value>
   </data>
   <data name="TEXT_MODE_APPEND_FIELDS" xml:space="preserve">
-    <value>Append Fields</value>
+    <value>Ajouter des zones</value>
   </data>
   <data name="TEXT_MODE_APPEND_ROWS" xml:space="preserve">
-    <value>Append Rows</value>
+    <value>Ajouter des lignes</value>
+  </data>
+  <data name="TEXT_MODE_ENGINE_FILTER" xml:space="preserve">
+    <value>Filtre du moteur</value>
   </data>
   <data name="TEXT_MODE_REPLACE_ROWS" xml:space="preserve">
-    <value>Replace Rows</value>
+    <value>Remplacer les lignes</value>
   </data>
   <data name="ViewFilterLabelResource.Text" xml:space="preserve">
-    <value>Filter (MVM script):</value>
+    <value>Filtre (script MVM) :</value>
   </data>
   <data name="ViewIncludeFilterLabelResource.Text" xml:space="preserve">
-    <value>Include Filter (SQL):</value>
+    <value>Inclure le filtre (SQL) :</value>
   </data>
 </root>

@@ -1,5 +1,5 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="welcome" Title="MetraNet" CodeFile="Welcome.aspx.cs" %>
-
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="welcome" Title="MetraNet" CodeFile="Welcome.aspx.cs" %>
+<%@ Register src="./UserControls/Notifications/Notifications.ascx" tagname="Notifications" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -29,6 +29,9 @@
 
   <div id="recentAccountContainer" style="width: 400px; padding: 10px;"></div>
   <div id="pendingApprovalsContainer" style="width: 400px; padding: 10px;"></div>
+ 
+
+  <uc1:Notifications ID="notification" runat="server" />
 
   <script type="text/javascript">
 
@@ -106,8 +109,8 @@
             render: function (panel) {
               var pendingApprovalsTpl = new Ext.XTemplate(
                             '<tpl for=".">',
-                                '<p style="margin-bottom:10px;"><a href="/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?Filter_ChangesSummary_ChangeState=Pending&Filter_ChangesSummary_ChangeType={ChangeType}"><div class="ApprovalNotification"><div style="float:left;margin:5px; margin-right:10px;"><img src="/ImageHandler/images/Approvals/ChangeTypes/{ChangeType}/ChangeType.png"></div><div style="margin:5px;padding-left:10px;"><b>{ChangeTypeDisplayName}</b><br>{PendingCount} Pending Changes Waiting For Approval &nbsp;&nbsp; <b>View</b></div></div></a></p>',
-
+                                '<p style="margin-bottom:10px;"><a href="/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?Filter_ChangesSummary_ChangeState=Pending&Filter_ChangesSummary_ChangeType={ChangeType}"><div class="ApprovalNotification"><div style="float:left;margin:5px; margin-right:10px;"><img src="/ImageHandler/images/Approvals/ChangeTypes/{ChangeType}/ChangeType.png"></div><div style="margin:5px;padding-left:10px;"><b>{ChangeTypeDisplayName}</b><br>{PendingCount} '
+                                  + TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL + ' &nbsp;&nbsp; <b>' + TEXT_AMPWIZARD_VIEW + '</b></div></div></a></p>',
                             '</tpl>', {
                               isNull: function (FirstName, LastName) {
                                 if ((FirstName == null) || (LastName == null) || (FirstName == '') || (LastName == '')) {

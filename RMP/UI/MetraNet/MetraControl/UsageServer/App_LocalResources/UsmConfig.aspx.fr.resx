@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,128 +59,131 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="CancelButtonResource1.Text" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
-  <data name="LabelAnnuallyResource1.Text" xml:space="preserve">
-    <value>Annuellement</value>
-  </data>
-  <data name="LabelAutoRunEopInfoResource1.Text" xml:space="preserve">
-    <value>Après la fermeture, automatique ou manuelle, d’un groupe de facturation par le logiciel, la plate-forme exécutera automatiquement les adaptateurs de fin de période.</value>
-  </data>
-  <data name="LabelAutoRunEopResource1.Text" xml:space="preserve">
-    <value>Exécuter automatiquement les adaptateurs de fin de période sur les groupes de facturation clos automatiquement</value>
-  </data>
-  <data name="LabelAutoSoftCloseResource1.Text" xml:space="preserve">
-    <value>Créer et fermer automatiquement les groupes de facturation pour :</value>
-  </data>
-  <data name="LabelAutoSoftCloseTitleResource1.Text" xml:space="preserve">
-    <value>Fermer automatiquement les groupes de facturation des intervalles d’utilisation parvenus à expiration.</value>
-  </data>
-  <data name="LabelBiWeeklyResource1.Text" xml:space="preserve">
-    <value>Toutes les deux semaines</value>
-  </data>
-  <data name="LabelBlockIntervalsResource1.Text" xml:space="preserve">
-    <value>Lors de la fermeture automatique des intervalles, bloquez les intervalles sur les nouveaux comptes.</value>
-  </data>
-  <data name="LabelDailyResource1.Text" xml:space="preserve">
-    <value>Tous les jours</value>
-  </data>
-  <data name="LabelDaysAfterResource1.Text" xml:space="preserve">
-    <value>jour(s) après l’expiration de l’intervalle.</value>
-  </data>
-  <data name="LabelEachNightResource1.Text" xml:space="preserve">
-    <value>Chaque nuit, la plate-forme recherchera les intervalles qui ont expiré et, en fonction du délai de grâce configuré ci-dessous, elle créera automatiquement des groupes de facturation et changera leur état à « Clos automatiquement ».</value>
-  </data>
-  <data name="LabelIntervalsResource1.Text" xml:space="preserve">
-    <value>intervalles</value>
-  </data>
-  <data name="LabelMonthlyResource1.Text" xml:space="preserve">
-    <value>Tous les mois</value>
-  </data>
-  <data name="LabelQuarterlyResource1.Text" xml:space="preserve">
-    <value>Trimestriel</value>
-  </data>
-  <data name="LabelRunScheduledAdaptersInfoResource1.Text" xml:space="preserve">
-    <value>La plate-forme exécutera périodiquement les adaptateurs planifiés configurés. Remarque : si ce paramètre n’est pas sélectionné, tous les adaptateurs planifiés devront être exécutés manuellement.</value>
-  </data>
-  <data name="LabelRunScheduledAdaptersResource1.Text" xml:space="preserve">
-    <value>Exécuter les adaptateurs planifiés</value>
-  </data>
-  <data name="LabelSemiAnnuallyResource1.Text" xml:space="preserve">
-    <value>Deux fois par an</value>
-  </data>
-  <data name="LabelSemiMonthlyResource1.Text" xml:space="preserve">
-    <value>Deux fois par mois</value>
-  </data>
-  <data name="LabelWeeklyResource1.Text" xml:space="preserve">
-    <value>Toutes les semaines</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Maintenance du serveur d’utilisation</value>
-  </data>
-  <data name="SaveConfigButtonResource1.Text" xml:space="preserve">
-    <value>Enregistrer la configuration</value>
-  </data>
-  <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>Configuration USM</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="CancelButtonResource1.Text" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+    <data name="LabelAnnuallyResource1.Text" xml:space="preserve">
+        <value>Annuellement</value>
+    </data>
+    <data name="LabelAutoRunEopInfoResource1.Text" xml:space="preserve">
+        <value>Une fois qu’un groupe de facturation a fait l’objet d’une clôture logicielle automatique ou manuelle, la plate-forme exécute automatiquement les adaptateurs de fin de période.</value>
+    </data>
+    <data name="LabelAutoRunEopResource1.Text" xml:space="preserve">
+        <value>Lancer automatiquement les adaptateurs de fin de période sur les groupes de facturation en clôture logicielle</value>
+    </data>
+    <data name="LabelAutoSoftCloseResource1.Text" xml:space="preserve">
+        <value>Créer automatiquement des groupes de facturation en clôture logicielle pour :</value>
+    </data>
+    <data name="LabelAutoSoftCloseTitleResource1.Text" xml:space="preserve">
+        <value>Fermer automatiquement les groupes de facturation des intervalles d’utilisation parvenus à expiration.</value>
+    </data>
+    <data name="LabelBiWeeklyResource1.Text" xml:space="preserve">
+        <value>Toutes les deux semaines</value>
+    </data>
+    <data name="LabelBlockIntervalsResource1.Text" xml:space="preserve">
+        <value>Lors de la fermeture automatique des intervalles, bloquez les intervalles sur les nouveaux comptes.</value>
+    </data>
+    <data name="LabelDailyResource1.Text" xml:space="preserve">
+        <value>Tous les jours</value>
+    </data>
+    <data name="LabelDaysAfterResource1.Text" xml:space="preserve">
+        <value>jour(s) après l’expiration de l’intervalle.</value>
+    </data>
+    <data name="LabelEachNightResource1.Text" xml:space="preserve">
+        <value>Chaque nuit, la plate-forme contrôle les intervalles terminés et utilise la configuration de la période de grâce ci-dessous pour créer automatiquement des groupes de facturation et modifier leur état en Clôture (logicielle).</value>
+    </data>
+    <data name="LabelIntervalsResource1.Text" xml:space="preserve">
+        <value>intervalles</value>
+    </data>
+    <data name="LabelMonthlyResource1.Text" xml:space="preserve">
+        <value>Tous les mois</value>
+    </data>
+    <data name="LabelQuarterlyResource1.Text" xml:space="preserve">
+        <value>Trimestriel</value>
+    </data>
+    <data name="LabelRunScheduledAdaptersInfoResource1.Text" xml:space="preserve">
+        <value>La plate-forme exécute périodiquement les adaptateurs planifiés configurés.  Remarque : Si ce paramètre n’est pas sélectionné, tous les adaptateurs planifiés doivent être exécutés manuellement.</value>
+    </data>
+    <data name="LabelRunScheduledAdaptersResource1.Text" xml:space="preserve">
+        <value>Exécuter les adaptateurs planifiés</value>
+    </data>
+    <data name="LabelSemiAnnuallyResource1.Text" xml:space="preserve">
+        <value>Deux fois par an</value>
+    </data>
+    <data name="LabelSemiMonthlyResource1.Text" xml:space="preserve">
+        <value>Deux fois par mois</value>
+    </data>
+    <data name="LabelWeeklyResource1.Text" xml:space="preserve">
+        <value>Toutes les semaines</value>
+    </data>
+    <data name="MTPanel1Resource1.Text" xml:space="preserve">
+        <value>Configuration USM</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Maintenance du serveur d’utilisation</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="SaveConfigButtonResource1.Text" xml:space="preserve">
+        <value>Enregistrer la configuration</value>
+    </data>
 </root>

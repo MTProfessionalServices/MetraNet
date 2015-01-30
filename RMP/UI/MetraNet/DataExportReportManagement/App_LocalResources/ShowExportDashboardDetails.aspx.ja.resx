@@ -150,4 +150,19 @@
   <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
     <value>報告書のタイトル</value>
   </data>
+  <data name="TEXT_AUDIT_ID" xml:space="preserve">
+    <value>監査ID</value>
+  </data>
+  <data name="TEXT_DEF_DELIVERY_TYPE_TEXT" xml:space="preserve">
+    <value>レポートの配布タイプテキスト</value>
+  </data>
+  <data name="TEXT_DEF_INSTANCE_RUN_STATUS" xml:space="preserve">
+    <value>インスタンスを実行し結果</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_FILENAME" xml:space="preserve">
+    <value>出力ファイル名</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE_TEXT" xml:space="preserve">
+    <value>レポート出力タイプテキスト</value>
+  </data>
 </root>

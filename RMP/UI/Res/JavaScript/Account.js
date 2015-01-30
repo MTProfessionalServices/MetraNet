@@ -63,7 +63,7 @@ Account = {
                 node: n.parentNode.id,
                 pageNumber: nextPageNumber
               },
-              timeout: 10000,
+              timeout: 60000,
               success: function (response) {
                 var result = Ext.decode(response.responseText);
                 for (i = 0; i < result.length; i++) {
@@ -195,7 +195,7 @@ Account = {
     Ext.Ajax.request({
       url: '/MetraNet/AjaxServices/Hierarchy.aspx',
       params: { node: nodeId, type: 'system_mps' },
-      timeout: 10000,
+      timeout: 60000,
       success: function (response) {
         var result = Ext.decode(response.responseText);
 
@@ -341,7 +341,7 @@ Account = {
         type: 'system_mps',
         node: node.id
       },
-      timeout: 10000,
+      timeout: 60000,
       success: function (response) {
         var parentNode = node;
         if (parentNode.hasChildNodes()) {
@@ -366,7 +366,7 @@ Account = {
             node: parentNode.parentNode.id,
             usernameFilter: parentNode.text
           },
-          timeout: 10000,
+          timeout: 60000,
           success: function (resp) {
             var res = Ext.decode(resp.responseText);
             if (res.length == 1) {
@@ -774,10 +774,10 @@ Account = {
     if (tabs != null) {
       tabs.setActiveTab(tabs.items.items[0]);
     }
-    Ext.Ajax.request({
+	Ext.Ajax.request({
       url: '/MetraNet/AjaxServices/HierarchyPath.aspx',
       params: { node: accountID, type: 'system_mps' },
-      timeout: 10000,
+      timeout: 90000,
       success: function (response) {
         var tree = GlobalTree;
         /*      if (tree != null) {

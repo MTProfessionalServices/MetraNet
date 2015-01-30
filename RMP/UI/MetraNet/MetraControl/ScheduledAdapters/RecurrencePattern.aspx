@@ -40,26 +40,26 @@
   <br /><br />
   <MT:MTRadioControl ID="radMinutely" meta:resourcekey="MinutelyBoxLabelResource1"
         Listeners="{ 'check' : { fn: this.onCheck, scope: this, delay: 100 } }" runat="server"
-        BoxLabel="Minutely" Name="r1" Text="Minutely" Value="MinutelyResource1" Checked="true" ControlWidth="100"  LabelWidth="10" />
+        BoxLabel="Minutely" Name="r1" Text="Minutely" Value="MinutelyResource1" Checked="true" ControlWidth="150"  LabelWidth="10" />
         <MT:MTRadioControl ID="radDaily" Listeners="{ 'check' : { fn: this.onCheck, scope: this, delay: 100 } }"
         runat="server" BoxLabel="Daily" meta:resourcekey="DailyBoxLabelResource1"
-        Name="r1" Text="Daily" Value="Daily" ControlWidth="100"  LabelWidth="10" />
+        Name="r1" Text="Daily" Value="Daily" ControlWidth="150"  LabelWidth="10" />
     <MT:MTRadioControl ID="radWeekly" meta:resourcekey="WeeklyBoxLabelResource1"
         Listeners="{ 'check' : { fn: this.onCheck, scope: this, delay: 100 } }" runat="server"
-        BoxLabel="Weekly" Name="r1" Text="Weekly" Value="Weekly" ControlWidth="100"  LabelWidth="10" />
+        BoxLabel="Weekly" Name="r1" Text="Weekly" Value="Weekly" ControlWidth="150"  LabelWidth="10" />
     <MT:MTRadioControl ID="radMonthly" Listeners="{ 'check' : { fn: this.onCheck, scope: this, delay: 100 } }"
         runat="server" BoxLabel="Monthly" meta:resourcekey="MonthlyBoxLabelResource1"
-        Name="r1" Text="Monthly" Value="Monthly" ControlWidth="100"  LabelWidth="10" />
+        Name="r1" Text="Monthly" Value="Monthly" ControlWidth="150"  LabelWidth="10" />
    <MT:MTRadioControl ID="radManual" Listeners="{ 'check' : { fn: this.onCheck, scope: this, delay: 100 } }"
         runat="server" BoxLabel="Manual" meta:resourcekey="ManualBoxLabelResource1"
-        Name="r1" Text="Manual" Value="Manual" ControlWidth="100"  LabelWidth="10" />
+        Name="r1" Text="Manual" Value="Manual" ControlWidth="150"  LabelWidth="10" />
           <br /> <br /> <br /> <br />
   </MT:MTPanel> 
 
   <input type="hidden" runat="server" id="selectedPattern" />
     
   </div>
-  <div class="Left" style="width:610px">
+  <div class="Left" style="width:650px">
     <iframe frameborder="0" id="schedulePatternPage" name="schedulePatternPage" style="width:100%" width="100%" height="560px" runat="server"></iframe>
   </div>
    

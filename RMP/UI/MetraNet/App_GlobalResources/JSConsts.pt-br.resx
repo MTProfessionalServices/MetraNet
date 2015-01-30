@@ -117,23 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ACCOUNT_BALANCE_AS_OF_TEXT" xml:space="preserve">
+    <value>a partir de</value>
+  </data>
+  <data name="ACCOUNT_BALANCE_TEXT" xml:space="preserve">
+    <value>Balanço</value>
+  </data>
+  <data name="ACCOUNT_EDIT_INFO_TEXT" xml:space="preserve">
+    <value>Alterar</value>
+  </data>
+  <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
+    <value>Transações com falha</value>
+  </data>
+  <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
+    <value>Fatura</value>
+  </data>
+  <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
+    <value>Ltv</value>
+  </data>
+  <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
+    <value>MRR</value>
+  </data>
+  <data name="ACCOUNT_MRR_TEXT" xml:space="preserve">
+    <value>MRR</value>
+  </data>
+  <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
+    <value>Essa conta paga sozinha</value>
+  </data>
+  <data name="ACCOUNT_PAYEE_TEXT" xml:space="preserve">
+    <value>Esse valor é pago por</value>
+  </data>
+  <data name="ACCOUNT_STATUS_LABEL_TEXT" xml:space="preserve">
+    <value>Status da conta</value>
+  </data>
+  <data name="ACCOUNT_STATUS_TEXT" xml:space="preserve">
+    <value>Estado</value>
+  </data>
   <data name="ALT_FORMAT" xml:space="preserve">
     <value>d/m/Y</value>
   </data>
+  <data name="CURRENT_LOCALE" xml:space="preserve">
+    <value>pt-BR</value>
+  </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y G:i:s|j/n/Y</value>
+    <value>d/m/Y H:i:s|d/m/Y</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
-    <value>j/n/Y g:i:s</value>
+    <value>d/m/Y H:i:s</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y G:i:s</value>
+    <value>d/m/Y H:i:s</value>
   </data>
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>.</value>
   </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplicar</value>
@@ -141,8 +183,14 @@
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>dd/mm/YYYY</value>
   </data>
+  <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
+    <value>A data de início não pode ser maior que a data de término</value>
+  </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Falha</value>
+  </data>
+  <data name="FRACTION_DIGITS" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="MANUAL_PENDING" xml:space="preserve">
     <value>Manual pendente</value>
@@ -165,6 +213,15 @@
   <data name="REJECTED" xml:space="preserve">
     <value>Rejeitado</value>
   </data>
+  <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
+    <value>N/D</value>
+  </data>
   <data name="REVERSED" xml:space="preserve">
     <value>Invertido</value>
   </data>
@@ -176,6 +233,9 @@
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
     <value>Conta</value>
+  </data>
+  <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
+    <value>Atividade da conta</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Detalhes</value>
@@ -192,8 +252,20 @@
   <data name="TEXT_ACCOUNT_SNAPSHOT" xml:space="preserve">
     <value>Instantâneo do relacionamento</value>
   </data>
+  <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
+    <value>Tipo de conta</value>
+  </data>
+  <data name="TEXT_ACCOUNT_UPDATE" xml:space="preserve">
+    <value>Atualização da conta</value>
+  </data>
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Apenas dígitos numéricos são permitidos</value>
+  </data>
   <data name="TEXT_ACH" xml:space="preserve">
     <value>ACH (câmara de compensação automática)</value>
+  </data>
+  <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
+    <value>Ativar/Desativar</value>
   </data>
   <data name="TEXT_ACTIVE_ACCOUNT" xml:space="preserve">
     <value>Conta ativa</value>
@@ -206,6 +278,9 @@
   </data>
   <data name="TEXT_ADD_GROUP_SUBSCRIPTION" xml:space="preserve">
     <value>Adicionar assinatura em grupo</value>
+  </data>
+  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
+    <value>Adicionar hierarquia de membro</value>
   </data>
   <data name="TEXT_ADD_REMITTANCE_DETAILS" xml:space="preserve">
     <value>Adicionar detalhes de remessa.</value>
@@ -230,6 +305,117 @@
   </data>
   <data name="TEXT_ADVANCED_FIND" xml:space="preserve">
     <value>Localização avançada</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
+    <value>O nome não pode contar caracteres de aspas simples e duplas.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
+    <value>Tem certeza que deseja excluir essa qualificação de conta?</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
+    <value>Tem certeza que deseja excluir essa diretiva?</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
+    <value>Ocorreu um erro ao ativar/desativar o tipo de decisão: </value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Exemplo: uma conta (um pai) é faturada para atividade das contas filhas. Você quer encontrar o total de todas as cobranças (pai e filha).&lt;br/&gt;&lt;br/&gt;Além de extrair de outras contas, você deseja ignorar o tipo de decisão de algumas contas. Por exemplo, você quer que o tipo de decisão seja aplicado apenas a contas que recebem faturas virtuais.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
+    <value>As decisões são usadas quando um valor de cobrança monetária não pode ser calculado observando-se um registro único. Em vez disso, muitos registros de utilização devem ser examinados e o total deve ser o número de eventos, unidades de utilização, ou valores de cobrança. O total, ou agregado, é então usado para ajudar a determinar o valor da cobrança.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
+    <value>Selecione um grupo de cadeia de valores de forma que o tipo de decisão saiba o que contar e como recalcular valores relacionados.  &lt;br/&gt;&lt;br/&gt;Por exemplo: uma certa cadeia de valores tem quatro campos relacionados em uma exibição de produto: \"o número de minutos utilizados\", \"a taxa por minuto\", \"o valor da cobrança\" e \"o imposto sobre o valor de cobrança\".</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
+    <value>As configurações de decisão já especificaram como calcular o valor de cobrança gerado. Agora selecione o grupo de cadeia de valores que especifica: (a) o campo na exibição de produto na qual o valor de cobrança gerado deve ser armazenado e (b) qualquer outro campo que precise ser recalculado.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
+    <value>Para obter mais informações sobre como criar um novo grupo de conta, consulte a documentação ou entre em contato com seu representante da MetraTech.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
+    <value>Exemplo: há duas decisões que consideram o mesmo recurso de utilização. Ambas as decisões são configuradas para consumir os registros de utilização. &lt;br/&gt;&lt;br/&gt;Os níveis de prioridade de decisões determinam a ordem na qual as decisões serão processadas. Um nível de prioridade numérico menor é processado mais cedo que um nível de prioridade maior. As decisões que têm o mesmo nível de prioridade são processados em ordem não determinada. Na página Prioridade de Decisão, é possível especificar o nível de prioridade do tipo de decisão que está sendo configurado.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>Por exemplo, você está agregando por valor e deseja que algo especial aconteça a cada $1000.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
+    <value>A condição de execução é uma expressão MVM de forma livre que é avaliada quando a diretiva está prestes a ser executada. Se a expressão for avaliada como 1, a diretiva é executada. Se a expressão for avaliada em um valor diferente de 1, a diretiva NÃO é executada. Esse campo aplica-se à inclusão de tabela, preenchimento de campo e execução de procedimento.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
+    <value>Esta tabela mostra quais campos na exibição do produto e t_acc_usage têm diretivas de preenchimento de campo definidas para elas. Use essa tabela para determinar quais campos precisam ser definidos.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
+    <value>Esse desconto é aplicado ao \"valor\" associado ao tipo de decisão. Todos os campos derivados do \"valor\" serão recalculados.&lt;br/&gt;&lt;br/&gt;O desconto pode ser aplicado apenas a uma parte do valor se seu tipo de decisão agrega utilização. &lt;br/&gt;&lt;br/&gt;Exemplo: o início do intervalo é \"500 minutos\" e o total atualmente é \"400 minutos\".  A decisão processa um registro com \"300 minutos\".  \"100 minutos\" estão fora do intervalo e \"200 minutos\" estão dentro.  Se o desconto for 5%, então o \"valor\" é reduzir por 0,05 x (200/300).</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
+    <value>A nova taxa é aplicada definindo o \"valor\" associado com o tipo de decisão para esse novo valor.  Qualquer campo derivado do \"valor\" é então recalculado.&lt;br/&gt;Exemplo: depois que o intervalo é atingido, \"o custo da tarifa é $0,75\" ou \"a chamada custa $1, independentemente do número de minutos\".</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
+    <value>No filtro, é possível verificar valores específicos dos campos de exibição de produto e campos t_acc_usage ou verificar se outras qualificações de utilização (que você já criou) são satisfeitas. É possível usar parênteses e as palavras-chave \"e\", \"ou\", \"==\", \"!=\" e \"!\". Use os botões &lt;u&gt;Insert&lt;/u&gt; para inserir snippets do filtro no cursor.&lt;br/&gt;&lt;br/&gt;No filtro, \"OBJETO\" refere-se ao registro de utilização e \"GRUPO\" refere-se a outro grupo de qualificação de utilização.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
+    <value>Uma &lt;i&gt;Decisão&lt;/i&gt;  é utilizada para analisar registros de utilização (registros de cobrança rateados) e possivelmente modificar cobranças nas bases dessa análise. As decisões são necessárias quando é impossível determinar o valor ao examinar um registro isolado. &lt;br/&gt; Por exemplo, se quiser fornecer uma taxa especial se o número de minutos de telefone usado durante o mês for maior que 1000. Você pode determinar apenas a taxa a usar após adicionar todos os registros de utilização. Se os minutos forem maiores que 1000, então, para cada registro, a taxa é alterada e o novo valor de cobrança é calculado. </value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
+    <value>Escolha essa opção para que o tipo de decisão gere uma nova cobrança ou crédito. Você definirá a cobrança/crédito no conjunto de telas a seguir.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
+    <value>Cada cobrança/crédito gerado na grade é associado com uma Exibição de produto e especifica como definir os conjuntos de campos na Exibição de produto e no t_acc_usage.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>- Se a cobrança/crédito for aplicada proporcionalmente, a seguinte fração do valor da cobrança/crédito será aplicada:&lt;br /&gt;  (o total - início do intervalo) / (término do intervalo - início do intervalo)&lt;br /&gt;- Se a cobrança/crédito for aplicada inversa e proporcionalmente, a seguinte fração do valor da cobrança/crédito será aplicada:&lt;br /&gt;  (término do intervalo - o total) / (término do intervalo - início do intervalo)&lt;br /&gt;- Se a cobrança/crédito for aplicada com um multiplicador agregado, o valor da cobrança/crédito é calculado como:&lt;br /&gt;  (valor de cobrança ou crédito) * (valor agregado para a decisão)&lt;br /&gt;onde o valor agregado pode ser dinheiro, unidades de utilização ou eventos.&lt;br /&gt;- Caso contrário, todo o valor de cobrança/crédito será aplicado.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
+    <value>&lt;i&gt;Agir em cada registro individualmente&lt;/i&gt; significa que a decisão toma um registro, adiciona-o ao total e se o total estiver no intervalo, executa uma ação.  &lt;i&gt;Agir em todos os registros juntos&lt;/i&gt; significa que a decisão totaliza &lt;u&gt;TODOS&lt;/u&gt; os registros e se o total estiver no intervalo, ele aplica a ação a &lt;u&gt;TODOS&lt;/u&gt; os registros.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
+    <value>Exemplo: se o tipo de decisão \"Usar uma taxa especial se o número de minutos utilizados estiver acima de 500\", as configurações podem incluir \"500\" e a \"taxa especial\" a aplicar.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
+    <value>Um tipo de decisão deve estar associado com uma tabela de parâmetros, que fornece uma maneira para personalizar valores importantes do tipo de decisão. Por exemplo, o \"número de minutos grátis\" pode ser editável em vez de ter um valor fixo. &lt;br/&gt;&lt;br/&gt;Antes que um tipo de decisão seja configurado, sua tabela de parâmetros associada deve ser criada usando o Integrated Configuration Environment (ICE).&lt;br/&gt;&lt;br/&gt;OBS.: após clicar em Avançar, não é possível escolher uma tabela de parâmetros diferente para esse tipo de decisão.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>Como padrão, ao trabalhar em um tipo de decisão de um dado intervalo de tempo (baseado em intervalo ou calendário), o AMP forma a utilização considerando &lt;i&gt;todos&lt;/i&gt; os registros da Exibição de Produtos que pertencem a uma conta para esse intervalo de tempo. É possível ignorar certos registros, como em um tipo de decisão que analisa apenas a utilização de \"minutos tarifados de chamada telefônica\".</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
+    <value>A nova taxa é aplicada definindo o \"valor\" associado com o tipo de decisão à nova taxa multiplicada pela utilização.  Qualquer campo derivado do \"valor\" é então recalculado.&lt;br/&gt;&lt;i&gt;Exemplo: depois que o intervalo é atingido, o valor da cobrança é 0,50 por minuto.&lt;/i&gt;</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
+    <value>Exemplo: um tipo de decisão totaliza \"minutos\" e \"todos os minutos &lt; 1000 são gratuitos\".  Um segundo tipo de decisão totaliza \"minutos\", mas você deseja contar apenas os minutos que não fazem parte dos 1000. Você quer que o segundo tipo de decisão considere apenas os minutos não consumidos pelo primeiro tipo de decisão. Para isso, defina o domínio de decisão de ambos os tipos de decisão como \"proporcional\".</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>Você pode criar Qualificações de utilização que referenciam outras Qualificações de utilização definidas anteriormente. Por exemplo, um registro de utilização também pode atender outras condições definidas anteriormente.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
+    <value>O valor nesse campo é inválido. Nomes de qualificação de utilização válidos devem conter apenas caracteres alfanuméricos (Aa-Zz, 0-9) e o caractere '_'.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
+    <value>Como parte da geração de cobrança ou crédito, uma diretiva pode executar os seguintes tipos de trabalho:&lt;br/&gt;- Inclusão de tabela - unir a uma tabela ou exibição de banco de dados. Todos os campos da linha selecionada na tabela ou exibição inclusa serão adicionados como campos ao objeto na memória.&lt;br/&gt;- Preenchimento de campo - preenche um campo do objeto na memória avaliando uma expressão ou atribuindo um valor padrão.&lt;br/&gt;- Execução do procedimento - executa um procedimento MVM. A execução de procedimento fornece um mecanismo para fazer qualquer coisa que não pode ser realizada através de inclusão de tabela e preenchimento de campo.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>Por exemplo, talvez o ciclo de cobrança é mensal, mas você deseja oferecer uma taxa especial se \"mais de 1000 minutos forem usados em três meses\". Isso é conhecido como o ciclo de decisão.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
+    <value>Exemplo: aplicar uma taxa especial se 'minutos totais forem entre 500 e 1000' ou se 'o número de tarifas for maior que 5'.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>O fator de rateio a ser aplicado ao intervalo é determinado comprando as datas de início e término planejadas de uma instância de tipo de decisão com as datas de início e término reais dessa instância.&lt;b/&gt;&lt;b/&gt;Ex.: se uma decisão é planejada para incluir 30 dias de utilização, mas na verdade abrange apenas 15 dias (isto é, a assinatura inicia e se encerra na metade do período), o fator de rateio seria 15/30 ou 0,5. Se o final do intervalo for 500 antes do rateio, ele se torna 250 após aplicar o fator de rateio.&lt;br/&gt;&lt;br/&gt;O rateio na ativação e encerramento permite independentemente que o usuário controle se a ativação ou encerramento reduz o fator de rateio. Ex.: se uma decisão inicia 15 dias após o início do ciclo, mas o rateio na ativação não for escolhido, esses 15 dias não reduzirão o fator de rateio.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
+    <value>Descrição de diferentes tipos de etapas: inclusão de tabela de banco de dados, preenchimento de campo, execução de procedimento</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
+    <value>A tabela de exibição de produto no banco de dados do MetraNet contém valores associados à nova cobrança/crédito.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
+    <value>Operação bem-sucedida. A grade será restaurada.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
+    <value>Exibir</value>
   </data>
   <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
     <value>Aplicar alterações</value>
@@ -285,35 +471,8 @@
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
     <value>Como o solicitante desta alteração pendente, é possível \"Rejeitar\" esta alteração que irá removê-la da deliberação.</value>
   </data>
-  <data name="TEXT_RATE_UPDATE" xml:space="preserve">
-    <value>Atualização de Taxa</value>
-  </data>
-  <data name="TEXT_ACCOUNT_UPDATES" xml:space="preserve">
-    <value>Atualizações de conta</value>
-  </data>
-  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
-    <value>Atualização do Product Offering</value>
-  </data>
-  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
-    <value>Adição de assinatura</value>
-  </data>
-  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
-    <value>Atualização de assinatura</value>
-  </data>
-  <data name="TEXT_ADD_MEMBER_HIERARCHIES" xml:space="preserve">
-    <value>Adicionar hierarquia de membro</value>
-  </data>
-  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
-    <value>Adicionar membros a grupo</value>
-  </data>
-  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
-    <value>Excluir os membros do grupo</value>
-  </data>
-  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
-    <value>Atualizar membros do grupo</value>
-  </data>
-  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
-    <value>Cancelar a subscrição de assinatura grupal</value>
+  <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
+    <value>Atenção. Suas alterações serão permanentes</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Histórico de auditoria para número de casos de transações com falha</value>
@@ -321,8 +480,29 @@
   <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
     <value>Atualizar automaticamente a cada 10 segundos quando marcado.</value>
   </data>
+  <data name="TEXT_BACK" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGE" xml:space="preserve">
+    <value>A mensagem de conta {0} tem {1} contas associadas a ela.</value>
+  </data>
   <data name="TEXT_BILL_TO" xml:space="preserve">
     <value>Destinatário da fatura</value>
+  </data>
+  <data name="TEXT_BULKUPDATE" xml:space="preserve">
+    <value>Atualização em massa</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
+    <value>Atualização em massa de todos os registros filtrados</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
+    <value>Atualização em massa apenas da página atual</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
+    <value>Atualização em massa dos resultados de pesquisa</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
+    <value>Atualização em massa dos registros selecionados</value>
   </data>
   <data name="TEXT_CALLBACK_MSG_1" xml:space="preserve">
     <value>Não foi possível encontrar</value>
@@ -338,6 +518,9 @@
   </data>
   <data name="TEXT_CLEAR" xml:space="preserve">
     <value>Limpar</value>
+  </data>
+  <data name="TEXT_CLONE" xml:space="preserve">
+    <value>Clonar</value>
   </data>
   <data name="TEXT_CLOSE" xml:space="preserve">
     <value>Fechar</value>
@@ -366,6 +549,12 @@
   <data name="TEXT_CONFIRM_DENY_NS_CONTINUE" xml:space="preserve">
     <value>Tem certeza que deseja prosseguir? Essa etapa não pode ser revertida. Se continuar, todas as cobranças não padrão que correspondem ao seus critérios de filtro serão negadas. Se nenhum filtro estiver presente, todas as cobranças não padrão no sistema serão negadas.</value>
   </data>
+  <data name="TEXT_CONVERT" xml:space="preserve">
+    <value>Converter</value>
+  </data>
+  <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
+    <value>Tem certeza que deseja converter a cotação às assinaturas?</value>
+  </data>
   <data name="TEXT_CORP_COMPANY_NAME" xml:space="preserve">
     <value>Nome corp. da companhia</value>
   </data>
@@ -384,6 +573,12 @@
   <data name="TEXT_CREDIT" xml:space="preserve">
     <value>Crédito</value>
   </data>
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>O formato do cartão de crédito é inválido</value>
+  </data>
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>O número CV inválido</value>
+  </data>
   <data name="TEXT_CURRENT" xml:space="preserve">
     <value>Atual</value>
   </data>
@@ -396,14 +591,20 @@
   <data name="TEXT_DELETE" xml:space="preserve">
     <value>Excluir</value>
   </data>
-  <data name="TEXT_BILL_MESSAGE" xml:space="preserve">
-    <value>A mensagem de conta {0} tem {1} contas associadas a ela.</value>
-  </data>
-  <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Atualização em massa</value>
+  <data name="TEXT_DELETE_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Excluir</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
     <value>Tem certeza que deseja essa nota de conta?</value>
+  </data>
+  <data name="TEXT_DELETE_BS_EXEMPTION" xml:space="preserve">
+    <value>Tem certeza que deseja essa isenção BillSoft?</value>
+  </data>
+  <data name="TEXT_DELETE_BS_OVERRIDE" xml:space="preserve">
+    <value>Tem certeza que deseja excluir essa substituição BillSoft?</value>
+  </data>
+  <data name="TEXT_DELETE_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Excluir atributo diverso</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
     <value>Tem certeza que deseja excluir {0}?</value>
@@ -438,6 +639,9 @@
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Editar</value>
   </data>
+  <data name="TEXT_EDIT_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Editar</value>
+  </data>
   <data name="TEXT_EDIT_ACH" xml:space="preserve">
     <value>Editar ACH</value>
   </data>
@@ -446,6 +650,9 @@
   </data>
   <data name="TEXT_EDIT_CHARGE_ACCOUNT" xml:space="preserve">
     <value>Editar conta de cobrança</value>
+  </data>
+  <data name="TEXT_EDIT_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Editar atributo diverso</value>
   </data>
   <data name="TEXT_EDIT_DOMAIN" xml:space="preserve">
     <value>Editar domínio</value>
@@ -522,6 +729,9 @@
   <data name="TEXT_ERROR_MULTIPLE_ROWS" xml:space="preserve">
     <value>Não é possível selecionar várias linhas</value>
   </data>
+  <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
+    <value>Nada será atualizado</value>
+  </data>
   <data name="TEXT_ERROR_ONE_ONE" xml:space="preserve">
     <value>Não é possível criar várias relações um-um</value>
   </data>
@@ -534,6 +744,9 @@
   <data name="TEXT_ERROR_SELECT" xml:space="preserve">
     <value>Faça uma seleção.</value>
   </data>
+  <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
+    <value>Muitos registros para atualizar</value>
+  </data>
   <data name="TEXT_ERROR_UNKNOWN" xml:space="preserve">
     <value>Algo errado ocorreu durante a execução </value>
   </data>
@@ -543,53 +756,14 @@
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
     <value>Exportar todos os registros filtrados</value>
   </data>
-  <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>Atualização em massa de todos os registros filtrados</value>
-  </data>
-  <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>Exportar registros selecionados</value>
-  </data>
-  <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>Atualização em massa dos registros selecionados</value>
-  </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Exportar só a página atual</value>
-  </data>
-  <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>Atualização em massa apenas da página atual</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Exportar resultados da busca</value>
   </data>
-  <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>Atualização em massa dos resultados de pesquisa</value>
-  </data>
-  <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>Nada será atualizado</value>
-  </data>
-  <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>Não há BMEs selecionados para atualização em massa</value>
-  </data>
-  <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>Muitos registros para atualizar</value>
-  </data>
-  <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>Você vai atualizar NUMBER_TO_UPDATE itens. Selecione menos itens para atender à limitação de {0} item/itens</value>
-  </data>
-  <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>Não há propriedades para atualização em massa</value>
-  </data>
-  <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>Atenção. Suas alterações serão permanentes</value>
-  </data>
-  <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>Tem certeza de que deseja fazer essas alterações?</value>
-  </data>
-  <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Nenhuma propriedade será atualizada</value>
-  </data>
-  <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Propriedades que serão atualizadas</value>
+  <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
+    <value>Exportar registros selecionados</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Informações externas</value>
@@ -606,17 +780,38 @@
   <data name="TEXT_FIND_AN_ACCOUNT" xml:space="preserve">
     <value>Localizar uma conta...</value>
   </data>
+  <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
+    <value>Mensagem de erro:&lt;br/&gt;[ErrorMessage]</value>
+  </data>
+  <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
+    <value>Nenhuma mensagem de erro a relatar.</value>
+  </data>
   <data name="TEXT_FUTURE" xml:space="preserve">
     <value>Futuro</value>
   </data>
   <data name="TEXT_GET_HIERARCHY_PATH" xml:space="preserve">
     <value>Obter caminho da hierarquia</value>
   </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_ADD_MEMBERS" xml:space="preserve">
+    <value>Adicionar membros a grupo</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_DELETE_MEMBERS" xml:space="preserve">
+    <value>Excluir os membros do grupo</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE_MEMBERS" xml:space="preserve">
+    <value>Cancelar a subscrição de assinatura grupal</value>
+  </data>
+  <data name="TEXT_GROUP_SUBSCRIPTION_UPDATE_MEMBERS" xml:space="preserve">
+    <value>Atualizar membros do grupo</value>
+  </data>
   <data name="TEXT_GRPSUBMEM_DEL" xml:space="preserve">
     <value>Selecione os membros a serem excluídos</value>
   </data>
   <data name="TEXT_GRPSUBMEM_UNSUB" xml:space="preserve">
     <value>Selecione os membros cuja assinatura será cancelada</value>
+  </data>
+  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Fechado detalhadamente</value>
   </data>
   <data name="TEXT_HELP" xml:space="preserve">
     <value>Ajuda</value>
@@ -660,6 +855,9 @@
   <data name="TEXT_ITEMS" xml:space="preserve">
     <value> itens.</value>
   </data>
+  <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
+    <value>Você vai atualizar NUMBER_TO_UPDATE itens. Selecione menos itens para atender à limitação de {0} item/itens</value>
+  </data>
   <data name="TEXT_LOAD_SAVED_SEARCH" xml:space="preserve">
     <value>Carregar busca salva</value>
   </data>
@@ -673,7 +871,7 @@
     <value>Tem certeza que deseja fazer logout?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
+    <value>j/n/Y G:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Gerenciar conta</value>
@@ -696,6 +894,9 @@
   <data name="TEXT_MetraNet_LOGIN" xml:space="preserve">
     <value>Login do MetraNet</value>
   </data>
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>A inicial do meio é inválida</value>
+  </data>
   <data name="TEXT_MIN" xml:space="preserve">
     <value>Mín:</value>
   </data>
@@ -708,8 +909,20 @@
   <data name="TEXT_NO_ACCOUNT_LOADED" xml:space="preserve">
     <value>Nenhuma conta carregada.</value>
   </data>
+  <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
+    <value>Não há dados disponível</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
+    <value>Não há propriedades para atualização em massa</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
+    <value>Nenhuma propriedade será atualizada</value>
+  </data>
   <data name="TEXT_NO_RECENT_ACCOUNTS" xml:space="preserve">
     <value>Nenhuma conta recente.</value>
+  </data>
+  <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
+    <value>Não há BMEs selecionados para atualização em massa</value>
   </data>
   <data name="TEXT_NO_SELECTION" xml:space="preserve">
     <value>Nenhuma seleção</value>
@@ -720,17 +933,29 @@
   <data name="TEXT_NONE" xml:space="preserve">
     <value>Nenhum</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>clique com o botão direito para opções</value>
+  </data>
   <data name="TEXT_OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="TEXT_ONLINE_BILL" xml:space="preserve">
     <value>Fatura online</value>
   </data>
+  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
   <data name="TEXT_OPEN_SAVED_SEARCH" xml:space="preserve">
     <value>Carregar busca salva</value>
   </data>
   <data name="TEXT_OTHER" xml:space="preserve">
     <value>Outro</value>
+  </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>As senhas não coincidem.</value>
   </data>
   <data name="TEXT_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
     <value>As senhas não coincidem.</value>
@@ -741,14 +966,26 @@
   <data name="TEXT_PAYMENT" xml:space="preserve">
     <value>Pagamento</value>
   </data>
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Insira um número de telefone válido. Formato: 555-555-5555</value>
+  </data>
   <data name="TEXT_PLEASE_FIX" xml:space="preserve">
     <value>Corrija os erros detectados.</value>
   </data>
   <data name="TEXT_POPULATE_FIRST" xml:space="preserve">
     <value>Primeiramente, você deve preencher os detalhes de remessa.</value>
   </data>
+  <data name="TEXT_PRODUCT_OFFERING_UPDATE" xml:space="preserve">
+    <value>Atualização da oferta de produto</value>
+  </data>
   <data name="TEXT_PROPERTIES" xml:space="preserve">
     <value>Propriedades</value>
+  </data>
+  <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
+    <value>Propriedades que serão atualizadas</value>
+  </data>
+  <data name="TEXT_RATE_UPDATE" xml:space="preserve">
+    <value>Atualização de função</value>
   </data>
   <data name="TEXT_RATES" xml:space="preserve">
     <value>Taxas  </value>
@@ -795,11 +1032,17 @@
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Tem certeza que deseja remover esse relacionamento?</value>
   </data>
+  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
+    <value>Solicitação reenviada</value>
+  </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Reenvio de transações com falha em progresso...</value>
   </data>
   <data name="TEXT_RESUBMITTED" xml:space="preserve">
     <value>Reenviado</value>
+  </data>
+  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
+    <value>Tentar novamente</value>
   </data>
   <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
     <value>Salvar sua busca</value>
@@ -831,6 +1074,9 @@
   <data name="TEXT_SELECT_NS_ERROR" xml:space="preserve">
     <value>Selecione cobranças extraordinárias para processar.</value>
   </data>
+  <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
+    <value>Selecione ofertas de produto diferentes para adicionar</value>
+  </data>
   <data name="TEXT_SELECTED" xml:space="preserve">
     <value>Selecionado </value>
   </data>
@@ -855,14 +1101,26 @@
   <data name="TEXT_SMALL_BALANCE_WRITE_OFF" xml:space="preserve">
     <value>Eliminação de pequeno balanço</value>
   </data>
+  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Fechado simplificadamente</value>
+  </data>
   <data name="TEXT_SPACER" xml:space="preserve">
     <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Formato de SSN: xxx-xx-xxxx</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
     <value>Data de início</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>Status</value>
+    <value>Estado</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_ADD" xml:space="preserve">
+    <value>Final da assinatura</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTION_UPDATE" xml:space="preserve">
+    <value>Atualização da assinatura</value>
   </data>
   <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
     <value>Assinaturas</value>
@@ -872,6 +1130,9 @@
   </data>
   <data name="TEXT_SUCCESS_LOADING" xml:space="preserve">
     <value>Carregamento dinâmico concluído</value>
+  </data>
+  <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
+    <value>Tem certeza de que deseja fazer essas alterações?</value>
   </data>
   <data name="TEXT_SYSTEM" xml:space="preserve">
     <value>Sistema</value>
@@ -886,7 +1147,7 @@
     <value>Nem todas as linhas foram retornadas, pois o conjunto de resultados é muito grande. Modifique sua pesquisa para ver mais resultados.</value>
   </data>
   <data name="TEXT_TOPNOTE" xml:space="preserve">
-    <value>TopNote</value>
+    <value>NotaSuperior</value>
   </data>
   <data name="TEXT_TRANSACTION_OPEN" xml:space="preserve">
     <value>Abrir</value>
@@ -896,6 +1157,9 @@
   </data>
   <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
     <value>Sob investigação</value>
+  </data>
+  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Desconhecido</value>
   </data>
   <data name="TEXT_UNKNOWN_STATUS" xml:space="preserve">
     <value>Status desconhecido</value>
@@ -914,6 +1178,9 @@
   </data>
   <data name="TEXT_VIEW" xml:space="preserve">
     <value>Exibir detalhes</value>
+  </data>
+  <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Exibir</value>
   </data>
   <data name="TEXT_VIEW_AUDIT_FAILED_TRANSACTION" xml:space="preserve">
     <value>Exibir auditoria para essa transação fracassada</value>
@@ -939,8 +1206,95 @@
   <data name="TEXT_YES" xml:space="preserve">
     <value>Sim</value>
   </data>
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>CEP inválido</value>
+  </data>
   <data name="THOUSAND_SEPARATOR" xml:space="preserve">
     <value>,</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
+    <value>Resultados da ativação</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ADD_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Adicionar novo grupo de conta</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Adicionar atributo diverso</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_CLONE_DECISION" xml:space="preserve">
+    <value>Clonar tipo de decisão</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
+    <value>Grupo de conta personalizado</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
+    <value>Excluir qualificação de conta</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
+    <value>Excluir diretiva</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Excluir atributo diverso</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Editar atributo diverso</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
+    <value>ERRO!</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
+    <value>Resultados da verificação de erros</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_FILTER_HELP" xml:space="preserve">
+    <value>Ajuda: filtro</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
+    <value>Ajuda: método de agregação</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
+    <value>Ajuda: grupo de cadeia de valores</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
+    <value>Ajuda: prioridade de decisão</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
+    <value>Ajuda: condição para execução</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
+    <value>Ajuda: exibição do produto e campos t_acc_usage</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
+    <value>Ajuda: desconto</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
+    <value>Ajuda: nova taxa de evento</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
+    <value>Ajuda: cobrança gerada</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
+    <value>Ajuda: grade de cobranças/créditos gerados</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>Ajuda: como deveria a cobrança/crédito ser aplicada?</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
+    <value>Ajuda: individualmente x junto</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
+    <value>Ajuda: tabela de parâmetros</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
+    <value>Ajuda: reiniciar intervalo</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
+    <value>Ajuda: nova taxa de unidade</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
+    <value>Ajuda: domínio de decisão</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_MORE_INFO" xml:space="preserve">
+    <value>Mais informações</value>
   </data>
   <data name="TITLE_DELETE_ACCOUNT_NOTE" xml:space="preserve">
     <value>Excluir nota da conta</value>
@@ -954,349 +1308,100 @@
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
     <value>Remover relacionamento</value>
   </data>
-  <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
-    <value>Ativar/Desativar</value>
+  <data name="TEXT_TERMINATE" xml:space="preserve">
+    <value>Terminar</value>
   </data>
-  <data name="TEXT_CLONE" xml:space="preserve">
-    <value>Clonar</value>
+  <data name="TEXT_TERMINATE_SELECTED_ROWS" xml:space="preserve">
+    <value>Tem certeza que deseja excluir as linhas selecionadas?</value>
   </data>
-  <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
-    <value>Exibir</value>
+  <data name="TEXT_UPDATE_ACS_MESSAGE" xml:space="preserve">
+    <value>Tem certeza de que deseja atualizar o modelo OnBoard?</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>Uma &lt;i&gt;Decisão&lt;/i&gt;  é utilizada para analisar registros de utilização (registros de cobrança rateados) e possivelmente modificar cobranças nas bases dessa análise. As decisões são necessárias quando é impossível determinar o valor ao examinar um registro isolado. &lt;br/&gt; Por exemplo, se quiser fornecer uma taxa especial se o número de minutos de telefone usado durante o mês for maior que 1000. Você pode determinar apenas a taxa a usar após adicionar todos os registros de utilização. Se os minutos forem maiores que 1000, então, para cada registro, a taxa é alterada e o novo valor de cobrança é calculado. </value>
+  <data name="TEXT_TERMINATE_MESSAGE" xml:space="preserve">
+    <value>Tem certeza que deseja excluir {0}?</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Um tipo de decisão deve estar associado com uma tabela de parâmetros, que fornece uma maneira para personalizar valores importantes do tipo de decisão. Por exemplo, o \"número de minutos grátis\" pode ser editável em vez de ter um valor fixo. &lt;br/&gt;&lt;br/&gt;Antes que um tipo de decisão seja configurado, sua tabela de parâmetros associada deve ser criada usando o Integrated Configuration Environment (ICE).&lt;br/&gt;&lt;br/&gt;OBS.: após clicar em Avançar, não é possível escolher uma tabela de parâmetros diferente para esse tipo de decisão.</value>
+  <data name="TEXT_RECENT_NOTIFICATION" xml:space="preserve">
+    <value>Notificações recentes</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Exemplo: uma conta (um pai) é faturada para atividade das contas filhas. Você quer encontrar o total de todas as cobranças (pai e filha).&lt;br/&gt;&lt;br/&gt;Além de extrair de outras contas, você deseja ignorar o tipo de decisão de algumas contas. Por exemplo, você quer que o tipo de decisão seja aplicado apenas a contas que recebem faturas virtuais.</value>
+  <data name="TEXT_NO_RECENT_NOTIFICATIONS" xml:space="preserve">
+    <value>No recent notifications.</value>
+  </data> 
+  <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Alterar senha</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>Para obter mais informações sobre como criar um novo grupo de conta, consulte a documentação ou entre em contato com seu representante da MetraTech.</value>
+  <data name="TEXT_MY_SECURITY_SETTINGS" xml:space="preserve">
+    <value>Minhas Configurações de Segurança</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Como padrão, ao trabalhar em um tipo de decisão de um dado intervalo de tempo (baseado em intervalo ou calendário), o AMP forma a utilização considerando &lt;i&gt;todos&lt;/i&gt; os registros da Exibição de Produtos que pertencem a uma conta para esse intervalo de tempo. É possível ignorar certos registros, como em um tipo de decisão que analisa apenas a utilização de \"minutos tarifados de chamada telefônica\".</value>
+  <data name="TEXT_NOTIFICATIONS" xml:space="preserve">
+    <value>Notificação</value>
   </data>
-  <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
-    <value>Operação bem-sucedida. A grade será restaurada.</value>
+  <data name="TEXT_MORE" xml:space="preserve">
+    <value>Mais ...</value>
   </data>
-  <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
-    <value>Ocorreu um erro ao ativar/desativar o tipo de decisão: </value>
+  <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
+    <value>Edit Report Definition</value>
   </data>
-  <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>Grupo de conta personalizado</value>
+  <data name="TEXT_Manage_Report_Instances" xml:space="preserve">
+    <value>Manage Report Instances</value>
   </data>
-  <data name="TITLE_AMPWIZARD_MORE_INFO" xml:space="preserve">
-    <value>Mais informações</value>
+  <data name="TEXT_Manage_Report_Parameters" xml:space="preserve">
+    <value>Manage Report Parameters</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Ajuda: tabela de parâmetros</value>
+  <data name="TEXT_Delete_Report" xml:space="preserve">
+    <value>Delete Report</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>Exemplo: se o tipo de decisão \"Usar uma taxa especial se o número de minutos utilizados estiver acima de 500\", as configurações podem incluir \"500\" e a \"taxa especial\" a aplicar.</value>
+  <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
+    <value>Edit Report Instance</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>Ajuda: método de agregação</value>
+  <data name="TEXT_Manage_Report_Instance_Schedule" xml:space="preserve">
+    <value>Manage Report Instance Schedule</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>As decisões são usadas quando um valor de cobrança monetária não pode ser calculado observando-se um registro único. Em vez disso, muitos registros de utilização devem ser examinados e o total deve ser o número de eventos, unidades de utilização, ou valores de cobrança. O total, ou agregado, é então usado para ajudar a determinar o valor da cobrança.</value>
+  <data name="TEXT_Manage_Report__InstanceParameters" xml:space="preserve">
+    <value>Edit Instance Parameter Values</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Exemplo: há duas decisões que consideram o mesmo recurso de utilização. Ambas as decisões são configuradas para consumir os registros de utilização. &lt;br/&gt;&lt;br/&gt;Os níveis de prioridade de decisões determinam a ordem na qual as decisões serão processadas. Um nível de prioridade numérico menor é processado mais cedo que um nível de prioridade maior. As decisões que têm o mesmo nível de prioridade são processados em ordem não determinada. Na página Prioridade de Decisão, é possível especificar o nível de prioridade do tipo de decisão que está sendo configurado.</value>
+  <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
+    <value>Delete Report Instance</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Exemplo: um tipo de decisão totaliza \"minutos\" e \"todos os minutos &lt; 1000 são gratuitos\".  Um segundo tipo de decisão totaliza \"minutos\", mas você deseja contar apenas os minutos que não fazem parte dos 1000. Você quer que o segundo tipo de decisão considere apenas os minutos não consumidos pelo primeiro tipo de decisão. Para isso, defina o domínio de decisão de ambos os tipos de decisão como \"proporcional\".</value>
+  <data name="TEXT_Delete_Queue_AdHoc_Reports" xml:space="preserve">
+    <value>Queue AdHoc Reports</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Ajuda: prioridade de decisão</value>
+  <data name="TEXT_Update_Report_Instance_Schedule" xml:space="preserve">
+    <value>Update Report Instance Schedule</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Ajuda: domínio de decisão</value>
+  <data name="TEXT_Delete_Report_Instance_Schedule" xml:space="preserve">
+    <value>Delete Report Instance Schedule</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Selecione um grupo de cadeia de valores de forma que o tipo de decisão saiba o que contar e como recalcular valores relacionados.  &lt;br/&gt;&lt;br/&gt;Por exemplo: uma certa cadeia de valores tem quatro campos relacionados em uma exibição de produto: \"o número de minutos utilizados\", \"a taxa por minuto\", \"o valor da cobrança\" e \"o imposto sobre o valor de cobrança\".</value>
+  <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
+    <value>Delete Report Parameter</value>
   </data>
-  <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value>O nome não pode contar caracteres de aspas simples e duplas.</value>
+  <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
+    <value>No parameter was selected. Please select at least one parameter for assignment</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>- Se a cobrança/crédito for aplicada proporcionalmente, a seguinte fração do valor da cobrança/crédito será aplicada:&lt;br /&gt;  (o total - início do intervalo) / (término do intervalo - início do intervalo)&lt;br /&gt;- Se a cobrança/crédito for aplicada inversa e proporcionalmente, a seguinte fração do valor da cobrança/crédito será aplicada:&lt;br /&gt;  (término do intervalo - o total) / (término do intervalo - início do intervalo)&lt;br /&gt;- Se a cobrança/crédito for aplicada com um multiplicador agregado, o valor da cobrança/crédito é calculado como:&lt;br /&gt;  (valor de cobrança ou crédito) * (valor agregado para a decisão)&lt;br /&gt;onde o valor agregado pode ser dinheiro, unidades de utilização ou eventos.&lt;br /&gt;- Caso contrário, todo o valor de cobrança/crédito será aplicado.</value>
+  <data name="TEXT_VIEW_LOG" xml:space="preserve">
+    <value>View Log</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>Ajuda: como deveria a cobrança/crédito ser aplicada?</value>
+  <data name="TEXT_VIEW_ALL" xml:space="preserve">
+    <value>View All...</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
-    <value>Por exemplo, você está agregando por valor e deseja que algo especial aconteça a cada $1000.</value>
+  <data name="TEXT_DAY" xml:space="preserve">
+    <value>Dia</value>
   </data>
-  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
-    <value>Exemplo: aplicar uma taxa especial se 'minutos totais forem entre 500 e 1000' ou se 'o número de tarifas for maior que 5'.</value>
+  <data name="TEXT_FIRST" xml:space="preserve">
+    <value>Primeiro</value>
   </data>
-  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>O fator de rateio a ser aplicado ao intervalo é determinado comprando as datas de início e término planejadas de uma instância de tipo de decisão com as datas de início e término reais dessa instância.&lt;b/&gt;&lt;b/&gt;Ex.: se uma decisão é planejada para incluir 30 dias de utilização, mas na verdade abrange apenas 15 dias (isto é, a assinatura inicia e se encerra na metade do período), o fator de rateio seria 15/30 ou 0,5. Se o final do intervalo for 500 antes do rateio, ele se torna 250 após aplicar o fator de rateio.&lt;br/&gt;&lt;br/&gt;O rateio na ativação e encerramento permite independentemente que o usuário controle se a ativação ou encerramento reduz o fator de rateio. Ex.: se uma decisão inicia 15 dias após o início do ciclo, mas o rateio na ativação não for escolhido, esses 15 dias não reduzirão o fator de rateio.</value>
+  <data name="TEXT_FOURTH" xml:space="preserve">
+    <value>Quarto</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
-    <value>Ajuda: reiniciar intervalo</value>
+  <data name="TEXT_LAST" xml:space="preserve">
+    <value>Último</value>
   </data>
-  <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
-    <value>Resultados da ativação</value>
+  <data name="TEXT_SECOND" xml:space="preserve">
+    <value>Segundo</value>
   </data>
-  <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
-    <value>Resultados da verificação de erros</value>
+  <data name="TEXT_THIRD" xml:space="preserve">
+    <value>Terceiro</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
-    <value>As configurações de decisão já especificaram como calcular o valor de cobrança gerado. Agora selecione o grupo de cadeia de valores que especifica: (a) o campo na exibição de produto na qual o valor de cobrança gerado deve ser armazenado e (b) qualquer outro campo que precise ser recalculado.</value>
+  <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
+    <value>Pending Changes Waiting For Approval</value>
   </data>
-  <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
-    <value>A tabela de exibição de produto no banco de dados do MetraNet contém valores associados à nova cobrança/crédito.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Ajuda: grupo de cadeia de valores</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>Ajuda: individualmente x junto</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>&lt;i&gt;Agir em cada registro individualmente&lt;/i&gt; significa que a decisão toma um registro, adiciona-o ao total e se o total estiver no intervalo, executa uma ação.  &lt;i&gt;Agir em todos os registros juntos&lt;/i&gt; significa que a decisão totaliza &lt;u&gt;TODOS&lt;/u&gt; os registros e se o total estiver no intervalo, ele aplica a ação a &lt;u&gt;TODOS&lt;/u&gt; os registros.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>Ajuda: nova taxa de unidade</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>A nova taxa é aplicada definindo o \"valor\" associado com o tipo de decisão à nova taxa multiplicada pela utilização.  Qualquer campo derivado do \"valor\" é então recalculado.&lt;br/&gt;&lt;i&gt;Exemplo: depois que o intervalo é atingido, o valor da cobrança é 0,50 por minuto.&lt;/i&gt;</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>Ajuda: nova taxa de evento</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>A nova taxa é aplicada definindo o \"valor\" associado com o tipo de decisão para esse novo valor.  Qualquer campo derivado do \"valor\" é então recalculado.&lt;br/&gt;Exemplo: depois que o intervalo é atingido, \"o custo da tarifa é $0,75\" ou \"a chamada custa $1, independentemente do número de minutos\".</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>Ajuda: desconto</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>Esse desconto é aplicado ao \"valor\" associado ao tipo de decisão. Todos os campos derivados do \"valor\" serão recalculados.&lt;br/&gt;&lt;br/&gt;O desconto pode ser aplicado apenas a uma parte do valor se seu tipo de decisão agrega utilização. &lt;br/&gt;&lt;br/&gt;Exemplo: o início do intervalo é \"500 minutos\" e o total atualmente é \"400 minutos\".  A decisão processa um registro com \"300 minutos\".  \"100 minutos\" estão fora do intervalo e \"200 minutos\" estão dentro.  Se o desconto for 5%, então o \"valor\" é reduzir por 0,05 x (200/300).</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>Ajuda: cobrança gerada</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>Escolha essa opção para que o tipo de decisão gere uma nova cobrança ou crédito. Você definirá a cobrança/crédito no conjunto de telas a seguir.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>Ajuda: grade de cobranças/créditos gerados</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>Cada cobrança/crédito gerado na grade é associado com uma Exibição de produto e especifica como definir os conjuntos de campos na Exibição de produto e no t_acc_usage.</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Exemplo: um ciclo de cobrança é mensal, mas você deseja fornecer uma taxa especial se \"mais de 1000 minutos forem usados em três meses\". Isso é conhecido como o ciclo de decisão.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Adicionar atributo diverso</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Editar atributo diverso</value>
-  </data>
-  <data name="TEXT_EDIT_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Editar atributo diverso</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>Como parte da geração de cobrança ou crédito, uma diretiva pode executar os seguintes tipos de trabalho:&lt;br/&gt;- Inclusão de tabela - unir a uma tabela ou exibição de banco de dados. Todos os campos da linha selecionada na tabela ou exibição inclusa serão adicionados como campos ao objeto na memória.&lt;br/&gt;- Preenchimento de campo - preenche um campo do objeto na memória avaliando uma expressão ou atribuindo um valor padrão.&lt;br/&gt;- Execução do procedimento - executa um procedimento MVM. A execução de procedimento fornece um mecanismo para fazer qualquer coisa que não pode ser realizada através de inclusão de tabela e preenchimento de campo.</value>
-  </data>
-  <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
-    <value>Mensagem de erro:&lt;br/&gt;[ErrorMessage]</value>
-  </data>
-  <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
-    <value>Nenhuma mensagem de erro a relatar.</value>
-  </data>
-  <data name="TEXT_BACK" xml:space="preserve">
-    <value>Anterior</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>Esta tabela mostra quais campos na exibição do produto e t_acc_usage têm diretivas de preenchimento de campo definidas para elas. Use essa tabela para determinar quais campos precisam ser definidos.</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
-    <value>Descrição de diferentes tipos de etapas: inclusão de tabela de banco de dados, preenchimento de campo, execução de procedimento</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>Ajuda: exibição do produto e campos t_acc_usage</value>
-  </data>
-  <data name="TEXT_DELETE_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Excluir atributo diverso</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Excluir atributo diverso</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
-    <value>ERRO!</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Você pode criar Qualificações de utilização que referenciam outras Qualificações de utilização definidas anteriormente. Por exemplo, um registro de utilização também pode atender outras condições definidas anteriormente.</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
-    <value>No filtro, é possível verificar valores específicos dos campos de exibição de produto e campos t_acc_usage ou verificar se outras qualificações de utilização (que você já criou) são satisfeitas. É possível usar parênteses e as palavras-chave \"e\", \"ou\", \"==\", \"!=\" e \"!\". Use os botões &lt;u&gt;Insert&lt;/u&gt; para inserir snippets do filtro no cursor.&lt;br/&gt;&lt;br/&gt;No filtro, \"OBJETO\" refere-se ao registro de utilização e \"GRUPO\" refere-se a outro grupo de qualificação de utilização.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_FILTER_HELP" xml:space="preserve">
-    <value>Ajuda: filtro</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_CLONE_DECISION" xml:space="preserve">
-    <value>Clonar tipo de decisão</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>Excluir diretiva</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>Tem certeza que deseja excluir essa diretiva?</value>
-  </data>
-  <data name="TEXT_DELETE_BS_EXEMPTION" xml:space="preserve">
-    <value>Tem certeza que deseja essa isenção BillSoft?</value>
-  </data>
-  <data name="TEXT_DELETE_BS_OVERRIDE" xml:space="preserve">
-    <value>Tem certeza que deseja excluir essa substituição BillSoft?</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_ADD_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Adicionar novo grupo de conta</value>
-  </data>
-  <data name="TEXT_DELETE_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Excluir</value>
-  </data>
-  <data name="TEXT_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Editar</value>
-  </data>
-  <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Exibir</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>Excluir qualificação de conta</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>Tem certeza que deseja excluir essa qualificação de conta?</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>Ajuda: condição para execução</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>A condição de execução é uma expressão MVM de forma livre que é avaliada quando a diretiva está prestes a ser executada. Se a expressão for avaliada como 1, a diretiva é executada. Se a expressão for avaliada em um valor diferente de 1, a diretiva NÃO é executada. Esse campo aplica-se à inclusão de tabela, preenchimento de campo e execução de procedimento.</value>
-  </data>
-  <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
-    <value>A data de início não pode ser maior que a data de término</value>
-  </data>
-  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>Fechado detalhadamente</value>
-  </data>
-  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
-    <value>Abrir</value>
-  </data>
-  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>Fechado simplificadamente</value>
-  </data>
-  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
-    <value>Desconhecido</value>
-  </data>
-  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>As senhas não coincidem.</value>
-  </data>
-  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>Insira um número de telefone válido. Formato: 555-555-5555</value>
-  </data>
-  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>O formato do cartão de crédito é inválido</value>
-  </data>
-  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>O número CV inválido</value>
-  </data>
-  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>Formato de SSN: xxx-xx-xxxx</value>
-  </data>
-  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>Apenas dígitos numéricos são permitidos</value>
-  </data>
-  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>CEP inválido</value>
-  </data>
-  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>A inicial do meio é inválida</value>
-  </data>
-  <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
-    <value>Atividade da conta</value>
-  </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Tentar novamente</value>
-  </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Solicitação reenviada</value>
-  </data>
-  <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
-    <value>Selecione ofertas de produto diferentes para adicionar</value>
-  </data>
-  <data name="TEXT_CONVERT" xml:space="preserve">
-    <value>Converter</value>
-  </data>
-  <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
-    <value>Tem certeza que deseja converter a cotação às assinaturas?</value>
-  </data>
-  <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
-    <value>Essa conta paga sozinha</value>
-  </data>
-  <data name="ACCOUNT_PAYEE_TEXT" xml:space="preserve">
-    <value>Esse valor é pago por</value>
-  </data>
-  <data name="ACCOUNT_STATUS_LABEL_TEXT" xml:space="preserve">
-    <value>Status da conta</value>
-  </data>
-  <data name="ACCOUNT_STATUS_TEXT" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="ACCOUNT_BALANCE_AS_OF_TEXT" xml:space="preserve">
-    <value>a partir de</value>
-  </data>
-  <data name="ACCOUNT_BALANCE_TEXT" xml:space="preserve">
-    <value>Balanço</value>
-  </data>
-  <data name="ACCOUNT_EDIT_INFO_TEXT" xml:space="preserve">
-    <value>Alterar</value>
-  </data>
-  <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
-    <value>Ltv</value>
-  </data>
-  <data name="ACCOUNT_MRR_TEXT" xml:space="preserve">
-    <value>MRR</value>
-  </data>
-  <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
-    <value>MRR</value>
-  </data>
-  <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
-    <value>Fatura</value>
-  </data>
-  <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
-    <value>Transações com falha</value>
-  </data>
-  <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
-    <value>Descrição</value>
-  </data>
-  <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
-    <value>N/D</value>
-  </data>
-  <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>Tipo de conta</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
-    <value>O valor nesse campo é inválido. Nomes de qualificação de utilização válidos devem conter apenas caracteres alfanuméricos (Aa-Zz, 0-9) e o caractere '_'.</value>
-  </data>
-  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
-    <value>Atualizar</value>
-  </data>
-  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
-    <value>clique com o botão direito para opções</value>
-  </data>  
-  <data name="TEXT_NO_DATA_FOR_GRAPH" xml:space="preserve">
-    <value>Não há dados disponível</value>
-  </data>     
 </root>

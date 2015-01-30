@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,623 +59,638 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
-    <value>Dettagli conto</value>
-  </data>
-  <data name="TEXT_ACCOUNT_QUOTING_LIST" xml:space="preserve">
-    <value>[IT]Quotes</value>
-  </data>
-  <data name="TEXT_ACCOUNT_STATE" xml:space="preserve">
-    <value>Stato del conto</value>
-  </data>
-  <data name="TEXT_ACTIVE_FILES" xml:space="preserve">
-    <value>Processi attivi</value>
-  </data>
-  <data name="TEXT_ACTIVE_INTERVALS" xml:space="preserve">
-    <value>Intervalli attivi</value>
-  </data>
-  <data name="TEXT_ADD_ACCOUNT" xml:space="preserve">
-    <value>Aggiungi conto</value>
-  </data>
-  <data name="TEXT_ADD_ACCOUNT_SPLIT" xml:space="preserve">
-    <value>Aggiungi divisione conto</value>
-  </data>
-  <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
-    <value>Aggiungi conto con servizio Web</value>
-  </data>
-  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-    <value>[IT]Add child Account</value>
-  </data>
-  <data name="TEXT_ADD_CSR" xml:space="preserve">
-    <value>Aggiungi CSR</value>
-  </data>
-  <data name="TEXT_ADD_NEW_REPORT_DEFINITION" xml:space="preserve">
-    <value>Aggiungi nuova definizione rapporto</value>
-  </data>
-  <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
-    <value>Aggiungi nuovi parametri rapporto</value>
-  </data>
-  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>[IT]Add Partition</value>
-  </data>
-  <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
-    <value>Rettifica transazioni</value>
-  </data>
-  <data name="TEXT_ADJUSTMENTS" xml:space="preserve">
-    <value>Rettifiche / Addebiti</value>
-  </data>
-  <data name="TEXT_ADMINISTRATION" xml:space="preserve">
-    <value>Amministrazione</value>
-  </data>
-  <data name="TEXT_ADVANCED_OPTIONS" xml:space="preserve">
-    <value>Opzioni avanzate</value>
-  </data>
-  <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
-    <value>[IT]Agreement Templates</value>
-  </data>
-  <data name="TEXT_AGREEMENTS" xml:space="preserve">
-    <value>[IT]Agreements</value>
-  </data>
-  <data name="TEXT_ALL_FILES" xml:space="preserve">
-    <value>Tutti i processi</value>
-  </data>
-  <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
-    <value>Tutti gli intervalli</value>
-  </data>
-  <data name="TEXT_ANALYTICS" xml:space="preserve">
-    <value>[IT]Analytics</value>
-  </data>
-  <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
-    <value>Registro verifiche applicazione</value>
-  </data>
-  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>[IT]Approvals</value>
-  </data>
-  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>[IT]Assign Bill Messages</value>
-  </data>
-  <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
-    <value>Assegna parametri rapporto</value>
-  </data>
-  <data name="TEXT_BACKOUT_RERUN" xml:space="preserve">
-    <value>Gestione ritiri</value>
-  </data>
-  <data name="TEXT_BATCH_24" xml:space="preserve">
-    <value>Batch delle ultime 24 ore</value>
-  </data>
-  <data name="TEXT_BATCH_ACTIVE" xml:space="preserve">
-    <value>Batch attivi/con errori</value>
-  </data>
-  <data name="TEXT_BATCH_ALL" xml:space="preserve">
-    <value>Tutti i batch</value>
-  </data>
-  <data name="TEXT_BATCH_COMPLETED" xml:space="preserve">
-    <value>Batch completati</value>
-  </data>
-  <data name="TEXT_BATCH_DISMISSED" xml:space="preserve">
-    <value>Batch respinti</value>
-  </data>
-  <data name="TEXT_BATCH_MANAGEMENT" xml:space="preserve">
-    <value>Gestione batch</value>
-  </data>
-  <data name="TEXT_BATCH_WEEK" xml:space="preserve">
-    <value>Batch dell'ultima settimana</value>
-  </data>
-  <data name="TEXT_BE" xml:space="preserve">
-    <value>Entità modelling business</value>
-  </data>
-  <data name="TEXT_BE_ORDERS" xml:space="preserve">
-    <value>Ordine</value>
-  </data>
-  <data name="TEXT_BILL_MANAGEES" xml:space="preserve">
-    <value>Fatture in linea gestite</value>
-  </data>
-  <data name="TEXT_BILL_MANAGER" xml:space="preserve">
-    <value>Responsabili fatturazione</value>
-  </data>
-  <data name="TEXT_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>Intervalli fatturabili</value>
-  </data>
-  <data name="TEXT_BILLING_MANAGEMENT" xml:space="preserve">
-    <value>Gestione fatturazione</value>
-  </data>
-  <data name="TEXT_BULK_ADJUST_TRANSACTIONS" xml:space="preserve">
-    <value>Transazioni di rettifica in blocco</value>
-  </data>
-  <data name="TEXT_BULK_ADJUSTMENTS" xml:space="preserve">
-    <value>Rettifiche in blocco</value>
-  </data>
-  <data name="TEXT_BULK_SUBSCRIPTION_CHANGE" xml:space="preserve">
-    <value>Modifica abbonamento in blocco</value>
-  </data>
-  <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
-    <value>Modifica password</value>
-  </data>
-  <data name="TEXT_CHARTS" xml:space="preserve">
-    <value>Grafici</value>
-  </data>
-  <data name="TEXT_COMPLETED_BACKOUT_RERUN" xml:space="preserve">
-    <value>Ritiri/nuove esecuzioni completati</value>
-  </data>
-  <data name="TEXT_COMPLETED_FILES" xml:space="preserve">
-    <value>Processi completati</value>
-  </data>
-  <data name="TEXT_COMPLETED_INTERVALS" xml:space="preserve">
-    <value>Intervalli completati</value>
-  </data>
-  <data name="TEXT_CONFIGURE_FILE_MANAGEMENT_GLOBALS" xml:space="preserve">
-    <value>Configura globali</value>
-  </data>
-  <data name="TEXT_CONFIGURE_FILE_MANAGEMENT_TARGETS" xml:space="preserve">
-    <value>Configura obiettivi</value>
-  </data>
-  <data name="TEXT_CORRECTED_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Corretto e in attesa</value>
-  </data>
-  <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
-    <value>Crea ritiro/nuova esecuzione</value>
-  </data>
-  <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-    <value>[IT]Create Credit Note</value>
-  </data>
-  <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
-    <value>Aggiungi nuova istanza rapporto</value>
-  </data>
-  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>[IT]Create Quote</value>
-  </data>
-  <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
-    <value>Crea rimessa</value>
-  </data>
-  <data name="TEXT_DASHBOARD" xml:space="preserve">
-    <value>Cruscotto</value>
-  </data>
-  <data name="TEXT_DATA_EXPORT_REPORT_MANAGEMENT" xml:space="preserve">
-    <value>Gestione dei rapporti di esportazione dati</value>
-  </data>
-  <data name="TEXT_DEFAULT_SECURITY" xml:space="preserve">
-    <value>Sicurezza predefinita</value>
-  </data>
-  <data name="TEXT_DISMISSED_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Respinto</value>
-  </data>
-  <data name="TEXT_EDIT_MAPPING" xml:space="preserve">
-    <value>Modifica alias</value>
-  </data>
-  <data name="TEXT_EDIT_NAMESPACES" xml:space="preserve">
-    <value>Modifica spazi di nomi</value>
-  </data>
-  <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
-    <value>Modifica modello</value>
-  </data>
-  <data name="TEXT_EVENT_LIST" xml:space="preserve">
-    <value>Elenco degli eventi</value>
-  </data>
-  <data name="TEXT_FAILED_FILES" xml:space="preserve">
-    <value>Processi non riusciti</value>
-  </data>
-  <data name="TEXT_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Transazioni non riuscite</value>
-  </data>
-  <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_ERROR_TYPE_MENU" xml:space="preserve">
-    <value>Riepilogo per conto e tipo di errore</value>
-  </data>
-  <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_INTERVAL_MENU" xml:space="preserve">
-    <value>Riepilogo per conto</value>
-  </data>
-  <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU" xml:space="preserve">
-    <value>Riepilogo per tipo di intervallo</value>
-  </data>
-  <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
-    <value>Riepilogo transazioni per fase e plug-in non riuscito</value>
-  </data>
-  <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN_MENU" xml:space="preserve">
-    <value>Riepilogo per fase e plug-in</value>
-  </data>
-  <data name="TEXT_FEEDS" xml:space="preserve">
-    <value>Feed</value>
-  </data>
-  <data name="TEXT_FILE_MANAGEMENT" xml:space="preserve">
-    <value>Gestione file</value>
-  </data>
-  <data name="TEXT_FILES_IN_LAST_2_DAYS" xml:space="preserve">
-    <value>Processi degli ultimi due giorni</value>
-  </data>
-  <data name="TEXT_FILES_IN_PAST_WEEK" xml:space="preserve">
-    <value>Processi dell'ultima settimana</value>
-  </data>
-  <data name="TEXT_FOLDER_OWNER" xml:space="preserve">
-    <value>Amministratore conto</value>
-  </data>
-  <data name="TEXT_GROUP_SUBSCRIPTIONS" xml:space="preserve">
-    <value>Abbonamenti di gruppo</value>
-  </data>
-  <data name="TEXT_HIDDEN_OFFERINGS" xml:space="preserve">
-    <value>Offerte nascoste</value>
-  </data>
-  <data name="TEXT_INPROGRESS_BACKOUT_RERUN" xml:space="preserve">
-    <value>Ritiri/nuove esecuzioni in corso</value>
-  </data>
-  <data name="TEXT_LIST_ENTITITES" xml:space="preserve">
-    <value>Elenca tutte le entità</value>
-  </data>
-  <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-    <value>[IT]</value>
-  </data>
-  <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
-    <value>Effettua un pagamento</value>
-  </data>
-  <data name="TEXT_MANAGE" xml:space="preserve">
-    <value>[IT]Manage</value>
-  </data>
-  <data name="TEXT_MANAGE_ACCOUNTS" xml:space="preserve">
-    <value>Gestisci conti</value>
-  </data>
-  <data name="TEXT_MANAGE_ADJUSTMENTS" xml:space="preserve">
-    <value>Gestisci rettifiche</value>
-  </data>
-  <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
-    <value>[IT]Manage Agreement Templates</value>
-  </data>
-  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>[IT]Decision Types</value>
-  </data>
-  <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
-    <value>[IT]Manage BillSoft Exemptions</value>
-  </data>
-  <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
-    <value>[IT]Manage BillSoft Overrides</value>
-  </data>
-  <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
-    <value>Gestisci calendari</value>
-  </data>
-  <data name="TEXT_MANAGE_DATA_EXPORT_FRAMEWORK" xml:space="preserve">
-    <value>Gestione dei rapporti di esportazione dati</value>
-  </data>
-  <data name="TEXT_MANAGE_DEFAULT_SECURITY" xml:space="preserve">
-    <value>Sicurezza predefinita</value>
-  </data>
-  <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
-    <value>Gestisci rettifiche varie</value>
-  </data>
-  <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
-    <value>Gestisci addebiti non standard</value>
-  </data>
-  <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
-    <value>Gestisci rettifiche orfane</value>
-  </data>
-  <data name="TEXT_MANAGE_REPORTS" xml:space="preserve">
-    <value>Gestisci rapporti</value>
-  </data>
-  <data name="TEXT_MANAGE_ROLES" xml:space="preserve">
-    <value>Gestisci ruoli</value>
-  </data>
-  <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
-    <value>Gestisci sicurezza</value>
-  </data>
-  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>[IT]Master Product Offerings</value>
-  </data>
-  <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
-    <value>Genera password</value>
-  </data>
-  <data name="TEXT_MENU_ISSUE_MISC_ADJUSTMENT" xml:space="preserve">
-    <value>Rettifiche varie</value>
-  </data>
-  <data name="TEXT_MENU_UNLOCK_ACCOUNT" xml:space="preserve">
-    <value>Blocca/Sblocca conto</value>
-  </data>
-  <data name="TEXT_METERING_STATISTICS" xml:space="preserve">
-    <value>Statistiche misurate</value>
-  </data>
-  <data name="TEXT_METRAAR" xml:space="preserve">
-    <value>Conti creditori</value>
-  </data>
-  <data name="TEXT_METRAOFFER_OPTIONS" xml:space="preserve">
-    <value>Catalogo prodotti</value>
-  </data>
-  <data name="TEXT_MISC_ADJUSTMENTS" xml:space="preserve">
-    <value>Rettifiche varie</value>
-  </data>
-  <data name="TEXT_MOVE_ACCOUNT" xml:space="preserve">
-    <value>Sposta conto</value>
-  </data>
-  <data name="TEXT_MOVE_ACCOUNTS" xml:space="preserve">
-    <value>Sposta conti</value>
-  </data>
-  <data name="TEXT_MY_ACCOUNT" xml:space="preserve">
-    <value>Conto personale</value>
-  </data>
-  <data name="TEXT_MY_ACCOUNTS" xml:space="preserve">
-    <value>Conti personali</value>
-  </data>
-  <data name="TEXT_NO_ACCOUNT_SELECTED" xml:space="preserve">
-    <value>Nessun conto selezionato.</value>
-  </data>
-  <data name="TEXT_NONSTANDARD_CHARGES" xml:space="preserve">
-    <value>Addebiti non standard</value>
-  </data>
-  <data name="TEXT_OFFERINGS" xml:space="preserve">
-    <value>Offerte di prodotti</value>
-  </data>
-  <data name="TEXT_OPEN_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Apri</value>
-  </data>
-  <data name="TEXT_ORPHAN_ADJUSTMENTS" xml:space="preserve">
-    <value>Rettifiche orfane</value>
-  </data>
-  <data name="TEXT_OWNED_FOLDERS" xml:space="preserve">
-    <value>Conti amministrati</value>
-  </data>
-  <data name="TEXT_OWNER_ACCOUNTS" xml:space="preserve">
-    <value>Proprietari conto</value>
-  </data>
-  <data name="TEXT_PAY_FOR_ACCOUNTS" xml:space="preserve">
-    <value>Paga per conto</value>
-  </data>
-  <data name="TEXT_PAY_FOR_ME" xml:space="preserve">
-    <value>Modifica paganti</value>
-  </data>
-  <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
-    <value>Cronologia pagamenti</value>
-  </data>
-  <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
-    <value>Metodi di pagamento</value>
-  </data>
-  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
-    <value>[IT]Payment Transactions</value>
-  </data>
-  <data name="TEXT_PAYMENTS" xml:space="preserve">
-    <value>Pagamenti</value>
-  </data>
-  <data name="TEXT_PC_AUDIT_LOG" xml:space="preserve">
-    <value>Registro verifiche</value>
-  </data>
-  <data name="TEXT_PENDING_FILES" xml:space="preserve">
-    <value>File in sospeso</value>
-  </data>
-  <data name="TEXT_PRICEABLE_ITEMS" xml:space="preserve">
-    <value>Articoli prezzabili</value>
-  </data>
-  <data name="TEXT_QUEUE_ADHOC_REPORT_FOR_EXECUTION" xml:space="preserve">
-    <value>Accoda rapporti ad hoc per esecuzione</value>
-  </data>
-  <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
-    <value>Accoda rapporti ad hoc</value>
-  </data>
-  <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>[IT]Manage Quotes</value>
-  </data>
-  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>[IT]View All Quotes</value>
-  </data>
-  <data name="TEXT_REFRESH" xml:space="preserve">
-    <value>[IT]Refresh</value>
-  </data>
-  <data name="TEXT_REJECTED_FILES" xml:space="preserve">
-    <value>File rifiutati</value>
-  </data>
-  <data name="TEXT_RELATIONSHIPS" xml:space="preserve">
-    <value>Relazioni</value>
-  </data>
-  <data name="TEXT_RESUBMITTED_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Nuovo invio effettuato</value>
-  </data>
-  <data name="TEXT_RUN_SCHEDULED_ADAPTER" xml:space="preserve">
-    <value>Esegui adattatore programmato</value>
-  </data>
-  <data name="TEXT_RUNS_ALL" xml:space="preserve">
-    <value>Esecuzioni (tutte)</value>
-  </data>
-  <data name="TEXT_RUNS_IN_LAST_24" xml:space="preserve">
-    <value>Esecuzioni delle ultime 24 ore</value>
-  </data>
-  <data name="TEXT_RUNS_IN_LAST_WEEK" xml:space="preserve">
-    <value>Esecuzioni dell'ultima settimana</value>
-  </data>
-  <data name="TEXT_SCHEDULE_REPORT_INSTANCE_DAILY" xml:space="preserve">
-    <value>Programmazione giornaliera istanze rapporto</value>
-  </data>
-  <data name="TEXT_SCHEDULE_REPORT_INSTANCE_MONTHLY" xml:space="preserve">
-    <value>Programmazione mensile istanze rapporto</value>
-  </data>
-  <data name="TEXT_SCHEDULE_REPORT_INSTANCE_WEEKLY" xml:space="preserve">
-    <value>Programmazione settimanale istanze rapporto</value>
-  </data>
-  <data name="TEXT_SCHEDULED_ADAPTERS" xml:space="preserve">
-    <value>Adattatori programmati</value>
-  </data>
-  <data name="TEXT_SECURITY" xml:space="preserve">
-    <value>Sicurezza</value>
-  </data>
-  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
-    <value>[IT]Self Care Portal</value>
-  </data>
-  <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
-    <value>Invia e-mail</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>[IT]Shared Properties</value>
-  </data>
-  <data name="TEXT_SHARED_RATES" xml:space="preserve">
-    <value>Tariffe condivise</value>
-  </data>
-  <data name="TEXT_SHOW_A_REPORT_INSTANCE_DETAILS" xml:space="preserve">
-    <value>Mostra dettagli dell'istanza rapporto</value>
-  </data>
-  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[IT]View All Changes</value>
-  </data>
-  <data name="TEXT_SHOW_ALL_REPORT_PARAMETERS" xml:space="preserve">
-    <value>Mostra tutti i parametri dei rapporti</value>
-  </data>
-  <data name="TEXT_SHOW_DATAEXPORT_DASHBOARD" xml:space="preserve">
-    <value>Cronologia verifiche rapporti</value>
-  </data>
-  <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
-    <value>Coda di esportazione dati</value>
-  </data>
-  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[IT]View Failed Changes</value>
-  </data>
-  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>[IT]View Item History</value>
-  </data>
-  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[IT]View Pending Changes</value>
-  </data>
-  <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
-    <value>Aggiungi voce registro</value>
-  </data>
-  <data name="TEXT_SUBSCRIBER_LOG_VIEW" xml:space="preserve">
-    <value>Verifica registro conti</value>
-  </data>
-  <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
-    <value>Abbonamenti</value>
-  </data>
-  <data name="TEXT_SUMMARY" xml:space="preserve">
-    <value>Riepilogo conto</value>
-  </data>
-  <data name="TEXT_SUMMARY_BY_ERROR_TYPE" xml:space="preserve">
-    <value>Riepilogo per tipo di errore</value>
-  </data>
-  <data name="TEXT_SUSPENDED_TRANSACTIONS" xml:space="preserve">
-    <value>Sospeso</value>
-  </data>
-  <data name="TEXT_SYNC_ADAPTER" xml:space="preserve">
-    <value>Sincronizza configurazione adattatore</value>
-  </data>
-  <data name="TEXT_SYNCHRONIZE" xml:space="preserve">
-    <value>Sincronizza</value>
-  </data>
-  <data name="TEXT_SYSTEM_USER_OWNED_ACCOUNTS" xml:space="preserve">
-    <value>Abbonati posseduti</value>
-  </data>
-  <data name="TEXT_SYSTEM_USER_OWNED_SYSTEM_FOLDERS" xml:space="preserve">
-    <value>Conti amministrati</value>
-  </data>
-  <data name="TEXT_SYSTEM_USER_SECURITY" xml:space="preserve">
-    <value>Sicurezza</value>
-  </data>
-  <data name="TEXT_UNDER_INVESTIGATION_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Indagine in corso</value>
-  </data>
-  <data name="TEXT_UPDATE_ACCOUNT" xml:space="preserve">
-    <value>Aggiorna conto</value>
-  </data>
-  <data name="TEXT_UPDATE_CONTACT" xml:space="preserve">
-    <value>Aggiorna contatti</value>
-  </data>
-  <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
-    <value>Aggiorna definizione rapporto esistente</value>
-  </data>
-  <data name="TEXT_USM" xml:space="preserve">
-    <value>Manutenzione server di utilizzo</value>
-  </data>
-  <data name="TEXT_USM_CONFIG" xml:space="preserve">
-    <value>Configurazione USM</value>
-  </data>
-  <data name="TEXT_VERSION_INFO" xml:space="preserve">
-    <value>Informazioni sulla versione</value>
-  </data>
-  <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-    <value>[IT]View Credit Notes Issued</value>
-  </data>
-  <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
-    <value>Visualizza</value>
-  </data>
-  <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
-    <value>Visualizza fattura in linea</value>
-  </data>
-  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>[IT]Usage Audit</value>
-  </data>
-  <data name="TEXT_ADD_TENANT" xml:space="preserve">
-    <value>[IT]Add Partition</value>
-  </data>
-  <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[IT]Reports</value>
-  </data>
-  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>[IT]Usage Processing</value>
-  </data>
-  <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[IT]Account</value>
-  </data>
-  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[IT]Bill Messages</value>
-  </data>
-  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>[IT]Finance Dashboard</value>
-  </data>
-  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>[IT]Manage Bill Messages</value>
-  </data>
-  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>[IT]Operations Dashboard</value>
-  </data>
-  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>[IT]Product Dashboard</value>
-  </data>
-  <data name="TEXT_SEARCH" xml:space="preserve">
-    <value>[IT]Search</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="TEXT_ACCOUNT" xml:space="preserve">
+        <value>Account</value>
+    </data>
+    <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
+        <value>Dettagli conto</value>
+    </data>
+    <data name="TEXT_ACCOUNT_QUOTING_LIST" xml:space="preserve">
+        <value>Quotes</value>
+    </data>
+    <data name="TEXT_ACCOUNT_STATE" xml:space="preserve">
+        <value>Stato del conto</value>
+    </data>
+    <data name="TEXT_AccountConfigSets" xml:space="preserve">
+        <value>Manage OnBoard Templates</value>
+    </data>
+    <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
+        <value>OnBoard Templates List</value>
+    </data>
+    <data name="TEXT_AccountConfigSetsSubParams_LIST" xml:space="preserve">
+        <value>Sub. Params For OnBoard Templates</value>
+    </data>
+    <data name="TEXT_ACTIVE_FILES" xml:space="preserve">
+        <value>Processi attivi</value>
+    </data>
+    <data name="TEXT_ACTIVE_INTERVALS" xml:space="preserve">
+        <value>Intervalli attivi</value>
+    </data>
+    <data name="TEXT_ADD_ACCOUNT" xml:space="preserve">
+        <value>Aggiungi conto</value>
+    </data>
+    <data name="TEXT_ADD_ACCOUNT_SPLIT" xml:space="preserve">
+        <value>Aggiungi divisione conto</value>
+    </data>
+    <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
+        <value>Aggiungi conto con servizio Web</value>
+    </data>
+    <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+        <value>Add child Account</value>
+    </data>
+    <data name="TEXT_ADD_CSR" xml:space="preserve">
+        <value>Aggiungi CSR</value>
+    </data>
+    <data name="TEXT_ADD_NEW_REPORT_DEFINITION" xml:space="preserve">
+        <value>Aggiungi nuova definizione rapporto</value>
+    </data>
+    <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
+        <value>Aggiungi nuovi parametri rapporto</value>
+    </data>
+    <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+        <value>Add Partition</value>
+    </data>
+    <data name="TEXT_ADD_TENANT" xml:space="preserve">
+        <value>Add Partition</value>
+    </data>
+    <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
+        <value>Rettifica transazioni</value>
+    </data>
+    <data name="TEXT_ADJUSTMENTS" xml:space="preserve">
+        <value>Rettifiche / Addebiti</value>
+    </data>
+    <data name="TEXT_ADMINISTRATION" xml:space="preserve">
+        <value>Amministrazione</value>
+    </data>
+    <data name="TEXT_ADVANCED_OPTIONS" xml:space="preserve">
+        <value>Opzioni avanzate</value>
+    </data>
+    <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
+        <value>Agreement Templates</value>
+    </data>
+    <data name="TEXT_AGREEMENTS" xml:space="preserve">
+        <value>Agreements</value>
+    </data>
+    <data name="TEXT_ALL_FILES" xml:space="preserve">
+        <value>Tutti i processi</value>
+    </data>
+    <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
+        <value>Tutti gli intervalli</value>
+    </data>
+    <data name="TEXT_ANALYTICS" xml:space="preserve">
+        <value>Analytics</value>
+    </data>
+    <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
+        <value>Registro verifiche applicazione</value>
+    </data>
+    <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
+        <value>Approvals</value>
+    </data>
+    <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+        <value>Assign Bill Messages</value>
+    </data>
+    <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
+        <value>Assegna parametri rapporto</value>
+    </data>
+    <data name="TEXT_BACKOUT_RERUN" xml:space="preserve">
+        <value>Gestione ritiri</value>
+    </data>
+    <data name="TEXT_BATCH_24" xml:space="preserve">
+        <value>Batch delle ultime 24 ore</value>
+    </data>
+    <data name="TEXT_BATCH_ACTIVE" xml:space="preserve">
+        <value>Batch attivi/con errori</value>
+    </data>
+    <data name="TEXT_BATCH_ALL" xml:space="preserve">
+        <value>Tutti i batch</value>
+    </data>
+    <data name="TEXT_BATCH_COMPLETED" xml:space="preserve">
+        <value>Batch completati</value>
+    </data>
+    <data name="TEXT_BATCH_DISMISSED" xml:space="preserve">
+        <value>Batch respinti</value>
+    </data>
+    <data name="TEXT_BATCH_MANAGEMENT" xml:space="preserve">
+        <value>Gestione batch</value>
+    </data>
+    <data name="TEXT_BATCH_WEEK" xml:space="preserve">
+        <value>Batch dell'ultima settimana</value>
+    </data>
+    <data name="TEXT_BE" xml:space="preserve">
+        <value>Entità modelling business</value>
+    </data>
+    <data name="TEXT_BE_ORDERS" xml:space="preserve">
+        <value>Ordine</value>
+    </data>
+    <data name="TEXT_BILL_MANAGEES" xml:space="preserve">
+        <value>Fatture in linea gestite</value>
+    </data>
+    <data name="TEXT_BILL_MANAGER" xml:space="preserve">
+        <value>Responsabili fatturazione</value>
+    </data>
+    <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+        <value>Bill Messages</value>
+    </data>
+    <data name="TEXT_BILLABLE_INTERVALS" xml:space="preserve">
+        <value>Intervalli fatturabili</value>
+    </data>
+    <data name="TEXT_BILLING_MANAGEMENT" xml:space="preserve">
+        <value>Gestione fatturazione</value>
+    </data>
+    <data name="TEXT_BULK_ADJUST_TRANSACTIONS" xml:space="preserve">
+        <value>Transazioni di rettifica in blocco</value>
+    </data>
+    <data name="TEXT_BULK_ADJUSTMENTS" xml:space="preserve">
+        <value>Rettifiche in blocco</value>
+    </data>
+    <data name="TEXT_BULK_SUBSCRIPTION_CHANGE" xml:space="preserve">
+        <value>Modifica abbonamento in blocco</value>
+    </data>
+    <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
+        <value>Modifica password</value>
+    </data>
+    <data name="TEXT_CHARTS" xml:space="preserve">
+        <value>Grafici</value>
+    </data>
+    <data name="TEXT_COMPLETED_BACKOUT_RERUN" xml:space="preserve">
+        <value>Ritiri/nuove esecuzioni completati</value>
+    </data>
+    <data name="TEXT_COMPLETED_FILES" xml:space="preserve">
+        <value>Processi completati</value>
+    </data>
+    <data name="TEXT_COMPLETED_INTERVALS" xml:space="preserve">
+        <value>Intervalli completati</value>
+    </data>
+    <data name="TEXT_CONFIGURE_FILE_MANAGEMENT_GLOBALS" xml:space="preserve">
+        <value>Configura globali</value>
+    </data>
+    <data name="TEXT_CONFIGURE_FILE_MANAGEMENT_TARGETS" xml:space="preserve">
+        <value>Configura obiettivi</value>
+    </data>
+    <data name="TEXT_CORRECTED_FAILED_TRANSACTIONS" xml:space="preserve">
+        <value>Corretto e in attesa</value>
+    </data>
+    <data name="TEXT_CREATE_ACS" xml:space="preserve">
+        <value>Add OnBoard Template</value>
+    </data>
+    <data name="TEXT_CREATE_ACS_SUB_PARAMS" xml:space="preserve">
+        <value>Add Model</value>
+    </data>
+    <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
+        <value>Crea ritiro/nuova esecuzione</value>
+    </data>
+    <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
+        <value>Create Credit Note</value>
+    </data>
+    <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
+        <value>Aggiungi nuova istanza rapporto</value>
+    </data>
+    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+        <value>Create Quote</value>
+    </data>
+    <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
+        <value>Crea rimessa</value>
+    </data>
+    <data name="TEXT_DASHBOARD" xml:space="preserve">
+        <value>Cruscotto</value>
+    </data>
+    <data name="TEXT_DATA_EXPORT_REPORT_MANAGEMENT" xml:space="preserve">
+        <value>Gestione dei rapporti di esportazione dati</value>
+    </data>
+    <data name="TEXT_DEFAULT_SECURITY" xml:space="preserve">
+        <value>Sicurezza predefinita</value>
+    </data>
+    <data name="TEXT_DISMISSED_FAILED_TRANSACTIONS" xml:space="preserve">
+        <value>Respinto</value>
+    </data>
+    <data name="TEXT_EDIT_MAPPING" xml:space="preserve">
+        <value>Modifica alias</value>
+    </data>
+    <data name="TEXT_EDIT_NAMESPACES" xml:space="preserve">
+        <value>Modifica spazi di nomi</value>
+    </data>
+    <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
+        <value>Modifica modello</value>
+    </data>
+    <data name="TEXT_EVENT_LIST" xml:space="preserve">
+        <value>Elenco degli eventi</value>
+    </data>
+    <data name="TEXT_FAILED_FILES" xml:space="preserve">
+        <value>Processi non riusciti</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS" xml:space="preserve">
+        <value>Transazioni non riuscite</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_ERROR_TYPE_MENU" xml:space="preserve">
+        <value>Riepilogo per conto e tipo di errore</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_INTERVAL_MENU" xml:space="preserve">
+        <value>Riepilogo per conto</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU" xml:space="preserve">
+        <value>Riepilogo per tipo di intervallo</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
+        <value>Riepilogo transazioni per fase e plug-in non riuscito</value>
+    </data>
+    <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN_MENU" xml:space="preserve">
+        <value>Riepilogo per fase e plug-in</value>
+    </data>
+    <data name="TEXT_FEEDS" xml:space="preserve">
+        <value>Feed</value>
+    </data>
+    <data name="TEXT_FILE_MANAGEMENT" xml:space="preserve">
+        <value>Gestione file</value>
+    </data>
+    <data name="TEXT_FILES_IN_LAST_2_DAYS" xml:space="preserve">
+        <value>Processi degli ultimi due giorni</value>
+    </data>
+    <data name="TEXT_FILES_IN_PAST_WEEK" xml:space="preserve">
+        <value>Processi dell'ultima settimana</value>
+    </data>
+    <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+        <value>Finance Dashboard</value>
+    </data>
+    <data name="TEXT_FOLDER_OWNER" xml:space="preserve">
+        <value>Amministratore conto</value>
+    </data>
+    <data name="TEXT_GROUP_SUBSCRIPTIONS" xml:space="preserve">
+        <value>Abbonamenti di gruppo</value>
+    </data>
+    <data name="TEXT_HIDDEN_OFFERINGS" xml:space="preserve">
+        <value>Offerte nascoste</value>
+    </data>
+    <data name="TEXT_INPROGRESS_BACKOUT_RERUN" xml:space="preserve">
+        <value>Ritiri/nuove esecuzioni in corso</value>
+    </data>
+    <data name="TEXT_LIST_ENTITITES" xml:space="preserve">
+        <value>Elenca tutte le entità</value>
+    </data>
+    <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
+        <value>Effettua un pagamento</value>
+    </data>
+    <data name="TEXT_MANAGE" xml:space="preserve">
+        <value>Manage</value>
+    </data>
+    <data name="TEXT_MANAGE_ACCOUNTS" xml:space="preserve">
+        <value>Gestisci conti</value>
+    </data>
+    <data name="TEXT_MANAGE_ADJUSTMENTS" xml:space="preserve">
+        <value>Gestisci rettifiche</value>
+    </data>
+    <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
+        <value>Manage Agreement Templates</value>
+    </data>
+    <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
+        <value>Decision Types</value>
+    </data>
+    <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+        <value>Manage Bill Messages</value>
+    </data>
+    <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
+        <value>Manage BillSoft Exemptions</value>
+    </data>
+    <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
+        <value>Manage BillSoft Overrides</value>
+    </data>
+    <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
+        <value>Gestisci calendari</value>
+    </data>
+    <data name="TEXT_MANAGE_DATA_EXPORT_FRAMEWORK" xml:space="preserve">
+        <value>Gestione dei rapporti di esportazione dati</value>
+    </data>
+    <data name="TEXT_MANAGE_DEFAULT_SECURITY" xml:space="preserve">
+        <value>Sicurezza predefinita</value>
+    </data>
+    <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
+        <value>Gestisci rettifiche varie</value>
+    </data>
+    <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
+        <value>Gestisci addebiti non standard</value>
+    </data>
+    <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
+        <value>Gestisci rettifiche orfane</value>
+    </data>
+    <data name="TEXT_MANAGE_REPORTS" xml:space="preserve">
+        <value>Gestisci rapporti</value>
+    </data>
+    <data name="TEXT_MANAGE_ROLES" xml:space="preserve">
+        <value>Gestisci ruoli</value>
+    </data>
+    <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
+        <value>Gestisci sicurezza</value>
+    </data>
+    <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+        <value>Master Product Offerings</value>
+    </data>
+    <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
+        <value>Genera password</value>
+    </data>
+    <data name="TEXT_MENU_ISSUE_MISC_ADJUSTMENT" xml:space="preserve">
+        <value>Rettifiche varie</value>
+    </data>
+    <data name="TEXT_MENU_UNLOCK_ACCOUNT" xml:space="preserve">
+        <value>Blocca/Sblocca conto</value>
+    </data>
+    <data name="TEXT_METERING_STATISTICS" xml:space="preserve">
+        <value>Statistiche misurate</value>
+    </data>
+    <data name="TEXT_METRAAR" xml:space="preserve">
+        <value>Conti creditori</value>
+    </data>
+    <data name="TEXT_METRAOFFER_OPTIONS" xml:space="preserve">
+        <value>Catalogo prodotti</value>
+    </data>
+    <data name="TEXT_MISC_ADJUSTMENTS" xml:space="preserve">
+        <value>Rettifiche varie</value>
+    </data>
+    <data name="TEXT_MOVE_ACCOUNT" xml:space="preserve">
+        <value>Sposta conto</value>
+    </data>
+    <data name="TEXT_MOVE_ACCOUNTS" xml:space="preserve">
+        <value>Sposta conti</value>
+    </data>
+    <data name="TEXT_MY_ACCOUNT" xml:space="preserve">
+        <value>Conto personale</value>
+    </data>
+    <data name="TEXT_MY_ACCOUNTS" xml:space="preserve">
+        <value>Conti personali</value>
+    </data>
+    <data name="TEXT_NO_ACCOUNT_SELECTED" xml:space="preserve">
+        <value>Nessun conto selezionato.</value>
+    </data>
+    <data name="TEXT_NONSTANDARD_CHARGES" xml:space="preserve">
+        <value>Addebiti non standard</value>
+    </data>
+    <data name="TEXT_OFFERINGS" xml:space="preserve">
+        <value>Offerte di prodotti</value>
+    </data>
+    <data name="TEXT_OPEN_FAILED_TRANSACTIONS" xml:space="preserve">
+        <value>Apri</value>
+    </data>
+    <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+        <value>Operations Dashboard</value>
+    </data>
+    <data name="TEXT_ORPHAN_ADJUSTMENTS" xml:space="preserve">
+        <value>Rettifiche orfane</value>
+    </data>
+    <data name="TEXT_OWNED_FOLDERS" xml:space="preserve">
+        <value>Conti amministrati</value>
+    </data>
+    <data name="TEXT_OWNER_ACCOUNTS" xml:space="preserve">
+        <value>Proprietari conto</value>
+    </data>
+    <data name="TEXT_PAY_FOR_ACCOUNTS" xml:space="preserve">
+        <value>Paga per conto</value>
+    </data>
+    <data name="TEXT_PAY_FOR_ME" xml:space="preserve">
+        <value>Modifica paganti</value>
+    </data>
+    <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
+        <value>Cronologia pagamenti</value>
+    </data>
+    <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
+        <value>Metodi di pagamento</value>
+    </data>
+    <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
+        <value>Payment Transactions</value>
+    </data>
+    <data name="TEXT_PAYMENTS" xml:space="preserve">
+        <value>Pagamenti</value>
+    </data>
+    <data name="TEXT_PC_AUDIT_LOG" xml:space="preserve">
+        <value>Registro verifiche</value>
+    </data>
+    <data name="TEXT_PENDING_FILES" xml:space="preserve">
+        <value>File in sospeso</value>
+    </data>
+    <data name="TEXT_PRICEABLE_ITEMS" xml:space="preserve">
+        <value>Articoli prezzabili</value>
+    </data>
+    <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+        <value>Product Dashboard</value>
+    </data>
+    <data name="TEXT_QUEUE_ADHOC_REPORT_FOR_EXECUTION" xml:space="preserve">
+        <value>Accoda rapporti ad hoc per esecuzione</value>
+    </data>
+    <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
+        <value>Accoda rapporti ad hoc</value>
+    </data>
+    <data name="TEXT_QUOTING" xml:space="preserve">
+        <value>Manage Quotes</value>
+    </data>
+    <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+        <value>View All Quotes</value>
+    </data>
+    <data name="TEXT_REFRESH" xml:space="preserve">
+        <value>Refresh</value>
+    </data>
+    <data name="TEXT_REJECTED_FILES" xml:space="preserve">
+        <value>File rifiutati</value>
+    </data>
+    <data name="TEXT_RELATIONSHIPS" xml:space="preserve">
+        <value>Relazioni</value>
+    </data>
+    <data name="TEXT_REPORTS" xml:space="preserve">
+        <value>Reports</value>
+    </data>
+    <data name="TEXT_RESUBMITTED_FAILED_TRANSACTIONS" xml:space="preserve">
+        <value>Nuovo invio effettuato</value>
+    </data>
+    <data name="TEXT_RUN_SCHEDULED_ADAPTER" xml:space="preserve">
+        <value>Esegui adattatore programmato</value>
+    </data>
+    <data name="TEXT_RUNS_ALL" xml:space="preserve">
+        <value>Esecuzioni (tutte)</value>
+    </data>
+    <data name="TEXT_RUNS_IN_LAST_24" xml:space="preserve">
+        <value>Esecuzioni delle ultime 24 ore</value>
+    </data>
+    <data name="TEXT_RUNS_IN_LAST_WEEK" xml:space="preserve">
+        <value>Esecuzioni dell'ultima settimana</value>
+    </data>
+    <data name="TEXT_SCHEDULE_REPORT_INSTANCE_DAILY" xml:space="preserve">
+        <value>Programmazione giornaliera istanze rapporto</value>
+    </data>
+    <data name="TEXT_SCHEDULE_REPORT_INSTANCE_MONTHLY" xml:space="preserve">
+        <value>Programmazione mensile istanze rapporto</value>
+    </data>
+    <data name="TEXT_SCHEDULE_REPORT_INSTANCE_WEEKLY" xml:space="preserve">
+        <value>Programmazione settimanale istanze rapporto</value>
+    </data>
+    <data name="TEXT_SCHEDULED_ADAPTERS" xml:space="preserve">
+        <value>Adattatori programmati</value>
+    </data>
+    <data name="TEXT_SEARCH" xml:space="preserve">
+        <value>Search</value>
+    </data>
+    <data name="TEXT_SECURITY" xml:space="preserve">
+        <value>Sicurezza</value>
+    </data>
+    <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
+        <value>Self Care Portal</value>
+    </data>
+    <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
+        <value>Invia e-mail</value>
+    </data>
+    <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+        <value>Shared Properties</value>
+    </data>
+    <data name="TEXT_SHARED_RATES" xml:space="preserve">
+        <value>Tariffe condivise</value>
+    </data>
+    <data name="TEXT_SHOW_A_REPORT_INSTANCE_DETAILS" xml:space="preserve">
+        <value>Mostra dettagli dell'istanza rapporto</value>
+    </data>
+    <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
+        <value>View All Changes</value>
+    </data>
+    <data name="TEXT_SHOW_ALL_REPORT_PARAMETERS" xml:space="preserve">
+        <value>Mostra tutti i parametri dei rapporti</value>
+    </data>
+    <data name="TEXT_SHOW_DATAEXPORT_DASHBOARD" xml:space="preserve">
+        <value>Cronologia verifiche rapporti</value>
+    </data>
+    <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
+        <value>Coda di esportazione dati</value>
+    </data>
+    <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
+        <value>View Failed Changes</value>
+    </data>
+    <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
+        <value>View Item History</value>
+    </data>
+    <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
+        <value>View Pending Changes</value>
+    </data>
+    <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
+        <value>Aggiungi voce registro</value>
+    </data>
+    <data name="TEXT_SUBSCRIBER_LOG_VIEW" xml:space="preserve">
+        <value>Verifica registro conti</value>
+    </data>
+    <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
+        <value>Abbonamenti</value>
+    </data>
+    <data name="TEXT_SUMMARY" xml:space="preserve">
+        <value>Riepilogo conto</value>
+    </data>
+    <data name="TEXT_SUMMARY_BY_ERROR_TYPE" xml:space="preserve">
+        <value>Riepilogo per tipo di errore</value>
+    </data>
+    <data name="TEXT_SUSPENDED_TRANSACTIONS" xml:space="preserve">
+        <value>Sospeso</value>
+    </data>
+    <data name="TEXT_SYNC_ADAPTER" xml:space="preserve">
+        <value>Sincronizza configurazione adattatore</value>
+    </data>
+    <data name="TEXT_SYNCHRONIZE" xml:space="preserve">
+        <value>Sincronizza</value>
+    </data>
+    <data name="TEXT_SYSTEM_USER_OWNED_ACCOUNTS" xml:space="preserve">
+        <value>Abbonati posseduti</value>
+    </data>
+    <data name="TEXT_SYSTEM_USER_OWNED_SYSTEM_FOLDERS" xml:space="preserve">
+        <value>Conti amministrati</value>
+    </data>
+    <data name="TEXT_SYSTEM_USER_SECURITY" xml:space="preserve">
+        <value>Sicurezza</value>
+    </data>
+    <data name="TEXT_UNDER_INVESTIGATION_FAILED_TRANSACTIONS" xml:space="preserve">
+        <value>Indagine in corso</value>
+    </data>
+    <data name="TEXT_UPDATE_ACCOUNT" xml:space="preserve">
+        <value>Aggiorna conto</value>
+    </data>
+    <data name="TEXT_UPDATE_CONTACT" xml:space="preserve">
+        <value>Aggiorna contatti</value>
+    </data>
+    <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
+        <value>Aggiorna definizione rapporto esistente</value>
+    </data>
+    <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+        <value>Usage Audit</value>
+    </data>
+    <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+        <value>Usage Processing</value>
+    </data>
+    <data name="TEXT_USM" xml:space="preserve">
+        <value>Manutenzione server di utilizzo</value>
+    </data>
+    <data name="TEXT_USM_CONFIG" xml:space="preserve">
+        <value>Configurazione USM</value>
+    </data>
+    <data name="TEXT_VERSION_INFO" xml:space="preserve">
+        <value>Informazioni sulla versione</value>
+    </data>
+    <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
+        <value>View Credit Notes Issued</value>
+    </data>
+    <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
+        <value>Visualizza</value>
+    </data>
+    <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
+        <value>Visualizza fattura in linea</value>
+    </data>
 </root>

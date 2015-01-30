@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,86 +59,86 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="ErrorDeleteGroupSubMember" xml:space="preserve">
-    <value>Erreur lors de la suppression d’un membre de l’abonnement groupé.</value>
-  </data>
-  <data name="InfoMsg.Text" xml:space="preserve">
-    <value>Un ou plusieurs abonnements de membres sont sur le point d’être supprimés. Certains de ces abonnements sont encore actifs ; par conséquent, modifiez la date de début en spécifiant le lendemain, pour activer la suppression. Ces membres n’apparaîtront plus dans la liste des abonnés, et l’enregistrement de leurs abonnements sera supprimé.</value>
-  </data>
-  <data name="lblConfirmResource1.Text" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir effectuer la suppression ?</value>
-  </data>
-  <data name="lblDeleteGroupSubMembersTitleResource1" xml:space="preserve">
-    <value>Supprimer des membres de l’abonnement groupé</value>
-  </data>
-  <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Messages d’erreur</value>
-  </data>
-  <data name="lblMessageResource1.Text" xml:space="preserve">
-    <value>Vous êtes sur le point de supprimer du système de façon permanente cet abonnement groupé et toutes les données qu'il contient. Cela n’est autorisé qu'en l’absence de participation à cet abonnement groupé. Ce dernier sera supprimé des modèles de compte auxquels il a été affecté.</value>
-  </data>
-  <data name="MTEffecStartDatePickerResource1.Text" xml:space="preserve">
-    <value>Date de début de validité</value>
-  </data>
-  <data name="PanelTitle" xml:space="preserve">
-    <value>Supprimer des membres de l’abonnement groupé</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ErrorDeleteGroupSubMember" xml:space="preserve">
+        <value>Erreur lors de la suppression d’un membre de l’abonnement groupé.</value>
+    </data>
+    <data name="InfoMsg.Text" xml:space="preserve">
+        <value>Un ou plusieurs abonnements de membres sont sur le point d’être supprimés. Certains de ces abonnements sont encore actifs ; par conséquent, modifiez la date de début en spécifiant le lendemain, pour activer la suppression. Ces membres n’apparaîtront plus dans la liste des abonnés, et l’enregistrement de leurs abonnements sera supprimé.</value>
+    </data>
+    <data name="lblConfirmResource1.Text" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir effectuer la suppression ?</value>
+    </data>
+    <data name="lblDeleteGroupSubMembersTitleResource1" xml:space="preserve">
+        <value>Supprimer des membres de l’abonnement groupé</value>
+    </data>
+    <data name="lblErrorMessageResource1.Text" xml:space="preserve">
+        <value>Messages d’erreur</value>
+    </data>
+    <data name="lblMessageResource1.Text" xml:space="preserve">
+        <value>Vous êtes sur le point de supprimer définitivement cet abonnement groupé et toutes les données du système. Cela n’est autorisé que s’il n’y a jamais eu de participation à cet abonnement groupé. Cet abonnement groupé sera supprimé des modèles de comptes associés.</value>
+    </data>
+    <data name="MTEffecStartDatePickerResource1.Text" xml:space="preserve">
+        <value>Date de début de validité</value>
+    </data>
+    <data name="PanelTitle" xml:space="preserve">
+        <value>Supprimer des membres de l’abonnement groupé</value>
+    </data>
 </root>

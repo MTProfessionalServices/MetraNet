@@ -117,29 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnCancelResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="MiscAttributeNameResource1.MaxLength" type="System.Int32, mscorlib">
+  <data name="MiscAttributeNameLabel.Label" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="MiscAttributeNameResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="MiscAttributeNameResource1.MinLength" type="System.Int32, mscorlib">
+  <data name="MiscAttributeNameResource1.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="ValueLabel.Text" xml:space="preserve">
-    <value>Value:</value>
-  </data>
   <data name="TEXT_ERROR_DUPLICATE_MISC_ATTRIBUTE_NAME" xml:space="preserve">
-    <value>An attribute with that name already exists for this Decision Type. Please enter a different name for this new Miscellaneous Attribute.</value>
+    <value>Un attribut du même nom existe déjà pour ce type de décision. Saisissez un autre nom pour ce nouvel attribut divers.</value>
   </data>
-  <data name="MiscAttributeNameLabel.Label" xml:space="preserve">
-    <value>Name</value>
+  <data name="ValueLabel.Text" xml:space="preserve">
+    <value>Valeur :</value>
   </data>
 </root>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,182 +59,182 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="btnGeneratePasswordResource1.Text" xml:space="preserve">
-    <value>Générer</value>
-  </data>
-  <data name="btnGeneratePasswordResource1.Tooltip" xml:space="preserve">
-    <value>Générer un mot de passe</value>
-  </data>
-  <data name="btnValidateResource1.Text" xml:space="preserve">
-    <value>Valider</value>
-  </data>
-  <data name="btnValidateResource1.Tooltip" xml:space="preserve">
-    <value>Valider le nom d’utilisateur</value>
-  </data>
-  <data name="cbApplyDefaultPolicyResource1.BoxLabel" xml:space="preserve">
-    <value>Appliquer la stratégie par défaut</value>
-  </data>
-  <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
-    <value>Notification par e-mail</value>
-  </data>
-  <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
-    <value>Site de marque</value>
-  </data>
-  <data name="ddCountryResource1.Label" xml:space="preserve">
-    <value>Pays</value>
-  </data>
-  <data name="ddLanguageResource1.Label" xml:space="preserve">
-    <value>Langue</value>
-  </data>
-  <data name="ddSecurityQuestionResource1.Label" xml:space="preserve">
-    <value>Question de sécurité</value>
-  </data>
-  <data name="ddTimeZoneResource1.Label" xml:space="preserve">
-    <value>Fuseau horaire</value>
-  </data>
-  <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Messages d’erreur</value>
-  </data>
-  <data name="lblIsValidUsernameResource1.Text" xml:space="preserve">
-    <value>Nom d’utilisateur non valide</value>
-  </data>
-  <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-    <value>Nom d’utilisateur valide</value>
-  </data>
-  <data name="ListItemResource1.Text" xml:space="preserve">
-    <value>MetraView</value>
-  </data>
-  <data name="ListItemResource2.Text" xml:space="preserve">
-    <value>Anglais (États-Unis)</value>
-  </data>
-  <data name="MTSection1Resource1.Text" xml:space="preserve">
-    <value>Informations de facturation</value>
-  </data>
-  <data name="MTSection2Resource1.Text" xml:space="preserve">
-    <value>Infos d’ouverture de session</value>
-  </data>
-  <data name="MTSection3Resource1.Text" xml:space="preserve">
-    <value>Informations du compte</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Ajouter un utilisateur système</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Ajouter un compte système</value>
-  </data>
-  <data name="tbAddressResource1.Label" xml:space="preserve">
-    <value>Adresse</value>
-  </data>
-  <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
-    <value>Compte parent</value>
-  </data>
-  <data name="tbCityResource1.Label" xml:space="preserve">
-    <value>Ville</value>
-  </data>
-  <data name="tbCompanyResource1.Label" xml:space="preserve">
-    <value>Entreprise</value>
-  </data>
-  <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-    <value>Confirmer le mot de passe</value>
-  </data>
-  <data name="tbEmailResource1.Label" xml:space="preserve">
-    <value>E-Mail</value>
-  </data>
-  <data name="tbFaxResource1.Label" xml:space="preserve">
-    <value>Fax</value>
-  </data>
-  <data name="tbFirstNameResource1.Label" xml:space="preserve">
-    <value>Prénom</value>
-  </data>
-  <data name="tbLastNameResource1.Label" xml:space="preserve">
-    <value>Nom</value>
-  </data>
-  <data name="tbMiddleInitialResource1.Label" xml:space="preserve">
-    <value>Initiale du second prénom</value>
-  </data>
-  <data name="tbPasswordResource1.Label" xml:space="preserve">
-    <value>Mot de passe</value>
-  </data>
-  <data name="tbPhoneNumberResource1.Label" xml:space="preserve">
-    <value>Numéro de téléphone</value>
-  </data>
-  <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
-    <value>Réponse de sécurité</value>
-  </data>
-  <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>Question de sécurité personnalisée</value>
-  </data>
-  <data name="tbStartDateResource1.Label" xml:space="preserve">
-    <value>Date de début de compte</value>
-  </data>
-  <data name="tbStateResource1.Label" xml:space="preserve">
-    <value>Département</value>
-  </data>
-  <data name="tbUserNameResource1.Label" xml:space="preserve">
-    <value>Nom d’utilisateur</value>
-  </data>
-  <data name="tbZipResource1.Label" xml:space="preserve">
-    <value>Code postal</value>
-  </data>
-  <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>Type d’authentification</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="btnGeneratePasswordResource1.Text" xml:space="preserve">
+        <value>Générer</value>
+    </data>
+    <data name="btnGeneratePasswordResource1.Tooltip" xml:space="preserve">
+        <value>Générer un mot de passe</value>
+    </data>
+    <data name="btnValidateResource1.Text" xml:space="preserve">
+        <value>Valider</value>
+    </data>
+    <data name="btnValidateResource1.Tooltip" xml:space="preserve">
+        <value>Valider le nom d’utilisateur</value>
+    </data>
+    <data name="cbApplyDefaultPolicyResource1.BoxLabel" xml:space="preserve">
+        <value>Appliquer la stratégie par défaut</value>
+    </data>
+    <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
+        <value>Notification par e-mail</value>
+    </data>
+    <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
+        <value>Type d’authentification</value>
+    </data>
+    <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
+        <value>Site de marque</value>
+    </data>
+    <data name="ddCountryResource1.Label" xml:space="preserve">
+        <value>Pays</value>
+    </data>
+    <data name="ddLanguageResource1.Label" xml:space="preserve">
+        <value>Langue</value>
+    </data>
+    <data name="ddSecurityQuestionResource1.Label" xml:space="preserve">
+        <value>Question de sécurité</value>
+    </data>
+    <data name="ddTimeZoneResource1.Label" xml:space="preserve">
+        <value>Fuseau horaire</value>
+    </data>
+    <data name="lblErrorMessageResource1.Text" xml:space="preserve">
+        <value>Messages d’erreur</value>
+    </data>
+    <data name="lblIsValidUsernameResource1.Text" xml:space="preserve">
+        <value>Nom d’utilisateur non valide</value>
+    </data>
+    <data name="lblUsernameOKResource1.Text" xml:space="preserve">
+        <value>Nom d’utilisateur valide</value>
+    </data>
+    <data name="ListItemResource1.Text" xml:space="preserve">
+        <value>MetraView</value>
+    </data>
+    <data name="ListItemResource2.Text" xml:space="preserve">
+        <value>Anglais (États-Unis)</value>
+    </data>
+    <data name="MTSection1Resource1.Text" xml:space="preserve">
+        <value>Informations de facturation</value>
+    </data>
+    <data name="MTSection2Resource1.Text" xml:space="preserve">
+        <value>Infos d’ouverture de session</value>
+    </data>
+    <data name="MTSection3Resource1.Text" xml:space="preserve">
+        <value>Informations du compte</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Ajouter un utilisateur système</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet - Ajouter un compte système</value>
+    </data>
+    <data name="tbAddressResource1.Label" xml:space="preserve">
+        <value>Adresse</value>
+    </data>
+    <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
+        <value>Compte parent</value>
+    </data>
+    <data name="tbCityResource1.Label" xml:space="preserve">
+        <value>Ville</value>
+    </data>
+    <data name="tbCompanyResource1.Label" xml:space="preserve">
+        <value>Entreprise</value>
+    </data>
+    <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
+        <value>Confirmer le mot de passe</value>
+    </data>
+    <data name="tbEmailResource1.Label" xml:space="preserve">
+        <value>E-Mail</value>
+    </data>
+    <data name="tbFaxResource1.Label" xml:space="preserve">
+        <value>Fax</value>
+    </data>
+    <data name="tbFirstNameResource1.Label" xml:space="preserve">
+        <value>Prénom</value>
+    </data>
+    <data name="tbLastNameResource1.Label" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+    <data name="tbMiddleInitialResource1.Label" xml:space="preserve">
+        <value>Initiale du second prénom</value>
+    </data>
+    <data name="tbPasswordResource1.Label" xml:space="preserve">
+        <value>Mot de passe</value>
+    </data>
+    <data name="tbPhoneNumberResource1.Label" xml:space="preserve">
+        <value>Numéro de téléphone</value>
+    </data>
+    <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
+        <value>Réponse de sécurité</value>
+    </data>
+    <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
+        <value>Question de sécurité personnalisée</value>
+    </data>
+    <data name="tbStartDateResource1.Label" xml:space="preserve">
+        <value>Date de début de compte</value>
+    </data>
+    <data name="tbStateResource1.Label" xml:space="preserve">
+        <value>Département</value>
+    </data>
+    <data name="tbUserNameResource1.Label" xml:space="preserve">
+        <value>Nom d’utilisateur</value>
+    </data>
+    <data name="tbZipResource1.Label" xml:space="preserve">
+        <value>Code postal</value>
+    </data>
 </root>

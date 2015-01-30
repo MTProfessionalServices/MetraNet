@@ -124,7 +124,7 @@
     <value>Ahnen Account</value>
   </data>
   <data name="LblAuthenticationType.Label" xml:space="preserve">
-    <value>[DE]Authentication Type</value>
+    <value>Authentication Type</value>
   </data>
   <data name="LblBrandedSite.Label" xml:space="preserve">
     <value>Marken-Site</value>
@@ -160,7 +160,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>[DE]This account already has a pending change in the approval framework queue. {0} Click here to view pending changes.</value>
+    <value>This account already has a pending change in the approval framework queue. {0} Click here to view pending changes.</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Angaben zum Konto</value>

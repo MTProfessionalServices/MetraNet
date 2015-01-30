@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,182 +59,182 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Gerenciar ajustes diversos</value>
-  </data>
-  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>Gerenciar ajustes diversos</value>
-  </data>
-  <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>Nenhum registro encontrado.</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Gerenciar ajustes diversos</value>
-  </data>
-  <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
-    <value>Id de conta</value>
-  </data>
-  <data name="TEXT_ADJUSTMENT_AMOUNT" xml:space="preserve">
-    <value>Valor do ajuste</value>
-  </data>
-  <data name="TEXT_ADJUSTMENT_CREATE_DATE" xml:space="preserve">
-    <value>Data de criação do ajuste</value>
-  </data>
-  <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>Valor</value>
-  </data>
-  <data name="TEXT_AMOUNT_WITH_TAX" xml:space="preserve">
-    <value>Valor com impostos</value>
-  </data>
-  <data name="TEXT_APPROVE" xml:space="preserve">
-    <value>Aprovar os selecionados</value>
-  </data>
-  <data name="TEXT_APPROVE_ALL" xml:space="preserve">
-    <value>Aprovar tudo</value>
-  </data>
-  <data name="TEXT_APPROVE_STATUS" xml:space="preserve">
-    <value>Aprovado</value>
-  </data>
-  <data name="TEXT_CONTENTION_SESSION_ID" xml:space="preserve">
-    <value>ID da sessão de contenção</value>
-  </data>
-  <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>Imposto do condado</value>
-  </data>
-  <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>Moeda</value>
-  </data>
-  <data name="TEXT_DENY" xml:space="preserve">
-    <value>Negar selecionados</value>
-  </data>
-  <data name="TEXT_DENY_ALL" xml:space="preserve">
-    <value>Negar tudo</value>
-  </data>
-  <data name="TEXT_DENY_ALL_CONFIRM" xml:space="preserve">
-    <value>Tem certeza que deseja prosseguir? Isso negará todos os ajustes que correspondem ao seus critérios de filtro. Se nenhum filtro estiver presente, então todos os ajustes serão negados.</value>
-  </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Descrição interna</value>
-  </data>
-  <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
-    <value>Endereço de email</value>
-  </data>
-  <data name="TEXT_EMAIL_NOTIFICATION" xml:space="preserve">
-    <value>Notificação de email</value>
-  </data>
-  <data name="TEXT_ERROR" xml:space="preserve">
-    <value>Ocorreu um erro durante o processamento de um ajuste diverso.</value>
-  </data>
-  <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>Imposto federal</value>
-  </data>
-  <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
-    <value>ID do intervalo do guia</value>
-  </data>
-  <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-    <value>ID do intervalo</value>
-  </data>
-  <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>Imposto local</value>
-  </data>
-  <data name="TEXT_NO_IDS" xml:space="preserve">
-    <value>Selecione ajustes para processar.</value>
-  </data>
-  <data name="TEXT_OTHER" xml:space="preserve">
-    <value>Outro</value>
-  </data>
-  <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>Outros impostos</value>
-  </data>
-  <data name="TEXT_PENDING_STATUS" xml:space="preserve">
-    <value>Pendente</value>
-  </data>
-  <data name="TEXT_REASON" xml:space="preserve">
-    <value>Motivo</value>
-  </data>
-  <data name="TEXT_SESSION_ID" xml:space="preserve">
-    <value>ID da sessão</value>
-  </data>
-  <data name="TEXT_SESSION_TYPE" xml:space="preserve">
-    <value>Tipo de sessão</value>
-  </data>
-  <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>Imposto estadual</value>
-  </data>
-  <data name="TEXT_STATUS" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
-    <value>ID da conta do assinante</value>
-  </data>
-  <data name="TEXT_SUCCESS" xml:space="preserve">
-    <value>O ajuste diverso foi criado processado com sucesso.</value>
-  </data>
-  <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
-    <value>Valores do imposto</value>
-  </data>
-  <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value>Timestamp</value>
-  </data>
-  <data name="TEXT_VIEW_ID" xml:space="preserve">
-    <value>Exibir ID</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Gerenciar ajustes diversos</value>
+    </data>
+    <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+        <value>Gerenciar ajustes diversos</value>
+    </data>
+    <data name="NO_RECORDS_TEXT" xml:space="preserve">
+        <value>Nenhum registro encontrado.</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet - Gerenciar ajustes diversos</value>
+    </data>
+    <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
+        <value>Id de conta</value>
+    </data>
+    <data name="TEXT_ADJUSTMENT_AMOUNT" xml:space="preserve">
+        <value>Valor do ajuste</value>
+    </data>
+    <data name="TEXT_ADJUSTMENT_CREATE_DATE" xml:space="preserve">
+        <value>Data de criação do ajuste</value>
+    </data>
+    <data name="TEXT_AMOUNT" xml:space="preserve">
+        <value>Valor</value>
+    </data>
+    <data name="TEXT_AMOUNT_WITH_TAX" xml:space="preserve">
+        <value>Valor com impostos</value>
+    </data>
+    <data name="TEXT_APPROVE" xml:space="preserve">
+        <value>Aprovar os selecionados</value>
+    </data>
+    <data name="TEXT_APPROVE_ALL" xml:space="preserve">
+        <value>Aprovar tudo</value>
+    </data>
+    <data name="TEXT_APPROVE_STATUS" xml:space="preserve">
+        <value>Aprovado</value>
+    </data>
+    <data name="TEXT_CONTENTION_SESSION_ID" xml:space="preserve">
+        <value>ID da sessão de contenção</value>
+    </data>
+    <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
+        <value>Imposto do condado</value>
+    </data>
+    <data name="TEXT_CURRENCY" xml:space="preserve">
+        <value>Moeda</value>
+    </data>
+    <data name="TEXT_DENY" xml:space="preserve">
+        <value>Negar selecionados</value>
+    </data>
+    <data name="TEXT_DENY_ALL" xml:space="preserve">
+        <value>Negar tudo</value>
+    </data>
+    <data name="TEXT_DENY_ALL_CONFIRM" xml:space="preserve">
+        <value>Tem certeza que deseja prosseguir? Isso negará todos os ajustes que correspondem ao seus critérios de filtro. Se nenhum filtro estiver presente, então todos os ajustes serão negados.</value>
+    </data>
+    <data name="TEXT_DESCRIPTION" xml:space="preserve">
+        <value>Descrição interna</value>
+    </data>
+    <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
+        <value>Endereço de email</value>
+    </data>
+    <data name="TEXT_EMAIL_NOTIFICATION" xml:space="preserve">
+        <value>Notificação de email</value>
+    </data>
+    <data name="TEXT_ERROR" xml:space="preserve">
+        <value>Ocorreu um erro durante o processamento de um ajuste diverso.</value>
+    </data>
+    <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
+        <value>Imposto federal</value>
+    </data>
+    <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
+        <value>ID do intervalo do guia</value>
+    </data>
+    <data name="TEXT_INTERVAL_ID" xml:space="preserve">
+        <value>ID do intervalo</value>
+    </data>
+    <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
+        <value>Imposto local</value>
+    </data>
+    <data name="TEXT_NO_IDS" xml:space="preserve">
+        <value>Selecione ajustes para processar.</value>
+    </data>
+    <data name="TEXT_OTHER" xml:space="preserve">
+        <value>Outro</value>
+    </data>
+    <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
+        <value>Outros impostos</value>
+    </data>
+    <data name="TEXT_PENDING_STATUS" xml:space="preserve">
+        <value>Pendente</value>
+    </data>
+    <data name="TEXT_REASON" xml:space="preserve">
+        <value>Motivo</value>
+    </data>
+    <data name="TEXT_SESSION_ID" xml:space="preserve">
+        <value>ID da sessão</value>
+    </data>
+    <data name="TEXT_SESSION_TYPE" xml:space="preserve">
+        <value>Tipo de sessão</value>
+    </data>
+    <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
+        <value>Imposto estadual</value>
+    </data>
+    <data name="TEXT_STATUS" xml:space="preserve">
+        <value>Estado</value>
+    </data>
+    <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
+        <value>ID da conta do assinante</value>
+    </data>
+    <data name="TEXT_SUCCESS" xml:space="preserve">
+        <value>O ajuste diverso foi criado processado com sucesso.</value>
+    </data>
+    <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
+        <value>Valores do imposto</value>
+    </data>
+    <data name="TEXT_TIMESTAMP" xml:space="preserve">
+        <value>Carimbo de data/hora</value>
+    </data>
+    <data name="TEXT_VIEW_ID" xml:space="preserve">
+        <value>Exibir ID</value>
+    </data>
 </root>

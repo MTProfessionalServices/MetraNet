@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="UsmConfig.aspx.cs" Inherits="MetraControl_UsageServer_UsmConfig" meta:resourcekey="PageResource1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="UsmConfig.aspx.cs" Inherits="MetraControl_UsageServer_UsmConfig" meta:resourcekey="PageResource1" %>
 
 <%@ Register assembly="MetraTech.UI.Controls" namespace="MetraTech.UI.Controls" tagprefix="MT" %>
 

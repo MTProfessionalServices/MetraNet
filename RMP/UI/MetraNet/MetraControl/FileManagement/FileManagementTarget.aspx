@@ -1,5 +1,5 @@
 
-<%@ Page Title="<%$Resources:Resource,TEXT_TITLE_METRACONTROL%>" ValidateRequest="false" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="FileManagementTarget" CodeFile="FileManagementTarget.aspx.cs" Culture="auto" UICulture="auto" %>
+<%@ Page Title="<%$Resources:Resource,TEXT_TITLE_METRACONTROL%>" ValidateRequest="false" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="FileManagementTarget" CodeFile="FileManagementTarget.aspx.cs" Culture="auto" UICulture="auto" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>

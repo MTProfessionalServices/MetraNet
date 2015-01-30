@@ -1352,7 +1352,7 @@ a.x-menu-item {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	background-color: #fff;
+	/*background-color: #fff; */
 	/*border: solid 1px #ccc;*/
 }
 

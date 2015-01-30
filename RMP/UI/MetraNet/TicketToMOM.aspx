@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="UserControls_ticketToMOM" Title="MetraNet" CodeFile="TicketToMOM.aspx.cs" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" Inherits="UserControls_ticketToMOM" Title="MetraNet" CodeFile="TicketToMOM.aspx.cs" %>
 <%@ Import Namespace="MetraTech.SecurityFramework" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">

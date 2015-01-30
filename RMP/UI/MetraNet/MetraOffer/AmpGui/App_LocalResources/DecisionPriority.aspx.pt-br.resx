@@ -117,56 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnBackResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="btnSaveAndContinueResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnSaveAndContinueResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
-  <data name="ddParamTableResource1.AllowBlank" type="System.Boolean, mscorlib">
+  <data name="ddParamTableResource1.AllowBlank" xml:space="preserve">
     <value>False</value>
   </data>
-  <data name="ddParamTableResource1.HideLabel" type="System.Boolean, mscorlib">
+  <data name="ddParamTableResource1.HideLabel" xml:space="preserve">
     <value>False</value>
   </data>
-  <data name="ddParamTableResource1.MaxLength" type="System.Int32, mscorlib">
+  <data name="ddParamTableResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="ddParamTableResource1.MinLength" type="System.Int32, mscorlib">
+  <data name="ddParamTableResource1.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ddParamTableResource1.ReadOnly" type="System.Boolean, mscorlib">
+  <data name="ddParamTableResource1.ReadOnly" xml:space="preserve">
     <value>False</value>
   </data>
   <data name="DecisionPriority.Text" xml:space="preserve">
-    <value>Decision Priority</value>
+    <value>Ajuda: prioridade de decisão</value>
+  </data>
+  <data name="DECISIONS_GRID_TITLE" xml:space="preserve">
+    <value>Tipos de decisão ordenados por prioridade (o número inferior significa execução mais cedo):</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Interactions</value>
+    <value>Interações de decisão</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="PriorityLevelLabel.Text" xml:space="preserve">
-    <value>Priority Level:</value>
+    <value>Nível de prioridade:</value>
   </data>
   <data name="tbPriorityLevel" xml:space="preserve">
-    <value>Fixed value</value>
+    <value>Valor fixo</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
+    <value>Descrição</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>Nome</value>
   </data>
   <data name="TEXT_NUMERIC_PRIORITY_LEVEL" xml:space="preserve">
-    <value>Numeric Priority Level</value>
-  </data>
-  <data name="DECISIONS_GRID_TITLE" xml:space="preserve">
-    <value>Decision Types Ordered by Priority (lower number means earlier execution):</value>
+    <value>Nível de prioridade numérica</value>
   </data>
 </root>

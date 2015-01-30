@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="CreateProductOffering.aspx.cs" Inherits="MetraNet.MetraOffer.ProductOfferings.MetraOfferCreateProductOffering" Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="CreateProductOffering.aspx.cs" Inherits="MetraNet.MetraOffer.ProductOfferings.MetraOfferCreateProductOffering" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 
@@ -48,10 +48,7 @@
       var selectAccount = window.Ext.get('selectAccountsctl00_ContentPlaceHolder1_tbPOPartitionId').dom;
       var isPartition = <%=IsPartition.ToString().ToLower()%>;
       tbPartId.disabled = isPartition;
-      selectAccount.hidden = isPartition;
-      
-      var partitionZone = window.Ext.get('dropzone').dom;
-      partitionZone.hidden = <%=IsMaster.ToString().ToLower()%>;
+      selectAccount.hidden = isPartition;      
     });
   </script>
 </asp:Content>

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="CreateSharedPriceList.aspx.cs" Inherits="MetraNet.MetraOffer.PriceLists.CreateSharedPriceList" Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="CreateSharedPriceList.aspx.cs" Inherits="MetraNet.MetraOffer.PriceLists.CreateSharedPriceList" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<MT:MTTitle ID="MTTitle1" Text="Create Shared Price List" runat="server"/>
+<MT:MTTitle ID="MTTitle1" Text="<%$ Resources:Resource,TEXT_CREATE_SHARED_PL %>" runat="server"/>
   <br /><br />
 
 <div style="width:810px">

@@ -44,7 +44,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/IntervalStateOpen.gif</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage EOP Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ActiveIntervals</ID>
@@ -56,7 +58,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/IntervalStateSoftClosed.gif</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage EOP Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>CompletedIntervals</ID>
@@ -68,7 +72,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/IntervalStateHardClosed.gif</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage EOP Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>AllIntervals</ID>
@@ -80,7 +86,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/Interval.gif</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage EOP Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -98,11 +106,13 @@
                                 <LocalizationTag>TEXT_EVENT_LIST</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.List.asp</Link>
+                            <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdaptersList.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Scheduled Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>RunsInPast24</ID>
@@ -110,11 +120,13 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_24</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-24</Link>
-                            <Target>MainContentIframe</Target>
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-24</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Scheduled Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>RunsInPastWeek</ID>
@@ -122,11 +134,13 @@
                                 <LocalizationTag>TEXT_RUNS_IN_LAST_WEEK</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp?duration=-168</Link>
-                            <Target>MainContentIframe</Target>
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx?duration=-168</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Scheduled Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>RunsAll</ID>
@@ -134,11 +148,13 @@
                                 <LocalizationTag>TEXT_RUNS_ALL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.List.asp</Link>
-                            <Target>MainContentIframe</Target>
+                          <Link>/MetraNet/MetraControl/ScheduledAdapters/ScheduledAdapterRunList.aspx</Link>
+                          <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/time_go.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Scheduled Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>RunScheduledAdapterNow</ID>
@@ -146,11 +162,13 @@
                                 <LocalizationTag>TEXT_RUN_SCHEDULED_ADAPTER</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.Run.asp</Link>
+                            <Link>/MetraNet/MetraControl/ScheduledAdapters/RunScheduledAdapter.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/hourglass_go.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Scheduled Adapters</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -185,17 +203,19 @@
                     <Description></Description>
                     <MenuItems>
                         <MenuItem>
-                          <ID>ViewMeteringStatistics</ID>
-                          <Caption>
-                            <LocalizationTag>TEXT_VIEW_METERING_STATISTICS</LocalizationTag>
-                            <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                          </Caption>
-                          <Link>/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/Usage.Statistics.Filter.asp</Link>
-                          <Target>MainContentIframe</Target>
-                          <Icon>/Res/Images/icons/grid.png</Icon>
-                          <Description></Description>
-                          <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>                      
+                            <ID>ViewMeteringStatistics</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_VIEW_METERING_STATISTICS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/Usage/UsageStatisticsFilter.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/grid.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Usage Processing</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>Batch24</ID>
                             <Caption>
@@ -206,7 +226,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Batches</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>BatchWeek</ID>
@@ -218,7 +240,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Batches</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>BatchActiveFailed</ID>
@@ -230,7 +254,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_lightning.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Batches</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>BatchCompleted</ID>
@@ -242,7 +268,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_medal.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Batches</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>BatchDismissed</ID>
@@ -254,7 +282,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_delete.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Batches</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>BatchAll</ID>
@@ -266,7 +296,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_stack.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Batches</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>UsageDecisionAudit</ID>
@@ -279,7 +311,7 @@
                             <Icon>/Res/Images/icons/IntervalStateHardClosed.gif</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
-                                <!--<Capability>Update Failed Transactions</Capability>-->
+                                <Capability>Manage Usage Processing</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -302,7 +334,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/database_gear.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Backouts and Reruns</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>InProgressBackoutRerun</ID>
@@ -314,7 +348,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/database_lightning.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Backouts and Reruns</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>CompletedBackoutRerun</ID>
@@ -326,7 +362,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/database.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Backouts and Reruns</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -376,7 +414,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_white_text.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage DataExportFramework</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ShowDataExportQueueDashboard</ID>
@@ -388,7 +428,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_white_text.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage DataExportFramework</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -410,7 +452,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/folder_edit.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ConfigureFileManagementTargets</ID>
@@ -422,7 +466,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/application_edit.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>FilesInLast24Hours</ID>
@@ -434,7 +480,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>FilesInPastWeek</ID>
@@ -446,7 +494,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ActiveFiles</ID>
@@ -458,7 +508,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ActiveFailedFiles</ID>
@@ -470,7 +522,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_red.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>CompletedFiles</ID>
@@ -482,7 +536,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_green.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>AllFiles</ID>
@@ -494,7 +550,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>RejectedFiles</ID>
@@ -506,7 +564,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_error.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>View FLS Files</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -548,7 +608,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_INTERVAL_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerIntervalSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerIntervalSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -562,7 +622,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_ERROR_TYPE_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerErrorTypeSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionPayerErrorTypeSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -576,7 +636,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionIntervalTypeSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionIntervalTypeSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -590,7 +650,7 @@
                                 <LocalizationTag>TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN_MENU</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionStagePluginSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionStagePluginSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_error.png</Icon>
                             <Description></Description>
@@ -604,7 +664,7 @@
                                 <LocalizationTag>TEXT_SUMMARY_BY_ERROR_TYPE</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionErrorTypeSummaryLayout</Link>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionSummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionErrorTypeSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/page_error.png</Icon>
                             <Description></Description>
@@ -716,8 +776,10 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/cog_edit.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>                      
+                            <RequiredCapabilities>
+                                <Capability>Update Runtime Configuration</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>VersionInfo</ID>
                             <Caption>
@@ -740,7 +802,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/bricks.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Update Runtime Configuration</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>MachineRole</ID>
@@ -753,6 +817,7 @@
                             <Icon>/Res/Images/icons/computer_add.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
+                                <Capability>Update Runtime Configuration</Capability>
                                 <RequiredCapabilities>
                                     <CompositeCapability name="Read Business Modeling Entities">
                                         <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
@@ -770,7 +835,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/database_refresh.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Update Runtime Configuration</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
@@ -792,7 +859,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/creditcards.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Manage Payment Server</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>

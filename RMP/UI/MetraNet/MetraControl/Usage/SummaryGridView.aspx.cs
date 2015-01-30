@@ -16,6 +16,12 @@ public partial class SummaryGridView : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    if (!UI.CoarseCheckCapability("Manage Usage Processing"))
+    {
+      Response.End();
+      return;
+    }
+
     
   }
 

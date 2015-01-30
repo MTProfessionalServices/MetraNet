@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,174 +59,174 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Manage Nonstandard Charges</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="TEXT_ADDITIONAL_CODE" xml:space="preserve">
-    <value>Additional Code</value>
-  </data>
-  <data name="TEXT_ADDITIONAL_RATE" xml:space="preserve">
-    <value>Additional Rate</value>
-  </data>
-  <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>Amount</value>
-  </data>
-  <data name="TEXT_APPROVE" xml:space="preserve">
-    <value>Approve</value>
-  </data>
-  <data name="TEXT_APPROVE_ALL" xml:space="preserve">
-    <value>Approve All</value>
-  </data>
-  <data name="TEXT_CHARGE_AMOUNT" xml:space="preserve">
-    <value>Charge Amount</value>
-  </data>
-  <data name="TEXT_CHARGE_CURRENCY" xml:space="preserve">
-    <value>Charge Currency</value>
-  </data>
-  <data name="TEXT_CHARGE_ID" xml:space="preserve">
-    <value>Charge ID</value>
-  </data>
-  <data name="TEXT_CHARGE_TAX" xml:space="preserve">
-    <value>Charge Tax Amount</value>
-  </data>
-  <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
-    <value>Are you sure you want to continue?</value>
-  </data>
-  <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>Currency</value>
-  </data>
-  <data name="TEXT_DENY" xml:space="preserve">
-    <value>Deny</value>
-  </data>
-  <data name="TEXT_DENY_ALL" xml:space="preserve">
-    <value>Deny All</value>
-  </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="TEXT_EXCHANGE_RATE" xml:space="preserve">
-    <value>Exchange Rate</value>
-  </data>
-  <data name="TEXT_EXTERNAL_CHARGE_ID" xml:space="preserve">
-    <value>External Charge ID</value>
-  </data>
-  <data name="TEXT_GLCODE" xml:space="preserve">
-    <value>GL Code</value>
-  </data>
-  <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
-    <value>Guide Interval  ID</value>
-  </data>
-  <data name="TEXT_INTERNAL_CHARGE_ID" xml:space="preserve">
-    <value>Internal Charge  ID</value>
-  </data>
-  <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-    <value>Interval ID</value>
-  </data>
-  <data name="TEXT_ISSUE_DATE" xml:space="preserve">
-    <value>Issue Date</value>
-  </data>
-  <data name="TEXT_ISSUE_TIME" xml:space="preserve">
-    <value>Issue Time</value>
-  </data>
-  <data name="TEXT_ISSUER_ID" xml:space="preserve">
-    <value>Issue ID</value>
-  </data>
-  <data name="TEXT_NONSTANDARD_CHARGE_REASON" xml:space="preserve">
-    <value>Nonstandard Charge Reason</value>
-  </data>
-  <data name="TEXT_NS_APPROVE" xml:space="preserve">
-    <value>This will approve all nonstandard charges in the system.</value>
-  </data>
-  <data name="TEXT_NS_DENY" xml:space="preserve">
-    <value>This will deny all nonstandard charges in the system.</value>
-  </data>
-  <data name="TEXT_NUM_UNITS" xml:space="preserve">
-    <value>Quantity</value>
-  </data>
-  <data name="TEXT_REASON_CODE" xml:space="preserve">
-    <value>Reason Code</value>
-  </data>
-  <data name="TEXT_REASONCODE_DESCRIPTION" xml:space="preserve">
-    <value>Reason Code Description</value>
-  </data>
-  <data name="TEXT_SELECT_NS_ERROR" xml:space="preserve">
-    <value>No Nonstandard Charges selected to process.</value>
-  </data>
-  <data name="TEXT_SESSION_ID" xml:space="preserve">
-    <value>Session ID</value>
-  </data>
-  <data name="TEXT_STATUS" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
-    <value>Subscriber Account ID</value>
-    <comment>Q</comment>
-  </data>
-  <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value>Timestamp</value>
-  </data>
-  <data name="TEXT_VIEW_ID" xml:space="preserve">
-    <value>View ID</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Manage Nonstandard Charges</value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>MetraNet</value>
+    </data>
+    <data name="TEXT_ADDITIONAL_CODE" xml:space="preserve">
+        <value>Additional Code</value>
+    </data>
+    <data name="TEXT_ADDITIONAL_RATE" xml:space="preserve">
+        <value>Additional Rate</value>
+    </data>
+    <data name="TEXT_AMOUNT" xml:space="preserve">
+        <value>Amount</value>
+    </data>
+    <data name="TEXT_APPROVE" xml:space="preserve">
+        <value>Approve</value>
+    </data>
+    <data name="TEXT_APPROVE_ALL" xml:space="preserve">
+        <value>Approve All</value>
+    </data>
+    <data name="TEXT_CHARGE_AMOUNT" xml:space="preserve">
+        <value>Charge Amount</value>
+    </data>
+    <data name="TEXT_CHARGE_CURRENCY" xml:space="preserve">
+        <value>Charge Currency</value>
+    </data>
+    <data name="TEXT_CHARGE_ID" xml:space="preserve">
+        <value>Charge ID</value>
+    </data>
+    <data name="TEXT_CHARGE_TAX" xml:space="preserve">
+        <value>Charge Tax Amount</value>
+    </data>
+    <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
+        <value>Are you sure you want to continue?</value>
+    </data>
+    <data name="TEXT_CURRENCY" xml:space="preserve">
+        <value>Currency</value>
+    </data>
+    <data name="TEXT_DENY" xml:space="preserve">
+        <value>Deny</value>
+    </data>
+    <data name="TEXT_DENY_ALL" xml:space="preserve">
+        <value>Deny All</value>
+    </data>
+    <data name="TEXT_DESCRIPTION" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="TEXT_EXCHANGE_RATE" xml:space="preserve">
+        <value>Exchange Rate</value>
+    </data>
+    <data name="TEXT_EXTERNAL_CHARGE_ID" xml:space="preserve">
+        <value>External Charge ID</value>
+    </data>
+    <data name="TEXT_GLCODE" xml:space="preserve">
+        <value>GL Code</value>
+    </data>
+    <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
+        <value>Guide Interval  ID</value>
+    </data>
+    <data name="TEXT_INTERNAL_CHARGE_ID" xml:space="preserve">
+        <value>Internal Charge  ID</value>
+    </data>
+    <data name="TEXT_INTERVAL_ID" xml:space="preserve">
+        <value>Interval ID</value>
+    </data>
+    <data name="TEXT_ISSUE_DATE" xml:space="preserve">
+        <value>Issue Date</value>
+    </data>
+    <data name="TEXT_ISSUE_TIME" xml:space="preserve">
+        <value>Issue Time</value>
+    </data>
+    <data name="TEXT_ISSUER_ID" xml:space="preserve">
+        <value>Issue ID</value>
+    </data>
+    <data name="TEXT_NONSTANDARD_CHARGE_REASON" xml:space="preserve">
+        <value>Nonstandard Charge Reason</value>
+    </data>
+    <data name="TEXT_NS_APPROVE" xml:space="preserve">
+        <value>This will approve all nonstandard charges in the system.</value>
+    </data>
+    <data name="TEXT_NS_DENY" xml:space="preserve">
+        <value>This will deny all nonstandard charges in the system.</value>
+    </data>
+    <data name="TEXT_NUM_UNITS" xml:space="preserve">
+        <value>Quantity</value>
+    </data>
+    <data name="TEXT_REASON_CODE" xml:space="preserve">
+        <value>Reason Code</value>
+    </data>
+    <data name="TEXT_REASONCODE_DESCRIPTION" xml:space="preserve">
+        <value>Reason Code Description</value>
+    </data>
+    <data name="TEXT_SELECT_NS_ERROR" xml:space="preserve">
+        <value>No Nonstandard Charges selected to process.</value>
+    </data>
+    <data name="TEXT_SESSION_ID" xml:space="preserve">
+        <value>Session ID</value>
+    </data>
+    <data name="TEXT_STATUS" xml:space="preserve">
+        <value>Status</value>
+    </data>
+    <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
+        <value>Subscriber Account ID</value>
+        <comment>Q</comment>
+    </data>
+    <data name="TEXT_TIMESTAMP" xml:space="preserve">
+        <value>Timestamp</value>
+    </data>
+    <data name="TEXT_VIEW_ID" xml:space="preserve">
+        <value>View ID</value>
+    </data>
 </root>

@@ -162,6 +162,12 @@
   <data name="ERROR_ENDDOM_INVALID" xml:space="preserve">
     <value>Invalid End of Month day selected.  Day MUST be after start day.</value>
   </data>
+  <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
+    <value>Invalid Currency</value>
+  </data>
+  <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
+    <value>Invalid Partition ID</value>
+  </data>
   <data name="ERROR_LAST_LOGIN" xml:space="preserve">
     <value>The last login for {0} was on {1}.  There have been {2} failed login attempts since the last successful login.</value>
   </data>
@@ -177,6 +183,9 @@
   <data name="ERROR_MAIN_MENU" xml:space="preserve">
     <value>Invalid menu file, notify your system administrator.</value>
   </data>
+  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
+    <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
+  </data>
   <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
     <value>This user has never logged into MetraCare.</value>
   </data>
@@ -191,6 +200,27 @@
   </data>
   <data name="ERROR_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
     <value>Passwords do not match.</value>
+  </data>
+  <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
+    <value>Invalid or Missing Payer</value>
+  </data>
+  <data name="ERROR_PO_EXISTS" xml:space="preserve">
+    <value>Name of product offering must be unique</value>
+  </data>
+  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
+    <value>Error in config ReportFormat file</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
+    <value>Error in config ReportFormat file. Report format type isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
+    <value>Error in config ReportFormat file. Incorrect file structure.</value>
+  </data>
+  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
+    <value>Error in config ReportFormat file. Report image  isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
+    <value>Unable open and save report</value>
   </data>
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>Invalid security answer.</value>
@@ -212,6 +242,9 @@
   </data>
   <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
     <value>Username is invalid.</value>
+  </data>
+  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
+    <value>You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_ANNUALLY" xml:space="preserve">
     <value>Days for annually interval</value>
@@ -246,9 +279,6 @@
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
     <value>Unable to save the configuration changes. See log for details.</value>
   </data>
-  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
-  </data>
   <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
     <value>Failed deleting spec.</value>
   </data>
@@ -276,34 +306,14 @@
   <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
     <value>Couldn't find property.</value>
   </data>
-  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
-    <value>You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+  <data name="ERROR_ACCESS_DENIED_INSUFFICIENT_CAPABILITY" xml:space="preserve">
+    <value>Access denied, insufficient capability</value>
   </data>
-  <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
-    <value>Invalid or Missing Payer</value>
-  </data>
-  <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
-    <value>Invalid Currency</value>
-  </data>
-  <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
-    <value>Invalid Partition ID</value>
-  </data>
-  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
-    <value>Error in config ReportFormat file</value>
-  </data>
-  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>Error in config ReportFormat file. Report format type isn't defined.</value>
-  </data>
-  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
-    <value>Error in config ReportFormat file. Incorrect file structure.</value>
-  </data>
-  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-    <value>Error in config ReportFormat file. Report image  isn't defined.</value>
-  </data>
-  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
-    <value>Unable open and save report</value>
-  </data>
-  <data name="ERROR_PO_EXISTS" xml:space="preserve">
-    <value>Name of product offering must be unique</value>
+  <data name="ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS" xml:space="preserve">
+    <value><![CDATA[The new password does not meet security requirements:       
+            * Must be at least 7 characters and less than 1024 
+            * Must contain at least one lower case letter, one upper case letter, one digit and one special character 
+            * Valid special characters including space are _ !@#$%^&*+= 
+            * Passwords once changed, may not be any of the previous 4 passwords]]></value>
   </data>
 </root>

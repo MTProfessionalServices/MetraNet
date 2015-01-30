@@ -166,7 +166,7 @@
     <value>MT</value>
   </data>
   <data name="ListItemResource2.Text" xml:space="preserve">
-    <value>[ES]US English</value>
+    <value>US English</value>
   </data>
   <data name="ListItemResource2.Value" xml:space="preserve">
     <value>0</value>
@@ -229,7 +229,7 @@
     <value>0</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>[ES]Custom Security Question</value>
+    <value>Custom Security Question</value>
   </data>
   <data name="ddCurrencyResource1.Label" xml:space="preserve">
     <value>Divisa</value>

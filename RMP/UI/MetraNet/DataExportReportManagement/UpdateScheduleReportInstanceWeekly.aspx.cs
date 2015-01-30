@@ -1,25 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Text;
-using System.Web;
-using System.Web.UI.WebControls;
-using MetraTech;
-using MetraTech.ActivityServices.Common;
-using MetraTech.ActivityServices.Services.Common;
-using MetraTech.Auth.Capabilities;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.DataAccess;
-using MetraTech.DomainModel.AccountTypes;
-using MetraTech.DomainModel.BaseTypes;
-using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Billing;
-using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
-using System.ServiceModel;
-using MetraTech.Debug.Diagnostics;
-
 
 
 public partial class DataExportReportManagement_UpdateScheduleReportInstanceWeekly : MTPage
@@ -57,12 +39,18 @@ public partial class DataExportReportManagement_UpdateScheduleReportInstanceWeek
 
     if (strincomingAction == "Update")
     {
-      MTTitle1.Text = "Update Weekly Report Schedule";
+      var title = GetLocalResourceObject("TEXT_Weekly_Daily_Report_Schedule");
+      if (title != null)
+        MTTitle1.Text = title.ToString();
     }
     else
     {
-      MTTitle1.Text = "Delete Weekly Report Schedule";
-      btnOK.Text = "Delete Instance Schedule";
+      var title = GetLocalResourceObject("TEXT_Weekly_Daily_Report_Schedule");
+      if (title != null)
+      {
+        MTTitle1.Text = title.ToString();
+        btnOK.Text = title.ToString();
+      }
     }
 
     if (!IsPostBack)

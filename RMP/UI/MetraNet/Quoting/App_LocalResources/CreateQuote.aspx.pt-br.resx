@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,266 +59,269 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="btnGenerateQuoteResource1.Text" xml:space="preserve">
-    <value>Gerar cotação</value>
-  </data>
-  <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
-    <value>Informações da cotação</value>
-  </data>
-  <data name="dpStartDateResource1.Label" xml:space="preserve">
-    <value>Data de início</value>
-  </data>
-  <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
-    <value>Contas e ofertas de produto</value>
-  </data>
-  <data name="dpEndDateResource1.Label" xml:space="preserve">
-    <value>Data de término</value>
-  </data>
-  <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">
-    <value>Gerar relatório PDF</value>
-  </data>
-  <data name="MTCheckBoxPdfResource.BoxLabel" xml:space="preserve">
-    <value>Gerar relatório PDF</value>
-  </data>
-  <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
-    <value>Descrição da cotação</value>
-  </data>
-  <data name="MTPanelUDRCResource.Text" xml:space="preserve">
-    <value>Métricas UDRC</value>
-  </data>
-  <data name="MTPanelICBResource.Text" xml:space="preserve">
-    <value>Taxas personalizadas</value>
-  </data>
-  <data name="ACTIONS" xml:space="preserve">
-    <value>Ações</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Contas</value>
-  </data>
-  <data name="REMOVE_ACCOUNT" xml:space="preserve">
-    <value>Remover conta</value>
-  </data>
-  <data name="SELECT_ACCOUNTS" xml:space="preserve">
-    <value>Selecionar contas</value>
-  </data>
-  <data name="USERNAME" xml:space="preserve">
-    <value>Nome do usuário</value>
-  </data>
-  <data name="POID" xml:space="preserve">
-    <value>Id de PO</value>
-  </data>
-  <data name="PONAME" xml:space="preserve">
-    <value>Nome de PO</value>
-  </data>
-  <data name="PO_GRID_TITLE" xml:space="preserve">
-    <value>Ofertas de produto</value>
-  </data>
-  <data name="REMOVE_PO" xml:space="preserve">
-    <value>Remover oferta de produto</value>
-  </data>
-  <data name="SELECT_POS" xml:space="preserve">
-    <value>Selecionar ofertas de produto</value>
-  </data>
-  <data name="EDIT_UDRC_VALUE" xml:space="preserve">
-    <value>Editar valor UDRC</value>
-  </data>
-  <data name="ADD_ICB" xml:space="preserve">
-    <value>Adicionar ICB</value>
-  </data>
-  <data name="BASE_AMOUNT" xml:space="preserve">
-    <value>Valor base</value>
-  </data>
-  <data name="ICB_GRID_TITLE" xml:space="preserve">
-    <value>ICBs</value>
-  </data>
-  <data name="PIID" xml:space="preserve">
-    <value>ID de PI</value>
-  </data>
-  <data name="PINAME" xml:space="preserve">
-    <value>Nome de PI</value>
-  </data>
-  <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
-    <value>Itens cobráveis que permite taxas personalizadas</value>
-  </data>
-  <data name="PRICE" xml:space="preserve">
-    <value>Preço</value>
-  </data>
-  <data name="UNIT_AMOUNT" xml:space="preserve">
-    <value>Quantidade de unidade</value>
-  </data>
-  <data name="UNIT_VALUE" xml:space="preserve">
-    <value>Valor da unidade</value>
-  </data>
-  <data name="ISGROUP.BoxLabel" xml:space="preserve">
-    <value>É assinatura em grupo</value>
-  </data>
-  <data name="ISGROUP" xml:space="preserve">
-    <value>é corp.</value>
-  </data>
-  <data name="ADD_UDRC" xml:space="preserve">
-    <value>Adicionar UDRC</value>
-  </data>
-  <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value>Métricas UDRC</value>
-  </data>
-  <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
-    <value>Itens cobráveis UDRC</value>
-  </data>
-  <data name="TEXT_ADD_ICB" xml:space="preserve">
-    <value>Adicionar taxa personalizada</value>
-  </data>
-  <data name="MTbtnCancelResource1.Text" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="MTTitleCreateQuoteResource.Text" xml:space="preserve">
-    <value>Gerenciar cotação</value>
-  </data>
-  <data name="REMOVE_ICB" xml:space="preserve">
-    <value>Remover ICB</value>
-  </data>
-  <data name="REMOVE_UDRC" xml:space="preserve">
-    <value>Remover UDRC</value>
-  </data>
-  <data name="TEXT_ADDING_ICB" xml:space="preserve">
-    <value>Adicionando ICB</value>
-  </data>
-  <data name="TEXT_ADD_UDRC" xml:space="preserve">
-    <value>Adicionar métrica UDRC</value>
-  </data>
-  <data name="TEXT_CANCEL" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="TEXT_DATES_ERROR" xml:space="preserve">
-    <value>A data de início deve ser menor que a data de término</value>
-  </data>
-  <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>Data de término</value>
-  </data>
-  <data name="TEXT_MISSED_UDRC" xml:space="preserve">
-    <value>Métricas UDRC não definidas para todos os itens cobráveis</value>
-  </data>
-  <data name="TEXT_OK" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>Data de início</value>
-  </data>
-  <data name="TEXT_VALUE" xml:space="preserve">
-    <value>Valor</value>
-  </data>
-  <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
-    <value>ICB para assinaturas em grupo não será aplicado (limitação atual)</value>
-  </data>
-  <data name="btnConvertQuoteResource.Text" xml:space="preserve">
-    <value>Converter para assinatura</value>
-  </data>
-  <data name="MTPanelLog.Text" xml:space="preserve">
-    <value>Log de cotação / mensagem com falha</value>
-  </data>
-  <data name="MTPanelResult.Text" xml:space="preserve">
-    <value>Detalhes da cotação</value>
-  </data>
-  <data name="QuoteFailed.Label" xml:space="preserve">
-    <value>Mensagem com falha</value>
-  </data>
-  <data name="QuoteLog.Label" xml:space="preserve">
-    <value>Log da cotação</value>
-  </data>
-  <data name="MTPanelUDRCandICBResource.Text" xml:space="preserve">
-    <value>Métricas UDRC e ICBs</value>
-  </data>
-  <data name="MTdpCreationDateResource.Label" xml:space="preserve">
-    <value>Data de criação</value>
-  </data>
-  <data name="MTTextBoxControlStatusResource.Label" xml:space="preserve">
-    <value>Status de cotação</value>
-  </data>
-  <data name="MTTextBoxControlGroupResource.Label" xml:space="preserve">
-    <value>Assinatura em grupo</value>
-  </data>
-  <data name="MTTextBoxControlTotalResource.Label" xml:space="preserve">
-    <value>Valor total</value>
-  </data>
-  <data name="MTTextBoxControlTotalTaxResource.Label" xml:space="preserve">
-    <value>Imposto total</value>
-  </data>
-  <data name="MTtbQuoteIdentifierResource.Label" xml:space="preserve">
-    <value>Identificador da cotação</value>
-  </data>
-  <data name="MTtbQuoteDescriptionResource.Label" xml:space="preserve">
-    <value>Descrição da cotação</value>
-  </data>
-  <data name="REPORT_LINK_TEXT" xml:space="preserve">
-    <value>Relatório em PDF para cotação</value>
-  </data>
-  <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
-    <value>Deve ser selecionada uma conta corporativa para assinatura de grupo.</value>
-  </data>
-  <data name="CONDITIONS" xml:space="preserve">
-    <value>Condições</value>
-  </data>
-  <data name="CONDITION_SIGN" xml:space="preserve">
-    <value>Condições</value>
-  </data>
-  <data name="DEFAULT_RULE" xml:space="preserve">
-    <value>Regra padrão</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ACTIONS" xml:space="preserve">
+        <value>Ações</value>
+    </data>
+    <data name="ADD_ICB" xml:space="preserve">
+        <value>Adicionar ICB</value>
+    </data>
+    <data name="ADD_UDRC" xml:space="preserve">
+        <value>Adicionar UDRC</value>
+    </data>
+    <data name="BASE_AMOUNT" xml:space="preserve">
+        <value>Valor base</value>
+    </data>
+    <data name="btnConvertQuoteResource.Text" xml:space="preserve">
+        <value>Converter para assinatura</value>
+    </data>
+    <data name="btnGenerateQuoteResource1.Text" xml:space="preserve">
+        <value>Gerar cotação</value>
+    </data>
+    <data name="CONDITION_SIGN" xml:space="preserve">
+        <value>Condições</value>
+    </data>
+    <data name="CONDITIONS" xml:space="preserve">
+        <value>Condições</value>
+    </data>
+    <data name="DEFAULT_RULE" xml:space="preserve">
+        <value>Regra padrão</value>
+    </data>
+    <data name="dpEndDateResource1.Label" xml:space="preserve">
+        <value>Data de término</value>
+    </data>
+    <data name="dpStartDateResource1.Label" xml:space="preserve">
+        <value>Data de início</value>
+    </data>
+    <data name="EDIT_UDRC_VALUE" xml:space="preserve">
+        <value>Editar valor UDRC</value>
+    </data>
+    <data name="GRID_TITLE" xml:space="preserve">
+        <value>Contas</value>
+    </data>
+    <data name="ICB_GRID_TITLE" xml:space="preserve">
+        <value>ICBs</value>
+    </data>
+    <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
+        <value>ICB para assinaturas em grupo não será aplicado (limitação atual)</value>
+    </data>
+    <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
+        <value>Itens cobráveis que permite taxas personalizadas</value>
+    </data>
+    <data name="ISGROUP" xml:space="preserve">
+        <value>é corp.</value>
+    </data>
+    <data name="ISGROUP.BoxLabel" xml:space="preserve">
+        <value>É assinatura em grupo</value>
+    </data>
+    <data name="MTbtnCancelResource1.Text" xml:space="preserve">
+        <value>Cancelar</value>
+    </data>
+    <data name="MTCheckBoxPdfResource.BoxLabel" xml:space="preserve">
+        <value>Gerar relatório PDF</value>
+    </data>
+    <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">
+        <value>Gerar relatório PDF</value>
+    </data>
+    <data name="MTdpCreationDateResource.Label" xml:space="preserve">
+        <value>Data de criação</value>
+    </data>
+    <data name="MTPanelICBResource.Text" xml:space="preserve">
+        <value>Taxas personalizadas</value>
+    </data>
+    <data name="MTPanelLog.Text" xml:space="preserve">
+        <value>Log de cotação / mensagem com falha</value>
+    </data>
+    <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
+        <value>Contas e ofertas de produto</value>
+    </data>
+    <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
+        <value>Informações da cotação</value>
+    </data>
+    <data name="MTPanelResult.Text" xml:space="preserve">
+        <value>Detalhes da cotação</value>
+    </data>
+    <data name="MTPanelUDRCandICBResource.Text" xml:space="preserve">
+        <value>Métricas UDRC e ICBs</value>
+    </data>
+    <data name="MTPanelUDRCResource.Text" xml:space="preserve">
+        <value>Métricas UDRC</value>
+    </data>
+    <data name="MTtbQuoteDescriptionResource.Label" xml:space="preserve">
+        <value>Descrição da cotação</value>
+    </data>
+    <data name="MTtbQuoteIdentifierResource.Label" xml:space="preserve">
+        <value>Identificador da cotação</value>
+    </data>
+    <data name="MTTextBoxControlGroupResource.Label" xml:space="preserve">
+        <value>Assinatura em grupo</value>
+    </data>
+    <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
+        <value>Descrição da cotação</value>
+    </data>
+    <data name="MTTextBoxControlStatusResource.Label" xml:space="preserve">
+        <value>Status de cotação</value>
+    </data>
+    <data name="MTTextBoxControlTotalResource.Label" xml:space="preserve">
+        <value>Valor total</value>
+    </data>
+    <data name="MTTextBoxControlTotalTaxResource.Label" xml:space="preserve">
+        <value>Imposto total</value>
+    </data>
+    <data name="PIID" xml:space="preserve">
+        <value>ID de PI</value>
+    </data>
+    <data name="PINAME" xml:space="preserve">
+        <value>Nome de PI</value>
+    </data>
+    <data name="PO_GRID_TITLE" xml:space="preserve">
+        <value>Ofertas de produto</value>
+    </data>
+    <data name="POID" xml:space="preserve">
+        <value>Id de PO</value>
+    </data>
+    <data name="PONAME" xml:space="preserve">
+        <value>Nome de PO</value>
+    </data>
+    <data name="PRICE" xml:space="preserve">
+        <value>Preço</value>
+    </data>
+    <data name="QuoteFailed.Label" xml:space="preserve">
+        <value>Mensagem com falha</value>
+    </data>
+    <data name="QuoteLog.Label" xml:space="preserve">
+        <value>Log da cotação</value>
+    </data>
+    <data name="REMOVE_ACCOUNT" xml:space="preserve">
+        <value>Remover conta</value>
+    </data>
+    <data name="REMOVE_ICB" xml:space="preserve">
+        <value>Remover ICB</value>
+    </data>
+    <data name="REMOVE_PO" xml:space="preserve">
+        <value>Remover oferta de produto</value>
+    </data>
+    <data name="REMOVE_UDRC" xml:space="preserve">
+        <value>Remover UDRC</value>
+    </data>
+    <data name="REPORT_LINK_TEXT" xml:space="preserve">
+        <value>Relatório em PDF para cotação</value>
+    </data>
+    <data name="SELECT_ACCOUNTS" xml:space="preserve">
+        <value>Selecionar contas</value>
+    </data>
+    <data name="SELECT_POS" xml:space="preserve">
+        <value>Selecionar ofertas de produto</value>
+    </data>
+    <data name="TEXT_ADD_ICB" xml:space="preserve">
+        <value>Adicionar taxa personalizada</value>
+    </data>
+    <data name="TEXT_ADD_UDRC" xml:space="preserve">
+        <value>Adicionar métrica UDRC</value>
+    </data>
+    <data name="TEXT_ADDING_ICB" xml:space="preserve">
+        <value>Adicionando ICB</value>
+    </data>
+    <data name="TEXT_CANCEL" xml:space="preserve">
+        <value>Cancelar</value>
+    </data>
+    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+        <value>Criar cotação</value>
+    </data>
+    <data name="TEXT_DATES_ERROR" xml:space="preserve">
+        <value>A data de início deve ser menor que a data de término</value>
+    </data>
+    <data name="TEXT_END_DATE" xml:space="preserve">
+        <value>Data de término</value>
+    </data>
+    <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
+        <value>Deve ser selecionada uma conta corporativa para assinatura de grupo.</value>
+    </data>
+    <data name="TEXT_MANAGE_QUOTE" xml:space="preserve">
+        <value>Gerenciar cotação</value>
+    </data>
+    <data name="TEXT_MISSED_UDRC" xml:space="preserve">
+        <value>Métricas UDRC não definidas para todos os itens cobráveis</value>
+    </data>
+    <data name="TEXT_OK" xml:space="preserve">
+        <value>OK</value>
+    </data>
+    <data name="TEXT_START_DATE" xml:space="preserve">
+        <value>Data de início</value>
+    </data>
+    <data name="TEXT_VALUE" xml:space="preserve">
+        <value>Valor</value>
+    </data>
+    <data name="UDRC_GRID_TITLE" xml:space="preserve">
+        <value>Métricas UDRC</value>
+    </data>
+    <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
+        <value>Itens cobráveis UDRC</value>
+    </data>
+    <data name="UNIT_AMOUNT" xml:space="preserve">
+        <value>Quantidade de unidade</value>
+    </data>
+    <data name="UNIT_VALUE" xml:space="preserve">
+        <value>Valor da unidade</value>
+    </data>
+    <data name="USERNAME" xml:space="preserve">
+        <value>Nome do usuário</value>
+    </data>
 </root>

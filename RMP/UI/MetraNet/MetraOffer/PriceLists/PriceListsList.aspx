@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="PriceListsList.aspx.cs" Inherits="PriceListsList" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="PriceListsList.aspx.cs" Inherits="PriceListsList" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
 
 <%@ Register assembly="MetraTech.UI.Controls" namespace="MetraTech.UI.Controls" tagprefix="MT" %>
 
@@ -48,11 +48,11 @@
         var str = "";
         str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='view_{0}'   title='{1}' href='JavaScript:ViewPriceList({0});'>  <img src='/Res/Images/icons/package_go.png'   alt='{1}' /></a>", record.data.ID, "View Price List");
         str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='edit_{0}'   title='{1}' href='JavaScript:EditPriceList({0});'>  <img src='/Res/Images/icons/pencil.png'       alt='{1}' /></a>", record.data.ID, "Edit Price List");
-        str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='copy_{0}'   title='{1}' href='JavaScript:CopyPriceList({0});'>  <img src='/Res/Images/icons/copy.png'         alt='{1}' /></a>", record.data.ID, "Copy Price List");
+        str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='copy_{0}'   title='{1}' href='JavaScript:CopyPriceList({0},\"{2}\");'>  <img src='/Res/Images/icons/copy.png'         alt='{1}' /></a>", record.data.ID, "Copy Price List", store.sm.grid.id);
         
         if (<%=UI.CoarseCheckCapability("Delete Rates").ToString().ToLower()%>)
         {
-            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='delete_{0}' title='{1}' href='JavaScript:DeletePriceList({0});'><img src='/Res/Images/icons/delete.png'       alt='{1}' /></a>", record.data.ID, "Delete Price List");
+            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='delete_{0}' title='{1}' href='JavaScript:DeletePriceList({0},\"{2}\");'><img src='/Res/Images/icons/delete.png'       alt='{1}' /></a>", record.data.ID, "Delete Price List", store.sm.grid.id);
         }
         return str;
     }
@@ -64,30 +64,40 @@
 
     function EditPriceList(ID)
     {
-        //var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/Pricelist.Edit.asp|ID=" + ID;
-        //OpenModalWindow(targetURL);
-      location.href = '/MetraNet/MetraOffer/PriceLists/UpdateSharedPriceList.aspx?ID=' + ID;
-      
-      //location.href = targetURL;
+       location.href = '/MetraNet/MetraOffer/PriceLists/UpdateSharedPriceList.aspx?ID=' + ID;
     }  
 
-    function CopyPriceList(ID)
+    function CopyPriceList(ID, gridId)
     {
         var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/PriceList.Copy.asp|ID=" + ID;
         OpenModalWindow(targetURL);
-      //location.href = targetURL;
+        GridRefresh(gridId);
     }  
 
-    function DeletePriceList(ID)
+    function DeletePriceList(ID, gridId)
     {
         var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/PriceListDelete.asp|ID=" + ID;
         OpenModalWindow(targetURL);
-      //location.href = targetURL;
+        GridRefresh(gridId);
     }
 
     function OpenModalWindow(url)
     {
-        OpenDialogWindow(url, "height=400,width=600,resizable=yes,scrollbars=yes");
+        window.OpenDialogWindow(url, "height=400,width=600,resizable=yes,scrollbars=yes");
+    }
+    
+    function GridRefresh(gridId) {
+      var grid = window.Ext.getCmp(gridId);
+      setTimeout(
+        function() {
+          if (window.winDialog.closed) {
+            grid.getSelectionModel().deselectAll(true);
+            grid.store.reload();
+          }
+          else
+            setTimeout(arguments.callee, 10);
+        }, 
+        10);
     }
 
     </script>

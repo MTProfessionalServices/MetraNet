@@ -118,60 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DIRECTIVES_GRID_TITLE" xml:space="preserve">
-    <value>Directives in Order of Execution:</value>
+    <value>Diretivas em ordem de execução:</value>
   </data>
   <data name="lbDescription.Text" xml:space="preserve">
-    <value>Specify how the fields in the Product View and in the account usage table (t_acc_usage) should be set for the new Charge/Credit that is being generated. To do so, you must define an ordered set of "directives" of the following types: Database Table Inclusion, Field Population and Procedure Execution.</value>
+    <value>Especifique como os campos na Exibição de produto e na tabela de uso de conta (t_acc_usage) devem ser definidos para o novo encargo/crédito que está sendo gerado. Para isso, você deve definir um conjunto ordenado de "diretivas" dos seguintes tipos: Inclusão na tabela de banco de dados, Preenchimento de campo e Execução de procedimento.</value>
   </data>
   <data name="lbGrid2TitleResource1.Text" xml:space="preserve">
-    <value>Fields to populate:</value>
-  </data>
-  <data name="POPULATEDFIELDS_GRID_TITLE" xml:space="preserve">
-    <value>Product View and t_acc_usage Fields:</value>
+    <value>Campos a serem preenchidos:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Charge/Credit: Directives</value>
+    <value>Cobrança/Crédito: Diretivas</value>
+  </data>
+  <data name="POPULATEDFIELDS_GRID_TITLE" xml:space="preserve">
+    <value>Ajuda: exibição do produto e campos t_acc_usage</value>
   </data>
   <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
-    <value>Charge/Credit:</value>
+    <value>Encargo/crédito:</value>
   </data>
   <data name="tbProductViewNameResource1.LabelSeparator" xml:space="preserve">
-    <value>Product View:</value>
-  </data>
-  <data name="TEXT_ADD" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Add a new Directive to this Generated Charge or Credit</value>
-  </data>
-  <data name="TEXT_DETAILS" xml:space="preserve">
-    <value>Details</value>
-  </data>
-  <data name="TEXT_ORDER" xml:space="preserve">
-    <value>Order</value>
-  </data>
-  <data name="TEXT_TYPE" xml:space="preserve">
-    <value>Type</value>
+    <value>Exibição do produto</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Actions</value>
+    <value>Ações</value>
   </data>
-  <data name="TEXT_FIELDNAME" xml:space="preserve">
-    <value>Field Name</value>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>Adicionar</value>
   </data>
-  <data name="TEXT_POPULATED" xml:space="preserve">
-    <value>Populated</value>
+  <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
+    <value>Adicionar uma nova diretiva a esse encargo ou crédito gerado</value>
+  </data>
+  <data name="TEXT_DETAILS" xml:space="preserve">
+    <value>Detalhes</value>
   </data>
   <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>An error occurred while moving the directive earlier in order of execution.</value>
+    <value>Ocorreu um erro ao mover a diretiva para mais cedo na ordem de execução.</value>
   </data>
   <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>An error occurred while moving the directive later in order of execution.</value>
+    <value>Ocorreu um erro ao mover a diretiva para mais tarde na ordem de execução.</value>
+  </data>
+  <data name="TEXT_FIELDNAME" xml:space="preserve">
+    <value>Nome do campo</value>
+  </data>
+  <data name="TEXT_ORDER" xml:space="preserve">
+    <value>Pedido</value>
+  </data>
+  <data name="TEXT_POPULATED" xml:space="preserve">
+    <value>Preenchido</value>
   </data>
   <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
-    <value>Move earlier</value>
+    <value>Mover para mais cedo</value>
   </data>
   <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
-    <value>Move later</value>
+    <value>Mover data</value>
+  </data>
+  <data name="TEXT_TYPE" xml:space="preserve">
+    <value>Tipo</value>
   </data>
 </root>

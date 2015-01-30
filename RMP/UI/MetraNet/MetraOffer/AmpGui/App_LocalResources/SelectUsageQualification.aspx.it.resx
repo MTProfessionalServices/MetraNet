@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="USAGEQUALIFICATIONGROUPS_GRID_TITLE" xml:space="preserve">
-    <value>[IT]Usage Qualifications</value>
+    <value>Usage Qualifications</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[IT]Select Usage Qualification</value>
+    <value>Select Usage Qualification</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>[IT]Create New Usage Qualification</value>
+    <value>Create New Usage Qualification</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>[IT]Create a new Usage Qualification</value>
+    <value>Create a new Usage Qualification</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[IT]Description</value>
+    <value>Description</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[IT]Name</value>
+    <value>Name</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>[IT]Unique ID</value>
+    <value>Unique ID</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[IT]Actions</value>
+    <value>Actions</value>
   </data>
   <data name="lblSelectUsageQualResource1.Text" xml:space="preserve">
-    <value>[IT]&lt;i&gt;Usage&lt;/i&gt; (a rated billing record) is a collection of product view record fields.  A &lt;i&gt;Usage Qualification&lt;/i&gt; limits the usage that a Decision can analyze to those usage records that have certain properties.</value>
+    <value>&lt;i&gt;Usage&lt;/i&gt; (a rated billing record) is a collection of product view record fields.  A &lt;i&gt;Usage Qualification&lt;/i&gt; limits the usage that a Decision can analyze to those usage records that have certain properties.</value>
   </data>
   <data name="lblSelectResource1.Text" xml:space="preserve">
-    <value>[IT]Select the Usage Qualification for this Decision Type:</value>
+    <value>Select the Usage Qualification for this Decision Type:</value>
   </data>
   <data name="TEXT_ERROR_NO_USAGE_QUAL" xml:space="preserve">
-    <value>[IT]No usage qualification was selected for Decision </value>
+    <value>No usage qualification was selected for Decision </value>
   </data>
 </root>

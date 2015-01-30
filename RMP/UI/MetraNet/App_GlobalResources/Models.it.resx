@@ -118,129 +118,129 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SpecCharacteristicModel_Category" xml:space="preserve">
-    <value>[IT]Category:</value>
+    <value>Category:</value>
   </data>
   <data name="SpecCharacteristicModel_DefaultValue" xml:space="preserve">
-    <value>[IT]Default Value:</value>
+    <value>Default Value:</value>
   </data>
   <data name="SpecCharacteristicModel_DisplayOrder" xml:space="preserve">
-    <value>[IT]Display Order:</value>
+    <value>Display Order:</value>
   </data>
   <data name="SpecCharacteristicModel_EntityId" xml:space="preserve">
-    <value>[IT]Entity ID:</value>
+    <value>Entity ID:</value>
   </data>
   <data name="SpecCharacteristicModel_Name" xml:space="preserve">
-    <value>[IT]Name:</value>
+    <value>Name:</value>
   </data>
   <data name="SpecCharacteristicModel_SpecId" xml:space="preserve">
-    <value>[IT]Spec ID:</value>
+    <value>Spec ID:</value>
   </data>
   <data name="SpecCharacteristicModel_SpecType" xml:space="preserve">
-    <value>[IT]Property Type:</value>
+    <value>Property Type:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Between_End" xml:space="preserve">
-    <value>[IT]Between End:</value>
+    <value>Between End:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Between_Start" xml:space="preserve">
-    <value>[IT]Between Start:</value>
+    <value>Between Start:</value>
   </data>
   <data name="SpecCharacteristicValueModel_BooleanValue" xml:space="preserve">
-    <value>[IT]Boolean Value:</value>
+    <value>Boolean Value:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Category" xml:space="preserve">
-    <value>[IT]Category:</value>
+    <value>Category:</value>
   </data>
   <data name="SpecCharacteristicValueModel_CategoryDisplayNames" xml:space="preserve">
-    <value>[IT]Category Display Names:</value>
+    <value>Category Display Names:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Choices" xml:space="preserve">
-    <value>[IT]Choices:</value>
+    <value>Choices:</value>
   </data>
   <data name="SpecCharacteristicValueModel_ChoicesDisplayNames" xml:space="preserve">
-    <value>[IT]Choices Display Names:</value>
+    <value>Choices Display Names:</value>
   </data>
   <data name="SpecCharacteristicValueModel_DatetimeValue" xml:space="preserve">
-    <value>[IT]Datetime Value:</value>
+    <value>Datetime Value:</value>
   </data>
   <data name="SpecCharacteristicValueModel_DecimalValue" xml:space="preserve">
-    <value>[IT]Decimal Value:</value>
+    <value>Decimal Value:</value>
   </data>
   <data name="SpecCharacteristicValueModel_DefaultChoice" xml:space="preserve">
-    <value>[IT]Default Choice:</value>
+    <value>Default Choice:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Description" xml:space="preserve">
-    <value>[IT]Description:</value>
+    <value>Description:</value>
   </data>
   <data name="SpecCharacteristicValueModel_DescriptionDisplayNames" xml:space="preserve">
-    <value>[IT]Description Display Names:</value>
+    <value>Description Display Names:</value>
   </data>
   <data name="SpecCharacteristicValueModel_IntValue" xml:space="preserve">
-    <value>[IT]Int Value:</value>
+    <value>Int Value:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Length" xml:space="preserve">
-    <value>[IT]Length:</value>
+    <value>Length:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Max" xml:space="preserve">
-    <value>[IT]Max:</value>
+    <value>Max:</value>
   </data>
   <data name="SpecCharacteristicValueModel_MaxDecimal" xml:space="preserve">
-    <value>[IT]Max Decimal:</value>
+    <value>Max Decimal:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Min" xml:space="preserve">
-    <value>[IT]Min:</value>
+    <value>Min:</value>
   </data>
   <data name="SpecCharacteristicValueModel_MixDecimal" xml:space="preserve">
-    <value>[IT]Min Decimal:</value>
+    <value>Min Decimal:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Name" xml:space="preserve">
-    <value>[IT]Name:</value>
+    <value>Name:</value>
   </data>
   <data name="SpecCharacteristicValueModel_NameDisplayNames" xml:space="preserve">
-    <value>[IT]Name Display Names:</value>
+    <value>Name Display Names:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Required" xml:space="preserve">
-    <value>[IT]Required:</value>
+    <value>Required:</value>
   </data>
   <data name="SpecCharacteristicValueModel_SpecId" xml:space="preserve">
-    <value>[IT]Spec ID:</value>
+    <value>Spec ID:</value>
   </data>
   <data name="SpecCharacteristicValueModel_SpecType" xml:space="preserve">
-    <value>[IT]Property Type:</value>
+    <value>Property Type:</value>
   </data>
   <data name="SpecCharacteristicValueModel_StringValue" xml:space="preserve">
-    <value>[IT]String Value:</value>
+    <value>String Value:</value>
   </data>
   <data name="SpecCharacteristicValueModel_UserEditable" xml:space="preserve">
-    <value>[IT]Editable:</value>
+    <value>Editable:</value>
   </data>
   <data name="SpecCharacteristicValueModel_UserVisible" xml:space="preserve">
-    <value>[IT]Subscriber Visible:</value>
+    <value>Subscriber Visible:</value>
   </data>
   <data name="SpecCharacteristicValueModel_ValueId" xml:space="preserve">
-    <value>[IT]Value ID:</value>
+    <value>Value ID:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Values" xml:space="preserve">
-    <value>[IT]Values:</value>
+    <value>Values:</value>
   </data>
   <data name="ErrorrMessage_SpecCharacteristicValueModel_Description" xml:space="preserve">
-    <value>[IT]Description cannot be longer than 256 characters</value>
+    <value>Description cannot be longer than 256 characters</value>
   </data>
   <data name="ErrorrMessage_SpecCharacteristicValueModel_Value" xml:space="preserve">
-    <value>[IT]Value cannot be longer than 20 characters</value>
+    <value>Value cannot be longer than 20 characters</value>
   </data>
   <data name="ErrorMessage_SpecCharacteristicModel_Description" xml:space="preserve">
-    <value>[IT]ErrorrMessage_SpecCharacteristicValueModel_Description cannot be longer than 256 characters</value>
+    <value>ErrorrMessage_SpecCharacteristicValueModel_Description cannot be longer than 256 characters</value>
   </data>
   <data name="SpecCharacteristicModel_Description" xml:space="preserve">
-    <value>[IT]Description:</value>
+    <value>Description:</value>
   </data>
   <data name="SpecCharacteristicModel_Required" xml:space="preserve">
-    <value>[IT]Required:</value>
+    <value>Required:</value>
   </data>
   <data name="SpecCharacteristicModel_UserEditable" xml:space="preserve">
-    <value>[IT]Editable:</value>
+    <value>Editable:</value>
   </data>
   <data name="SpecCharacteristicModel_UserVisible" xml:space="preserve">
-    <value>[IT]Subscriber Visible:</value>
+    <value>Subscriber Visible:</value>
   </data>
 </root>

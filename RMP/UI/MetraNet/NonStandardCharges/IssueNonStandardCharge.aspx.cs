@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Web;
@@ -205,7 +206,9 @@ public partial class NonStandardCharges_IssueNonStandardCharge :  MTPage
           int last = data.Length - 1;
 
           // Build expression to have the DataTable evaluation based on the adjustment amount allowed
-          string expr = String.Format("{0}{1}{2}", chargeAmount, data[last - 1], data[last]);
+          var comparisonSymbol = data[last - 1];
+          var maxCapAmountValue = Decimal.Parse(data[last]);
+          string expr = String.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", chargeAmount, comparisonSymbol, maxCapAmountValue);
           DataTable dataTable = new DataTable();
           dataTable.Columns.Add("col1", typeof(bool), expr);
           dataTable.Rows.Add(new object[] { });

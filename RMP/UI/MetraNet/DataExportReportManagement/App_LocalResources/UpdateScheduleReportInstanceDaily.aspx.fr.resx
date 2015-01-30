@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,132 +59,141 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnOKResource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Mettre à jour le calendrier de rapports quotidien</value>
-  </data>
-  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>Mettre à jour le calendrier de rapports quotidien</value>
-  </data>
-  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
-    <value>Jour d’exécution</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
-    <value>Heure de fin d’exécution (HH:MM)</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Premier jour du mois d’exécution</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Dernier jour du mois d’exécution</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
-    <value>Heure de début d’exécution (HH:MM)</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
-    <value>Heure d’exécution (HH:MM)</value>
-  </data>
-  <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-    <value>Type d’exécution</value>
-  </data>
-  <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
-    <value>Mois à ce jour</value>
-  </data>
-  <data name="TEXT_DEF_NAME" xml:space="preserve">
-    <value>Nom</value>
-  </data>
-  <data name="TEXT_DEF_REPEAT_HOURS" xml:space="preserve">
-    <value>Heures de répétition</value>
-  </data>
-  <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
-    <value>ID du calendrier</value>
-  </data>
-  <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
-    <value>Type de calendrier</value>
-  </data>
-  <data name="TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Ignorer le premier jour du mois</value>
-  </data>
-  <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Ignorer le dernier jour du mois</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <data name="btnCancelResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnCancelResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="btnOKResource1.ServerSide" xml:space="preserve">
+        <value>True</value>
+    </data>
+    <data name="btnOKResource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
+        <value>10</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Mettre à jour le calendrier de rapports quotidien</value>
+    </data>
+    <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="PageResource1.Title" xml:space="preserve">
+        <value>Mettre à jour le calendrier de rapports quotidien</value>
+    </data>
+    <data name="TEXT_DAILY_SCHEDULE" xml:space="preserve">
+        <value>Daily Report Schedule</value>
+    </data>
+    <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
+        <value>Jour d’exécution</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_END_TIME" xml:space="preserve">
+        <value>Heure de fin d’exécution (HH:MM)</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_FIRST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Premier jour du mois d’exécution</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_LAST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Dernier jour du mois d’exécution</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_START_TIME" xml:space="preserve">
+        <value>Heure de début d’exécution (HH:MM)</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTE_TIME" xml:space="preserve">
+        <value>Heure d’exécution (HH:MM)</value>
+    </data>
+    <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
+        <value>Type d’exécution</value>
+    </data>
+    <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
+        <value>Mois à ce jour</value>
+    </data>
+    <data name="TEXT_DEF_NAME" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+    <data name="TEXT_DEF_REPEAT_HOURS" xml:space="preserve">
+        <value>Heures de répétition</value>
+    </data>
+    <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
+        <value>ID du calendrier</value>
+    </data>
+    <data name="TEXT_DEF_SCHEDULE_TYPE" xml:space="preserve">
+        <value>Type de calendrier</value>
+    </data>
+    <data name="TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Ignorer le premier jour du mois</value>
+    </data>
+    <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
+        <value>Ignorer le dernier jour du mois</value>
+    </data>
+  <data name="TEXT_Delete_Daily_Report_Schedule" xml:space="preserve">
+        <value>Delete Daily Report Schedule</value>
+    </data>
+  <data name="TEXT_Update_Daily_Report_Schedule" xml:space="preserve">
+        <value>Update Daily Report Schedule</value>
+    </data>
 </root>

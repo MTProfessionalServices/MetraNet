@@ -18,15 +18,17 @@ public partial class GroupSubscriptions_GroupSubscriptionMembers : MTPage
 
   protected override void OnLoadComplete(EventArgs e)
   {
-    if (PageNav.Data == null) 
+    string replaceWith = Convert.ToString('"');
+    if (PageNav.Data == null)
       return;
 
     var groupSubscription = PageNav.Data.Out_StateInitData["CurrentGroupSubscription"] as GroupSubscription;
-    if (groupSubscription == null || groupSubscription.GroupId == null) 
+    if (groupSubscription == null || groupSubscription.GroupId == null)
       return;
 
     CurrentGroupSubscription = groupSubscription;
-    GroupSubMemGrid.Title = HttpUtility.HtmlEncode(String.Format((string)GetLocalResourceObject("Grid.Title"), CurrentGroupSubscription.Name).Replace("'", "\\'"));
+    GroupSubMemGrid.Title = HttpUtility.HtmlEncode(String.Format((string)GetLocalResourceObject("Grid.Title"), CurrentGroupSubscription.Name).Replace("'", replaceWith));
+    
     GroupSubMemGrid.Elements[0].IsColumn = true;
   }
 }

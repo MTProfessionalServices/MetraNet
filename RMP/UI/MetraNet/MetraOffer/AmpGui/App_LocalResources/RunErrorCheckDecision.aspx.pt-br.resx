@@ -117,32 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
     <value>True</value>
+  </data>
+  <data name="CheckMarkLabel.Text" xml:space="preserve">
+    <value>Nenhum erro de configuração foi detectado.</value>
+  </data>
+  <data name="ErrorLabel.Text" xml:space="preserve">
+    <value>Seu Tipo de decisão contém erros de configuração:</value>
+  </data>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="NavigateLabel.Text" xml:space="preserve">
+    <value>Navegue para as páginas apropriadas para corrigir seus erros. Depois refaça a Verificação de erro.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Errors</value>
+  <data name="TEXT_RAN_VALIDATE_FOR_DECISION" xml:space="preserve">
+    <value>A validação foi executada para o Tipo de decisão</value>
   </data>
   <data name="VALIDATION_ERROR_MESSAGE" xml:space="preserve">
-    <value>Message</value>
+    <value>Mensagem</value>
   </data>
   <data name="VALIDATION_ERROR_SEVERITY" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="TEXT_RAN_VALIDATE_FOR_DECISION" xml:space="preserve">
-    <value>Ran validation for Decision Type</value>
-  </data>
-  <data name="ErrorLabel.Text" xml:space="preserve">
-    <value>Your Decision Type contains configuration errors:</value>
-  </data>
-  <data name="NavigateLabel.Text" xml:space="preserve">
-    <value>Navigate back to the appropriate pages to correct your errors. Then redo the Error Check.</value>
-  </data>
-  <data name="CheckMarkLabel.Text" xml:space="preserve">
-    <value>No configuration errors were detected.</value>
+    <value>Nível</value>
   </data>
 </root>

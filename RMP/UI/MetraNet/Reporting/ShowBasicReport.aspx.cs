@@ -41,6 +41,11 @@ public partial class ShowBasicReport : MTPage
     //param.FieldValue = "1";
     //sqi.Params.Add(param);
 
+    SQLQueryParam paramLang = new SQLQueryParam();
+    paramLang.FieldName = "%%ID_LANG_CODE%%";
+    paramLang.FieldValue = UI.User.SessionContext.LanguageID;
+    sqi.Params.Add(paramLang);
+
     queryParam = SQLQueryInfo.Compact(sqi);
 
     base.OnLoad(e);

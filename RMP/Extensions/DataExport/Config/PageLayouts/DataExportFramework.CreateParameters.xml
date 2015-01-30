@@ -5,11 +5,12 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportParameters</ObjectName>
     <Description>Create Report Parameters</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/AddNewReportParameters.aspx</PageName>
+        <PageName>~/DataExportReportManagement/AddNewReportParameters.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportParameters.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -20,9 +21,11 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Create Report Parameter]]></Value>
+                <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportParameters.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -34,6 +37,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
@@ -44,9 +48,10 @@
                             </OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_NAME</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportParameters.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -56,6 +61,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
@@ -63,13 +69,15 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_DESCRIPTION</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportParameters.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

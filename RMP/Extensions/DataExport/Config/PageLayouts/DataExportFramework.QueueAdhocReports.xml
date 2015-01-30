@@ -5,7 +5,7 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportDefinition</ObjectName>
     <Description>This feature lets you initiate a report at any time regardless of report schedule. It's useful to test new report definitions, before you define report instances.</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/QueueAdHocReports.aspx</PageName>
+        <PageName>~/DataExportReportManagement/QueueAdHocReports.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
@@ -20,9 +20,11 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Queue Adhoc Reports]]></Value>
+                <LocalizationTag>TEXT_QUEUSE_ADHOC_REPORTS</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/QueueAdHocReports.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -34,6 +36,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -41,9 +44,10 @@
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_TYPE</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/QueueAdHocReports.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -53,6 +57,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
@@ -60,9 +65,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_FILE_NAME</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/QueueAdHocReports.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -72,6 +78,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -79,9 +86,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_OUTPUT_EXEC_PARAMETERS</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/QueueAdHocReports.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -95,6 +103,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -102,9 +111,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_COMPRESS_OUTPUT_FILE</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/QueueAdHocReports.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -114,6 +124,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -121,9 +132,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_COMPRESS_THRESHOLD</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/QueueAdHocReports.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -133,6 +145,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -140,13 +153,15 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_USE_QUOTED_IDENTIFIERS</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/QueueAdHocReports.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

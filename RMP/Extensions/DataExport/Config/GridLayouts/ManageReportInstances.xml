@@ -2,7 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>DataExportFramework.ManageReportInstances</Name>
     <Title>
-        <Value><![CDATA[Manage Report Instances]]></Value>
+        <LocalizationTag>TEXT_TITLE</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstances.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -27,7 +28,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[No Instances Found ....]]></Value>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstances.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -214,7 +216,8 @@
         <Button>
             <ButtonID>Back</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Back]]></Value>
+                <LocalizationTag>TEXT_BACK</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>
@@ -228,7 +231,8 @@
         <Button>
             <ButtonID>AddReportInstance1</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>

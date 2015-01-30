@@ -5,11 +5,12 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
     <Description>Report Instance Details</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/ShowReportInstanceDetails.aspx</PageName>
+        <PageName>~/DataExportReportManagement/ShowReportInstanceDetails.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>PageResource1.Title</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -20,9 +21,11 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Report Instance Details ]]></Value>
+                <LocalizationTag>TEXT_REPORT_INSTANCE_DETAILS</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -34,6 +37,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -41,9 +45,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_DESCRIPTION</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -53,6 +58,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -60,9 +66,10 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_ACTIVATION_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -72,6 +79,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -79,9 +87,10 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_DEACTIVATION_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -91,16 +100,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
-                                <Required>false</Required>
+                                <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_EXECUTION_TYPE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -110,16 +121,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
-                                <Required>false</Required>
+                                <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_TYPE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -129,6 +142,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>true</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -136,9 +150,10 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_LAST_RUN_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -152,6 +167,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -159,9 +175,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_FILE_NAME</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -171,6 +188,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -178,9 +196,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_COMPRESS_OUTPUT_FILE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -190,6 +209,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -197,9 +217,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_COMPRESS_THRESHOLD</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -209,6 +230,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -216,9 +238,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_OUTPUT_EXEC_PARAMETERS</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -228,6 +251,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -235,9 +259,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_USE_QUOTED_IDENTIFIERS</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -247,6 +272,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>true</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -254,13 +280,160 @@
                             <OptionalExtConfig>format:DATE_TIME_FORMAT_DEF</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_NEXT_RUN_DATE</LocalizationTag>
-                                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateExistingReportDefinition.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+        <Section>
+            <Title>
+                <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_TYPE</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>ReportDistributionType</ID>
+                            <Name>ReportDistributionType</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DEF_REPORT_OUTPUT_FILE_NAME</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddNewReportInstance.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>ReportDestination</ID>
+                            <Name>ReportDestination</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DEF_DESTINATION</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>FTPAccessUser</ID>
+                            <Name>FTPAccessUser</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DEF_USER_NAME</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>FTPAccessPassword</ID>
+                            <Name>FTPAccessPassword</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTPasswordMeter</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DEF_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>bGenerateControlFile</ID>
+                            <Name>bGenerateControlFile</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DEF_GENERATE_CONTROL_FILE</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
+                            <ID>ControlFileDeliveryLocation</ID>
+                            <Name>ControlFileDeliveryLocation</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <LocalizationTag>TEXT_DEF_CONTROL_FILE_DESTINATION</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowReportInstanceDetails.aspx</ResourceClassKey>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

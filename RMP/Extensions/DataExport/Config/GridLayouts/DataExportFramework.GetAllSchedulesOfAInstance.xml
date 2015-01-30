@@ -2,7 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>DataExportFramework.GetAllSchedulesOfAInstance</Name>
     <Title>
-        <Value><![CDATA[Report Instance Schedule]]></Value>
+        <LocalizationTag>TEXT_TITLE</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -27,7 +28,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[No schedule found for this instance ]]></Value>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -125,7 +127,8 @@
         <Button>
             <ButtonID>Back</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Back]]></Value>
+                <LocalizationTag>TEXT_BACK</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>
@@ -135,5 +138,45 @@
             <JSHandlerFunction>back</JSHandlerFunction>
         </Button>
     </GridButtons>
-    <ToolbarButtons></ToolbarButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>AddDailySchedule</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_Daily_Schedule</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <Value><![CDATA[]]></Value>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>adddailyschedule1</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>AddWeeklySchedule</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_Weekly_Schedule</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <Value><![CDATA[]]></Value>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>addweeklyschedule1</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>AddMonthlySchedule</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_Monthly_Schedule</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ManageReportInstanceSchedules.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <Value><![CDATA[]]></Value>
+            </ToolTip>
+            <IconClass></IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>addmonthlyschedule1</JSHandlerFunction>
+        </Button>
+    </ToolbarButtons>
 </GridLayout>

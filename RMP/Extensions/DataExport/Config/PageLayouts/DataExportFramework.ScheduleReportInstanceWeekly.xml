@@ -5,12 +5,13 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportSchedule</ObjectName>
     <Description>Web page to schedule reports weekly.</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/CreateScheduleReportInstanceWeekly.aspx</PageName>
-        <PageName>/MetraNet/DataExportReportManagement/UpdateScheduleReportInstanceWeekly.aspx</PageName>
+        <PageName>~/DataExportReportManagement/CreateScheduleReportInstanceWeekly.aspx</PageName>
+        <PageName>~/DataExportReportManagement/UpdateScheduleReportInstanceWeekly.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceWeekly.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -21,9 +22,11 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Weekly Schedule]]></Value>
+                <LocalizationTag>TEXT_WEEKLY_SCHEDULE</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceWeekly.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -35,6 +38,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
@@ -46,19 +50,23 @@
 							</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_EXECUTE_TIME</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceWeekly.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
         <Section>
             <Title>
-                <Value><![CDATA[Skip Execution on These Weekdays]]></Value>
+                <LocalizationTag>TEXT_SKIP_EXECUTION</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceWeekly.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -70,6 +78,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -77,9 +86,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_WEEKDAY_SUNDAY</LocalizationTag>
-                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/DataExportFrameworkManagement.aspx</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceWeekly.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -89,6 +99,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -99,6 +110,7 @@
                                 <ResourceClassKey>DataExportReportManagement/App_LocalResources/DataExportFrameworkManagement.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -108,6 +120,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -118,6 +131,7 @@
                                 <ResourceClassKey>DataExportReportManagement/App_LocalResources/DataExportFrameworkManagement.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -127,6 +141,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -137,6 +152,7 @@
                                 <ResourceClassKey>DataExportReportManagement/App_LocalResources/DataExportFrameworkManagement.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -150,6 +166,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -160,6 +177,7 @@
                                 <ResourceClassKey>DataExportReportManagement/App_LocalResources/DataExportFrameworkManagement.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -169,6 +187,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -179,6 +198,7 @@
                                 <ResourceClassKey>DataExportReportManagement/App_LocalResources/DataExportFrameworkManagement.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -188,6 +208,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -198,10 +219,12 @@
                                 <ResourceClassKey>DataExportReportManagement/App_LocalResources/DataExportFrameworkManagement.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

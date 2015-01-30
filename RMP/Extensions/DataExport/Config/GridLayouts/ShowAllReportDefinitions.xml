@@ -2,7 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>DataExportFramework.ShowAllReportDefinitions</Name>
     <Title>
-        <Value><![CDATA[Show All Report Definitions]]></Value>
+        <LocalizationTag>TITLE_SHOW_ALL</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAllReportDefinitions.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -28,7 +29,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[No Report Definitions found...]]></Value>
+        <LocalizationTag>NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAllReportDefinitions.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -131,7 +133,8 @@
             <DataIndex>ReportID</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Actions]]></Value>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAllReportDefinitions.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -163,7 +166,8 @@
         <Button>
             <ButtonID>addnewreportdefinition</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>

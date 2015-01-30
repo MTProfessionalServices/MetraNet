@@ -5,11 +5,12 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportInstance</ObjectName>
     <Description>Report Instance Details</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/UpdateExistingReportDefinition.aspx</PageName>
+        <PageName>~/DataExportReportManagement/UpdateExistingReportDefinition.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/CreateNewReportDefinition.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -20,9 +21,11 @@
     <sections>
         <Section>
             <Title>
-                <Value><![CDATA[]]></Value>
+                <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/CreateNewReportDefinition.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -34,17 +37,23 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTNumberField</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
+                            <Label>
+                                <LocalizationTag>TEXT_ID_REPORT</LocalizationTag>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/CreateNewReportDefinition.aspx</ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </sections>
 </PageLayout>

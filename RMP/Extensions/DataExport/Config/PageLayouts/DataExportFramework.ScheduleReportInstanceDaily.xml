@@ -5,12 +5,13 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportSchedule</ObjectName>
     <Description>Web page to schedule reports daily.</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/CreateScheduleReportInstanceDaily.aspx</PageName>
-        <PageName>/MetraNet/DataExportReportManagement/UpdateScheduleReportInstanceDaily.aspx</PageName>
+        <PageName>~/DataExportReportManagement/CreateScheduleReportInstanceDaily.aspx</PageName>
+        <PageName>~/DataExportReportManagement/UpdateScheduleReportInstanceDaily.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -21,9 +22,11 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Daily Schedule]]></Value>
+                <LocalizationTag>TEXT_DAILY_SCHEDULE</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -35,6 +38,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>true</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -45,9 +49,10 @@
 							</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_SCHEDULE_TYPE</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -57,6 +62,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
@@ -68,9 +74,10 @@
 							</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_EXECUTE_TIME</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -80,6 +87,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -89,9 +97,10 @@
                             </OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_REPEAT_HOURS</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -101,6 +110,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -112,9 +122,10 @@
 							</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_EXECUTE_START_TIME</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -124,6 +135,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -135,9 +147,10 @@
 							</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_EXECUTE_END_TIME</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -151,6 +164,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -158,9 +172,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_SKIP_FIRST_DAY_OF_MONTH</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -170,6 +185,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -177,9 +193,10 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_SKIP_LAST_DAY_OF_MONTH</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
@@ -189,6 +206,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -196,13 +214,15 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_MONTH_TO_DATE</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/UpdateScheduleReportInstanceDaily.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

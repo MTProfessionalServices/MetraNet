@@ -6,7 +6,8 @@
     <Description>In the report instance, you define all the details of generating and delivering the report instance.</Description>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/EditInstanceParameterValue.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -17,9 +18,11 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Update Instance Parameter Value]]></Value>
+                <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/EditInstanceParameterValue.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -31,6 +34,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -38,13 +42,15 @@
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_VALUE</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>MTTitle1Resource1.Text</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

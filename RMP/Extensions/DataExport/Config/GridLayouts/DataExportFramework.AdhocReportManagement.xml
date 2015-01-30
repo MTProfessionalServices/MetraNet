@@ -2,7 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>DataExportFramework.AdhocReportManagement</Name>
     <Title>
-        <Value><![CDATA[Show All Report Definitions]]></Value>
+        <LocalizationTag>TEXT_TITLE</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/AdHocReportManagement.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -130,7 +131,8 @@
             <DataIndex>ReportID</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Actions]]></Value>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AdHocReportManagement.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>

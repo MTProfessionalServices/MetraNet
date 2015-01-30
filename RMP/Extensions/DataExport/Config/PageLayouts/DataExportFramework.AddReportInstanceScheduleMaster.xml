@@ -5,11 +5,12 @@
     <ObjectName>MetraTech.DomainModel.Billing.ExportReportSchedule</ObjectName>
     <Description>web page where you have full control over scheduling each report instance.</Description>
     <Pages>
-        <PageName>/MetraNet/DataExportReportManagement/AddReportInstanceScheduleMaster.aspx</PageName>
+        <PageName>~/DataExportReportManagement/AddReportInstanceScheduleMaster.aspx</PageName>
     </Pages>
     <Header>
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+            <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddReportInstanceScheduleMaster.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -20,9 +21,11 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Add Report Instance Schedule]]></Value>
+                <LocalizationTag>MTTitle1Resource1.Text</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddReportInstanceScheduleMaster.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -34,6 +37,7 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
@@ -41,13 +45,15 @@
                             <OptionalExtConfig>width:90,height:60,</OptionalExtConfig>
                             <Label>
                                 <LocalizationTag>TEXT_DEF_SCHEDULE_TYPE</LocalizationTag>
-		                <ResourceClassKey>Resource</ResourceClassKey>
+                                <ResourceClassKey>DataExportReportManagement/App_LocalResources/AddReportInstanceScheduleMaster.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

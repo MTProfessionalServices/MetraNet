@@ -2,7 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>DataExportFramework.AssignedReportParameters</Name>
     <Title>
-        <Value><![CDATA[Currently Assigned Report Parameters]]></Value>
+        <LocalizationTag>TEXT_TITLE</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAssignedReportParameters.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -27,7 +28,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[Currently there are no parameters assigned to this report definition]]></Value>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAssignedReportParameters.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -130,7 +132,8 @@
             <DataIndex>IDParameter</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Action]]></Value>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>AccountConfigSets/App_LocalResources/AccountConfigSetList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -161,7 +164,8 @@
         <Button>
             <ButtonID>back</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Back]]></Value>
+                <LocalizationTag>TEXT_BACK</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>
@@ -175,7 +179,8 @@
         <Button>
             <ButtonID>assignreportparameter1</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Assign Parameters]]></Value>
+                <LocalizationTag>TEXT_Assign_Parameters</LocalizationTag>
+                <ResourceClassKey>DataExportReportManagement/App_LocalResources/ShowAssignedReportParameters.aspx</ResourceClassKey>
             </ButtonText>
             <ToolTip>
                 <Value><![CDATA[]]></Value>

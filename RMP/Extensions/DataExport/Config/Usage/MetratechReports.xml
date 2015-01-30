@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--To applay the changes you need to restart Data Export Service-->
+<!--To apply the changes you need to restart Data Export Service-->
 <xmlconfig>
 	<reports>
 		<scandataexportservice>
@@ -12,11 +12,11 @@
 		<!-- Data Export framework supports two types of path "relative" and "absolute". To change the path type use pathtype attribute in  path's tags -->
 		<!-- If pathtype attribute is not specified, then by default the Data Export will use relative path -->
 		<paths>
-			<!-- The deafult folder for saving reports in case user din't specify in report instance -->		
+			<!-- The default folder for saving reports in case user didn't specify in report instance -->		
 			<workingfolder pathtype="relative">..\WorkingFolder</workingfolder>
 			<queries>
 			
-				<!-- Folder for storing services queries that Data Export Service uses internaly -->
+				<!-- Folder for storing services queries that Data Export Service uses internally -->
 				<!-- Attention! If MN uses Query Management that path to services should contain 'SqlCustom\Queries" tail in the path -->
 				<service pathtype="relative">..\SqlCustom\Queries\Service</service>
 				<!-- Folder for storing custom query which were created by User -->

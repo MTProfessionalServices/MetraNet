@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Insert</Action>
+    <Implementations>
+        <Implementation>Common</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>NotificationEventID</Name>
+            <DataType>int64</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Unique key that identifies the notification event.</Description>
+        </Parameter>
+        <Parameter>
+            <Name>NotificationEventTypeID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Notification Event Type.</Description>
+        </Parameter>
+        <Parameter>
+            <Name>NotificationEventPropValues</Name>
+            <DataType>string</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>xml string that represents all notification event property values.</Description>
+        </Parameter>
+        <Parameter>
+            <Name>PartitionID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Partition ID of account</Description>
+        </Parameter>
+        <Parameter>
+            <Name>CreateDate</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Timestamp for when the notification event was created</Description>
+        </Parameter>
+    </Parameters>
+    <Description>Inserts a new row in t_notification_events.</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

@@ -316,37 +316,7 @@ FUNCTION checksubscriptionconflicts (
          /* MTPCUSER_CONFLICTING_PO_SUBSCRIPTION */
          RETURN (-289472485);
       END IF;
-
-	  IF (temp_status > 0 AND p_allow_multiple_pi_sub_rcnrc = 1)
-      THEN
-	-- Check whether conflicting subscription has any Non RC/NRC PIs in it
-	SELECT COUNT (id_pi_template) INTO conflicting_usagepi_count
-	FROM t_pl_map JOIN t_base_props bp1 on t_pl_map.id_pi_template = bp1.id_prop 
-	WHERE 
-	t_pl_map.id_po = temp_id_po AND
-	t_pl_map.id_paramtable IS NULL AND
-	bp1.n_kind in (10,40) AND
-	t_pl_map.id_pi_template IN
-           (SELECT id_pi_template
-            FROM t_pl_map
-            WHERE 
-              id_paramtable IS NULL AND
-              id_po IN
-                         (SELECT id_po
-                            FROM t_vw_effective_subs subs
-                            WHERE subs.id_sub <> temp_id_sub
-                            AND subs.id_acc = temp_id_acc
-                             AND dbo.overlappingdaterange (
-                                    subs.dt_start,
-                                    subs.dt_end,
-                                    temp_real_begin_date,
-                                    temp_real_end_date
-                                 ) = 1));
-	IF conflicting_usagepi_count > 0
-		THEN 
-			return (-289472484);
-		END IF;
-	END IF;
+	  
       for i in (
       select dbo.overlappingdaterange(temp_real_begin_date,temp_real_end_date,te.dt_start,te.dt_end) temp_status
       from t_po
@@ -386,6 +356,37 @@ FUNCTION checksubscriptionconflicts (
          return (-289472484);
       END IF;
 
+    IF (temp_status > 0 AND p_allow_multiple_pi_sub_rcnrc = 1)
+    THEN
+    -- Check whether conflicting subscription has any Non RC/NRC PIs in it
+    SELECT COUNT (id_pi_template) INTO conflicting_usagepi_count
+    FROM t_pl_map JOIN t_base_props bp1 on t_pl_map.id_pi_template = bp1.id_prop 
+    WHERE 
+    t_pl_map.id_po = temp_id_po AND
+    t_pl_map.id_paramtable IS NULL AND
+    bp1.n_kind in (10,40) AND
+    t_pl_map.id_pi_template IN
+             (SELECT id_pi_template
+              FROM t_pl_map
+              WHERE 
+                id_paramtable IS NULL AND
+                id_po IN
+                           (SELECT id_po
+                              FROM t_vw_effective_subs subs
+                              WHERE subs.id_sub <> temp_id_sub
+                              AND subs.id_acc = temp_id_acc
+                               AND dbo.overlappingdaterange (
+                                      subs.dt_start,
+                                      subs.dt_end,
+                                      temp_real_begin_date,
+                                      temp_real_end_date
+                                   ) = 1));
+    IF conflicting_usagepi_count > 0
+      THEN 
+        return (-289472484);
+      END IF;
+    END IF;
+      
 /* CR 10872: make sure account and po have the same currency
 
  BP - actually we need to check if a payer has different currency

@@ -9,8 +9,9 @@ PROCEDURE addsubscriptionbase (
    p_guid           IN       RAW,
    p_systemdate     IN       DATE,
    p_id_sub                  INTEGER,
+   p_quoting_batchid  IN       VARCHAR2,
    p_status         OUT      INTEGER,
-   p_datemodified   OUT      VARCHAR,
+   p_datemodified   OUT      VARCHAR,   
    p_allow_acc_po_curr_mismatch INTEGER default 0,
    p_allow_multiple_pi_sub_rcnrc INTEGER default 0
 )
@@ -20,6 +21,7 @@ AS
    realenddate      DATE;
    realguid         RAW (16);
    dummy            INT;
+   tx_quoting_batchid RAW (16);
 BEGIN
    varmaxdatetime := dbo.mtmaxdate ();
    p_status := 0;
@@ -165,12 +167,14 @@ BEGIN
       realguid := p_guid;
    END IF;
 
+   tx_quoting_batchid := p_quoting_batchid;   
    createsubscriptionrecord (p_id_sub,
                              realguid,
                              p_id_acc,
                              p_id_group,
                              p_id_po,
                              p_systemdate,
+                             tx_quoting_batchid,
                              realstartdate,
                              realenddate,
                              p_systemdate,

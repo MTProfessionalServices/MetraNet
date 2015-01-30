@@ -10,6 +10,7 @@
 					vt_end date not null,
 					tt_start date not null,
 					tt_end date not null,
+          			tx_quoting_batch raw(16) NULL,
 					CONSTRAINT date_sub_hist_check1 check ( vt_start <= vt_end)
 					)
 					

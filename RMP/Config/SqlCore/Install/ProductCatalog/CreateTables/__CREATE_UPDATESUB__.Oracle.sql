@@ -205,11 +205,12 @@ BEGIN
                              p_id_acc,
                              id_group,
                              p_id_po,
-                             p_systemdate,
+                             p_systemdate,                             
+                             null,
                              real_begin_date,
                              real_end_date,
                              p_systemdate,
-                             p_status
+                             p_status                             
                             );
    RETURN;
 END;

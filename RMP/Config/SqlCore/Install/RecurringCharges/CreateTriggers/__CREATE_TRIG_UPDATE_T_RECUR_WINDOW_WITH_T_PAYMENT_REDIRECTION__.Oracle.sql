@@ -5,7 +5,8 @@ TRIGGER trig_recur_window_pay_redir
   AFTER
   INSERT ON t_payment_redirection REFERENCING NEW AS NEW
   FOR EACH row
-  DECLARE currentDate DATE;   
+  DECLARE currentDate DATE;
+          noChanges NUMBER(1);
   BEGIN
     /*Get the old vt_start and vt_end for payees that have changed*/
     insert into tmp_redir
@@ -19,6 +20,22 @@ TRIGGER trig_recur_window_pay_redir
        WHERE redirnew.id_payee = :new.id_payee
          AND redirnew.tt_end     = dbo.MTMaxDate();
 
+    SELECT CASE 
+                WHEN EXISTS(
+                         SELECT * FROM tmp_redir t_old
+                         WHERE  t_old.id_payer = :new.id_payer
+                                AND t_old.id_payee = :new.id_payee
+                                AND t_old.vt_start = :new.vt_start
+                                AND t_old.vt_end = :new.vt_end
+                     ) THEN 1
+                ELSE 0
+           END INTO noChanges
+    FROM   DUAL;
+
+    /* Fix for CORE-8430. In described case logic layer doing unnecessary DELETE and then INSERT of a same row on Oracle only.
+    It launches RC generation logic - and we don't want that. It's a quick and safe fix. */
+    IF noChanges = 1 THEN RETURN; END IF;
+
    /*Get the old windows for payees that have changed*/
     insert into tmp_oldrw
       SELECT * FROM t_recur_window trw JOIN tmp_redir
@@ -26,7 +43,7 @@ TRIGGER trig_recur_window_pay_redir
         AND trw.c_PayerStart = tmp_redir.vt_start
         AND trw.c_PayerEnd   = tmp_redir.vt_end;
 
-SELECT metratime(1,'RC') INTO currentDate FROM dual;	
+SELECT metratime(1,'RC') INTO currentDate FROM dual;
 
 insert into tmp_newrw
   SELECT orw.c_CycleEffectiveDate ,
@@ -50,7 +67,8 @@ insert into tmp_newrw
     orw.c_LastIdRun ,
     orw.c_MembershipStart ,
     orw.c_MembershipEnd,
-    AllowInitialArrersCharge(orw.c_Advance, :new.id_payer, orw.c_SubscriptionEnd, currentDate) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(orw.c_Advance, :new.id_payer, orw.c_SubscriptionEnd, currentDate, 0) c__IsAllowGenChargeByTrigger,
+    orw.c__QuoteBatchId c__QuoteBatchId
   FROM tmp_oldrw orw
   WHERE orw.c__AccountId = :new.id_payee;
   
@@ -60,7 +78,7 @@ insert into tmp_newrw
   FROM t_recur_window
   WHERE EXISTS
     (SELECT 1
-    FROM tmp_newrw orw where
+    FROM tmp_oldrw orw where
     t_recur_window.c__PayingAccount      = orw.c__PayingAccount
     AND t_recur_window.c__ProductOfferingID = orw.c__ProductOfferingID
     AND t_recur_window.c_PayerStart         = orw.c_PayerStart
@@ -89,7 +107,8 @@ insert into tmp_newrw
     c_BilledThroughDate,
     c_LastIdRun,
     c_MembershipStart,
-    c_MembershipEnd
+    c_MembershipEnd,
+    c__quotebatchid    
     FROM tmp_newrw;
 
   UPDATE t_recur_window w1

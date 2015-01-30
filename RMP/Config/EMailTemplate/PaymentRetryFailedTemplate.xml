@@ -32,6 +32,37 @@ Sincerely,<br />
 Customer Service 
 ]]></message_body>
     </MailStruct>
+	<MailStruct>
+      <language>GB</language>
+      <default_headers>
+        <body_html>0</body_html> <!-- 0:BodyHtmlTrue, 1:BodyHtmlFalse -->
+        <def_from>mail@metratech.com</def_from>
+        <def_to></def_to>
+        <def_subject>Automatic Payment Failed</def_subject>
+        <def_cc>mail@metratech.com</def_cc>
+        <def_bcc></def_bcc>
+        <def_importance>1</def_importance> <!-- 0:LowPriority, 1:HighPriority -->
+      </default_headers>
+      <message_body>
+  <![CDATA[<br />
+Dear %%FIRSTNAME%% %%LASTNAME%%,<br />
+The follwing Automatic Payment Method set up for your account has failed to process.  <br />
+<br />
+Invoice Number: %%INVOICENUM%%<br />
+Invoice Date: %%INVOICEDT%%<br />
+Current: %%CURRENCY%%<br />
+Amount: %%AMOUNT%%<br />
+<br />
+Account Number: %%ACCTNUM%%<br />
+<br />
+Please contact customer support immediately to resolve this outstanding invoice.  Failure to do so will result in the termination of services.<br />
+<br />
+If you have any questions or comments, please contact us. You can email us at customer_service@MetraTechCustomerName.com or you can reach us by phone at (800) xxx-xxxx during business hours.<br /><br />
+
+Sincerely,<br />
+Customer Service 
+]]></message_body>
+    </MailStruct>
     <MailStruct>
       <language>DE</language>
 		<default_headers>

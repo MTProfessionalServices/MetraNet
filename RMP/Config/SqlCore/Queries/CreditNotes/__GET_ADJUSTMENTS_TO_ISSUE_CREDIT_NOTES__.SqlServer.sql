@@ -20,7 +20,7 @@ FROM
 		t_pv_AccountCredit AC
 		INNER JOIN t_acc_usage USAGE ON USAGE.id_sess = AC.id_sess
 	WHERE 
-		AC.c_SubscriberAccountID = @AccountId AND AC.c_CreditTime BETWEEN @FromDate AND @ToDate 
+		(AC.c_SubscriberAccountID = @AccountId OR USAGE.id_acc = @AccountId) AND AC.c_CreditTime BETWEEN @FromDate AND @ToDate 
 	UNION ALL
 	SELECT 
 		0 AS 'AdjustmentType',

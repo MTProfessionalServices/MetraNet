@@ -218,6 +218,20 @@
       and 
       %%PRODUCT_PREDICATE%% 
       and au.id_sess <= (select id_sess from t_mv_max_sess)      
-      ) foo			
-
+      ) foo	
+      
+  /*__QUERY_To_RETURN_COUNT__*/ 
+	 select au.id_sess,au.id_usage_interval
+		from  %%TABLE_NAME%% pv 
+      INNER JOIN t_acc_usage au on au.id_sess = pv.id_sess 	and au.id_usage_interval = pv.id_usage_interval
+	  %%FROM_CLAUSE%%
+	  %%ACCOUNT_FROM_CLAUSE%%
+      where 
+      %%ACCOUNT_PREDICATE%% 
+      and 
+      %%TIME_PREDICATE%% 
+      and 
+      %%PRODUCT_PREDICATE%% 
+      and au.id_sess <= (select id_sess from t_mv_max_sess)      
+	  
 	 

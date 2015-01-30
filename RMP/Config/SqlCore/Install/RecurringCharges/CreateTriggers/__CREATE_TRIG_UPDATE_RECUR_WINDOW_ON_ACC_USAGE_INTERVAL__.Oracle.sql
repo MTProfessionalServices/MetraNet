@@ -28,10 +28,11 @@ create or replace TRIGGER trg_recur_win_acc_usage_int AFTER INSERT OR DELETE OR 
           NVL(rv.vt_start, dbo.mtmindate()) c_UnitValueStart,
           NVL(rv.vt_end, dbo.mtmaxdate()) c_UnitValueEnd,
           rv.n_value c_UnitValue ,
-          metratime(1,'RC') c_BilledThroughDate ,
+          dbo.mtmindate() c_BilledThroughDate ,
           -1 c_LastIdRun ,
           dbo.mtmindate() c_MembershipStart ,
-          dbo.mtmaxdate() c_MembershipEnd
+          dbo.mtmaxdate() c_MembershipEnd,
+          sub.TX_QUOTING_BATCH
        FROM t_sub sub INNER JOIN t_payment_redirection pay
          ON pay.id_payee  = sub.id_acc AND pay.vt_start < sub.vt_end
            AND pay.vt_end   > sub.vt_start
@@ -69,7 +70,8 @@ create or replace TRIGGER trg_recur_win_acc_usage_int AFTER INSERT OR DELETE OR 
          dbo.mtmindate() c_BilledThroughDate ,
          -1 c_LastIdRun ,
          dbo.mtmindate() c_MembershipStart ,
-         dbo.mtmaxdate() c_MembershipEnd
+         dbo.mtmaxdate() c_MembershipEnd,
+         sub.TX_QUOTING_BATCH
        FROM t_gsubmember gsm INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
          INNER JOIN t_payment_redirection pay ON pay.id_payee  = gsm.id_acc
            AND pay.vt_start < sub.vt_end AND pay.vt_end   > sub.vt_start
@@ -112,7 +114,8 @@ create or replace TRIGGER trg_recur_win_acc_usage_int AFTER INSERT OR DELETE OR 
          dbo.mtmindate() c_BilledThroughDate ,
          -1 c_LastIdRun ,
          grm.vt_start c_MembershipStart ,
-         grm.vt_end c_MembershipEnd
+         grm.vt_end c_MembershipEnd,
+          sub.TX_QUOTING_BATCH
     FROM t_gsub_recur_map grm
     /* TODO: GRM dates or sub dates or both for filtering */
        INNER JOIN t_sub sub ON grm.id_group = sub.id_group

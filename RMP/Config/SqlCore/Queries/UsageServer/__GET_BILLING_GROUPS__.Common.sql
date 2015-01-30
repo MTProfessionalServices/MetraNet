@@ -54,7 +54,9 @@ SELECT bg.id_billgroup BillingGroupID,
 		)
 	)		
 		and bgs.status = 'C'
-	) then 'Y' else 'N' end CanBeHardClosed
+	) then 'Y' else 'N' end CanBeHardClosed,
+  bg.id_partition id_partition,
+  partition_name.nm_login partition_name
 FROM t_billgroup bg
 INNER JOIN t_usage_interval ui ON ui.id_interval = bg.id_usage_interval
 INNER JOIN t_usage_cycle uc ON uc.id_usage_cycle = ui.id_usage_cycle  
@@ -183,6 +185,7 @@ LEFT OUTER JOIN
    Or: "WHERE bg.id_billgroup = BILLING_GROUP_ID"
    Or: WHERE bg.id_billgroup IN (SELECT * FROM GetBillingGroupDescendants(1001))
 */
+LEFT OUTER JOIN t_account_mapper partition_name on bg.id_partition = partition_name.id_acc and partition_name.nm_space = 'mt'
 %%OPTIONAL_WHERE_CLAUSE%%
 %%OPTIONAL_ORDER_BY_CLAUSE%%
    

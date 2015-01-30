@@ -146,7 +146,7 @@ begin
     ,c__IntervalID
     ,'0' AS c__Resubmit
     ,NULL AS c__TransactionCookie
-    ,null AS c__CollectionID,
+    ,c__QuoteBatchId AS c__CollectionID,
     1 as id_partition
 FROM tmp_rc where c_UnitValue is null
     and (c_RCActionType like meterType1 or c_RcActionType like meterType2);
@@ -215,10 +215,11 @@ SELECT
     ,c__IntervalID
     ,'0' AS c__Resubmit
     ,NULL AS c__TransactionCookie
-    ,null AS c__CollectionID
+    ,c__QuoteBatchId AS c__CollectionID
     ,1 as id_partition
    FROM tmp_rc where c_UnitValue is not null
      and (c_RCActionType like meterType1 or c_RcActionType like meterType2);
-     
+
+/* WHY?! */
 delete FROM tmp_rc where (c_RCActionType like meterType1 or c_RcActionType like meterType2);
 end insertchargesintosvctables;

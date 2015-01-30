@@ -1,6 +1,6 @@
 
 create procedure AddNewSub(
- @p_id_acc int, 
+ @p_id_acc int,
  @p_dt_start datetime,
  @p_dt_end datetime,
  @p_NextCycleAfterStartDate varchar,
@@ -12,7 +12,8 @@ create procedure AddNewSub(
  @p_status int output,
  @p_datemodified varchar(1) output,
  @p_allow_acc_po_curr_mismatch int = 0,
- @p_allow_multiple_pi_sub_rcnrc int = 0)
+ @p_allow_multiple_pi_sub_rcnrc int = 0,
+ @p_quoting_batch_id varchar(256)=null)
 as
 begin
 declare @real_begin_date as datetime
@@ -30,7 +31,7 @@ if (upper(@p_NextCycleAfterStartDate) = 'Y')
 else
  begin
    select @real_begin_date = @p_dt_start
- end 
+ end
 if (upper(@p_NextCycleAfterEndDate) = 'Y' AND @p_dt_end is not NULL)
  begin
  select @real_end_date = dbo.NextDateAfterBillingCycle(@p_id_acc,@p_dt_end)
@@ -43,8 +44,21 @@ if (@p_dt_end is NULL)
  begin
  select @real_end_date = @varMaxDateTime
  end
-exec AddSubscriptionBase @p_id_acc,NULL,@p_id_po,@real_begin_date,@real_end_date,@p_GUID,@p_systemdate,@p_id_sub,
-@p_status output,@datemodified output,@p_allow_acc_po_curr_mismatch,@p_allow_multiple_pi_sub_rcnrc
+
+exec AddSubscriptionBase 
+			@p_id_acc,
+			NULL,
+			@p_id_po,
+			@real_begin_date,
+			@real_end_date,
+			@p_GUID,
+			@p_systemdate,
+			@p_id_sub,
+			@p_status output,
+			@datemodified output,
+			@p_allow_acc_po_curr_mismatch,
+			@p_allow_multiple_pi_sub_rcnrc, 
+			@p_quoting_batch_id 
+
 select @p_datemodified = @datemodified
 end
-		

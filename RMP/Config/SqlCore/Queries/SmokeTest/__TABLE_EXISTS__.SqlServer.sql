@@ -1,6 +1,0 @@
-
-		IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '%%TABLE_NAME%%')
-			SELECT table_exists = 'Y'
-		ELSE
-			SELECT table_exists = 'N'
-		

@@ -33,7 +33,7 @@
 		
  		<currency>
 			<currency_code>GBP</currency_code>
-			<currency_symbol>&amp;pound </currency_symbol>
+			<currency_symbol>&#xA3; </currency_symbol>
 			<currency_thousands_delimiter>,</currency_thousands_delimiter>
 			<currency_fraction_delimiter>.</currency_fraction_delimiter>
 			<currency_symbol_position ptype="INTEGER">-1</currency_symbol_position>
@@ -41,7 +41,7 @@
 		
  		<currency>
 			<currency_code>JPY</currency_code>
-			<currency_symbol>&amp;yen </currency_symbol>
+			<currency_symbol>&#xa5; </currency_symbol>
 			<currency_thousands_delimiter>.</currency_thousands_delimiter>
 			<currency_fraction_delimiter>,</currency_fraction_delimiter>
 			<currency_symbol_position ptype="INTEGER">-1</currency_symbol_position>

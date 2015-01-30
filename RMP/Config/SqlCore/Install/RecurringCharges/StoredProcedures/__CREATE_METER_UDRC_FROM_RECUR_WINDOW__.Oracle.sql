@@ -52,7 +52,7 @@ BEGIN
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
     INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
       AND (
-            (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end)      /* If this is in advance, check if rc start falls in this interval */
+            pci.dt_start  BETWEEN ui.dt_start AND ui.dt_end                               /* Check if rc start falls in this interval */
             OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                               /* or check if the cycle end falls into this interval */
             OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)                    /* or this interval could be in the middle of the cycle */
           )
@@ -61,11 +61,12 @@ BEGIN
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
       AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
       AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-    INNER JOIN t_usage_interval currentui ON currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+    INNER JOIN t_usage_interval currentui ON rw.c_SubscriptionStart BETWEEN currentui.dt_start AND currentui.dt_end
       AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
     /* Only issue corrections if there's a previous iteration. */
     EXISTS (SELECT 1 FROM t_recur_value rv WHERE rv.id_sub = rw.c__SubscriptionID AND rv.tt_end < dbo.MTMaxDate())
+    AND ui.dt_start <= rw.c_SubscriptionStart
     AND ui.dt_start < currentDate
     AND rw.c__IsAllowGenChargeByTrigger = 1;
 
@@ -96,13 +97,31 @@ BEGIN
          c_BilledRateDate,
          c__SubscriptionID,
          c__IntervalID,
-         SYS_GUID() AS idSourceSess
+         SYS_GUID() AS idSourceSess,
+         null
   FROM   TMP_UDRC;
 
-  insertChargesIntoSvcTables('AdvanceCorrection','DebitCorrection');
+  IF (actionType = 'DebitCorrection') THEN
+    MERGE
+    INTO    tmp_newrw trw
+    USING   (
+              SELECT MAX(c_RCIntervalSubscriptionEnd) AS NewBilledThroughDate, c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+              FROM tmp_rc
+              GROUP BY c__AccountID, c__ProductOfferingID, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c_RCActionType, c__SubscriptionID
+            ) trc
+    ON      (
+              trw.c__AccountID = trc.c__AccountID
+              AND trw.c__SubscriptionID = trc.c__SubscriptionID
+              AND trw.c__PriceableItemInstanceID = trc.c__PriceableItemInstanceID
+              AND trw.c__PriceableItemTemplateID = trc.c__PriceableItemTemplateID
+              AND trw.c__ProductOfferingID = trc.c__ProductOfferingID
+              AND trw.c__IsAllowGenChargeByTrigger = 1
+            )
+    WHEN MATCHED THEN
+    UPDATE
+    SET     trw.c_BilledThroughDate = trc.NewBilledThroughDate;
+  END IF;
 
-  UPDATE  tmp_newrw rw
-  SET     c_BilledThroughDate = currentDate	
-  WHERE   rw.c__IsAllowGenChargeByTrigger = 1;
+  insertChargesIntoSvcTables('AdvanceCorrection','DebitCorrection');
 
 END MeterUdrcFromRecurWindow;

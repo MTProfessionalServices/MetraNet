@@ -28,6 +28,7 @@ BEGIN
    -- BEGIN TRAN
    
    DECLARE @id_parent_billgroup INT
+   DECLARE @id_partition INT
 
    SELECT @id_parent_billgroup = id_parent_billgroup
    FROM t_billgroup_materialization
@@ -58,23 +59,31 @@ BEGIN
    WHERE bgmt.id_materialization = @id_materialization AND
                bgmh.id_billgroup = @id_parent_billgroup
 
+   -- get id_partition of the parent bill group
+   SELECT @id_partition = id_partition
+   FROM t_billgroup bg 
+   WHERE id_billgroup = @id_parent_billgroup
+
    -- insert child billing group data into t_billgroup from t_billgroup_tmp
    INSERT INTO t_billgroup (id_billgroup, 
                                            tx_name, 
                                            tx_description, 
                                            id_usage_interval, 
                                            id_parent_billgroup, 
-                                           tx_type)
+                                           tx_type,
+                                          id_partition)
    SELECT bgt.id_billgroup, 
                bgt.tx_name, 
                bgt.tx_description, 
                bgm.id_usage_interval, 
                bgm.id_parent_billgroup, 
-               bgm.tx_type
+               bgm.tx_type,
+               @id_partition
    FROM t_billgroup_tmp bgt    
    INNER JOIN t_billgroup_materialization bgm 
        ON bgm.id_materialization = bgt.id_materialization
    WHERE bgm.id_materialization = @id_materialization
+  
 
    -- insert child billing group data into t_billgroup_member
   INSERT INTO t_billgroup_member (id_billgroup, id_acc, id_materialization, id_root_billgroup)

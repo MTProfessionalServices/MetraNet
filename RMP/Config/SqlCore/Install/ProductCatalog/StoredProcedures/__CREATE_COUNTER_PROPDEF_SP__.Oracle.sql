@@ -12,8 +12,10 @@
 		AS
 			identity_value 	t_counterpropdef.id_prop%type;
 			id_locale int;
+			id_display_name int;
+			id_display_desc int;
 		BEGIN
-			InsertBaseProps(temp_id_lang_code, n_kind, 'N', 'N', nm_name, NULL, nm_display_name, identity_value);
+			InsertBaseProps(temp_id_lang_code, n_kind, 'N', 'N', nm_name, NULL, nm_display_name, identity_value, id_display_name, id_display_desc);
 
 			INSERT INTO t_counterpropdef
 				(id_prop, id_pi, nm_servicedefprop, n_order,

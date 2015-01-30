@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>CreateTable</Action>
+    <Implementations>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <InstallTime>PreSync</InstallTime>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <Parameters></Parameters>
+    <Description>Oracle temporary table used by AnalyticsDataMart adapter 'CreateAnalyticsDataMart' stored procedure</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

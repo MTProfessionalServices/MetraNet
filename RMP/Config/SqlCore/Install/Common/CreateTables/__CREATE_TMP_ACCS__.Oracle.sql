@@ -1,1 +1,0 @@
-create global temporary table tmp_accs(x clob) on commit delete rows

@@ -1,6 +1,6 @@
 
-    CREATE PROCEDURE InsertChargesIntoSvcTables
-AS
+CREATE PROCEDURE InsertChargesIntoSvcTables
+    AS
 BEGIN
     DECLARE @id_run INT
     declare @idMessage BIGINT
@@ -21,7 +21,7 @@ BEGIN
     set @idServiceUdrc = (SELECT id_enum_data FROM t_enum_data ted WHERE ted.nm_enum_data LIKE
       'metratech.com/udrecurringcharge');
     
-    INSERT INTO t_session 
+    INSERT INTO t_session
       SELECT @id_run + ROW_NUMBER() OVER (ORDER BY idSourceSess) - 1 AS id_ss,
              idSourceSess AS id_source_sess, @partition as id_partition
       FROM #tmp_rc;
@@ -71,7 +71,7 @@ BEGIN
          ,c_SubscriptionEnd
          ,c_Advance
          ,c_ProrateOnSubscription
-         ,c_ProrateInstantly 
+         ,c_ProrateInstantly
          ,c_ProrateOnUnsubscription
          ,c_ProrationCycleLength
          ,c__AccountID
@@ -86,7 +86,7 @@ BEGIN
          ,c__TransactionCookie
          ,c__CollectionID
    )
-       SELECT 
+       SELECT
          idSourceSess AS id_source_sess
          ,NULL AS id_parent_source_sess
          ,NULL AS id_external
@@ -101,7 +101,7 @@ BEGIN
          ,c_SubscriptionEnd
          ,c_Advance
          ,c_ProrateOnSubscription
-         ,c_ProrateInstantly 
+         ,c_ProrateInstantly
          ,c_ProrateOnUnsubscription
          ,c_ProrationCycleLength
          ,c__AccountID
@@ -114,7 +114,7 @@ BEGIN
          ,c__IntervalID
          ,'0' AS c__Resubmit
          ,NULL AS c__TransactionCookie
-         ,null AS c__CollectionID
+         ,c__QuoteBatchId AS c__CollectionID
       FROM #tmp_rc WHERE c_UnitValue IS NULL;
     
       INSERT INTO t_svc_UDRecurringCharge
@@ -151,7 +151,7 @@ BEGIN
            ,c__TransactionCookie
            ,c__CollectionID
            )
-        SELECT 
+        SELECT
            idSourceSess AS id_source_sess
            ,NULL AS id_parent_source_sess
            ,NULL AS id_external
@@ -182,7 +182,7 @@ BEGIN
            ,c__IntervalID
            ,'0' AS c__Resubmit
            ,NULL AS c__TransactionCookie
-           ,null AS c__CollectionID
+           ,c__QuoteBatchId AS c__CollectionID
        FROM #tmp_rc WHERE c_UnitValue IS not NULL
     ;
 END

@@ -3,7 +3,8 @@ ON dbo.t_gsub_recur_map
 for insert, UPDATE, delete
 as 
 begin
-declare @temp datetime;
+declare @temp                         datetime,
+        @num_notnull_quote_batchids   INT
 
 delete from t_recur_window where exists (
     select 1 from deleted gsrm 
@@ -27,9 +28,15 @@ delete from t_recur_window where exists (
 	UPDATE SET c_MembershipStart = source.vt_start,
 	           c_MembershipEnd = source.vt_end;
 			   
-	select @temp = tt_start from inserted           
-	           
- SELECT
+	select @temp = tt_start from inserted;           
+	 
+   SELECT @num_notnull_quote_batchids = count(1)
+    FROM inserted gsrm 
+      join t_sub sub on gsrm.id_group = sub.id_group 
+    WHERE tx_quoting_batch is not null 
+      AND tx_quoting_batch!=0x00000000000000000000000000000000; 
+			   
+  SELECT
        sub.vt_start AS c_CycleEffectiveDate
       ,sub.vt_start AS c_CycleEffectiveStart
       ,sub.vt_end AS c_CycleEffectiveEnd
@@ -50,8 +57,8 @@ delete from t_recur_window where exists (
       , @temp as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , grm.vt_start AS c_MembershipStart
-      , grm.vt_end AS c_MembershipEnd
-      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
+      , grm.vt_end AS c_MembershipEnd      
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, sub.dt_crt, @num_notnull_quote_batchids) AS c__IsAllowGenChargeByTrigger
 	  into #recur_window_holder
 FROM inserted grm
       /* TODO: GRM dates or sub dates or both for filtering */

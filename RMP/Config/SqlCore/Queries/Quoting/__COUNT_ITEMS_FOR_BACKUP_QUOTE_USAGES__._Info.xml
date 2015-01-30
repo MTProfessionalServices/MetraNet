@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Insert</Action>
+    <Action>Get</Action>
     <Implementations>
         <Implementation>Common</Implementation>
     </Implementations>

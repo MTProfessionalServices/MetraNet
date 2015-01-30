@@ -1,0 +1,1 @@
+create table sum_rcs_by_month (InstanceId varchar2(64), SubscriptionId int not null, PriceableItemTemplateId int, PriceableItemInstanceId int, Currency nvarchar2(3), Year int, Month int, DaysInMonth int, DaysActiveInMonth int, TotalAmount number(22,10), OldAmount number(22,10), NewAmount number(22,10));

@@ -8,10 +8,10 @@ sub.vt_start dt_start,
 sub.vt_end dt_end,
 sub.vt_start,
 sub.vt_end,
-tb_po.n_name po_n_name,
-tb_po.nm_name po_nm_name,
-tb_po.n_display_name po_n_display_name,
-tb_po.nm_display_name po_nm_display_name,
+COALESCE(tb_po.n_name, tbp.n_name) po_n_name,
+COALESCE(tb_po.nm_name, tbp.nm_name) po_nm_name,
+COALESCE(tb_po.n_display_name, tbp.n_display_name) po_n_display_name,
+COALESCE(tb_po.nm_display_name, tbp.nm_display_name) po_nm_display_name,
 case when tmp.num_recurring > 0 then 'Y' else 'N' end as b_RecurringCharge,
 case when tmp.num_discount > 0 then 'Y' else 'N' end as b_Discount,
 case when tmp.num_icbs > 0 then 'Y' else 'N' end as b_PersonalRate,
@@ -36,7 +36,8 @@ group by s.id_sub
 ) tmp
 INNER JOIN t_sub sub ON sub.id_sub=tmp.id_sub
 /*  Need this because of PO extended properties in JOINS will refer to this table */
-INNER JOIN t_po ON t_po.id_po=sub.id_po
-INNER JOIN t_vw_base_props tb_po on tb_po.id_prop = t_po.id_po and tb_po.id_lang_code = %%ID_LANG%%
+INNER JOIN t_po ON t_po.id_po = sub.id_po
+INNER JOIN t_base_props tbp ON tbp.id_prop = t_po.id_po
+LEFT OUTER JOIN t_vw_base_props tb_po ON tb_po.id_prop = t_po.id_po AND tb_po.id_lang_code = %%ID_LANG%%
 %%JOINS%%
 				

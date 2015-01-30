@@ -1,10 +1,16 @@
-CREATE FUNCTION AllowInitialArrersCharge(@b_advance char, @id_acc int, @sub_end datetime, @current_date datetime) RETURNS bit
+CREATE FUNCTION AllowInitialArrersCharge(@b_advance char, @id_acc int, @sub_end datetime, @current_date datetime, @isQuote int = 0) RETURNS bit
 AS
 BEGIN
 	IF @b_advance = 'Y'
 	BEGIN
 	   /* allows to create initial for ADVANCE */
 		RETURN 1
+	END
+
+	IF @isQuote > 0
+	BEGIN
+	   /* disable to create initial for ARREARS in case of quote */
+		RETURN 0
 	END
 
 	IF @current_date IS NULL

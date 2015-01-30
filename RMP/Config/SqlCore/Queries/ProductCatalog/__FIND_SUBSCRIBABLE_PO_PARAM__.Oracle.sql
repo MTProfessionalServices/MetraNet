@@ -14,18 +14,16 @@ SELECT DISTINCT (t_po.id_po),
    t_base_props.n_desc, 
    t_base_props.n_display_name, 
    t_base_props.nm_name, 
-   (SELECT tx_desc as nm_desc 
+   NVL((SELECT tx_desc as nm_desc 
    FROM t_description 
    WHERE id_desc       = t_base_props.n_desc 
       and id_lang_code = :idLangcode
-   ) 
-   nm_desc,    
-   (SELECT tx_desc as nm_display_name 
+   ), t_base_props.nm_desc) as nm_desc,    
+   NVL((SELECT tx_desc as nm_display_name 
    FROM t_description 
    WHERE id_desc       = t_base_props.n_display_name 
       and id_lang_code = :idLangcode
-   ) 
-   nm_display_name, 
+   ), t_base_props.nm_name) as nm_display_name, 
    te.n_begintype   as te_n_begintype, 
    te.dt_start      as te_dt_start, 
    te.n_beginoffset as te_n_beginoffset, 

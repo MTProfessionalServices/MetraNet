@@ -9,7 +9,7 @@
             <Name>UTCDATE</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>getutcdate()</SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>1=2 and getutcdate()</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

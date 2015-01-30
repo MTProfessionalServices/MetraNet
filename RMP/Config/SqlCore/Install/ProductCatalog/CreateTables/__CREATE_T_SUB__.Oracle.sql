@@ -8,6 +8,7 @@
 					DT_CRT DATE NULL,
 					vt_start date not null,
 					vt_end date not null,
+          			tx_quoting_batch raw(16) NULL,
 					CONSTRAINT pk_t_sub PRIMARY KEY (id_sub),
 					CONSTRAINT date_sub_check1 check ( vt_start <= vt_end)
 					)

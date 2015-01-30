@@ -31,12 +31,7 @@
             <Name>IsPostbill</Name>
             <DataType>boolean</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>langCode</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

@@ -78,8 +78,9 @@
     ]]>
     </Description>
     <Short_Description>Synchronize Auth</Short_Description>
-    <hook require_input="false">MetraHook.MTCapabilityHook</hook>
-    <hook secured="true" require_input="false">MetraHook.MTSecurityPolicyHook</hook>
+    <!-- <hook require_input="false">MetraHook.MTCapabilityHook</hook> -->
+	<hook secured="true" require_input="false">MetraTech.Security.Hooks.CapabilityHook</hook>
+    <hook secured="true" require_input="false">MetraHook.MTSecurityPolicyHook</hook>    
   </hooklist>
 
   <hooklist>
@@ -144,15 +145,15 @@
     <hook require_input="true">MetraHook.RegisterExtensionObjects.1</hook>
   </hooklist>
 
-  <!--hooklist>
+  <hooklist>
     <Description>
       <![CDATA[Update Report Template Information in Crystal Enterprise internal storage.<br><br>
       <b>When to run:</b> Report Template (RPT file) has been modified on MetraNet machine or report
       template unique name has been modified on MetraNet machine.]]>
     </Description>
     <Short_Description>Synchronize Report Templates</Short_Description>
-    <hook require_input="false">MetraTech.Reports.Hooks.DeployCEReports</hook>
-  </hooklist-->
+    <hook extension_name="reporting" require_input="false">MetraTech.Reports.Hooks.DeployCEReports</hook>
+  </hooklist>
 
   <hooklist>
     <Description>

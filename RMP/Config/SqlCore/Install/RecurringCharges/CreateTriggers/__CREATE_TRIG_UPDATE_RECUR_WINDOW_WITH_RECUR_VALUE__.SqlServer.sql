@@ -10,7 +10,9 @@ On 7 time we have insert (INSERTED only have rows)
 */
   IF @@ROWCOUNT = 0 RETURN;
 
-  DECLARE @startDate datetime;
+  DECLARE @startDate              datetime,
+          @num_notnull_quote_batchids   INT
+          
   SELECT @startDate = tt_start FROM inserted;
 
   SELECT *, 1 AS c__IsAllowGenChargeByTrigger INTO #recur_window_holder FROM t_recur_window WHERE 1=0;
@@ -34,7 +36,9 @@ On 7 time we have insert (INSERTED only have rows)
 
     UPDATE rw
     SET rw.c_SubscriptionStart = current_sub.vt_start,
-        rw.c_SubscriptionEnd = current_sub.vt_end
+        rw.c_SubscriptionEnd = current_sub.vt_end,
+        rw.c_CycleEffectiveStart = current_sub.vt_start,
+        rw.c_CycleEffectiveEnd = current_sub.vt_end
     FROM #recur_window_holder rw
         INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID
             AND new_sub.id_sub = rw.c__SubscriptionID
@@ -60,6 +64,20 @@ On 7 time we have insert (INSERTED only have rows)
   
   INSERT INTO #tmp_changed_units SELECT * FROM INSERTED;
   
+   SELECT @num_notnull_quote_batchids = count(1)
+    FROM t_sub sub
+      INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
+      INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
+      INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
+      INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
+      JOIN #tmp_changed_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() 
+        AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
+        AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
+    WHERE tx_quoting_batch is not null 
+        AND tx_quoting_batch!=0x00000000000000000000000000000000; 
+
+		--SET @num_notnull_quote_batchids=0;
+  
   INSERT INTO #recur_window_holder
   SELECT 
        sub.vt_start AS c_CycleEffectiveDate
@@ -83,7 +101,7 @@ On 7 time we have insert (INSERTED only have rows)
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate, @num_notnull_quote_batchids) AS c__IsAllowGenChargeByTrigger      
       FROM t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
@@ -119,7 +137,7 @@ SELECT
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-	  , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, gsm.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+	  , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, gsm.vt_end, @startDate, @num_notnull_quote_batchids) AS c__IsAllowGenChargeByTrigger
       FROM t_gsubmember gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
       INNER JOIN t_payment_redirection pay ON pay.id_payee = gsm.id_acc 
@@ -160,7 +178,7 @@ SELECT
       , -1 AS c_LastIdRun
       , grm.vt_start AS c_MembershipStart
       , grm.vt_end AS c_MembershipEnd
-      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate, @num_notnull_quote_batchids) AS c__IsAllowGenChargeByTrigger      
       FROM t_gsub_recur_map grm
       /* TODO: GRM dates or sub dates or both for filtering */
       INNER JOIN t_sub sub ON grm.id_group = sub.id_group

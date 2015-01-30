@@ -23,6 +23,7 @@ PROCEDURE CompleteChildGroupCreation
 AS
   v_id_parent_billgroup INT;
   cnt int;
+  v_id_partition INT;
 BEGIN
   /* initialize @status to failure (-1) */
   status := -1;
@@ -59,19 +60,27 @@ BEGIN
       and bgmt.id_materialization = p_id_materialization 
       and bgmh.id_billgroup = v_id_parent_billgroup);
   
+   -- get id_partition of the parent bill group
+   SELECT id_partition
+   INTO v_id_partition
+   FROM t_billgroup bg 
+   WHERE id_billgroup = v_id_parent_billgroup;
+  
   /* insert child billing group data into t_billgroup from t_billgroup_tmp */
   INSERT INTO t_billgroup (id_billgroup, 
     tx_name, 
     tx_description, 
     id_usage_interval, 
     id_parent_billgroup, 
-    tx_type)
+    tx_type,
+    id_partition)
   SELECT bgt.id_billgroup, 
     bgt.tx_name, 
     bgt.tx_description, 
     bgm.id_usage_interval, 
     bgm.id_parent_billgroup, 
-    bgm.tx_type
+    bgm.tx_type,
+    v_id_partition
   FROM t_billgroup_tmp bgt    
   INNER JOIN t_billgroup_materialization bgm 
      ON bgm.id_materialization = bgt.id_materialization

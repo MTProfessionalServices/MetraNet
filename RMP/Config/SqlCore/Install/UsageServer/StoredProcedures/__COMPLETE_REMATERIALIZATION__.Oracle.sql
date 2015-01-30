@@ -43,9 +43,9 @@ BEGIN
     this p_id_materialization
     */
   INSERT INTO t_billgroup (id_billgroup, tx_name, tx_description, 
-    id_usage_interval, id_parent_billgroup, tx_type)
+    id_usage_interval, id_parent_billgroup, tx_type, id_partition)
   SELECT bgt.id_billgroup, bgt.tx_name, bgt.tx_description,
-    bgm.id_usage_interval, bgm.id_parent_billgroup, bgm.tx_type
+    bgm.id_usage_interval, bgm.id_parent_billgroup, bgm.tx_type, bgt.id_partition
   FROM t_billgroup_tmp bgt 
   INNER JOIN t_billgroup_materialization bgm 
          ON bgm.id_materialization = bgt.id_materialization   

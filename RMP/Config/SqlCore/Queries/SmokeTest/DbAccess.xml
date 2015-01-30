@@ -1,8 +1,0 @@
-<xmlconfig>
-  <version ptype="INTEGER">1</version>
-  <dbaccess_type>ADO</dbaccess_type>
-  <database_config>
-    <logical_servername>NetMeter</logical_servername>
-    <timeout ptype="INTEGER">300</timeout>
-  </database_config>
-</xmlconfig>

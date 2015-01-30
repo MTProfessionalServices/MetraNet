@@ -29,14 +29,14 @@
 		
  		<LocaleCurrency>
 			<CurrencyCode>GBP</CurrencyCode>
-			<CurrencySymbol>&amp;pound</CurrencySymbol>
+			<CurrencySymbol>&#xA3; </CurrencySymbol>
       <!--If the currency symbol to the left, then TRUE else FALSE -->
 			<CurrencySymbolPosition>true</CurrencySymbolPosition>
 		</LocaleCurrency>
 		
  		<LocaleCurrency>
 			<CurrencyCode>JPY</CurrencyCode>
-			<CurrencySymbol>&amp;yen</CurrencySymbol>
+			<CurrencySymbol>&#xa5; </CurrencySymbol>
       <!--If the currency symbol to the left, then TRUE else FALSE -->
 			<CurrencySymbolPosition>true</CurrencySymbolPosition>
 		</LocaleCurrency>

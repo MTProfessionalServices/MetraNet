@@ -1,15 +1,19 @@
 
-        select 
-          t_vw_base_props.id_prop, t_vw_base_props.n_kind,
-          t_vw_base_props.n_name, t_vw_base_props.n_desc, t_vw_base_props.n_display_name,
-          t_vw_base_props.nm_name, t_vw_base_props.nm_desc, t_vw_base_props.nm_display_name,
-       	  (select count(*) from t_pi_template where t_pi_template.id_template_parent = t_vw_base_props.id_prop) NumberChildren,
-       	  rec.n_rating_type
-          %%COLUMNS%%
-        from t_vw_base_props
-        join t_pi_template on t_vw_base_props.id_prop = t_pi_template.id_template
-        left join t_recur rec on t_vw_base_props.id_prop = rec.id_prop 
+      SELECT
+        tbp.id_prop id_prop,
+        tbp.n_kind n_kind,
+        tbp.n_name n_name,
+        tbp.n_desc n_desc,
+		tbp.n_display_name n_display_name,
+        tbp.nm_name nm_name,
+        COALESCE(tvp.nm_desc, tbp.nm_desc) nm_desc,
+        COALESCE(tvp.nm_display_name, tbp.nm_display_name) nm_display_name,
+        (SELECT COUNT(*) FROM t_pi_template WHERE t_pi_template.id_template_parent = tbp.id_prop) NumberChildren,
+        rec.n_rating_type
+        %%COLUMNS%%
+      FROM t_pi_template tpt
+        INNER JOIN t_base_props tbp ON tbp.id_prop = tpt.id_template
+        LEFT JOIN t_vw_base_props tvp ON tvp.id_prop = tbp.id_prop AND tvp.id_lang_code = %%ID_LANG%%
+        LEFT JOIN t_recur rec ON rec.id_prop = tbp.id_prop
         %%JOINS%%
-        where id_template_parent is NULL %%FILTERS%%
-        and t_vw_base_props.id_lang_code = %%ID_LANG%%
-      
+      WHERE id_template_parent IS NULL %%FILTERS%%

@@ -6,7 +6,7 @@ FUNCTION GetActvCurAverage(v_id_interval int)
   
   p_result sys_refcursor;
   l_tbl_count NUMBER;  
-  l_interval_id int;  /* t_usage_interval.id_interval%TYPE := 1073086497;*/
+  l_interval_id int;
   
   v_sql VARCHAR2(4000);
   
@@ -34,9 +34,9 @@ BEGIN
 						'    SELECT 
 							  rei.id_arg_interval, 
 							  re.tx_display_name, 
-							  min(rer.dt_start) dt_start, 
-							  floor((max(rer.dt_end) - min(rer.dt_start)) * 24 * 60) duration, 
-							  0 as three_month_avg
+							  rer.dt_start dt_start, 
+							  ROUND((rer.dt_end - rer.dt_start) * 86400,0) duration, 
+							  0.0 as three_month_avg
 							  FROM t_recevent_inst rei
 							  join t_recevent re on re.id_event = rei.id_event
 							  left join t_recevent_run rer on rer.id_instance = rei.id_instance
@@ -47,10 +47,11 @@ BEGIN
 													  from t_usage_interval ui
 													  where ui.tx_interval_status = ''H''
 													  and ui.dt_end > add_months(getutcdate(), -3) 
-													 and floor(dt_end - dt_start) > 7)
+													  and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval = ' || l_interval_id || '))
 							and rer.tx_type = ''Execute''
-							and tx_detail not like ''Manually changed status%''
-							group by rei.id_arg_interval, tx_display_name,  rer.dt_start
+              and rer.dt_start = (select max(dt_start) from t_recevent_run where id_instance = rer.id_instance)
+							and (rer.tx_detail not like ''Manually changed status%'' or rer.tx_detail is null)
+							group by rei.id_arg_interval, tx_display_name, rer.dt_start, rer.dt_end
 							order by   rer.dt_start';
   end;
                   

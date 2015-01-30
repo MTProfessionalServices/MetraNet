@@ -1,5 +1,5 @@
 
-CREATE PROC CanReverseEvents(@dt_now DATETIME, @id_instances VARCHAR(4000))
+CREATE PROCEDURE CanReverseEvents(@dt_now DATETIME, @id_instances VARCHAR(4000), @lang_code INT = 840)
 AS
 
 BEGIN
@@ -21,11 +21,12 @@ BEGIN
   INSERT INTO @results
   SELECT
     args.value,
-    evt.tx_display_name,
+    COALESCE(loc.tx_name, evt.tx_display_name) tx_display_name,
     'OK'
   FROM CSVToInt(@id_instances) args
   INNER JOIN t_recevent_inst inst ON inst.id_instance = args.value
   INNER JOIN t_recevent evt ON evt.id_event = inst.id_event
+  LEFT OUTER JOIN t_localized_items loc on (id_local_type = 1  /*Adapter type*/ AND id_lang_code = @lang_code AND evt.id_event=loc.id_item)
 
   -- is the event not active?
   UPDATE @results SET tx_reason = 'EventNotActive'

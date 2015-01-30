@@ -28,19 +28,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce1</Name>
-      <Value>[es-MX]Reduce1</Value>
+      <Value>Reduce1</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce2</Name>
-      <Value>[es-MX]Reduce2</Value>
+      <Value>Reduce2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce3</Name>
-      <Value>[es-MX]Reduce3</Value>
+      <Value>Reduce3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce4</Name>
-      <Value>[es-MX]Reduce4</Value>
+      <Value>Reduce4</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/standard</Name>

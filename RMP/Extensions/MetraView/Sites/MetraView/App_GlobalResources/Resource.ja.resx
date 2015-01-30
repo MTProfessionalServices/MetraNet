@@ -229,7 +229,7 @@
     <value>削除</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[JA]Bulk Update</value>
+    <value>Bulk Update</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>内容</value>
@@ -250,7 +250,7 @@
     <value>引用をダウンロード</value>
   </data>
   <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
-    <value>[JA]Download Credit Notes</value>
+    <value>Download Credit Notes</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>編集</value>
@@ -379,7 +379,7 @@
     <value>関連の追加 </value>
   </data>
   <data name="TEXT_RELATED_ENTITIES_2" xml:space="preserve">
-    <value>[JA](s) for : </value>
+    <value>(s) for : </value>
   </data>
   <data name="TEXT_RELATIONSHIP" xml:space="preserve">
     <value>関係 </value>
@@ -403,7 +403,7 @@
     <value>セッション ID</value>
   </data>
   <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
-    <value>[JA]Show Only Hard Closed Intervals</value>
+    <value>Show Only Hard Closed Intervals</value>
   </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>2 番目の送信データの表示</value>
@@ -445,7 +445,7 @@
     <value>無関係 </value>
   </data>
   <data name="TEXT_UNRELATED_2" xml:space="preserve">
-    <value>[JA](s)</value>
+    <value>(s)</value>
   </data>
   <data name="TEXT_URL" xml:space="preserve">
     <value>URL</value>
@@ -469,22 +469,22 @@
     <value>はい</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>[JA]Product View Mappings</value>
+    <value>Product View Mappings</value>
   </data>
   <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>[JA]Bill Setting</value>
+    <value>Bill Setting</value>
   </data>
   <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>[JA]Dashboards</value>
+    <value>Dashboards</value>
   </data>
   <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>[JA]Entry Points</value>
+    <value>Entry Points</value>
   </data>
   <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>[JA]Report Inventories</value>
+    <value>Report Inventories</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
-    <value>[JA]Site</value>
+    <value>Site</value>
   </data>
   <data name="TEXT_CHECKING" xml:space="preserve">
     <value>当座預金</value>

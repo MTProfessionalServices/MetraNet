@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDetailsResource1.Text" xml:space="preserve">
-    <value>détails</value>
+    <value>Détails</value>
   </data>
   <data name="lblMessageResource1.Text" xml:space="preserve">
     <value>Votre mot de passe a expiré</value>
@@ -130,7 +130,7 @@
     <value>Ouvrir une session</value>
   </data>
   <data name="Login1Resource1.FailureText" xml:space="preserve">
-    <value>Votre tentative d'ouverture de session a échoué. Réessayez.</value>
+    <value>Votre tentative de connexion a échoué. Faites une nouvelle tentative.</value>
   </data>
   <data name="Login1Resource1.LoginButtonText" xml:space="preserve">
     <value>Ouvrir une session</value>
@@ -161,5 +161,12 @@
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
     <value>Nom d’utilisateur</value>
+  </data>
+  <data name="ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS" xml:space="preserve">
+    <value>Le nouveau mot de passe ne répond pas aux exigences de sécurité:
+            * Doit contenir au moins 7 caractères et moins de 1024
+            * Doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial
+            * Caractères spéciaux valides y compris l’espace sont _ !@#$%^&amp;*+= 
+            * Mots de passe une fois changés, ne peuvent pas être un des 4 mots de passe précédemment utilisés </value>
   </data>
 </root>

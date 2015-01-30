@@ -21,22 +21,9 @@ public partial class Payments_ACHAdd : MTPage
     set { ViewState["ACHCard"] = value; }
   }
 
-  protected void PopulatePriority()
+  private bool PayNow
   {
-    var totalCards = GetTotalCards() + 1;
-
-    for (var i = 1; i <= totalCards; i++)
-    {
-      var item = i.ToString(CultureInfo.InvariantCulture);
-      ddPriority.Items.Add(new ListItem(item, item));
-    }
-  }
-
-  protected int GetTotalCards()
-  {
-    var metraPayManger = new MetraPayManager(UI);
-    var cardList = metraPayManger.GetPaymentMethodSummaries();
-    return cardList.TotalRows > 0 ? cardList.TotalRows : 0;
+    get { return !String.IsNullOrEmpty(Request.QueryString["pay"]); }
   }
 
   protected void Page_Load(object sender, EventArgs e)
@@ -56,13 +43,76 @@ public partial class Payments_ACHAdd : MTPage
     PopulatePaymentData();
     PrepopulateSubscriberInformation();
   }
+  
+  protected void btnOK_Click(object sender, EventArgs e)
+  {
+    if (!MTDataBinder1.Unbind())
+    {
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
+    }
+
+    try
+    {
+      if (UI.Subscriber.SelectedAccount._AccountID == null) return;
+      var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
+      ACHCard.AccountType = radChecking.Checked ? BankAccountType.Checking : BankAccountType.Savings;
+      ACHCard.Priority = Int32.Parse(ddPriority.SelectedValue);
+
+      var metraPayManger = new MetraPayManager(UI);
+      var paymentInstrumentId = metraPayManger.AddPaymentMethod(acct, ACHCard);
+
+      if (!PayNow)
+      {
+        Response.Redirect("ViewPaymentMethods.aspx", false);
+      }
+      else
+      {
+        var paymentData = (MetraPayManager.MakePaymentData) Session["MakePaymentData"];
+        paymentData.PaymentInstrumentId = paymentInstrumentId.ToString();
+        paymentData.Number = ACHCard.AccountNumber;
+        paymentData.Type = ACHCard.AccountType.ToString();
+        Session["MakePaymentData"] = paymentData;
+        Response.Redirect("ReviewPayment.aspx", false);
+      }
+    }
+    catch (Exception ex)
+    {
+      SetError(Resources.ErrorMessages.ERROR_ACH_ADD);
+      Logger.LogError(ex.Message);
+    }
+  }
+
+  protected void btnCancel_Click(object sender, EventArgs e)
+  {
+    Response.Redirect(PayNow ? "MakePayment.aspx" : "ViewPaymentMethods.aspx");
+  }
+
+  #region Private methods
+
+  protected void PopulatePriority()
+  {
+    var totalCards = GetTotalCards() + 1;
+
+    for (var i = 1; i <= totalCards; i++)
+    {
+      var item = i.ToString(CultureInfo.InvariantCulture);
+      ddPriority.Items.Add(new ListItem(item, item));
+    }
+  }
+
+  protected int GetTotalCards()
+  {
+    var metraPayManger = new MetraPayManager(UI);
+    var cardList = metraPayManger.GetPaymentMethodSummaries();
+    return cardList.TotalRows > 0 ? cardList.TotalRows : 0;
+  }
 
   private void PopulatePaymentData()
   {
     if (PayNow)
     {
       divPaymentData.Visible = true;
-      var paymentData = (MetraPayManager.MakePaymentData) Session["MakePaymentData"];
+      var paymentData = (MetraPayManager.MakePaymentData)Session["MakePaymentData"];
       lcAmount.Text = paymentData.Amount.ToString();
       lcMethod.Text = paymentData.Method;
     }
@@ -98,51 +148,5 @@ public partial class Payments_ACHAdd : MTPage
     }
   }
 
-  private bool PayNow
-  {
-    get { return !String.IsNullOrEmpty(Request.QueryString["pay"]); }
-  }
-
-  protected void btnOK_Click(object sender, EventArgs e)
-  {
-    if (!MTDataBinder1.Unbind())
-    {
-      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
-    }
-
-    try
-    {
-      if (UI.Subscriber.SelectedAccount._AccountID == null) return;
-      var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-      ACHCard.AccountType = radChecking.Checked ? BankAccountType.Checking : BankAccountType.Savings;
-      ACHCard.Priority = Int32.Parse(ddPriority.SelectedValue);
-
-      var metraPayManger = new MetraPayManager(UI);
-      var paymentInstrumentId = metraPayManger.AddPaymentMethod(acct, ACHCard);
-
-      if (!PayNow)
-      {
-        Response.Redirect("ViewPaymentMethods.aspx", false);
-      }
-      else
-      {
-        var paymentData = (MetraPayManager.MakePaymentData) Session["MakePaymentData"];
-        paymentData.PaymentInstrumentId = paymentInstrumentId.ToString();
-        paymentData.Number = ACHCard.AccountNumber;
-        paymentData.Type = ExtensionMethods.GetLocalizedBankAccountType(ACHCard.AccountType.ToString());
-        Session["MakePaymentData"] = paymentData;
-        Response.Redirect("ReviewPayment.aspx", false);
-      }
-    }
-    catch (Exception ex)
-    {
-      SetError(Resources.ErrorMessages.ERROR_ACH_ADD);
-      Logger.LogError(ex.Message);
-    }
-  }
-
-  protected void btnCancel_Click(object sender, EventArgs e)
-  {
-    Response.Redirect(PayNow ? "MakePayment.aspx" : "ViewPaymentMethods.aspx");
-  }
+  #endregion
 }

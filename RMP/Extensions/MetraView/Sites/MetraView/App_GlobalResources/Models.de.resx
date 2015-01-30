@@ -157,10 +157,10 @@
     <value>Einheiten-ID:</value>
   </data>
   <data name="SpecCharacteristicModel_Name" xml:space="preserve">
-    <value>[DE]Name:</value>
+    <value>Name:</value>
   </data>
   <data name="SpecCharacteristicModel_Name1" xml:space="preserve">
-    <value>[DE]Name:</value>
+    <value>Name:</value>
   </data>
   <data name="SpecCharacteristicModel_Required" xml:space="preserve">
     <value>Erforderlich:</value>
@@ -292,10 +292,10 @@
     <value>Min. Dezimalzahl:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Name" xml:space="preserve">
-    <value>[DE]Name:</value>
+    <value>Name:</value>
   </data>
   <data name="SpecCharacteristicValueModel_Name1" xml:space="preserve">
-    <value>[DE]Name:</value>
+    <value>Name:</value>
   </data>
   <data name="SpecCharacteristicValueModel_NameDisplayNames" xml:space="preserve">
     <value>Anzeigenamen für Namen:</value>

@@ -89,7 +89,7 @@
                 var tabs = new window.Ext.TabPanel({
                       renderTo: 'relship_grid',
                       activeTab : 0,
-                      width:820,
+                      //width:820, //CORE-7209
                       height:450,
                       deferredRender: false,                      
                       autoTabs : true,                                                                                         

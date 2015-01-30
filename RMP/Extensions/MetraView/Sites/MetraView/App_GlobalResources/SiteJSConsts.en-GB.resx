@@ -121,19 +121,31 @@
     <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s A</value>
+    <value>d/m/Y H:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s A|j/n/Y</value>
+    <value>d/m/Y H:i:s|d/m/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y g:i:s A</value>
+    <value>d/m/Y H:i:s</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>D/m/Y H:ia</value>
+  </data>
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>d/m/Y H:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>mm/dd/YYYY</value>
+    <value>dd/mm/YYYY</value>
+  </data>
+  <data name="DECIMAL_SEPARATOR" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>,</value>
   </data>
   <data name="GRAPH_CURRENCY_FORMAT" xml:space="preserve">
     <value>$%.2f</value>
@@ -142,7 +154,7 @@
     <value>%b %#d, %Y</value>
   </data>
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
-    <value>No records found</value>
+    <value>No Records Found</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Account Details</value>
@@ -453,9 +465,6 @@
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>Are you sure you want to logout?</value>
   </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
-  </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Manage Account</value>
   </data>
@@ -695,9 +704,6 @@
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Middle initial is invalid</value>
-  </data>
-  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s A</value>
   </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
     <value>Refresh</value>

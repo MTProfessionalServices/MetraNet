@@ -178,7 +178,7 @@
     <value>Tipo de propiedad:</value>
   </data>
   <data name="SpecCharacteristicModel_UserEditable" xml:space="preserve">
-    <value>[ES]Editable:</value>
+    <value>Editable:</value>
   </data>
   <data name="SpecCharacteristicModel_UserVisible" xml:space="preserve">
     <value>Suscriptor visible:</value>
@@ -328,10 +328,10 @@
     <value>Valor de cadena:</value>
   </data>
   <data name="SpecCharacteristicValueModel_UserEditable" xml:space="preserve">
-    <value>[ES]Editable:</value>
+    <value>Editable:</value>
   </data>
   <data name="SpecCharacteristicValueModel_UserEditable1" xml:space="preserve">
-    <value>[ES]Editable:</value>
+    <value>Editable:</value>
   </data>
   <data name="SpecCharacteristicValueModel_UserVisible" xml:space="preserve">
     <value>Suscriptor visible:</value>

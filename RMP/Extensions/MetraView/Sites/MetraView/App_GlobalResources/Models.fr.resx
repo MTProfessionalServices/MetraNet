@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,296 +59,296 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="ErrorMessage_SpecCharacteristicModel_Description" xml:space="preserve">
-    <value>Cette description ne peut pas contenir plus de 256 caractères</value>
-  </data>
-  <data name="ErrorrMessage_SpecCharacteristicValueModel_Value" xml:space="preserve">
-    <value>Cette valeur ne peut pas contenir plus de 20 caractères</value>
-  </data>
-  <data name="ErrorrMessage_SpecCharacteristicValueModel_Description" xml:space="preserve">
-    <value>Cette description ne peut pas contenir plus de 256 caractères</value>
-  </data>
-  <data name="ErrorrMessage_SpecCharacteristicValueModel_Description1" xml:space="preserve">
-    <value>Cette description ne peut pas contenir plus de 256 caractères</value>
-  </data>
-  <data name="SpecCharacteristicModel_Category" xml:space="preserve">
-    <value>Catégorie :</value>
-  </data>
-  <data name="SpecCharacteristicModel_Category1" xml:space="preserve">
-    <value>Catégorie :</value>
-  </data>
-  <data name="SpecCharacteristicModel_DefaultValue" xml:space="preserve">
-    <value>Valeur par défaut :</value>
-  </data>
-  <data name="SpecCharacteristicModel_DefaultValue1" xml:space="preserve">
-    <value>Valeur par défaut :</value>
-  </data>
-  <data name="SpecCharacteristicModel_Description" xml:space="preserve">
-    <value>Description :</value>
-  </data>
-  <data name="SpecCharacteristicModel_DisplayOrder" xml:space="preserve">
-    <value>Ordre d'affichage :</value>
-  </data>
-  <data name="SpecCharacteristicModel_DisplayOrder1" xml:space="preserve">
-    <value>Ordre d'affichage :</value>
-  </data>
-  <data name="SpecCharacteristicModel_EntityId" xml:space="preserve">
-    <value>ID d&amp;apos;entité :</value>
-  </data>
-  <data name="SpecCharacteristicModel_EntityId1" xml:space="preserve">
-    <value>ID d&amp;apos;entité :</value>
-  </data>
-  <data name="SpecCharacteristicModel_Name" xml:space="preserve">
-    <value>Nom :</value>
-  </data>
-  <data name="SpecCharacteristicModel_Name1" xml:space="preserve">
-    <value>Nom :</value>
-  </data>
-  <data name="SpecCharacteristicModel_Required" xml:space="preserve">
-    <value>Requis :</value>
-  </data>
-  <data name="SpecCharacteristicModel_SpecId" xml:space="preserve">
-    <value>ID Spéc. :</value>
-  </data>
-  <data name="SpecCharacteristicModel_SpecId1" xml:space="preserve">
-    <value>ID Spéc. :</value>
-  </data>
-  <data name="SpecCharacteristicModel_SpecType" xml:space="preserve">
-    <value>Type de propriété:</value>
-  </data>
-  <data name="SpecCharacteristicModel_SpecType1" xml:space="preserve">
-    <value>Type de propriété:</value>
-  </data>
-  <data name="SpecCharacteristicModel_UserEditable" xml:space="preserve">
-    <value>Modifiable :</value>
-  </data>
-  <data name="SpecCharacteristicModel_UserVisible" xml:space="preserve">
-    <value>Abonné visible :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Between_End" xml:space="preserve">
-    <value>Entre la fin :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Between_End1" xml:space="preserve">
-    <value>Entre la fin :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Between_Start" xml:space="preserve">
-    <value>Entre le début :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Between_Start1" xml:space="preserve">
-    <value>Entre le début :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_BooleanValue" xml:space="preserve">
-    <value>Valeur booléenne :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_BooleanValue1" xml:space="preserve">
-    <value>Valeur booléenne :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Category" xml:space="preserve">
-    <value>Catégorie :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Category1" xml:space="preserve">
-    <value>Catégorie :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_CategoryDisplayNames" xml:space="preserve">
-    <value>Noms de catégories :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_CategoryDisplayNames1" xml:space="preserve">
-    <value>Noms de catégories :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Choices" xml:space="preserve">
-    <value>Options :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Choices1" xml:space="preserve">
-    <value>Options :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_ChoicesDisplayNames" xml:space="preserve">
-    <value>Noms d'options :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_ChoicesDisplayNames1" xml:space="preserve">
-    <value>Noms d'options :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DatetimeValue" xml:space="preserve">
-    <value>Valeur date/heure :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DatetimeValue1" xml:space="preserve">
-    <value>Valeur date/heure :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DecimalValue" xml:space="preserve">
-    <value>Valeur décimale :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DecimalValue1" xml:space="preserve">
-    <value>Valeur décimale :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DefaultChoice" xml:space="preserve">
-    <value>Option par défaut :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DefaultChoice1" xml:space="preserve">
-    <value>Option par défaut :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Description" xml:space="preserve">
-    <value>Description :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Description1" xml:space="preserve">
-    <value>Description :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DescriptionDisplayNames" xml:space="preserve">
-    <value>Noms des descriptions :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_DescriptionDisplayNames1" xml:space="preserve">
-    <value>Noms des descriptions :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_IntValue" xml:space="preserve">
-    <value>Valeur int. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_IntValue1" xml:space="preserve">
-    <value>Valeur int. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Length" xml:space="preserve">
-    <value>Durée :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Length1" xml:space="preserve">
-    <value>Durée :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Max" xml:space="preserve">
-    <value>Max. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Max1" xml:space="preserve">
-    <value>Max. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_MaxDecimal" xml:space="preserve">
-    <value>Valeur décimale max. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_MaxDecimal1" xml:space="preserve">
-    <value>Valeur décimale max. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Min" xml:space="preserve">
-    <value>Min. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Min1" xml:space="preserve">
-    <value>Min. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_MixDecimal" xml:space="preserve">
-    <value>Valeur décimale min. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_MixDecimal1" xml:space="preserve">
-    <value>Valeur décimale min. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Name" xml:space="preserve">
-    <value>Nom :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Name1" xml:space="preserve">
-    <value>Nom :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_NameDisplayNames" xml:space="preserve">
-    <value>Noms :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_NameDisplayNames1" xml:space="preserve">
-    <value>Noms :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Required" xml:space="preserve">
-    <value>Requis :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Required1" xml:space="preserve">
-    <value>Requis :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_SpecId" xml:space="preserve">
-    <value>ID Spéc. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_SpecId1" xml:space="preserve">
-    <value>ID Spéc. :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_SpecType" xml:space="preserve">
-    <value>Type de propriété:</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_SpecType1" xml:space="preserve">
-    <value>Type de propriété:</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_StringValue" xml:space="preserve">
-    <value>Valeur de chaîne</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_StringValue1" xml:space="preserve">
-    <value>Valeur de chaîne</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_UserEditable" xml:space="preserve">
-    <value>Modifiable :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_UserEditable1" xml:space="preserve">
-    <value>Modifiable :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_UserVisible" xml:space="preserve">
-    <value>Abonné visible :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_UserVisible1" xml:space="preserve">
-    <value>Abonné visible :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_ValueId" xml:space="preserve">
-    <value>ID de valeur :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_ValueId1" xml:space="preserve">
-    <value>ID de valeur :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Values" xml:space="preserve">
-    <value>Valeurs :</value>
-  </data>
-  <data name="SpecCharacteristicValueModel_Values1" xml:space="preserve">
-    <value>Valeurs :</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ErrorMessage_SpecCharacteristicModel_Description" xml:space="preserve">
+        <value>Cette description ne peut pas contenir plus de 256 caractères</value>
+    </data>
+    <data name="ErrorrMessage_SpecCharacteristicValueModel_Description" xml:space="preserve">
+        <value>Cette description ne peut pas contenir plus de 256 caractères</value>
+    </data>
+    <data name="ErrorrMessage_SpecCharacteristicValueModel_Description1" xml:space="preserve">
+        <value>Cette description ne peut pas contenir plus de 256 caractères</value>
+    </data>
+    <data name="ErrorrMessage_SpecCharacteristicValueModel_Value" xml:space="preserve">
+        <value>Cette valeur ne peut pas contenir plus de 20 caractères</value>
+    </data>
+    <data name="SpecCharacteristicModel_Category" xml:space="preserve">
+        <value>Catégorie :</value>
+    </data>
+    <data name="SpecCharacteristicModel_Category1" xml:space="preserve">
+        <value>Catégorie :</value>
+    </data>
+    <data name="SpecCharacteristicModel_DefaultValue" xml:space="preserve">
+        <value>Valeur par défaut :</value>
+    </data>
+    <data name="SpecCharacteristicModel_DefaultValue1" xml:space="preserve">
+        <value>Valeur par défaut :</value>
+    </data>
+    <data name="SpecCharacteristicModel_Description" xml:space="preserve">
+        <value>Description :</value>
+    </data>
+    <data name="SpecCharacteristicModel_DisplayOrder" xml:space="preserve">
+        <value>Ordre d’affichage :</value>
+    </data>
+    <data name="SpecCharacteristicModel_DisplayOrder1" xml:space="preserve">
+        <value>Ordre d’affichage :</value>
+    </data>
+    <data name="SpecCharacteristicModel_EntityId" xml:space="preserve">
+        <value>ID d&amp;apos;entité :</value>
+    </data>
+    <data name="SpecCharacteristicModel_EntityId1" xml:space="preserve">
+        <value>ID d&amp;apos;entité :</value>
+    </data>
+    <data name="SpecCharacteristicModel_Name" xml:space="preserve">
+        <value>Nom :</value>
+    </data>
+    <data name="SpecCharacteristicModel_Name1" xml:space="preserve">
+        <value>Nom :</value>
+    </data>
+    <data name="SpecCharacteristicModel_Required" xml:space="preserve">
+        <value>Requis :</value>
+    </data>
+    <data name="SpecCharacteristicModel_SpecId" xml:space="preserve">
+        <value>ID Spéc. :</value>
+    </data>
+    <data name="SpecCharacteristicModel_SpecId1" xml:space="preserve">
+        <value>ID Spéc. :</value>
+    </data>
+    <data name="SpecCharacteristicModel_SpecType" xml:space="preserve">
+        <value>Type de propriété:</value>
+    </data>
+    <data name="SpecCharacteristicModel_SpecType1" xml:space="preserve">
+        <value>Type de propriété:</value>
+    </data>
+    <data name="SpecCharacteristicModel_UserEditable" xml:space="preserve">
+        <value>Modifiable :</value>
+    </data>
+    <data name="SpecCharacteristicModel_UserVisible" xml:space="preserve">
+        <value>Abonné visible :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Between_End" xml:space="preserve">
+        <value>Entre la fin :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Between_End1" xml:space="preserve">
+        <value>Entre la fin :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Between_Start" xml:space="preserve">
+        <value>Entre le début :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Between_Start1" xml:space="preserve">
+        <value>Entre le début :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_BooleanValue" xml:space="preserve">
+        <value>Valeur booléenne :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_BooleanValue1" xml:space="preserve">
+        <value>Valeur booléenne :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Category" xml:space="preserve">
+        <value>Catégorie :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Category1" xml:space="preserve">
+        <value>Catégorie :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_CategoryDisplayNames" xml:space="preserve">
+        <value>Noms de catégories :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_CategoryDisplayNames1" xml:space="preserve">
+        <value>Noms de catégories :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Choices" xml:space="preserve">
+        <value>Options :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Choices1" xml:space="preserve">
+        <value>Options :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_ChoicesDisplayNames" xml:space="preserve">
+        <value>Noms d’options :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_ChoicesDisplayNames1" xml:space="preserve">
+        <value>Noms d’options :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DatetimeValue" xml:space="preserve">
+        <value>Valeur date/heure :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DatetimeValue1" xml:space="preserve">
+        <value>Valeur date/heure :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DecimalValue" xml:space="preserve">
+        <value>Valeur décimale :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DecimalValue1" xml:space="preserve">
+        <value>Valeur décimale :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DefaultChoice" xml:space="preserve">
+        <value>Option par défaut :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DefaultChoice1" xml:space="preserve">
+        <value>Option par défaut :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Description" xml:space="preserve">
+        <value>Description :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Description1" xml:space="preserve">
+        <value>Description :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DescriptionDisplayNames" xml:space="preserve">
+        <value>Noms des descriptions :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_DescriptionDisplayNames1" xml:space="preserve">
+        <value>Noms des descriptions :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_IntValue" xml:space="preserve">
+        <value>Valeur int. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_IntValue1" xml:space="preserve">
+        <value>Valeur int. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Length" xml:space="preserve">
+        <value>Durée :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Length1" xml:space="preserve">
+        <value>Durée :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Max" xml:space="preserve">
+        <value>Max. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Max1" xml:space="preserve">
+        <value>Max. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_MaxDecimal" xml:space="preserve">
+        <value>Valeur décimale max. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_MaxDecimal1" xml:space="preserve">
+        <value>Valeur décimale max. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Min" xml:space="preserve">
+        <value>Min. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Min1" xml:space="preserve">
+        <value>Min. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_MixDecimal" xml:space="preserve">
+        <value>Valeur décimale min. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_MixDecimal1" xml:space="preserve">
+        <value>Valeur décimale min. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Name" xml:space="preserve">
+        <value>Nom :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Name1" xml:space="preserve">
+        <value>Nom :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_NameDisplayNames" xml:space="preserve">
+        <value>Noms :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_NameDisplayNames1" xml:space="preserve">
+        <value>Noms :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Required" xml:space="preserve">
+        <value>Requis :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Required1" xml:space="preserve">
+        <value>Requis :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_SpecId" xml:space="preserve">
+        <value>ID Spéc. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_SpecId1" xml:space="preserve">
+        <value>ID Spéc. :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_SpecType" xml:space="preserve">
+        <value>Type de propriété:</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_SpecType1" xml:space="preserve">
+        <value>Type de propriété:</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_StringValue" xml:space="preserve">
+        <value>Valeur de chaîne :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_StringValue1" xml:space="preserve">
+        <value>Valeur de chaîne :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_UserEditable" xml:space="preserve">
+        <value>Modifiable :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_UserEditable1" xml:space="preserve">
+        <value>Modifiable :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_UserVisible" xml:space="preserve">
+        <value>Abonné visible :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_UserVisible1" xml:space="preserve">
+        <value>Abonné visible :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_ValueId" xml:space="preserve">
+        <value>ID de valeur :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_ValueId1" xml:space="preserve">
+        <value>ID de valeur :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Values" xml:space="preserve">
+        <value>Valeurs :</value>
+    </data>
+    <data name="SpecCharacteristicValueModel_Values1" xml:space="preserve">
+        <value>Valeurs :</value>
+    </data>
 </root>

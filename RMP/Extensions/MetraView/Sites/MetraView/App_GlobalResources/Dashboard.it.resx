@@ -127,10 +127,10 @@
     <value>Abbonamenti personali</value>
   </data>
   <data name="TEXT_MY_COUNTERS" xml:space="preserve">
-    <value>[IT]My Counters</value>
+    <value>My Counters</value>
   </data>
   <data name="TEXT_NO_COUNTERS" xml:space="preserve">
-    <value>[IT]No Counters Defined</value>
+    <value>No Counters Defined</value>
   </data>
   <data name="TEXT_USAGE_BY_DEPARTMENT" xml:space="preserve">
     <value>Uso attuale per reparto</value>
@@ -139,6 +139,6 @@
     <value>Uso attuale per prodotto</value>
   </data>
   <data name="TEXT_DECISION_INSTANCES" xml:space="preserve">
-    <value>[IT]NowCast</value>
+    <value>NowCast</value>
   </data>
 </root>

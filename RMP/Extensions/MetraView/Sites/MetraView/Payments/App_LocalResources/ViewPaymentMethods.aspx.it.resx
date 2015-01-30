@@ -193,6 +193,6 @@
     <value>CAP (Codice di avviamento postale)</value>
   </data>
   <data name="PAYMENT_METHOD_REFUSED" xml:space="preserve">
-  <value>[IT]Your payment method was refused; please try again.</value>
+  <value>Your payment method was refused; please try again.</value>
   </data>
 </root>

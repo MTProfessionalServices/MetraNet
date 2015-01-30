@@ -193,6 +193,6 @@
     <value>Código postal</value>
   </data>
   <data name="PAYMENT_METHOD_REFUSED" xml:space="preserve">
-    <value>[es-MX]Your payment method was refused; please try again.</value>
+    <value>Your payment method was refused; please try again.</value>
   </data>
 </root>

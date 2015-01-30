@@ -132,10 +132,10 @@
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
     <value>Mensajes de error</value>
   </data>
-  <data name="lcAmount.Text" xml:space="preserve">
+  <data name="lcAmount.Label" xml:space="preserve">
     <value>Importe</value>
   </data>
-  <data name="lcMethod.Text" xml:space="preserve">
+  <data name="lcMethod.Label" xml:space="preserve">
     <value>Forma</value>
   </data>
   <data name="litAccountTypeResource1.Label" xml:space="preserve">

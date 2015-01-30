@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_MARKER_AMOUNT" xml:space="preserve">
-    <value>[DE] Amount:</value>
+    <value>Amount:</value>
   </data>
   <data name="TEXT_PROJECTED_AMOUNT" xml:space="preserve">
-    <value>[DE] Projected Amount:</value>
+    <value>Projected Amount:</value>
   </data>
   <data name="TEXT_UNNAMED_DECISION" xml:space="preserve">
-    <value>[DE] Unnamed Decision</value>
+    <value>Unnamed Decision</value>
   </data>
 </root>

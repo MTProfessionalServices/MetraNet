@@ -80,12 +80,9 @@ public partial class UserControls_ProductUsageGraph : System.Web.UI.UserControl
             sbLabels.Append("'");
             sb.Append(charge.DisplayAmount.ToString().Replace(",","."));
 
+            sbLabels.Append(",");
+            sb.Append(",");
             i++;
-            if (i < ReportLevel.ProductOfferings.Count)
-            {
-              sbLabels.Append(",");
-              sb.Append(",");
-            }
           }
         }
       }
@@ -93,11 +90,6 @@ public partial class UserControls_ProductUsageGraph : System.Web.UI.UserControl
 
     if (ReportLevel.Charges != null && ReportLevel.Charges.Count > 0)
     {
-      if (ReportLevel.ProductOfferings != null && ReportLevel.ProductOfferings.Count > 0)
-      {
-        sbLabels.Append(",");
-        sb.Append(",");
-      }
       i = 0;
       foreach (var charge in ReportLevel.Charges)
       {
@@ -106,17 +98,14 @@ public partial class UserControls_ProductUsageGraph : System.Web.UI.UserControl
         sbLabels.Append("'");
         sb.Append(charge.DisplayAmount.ToString().Replace(",", "."));
 
+        sbLabels.Append(",");
+        sb.Append(",");
         i++;
-        if (i < ReportLevel.Charges.Count)
-        {
-          sbLabels.Append(",");
-          sb.Append(",");
-        }
       }
     }
 
-    ChartData = sb.ToString();
-    ChartLabels = sbLabels.ToString();
+    ChartData = sb.ToString().Trim(new[] { ',' });
+    ChartLabels = sbLabels.ToString().Trim(new[] { ',' });
 
     // Any cached user control (i.e., with an OutputCache directive) that should NOT be cached 
     // while in DemoMode should call DisableUserControlCachingInDemoMode() at the end of Page_Load().

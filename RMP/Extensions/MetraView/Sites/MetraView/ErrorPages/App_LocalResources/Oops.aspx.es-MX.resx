@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="moveAlong.Text" xml:space="preserve">
-    <value>[es-MX]Move along...</value>
+    <value>Move along...</value>
   </data>
   <data name="support.Text" xml:space="preserve">
-    <value>[es-MX]MetraView is unable to show the requested information.  Please notify your customer support.</value>
+    <value>MetraView is unable to show the requested information.  Please notify your customer support.</value>
   </data>
 </root>

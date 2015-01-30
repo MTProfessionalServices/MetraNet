@@ -21,6 +21,7 @@
                 <ResourceClassKey>MetraView/App_LocalResources/AccountInfo.aspx</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -32,16 +33,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
-                                <ValidationType>alphanum</ValidationType>
+                                <ValidationType>allsymbolnum</ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig>maxLength:40</OptionalExtConfig>
                             <Label>
-                              <LocalizationTag>FirstName</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
-                             </Label>
+                                <LocalizationTag>FirstName</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -51,16 +54,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType>alpha</ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                          <Label>
-                            <LocalizationTag>MiddleInitial</LocalizationTag>
-                            <ResourceClassKey></ResourceClassKey>
-                          </Label>
+                            <Label>
+                                <LocalizationTag>MiddleInitial</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
+                            </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -70,16 +75,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
-                                <ValidationType>alphanum</ValidationType>
+                                <ValidationType>allsymbolnum</ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig>maxLength:40</OptionalExtConfig>
                             <Label>
-                              <LocalizationTag>LastName</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>LastName</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -89,16 +96,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType>email</ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig>maxLength:40</OptionalExtConfig>
                             <Label>
-                              <LocalizationTag>Email</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>Email</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -108,16 +117,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType>phone</ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                              <LocalizationTag>PhoneNumber</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>PhoneNumber</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -127,16 +138,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                             <LocalizationTag>Company</LocalizationTag>
-                             <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>Company</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -146,16 +159,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                              <LocalizationTag>Address1</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>Address1</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -165,16 +180,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                             <LocalizationTag>Address2</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>Address2</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -184,16 +201,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                              <LocalizationTag>Address3</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>Address3</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -203,16 +222,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                              <LocalizationTag>City</LocalizationTag>
-                              <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>City</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -222,16 +243,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                             <LocalizationTag>State</LocalizationTag>
-                             <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>State</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -241,16 +264,18 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                             <LocalizationTag>Zip</LocalizationTag>
-                             <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>Zip</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.AccountTypes.Generated.dll</AssemblyFilename>
@@ -260,20 +285,23 @@
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <IgnoreIceValidation>False</IgnoreIceValidation>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                             <LocalizationTag>Country</LocalizationTag>
-                             <ResourceClassKey></ResourceClassKey>
+                                <LocalizationTag>Country</LocalizationTag>
+                                <ResourceClassKey></ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
 </PageLayout>

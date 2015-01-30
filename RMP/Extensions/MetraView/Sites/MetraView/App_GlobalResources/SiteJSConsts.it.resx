@@ -121,19 +121,31 @@
     <value>d/m/Y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y</value>
+    <value>d/m/Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s</value>
+    <value>d/m/Y G:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s | j/n/Y</value>
+    <value>d/m/Y G:i:s|d/m/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y g:i:s</value>
+    <value>d/m/Y G:i:s</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>d/m/Y G:ia</value>
+  </data>
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>d/m/Y G:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>dd/mm/YYYY</value>
+  </data>
+  <data name="DECIMAL_SEPARATOR" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>.</value>
   </data>
   <data name="GRAPH_CURRENCY_FORMAT" xml:space="preserve">
     <value>$%.2f</value>
@@ -241,7 +253,7 @@
     <value>Elimina</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[IT]Bulk Update</value>
+    <value>Bulk Update</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
     <value>Eliminare {0}?</value>
@@ -337,55 +349,55 @@
     <value>Esporta</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>[IT]Export All Filtered Records</value>
+    <value>Export All Filtered Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>[IT]Bulk Update All Filtered Records</value>
+    <value>Bulk Update All Filtered Records</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>[IT]Export Selected Records</value>
+    <value>Export Selected Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>[IT]Bulk Update Selected Records</value>
+    <value>Bulk Update Selected Records</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Esporta solo pagina corrente</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>[IT]Bulk Update Current Page Only</value>
+    <value>Bulk Update Current Page Only</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Esporta risultati di ricerca</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>[IT]Bulk Update Search Results</value>
+    <value>Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>[IT]Nothing will be updated</value>
+    <value>Nothing will be updated</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>[IT]There are no selected BMEs for bulk update</value>
+    <value>There are no selected BMEs for bulk update</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>[IT]Too many records to update</value>
+    <value>Too many records to update</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>[IT]You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>[IT]There are no properties for bulk update</value>
+    <value>There are no properties for bulk update</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>[IT]Attention. Your changes will be permanent</value>
+    <value>Attention. Your changes will be permanent</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>[IT]Are you sure that you want to make these changes?</value>
+    <value>Are you sure that you want to make these changes?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>[IT]No properties are going to be updated</value>
+    <value>No properties are going to be updated</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>[IT]Properties that are going to be updated</value>
+    <value>Properties that are going to be updated</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Informazioni esterne</value>
@@ -452,9 +464,6 @@
   </data>
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>Eseguire il logout?</value>
-  </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Gestisci account</value>
@@ -670,42 +679,39 @@
     <value>Relazioni per:</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value>[IT]The name cannot contain single or double quote characters.</value>
+    <value>The name cannot contain single or double quote characters.</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]Passwords do not match.</value>
+    <value>Passwords do not match.</value>
   </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]Enter a valid phone number. Format: 555-555-5555</value>
+    <value>Enter a valid phone number. Format: 555-555-5555</value>
   </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]Credit card format is invalid</value>
+    <value>Credit card format is invalid</value>
   </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]CV Number is invalid</value>
+    <value>CV Number is invalid</value>
   </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]SSN format: xxx-xx-xxxx</value>
+    <value>SSN format: xxx-xx-xxxx</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]Only numeric digits are allowed</value>
+    <value>Only numeric digits are allowed</value>
   </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]Zipcode is invalid</value>
+    <value>Zipcode is invalid</value>
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[IT]Middle initial is invalid</value>
-  </data>
-  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>d/m/Y H:i:s</value>
+    <value>Middle initial is invalid</value>
   </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
-    <value>[IT] Refresh</value>
+    <value>Refresh</value>
   </data>
   <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
-    <value>[IT] right click for options</value>
+    <value>right click for options</value>
   </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>[IT] No Transactions Found for the Current Interval</value>
+    <value>No Transactions Found for the Current Interval</value>
   </data>  
 </root>

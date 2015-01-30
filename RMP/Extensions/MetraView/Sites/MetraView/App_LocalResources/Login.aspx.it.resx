@@ -127,16 +127,16 @@
     <value>Modificare la password</value>
   </data>
   <data name="Login.Text" xml:space="preserve">
-    <value>[IT]Login</value>
+    <value>Login</value>
   </data>
   <data name="Login1Resource1.FailureText" xml:space="preserve">
     <value>Tentativo di accesso non riuscito. Riprovare.</value>
   </data>
   <data name="Login1Resource1.LoginButtonText" xml:space="preserve">
-    <value>[IT]Login</value>
+    <value>Login</value>
   </data>
   <data name="Login1Resource1.PasswordLabelText" xml:space="preserve">
-    <value>[IT]Password:</value>
+    <value>Password:</value>
   </data>
   <data name="Login1Resource1.PasswordRequiredErrorMessage" xml:space="preserve">
     <value>La password è obbligatoria.</value>

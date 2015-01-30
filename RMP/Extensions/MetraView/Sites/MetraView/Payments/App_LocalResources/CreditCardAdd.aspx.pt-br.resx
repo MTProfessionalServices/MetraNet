@@ -186,4 +186,10 @@
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>CEP</value>
   </data>
+  <data name="tbEmail.Label" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="CreditCardTypeError" xml:space="preserve">
+    <value>não é um tipo de cartão suportado para essa integração de pagamento</value>
+  </data>
 </root>

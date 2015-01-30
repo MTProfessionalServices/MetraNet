@@ -90,7 +90,17 @@ public partial class Product_Details : MTPage
     }
 
     // Set Product View Defaults
-    MTFilterGrid1.Title = (string.IsNullOrEmpty(MTFilterGrid1.Title)) ? GetLocalizedText(productSlice.ViewName()) : MTFilterGrid1.Title;  
+    string viewName;
+    try
+    {
+      viewName = GetLocalizedText(productSlice.ViewName());
+    }
+    catch (Exception exc)
+    {
+      Logger.LogError(exc.Message);
+      viewName = productSlice.ViewID.Name;
+    }
+    MTFilterGrid1.Title = (string.IsNullOrEmpty(MTFilterGrid1.Title)) ? viewName : MTFilterGrid1.Title;  
     MTFilterGrid1.Width = 710;
     MTFilterGrid1.Height = 360;
     MTFilterGrid1.PageSize = 10;
@@ -114,6 +124,7 @@ public partial class Product_Details : MTPage
     MTFilterGrid1.Resizable = true;
     MTFilterGrid1.DisplayCount = true;
     MTFilterGrid1.ShowTopBar = false;
+    MTFilterGrid1.AjaxTimeout = "180000";
 
     if(String.IsNullOrEmpty(MTFilterGrid1.CustomImplementationFilePath))
     {
@@ -229,9 +240,18 @@ public partial class Product_Details : MTPage
               if (productSlice.ViewID.ID.HasValue)
               {
                   BillManager billManager = new BillManager(UI);
-
-                  element.HeaderText =
-                      GetLocalizedText(billManager.GetFQN(productSlice.ViewID.ID.Value) + "/" + prop.Name);
+                  string headerText;
+                  try
+                  {
+                    headerText = GetLocalizedText(billManager.GetFQN(productSlice.ViewID.ID.Value) + "/" + prop.Name);
+                  }
+                  catch (Exception exc)
+                  {
+                    Logger.LogError(exc.Message);
+                    headerText = productSlice.ViewName() + "/" + prop.Name;
+                  }
+                  element.HeaderText = headerText;
+                      
               }
               else
               {

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,437 +59,437 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="PAGE_TITLE_REPORTS" xml:space="preserve">
-    <value>Relatórios</value>
-  </data>
-  <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
-    <value>AccountId</value>
-  </data>
-  <data name="TEXT_ACCOUNT_INFORMATION" xml:space="preserve">
-    <value>Informações de conta</value>
-  </data>
-  <data name="TEXT_ACCOUNT_LOCKED" xml:space="preserve">
-    <value>A conta '{0} está bloqueada.</value>
-  </data>
-  <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
-    <value>Nome da conta:</value>
-  </data>
-  <data name="TEXT_ACCOUNT_NUMBER" xml:space="preserve">
-    <value>Número da conta:</value>
-  </data>
-  <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
-    <value>Resumo de conta</value>
-  </data>
-  <data name="TEXT_ACCT_MOST_USAGE" xml:space="preserve">
-    <value>Contas com o gráfico de barras de maior utilização</value>
-  </data>
-  <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Ações</value>
-  </data>
-  <data name="TEXT_ADD" xml:space="preserve">
-    <value>Adicionar</value>
-  </data>
-  <data name="TEXT_ADD_BME" xml:space="preserve">
-    <value>Adicionar</value>
-  </data>
-  <data name="TEXT_AFTER" xml:space="preserve">
-    <value>após</value>
-  </data>
-  <data name="TEXT_ALLOW_ONLINE_PAYMENT" xml:space="preserve">
-    <value>Permitir pagamento online</value>
-  </data>
-  <data name="TEXT_ALLOW_SAVED_REPORTS" xml:space="preserve">
-    <value>Permitir relatórios salvos</value>
-  </data>
-  <data name="TEXT_ALLOW_SELF_CARE" xml:space="preserve">
-    <value>Permitir Self Care</value>
-  </data>
-  <data name="TEXT_ALLOW_SHARED_REPORTS" xml:space="preserve">
-    <value>Permitir relatórios compartilhados</value>
-  </data>
-  <data name="TEXT_AND" xml:space="preserve">
-    <value>e</value>
-  </data>
-  <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
-    <value>Aplicar alterações</value>
-  </data>
-  <data name="TEXT_AUTO" xml:space="preserve">
-    <value>Auto</value>
-  </data>
-  <data name="TEXT_BACK_DASHBOARD" xml:space="preserve">
-    <value>Voltar ao painel</value>
-  </data>
-  <data name="TEXT_BE_TITLE" xml:space="preserve">
-    <value>Lista de entidades comerciais</value>
-  </data>
-  <data name="TEXT_BEFORE" xml:space="preserve">
-    <value>antes</value>
-  </data>
-  <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
-    <value>Informações de faturamento</value>
-  </data>
-  <data name="TEXT_BREAD_CRUMB" xml:space="preserve">
-    <value>&amp;nbsp;&gt;&amp;nbsp;</value>
-  </data>
-  <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
-    <value>&amp;nbsp;&amp;nbsp;</value>
-  </data>
-  <data name="TEXT_CANCEL" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="TEXT_CAPABILITIES" xml:space="preserve">
-    <value>Capacidades</value>
-  </data>
-  <data name="TEXT_CATEGORY" xml:space="preserve">
-    <value>Categoria</value>
-  </data>
-  <data name="TEXT_CHILD_ITEMS" xml:space="preserve">
-    <value>Subcobranças</value>
-  </data>
-  <data name="TEXT_COLUMN_TITLE" xml:space="preserve">
-    <value>Título</value>
-  </data>
-  <data name="TEXT_CONFIRMATION" xml:space="preserve">
-    <value>Confirmação</value>
-  </data>
-  <data name="TEXT_CREATOR_ID" xml:space="preserve">
-    <value>ID do criador</value>
-  </data>
-  <data name="TEXT_CSS_CLASS" xml:space="preserve">
-    <value>CssClass</value>
-  </data>
-  <data name="TEXT_CULTURE" xml:space="preserve">
-    <value>Cultura</value>
-  </data>
-  <data name="TEXT_CUSTOM_LAYOUT" xml:space="preserve">
-    <value>Layout personalizado</value>
-  </data>
-  <data name="TEXT_CUSTOM_PAGE" xml:space="preserve">
-    <value>Página personalizada</value>
-  </data>
-  <data name="TEXT_DELETE" xml:space="preserve">
-    <value>Excluir</value>
-  </data>
-  <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Atualização em massa</value>
-  </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Descrição</value>
-  </data>
-  <data name="TEXT_DETAILS" xml:space="preserve">
-    <value>Detalhes</value>
-  </data>
-  <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value>Valor exibido</value>
-  </data>
-  <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
-    <value>Mostrar valor como string</value>
-  </data>
-  <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
-    <value>Baixar faturas e relatórios</value>
-  </data>
-  <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
-    <value>Baixar cotações</value>
-  </data>
-  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
-    <value>Baixar notas de crédito</value>
-  </data>
-  <data name="TEXT_EDIT" xml:space="preserve">
-    <value>Editar </value>
-  </data>
-  <data name="TEXT_EN_US" xml:space="preserve">
-    <value>Inglês (EUA)</value>
-  </data>
-  <data name="TEXT_ENTRY_POINT_NAME" xml:space="preserve">
-    <value>Nome EntryPoint</value>
-  </data>
-  <data name="TEXT_ESTIMATE" xml:space="preserve">
-    <value>Isso é apenas uma estimativa e não sua fatura final.</value>
-  </data>
-  <data name="TEXT_FR" xml:space="preserve">
-    <value>Francês</value>
-  </data>
-  <data name="TEXT_GENERAL" xml:space="preserve">
-    <value>Geral</value>
-  </data>
-  <data name="TEXT_GO" xml:space="preserve">
-    <value>Ir</value>
-  </data>
-  <data name="TEXT_GRID_ID" xml:space="preserve">
-    <value>ID da grade</value>
-  </data>
-  <data name="TEXT_HEIGHT" xml:space="preserve">
-    <value>Altura</value>
-  </data>
-  <data name="TEXT_HIERARCHY_LEVELS" xml:space="preserve">
-    <value>Níveis hierárquicos com mais contas </value>
-  </data>
-  <data name="TEXT_ID" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
-    <value>Mostrar ajustes em série</value>
-  </data>
-  <data name="TEXT_INLINE_TAX" xml:space="preserve">
-    <value>Mostrar imposto em série</value>
-  </data>
-  <data name="TEXT_INTERNAL_ID" xml:space="preserve">
-    <value>Id interno</value>
-  </data>
-  <data name="TEXT_IS_REQUIRED" xml:space="preserve">
-    <value>É necessário</value>
-  </data>
-  <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>está desativado para manutenção</value>
-  </data>
-  <data name="TEXT_IS_VISIBLE" xml:space="preserve">
-    <value>está visível</value>
-  </data>
-  <data name="TEXT_LAYOUT_EXTENSION_NAME" xml:space="preserve">
-    <value>Nome da extensão do layout</value>
-  </data>
-  <data name="TEXT_LAYOUT_NAME" xml:space="preserve">
-    <value>Nome do layout</value>
-  </data>
-  <data name="TEXT_LOGIN_INFORMATION" xml:space="preserve">
-    <value>Informações de login</value>
-  </data>
-  <data name="TEXT_LOGO_IMAGE" xml:space="preserve">
-    <value>Imagem do logotipo</value>
-  </data>
-  <data name="TEXT_MACHINE_IDENTIFIER" xml:space="preserve">
-    <value>Identificador de máquina</value>
-  </data>
-  <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
-    <value>Gerenciar assinaturas em grupo</value>
-  </data>
-  <data name="TEXT_MORE_ITEMS" xml:space="preserve">
-    <value>Mais itens...</value>
-  </data>
-  <data name="TEXT_MY_REPORTS" xml:space="preserve">
-    <value>Meus relatórios</value>
-  </data>
-  <data name="TEXT_NAME" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="TEXT_NEW" xml:space="preserve">
-    <value>Novo </value>
-  </data>
-  <data name="TEXT_NO" xml:space="preserve">
-    <value>NÃO</value>
-  </data>
-  <data name="TEXT_NO_BILL" xml:space="preserve">
-    <value>Sua fatura ainda não está disponível. Clique &lt;a href="Usage.aspx?view=summary"&gt;aqui&lt;/a&gt; para ver sua utilização atual.</value>
-  </data>
-  <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-    <value>Nenhum registro encontrado</value>
-  </data>
-  <data name="TEXT_NO_TRANSACTIONS_FOUND" xml:space="preserve">
-    <value>Nenhuma transação encontrada</value>
-  </data>
-  <data name="TEXT_OK" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="TEXT_PAGE_ERROR" xml:space="preserve">
-    <value>Não foi possível exibir a página.</value>
-  </data>
-  <data name="TEXT_PAGEURL" xml:space="preserve">
-    <value>PageURL</value>
-  </data>
-  <data name="TEXT_POSITION" xml:space="preserve">
-    <value>Posição</value>
-  </data>
-  <data name="TEXT_PRIORITY" xml:space="preserve">
-    <value>Prioridade</value>
-  </data>
-  <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
-    <value>Nome ProductView</value>
-  </data>
-  <data name="TEXT_PROPERTIES" xml:space="preserve">
-    <value>Propriedades</value>
-  </data>
-  <data name="TEXT_REASSIGN_MESSAGE" xml:space="preserve">
-    <value>Selecione a conta para receber as ordens transferidas.</value>
-  </data>
-  <data name="TEXT_REASSIGN_MESSAGE_TITLE" xml:space="preserve">
-    <value>Reatribuir ordens</value>
-  </data>
-  <data name="TEXT_REASSIGN_SUCCESS" xml:space="preserve">
-    <value>As ordens foram transferidas com sucesso.</value>
-  </data>
-  <data name="TEXT_RELATED_ENTITIES_1" xml:space="preserve">
-    <value>Adicionar relacionado </value>
-  </data>
-  <data name="TEXT_RELATED_ENTITIES_2" xml:space="preserve">
-    <value>(s) para : </value>
-  </data>
-  <data name="TEXT_RELATIONSHIP" xml:space="preserve">
-    <value>Relacionamento </value>
-  </data>
-  <data name="TEXT_REMOVE" xml:space="preserve">
-    <value>Remover contas</value>
-  </data>
-  <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-    <value>Remover</value>
-  </data>
-  <data name="TEXT_REPORT_TYPE" xml:space="preserve">
-    <value>Tipo de relatório</value>
-  </data>
-  <data name="TEXT_SAVE" xml:space="preserve">
-    <value>Salvar</value>
-  </data>
-  <data name="TEXT_SEARCH_LAYOUT" xml:space="preserve">
-    <value>Buscar layout</value>
-  </data>
-  <data name="TEXT_SESSION_ID" xml:space="preserve">
-    <value>ID da sessão</value>
-  </data>
-  <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
-    <value>Mostrar apenas intervalos fechados detalhadamente</value>
-  </data>
-  <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
-    <value>Exibir dados da segunda passagem</value>
-  </data>
-  <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>Desculpe pelo transtorno, mas o site está em manutenção. Tente novamente mais tarde.</value>
-  </data>
-  <data name="TEXT_SITE_NAME" xml:space="preserve">
-    <value>Nome do site</value>
-  </data>
-  <data name="TEXT_SPACER" xml:space="preserve">
-    <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
-  </data>
-  <data name="TEXT_STYLE" xml:space="preserve">
-    <value>Estilo</value>
-  </data>
-  <data name="TEXT_SUB_DATE_MESSAGE" xml:space="preserve">
-    <value>As datas do início e término da assinatura devem estar entre {0} e {1}.</value>
-  </data>
-  <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
-    <value>As datas da assinatura devem ser</value>
-  </data>
-  <data name="TEXT_THEME" xml:space="preserve">
-    <value>Tema</value>
-  </data>
-  <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value>TimeStamp</value>
-  </data>
-  <data name="TEXT_TIMEZONE" xml:space="preserve">
-    <value>Fuso horário</value>
-  </data>
-  <data name="TEXT_TITLE" xml:space="preserve">
-    <value>MetraView</value>
-  </data>
-  <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
-    <value>MetraControl</value>
-  </data>
-  <data name="TEXT_UNRELATED_1" xml:space="preserve">
-    <value>Não relacionado </value>
-  </data>
-  <data name="TEXT_UNRELATED_2" xml:space="preserve">
-    <value>(s)</value>
-  </data>
-  <data name="TEXT_URL" xml:space="preserve">
-    <value>Url</value>
-  </data>
-  <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Erro de validação. Tente novamente.</value>
-  </data>
-  <data name="TEXT_VALUE" xml:space="preserve">
-    <value>Valor</value>
-  </data>
-  <data name="TEXT_WIDGET_PATH" xml:space="preserve">
-    <value>Caminho do widget</value>
-  </data>
-  <data name="TEXT_WIDGET_TYPE" xml:space="preserve">
-    <value>Tipo de widget</value>
-  </data>
-  <data name="TEXT_WIDTH" xml:space="preserve">
-    <value>Largura</value>
-  </data>
-  <data name="TEXT_YES" xml:space="preserve">
-    <value>Sim</value>
-  </data>
-  <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>Mapeamentos de exibição de produto</value>
-  </data>
-  <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>Configurações de conta</value>
-  </data>
-  <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>Painéis</value>
-  </data>
-  <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>Pontos de entrada</value>
-  </data>
-  <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>Relatório de estoques</value>
-  </data>
-  <data name="TEXT_SITE" xml:space="preserve">
-    <value>Local</value>
-  </data>
-  <data name="TEXT_CHECKING" xml:space="preserve">
-    <value>Conta Corrente</value>
-  </data>
-  <data name="TEXT_SAVINGS" xml:space="preserve">
-    <value>Poupança</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="PAGE_TITLE_REPORTS" xml:space="preserve">
+        <value>Relatórios</value>
+    </data>
+    <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
+        <value>AccountId</value>
+    </data>
+    <data name="TEXT_ACCOUNT_INFORMATION" xml:space="preserve">
+        <value>Informações de conta</value>
+    </data>
+    <data name="TEXT_ACCOUNT_LOCKED" xml:space="preserve">
+        <value>A conta '{0} está bloqueada.</value>
+    </data>
+    <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
+        <value>Nome da conta:</value>
+    </data>
+    <data name="TEXT_ACCOUNT_NUMBER" xml:space="preserve">
+        <value>Número da conta:</value>
+    </data>
+    <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
+        <value>Resumo de conta</value>
+    </data>
+    <data name="TEXT_ACCT_MOST_USAGE" xml:space="preserve">
+        <value>Contas com o gráfico de barras de maior utilização</value>
+    </data>
+    <data name="TEXT_ACTIONS" xml:space="preserve">
+        <value>Ações</value>
+    </data>
+    <data name="TEXT_ADD" xml:space="preserve">
+        <value>Adicionar</value>
+    </data>
+    <data name="TEXT_ADD_BME" xml:space="preserve">
+        <value>Adicionar</value>
+    </data>
+    <data name="TEXT_AFTER" xml:space="preserve">
+        <value>após</value>
+    </data>
+    <data name="TEXT_ALLOW_ONLINE_PAYMENT" xml:space="preserve">
+        <value>Permitir pagamento online</value>
+    </data>
+    <data name="TEXT_ALLOW_SAVED_REPORTS" xml:space="preserve">
+        <value>Permitir relatórios salvos</value>
+    </data>
+    <data name="TEXT_ALLOW_SELF_CARE" xml:space="preserve">
+        <value>Permitir Self Care</value>
+    </data>
+    <data name="TEXT_ALLOW_SHARED_REPORTS" xml:space="preserve">
+        <value>Permitir relatórios compartilhados</value>
+    </data>
+    <data name="TEXT_AND" xml:space="preserve">
+        <value>e</value>
+    </data>
+    <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
+        <value>Aplicar alterações</value>
+    </data>
+    <data name="TEXT_AUTO" xml:space="preserve">
+        <value>Auto</value>
+    </data>
+    <data name="TEXT_BACK_DASHBOARD" xml:space="preserve">
+        <value>Voltar ao painel</value>
+    </data>
+    <data name="TEXT_BE_TITLE" xml:space="preserve">
+        <value>Lista de entidades comerciais</value>
+    </data>
+    <data name="TEXT_BEFORE" xml:space="preserve">
+        <value>antes</value>
+    </data>
+    <data name="TEXT_BILL_SETTING" xml:space="preserve">
+        <value>Configurações de conta</value>
+    </data>
+    <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
+        <value>Informações de faturamento</value>
+    </data>
+    <data name="TEXT_BREAD_CRUMB" xml:space="preserve">
+        <value>&amp;nbsp;&gt;&amp;nbsp;</value>
+    </data>
+    <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
+        <value>&amp;nbsp;&amp;nbsp;</value>
+    </data>
+    <data name="TEXT_BULKUPDATE" xml:space="preserve">
+        <value>Atualização em massa</value>
+    </data>
+    <data name="TEXT_CANCEL" xml:space="preserve">
+        <value>Cancelar</value>
+    </data>
+    <data name="TEXT_CAPABILITIES" xml:space="preserve">
+        <value>Capacidades</value>
+    </data>
+    <data name="TEXT_CATEGORY" xml:space="preserve">
+        <value>Categoria</value>
+    </data>
+    <data name="TEXT_CHECKING" xml:space="preserve">
+        <value>Conta Corrente</value>
+    </data>
+    <data name="TEXT_CHILD_ITEMS" xml:space="preserve">
+        <value>Subcobranças</value>
+    </data>
+    <data name="TEXT_COLUMN_TITLE" xml:space="preserve">
+        <value>Título</value>
+    </data>
+    <data name="TEXT_CONFIRMATION" xml:space="preserve">
+        <value>Confirmação</value>
+    </data>
+    <data name="TEXT_CREATOR_ID" xml:space="preserve">
+        <value>ID do criador</value>
+    </data>
+    <data name="TEXT_CSS_CLASS" xml:space="preserve">
+        <value>CssClass</value>
+    </data>
+    <data name="TEXT_CULTURE" xml:space="preserve">
+        <value>Cultura</value>
+    </data>
+    <data name="TEXT_CUSTOM_LAYOUT" xml:space="preserve">
+        <value>Layout personalizado</value>
+    </data>
+    <data name="TEXT_CUSTOM_PAGE" xml:space="preserve">
+        <value>Página personalizada</value>
+    </data>
+    <data name="TEXT_DASHBOARDS" xml:space="preserve">
+        <value>Painéis</value>
+    </data>
+    <data name="TEXT_DELETE" xml:space="preserve">
+        <value>Excluir</value>
+    </data>
+    <data name="TEXT_DESCRIPTION" xml:space="preserve">
+        <value>Descrição</value>
+    </data>
+    <data name="TEXT_DETAILS" xml:space="preserve">
+        <value>Detalhes</value>
+    </data>
+    <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
+        <value>Valor exibido</value>
+    </data>
+    <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
+        <value>Mostrar valor como string</value>
+    </data>
+    <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
+        <value>Baixar notas de crédito</value>
+    </data>
+    <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
+        <value>Baixar faturas e relatórios</value>
+    </data>
+    <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
+        <value>Baixar cotações</value>
+    </data>
+    <data name="TEXT_EDIT" xml:space="preserve">
+        <value>Editar </value>
+    </data>
+    <data name="TEXT_EN_US" xml:space="preserve">
+        <value>Inglês (EUA)</value>
+    </data>
+    <data name="TEXT_ENTRY_POINT_NAME" xml:space="preserve">
+        <value>Nome EntryPoint</value>
+    </data>
+    <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
+        <value>Pontos de entrada</value>
+    </data>
+    <data name="TEXT_ESTIMATE" xml:space="preserve">
+        <value>Isso é apenas uma estimativa e não sua fatura final.</value>
+    </data>
+    <data name="TEXT_FR" xml:space="preserve">
+        <value>Francês</value>
+    </data>
+    <data name="TEXT_GENERAL" xml:space="preserve">
+        <value>Geral</value>
+    </data>
+    <data name="TEXT_GO" xml:space="preserve">
+        <value>Ir</value>
+    </data>
+    <data name="TEXT_GRID_ID" xml:space="preserve">
+        <value>ID da grade</value>
+    </data>
+    <data name="TEXT_HEIGHT" xml:space="preserve">
+        <value>Altura</value>
+    </data>
+    <data name="TEXT_HIERARCHY_LEVELS" xml:space="preserve">
+        <value>Níveis hierárquicos com mais contas </value>
+    </data>
+    <data name="TEXT_ID" xml:space="preserve">
+        <value>ID</value>
+    </data>
+    <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
+        <value>Mostrar ajustes em série</value>
+    </data>
+    <data name="TEXT_INLINE_TAX" xml:space="preserve">
+        <value>Mostrar imposto em série</value>
+    </data>
+    <data name="TEXT_INTERNAL_ID" xml:space="preserve">
+        <value>Id interno</value>
+    </data>
+    <data name="TEXT_IS_REQUIRED" xml:space="preserve">
+        <value>ÉObrigatório</value>
+    </data>
+    <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
+        <value>está desativado para manutenção</value>
+    </data>
+    <data name="TEXT_IS_VISIBLE" xml:space="preserve">
+        <value>está visível</value>
+    </data>
+    <data name="TEXT_LAYOUT_EXTENSION_NAME" xml:space="preserve">
+        <value>Nome da extensão do layout</value>
+    </data>
+    <data name="TEXT_LAYOUT_NAME" xml:space="preserve">
+        <value>Nome do layout</value>
+    </data>
+    <data name="TEXT_LOGIN_INFORMATION" xml:space="preserve">
+        <value>Informações de login</value>
+    </data>
+    <data name="TEXT_LOGO_IMAGE" xml:space="preserve">
+        <value>Imagem do logotipo</value>
+    </data>
+    <data name="TEXT_MACHINE_IDENTIFIER" xml:space="preserve">
+        <value>Identificador de máquina</value>
+    </data>
+    <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
+        <value>Gerenciar assinaturas em grupo</value>
+    </data>
+    <data name="TEXT_MORE_ITEMS" xml:space="preserve">
+        <value>Mais itens...</value>
+    </data>
+    <data name="TEXT_MY_REPORTS" xml:space="preserve">
+        <value>Meus relatórios</value>
+    </data>
+    <data name="TEXT_NAME" xml:space="preserve">
+        <value>Nome</value>
+    </data>
+    <data name="TEXT_NEW" xml:space="preserve">
+        <value>Novo </value>
+    </data>
+    <data name="TEXT_NO" xml:space="preserve">
+        <value>NÃO</value>
+    </data>
+    <data name="TEXT_NO_BILL" xml:space="preserve">
+        <value>Sua fatura ainda não está disponível. Clique &lt;a href="Usage.aspx?view=summary"&gt;aqui&lt;/a&gt; para ver sua utilização atual.</value>
+    </data>
+    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+        <value>Nenhum registro encontrado</value>
+    </data>
+    <data name="TEXT_NO_TRANSACTIONS_FOUND" xml:space="preserve">
+        <value>Nenhuma transação encontrada</value>
+    </data>
+    <data name="TEXT_OK" xml:space="preserve">
+        <value>OK</value>
+    </data>
+    <data name="TEXT_PAGE_ERROR" xml:space="preserve">
+        <value>Não foi possível exibir a página.</value>
+    </data>
+    <data name="TEXT_PAGEURL" xml:space="preserve">
+        <value>PageURL</value>
+    </data>
+    <data name="TEXT_POSITION" xml:space="preserve">
+        <value>Posição</value>
+    </data>
+    <data name="TEXT_PRIORITY" xml:space="preserve">
+        <value>Prioridade</value>
+    </data>
+    <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
+        <value>Mapeamentos de exibição de produto</value>
+    </data>
+    <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
+        <value>Nome ProductView</value>
+    </data>
+    <data name="TEXT_PROPERTIES" xml:space="preserve">
+        <value>Propriedades</value>
+    </data>
+    <data name="TEXT_REASSIGN_MESSAGE" xml:space="preserve">
+        <value>Selecione a conta para receber as ordens transferidas.</value>
+    </data>
+    <data name="TEXT_REASSIGN_MESSAGE_TITLE" xml:space="preserve">
+        <value>Reatribuir ordens</value>
+    </data>
+    <data name="TEXT_REASSIGN_SUCCESS" xml:space="preserve">
+        <value>As ordens foram transferidas com sucesso.</value>
+    </data>
+    <data name="TEXT_RELATED_ENTITIES_1" xml:space="preserve">
+        <value>Adicionar relacionado </value>
+    </data>
+    <data name="TEXT_RELATED_ENTITIES_2" xml:space="preserve">
+        <value>(s) para : </value>
+    </data>
+    <data name="TEXT_RELATIONSHIP" xml:space="preserve">
+        <value>Relacionamento </value>
+    </data>
+    <data name="TEXT_REMOVE" xml:space="preserve">
+        <value>Remover contas</value>
+    </data>
+    <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
+        <value>Remover</value>
+    </data>
+    <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
+        <value>Relatório de estoques</value>
+    </data>
+    <data name="TEXT_REPORT_TYPE" xml:space="preserve">
+        <value>Tipo de relatório</value>
+    </data>
+    <data name="TEXT_SAVE" xml:space="preserve">
+        <value>Salvar</value>
+    </data>
+    <data name="TEXT_SAVINGS" xml:space="preserve">
+        <value>Poupança</value>
+    </data>
+    <data name="TEXT_SEARCH_LAYOUT" xml:space="preserve">
+        <value>Buscar layout</value>
+    </data>
+    <data name="TEXT_SESSION_ID" xml:space="preserve">
+        <value>ID da sessão</value>
+    </data>
+    <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
+        <value>Mostrar apenas intervalos fechados detalhadamente</value>
+    </data>
+    <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
+        <value>Exibir dados da segunda passagem</value>
+    </data>
+    <data name="TEXT_SITE" xml:space="preserve">
+        <value>Local</value>
+    </data>
+    <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
+        <value>Desculpe pelo transtorno, mas o site está em manutenção. Tente novamente mais tarde.</value>
+    </data>
+    <data name="TEXT_SITE_NAME" xml:space="preserve">
+        <value>Nome do site</value>
+    </data>
+    <data name="TEXT_SPACER" xml:space="preserve">
+        <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+    </data>
+    <data name="TEXT_STYLE" xml:space="preserve">
+        <value>Estilo</value>
+    </data>
+    <data name="TEXT_SUB_DATE_MESSAGE" xml:space="preserve">
+        <value>As datas do início e término da assinatura devem estar entre {0} e {1}.</value>
+    </data>
+    <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
+        <value>As datas da assinatura devem ser</value>
+    </data>
+    <data name="TEXT_THEME" xml:space="preserve">
+        <value>Tema</value>
+    </data>
+    <data name="TEXT_TIMESTAMP" xml:space="preserve">
+        <value>TimeStamp</value>
+    </data>
+    <data name="TEXT_TIMEZONE" xml:space="preserve">
+        <value>Fuso horário</value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>MetraView</value>
+    </data>
+    <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
+        <value>MetraControl</value>
+    </data>
+    <data name="TEXT_UNRELATED_1" xml:space="preserve">
+        <value>Não relacionado </value>
+    </data>
+    <data name="TEXT_UNRELATED_2" xml:space="preserve">
+        <value>(s)</value>
+    </data>
+    <data name="TEXT_URL" xml:space="preserve">
+        <value>Url</value>
+    </data>
+    <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
+        <value>Erro de validação. Tente novamente.</value>
+    </data>
+    <data name="TEXT_VALUE" xml:space="preserve">
+        <value>Valor</value>
+    </data>
+    <data name="TEXT_WIDGET_PATH" xml:space="preserve">
+        <value>Caminho do widget</value>
+    </data>
+    <data name="TEXT_WIDGET_TYPE" xml:space="preserve">
+        <value>Tipo de widget</value>
+    </data>
+    <data name="TEXT_WIDTH" xml:space="preserve">
+        <value>Largura</value>
+    </data>
+    <data name="TEXT_YES" xml:space="preserve">
+        <value>Sim</value>
+    </data>
 </root>

@@ -108,6 +108,7 @@ public partial class AjaxServices_BEListSvc : MTListServicePage
       Response.BufferOutput = false;
       Response.ContentType = "application/csv";
       Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+      Response.Write("sep=,"+ Environment.NewLine);
       Response.BinaryWrite(BOM);
     }
 
@@ -201,13 +202,11 @@ public partial class AjaxServices_BEListSvc : MTListServicePage
         }
 
         #region Export to CSV file
-
         if (Page.Request["mode"] != "csv")
         {
           //convert BE into JSON
           var jss = new JavaScriptSerializer();
           var json = new StringBuilder();
-
           json.Append("{\"TotalRows\":");
           json.Append(items.TotalRows.ToString());
           json.Append(", \"Items\":[");

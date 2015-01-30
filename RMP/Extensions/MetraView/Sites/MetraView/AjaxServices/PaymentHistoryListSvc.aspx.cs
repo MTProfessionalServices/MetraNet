@@ -160,8 +160,9 @@ public partial class AjaxServices_PaymentHistoryListSvc : MTListServicePage
 
       AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
       var billManager = new BillManager(UI);
-      
-     client.GetPaymentHistory(acct, billManager.GetLanguageCode(), ref items);
+
+      var lang = Session[Constants.SELECTED_LANGUAGE].ToString();
+      client.GetPaymentHistoryLocalized(acct, lang, ref items);
     }
     catch (FaultException<MASBasicFaultDetail> ex)
     {

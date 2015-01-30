@@ -11,14 +11,14 @@
     <div class="box">
       <div class="left">
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage"
-          Width="100%" meta:resourcekey="ValidationSummary1Resource1" />
+          Width="100%" />
         <asp:Label ID="lblErrorMessage" runat="server" CssClass="ErrorMessage" Text="Error Messages"
           Visible="False" meta:resourcekey="lblErrorMessageResource1"></asp:Label>
         <div class="InfoMessage" style="margin-left: 90px; width: 300px;">
           <MT:MTLabel Text="Are you sure you want to remove the ACH account below?" runat="server"
             ID="lblConfirm" meta:resourcekey="lblConfirmResource1" />
           <p />
-          <MT:MTLabel ID="lcAccountNumber" runat="server" meta:resourcekey="lcAccountNumberResource1" />
+          <MT:MTLabel ID="lcAccountNumber" runat="server"  />
         </div>
         <div class="button">
           <div class="centerbutton">

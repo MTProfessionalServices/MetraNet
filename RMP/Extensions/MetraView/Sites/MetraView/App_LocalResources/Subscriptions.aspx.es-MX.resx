@@ -139,6 +139,6 @@
     <value>Mis suscripciones</value>
   </data>
   <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>[es-MX]No records found</value>
+    <value>No Records Found</value>
   </data>
 </root>

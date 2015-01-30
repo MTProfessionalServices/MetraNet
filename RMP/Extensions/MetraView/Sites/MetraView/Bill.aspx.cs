@@ -38,9 +38,14 @@ public partial class Bill : MTPage
 
     var usageIntervalSlice = new UsageIntervalSlice();
     usageIntervalSlice.UsageInterval = interval.ID;
-    billManager.ReportParams.DateRange = usageIntervalSlice;
-    billManager.ReportParams.ReportView = ReportViewType.OnlineBill;
-    billManager.ReportParams.UseSecondPassData = true;  // only show second pass data on bill
+
+    billManager.ReportParams.DateRange = usageIntervalSlice;    
+    billManager.ReportParams.ReportView = ReportViewType.OnlineBill;    
+    billManager.ReportParams.UseSecondPassData = false;
+
+    billManager.ReportParamsLocalized.DateRange = usageIntervalSlice;
+    billManager.ReportParamsLocalized.ReportView = ReportViewType.OnlineBill;
+    billManager.ReportParamsLocalized.UseSecondPassData = false;
     billManager.GetInvoiceReport(true);
   }
 

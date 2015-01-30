@@ -22,34 +22,34 @@ public partial class Usage : MTPage
 
     if ((string)Session[SiteConstants.View] == "details")
     {
-        ListItem listItem = new ListItem(UI.Subscriber.SelectedAccount.UserName, UI.Subscriber.SelectedAccount._AccountID.ToString());
-        ddOwnedAccounts.Items.Add(listItem);
-        OwnershipMgr manager = new OwnershipMgr();
+      ListItem listItem = new ListItem(UI.Subscriber.SelectedAccount.UserName, UI.Subscriber.SelectedAccount._AccountID.ToString());
+      ddOwnedAccounts.Items.Add(listItem);
+      OwnershipMgr manager = new OwnershipMgr();
 
-        YAAC.IMTYAAC yaac = new YAAC.MTYAAC();
-        yaac.InitAsSecuredResource((int)UI.Subscriber.SelectedAccount._AccountID, (YAAC.IMTSessionContext)UI.SessionContext, MetraTime.Now);
+      YAAC.IMTYAAC yaac = new YAAC.MTYAAC();
+      yaac.InitAsSecuredResource((int)UI.Subscriber.SelectedAccount._AccountID, (YAAC.IMTSessionContext)UI.SessionContext, MetraTime.Now);
 
-        IMTSQLRowset rowset = (MetraTech.Interop.MTAuth.IMTSQLRowset)yaac.GetOwnedFolderList();
-        if (rowset != null)
+      IMTSQLRowset rowset = (MetraTech.Interop.MTAuth.IMTSQLRowset)yaac.GetOwnedFolderList();
+      if (rowset != null)
+      {
+        PanelOwnedAccounts.Visible = rowset.Count > 1;
+
+        while (!Convert.ToBoolean(rowset.EOF))
         {
-          PanelOwnedAccounts.Visible = rowset.Count > 1;
-
-          while (!Convert.ToBoolean(rowset.EOF))
+          string username = rowset.get_Value("displayname").ToString();
+          string id = rowset.get_Value("id_acc").ToString();
+          ListItem itm = new ListItem(username, id);
+          if (Session[SiteConstants.OwnedAccount] != null)
           {
-            string username = rowset.get_Value("displayname").ToString();
-            string id = rowset.get_Value("id_acc").ToString();
-            ListItem itm = new ListItem(username, id);
-            if (Session[SiteConstants.OwnedAccount] != null)
+            if (Session[SiteConstants.OwnedAccount].ToString() == id)
             {
-              if (Session[SiteConstants.OwnedAccount].ToString() == id)
-              {
-                itm.Selected = true;
-              }
+              itm.Selected = true;
             }
-            ddOwnedAccounts.Items.Add(itm);
-            rowset.MoveNext();
           }
+          ddOwnedAccounts.Items.Add(itm);
+          rowset.MoveNext();
         }
+      }
     }
 
     if (!IsPostBack)
@@ -80,39 +80,51 @@ public partial class Usage : MTPage
         startDate.Text = Request.QueryString[SiteConstants.StartDate] ?? interval.StartDate.ToShortDateString();
         endDate.Text = Request.QueryString[SiteConstants.EndDate] ?? interval.EndDate.ToShortDateString();
 
-        billManager.ReportParams.DateRange = new DateRangeSlice
-        {
-          Begin = DateTime.Parse(startDate.Text),
-          End = DateTime.Parse(endDate.Text).AddDays(1).AddMilliseconds(-1)
-        };
+        billManager.ReportParams.DateRange = GetDateRange();
+        billManager.ReportParamsLocalized.DateRange = GetDateRange();
       }
       else
       {
-        if (billManager.ReportParams.DateRange != null)
-        {
-          if (billManager.ReportParams.DateRange is DateRangeSlice)
-          {
-            startDate.Text = ((DateRangeSlice)billManager.ReportParams.DateRange).Begin.ToShortDateString();
-            endDate.Text = ((DateRangeSlice)billManager.ReportParams.DateRange).End.ToShortDateString();
-          }
-          else
-          {
-            Interval curInterval = billManager.GetCurrentInterval();
-            if (curInterval == null)
-            {
-              curInterval = billManager.GetOpenIntervalWithoutSettingItAsCurrentOnTheUI();
-            }
-
-            startDate.Text = curInterval.StartDate.ToShortDateString();
-            endDate.Text = curInterval.EndDate.ToShortDateString();
-          }
-        }
+        SetDataRangeDates(billManager.ReportParams.DateRange, billManager);
+        SetDataRangeDates(billManager.ReportParamsLocalized.DateRange, billManager);
       }
 
       billManager.ReportParams.ReportView = ReportViewType.Interactive;
       billManager.ReportParams.UseSecondPassData = false;  // show first pass data on usage page
+
+      billManager.ReportParamsLocalized.ReportView = ReportViewType.Interactive;
+      billManager.ReportParamsLocalized.UseSecondPassData = false;  // show first pass data on usage page
+
       billManager.GetInvoiceReport(true);
     }
+  }
+
+  private void SetDataRangeDates(TimeSlice dateRange, BillManager billManager)
+  {
+    if (dateRange == null) return;
+
+    if (dateRange is DateRangeSlice)
+    {
+      startDate.Text = ((DateRangeSlice)dateRange).Begin.ToShortDateString();
+      endDate.Text = ((DateRangeSlice)dateRange).End.ToShortDateString();
+    }
+    else
+    {
+      Interval curInterval = billManager.GetCurrentInterval() ??
+                             billManager.GetOpenIntervalWithoutSettingItAsCurrentOnTheUI();
+
+      startDate.Text = curInterval.StartDate.ToShortDateString();
+      endDate.Text = curInterval.EndDate.ToShortDateString();
+    }
+  }
+
+  private DateRangeSlice GetDateRange()
+  {
+    return new DateRangeSlice
+      {
+        Begin = DateTime.Parse(startDate.Text),
+        End = DateTime.Parse(endDate.Text).AddDays(1).AddMilliseconds(-1)
+      };
   }
 
   protected void BtnLoadUsageClick(object sender, EventArgs e)
@@ -123,7 +135,7 @@ public partial class Usage : MTPage
                                              Begin = DateTime.Parse(startDate.Text),
                                              End = DateTime.Parse(endDate.Text).AddDays(1).AddMilliseconds(-1)
                                            };
-    Response.Redirect(UI.DictionaryManager["UsagePage"] + "?StartDate=" + Server.UrlEncode(startDate.Text) + "&EndDate=" + 
+    Response.Redirect(UI.DictionaryManager["UsagePage"] + "?StartDate=" + Server.UrlEncode(startDate.Text) + "&EndDate=" +
                       Server.UrlEncode(endDate.Text));
   }
 

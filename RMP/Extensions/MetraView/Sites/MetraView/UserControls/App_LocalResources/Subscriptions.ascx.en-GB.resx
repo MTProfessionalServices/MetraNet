@@ -130,7 +130,7 @@
     <value>Current Plan</value>
   </data>
   <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>&lt;br /&gt;No records found.</value>
+    <value>&lt;br /&gt;No Records Found.</value>
   </data>
   <data name="HttpUrl" xml:space="preserve">
     <value>http://</value>

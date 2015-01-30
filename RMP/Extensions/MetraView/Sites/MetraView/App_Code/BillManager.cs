@@ -39,6 +39,7 @@ public class BillManager: System.Web.UI.TemplateControl
   #endregion
 
   #region Application Cache Properties
+
   public Dictionary<LanguageCode, ICOMLocaleTranslator> LocaleTranslators
   {
     get
@@ -52,9 +53,11 @@ public class BillManager: System.Web.UI.TemplateControl
     }
     set { HttpContext.Current.Application[SiteConstants.LocaleTransator] = value; }
   }
+
   #endregion
 
   #region Session Cache Properties
+
   /// <summary>
   /// Cache of Report Parameters
   /// </summary>
@@ -62,6 +65,15 @@ public class BillManager: System.Web.UI.TemplateControl
   {
     get { return HttpContext.Current.Session[SiteConstants.ReportParameters] as ReportParameters; }
     set { HttpContext.Current.Session[SiteConstants.ReportParameters] = value; }
+  }
+
+  /// <summary>
+  /// Cache of Report Parameters
+  /// </summary>
+  public ReportParametersLocalize ReportParamsLocalized
+  {
+    get { return HttpContext.Current.Session[SiteConstants.ReportParamsLocalized] as ReportParametersLocalize; }
+    set { HttpContext.Current.Session[SiteConstants.ReportParamsLocalized] = value; }
   }
 
   /// <summary>
@@ -134,6 +146,27 @@ public class BillManager: System.Web.UI.TemplateControl
       {
         var defaultIntervalSlice = new UsageIntervalSlice {UsageInterval = interval.ID};
         ReportParams.DateRange = defaultIntervalSlice;
+      }
+    }
+
+    // Setup default report parameters
+    if (ReportParamsLocalized == null)
+    {
+      var interval = GetCurrentInterval();
+
+      ReportParamsLocalized = new ReportParametersLocalize
+                       {
+                         InlineAdjustments = SiteConfig.Settings.BillSetting.InlineAdjustments ?? false,
+                         InlineVATTaxes = SiteConfig.Settings.BillSetting.InlineTax ?? false,
+                         UseSecondPassData = SiteConfig.Settings.BillSetting.ShowSecondPassData ?? false,
+                         LanguageLocale = Thread.CurrentThread.CurrentUICulture.ToString().ToLower(),
+                         ReportView = ReportViewType.OnlineBill
+                       };
+
+      if (interval != null)
+      {
+        var defaultIntervalSlice = new UsageIntervalSlice {UsageInterval = interval.ID};
+        ReportParamsLocalized.DateRange = defaultIntervalSlice;
       }
     }
   }
@@ -285,6 +318,7 @@ public class BillManager: System.Web.UI.TemplateControl
   #endregion
 
   #region Invoice Report
+
   /// <summary>
   /// Returns an InvoiceReport for the passed in interval and current selected subscriber
   /// </summary>
@@ -376,6 +410,7 @@ public class BillManager: System.Web.UI.TemplateControl
     InvoiceReport = invoiceReportClient.Out_report;
     return InvoiceReport;
   }
+
   #endregion
 
   #region Default Invoice Report
@@ -490,13 +525,13 @@ public class BillManager: System.Web.UI.TemplateControl
     if (productSlice == null)
       throw new UIException("Invalid product slice.");
     
-    var usageDetailsClient = new UsageHistoryService_GetUsageDetails_Client
+    var usageDetailsClient = new UsageHistoryService_GetUsageDetailsLocalized_Client
     {
       UserName = UI.User.UserName,
       Password = UI.User.SessionPassword,
       In_accountSlice = accountSlice,
       In_productSlice = productSlice,
-      In_repParams = ReportParams,
+      In_repParams = ReportParamsLocalized,
       InOut_usageDetails = details,
     };
     
@@ -962,6 +997,7 @@ public class BillManager: System.Web.UI.TemplateControl
       return GetReports(-1);
   }
   #endregion
+
   #region  GetCreditNotes
   public List<ReportFile> GetCreditNotesReports()
   {
@@ -969,6 +1005,7 @@ public class BillManager: System.Web.UI.TemplateControl
   }
 
   #endregion
+
   #region Payment Info - Last Payment and Next Payment Amount and Due Date
   public PaymentInfo GetPaymentInfo(int accID)
   {
@@ -981,8 +1018,8 @@ public class BillManager: System.Web.UI.TemplateControl
 
       PaymentInfo paymentInfo = new PaymentInfo();
       AccountIdentifier identifier = new AccountIdentifier(accID);
-
-      client.GetPaymentInfo(identifier, GetLanguageCode(), ref paymentInfo);
+      var language = Thread.CurrentThread.CurrentUICulture.ToString().ToLower();
+      client.GetPaymentInfoLocalized(identifier, language, ref paymentInfo);
 
       return paymentInfo;
     }
@@ -1011,12 +1048,12 @@ public class BillManager: System.Web.UI.TemplateControl
     if (UI.Subscriber.SelectedAccount._AccountID == null)
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
 
-    var reportLevelClient = new UsageHistoryService_GetByProductReport_Client
+    var reportLevelClient = new UsageHistoryService_GetByProductReportLocalized_Client
     {
       UserName = UI.User.UserName,
       Password = UI.User.SessionPassword,
       In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID),
-      In_repParams = ReportParams
+      In_repParams = ReportParamsLocalized
     };
     try
     {
@@ -1041,47 +1078,55 @@ public class BillManager: System.Web.UI.TemplateControl
     if ((string) HttpContext.Current.Session[SiteConstants.View] == "details")
     {
       string uniqueId = null;
-      if(ReportParams.ReportView == ReportViewType.OnlineBill)
+      var payerAndPayee = level.FolderSlice as PayerAndPayeeSlice;
+      if (payerAndPayee != null)
       {
-        if (level.FolderSlice != null)
-          uniqueId = string.Format("{0}_{1}", ((PayerAndPayeeSlice) level.FolderSlice).PayeeAccountId.AccountID, Guid.NewGuid());
+        uniqueId = string.Format("{0}_{1}", payerAndPayee.PayeeAccountId.AccountID, Guid.NewGuid());
       }
       else
       {
-        if (level.FolderSlice != null)
-          uniqueId = string.Format("{0}_{1}", ((PayeeAccountSlice) level.FolderSlice).PayeeID.AccountID, Guid.NewGuid());
+        var payee = level.FolderSlice as PayeeAccountSlice;
+        if (payee != null)
+        {
+          uniqueId = string.Format("{0}_{1}", payee.PayeeID.AccountID, Guid.NewGuid());
+        }
       }
 
       // check if there are charges
       if (level.ProductOfferings == null && level.Charges == null && String.IsNullOrEmpty(level.Name))
       {
         sb.Append("<tr>");
-        sb.Append(String.Format("<td colspan \"2\" style=\"padding-left:{0}px;\">{1}</td>", indent*10,
+        sb.Append(String.Format("<td colspan \"2\" style=\"padding-left:{0}px;\">{1}</td>",
+                                indent*10,
                                 Resources.Resource.TEXT_NO_TRANSACTIONS_FOUND));
         sb.Append("</tr>");
         return;
       }
 
       sb.Append("<tr>");
-      sb.Append(String.Format("<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\" ext:currency=\"{5}\">{3}</a></td>", 
-                                indent * 10,
-                                uniqueId, 
-                                indent,
-                                // SECENG: CORE-4791 CLONE - MSOL BSS 31927 Online Bill - Stored XSS through the individual or tenant name associated with syndication orders (ESR for 31444)
-                                // Added HTML enecoding
-                                Utils.EncodeForHtml(level.Name),
-                                SliceConverter.ToString(level.AccountEffectiveDate), 
-                                level.Currency));
+      sb.Append(
+        String.Format(
+          "<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\" ext:currency=\"{5}\">{3}</a></td>",
+          indent*10,
+          uniqueId,
+          indent,
+          // SECENG: CORE-4791 CLONE - MSOL BSS 31927 Online Bill - Stored XSS through the individual or tenant name associated with syndication orders (ESR for 31444)
+          // Added HTML enecoding
+          Utils.EncodeForHtml(level.Name),
+          SliceConverter.ToString(level.AccountEffectiveDate),
+          level.Currency));
 
-      sb.Append(String.Format("<td class=\"{0}\">{1}</td>", GetAmountStyle(indent, isByProduct), level.DisplayAmountAsString));
+      sb.Append(String.Format("<td class=\"{0}\">{1}</td>",
+                              GetAmountStyle(indent, isByProduct),
+                              level.DisplayAmountAsString));
 
       sb.Append("</tr>");
       // this is the placeholder for dynamic content to be loaded
-      sb.Append(String.Format("<tr><td colspan=\"2\"><div id=\"{0}\"></div></td></tr>", uniqueId));  
+      sb.Append(String.Format("<tr><td colspan=\"2\"><div id=\"{0}\"></div></td></tr>", uniqueId));
       indent++;
     }
 
-    if(isByProduct)
+    if (isByProduct)
       sb = RenderReportLevelCharges(level, true, indent, ref sb);
   }
 
@@ -1254,13 +1299,13 @@ public class BillManager: System.Web.UI.TemplateControl
       acc = new AccountIdentifier(folderId.Value);
     }
 
-    var reportLevelClient = new UsageHistoryService_GetByFolderReportLevel2_Client
+    var reportLevelClient = new UsageHistoryService_GetByFolderReportLevel2Localized_Client
     {
       UserName = UI.User.UserName,
       Password = UI.User.SessionPassword,
       In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID),
       In_accountEffectiveDate = accountEffectiveDate,
-      In_repParams = ReportParams,
+      In_repParams = ReportParamsLocalized,
       In_folder = acc, 
       In_currency = currency
     };

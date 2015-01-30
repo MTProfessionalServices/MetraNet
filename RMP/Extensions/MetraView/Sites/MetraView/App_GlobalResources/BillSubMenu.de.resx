@@ -121,7 +121,7 @@
     <value>Rechnungsverlauf</value>
   </data>
   <data name="TEXT_DOWNLOADS" xml:space="preserve">
-    <value>[DE]Downloads</value>
+    <value>Downloads</value>
   </data>
   <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
     <value>Zahlungsverlauf</value>

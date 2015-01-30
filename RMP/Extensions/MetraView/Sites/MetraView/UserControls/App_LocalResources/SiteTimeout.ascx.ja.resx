@@ -127,7 +127,7 @@
     <value>{0} 分間セッションが動作しない場合、そのセッションは終了します。</value>
   </data>
   <data name="SessionTimeoutMsg3.Text" xml:space="preserve">
-    <value>セッションの有効な状態を維持するには [OK] をクリックします。次の処理を行いました </value>
+    <value>セッションの有効な状態を維持するには をクリックします。次の処理を行いました </value>
   </data>
   <data name="SessionTimeoutSeconds.Text" xml:space="preserve">
     <value>秒</value>

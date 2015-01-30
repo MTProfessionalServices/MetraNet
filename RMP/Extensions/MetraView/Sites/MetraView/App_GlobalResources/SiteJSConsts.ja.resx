@@ -121,19 +121,31 @@
     <value>Y/m/d</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>Y/n/j</value>
+    <value>Y/m/d</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>Y/n/j g:i:s</value>
+    <value>Y/m/d G:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>Y/n/j g:i:s | Y/n/j</value>
+    <value>Y/m/d G:i:s | Y/m/d</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>Y/n/j g:i:s</value>
+    <value>Y/m/d G:i:s</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>Y/m/d G:ia</value>
+  </data>
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>Y/m/d G:i:s</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>YYYY/mm/dd</value>
+  </data>
+  <data name="DECIMAL_SEPARATOR" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>,</value>
   </data>
   <data name="GRAPH_CURRENCY_FORMAT" xml:space="preserve">
     <value>$%.2f</value>
@@ -241,7 +253,7 @@
     <value>削除</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[JA]Bulk Update</value>
+    <value>Bulk Update</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
     <value>{0} を削除しますか?</value>
@@ -337,55 +349,55 @@
     <value>エクスポート</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>[JA]Export All Filtered Records</value>
+    <value>Export All Filtered Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>[JA]Bulk Update All Filtered Records</value>
+    <value>Bulk Update All Filtered Records</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>[JA]Export Selected Records</value>
+    <value>Export Selected Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>[JA]Bulk Update Selected Records</value>
+    <value>Bulk Update Selected Records</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>現在のページのみエクスポート</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>[JA]Bulk Update Current Page Only</value>
+    <value>Bulk Update Current Page Only</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>検索結果のエクスポート</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>[JA]Bulk Update Search Results</value>
+    <value>Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>[JA]Nothing will be updated</value>
+    <value>Nothing will be updated</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>[JA]There are no selected BMEs for bulk update</value>
+    <value>There are no selected BMEs for bulk update</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>[JA]Too many records to update</value>
+    <value>Too many records to update</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>[JA]You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>[JA]There are no properties for bulk update</value>
+    <value>There are no properties for bulk update</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>[JA]Attention. Your changes will be permanent</value>
+    <value>Attention. Your changes will be permanent</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>[JA]Are you sure that you want to make these changes?</value>
+    <value>Are you sure that you want to make these changes?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>[JA]No properties are going to be updated</value>
+    <value>No properties are going to be updated</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>[JA]Properties that are going to be updated</value>
+    <value>Properties that are going to be updated</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>外部情報</value>
@@ -453,9 +465,6 @@
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
     <value>ログアウトしますか。</value>
   </data>
-  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>Y/n/j g:ia</value>
-  </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>アカウントの管理</value>
   </data>
@@ -520,7 +529,7 @@
     <value>プロパティ</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>[JA]You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [ProratedIntervalStartPreviousDay].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
+    <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [ProratedIntervalStartPreviousDay].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>この電荷は日割り計算されています。比例配分は、あなたが特定の請求にサービスに加入していることの日数を入力する充電することによって費用を削減</value>
@@ -670,42 +679,39 @@
     <value>次を対象とする関係: </value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value>[JA]The name cannot contain single or double quote characters.</value>
+    <value>The name cannot contain single or double quote characters.</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]Passwords do not match.</value>
+    <value>Passwords do not match.</value>
   </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]Enter a valid phone number. Format: 555-555-5555</value>
+    <value>Enter a valid phone number. Format: 555-555-5555</value>
   </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]Credit card format is invalid</value>
+    <value>Credit card format is invalid</value>
   </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]CV Number is invalid</value>
+    <value>CV Number is invalid</value>
   </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]SSN format: xxx-xx-xxxx</value>
+    <value>SSN format: xxx-xx-xxxx</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]Only numeric digits are allowed</value>
+    <value>Only numeric digits are allowed</value>
   </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]Zipcode is invalid</value>
+    <value>Zipcode is invalid</value>
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[JA]Middle initial is invalid</value>
-  </data>
-  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>Y/m/d H:i:s</value>
+    <value>Middle initial is invalid</value>
   </data>
   <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
-    <value>[JA] Refresh</value>
+    <value>Refresh</value>
   </data>
   <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
-    <value>[JA] right click for options</value>
+    <value>right click for options</value>
   </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>[JA] No Transactions Found for the Current Interval</value>
+    <value>No Transactions Found for the Current Interval</value>
   </data>  
 </root>

@@ -30,6 +30,7 @@
   <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/JavaScript/RowSelectionModelOverride.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/PaymentBroker.js?v=6.5"></script>
 
   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
   <theme:ThemeIncludes ID="ThemeIncludes1" runat="server" />

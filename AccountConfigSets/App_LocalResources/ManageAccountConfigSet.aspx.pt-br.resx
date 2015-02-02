@@ -148,7 +148,7 @@
     <value>Cancelar</value>
   </data>
   <data name="TEXT_CREATE_ACCOUNTCONFIGSET" xml:space="preserve">
-    <value>Add OnBoard Template</value>
+    <value>Adicionar modelo OnBoard</value>
   </data>
   <data name="TEXT_DATES_ERROR" xml:space="preserve">
     <value>A data de início deve ser menor que a data de término</value>
@@ -196,34 +196,31 @@
     <value>Adicionar</value>
   </data>
   <data name="dpStartDateResource.Label" xml:space="preserve">
-    <value>Effective Date</value>
+    <value>Data de vigência</value>
   </data>
   <data name="dpEndDateResource.Label" xml:space="preserve">
-    <value>Effective End Date</value>
+    <value>Data de término da vigência</value>
   </data>
   <data name="tbAcsDescriptionResource.Label" xml:space="preserve">
-    <value>Description</value>
+    <value>Descrição</value>
   </data>
   <data name="cbAcsEnabledResource.BoxLabel" xml:space="preserve">
-    <value>Enabled</value>
+    <value>Ativado</value>
   </data>
   <data name="tbRankResource.Label" xml:space="preserve">
-    <value>Rank</value>
+    <value>Classificar</value>
   </data>
   <data name="panelAccountConfigSetParameters.Text" xml:space="preserve">
-    <value>Template Information</value>
-  </data>
-  <data name="panelCriteriaResource.Text" xml:space="preserve">
-    <value></value>
+    <value>Informações do modelo</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Subscription Model Details</value>
+    <value>Detalhes do modelo de assinatura</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
     <value>Nome da assinatura em grupo</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
-    <value>Subscription Params Id</value>
+    <value>Id de parâmetros da assinatura</value>
   </data>
   <data name="ACCOUNTVIEW" xml:space="preserve">
     <value>ID de conta</value>
@@ -238,37 +235,37 @@
     <value>Item</value>
   </data>
   <data name="ITEMS" xml:space="preserve">
-    <value>Items</value>
+    <value>Item</value>
   </data>
   <data name="SELECTION_CRITERIA_GRID_TITLE" xml:space="preserve">
-    <value>If following Account Properties are satisfied</value>
+    <value>Se as seguintes propriedades da conta forem atendidas</value>
   </data>
   <data name="PROPERTY_TO_SET_GRID_TITLE" xml:space="preserve">
-    <value>Apply following Account Properties Updates</value>
+    <value>Aplicar as seguintes Atualização de propriedades de conta</value>
   </data>
   <data name="REMOVE_SELECTIONCRITERION" xml:space="preserve">
-    <value>Edit Property To Set</value>
+    <value>Remover critério de seleção</value>
   </data>
   <data name="EDIT_SELECTIONCRITERION" xml:space="preserve">
-    <value>Edit Property To Set</value>
+    <value>Editar critério de seleção</value>
   </data>
   <data name="REMOVE_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Remove Property To Set</value>
+    <value>Remover propriedade a definir</value>
   </data>
   <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Edit Property To Set</value>
+    <value>Editar propriedade a definir</value>
   </data>
   <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Add Property</value>
+    <value>Adicionar propriedade</value>
   </data>
   <data name="ADD_SELECTION_CRITERIA" xml:space="preserve">
-    <value>Add Property</value>
+    <value>Adicionar propriedade</value>
   </data>
   <data name="ADD_SELECTION_CRITERION" xml:space="preserve">
-    <value>Edit Property To Set</value>
+    <value>Adicionar critério de seleção</value>
   </data>
   <data name="EDIT_SELECTION_CRITERIA" xml:space="preserve">
-    <value>Edit Property To Set</value>
+    <value>Editar critério de seleção</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
     <value>Métricas UDRC</value>
@@ -280,18 +277,18 @@
     <value>É provável que o comprimento do valor seja mais que o disponível para a propriedade selecionada</value>
   </data>
   <data name="panelManageSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Apply following Subscription Model</value>
+    <value>Aplicar o seguinte Modelo de assinatura</value>
   </data>
   <data name="btnSelectSubParamsResource.Text" xml:space="preserve">
-    <value>Select Model</value>
+    <value>Selecionar modelo</value>
   </data>
   <data name="btnRemoveSubParamsResource.Text" xml:space="preserve">
-    <value>Remove Model</value>
+    <value>Remover modelo</value>
   </data>
   <data name="SELECT_SUBPARAMS" xml:space="preserve">
-    <value>Subscription Models</value>
+    <value>Modelos de assinatura</value>
   </data>
   <data name="TEXT_UPDATE_QUESTION" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>Você tem certeza?</value>
   </data>
 </root>

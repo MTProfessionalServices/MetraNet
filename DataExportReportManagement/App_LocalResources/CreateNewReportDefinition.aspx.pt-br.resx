@@ -125,56 +125,56 @@
     </data>
     <data name="btnOKResource1.ServerSide" xml:space="preserve">
         <value>True</value>
-    </data>
+  </data>
     <data name="btnOKResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
     <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
         <value>10</value>
     </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Criar nova definição de relatório</value>
-    </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>Criar nova definição de relatório</value>
+  </data>
     <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>
     </data>
-    <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
-        <value>Descrição</value>
-    </data>
-    <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
-        <value>Outubro</value>
-    </data>
-    <data name="TEXT_DEF_NAME" xml:space="preserve">
-        <value>Nome</value>
-    </data>
-    <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
-        <value>Prevenir execução adhoc</value>
-    </data>
-    <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
-        <value>Tag da consulta</value>
-    </data>
-    <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
-        <value>Título do relatório</value>
-    </data>
-    <data name="TEXT_ID_REPORT" xml:space="preserve">
-        <value>ID Report</value>
-    </data>
+  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="TEXT_DEF_MONTH_OCTOBER" xml:space="preserve">
+    <value>Outubro</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="TEXT_DEF_PREVENT_ADHOC_EXECUTION" xml:space="preserve">
+    <value>Prevenir execução adhoc</value>
+  </data>
+  <data name="TEXT_DEF_QUERY_TAG" xml:space="preserve">
+    <value>Tag da consulta</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
+    <value>Título do relatório</value>
+  </data>
+  <data name="TEXT_ID_REPORT" xml:space="preserve">
+    <value>ID do relatório</value>
+  </data>
   <data name="MTSection2Resource1.Text" xml:space="preserve">
-    <value>Report Definition Details</value>
-  </data>
-  <data name="chkPreventAdhocExecutionResource1.BoxLabel" xml:space="preserve">
-    <value>Prevent Adhoc Execution</value>
-  </data>
-  <data name="ddQueryTagListResource1.Label" xml:space="preserve">
-    <value>Query Tag</value>
-  </data>
-  <data name="tbReportDescriptionResource1.Label" xml:space="preserve">
-    <value>Description</value>
+    <value>Detalhes da definição de relatório</value>
   </data>
   <data name="tbReportTitleResource1.Label" xml:space="preserve">
-    <value>Report Title</value>
+    <value>Título do relatório</value>
+  </data>
+  <data name="tbReportDescriptionResource1.Label" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="ddQueryTagListResource1.Label" xml:space="preserve">
+    <value>Tag da consulta</value>
+  </data>
+  <data name="chkPreventAdhocExecutionResource1.BoxLabel" xml:space="preserve">
+    <value>Prevenir execução adhoc</value>
   </data>
 </root>

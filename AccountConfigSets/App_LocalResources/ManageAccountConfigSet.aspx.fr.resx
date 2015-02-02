@@ -121,7 +121,7 @@
     <value>Actions</value>
   </data>
   <data name="CONDITION_SIGN" xml:space="preserve">
-    <value>Condition</value>
+    <value>état</value>
   </data>
   <data name="CONDITIONS" xml:space="preserve">
     <value>Conditions</value>
@@ -148,7 +148,7 @@
     <value>Annuler</value>
   </data>
   <data name="TEXT_CREATE_ACCOUNTCONFIGSET" xml:space="preserve">
-    <value>Add OnBoard Template</value>
+    <value>Ajouter un modèle embarqué</value>
   </data>
   <data name="TEXT_DATES_ERROR" xml:space="preserve">
     <value>La date de début doit être antérieure à la date de fin</value>
@@ -196,28 +196,25 @@
     <value>Ajouter</value>
   </data>
   <data name="dpStartDateResource.Label" xml:space="preserve">
-    <value>Effective Date</value>
+    <value>Date de validité</value>
   </data>
   <data name="dpEndDateResource.Label" xml:space="preserve">
-    <value>Effective End Date</value>
+    <value>Date de fin de validité</value>
   </data>
   <data name="tbAcsDescriptionResource.Label" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="cbAcsEnabledResource.BoxLabel" xml:space="preserve">
-    <value>Enabled</value>
+    <value>Activé</value>
   </data>
   <data name="tbRankResource.Label" xml:space="preserve">
-    <value>Rank</value>
+    <value>Rang</value>
   </data>
   <data name="panelAccountConfigSetParameters.Text" xml:space="preserve">
-    <value>Template Information</value>
-  </data>
-  <data name="panelCriteriaResource.Text" xml:space="preserve">
-    <value></value>
+    <value>Informations du modèle</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Subscription Model Details</value>
+    <value>Détails du modèle d`abonnement</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
     <value>Nom de l’abonnement groupé</value>
@@ -241,10 +238,10 @@
     <value>Eléments</value>
   </data>
   <data name="SELECTION_CRITERIA_GRID_TITLE" xml:space="preserve">
-    <value>If following Account Properties are satisfied</value>
+    <value>Si les propriétés du compte suivantes sont satisfaites</value>
   </data>
   <data name="PROPERTY_TO_SET_GRID_TITLE" xml:space="preserve">
-    <value>Apply following Account Properties Updates</value>
+    <value>Appliquer les mises à jour de propriétés du compte suivantes</value>
   </data>
   <data name="REMOVE_SELECTIONCRITERION" xml:space="preserve">
     <value>Supprimer le critère de sélection</value>
@@ -253,16 +250,16 @@
     <value>Modifier le critère de sélection</value>
   </data>
   <data name="REMOVE_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Remove Property To Set</value>
+    <value>Supprimer la propriété à définir</value>
   </data>
   <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Edit Property To Set</value>
+    <value>Modifier la propriété à définir</value>
   </data>
   <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Add Property</value>
+    <value>Ajouter une propriété</value>
   </data>
   <data name="ADD_SELECTION_CRITERIA" xml:space="preserve">
-    <value>Add Property</value>
+    <value>Ajouter une propriété</value>
   </data>
   <data name="ADD_SELECTION_CRITERION" xml:space="preserve">
     <value>Ajouter critère de sélection</value>
@@ -280,18 +277,18 @@
     <value>La longueur probable de la valeur est supérieure à celle disponible pour la propriété sélectionnée</value>
   </data>
   <data name="panelManageSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Apply following Subscription Model</value>
+    <value>Appliquer le modèle d`abonnement suivant</value>
   </data>
   <data name="btnSelectSubParamsResource.Text" xml:space="preserve">
-    <value>Select Model</value>
+    <value>Sélectionner un modèle</value>
   </data>
   <data name="btnRemoveSubParamsResource.Text" xml:space="preserve">
-    <value>Remove Model</value>
+    <value>Supprimer un modèle</value>
   </data>
   <data name="SELECT_SUBPARAMS" xml:space="preserve">
-    <value>Subscription Models</value>
+    <value>Modèles d'abonnement</value>
   </data>
   <data name="TEXT_UPDATE_QUESTION" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>Êtes-vous sûr ?</value>
   </data>
 </root>

@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -189,9 +189,6 @@
   <data name="FAILURE" xml:space="preserve">
     <value>Échec</value>
   </data>
-  <data name="FRACTION_DIGITS" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="MANUAL_PENDING" xml:space="preserve">
     <value>Manuel en attente</value>
   </data>
@@ -213,14 +210,8 @@
   <data name="REJECTED" xml:space="preserve">
     <value>Rejeté</value>
   </data>
-  <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
   <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
     <value>Nom</value>
-  </data>
-  <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
-    <value>N/A</value>
   </data>
   <data name="REVERSED" xml:space="preserve">
     <value>Inversé</value>
@@ -261,9 +252,6 @@
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Seules les valeurs numériques sont autorisées</value>
   </data>
-  <data name="TEXT_ACH" xml:space="preserve">
-    <value>ACH</value>
-  </data>
   <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
     <value>Activer/Désactiver</value>
   </data>
@@ -292,22 +280,22 @@
     <value>Ajouter une valeur</value>
   </data>
   <data name="TEXT_ADDING_UDRC" xml:space="preserve">
-    <value>Ajout d’une valeur UDRC...</value>
+    <value>Ajout d`une valeur UDRC...</value>
   </data>
   <data name="TEXT_ADJ_APPROVE" xml:space="preserve">
-    <value>Voulez-vous vraiment continuer ? Cette étape irréversible approuvera tous les ajustements correspondant à vos critères de filtrage. En l’absence de filtres, tous les ajustements du système seront approuvés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape irréversible approuvera tous les ajustements correspondant à vos critères de filtrage. En l`absence de filtres, tous les ajustements du système seront approuvés.</value>
   </data>
   <data name="TEXT_ADJ_DELETE" xml:space="preserve">
-    <value>Voulez-vous vraiment continuer ? Cette étape irréversible supprimera tous les ajustements correspondant à vos critères de filtrage. En l’absence de filtres, tous les ajustements du système seront supprimés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape irréversible supprimera tous les ajustements correspondant à vos critères de filtrage. En l`absence de filtres, tous les ajustements du système seront supprimés.</value>
   </data>
   <data name="TEXT_ADJ_DENIED" xml:space="preserve">
-    <value>Voulez-vous vraiment continuer ? Cette étape irréversible refusera tous les ajustements correspondant à vos critères de filtrage. En l’absence de filtres, tous les ajustements du système seront refusés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape irréversible refusera tous les ajustements correspondant à vos critères de filtrage. En l`absence de filtres, tous les ajustements du système seront refusés.</value>
   </data>
   <data name="TEXT_ADVANCED_FIND" xml:space="preserve">
     <value>Recherche avancée</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value>Le nom ne peut pas contenir d’apostrophes ou de guillemets.</value>
+    <value>Le nom ne peut pas contenir d`apostrophes ou de guillemets.</value>
   </data>
   <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir supprimer cette qualification de compte ?</value>
@@ -316,103 +304,100 @@
     <value>Êtes-vous sûr de vouloir supprimer cette directive ?</value>
   </data>
   <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
-    <value>Une erreur s’est produite pendant l’activation/la désactivation du type de décision : </value>
+    <value>Une erreur s`est produite pendant l`activation/la désactivation du type de décision : </value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Exemple : un compte (parent) est facturé selon l’activité de comptes enfant. Vous voulez obtenir le montant total des frais (parent et enfant).&lt;br/&gt;&lt;br/&gt;Vous voulez également ignorer le type de décision pour certains comptes. Par exemple, vous voulez que le type de décision s’applique uniquement aux comptes qui reçoivent des factures papier.</value>
+    <value>Exemple : un compte (parent) est facturé selon l`activité de comptes enfant. Vous voulez obtenir le montant total des frais (parent et enfant).&lt;br/&gt;&lt;br/&gt;Vous voulez également ignorer le type de décision pour certains comptes. Par exemple, vous voulez que le type de décision s`applique uniquement aux comptes qui reçoivent des factures papier.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>Les décisions sont utilisées lorsqu’un montant monétaire ne peut pas être calculé à l’examen d’un seul enregistrement. De nombreux enregistrements d’utilisation doivent dans ce cas être examinés, et le total doit correspondre au nombre d’événements, d’unités d’utilisation ou au montant facturé. Le total (ou agrégat) est ensuite utilisé pour déterminer le montant à facturer.</value>
+    <value>Les décisions sont utilisées lorsqu`un montant monétaire ne peut pas être calculé à l`examen d`un seul enregistrement. De nombreux enregistrements d`utilisation doivent dans ce cas être examinés, et le total doit correspondre au nombre d`événements, d`unités d`utilisation ou au montant facturé. Le total (ou agrégat) est ensuite utilisé pour déterminer le montant à facturer.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Sélectionnez un groupe de chaîne de montants à utiliser par le type de décision pour le comptage et le calcul des valeurs relatives.  &lt;br/&gt;&lt;br/&gt;Exemple : une chaîne de montant possède quatre zones associées dans une vue produit :  \"nombre de minutes utilisées\", \"prix par minute\", \"montant des frais\" et \"taxe sur le montant de frais\".</value>
+    <value>Sélectionnez un groupe de chaîne de montants à utiliser par le type de décision pour le comptage et le calcul des valeurs relatives.  &lt;br/&gt;&lt;br/&gt;Exemple : une chaîne de montant possède quatre zones associées dans une vue produit :  \"nombre de minutes utilisées\", \"prix par minute\", \"montant des frais"\" et \"taxe sur le montant de frais\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
     <value>Les paramètres de décision ont déjà spécifié le mode de calcul du montant de frais généré. Sélectionnez maintenant le groupe de chaînes de montant, qui spécifie : (a) la zone de la vue produit dans laquelle le montant de frais généré doit être stocké et (b) toute autre zone devant être recalculée.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>Pour plus d’informations sur la méthode de création d’un nouveau groupe de comptes, consultez la documentation ou contactez votre représentant MetraTech.</value>
+    <value>Pour plus d`informations sur la méthode de création d`un nouveau groupe de comptes, consultez la documentation ou contactez votre représentant MetraTech.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Exemple : deux décisions concernent le même enregistrement d’utilisation. Ces deux décisions sont configurées de façon à prendre en compte les enregistrements d’utilisation. &lt;br/&gt;&lt;br/&gt;Les niveaux de priorité des décisions déterminent l’ordre dans lequel les décisions doivent être traitées. Un chiffre peu élevé de niveau de priorité signifie un traitement antérieur à un chiffre de niveau de priorité plus élevé. Les décisions qui possèdent le même niveau de priorité sont traitées selon un ordre indéterminé. Dans la page de priorité des décisions, vous pouvez spécifier le niveau de priorité du type de décision que vous configurez.</value>
+    <value>Exemple : deux décisions concernent le même enregistrement d`utilisation. Ces deux décisions sont configurées de façon à prendre en compte les enregistrements d`utilisation. &lt;br/&gt;&lt;br/&gt;Les niveaux de priorité des décisions déterminent l`ordre dans lequel les décisions doivent être traitées. Un chiffre peu élevé de niveau de priorité signifie un traitement antérieur à un chiffre de niveau de priorité plus élevé. Les décisions qui possèdent le même niveau de priorité sont traitées selon un ordre indéterminé. Dans la page de priorité des décisions, vous pouvez spécifier le niveau de priorité du type de décision que vous configurez.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>Par exemple, vous effectuez une agrégation par montant, et vous voulez que quelque chose de spécifique se produise tous les 1000 $.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>La condition d’exécution est une expression MVM libre, évaluée au moment où une directive est sur le point d’être exécutée. Si l’expression est évaluée à 1, la directive est exécutée. Si l’évaluation de l’expression fait ressortir une autre valeur que 1, la directive n’est PAS exécutée.  Cette zone s’applique à l’inclusion de tables, au renseignement de zones et à l’exécution de procédures.</value>
+    <value>La condition d`exécution est une expression MVM libre, évaluée au moment où une directive est sur le point d`être exécutée. Si l`expression est évaluée à 1, la directive est exécutée. Si l`évaluation de l`expression fait ressortir une autre valeur que 1, la directive n`est PAS exécutée.  Cette zone s`applique à l`inclusion de tables, au renseignement de zones et à l`exécution de procédures.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
     <value>Cette table illustre les zones de la vue produit et de t_acc_usage dont les directives de renseignement des zones ont été définies. Utilisez cette table pour déterminer les zones à définir.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>Cette remise s’applique au \"montant\" associé au type de décision.  Toute zone dérivée de la zone \"montant\" est ensuite recalculée.&lt;br/&gt;&lt;br/&gt;La remise peut s’appliquer uniquement à une partie du montant si votre type de décision inclut l’agrégation de l’utilisation. &lt;br/&gt;&lt;br/&gt;Exemple : le début de la plage est \"500 minutes\" et le total actuel est égal à \"400 minutes\".  La décision traite un enregistrement comportant \"300 minutes\".  \"100 minutes\" est hors de la plage et \"200 minutes\" est dans la plage.  Si la remise est de 5 %, le \"montant\" est réduit de 0,05 x (200/300).</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value />
+    <value>Cette remise s`applique au \"montant\" associé au type de décision.  Toute zone dérivée de la zone \"montant\" est ensuite recalculée.&lt;br/&gt;&lt;br/&gt;La remise peut s`appliquer uniquement à une partie du montant si votre type de décision inclut l`agrégation de l`utilisation. &lt;br/&gt;&lt;br/&gt;Exemple : le début de la plage est \"500 minutes\" et le total actuel est égal à \"400 minutes\".  La décision traite un enregistrement comportant \"300 minutes\".  \"100 minutes\" est hors de la plage et \"200 minutes\" est dans la plage.  Si la remise est de 5 %, le \"montant\" est réduit de 0,05 x (200/300).</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>Ce nouveau prix s’applique via la définition de la zone \"montant\" associée au type de décision en spécifiant la nouvelle valeur. Toutes les zones dérivées de la zone \"montant\" sont ensuite recalculées.&lt;br/&gt;Exemple :  une fois la plage atteinte, \"le coût de l’appel est 0,75 $\" ou \"l’appel coûte 1 $, quel que soit le nombre de minutes\".</value>
+    <value>Ce nouveau prix s`applique via la définition de la zone \"montant\" associée au type de décision en spécifiant la nouvelle valeur. Toutes les zones dérivées de la zone \"montant\" sont ensuite recalculées.&lt;br/&gt;Exemple :  une fois la plage atteinte, \"le coût de l`appel est 0,75 $\" ou \"l`appel coûte 1 $, quel que soit le nombre de minutes\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
-    <value>Dans le filtre, vous pouvez vérifier des valeurs spécifiques des zones de la vue produit ou de t_acc_usage, ou vous pouvez vérifier si d’autres qualifications d’utilisation (que vous avez déjà créées) sont respectées. Vous pouvez utiliser des parenthèses et les mots clés \"et\", \"ou\", \"==\", \"!=\" et \"!\". Utilisez les boutons &lt;u&gt;Insérer&lt;/u&gt; pour insérer des éléments du filtre au niveau du curseur.&lt;br/&gt;&lt;br/&gt;Dans le filtre, \"OBJET\" fait référence à l’enregistrement d’utilisation et \"GROUPE\" fait référence à un autre groupe de qualifications d’utilisation.</value>
+    <value>Dans le filtre, vous pouvez vérifier des valeurs spécifiques des zones de la vue produit ou de t_acc_usage, ou vous pouvez vérifier si d`autres qualifications d`utilisation (que vous avez déjà créées) sont respectées. Vous pouvez utiliser des parenthèses et les mots clés \"et\", \"ou\", \"==\", \"!=\" et \"!\". Utilisez les boutons &lt;u&gt;Insérer&lt;/u&gt; pour insérer des éléments du filtre au niveau du curseur.&lt;br/&gt;&lt;br/&gt;Dans le filtre, \"OBJET\" fait référence à l`enregistrement d`utilisation et \"GROUPE\" fait référence à un autre groupe de qualifications d`utilisation.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>Une &lt;i&gt;Décision&lt;/i&gt;  est utilisée pour analyser les enregistrements d’utilisation (facturation) et éventuellement pour modifier les frais en fonction des résultats de l’analyse. l’utilisation de décisions est nécessaire lorsqu’il est impossible de déterminer le montant à l’examen d’un enregistrement isolé. &lt;br/&gt; Par exemple, vous pouvez affecter un prix spécial si le nombre de minutes d’utilisation du téléphone au cours du mois est &gt; 1000.  Vous ne pouvez déterminer le prix à utiliser qu’après avoir ajouté tous les enregistrements d’utilisation.  Si le nombre de minutes est &gt; 1000, le prix est modifié pour chaque enregistrement et un nouveau montant est calculé. </value>
+    <value>Une &lt;i&gt;Décision&lt;/i&gt;  est utilisée pour analyser les enregistrements d`utilisation (facturation) et éventuellement pour modifier les frais en fonction des résultats de l`analyse. L`utilisation de décisions est nécessaire lorsqu`il est impossible de déterminer le montant à l`examen d`un enregistrement isolé. &lt;br/&gt; Par exemple, vous pouvez affecter un prix spécial si le nombre de minutes d`utilisation du téléphone au cours du mois est &gt; 1000.  Vous ne pouvez déterminer le prix à utiliser qu`après avoir ajouté tous les enregistrements d`utilisation.  Si le nombre de minutes est &gt; 1000, le prix est modifié pour chaque enregistrement et un nouveau montant est calculé. </value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>Choisissez cette option pour que le type de décision crée un nouveau débit ou crédit. Vous définirez le débit/crédit dans le prochain ensemble d’écrans.</value>
+    <value>Choisissez cette option pour que le type de décision crée un nouveau débit ou crédit. Vous définirez le débit/crédit dans le prochain ensemble d`écrans.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Chaque débit/crédit créé figurant dans la grille est associé à une vue produit et spécifie la définition des zones dans la vue produit et dans t_acc_usage.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>- Si les frais/le crédit sont appliqués proportionnellement, la fraction suivante de la valeur des frais/du crédit est appliquée :&lt;br /&gt;  (total - début de la plage) / (fin de la plage - début de la plage)&lt;br /&gt;- Si les frais/le crédit sont appliqués de manière inversement proportionnelle, la fraction suivante de la valeur des frais/du crédit est appliquée :&lt;br /&gt;  (fin de la plage - total) / (fin de la plage - début de la plage)&lt;br /&gt;- Si les frais/le crédit sont appliqués en tant que multiplicateur consolidé, le montant des frais/du crédit est calculé comme suit :&lt;br /&gt;  (valeur des frais ou du crédit) * (valeur consolidée pour la décision)&lt;br /&gt;où la valeur consolidée peut être une somme d’argent, des unités d’utilisation ou des événements.&lt;br /&gt;- Sinon, la valeur totale des frais/du crédit est appliquée.</value>
+    <value>- Si les frais/le crédit sont appliqués proportionnellement, la fraction suivante de la valeur des frais/du crédit est appliquée :&lt;br /&gt;  (total - début de la plage) / (fin de la plage - début de la plage)&lt;br /&gt;- Si les frais/le crédit sont appliqués de manière inversement proportionnelle, la fraction suivante de la valeur des frais/du crédit est appliquée :&lt;br /&gt;  (fin de la plage - total) / (fin de la plage - début de la plage)&lt;br /&gt;- Si les frais/le crédit sont appliqués en tant que multiplicateur consolidé, le montant des frais/du crédit est calculé comme suit :&lt;br /&gt;  (valeur des frais ou du crédit) * (valeur consolidée pour la décision)&lt;br /&gt;où la valeur consolidée peut être une somme d`argent, des unités d`utilisation ou des événements.&lt;br /&gt;- Sinon, la valeur totale des frais/du crédit est appliquée.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>&lt;i&gt;Agir dans chaque enregistrement individuellement&lt;/i&gt; signifie que la décision utilise un enregistrement, l’ajoute au total, et si ce total figure dans la plage, réalise une action spécifique.  &lt;i&gt;Agir sur tous les enregistrements&lt;/i&gt; signifie que la décision totalise &lt;u&gt;TOUS&lt;/u&gt; les enregistrements ; si ce total entre dans la plage, elle applique l’action spécifique à &lt;u&gt;TOUS&lt;/u&gt; les enregistrements.</value>
+    <value>&lt;i&gt;Agir dans chaque enregistrement individuellement&lt;/i&gt; signifie que la décision utilise un enregistrement, l`ajoute au total, et si ce total figure dans la plage, réalise une action spécifique.  &lt;i&gt;Agir sur tous les enregistrements&lt;/i&gt; signifie que la décision totalise &lt;u&gt;TOUS&lt;/u&gt; les enregistrements ; si ce total entre dans la plage, elle applique l`action spécifique à &lt;u&gt;TOUS&lt;/u&gt; les enregistrements.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>Exemple : si le type de décision est \"Utiliser un prix spécial si le nombre de minutes d’utilisation est supérieur à 500\", ce paramètre peut inclure \"500\" et le \"prix spécial\" à appliquer.</value>
+    <value>Exemple : si le type de décision est \"Utiliser un prix spécial si le nombre de minutes d`utilisation est supérieur à 500\", ce paramètre peut inclure \"500\" et le \"prix spécial\" à appliquer.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Un type de décision doit être associé à une table de paramètres, qui permet de personnaliser les valeurs clés du type de décision. Par exemple, vous pouvez configurer la possibilité de modifier le nombre de minutes gratuites plutôt que d’utiliser une valeur fixe.  &lt;br/&gt;&lt;br/&gt;Avant de pouvoir configurer un type de décision, sa table de paramètres associée doit être créée à l’aide de l’environnement ICE (Integrated Configuration Environment).&lt;br/&gt;&lt;br/&gt;REMARQUE : une fois que vous avez cliqué sur Suivant, vous ne pouvez plus choisir une autre table de paramètres pour ce type de décision.</value>
+    <value>Un type de décision doit être associé à une table de paramètres, qui permet de personnaliser les valeurs clés du type de décision. Par exemple, vous pouvez configurer la possibilité de modifier le nombre de minutes gratuites plutôt que d`utiliser une valeur fixe.  &lt;br/&gt;&lt;br/&gt;Avant de pouvoir configurer un type de décision, sa table de paramètres associée doit être créée à l`aide de l`environnement ICE (Integrated Configuration Environment).&lt;br/&gt;&lt;br/&gt;REMARQUE : une fois que vous avez cliqué sur Suivant, vous ne pouvez plus choisir une autre table de paramètres pour ce type de décision.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Par défaut, lorsque vous utilisez un type de décision pour une période donnée (basée sur un intervalle ou sur un calendrier), AMP représente l’utilisation en tenant compte de &lt;i&gt;tous&lt;/i&gt; les enregistrements de vue produit associés à un compte, pour ladite période. Si vous voulez ignorer certains enregistrements (le type de décision analysant uniquement l’utilisation des \"minutes d’appel téléphonique\", par exemple).</value>
+    <value>Par défaut, lorsque vous utilisez un type de décision pour une période donnée (basée sur un intervalle ou sur un calendrier), AMP représente l`utilisation en tenant compte de &lt;i&gt;tous&lt;/i&gt; les enregistrements de vue produit associés à un compte, pour ladite période. Si vous voulez ignorer certains enregistrements (le type de décision analysant uniquement l`utilisation des \"minutes d`appel téléphonique\", par exemple).</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>Ce nouveau prix s’applique via la définition du \"montant\" associé au type de décision au nouveau prix multiplié par l’utilisation. Toute zone dérivée de la zone \"montant\" est ensuite recalculée.&lt;br/&gt;&lt;i&gt;Exemple : une fois la plage atteinte, le montant de frais s’élève à 0,50 par minute.&lt;/i&gt;</value>
+    <value>Ce nouveau prix s`applique via la définition du \"montant\" associé au type de décision au nouveau prix multiplié par l`utilisation. Toute zone dérivée de la zone \"montant\" est ensuite recalculée.&lt;br/&gt;&lt;i&gt;Exemple : une fois la plage atteinte, le montant de frais s`élève à 0,50 par minute.&lt;/i&gt;</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Exemple : un type de décision totalise les \"minutes\" et \"toutes les minutes &lt; 1000 sont gratuites\".  Un deuxième type de décision totalise les \"minutes\", mais vous souhaitez compter uniquement les minutes qui n’entrent pas dans ce nombre de 1000.  Vous voulez que le deuxième type de décision prenne uniquement en compte les minutes consommées par le premier type de décision. Pour cela, définissez le domaine de décision ’Ratable’ (facturable) pour les deux types de décision.</value>
+    <value>Exemple : un type de décision totalise les \"minutes\" et \"toutes les minutes &lt; 1000 sont gratuites\".  Un deuxième type de décision totalise les \"minutes\", mais vous souhaitez compter uniquement les minutes qui n`entrent pas dans ce nombre de 1000.  Vous voulez que le deuxième type de décision prenne uniquement en compte les minutes consommées par le premier type de décision. Pour cela, définissez le domaine de décision `Ratable` (facturable) pour les deux types de décision.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Vous pouvez créer des qualifications d’utilisation faisant référence à d’autres qualifications d’utilisation définies précédemment. Par exemple, un enregistrement d’utilisation peut également correspondre à des conditions définies précédemment.</value>
+    <value>Vous pouvez créer des qualifications d`utilisation faisant référence à d`autres qualifications d`utilisation définies précédemment. Par exemple, un enregistrement d`utilisation peut également correspondre à des conditions définies précédemment.</value>
   </data>
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
-    <value>La valeur de ce champ est incorrecte. Pour être valides les noms des qualifications d’utilisation ne peuvent être composés que de caractères alphanumériques (Aa-Zz, 0-9) et du caractère de soulignement \"_\".</value>
+    <value>La valeur de ce champ est incorrecte. Pour être valides les noms des qualifications d`utilisation ne peuvent être composés que de caractères alphanumériques (Aa-Zz, 0-9) et du caractère de soulignement "_".</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>Dans le cadre de la création d’un débit ou d’un crédit, une directive peut exécuter les types de tâches suivants :&lt;br/&gt;- Inclusion de table - Association à une table de base de données ou à une vue. Toutes les zones de la ligne sélectionnée au sein de la table ou de la vue seront ajoutées à l’objet en mémoire (en tant que zones).&lt;br/&gt;- Renseignement de zones - Permet de renseigner une zone de l’objet en mémoire grâce à l’évaluation d’une expression ou à l’affectation d’une valeur par défaut.&lt;br/&gt;- Exécution de procédure - Permet d’exécuter une procédure MVM. l’exécution de procédure permet d’utiliser un mécanisme d’exécution des tâches qui ne peuvent pas être réalisées via l’inclusion de tables et le renseignement des zones.</value>
+    <value>Dans le cadre de la création d`un débit ou d`un crédit, une directive peut exécuter les types de tâches suivants :&lt;br/&gt;- Inclusion de table - Association à une table de base de données ou à une vue. Toutes les zones de la ligne sélectionnée au sein de la table ou de la vue seront ajoutées à l`objet en mémoire (en tant que zones).&lt;br/&gt;- Renseignement de zones - Permet de renseigner une zone de l`objet en mémoire grâce à l`évaluation d`une expression ou à l`affectation d`une valeur par défaut.&lt;br/&gt;- Exécution de procédure - Permet d`exécuter une procédure MVM. L`exécution de procédure permet d`utiliser un mécanisme d`exécution des tâches qui ne peuvent pas être réalisées via l`inclusion de tables et le renseignement des zones.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Exemple : un cycle de facturation est mensuel, mais vous souhaitez appliquer un prix spécial si \"plus de 1000 minutes d’utilisation sont enregistrées en trois mois\". Cela porte le nom de cycle de décision.</value>
+    <value>Par exemple, il se peut que le cycle de facturation soit mensuel, mais que vous vouliez appliquer un tarif spécial si \"plus de 1000 minutes sont utilisées en trois mois\". Il s`agit du "cycle de décision".</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
-    <value>Exemple : vous appliquez un tarif spécial si ’le nombre total de minutes est compris entre 500 et 1000’ ou si le ’nombre total d’appels gratuits est supérieur à 5’.</value>
+    <value>Exemple : vous appliquez un tarif spécial si `le nombre total de minutes est compris entre 500 et 1000` ou si le `nombre total d`appels gratuits est supérieur à 5`.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>Le facteur de prorata à appliquer à la plage est déterminé par la comparaison entre les dates de début et de fin prévues d’une instance de type de décision, avec les dates réelles de début et de fin pour cette instance.  &lt;b/&gt;&lt;b/&gt;Exemple : si une décision doit inclure 30 jours d’utilisation, mais que l’utilisation réelle couvre uniquement 15 jours (c’est-à-dire que l’abonnement commence ou se termine au milieu de la période), le facteur de prorata utilisé est de 15/30, soit 0,5.  Si la fin de la plage intervient au niveau de 500 avant l’application du prorata, il se transforme en 250 après l’application du facteur de prorata.&lt;br/&gt;&lt;br/&gt;l’application de prorata lors de l’activation et de la fin de façon indépendante à l’utilisateur de contrôler si l’activation ou la fin diminue le facteur de prorata.  Exemple : Si une décision commence à 15 jours du cycle, mais que l’application du prorata à l’activation n’est pas sélectionnée, ces 15 jours ne réduisent pas le facteur de prorata.</value>
+    <value>Le facteur de prorata à appliquer à la plage est déterminé par la comparaison entre les dates de début et de fin prévues d`une instance de type de décision, avec les dates réelles de début et de fin pour cette instance.  &lt;b/&gt;&lt;b/&gt;Exemple : si une décision doit inclure 30 jours d`utilisation, mais que l`utilisation réelle couvre uniquement 15 jours (c`est-à-dire que l`abonnement commence ou se termine au milieu de la période), le facteur de prorata utilisé est de 15/30, soit 0,5.  Si la fin de la plage intervient au niveau de 500 avant l`application du prorata, il se transforme en 250 après l`application du facteur de prorata.&lt;br/&gt;&lt;br/&gt;L`application de prorata lors de l`activation et de la fin de façon indépendante à l`utilisateur de contrôler si l`activation ou la fin diminue le facteur de prorata.  Exemple : Si une décision commence à 15 jours du cycle, mais que l`application du prorata à l`activation n`est pas sélectionnée, ces 15 jours ne réduisent pas le facteur de prorata.</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
-    <value>Description des différents types d’étapes : inclusion de table de base de données, renseignement des zones, exécution de procédures</value>
+    <value>Description des différents types d`étapes : inclusion de table de base de données, renseignement des zones, exécution de procédures</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
     <value>La table de la vue produit figurant dans la base de données MetraNet contient les valeurs associées au nouveau débit/crédit.</value>
   </data>
   <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
-    <value>l’opération a abouti. La grille va être triée de nouveau.</value>
+    <value>L`opération a abouti. La grille va être triée de nouveau.</value>
   </data>
   <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
     <value>Afficher</value>
@@ -424,7 +409,7 @@
     <value>Appliquer un modèle</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-    <value>Modifications en attente d’approbation</value>
+    <value>Modifications en attente d`approbation</value>
   </data>
   <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
     <value>Aucune modification en attente à approuver</value>
@@ -445,19 +430,19 @@
     <value>Renvoyer</value>
   </data>
   <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
-    <value>Renvoyez cette modification approuvée pour tenter à nouveau de l’appliquer au système.</value>
+    <value>Renvoyez cette modification approuvée pour tenter à nouveau de l`appliquer au système.</value>
   </data>
   <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
     <value>Commentaire :</value>
   </data>
   <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
-    <value>Erreur de mise à jour de l’ID de modification</value>
+    <value>Erreur de mise à jour de l`ID de modification</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
-    <value>Ce changement a été appliqué au système. Aucune autre action n’est à exécuter.</value>
+    <value>Ce changement a été appliqué au système. Aucune autre action n`est à exécuter.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>Cette modification a été approuvée. Elle est en attente d’application au système.</value>
+    <value>Cette modification a été approuvée. Elle est en attente d`application au système.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
     <value>Ce changement a été annulé. Aucune autre action ne peut être exécutée.</value>
@@ -469,7 +454,7 @@
     <value>Cette modification est actuellement en attente.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-    <value>En tant qu’expéditeur de cette modification en attente, vous pouvez l’ignorer pour qu’elle ne soit pas prise en compte.</value>
+    <value>En tant qu`expéditeur de cette modification en attente, vous pouvez l`ignorer pour qu`elle ne soit pas prise en compte.</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
     <value>Attention ! Vos modifications seront permanentes</value>
@@ -514,13 +499,10 @@
     <value>Annuler</value>
   </data>
   <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
-    <value>Modifier le dossier / état d’échec de transaction</value>
+    <value>Modifier le dossier / état d`échec de transaction</value>
   </data>
   <data name="TEXT_CLEAR" xml:space="preserve">
     <value>Effacer</value>
-  </data>
-  <data name="TEXT_CLONE" xml:space="preserve">
-    <value>Clone</value>
   </data>
   <data name="TEXT_CLOSE" xml:space="preserve">
     <value>Fermer</value>
@@ -532,7 +514,7 @@
     <value>Colonne</value>
   </data>
   <data name="TEXT_COLUMN_CONFIG_PROMPT" xml:space="preserve">
-    <value>Sélectionnez toutes les colonnes visibles. Utilisez l’opération de glisser-déposer pour effectuer une réorganisation</value>
+    <value>Sélectionnez toutes les colonnes visibles. Utilisez l`opération de glisser-déposer pour effectuer une réorganisation</value>
   </data>
   <data name="TEXT_CONFIGURE_COLUMNS" xml:space="preserve">
     <value>Configurer les colonnes</value>
@@ -541,13 +523,13 @@
     <value>Configurer des filtres</value>
   </data>
   <data name="TEXT_CONFIRM_APPROVE_NS_CONTINUE" xml:space="preserve">
-    <value>Voulez-vous vraiment continuer ? Cette étape est irréversible. Si vous continuez, tous les frais non standard correspondant à vos critères de filtrage seront approuvés. En l’absence de filtres, tous les frais non standard du système seront approuvés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape est irréversible. Si vous continuez, tous les frais non standard correspondant à vos critères de filtrage seront approuvés. En l`absence de filtres, tous les frais non standard du système seront approuvés.</value>
   </data>
   <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir continuer ?</value>
   </data>
   <data name="TEXT_CONFIRM_DENY_NS_CONTINUE" xml:space="preserve">
-    <value>Voulez-vous vraiment continuer ? Cette étape est irréversible. Si vous continuez, tous les frais non standard correspondant à vos critères de filtrage seront refusés. En l’absence de filtres, tous les frais non standard du système seront refusés.</value>
+    <value>Voulez-vous vraiment continuer ? Cette étape est irréversible. Si vous continuez, tous les frais non standard correspondant à vos critères de filtrage seront refusés. En l`absence de filtres, tous les frais non standard du système seront refusés.</value>
   </data>
   <data name="TEXT_CONVERT" xml:space="preserve">
     <value>Convertir</value>
@@ -556,10 +538,10 @@
     <value>Voulez-vous vraiment convertir le bon de commande en abonnements ?</value>
   </data>
   <data name="TEXT_CORP_COMPANY_NAME" xml:space="preserve">
-    <value>Nom de l’entreprise</value>
+    <value>Nom de l`entreprise</value>
   </data>
   <data name="TEXT_CORP_COMPANY_USERNAME" xml:space="preserve">
-    <value>Nom d’utilisateur de l’entreprise</value>
+    <value>Nom d`utilisateur de l`entreprise</value>
   </data>
   <data name="TEXT_CORRECTED" xml:space="preserve">
     <value>Corrigé</value>
@@ -1324,8 +1306,8 @@
     <value>Notifications récentes</value>
   </data>
   <data name="TEXT_NO_RECENT_NOTIFICATIONS" xml:space="preserve">
-    <value>Non notifications récentes</value>
-  </data> 
+    <value>Aucune notification récente.</value>
+  </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>Modifier le mot de passe</value>
   </data>
@@ -1339,49 +1321,49 @@
     <value>Plus...</value>
   </data>
   <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
-    <value>Edit Report Definition</value>
+    <value>Modifier la définition de rapport</value>
   </data>
   <data name="TEXT_Manage_Report_Instances" xml:space="preserve">
-    <value>Manage Report Instances</value>
+    <value>Gérer les instances de rapport</value>
   </data>
   <data name="TEXT_Manage_Report_Parameters" xml:space="preserve">
-    <value>Manage Report Parameters</value>
+    <value>Gérer les paramètres du rapport</value>
   </data>
   <data name="TEXT_Delete_Report" xml:space="preserve">
-    <value>Delete Report</value>
+    <value>Supprimer le rapport</value>
   </data>
   <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
-    <value>Edit Report Instance</value>
+    <value>Modifier l`instance de rapport</value>
   </data>
   <data name="TEXT_Manage_Report_Instance_Schedule" xml:space="preserve">
-    <value>Manage Report Instance Schedule</value>
+    <value>Gérer le calendrier des instances de rapport</value>
   </data>
   <data name="TEXT_Manage_Report__InstanceParameters" xml:space="preserve">
-    <value>Edit Instance Parameter Values</value>
+    <value>Modifier les valeurs de paramètre d`instance</value>
   </data>
   <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
-    <value>Delete Report Instance</value>
+    <value>Supprimer l`instance de rapport</value>
   </data>
   <data name="TEXT_Delete_Queue_AdHoc_Reports" xml:space="preserve">
-    <value>Queue AdHoc Reports</value>
+    <value>Mettre les rapports ad hoc dans la file d`attente</value>
   </data>
   <data name="TEXT_Update_Report_Instance_Schedule" xml:space="preserve">
-    <value>Update Report Instance Schedule</value>
+    <value>Mettre à jour le calendrier des instances de rapport</value>
   </data>
   <data name="TEXT_Delete_Report_Instance_Schedule" xml:space="preserve">
-    <value>Delete Report Instance Schedule</value>
+    <value>Supprimer le calendrier des instances de rapport</value>
   </data>
   <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
-    <value>Delete Report Parameter</value>
+    <value>Supprimer le paramètre du rapport</value>
   </data>
   <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
-    <value>No parameter was selected. Please select at least one parameter for assignment</value>
+    <value>Aucun paramètre sélectionné. Veuillez sélectionner au moins un paramètre pour l`affectation</value>
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
-    <value>View Log</value>
+    <value>Afficher le journal</value>
   </data>
   <data name="TEXT_VIEW_ALL" xml:space="preserve">
-    <value>View All...</value>
+    <value>Afficher tout...</value>
   </data>
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Jour</value>
@@ -1402,6 +1384,12 @@
     <value>Troisième</value>
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
-    <value>Pending Changes Waiting For Approval</value>
+    <value>Modifications en attente d`approbation</value>
+  </data>
+  <data name="TEXT_LOADING_MENU" xml:space="preserve">
+    <value>Loading menu ...</value>
+  </data>
+  <data name="TEXT_AUDIT_LOG" xml:space="preserve">
+    <value>Journal d'audit</value>
   </data>
 </root>

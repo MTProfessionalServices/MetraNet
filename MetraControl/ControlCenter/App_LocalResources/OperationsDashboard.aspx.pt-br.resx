@@ -307,21 +307,21 @@
     <value>M5</value>
   </data>
   <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>Average run time of remaining {0} adapters is {1} hours (Earliest ETA: {2})</value>
+    <value>O tempo de execução dos {0} adaptadores restantes é de {1} horas (ETA mais recente: {2})</value>
   </data>
   <data name="TEXT_VARIANCE_FASTER_MESSAGE" xml:space="preserve">
-    <value>Adapters are running about {0} % faster compared to previous runs for this interval</value>
+    <value>Os adaptadores estão executando cerca de {0} % mais rápido em relação às execuções anteriores deste intervalo</value>
   </data>
   <data name="TEXT_VARIANCE_SAME_MESSAGE" xml:space="preserve">
-    <value>Adapters are running about the same compared to previous runs for this interval</value>
+    <value>Os adaptadores estão executando aproximadamente na mesma velocidade em relação às execuções anteriores deste intervalo</value>
   </data>
   <data name="TEXT_VARIANCE_SLOWER_MESSAGE" xml:space="preserve">
-    <value>Adapters are running about {0} % slower compared to previous runs for this interval</value>
+    <value>Os adaptadores estão executando cerca de {0} % mais devagar em relação às execuções anteriores deste intervalo</value>
   </data>
   <data name="TEXT_INTERVAL_STATUS_OPEN" xml:space="preserve">
-    <value>Open</value>
+    <value>Abrir</value>
   </data>
   <data name="TEXT_RUNNING_ADAPTER_STATUS_IN_PROGRESS" xml:space="preserve">
-    <value>In Progress</value>
+    <value>Em andamento</value>
   </data>
 </root>

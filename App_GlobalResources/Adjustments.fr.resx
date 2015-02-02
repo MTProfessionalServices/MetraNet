@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_Details_for_ajustment_not_found" xml:space="preserve">
-    <value>Details for ajustment not found!</value>
+    <value>Détails d`ajustement introuvable !</value>
   </data>
   <data name="TEXT_Successfully_approved_adjustments" xml:space="preserve">
-    <value>Successfully approved adjustments.</value>
+    <value>Ajustement approuvés avec succès.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_miscellaneous_adjustments" xml:space="preserve">
-    <value>Successfully approved all miscellaneous adjustments.</value>
+    <value>Tous les ajustements divers ont été approuvés avec succès.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_selected_adjustments" xml:space="preserve">
-    <value>Successfully approved all selected adjustments.</value>
+    <value>Tous les ajustements sélectionnés ont été approuvés avec succès.</value>
   </data>
   <data name="TEXT_Successfully_approved_miscellaneous_adjustment" xml:space="preserve">
-    <value>Successfully approved miscellaneous adjustment.</value>
+    <value>Ajustement divers approuvé avec succès.</value>
   </data>
   <data name="TEXT_Successfully_deleted_all_selected_adjustments" xml:space="preserve">
-    <value>Successfully deleted all selected adjustments.</value>
+    <value>Tous les ajustements sélectionnés ont été supprimés avec succès.</value>
   </data>
   <data name="TEXT_Successfully_denied_all_miscellaneous_adjustments" xml:space="preserve">
-    <value>Successfully denied all miscellaneous adjustments.</value>
+    <value>Tous les ajustements divers ont été refusés avec succès.</value>
   </data>
   <data name="TEXT_Successfully_denied_miscellaneous_adjustment" xml:space="preserve">
-    <value>Successfully denied miscellaneous adjustment.</value>
+    <value>Ajustement divers refusé avec succès.</value>
   </data>
   <data name="TEXT_Successfully_denyed_adjustments" xml:space="preserve">
-    <value>Successfully denied adjustments.</value>
+    <value>Ajustements refusés avec succès.</value>
   </data>
   <data name="TEXT_Successfully_submitted_request_to_generate_Credit_Note_pdf" xml:space="preserve">
-    <value>Successfully submitted request to generate Credit Note pdf.</value>
+    <value>Demande de génération de fichier PDF de note de crédit envoyée avec succès.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_selected_charges" xml:space="preserve">
     <value>Succès nié toutes les accusations sélectionnés.</value>

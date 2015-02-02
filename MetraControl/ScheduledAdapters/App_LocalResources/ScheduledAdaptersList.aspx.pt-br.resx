@@ -118,51 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Scheduled Adapters Event List</value>
-  </data>
-  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
-    <value />
+    <value>Lista de eventos do adaptador agendados</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Scheduled Adapters Event List</value>
-  </data>
-  <data name="ScheduledAdaptersListGridResource1.ToolTip" xml:space="preserve">
-    <value />
+    <value>MetraNet - Lista de eventos dos adaptadores agendados</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
+    <value>Descrição</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>Adapters</value>
+    <value>Adaptadores</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>Scheduled Adapters</value>
+    <value>Adaptadores agendados</value>
   </data>
   <data name="TEXT_ISPAUSED" xml:space="preserve">
-    <value>Next Run</value>
+    <value>Próxima execução</value>
   </data>
   <data name="TEXT_ON_SCHEDULE" xml:space="preserve">
-    <value>On Schedule</value>
+    <value>Dentro do programado</value>
   </data>
   <data name="TEXT_PAUSED" xml:space="preserve">
-    <value>Paused</value>
+    <value>Pausado</value>
   </data>
   <data name="TEXT_SCHEDULE" xml:space="preserve">
-    <value>Schedule</value>
+    <value>Agenda</value>
   </data>
   <data name="TEXT_SCHEDULE_DAY" xml:space="preserve">
-    <value>Every {0} day(s) at {1}</value>
+    <value>A cada {0} dia(s) às {1}</value>
   </data>
   <data name="TEXT_SCHEDULE_MANUAL" xml:space="preserve">
     <value>Manual</value>
   </data>
   <data name="TEXT_SCHEDULE_MINUTES" xml:space="preserve">
-    <value>Every {0} minutes</value>
+    <value>A cada {0} minutos</value>
   </data>
   <data name="TEXT_SCHEDULE_MONTH" xml:space="preserve">
-    <value>Every {0} month(s) at {1} on {2}</value>
+    <value>A cada {0} mês(es) às {1} em {2}</value>
   </data>
   <data name="TEXT_SCHEDULE_WEEK" xml:space="preserve">
-    <value>Every {0} week(s) at {1} on {2}</value>
+    <value>A cada {0} semana(s) às {1} em {2}</value>
   </data>
 </root>

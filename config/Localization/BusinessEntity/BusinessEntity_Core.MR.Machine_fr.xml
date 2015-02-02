@@ -8,7 +8,7 @@
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.MR.Machine/MachineIdentifier/Label</Name>
-            <Value>Machine Identifier</Value>
+            <Value>ID de la machine</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.MR.Machine/Description/Label</Name>

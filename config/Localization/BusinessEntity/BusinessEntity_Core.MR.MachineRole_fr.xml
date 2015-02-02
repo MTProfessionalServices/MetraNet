@@ -8,7 +8,7 @@
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.MR.MachineRole/Name/Label</Name>
-            <Value>Name</Value>
+            <Value>Nom</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.MR.MachineRole/Description/Label</Name>

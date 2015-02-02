@@ -6,26 +6,26 @@
         <DisplayDescriptions>
             <language name="US">Bankruptcy Reason Code</language>
             <language name="DE">Bankruptcy Reason Code</language>
-            <language name="FR">Bankruptcy Reason Code</language>
+            <language name="FR">Code de motif de faillite</language>
             <language name="IT">Bankruptcy Reason Code</language>
             <language name="JP">Bankruptcy Reason Code</language>
             <language name="ES">Bankruptcy Reason Code</language>
             <language name="GB">Bankruptcy Reason Code</language>
             <language name="es-MX">Bankruptcy Reason Code</language>
-            <language name="pt-BR">Bankruptcy Reason Code</language>
+            <language name="pt-BR">Código de motivo de falência</language>
             <language name="DA">Bankruptcy Reason Code</language>
         </DisplayDescriptions>
         <displayname>Bankruptcy Reason Code</displayname>
         <DisplayNames>
             <language name="US">Bankruptcy Reason Code</language>
             <language name="DE">Bankruptcy Reason Code</language>
-            <language name="FR">Bankruptcy Reason Code</language>
+            <language name="FR">Code de motif de faillite</language>
             <language name="IT">Bankruptcy Reason Code</language>
             <language name="JP">Bankruptcy Reason Code</language>
             <language name="ES">Bankruptcy Reason Code</language>
             <language name="GB">Bankruptcy Reason Code</language>
             <language name="es-MX">Bankruptcy Reason Code</language>
-            <language name="pt-BR">Bankruptcy Reason Code</language>
+            <language name="pt-BR">Código de motivo de falência</language>
             <language name="DA">Bankruptcy Reason Code</language>
         </DisplayNames>
     </reasoncode>
@@ -35,26 +35,26 @@
         <DisplayDescriptions>
             <language name="US">Transaction billed to wrong account</language>
             <language name="DE">Transaction billed to wrong account</language>
-            <language name="FR">Transaction billed to wrong account</language>
+            <language name="FR">Transaction facturée au mauvais compte</language>
             <language name="IT">Transaction billed to wrong account</language>
             <language name="JP">Transaction billed to wrong account</language>
             <language name="ES">Transaction billed to wrong account</language>
             <language name="GB">Transaction billed to wrong account</language>
             <language name="es-MX">Transaction billed to wrong account</language>
-            <language name="pt-BR">Transaction billed to wrong account</language>
+            <language name="pt-BR">Transação faturada na conta errada</language>
             <language name="DA">Transaction billed to wrong account</language>
         </DisplayDescriptions>
         <displayname>Transaction billed to wrong account</displayname>
         <DisplayNames>
             <language name="US">Transaction billed to wrong account</language>
             <language name="DE">Transaction billed to wrong account</language>
-            <language name="FR">Transaction billed to wrong account</language>
+            <language name="FR">Transaction facturée au mauvais compte</language>
             <language name="IT">Transaction billed to wrong account</language>
             <language name="JP">Transaction billed to wrong account</language>
             <language name="ES">Transaction billed to wrong account</language>
             <language name="GB">Transaction billed to wrong account</language>
             <language name="es-MX">Transaction billed to wrong account</language>
-            <language name="pt-BR">Transaction billed to wrong account</language>
+            <language name="pt-BR">Transação faturada na conta errada</language>
             <language name="DA">Transaction billed to wrong account</language>
         </DisplayNames>
     </reasoncode>
@@ -64,26 +64,26 @@
         <DisplayDescriptions>
             <language name="US">Rate Correction</language>
             <language name="DE">Rate Correction</language>
-            <language name="FR">Rate Correction</language>
+            <language name="FR">Correction du taux</language>
             <language name="IT">Rate Correction</language>
             <language name="JP">Rate Correction</language>
             <language name="ES">Rate Correction</language>
             <language name="GB">Rate Correction</language>
             <language name="es-MX">Rate Correction</language>
-            <language name="pt-BR">Rate Correction</language>
+            <language name="pt-BR">Correção de taxa</language>
             <language name="DA">Rate Correction</language>
         </DisplayDescriptions>
         <displayname>Rate Correction</displayname>
         <DisplayNames>
             <language name="US">Rate Correction</language>
             <language name="DE">Rate Correction</language>
-            <language name="FR">Rate Correction</language>
+            <language name="FR">Correction du taux</language>
             <language name="IT">Rate Correction</language>
             <language name="JP">Rate Correction</language>
             <language name="ES">Rate Correction</language>
             <language name="GB">Rate Correction</language>
             <language name="es-MX">Rate Correction</language>
-            <language name="pt-BR">Rate Correction</language>
+            <language name="pt-BR">Correção de taxa</language>
             <language name="DA">Rate Correction</language>
         </DisplayNames>
     </reasoncode>

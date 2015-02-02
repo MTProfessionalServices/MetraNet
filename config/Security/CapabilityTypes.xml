@@ -1,4 +1,4 @@
-<mt_config>
+﻿<mt_config>
 
 <!--
   Umbrella capability
@@ -82,7 +82,7 @@
         <Description>Specify access to hierarchy branches</Description>
         <LocalizedItems>
           <item lang="FR">          
-          <Description>Specify access to hierarchy branches</Description>
+          <Description>Spécifier l'accès aux branches hiérarchiques</Description>
           </item>
           <item lang="IT">          
           <Description>Specify access to hierarchy branches</Description>
@@ -97,7 +97,7 @@
           <Description>Specify access to hierarchy branches</Description>
           </item>
           <item lang="pt-BR">
-          <Description>Specify access to hierarchy branches</Description>
+          <Description>Especifique acesso às ramificações de hierarquia</Description>
           </item>
           <item lang="en-GB">
           <Description>Specify access to hierarchy branches</Description>

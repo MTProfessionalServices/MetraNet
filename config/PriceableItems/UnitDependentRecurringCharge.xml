@@ -4,26 +4,26 @@
     <DisplayNames>
         <language name="US">Unit Dependent Recurring Charge</language>
         <language name="DE">Unit Dependent Recurring Charge</language>
-        <language name="FR">Unit Dependent Recurring Charge</language>
+        <language name="FR">Frais récurrents en fonction de l'unité</language>
         <language name="IT">Unit Dependent Recurring Charge</language>
         <language name="JP">Unit Dependent Recurring Charge</language>
         <language name="ES">Unit Dependent Recurring Charge</language>
         <language name="GB">Unit Dependent Recurring Charge</language>
         <language name="es-MX">Unit Dependent Recurring Charge</language>
-        <language name="pt-BR">Unit Dependent Recurring Charge</language>
+        <language name="pt-BR">Cobrança recorrente dependente da unidade</language>
         <language name="DA">Unit Dependent Recurring Charge</language>
     </DisplayNames>
     <description>Recurring charge based on a single subscription specific value.</description>
     <DisplayDescriptions>
         <language name="US">Recurring charge based on a single subscription specific value.</language>
         <language name="DE">Recurring charge based on a single subscription specific value.</language>
-        <language name="FR">Recurring charge based on a single subscription specific value.</language>
+        <language name="FR">Frais récurrents basés sur une valeur spécifique à un abonnement.</language>
         <language name="IT">Recurring charge based on a single subscription specific value.</language>
         <language name="JP">Recurring charge based on a single subscription specific value.</language>
         <language name="ES">Recurring charge based on a single subscription specific value.</language>
         <language name="GB">Recurring charge based on a single subscription specific value.</language>
         <language name="es-MX">Recurring charge based on a single subscription specific value.</language>
-        <language name="pt-BR">Recurring charge based on a single subscription specific value.</language>
+        <language name="pt-BR">Cobrança recorrente baseada em um valor específico de uma única assinatura.</language>
         <language name="DA">Recurring charge based on a single subscription specific value.</language>
     </DisplayDescriptions>
     <item_type>unit_dependent_recurring</item_type>
@@ -43,26 +43,26 @@
         <DisplayDescriptions>
             <language name="US">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="DE">Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="FR">Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="FR">Ajustement forfaitaire des frais récurrents en fonction de l'unité</language>
             <language name="IT">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="JP">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="ES">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="GB">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="es-MX">Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="pt-BR">Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR">Ajuste fixo da cobrança recorrente dependente de unidade</language>
             <language name="DA">Unit Dependent Recurring Charge Flat Adjustment</language>
         </DisplayDescriptions>
         <displayname>Unit Dependent Recurring Charge Flat Adjustment</displayname>
         <DisplayNames>
             <language name="US">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="DE">Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="FR">Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="FR">Ajustement forfaitaire des frais récurrents en fonction de l'unité</language>
             <language name="IT">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="JP">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="ES">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="GB">Unit Dependent Recurring Charge Flat Adjustment</language>
             <language name="es-MX">Unit Dependent Recurring Charge Flat Adjustment</language>
-            <language name="pt-BR">Unit Dependent Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR">Ajuste fixo da cobrança recorrente dependente de unidade</language>
             <language name="DA">Unit Dependent Recurring Charge Flat Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>
@@ -93,26 +93,26 @@
         <DisplayDescriptions>
             <language name="US">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="DE">Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="FR">Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="FR">Ajustement en pourcentage des frais récurrents en fonction de l'unité</language>
             <language name="IT">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="JP">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="ES">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="GB">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="es-MX">Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="pt-BR">Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR">Ajuste percentual da cobrança recorrente dependente de unidade</language>
             <language name="DA">Unit Dependent Recurring Charge Percent Adjustment</language>
         </DisplayDescriptions>
         <displayname>Unit Dependent Recurring Charge Percent Adjustment</displayname>
         <DisplayNames>
             <language name="US">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="DE">Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="FR">Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="FR">Ajustement en pourcentage des frais récurrents en fonction de l'unité</language>
             <language name="IT">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="JP">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="ES">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="GB">Unit Dependent Recurring Charge Percent Adjustment</language>
             <language name="es-MX">Unit Dependent Recurring Charge Percent Adjustment</language>
-            <language name="pt-BR">Unit Dependent Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR">Ajuste percentual da cobrança recorrente dependente de unidade</language>
             <language name="DA">Unit Dependent Recurring Charge Percent Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>

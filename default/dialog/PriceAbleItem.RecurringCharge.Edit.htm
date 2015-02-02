@@ -104,7 +104,26 @@
       </td>
     </tr>
   </table>
-
+  <div id='ChargePerParticipantDiv' name='ChargePerParticipantDiv' style='display: block;'>
+    <table width="100%">
+      <tr>
+        <td class="captionEWRequired" width="130px">
+          <mdmlabel name="TEXT_GROUP_CHARGES">Generate Group Charges</mdmlabel>:&nbsp;
+        </td>
+        <td>
+          <input name="ChargePerParticipant" type="radio" value="FALSE">
+          <mdmlabel name="TEXT_PER_SUBSCRIPTION">One charge per subscription</mdmlabel>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input name="ChargePerParticipant" type="Radio" value="TRUE" />
+          <mdmlabel name="TEXT_PER_PARTICIPANT">One charge per participant</mdmlabel>
+        </td>
+      </tr>
+    </table>
+  </div>
   #MDMIF IsUDRC
   <table width="100%">
     <tr><td>&nbsp;</td></tr>
@@ -123,7 +142,7 @@
     </tr>
     <tr>
       <td class="captionEWRequired">
-        <mdmlabel name="TEXT_UNIT_DISPLAY_NAME"></mdmlabel>:&nbsp;&nbsp;
+        <mdmlabel name="TEXT_UNIT_DISPLAY_NAME"></mdmlabel>:&nbsp;
       </td>
       <td>
         <input name="UNITDISPLAYNAMES" multilanguage="true" class="field" size="50" type="text" />
@@ -146,11 +165,11 @@
     </tr>
     <tr>
       <td class="captionEW">
-        <mdmlabel name="MinUnitValue" type="caption"></mdmlabel>:&nbsp;&nbsp;
+        <mdmlabel name="MinUnitValue" type="caption"></mdmlabel>:&nbsp;
       </td>
       <td nowrap>
         <input name="MinUnitValue" class="field" size="20" type="text" disabled="disabled" />&nbsp;&nbsp;
-        <mdmlabel name="MaxUnitValue" type="caption"></mdmlabel>:&nbsp;&nbsp;
+        <mdmlabel name="MaxUnitValue" type="caption"></mdmlabel>:&nbsp;
         <input name="MaxUnitValue" class="field" size="20" type="text" disabled="disabled" />
       </td>
     </tr>
@@ -171,26 +190,6 @@
   </table>
   #MDMENDIF
 
-  <div id='ChargePerParticipantDiv' name='ChargePerParticipantDiv' style='display: block;'>
-    <table width="100%">
-      <tr>
-        <td class="captionEWRequired" width="130px">
-          <mdmlabel name="TEXT_GROUP_CHARGES">Generate Group Charges</mdmlabel>:&nbsp;&nbsp;
-        </td>
-        <td>
-          <input name="ChargePerParticipant" type="radio" value="FALSE">
-          <mdmlabel name="TEXT_PER_SUBSCRIPTION">One charge per subscription</mdmlabel>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <input name="ChargePerParticipant" type="Radio" value="TRUE" />
-          <mdmlabel name="TEXT_PER_PARTICIPANT">One charge per participant</mdmlabel>
-        </td>
-      </tr>
-    </table>
-  </div>
   <table width="100%">
     <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
     <tr>
@@ -218,7 +217,6 @@
     }
 
     function handleCycleConfigurationDataChange() {
-      //window.alert("handleCycleConfigurationDataChange");
       updateProrationBasedOnField();
     }
   

@@ -8,5 +8,7 @@ insert into t_message (id_message, id_route, dt_crt, dt_metered, dt_assigned,
     tx_TransactionID, tx_sc_username, tx_sc_password, 
     tx_sc_namespace, tx_sc_serialized, tx_ip_address
     from t_message
-    where id_message = %%ID_ORIGINAL_MESSAGE%%
-			
+    where id_message = %%ID_ORIGINAL_MESSAGE%%;
+
+ insert into t_message_mapping(id_message,id_origin_message) 
+  values(%%ID_MESSAGE%%,%%ID_ORIGINAL_MESSAGE%%);			

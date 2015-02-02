@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Unknown</Action>
+    <Implementations>
+        <Implementation>Common</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>LOCK</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>/**/</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>ID_MESSAGES</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>= 1</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile>R:\Config\Queries\ServiceBase\CommonQueries.xml</CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

@@ -4,11 +4,11 @@
     <locale_space name="Notification_EventType_FLSRejectedFiles">
         <locale_entry>
             <Name>Notification_EventType_FLSRejectedFiles/EventType/FLS Rejected Files</Name>
-            <Value>Fichiers FLS rejetés</Value>
+            <Value>[fr]FLS Rejected Files</Value>
         </locale_entry>
         <locale_entry>
             <Name>Notification_EventType_FLSRejectedFiles/Template/FLS Rejected Files</Name>
-            <Value>{Name} a été rejeté par le service FLS (File Landing Service) {State} {RejectReason} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementFile.aspx '> Afficher...</a>]]></Value>
+            <Value>[fr]{Name} has been rejected by File Landing Service {State} {RejectReason} <![CDATA[<a href='/MetraNet/MetraControl/FileManagement/FileManagementFile.aspx '> View...</a>]]></Value>
         </locale_entry>
     </locale_space>
 </mt_config>

@@ -4,11 +4,11 @@
     <locale_space name="Notification_EventType_SubscriptionEndDate">
         <locale_entry>
             <Name>Notification_EventType_SubscriptionEndDate/EventType/Subscription End Date</Name>
-            <Value>Date de fin de l`abonnement</Value>
+            <Value>[fr]Subscription End Date</Value>
         </locale_entry>
         <locale_entry>
             <Name>Notification_EventType_SubscriptionEndDate/Template/Subscription End Date</Name>
-            <Value>Le compte {LoginName} inclut un abonnement à {POInternalName} qui se terminera le {EndDate}<![CDATA[<a href='JavaScript:getFrameMetraNet().Account.Load({AccountID});'> Afficher...</a>]]></Value>
+            <Value>[fr]Account {LoginName} has subscription to {POInternalName} that will end on {EndDate}<![CDATA[<a href='JavaScript:getFrameMetraNet().Account.Load({AccountID});'> View...</a>]]></Value>
         </locale_entry>
     </locale_space>
 </mt_config>

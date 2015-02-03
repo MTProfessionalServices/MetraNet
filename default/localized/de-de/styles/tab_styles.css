@@ -24,7 +24,7 @@ border-bottom-color: #d0d0d0;*/
 
 .clsTabAngleTopUnselected{
    background-color: #dbdbdb;
-    background-image: url(../images/gray/tabs/tab-strip-bg.gif);
+    background-image:  url(/res/ext/resources/images/gray/tabs/tab-strip-bg.gif);
     /* display: list-item; */
     margin: 2px;
     padding: 5px;

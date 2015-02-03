@@ -115,7 +115,7 @@ public partial class MetraOffer_UpdateSharedPriceList : MTPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    Response.Redirect("PriceListsList.aspx");
+    Response.Redirect("PriceListsList.aspx?PreviousResultView=True");
   }
 
   protected void btnAddRatesToPT_Click(object sender, EventArgs e)

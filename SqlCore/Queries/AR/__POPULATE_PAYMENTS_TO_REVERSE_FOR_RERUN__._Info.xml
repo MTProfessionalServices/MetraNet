@@ -10,6 +10,7 @@
             <Name>BATCH_NAME_SPACE</Name>
             <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
@@ -17,12 +18,6 @@
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <SubstitutionSyntaxCheck>t_rerun_session_00</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>ID_RERUN</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
     </Parameters>

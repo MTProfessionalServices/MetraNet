@@ -8,10 +8,6 @@ ALTER TABLE t_session_set DROP PRIMARY KEY DROP INDEX;
 
 ALTER TABLE t_session_set ADD CONSTRAINT pk_t_session_set PRIMARY KEY (id_ss,id_partition) USING INDEX (CREATE INDEX pk_t_session_set ON t_session_set(id_ss,id_partition)  );
 
-ALTER TABLE t_acc_usage DROP CONSTRAINT fk2_t_acc_usage;
-
-ALTER TABLE t_acc_usage DROP CONSTRAINT fk3_t_acc_usage;
-
 ALTER TABLE t_acc_usage DROP PRIMARY KEY DROP INDEX;
 
 ALTER TABLE t_acc_usage ADD CONSTRAINT pk_t_acc_usage PRIMARY KEY (id_sess,id_usage_interval) USING INDEX (CREATE INDEX pk_t_acc_usage ON t_acc_usage(id_sess,id_usage_interval)  );
@@ -284,7 +280,11 @@ COMMENT ON COLUMN t_billgroup_member_tmp.id_partition IS 'Unique Partition ident
 
 ALTER TABLE t_billgroup_member_tmp MODIFY (tx_name NVARCHAR2(255));
 
-ALTER TABLE t_ep_recurring ADD (c_isliabilityproduct CHAR NOT NULL,c_revenuecode NVARCHAR2(128),c_deferredrevenuecode NVARCHAR2(128));
+ALTER TABLE t_ep_recurring ADD (c_isliabilityproduct CHAR,c_revenuecode NVARCHAR2(128),c_deferredrevenuecode NVARCHAR2(128));
+
+UPDATE t_ep_recurring SET c_isliabilityproduct = 'F';
+
+ALTER TABLE t_ep_recurring MODIFY (c_isliabilityproduct NOT NULL);
 
 COMMENT ON COLUMN t_ep_recurring.c_isliabilityproduct IS 'Shows is this a liability product';
 
@@ -426,7 +426,11 @@ COMMENT ON COLUMN t_notification_event_consumers.id_acc IS 'Unique identifier of
 
 COMMENT ON COLUMN t_notification_event_consumers.dt_crt IS 'Row creation date.';
 
-ALTER TABLE t_ep_nonrecurring ADD (c_isliabilityproduct CHAR NOT NULL,c_revenuecode NVARCHAR2(128),c_deferredrevenuecode NVARCHAR2(128));
+ALTER TABLE t_ep_nonrecurring ADD (c_isliabilityproduct CHAR,c_revenuecode NVARCHAR2(128),c_deferredrevenuecode NVARCHAR2(128));
+
+UPDATE t_ep_nonrecurring SET c_isliabilityproduct = 'F';
+
+ALTER TABLE t_ep_nonrecurring MODIFY (c_isliabilityproduct NOT NULL);
 
 COMMENT ON COLUMN t_ep_nonrecurring.c_isliabilityproduct IS 'Shows is this a liability product';
 

@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don`t support this are serialized and stored with the 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_ACCOUNTING_CYCLE" xml:space="preserve">
-    <value>Cycle comptable</value>
+    <value>Accounting cycle</value>
   </data>
   <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
         <value>Nom de l’adaptateur</value>
@@ -169,7 +169,7 @@
     <value>Date finale</value>
   </data>
   <data name="TEXT_DEFERRED_REVENUE_CODE" xml:space="preserve">
-    <value>Code de revenu différé</value>
+    <value>Code des impôts différés</value>
   </data>
   <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
     <value>Nom de la remise</value>
@@ -202,13 +202,13 @@
     <value>Numéro de facture</value>
   </data>
   <data name="TEXT_LAST_TRANSACTION_DATE" xml:space="preserve">
-    <value>Date de dernière transaction</value>
+    <value>Dernière date de la transaction</value>
   </data>
   <data name="TEXT_LAST_TRANSACTION_OF_TYPE" xml:space="preserve">
-    <value>Dernière transaction du type</value>
+    <value>Dernière transaction de type</value>
   </data>
   <data name="TEXT_MAXIMUM_PAYMENT" xml:space="preserve">
-    <value>Paiement maximum</value>
+    <value>Paiement maximal</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
     <value>Message</value>
@@ -268,7 +268,7 @@
     <value>Payeur</value>
   </data>
   <data name="TEXT_PAYMENT_CURRENCY" xml:space="preserve">
-    <value>Devise du paiement</value>
+    <value>Monnaie de paiement</value>
   </data>
   <data name="TEXT_PAYMENT_METHOD" xml:space="preserve">
     <value>Méthode de paiement</value>
@@ -283,10 +283,10 @@
     <value>PO abonnement</value>
   </data>
   <data name="TEXT_PRICEABLE_ITEM" xml:space="preserve">
-    <value>Elément à prix</value>
+    <value>Élément à prix</value>
   </data>
   <data name="TEXT_PRODUCT" xml:space="preserve">
-    <value>Produit</value>
+    <value>[FR]Product</value>
   </data>
   <data name="TEXT_PRORATION_REASON" xml:space="preserve">
     <value>Motif de proration</value>
@@ -295,13 +295,13 @@
     <value>Type de RC</value>
   </data>
   <data name="TEXT_REGISTERED_USERS" xml:space="preserve">
-    <value>Utilisateurs enregistrés</value>
+    <value>Les utilisateurs enregistrés</value>
   </data>
   <data name="TEXT_REVENUE_CODE" xml:space="preserve">
-    <value>Code de revenu</value>
+    <value>Code revenu</value>
   </data>
   <data name="TEXT_REVENUE_PART" xml:space="preserve">
-    <value>Partie de revenu</value>
+    <value>Revenu partie</value>
   </data>
   <data name="TEXT_STATE" xml:space="preserve">
     <value>État</value>
@@ -313,10 +313,10 @@
     <value>Montant de la taxe</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_EXPIRY_DATE" xml:space="preserve">
-    <value>Date de fin d`exemption de taxe</value>
+    <value>Exonérés de taxe Date d’expiration</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_ID" xml:space="preserve">
-    <value>Exempt de taxe</value>
+    <value>ID d’exemption de taxe</value>
   </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
     <value>Total</value>
@@ -325,10 +325,10 @@
     <value>Montant monétaire total</value>
   </data>
   <data name="TEXT_UNIQUE_IDENTIFIER" xml:space="preserve">
-    <value>Identifiant unique</value>
+    <value>Identificateur</value>
   </data>
   <data name="TEXT_USER_IDENTIFIER" xml:space="preserve">
-    <value>Identifiant d`utilisateur</value>
+    <value>Identifiant de l’utilisateur</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>Afficher ID</value>
@@ -343,175 +343,178 @@
     <value>Partition</value>
   </data>
   <data name="TEXT_AUDIT_ONLY" xml:space="preserve">
-    <value>Audit uniquement</value>
+    <value>audit Seulement</value>
   </data>
   <data name="TEXT_AVERAGE_AMOUNT" xml:space="preserve">
     <value>Montant moyen</value>
   </data>
   <data name="TEXT_CHARGE_KIND" xml:space="preserve">
-    <value>Type de frais</value>
+    <value>[FR]charge Kind</value>
   </data>
   <data name="TEXT_DECISION_TYPE" xml:space="preserve">
-    <value>Type de décision</value>
+    <value>type de décision</value>
   </data>
   <data name="TEXT_DECISION_UNIQUE_ID" xml:space="preserve">
-    <value>ID unique de décision</value>
+    <value>Décision Unique Id</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>Date de fin</value>
+    <value>date de fin</value>
   </data>
   <data name="TEXT_EXPIRATION_DATE" xml:space="preserve">
-    <value>Date d`expiration</value>
+    <value>date d’expiration</value>
   </data>
   <data name="TEXT_EXPIRED" xml:space="preserve">
-    <value>Expiré</value>
+    <value>expiré</value>
   </data>
   <data name="TEXT_FINALIZATION_DATE" xml:space="preserve">
-    <value>Date de finalisation</value>
+    <value>date de finalisation</value>
   </data>
   <data name="TEXT_FINALIZED" xml:space="preserve">
-    <value>Finalisé</value>
+    <value>Terminé</value>
   </data>
   <data name="TEXT_ID_ACC" xml:space="preserve">
-    <value>ID du compte</value>
+    <value>compte Id</value>
   </data>
   <data name="TEXT_ID_USAGE_INTERVAL" xml:space="preserve">
-    <value>ID d`intervalle d`utilisation</value>
+    <value>Utilisation Intervalle ID</value>
   </data>
   <data name="TEXT_INTERVALS_REMAINING" xml:space="preserve">
-    <value>Intervalles restants</value>
+    <value>intervalles restants</value>
   </data>
   <data name="TEXT_INTERVAL_END" xml:space="preserve">
-    <value>Fin de l`intervalle</value>
+    <value>intervalle Fin</value>
   </data>
   <data name="TEXT_INTERVAL_START" xml:space="preserve">
-    <value>Début de l`intervalle</value>
+    <value>intervalle Démarrer</value>
   </data>
   <data name="TEXT_MAXIMUM_AMOUNT" xml:space="preserve">
-    <value>Montant maximum</value>
+    <value>Montant maximal</value>
   </data>
   <data name="TEXT_MESSAGE_TYPE" xml:space="preserve">
-    <value>Type du message</value>
+    <value>Type de message</value>
   </data>
   <data name="TEXT_MINIMUM_AMOUNT" xml:space="preserve">
     <value>Montant minimum</value>
   </data>
   <data name="TEXT_PARENT_DECISION_UNIQUE_ID" xml:space="preserve">
-    <value>ID unique de décision parent</value>
+    <value>Parent décision unique Id</value>
   </data>
   <data name="TEXT_PAYMENT_TYPE" xml:space="preserve">
     <value>Type de paiement</value>
   </data>
   <data name="TEXT_PIPELINE_ID" xml:space="preserve">
-    <value>ID de pipeline</value>
+    <value>[FR]pipeline ID</value>
   </data>
   <data name="TEXT_PRE_QUALIFIED_AMOUNT" xml:space="preserve">
-    <value>Montant pré-qualifié</value>
+    <value>Pré Montant qualifié</value>
   </data>
   <data name="TEXT_PRE_QUALIFIED_EVENTS" xml:space="preserve">
-    <value>Événements pré-qualifiés</value>
+    <value>Pré événements qualifiés</value>
   </data>
   <data name="TEXT_PRE_QUALIFIED_TOTAL" xml:space="preserve">
-    <value>Total pré-qualifié</value>
+    <value>Pré total qualifiée</value>
   </data>
   <data name="TEXT_PRE_QUALIFIED_UNITS" xml:space="preserve">
-    <value>Unités pré-qualifiées</value>
+    <value>Unités préqualifiés</value>
   </data>
   <data name="TEXT_PRE_TOTAL_DISCOUNTED_AMOUNT" xml:space="preserve">
-    <value>Montant déduit avant total</value>
+    <value>Pré Montant total à prix réduits</value>
   </data>
   <data name="TEXT_PRE_TOTAL_DISCOUNTED_EVENTS" xml:space="preserve">
-    <value>Événements déduits avant total</value>
+    <value>Pré Total des événements réduits</value>
   </data>
   <data name="TEXT_PRE_TOTAL_DISCOUNTED_UNITS" xml:space="preserve">
-    <value>Unités déduites avant total</value>
+    <value>Pré Unités totales à tarif réduit</value>
   </data>
   <data name="TEXT_PRE_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
-    <value>Montant de remise avant total</value>
+    <value>Montant total pré Discount</value>
   </data>
   <data name="TEXT_PRE_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
-    <value>Montant généré avant total</value>
+    <value>Pré Montant total généré</value>
   </data>
   <data name="TEXT_PRE_TOTAL_GENERATED_EVENTS" xml:space="preserve">
-    <value>Événements générés avant total</value>
+    <value>Pré Total des événements générés</value>
   </data>
   <data name="TEXT_PRE_TOTAL_RATED_AMOUNT_AFTER" xml:space="preserve">
-    <value>Montant évalué avant total Après</value>
+    <value>Pré Montant total Après nominale</value>
   </data>
   <data name="TEXT_PRE_TOTAL_RATED_AMOUNT_DELTA" xml:space="preserve">
-    <value>Montant évalué avant total Delta</value>
+    <value>Pré Puissance nominale Montant Delta</value>
   </data>
   <data name="TEXT_PRE_TOTAL_RATED_EVENTS" xml:space="preserve">
-    <value>Événements évalués avant total</value>
+    <value>Evénements pré nominale totale</value>
   </data>
   <data name="TEXT_PRE_TOTAL_RATED_UNITS" xml:space="preserve">
-    <value>Unités évaluées avant total</value>
+    <value>Unités pré nominale totale</value>
   </data>
   <data name="TEXT_QUALIFIED_AMOUNT" xml:space="preserve">
-    <value>Montant qualifié</value>
+    <value>Montant qualifiée</value>
   </data>
   <data name="TEXT_QUALIFIED_EVENTS" xml:space="preserve">
-    <value>Événements qualifiés</value>
+    <value>Evénements qualifiés</value>
   </data>
   <data name="TEXT_QUALIFIED_TOTAL" xml:space="preserve">
-    <value>Total qualifié</value>
+    <value>totale qualifiée</value>
   </data>
   <data name="TEXT_QUALIFIED_UNITS" xml:space="preserve">
-    <value>Unités qualifiées</value>
+    <value>Unités qualifiés</value>
+  </data>
+  <data name="TEXT_START_DATE" xml:space="preserve">
+    <value>date de début</value>
   </data>
   <data name="TEXT_TIER_END" xml:space="preserve">
-    <value>Fin de niveau</value>
+    <value>Niveau Fin</value>
   </data>
   <data name="TEXT_TIER_START" xml:space="preserve">
-    <value>Début de niveau</value>
+    <value>Niveau Démarrer</value>
   </data>
   <data name="TEXT_TOTAL_ADJUSTMENT_AMOUNT" xml:space="preserve">
-    <value>Montant total de l`ajustement</value>
+    <value>Montant total de réglage</value>
   </data>
   <data name="TEXT_TOTAL_AMOUNT" xml:space="preserve">
-    <value>Montant total</value>
+    <value>Montant Total</value>
   </data>
   <data name="TEXT_TOTAL_DISCOUNTED_AMOUNT" xml:space="preserve">
-    <value>Total du montant déduit</value>
+    <value>Montant total à prix réduits</value>
   </data>
   <data name="TEXT_TOTAL_DISCOUNTED_EVENTS" xml:space="preserve">
-    <value>Total des événements déduits</value>
+    <value>Total des événements réduits</value>
   </data>
   <data name="TEXT_TOTAL_DISCOUNTED_UNITS" xml:space="preserve">
-    <value>Total des unités déduites</value>
+    <value>Unités totales réduits</value>
   </data>
   <data name="TEXT_TOTAL_DISCOUNT_AMOUNT" xml:space="preserve">
-    <value>Total du montant de remise</value>
+    <value>[FR]Total Discount Amount</value>
   </data>
   <data name="TEXT_TOTAL_GENERATED_AMOUNT" xml:space="preserve">
-    <value>Total du montant généré</value>
+    <value>Montant total généré</value>
   </data>
   <data name="TEXT_TOTAL_GENERATED_EVENTS" xml:space="preserve">
     <value>Total des événements générés</value>
   </data>
   <data name="TEXT_TOTAL_PAYMENT_AMOUNT" xml:space="preserve">
-    <value>Total du montant du paiement</value>
+    <value>Montant du paiement total</value>
   </data>
   <data name="TEXT_TOTAL_RATED_AMOUNT_AFTER" xml:space="preserve">
-    <value>Total du montant évalué Après</value>
+    <value>Montant total Après nominale</value>
   </data>
   <data name="TEXT_TOTAL_RATED_AMOUNT_DELTA" xml:space="preserve">
-    <value>Total du montant évalué Delta</value>
+    <value>Montant total Évalué Delta</value>
   </data>
   <data name="TEXT_TOTAL_RATED_EVENTS" xml:space="preserve">
-    <value>Total des événements évalués</value>
+    <value>Total des événements notés</value>
   </data>
   <data name="TEXT_TOTAL_RATED_UNITS" xml:space="preserve">
-    <value>Total des unités évaluées</value>
+    <value>Unités totales notés</value>
   </data>
   <data name="TEXT_TOTAL_TAX_AMOUNT" xml:space="preserve">
-    <value>Total du montant de taxes</value>
+    <value>Montant total de taxe</value>
   </data>
   <data name="TEXT_TRANSACTION_COUNT" xml:space="preserve">
     <value>Nombre de transactions</value>
   </data>
   <data name="TEXT_UNPROCESSED_MESSAGES" xml:space="preserve">
-    <value>Messages non traités</value>
+    <value>Messages non transformés</value>
   </data>
   <data name="TEXT_INTERVALS_TO_ARCHIVE_DT_END" xml:space="preserve">
     <value>Date de fin</value>
@@ -520,18 +523,15 @@
     <value>Date de début</value>
   </data>
   <data name="TEXT_INTERVALS_TO_ARCHIVE_ID_INTERVAL" xml:space="preserve">
-    <value>ID de l`intervalle</value>
-  </data>
-  <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>Date de début</value>
+    <value>intervalle Id</value>
   </data>
   <data name="TEXT_DEFERRED_CODE" xml:space="preserve">
-    <value>Différés</value>
+    <value>[FR]Deferred</value>
   </data>
   <data name="TEXT_EARNED_CODE" xml:space="preserve">
-    <value>Acquis</value>
+    <value>[FR]Earned</value>
   </data>
   <data name="TEXT_INCREMENTAL_CODE" xml:space="preserve">
-    <value>Incrémentiel</value>
+    <value>[FR]Incremental</value>
   </data>
 </root>

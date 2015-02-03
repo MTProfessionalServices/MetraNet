@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,194 +59,195 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Informações da instância do adaptador</value>
+    <value>[pt-BR]MetraNet - Adapter Instance Information</value>
   </data>
   <data name="TX_TYPE" xml:space="preserve">
-    <value>Ação</value>
+    <value>[pt-BR]Action</value>
   </data>
   <data name="TitleResource1.Text" xml:space="preserve">
-    <value>Informações da instância do adaptador</value>
+    <value>[pt-BR]Adapter Instance Information</value>
   </data>
   <data name="lblAdapter.Text" xml:space="preserve">
-    <value>Adaptador:</value>
+    <value>[pt-BR]Adapter:</value>
   </data>
   <data name="lblStatus.Text" xml:space="preserve">
-    <value>Estado:</value>
+    <value>[pt-BR]Status:</value>
   </data>
   <data name="lblArgStart.Text" xml:space="preserve">
-    <value>Início do arg.:</value>
+    <value>[pt-BR]Arg Start:</value>
   </data>
   <data name="lblArgEnd.Text" xml:space="preserve">
-    <value>Término do arg.:</value>
+    <value>[pt-BR]Arg End:</value>
   </data>
   <data name="lblInstanceId.Text" xml:space="preserve">
-    <value>ID da instância:</value>
+    <value>[pt-BR]Instance Id:</value>
   </data>
   <data name="btnHistory.Text" xml:space="preserve">
-    <value>Exibir histórico</value>
+    <value>[pt-BR]View History</value>
   </data>
   <data name="AdapterInstanceRunHistoryGrid.Title" xml:space="preserve">
-    <value>Histórico de execução da instância</value>
+    <value>[pt-BR]Instance Run History</value>
   </data>
   <data name="DT_START" xml:space="preserve">
-    <value>Hora de início [Duration]</value>
+    <value>[pt-BR]Start Time [Duration]</value>
   </data>
   <data name="TX_DETAIL" xml:space="preserve">
-    <value>Detalhes resumidos</value>
+    <value>[pt-BR]Summary Details</value>
   </data>
   <data name="TX_MACHINE" xml:space="preserve">
-    <value>Máquina</value>
+    <value>[pt-BR]Machine</value>
   </data>
   <data name="TX_STATUS" xml:space="preserve">
-    <value>Estado</value>
+    <value>[pt-BR]Status</value>
   </data>
   <data name="pnlInfo.Text" xml:space="preserve">
-    <value>Detalhes da instância</value>
+    <value>[pt-BR]Instance Details</value>
   </data>
   <data name="btnRunAdapters.Text" xml:space="preserve">
-    <value>Executar adaptador</value>
+    <value>[pt-BR]Run Adapter</value>
   </data>
   <data name="btnRunAdaptersLater.Text" xml:space="preserve">
-    <value>Executar adaptador mais tarde</value>
+    <value>[pt-BR]Run Adapter Later</value>
   </data>
   <data name="btnReverseAdapters.Text" xml:space="preserve">
-    <value>Reverter adaptador</value>
+    <value>[pt-BR]Reverse Adapter</value>
   </data>
   <data name="btnReverseAdaptersLater.Text" xml:space="preserve">
-    <value>Reverter adaptador mais tarde</value>
+    <value>[pt-BR]Reverse Adapter Later</value>
   </data>
   <data name="btnCancelSubmittedAction.Text" xml:space="preserve">
-    <value>Cancelar ação enviada</value>
+    <value>[pt-BR]Cancel Submitted Action</value>
   </data>
   <data name="ViewRunDetails" xml:space="preserve">
-    <value>Exibir detalhes da execução</value>
+    <value>[pt-BR]View Run Details</value>
   </data>
   <data name="SecondPlural" xml:space="preserve">
-    <value>segundos</value>
+    <value>[pt-BR]seconds</value>
   </data>
   <data name="SecondSingular" xml:space="preserve">
-    <value>segundo</value>
+    <value>[pt-BR]second</value>
   </data>
   <data name="RunLaterOn.Text" xml:space="preserve">
-    <value>Executar este adaptador em</value>
+    <value>[pt-BR]Run this adapter on</value>
   </data>
   <data name="ReverseLaterOn.Text" xml:space="preserve">
-    <value>Reverter este adaptador em</value>
+    <value>[pt-BR]Reverse this adapter on</value>
   </data>
   <data name="AdapterInstanceAuditHistoryGrid.Title" xml:space="preserve">
-    <value>Histórico de auditoria da instância</value>
+    <value>[pt-BR]Instance Audit History</value>
   </data>
   <data name="Action_HeaderText" xml:space="preserve">
-    <value>Ação</value>
+    <value>[pt-BR]Action</value>
   </data>
   <data name="AuditId_HeaderText" xml:space="preserve">
-    <value>ID da auditoria</value>
+    <value>[pt-BR]Audit Id</value>
   </data>
   <data name="Details_HeaderText" xml:space="preserve">
-    <value>Detalhes</value>
+    <value>[pt-BR]Details</value>
   </data>
   <data name="Forced_HeaderText" xml:space="preserve">
-    <value>Forçado</value>
+    <value>[pt-BR]Forced</value>
   </data>
   <data name="InstanceId_HeaderText" xml:space="preserve">
-    <value>ID da instância</value>
+    <value>[pt-BR]Instance Id</value>
   </data>
   <data name="Time_HeaderText" xml:space="preserve">
-    <value>Hora</value>
+    <value>[pt-BR]Time</value>
   </data>
   <data name="Type_HeaderText" xml:space="preserve">
-    <value>Tipo</value>
+    <value>[pt-BR]Type</value>
   </data>
   <data name="UserId_HeaderText" xml:space="preserve">
-    <value>Id do usuário</value>
+    <value>[pt-BR]User Id</value>
   </data>
   <data name="UserName_HeaderText" xml:space="preserve">
-    <value>Nome do usuário</value>
+    <value>[pt-BR]User Name</value>
   </data>
   <data name="Adapter_HeaderText" xml:space="preserve">
-    <value>Adaptador</value>
+    <value>[pt-BR]Adapter</value>
   </data>
   <data name="AdapterInstanceRunDetailsGrid.Title" xml:space="preserve">
-    <value>Detalhes da execução da instância</value>
+    <value>[pt-BR]Instance Run Details</value>
   </data>
   <data name="DetailType_HeaderText" xml:space="preserve">
-    <value>Tipo de detalhe</value>
+    <value>[pt-BR]Detail Type</value>
   </data>
   <data name="Timestamp_HeaderText" xml:space="preserve">
-    <value>Timestamp</value>
+    <value>[pt-BR]Timestamp</value>
   </data>
   <data name="BatchDetails" xml:space="preserve">
-    <value>Exibir detalhes dos lotes desta execução do adaptador</value>
+    <value>[pt-BR]View Details Of The Batches For This Run Of The Adapter</value>
   </data>
   <data name="FailedAccounts" xml:space="preserve">
-    <value>Exibir lista de contas com falhas</value>
+    <value>[pt-BR]View List Of Accounts That Had Failures</value>
   </data>
   <data name="lblRunId.Text" xml:space="preserve">
-    <value>Id de execução:</value>
+    <value>[pt-BR]Run Id:</value>
   </data>
   <data name="lblSummaryDetails.Text" xml:space="preserve">
-    <value>Detalhes resumidos:</value>
+    <value>[pt-BR]Summary Details:</value>
   </data>
   <data name="pnlRunDetails.Text" xml:space="preserve">
-    <value>Detalhes:</value>
+    <value>[pt-BR]Details:</value>
   </data>
 </root>

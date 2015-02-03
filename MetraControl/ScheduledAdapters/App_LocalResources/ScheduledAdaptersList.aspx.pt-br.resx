@@ -118,45 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Lista de eventos do adaptador agendados</value>
+    <value>[pt-BR] Scheduled Adapters Event List</value>
+  </data>
+  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Lista de eventos dos adaptadores agendados</value>
+    <value>[pt-BR] MetraNet - Scheduled Adapters Event List</value>
+  </data>
+  <data name="ScheduledAdaptersListGridResource1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Descrição</value>
+    <value>[pt-BR] Description</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>Adaptadores</value>
+    <value>[pt-BR] Adapters</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>Adaptadores agendados</value>
+    <value>[pt-BR] Scheduled Adapters</value>
   </data>
   <data name="TEXT_ISPAUSED" xml:space="preserve">
-    <value>Próxima execução</value>
+    <value>[pt-BR] Next Run</value>
   </data>
   <data name="TEXT_ON_SCHEDULE" xml:space="preserve">
-    <value>Dentro do programado</value>
+    <value>[pt-BR] On Schedule</value>
   </data>
   <data name="TEXT_PAUSED" xml:space="preserve">
-    <value>Pausado</value>
+    <value>[pt-BR] Paused</value>
   </data>
   <data name="TEXT_SCHEDULE" xml:space="preserve">
-    <value>Agenda</value>
+    <value>[pt-BR] Schedule</value>
   </data>
   <data name="TEXT_SCHEDULE_DAY" xml:space="preserve">
-    <value>A cada {0} dia(s) às {1}</value>
+    <value>[pt-BR] Every {0} day(s) at {1}</value>
   </data>
   <data name="TEXT_SCHEDULE_MANUAL" xml:space="preserve">
-    <value>Manual</value>
+    <value>[pt-BR] Manual</value>
   </data>
   <data name="TEXT_SCHEDULE_MINUTES" xml:space="preserve">
-    <value>A cada {0} minutos</value>
+    <value>[pt-BR] Every {0} minutes</value>
   </data>
   <data name="TEXT_SCHEDULE_MONTH" xml:space="preserve">
-    <value>A cada {0} mês(es) às {1} em {2}</value>
+    <value>[pt-BR] Every {0} month(s) at {1} on {2}</value>
   </data>
   <data name="TEXT_SCHEDULE_WEEK" xml:space="preserve">
-    <value>A cada {0} semana(s) às {1} em {2}</value>
+    <value>[pt-BR] Every {0} week(s) at {1} on {2}</value>
   </data>
 </root>

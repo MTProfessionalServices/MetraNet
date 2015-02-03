@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don`t support this are serialized and stored with the 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -126,7 +126,15 @@
   <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
     <value>Comptes</value>
   </data>
-
+  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
+    <value>[FR]Not Yet Run</value>
+  </data>
+  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
+    <value>[FR]Ready To Reverse</value>
+  </data>
+  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
+    <value>[FR]Ready To Run</value>
+  </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
     <value>ajouter une catégorie</value>
   </data>
@@ -185,7 +193,7 @@
     <value>Informations du compte</value>
   </data>
   <data name="TEXT_ACCOUNT_LOCKED" xml:space="preserve">
-    <value>Le compte `{0}` est bloqué.</value>
+    <value>Le compte '{0}' est bloqué.</value>
   </data>
   <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
     <value>Nom du compte :</value>
@@ -332,7 +340,7 @@
     <value>Corrigez les erreurs et réessayez.</value>
   </data>
   <data name="TEXT_CREATE_NEW_PARAMETER" xml:space="preserve">
-    <value>Créer un nouveau paramètre</value>
+    <value>[FR]Create New Parameter</value>
   </data>
   <data name="TEXT_CREATOR_ID" xml:space="preserve">
     <value>ID de créateur</value>
@@ -353,7 +361,7 @@
     <value>Supprimer</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
+    <value>[FR] Description</value>
   </data>
   <data name="TEXT_DETAILS" xml:space="preserve">
     <value>Détails</value>
@@ -434,10 +442,10 @@
     <value>ID de la machine</value>
   </data>
   <data name="TEXT_MACHINE_NAME" xml:space="preserve">
-    <value>Machine</value>
+    <value>[FR]Machine</value>
   </data>
   <data name="TEXT_MACHINE_ROLE_NAME" xml:space="preserve">
-    <value>Rôle de la machine</value>
+    <value>[FR]Machine Role</value>
   </data>
   <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
     <value>Gérer les abonnements groupés</value>
@@ -584,7 +592,7 @@
     <value>Les dates de début et de fin de l’abonnement doivent être comprises entre {0} et {1}.</value>
   </data>
   <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
-    <value>Les dates d`abonnement doivent être</value>
+    <value>Les dates d’abonnement doivent être</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
     <value>Taxe</value>
@@ -650,7 +658,7 @@
     <value>Utiliser calcul taxe incluse standard</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Erreur de validation. Réessayez ultérieurement.</value>
+    <value>Erreur de validation error. Réessayez ultérieurement.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Valeur</value>
@@ -673,23 +681,14 @@
   <data name="updateSubscription" xml:space="preserve">
     <value>Mise à jour de l’abonnement</value>
   </data>
-  <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
-    <value>Pas encore exécuté</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
-    <value>Prêt pour inversion</value>
-  </data>
-  <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
-    <value>Prêt pour exécution</value>
-  </data>
   <data name="TEXT_ONE" xml:space="preserve">
-    <value>Un(e)</value>
+    <value>[FR]One</value>
   </data>
   <data name="TEXT_MANY" xml:space="preserve">
-    <value>Nombreux</value>
+    <value>[FR]Many</value>
   </data>
   <data name="TEXT_COPY_PO" xml:space="preserve">
-    <value>Copier une offre produit existante</value>
+    <value>[FR]Copy Existing Product Offering</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Devise</value>
@@ -704,39 +703,39 @@
     <value>Date de début de validité</value>
   </data>
   <data name="TEXT_ADD_RATES_FOR_PT" xml:space="preserve">
-    <value>Ajouter des prix pour les tableaux de paramètres supplémentaires</value>
+    <value>[FR]Add Rates For Additional Parameter Tables</value>
   </data>
   <data name="TEXT_UPDATE_PL" xml:space="preserve">
-    <value>Mettre à jour le tarif</value>
+    <value>[FR]Update Price List</value>
   </data>
   <data name="TEXT_UPDATE_SHARED_PL" xml:space="preserve">
-    <value>Mettre à jour tarif partagé</value>
+    <value>[FR]Update Shared Price List</value>
   </data>
   <data name="TEXT_CREATE_SHARED_PL" xml:space="preserve">
-    <value>Créer un tarif partagé</value>
+    <value>[FR]Create Shared Price List</value>
   </data>
   <data name="TEXT_ADD_PL" xml:space="preserve">
-    <value>Ajouter un tarif</value>
+    <value>[FR]Add Price List</value>
   </data>
   <data name="ValidationMustBeNumber" xml:space="preserve">
-    <value>Doit être une valeur numérique.</value>
+    <value>[FR] Must be a number value.</value>
   </data>
   <data name="ReceventInstAuditAction_SubmitForExecution" xml:space="preserve">
-    <value>Proposez Pour exécution</value>
+    <value>[FR]SubmitForExecution</value>
   </data>
   <data name="ReceventInstAuditAction_SubmitForReversal" xml:space="preserve">
-    <value>Soumettre pour Inversion</value>
+    <value>[FR]SubmitForReversal</value>
   </data>
   <data name="ReceventInstAuditAction_Cancel" xml:space="preserve">
-    <value>Annuler</value>
+    <value>[FR]Cancel</value>
   </data>
   <data name="AdapterStatusCode_Succeeded" xml:space="preserve">
-    <value>Réussi</value>
+    <value>[FR]Succeeded</value>
   </data>
   <data name="AdapterStatusCode_Running" xml:space="preserve">
-    <value>En cours d`exécution</value>
+    <value>[FR]Running</value>
   </data>
   <data name="AdapterStatusCode_Failed" xml:space="preserve">
-    <value>Échec</value>
+    <value>[FR]Failed</value>
   </data>
 </root>

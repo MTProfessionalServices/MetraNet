@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnAddAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Ajouter</value>
+    <value>[FR]Add</value>
   </data>
   <data name="btnGoToUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Modifier</value>
+    <value>[FR]Edit</value>
   </data>
   <data name="btnUpdateAccountConfigSetResource.Text" xml:space="preserve">
-    <value>Mettre à jour</value>
+    <value>[FR]Update</value>
   </data>
   <data name="dpSubParamsEndDateResource.Label" xml:space="preserve">
     <value>Date de fin de l’abonnement</value>
@@ -136,87 +136,87 @@
     <value>Compte d’entreprise</value>
   </data>
   <data name="ITEM" xml:space="preserve">
-    <value>Élément</value>
+    <value>[FR]Item</value>
   </data>
   <data name="ITEMS" xml:space="preserve">
-    <value>Eléments</value>
+    <value>[FR]Items</value>
   </data>
   <data name="manageSubscriptionParameterTitle.Text" xml:space="preserve">
     <value>Gérer les paramètres d’abonnement</value>
   </data>
   <data name="MTbtnCancelResource.Text" xml:space="preserve">
-    <value>Annuler</value>
+    <value>[FR]Cancel</value>
   </data>
   <data name="MTPanelUDRCResource.Text" xml:space="preserve">
-    <value>Mesure UDRC</value>
+    <value>[FR]UDRC Metrics</value>
   </data>
   <data name="panelAccountConfigSetParametersResource.Text" xml:space="preserve">
-    <value>Informations du modèle</value>
+    <value>[FR]Model Information</value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Informations de l'offre produit</value>
+    <value>[FR]Product Offering Information</value>
   </data>
   <data name="PIID" xml:space="preserve">
-    <value>ID d'élément à prix</value>
+    <value>[FR]Priсeable Item Id</value>
   </data>
   <data name="PINAME" xml:space="preserve">
-    <value>Nom d'élément à prix</value>
+    <value>[FR]Priсeable Item Name</value>
   </data>
   <data name="REMOVE_UDRC" xml:space="preserve">
-    <value>Supprimer une mesure UDRC</value>
+    <value>[FR]Remove UDRC Metric</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
     <value>Nom de l’abonnement groupé</value>
   </data>
   <data name="tbSubParamsDescriptionResource.Label" xml:space="preserve">
-    <value>Description</value>
+    <value>[FR]Description</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
-    <value>ID paramètres abon.</value>
+    <value>[FR]Sub. Parameters Id</value>
   </data>
   <data name="tbSubParamsPoNameResource.Label" xml:space="preserve">
-    <value>Nom de l`offre produit</value>
+    <value>[FR]Product Offering Name</value>
   </data>
   <data name="tbSubParamsPoResource.Label" xml:space="preserve">
     <value>Offre produit</value>
   </data>
   <data name="TEXT_ADD_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>Ajouter un modèle d`abonnement</value>
+    <value>[FR]Add Subscription Model</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
-    <value>Ajouter une mesure UDRC</value>
+    <value>[FR]Add UDRC Metric</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
-    <value>Annuler</value>
+    <value>[FR]Cancel</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>Date de fin</value>
+    <value>[FR]End Date</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNTCONFIGSET_PARAMS" xml:space="preserve">
-    <value>Gérer les paramètres d`abonnement</value>
+    <value>[FR]Manage Subscription Parameters</value>
   </data>
   <data name="TEXT_MISSED_PO" xml:space="preserve">
-    <value> Une offre produit doit être sélectionnée !</value>
+    <value>[FR] Product offering should be selected!</value>
   </data>
   <data name="TEXT_MISSED_UDRC" xml:space="preserve">
-    <value>La mesure UDRC n'est pas définie pour tous les éléments à prix</value>
+    <value>[FR]UDRC metrics set not for all Priceable Items</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
-    <value>OK</value>
+    <value>[FR]OK</value>
   </data>
   <data name="TEXT_SELECT_POS" xml:space="preserve">
-    <value>Sélectionner une offre produit</value>
+    <value>[FR]Select Product Offering</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>Date de début</value>
+    <value>[FR]Start Date</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
-    <value>Valeur</value>
+    <value>[FR]Value</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value>Mesure UDRC pour éléments à prix</value>
+    <value>[FR]UDRC Metrics For Priceable Items</value>
   </data>
   <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
-    <value>Éléments à prix UDRC</value>
+    <value>[FR]UDRC Priсeable Items</value>
   </data>
 </root>

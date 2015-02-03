@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ADAPTERS_WERE_SUBMITTED" xml:space="preserve">
-    <value>Les événements avec les ID {0} ont été envoyés pour exécution</value>
+    <value>[FR]Events with IDs {0} were submitted for execution</value>
   </data>
   <data name="ADAPTER_INSTANCE_START_DATE" xml:space="preserve">
-    <value>Date de début de nouvelle instance</value>
+    <value>[FR]Start Date For New Instance</value>
   </data>
   <data name="CANCEL_BUTTON_TEXT" xml:space="preserve">
-    <value>Annuler</value>
+    <value>[FR] Cancel</value>
   </data>
   <data name="RUN_ADAPTER_BUTTON_TEXT" xml:space="preserve">
-    <value>Exécuter</value>
+    <value>[FR]Run</value>
   </data>
   <data name="RUN_ADAPTER_TOOL_TIP" xml:space="preserve">
-    <value>Exécuter les adaptateurs sélectionnés</value>
+    <value>[FR]Run Selected Adapters</value>
   </data>
 </root>

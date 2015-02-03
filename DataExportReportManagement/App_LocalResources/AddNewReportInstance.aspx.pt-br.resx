@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TEXT_CONTROL_FILE_LOCATION" xml:space="preserve">
-    <value>Local do arquivo de controle</value>
+        <value>Control File Location</value>
     </data>
     <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
         <value>Data de ativação</value>
@@ -172,7 +172,7 @@
         <value>ID do relatório</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
-    <value>Método de distribuição de arquivo de saída </value>
+        <value>[pt-BR]Output File Distribution Method</value>
     </data>
     <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
         <value>Tipo de saída</value>
@@ -190,31 +190,31 @@
         <value>Valor</value>
     </data>
     <data name="TEXT_EXPORT_FILE_DESTINATION" xml:space="preserve">
-    <value>Localização do arquivo exportado</value>
+        <value>Export File Location</value>
     </data>
     <data name="TEXT_FTP_ACCESS_PASSWORD" xml:space="preserve">
-    <value>Senha de acesso ao FTP</value>
+        <value>FTP Access Password</value>
     </data>
     <data name="TEXT_FTP_USER" xml:space="preserve">
-    <value>Usuário de acesso ao FTP</value>
+        <value>FTP Access User</value>
     </data>
     <data name="TEXT_GENERATE_CONTROL_FILE" xml:space="preserve">
-    <value>Gerar arquivo de controle</value>
+        <value>Generate Control File</value>
     </data>
     <data name="TEXT_REPORT_DESTINATION" xml:space="preserve">
-    <value>Destino do relatório</value>
+        <value>Report Destination</value>
     </data>
     <data name="TEXT_REPORT_INSTANCE_DETAILS" xml:space="preserve">
-    <value>Detalhes da instância do relatório </value>
+        <value>Report Instance Details </value>
     </data>
     <data name="TEXT_TITLE" xml:space="preserve">
-    <value>Adicionar nova instância de relatório</value>
+        <value>Add New Report Instance</value>
     </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Adicionar nova instância de relatório</value>
+    <value>Add New Report Instance</value>
   </data>
   <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>Cancel</value>
   </data>
   <data name="btnOKResource1.Text" xml:space="preserve">
     <value>OK</value>

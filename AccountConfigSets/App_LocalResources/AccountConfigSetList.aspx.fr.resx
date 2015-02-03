@@ -136,13 +136,13 @@
     <value>ID</value>
   </data>
   <data name="ACS_PROPERTIESTOSET" xml:space="preserve">
-    <value>Appliquer les mises à jour de propriétés du compte suivantes</value>
+    <value>[FR]Apply following Account Properties Updates</value>
   </data>
   <data name="ACS_RANK" xml:space="preserve">
     <value>Rang</value>
   </data>
   <data name="ACS_SELECTIONSCRITERIA" xml:space="preserve">
-    <value>Si les propriétés du compte suivantes sont satisfaites</value>
+    <value>[FR]If following Account Properties are satisfied</value>
   </data>
   <data name="CREATE_ACS" xml:space="preserve">
     <value>Ajouter</value>

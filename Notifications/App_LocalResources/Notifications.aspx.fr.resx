@@ -121,7 +121,16 @@
     <value>Aucun enregistrement trouvé</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>d'exp.</value>
+    <value>d’exp.</value>
+  </data>
+  <data name="TEXT_NOTIFICATIONS_EVENT_TYPE" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TEXT_NOTIFICATION_BODY" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="TEXT_PARTITION" xml:space="preserve">
+    <value>Partition</value>
   </data>
   <data name="TEXT_PARTITION_ID" xml:space="preserve">
     <value>ID de partition</value>

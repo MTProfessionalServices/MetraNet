@@ -148,7 +148,7 @@
     <value>Cancelar</value>
   </data>
   <data name="TEXT_CREATE_ACCOUNTCONFIGSET" xml:space="preserve">
-    <value>Adicionar modelo OnBoard</value>
+    <value>[pt-BR]Add OnBoard Template</value>
   </data>
   <data name="TEXT_DATES_ERROR" xml:space="preserve">
     <value>A data de início deve ser menor que a data de término</value>
@@ -196,31 +196,34 @@
     <value>Adicionar</value>
   </data>
   <data name="dpStartDateResource.Label" xml:space="preserve">
-    <value>Data de vigência</value>
+    <value>[pt-BR]Effective Date</value>
   </data>
   <data name="dpEndDateResource.Label" xml:space="preserve">
-    <value>Data de término da vigência</value>
+    <value>[pt-BR]Effective End Date</value>
   </data>
   <data name="tbAcsDescriptionResource.Label" xml:space="preserve">
-    <value>Descrição</value>
+    <value>[pt-BR]Description</value>
   </data>
   <data name="cbAcsEnabledResource.BoxLabel" xml:space="preserve">
-    <value>Ativado</value>
+    <value>[pt-BR]Enabled</value>
   </data>
   <data name="tbRankResource.Label" xml:space="preserve">
-    <value>Classificar</value>
+    <value>[pt-BR]Rank</value>
   </data>
   <data name="panelAccountConfigSetParameters.Text" xml:space="preserve">
-    <value>Informações do modelo</value>
+    <value>[pt-BR]Template Information</value>
+  </data>
+  <data name="panelCriteriaResource.Text" xml:space="preserve">
+    <value></value>
   </data>
   <data name="panelSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Detalhes do modelo de assinatura</value>
+    <value>[pt-BR]Subscription Model Details</value>
   </data>
   <data name="tbGroupSubscriptionNameResource.Label" xml:space="preserve">
     <value>Nome da assinatura em grupo</value>
   </data>
   <data name="tbSubParamsId.Label" xml:space="preserve">
-    <value>Id de parâmetros da assinatura</value>
+    <value>[pt-BR]Subscription Params Id</value>
   </data>
   <data name="ACCOUNTVIEW" xml:space="preserve">
     <value>ID de conta</value>
@@ -232,40 +235,40 @@
     <value>Valor</value>
   </data>
   <data name="ITEM" xml:space="preserve">
-    <value>Item</value>
+    <value>[pt-BR]Item</value>
   </data>
   <data name="ITEMS" xml:space="preserve">
-    <value>Item</value>
+    <value>[pt-BR]Items</value>
   </data>
   <data name="SELECTION_CRITERIA_GRID_TITLE" xml:space="preserve">
-    <value>Se as seguintes propriedades da conta forem atendidas</value>
+    <value>[pt-BR]If following Account Properties are satisfied</value>
   </data>
   <data name="PROPERTY_TO_SET_GRID_TITLE" xml:space="preserve">
-    <value>Aplicar as seguintes Atualização de propriedades de conta</value>
+    <value>[pt-BR]Apply following Account Properties Updates</value>
   </data>
   <data name="REMOVE_SELECTIONCRITERION" xml:space="preserve">
-    <value>Remover critério de seleção</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="EDIT_SELECTIONCRITERION" xml:space="preserve">
-    <value>Editar critério de seleção</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="REMOVE_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Remover propriedade a definir</value>
+    <value>[pt-BR]Remove Property To Set</value>
   </data>
   <data name="EDIT_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Editar propriedade a definir</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="ADD_PROPERTY_TO_SET" xml:space="preserve">
-    <value>Adicionar propriedade</value>
+    <value>[pt-BR]Add Property</value>
   </data>
   <data name="ADD_SELECTION_CRITERIA" xml:space="preserve">
-    <value>Adicionar propriedade</value>
+    <value>[pt-BR]Add Property</value>
   </data>
   <data name="ADD_SELECTION_CRITERION" xml:space="preserve">
-    <value>Adicionar critério de seleção</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="EDIT_SELECTION_CRITERIA" xml:space="preserve">
-    <value>Editar critério de seleção</value>
+    <value>[pt-BR]Edit Property To Set</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
     <value>Métricas UDRC</value>
@@ -277,18 +280,18 @@
     <value>É provável que o comprimento do valor seja mais que o disponível para a propriedade selecionada</value>
   </data>
   <data name="panelManageSubscriptionParametersResource.Text" xml:space="preserve">
-    <value>Aplicar o seguinte Modelo de assinatura</value>
+    <value>[pt-BR]Apply following Subscription Model</value>
   </data>
   <data name="btnSelectSubParamsResource.Text" xml:space="preserve">
-    <value>Selecionar modelo</value>
+    <value>[pt-BR]Select Model</value>
   </data>
   <data name="btnRemoveSubParamsResource.Text" xml:space="preserve">
-    <value>Remover modelo</value>
+    <value>[pt-BR]Remove Model</value>
   </data>
   <data name="SELECT_SUBPARAMS" xml:space="preserve">
-    <value>Modelos de assinatura</value>
+    <value>[pt-BR]Subscription Models</value>
   </data>
   <data name="TEXT_UPDATE_QUESTION" xml:space="preserve">
-    <value>Você tem certeza?</value>
+    <value>[pt-BR]Are you sure?</value>
   </data>
 </root>

@@ -331,7 +331,7 @@
     <value>Corrija os erros e tente novamente.</value>
   </data>
   <data name="TEXT_CREATE_NEW_PARAMETER" xml:space="preserve">
-    <value>Criar novo parâmetro</value>
+    <value>Create New Parameter</value>
   </data>
   <data name="TEXT_CREATOR_ID" xml:space="preserve">
     <value>ID do criador</value>
@@ -433,10 +433,10 @@
     <value>Identificador de máquina</value>
   </data>
   <data name="TEXT_MACHINE_NAME" xml:space="preserve">
-    <value>Máquina</value>
+    <value>Machine</value>
   </data>
   <data name="TEXT_MACHINE_ROLE_NAME" xml:space="preserve">
-    <value>Função da máquina</value>
+    <value>Machine Role</value>
   </data>
   <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
     <value>Gerenciar assinaturas em grupo</value>
@@ -480,6 +480,9 @@
   <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
     <value>Nenhum registro encontrado</value>
   </data>
+  <data name="TEXT_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="TEXT_OK_DELETE_1" xml:space="preserve">
     <value>Clique em 'OK' para excluir a</value>
   </data>
@@ -488,6 +491,9 @@
   </data>
   <data name="TEXT_PAGE_ERROR" xml:space="preserve">
     <value>Não foi possível exibir a página.</value>
+  </data>
+  <data name="TEXT_PAGEURL" xml:space="preserve">
+    <value>PageURL</value>
   </data>
   <data name="TEXT_POSITION" xml:space="preserve">
     <value>Posição</value>
@@ -567,6 +573,9 @@
   <data name="TEXT_SITE_NAME" xml:space="preserve">
     <value>Nome do site</value>
   </data>
+  <data name="TEXT_SPACER" xml:space="preserve">
+    <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
   <data name="TEXT_STYLE" xml:space="preserve">
     <value>Estilo</value>
   </data>
@@ -600,8 +609,14 @@
   <data name="TEXT_THEME" xml:space="preserve">
     <value>Tema</value>
   </data>
+  <data name="TEXT_TIMESTAMP" xml:space="preserve">
+    <value>TimeStamp</value>
+  </data>
   <data name="TEXT_TIMEZONE" xml:space="preserve">
     <value>Fuso horário</value>
+  </data>
+  <data name="TEXT_TITLE" xml:space="preserve">
+    <value>MetraNet</value>
   </data>
   <data name="TEXT_TITLE_ADD_CATEGORY" xml:space="preserve">
     <value>Criar categoria</value>
@@ -612,14 +627,23 @@
   <data name="TEXT_TITLE_EDIT_PROPERTY" xml:space="preserve">
     <value>Editar propriedade</value>
   </data>
+  <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
+    <value>MetraControl</value>
+  </data>
   <data name="TEXT_UNRELATED_1" xml:space="preserve">
     <value>Não relacionado </value>
+  </data>
+  <data name="TEXT_UNRELATED_2" xml:space="preserve">
+    <value>(s)</value>
   </data>
   <data name="TEXT_UNRELATED_ENTITY_1" xml:space="preserve">
     <value>Lista de não relacionado  </value>
   </data>
   <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
     <value>instâncias de entidade</value>
+  </data>
+  <data name="TEXT_URL" xml:space="preserve">
+    <value>Url</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
     <value>Usar cálculo padrão de imposto incluso</value>
@@ -649,22 +673,22 @@
     <value>Atualização da assinatura</value>
   </data>
   <data name="AdapterStatusCode_NotYetRun" xml:space="preserve">
-    <value>Ainda não executar</value>
+    <value>[pt-BR]Not Yet Run</value>
   </data>
   <data name="AdapterStatusCode_ReadyToReverse" xml:space="preserve">
-    <value>Pronto para reverter</value>
+    <value>[pt-BR]Ready To Reverse</value>
   </data>
   <data name="AdapterStatusCode_ReadyToRun" xml:space="preserve">
-    <value>Pronto para executar</value>
+    <value>[pt-BR]Ready To Run</value>
   </data>
   <data name="TEXT_ONE" xml:space="preserve">
-    <value>Um</value>
+    <value>[pt-BR]One</value>
   </data>
   <data name="TEXT_MANY" xml:space="preserve">
-    <value>Muitos</value>
+    <value>[pt-BR]Many</value>
   </data>
   <data name="TEXT_COPY_PO" xml:space="preserve">
-    <value>Copiar oferta de produto existente</value>
+    <value>[pt-BR]Copy Existing Product Offering</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Moeda</value>
@@ -679,39 +703,39 @@
     <value>Data de início da vigência</value>
   </data>
   <data name="TEXT_ADD_RATES_FOR_PT" xml:space="preserve">
-    <value>Adicionar Tarifas a mais Tabelas de Parâmetros</value>
+    <value>[pt-BR]Add Rates For Additional Parameter Tables</value>
   </data>
   <data name="TEXT_UPDATE_PL" xml:space="preserve">
-    <value>Atualizar lista de preços</value>
+    <value>[pt-BR]Update Price List</value>
   </data>
   <data name="TEXT_UPDATE_SHARED_PL" xml:space="preserve">
-    <value>Atualizar lista de preços compartilhada</value>
+    <value>[pt-BR]Update Shared Price List</value>
   </data>
   <data name="TEXT_CREATE_SHARED_PL" xml:space="preserve">
-    <value>Criar lista de preços compartilhada</value>
+    <value>[pt-BR]Create Shared Price List</value>
   </data>
   <data name="TEXT_ADD_PL" xml:space="preserve">
-    <value>Adicionar lista de preços</value>
+    <value>[pt-BR]Add Price List</value>
   </data>
   <data name="ValidationMustBeNumber" xml:space="preserve">
-    <value>Deve ser um valor numérico.</value>
+    <value>[pt-br] Must be a number value.</value>
   </data>
   <data name="ReceventInstAuditAction_SubmitForExecution" xml:space="preserve">
-    <value>Enviar para execução</value>
+    <value>[pt-BR]SubmitForExecution</value>
   </data>
   <data name="ReceventInstAuditAction_SubmitForReversal" xml:space="preserve">
-    <value>Enviar para a reversão</value>
+    <value>[pt-BR]SubmitForReversal</value>
   </data>
   <data name="ReceventInstAuditAction_Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>[pt-BR]Cancel</value>
   </data>
   <data name="AdapterStatusCode_Succeeded" xml:space="preserve">
-    <value>Bem sucedido</value>
+    <value>[pt-BR]Succeeded</value>
   </data>
   <data name="AdapterStatusCode_Running" xml:space="preserve">
-    <value>Executando</value>
+    <value>[pt-BR]Running</value>
   </data>
   <data name="AdapterStatusCode_Failed" xml:space="preserve">
-    <value>Falhou</value>
+    <value>[pt-BR]Failed</value>
   </data>
 </root>

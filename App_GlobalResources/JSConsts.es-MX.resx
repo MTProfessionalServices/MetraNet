@@ -1390,16 +1390,16 @@
     <value>Primer</value>
   </data>
   <data name="TEXT_FOURTH" xml:space="preserve">
-    <value>Cuarto</value>
+    <value>Cuarto(a)</value>
   </data>
   <data name="TEXT_LAST" xml:space="preserve">
-    <value>Último</value>
+    <value>Último(a)</value>
   </data>
   <data name="TEXT_SECOND" xml:space="preserve">
-    <value>Segundo</value>
+    <value>Segundo(a)</value>
   </data>
   <data name="TEXT_THIRD" xml:space="preserve">
-    <value>Tercero</value>
+    <value>Tercero(a)</value>
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
     <value>Pending Changes Waiting For Approval</value>

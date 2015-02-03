@@ -6,26 +6,26 @@
         <DisplayDescriptions>
             <language name="US">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="DE">Returns TRUE if a transaction belongs to an open interval</language>
-            <language name="FR">Renvoie VRAI si une transaction appartient à un intervalle ouvert</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="IT">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="JP">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="ES">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="GB">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="es-MX">Returns TRUE if a transaction belongs to an open interval</language>
-            <language name="pt-BR">Retorna TRUE se uma transação pertence a um intervalo aberto</language>
+            <language name="pt-BR">[BR]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="DA">Returns TRUE if a transaction belongs to an open interval</language>
         </DisplayDescriptions>
         <displayname>Returns TRUE if a transaction belongs to an open interval</displayname>
         <DisplayNames>
             <language name="US">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="DE">Returns TRUE if a transaction belongs to an open interval</language>
-            <language name="FR">Renvoie VRAI si une transaction appartient à un intervalle ouvert</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="IT">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="JP">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="ES">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="GB">Returns TRUE if a transaction belongs to an open interval</language>
             <language name="es-MX">Returns TRUE if a transaction belongs to an open interval</language>
-            <language name="pt-BR">Retorna TRUE se uma transação pertence a um intervalo aberto</language>
+            <language name="pt-BR">[BR]Returns TRUE if a transaction belongs to an open interval</language>
             <language name="DA">Returns TRUE if a transaction belongs to an open interval</language>
         </DisplayNames>
         <calculationengine>1</calculationengine>
@@ -48,26 +48,26 @@
         <DisplayDescriptions>
             <language name="US">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="DE">Returns TRUE if a transaction belongs to a closed interval</language>
-            <language name="FR">Renvoie VRAI si une transaction appartient à un intervalle fermé</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="IT">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="JP">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="ES">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="GB">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="es-MX">Returns TRUE if a transaction belongs to a closed interval</language>
-            <language name="pt-BR">Retorna TRUE se uma transação pertence a um intervalo fechado</language>
+            <language name="pt-BR">[BR]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="DA">Returns TRUE if a transaction belongs to a closed interval</language>
         </DisplayDescriptions>
         <displayname>Returns TRUE if a transaction belongs to a closed interval</displayname>
         <DisplayNames>
             <language name="US">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="DE">Returns TRUE if a transaction belongs to a closed interval</language>
-            <language name="FR">Renvoie VRAI si une transaction appartient à un intervalle fermé</language>
+            <language name="FR">[FR]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="IT">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="JP">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="ES">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="GB">Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="es-MX">Returns TRUE if a transaction belongs to a closed interval</language>
-            <language name="pt-BR">Retorna TRUE se uma transação pertence a um intervalo fechado</language>
+            <language name="pt-BR">[BR]Returns TRUE if a transaction belongs to a closed interval</language>
             <language name="DA">Returns TRUE if a transaction belongs to a closed interval</language>
         </DisplayNames>
         <calculationengine>1</calculationengine>

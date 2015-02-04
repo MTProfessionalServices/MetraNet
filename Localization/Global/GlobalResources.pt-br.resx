@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -121,205 +121,205 @@
     <value>O estado da conta era {0}, foi alterado para {1}. </value>
   </data>
   <data name="ACS_APPLIED_LIST_UPDATED" xml:space="preserve">
-    <value>[pt-br]Applied OnBoard Templates with IDs: {0} are not eligible for the account any more. Related subscriptions will be terminated.</value>
+    <value>Os Modelos OnBoard aplicados com os IDs: {0} não estão mais qualificados para a conta.Assinaturas relacionadas serão encerradas.</value>
   </data>
   <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
-    <value>[pt-br]OnBoard Templates with IDs {0} were removed from Applied list.</value>
+    <value>Os Modelos OnBoard com os IDs {0} foram removidos da lista Aplicados.</value>
   </data>
   <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
-    <value>[pt-br]Creation of new subscriptions is finished.</value>
+    <value>A criação de novas inscrições foi concluída.</value>
   </data>
   <data name="ACS_CREATE_SUB_START" xml:space="preserve">
-    <value>[pt-br]Starting creation of new subscriptions...</value>
+    <value>Iniciando a criação de novas inscrições...</value>
   </data>
   <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
-    <value>[pt-br]OnBoard Templates with IDs: {0} will be skipped. They are currently eligible for the account and were already applied.</value>
+    <value>Os Modelos OnBoard com os IDs: {0} serão ignorados. Eles são qualificados para a conta e já foram aplicados.</value>
   </data>
   <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
-    <value>[pt-br]New subscriptions will be created for Eligible OnBoard Templates with IDs: {0}.</value>
+    <value>Novas assinaturas serão criadas para os Modelos OnBoard qualificados com IDs: {0}.</value>
   </data>
   <data name="ACS_EXCHANGE_RANKS_EXCEPTION" xml:space="preserve">
-    <value>[PT-BR]Error on exchanging ranks of OnBoard Templates with Id {0} and {1}</value>
+    <value>Erro ao trocar classificações de Modelos OnBoard com Id {0} e {1}</value>
   </data>
   <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
-    <value>[pt-br] Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
+    <value>A inscrição de grupo foi criada por AccountConfigSetParams idAcsParams=`{0}`, ProductOffering id=`{1}`</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
-    <value>[pt-br] Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
+    <value>O membro com ID `{0}` foi adicionado ao GroupSubscription `{1}` com ID `{2}`</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
-    <value>[pt-br] Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
+    <value>Não é possível adicionar o membro com ID `{0}` porque GroupSubscription não existe para a Conta corporativa com ID `{1}`</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
-    <value>[pt-br] Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
+    <value>Não é possível adicionar o membro com ID `{0}` à GroupSubscription `{1}` com ID `{2}`. Exceção: {3}</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[pt-br] Unable to terminate member with ID '{0}' for Group Subscription with ID '{1}'. Exception: {2}</value>
+    <value>Não é possível encerrar o membro com ID `{0}` à assinatura de grupo `{1}` com ID `{2}`. Exceção: {3}</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_TERMINATED" xml:space="preserve">
-    <value>[pt-br] Member with ID '{0}' was terminated for Group Subscription with ID '{1}'</value>
+    <value>O membro com ID `{0}` foi encerrado na assinatura de grupo com ID `{1}`</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
-    <value>[pt-br] {0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
+    <value>GroupSubscription {0}` foi criada para a conta corporativa com ID `{1}` e assinado para a oferta de produto `{2}`</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>[pt-br] Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
+    <value>Não foi possível criar GroupSubscription para a conta corporativa com ID `{0}` e assinar a oferta de produto `{1}`. Exceção: {2} </value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[pt-br] Unable to terminated '{0}' Group Subscription with Corporate Account ID '{1}'. Exception: {2}</value>
+    <value>Não foi possível encerrar a assinatura de grupo `{0}` para a conta corporativa com ID `{1}`. Exceção: {2}</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_TERMINATED" xml:space="preserve">
-    <value>[pt-br] {0}' GroupSubscription with Corporate Account ID '{1}' was terminated for All members.</value>
+    <value>GroupSubscription {0}` com ID de conta corporativa `{1}` foi encerrado para todos os membros.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FAIL" xml:space="preserve">
-    <value>[PT-BR]Account with ID {0} not found or not available</value>
+    <value>A conta com a ID {0} não foi encontrada ou não está disponível</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
-    <value>[pt-br]Account '{0}' was loaded.</value>
+    <value>A conta `{0}` foi carregada.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
-    <value>[pt-br]Loading Account with ID {0}...</value>
+    <value>Carregando a conta com a ID {0}...</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
-    <value>[pt-br]Applied OnBoard Templates with IDs: {0} were found for the account.</value>
+    <value>Os Modelos OnBoard com os IDs: {0} foram encontrados para a conta.</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
-    <value>[pt-br]Loading OnBoard Templates that were applied for the account...</value>
+    <value>Carregando Modelos OnBoard aplicados à conta...</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
-    <value>[pt-br]OnBoard Templates with IDs: {0} were found as eligible for the account.</value>
+    <value>Os Modelos OnBoard com os IDs: {0} foram considerados qualificados para a conta.</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_NONUNIQUE_RANK_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Some Eligible OnBoard Templates have non-unique rank. Wrong OnBoard Templates configuration.</value>
+    <value>Alguns Modelos OnBoard qualificados têm classificações não exclusivas. Configuração errada de Modelos OnBoard.</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
-    <value>[pt-br]Loading OnBoard Templates that are eligible for the account...</value>
+    <value>Carregando Modelos OnBoard qualificados para a conta...</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
-    <value>[pt-br]Modification of account properties is finished.</value>
+    <value>A modificação de propriedades de conta foi concluída.</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
-    <value>[pt-br]Starting account properties modification...</value>
+    <value>Iniciando a modificação de propriedades de conta...</value>
   </data>
   <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
-    <value>[pt-br]Fail to modify property '{0}' by OnBoard Template {1}. Old value:'{2}'. New value:'{3}'.</value>
+    <value>Falha ao modificar a propriedade `{0}` pelo Modelo OnBoard {1}. Valor anterior:`{2}`. Novo valor:`{3}`.</value>
   </data>
   <data name="ACS_PROP_MODIFIED_SUCCESSFULLY" xml:space="preserve">
-    <value>[pt-br]Property '{0}' was modified by OnBoard Template {1}. Old value:'{2}'. New value:'{3}'.</value>
+    <value>A propriedade `{0}` foi modificada pelo Modelo OnBoard {1}. Valor anterior:`{2}`. Novo valor:`{3}`.</value>
   </data>
   <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
-    <value>[pt-br]Property '{0}' was not found.</value>
+    <value>A propriedade `{0}` não foi encontrada.</value>
   </data>
   <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
-    <value>[pt-br]Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
+    <value>A conta com a ID `{0}` estava inscrita na Oferta de produto `{1}`.</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>[pt-br]Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
+    <value>Não é possível inscrever a conta com a ID `{0}` na Oferta de produto com a ID `{1}`. Exceção: {2}</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>[pt-br]Unable to terminated subscription with ID {0}. Exception: {1}</value>
+    <value>Não é possível terminar a inscrição com a ID {0}. Exceção: {1}</value>
   </data>
   <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
-    <value>[pt-br]Subscription to {0} was terminated.</value>
+    <value>A inscrição em {0} foi terminada.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
-    <value>[pt-br]Termination of existing subscriptions is finished.</value>
+    <value>O término das inscrições existentes foi concluído.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
-    <value>[pt-br]Starting termination of existing subscriptions...</value>
+    <value>Iniciando o término das inscrições existentes...</value>
   </data>
   <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
-    <value>[pt-br]Unable to add '{0}' product offering to OnBoard Template due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
+    <value>Não foi possível adicionar a oferta de produto `{0}` ao Modelo OnBoard, pois o parâmetro de assinatura EndDate `{1}` é maior que a EndDate `{2}` disponível da oferta do produto.</value>
   </data>
   <data name="ACS_VALIDATION_AvailableStartDateLessThanStartDateInPo" xml:space="preserve">
-    <value>[pt-br]Unable to add '{0}' product offering to OnBoard Template due to subscription parameter  StartDate '{1}' less than available StartDate '{2}' of product offering. </value>
+    <value>Não foi possível adicionar a oferta de produto `{0}` ao Modelo OnBoard, pois o parâmetro de assinatura StartDate `{1}` é menor que a StartDate `{2}` disponível da oferta do produto. </value>
   </data>
   <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
-    <value>[pt-br]The OnBoard Template date does not match available '{0}' Product Offering date. Effective date for OnBoard Template from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
+    <value>As datas do Modelo OnBoard não correspondem às datas disponíveis na oferta do produto `{0}`. Datas efetivas para o Conjunto de configuração de `{1} a `{2}`, mas a da oferta do produto é de `{3}` a `{4}`  </value>
   </data>
   <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
-    <value>[pt-br]Incorrect available End date for the current OnBoard Template. Available EffectiveEndDate={0} less than system date={1}, so the OnBoard Template will never use.</value>
+    <value>Data de término disponível incorreta para o Modelo OnBoard. A EffectiveEndDate={0} disponível é anterior à data do sistema={1}, então o Conjunto de configuração de conta nunca será usado.</value>
   </data>
   <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
-    <value>[pt-br]Incorrect available date for the current OnBoard Template. Available EffectiveDate={0} greater then EffectiveEndDate={1}.</value>
+    <value>Data disponível incorreta para o Modelo OnBoard atual. A EffectiveDate={0} disponível é posterior a EffectiveEndDate={1}.</value>
   </data>
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
-    <value>[pt-br]'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
+    <value>A oferta de produto `{0}` não está disponível para a conta de partição `{1}` com id=`{2}`. A IdPartition=`{3}` da oferta de produto é diferente da IdPartition=`{4}` da conta da partição.</value>
   </data>
   <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-    <value>[pt-br] Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+    <value>Ocorreu uma exceção ao recuperar o produto com o Id=`{0}`. Exceção: {1}</value>
   </data>
   <data name="ACS_VALIDATION_GroupSab_GroupName_NOT_SET" xml:space="preserve">
-    <value>[pt-br] The Corporate Account with ID '{0}' is set, but Group Subscription Name - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    <value>A conta corporativa com o ID `{0}` está definida, mas o nome da assinatura de grupo, não está. Ambos os parâmetros são obrigatórios para a assinatura de grupo. Para criar a assinatura simples, você NÃO deve definir nenhum destes campos.</value>
   </data>
   <data name="ACS_VALIDATION_GroupSub_CorporateAccountId_NOT_SET" xml:space="preserve">
-    <value>[pt-br] The '{0}' Group Subscription Name is set, but CorporateAccountId - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    <value>O nome da assinatura de grupo `{0}` está definido, mas CorporateAccountId, não está. Ambos os parâmetros são obrigatórios para a assinatura de grupo. Para criar a assinatura simples, você NÃO deve definir nenhum destes campos.</value>
   </data>
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
-    <value>[pt-br]ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
+    <value>A partição de ID da conta corporativa com ID = `{0}` não é a mesma da oferta de produto `{1}`. ID de partição da conta = `{2}`, mas para oferta de produto = `{3}`</value>
   </data>
   <data name="ACS_VALIDATION_INVALID_RANK_VALUE" xml:space="preserve">
-    <value>[PT-BR]Rank should be &gt; 0. Rank value: {0}.</value>
+    <value>A classificação deve ser &gt; 0. Valor de classificação: {0}.</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryProperty_CantBeEmptyOrNull" xml:space="preserve">
-    <value>[pt-br] The mandatory '{0}' property can't be empty or null. </value>
+    <value>A propriedade obrigatória `{0}` não pode estar vazia ou ser nula. </value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
-    <value>[pt-br]The '{0}' mandatory property is null. The property should be initialized.</value>
+    <value>A propriedade obrigatória `{0}` é nula. A propriedade deve ser inicializada.</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
-    <value>[pt-br] The '{0}' mandatory property should contain at least one item.</value>
+    <value>A propriedade obrigatória `{0}` deve obter ao menos um item.</value>
   </data>
   <data name="ACS_VALIDATION_PropertiesToSetHasDuplicates" xml:space="preserve">
-    <value>[pt-br] The Properties to Set with Account View '{0}' and  name '{1}' is found more than one time (count = {2}). The Properties to Set should be unique.</value>
+    <value>Propriedades a definir com Exibição de conta `{0}` e nome `{1}` foi encontrada mais de uma vez (contagem = {2}). Propriedades a definir devem ser exclusivas.</value>
   </data>
   <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
-    <value>[pt-br] At least one of the  '{0}' or '{1}' properties should be set.</value>
+    <value>Pelo menos uma das propriedades `{0}` ou `{1}` deve ser definida.</value>
   </data>
   <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
-    <value>[pt-br] The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time (count = {2}). The Selection Criteria should be unique.</value>
+    <value>Critério de seleção com Exibição de conta `{0}` e nome `{1}` foi encontrado mais de uma vez (contagem = {2}).O critério de seleção deve ser exclusivo.</value>
   </data>
   <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-    <value>[pt-br]UDRC for PI ID={0} not set!</value>
+    <value>UDRC para PI ID={0} não definido!</value>
   </data>
   <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
-    <value>[pt-br]StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
+    <value>A StartDate={0} da métrica UDRC não pode ser maior que a EndDate={1} de PI com id={2}</value>
   </data>
   <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
-    <value>[pt-br]UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
+    <value>UDRC com ID={0} (StartDate = {1} e EndDate={2}) não existia para PO</value>
   </data>
   <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
-    <value>[pt-br]Unable to add OnBoard Template Subscription Params due to validation errors.</value>
+    <value>Não foi possível adicionar Parâm. de assinatura do modelo OnBoard devido a erros de validação.</value>
   </data>
   <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
-    <value>[pt-br]Unable to add OnBoard Template due to validation errors.</value>
+    <value>Não foi possível adicionar o Modelo OnBoard devido a erros de validação.</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
-    <value>[pt-br]Unable to find Product Offering with Id='{0}'</value>
+    <value>Não é possível localizar a oferta de produto com a Id=`{0}`</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindProductOfferingId" xml:space="preserve">
-    <value>[pt-br] Unable to find Product Offering with id={0}</value>
+    <value>Não foi possível localizar a oferta de produto com id={0}</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
-    <value>[pt-br] Unable to find subscription property. Details: '{0}'</value>
+    <value>Não foi possível localizar a propriedade da assinatura. Detalhes: `{0}`</value>
   </data>
   <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
-    <value>[pt-br]Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
+    <value>Não é possível obter a partição de ID da conta corporativa com a id=`{0}`. Erro: `{1}`</value>
   </data>
   <data name="ACS_VALIDATION_UnapleToFindProductOfferingId" xml:space="preserve">
-    <value>[pt-br]Unable to find Product Offering with id={0}</value>
+    <value>Não foi possível localizar a oferta de produto com id={0}</value>
   </data>
   <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
-    <value>[pt-br]#{0}) Message: '{1}', Component: '{2}'</value>
+    <value>#{0}) Mensagem: `{1}`, Componente: `{2}`</value>
   </data>
   <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
-    <value>[pt-br]Fail to modify views of Account ID {0}.</value>
+    <value>Falha ao modificar exibições de ID da conta {0}.</value>
   </data>
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error on saving OnBoard Template with Id {0}</value>
+    <value>Erro ao salvar Modelo OnBoard com Id {0}</value>
   </data>
   <data name="ADD_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error on saving SubscriptionParams with Id {0}</value>
+    <value>Erro ao salvar SubscriptionParams com Id {0}</value>
   </data>
   <data name="ADDED_ENTITY" xml:space="preserve">
     <value>Entidade adicionada com ID {0} à lista de entidades</value>
@@ -346,7 +346,7 @@
     <value>A conta ancestral era {0}, foi alterada para {1}. </value>
   </data>
   <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error on applying OnBoard Templates for account {0}.</value>
+    <value>Erro ao aplicar Modelos OnBoard na conta {0}.</value>
   </data>
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>A transação {0} é do tipo {1}, mas foi obtido uma AlreadySettledException</value>
@@ -358,7 +358,7 @@
     <value>A instância de PI filho foi alterado de {0} para {1}. </value>
   </data>
   <data name="CHANGED_PROP" xml:space="preserve">
-    <value>A propriedade '{0}' foi alterada de '{1}' para '{2}'.</value>
+    <value>A propriedade `{0}` foi alterada de `{1}` para `{2}`.</value>
   </data>
   <data name="CITY_CHANGED" xml:space="preserve">
     <value>A cidade era {0}, foi alterada para {1}. </value>
@@ -379,16 +379,16 @@
     <value>O dia da semana era {0}, foi alterado para {1}. </value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error delete OnBoard Template</value>
+    <value>Erro ao excluir Modelo OnBoard</value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Array of OnBoard Template IDs contains invalid ID: {0}</value>
+    <value>A matriz de IDs de modelos OnBoard contém ID inválido: {0}</value>
   </data>
   <data name="DELETE_APPLIED_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Applied OnBoard Template cannot be deleted. ID: {0}</value>
+    <value>O Modelo OnBoard aplicado não pode ser excluído. ID: {0}</value>
   </data>
   <data name="DELETE_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]OnBoard Template of other Partition cannot be deleted. ID: {0}</value>
+    <value>O Modelo OnBoard de outra Partição não pode ser excluído. ID: {0}</value>
   </data>
   <data name="DELETED_ENTITY" xml:space="preserve">
     <value>Entidade excluída com ID {0} da lista de entidades</value>
@@ -427,19 +427,19 @@
     <value>O nome era {0}, foi alterado para {1}. </value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error get OnBoard Template with Id {0}</value>
+    <value>Erro ao obter Modelo OnBoard com Id {0}</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error get OnBoard Template list</value>
+    <value>Erro ao obter lista do Modelo OnBoard</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error get subscription parameters with Id {0}</value>
+    <value>Erro ao obter parâmetros de assinatura com Id {0}</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error get OnBoard Template applied list</value>
+    <value>Erro ao obter a lista aplicada pelo Modelo OnBoard</value>
   </data>
   <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br] Can't get OnBoard Template with PO from another partition!</value>
+    <value>Não é possível obter o Modelo OnBoard com a PO de outra partição!</value>
   </data>
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>Sem resposta de {0}.</value>
@@ -520,13 +520,13 @@
     <value>A rua era {0}, foi alterada para {1}. </value>
   </data>
   <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
-    <value>Sucesso na atualização de conta do nome de usuário '{0}' com id '{1}. ' </value>
+    <value>Sucesso na atualização de conta do nome de usuário `{0}` com id `{1}. ` </value>
   </data>
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
     <value>ID do modelo de contrato não pode ser menor que 0.</value>
   </data>
   <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error on termination OnBoard Template</value>
+    <value>Erro ao encerrar o Modelo OnBoard</value>
   </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>A conta não pode ser seu próprio gerenciador de fatura</value>
@@ -916,10 +916,10 @@
     <value>A transação {0} já foi enviada.</value>
   </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error update OnBoard Template</value>
+    <value>Erro ao atualizar Modelo OnBoard</value>
   </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_PARAMETERS_EXCEPTION" xml:space="preserve">
-    <value>[pt-br]Error on update OnBoard Template Parameters</value>
+    <value>Erro ao atualizar os parâmetros do Modelo OnBoard</value>
   </data>
   <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
     <value>Modelo de contrato atualizado com id {0}.</value>
@@ -958,201 +958,201 @@
     <value>Terceiro</value>
   </data>
   <data name="ACCOUNTMAPPER_ERR_ALREADY_EXISTS_MSG" xml:space="preserve">
-    <value>[PT-BR]Account mapping already exists</value>
+    <value>O mapeamento da conta já existe</value>
   </data>
   <data name="MT_ACCOUNT_TYPE_AND_NAMESPACE_MISMATCH_MSG" xml:space="preserve">
-    <value>[PT-BR]Account Type and Namespace mismatch during account creation.</value>
+    <value>Tipo de conta e namespace não correspondem ao criar conta.</value>
   </data>
   <data name="MT_NONBILLABLE_ACCOUNTS_REQUIRE_PAYER_MSG" xml:space="preserve">
-    <value>[PT-BR]An account marked as non-billable must have a paying account.</value>
+    <value>Uma conta marcada como não faturável deve ter uma conta de pagamento.</value>
   </data>
   <data name="MT_CANNOT_RESOLVE_PAYING_ACCOUNT_MSG" xml:space="preserve">
-    <value>[PT-BR]Account Creation can not resolve the payer account from the login and namespace.</value>
+    <value>A criação de conta não pôde resolver a conta do pagador a partir do login e namespace.</value>
   </data>
   <data name="MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT_MSG" xml:space="preserve">
-    <value>[PT-BR]Account Creation can not resolve the hierarchy parent from the login and namespace.</value>
+    <value>A criação de conta não pôde resolver a hierarquia principal a partir do login e namespace.</value>
   </data>
   <data name="MT_PARENT_NOT_IN_HIERARCHY_MSG" xml:space="preserve">
-    <value>[PT-BR]The specified parent does not exist in the hierarchy.</value>
+    <value>O item principal especificado não existe na hierarquia.</value>
   </data>
   <data name="MT_ANCESTOR_OF_INCORRECT_TYPE_MSG" xml:space="preserve">
-    <value>[PT-BR]The parent account is of incorrect type.</value>
+    <value>A conta principal tem um tipo incorreto.</value>
   </data>
   <data name="MT_CANNOT_CREATE_ACCOUNT_BEFORE_ANCESTOR_START_MSG" xml:space="preserve">
-    <value>[PT-BR]The system cannot create the account in the hierarchy before the start date of the ancestor.</value>
+    <value>O sistema não pode criar a conta na hierarquia antes da data de início do ancestral.</value>
   </data>
   <data name="MT_ACCOUNT_ALREADY_IN_HIERARCHY_MSG" xml:space="preserve">
-    <value>[PT-BR]The account is already in the hierarchy in the specified time range.</value>
+    <value>A conta já está na hierarquia no intervalo de tempo especificado.</value>
   </data>
   <data name="MT_PAYMENT_DATE_BEFORE_ACCOUNT_STARDATE_MSG" xml:space="preserve">
-    <value>[PT-BR]The system cannot create a payment record before the creation date of the account.</value>
+    <value>O sistema não pode criar um registro de pagamento antes da data de criação da conta.</value>
   </data>
   <data name="MT_PAYMENT_START_AND_END_ARE_THE_SAME_MSG" xml:space="preserve">
-    <value>[PT-BR]The system cannot create a payment record where the start and end day are the same day.</value>
+    <value>O sistema não pode criar um registro de pagamento com mesmo dia de início e de término.</value>
   </data>
   <data name="MT_PAYMENT_START_AFTER_END_MSG" xml:space="preserve">
-    <value>[PT-BR]The payment start date must be before the payment end date.</value>
+    <value>A data de início do pagamento deve ocorrer antes da data de término do pagamento.</value>
   </data>
   <data name="MT_ACCOUNT_IS_NOT_BILLABLE_MSG" xml:space="preserve">
-    <value>[PT-BR]The paying account is not billable.</value>
+    <value>A conta de pagamento não é faturável.</value>
   </data>
   <data name="MT_PAYER_IN_INVALID_STATE_MSG" xml:space="preserve">
-    <value>[PT-BR]The paying account is not active during the payment time interval.</value>
+    <value>A conta pagadora não está ativa durante o intervalo de temo do pagamento.</value>
   </data>
   <data name="MT_CURRENCY_MISMATCH_MSG" xml:space="preserve">
-    <value>[PT-BR]The currency of the account must match the currency of the ancestor account.</value>
+    <value>A moeda da conta deve corresponder à moeda da conta ancestral.</value>
   </data>
   <data name="MT_PAYER_PAYEE_CURRENCY_MISMATCH_MSG" xml:space="preserve">
-    <value>[PT-BR]The currency of the payer account must match the currency of the payee account.</value>
+    <value>A moeda da conta do pagador deve corresponder à moeda da conta do favorecido.</value>
   </data>
   <data name="MT_CANNOT_PAY_FOR_ACCOUNT_IN_OTHER_CORPORATE_ACCOUNT_MSG" xml:space="preserve">
-    <value>[PT-BR]Both the payer account and payee account must share the same corporate account.</value>
+    <value>Ambas as contas do pagador e do favorecido devem compartilhar a mesma conta corporativa.</value>
   </data>
   <data name="MTPCUSER_CYCLE_CONFLICTS_WITH_ACCOUNT_CYCLE_MSG" xml:space="preserve">
-    <value>[PT-BR] </value>
+    <value></value>
   </data>
   <data name="MT_ACCOUNT_PRICELIST_INVALID" xml:space="preserve">
-    <value>[PT-BR]The price list is invalid.</value>
+    <value>A lista de preços é inválida.</value>
   </data>
   <data name="MT_CANNOT_MOVE_ACCOUNT_TO_ANOTHER_NAMESPACE" xml:space="preserve">
-    <value>[PT-BR]Account cannot be moved to another namespace.</value>
-  </data> 
+    <value>Não é possível mover a conta para outro namespace.</value>
+  </data>
   <data name="INVALID_BRANDED_SITE" xml:space="preserve">
-    <value>[PT-BR]Invalid Branded site. Should be branded site in '{0}' namespace.</value>
+    <value>Site de marca inválido. O site deveria conter a marca no namespace `{0}`.</value>
   </data>
   <data name="NOT_ACCOUNT" xml:space="preserve">
-    <value>[PT-BR]The given object is not an Account</value>
+    <value>O objeto especificado não é uma Conta</value>
   </data>
   <data name="MISSING_INTERNAL_VIEW" xml:space="preserve">
-    <value>[PT-BR]Account must have an InternalView</value>
+    <value>A conta deve ter um InternalView</value>
   </data>
   <data name="MISSING_USERNAME" xml:space="preserve">
-    <value>[PT-BR]Account must have a user name</value>
+    <value>A conta deve ser um nome de usuário</value>
   </data>
   <data name="MISSING_PASSWORD" xml:space="preserve">
-    <value>[PT-BR]Account must have a password</value>
+    <value>A conta deve ter uma senha</value>
   </data>
   <data name="MISSING_NAMESPACE" xml:space="preserve">
-    <value>[PT-BR]Account must have a namespace</value>
+    <value>A conta deve ter um namespace</value>
   </data>
   <data name="MISSING_DAY_OF_MONTH" xml:space="preserve">
-    <value>[PT-BR]Day of month must be specified for monthly cycle type</value>
+    <value>O dia do mês deve ser especificado para o tipo de ciclo mensal</value>
   </data>
   <data name="MISSING_DAY_OF_WEEK" xml:space="preserve">
-    <value>[PT-BR]Day of week must be specified for weekly cycle type</value>
+    <value>O dia da semana deve ser especificado para o tipo de ciclo semanal</value>
   </data>
   <data name="MISSING_START_DAY" xml:space="preserve">
-    <value>[PT-BR]Start day must be specified for {0} cycle type</value>
+    <value>O dia de início deve ser especificado para o tipo de ciclo {0}</value>
   </data>
   <data name="MISSING_START_MONTH" xml:space="preserve">
-    <value>[PT-BR]Start month must be specified for {0} cycle type</value>
+    <value>O mês de início deve ser especificado para o tipo de ciclo {0}</value>
   </data>
   <data name="MISSING_START_YEAR" xml:space="preserve">
-    <value>[PT-BR]Start year must be specified for bi-weekly cycle type</value>
+    <value>O ano de início deve ser especificado para o tipo de ciclo bissemanal</value>
   </data>
   <data name="MISSING_FIRST_DAY_OF_MONTH" xml:space="preserve">
-    <value>[PT-BR]First day of month must be specified for semi-monthly cycle type</value>
+    <value>O primeiro dia do mês deve ser especificado para o tipo de ciclo quinzenal</value>
   </data>
   <data name="MISSING_SECOND_DAY_OF_MONTH" xml:space="preserve">
-    <value>[PT-BR]Second day of month must be specified for semi-monthly cycle type</value>
+    <value>O segundo dia do mês deve ser especificado para o tipo de ciclo quinzenal</value>
   </data>
   <data name="MISSING_REQUIRED_PROP_ACCOUNT" xml:space="preserve">
-    <value>[PT-BR]The required account property '{0}' has not been specified</value>
+    <value>A propriedade de conta exigida `{0}` não foi especificada</value>
   </data>
   <data name="MISSING_REQUIRED_PROP_VIEW" xml:space="preserve">
-    <value>[PT-BR]The required view property '{0}' has not been specified for view '{1}'</value>
+    <value>A propriedade de exibição exigida `{0}` não foi especifica para a exibição `{1}`</value>
   </data>
   <data name="MISSING_CURRENCY_FOR_PAYER" xml:space="preserve">
-    <value>[PT-BR]The payer account '{0}' must have a valid currency</value>
+    <value>A conta do pagador `{0}` precisa ter uma moeda válida</value>
   </data>
   <data name="MISSING_ACCOUNT_TYPE" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' must have a valid account type</value>
+    <value>A conta `{0}` deve ter um tipo de conta válido</value>
   </data>
   <data name="MISSING_ACCOUNT_STATUS" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' must have a valid account status</value>
+    <value>A conta `{0}` deve ter um status de conta válido</value>
   </data>
   <data name="INVALID_ACCOUNT_TYPE" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has an invalid account type '{1}'</value>
+    <value>A conta `{0}` tem um tipo de conta `{1}` inválido</value>
   </data>
   <data name="MISSING_LANGUAGE" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' must have a valid language</value>
+    <value>A conta `{0}` deve ter um idioma válido</value>
   </data>
   <data name="INVALID_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has an invalid usage cycle type '{1}'</value>
+    <value>A conta `{0}` tem um tipo de ciclo de utilização `{1}` inválido</value>
   </data>
   <data name="MISSING_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' must have a usage cycle type</value>
+    <value>A conta `{0}` deve ter um tipo de ciclo de utilização</value>
   </data>
   <data name="ANCESTOR_ID_MISMATCH" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has a ancestor login '{1}' and namespace '{2}' that doesn't match the specifeid ancestor ID '{3}'.</value>
+    <value>A conta `{0}` tem um login ancestral `{1}` e um namespace `{2}` que não correspondem ao ID ancestral `{3}`.</value>
   </data>
   <data name="MISSING_ANCESTOR_LOGIN" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has an ancestor namespace '{1}' but no login information.</value>
+    <value>A conta `{0}` tem um namespace ancestral `{1}`, mas nenhuma informação de login.</value>
   </data>
   <data name="MISSING_ANCESTOR_NAMESPACE" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has an ancestor login '{1}' but no namespace information.</value>
+    <value>A conta `{0}` tem um login ancestral `{1}`, mas nenhuma informação de namespace.</value>
   </data>
   <data name="PAYER_ID_MISMATCH" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has a payer login '{1}' and namespace '{2}' that doesn't match the specifeid payer ID '{3}'.</value>
+    <value>A conta `{0}` tem um login de pagador `{1}` e namespace `{2}` que não correspondem ao ID de pagador `{3}` especificado.</value>
   </data>
   <data name="MISSING_PAYER_LOGIN" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has a payer namespace '{1}' but no login information.</value>
+    <value>A conta `{0}` tem um namespace de pagador `{1}`, mas nenhuma informação de login.</value>
   </data>
   <data name="MISSING_PAYER_NAMESPACE" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has a payer login '{1}' but no namespace information.</value>
+    <value>A conta `{0}` tem um login de pagador `{1}`, mas nenhuma informação de namespace.</value>
   </data>
   <data name="MISSING_LOGIN_APP" xml:space="preserve">
-    <value>[PT-BR]The system account '{0}' must have a login application</value>
+    <value>A conta do sistema `{0}` deve ter um aplicativo de login</value>
   </data>
   <data name="INVALID_ACCOUNT_ANCESTOR" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has an invalid ancestor id of -1</value>
+    <value>A conta `{0}` tem um id ancestral inválido de -1</value>
   </data>
   <data name="INVALID_ACCOUNT_USERNAME" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' cannot have a username greater than 255 characters.</value>
+    <value>A conta `{0}` não pode ter um nome de usuário com mais de 255 caracteres.</value>
   </data>
   <data name="INVALID_ACCOUNT_PASSWORD" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' cannot have a password greater than 1024 characters.</value>
+    <value>A conta `{0}` não pode ter uma senha com mais de 1024 caracteres.</value>
   </data>
   <data name="INVALID_START_YEAR" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' must have a start year that is between 1970 and 2037.</value>
+    <value>A conta `{0}` deve ter um ano de início entre 1970 e 2037.</value>
   </data>
   <data name="INVALID_START_DAY" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has a start day that is greater than the number of days for the month '{1}' in year '{2}'.</value>
+    <value>A conta `{0}` tem um dia de início maior que o número de dias do mês de `{1}` no ano `{2}`.</value>
   </data>
   <data name="INVALID_START_DAY_WITHOUT_YEAR" xml:space="preserve">
-    <value>[PT-BR]The account '{0}' has a start day that is greater than the number of days for the month '{1}'.</value>
+    <value>A conta `{0}` tem um dia de início maior que o número de dias do mês de `{1}`.</value>
   </data>
   <data name="INVALID_START_DAY_RANGE" xml:space="preserve">
-    <value>[PT-BR]The account start day must be in the range [1 - 31].</value>
+    <value>O dia de início da conta deve estar no intervalo [1 - 31].</value>
   </data>
   <data name="INVALID_START_MONTH_RANGE" xml:space="preserve">
-    <value>[PT-BR]The account start month must be in the range [1 - 12].</value>
+    <value>O mês de início da conta deve estar no intervalo [1 - 12].</value>
   </data>
   <data name="INVALID_FIRST_DAY" xml:space="preserve">
-    <value>[PT-BR]Invalid End of Month day selected. Day MUST be after start day.</value>
+    <value>Dia de fim de mês inválido selecionado. O dia DEVE ser posterior ao dia de início.</value>
   </data>
   <data name="INVALID_DATA" xml:space="preserve">
-    <value>[PT-BR]Invalid Data.</value>
+    <value>Dados inválidos.</value>
   </data>
   <data name="INVALID_START_YEAR_FOR_CYCLE" xml:space="preserve">
-    <value>[PT-BR]The '{0}' cycle type must have a start year that is between 1970 and 2037.</value>
+    <value>O tipo de ciclo `{0}` deve ter um ano de início entre 1970 e 2037.</value>
   </data>
   <data name="INVALID_START_DAY_FOR_CYCLE" xml:space="preserve">
-    <value>[PT-BR]The '{0}' cycle type has a start day that is greater than the number of days for the month '{1}' in year '{2}'.</value>
+    <value>O tipo de ciclo `{0}` tem um dia de início maior que o número de dias do mês de `{1}` no ano de `{2}`.</value>
   </data>
   <data name="INVALID_START_MONTH_RANGE_FOR_CYCLE" xml:space="preserve">
-    <value>[PT-BR]The start month must be in the range [1 - 12] for '{0}' cycle type.</value>
+    <value>O mês de início deve estar no intervalo [1 - 31] para o tipo de ciclo `{0}`.</value>
   </data>
   <data name="INVALID_START_DAY_RANGE_FOR_CYCLE" xml:space="preserve">
-    <value>[PT-BR]The start day must be in the range [1 - 31] for '{0}' cycle type.</value>
+    <value>O dia de início deve estar no intervalo [1 - 31] para o tipo de ciclo `{0}`.</value>
   </data>
   <data name="INVALID_START_DAY_WITHOUT_YEAR_FOR_CYCLE" xml:space="preserve">
-    <value>[PT-BR]The '{0}' cycle type has a start day that is greater than the number of days for the month '{1}'.</value>
+    <value>O tipo de ciclo `{0}` tem um dia de início maior que o número de dias do mês de `{1}`.</value>
   </data>
   <data name="UNKNOWN_CYCLE_TYPE" xml:space="preserve">
-    <value>[PT-BR]The '{0}' cycle type is unsupported cycle type.</value>
+    <value>O tipo de ciclo `{0}` não é suportado.</value>
   </data>
   <data name="Account_failed_validation" xml:space="preserve">
-    <value>[PT-BR]Account failed validation</value>
+    <value>Falha na validação da conta</value>
   </data>
 </root>

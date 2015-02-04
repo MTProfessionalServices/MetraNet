@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,167 +59,167 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Tableau de bord produit</value>
-    </data>
-    <data name="pnlMyRecentChangesResource1.Text" xml:space="preserve">
-        <value>Mes modifications récentes</value>
-    </data>
-    <data name="pnlRecentOfferingChangesResource1.Text" xml:space="preserve">
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>Tableau de bord produit</value>
+  </data>
+  <data name="pnlMyRecentChangesResource1.Text" xml:space="preserve">
+    <value>Mes modifications récentes</value>
+  </data>
+  <data name="pnlRecentOfferingChangesResource1.Text" xml:space="preserve">
         <value>Modifications d’offres récentes</value>
-    </data>
-    <data name="pnlRecentRateChangesResource1.Text" xml:space="preserve">
-        <value>Modifications de prix récentes</value>
-    </data>
+  </data>
+  <data name="pnlRecentRateChangesResource1.Text" xml:space="preserve">
+    <value>Modifications de prix récentes</value>
+  </data>
     <data name="pnlTop10MMRResource1.Text" xml:space="preserve">
-        <value>{FR}Top 10 MRR</value>
+        <value>Top 10 MRR</value>
     </data>
-    <data name="pnlTop10NewCustomersResource1.Text" xml:space="preserve">
-        <value>Top 10 des nouveaux clients (30 derniers jours)</value>
-    </data>
-    <data name="pnlTop10RevenueResource1.Text" xml:space="preserve">
-        <value>Top 10 des revenus</value>
-    </data>
-    <data name="pnlTop10SubsResource1.Text" xml:space="preserve">
-        <value>Top 10 des abonnements</value>
-    </data>
-    <data name="pnlTop10UniqueCustomersResource1.Text" xml:space="preserve">
-        <value>Top 10 des clients</value>
-    </data>
-    <data name="TEXT_CHANGE_DATE" xml:space="preserve">
-        <value>Date de modification</value>
-    </data>
-    <data name="TEXT_CHANGE_DESCRIPTION" xml:space="preserve">
-        <value>Description de la modification</value>
-    </data>
+  <data name="pnlTop10NewCustomersResource1.Text" xml:space="preserve">
+    <value>Top 10 des nouveaux clients (30 derniers jours)</value>
+  </data>
+  <data name="pnlTop10RevenueResource1.Text" xml:space="preserve">
+    <value>Top 10 des revenus</value>
+  </data>
+  <data name="pnlTop10SubsResource1.Text" xml:space="preserve">
+    <value>Top 10 des abonnements</value>
+  </data>
+  <data name="pnlTop10UniqueCustomersResource1.Text" xml:space="preserve">
+    <value>Top 10 des clients</value>
+  </data>
+  <data name="TEXT_CHANGE_DATE" xml:space="preserve">
+    <value>Date de modification</value>
+  </data>
+  <data name="TEXT_CHANGE_DESCRIPTION" xml:space="preserve">
+    <value>Description de la modification</value>
+  </data>
     <data name="TEXT_CHANGE_TOOLTIP" xml:space="preserve">
-        <value>{FR}Change</value>
+        <value>Changement</value>
     </data>
-    <data name="TEXT_DETAILS" xml:space="preserve">
-        <value>Détails</value>
-    </data>
+  <data name="TEXT_DETAILS" xml:space="preserve">
+    <value>Détails</value>
+  </data>
     <data name="TEXT_GAIN_TOOLTIP" xml:space="preserve">
         <value>Gain</value>
     </data>
-    <data name="TEXT_LAST_30_DAYS" xml:space="preserve">
-        <value>(30 derniers jours)</value>
-    </data>
-    <data name="TEXT_LOSS_TOOLTIP" xml:space="preserve">
-        <value>Perte</value>
-    </data>
-    <data name="TEXT_MRR_GAIN" xml:space="preserve">
-        <value>Gain MRR</value>
-    </data>
-    <data name="TEXT_MRR_LOSS" xml:space="preserve">
-        <value>Perte MRR</value>
-    </data>
+  <data name="TEXT_LAST_30_DAYS" xml:space="preserve">
+    <value>(30 derniers jours)</value>
+  </data>
+  <data name="TEXT_LOSS_TOOLTIP" xml:space="preserve">
+    <value>Perte</value>
+  </data>
+  <data name="TEXT_MRR_GAIN" xml:space="preserve">
+    <value>Gain MRR</value>
+  </data>
+  <data name="TEXT_MRR_LOSS" xml:space="preserve">
+    <value>Perte MRR</value>
+  </data>
     <data name="TEXT_MRR_TOOLTIP" xml:space="preserve">
         <value>MRR</value>
     </data>
-    <data name="TEXT_MRR_TOTAL" xml:space="preserve">
-        <value>Total MRR</value>
-    </data>
-    <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
-        <value>Pas de données</value>
-    </data>
-    <data name="TEXT_NO_RECORDS" xml:space="preserve">
+  <data name="TEXT_MRR_TOTAL" xml:space="preserve">
+    <value>Total MRR</value>
+  </data>
+  <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
+    <value>Pas de données</value>
+  </data>
+  <data name="TEXT_NO_RECORDS" xml:space="preserve">
         <value>Pas d’enregistrements</value>
-    </data>
-    <data name="TEXT_PO_ID" xml:space="preserve">
-        <value>ID PO</value>
-    </data>
-    <data name="TEXT_PO_NAME" xml:space="preserve">
-        <value>Nom PO</value>
-    </data>
-    <data name="TEXT_PRODUCT_TEMPLATE_ID" xml:space="preserve">
-        <value>ID du modèle de produit</value>
-    </data>
-    <data name="TEXT_PRODUCT_TEMPLATE_NAME" xml:space="preserve">
-        <value>Nom du modèle de produit</value>
-    </data>
-    <data name="TEXT_REVENUE_TOOLTIP" xml:space="preserve">
-        <value>Revenu</value>
-    </data>
-    <data name="TEXT_SCHEDULE_ID" xml:space="preserve">
-        <value>ID du calendrier</value>
-    </data>
-    <data name="TEXT_SUBSCRIPTIONS_GAIN" xml:space="preserve">
+  </data>
+  <data name="TEXT_PO_ID" xml:space="preserve">
+    <value>ID PO</value>
+  </data>
+  <data name="TEXT_PO_NAME" xml:space="preserve">
+    <value>Nom PO</value>
+  </data>
+  <data name="TEXT_PRODUCT_TEMPLATE_ID" xml:space="preserve">
+    <value>ID du modèle de produit</value>
+  </data>
+  <data name="TEXT_PRODUCT_TEMPLATE_NAME" xml:space="preserve">
+    <value>Nom du modèle de produit</value>
+  </data>
+  <data name="TEXT_REVENUE_TOOLTIP" xml:space="preserve">
+    <value>Revenu</value>
+  </data>
+  <data name="TEXT_SCHEDULE_ID" xml:space="preserve">
+    <value>ID du calendrier</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS_GAIN" xml:space="preserve">
         <value>Gain d’abonnements</value>
-    </data>
-    <data name="TEXT_SUBSCRIPTIONS_LOSS" xml:space="preserve">
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS_LOSS" xml:space="preserve">
         <value>Perte d’abonnements</value>
-    </data>
-    <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
-        <value>Abonnements</value>
-    </data>
-    <data name="TEXT_SUBSCRIPTIONS_TOTAL" xml:space="preserve">
-        <value>Total abonnements</value>
-    </data>
-    <data name="TEXT_USER_NAME" xml:space="preserve">
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS_TOOLTIP" xml:space="preserve">
+    <value>Abonnements</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS_TOTAL" xml:space="preserve">
+    <value>Total abonnements</value>
+  </data>
+  <data name="TEXT_USER_NAME" xml:space="preserve">
         <value>Nom d’utilisateur</value>
-    </data>
-    <data name="UPDATED_BY_TEXT" xml:space="preserve">
-        <value>au</value>
-    </data>
-    <data name="VIEW_PO_TEXT" xml:space="preserve">
+  </data>
+  <data name="UPDATED_BY_TEXT" xml:space="preserve">
+    <value>au</value>
+  </data>
+  <data name="VIEW_PO_TEXT" xml:space="preserve">
         <value>Afficher l’offre produit</value>
-    </data>
+  </data>
 </root>

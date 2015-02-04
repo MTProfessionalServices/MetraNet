@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,91 +59,91 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="btnCancelResource1.ServerSide" xml:space="preserve">
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnCancelResource1.ServerSide" xml:space="preserve">
         <value>True</value>
-    </data>
+  </data>
     <data name="btnCancelResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="btnManageInstanceParameterValuesResource1.ServerSide" xml:space="preserve">
+  <data name="btnManageInstanceParameterValuesResource1.ServerSide" xml:space="preserve">
         <value>True</value>
-    </data>
-    <data name="btnManageInstanceParameterValuesResource1.Text" xml:space="preserve">
-        <value>Gerenciar valores de parâmetro de instância</value>
-    </data>
+  </data>
+  <data name="btnManageInstanceParameterValuesResource1.Text" xml:space="preserve">
+    <value>Gerenciar valores de parâmetro de instância</value>
+  </data>
     <data name="btnManageInstanceParameterValuesResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="btnOKResource1.ServerSide" xml:space="preserve">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
         <value>True</value>
-    </data>
+  </data>
     <data name="btnOKResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="chkGenerateControlFileResource1.BoxLabel" xml:space="preserve">
-        <value>Gerar arquivo de controle</value>
-    </data>
-    <data name="chkGenerateControlFileResource1.Checked" xml:space="preserve">
+  <data name="chkGenerateControlFileResource1.BoxLabel" xml:space="preserve">
+    <value>Gerar arquivo de controle</value>
+  </data>
+  <data name="chkGenerateControlFileResource1.Checked" xml:space="preserve">
         <value>False</value>
-    </data>
+  </data>
     <data name="chkGenerateControlFileResource1.ControlHeight" xml:space="preserve">
         <value></value>
     </data>
@@ -186,15 +186,15 @@
     <data name="MTSection2Resource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Atualizar instância do relatório</value>
-    </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>Atualizar instância do relatório</value>
+  </data>
     <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>Exibir instância do relatório</value>
-    </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Exibir instância do relatório</value>
+  </data>
     <data name="pmFTPPasswordResource1.ControlHeight" xml:space="preserve">
         <value></value>
     </data>
@@ -204,18 +204,18 @@
     <data name="pmFTPPasswordResource1.InlineScript" xml:space="preserve">
         <value></value>
     </data>
-    <data name="pmFTPPasswordResource1.Label" xml:space="preserve">
-        <value>Senha de acesso ao FTP</value>
-    </data>
+  <data name="pmFTPPasswordResource1.Label" xml:space="preserve">
+    <value>Senha de acesso ao FTP</value>
+  </data>
     <data name="pmFTPPasswordResource1.LabelSeparator" xml:space="preserve">
         <value>:</value>
     </data>
     <data name="pmFTPPasswordResource1.LabelWidth" xml:space="preserve">
         <value>120</value>
     </data>
-    <data name="pmFTPPasswordResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Comprimento máximo = 50</value>
-    </data>
+  <data name="pmFTPPasswordResource1.OptionalExtConfig" xml:space="preserve">
+    <value>Comprimento máximo = 50</value>
+  </data>
     <data name="pmFTPPasswordResource1.Text" xml:space="preserve">
         <value></value>
     </data>
@@ -231,9 +231,9 @@
     <data name="tbControlFileLocationResource1.InlineScript" xml:space="preserve">
         <value></value>
     </data>
-    <data name="tbControlFileLocationResource1.Label" xml:space="preserve">
-        <value>Local do arquivo de controle</value>
-    </data>
+  <data name="tbControlFileLocationResource1.Label" xml:space="preserve">
+    <value>Local do arquivo de controle</value>
+  </data>
     <data name="tbControlFileLocationResource1.LabelSeparator" xml:space="preserve">
         <value>:</value>
     </data>
@@ -246,18 +246,18 @@
     <data name="tbControlFileLocationResource1.MinLength" xml:space="preserve">
         <value>0</value>
     </data>
-    <data name="tbControlFileLocationResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Comprimento máximo = 50</value>
-    </data>
+  <data name="tbControlFileLocationResource1.OptionalExtConfig" xml:space="preserve">
+    <value>Comprimento máximo = 50</value>
+  </data>
     <data name="tbControlFileLocationResource1.Text" xml:space="preserve">
         <value></value>
     </data>
     <data name="tbControlFileLocationResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="tbControlFileLocationResource1.ValidationRegex" xml:space="preserve">
+  <data name="tbControlFileLocationResource1.ValidationRegex" xml:space="preserve">
         <value>null</value>
-    </data>
+  </data>
     <data name="tbFTPUserResource1.ControlHeight" xml:space="preserve">
         <value></value>
     </data>
@@ -267,9 +267,9 @@
     <data name="tbFTPUserResource1.InlineScript" xml:space="preserve">
         <value></value>
     </data>
-    <data name="tbFTPUserResource1.Label" xml:space="preserve">
-        <value>Usuário de acesso ao FTP</value>
-    </data>
+  <data name="tbFTPUserResource1.Label" xml:space="preserve">
+    <value>Usuário de acesso ao FTP</value>
+  </data>
     <data name="tbFTPUserResource1.LabelSeparator" xml:space="preserve">
         <value>:</value>
     </data>
@@ -282,18 +282,18 @@
     <data name="tbFTPUserResource1.MinLength" xml:space="preserve">
         <value>0</value>
     </data>
-    <data name="tbFTPUserResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Comprimento máximo = 50</value>
-    </data>
+  <data name="tbFTPUserResource1.OptionalExtConfig" xml:space="preserve">
+    <value>Comprimento máximo = 50</value>
+  </data>
     <data name="tbFTPUserResource1.Text" xml:space="preserve">
         <value></value>
     </data>
     <data name="tbFTPUserResource1.ToolTip" xml:space="preserve">
         <value></value>
     </data>
-    <data name="tbFTPUserResource1.ValidationRegex" xml:space="preserve">
+  <data name="tbFTPUserResource1.ValidationRegex" xml:space="preserve">
         <value>null</value>
-    </data>
+  </data>
     <data name="tbReportDestinationResource1.ControlHeight" xml:space="preserve">
         <value></value>
     </data>
@@ -303,9 +303,9 @@
     <data name="tbReportDestinationResource1.InlineScript" xml:space="preserve">
         <value></value>
     </data>
-    <data name="tbReportDestinationResource1.Label" xml:space="preserve">
-        <value>Destino do relatório</value>
-    </data>
+  <data name="tbReportDestinationResource1.Label" xml:space="preserve">
+    <value>Destino do relatório</value>
+  </data>
     <data name="tbReportDestinationResource1.LabelSeparator" xml:space="preserve">
         <value>:</value>
     </data>
@@ -318,9 +318,9 @@
     <data name="tbReportDestinationResource1.MinLength" xml:space="preserve">
         <value>0</value>
     </data>
-    <data name="tbReportDestinationResource1.OptionalExtConfig" xml:space="preserve">
-        <value>Comprimento máximo = 50</value>
-    </data>
+  <data name="tbReportDestinationResource1.OptionalExtConfig" xml:space="preserve">
+    <value>Comprimento máximo = 50</value>
+  </data>
     <data name="tbReportDestinationResource1.Text" xml:space="preserve">
         <value></value>
     </data>
@@ -329,89 +329,89 @@
     </data>
     <data name="tbReportDestinationResource1.ValidationRegex" xml:space="preserve">
         <value>null</value>
-    </data>
-    <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
-        <value>Data de ativação</value>
-    </data>
-    <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
-        <value>Comprimir relatório</value>
-    </data>
-    <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
-        <value>Limite de compressão (KB)</value>
-    </data>
-    <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
-        <value>Destino do arquivo de controle</value>
-    </data>
-    <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
-        <value>Data de desativação</value>
-    </data>
-    <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
-        <value>Método de entrega</value>
-    </data>
-    <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
-        <value>Descrição</value>
-    </data>
-    <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
-        <value>Destino</value>
-    </data>
-    <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
-        <value>Tipo de execução</value>
-    </data>
-    <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
-        <value>Gerar arquivo de controle</value>
-    </data>
-    <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
-        <value>ID da instância</value>
-    </data>
-    <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
-        <value>Data da última execução</value>
-    </data>
-    <data name="TEXT_DEF_NAME" xml:space="preserve">
-        <value>Nome</value>
-    </data>
-    <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
-        <value>Data da próxima execução</value>
-    </data>
-    <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
-        <value>Gravar parâmetros de exec para saída</value>
-    </data>
-    <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
-        <value>ID do parâmetro</value>
-    </data>
-    <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
-        <value>Senha do FTP</value>
-    </data>
-    <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
-        <value>ID do relatório</value>
-    </data>
-    <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
-        <value>Nome do arquivo de saída</value>
-    </data>
-    <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
-        <value>Tipo de saída</value>
-    </data>
-    <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
-        <value>Título do relatório</value>
-    </data>
-    <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
-        <value>Usar identificadores entre aspas</value>
-    </data>
-    <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
-        <value>Nome de usuário do FTP</value>
-    </data>
-    <data name="TEXT_DEF_VALUE" xml:space="preserve">
-        <value>Valor</value>
-    </data>
-    <data name="TEXT_DELETE_REPORT_INSTANCE" xml:space="preserve">
-        <value>Delete Report Instance </value>
-    </data>
+  </data>
+  <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
+    <value>Data de ativação</value>
+  </data>
+  <data name="TEXT_DEF_COMPRESS_OUTPUT_FILE" xml:space="preserve">
+    <value>Comprimir relatório</value>
+  </data>
+  <data name="TEXT_DEF_COMPRESS_THRESHOLD" xml:space="preserve">
+    <value>Limite de compressão (KB)</value>
+  </data>
+  <data name="TEXT_DEF_CONTROL_FILE_DESTINATION" xml:space="preserve">
+    <value>Destino do arquivo de controle</value>
+  </data>
+  <data name="TEXT_DEF_DEACTIVATION_DATE" xml:space="preserve">
+    <value>Data de desativação</value>
+  </data>
+  <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
+    <value>Método de entrega</value>
+  </data>
+  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
+    <value>Destino</value>
+  </data>
+  <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
+    <value>Tipo de execução</value>
+  </data>
+  <data name="TEXT_DEF_GENERATE_CONTROL_FILE" xml:space="preserve">
+    <value>Gerar arquivo de controle</value>
+  </data>
+  <data name="TEXT_DEF_INSTANCE_ID" xml:space="preserve">
+    <value>ID da instância</value>
+  </data>
+  <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
+    <value>Data da última execução</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
+    <value>Data da próxima execução</value>
+  </data>
+  <data name="TEXT_DEF_OUTPUT_EXEC_PARAMETERS" xml:space="preserve">
+    <value>Gravar parâmetros de exec para saída</value>
+  </data>
+  <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
+    <value>ID do parâmetro</value>
+  </data>
+  <data name="TEXT_DEF_PASSWORD" xml:space="preserve">
+    <value>Senha do FTP</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_ID" xml:space="preserve">
+    <value>ID do relatório</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_FILE_NAME" xml:space="preserve">
+    <value>Nome do arquivo de saída</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_OUTPUT_TYPE" xml:space="preserve">
+    <value>Tipo de saída</value>
+  </data>
+  <data name="TEXT_DEF_REPORT_TITLE" xml:space="preserve">
+    <value>Título do relatório</value>
+  </data>
+  <data name="TEXT_DEF_USE_QUOTED_IDENTIFIERS" xml:space="preserve">
+    <value>Usar identificadores entre aspas</value>
+  </data>
+  <data name="TEXT_DEF_USER_NAME" xml:space="preserve">
+    <value>Nome de usuário do FTP</value>
+  </data>
+  <data name="TEXT_DEF_VALUE" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="TEXT_DELETE_REPORT_INSTANCE" xml:space="preserve">
+    <value>Excluir instância do relatório </value>
+  </data>
   <data name="Label2Resource1.Text" xml:space="preserve">
-    <value>Report Instance Deleted</value>
+    <value>Instância de relatório excluída</value>
   </data>
   <data name="Label1Resource1.Text" xml:space="preserve">
-    <value>The Report Instance was deleted successfully.</value>
+    <value>A Instância do relatório foi excluída com sucesso.</value>
   </data>
   <data name="btnBackResource1.Text" xml:space="preserve">
-    <value>Back</value>
+    <value>Voltar</value>
   </data>
 </root>

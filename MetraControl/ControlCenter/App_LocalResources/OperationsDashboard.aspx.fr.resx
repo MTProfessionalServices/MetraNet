@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -217,7 +217,7 @@
     <value>Fixe</value>
   </data>
   <data name="TEXT_INSTANCE" xml:space="preserve">
-    <value>Instance</value>
+    <value>Exemple</value>
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
     <value>ID de l’intervalle</value>
@@ -295,33 +295,33 @@
     <value>FDM</value>
   </data>
   <data name="TEXT_TYPE_M12" xml:space="preserve">
-    <value>[FR]M12</value>
+    <value>M12</value>
   </data>
   <data name="TEXT_TYPE_M19" xml:space="preserve">
-    <value>[FR]M19</value>
+    <value>M19</value>
   </data>
   <data name="TEXT_TYPE_M26" xml:space="preserve">
-    <value>[FR]M26</value>
+    <value>M26</value>
   </data>
   <data name="TEXT_TYPE_M5" xml:space="preserve">
-    <value>[FR]M5</value>
+    <value>M5</value>
   </data>
   <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>[FR]Average run time of remaining {0} adapters is {1} hours (Earliest ETA: {2})</value>
+    <value>La durée d`exécution moyenne des {0} adaptateurs restants est de {1} heures (ETA la plus proche : {2})</value>
   </data>
   <data name="TEXT_VARIANCE_FASTER_MESSAGE" xml:space="preserve">
-    <value>[FR]Adapters are running about {0} % faster compared to previous runs for this interval</value>
+    <value>Les adaptateurs sont exécutés environ {0} % plus rapidement que les cycles précédents pour cet intervalle</value>
   </data>
   <data name="TEXT_VARIANCE_SAME_MESSAGE" xml:space="preserve">
-    <value>[FR]Adapters are running about the same compared to previous runs for this interval</value>
+    <value>Les adaptateurs sont exécutés de manière quasiment identique aux cycles précédents pour cet intervalle</value>
   </data>
   <data name="TEXT_VARIANCE_SLOWER_MESSAGE" xml:space="preserve">
-    <value>[FR]Adapters are running about {0} % slower compared to previous runs for this interval</value>
+    <value>Les adaptateurs sont exécutés environ {0} % plus lentement que les cycles précédents pour cet intervalle</value>
   </data>
   <data name="TEXT_INTERVAL_STATUS_OPEN" xml:space="preserve">
-    <value>[FR]Open</value>
+    <value>Ouvrir</value>
   </data>
   <data name="TEXT_RUNNING_ADAPTER_STATUS_IN_PROGRESS" xml:space="preserve">
-    <value>[FR]In Progress</value>
+    <value>En cours</value>
   </data>
 </root>

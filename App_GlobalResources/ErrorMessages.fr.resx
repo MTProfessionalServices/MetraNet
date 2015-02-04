@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -124,13 +124,13 @@
     <value>&lt;br/&gt;&lt;br/&gt;Le compte est inactif. Vous pouvez le déverrouiller.</value>
   </data>
   <data name="ERROR_ACH_ADD" xml:space="preserve">
-    <value>Impossible d’ajouter la méthode de paiement ACH à ce compte</value>
+    <value>Impossible d`ajouter la méthode de paiement ACH à ce compte</value>
   </data>
   <data name="ERROR_ACH_LIST" xml:space="preserve">
     <value>Impossible de récupérer la liste des méthodes de paiement ACH</value>
   </data>
   <data name="ERROR_ACH_LOAD" xml:space="preserve">
-    <value>Impossible d’afficher les détails du compte de paiement ACH</value>
+    <value>Impossible d`afficher les détails du compte de paiement ACH</value>
   </data>
   <data name="ERROR_ACH_REMOVE" xml:space="preserve">
     <value>Impossible de supprimer la méthode de paiement ACH de votre compte</value>
@@ -142,13 +142,13 @@
     <value>Fonctionnalité par défaut non valide.</value>
   </data>
   <data name="ERROR_CC_ADD" xml:space="preserve">
-    <value>Impossible d’ajouter la carte de crédit à ce compte</value>
+    <value>Impossible d`ajouter la carte de crédit à ce compte</value>
   </data>
   <data name="ERROR_CC_LIST" xml:space="preserve">
     <value>Impossible de récupérer la liste des cartes de crédit</value>
   </data>
   <data name="ERROR_CC_LOAD" xml:space="preserve">
-    <value>Impossible d’afficher les détails de la carte de crédit</value>
+    <value>Impossible d`afficher les détails de la carte de crédit</value>
   </data>
   <data name="ERROR_CC_REMOVE" xml:space="preserve">
     <value>Impossible de supprimer la carte de crédit de votre compte</value>
@@ -157,7 +157,7 @@
     <value>Impossible de modifier les informations sur la carte de crédit</value>
   </data>
   <data name="ERROR_EMAIL_REQUIRED" xml:space="preserve">
-    <value>L’adresse e-mail est obligatoire.</value>
+    <value>L`adresse e-mail est obligatoire.</value>
   </data>
   <data name="ERROR_ENDDOM_INVALID" xml:space="preserve">
     <value>Le dernier jour du mois sélectionné est incorrect. Ce jour DOIT être postérieur au jour de début.</value>
@@ -172,7 +172,7 @@
     <value>La dernière connexion {0} a eu lieu le {1}.  Il y a eu {2} échecs de connexion depuis la dernière connexion réussie.</value>
   </data>
   <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
-    <value>Nom d’utilisateur ou mot de passe incorrect.</value>
+    <value>Nom d`utilisateur ou mot de passe incorrect.</value>
   </data>
   <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
     <value>Votre compte a été verrouillé pour des raisons de sécurité. Pour résoudre ce problème, contactez le support technique.</value>
@@ -187,7 +187,7 @@
     <value>Ce compte possède déjà une modification de type Mise à jour de compte en attente. Une seule modification de ce type en attente est autorisée.</value>
   </data>
   <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
-    <value>Cet utilisateur n’a jamais ouvert de session MetraView.</value>
+    <value>Cet utilisateur n`a jamais ouvert de session MetraView.</value>
   </data>
   <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
     <value>Erreur de compte non valide.</value>
@@ -205,22 +205,22 @@
     <value>Payeur manquant ou invalide</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
-    <value>Le nom de l’offre produit doit être unique</value>
+    <value>Le nom de l`offre produit doit être unique</value>
   </data>
   <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
     <value>Erreur de configuration du fichier ReportFormat</value>
   </data>
   <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>Erreur de configuration du fichier ReportFormat. Ce type de format de rapport n’est pas défini.</value>
+    <value>Erreur de configuration du fichier ReportFormat. Ce type de format de rapport n`est pas défini.</value>
   </data>
   <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
     <value>Erreur de configuration du fichier ReportFormat. Structure de fichier incorrecte.</value>
   </data>
   <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-    <value>Error in config ReportFormat file. Report image  isn’t defined.</value>
+    <value>Erreur de configuration du fichier ReportFormat. L`image du rapport n`est pas définie.</value>
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
-    <value>Impossible d’ouvrir et d’enregistrer le rapport</value>
+    <value>Impossible d`ouvrir et d`enregistrer le rapport</value>
   </data>
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>Réponse de sécurité non valide.</value>
@@ -229,46 +229,46 @@
     <value>Impossible de définir la question de sécurité et la question de sécurité personnalisée.</value>
   </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
-    <value>Vous devez d’abord gérer un compte avant de pouvoir exécuter une action l’impliquant.</value>
+    <value>Vous devez d`abord gérer un compte avant de pouvoir exécuter une action l`impliquant.</value>
   </data>
   <data name="ERROR_TEMP_LOCK" xml:space="preserve">
-    <value>Le système n’autorise que {0} tentatives de connexion avant que le compte ne soit temporairement verrouillé pendant {1} minutes.  Vous pouvez déverrouiller manuellement le compte.</value>
+    <value>Le système n`autorise que {0} tentatives de connexion avant que le compte ne soit temporairement verrouillé pendant {1} minutes.  Vous pouvez déverrouiller manuellement le compte.</value>
   </data>
   <data name="ERROR_UNABLE_SAVE_DATA" xml:space="preserve">
-    <value>Impossible d’enregistrer les modifications.</value>
+    <value>Impossible d`enregistrer les modifications.</value>
   </data>
   <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
     <value>Impossible de verrouiller le compte. Disposez-vous des droits correspondants ?</value>
   </data>
   <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
-    <value>Le nom d’utilisateur est incorrect.</value>
+    <value>Le nom d`utilisateur est incorrect.</value>
   </data>
   <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
     <value>Vous avez dépassé le nombre de tentatives de connexion et votre compte est verrouillé. Contactez votre administrateur système.</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_ANNUALLY" xml:space="preserve">
-    <value>Jours de l’intervalle annuel</value>
+    <value>Jours de l`intervalle annuel</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_BIWEEKLY" xml:space="preserve">
-    <value>Jours de l’intervalle bihebdomadaire</value>
+    <value>Jours de l`intervalle bihebdomadaire</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_DAILY" xml:space="preserve">
-    <value>Jours de l’intervalle quotidien</value>
+    <value>Jours de l`intervalle quotidien</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_MONTHLY" xml:space="preserve">
-    <value>Jours de l’intervalle mensuel</value>
+    <value>Jours de l`intervalle mensuel</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_QUARTERLY" xml:space="preserve">
-    <value>Jours de l’intervalle trimestriel</value>
+    <value>Jours de l`intervalle trimestriel</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_SEMIANNUALLY" xml:space="preserve">
-    <value>Jours de l’intervalle semestriel</value>
+    <value>Jours de l`intervalle semestriel</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_SEMIMONTHLY" xml:space="preserve">
-    <value>Jours de l’intervalle semi-mensuel</value>
+    <value>Jours de l`intervalle semi-mensuel</value>
   </data>
   <data name="ERROR_USM_CONFIG_BAD_WEEKLY" xml:space="preserve">
-    <value>Jours de l’intervalle hebdomadaire</value>
+    <value>Jours de l`intervalle hebdomadaire</value>
   </data>
   <data name="ERROR_USM_CONFIG_INVALID_GRACE_PERIOD" xml:space="preserve">
     <value>doit être un entier supérieur ou égal à zéro.</value>
@@ -277,7 +277,7 @@
     <value>Impossible de récupérer la configuration. Consultez le journal pour voir les détails.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
-    <value>Impossible d’enregistrer les modifications de la configuration. Consultez le journal pour voir les détails.</value>
+    <value>Impossible d`enregistrer les modifications de la configuration. Consultez le journal pour voir les détails.</value>
   </data>
   <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
     <value>Échec de suppression de spéc.</value>
@@ -286,19 +286,19 @@
     <value>Spéc. correspondante introuvable.</value>
   </data>
   <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-    <value>Échec d’obtention de spéc.</value>
+    <value>Échec d`obtention de spéc.</value>
   </data>
   <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-    <value>Échec d’obtention des propriétés de l’entité.</value>
+    <value>Échec d`obtention des propriétés de l`entité.</value>
   </data>
   <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-    <value>Échec d’enregistrement de spéc.</value>
+    <value>Échec d`enregistrement de spéc.</value>
   </data>
   <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
     <value>Accès refusé.</value>
   </data>
   <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
-    <value>Impossible d’ajouter la propriété.</value>
+    <value>Impossible d`ajouter la propriété.</value>
   </data>
   <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
     <value>Impossible de supprimer la propriété.</value>
@@ -310,10 +310,10 @@
     <value>Accès refusé, fonctionnalité insuffisante</value>
   </data>
   <data name="ERROR_PASSWORD_DOESNT_MEET_REQUIREMENTS" xml:space="preserve">
-    <value><![CDATA[Le nouveau mot de passe ne répond pas aux exigences de sécurité:
-            * Doit contenir au moins 7 caractères et moins de 1024
-            * Doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial
-            * Caractères spéciaux valides y compris l’espace sont _ !@#$%^&*+=
-            * Mots de passe une fois changés, ne peuvent pas être un des 4 mots de passe précédemment utilisés]]></value>
+    <value>Le nouveau mot de passe n`est pas conforme aux exigences de sécurité :       
+            * Doit être compris en 7 caractères (minimum) et 1024 caractères (maximum)
+            * Doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial 
+            * Les caractères spéciaux valides, espace inclus, sont _ !@#$%^&amp;*+= 
+            * Une fois modifiés, les mots de passe ne peuvent pas être identiques à l`un des 4 mots de passe précédents</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -136,13 +136,13 @@
     <value>ID</value>
   </data>
   <data name="ACS_PROPERTIESTOSET" xml:space="preserve">
-    <value>[FR]Apply following Account Properties Updates</value>
+    <value>Appliquer les mises à jour de propriétés du compte suivantes</value>
   </data>
   <data name="ACS_RANK" xml:space="preserve">
     <value>Rang</value>
   </data>
   <data name="ACS_SELECTIONSCRITERIA" xml:space="preserve">
-    <value>[FR]If following Account Properties are satisfied</value>
+    <value>Si les propriétés du compte suivantes sont satisfaites</value>
   </data>
   <data name="CREATE_ACS" xml:space="preserve">
     <value>Ajouter</value>

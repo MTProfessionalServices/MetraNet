@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ADAPTERS_WERE_SUBMITTED" xml:space="preserve">
-    <value>[PT-BR]Events with IDs {0} were submitted for execution</value>
+    <value>Os eventos com IDs {0} foram enviados para execução</value>
   </data>
   <data name="ADAPTER_INSTANCE_START_DATE" xml:space="preserve">
-    <value>[PT-BR]Start Date For New Instance</value>
+    <value>Data de início para a nova instância</value>
   </data>
   <data name="CANCEL_BUTTON_TEXT" xml:space="preserve">
-    <value>[PT-BR] Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="RUN_ADAPTER_BUTTON_TEXT" xml:space="preserve">
-    <value>[PT-BR]Run</value>
+    <value>Executar</value>
   </data>
   <data name="RUN_ADAPTER_TOOL_TIP" xml:space="preserve">
-    <value>[PT-BR]Run Selected Adapters</value>
+    <value>Executar os adaptadores selecionados</value>
   </data>
 </root>

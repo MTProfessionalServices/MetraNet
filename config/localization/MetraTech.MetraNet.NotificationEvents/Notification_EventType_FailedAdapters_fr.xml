@@ -1,14 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
     <language_code>fr</language_code>
      <locale_space name="Notification_EventType_FailedAdapters">
         <locale_entry>
             <Name>Notification_EventType_FailedAdapters/EventType/Failed Adapters</Name>
-            <Value>Adaptateurs Défaillants</Value>
+            <Value>Adaptateurs défectueux</Value>
         </locale_entry>
         <locale_entry>
             <Name>Notification_EventType_FailedAdapters/Template/Failed Adapters</Name>
-            <Value>Adapter {AdapterName}, instance id {InstanceID} for run {RunID} has failed with the error {ErrorDetail}.</Value>
+            <Value>L`adaptateur {AdapterName}, ID d`instance {InstanceID} pour le cycle {RunID} a échoué avec l`erreur {ErrorDetail}.</Value>
         </locale_entry>
      </locale_space>
 </mt_config>

@@ -4,26 +4,26 @@
     <DisplayNames>
         <language name="US">Flat Rate Recurring Charge</language>
         <language name="DE">Flat Rate Recurring Charge</language>
-        <language name="FR">Frais récurrents forfaitaires</language>
+        <language name="FR"><![CDATA[Frais récurrents forfaitaires]]></language>
         <language name="IT">Flat Rate Recurring Charge</language>
         <language name="JP">Flat Rate Recurring Charge</language>
         <language name="ES">Flat Rate Recurring Charge</language>
         <language name="GB">Flat Rate Recurring Charge</language>
         <language name="es-MX">Flat Rate Recurring Charge</language>
-        <language name="pt-BR">Cobrança recorrente de taxa fixa</language>
+        <language name="pt-BR"><![CDATA[Cobrança recorrente de taxa fixa]]></language>
         <language name="DA">Flat Rate Recurring Charge</language>
     </DisplayNames>
     <description>Recurring charge with a flat rate</description>
     <DisplayDescriptions>
         <language name="US">Recurring charge with a flat rate</language>
         <language name="DE">Recurring charge with a flat rate</language>
-        <language name="FR">Frais récurrents avec un forfait</language>
+        <language name="FR"><![CDATA[Frais récurrents avec un forfait]]></language>
         <language name="IT">Recurring charge with a flat rate</language>
         <language name="JP">Recurring charge with a flat rate</language>
         <language name="ES">Recurring charge with a flat rate</language>
         <language name="GB">Recurring charge with a flat rate</language>
         <language name="es-MX">Recurring charge with a flat rate</language>
-        <language name="pt-BR">Cobrança recorrente com uma taxa fixa</language>
+        <language name="pt-BR"><![CDATA[Cobrança recorrente com uma taxa fixa]]></language>
         <language name="DA">Recurring charge with a flat rate</language>
     </DisplayDescriptions>
     <item_type>recurring</item_type>
@@ -42,26 +42,26 @@
         <DisplayDescriptions>
             <language name="US">Recurring Charge Flat Adjustment</language>
             <language name="DE">Recurring Charge Flat Adjustment</language>
-            <language name="FR">Ajustement forfaitaire de frais récurrents</language>
+            <language name="FR"><![CDATA[Ajustement forfaitaire de frais récurrents]]></language>
             <language name="IT">Recurring Charge Flat Adjustment</language>
             <language name="JP">Recurring Charge Flat Adjustment</language>
             <language name="ES">Recurring Charge Flat Adjustment</language>
             <language name="GB">Recurring Charge Flat Adjustment</language>
             <language name="es-MX">Recurring Charge Flat Adjustment</language>
-            <language name="pt-BR">Ajuste fixo da cobrança recorrente</language>
+            <language name="pt-BR"><![CDATA[Ajuste fixo da cobrança recorrente]]></language>
             <language name="DA">Recurring Charge Flat Adjustment</language>
         </DisplayDescriptions>
         <displayname>Recurring Charge Flat Adjustment</displayname>
         <DisplayNames>
             <language name="US">Recurring Charge Flat Adjustment</language>
             <language name="DE">Recurring Charge Flat Adjustment</language>
-            <language name="FR">Ajustement forfaitaire de frais récurrents</language>
+            <language name="FR"><![CDATA[Ajustement forfaitaire de frais récurrents]]></language>
             <language name="IT">Recurring Charge Flat Adjustment</language>
             <language name="JP">Recurring Charge Flat Adjustment</language>
             <language name="ES">Recurring Charge Flat Adjustment</language>
             <language name="GB">Recurring Charge Flat Adjustment</language>
             <language name="es-MX">Recurring Charge Flat Adjustment</language>
-            <language name="pt-BR">Ajuste fixo da cobrança recorrente</language>
+            <language name="pt-BR"><![CDATA[Ajuste fixo da cobrança recorrente]]></language>
             <language name="DA">Recurring Charge Flat Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>
@@ -90,26 +90,26 @@
         <DisplayDescriptions>
             <language name="US">Recurring Charge Percent Adjustment</language>
             <language name="DE">Recurring Charge Percent Adjustment</language>
-            <language name="FR">Ajustement en pourcentage de frais récurrents</language>
+            <language name="FR"><![CDATA[Ajustement en pourcentage de frais récurrents]]></language>
             <language name="IT">Recurring Charge Percent Adjustment</language>
             <language name="JP">Recurring Charge Percent Adjustment</language>
             <language name="ES">Recurring Charge Percent Adjustment</language>
             <language name="GB">Recurring Charge Percent Adjustment</language>
             <language name="es-MX">Recurring Charge Percent Adjustment</language>
-            <language name="pt-BR">Ajuste percentual da cobrança recorrente</language>
+            <language name="pt-BR"><![CDATA[Ajuste percentual da cobrança recorrente]]></language>
             <language name="DA">Recurring Charge Percent Adjustment</language>
         </DisplayDescriptions>
         <displayname>Recurring Charge Percent Adjustment</displayname>
         <DisplayNames>
             <language name="US">Recurring Charge Percent Adjustment</language>
             <language name="DE">Recurring Charge Percent Adjustment</language>
-            <language name="FR">Ajustement en pourcentage de frais récurrents</language>
+            <language name="FR"><![CDATA[Ajustement en pourcentage de frais récurrents]]></language>
             <language name="IT">Recurring Charge Percent Adjustment</language>
             <language name="JP">Recurring Charge Percent Adjustment</language>
             <language name="ES">Recurring Charge Percent Adjustment</language>
             <language name="GB">Recurring Charge Percent Adjustment</language>
             <language name="es-MX">Recurring Charge Percent Adjustment</language>
-            <language name="pt-BR">Ajuste percentual da cobrança recorrente</language>
+            <language name="pt-BR"><![CDATA[Ajuste percentual da cobrança recorrente]]></language>
             <language name="DA">Recurring Charge Percent Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>

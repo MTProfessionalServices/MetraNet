@@ -1157,7 +1157,7 @@ PRIVATE FUNCTION mam_GetHierarchyDate() ' returns DATE
   Set objTools = CreateObject(MSIXTOOLS_PROG_ID)
   
   If IsEmpty(Session("HIERARCHY_HELPER")) Then
-     mam_GetHierarchyDate = CDate(objTools.Format(objTools.GetCurrentGMTTime(), mam_GetDictionary("DATE_FORMAT")))
+    mam_GetHierarchyDate = DateValue(objTools.GetCurrentGMTTime())
   Else
     mam_GetHierarchyDate = CDate(objTools.Format(Session("HIERARCHY_HELPER").SnapShot, mam_GetDictionary("DATE_FORMAT")))
   End If

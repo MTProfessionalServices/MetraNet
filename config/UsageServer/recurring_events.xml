@@ -13,7 +13,7 @@
       </Description>
       <LocalizedItems>
         <item lang="FR">
-          <DisplayName>Générer et/ou compléter le Datamart d'analyse</DisplayName>
+          <DisplayName><![CDATA[Générer et/ou compléter le Datamart d'analyse]]></DisplayName>
           <Description><![CDATA[
         Generates and/or populates the Analytics Data Mart
       ]]></Description>
@@ -44,7 +44,7 @@
       </Description>
         </item>
         <item lang="pt-BR">
-          <DisplayName>Gerar e/ou preencher Analytics Data Mart</DisplayName>
+          <DisplayName><![CDATA[Gerar e/ou preencher Analytics Data Mart]]></DisplayName>
           <Description><![CDATA[
         Generates and/or populates the Analytics Data Mart
       ]]></Description>
@@ -306,11 +306,11 @@
       </Description>
             <LocalizedItems>
               <item lang="FR">
-                <DisplayName>Adaptateur de frais non récurrents</DisplayName>
+                <DisplayName><![CDATA[Adaptateur de frais non récurrents</DisplayName>
                 <Description>MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
-        in which the adapter is run.</Description>
+        in which the adapter is run.]]></Description>
                 </item>
                 <item lang="IT">
                     <DisplayName>NonRecurring Charge Adapter</DisplayName>
@@ -379,7 +379,7 @@
       ]]></Description>
             <LocalizedItems>
               <item lang="FR">
-                <DisplayName>Supprimer les transactions en échec ignorées</DisplayName>
+                <DisplayName><![CDATA[Supprimer les transactions en échec ignorées]]></DisplayName>
                 <Description><![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
@@ -456,7 +456,7 @@
             <Description>Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
             <LocalizedItems>
               <item lang="FR">
-                <DisplayName>Adaptateur de basculement de pipeline</DisplayName>
+                <DisplayName><![CDATA[Adaptateur de basculement de pipeline]]></DisplayName>
                 <Description>Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
               </item>
               <item lang="IT">
@@ -501,8 +501,8 @@
 			<Description>Cleanup and void failed transactions.</Description>
       <LocalizedItems>
         <item lang="FR">
-          <DisplayName>Adaptateur de nettoyage des paiements en échec </DisplayName>
-          <Description>Nettoie et annule les transactions en échec.</Description>
+          <DisplayName><![CDATA[Adaptateur de nettoyage des paiements en échec ]]></DisplayName>
+          <Description><![CDATA[Nettoie et annule les transactions en échec.]]></Description>
         </item>
         <item lang="IT">
           <DisplayName>Failed Payment Cleanup Adapter </DisplayName>
@@ -521,8 +521,8 @@
           <Description>Cleanup and void failed transactions.</Description>
         </item>
         <item lang="pt-BR">
-          <DisplayName>Adaptador de limpeza de pagamento com falha </DisplayName>
-          <Description>Limpa e evita transações com falha.</Description>
+          <DisplayName><![CDATA[Adaptador de limpeza de pagamento com falha ]]></DisplayName>
+          <Description><![CDATA[Limpa e evita transações com falha.]]></Description>
         </item>
         <item lang="en-GB">
           <DisplayName>Failed Payment Cleanup Adapter </DisplayName>

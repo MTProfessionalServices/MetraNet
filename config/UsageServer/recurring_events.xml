@@ -306,8 +306,8 @@
       </Description>
             <LocalizedItems>
               <item lang="FR">
-                <DisplayName><![CDATA[Adaptateur de frais non récurrents</DisplayName>
-                <Description>MetraTech standard adapter to generate non-recurring charges from
+                <DisplayName><![CDATA[Adaptateur de frais non récurrents]]></DisplayName>
+                <Description><![CDATA[[FR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.]]></Description>

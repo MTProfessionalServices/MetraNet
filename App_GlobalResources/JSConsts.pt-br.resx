@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -159,17 +159,38 @@
   <data name="CURRENT_LOCALE" xml:space="preserve">
     <value>pt-BR</value>
   </data>
+  <data name="DATE_FORMAT" xml:space="preserve">
+    <value>d/m/Y</value>
+  </data>
+  <data name="DATE_TIME_FORMAT" xml:space="preserve">
+    <value>d/m/Y H:i:s|d/m/Y</value>
+  </data>
+  <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
+    <value>d/m/Y H:i:s</value>
+  </data>
+  <data name="DATE_TIME_RENDERER" xml:space="preserve">
+    <value>d/m/Y H:i:s</value>
+  </data>
+  <data name="DECIMAL_SEPARATOR" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="DIGIT_SEPARATOR" xml:space="preserve">
+    <value>.</value>
+  </data>
   <data name="DUPLICATE" xml:space="preserve">
     <value>Duplicar</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>d/M/YYYY</value>
+    <value>dd/mm/YYYY</value>
   </data>
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>A data de início não pode ser maior que a data de término</value>
   </data>
   <data name="FAILURE" xml:space="preserve">
     <value>Falha</value>
+  </data>
+  <data name="FRACTION_DIGITS" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="MANUAL_PENDING" xml:space="preserve">
     <value>Manual pendente</value>
@@ -327,11 +348,14 @@
   <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
     <value>Esse desconto é aplicado ao \"valor\" associado ao tipo de decisão. Todos os campos derivados do \"valor\" serão recalculados.&lt;br/&gt;&lt;br/&gt;O desconto pode ser aplicado apenas a uma parte do valor se seu tipo de decisão agrega utilização. &lt;br/&gt;&lt;br/&gt;Exemplo: o início do intervalo é \"500 minutos\" e o total atualmente é \"400 minutos\".  A decisão processa um registro com \"300 minutos\".  \"100 minutos\" estão fora do intervalo e \"200 minutos\" estão dentro.  Se o desconto for 5%, então o \"valor\" é reduzir por 0,05 x (200/300).</value>
   </data>
+  <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
+    <value />
+  </data>
   <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
     <value>A nova taxa é aplicada definindo o \"valor\" associado com o tipo de decisão para esse novo valor.  Qualquer campo derivado do \"valor\" é então recalculado.&lt;br/&gt;Exemplo: depois que o intervalo é atingido, \"o custo da tarifa é $0,75\" ou \"a chamada custa $1, independentemente do número de minutos\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
-    <value>No filtro, é possível verificar valores específicos dos campos de exibição de produto e campos t_acc_usage ou verificar se outras qualificações de utilização (que você já criou) são satisfeitas. É possível usar parênteses e as palavras-chave \"e\", \"ou\", \"==\", \"!=\" e \"!\". Use os botões &lt;u&gt;Inserir&lt;/u&gt; para inserir snippets do filtro no cursor.&lt;br/&gt;&lt;br/&gt;No filtro, \"OBJETO\" refere-se ao registro de utilização e \"GRUPO\" refere-se a outro grupo de qualificação de utilização.</value>
+    <value>No filtro, é possível verificar valores específicos dos campos de exibição de produto e campos t_acc_usage ou verificar se outras qualificações de utilização (que você já criou) são satisfeitas. É possível usar parênteses e as palavras-chave \"e\", \"ou\", \"==\", \"!=\" e \"!\". Use os botões &lt;u&gt;Insert&lt;/u&gt; para inserir snippets do filtro no cursor.&lt;br/&gt;&lt;br/&gt;No filtro, \"OBJETO\" refere-se ao registro de utilização e \"GRUPO\" refere-se a outro grupo de qualificação de utilização.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
     <value>Uma &lt;i&gt;Decisão&lt;/i&gt;  é utilizada para analisar registros de utilização (registros de cobrança rateados) e possivelmente modificar cobranças nas bases dessa análise. As decisões são necessárias quando é impossível determinar o valor ao examinar um registro isolado. &lt;br/&gt; Por exemplo, se quiser fornecer uma taxa especial se o número de minutos de telefone usado durante o mês for maior que 1000. Você pode determinar apenas a taxa a usar após adicionar todos os registros de utilização. Se os minutos forem maiores que 1000, então, para cada registro, a taxa é alterada e o novo valor de cobrança é calculado. </value>
@@ -352,7 +376,7 @@
     <value>Exemplo: se o tipo de decisão \"Usar uma taxa especial se o número de minutos utilizados estiver acima de 500\", as configurações podem incluir \"500\" e a \"taxa especial\" a aplicar.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Um tipo de decisão deve estar associado com uma tabela de parâmetros, que fornece uma maneira para personalizar valores importantes do tipo de decisão. Por exemplo, o "número de minutos grátis" pode ser editável em vez de ter um valor fixo. &lt;br/&gt;&lt;br/&gt;Antes que um tipo de decisão seja configurado, sua tabela de parâmetros associada deve ser criada usando o Integrated Configuration Environment (ICE).&lt;br/&gt;&lt;br/&gt;OBS.: após clicar em Avançar, não é possível escolher uma tabela de parâmetros diferente para esse tipo de decisão.</value>
+    <value>Um tipo de decisão deve estar associado com uma tabela de parâmetros, que fornece uma maneira para personalizar valores importantes do tipo de decisão. Por exemplo, o \"número de minutos grátis\" pode ser editável em vez de ter um valor fixo. &lt;br/&gt;&lt;br/&gt;Antes que um tipo de decisão seja configurado, sua tabela de parâmetros associada deve ser criada usando o Integrated Configuration Environment (ICE).&lt;br/&gt;&lt;br/&gt;OBS.: após clicar em Avançar, não é possível escolher uma tabela de parâmetros diferente para esse tipo de decisão.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
     <value>Como padrão, ao trabalhar em um tipo de decisão de um dado intervalo de tempo (baseado em intervalo ou calendário), o AMP forma a utilização considerando &lt;i&gt;todos&lt;/i&gt; os registros da Exibição de Produtos que pertencem a uma conta para esse intervalo de tempo. É possível ignorar certos registros, como em um tipo de decisão que analisa apenas a utilização de \"minutos tarifados de chamada telefônica\".</value>
@@ -361,7 +385,7 @@
     <value>A nova taxa é aplicada definindo o \"valor\" associado com o tipo de decisão à nova taxa multiplicada pela utilização.  Qualquer campo derivado do \"valor\" é então recalculado.&lt;br/&gt;&lt;i&gt;Exemplo: depois que o intervalo é atingido, o valor da cobrança é 0,50 por minuto.&lt;/i&gt;</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Exemplo: um tipo de decisão totaliza \"minutos\" e \"todos os minutos &lt; 1000 são gratuitos\".  Um segundo tipo de decisão totaliza \"minutos\", mas você deseja contar apenas os minutos que não fazem parte dos 1000. Você quer que o segundo tipo de decisão considere apenas os minutos não consumidos pelo primeiro tipo de decisão. Para isso, defina o domínio de decisão de ambos os tipos de decisão como "proporcional".</value>
+    <value>Exemplo: um tipo de decisão totaliza \"minutos\" e \"todos os minutos &lt; 1000 são gratuitos\".  Um segundo tipo de decisão totaliza \"minutos\", mas você deseja contar apenas os minutos que não fazem parte dos 1000. Você quer que o segundo tipo de decisão considere apenas os minutos não consumidos pelo primeiro tipo de decisão. Para isso, defina o domínio de decisão de ambos os tipos de decisão como \"proporcional\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
     <value>Você pode criar Qualificações de utilização que referenciam outras Qualificações de utilização definidas anteriormente. Por exemplo, um registro de utilização também pode atender outras condições definidas anteriormente.</value>
@@ -445,7 +469,7 @@
     <value>Esta alteração está pendente.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-    <value>Como o solicitante desta alteração pendente, é possível "Rejeitar" esta alteração que irá removê-la da deliberação.</value>
+    <value>Como o solicitante desta alteração pendente, é possível \"Rejeitar\" esta alteração que irá removê-la da deliberação.</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
     <value>Atenção. Suas alterações serão permanentes</value>

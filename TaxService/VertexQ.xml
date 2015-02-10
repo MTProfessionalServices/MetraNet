@@ -4,7 +4,8 @@
 	<description>Vertex Server config values used by the server socket to configure itself.</description>
 	<configdata>        
 		<VertexPath>C:\Program Files (x86)\Vertex\Vertex Communications Tax Q Series 2.02\cfg</VertexPath>
-		<VertexDefaultConfig>test</VertexDefaultConfig>
-    <MaxParallelism>64</MaxParallelism>
+		<VertexDefaultConfig>CTQ Windows Production</VertexDefaultConfig>
+    <MaxDbConnections>8</MaxDbConnections>
+    <DbReconnectOnIdleTimeoutSec>600</DbReconnectOnIdleTimeoutSec>
   </configdata>    
 </xmlconfig>

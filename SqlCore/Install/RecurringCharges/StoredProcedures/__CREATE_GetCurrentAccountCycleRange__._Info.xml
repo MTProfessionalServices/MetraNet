@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>StoredProcedure</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <InstallTime>PreSync</InstallTime>
+    <Parameters>
+        <Parameter>
+            <Name>id_acc</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>curr_date</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>StartCycle</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>EndCycle</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

@@ -11,10 +11,8 @@ BEGIN
          pci.dt_end                                                                                 AS c_RCIntervalEnd,
          ui.dt_start                                                                                AS c_BillingIntervalStart,
          ui.dt_end                                                                                  AS c_BillingIntervalEnd,
-         dbo.MTMaxOfTwoDates(rw.c_payerstart,
-                             dbo.MTMaxOfTwoDates(pci.dt_start, rw.c_SubscriptionStart))             AS c_RCIntervalSubscriptionStart,
-         dbo.MTMinOfTwoDates(rw.c_payerend,
-                             dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd))                 AS c_RCIntervalSubscriptionEnd,
+         dbo.MTMaxOfThreeDates(BillRangeStart, pci.dt_start, rw.c_SubscriptionStart)                AS c_RCIntervalSubscriptionStart,
+         dbo.MTMinOfThreeDates(BillRangeEnd, pci.dt_end, rw.c_SubscriptionEnd)                      AS c_RCIntervalSubscriptionEnd,
          rw.c_SubscriptionStart                                                                     AS c_SubscriptionStart,
          rw.c_SubscriptionEnd                                                                       AS c_SubscriptionEnd,
          dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd)                                      AS c_BilledRateDate,
@@ -80,10 +78,8 @@ BEGIN
          pci.dt_end                                                                                 AS c_RCIntervalEnd,
          ui.dt_start                                                                                AS c_BillingIntervalStart,
          ui.dt_end                                                                                  AS c_BillingIntervalEnd,
-         dbo.MTMaxOfTwoDates(rw.c_payerstart,
-                             dbo.MTMaxOfTwoDates(pci.dt_start, rw.c_SubscriptionStart))             AS c_RCIntervalSubscriptionStart,
-         dbo.MTMinOfTwoDates(rw.c_payerend,
-                             dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd))                 AS c_RCIntervalSubscriptionEnd,
+         dbo.MTMaxOfThreeDates(BillRangeStart, pci.dt_start, rw.c_SubscriptionStart)                AS c_RCIntervalSubscriptionStart,
+         dbo.MTMinOfThreeDates(BillRangeEnd, pci.dt_end, rw.c_SubscriptionEnd)                      AS c_RCIntervalSubscriptionEnd,
          rw.c_SubscriptionStart                                                                     AS c_SubscriptionStart,
          rw.c_SubscriptionEnd                                                                       AS c_SubscriptionEnd,
          dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd)                                      AS c_BilledRateDate,
@@ -141,12 +137,16 @@ BEGIN
          @currentDate BETWEEN ui.dt_start AND ui.dt_end /* TODO: Support Backdated subscriptions. Works only with current interval for now. */
          AND rw.c__IsAllowGenChargeByTrigger = 1; /* TODO: Remove this */
 
+  /* Clean-up charges, that are out of BillRange */
+  DELETE FROM #tmp_rc WHERE c_RCIntervalSubscriptionEnd < c_RCIntervalSubscriptionStart;
+
   /* If no charges to meter, return immediately */
   IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
 
   EXEC InsertChargesIntoSvcTables;
 
 /* BilledThroughDates should be left the same after payer change. */
+/* BUT we might need it on payer change to diff. cycle. */
 /*
   MERGE
   INTO    #recur_window_holder trw

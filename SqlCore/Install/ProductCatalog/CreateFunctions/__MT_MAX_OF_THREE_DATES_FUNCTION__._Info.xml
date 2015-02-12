@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>CreateFunction</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+    </Implementations>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <InstallTime>PreSync</InstallTime>
+    <Parameters>
+        <Parameter>
+            <Name>date1</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>date2</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>date3</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

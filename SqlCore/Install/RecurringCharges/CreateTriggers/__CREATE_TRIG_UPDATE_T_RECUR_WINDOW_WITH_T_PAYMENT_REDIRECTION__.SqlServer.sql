@@ -108,12 +108,17 @@ BEGIN
 
   DECLARE @oldPayerCycleStart DATETIME,
           @oldPayerCycleEnd DATETIME,
+          @oldPayerStart DATETIME,
+          @oldPayerEnd DATETIME,
           @oldPayerId INT,
           @newPayerStart DATETIME,
           @newPayerEnd DATETIME,
           @newPayerId INT
 
-  SELECT TOP 1 @newPayerStart = NewStart, @newPayerEnd = NewEnd, @newPayerId = NewPayer, @oldPayerId = OldPayer FROM #tmp_redir;
+  SELECT TOP 1 @newPayerStart = NewStart, @newPayerEnd = NewEnd, @newPayerId = NewPayer,
+               @oldPayerStart = OldStart, @oldPayerEnd = OldEnd, @oldPayerId = OldPayer
+  FROM #tmp_redir;
+  
   EXEC GetCurrentAccountCycleRange @id_acc = @oldPayerId, @curr_date = @currentDate,
                                    @StartCycle = @oldPayerCycleStart OUT, @EndCycle = @oldPayerCycleEnd OUT;                                   
   /* Check for current limitations */
@@ -161,20 +166,22 @@ BEGIN
               AND trw.c_PayerEnd = r.OldEnd;
 
   /* Populate recur window for date range of new payer, to charge new payer and refund old payer */
-  SELECT rw.c_CycleEffectiveDate,
+  SELECT r.BillRangeStart,
+         r.BillRangeEnd,
+         rw.c_CycleEffectiveDate,
          rw.c_CycleEffectiveStart,
          rw.c_CycleEffectiveEnd,
          rw.c_SubscriptionStart,
          rw.c_SubscriptionEnd,
          rw.c_Advance,
          rw.c__AccountID,
-         r.NewPayer AS c__PayingAccount_New,
-         r.OldPayer AS c__PayingAccount_Old, /* Temp additional field. Is used only for metering 'Credit' charges below. */
+         @newPayerId AS c__PayingAccount_New,
+         @oldPayerId AS c__PayingAccount_Old, /* Temp additional field. Is used only for metering 'Credit' charges below. */
          rw.c__PriceableItemInstanceID,
          rw.c__PriceableItemTemplateID,
          rw.c__ProductOfferingID,
-         r.BillRangeStart AS c_PayerStart, /* TODO: Don't use c_PayerStart / c_PayerEnd words here */
-         r.BillRangeEnd AS c_PayerEnd,
+         dbo.MTMinOfTwoDates(@oldPayerStart, @newPayerStart) AS c_PayerStart, /* Get maximum Payer range for charging. */
+         dbo.MTMaxOfTwoDates(@newPayerEnd, @oldPayerEnd) AS c_PayerEnd,
          rw.c__SubscriptionID,
          rw.c_UnitValueStart,
          rw.c_UnitValueEnd,
@@ -191,8 +198,7 @@ BEGIN
               AND rw.c__PayingAccount = r.OldPayer;
 
   /* TODO: Fix scenarios:
-           1. Account is paid by P1 and P2 in future. Updating so that P2 is paying for all period;
-           2. If new payer starts after EOP old payer won't get instant charge for big RCs (e.g.: Annual PI). */
+           1. Account is paid by P1 and P2 in future. Updating so that P2 is paying for all period. */
   EXEC MeterPayerChangesFromRecurWindow @currentDate;
 
   /* Update payer dates in t_recur_window */

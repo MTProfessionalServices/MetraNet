@@ -41,10 +41,8 @@ FROM(
       ,pci.dt_end                                                                          AS c_RCIntervalEnd
       ,ui.dt_start                                                                         AS c_BillingIntervalStart
       ,ui.dt_end                                                                           AS c_BillingIntervalEnd
-      ,dbo.MTMaxOfTwoDates(rw.c_payerstart,
-                           dbo.MTMaxOfTwoDates(pci.dt_start, rw.c_SubscriptionStart))      AS c_RCIntervalSubscriptionStart
-      ,dbo.MTMinOfTwoDates(rw.c_payerend,
-                           dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd))          AS c_RCIntervalSubscriptionEnd
+      ,dbo.MTMaxOfThreeDates(rw.c_payerstart, pci.dt_start, rw.c_SubscriptionStart)        AS c_RCIntervalSubscriptionStart
+      ,dbo.MTMinOfThreeDates(rw.c_payerend, pci.dt_end, rw.c_SubscriptionEnd)              AS c_RCIntervalSubscriptionEnd
       ,rw.c_SubscriptionStart                                                              AS c_SubscriptionStart
       ,rw.c_SubscriptionEnd                                                                AS c_SubscriptionEnd
       ,pci.dt_end                                                                          AS c_BilledRateDate
@@ -128,12 +126,10 @@ SELECT
       ,ui.dt_start		                                                                     AS c_BillingIntervalStart	/* Start date of Current Billing Interval */
       ,ui.dt_end	                                                                      	 AS c_BillingIntervalEnd		/* End date of Current Billing Interval */
       ,CASE WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start <> c_cycleEffectiveDate 
-         THEN dbo.MTMaxOfTwoDates(rw.c_payerstart,
-                   dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start))
-         ELSE dbo.MTMaxOfTwoDates(rw.c_payerstart,
-                   dbo.MTMaxOfTwoDates(pci.dt_start, rw.c_SubscriptionStart)) END          AS c_RCIntervalSubscriptionStart
-      ,dbo.MTMinOfTwoDates(rw.c_payerend,
-                           dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd))          AS c_RCIntervalSubscriptionEnd
+         THEN dbo.MTMaxOfThreeDates(rw.c_payerstart, dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
+         ELSE dbo.MTMaxOfThreeDates(rw.c_payerstart, pci.dt_start, rw.c_SubscriptionStart)
+       END                                                                                 AS c_RCIntervalSubscriptionStart
+      ,dbo.MTMinOfThreeDates(rw.c_payerend, pci.dt_end, rw.c_SubscriptionEnd)              AS c_RCIntervalSubscriptionEnd
       ,rw.c_SubscriptionStart                                                              AS c_SubscriptionStart
       ,rw.c_SubscriptionEnd                                                                AS c_SubscriptionEnd
       ,pci.dt_start                                                                        AS c_BilledRateDate

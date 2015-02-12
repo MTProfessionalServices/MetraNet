@@ -22,7 +22,8 @@ AS
 	END 
 
 
-	PRINT '------ DEPLOYING PRODUCT VIEW TABLES ----------'
+	PRINT '------ DEPLOYING PRODUCT VIEW TABLES ----------'
+
 	DECLARE tabcur CURSOR  
 	FOR
 	    SELECT nm_table_name
@@ -31,10 +32,12 @@ AS
 	           nm_table_name 
 	
 	OPEN tabcur 
-	FETCH tabcur INTO @tab
+	FETCH tabcur INTO @tab
+
 	WHILE (@@fetch_status >= 0)
 	BEGIN
-	    PRINT CHAR(13) + 'Deploying ' + @tab
+	    PRINT CHAR(13) + 'Deploying ' + @tab
+
 	    EXEC prtn_deploy_usage_table @tab 
 	    
 	    FETCH tabcur INTO @tab
@@ -42,7 +45,8 @@ AS
 	DEALLOCATE tabcur 
 	
 	
-	PRINT '------ DEPLOYING AMP TABLES ----------'	
+	PRINT '------ DEPLOYING AMP TABLES ----------'
+	
 	PRINT 'DEPLOYING AGG_CHARGE_AUDIT_TRAIL TABLE'
 	IF OBJECT_ID('agg_charge_audit_trail') IS NOT NULL
 	    EXEC prtn_deploy_table 
@@ -57,4 +61,13 @@ AS
 	         @partition_table_name = N'agg_usage_audit_trail',
 	         @pk_columns = N'id_payee ASC, id_usage_interval ASC, id_sess ASC, is_realtime ASC',
 	         @partition_schema = @partition_schema,
-	         @partition_column = N'id_usage_interval'
+	         @partition_column = N'id_usage_interval'
+
+	PRINT 'DEPLOYING AGG_PUSHED_USAGE TABLE'
+	IF OBJECT_ID('agg_pushed_usage') IS NOT NULL
+	    EXEC prtn_deploy_table 
+	         @partition_table_name = N'agg_pushed_usage',
+	         @pk_columns = N'id_acc ASC, id_sess ASC, old_usage_interval ASC',
+	         @partition_schema = @partition_schema,
+	         @partition_column = N'old_usage_interval'
+	         

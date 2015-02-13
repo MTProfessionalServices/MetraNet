@@ -8,10 +8,10 @@ CREATE PROCEDURE [dbo].[mtsp_generate_stateful_rcs]
                                            ,@p_count      int OUTPUT
 AS
 BEGIN
-      /* SET NOCOUNT ON added to prevent extra result sets from
-         interfering with SELECT statements. */
-      SET NOCOUNT ON;
-	  SET XACT_ABORT ON;
+  /* SET NOCOUNT ON added to prevent extra result sets from
+     interfering with SELECT statements. */
+  SET NOCOUNT ON;
+  SET XACT_ABORT ON;
   DECLARE @total_rcs  int,
           @total_flat int,
           @total_udrc int,
@@ -21,14 +21,14 @@ BEGIN
           @id_message bigint,
           @id_ss      int,
           @tx_batch   binary(16);
-          
-  IF OBJECT_ID (N't_rec_win_bcp_for_reverse', N'U') IS NOT NULL
-    DROP TABLE t_rec_win_bcp_for_reverse
 
+  TRUNCATE TABLE t_rec_win_bcp_for_reverse;
+
+  INSERT INTO t_rec_win_bcp_for_reverse (c_BilledThroughDate, c_CycleEffectiveDate, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__ProductOfferingID, c__SubscriptionID) 
   SELECT c_BilledThroughDate, c_CycleEffectiveDate, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__ProductOfferingID, c__SubscriptionID
-  INTO t_rec_win_bcp_for_reverse FROM t_recur_window
+  FROM t_recur_window;
 
-  
+
 INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Retrieving RC candidates');
 SELECT
 *

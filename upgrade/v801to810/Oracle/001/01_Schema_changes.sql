@@ -282,7 +282,7 @@ ALTER TABLE t_billgroup_member_tmp MODIFY (tx_name NVARCHAR2(255));
 
 ALTER TABLE t_ep_recurring ADD (c_isliabilityproduct CHAR,c_revenuecode NVARCHAR2(128),c_deferredrevenuecode NVARCHAR2(128));
 
-UPDATE t_ep_recurring SET c_isliabilityproduct = 'F';
+UPDATE t_ep_recurring SET c_isliabilityproduct = 'N';
 
 ALTER TABLE t_ep_recurring MODIFY (c_isliabilityproduct NOT NULL);
 
@@ -428,7 +428,7 @@ COMMENT ON COLUMN t_notification_event_consumers.dt_crt IS 'Row creation date.';
 
 ALTER TABLE t_ep_nonrecurring ADD (c_isliabilityproduct CHAR,c_revenuecode NVARCHAR2(128),c_deferredrevenuecode NVARCHAR2(128));
 
-UPDATE t_ep_nonrecurring SET c_isliabilityproduct = 'F';
+UPDATE t_ep_nonrecurring SET c_isliabilityproduct = 'N';
 
 ALTER TABLE t_ep_nonrecurring MODIFY (c_isliabilityproduct NOT NULL);
 

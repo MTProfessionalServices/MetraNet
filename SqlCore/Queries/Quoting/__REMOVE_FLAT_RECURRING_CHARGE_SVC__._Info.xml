@@ -6,14 +6,8 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>PAYING_ACCOUNT_ID</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-         <Parameter>
-            <Name>SUBSCRIPTION_ID</Name>
-            <DataType>int32</DataType>
+            <Name>BATCHES_IDS</Name>
+            <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="ProductOfferingsList.aspx.cs" Inherits="ProductOfferingsList" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" AutoEventWireup="true" CodeFile="ProductOfferingsList.aspx.cs" Inherits="ProductOfferingsList" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
 
-<%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
+<%@ Register assembly="MetraTech.UI.Controls" namespace="MetraTech.UI.Controls" tagprefix="MT" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
   <MT:MTFilterGrid ID="MTFilterGrid1" runat="server" ExtensionName="Core"
     TemplateFileName="ProductOfferingsList" ButtonAlignment="Center"
@@ -18,17 +18,20 @@
     ShowFilterPanel="True" ShowGridFrame="True" ShowGridHeader="True"
     ShowTopBar="True" TotalProperty="TotalRows" NoRecordsText='<%=GetLocalResourceObject("NO_RECORDS_TEXT")%>' />
 
-  <script type="text/javascript" src="/mcm/default/lib/browsercheck.js"></script>
-  <script type="text/javascript" src="/mcm/default/lib/PopupEdit.js"></script>
+    <script type="text/javascript" language="javascript" src="/mcm/default/lib/browsercheck.js"></script>
+    <script type="text/javascript" language="javascript" src="/mcm/default/lib/PopupEdit.js"></script>
   <script type="text/javascript" src="../javascript/metraOffer.js"></script>
 
-  <script type="text/javascript">
-
-    var intialize = function(){
-      if(MetraControl.common){
-        this.MetraControljs = new MetraControl.common();
+    <script language="javascript" type="text/javascript">
+      // Sometimes when we come back from old MAM or MetraView we may have an extra frame.
+      // This code busts out of it.
+      Ext.onReady(function () { 
+        if (getFrameMetraNet().MainContentIframe) {
+          if (getFrameMetraNet().MainContentIframe.location != document.location) {
+            getFrameMetraNet().MainContentIframe.location.replace(document.location);
+          }
       }
-    }();
+      });
 
     function CreateProductOffering_<%=MTFilterGrid1.ClientID%> () {
         var gridId = "extGrid_" + "<%=MTFilterGrid1.ClientID%>";
@@ -47,9 +50,9 @@
   
       function NameColRenderer(value, meta, record, rowIndex, colIndex, store)
       {
-        var str,
-            textTEXT_UnhidePO = '<%=GetLocalResourceObject("TEXT_UnhidePO")%>',
-            textTEXT_ViewPO = '<%=GetLocalResourceObject("TEXT_ViewPO")%>';
+        var str;
+        var textTEXT_UnhidePO = '<%=GetLocalResourceObject("TEXT_UnhidePO")%>';
+        var textTEXT_ViewPO = '<%=GetLocalResourceObject("TEXT_ViewPO")%>';
         if (record.data.IsHidden)
         {
           str = String.format("<span title='Name_{0}'><a style='cursor:hand;color:DimGrey;' id='unhideName_{0}' title='{1}' href='JavaScript:UnHideProductOffering({0});'>{2}</a></span>", 

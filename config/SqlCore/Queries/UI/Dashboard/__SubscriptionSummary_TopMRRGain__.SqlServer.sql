@@ -1,4 +1,4 @@
-SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) DESC) AS 'ordernum', 
+SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY SUM(ISNULL(ss.MRRPrimaryCurrency, 0.0))-SUM(ISNULL(prev.MRRPrimaryCurrency, 0.0)) ASC) AS 'ordernum', 
 	ISNULL(props.nm_display_name, po.ProductOfferingName) AS 'productname',
 	po.ProductOfferingId AS 'productcode',
 	ss.Month, 

@@ -7,6 +7,11 @@ Title="<%$Resources:Resource,TEXT_TITLE%>" %>
 
 <MT:Dashboard ID="Dashboard1" Name="MainDashboard" runat="server" />
 <div class="clearer"><!--important--></div>
-
+  <script type="text/javascript">
+    Ext.onReady(function(){
+      var mainframe = window.frameElement.ownerDocument.getElementById("MainContent");
+      mainframe.style.overflow = 'hidden';
+    });
+    </script>
 </asp:Content>
 

@@ -16,28 +16,28 @@ BEGIN
   IF EXISTS (SELECT * FROM DELETED)
   BEGIN
     /* Create shared table, if it wasn't created yet by another session */
-    IF OBJECT_ID('tempdb..##p_redir_deleted') IS NULL 
-      SELECT @@SPID spid, * INTO ##p_redir_deleted FROM t_payment_redirection WHERE 1=0;
+    IF OBJECT_ID('tempdb..##tmp_redir_deleted') IS NULL 
+      SELECT @@SPID spid, * INTO ##tmp_redir_deleted FROM t_payment_redirection WHERE 1=0;
 
-    INSERT INTO ##p_redir_deleted SELECT @@SPID spid, * FROM DELETED;    
+    INSERT INTO ##tmp_redir_deleted SELECT @@SPID spid, * FROM DELETED;    
     RETURN;
   END;
 
   IF EXISTS (SELECT * FROM INSERTED)
   BEGIN
-    IF OBJECT_ID('tempdb..##p_redir_deleted') IS NULL
+    IF OBJECT_ID('tempdb..##tmp_redir_deleted') IS NULL
       RETURN;
-    IF NOT EXISTS (SELECT * FROM ##p_redir_deleted WHERE spid = @@SPID)
+    IF NOT EXISTS (SELECT * FROM ##tmp_redir_deleted WHERE spid = @@SPID)
       RETURN; /* This is not Payer update. This is account creation. */
 
     /* Skip rows, that are the same.
        Skip new date ranges, if they are inside old range of the same payer. (was already billed)  */
     SELECT *
-    INTO  #new_payer_range
+    INTO  #tmp_new_payer_range
     FROM  INSERTED new
     WHERE NOT EXISTS (
           SELECT 1
-          FROM   ##p_redir_deleted old
+          FROM   ##tmp_redir_deleted old
           WHERE  spid = @@SPID
              AND old.id_payer = new.id_payer
              AND old.id_payee = new.id_payee
@@ -57,8 +57,8 @@ BEGIN
             old.vt_end OldEnd,
             '=' NewRangeInsideOld
           INTO #tmp_redir
-    FROM   #new_payer_range new
-          JOIN ##p_redir_deleted old
+    FROM   #tmp_new_payer_range new
+          JOIN ##tmp_redir_deleted old
             ON old.id_payee = new.id_payee AND old.id_payer <> new.id_payer
               AND new.vt_start = old.vt_start AND old.vt_end = new.vt_end /* Old range the same as new one */
 
@@ -76,8 +76,8 @@ BEGIN
               old.vt_start OldStart,
               old.vt_end OldEnd,
               'Y' NewRangeInsideOld
-      FROM   #new_payer_range new
-            JOIN ##p_redir_deleted old
+      FROM   #tmp_new_payer_range new
+            JOIN ##tmp_redir_deleted old
               ON old.id_payee = new.id_payee AND old.id_payer <> new.id_payer
                 AND old.vt_start <= new.vt_start AND new.vt_end <= old.vt_end /* New range inside old one */
       UNION
@@ -92,14 +92,14 @@ BEGIN
               old.vt_start OldStart,
               old.vt_end OldEnd,
               'N' NewRangeInsideOld
-      FROM   #new_payer_range new
-            JOIN ##p_redir_deleted old
+      FROM   #tmp_new_payer_range new
+            JOIN ##tmp_redir_deleted old
               ON old.id_payee = new.id_payee AND old.id_payer <> new.id_payer
                 AND new.vt_start <= old.vt_start AND old.vt_end <= new.vt_end /* Old range inside new one */
     END;
 
     /* Clean-up temp data of my session */
-    DELETE FROM ##p_redir_deleted WHERE spid = @@SPID;
+    DELETE FROM ##tmp_redir_deleted WHERE spid = @@SPID;
   END;
 
   /* Double-check that we detected payer change. */
@@ -120,7 +120,7 @@ BEGIN
   FROM #tmp_redir;
   
   EXEC GetCurrentAccountCycleRange @id_acc = @oldPayerId, @curr_date = @currentDate,
-                                   @StartCycle = @oldPayerCycleStart OUT, @EndCycle = @oldPayerCycleEnd OUT;                                   
+                                   @StartCycle = @oldPayerCycleStart OUT, @EndCycle = @oldPayerCycleEnd OUT;
   /* Check for current limitations */
   IF @oldPayerCycleStart <= @newPayerStart AND @newPayerEnd <= @oldPayerCycleEnd
     THROW 50000,'Limitation: New payer cannot start and end in current billing cycle.',1
@@ -231,6 +231,7 @@ BEGIN
       THROW 50000,'Limitation: New and Old payer ranges should either have a common start date or common end date.',1
 
     /* Update Old Payer Dates */
+    /* Old payer now ends just before new payer start, if new payer after old one. */
     UPDATE rw
     SET    c_PayerEnd = dbo.SubtractSecond(@newPayerStart)
     FROM   t_recur_window rw
@@ -241,7 +242,10 @@ BEGIN
               AND rw.c_PayerEnd = orw.c_PayerEnd
               AND rw.c__SubscriptionID = orw.c__SubscriptionID
     WHERE  orw.c_PayerStart <> @newPayerStart;
-  
+    /* TODO: replace WHERE with "orw.c_PayerEnd = @newPayerEnd;"
+    OR: IF (@newPayerEnd = @oldPayerEnd) THEN... */
+
+    /* Old payer now starts right after new payer ends, if new payer before old one. */
     UPDATE rw
     SET    c_PayerStart = dbo.AddSecond(@newPayerEnd)
     FROM   t_recur_window rw
@@ -252,7 +256,9 @@ BEGIN
               AND rw.c_PayerEnd = orw.c_PayerEnd
               AND rw.c__SubscriptionID = orw.c__SubscriptionID
     WHERE  orw.c_PayerEnd <> @newPayerEnd;
-    
+    /* TODO: replace WHERE with "orw.c_PayerStart = @newPayerStart;"
+    OR: IF (@newPayerStart = @oldPayerStart) THEN... */
+
     /* Insert New Payer recur window */
     INSERT INTO t_recur_window
     SELECT DISTINCT c_CycleEffectiveDate,

@@ -94,6 +94,12 @@ RETURN NUMBER;
    FUNCTION mtmaxoftwodates (chargeintervalleft DATE, subintervalleft DATE)
       RETURN DATE;
 
+   FUNCTION MTMinOfThreeDates (p_date1 DATE, p_date2 DATE, p_date3 DATE)
+      RETURN DATE;
+
+   FUNCTION MTMaxOfThreeDates (p_date1 DATE, p_date2 DATE, p_date3 DATE)
+      RETURN DATE;
+
    FUNCTION nextdateafterbillingcycle (temp_id_acc INT, temp_datecheck DATE)
       RETURN DATE;
 

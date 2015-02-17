@@ -15,7 +15,7 @@
         <type>boolean</type>
         <length></length>
         <required>Y</required>
-        <defaultvalue>N</defaultvalue>
+        <defaultvalue>F</defaultvalue>
         <description>Shows is this a liability product</description>
     </ptype>
     <ptype display_name="Revenue Code">

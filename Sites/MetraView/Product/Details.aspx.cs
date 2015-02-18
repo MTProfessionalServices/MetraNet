@@ -124,6 +124,7 @@ public partial class Product_Details : MTPage
     MTFilterGrid1.Resizable = true;
     MTFilterGrid1.DisplayCount = true;
     MTFilterGrid1.ShowTopBar = false;
+    MTFilterGrid1.AjaxTimeout = "180000";
 
     if(String.IsNullOrEmpty(MTFilterGrid1.CustomImplementationFilePath))
     {

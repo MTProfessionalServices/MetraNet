@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type="collection">
   <text id="TEXT_FAILED_TRANSACTIONS_FAILED_TRANSACTION_BROWSER">
     <value>Transações com falha</value>
@@ -292,18 +292,21 @@
     <value>Histórico de auditoria para número de casos de transações com falha</value>
   </text>
   <text id="TEXT_Message_ID">
-    <value>Message ID</value>
+    <value>ID da mensagem</value>
   </text>
   <text id="TEXT_Metered_On">
-    <value>Metered On</value>
+    <value>Medido em</value>
   </text>
   <text id="TEXT_Assigned_On">
-    <value>Assigned On</value>
+    <value>Atribuído em</value>
   </text>
   <text id="TEXT_Assigned_To">
-    <value>Assigned To</value>
+    <value>Atribuído para</value>
   </text>
   <text id="TEXT_Session_Count">
-    <value>Session Count</value>
+    <value>Contagem da sessão</value>
+  </text>
+  <text id="TEXT_Children">
+    <value>Crianças</value>
   </text>
 </texts>

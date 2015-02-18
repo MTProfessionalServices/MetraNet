@@ -7,6 +7,7 @@
   <asp:PlaceHolder ID="PlaceHolderPOJavaScript" runat="server"></asp:PlaceHolder>
   <MT:MTTitle ID="ManageAccountConfigSetTitle" runat="server" />
   <br />
+
   <MT:MTPanel ID="MTPanelAccountConfigSetParameters" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="panelAccountConfigSetParameters">
     <div>
@@ -30,6 +31,7 @@
     </div>
     </div>
   </MT:MTPanel>
+
   <MT:MTPanel ID="MTPanelCriteria" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="panelCriteriaResource">
     <div id="PlaceHolderSelectionCriteria" class="LeftColumn">
@@ -37,6 +39,7 @@
     <div id="PlaceHolderPropertiesToSet" class="RightColumn">
     </div>
   </MT:MTPanel>
+
   <MT:MTPanel ID="MTPanelManageSubscriptionParameters" runat="server" Collapsible="True"
     meta:resourcekey="panelManageSubscriptionParametersResource">              
       <%--<MT:MTTextBoxControl ID="MTtbSubParamId" AllowBlank="True" ReadOnly="True"
@@ -44,6 +47,7 @@
     <div id = "PlaceHolderSubParamsToolBar" class="LeftColumn">                 
     </div>      
     </MT:MTPanel>
+
   <MT:MTPanel ID="MTPanelSubscriptionParameters" runat="server" Collapsible="True"
     Collapsed="True" meta:resourcekey="panelSubscriptionParametersResource">    
     <div id="leftColumn2" class="LeftColumn">      
@@ -227,12 +231,13 @@
         return;
 
       for (var i = 0; i < items.length; i++) {
+        var item = items[i].data == null ? items[i] : items[i].data;
         var myNewRecord = new accountViewPropertyMetadataRecord({
-          AccountView: items[i].AccountView,
-          PropertyName: items[i].PropertyName,
-          TypeName: items[i].TypeName,
-          MaxLength: items[i].MaxLength,
-          Id: items[i].Id
+          AccountView: item.AccountView,
+          PropertyName: item.PropertyName,
+          TypeName: item.TypeName,
+          MaxLength: item.MaxLength,
+          Id: item.Id
         });
         store.add(myNewRecord);
       }
@@ -317,10 +322,14 @@
           listeners: {
             select: {
               fn: function (combo, value) {
+                var store = accountViewPropertyMetadataStore;
+                store.clearFilter();
+                store.filter('AccountView', combo.getValue(), true);
+
                 var comboProperty = Ext.getCmp('form_addPropertyValue_Property');
                 comboProperty.clearValue();
-                comboProperty.store.filter('AccountView', combo.getValue());
-                lastOptions = comboProperty.store.lastOptions;                               
+                comboProperty.store.removeAll();
+                addAccountViewPropertyMetadata(store.getRange(), comboProperty.store);                
               }
             }
           }
@@ -335,7 +344,7 @@
             allowBlank: false,
             autoSelect: true,
             forceSelection: true,
-            store: accountViewPropertyMetadataStore,
+            store: { root: 'accountViewPropertyMetadata', fields: accountViewPropertyMetadataRecord.fields },
             displayField: 'PropertyName',
             valueField: 'PropertyName',
             value: property,

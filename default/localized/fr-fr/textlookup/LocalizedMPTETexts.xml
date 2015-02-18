@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <texts id="MPTE" type="collection">
 
     <description></description>
@@ -748,106 +748,105 @@
     <description></description>
   </text>
   <text id="TEXT_Add_Parameter_Table_to_Price_List">
-    <value>Add Parameter Table to Price List</value>
+    <value>Ajouter tableau des paramètres au tarif</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules_For">
-    <value>Create Rate Schedules For The Following Priceable Items/Parameter Tables</value>
+    <value>Créer échelles tarifaires pour les éléments à prix/tableaux de paramètres suivants</value>
     <description></description>
   </text>
   <text id="TEXT_Create_Rate_Schedules">
-    <value>Create Rate Schedule(s)</value>
+    <value>Créer échelle(s) tarifaire(s)</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_CATALOG">
-    <value>Product Catalog</value>
+    <value>Catalogue produits</value>
     <description></description>
   </text>
   <text id="TEXT_TABULAR_RULESET_READER">
-    <value>Tabular Ruleset Reader</value>
+    <value>Lecteur de jeux de règles tabulaires</value>
     <description></description>
   </text>
   <text id="TEXT_RETRIEVED_PC_OBJECTS">
-    <value>Retrieved Product Catalog objects</value>
+    <value>Objets du catalogue produits récupérés</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_ENUMS">
-    <value>Loaded Enums</value>
+    <value>Enums chargées</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_START">
-    <value>Ruleset START</value>
+    <value>DÉBUT jeu de règles</value>
     <description></description>
   </text>
   <text id="TEXT_UNABLE_READ_CONFIGURATION">
-    <value>Unable to read configuration from input. Error returned is:</value>
+    <value>Impossible de lire la configuration à partir de la saisie. Erreur renvoyée :</value>
     <description></description>
   </text>
   <text id="TEXT_UNABLE_CRATE_RULESET">
-    <value>Unable to create ruleset from propset object. Error returned is:</value>
+    <value>Impossible de créer un jeu de règles à partir de l`objet propset</value>
     <description></description>
   </text>
   <text id="TEXT_PRODUCT_OFFERING">
-    <value>Product Offering</value>
+    <value>Offre produit</value>
     <description></description>
   </text>
   <text id="TEXT_PRICEABLE_ITEM">
-    <value>Priceable Item</value>
+    <value>Élément à prix</value>
     <description></description>
   </text>
   <text id="TEXT_PRICELIST">
-    <value>Pricelist</value>
+    <value>Tarif</value>
     <description></description>
   </text>
   <text id="TEXT_PARAMETER_TABLE">
-    <value>Parameter Table</value>
+    <value>Tableau des paramètres</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SCHEDULE">
-    <value>Rate Schedule</value>
+    <value>Échelle tarifaire</value>
     <description></description>
   </text>
   <text id="TEXT_EFFECTIVE">
-    <value>Effective</value>
+    <value>En vigueur</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_RULESET1">
-    <value>Loaded Ruleset 1</value>
+    <value>Jeu de règles chargé 1</value>
     <description></description>
   </text>
   <text id="TEXT_LOADED_RULESET2">
-    <value>Loaded Ruleset 2</value>
+    <value>Jeu de règles chargé 2</value>
     <description></description>
   </text>
   <text id="TEXT_DISPLAYING_XML_SETTINGS">
-    <value>Displaying XML versions</value>
+    <value>Affichage versions XML</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET1_HAS">
-    <value>Ruleset 1 has </value>
+    <value>Le jeu de règles 1 a </value>
     <description></description>
   </text>
   <text id="TEXT_RULESET2_HAS">
-    <value>and Ruleset 2 has </value>
+    <value> et le jeu de règles 2 a </value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_DIFF_START">
-    <value>Ruleset Diff START</value>
+    <value>DÉBUT jeu de règles diff.</value>
     <description></description>
   </text>
   <text id="TEXT_RULESET_DIFF_END">
-    <value>Ruleset Diff End</value>
+    <value>Fin jeu de règles diff.</value>
     <description></description>
   </text>
   <text id="TEXT_CHARGED_FROM">
-    <value>Charged From</value>
+    <value>Chargé depuis</value>
     <description></description>
   </text>
   <text id="TEXT_CHARGED_TO">
-    <value>to </value>
+    <value> vers </value>
     <description></description>
   </text>
-
   <text id="TEXT_IMPORT_FROM_EXCEL">
     <value>Importer depuis Excel</value>
     <description></description>

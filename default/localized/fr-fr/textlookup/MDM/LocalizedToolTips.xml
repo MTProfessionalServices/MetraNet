@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <texts id="Tool Tips" type="collection">
   <description>
     This file defines the MAM tool tips localization.
@@ -116,19 +116,15 @@
     <description></description>
   </text>
   <text id="TEXT_OPERATION">
-    <value>Operation</value>
+    <value>Opération</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_MAKE">
-    <value>You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
+    <value>Vous pourriez faire des ajustements de pré-facturation en masse lorsque le statut est Ouvert ; ou faire des ajustements post-facturation lorsque le statut est Clôture (matérielle).</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_ONLY">
-    <value>You may only bulk reassign transactions when the status is Hard Closed.</value>
+    <value>Vous pourriez uniquement réaffecter des transactions en masse lorsque le statut est Clôture (matérielle).</value>
     <description></description>
-  </text>
-  <text id="TEXT_Reassign_Selected_Transactions">
-    <value>Réaffecter Transactions sélectionnés</value>
-    <description></description>
-  </text>  
+  </text>   
 </texts>

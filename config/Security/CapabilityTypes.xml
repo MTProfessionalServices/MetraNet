@@ -36,7 +36,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Exige gerenciar hierarquias de conta</DisplayName>
-    <Description>Gerar hierarquias de conta: Pré-requisito para using account hierarchy management capabilities</Description>
+    <Description>Gerar hierarquias de conta: Pré-requisito para usar recursos de gerenciamento de hierarquias de conta</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Account Hierarchies</DisplayName>
@@ -67,7 +67,7 @@
           <Description>[es-MX] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
           </item>
           <item lang="pt-BR">
-          <Description>Gerar hierarquias de conta: Especificar acesso level - Read or Write (where Write includes Read access)</Description>
+          <Description>Gerar hierarquias de conta: Especificar nível de acesso – Leitura ou Gravação (onde Gravação inclui o acesso de leitura)</Description>
           </item>
           <item lang="en-GB">
           <Description>[en-GB] Manage Account Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
@@ -187,7 +187,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar políticas de autorização no sistema</DisplayName>
-    <Description>Gerenciar políticas de autorização de todo o sistema: Permits managing authentication and authorization settings</Description>
+	<Description>Gerenciar políticas de autorização de todo o sistema: permite gerenciar a autenticação e configurações de autenticação</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage System Wide Authorization Policies</DisplayName>
@@ -232,7 +232,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar aut de assinante</DisplayName>
-    <Description>Gerenciar autorização de assinante: Permite managing subscriber security policies</Description>
+	<Description>Gerenciar autorização de assinante: Permite gerenciar políticas de segurança de assinantes</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Subscriber Auth</DisplayName>
@@ -489,7 +489,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar servidor de pagamento</DisplayName>
-    <Description>Gerenciar servidor de pagamento: Controla se o usuário pode view and work with payment server related information </Description>
+    <Description>Gerenciar servidor de pagamento: Controla se o usuário pode exibir e trabalhar com informações relacionadas ao servidor de pagamento</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Payment Server</DisplayName>
@@ -894,7 +894,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Atualizar conta de ativa para fechada</DisplayName>
-    <Description>Alterar contas ativas para fechadas: Permite mudança accounts from active to closed state</Description>
+    <Description>Alterar contas ativas para fechadas: Permite mudança de contas do estado ativo para fechado</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Update account from active to closed</DisplayName>
@@ -939,7 +939,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Atualizar conta de ativa para suspensa</DisplayName>
-    <Description>Alterar contas ativas para suspensas: Permite moving an account from active to suspended status</Description>
+    <Description>Alterar contas ativas para suspensas: Permite mover uma conta do estado ativo para suspenso</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Update account from active to suspended</DisplayName>
@@ -984,7 +984,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Atualizar conta de suspensa para ativa</DisplayName>
-    <Description>Alterar contas suspensas para ativas: Permite moving an account from suspended to active status</Description>
+    <Description>Alterar contas suspensas para ativas: Permite mover uma conta do estado suspenso para o ativo</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Update account from suspended to active</DisplayName>
@@ -1029,7 +1029,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Atualizar conta de fatura final pendente para ativa</DisplayName>
-    <Description>Alterar contas ativas para ativas: Permite moving accounts from pending final bill to active status</Description>
+    <Description>Alterar contas ativas para ativas: Permite mover contas do estado cobrança final pendente para ativo</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Update account from pending final bill to active</DisplayName>
@@ -1209,7 +1209,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Modificar membros de grupo</DisplayName>
-    <Description>Modificar adesão a assinatura de grupo: Permite modifying subscriber`s participation in group subscriptions</Description>
+    <Description>Modificar adesão à assinatura de grupo: Permite modificar a participação do assinante na assinatura de grupo</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Modify groupsub membership</DisplayName>
@@ -1344,7 +1344,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar tarifas personalizadas</DisplayName>
-    <Description>Gerenciar taxa personalizada: Permite criar personalizada rates for individual subscriptions</Description>
+    <Description>Gerenciar taxa personalizada: Permite criar taxas personalizadas para assinaturas individuais</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Custom Rates</DisplayName>
@@ -1389,7 +1389,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar tarifas personalizadas de grupo</DisplayName>
-    <Description>Gerenciar taxas personalizadas de grupo: Permite a criação custom rates for group subscriptions</Description>
+    <Description>Gerenciar taxas personalizadas de grupo: Permite a criação de taxas personalizadas para assinaturas de grupo</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Group Custom Rates</DisplayName>
@@ -1601,7 +1601,7 @@
           <Description>[es-MX] Specify access level - Read or Write (where Write includes Read access)</Description>
           </item>
           <item lang="pt-BR">
-          <Description>Especifique o nível de acesso - Leitura ou gravação (where Write includes Read access)</Description>
+          <Description>Especifique o nível de acesso - Leitura ou gravação (onde Gravação inclui o acesso de leitura)</Description>
           </item>
           <item lang="en-GB">
           <Description>[en-GB] Specify access level - Read or Write (where Write includes Read access)</Description>
@@ -1692,7 +1692,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Reenviar transação com falha</DisplayName>
-    <Description>Atualizar transações com falha: Permite viewing/updating of failed transactions in MetraControl</Description>
+    <Description>Atualizar transações com falha: Permite exibir/atualizar transações com falha no MetraControl</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Update Failed Transactions</DisplayName>
@@ -1843,7 +1843,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar ajustes</DisplayName>
-    <Description>Gerenciar ajustes: Permite aprovação ou deleting existing adjustments (including the Apply Adjustments capability).</Description>
+    <Description>Gerenciar ajustes: Permite a aprovação ou exclusão de ajustes existentes (incluindo o recurso de Aplicar ajustes).</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Adjustments</DisplayName>
@@ -1888,7 +1888,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Substituição manual</DisplayName>
-    <Description>Substituição manual: Permite o usuário mover a transação into manual override state.</Description>
+    <Description>Substituição manual: Permite o usuário mover a transação no estado de substituição manual.</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manual Override</DisplayName>
@@ -1933,7 +1933,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Criar disputas</DisplayName>
-      <Description>Criar disputas: Rege a criação de disputas e will limit the total amount of the dispute allowed to approve</Description>
+      <Description>Criar disputas: Rege a criação de disputas e limitará o valor total da disputa que é permitido aprovar</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Create Disputes</DisplayName>
@@ -2039,7 +2039,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Gerenciar disputas</DisplayName>
-      <Description>Gerenciar disputas: Permite aprovação ou exclusão existing disputes (including the CreateDisputes capability).</Description>
+      <Description>Gerenciar disputas: Permite aprovação ou exclusão de disputas existentes (incluindo o recurso Criar disputas).</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Manage Disputes</DisplayName>
@@ -2084,7 +2084,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Excluir tarifas</DisplayName>
-    <Description>Excluir taxas: Permite exclusão de agendas de taxa and price lists in MetraOffer</Description>
+    <Description>Excluir taxas: Permite exclusão de agendas de taxa e lista de preços no MetraOffer</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Delete Rates</DisplayName>
@@ -2129,7 +2129,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Selecionar ofertas de produto</DisplayName>
-    <Description>Excluir oferta de produto: Permite exclusão product offerings in MetraOffer that have no subscribers.</Description>
+    <Description>Excluir oferta de produto: Permite exclusão de ofertas de produto no MetraOffer que não tem nenhum assinante.</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Delete Product Offerings</DisplayName>
@@ -2219,7 +2219,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Executar adaptadores agendados</DisplayName>
-    <Description>Gerenciar adaptadores programados: Permite exibição, modifying and running scheduled adapters in MetraControl</Description>
+    <Description>Gerenciar adaptadores programados: Permite exibição, modificação e execução de adaptadores agendados no MetraControl</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Scheduled Adapters</DisplayName>
@@ -2244,7 +2244,7 @@
   <LocalizedItems>
     <item lang="FR">
     <DisplayName>Gérer adaptateurs FDP</DisplayName>
-    <Description>Gérer adaptateurs FDP : autorise l`affichage, la modification et l`exécution des adaptateurs planifiés dans MetraControl </Description>
+    <Description>Gérer adaptateurs planifiés : autorise l`affichage, la modification et l`exécution des adaptateurs planifiés dans MetraControl </Description>
     </item>
     <item lang="IT">
     <DisplayName>[IT] Manage EOP Adapters</DisplayName>
@@ -2264,7 +2264,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar adaptadores EOP</DisplayName>
-    <Description>Gerenciar adaptadores EOP: Permite exibição, modificação and running EOP adapters in MetraControl</Description>
+    <Description>Gerenciar adaptadores EOP: Permite exibição, modificação e execução de adaptadores EOP no MetraControl</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage EOP Adapters</DisplayName>
@@ -2309,7 +2309,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar lotes</DisplayName>
-    <Description>Gerenciar lotes: Permite exibição de lote information and performing actions on batches in MetraControl</Description>
+    <Description>Gerenciar lotes: Permite exibição de informações de lote e execução de ações em lote no MetraControl</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Batches</DisplayName>
@@ -2354,7 +2354,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar backouts e novas execuções</DisplayName>
-    <Description>Gerenciar reversões e re-execuções: Permite exibição backout information and performing backout and rerun actions in MetraControl</Description>
+    <Description>Gerenciar reversões e reexecuções: Permite exibição de informações de reversão e execução de ações de reversão e reexecução no MetraControl</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Backouts and Reruns</DisplayName>
@@ -2399,7 +2399,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Gerenciar hierarquias da força de vendas</DisplayName>
-    <Description>Gerenciar hierarquias de usuários MetraNet: Permite management of Users Hierarchy members</Description>
+    <Description>Gerenciar hierarquias de usuários MetraNet: Permite gerenciamento de membros de hierarquia de usuários</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Sales Force Hierarchies</DisplayName>
@@ -2430,7 +2430,7 @@
           <Description>[es-MX] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
           </item>
           <item lang="pt-BR">
-          <Description>Gerenciar hierarquias de usuários MetraNet: Especifica access level - Read or Write (where Write includes Read access)</Description>
+          <Description>Gerenciar hierarquias de usuários MetraNet: Especifica nível de acesso - Leitura ou Gravação (onde Gravação inclui o acesso de leitura)</Description>
           </item>
           <item lang="en-GB">
           <Description>[en-GB] Manage MetraNet Users Hierarchies: Specify access level - Read or Write (where Write includes Read access)</Description>
@@ -2505,7 +2505,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Atualizar conta pertencente</DisplayName>
-    <Description>Gerenciar contas próprias: Permite usuários MetraNet Hierarchy members to manage accounts that they or their subordinates own</Description>
+    <Description>Gerenciar contas próprias: Permite que usuários membros da hierarquia do MetraNet gerenciem contas de sua propriedade ou de propriedade de seus subordinados</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Manage Owned Accounts</DisplayName>
@@ -2536,7 +2536,7 @@
           <Description>[es-MX] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
           </item>
           <item lang="pt-BR">
-          <Description>Gerenciar contas próprias: Especifica acesso level - Read or Write (where Write includes Read access)</Description>
+          <Description>Gerenciar contas próprias: Especifica nível de acesso - Leitura ou Gravação (onde Gravação inclui o acesso de leitura)</Description>
           </item>
           <item lang="en-GB">
           <Description>[en-GB] Manage Owned Accounts: Specify access level - Read or Write (where Write includes Read access)</Description>
@@ -2566,7 +2566,7 @@
           <Description>[es-MX] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user`s direct subordinates in the hierarchy; owned directly by user and by user`s subrodinates - direct and indirect.</Description>
           </item>
           <item lang="pt-BR">
-          <Description>Especifique quais contas esse usuário pode gerenciar: only directly owned by the user; owned directly by user or by user`s direct subordinates in the hierarchy; owned directly by user and by user's subrodinates - direct and indirect.</Description>
+          <Description>Especifique quais contas esse usuário pode gerenciar: apenas de propriedade direta do usuário; de propriedade direta do usuário ou subordinados diretos do usuário na hierarquia; de propriedade direta do usuário e dos subordinados do usuário – diretos e indiretos.</Description>
           </item>
           <item lang="en-GB">
           <Description>[en-GB] Specify what accounts this user can manage: only directly owned by the user; owned directly by user or by user`s direct subordinates in the hierarchy; owned directly by user and by user`s subrodinates - direct and indirect.</Description>
@@ -2611,7 +2611,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Entidades de modelamento de negócios</DisplayName>
-    <Description>Ler entidades de modelamento de negócios: Permite leituraonly access to BMEs in MetraCare for CSRs and in MetraView for Subscribers</Description>
+    <Description>Ler entidades de modelamento de negócios: Permite leitura apenas de acesso a BMEs no MetraCare para CSRs e no MetraView para assinantes</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Read Business Modeling Entities</DisplayName>
@@ -2688,7 +2688,7 @@
     </item>
     <item lang="pt-BR">
     <DisplayName>Lista de entidades de modelamento comercial</DisplayName>
-    <Description>Gravar entidades de modelamento de negócios: Permite que CSRs edit and instantiate BMEs in MetraCare and Subscribers to use BMEs in MetraView</Description>
+    <Description>Gravar entidades de modelamento de negócios: Permite que CSRs editem e instanciem BMEs no MetraCare e assinantes para usar BMEs no MetraView</Description>
     </item>
     <item lang="en-GB">
     <DisplayName>[en-GB] Write Business Modeling Entities</DisplayName>
@@ -2765,7 +2765,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Representação</DisplayName>
-      <Description>Personificação: Concede a capacidade de criar authentication tickets to allow the user to impersonate an MetraView user account</Description>
+      <Description>Personificação: Concede a capacidade de criar tíquetes de autenticação para permitir que o usuário personifique uma conta de usuário do MetraView</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Impersonation</DisplayName>
@@ -2810,7 +2810,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Bloquear conta</DisplayName>
-      <Description>Logon: Concede a capacidade de criar authentication tickets by supplying username and password credentials of another account</Description>
+      <Description>Logon: Concede a capacidade de criar tíquetes de autenticação fornecendo credenciais de nome de usuário e senha de outra conta</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] LogonAccount</DisplayName>
@@ -3006,7 +3006,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Gerenciar cobranças extraordinárias</DisplayName>
-      <Description>Gerenciar cobranças não padrão: Permite aprovação or deleting existing nonstandard charges (including the Apply NonStandardCharges capability).</Description>
+      <Description>Gerenciar cobranças não padrão: Permite aprovação ou exclusão de cobranças não padrão (incluindo o recurso Aplicar cobrança não padrão).</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Manage NonStandardCharges</DisplayName>
@@ -3051,7 +3051,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Gerenciar DataExportFramework</DisplayName>
-      <Description>Gerenciar estrutura de exportação de dados: Permite gerenciamento report definition/instance/schedule through UI</Description>
+      <Description>Gerenciar estrutura de exportação de dados: Permite gerenciamento de definição/instância/agenda de relatório através da UI</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Manage DataExportFramework</DisplayName>
@@ -3816,7 +3816,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Gerenciar processamento de uso</DisplayName>
-      <Description>Gerenciar processamento de atualização: Permite que os usuparios vejam the "Manage Usage Processing" related pages in MetraControl.</Description>
+      <Description>Gerenciar processamento de atualização: Permite que os usuários vejam as páginas relacionadas a "Gerenciar processamento de utilização" no MetraControl.</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Manage Usage Processing</DisplayName>
@@ -3861,7 +3861,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Gerenciar intervalos</DisplayName>
-      <Description>Gerenciar intervalos: Permite que o usuário MetraNet materialize the bill groups on an interval or close the interval to new accounts</Description>
+      <Description>Gerenciar intervalos: Permite que o usuário do MetraNet materialize os grupos de cobrança em um intervalo ou feche o intervalo para novas contas</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Manage Intervals</DisplayName>
@@ -3906,7 +3906,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Gerenciar mensagens de fatura</DisplayName>
-      <Description>Gerenciar mensagem de cobrança: Permite gerenciamento/atribuição Bill Message through UI</Description>
+      <Description>Gerenciar mensagem de cobrança: Permite gerenciamento/atribuição de mensagem de cobrança através da UI</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Manage Bill Message</DisplayName>
@@ -3951,7 +3951,7 @@
       </item>
       <item lang="pt-BR">
       <DisplayName>Gerenciar relatórios de usuário do sistema</DisplayName>
-      <Description>Gerenciar relatórios do usuário do sistema: Permitir managing/Assigning User Reports through UI</Description>
+      <Description>Gerenciar relatórios do usuário do sistema: Permite gerenciamento/atribuição de relatórios de usuário através da UI</Description>
       </item>
       <item lang="en-GB">
       <DisplayName>[en-GB] Manage System User Reports</DisplayName>

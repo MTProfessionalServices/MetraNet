@@ -6,7 +6,7 @@ BEGIN
   IF @@ROWCOUNT = 0 RETURN;
 
   DECLARE @currentDate DATETIME;
-  SELECT @currentDate = h.tt_start
+  SELECT @currentDate = MAX(h.tt_start)
   FROM   INSERTED i
          JOIN t_payment_redir_history h
               ON  h.id_payee = i.id_payee

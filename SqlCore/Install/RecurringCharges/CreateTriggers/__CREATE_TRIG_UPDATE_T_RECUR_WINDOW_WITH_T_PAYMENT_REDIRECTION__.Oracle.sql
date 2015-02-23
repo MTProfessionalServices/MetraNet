@@ -86,13 +86,12 @@ CREATE OR REPLACE TRIGGER trig_recur_window_pay_redir
                     AND new.vt_start <= old.vt_start AND old.vt_end <= new.vt_end; /* Old range inside new one */
         END IF;
 
-        SELECT h.tt_start INTO currentDate
+        SELECT MAX(h.tt_start) INTO currentDate
         FROM   TMP_REDIR_INSETED i
                JOIN t_payment_redir_history h
                     ON  h.id_payee = i.id_payee
                     AND h.id_payer = i.id_payer
-                    AND h.tt_end = dbo.MTMaxDate()
-        WHERE ROWNUM <=1;
+                    AND h.tt_end = dbo.MTMaxDate();
 
         /* Clean-up temp tables. */
         DELETE FROM TMP_REDIR_DELETED;

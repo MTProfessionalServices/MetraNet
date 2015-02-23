@@ -232,6 +232,9 @@ SELECT
                )
 )A;
 
+/* Clean-up extra charges. May be caused by payer ranges overlap. */
+DELETE FROM #TMP_RC WHERE c_RCIntervalSubscriptionEnd < c_RCIntervalSubscriptionStart;
+
 SELECT @total_rcs  = COUNT(1) FROM #tmp_rc;
 
 INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'RC Candidate Count: ' + CAST(@total_rcs AS VARCHAR));

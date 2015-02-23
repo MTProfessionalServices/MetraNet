@@ -142,7 +142,7 @@
         <value>Description</value>
     </data>
     <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
-        <value>[FR]Destination</value>
+        <value>Destination</value>
     </data>
     <data name="TEXT_DEF_EXECUTION_TYPE" xml:space="preserve">
         <value>Type d’exécution</value>

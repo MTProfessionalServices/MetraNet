@@ -164,15 +164,15 @@
     <description></description>
   </text>
   <text id="TEXT_CANCEL">
-    <value>Cancel</value>
+    <value>Cancelar</value>
     <description></description>
   </text>
   <text id="TEXT_FINISH">
-    <value>Finish</value>
+    <value>Acabamento</value>
     <description></description>
   </text>
   <text id="TEXT_BACK">
-    <value>&lt; Back</value>
+    <value>&lt; De volta</value>
     <description></description>
   </text>
   <text id="TEXT_NEXT">
@@ -180,19 +180,19 @@
     <description></description>
   </text>
   <text id="TEXT_VALUE_TYPE">
-    <value>Value type</value>
+    <value>Tipo de valor</value>
     <description></description>
   </text>
   <text id="TEXT_Should_this_item_be_charged_in">
-    <value>Should this item be charged in advance or arrears?</value>
+    <value>Caso este item cobrado antecipadamente ou mora?</value>
     <description></description>
   </text>
   <text id="TEXT_Should_this_item_be_prorated">
-    <value>Should this item be prorated?</value>
+    <value>Caso este item ser rateado?</value>
     <description></description>
   </text>
   <text id="TEXT_INTEGER">
-    <value>Integer</value>
+    <value>Inteiro</value>
     <description></description>
   </text>
   <text id="TEXT_DECIMAL">
@@ -200,11 +200,11 @@
     <description></description>
   </text>
   <text id="TEXT_PRORATE_BASED_ON">
-    <value>Prorate based on</value>
+    <value>Ratear com base em</value>
     <description></description>
   </text>
   <text id="TEXT_number_of_days">
-    <value>number of days.</value>
+    <value>número de dias.</value>
     <description></description>
   </text>
 </texts>

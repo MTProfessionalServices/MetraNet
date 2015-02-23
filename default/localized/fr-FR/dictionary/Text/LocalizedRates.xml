@@ -146,15 +146,15 @@
     <description></description>
   </text>
   <text id="TEXT_QUANTITY">
-    <value>Quantity</value>
+    <value>Quantité</value>
     <description></description>
   </text>
   <text id="TEXT_SUBSCRIPTION_ID">
-    <value>Subscription ID</value>
+    <value>Abonnement ID</value>
     <description></description>
   </text>
   <text id="TEXT_RATE_SUBSCRIPTION">
-    <value>Subscribers Currently Using Rate Schedule</value>
+    <value>Les abonnés utilisant Actuellement annexe Taux</value>
     <description></description>
   </text>  
 </texts>

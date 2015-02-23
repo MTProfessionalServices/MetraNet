@@ -90,23 +90,23 @@
     <description></description>
   </text>
   <text id="TEXT_FORCED">
-    <value>Forced</value>
+    <value>Forcé</value>
     <description></description>
   </text>
   <text id="TEXT_HISTORY_FOR">
-    <value>Adapter Run History For</value>
+    <value>Adaptateur Run Historique de</value>
     <description></description>
   </text>
   <text id="TEXT_HISTORY_FOR_INTERVAL">
-    <value>Adapter Run History For Interval</value>
+    <value>Adaptateur Run Historique de Interval</value>
     <description></description>
   </text>
   <text id="TEXT_HISTORY_FOR_BG">
-    <value>Adapter Run History For Bill Group</value>
+    <value>Adaptateur Run Historique de Bill Group</value>
     <description></description>
   </text>
   <text id="TEXT_ADAPTER_INSTANCE_INFO">
-    <value>Adapter Instance Information</value>
+    <value>Adaptateur instance information</value>
     <description></description>
   </text>  
 </texts>

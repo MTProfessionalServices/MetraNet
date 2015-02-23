@@ -121,12 +121,12 @@
     <value>Comentário</value>
   </text>
   <text id="TEXT_Mark_As_Hard_Closed">
-    <value>Mark As Hard Closed</value>
+    <value>Mark tão duro Closed</value>
   </text>
   <text id="TEXT_Manually_Assign_Accounts">
-    <value>Manually Assign Accounts</value>
+    <value>Contas manualmente Atribuir</value>
   </text>
   <text id="TEXT_CLOSE">
-    <value>Close</value>
+    <value>Perto</value>
   </text>
 </texts>

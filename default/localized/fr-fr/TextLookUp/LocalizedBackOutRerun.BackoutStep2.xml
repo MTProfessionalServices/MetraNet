@@ -45,15 +45,6 @@
   <text id="TEXT_Summary_Of_Database_Transactions_Being_Backed_Out">
     <value>Résumé des transactions de la base de données en cours d'annulation</value>
   </text>
-  <text id="TEXT_Next_Step_Resubmit_These_Records">
-    <value>Next Step: Resubmit These Records</value>
-  </text>
-  <text id="TEXT_Abandon_This_Backout_And_Start_Over">
-    <value>Abandon This Backout And Start Over</value>
-  </text>
-  <text id="TEXT_Next_Step_Delete_These_Records">
-    <value>Next Step: Delete These Records</value>
-  </text>
   <text id="TEXT_Reanalyze">
     <value>Réanalyser</value>
   </text>

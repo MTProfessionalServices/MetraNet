@@ -48,26 +48,26 @@
     <description></description>
   </text>
   <text id="TEXT_GO">
-    <value>Go</value>
+    <value>Aller</value>
   </text>
   <text id="TEXT_ADAPTER_NAME">
-    <value>Adapter Name</value>
+    <value>Nom de la carte</value>
     <description></description>
   </text>
   <text id="TEXT_RUN_ID">
-    <value>Run Id</value>
+    <value>Exécuter Id</value>
     <description></description>
   </text>
   <text id="TEXT_ADAPTER_RUN_DETAILS">
-    <value>Adapter Run Details</value>
+    <value>Adaptateur Run Détails</value>
     <description></description>
   </text>
   <text id="TEXT_DETAIL_TYPE">
-    <value>Detail Type</value>
+    <value>Type de Détail</value>
     <description></description>
   </text>
   <text id="TEXT_DETAIL">
-    <value>Detail</value>
+    <value>Détail</value>
     <description></description>
   </text>
   <text id="TEXT_TIMESTAMP">
@@ -75,7 +75,7 @@
     <description></description>
   </text>
   <text id="TEXT_SUMMARY_DETAILS">
-    <value>Summary Details</value>
+    <value>Résumé Détails</value>
     <description></description>
   </text>
 </texts>

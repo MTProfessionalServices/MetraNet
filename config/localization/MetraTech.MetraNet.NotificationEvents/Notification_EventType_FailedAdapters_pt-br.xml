@@ -4,11 +4,11 @@
      <locale_space name="Notification_EventType_FailedAdapters">
         <locale_entry>
             <Name>Notification_EventType_FailedAdapters/EventType/Failed Adapters</Name>
-            <Value>Failed Adapters</Value>
+            <Value>Adaptadores falhados</Value>
         </locale_entry>
         <locale_entry>
             <Name>Notification_EventType_FailedAdapters/Template/Failed Adapters</Name>
-            <Value>Adapter {AdapterName}, instance id {InstanceID} for run {RunID} has failed with the error {ErrorDetail}.</Value>
+            <Value>Adapter {AdapterName}, instance id {InstanceID} para run {RunID} falhou com o erro {ErrorDetail}.</Value>
         </locale_entry>
      </locale_space>
 </mt_config>

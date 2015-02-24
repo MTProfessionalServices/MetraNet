@@ -116,15 +116,15 @@
     <description></description>
   </text>
   <text id="TEXT_OPERATION">
-    <value>Operation</value>
+    <value>Operação</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_MAKE">
-    <value>You may make bulk pre-bill adjustments when the status is Open.  Or make post-bill adjustments when the status is Hard Closed.</value>
+    <value>Você pode fazer ajustes de pré-projeto de lei em massa quando o estado é Open. Ou fazer ajustes pós-conta quando o estado é duro Fechado.</value>
     <description></description>
   </text>
   <text id="TEXT_YOU_MAY_ONLY">
-    <value>You may only bulk reassign transactions when the status is Hard Closed.</value>
+    <value>Você só pode voltar a atribuir maior transações quando o estado é duro Fechado.</value>
     <description></description>
   </text>
   <text id="TEXT_Reassign_Selected_Transactions">

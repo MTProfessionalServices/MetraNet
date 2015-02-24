@@ -165,7 +165,7 @@
     <description>Payer</description>
   </text>
   <text id="TEXT_PAYING_ACCOUNT">
-    <value>Paying Account</value>
+    <value>Pagar Conta</value>
     <description>Paying Account</description>
   </text>
   <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
@@ -1609,7 +1609,7 @@
     <description></description>
   </text>
   <text id="TEXT_Requires_Manage_Account_Hierarchies">
-    <value>Requires Manage Account Hierarchies</value>
+    <value>Requer Gerencie Hierarquias Conta</value>
     <description></description>
   </text>
 </texts>

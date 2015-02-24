@@ -108,14 +108,20 @@ BEGIN
       pci.dt_end                                                AS c_RCIntervalEnd ,
       ui.dt_start                                               AS c_BillingIntervalStart ,
       ui.dt_end                                                 AS c_BillingIntervalEnd ,
-      dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart) AS c_RCIntervalSubscriptionStart ,
-      dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)     AS c_RCIntervalSubscriptionEnd ,
+      dbo.MTMaxOfThreeDates(rw.c_payerstart, pci.dt_start, rw.c_SubscriptionStart) AS c_RCIntervalSubscriptionStart ,
+      dbo.MTMinOfThreeDates(rw.c_payerend, pci.dt_end, rw.c_SubscriptionEnd)       AS c_RCIntervalSubscriptionEnd ,
       rw.c_SubscriptionStart                                    AS c_SubscriptionStart ,
       rw.c_SubscriptionEnd                                      AS c_SubscriptionEnd ,
       case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance,
-      case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription,
-      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly ,
-      case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription,
+      case when rcr.b_prorate_on_activate ='Y'
+                OR (rw.c_payerstart BETWEEN ui.dt_start AND ui.dt_end AND rw.c_payerstart > rw.c_SubscriptionStart)
+            then '1'
+            else '0' end                                                           AS c_ProrateOnSubscription,
+      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end                AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
+      case when rcr.b_prorate_on_deactivate ='Y'
+                 OR (rw.c_payerend BETWEEN ui.dt_start AND ui.dt_end AND rw.c_payerend < rw.c_SubscriptionEnd)
+            then '1'
+            else '0' end                                                           AS c_ProrateOnUnsubscription,
       CASE
         WHEN rcr.b_fixed_proration_length = 'Y'
         THEN fxd.n_proration_length
@@ -167,9 +173,14 @@ BEGIN
     INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
 		AND pci.dt_end BETWEEN ui.dt_start AND ui.dt_end
       /* rc end falls in this interval */
-		AND pci.dt_end BETWEEN rw.c_payerstart AND rw.c_payerend
-      /* rc end goes to this payer */
-	    AND rw.c_unitvaluestart < pci.dt_end AND rw.c_unitvalueend   > pci.dt_start
+		AND (
+      pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend	/* rc start goes to this payer */
+      OR ( /* rc end or overlaps this payer */
+          pci.dt_end >= rw.c_payerstart
+          AND pci.dt_start < rw.c_payerend
+        )
+    )
+	  AND rw.c_unitvaluestart < pci.dt_end AND rw.c_unitvalueend   > pci.dt_start
       /* rc overlaps with this UDRC */
 		AND rw.c_membershipstart < pci.dt_end AND rw.c_membershipend   > pci.dt_start
       /* rc overlaps with this membership */
@@ -192,30 +203,35 @@ BEGIN
       Do not charge them here, in EOP. */
     AND NOT (rw.c_SubscriptionStart >= ui.dt_start AND rw.c_SubscriptionEnd <= ui.dt_end)
     UNION ALL
-    SELECT sys_guid()										AS idSourceSess,
+    SELECT sys_guid()									AS idSourceSess,
       'Advance'												AS c_RCActionType ,
-      pci.dt_start											AS c_RCIntervalStart,		/* Start date of Next RC Interval - the one we'll pay for In Advance in current interval */
-      pci.dt_end											AS c_RCIntervalEnd,			/* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
-      ui.dt_start											AS c_BillingIntervalStart,	/* Start date of Current Billing Interval */
-      ui.dt_end												AS c_BillingIntervalEnd,	/* End date of Current Billing Interval */
+      pci.dt_start										AS c_RCIntervalStart,		   /* Start date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      pci.dt_end											AS c_RCIntervalEnd,			   /* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      ui.dt_start											AS c_BillingIntervalStart, /* Start date of Current Billing Interval */
+      ui.dt_end												AS c_BillingIntervalEnd,	 /* End date of Current Billing Interval */
       CASE
-        WHEN rcr.tx_cycle_mode <> 'Fixed'
-        AND nui.dt_start       <> c_cycleEffectiveDate
-        THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
-        ELSE dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart)
-      END													AS c_RCIntervalSubscriptionStart ,
-      dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)	AS c_RCIntervalSubscriptionEnd ,
+        WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start       <> c_cycleEffectiveDate
+        THEN dbo.MTMaxOfThreeDates(rw.c_payerstart, dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
+        ELSE dbo.MTMaxOfThreeDates(rw.c_payerstart, pci.dt_start, rw.c_SubscriptionStart)
+      END													                                           AS c_RCIntervalSubscriptionStart,
+      dbo.MTMinOfThreeDates(rw.c_payerend, pci.dt_end, rw.c_SubscriptionEnd) AS c_RCIntervalSubscriptionEnd,
       rw.c_SubscriptionStart								AS c_SubscriptionStart ,
       rw.c_SubscriptionEnd									AS c_SubscriptionEnd ,
-      case when rw.c_advance  ='Y' then '1' else '0' end				AS c_Advance,
-      case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end	AS c_ProrateOnSubscription,
-      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end		AS c_ProrateInstantly ,
-      case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end	AS c_ProrateOnUnsubscription,
+      case when rw.c_advance  ='Y' then '1' else '0' end                     AS c_Advance,
+      case when rcr.b_prorate_on_activate ='Y'
+                OR rw.c_payerstart BETWEEN nui.dt_start AND nui.dt_end
+            then '1'
+            else '0' end                                                     AS c_ProrateOnSubscription,
+      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
+      case when rcr.b_prorate_on_deactivate ='Y'
+                 OR rw.c_payerend BETWEEN nui.dt_start AND nui.dt_end
+            then '1'
+            else '0' end                                                     AS c_ProrateOnUnsubscription,
       CASE
         WHEN rcr.b_fixed_proration_length = 'Y'
         THEN fxd.n_proration_length
         ELSE 0
-      END													AS c_ProrationCycleLength ,
+      END                                                                    AS c_ProrationCycleLength,
       rw.c__accountid										AS c__AccountID ,
       rw.c__payingaccount									AS c__PayingAccount ,
       rw.c__priceableiteminstanceid							AS c__PriceableItemInstanceID ,
@@ -285,9 +301,8 @@ BEGIN
 								1. Not only RC's that starts in this payer's cycle should be charged, but also the one, that ends and overlaps it;
 								2. Proration wasn't calculated by trigger and should be done by EOP. */
 								OR (
-									  rw.c_SubscriptionStart >= rw.c_payerstart
-									  AND pci.dt_end >= rw.c_payerstart
-									  AND pci.dt_start < rw.c_payerend
+                    pci.dt_end >= rw.c_payerstart
+                    AND pci.dt_start < rw.c_payerend
 									)
 							)
 							AND rw.c_unitvaluestart		< pci.dt_end AND rw.c_unitvalueend	> pci.dt_start /* rc overlaps with this UDRC */

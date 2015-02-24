@@ -121,27 +121,27 @@
     <value>Tableau de bord financier</value>
   </data>
   <data name="pnlBillingResource1.Text" xml:space="preserve">
-    <value>{FR}Billings</value>
+    <value>Billings</value>
   </data>
   <data name="pnlMRRResource1.Text" xml:space="preserve">
-    <value>{FR}MRR</value>
+    <value>MRR</value>
   </data>
   <data name="pnlNewCustomersResource1.Text" xml:space="preserve">
-    <value>{FR}New Customers</value>
+    <value>Nouveaux clients</value>
   </data>
   <data name="SELECT_CURRENCY" xml:space="preserve">
-    <value>{FR}Select Currency</value>
+    <value>Sélectionnez la devise</value>
   </data>
   <data name="TEXT_NO_DATA_AVAILABLE" xml:space="preserve">
-    <value>{FR}No data found</value>
+    <value>Aucune donnée trouvée</value>
   </data>
   <data name="TEXT_BILLINGS_TOOLTIP" xml:space="preserve">
-    <value>{FR}Amount</value>
+    <value>Montant</value>
   </data>
   <data name="TEXT_MRR_TOOLTIP" xml:space="preserve">
-    <value>{FR}MRR</value>
+    <value>MRR</value>
   </data>
   <data name="TEXT_NEW_CUSTOMERS_TOOLTIP" xml:space="preserve">
-    <value>{FR}New Customers</value>
+    <value>Nouveaux clients</value>
   </data>
 </root>

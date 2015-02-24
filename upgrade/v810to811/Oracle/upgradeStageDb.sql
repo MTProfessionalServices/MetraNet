@@ -1,2 +1,0 @@
-/* Stage Db does not have modifications.
-Leaving this template just in case */

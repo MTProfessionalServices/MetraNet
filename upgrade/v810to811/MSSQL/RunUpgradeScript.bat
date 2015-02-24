@@ -1,6 +1,5 @@
 @echo OFF
-::SET SQL_CMD="c:\Program Files\Microsoft SQL Server\110\Tools\Binn\\sqlcmd"
-SET SQL_CMD=sqlcmd.exe
+SET SQL_CMD="c:\Program Files\Microsoft SQL Server\110\Tools\Binn\sqlcmd.exe"
 
 SET WorkDir=%~dp0
 
@@ -26,26 +25,32 @@ SET StageDBName=%5%
 IF "none%StageDBName%"=="none" SET /P StageDBName="Enter Stage Database name [ by default "NetMeter_Stage" ]: "
 IF "none%StageDBName%"=="none" SET StageDBName=NetMeter_Stage
 
+REM use own exitcode variable, because %errorlevel% doesn't work properly
+set exitcode=0 
+
 echo.
 echo Process scripts in current folder...
-echo Run NetMeter upgrade scripts (*.NetMeter.sql).
 FOR /R %%F IN (*.NetMeter.sql) DO (
   @echo   Executes script '%%~nxF'
-  %SQL_CMD% -S %MSSQLServer% -U %UserName% -P %Password% -d %DBName% -i "%%F" -o "%%~pFLOG-%%~nF.log"
-  
+  %SQL_CMD% -b -S %MSSQLServer% -U %UserName% -P %Password% -d %DBName% -i "%%F" -o "%%~pFLOG-%%~nF.log"
+  if ERRORLEVEL 1 goto error
 )
 
-echo.
-echo Run NetMeter_Stage upgrade scripts (*.NetMeterStage.sql).
 FOR /R %%F IN (*.NetMeterStage.sql) DO (
   @echo   Executes script '%%~nxF'
-  %SQL_CMD% -S %MSSQLServer% -U %UserName% -P %Password% -d %DBName% -i "%%F" -o "%%~pFLOG-%%~nF.log"
+  %SQL_CMD% -S %MSSQLServer% -U %UserName% -P %Password% -d %DBName% -i "%%F" -o "%%~pFLOG-%%~nF.log" -b
+  if ERRORLEVEL 1 goto error
 )
-popd
-
-popd
-
 echo.
-echo The upgrade operation has beeb completed.
+echo The upgrade operation has been completed.
+@goto done
+
+:error
+echo.
+echo The upgrade operation has FAILED.
 echo To verify upgrade execution see '%WorkDir%LOG-*.log' files!
-pause
+SET exitcode=1 
+
+:done
+popd
+@exit /b %exitcode%

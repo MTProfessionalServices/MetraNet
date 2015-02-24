@@ -1324,7 +1324,7 @@
     <value>Notifications récentes</value>
   </data>
   <data name="TEXT_NO_RECENT_NOTIFICATIONS" xml:space="preserve">
-    <value>Non notifications récentes</value>
+    <value>Aucune notification récente.</value>
   </data> 
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>Modifier le mot de passe</value>
@@ -1339,49 +1339,49 @@
     <value>Plus...</value>
   </data>
   <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
-    <value>Edit Report Definition</value>
+    <value>Modifier la définition de rapport</value>
   </data>
   <data name="TEXT_Manage_Report_Instances" xml:space="preserve">
-    <value>Manage Report Instances</value>
+    <value>Gérer les instances de rapport</value>
   </data>
   <data name="TEXT_Manage_Report_Parameters" xml:space="preserve">
-    <value>Manage Report Parameters</value>
+    <value>Gérer les paramètres du rapport</value>
   </data>
   <data name="TEXT_Delete_Report" xml:space="preserve">
-    <value>Delete Report</value>
+    <value>Supprimer le rapport</value>
   </data>
   <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
-    <value>Edit Report Instance</value>
+    <value>Modifier l'instance de rapport</value>
   </data>
   <data name="TEXT_Manage_Report_Instance_Schedule" xml:space="preserve">
-    <value>Manage Report Instance Schedule</value>
+    <value>Gérer le calendrier des instances de rapport</value>
   </data>
   <data name="TEXT_Manage_Report__InstanceParameters" xml:space="preserve">
-    <value>Edit Instance Parameter Values</value>
+    <value>Modifier les valeurs de paramètre d'instance</value>
   </data>
   <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
-    <value>Delete Report Instance</value>
+    <value>Supprimer l'instance de rapport</value>
   </data>
   <data name="TEXT_Delete_Queue_AdHoc_Reports" xml:space="preserve">
-    <value>Queue AdHoc Reports</value>
+    <value>Mettre les rapports ad hoc dans la file d'attente</value>
   </data>
   <data name="TEXT_Update_Report_Instance_Schedule" xml:space="preserve">
-    <value>Update Report Instance Schedule</value>
+    <value>Mettre à jour le calendrier des instances de rapport</value>
   </data>
   <data name="TEXT_Delete_Report_Instance_Schedule" xml:space="preserve">
-    <value>Delete Report Instance Schedule</value>
+    <value>Supprimer le calendrier des instances de rapport</value>
   </data>
   <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
-    <value>Delete Report Parameter</value>
+    <value>Supprimer le paramètre du rapport</value>
   </data>
   <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
-    <value>No parameter was selected. Please select at least one parameter for assignment</value>
+    <value>Aucun paramètre sélectionné. Veuillez sélectionner au moins un paramètre pour l'affectation</value>
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
-    <value>View Log</value>
+    <value>Afficher le journal</value>
   </data>
   <data name="TEXT_VIEW_ALL" xml:space="preserve">
-    <value>View All...</value>
+    <value>Afficher tout...</value>
   </data>
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Jour</value>
@@ -1402,6 +1402,12 @@
     <value>Troisième</value>
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
-    <value>Pending Changes Waiting For Approval</value>
+    <value>Modifications en attente d'approbation</value>
+  </data>
+  <data name="TEXT_LOADING_MENU" xml:space="preserve">
+    <value>Loading menu ...</value>
+  </data>
+  <data name="TEXT_AUDIT_LOG" xml:space="preserve">
+    <value>Journal d`audit</value>
   </data>
 </root>

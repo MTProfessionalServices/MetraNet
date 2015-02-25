@@ -1117,6 +1117,26 @@
                         </entry>
                     </entries>
                 </enum>
+                <enum name="LocalizedItemsType ">
+                    <description>Enum to set item types for MetraTech.Localization module</description>
+                    <entries>
+                        <entry name="None">
+                            <value>0</value>
+                        </entry>
+                        <entry name="RecurringAdapters">
+                            <value>1</value>
+                        </entry>
+                        <entry name="CompositeCapability ">
+                            <value>2</value>
+                        </entry>
+                        <entry name="AtomicCapability ">
+                            <value>3</value>
+                        </entry>
+                        <entry name="Role ">
+                            <value>4</value>
+                        </entry>
+                    </entries>
+                </enum>
             </enums>
         </enum_space>
     </enum_spaces>

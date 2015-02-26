@@ -1,7 +1,7 @@
 SELECT * 
 FROM ( 
   SELECT 
-    ROW_NUMBER() OVER (ORDER BY SUM(NVL(ss.TotalParticipants, 0.0))-SUM(NVL(prev.TotalParticipants, 0.0)) ASC) AS OrderNum, 
+    ROW_NUMBER() OVER (ORDER BY SUM(NVL(ss.TotalParticipants, 0.0))-SUM(NVL(prev.TotalParticipants, 0.0)) DESC) AS OrderNum, 
     po.ProductOfferingId AS ProductCode,
     NVL(props.nm_display_name, po.ProductOfferingName) AS productname,
     ss.Month,

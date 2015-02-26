@@ -10,66 +10,15 @@ DECLARE @lastEOPAdapterName VARCHAR(50)
 DECLARE @lastEOPAdapterDuration INT
 DECLARE @lastEOPAdapterStatus VARCHAR(25)
 DECLARE @start_time DATETIME
-DECLARE @Variance FLOAT
 DECLARE @ETAoffset INT
 DECLARE @ETAoffsetHours FLOAT
 DECLARE @EarliestETA DATETIME
-DECLARE @EOP_Interval_run_time FLOAT
-DECLARE @Past_three_month_average FLOAT
 
 SET @EOP_Interval = %%ID_USAGE_INTERVAL%% --change to your interval variable
 SET @EOP_End_Date = (
 SELECT dt_end AS dt_end from t_usage_interval
 where id_interval = @EOP_Interval
 )
-
-IF EXISTS (SELECT * FROM information_schema.tables WHERE Table_Name = 'NM_Dashboard__Interval_Data' AND Table_Type = 'BASE TABLE')
-BEGIN
-DROP TABLE NM_Dashboard__Interval_Data
-END
-
-SELECT rei.id_arg_interval, re.tx_display_name, rer.dt_start as dt_start, datediff(second, DATEADD(ms, 500 - DATEPART(ms, rer.dt_start + '00:00:00.500'),rer.dt_start), DATEADD(ms, 500 - DATEPART(ms, rer.dt_end + '00:00:00.500'),rer.dt_end)) as [duration], 0 as three_month_avg
-into  NM_Dashboard__Interval_Data
-  FROM [dbo].[t_recevent_inst] rei
-  join t_recevent re on re.id_event = rei.id_event
-  left join t_recevent_run rer on rer.id_instance = rei.id_instance
-  --right join t_recevent_inst_audit rea on rea.id_instance = rei.id_instance
-Where id_arg_interval in (
-select @EOP_Interval as id_interval
-union
-select ui.id_interval
-from t_usage_interval ui
-where ui.tx_interval_status = 'H'
-and ui.dt_end > dateadd(month, -3, getdate())
-and ui.id_usage_cycle = (select id_usage_cycle from t_usage_interval where id_interval =  @EOP_Interval))
-and rer.tx_type = 'Execute'
-and rer.dt_start = (select max(dt_start) from t_recevent_run where id_instance = rer.id_instance)
-and tx_detail not like 'Manually changed status%'
-group by rei.id_arg_interval, tx_display_name,  rer.dt_start, rer.dt_end
-order by   rer.dt_start
-
-update ca
-set ca.three_month_avg = field2Sum
-from NM_Dashboard__Interval_Data ca
-Inner Join (select tx_display_name, avg(duration) as field2Sum
-   from NM_Dashboard__Interval_Data sft
-   where id_arg_interval <> @EOP_Interval
-  group by tx_display_name) as sft
-on ca.tx_display_name = sft.tx_display_name;
-
-
---get sum of all run times for successful adapters that have run so far for current EOP Interval (in seconds)
-SET @EOP_Interval_run_time = (select SUM(duration)
-from NM_Dashboard__Interval_Data
-where id_arg_interval = @EOP_Interval);
-
--- get the three month average total run time (in seconds) for all EOP adapters in past hard closed intervals that match the bill cycle of the current EOP Interval
-SET @Past_three_month_average = (select SUM(three_month_avg)
-from NM_Dashboard__Interval_Data
-where id_arg_interval = @EOP_Interval);
-
--- compute Variance based on @EOP_Interval_run_time compared to @Past_three_month_average
-set @Variance = case when @Past_three_month_average != 0.0 then ROUND(((@EOP_Interval_run_time - @Past_three_month_average) * 100.0/ @Past_three_month_average),2) else 0.0 end;
 
 -- get the three month average total run time (in seconds) of all adapters that have not yet successfully run for the current EOP adapter
 SET @ETAoffset = (SELECT case when count(distinct rei.id_arg_interval) != 0 then sum(datediff(second, DATEADD(ms, 500 - DATEPART(ms, rer.dt_start + '00:00:00.500'),rer.dt_start), DATEADD(ms, 500 - DATEPART(ms, rer.dt_end + '00:00:00.500'),rer.dt_end) )) / (count(distinct rei.id_arg_interval) + 0.0) else 0 end
@@ -212,7 +161,6 @@ select
 ,@lastEOPAdapterName as last_eop_adapter_name
 ,@lastEOPAdapterDuration as last_eop_adapter_duration
 ,@lastEOPAdapterStatus as last_eop_adapter_status
-,@Variance as Variance
 ,@EarliestETA as earliest_eta
 ,@ETAoffsetHours as eta_offset;
 

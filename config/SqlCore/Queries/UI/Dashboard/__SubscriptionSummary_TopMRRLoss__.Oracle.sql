@@ -1,7 +1,7 @@
 SELECT * 
 FROM ( 
   SELECT 
-    ROW_NUMBER() OVER (ORDER BY SUM(NVL(ss.MRRPrimaryCurrency, 0.0))-SUM(NVL(prev.MRRPrimaryCurrency, 0.0)) ASC) AS ordernum, 
+    ROW_NUMBER() OVER (ORDER BY SUM(NVL(ss.MRRPrimaryCurrency, 0.0))-SUM(NVL(prev.MRRPrimaryCurrency, 0.0)) DESC) AS ordernum, 
 	NVL(props.nm_display_name, po.ProductOfferingName) AS productname,
 	po.ProductOfferingId as productcode,
 	ss.Month, 

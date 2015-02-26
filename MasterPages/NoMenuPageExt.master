@@ -19,6 +19,7 @@
   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/JavaScript/ExtHacks.js?v=6.5"></script>
+  <script type="text/javascript" src ="/Res/ux/jpath/jpath.js"></script>
 
   <script type="text/javascript" src="/Res/JavaScript/Common.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/JavaScript/PageNav.js?v=6.5"></script>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -117,34 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArgEndDate_HeaderText" xml:space="preserve">
-    <value>ArgEndDate</value>
-  </data>
-  <data name="ArgStartDate_HeaderText" xml:space="preserve">
-    <value>ArgStartDate</value>
-  </data>
   <data name="EventDisplayName_HeaderText" xml:space="preserve">
-    <value>Event Display Name</value>
+    <value>Nom d`affichage de l`événement</value>
   </data>
   <data name="InstanceId_HeaderText" xml:space="preserve">
-    <value>Instance Id</value>
+    <value>ID d`instance</value>
   </data>
   <data name="LastRunMachine_HeaderText" xml:space="preserve">
-    <value>LastRunMachine</value>
+    <value>Dernière Marche de la machine</value>
   </data>
   <data name="LastRunStart_HeaderText" xml:space="preserve">
-    <value>LastRunStart</value>
+    <value>Last Run Démarrer</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Scheduled Adapter Run List</value>
+    <value>MetraNet - Liste d`exécution d`adaptateur planifié</value>
   </data>
   <data name="ScheduledAdapterRunListGrid.Title" xml:space="preserve">
-    <value>Scheduled Adapter Run List</value>
+    <value>Liste d`exécution d`adaptateur planifié</value>
   </data>
   <data name="ScheduledAdapterRunListMTTitle.Text" xml:space="preserve">
-    <value>Scheduled Adapter Run List</value>
+    <value>Liste d`exécution d`adaptateur planifié</value>
   </data>
   <data name="Status_HeaderText" xml:space="preserve">
-    <value>Status</value>
+    <value>État</value>
   </data>
 </root>

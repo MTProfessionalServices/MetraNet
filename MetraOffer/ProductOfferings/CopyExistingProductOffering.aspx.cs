@@ -120,7 +120,8 @@ namespace MetraNet.MetraOffer.ProductOfferings
         copyProductOffering.Save(); 
 
         //From here go to PO Details Screen so that user can be update the newly created Product Offering 
-        var targetUrl = "/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/ProductOffering.ViewEdit.Frame.asp|ID=" + copyProductOffering.ID;
+        var targetUrl = "/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/ProductOffering.ViewEdit.Frame.asp|ID=" 
+          + copyProductOffering.ID + "**Master=" + Convert.ToBoolean(Request["Master"]).ToString(); 
         Response.Redirect(targetUrl, false);
       }
       catch (Exception ex)
@@ -132,7 +133,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-      Response.Redirect("ProductOfferingsList.aspx", false);
+      Response.Redirect(String.Format("ProductOfferingsList.aspx?PreviousResultView=True&Master={0}", Convert.ToBoolean(Request["Master"])), false);
     }
   }
 }

@@ -309,6 +309,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
   {
     char[] delimiterChars = { ':' };
     string[] words = fieldName.Split(delimiterChars);
+    if (words.Length == 1) return;
     string name = words[0];
     string type = words[1];
     string nm_space = words[2];

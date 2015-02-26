@@ -308,7 +308,8 @@ namespace MetraNet.Quoting
       if (!string.IsNullOrEmpty(HiddenICBs.Value))
       {
         var icbStrArray = HiddenICBs.Value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
-        icbList.AddRange(icbStrArray.Select(icbStr => icbStr.EndsWith("}") ? icbStr : icbStr + "}").Select(icbStr1 => new JavaScriptSerializer().Deserialize<Icb>(icbStr1)));
+        icbList.AddRange(icbStrArray.Select(icbStr => icbStr.EndsWith("}") ? icbStr : icbStr + "}")
+          .Select(icbStr1 => ExtendedJavaScriptConverter<Icb>.GetSerializer().Deserialize<Icb>(icbStr1)));
       }
 
       var icbPrices = new List<IndividualPrice>();

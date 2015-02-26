@@ -93,13 +93,12 @@ CREATE OR REPLACE TRIGGER trig_recur_window_pay_redir
                     AND h.id_payer = i.id_payer
                     AND h.tt_end = dbo.MTMaxDate();
 
-        /* Clean-up temp tables. */
-        DELETE FROM TMP_REDIR_DELETED;
-        DELETE FROM TMP_REDIR_INSETED;
-
         SELECT COUNT(*) INTO r_cnt FROM TMP_REDIR;
         IF( r_cnt < 1 ) THEN
           RAISE_APPLICATION_ERROR (-20010,'Fail to retrieve payer change information. TMP_REDIR is empty.');
+        END IF;
+        IF( r_cnt > 1 ) THEN
+          RAISE_APPLICATION_ERROR (-20010,'TMP_REDIR has > 1 row. Complex payer change information is not supported for now.');
         END IF;
 
         DECLARE v_oldPayerCycleStart DATE;
@@ -190,7 +189,7 @@ CREATE OR REPLACE TRIGGER trig_recur_window_pay_redir
                       AND rw.c__PayingAccount = r.OldPayer;
 
           MeterPayerChangeFromRecWind(currentDate);
-          
+
           /* Update payer dates in t_recur_window */
 
           /* If ranges of Old and New payer are the same - just update Payer ID */
@@ -259,7 +258,7 @@ CREATE OR REPLACE TRIGGER trig_recur_window_pay_redir
                    c_MembershipEnd,
                    NULL
             FROM   TMP_NEW_RW_PAYER;
-    
+
           /* If Old payer range inside New payer range:
              1. Delete Old Payer range from recur window;
              2. Update New Payer Dates. */
@@ -285,7 +284,7 @@ CREATE OR REPLACE TRIGGER trig_recur_window_pay_redir
           ELSE
             RAISE_APPLICATION_ERROR (-20010,'Unable to determine is new payer range inside old payer, vice-versa or they are the same.');
           END IF;
-          
+
           /* TODO: Do we need this UPDATE? */
           UPDATE t_recur_window w1
           SET    c_CycleEffectiveEnd = (
@@ -310,6 +309,17 @@ CREATE OR REPLACE TRIGGER trig_recur_window_pay_redir
                             AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
                  );
         END;
+
+        /* Clean-up temp tables. */
+        /* Using "ON COMMIT preserve ROWS" instead of "ON COMMIT delete ROWS" option
+           to decrease possibility of "ORA-14450: attempt to access a transactional temp table already in use" */
+        DELETE FROM TMP_REDIR_DELETED;
+        DELETE FROM TMP_REDIR_INSETED;
+        DELETE FROM TMP_REDIR;
+        DELETE FROM TMP_NEW_PAYER_RANGE;
+        DELETE FROM TMP_OLDRW;
+        DELETE FROM TMP_NEW_RW_PAYER;
+
       END IF;
     END IF;
   END AFTER STATEMENT;

@@ -478,7 +478,7 @@
     <value>Historique des audits pour le numéro de dossier de transaction échoué</value>
   </data>
   <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
-    <value>Actualisation automatique toutes les 10 secondes lorsque cette option est cochée.</value>
+    <value>Actualisation automatique toutes les 25 secondes lorsque cette option est cochée.</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Précédent</value>
@@ -1406,5 +1406,17 @@
   </data>
   <data name="TEXT_AUDIT_LOG" xml:space="preserve">
     <value>Journal d`audit</value>
+  </data>
+  <data name="TEXT_SELECTED_ITEMS_FT" xml:space="preserve">
+    <value>[fr] Selected {0} items.</value>
+  </data>
+  <data name="TEXT_VALIDATION_FT_NO_SELECTED_ITEMS" xml:space="preserve">
+    <value>[fr] There are no records in the grid.</value>
+  </data>
+  <data name="TITLE_OPERATION_FAILED" xml:space="preserve">
+    <value>[fr] Operation failed</value>
+  </data>
+  <data name="TITLE_POPUP_VALIDATION_FT" xml:space="preserve">
+    <value>[fr] Validation info</value>
   </data>
 </root>

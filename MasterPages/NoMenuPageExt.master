@@ -27,7 +27,7 @@
   <script type="text/javascript" src="/Res/ux/form/MiscField.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
-
+   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
   <uc4:LocalizedIncludes ID="LocalizedIncludes1" runat="server" />
   		
   <%=Constants.CJ_PROTECTION_CODE %>  		

@@ -24,8 +24,10 @@
           	tx_Batch_Encoded nvarchar2 (30),
             b_compound char (1) NOT NULL,
             tx_errorcodemessage nvarchar2 (255) NOT NULL,
-			id_sch_ss number(10) null,
-			dt_StateLastModifiedTime date NOT NULL,
+            id_sch_ss number(10) null,
+            dt_StateLastModifiedTime date NOT NULL,
+            dt_Start_Resubmit TIMESTAMP,
+            resubmit_Guid VARCHAR2(36),
             CONSTRAINT PK_t_failed_transaction PRIMARY KEY (id_failed_transaction)
             )
       

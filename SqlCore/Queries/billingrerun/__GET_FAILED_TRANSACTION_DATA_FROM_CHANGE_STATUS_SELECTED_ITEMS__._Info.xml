@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Unknown</Action>
+    <Implementations>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Parameters>
+
+ 	<Parameter>
+            <Name>DateDiff</Name>
+            <DataType>DateTime</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
+	<Parameter>
+            <Name>Ids</Name>
+            <DataType>string</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description></Description>
+</Query>

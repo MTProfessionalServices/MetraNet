@@ -10,10 +10,10 @@
     <value>Exécuter</value>
   </text>
   <text id="TEXT_USM_ACTION">
-    <value>Action</value>
+    <value>[FR]Action</value>
   </text>
   <text id="TEXT_USM_DESCRIPTION">
-    <value>Description</value>
+    <value>[FR]Description</value>
   </text>
   <text id="TEXT_USM_CLOSE_DESCRIPTION">
     <value><![CDATA[<strong>Effectuez une clôture logicielle automatique des groupes de facturation dans les intervalles d'utilisation expirés.</strong><br>Chaque nuit, la plate-forme vérifiera que les intervalles sont terminés et, à l'aide de la configuration de la période de grâce ci-dessous, il créera automatiquement des groupes de facturation et modifiera leur état en "Clôture (logicielle)".]]></value>

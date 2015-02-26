@@ -324,4 +324,7 @@
   <data name="TEXT_MANAGE_QUOTE" xml:space="preserve">
     <value>Manage Quote</value>
   </data>
+  <data name="TEXT_MANAGE_QUOTE" xml:space="preserve">
+    <value>[ES]Manage Quote</value>
+  </data>
 </root>

@@ -74,7 +74,7 @@
     <description></description>
   </text>
   <text id="TEXT_AUDIT_DT_CRT">
-    <value>Date CRT</value>
+    <value>[FR]Date CRT</value>
     <description></description>
   </text>
   <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">

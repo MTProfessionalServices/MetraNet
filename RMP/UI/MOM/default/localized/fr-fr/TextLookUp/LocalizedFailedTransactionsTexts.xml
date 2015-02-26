@@ -43,7 +43,7 @@
     <value>Méthode</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_MODULE">
-    <value>[FR]Module</value>
+    <value>Module</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_STATE">
     <value>État</value>
@@ -121,7 +121,7 @@
     <value>Modification massive</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE">
-    <value>[FR]Mode</value>
+    <value>Mode</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTION_BULK_CHANGE_MODE_CHANGE_ALL">
     <value>Changer tout</value>
@@ -193,7 +193,7 @@
     <value>ID de session composé en échec</value>
   </text>
   <text id="TEXT_EXCEPTION">
-    <value>[FR]Exception</value>
+    <value>Exception</value>
   </text>
   <text id="TEXT_FAILED_TRANSACTIONS_CASE_NUMBER">
     <value>N° de dossier</value>

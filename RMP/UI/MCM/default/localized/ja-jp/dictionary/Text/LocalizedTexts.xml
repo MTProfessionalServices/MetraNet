@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="Main" type="collection">
+  <description></description>
+  <!--
+    <text id="TEXT_PRICE_ABLE_ITEM_PICKER">
+        <value>Price Able Item Picker</value><description></description>
+    </text>
+    <text id="TEXT_PRICE_ABLE_ITEM_LIST">
+        <value>Price Able Item List</value><description></description>
+    </text>    
+-->
+  <text id="TEXT_SELECT_USAGE_PRICEABLE_ITEM">
+    <value>Select One or More [TEXT_KEYTERM_USAGE_CHARGES] to Add to this [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECT_PRICELIST_MAPPING">
+    <value>Select [TEXT_KEYTERM_PRICE_LIST] for this [TEXT_KEYTERM_PARAMETER_TABLE]</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE">
+    <value><![CDATA[Currently, this Product Offering does not contain any Priceable Items or Discounts.<br /><br />Click 
+                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
+              <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,-2);</xsl:attribute>
+              here</a>
+             to go to the product offering screen to add items]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_NOT_MAPPED_MESSAGE">
+    <value><![CDATA[This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../name" />' priceable item above and create a mapping.]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_SELECTED_PO">
+    <value>Selected Product Offering</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLES_PLM_UPDATED">
+    <value>Parameter Tables To Have Their Price List Mappings Updated</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE2">
+    <value><![CDATA[Currently, this Product Offering does not contain any Priceable Items or Discounts.<br /><br />Please return to the Product Offering screen to add items to be included in the product offering.]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_PARAMETER_TABLE_NOT_MAPPED">
+    <value>This parameter table is not mapped to a pricelist.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE3">
+    <value>Currently there are no priceable items of this type in the Product Catalog</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RETURN_TO_PREVIOUS_SEARCH">
+    <value>Return To Previous Search Results</value>
+    <description></description>
+  </text>  
+  <text id="TEXT_SELECTED_PL">
+    <value>Selected Price List</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PL_CONTAINS_RATES">
+    <value>This Price List contains rates or configuration information for the following items</value>
+    <description></description>
+  </text>
+  <text id="TEXT_PO_WITHOUT_PI_MESSAGE4">
+    <value><![CDATA[Currently, this Price List does not contain any rate schedules for any Priceable Items.<br /><br />Click 
+                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
+              <xsl:attribute name="href">javascript:OpenAddRateScheduleWindow();</xsl:attribute>
+              here</a>
+             to go to the Price List screen to add rates or configuration information]]></value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_CAN_BE_SET">
+    <value>Personal Rates can be set for this item</value>
+    <description></description>
+  </text>
+  <text id="TEXT_RATES_CANNOT_BE_SET">
+    <value>Personal Rates cannot be set for this item</value>
+    <description></description>
+  </text>
+</texts>

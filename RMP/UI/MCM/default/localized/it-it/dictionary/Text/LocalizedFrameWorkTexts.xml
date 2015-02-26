@@ -2,7 +2,7 @@
 <texts id="Main" type="collection">
   <description></description>
   <text id="TEXT_APPLICATION_TITLE">
-    <value>[IT]MetraOffer</value>
+    <value>MetraOffer</value>
     <description></description>
   </text>
   <text id="TEXT_APPLICATION_WELCOME">

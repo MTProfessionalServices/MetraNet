@@ -10,10 +10,10 @@
     <value>Espace de nommage</value>
   </text>
   <text id="TEXT_DESCRIPTION">
-    <value>[FR]Description</value>
+    <value>Description</value>
   </text>
   <text id="TEXT_TYPE">
-    <value>[FR]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_TELL_USER_SYSTEM_ERROR_OCCUR_TRY_LATER">
     <value>Une erreur système s'est produite. Contactez votre administrateur MAM.</value>
@@ -78,8 +78,4 @@
     <value>Summary Details</value>
     <description></description>
   </text>
-  <text id="TEXT_GO">
-    <value>[FR]Go</value>
-  </text>
-
 </texts>

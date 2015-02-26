@@ -64,7 +64,7 @@
     <value>Membres</value>
   </text>
   <text id="TEXT_TYPE">
-    <value>[FR]Type</value>
+    <value>Type</value>
   </text>
   <text id="TEXT_START">
     <value>Début</value>
@@ -118,7 +118,7 @@
     <value>Résultat</value>
   </text>
   <text id="TEXT_MACHINE">
-    <value>[FR]Machine</value>
+    <value>Machine</value>
   </text>
   <text id="TEXT_NO_ADAPTER_EVENTS">
     <value>Aucun événement d'adaptateur exécuté pour cet intervalle actuellement.</value>

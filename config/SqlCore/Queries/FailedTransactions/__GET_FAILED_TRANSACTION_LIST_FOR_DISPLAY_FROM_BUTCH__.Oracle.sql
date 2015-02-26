@@ -1,9 +1,9 @@
-    select
+   select
 		id_failed_transaction CaseNumber,
-        State as Status,
-        tx_StateReasonCode StateReasonCode,
-        tx_FailureID_Encoded FailureSessionId,
-        tx_FailureCompoundID_Encoded FailureCompoundSessionId,
+    	State as Status,
+    	tx_StateReasonCode StateReasonCode,
+    	tx_FailureID_Encoded FailureSessionId,
+    	tx_FailureCompoundID_Encoded FailureCompoundSessionId,
 		b_compound Compound,
 		id_PossiblePayeeID PossibleAccountId,
 		id_PossiblePayerID PossiblePayerAccountId,
@@ -22,4 +22,8 @@
 		tx_errorcodemessage CodeMessage
 	from
 		t_failed_transaction
-	where state not in ('P','R')
+	where state not in ('P','R') and (
+                                    (dt_start_resubmit IS NULL) 
+                                    OR 
+                                    (dt_start_resubmit < TO_TIMESTAMP ('%%DiffTime%%','MM/dd/yyyy hh24:mi:ss.ff'))
+                                   )   

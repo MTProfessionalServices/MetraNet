@@ -10,7 +10,7 @@
     <Width>90%</Width>
     <Expandable>false</Expandable>
     <Buttons>Custom</Buttons>
-    <DataSourceURL>/MetraNet/AjaxServices/QueryService.aspx</DataSourceURL>
+    <DataSourceURL>~/MetraControl/FailedTransactions/AjaxServices/FailedTransactionsAjaxService.aspx?action=GetTransactionIntervalTypeDetail</DataSourceURL>
     <MultiSelect>true</MultiSelect>
     <SelectionModel>CheckBox</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
@@ -42,114 +42,6 @@
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>false</SearchOnLoad>
     <CustomImplementationFilePath>js\FailedTransaction.js</CustomImplementationFilePath>
-    <URLParameters>
-        <URLParameter>
-            <ParameterName>q</ParameterName>
-            <SQLQuery>
-                <QueryName>__FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_DETAILS__</QueryName>
-                <QueryDir>..\Extensions\SystemConfig\Config\Queries\FailedTransactions</QueryDir>
-                <QueryParameters></QueryParameters>
-                <QueryColumns>
-                    <QueryColumn>
-                        <Name>CaseNumber</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Status</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>StateReasonCode</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>FailureSessionId</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>FailureCompoundSessionId</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Compound</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>PossibleAccountId</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>PossiblePayerAccountId</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>UsageCycleType</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>UsageCycleTypeName</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>UsageCycleValue</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>FailureServiceName</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Code</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Line</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>FailureTime</Name>
-                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>MeteredTime</Name>
-                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Sender</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>ErrorMessage</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>StageName</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Plugin</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Module</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>Method</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>BatchId</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>CodeMessage</Name>
-                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                </QueryColumns>
-            </SQLQuery>
-        </URLParameter>
-    </URLParameters>
     <SubGrid></SubGrid>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>

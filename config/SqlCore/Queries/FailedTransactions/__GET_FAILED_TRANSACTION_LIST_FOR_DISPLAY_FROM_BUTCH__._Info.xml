@@ -2,9 +2,15 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
+      <Parameter>
+        <Name>DateDiff</Name>
+        <DataType>DateTime</DataType>
+        <ReplacementType>DoublePercent</ReplacementType>
+        <Description></Description>
+      </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

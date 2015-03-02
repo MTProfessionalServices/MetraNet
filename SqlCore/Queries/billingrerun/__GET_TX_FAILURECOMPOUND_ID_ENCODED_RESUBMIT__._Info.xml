@@ -2,7 +2,7 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Oracle</Implementation>
+        <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>

@@ -26,6 +26,8 @@
           tx_errorcodemessage nvarchar (255) NOT NULL,
           id_sch_ss int null,
           dt_StateLastModifiedTime datetime NOT NULL,
+          dt_Start_Resubmit datetime2(7),
+          resubmit_Guid uniqueidentifier,
           CONSTRAINT PK_t_failed_transaction PRIMARY KEY CLUSTERED (id_failed_transaction)
           )
           CREATE NONCLUSTERED INDEX tx_FailureCompoundID_idx ON t_failed_transaction(tx_FailureCompoundID)

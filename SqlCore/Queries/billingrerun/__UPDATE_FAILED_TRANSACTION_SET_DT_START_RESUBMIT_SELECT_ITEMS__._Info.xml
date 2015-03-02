@@ -2,33 +2,34 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
+        <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters>
+  <Parameters>
         <Parameter>
-            <Name>DT_Resubmit</Name>
-            <DataType>DateTime</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
+          <Name>DT_Resubmit</Name>
+          <DataType>DateTime</DataType>
+          <ReplacementType>DoublePercent</ReplacementType>
+          <Description></Description>
         </Parameter>
- 	<Parameter>
-            <Name>DateDiff</Name>
-            <DataType>DateTime</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-		<Parameter>
-            <Name>Ids</Name>
-            <DataType>string</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-		<Parameter>
-			<Name>ResubmitGuid</Name>
-            <DataType>string</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>		
-		</Parameter>
-    </Parameters>
+       <Parameter>
+          <Name>DateDiff</Name>
+          <DataType>DateTime</DataType>
+          <ReplacementType>DoublePercent</ReplacementType>
+          <Description></Description>
+       </Parameter>
+       <Parameter>
+          <Name>Ids</Name>
+          <DataType>string</DataType>
+          <ReplacementType>DoublePercent</ReplacementType>
+          <Description></Description>
+       </Parameter>
+       <Parameter>
+          <Name>ResubmitGuid</Name>
+          <DataType>string</DataType>
+          <ReplacementType>DoublePercent</ReplacementType>
+          <Description></Description>		
+       </Parameter>
+  </Parameters>
     <Description></Description>
 </Query>

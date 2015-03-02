@@ -3,6 +3,7 @@
     <Action>Unknown</Action>
     <Implementations>
         <Implementation>Oracle</Implementation>
+        <Implementation>SqlServer</Implementation>
     </Implementations>
     <Parameters>
 

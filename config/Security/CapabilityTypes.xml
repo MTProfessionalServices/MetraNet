@@ -2244,7 +2244,7 @@
   <LocalizedItems>
     <item lang="FR">
     <DisplayName>Gérer adaptateurs FDP</DisplayName>
-    <Description>Gérer adaptateurs planifiés : autorise l`affichage, la modification et l`exécution des adaptateurs planifiés dans MetraControl </Description>
+    <Description>Gérer adaptateurs FDP : autorise l`affichage, la modification et l`exécution des adaptateurs planifiés dans MetraControl </Description>
     </item>
     <item lang="IT">
     <DisplayName>[IT] Manage EOP Adapters</DisplayName>

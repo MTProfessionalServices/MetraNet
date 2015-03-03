@@ -326,6 +326,10 @@ BEGIN
                    rw.c_SubscriptionStart
                )
     )A ;
+
+  /* Clean-up extra charges. May be caused by payer ranges overlap. */
+  DELETE FROM TMP_RCS WHERE c_RCIntervalSubscriptionEnd < c_RCIntervalSubscriptionStart;
+
   SELECT COUNT(1) INTO l_total_rcs FROM tmp_rcs;
   INSERT
   INTO t_recevent_run_details

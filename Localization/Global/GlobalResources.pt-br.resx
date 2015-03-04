@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,1100 +59,1103 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="ACOUNT_STATE_WAS" xml:space="preserve">
-    <value>O estado da conta era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="ACS_APPLIED_LIST_UPDATED" xml:space="preserve">
-    <value>Os Modelos OnBoard aplicados com os IDs: {0} não estão mais qualificados para a conta.Assinaturas relacionadas serão encerradas.</value>
-  </data>
-  <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
-    <value>Os Modelos OnBoard com os IDs {0} foram removidos da lista Aplicados.</value>
-  </data>
-  <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
-    <value>A criação de novas inscrições foi concluída.</value>
-  </data>
-  <data name="ACS_CREATE_SUB_START" xml:space="preserve">
-    <value>Iniciando a criação de novas inscrições...</value>
-  </data>
-  <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
-    <value>Os Modelos OnBoard com os IDs: {0} serão ignorados. Eles são qualificados para a conta e já foram aplicados.</value>
-  </data>
-  <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
-    <value>Novas assinaturas serão criadas para os Modelos OnBoard qualificados com IDs: {0}.</value>
-  </data>
-  <data name="ACS_EXCHANGE_RANKS_EXCEPTION" xml:space="preserve">
-    <value>Erro ao trocar classificações de Modelos OnBoard com Id {0} e {1}</value>
-  </data>
-  <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
-    <value>A inscrição de grupo foi criada por AccountConfigSetParams idAcsParams=`{0}`, ProductOffering id=`{1}`</value>
-  </data>
-  <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
-    <value>O membro com ID `{0}` foi adicionado ao GroupSubscription `{1}` com ID `{2}`</value>
-  </data>
-  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
-    <value>Não é possível adicionar o membro com ID `{0}` porque GroupSubscription não existe para a Conta corporativa com ID `{1}`</value>
-  </data>
-  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
-    <value>Não é possível adicionar o membro com ID `{0}` à GroupSubscription `{1}` com ID `{2}`. Exceção: {3}</value>
-  </data>
-  <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>Não é possível encerrar o membro com ID `{0}` à assinatura de grupo `{1}` com ID `{2}`. Exceção: {3}</value>
-  </data>
-  <data name="ACS_GROUP_SUB_MEMBER_WAS_TERMINATED" xml:space="preserve">
-    <value>O membro com ID `{0}` foi encerrado na assinatura de grupo com ID `{1}`</value>
-  </data>
-  <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
-    <value>GroupSubscription {0}` foi criada para a conta corporativa com ID `{1}` e assinado para a oferta de produto `{2}`</value>
-  </data>
-  <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>Não foi possível criar GroupSubscription para a conta corporativa com ID `{0}` e assinar a oferta de produto `{1}`. Exceção: {2} </value>
-  </data>
-  <data name="ACS_GROUP_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>Não foi possível encerrar a assinatura de grupo `{0}` para a conta corporativa com ID `{1}`. Exceção: {2}</value>
-  </data>
-  <data name="ACS_GROUP_SUB_WAS_TERMINATED" xml:space="preserve">
-    <value>GroupSubscription {0}` com ID de conta corporativa `{1}` foi encerrado para todos os membros.</value>
-  </data>
-  <data name="ACS_LOAD_ACCOUNT_FAIL" xml:space="preserve">
-    <value>A conta com a ID {0} não foi encontrada ou não está disponível</value>
-  </data>
-  <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
-    <value>A conta `{0}` foi carregada.</value>
-  </data>
-  <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
-    <value>Carregando a conta com a ID {0}...</value>
-  </data>
-  <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
-    <value>Os Modelos OnBoard com os IDs: {0} foram encontrados para a conta.</value>
-  </data>
-  <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
-    <value>Carregando Modelos OnBoard aplicados à conta...</value>
-  </data>
-  <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
-    <value>Os Modelos OnBoard com os IDs: {0} foram considerados qualificados para a conta.</value>
-  </data>
-  <data name="ACS_LOAD_ELIGIBLE_ACS_NONUNIQUE_RANK_EXCEPTION" xml:space="preserve">
-    <value>Alguns Modelos OnBoard qualificados têm classificações não exclusivas. Configuração errada de Modelos OnBoard.</value>
-  </data>
-  <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
-    <value>Carregando Modelos OnBoard qualificados para a conta...</value>
-  </data>
-  <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
-    <value>A modificação de propriedades de conta foi concluída.</value>
-  </data>
-  <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
-    <value>Iniciando a modificação de propriedades de conta...</value>
-  </data>
-  <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
-    <value>Falha ao modificar a propriedade `{0}` pelo Modelo OnBoard {1}. Valor anterior:`{2}`. Novo valor:`{3}`.</value>
-  </data>
-  <data name="ACS_PROP_MODIFIED_SUCCESSFULLY" xml:space="preserve">
-    <value>A propriedade `{0}` foi modificada pelo Modelo OnBoard {1}. Valor anterior:`{2}`. Novo valor:`{3}`.</value>
-  </data>
-  <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
-    <value>A propriedade `{0}` não foi encontrada.</value>
-  </data>
-  <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
-    <value>A conta com a ID `{0}` estava inscrita na Oferta de produto `{1}`.</value>
-  </data>
-  <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>Não é possível inscrever a conta com a ID `{0}` na Oferta de produto com a ID `{1}`. Exceção: {2}</value>
-  </data>
-  <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>Não é possível terminar a inscrição com a ID {0}. Exceção: {1}</value>
-  </data>
-  <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
-    <value>A inscrição em {0} foi terminada.</value>
-  </data>
-  <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
-    <value>O término das inscrições existentes foi concluído.</value>
-  </data>
-  <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
-    <value>Iniciando o término das inscrições existentes...</value>
-  </data>
-  <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
-    <value>Não foi possível adicionar a oferta de produto `{0}` ao Modelo OnBoard, pois o parâmetro de assinatura EndDate `{1}` é maior que a EndDate `{2}` disponível da oferta do produto.</value>
-  </data>
-  <data name="ACS_VALIDATION_AvailableStartDateLessThanStartDateInPo" xml:space="preserve">
-    <value>Não foi possível adicionar a oferta de produto `{0}` ao Modelo OnBoard, pois o parâmetro de assinatura StartDate `{1}` é menor que a StartDate `{2}` disponível da oferta do produto. </value>
-  </data>
-  <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
-    <value>As datas do Modelo OnBoard não correspondem às datas disponíveis na oferta do produto `{0}`. Datas efetivas para o Conjunto de configuração de `{1} a `{2}`, mas a da oferta do produto é de `{3}` a `{4}`  </value>
-  </data>
-  <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
-    <value>Data de término disponível incorreta para o Modelo OnBoard. A EffectiveEndDate={0} disponível é anterior à data do sistema={1}, então o Conjunto de configuração de conta nunca será usado.</value>
-  </data>
-  <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
-    <value>Data disponível incorreta para o Modelo OnBoard atual. A EffectiveDate={0} disponível é posterior a EffectiveEndDate={1}.</value>
-  </data>
-  <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
-    <value>A oferta de produto `{0}` não está disponível para a conta de partição `{1}` com id=`{2}`. A IdPartition=`{3}` da oferta de produto é diferente da IdPartition=`{4}` da conta da partição.</value>
-  </data>
-  <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-    <value>Ocorreu uma exceção ao recuperar o produto com o Id=`{0}`. Exceção: {1}</value>
-  </data>
-  <data name="ACS_VALIDATION_GroupSab_GroupName_NOT_SET" xml:space="preserve">
-    <value>A conta corporativa com o ID `{0}` está definida, mas o nome da assinatura de grupo, não está. Ambos os parâmetros são obrigatórios para a assinatura de grupo. Para criar a assinatura simples, você NÃO deve definir nenhum destes campos.</value>
-  </data>
-  <data name="ACS_VALIDATION_GroupSub_CorporateAccountId_NOT_SET" xml:space="preserve">
-    <value>O nome da assinatura de grupo `{0}` está definido, mas CorporateAccountId, não está. Ambos os parâmetros são obrigatórios para a assinatura de grupo. Para criar a assinatura simples, você NÃO deve definir nenhum destes campos.</value>
-  </data>
-  <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
-    <value>A partição de ID da conta corporativa com ID = `{0}` não é a mesma da oferta de produto `{1}`. ID de partição da conta = `{2}`, mas para oferta de produto = `{3}`</value>
-  </data>
-  <data name="ACS_VALIDATION_INVALID_RANK_VALUE" xml:space="preserve">
-    <value>A classificação deve ser &gt; 0. Valor de classificação: {0}.</value>
-  </data>
-  <data name="ACS_VALIDATION_MandatoryProperty_CantBeEmptyOrNull" xml:space="preserve">
-    <value>A propriedade obrigatória `{0}` não pode estar vazia ou ser nula. </value>
-  </data>
-  <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
-    <value>A propriedade obrigatória `{0}` é nula. A propriedade deve ser inicializada.</value>
-  </data>
-  <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
-    <value>A propriedade obrigatória `{0}` deve obter ao menos um item.</value>
-  </data>
-  <data name="ACS_VALIDATION_PropertiesToSetHasDuplicates" xml:space="preserve">
-    <value>Propriedades a definir com Exibição de conta `{0}` e nome `{1}` foi encontrada mais de uma vez (contagem = {2}). Propriedades a definir devem ser exclusivas.</value>
-  </data>
-  <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
-    <value>Pelo menos uma das propriedades `{0}` ou `{1}` deve ser definida.</value>
-  </data>
-  <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
-    <value>Critério de seleção com Exibição de conta `{0}` e nome `{1}` foi encontrado mais de uma vez (contagem = {2}).O critério de seleção deve ser exclusivo.</value>
-  </data>
-  <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-    <value>UDRC para PI ID={0} não definido!</value>
-  </data>
-  <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
-    <value>A StartDate={0} da métrica UDRC não pode ser maior que a EndDate={1} de PI com id={2}</value>
-  </data>
-  <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
-    <value>UDRC com ID={0} (StartDate = {1} e EndDate={2}) não existia para PO</value>
-  </data>
-  <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
-    <value>Não foi possível adicionar Parâm. de assinatura do modelo OnBoard devido a erros de validação.</value>
-  </data>
-  <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
-    <value>Não foi possível adicionar o Modelo OnBoard devido a erros de validação.</value>
-  </data>
-  <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
-    <value>Não é possível localizar a oferta de produto com a Id=`{0}`</value>
-  </data>
-  <data name="ACS_VALIDATION_UnableToFindProductOfferingId" xml:space="preserve">
-    <value>Não foi possível localizar a oferta de produto com id={0}</value>
-  </data>
-  <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
-    <value>Não foi possível localizar a propriedade da assinatura. Detalhes: `{0}`</value>
-  </data>
-  <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
-    <value>Não é possível obter a partição de ID da conta corporativa com a id=`{0}`. Erro: `{1}`</value>
-  </data>
-  <data name="ACS_VALIDATION_UnapleToFindProductOfferingId" xml:space="preserve">
-    <value>Não foi possível localizar a oferta de produto com id={0}</value>
-  </data>
-  <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
-    <value>#{0}) Mensagem: `{1}`, Componente: `{2}`</value>
-  </data>
-  <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
-    <value>Falha ao modificar exibições de ID da conta {0}.</value>
-  </data>
-  <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Erro ao salvar Modelo OnBoard com Id {0}</value>
-  </data>
-  <data name="ADD_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
-    <value>Erro ao salvar SubscriptionParams com Id {0}</value>
-  </data>
-  <data name="ADDED_ENTITY" xml:space="preserve">
-    <value>Entidade adicionada com ID {0} à lista de entidades</value>
-  </data>
-  <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>Valores de propriedade compartilhada adicionados.</value>
-  </data>
-  <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>Valores de característica de especificação adicionados.</value>
-  </data>
-  <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>Adicionando valores de propriedade compartilhada.</value>
-  </data>
-  <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>Adicionando valores de característica de especificação.</value>
-  </data>
-  <data name="ANCESTOR_ACOUNT_ID_WAS" xml:space="preserve">
-    <value>O ID da conta ancestral era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="ANCESTOR_ACOUNT_NS_WAS" xml:space="preserve">
-    <value>O espaço de nomes da conta ancestral era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
-    <value>A conta ancestral era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
-    <value>Erro ao aplicar Modelos OnBoard na conta {0}.</value>
-  </data>
-  <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
-    <value>A transação {0} é do tipo {1}, mas foi obtido uma AlreadySettledException</value>
-  </data>
-  <data name="BILLING_CYCLES" xml:space="preserve">
-    <value>Ciclos de faturamento</value>
-  </data>
-  <data name="CHANGED_CHILD_PI_INSTANCE" xml:space="preserve">
-    <value>A instância de PI filho foi alterado de {0} para {1}. </value>
-  </data>
-  <data name="CHANGED_PROP" xml:space="preserve">
-    <value>A propriedade `{0}` foi alterada de `{1}` para `{2}`.</value>
-  </data>
-  <data name="CITY_CHANGED" xml:space="preserve">
-    <value>A cidade era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
-    <value>Não foi possível desserializar JSON {0} no tipo {1}.</value>
-  </data>
-  <data name="COUNTRY_CHANGED" xml:space="preserve">
-    <value>O país era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>Novo modelo de contrato criado com sucesso com id {0}.</value>
-  </data>
-  <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
-    <value>O dia do mês era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="DAY_OF_WEEK_WAS" xml:space="preserve">
-    <value>O dia da semana era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Erro ao excluir Modelo OnBoard</value>
-  </data>
-  <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
-    <value>A matriz de IDs de modelos OnBoard contém ID inválido: {0}</value>
-  </data>
-  <data name="DELETE_APPLIED_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>O Modelo OnBoard aplicado não pode ser excluído. ID: {0}</value>
-  </data>
-  <data name="DELETE_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>O Modelo OnBoard de outra Partição não pode ser excluído. ID: {0}</value>
-  </data>
-  <data name="DELETED_ENTITY" xml:space="preserve">
-    <value>Entidade excluída com ID {0} da lista de entidades</value>
-  </data>
-  <data name="END_DATE_WAS" xml:space="preserve">
-    <value>A data de término era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="END_DAY_OF_MONTH" xml:space="preserve">
-    <value>Dia final do mês</value>
-  </data>
-  <data name="END_DAY_OF_WEEK" xml:space="preserve">
-    <value>Dia final da semana</value>
-  </data>
-  <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
-    <value>A lista de entidades já contém uma entidade com id {0}.</value>
-  </data>
-  <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
-    <value>A lista de entidades não contém uma entidade com id {0}.</value>
-  </data>
-  <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
-    <value>A data de término da vigência não pode ser anterior que a data de início da vigência</value>
-  </data>
-  <data name="EXPIRATION_CHANGED" xml:space="preserve">
-    <value>A data de expiração era {0}, foi alterada para {1}.</value>
-  </data>
-  <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>Falha ao salvar o modelo de contrato {0}.</value>
-  </data>
-  <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
-    <value>O primeiro dia do mês era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="FIRST_END_DAY_OF_MONTH" xml:space="preserve">
-    <value>1º dia final do mês</value>
-  </data>
-  <data name="FIRST_NAME_CHANGED" xml:space="preserve">
-    <value>O nome era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Erro ao obter Modelo OnBoard com Id {0}</value>
-  </data>
-  <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
-    <value>Erro ao obter lista do Modelo OnBoard</value>
-  </data>
-  <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
-    <value>Erro ao obter parâmetros de assinatura com Id {0}</value>
-  </data>
-  <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
-    <value>Erro ao obter a lista aplicada pelo Modelo OnBoard</value>
-  </data>
-  <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Não é possível obter o Modelo OnBoard com a PO de outra partição!</value>
-  </data>
-  <data name="GOT_NO_RESPONSE" xml:space="preserve">
-    <value>Sem resposta de {0}.</value>
-  </data>
-  <data name="LAST_NAME_CHANGED" xml:space="preserve">
-    <value>O sobrenome era {0}, foi alterado para {1}.</value>
-  </data>
-  <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
-    <value>A cobrança máxima por ciclo era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="MIDDLE_NAME_CHANGED" xml:space="preserve">
-    <value>O nome do meio era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="PAYER_ACCOUNT_NS_WAS" xml:space="preserve">
-    <value>O espaço de nomes da conta do pagador era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="PAYER_ACCOUNT_WAS" xml:space="preserve">
-    <value>A conta do pagador era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="PAYER_ID_WAS" xml:space="preserve">
-    <value>O ID do pagador era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="PI_DESCRIPTION_WAS" xml:space="preserve">
-    <value>A descrição era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="PI_DISPLAY_NAME_WAS" xml:space="preserve">
-    <value>O nome exibido era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="PI_KIND_WAS" xml:space="preserve">
-    <value>O tipo era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="PI_NAME_WAS" xml:space="preserve">
-    <value>O nome era {0}, foi alterado para {1}.</value>
-  </data>
-  <data name="ROOT" xml:space="preserve">
-    <value>Hierarquia de conta (1)</value>
-  </data>
-  <data name="SECOND_DAY_OF_MONTH_WAS" xml:space="preserve">
-    <value>O segundo dia do mês era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="SECOND_END_DAY_OF_MONTH" xml:space="preserve">
-    <value>2º dia final do mês</value>
-  </data>
-  <data name="SELECT_INTERVAL" xml:space="preserve">
-    <value>Selecionar intervalo</value>
-  </data>
-  <data name="START_DATE_WAS" xml:space="preserve">
-    <value>A data de início era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="START_DAY" xml:space="preserve">
-    <value>Data de início</value>
-  </data>
-  <data name="START_DAY_IS" xml:space="preserve">
-    <value>A data de início é {0}. </value>
-  </data>
-  <data name="START_DAY_WAS" xml:space="preserve">
-    <value>O dia de início era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="START_MONTH" xml:space="preserve">
-    <value>Mês de início</value>
-  </data>
-  <data name="START_MONTH_IS" xml:space="preserve">
-    <value>O mês de início é {0}. </value>
-  </data>
-  <data name="START_MONTH_WAS" xml:space="preserve">
-    <value>O mês de início era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="START_YEAR_WAS" xml:space="preserve">
-    <value>O ano de início era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="STATE_CHANGED" xml:space="preserve">
-    <value>O estado era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="STREET_2_CHANGED" xml:space="preserve">
-    <value>A rua(2) era {0}, foi alterada para {1}.</value>
-  </data>
-  <data name="STREET_CHANGED" xml:space="preserve">
-    <value>A rua era {0}, foi alterada para {1}. </value>
-  </data>
-  <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
-    <value>Sucesso na atualização de conta do nome de usuário `{0}` com id `{1}. ` </value>
-  </data>
-  <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
-    <value>ID do modelo de contrato não pode ser menor que 0.</value>
-  </data>
-  <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Erro ao encerrar o Modelo OnBoard</value>
-  </data>
-  <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
-    <value>A conta não pode ser seu próprio gerenciador de fatura</value>
-  </data>
-  <data name="TEXT_ADDED_BILL_MANAGEE" xml:space="preserve">
-    <value>Gerenciado de fatura adicionado</value>
-  </data>
-  <data name="TEXT_ADDED_BILL_MANAGER" xml:space="preserve">
-    <value>Gerenciador de fatura da conta adicionado com sucesso</value>
-  </data>
-  <data name="TEXT_APPROVED_NS_CHARGES" xml:space="preserve">
-    <value>Cobranças relevantes extraordinárias aprovadas</value>
-  </data>
-  <data name="TEXT_APPROVING_NS_CHARGES" xml:space="preserve">
-    <value>Aprovando as cobranças relevantes extraordinárias</value>
-  </data>
-  <data name="TEXT_BADLY_FORMATTED_FILTER" xml:space="preserve">
-    <value>A string de valores do filtro tem formato ruim: {0}</value>
-  </data>
-  <data name="TEXT_BADLY_FORMATTED_PARAMETERS" xml:space="preserve">
-    <value>A solicitação continha parâmetros com falha de formatação.</value>
-  </data>
-  <data name="TEXT_BADLY_FORMATTED_SORT" xml:space="preserve">
-    <value>A string de valores de classificação tem formato ruim: {0}</value>
-  </data>
-  <data name="TEXT_BILL_MANAGER_CORPORATION" xml:space="preserve">
-    <value>O gerenciador de fatura e a conta devem estar na mesma corporação</value>
-  </data>
-  <data name="TEXT_BILL_MANAGER_EXISTS" xml:space="preserve">
-    <value>Gerenciador de fatura já existe</value>
-  </data>
-  <data name="TEXT_CANNOT_ADD_BILL_MANAGEES" xml:space="preserve">
-    <value>Não foi possível adicionar o gerenciado de fatura</value>
-  </data>
-  <data name="TEXT_CANNOT_ADD_BILL_MANAGER" xml:space="preserve">
-    <value>Não é possível adicionar gerenciador de faturamento ao sistema</value>
-  </data>
-  <data name="TEXT_CANNOT_DELETE_SHARED_PROPERTY_IN_USE" xml:space="preserve">
-    <value>Não é possível remover a propriedade compartilhada, pois ela está em uso.</value>
-  </data>
-  <data name="TEXT_CANNOT_GET_SHARED_PROPERTIES" xml:space="preserve">
-    <value>Não é possível recuperar propriedades compartilhadas do sistema.</value>
-  </data>
-  <data name="TEXT_CANNOT_GET_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>Não é possível recuperar valores de propriedade compartilhada do sistema.</value>
-  </data>
-  <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
-    <value>Não é possível recuperar valores de característica de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
-    <value>Não é possível recuperar características de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_CANNOT_REMOVE_BILL_MANAGEES" xml:space="preserve">
-    <value>Não foi possível excluir o gerenciado de fatura</value>
-  </data>
-  <data name="TEXT_CANNOT_REMOVE_BILL_MANAGER" xml:space="preserve">
-    <value>Não é possível excluir o gerenciador de faturamento do sistema</value>
-  </data>
-  <data name="TEXT_CANNOT_RETRIEVE_DATA" xml:space="preserve">
-    <value>Não é possível recuperar os dados do gerenciamento de faturas</value>
-  </data>
-  <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
-    <value>Não é possível remover característica de especificação, pois ela está em uso.</value>
-  </data>
-  <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
-    <value>Não foi possível criar modelo</value>
-  </data>
-  <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
-    <value>Não foi possível criar WebRequest para {0}.</value>
-  </data>
-  <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
-    <value>Não foi possível exibir a lista de modelos.</value>
-  </data>
-  <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
-    <value>Não foi possível encontrar o modelo {0}.</value>
-  </data>
-  <data name="TEXT_CANT_LOAD_TEMPLATE" xml:space="preserve">
-    <value>Não foi possível carregar o modelo {0}.</value>
-  </data>
-  <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
-    <value>Não foi possível carregar a lista de modelos.</value>
-  </data>
-  <data name="TEXT_CANT_SAVE_TEMPLATE" xml:space="preserve">
-    <value>Não foi possível salvar o modelo {0}.</value>
-  </data>
-  <data name="TEXT_COULD_NOT_DELETE_SHARED_PROPERTY" xml:space="preserve">
-    <value>Ocorreu um erro ao excluir propriedade compartilhada do sistema.</value>
-  </data>
-  <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
-    <value>Ocorreu um erro ao excluir a característica de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
-    <value>Não foi possível recuperar os dados de localização.</value>
-  </data>
-  <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>Não foi possível recuperar valores de característica de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_CREATE_SHARED_PROPERTY_FAILED" xml:space="preserve">
-    <value>Falha ao criar propriedade compartilhada.</value>
-  </data>
-  <data name="TEXT_CREATE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>Falha ao criar entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
-  </data>
-  <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>Propriedade compartilhada criada.</value>
-  </data>
-  <data name="TEXT_CREATED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>Entradas criadas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
-  </data>
-  <data name="TEXT_CREATED_SPEC" xml:space="preserve">
-    <value>Característica de especificação criada.</value>
-  </data>
-  <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
-    <value>Falha da característica de especificação criada.</value>
-  </data>
-  <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
-    <value>Entradas criadas no mapa de val de espec para características e valores de especificação.</value>
-  </data>
-  <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-    <value>Falha ao criar entradas no mapa de val de espec para características e valores de especificação.</value>
-  </data>
-  <data name="TEXT_CREATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>Criando propriedade compartilhada.</value>
-  </data>
-  <data name="TEXT_CREATING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>Criando entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
-  </data>
-  <data name="TEXT_CREATING_SPEC" xml:space="preserve">
-    <value>Criando característica de especificação.</value>
-  </data>
-  <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>Criando entradas no mapa de val de espec para características e valores de especificação.</value>
-  </data>
-  <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
-    <value>Ocorreu uma exceção de acesso de dados </value>
-  </data>
-  <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>Exceção de dados ao tentar salvar propriedades compartilhadas à entidade.</value>
-  </data>
-  <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
-    <value>Propriedade compartilhada excluída do sistema.</value>
-  </data>
-  <data name="TEXT_DELETED_SPEC" xml:space="preserve">
-    <value>Característica de especificação excluída do sistema.</value>
-  </data>
-  <data name="TEXT_DELETING_SHARED_PROPERTY" xml:space="preserve">
-    <value>Excluindo propriedade compartilhada do sistema.</value>
-  </data>
-  <data name="TEXT_DELETING_SPEC" xml:space="preserve">
-    <value>Excluindo características de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_DENIED_NS_CHARGES" xml:space="preserve">
-    <value>Cobranças relevantes extraordinárias negadas</value>
-  </data>
-  <data name="TEXT_DENYING_NS_CHARGES" xml:space="preserve">
-    <value>Negando as cobranças relevantes extraordinárias</value>
-  </data>
-  <data name="TEXT_EXCEPTION_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>Exceção não processada ao tentar salvar propriedades compartilhadas à entidade.</value>
-  </data>
-  <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>Exceção não processada ao tentar salvar características de especificação à entidade.</value>
-  </data>
-  <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
-    <value>O arquivo terminou o processamento.</value>
-  </data>
-  <data name="TEXT_FILE_PENDING" xml:space="preserve">
-    <value>O arquivo está pendente.</value>
-  </data>
-  <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
-    <value>O arquivo está sendo processado.</value>
-  </data>
-  <data name="TEXT_FILE_REJECTED" xml:space="preserve">
-    <value>O arquivo foi rejeitado.</value>
-  </data>
-  <data name="TEXT_INVALID_OP_IN_FILTER" xml:space="preserve">
-    <value>A string de valores do filtro contém uma operação inválida: {0}</value>
-  </data>
-  <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
-    <value>Ocorreu uma exceção de dados de carregamento. </value>
-  </data>
-  <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>MASBasicException ao tentar salvar características de especificação à entidade.</value>
-  </data>
-  <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
-    <value>Nenhuma cobrança para aprovação</value>
-  </data>
-  <data name="TEXT_NO_CHARGE_FOR_DENY" xml:space="preserve">
-    <value>Nenhuma cobrança fornecida para rejeição</value>
-  </data>
-  <data name="TEXT_NO_CHARGE_FOUND" xml:space="preserve">
-    <value>Não é possível recuperar as cobranças extraordinárias do sistema</value>
-  </data>
-  <data name="TEXT_NO_SESSION_IDS" xml:space="preserve">
-    <value>Nenhum ID de sessão fornecido para aprovação.</value>
-  </data>
-  <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
-    <value>Nenhum valor de mapeamento a excluir.</value>
-  </data>
-  <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
-    <value>Dados de localização processados.</value>
-  </data>
-  <data name="TEXT_REMOVE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>Falha ao remover entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
-  </data>
-  <data name="TEXT_REMOVED_BILL_MANAGER" xml:space="preserve">
-    <value>Gerenciador de fatura removido</value>
-  </data>
-  <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>Propriedade compartilhada removida da entidade.</value>
-  </data>
-  <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>Propriedade compartilhada removida da entidade com tipo de entidade: </value>
-  </data>
-  <data name="TEXT_REMOVED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>Entradas removidas no mapa de valores de propriedade para propriedade e valores compartilhados.</value>
-  </data>
-  <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>Característica de especificação removida da entidade.</value>
-  </data>
-  <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
-    <value>Entradas removidas no mapa de val de espec para características e valores de especificação.</value>
-  </data>
-  <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-    <value>Falha ao remover entradas no mapa de val de espec para características e valores de especificação.</value>
-  </data>
-  <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>Removendo propriedade compartilhada da entidade.</value>
-  </data>
-  <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>Removendo propriedades compartilhadas da entidade com tipo de entidade: </value>
-  </data>
-  <data name="TEXT_REMOVING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>Removendo entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
-  </data>
-  <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>Removendo característica de especificação da entidade.</value>
-  </data>
-  <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>Removendo entradas no mapa de val de espec para características e valores de especificação.</value>
-  </data>
-  <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
-    <value>O ID da solicitação {0} não corresponde ao ID do modelo {1}.</value>
-  </data>
-  <data name="TEXT_RETRIEVED" xml:space="preserve">
-    <value>características de especificação recuperadas do sistema.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
-    <value>Detalhes recuperados para o arquivo </value>
-  </data>
-  <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
-    <value>Lista de nomes de arquivos com falha recuperada </value>
-  </data>
-  <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
-    <value>Dados de localização recuperados.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>Propriedades compartilhadas para entidade recuperadas.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>Propriedades compartilhadas recuperadas para entidade com tipo de entidade: </value>
-  </data>
-  <data name="TEXT_RETRIEVED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>Valores de propriedade compartilhada recuperados do sistema.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
-    <value>Características de especificação do sistema recuperadas.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>Valores de característica de especificação do sistema recuperados.</value>
-  </data>
-  <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>Características de especificação recuperadas para entidade.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
-    <value>Recuperando detalhes do nome de arquivo </value>
-  </data>
-  <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
-    <value>Recuperando uma lista de nomes de arquivos com falha </value>
-  </data>
-  <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
-    <value>Localização recuperada do sistema.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>Recuperando propriedades compartilhadas para entidade.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>Recuperando propriedades compartilhadas para entidade com tipo de entidade: </value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
-    <value>Recuperando propriedade compartilhada do sistema.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>Recuperando valores de propriedade compartilhada do sistema.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
-    <value>Recuperando características de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>Recuperando valores de característica de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>Recuperando características de especificação para entidade.</value>
-  </data>
-  <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
-    <value>Ocorreu um erro desconhecido. Peça ao administrador de sistemas revisar seus logs.</value>
-  </data>
-  <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>Valor de característica de especificação salvo.</value>
-  </data>
-  <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
-    <value>Ocorreu um erro ao salvar o valor de característica de especificação.</value>
-  </data>
-  <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>Salvando valor de característica de especificação para o sistema.</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTY_VALUE_MAPPING_IN_USE" xml:space="preserve">
-    <value>Não é possível excluir o mapeamento, pois ele está em uso.</value>
-  </data>
-  <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
-    <value>Não é possível atualizar o valor de característica de especificação, pois ele está em uso.</value>
-  </data>
-  <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
-    <value>Não é possível excluir o mapeamento, pois ele está em uso.</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
-    <value>Não foi possível aprovar as cobranças extraordinárias.</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_DENY_PENDING_NS" xml:space="preserve">
-    <value>Não foi possível negar as cobranças pendentes extraordinárias.</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_PROCESS" xml:space="preserve">
-    <value>Sua solicitação não pode ser processada devido aos seguintes erros:</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_REMOVE_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>Ocorreu um erro ao remover propriedade compartilhada da entidade.</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>Ocorreu um erro ao remover a característica de especificação da entidade</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
-    <value>Não é possível recuperar propriedade compartilhada do sistema.</value>
-  </data>
-  <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
-    <value>Não é possível recuperar característica de especificação do sistema.</value>
-  </data>
-  <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
-    <value>Ocorreu uma exceção </value>
-  </data>
-  <data name="TEXT_UPDATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>Propriedade compartilhada atualizada.</value>
-  </data>
-  <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
-    <value>Característica de especificação atualizada.</value>
-  </data>
-  <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>Valor de característica de especificação atualizado.</value>
-  </data>
-  <data name="TEXT_UPDATED_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>Valores atualizados para propriedade compartilhada.</value>
-  </data>
-  <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
-    <value>Valores da característica de especificação atualizados.</value>
-  </data>
-  <data name="TEXT_UPDATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>Atualizando propriedade compartilhada.</value>
-  </data>
-  <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
-    <value>Atualizando característica de especificação.</value>
-  </data>
-  <data name="TEXT_UPDATING_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>Atualizando valores para propriedade compartilhada.</value>
-  </data>
-  <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
-    <value>Atualizando valores de característica de especificação.</value>
-  </data>
-  <data name="TIMEOUT_EXCEPTION" xml:space="preserve">
-    <value>O método expirou</value>
-  </data>
-  <data name="TRANSACTION_NOT_FOUND" xml:space="preserve">
-    <value>Transação {0} não encontrada.</value>
-  </data>
-  <data name="TX_ALREADY_REJECTED" xml:space="preserve">
-    <value>A transação {0} já foi enviada e foi rejeitada pelo processador do pagamento.</value>
-  </data>
-  <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
-    <value>A transação {0} já foi enviada.</value>
-  </data>
-  <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Erro ao atualizar Modelo OnBoard</value>
-  </data>
-  <data name="UPDATE_ACCOUNTCONFIGSET_PARAMETERS_EXCEPTION" xml:space="preserve">
-    <value>Erro ao atualizar os parâmetros do Modelo OnBoard</value>
-  </data>
-  <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>Modelo de contrato atualizado com id {0}.</value>
-  </data>
-  <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
-    <value>Sucesso na atualização de instrumento de pagamento {0} para conta {1}. {2} </value>
-  </data>
-  <data name="USAGE_CYCLE_WAS" xml:space="preserve">
-    <value>O ciclo de utilização era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="VALUE_CHANGED" xml:space="preserve">
-    <value>{0} era {1}, foi alterado(a) para {2}.</value>
-  </data>
-  <data name="VOIDING_TIMEOUT" xml:space="preserve">
-    <value>Exceção de tempo limite ao anular pagamento da fatura {0}.</value>
-  </data>
-  <data name="ZIP_CHANGED" xml:space="preserve">
-    <value>O CEP era {0}, foi alterado para {1}. </value>
-  </data>
-  <data name="TEXT_DAY" xml:space="preserve">
-    <value>Dia</value>
-  </data>
-  <data name="TEXT_FIRST" xml:space="preserve">
-    <value>Primeiro</value>
-  </data>
-  <data name="TEXT_FOURTH" xml:space="preserve">
-    <value>Quarto</value>
-  </data>
-  <data name="TEXT_LAST" xml:space="preserve">
-    <value>Último</value>
-  </data>
-  <data name="TEXT_SECOND" xml:space="preserve">
-    <value>Segundo</value>
-  </data>
-  <data name="TEXT_THIRD" xml:space="preserve">
-    <value>Terceiro</value>
-  </data>
-  <data name="ACCOUNTMAPPER_ERR_ALREADY_EXISTS_MSG" xml:space="preserve">
-    <value>O mapeamento da conta já existe</value>
-  </data>
-  <data name="MT_ACCOUNT_TYPE_AND_NAMESPACE_MISMATCH_MSG" xml:space="preserve">
-    <value>Tipo de conta e namespace não correspondem ao criar conta.</value>
-  </data>
-  <data name="MT_NONBILLABLE_ACCOUNTS_REQUIRE_PAYER_MSG" xml:space="preserve">
-    <value>Uma conta marcada como não faturável deve ter uma conta de pagamento.</value>
-  </data>
-  <data name="MT_CANNOT_RESOLVE_PAYING_ACCOUNT_MSG" xml:space="preserve">
-    <value>A criação de conta não pôde resolver a conta do pagador a partir do login e namespace.</value>
-  </data>
-  <data name="MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT_MSG" xml:space="preserve">
-    <value>A criação de conta não pôde resolver a hierarquia principal a partir do login e namespace.</value>
-  </data>
-  <data name="MT_PARENT_NOT_IN_HIERARCHY_MSG" xml:space="preserve">
-    <value>O item principal especificado não existe na hierarquia.</value>
-  </data>
-  <data name="MT_ANCESTOR_OF_INCORRECT_TYPE_MSG" xml:space="preserve">
-    <value>A conta principal tem um tipo incorreto.</value>
-  </data>
-  <data name="MT_CANNOT_CREATE_ACCOUNT_BEFORE_ANCESTOR_START_MSG" xml:space="preserve">
-    <value>O sistema não pode criar a conta na hierarquia antes da data de início do ancestral.</value>
-  </data>
-  <data name="MT_ACCOUNT_ALREADY_IN_HIERARCHY_MSG" xml:space="preserve">
-    <value>A conta já está na hierarquia no intervalo de tempo especificado.</value>
-  </data>
-  <data name="MT_PAYMENT_DATE_BEFORE_ACCOUNT_STARDATE_MSG" xml:space="preserve">
-    <value>O sistema não pode criar um registro de pagamento antes da data de criação da conta.</value>
-  </data>
-  <data name="MT_PAYMENT_START_AND_END_ARE_THE_SAME_MSG" xml:space="preserve">
-    <value>O sistema não pode criar um registro de pagamento com mesmo dia de início e de término.</value>
-  </data>
-  <data name="MT_PAYMENT_START_AFTER_END_MSG" xml:space="preserve">
-    <value>A data de início do pagamento deve ocorrer antes da data de término do pagamento.</value>
-  </data>
-  <data name="MT_ACCOUNT_IS_NOT_BILLABLE_MSG" xml:space="preserve">
-    <value>A conta de pagamento não é faturável.</value>
-  </data>
-  <data name="MT_PAYER_IN_INVALID_STATE_MSG" xml:space="preserve">
-    <value>A conta pagadora não está ativa durante o intervalo de temo do pagamento.</value>
-  </data>
-  <data name="MT_CURRENCY_MISMATCH_MSG" xml:space="preserve">
-    <value>A moeda da conta deve corresponder à moeda da conta ancestral.</value>
-  </data>
-  <data name="MT_PAYER_PAYEE_CURRENCY_MISMATCH_MSG" xml:space="preserve">
-    <value>A moeda da conta do pagador deve corresponder à moeda da conta do favorecido.</value>
-  </data>
-  <data name="MT_CANNOT_PAY_FOR_ACCOUNT_IN_OTHER_CORPORATE_ACCOUNT_MSG" xml:space="preserve">
-    <value>Ambas as contas do pagador e do favorecido devem compartilhar a mesma conta corporativa.</value>
-  </data>
-  <data name="MTPCUSER_CYCLE_CONFLICTS_WITH_ACCOUNT_CYCLE_MSG" xml:space="preserve">
-    <value></value>
-  </data>
-  <data name="MT_ACCOUNT_PRICELIST_INVALID" xml:space="preserve">
-    <value>A lista de preços é inválida.</value>
-  </data>
-  <data name="MT_CANNOT_MOVE_ACCOUNT_TO_ANOTHER_NAMESPACE" xml:space="preserve">
-    <value>Não é possível mover a conta para outro namespace.</value>
-  </data>
-  <data name="INVALID_BRANDED_SITE" xml:space="preserve">
-    <value>Site de marca inválido. O site deveria conter a marca no namespace `{0}`.</value>
-  </data>
-  <data name="NOT_ACCOUNT" xml:space="preserve">
-    <value>O objeto especificado não é uma Conta</value>
-  </data>
-  <data name="MISSING_INTERNAL_VIEW" xml:space="preserve">
-    <value>A conta deve ter um InternalView</value>
-  </data>
-  <data name="MISSING_USERNAME" xml:space="preserve">
-    <value>A conta deve ser um nome de usuário</value>
-  </data>
-  <data name="MISSING_PASSWORD" xml:space="preserve">
-    <value>A conta deve ter uma senha</value>
-  </data>
-  <data name="MISSING_NAMESPACE" xml:space="preserve">
-    <value>A conta deve ter um namespace</value>
-  </data>
-  <data name="MISSING_DAY_OF_MONTH" xml:space="preserve">
-    <value>O dia do mês deve ser especificado para o tipo de ciclo mensal</value>
-  </data>
-  <data name="MISSING_DAY_OF_WEEK" xml:space="preserve">
-    <value>O dia da semana deve ser especificado para o tipo de ciclo semanal</value>
-  </data>
-  <data name="MISSING_START_DAY" xml:space="preserve">
-    <value>O dia de início deve ser especificado para o tipo de ciclo {0}</value>
-  </data>
-  <data name="MISSING_START_MONTH" xml:space="preserve">
-    <value>O mês de início deve ser especificado para o tipo de ciclo {0}</value>
-  </data>
-  <data name="MISSING_START_YEAR" xml:space="preserve">
-    <value>O ano de início deve ser especificado para o tipo de ciclo bissemanal</value>
-  </data>
-  <data name="MISSING_FIRST_DAY_OF_MONTH" xml:space="preserve">
-    <value>O primeiro dia do mês deve ser especificado para o tipo de ciclo quinzenal</value>
-  </data>
-  <data name="MISSING_SECOND_DAY_OF_MONTH" xml:space="preserve">
-    <value>O segundo dia do mês deve ser especificado para o tipo de ciclo quinzenal</value>
-  </data>
-  <data name="MISSING_REQUIRED_PROP_ACCOUNT" xml:space="preserve">
-    <value>A propriedade de conta exigida `{0}` não foi especificada</value>
-  </data>
-  <data name="MISSING_REQUIRED_PROP_VIEW" xml:space="preserve">
-    <value>A propriedade de exibição exigida `{0}` não foi especifica para a exibição `{1}`</value>
-  </data>
-  <data name="MISSING_CURRENCY_FOR_PAYER" xml:space="preserve">
-    <value>A conta do pagador `{0}` precisa ter uma moeda válida</value>
-  </data>
-  <data name="MISSING_ACCOUNT_TYPE" xml:space="preserve">
-    <value>A conta `{0}` deve ter um tipo de conta válido</value>
-  </data>
-  <data name="MISSING_ACCOUNT_STATUS" xml:space="preserve">
-    <value>A conta `{0}` deve ter um status de conta válido</value>
-  </data>
-  <data name="INVALID_ACCOUNT_TYPE" xml:space="preserve">
-    <value>A conta `{0}` tem um tipo de conta `{1}` inválido</value>
-  </data>
-  <data name="MISSING_LANGUAGE" xml:space="preserve">
-    <value>A conta `{0}` deve ter um idioma válido</value>
-  </data>
-  <data name="INVALID_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>A conta `{0}` tem um tipo de ciclo de utilização `{1}` inválido</value>
-  </data>
-  <data name="MISSING_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>A conta `{0}` deve ter um tipo de ciclo de utilização</value>
-  </data>
-  <data name="ANCESTOR_ID_MISMATCH" xml:space="preserve">
-    <value>A conta `{0}` tem um login ancestral `{1}` e um namespace `{2}` que não correspondem ao ID ancestral `{3}`.</value>
-  </data>
-  <data name="MISSING_ANCESTOR_LOGIN" xml:space="preserve">
-    <value>A conta `{0}` tem um namespace ancestral `{1}`, mas nenhuma informação de login.</value>
-  </data>
-  <data name="MISSING_ANCESTOR_NAMESPACE" xml:space="preserve">
-    <value>A conta `{0}` tem um login ancestral `{1}`, mas nenhuma informação de namespace.</value>
-  </data>
-  <data name="PAYER_ID_MISMATCH" xml:space="preserve">
-    <value>A conta `{0}` tem um login de pagador `{1}` e namespace `{2}` que não correspondem ao ID de pagador `{3}` especificado.</value>
-  </data>
-  <data name="MISSING_PAYER_LOGIN" xml:space="preserve">
-    <value>A conta `{0}` tem um namespace de pagador `{1}`, mas nenhuma informação de login.</value>
-  </data>
-  <data name="MISSING_PAYER_NAMESPACE" xml:space="preserve">
-    <value>A conta `{0}` tem um login de pagador `{1}`, mas nenhuma informação de namespace.</value>
-  </data>
-  <data name="MISSING_LOGIN_APP" xml:space="preserve">
-    <value>A conta do sistema `{0}` deve ter um aplicativo de login</value>
-  </data>
-  <data name="INVALID_ACCOUNT_ANCESTOR" xml:space="preserve">
-    <value>A conta `{0}` tem um id ancestral inválido de -1</value>
-  </data>
-  <data name="INVALID_ACCOUNT_USERNAME" xml:space="preserve">
-    <value>A conta `{0}` não pode ter um nome de usuário com mais de 255 caracteres.</value>
-  </data>
-  <data name="INVALID_ACCOUNT_PASSWORD" xml:space="preserve">
-    <value>A conta `{0}` não pode ter uma senha com mais de 1024 caracteres.</value>
-  </data>
-  <data name="INVALID_START_YEAR" xml:space="preserve">
-    <value>A conta `{0}` deve ter um ano de início entre 1970 e 2037.</value>
-  </data>
-  <data name="INVALID_START_DAY" xml:space="preserve">
-    <value>A conta `{0}` tem um dia de início maior que o número de dias do mês de `{1}` no ano `{2}`.</value>
-  </data>
-  <data name="INVALID_START_DAY_WITHOUT_YEAR" xml:space="preserve">
-    <value>A conta `{0}` tem um dia de início maior que o número de dias do mês de `{1}`.</value>
-  </data>
-  <data name="INVALID_START_DAY_RANGE" xml:space="preserve">
-    <value>O dia de início da conta deve estar no intervalo [1 - 31].</value>
-  </data>
-  <data name="INVALID_START_MONTH_RANGE" xml:space="preserve">
-    <value>O mês de início da conta deve estar no intervalo [1 - 12].</value>
-  </data>
-  <data name="INVALID_FIRST_DAY" xml:space="preserve">
-    <value>Dia de fim de mês inválido selecionado. O dia DEVE ser posterior ao dia de início.</value>
-  </data>
-  <data name="INVALID_DATA" xml:space="preserve">
-    <value>Dados inválidos.</value>
-  </data>
-  <data name="INVALID_START_YEAR_FOR_CYCLE" xml:space="preserve">
-    <value>O tipo de ciclo `{0}` deve ter um ano de início entre 1970 e 2037.</value>
-  </data>
-  <data name="INVALID_START_DAY_FOR_CYCLE" xml:space="preserve">
-    <value>O tipo de ciclo `{0}` tem um dia de início maior que o número de dias do mês de `{1}` no ano de `{2}`.</value>
-  </data>
-  <data name="INVALID_START_MONTH_RANGE_FOR_CYCLE" xml:space="preserve">
-    <value>O mês de início deve estar no intervalo [1 - 31] para o tipo de ciclo `{0}`.</value>
-  </data>
-  <data name="INVALID_START_DAY_RANGE_FOR_CYCLE" xml:space="preserve">
-    <value>O dia de início deve estar no intervalo [1 - 31] para o tipo de ciclo `{0}`.</value>
-  </data>
-  <data name="INVALID_START_DAY_WITHOUT_YEAR_FOR_CYCLE" xml:space="preserve">
-    <value>O tipo de ciclo `{0}` tem um dia de início maior que o número de dias do mês de `{1}`.</value>
-  </data>
-  <data name="UNKNOWN_CYCLE_TYPE" xml:space="preserve">
-    <value>O tipo de ciclo `{0}` não é suportado.</value>
-  </data>
-  <data name="Account_failed_validation" xml:space="preserve">
-    <value>Falha na validação da conta</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Account_failed_validation" xml:space="preserve">
+        <value>Falha na validação da conta</value>
+    </data>
+    <data name="ACCOUNTMAPPER_ERR_ALREADY_EXISTS_MSG" xml:space="preserve">
+        <value>O mapeamento da conta já existe</value>
+    </data>
+    <data name="ACOUNT_STATE_WAS" xml:space="preserve">
+        <value>O estado da conta era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="ACS_APPLIED_LIST_UPDATED" xml:space="preserve">
+        <value>Os Modelos OnBoard aplicados com os IDs: {0} não estão mais qualificados para a conta.Assinaturas relacionadas serão encerradas.</value>
+    </data>
+    <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
+        <value>Os Modelos OnBoard com os IDs {0} foram removidos da lista Aplicados.</value>
+    </data>
+    <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
+        <value>A criação de novas inscrições foi concluída.</value>
+    </data>
+    <data name="ACS_CREATE_SUB_START" xml:space="preserve">
+        <value>Iniciando a criação de novas inscrições...</value>
+    </data>
+    <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
+        <value>Os Modelos OnBoard com os IDs: {0} serão ignorados. Eles são qualificados para a conta e já foram aplicados.</value>
+    </data>
+    <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
+        <value>Novas assinaturas serão criadas para os Modelos OnBoard qualificados com IDs: {0}.</value>
+    </data>
+    <data name="ACS_EXCHANGE_RANKS_EXCEPTION" xml:space="preserve">
+        <value>Erro ao trocar classificações de Modelos OnBoard com Id {0} e {1}</value>
+    </data>
+    <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
+        <value>A inscrição de grupo foi criada por AccountConfigSetParams idAcsParams=`{0}`, ProductOffering id=`{1}`</value>
+    </data>
+    <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
+        <value>O membro com ID `{0}` foi adicionado ao GroupSubscription `{1}` com ID `{2}`</value>
+    </data>
+    <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
+        <value>Não é possível adicionar o membro com ID `{0}` porque GroupSubscription não existe para a Conta corporativa com ID `{1}`</value>
+    </data>
+    <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
+        <value>Não é possível adicionar o membro com ID `{0}` à GroupSubscription `{1}` com ID `{2}`. Exceção: {3}</value>
+    </data>
+    <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_TERMINATED" xml:space="preserve">
+        <value>Não é possível encerrar o membro com ID `{0}` à assinatura de grupo `{1}` com ID `{2}`. Exceção: {3}</value>
+    </data>
+    <data name="ACS_GROUP_SUB_MEMBER_WAS_TERMINATED" xml:space="preserve">
+        <value>O membro com ID `{0}` foi encerrado na assinatura de grupo com ID `{1}`</value>
+    </data>
+    <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
+        <value>GroupSubscription {0}` foi criada para a conta corporativa com ID `{1}` e assinado para a oferta de produto `{2}`</value>
+    </data>
+    <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
+        <value>Não foi possível criar GroupSubscription para a conta corporativa com ID `{0}` e assinar a oferta de produto `{1}`. Exceção: {2} </value>
+    </data>
+    <data name="ACS_GROUP_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
+        <value>Não foi possível encerrar a assinatura de grupo `{0}` para a conta corporativa com ID `{1}`. Exceção: {2}</value>
+    </data>
+    <data name="ACS_GROUP_SUB_WAS_TERMINATED" xml:space="preserve">
+        <value>GroupSubscription {0}` com ID de conta corporativa `{1}` foi encerrado para todos os membros.</value>
+    </data>
+    <data name="ACS_IS_ALREADY_RUNNING_FOR_ACC" xml:space="preserve">
+        <value>[pt-br]Apply OnBoard templates is already running for the account</value>
+    </data>
+    <data name="ACS_LOAD_ACCOUNT_FAIL" xml:space="preserve">
+        <value>A conta com a ID {0} não foi encontrada ou não está disponível</value>
+    </data>
+    <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
+        <value>A conta `{0}` foi carregada.</value>
+    </data>
+    <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
+        <value>Carregando a conta com a ID {0}...</value>
+    </data>
+    <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
+        <value>Os Modelos OnBoard com os IDs: {0} foram encontrados para a conta.</value>
+    </data>
+    <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
+        <value>Carregando Modelos OnBoard aplicados à conta...</value>
+    </data>
+    <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
+        <value>Os Modelos OnBoard com os IDs: {0} foram considerados qualificados para a conta.</value>
+    </data>
+    <data name="ACS_LOAD_ELIGIBLE_ACS_NONUNIQUE_RANK_EXCEPTION" xml:space="preserve">
+        <value>Alguns Modelos OnBoard qualificados têm classificações não exclusivas. Configuração errada de Modelos OnBoard.</value>
+    </data>
+    <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
+        <value>Carregando Modelos OnBoard qualificados para a conta...</value>
+    </data>
+    <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
+        <value>A modificação de propriedades de conta foi concluída.</value>
+    </data>
+    <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
+        <value>Iniciando a modificação de propriedades de conta...</value>
+    </data>
+    <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
+        <value>Falha ao modificar a propriedade `{0}` pelo Modelo OnBoard {1}. Valor anterior:`{2}`. Novo valor:`{3}`.</value>
+    </data>
+    <data name="ACS_PROP_MODIFIED_SUCCESSFULLY" xml:space="preserve">
+        <value>A propriedade `{0}` foi modificada pelo Modelo OnBoard {1}. Valor anterior:`{2}`. Novo valor:`{3}`.</value>
+    </data>
+    <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
+        <value>A propriedade `{0}` não foi encontrada.</value>
+    </data>
+    <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
+        <value>A conta com a ID `{0}` estava inscrita na Oferta de produto `{1}`.</value>
+    </data>
+    <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
+        <value>Não é possível inscrever a conta com a ID `{0}` na Oferta de produto com a ID `{1}`. Exceção: {2}</value>
+    </data>
+    <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
+        <value>Não é possível terminar a inscrição com a ID {0}. Exceção: {1}</value>
+    </data>
+    <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
+        <value>A inscrição em {0} foi terminada.</value>
+    </data>
+    <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
+        <value>O término das inscrições existentes foi concluído.</value>
+    </data>
+    <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
+        <value>Iniciando o término das inscrições existentes...</value>
+    </data>
+    <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
+        <value>Não foi possível adicionar a oferta de produto `{0}` ao Modelo OnBoard, pois o parâmetro de assinatura EndDate `{1}` é maior que a EndDate `{2}` disponível da oferta do produto.</value>
+    </data>
+    <data name="ACS_VALIDATION_AvailableStartDateLessThanStartDateInPo" xml:space="preserve">
+        <value>Não foi possível adicionar a oferta de produto `{0}` ao Modelo OnBoard, pois o parâmetro de assinatura StartDate `{1}` é menor que a StartDate `{2}` disponível da oferta do produto. </value>
+    </data>
+    <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
+        <value>As datas do Modelo OnBoard não correspondem às datas disponíveis na oferta do produto `{0}`. Datas efetivas para o Conjunto de configuração de `{1} a `{2}`, mas a da oferta do produto é de `{3}` a `{4}`  </value>
+    </data>
+    <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
+        <value>Data de término disponível incorreta para o Modelo OnBoard. A EffectiveEndDate={0} disponível é anterior à data do sistema={1}, então o Conjunto de configuração de conta nunca será usado.</value>
+    </data>
+    <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
+        <value>Data disponível incorreta para o Modelo OnBoard atual. A EffectiveDate={0} disponível é posterior a EffectiveEndDate={1}.</value>
+    </data>
+    <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
+        <value>A oferta de produto `{0}` não está disponível para a conta de partição `{1}` com id=`{2}`. A IdPartition=`{3}` da oferta de produto é diferente da IdPartition=`{4}` da conta da partição.</value>
+    </data>
+    <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
+        <value>Ocorreu uma exceção ao recuperar o produto com o Id=`{0}`. Exceção: {1}</value>
+    </data>
+    <data name="ACS_VALIDATION_GroupSab_GroupName_NOT_SET" xml:space="preserve">
+        <value>A conta corporativa com o ID `{0}` está definida, mas o nome da assinatura de grupo, não está. Ambos os parâmetros são obrigatórios para a assinatura de grupo. Para criar a assinatura simples, você NÃO deve definir nenhum destes campos.</value>
+    </data>
+    <data name="ACS_VALIDATION_GroupSub_CorporateAccountId_NOT_SET" xml:space="preserve">
+        <value>O nome da assinatura de grupo `{0}` está definido, mas CorporateAccountId, não está. Ambos os parâmetros são obrigatórios para a assinatura de grupo. Para criar a assinatura simples, você NÃO deve definir nenhum destes campos.</value>
+    </data>
+    <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
+        <value>A partição de ID da conta corporativa com ID = `{0}` não é a mesma da oferta de produto `{1}`. ID de partição da conta = `{2}`, mas para oferta de produto = `{3}`</value>
+    </data>
+    <data name="ACS_VALIDATION_INVALID_RANK_VALUE" xml:space="preserve">
+        <value>A classificação deve ser &gt; 0. Valor de classificação: {0}.</value>
+    </data>
+    <data name="ACS_VALIDATION_MandatoryProperty_CantBeEmptyOrNull" xml:space="preserve">
+        <value>A propriedade obrigatória `{0}` não pode estar vazia ou ser nula. </value>
+    </data>
+    <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
+        <value>A propriedade obrigatória `{0}` é nula. A propriedade deve ser inicializada.</value>
+    </data>
+    <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
+        <value>A propriedade obrigatória `{0}` deve obter ao menos um item.</value>
+    </data>
+    <data name="ACS_VALIDATION_PropertiesToSetHasDuplicates" xml:space="preserve">
+        <value>Propriedades a definir com Exibição de conta `{0}` e nome `{1}` foi encontrada mais de uma vez (contagem = {2}). Propriedades a definir devem ser exclusivas.</value>
+    </data>
+    <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
+        <value>Pelo menos uma das propriedades `{0}` ou `{1}` deve ser definida.</value>
+    </data>
+    <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
+        <value>Critério de seleção com Exibição de conta `{0}` e nome `{1}` foi encontrado mais de uma vez (contagem = {2}).O critério de seleção deve ser exclusivo.</value>
+    </data>
+    <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
+        <value>UDRC para PI ID={0} não definido!</value>
+    </data>
+    <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
+        <value>A StartDate={0} da métrica UDRC não pode ser maior que a EndDate={1} de PI com id={2}</value>
+    </data>
+    <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
+        <value>UDRC com ID={0} (StartDate = {1} e EndDate={2}) não existia para PO</value>
+    </data>
+    <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
+        <value>Não foi possível adicionar Parâm. de assinatura do modelo OnBoard devido a erros de validação.</value>
+    </data>
+    <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
+        <value>Não foi possível adicionar o Modelo OnBoard devido a erros de validação.</value>
+    </data>
+    <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
+        <value>Não é possível localizar a oferta de produto com a Id=`{0}`</value>
+    </data>
+    <data name="ACS_VALIDATION_UnableToFindProductOfferingId" xml:space="preserve">
+        <value>Não foi possível localizar a oferta de produto com id={0}</value>
+    </data>
+    <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
+        <value>Não foi possível localizar a propriedade da assinatura. Detalhes: `{0}`</value>
+    </data>
+    <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
+        <value>Não é possível obter a partição de ID da conta corporativa com a id=`{0}`. Erro: `{1}`</value>
+    </data>
+    <data name="ACS_VALIDATION_UnapleToFindProductOfferingId" xml:space="preserve">
+        <value>Não foi possível localizar a oferta de produto com id={0}</value>
+    </data>
+    <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
+        <value>#{0}) Mensagem: `{1}`, Componente: `{2}`</value>
+    </data>
+    <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
+        <value>Falha ao modificar exibições de ID da conta {0}.</value>
+    </data>
+    <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>Erro ao salvar Modelo OnBoard com Id {0}</value>
+    </data>
+    <data name="ADD_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
+        <value>Erro ao salvar SubscriptionParams com Id {0}</value>
+    </data>
+    <data name="ADDED_ENTITY" xml:space="preserve">
+        <value>Entidade adicionada com ID {0} à lista de entidades</value>
+    </data>
+    <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
+        <value>Valores de propriedade compartilhada adicionados.</value>
+    </data>
+    <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
+        <value>Valores de característica de especificação adicionados.</value>
+    </data>
+    <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
+        <value>Adicionando valores de propriedade compartilhada.</value>
+    </data>
+    <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
+        <value>Adicionando valores de característica de especificação.</value>
+    </data>
+    <data name="ANCESTOR_ACOUNT_ID_WAS" xml:space="preserve">
+        <value>O ID da conta ancestral era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="ANCESTOR_ACOUNT_NS_WAS" xml:space="preserve">
+        <value>O espaço de nomes da conta ancestral era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
+        <value>A conta ancestral era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="ANCESTOR_ID_MISMATCH" xml:space="preserve">
+        <value>A conta `{0}` tem um login ancestral `{1}` e um namespace `{2}` que não correspondem ao ID ancestral `{3}`.</value>
+    </data>
+    <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
+        <value>Erro ao aplicar Modelos OnBoard na conta {0}.</value>
+    </data>
+    <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
+        <value>A transação {0} é do tipo {1}, mas foi obtido uma AlreadySettledException</value>
+    </data>
+    <data name="BILLING_CYCLES" xml:space="preserve">
+        <value>Ciclos de faturamento</value>
+    </data>
+    <data name="CHANGED_CHILD_PI_INSTANCE" xml:space="preserve">
+        <value>A instância de PI filho foi alterado de {0} para {1}. </value>
+    </data>
+    <data name="CHANGED_PROP" xml:space="preserve">
+        <value>A propriedade `{0}` foi alterada de `{1}` para `{2}`.</value>
+    </data>
+    <data name="CITY_CHANGED" xml:space="preserve">
+        <value>A cidade era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
+        <value>Não foi possível desserializar JSON {0} no tipo {1}.</value>
+    </data>
+    <data name="COUNTRY_CHANGED" xml:space="preserve">
+        <value>O país era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+        <value>Novo modelo de contrato criado com sucesso com id {0}.</value>
+    </data>
+    <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
+        <value>O dia do mês era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="DAY_OF_WEEK_WAS" xml:space="preserve">
+        <value>O dia da semana era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>Erro ao excluir Modelo OnBoard</value>
+    </data>
+    <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
+        <value>A matriz de IDs de modelos OnBoard contém ID inválido: {0}</value>
+    </data>
+    <data name="DELETE_APPLIED_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>O Modelo OnBoard aplicado não pode ser excluído. ID: {0}</value>
+    </data>
+    <data name="DELETE_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>O Modelo OnBoard de outra Partição não pode ser excluído. ID: {0}</value>
+    </data>
+    <data name="DELETED_ENTITY" xml:space="preserve">
+        <value>Entidade excluída com ID {0} da lista de entidades</value>
+    </data>
+    <data name="END_DATE_WAS" xml:space="preserve">
+        <value>A data de término era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="END_DAY_OF_MONTH" xml:space="preserve">
+        <value>Dia final do mês</value>
+    </data>
+    <data name="END_DAY_OF_WEEK" xml:space="preserve">
+        <value>Dia final da semana</value>
+    </data>
+    <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
+        <value>A lista de entidades já contém uma entidade com id {0}.</value>
+    </data>
+    <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
+        <value>A lista de entidades não contém uma entidade com id {0}.</value>
+    </data>
+    <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
+        <value>A data de término da vigência não pode ser anterior que a data de início da vigência</value>
+    </data>
+    <data name="EXPIRATION_CHANGED" xml:space="preserve">
+        <value>A data de expiração era {0}, foi alterada para {1}.</value>
+    </data>
+    <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
+        <value>Falha ao salvar o modelo de contrato {0}.</value>
+    </data>
+    <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
+        <value>O primeiro dia do mês era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="FIRST_END_DAY_OF_MONTH" xml:space="preserve">
+        <value>1º dia final do mês</value>
+    </data>
+    <data name="FIRST_NAME_CHANGED" xml:space="preserve">
+        <value>O nome era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>Erro ao obter Modelo OnBoard com Id {0}</value>
+    </data>
+    <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
+        <value>Erro ao obter lista do Modelo OnBoard</value>
+    </data>
+    <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
+        <value>Erro ao obter parâmetros de assinatura com Id {0}</value>
+    </data>
+    <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
+        <value>Erro ao obter a lista aplicada pelo Modelo OnBoard</value>
+    </data>
+    <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>Não é possível obter o Modelo OnBoard com a PO de outra partição!</value>
+    </data>
+    <data name="GOT_NO_RESPONSE" xml:space="preserve">
+        <value>Sem resposta de {0}.</value>
+    </data>
+    <data name="INVALID_ACCOUNT_ANCESTOR" xml:space="preserve">
+        <value>A conta `{0}` tem um id ancestral inválido de -1</value>
+    </data>
+    <data name="INVALID_ACCOUNT_PASSWORD" xml:space="preserve">
+        <value>A conta `{0}` não pode ter uma senha com mais de 1024 caracteres.</value>
+    </data>
+    <data name="INVALID_ACCOUNT_TYPE" xml:space="preserve">
+        <value>A conta `{0}` tem um tipo de conta `{1}` inválido</value>
+    </data>
+    <data name="INVALID_ACCOUNT_USERNAME" xml:space="preserve">
+        <value>A conta `{0}` não pode ter um nome de usuário com mais de 255 caracteres.</value>
+    </data>
+    <data name="INVALID_BRANDED_SITE" xml:space="preserve">
+        <value>Site de marca inválido. O site deveria conter a marca no namespace `{0}`.</value>
+    </data>
+    <data name="INVALID_DATA" xml:space="preserve">
+        <value>Dados inválidos.</value>
+    </data>
+    <data name="INVALID_FIRST_DAY" xml:space="preserve">
+        <value>Dia de fim de mês inválido selecionado. O dia DEVE ser posterior ao dia de início.</value>
+    </data>
+    <data name="INVALID_START_DAY" xml:space="preserve">
+        <value>A conta `{0}` tem um dia de início maior que o número de dias do mês de `{1}` no ano `{2}`.</value>
+    </data>
+    <data name="INVALID_START_DAY_FOR_CYCLE" xml:space="preserve">
+        <value>O tipo de ciclo `{0}` tem um dia de início maior que o número de dias do mês de `{1}` no ano de `{2}`.</value>
+    </data>
+    <data name="INVALID_START_DAY_RANGE" xml:space="preserve">
+        <value>O dia de início da conta deve estar no intervalo [1 - 31].</value>
+    </data>
+    <data name="INVALID_START_DAY_RANGE_FOR_CYCLE" xml:space="preserve">
+        <value>O dia de início deve estar no intervalo [1 - 31] para o tipo de ciclo `{0}`.</value>
+    </data>
+    <data name="INVALID_START_DAY_WITHOUT_YEAR" xml:space="preserve">
+        <value>A conta `{0}` tem um dia de início maior que o número de dias do mês de `{1}`.</value>
+    </data>
+    <data name="INVALID_START_DAY_WITHOUT_YEAR_FOR_CYCLE" xml:space="preserve">
+        <value>O tipo de ciclo `{0}` tem um dia de início maior que o número de dias do mês de `{1}`.</value>
+    </data>
+    <data name="INVALID_START_MONTH_RANGE" xml:space="preserve">
+        <value>O mês de início da conta deve estar no intervalo [1 - 12].</value>
+    </data>
+    <data name="INVALID_START_MONTH_RANGE_FOR_CYCLE" xml:space="preserve">
+        <value>O mês de início deve estar no intervalo [1 - 31] para o tipo de ciclo `{0}`.</value>
+    </data>
+    <data name="INVALID_START_YEAR" xml:space="preserve">
+        <value>A conta `{0}` deve ter um ano de início entre 1970 e 2037.</value>
+    </data>
+    <data name="INVALID_START_YEAR_FOR_CYCLE" xml:space="preserve">
+        <value>O tipo de ciclo `{0}` deve ter um ano de início entre 1970 e 2037.</value>
+    </data>
+    <data name="INVALID_USAGE_CYCLE_TYPE" xml:space="preserve">
+        <value>A conta `{0}` tem um tipo de ciclo de utilização `{1}` inválido</value>
+    </data>
+    <data name="LAST_NAME_CHANGED" xml:space="preserve">
+        <value>O sobrenome era {0}, foi alterado para {1}.</value>
+    </data>
+    <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
+        <value>A cobrança máxima por ciclo era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="MIDDLE_NAME_CHANGED" xml:space="preserve">
+        <value>O nome do meio era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="MISSING_ACCOUNT_STATUS" xml:space="preserve">
+        <value>A conta `{0}` deve ter um status de conta válido</value>
+    </data>
+    <data name="MISSING_ACCOUNT_TYPE" xml:space="preserve">
+        <value>A conta `{0}` deve ter um tipo de conta válido</value>
+    </data>
+    <data name="MISSING_ANCESTOR_LOGIN" xml:space="preserve">
+        <value>A conta `{0}` tem um namespace ancestral `{1}`, mas nenhuma informação de login.</value>
+    </data>
+    <data name="MISSING_ANCESTOR_NAMESPACE" xml:space="preserve">
+        <value>A conta `{0}` tem um login ancestral `{1}`, mas nenhuma informação de namespace.</value>
+    </data>
+    <data name="MISSING_CURRENCY_FOR_PAYER" xml:space="preserve">
+        <value>A conta do pagador `{0}` precisa ter uma moeda válida</value>
+    </data>
+    <data name="MISSING_DAY_OF_MONTH" xml:space="preserve">
+        <value>O dia do mês deve ser especificado para o tipo de ciclo mensal</value>
+    </data>
+    <data name="MISSING_DAY_OF_WEEK" xml:space="preserve">
+        <value>O dia da semana deve ser especificado para o tipo de ciclo semanal</value>
+    </data>
+    <data name="MISSING_FIRST_DAY_OF_MONTH" xml:space="preserve">
+        <value>O primeiro dia do mês deve ser especificado para o tipo de ciclo quinzenal</value>
+    </data>
+    <data name="MISSING_INTERNAL_VIEW" xml:space="preserve">
+        <value>A conta deve ter um InternalView</value>
+    </data>
+    <data name="MISSING_LANGUAGE" xml:space="preserve">
+        <value>A conta `{0}` deve ter um idioma válido</value>
+    </data>
+    <data name="MISSING_LOGIN_APP" xml:space="preserve">
+        <value>A conta do sistema `{0}` deve ter um aplicativo de login</value>
+    </data>
+    <data name="MISSING_NAMESPACE" xml:space="preserve">
+        <value>A conta deve ter um namespace</value>
+    </data>
+    <data name="MISSING_PASSWORD" xml:space="preserve">
+        <value>A conta deve ter uma senha</value>
+    </data>
+    <data name="MISSING_PAYER_LOGIN" xml:space="preserve">
+        <value>A conta `{0}` tem um namespace de pagador `{1}`, mas nenhuma informação de login.</value>
+    </data>
+    <data name="MISSING_PAYER_NAMESPACE" xml:space="preserve">
+        <value>A conta `{0}` tem um login de pagador `{1}`, mas nenhuma informação de namespace.</value>
+    </data>
+    <data name="MISSING_REQUIRED_PROP_ACCOUNT" xml:space="preserve">
+        <value>A propriedade de conta exigida `{0}` não foi especificada</value>
+    </data>
+    <data name="MISSING_REQUIRED_PROP_VIEW" xml:space="preserve">
+        <value>A propriedade de exibição exigida `{0}` não foi especifica para a exibição `{1}`</value>
+    </data>
+    <data name="MISSING_SECOND_DAY_OF_MONTH" xml:space="preserve">
+        <value>O segundo dia do mês deve ser especificado para o tipo de ciclo quinzenal</value>
+    </data>
+    <data name="MISSING_START_DAY" xml:space="preserve">
+        <value>O dia de início deve ser especificado para o tipo de ciclo {0}</value>
+    </data>
+    <data name="MISSING_START_MONTH" xml:space="preserve">
+        <value>O mês de início deve ser especificado para o tipo de ciclo {0}</value>
+    </data>
+    <data name="MISSING_START_YEAR" xml:space="preserve">
+        <value>O ano de início deve ser especificado para o tipo de ciclo bissemanal</value>
+    </data>
+    <data name="MISSING_USAGE_CYCLE_TYPE" xml:space="preserve">
+        <value>A conta `{0}` deve ter um tipo de ciclo de utilização</value>
+    </data>
+    <data name="MISSING_USERNAME" xml:space="preserve">
+        <value>A conta deve ser um nome de usuário</value>
+    </data>
+    <data name="MT_ACCOUNT_ALREADY_IN_HIERARCHY_MSG" xml:space="preserve">
+        <value>A conta já está na hierarquia no intervalo de tempo especificado.</value>
+    </data>
+    <data name="MT_ACCOUNT_IS_NOT_BILLABLE_MSG" xml:space="preserve">
+        <value>A conta de pagamento não é faturável.</value>
+    </data>
+    <data name="MT_ACCOUNT_PRICELIST_INVALID" xml:space="preserve">
+        <value>A lista de preços é inválida.</value>
+    </data>
+    <data name="MT_ACCOUNT_TYPE_AND_NAMESPACE_MISMATCH_MSG" xml:space="preserve">
+        <value>Tipo de conta e namespace não correspondem ao criar conta.</value>
+    </data>
+    <data name="MT_ANCESTOR_OF_INCORRECT_TYPE_MSG" xml:space="preserve">
+        <value>A conta principal tem um tipo incorreto.</value>
+    </data>
+    <data name="MT_CANNOT_CREATE_ACCOUNT_BEFORE_ANCESTOR_START_MSG" xml:space="preserve">
+        <value>O sistema não pode criar a conta na hierarquia antes da data de início do ancestral.</value>
+    </data>
+    <data name="MT_CANNOT_MOVE_ACCOUNT_TO_ANOTHER_NAMESPACE" xml:space="preserve">
+        <value>Não é possível mover a conta para outro namespace.</value>
+    </data>
+    <data name="MT_CANNOT_PAY_FOR_ACCOUNT_IN_OTHER_CORPORATE_ACCOUNT_MSG" xml:space="preserve">
+        <value>Ambas as contas do pagador e do favorecido devem compartilhar a mesma conta corporativa.</value>
+    </data>
+    <data name="MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT_MSG" xml:space="preserve">
+        <value>A criação de conta não pôde resolver a hierarquia principal a partir do login e namespace.</value>
+    </data>
+    <data name="MT_CANNOT_RESOLVE_PAYING_ACCOUNT_MSG" xml:space="preserve">
+        <value>A criação de conta não pôde resolver a conta do pagador a partir do login e namespace.</value>
+    </data>
+    <data name="MT_CURRENCY_MISMATCH_MSG" xml:space="preserve">
+        <value>A moeda da conta deve corresponder à moeda da conta ancestral.</value>
+    </data>
+    <data name="MT_NONBILLABLE_ACCOUNTS_REQUIRE_PAYER_MSG" xml:space="preserve">
+        <value>Uma conta marcada como não faturável deve ter uma conta de pagamento.</value>
+    </data>
+    <data name="MT_PARENT_NOT_IN_HIERARCHY_MSG" xml:space="preserve">
+        <value>O item principal especificado não existe na hierarquia.</value>
+    </data>
+    <data name="MT_PAYER_IN_INVALID_STATE_MSG" xml:space="preserve">
+        <value>A conta pagadora não está ativa durante o intervalo de temo do pagamento.</value>
+    </data>
+    <data name="MT_PAYER_PAYEE_CURRENCY_MISMATCH_MSG" xml:space="preserve">
+        <value>A moeda da conta do pagador deve corresponder à moeda da conta do favorecido.</value>
+    </data>
+    <data name="MT_PAYMENT_DATE_BEFORE_ACCOUNT_STARDATE_MSG" xml:space="preserve">
+        <value>O sistema não pode criar um registro de pagamento antes da data de criação da conta.</value>
+    </data>
+    <data name="MT_PAYMENT_START_AFTER_END_MSG" xml:space="preserve">
+        <value>A data de início do pagamento deve ocorrer antes da data de término do pagamento.</value>
+    </data>
+    <data name="MT_PAYMENT_START_AND_END_ARE_THE_SAME_MSG" xml:space="preserve">
+        <value>O sistema não pode criar um registro de pagamento com mesmo dia de início e de término.</value>
+    </data>
+    <data name="MTPCUSER_CYCLE_CONFLICTS_WITH_ACCOUNT_CYCLE_MSG" xml:space="preserve">
+        <value></value>
+    </data>
+    <data name="NOT_ACCOUNT" xml:space="preserve">
+        <value>O objeto especificado não é uma Conta</value>
+    </data>
+    <data name="PAYER_ACCOUNT_NS_WAS" xml:space="preserve">
+        <value>O espaço de nomes da conta do pagador era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="PAYER_ACCOUNT_WAS" xml:space="preserve">
+        <value>A conta do pagador era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="PAYER_ID_MISMATCH" xml:space="preserve">
+        <value>A conta `{0}` tem um login de pagador `{1}` e namespace `{2}` que não correspondem ao ID de pagador `{3}` especificado.</value>
+    </data>
+    <data name="PAYER_ID_WAS" xml:space="preserve">
+        <value>O ID do pagador era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="PI_DESCRIPTION_WAS" xml:space="preserve">
+        <value>A descrição era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="PI_DISPLAY_NAME_WAS" xml:space="preserve">
+        <value>O nome exibido era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="PI_KIND_WAS" xml:space="preserve">
+        <value>O tipo era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="PI_NAME_WAS" xml:space="preserve">
+        <value>O nome era {0}, foi alterado para {1}.</value>
+    </data>
+    <data name="ROOT" xml:space="preserve">
+        <value>Hierarquia de conta (1)</value>
+    </data>
+    <data name="SECOND_DAY_OF_MONTH_WAS" xml:space="preserve">
+        <value>O segundo dia do mês era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="SECOND_END_DAY_OF_MONTH" xml:space="preserve">
+        <value>2º dia final do mês</value>
+    </data>
+    <data name="SELECT_INTERVAL" xml:space="preserve">
+        <value>Selecionar intervalo</value>
+    </data>
+    <data name="START_DATE_WAS" xml:space="preserve">
+        <value>A data de início era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="START_DAY" xml:space="preserve">
+        <value>Data de início</value>
+    </data>
+    <data name="START_DAY_IS" xml:space="preserve">
+        <value>A data de início é {0}. </value>
+    </data>
+    <data name="START_DAY_WAS" xml:space="preserve">
+        <value>O dia de início era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="START_MONTH" xml:space="preserve">
+        <value>Mês de início</value>
+    </data>
+    <data name="START_MONTH_IS" xml:space="preserve">
+        <value>O mês de início é {0}. </value>
+    </data>
+    <data name="START_MONTH_WAS" xml:space="preserve">
+        <value>O mês de início era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="START_YEAR_WAS" xml:space="preserve">
+        <value>O ano de início era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="STATE_CHANGED" xml:space="preserve">
+        <value>O estado era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="STREET_2_CHANGED" xml:space="preserve">
+        <value>A rua(2) era {0}, foi alterada para {1}.</value>
+    </data>
+    <data name="STREET_CHANGED" xml:space="preserve">
+        <value>A rua era {0}, foi alterada para {1}. </value>
+    </data>
+    <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
+        <value>Sucesso na atualização de conta do nome de usuário `{0}` com id `{1}. ` </value>
+    </data>
+    <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
+        <value>ID do modelo de contrato não pode ser menor que 0.</value>
+    </data>
+    <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>Erro ao encerrar o Modelo OnBoard</value>
+    </data>
+    <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
+        <value>A conta não pode ser seu próprio gerenciador de fatura</value>
+    </data>
+    <data name="TEXT_ADDED_BILL_MANAGEE" xml:space="preserve">
+        <value>Gerenciado de fatura adicionado</value>
+    </data>
+    <data name="TEXT_ADDED_BILL_MANAGER" xml:space="preserve">
+        <value>Gerenciador de fatura da conta adicionado com sucesso</value>
+    </data>
+    <data name="TEXT_APPROVED_NS_CHARGES" xml:space="preserve">
+        <value>Cobranças relevantes extraordinárias aprovadas</value>
+    </data>
+    <data name="TEXT_APPROVING_NS_CHARGES" xml:space="preserve">
+        <value>Aprovando as cobranças relevantes extraordinárias</value>
+    </data>
+    <data name="TEXT_BADLY_FORMATTED_FILTER" xml:space="preserve">
+        <value>A string de valores do filtro tem formato ruim: {0}</value>
+    </data>
+    <data name="TEXT_BADLY_FORMATTED_PARAMETERS" xml:space="preserve">
+        <value>A solicitação continha parâmetros com falha de formatação.</value>
+    </data>
+    <data name="TEXT_BADLY_FORMATTED_SORT" xml:space="preserve">
+        <value>A string de valores de classificação tem formato ruim: {0}</value>
+    </data>
+    <data name="TEXT_BILL_MANAGER_CORPORATION" xml:space="preserve">
+        <value>O gerenciador de fatura e a conta devem estar na mesma corporação</value>
+    </data>
+    <data name="TEXT_BILL_MANAGER_EXISTS" xml:space="preserve">
+        <value>Gerenciador de fatura já existe</value>
+    </data>
+    <data name="TEXT_CANNOT_ADD_BILL_MANAGEES" xml:space="preserve">
+        <value>Não foi possível adicionar o gerenciado de fatura</value>
+    </data>
+    <data name="TEXT_CANNOT_ADD_BILL_MANAGER" xml:space="preserve">
+        <value>Não é possível adicionar gerenciador de faturamento ao sistema</value>
+    </data>
+    <data name="TEXT_CANNOT_DELETE_SHARED_PROPERTY_IN_USE" xml:space="preserve">
+        <value>Não é possível remover a propriedade compartilhada, pois ela está em uso.</value>
+    </data>
+    <data name="TEXT_CANNOT_GET_SHARED_PROPERTIES" xml:space="preserve">
+        <value>Não é possível recuperar propriedades compartilhadas do sistema.</value>
+    </data>
+    <data name="TEXT_CANNOT_GET_SHARED_PROPERTY_VALUES" xml:space="preserve">
+        <value>Não é possível recuperar valores de propriedade compartilhada do sistema.</value>
+    </data>
+    <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
+        <value>Não é possível recuperar valores de característica de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
+        <value>Não é possível recuperar características de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_CANNOT_REMOVE_BILL_MANAGEES" xml:space="preserve">
+        <value>Não foi possível excluir o gerenciado de fatura</value>
+    </data>
+    <data name="TEXT_CANNOT_REMOVE_BILL_MANAGER" xml:space="preserve">
+        <value>Não é possível excluir o gerenciador de faturamento do sistema</value>
+    </data>
+    <data name="TEXT_CANNOT_RETRIEVE_DATA" xml:space="preserve">
+        <value>Não é possível recuperar os dados do gerenciamento de faturas</value>
+    </data>
+    <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
+        <value>Não é possível remover característica de especificação, pois ela está em uso.</value>
+    </data>
+    <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
+        <value>Não foi possível criar modelo</value>
+    </data>
+    <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
+        <value>Não foi possível criar WebRequest para {0}.</value>
+    </data>
+    <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
+        <value>Não foi possível exibir a lista de modelos.</value>
+    </data>
+    <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
+        <value>Não foi possível encontrar o modelo {0}.</value>
+    </data>
+    <data name="TEXT_CANT_LOAD_TEMPLATE" xml:space="preserve">
+        <value>Não foi possível carregar o modelo {0}.</value>
+    </data>
+    <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
+        <value>Não foi possível carregar a lista de modelos.</value>
+    </data>
+    <data name="TEXT_CANT_SAVE_TEMPLATE" xml:space="preserve">
+        <value>Não foi possível salvar o modelo {0}.</value>
+    </data>
+    <data name="TEXT_COULD_NOT_DELETE_SHARED_PROPERTY" xml:space="preserve">
+        <value>Ocorreu um erro ao excluir propriedade compartilhada do sistema.</value>
+    </data>
+    <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
+        <value>Ocorreu um erro ao excluir a característica de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
+        <value>Não foi possível recuperar os dados de localização.</value>
+    </data>
+    <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
+        <value>Não foi possível recuperar valores de característica de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_CREATE_SHARED_PROPERTY_FAILED" xml:space="preserve">
+        <value>Falha ao criar propriedade compartilhada.</value>
+    </data>
+    <data name="TEXT_CREATE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
+        <value>Falha ao criar entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
+    </data>
+    <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
+        <value>Propriedade compartilhada criada.</value>
+    </data>
+    <data name="TEXT_CREATED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+        <value>Entradas criadas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
+    </data>
+    <data name="TEXT_CREATED_SPEC" xml:space="preserve">
+        <value>Característica de especificação criada.</value>
+    </data>
+    <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
+        <value>Falha da característica de especificação criada.</value>
+    </data>
+    <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
+        <value>Entradas criadas no mapa de val de espec para características e valores de especificação.</value>
+    </data>
+    <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+        <value>Falha ao criar entradas no mapa de val de espec para características e valores de especificação.</value>
+    </data>
+    <data name="TEXT_CREATING_SHARED_PROPERTY" xml:space="preserve">
+        <value>Criando propriedade compartilhada.</value>
+    </data>
+    <data name="TEXT_CREATING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+        <value>Criando entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
+    </data>
+    <data name="TEXT_CREATING_SPEC" xml:space="preserve">
+        <value>Criando característica de especificação.</value>
+    </data>
+    <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
+        <value>Criando entradas no mapa de val de espec para características e valores de especificação.</value>
+    </data>
+    <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
+        <value>Ocorreu uma exceção de acesso de dados </value>
+    </data>
+    <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
+        <value>Exceção de dados ao tentar salvar propriedades compartilhadas à entidade.</value>
+    </data>
+    <data name="TEXT_DAY" xml:space="preserve">
+        <value>Dia</value>
+    </data>
+    <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
+        <value>Propriedade compartilhada excluída do sistema.</value>
+    </data>
+    <data name="TEXT_DELETED_SPEC" xml:space="preserve">
+        <value>Característica de especificação excluída do sistema.</value>
+    </data>
+    <data name="TEXT_DELETING_SHARED_PROPERTY" xml:space="preserve">
+        <value>Excluindo propriedade compartilhada do sistema.</value>
+    </data>
+    <data name="TEXT_DELETING_SPEC" xml:space="preserve">
+        <value>Excluindo características de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_DENIED_NS_CHARGES" xml:space="preserve">
+        <value>Cobranças relevantes extraordinárias negadas</value>
+    </data>
+    <data name="TEXT_DENYING_NS_CHARGES" xml:space="preserve">
+        <value>Negando as cobranças relevantes extraordinárias</value>
+    </data>
+    <data name="TEXT_EXCEPTION_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
+        <value>Exceção não processada ao tentar salvar propriedades compartilhadas à entidade.</value>
+    </data>
+    <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+        <value>Exceção não processada ao tentar salvar características de especificação à entidade.</value>
+    </data>
+    <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
+        <value>O arquivo terminou o processamento.</value>
+    </data>
+    <data name="TEXT_FILE_PENDING" xml:space="preserve">
+        <value>O arquivo está pendente.</value>
+    </data>
+    <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
+        <value>O arquivo está sendo processado.</value>
+    </data>
+    <data name="TEXT_FILE_REJECTED" xml:space="preserve">
+        <value>O arquivo foi rejeitado.</value>
+    </data>
+    <data name="TEXT_FIRST" xml:space="preserve">
+        <value>Primeiro</value>
+    </data>
+    <data name="TEXT_FOURTH" xml:space="preserve">
+        <value>Quarto</value>
+    </data>
+    <data name="TEXT_INVALID_OP_IN_FILTER" xml:space="preserve">
+        <value>A string de valores do filtro contém uma operação inválida: {0}</value>
+    </data>
+    <data name="TEXT_LAST" xml:space="preserve">
+        <value>Último</value>
+    </data>
+    <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
+        <value>Ocorreu uma exceção de dados de carregamento. </value>
+    </data>
+    <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+        <value>MASBasicException ao tentar salvar características de especificação à entidade.</value>
+    </data>
+    <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
+        <value>Nenhuma cobrança para aprovação</value>
+    </data>
+    <data name="TEXT_NO_CHARGE_FOR_DENY" xml:space="preserve">
+        <value>Nenhuma cobrança fornecida para rejeição</value>
+    </data>
+    <data name="TEXT_NO_CHARGE_FOUND" xml:space="preserve">
+        <value>Não é possível recuperar as cobranças extraordinárias do sistema</value>
+    </data>
+    <data name="TEXT_NO_SESSION_IDS" xml:space="preserve">
+        <value>Nenhum ID de sessão fornecido para aprovação.</value>
+    </data>
+    <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
+        <value>Nenhum valor de mapeamento a excluir.</value>
+    </data>
+    <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
+        <value>Dados de localização processados.</value>
+    </data>
+    <data name="TEXT_REMOVE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
+        <value>Falha ao remover entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
+    </data>
+    <data name="TEXT_REMOVED_BILL_MANAGER" xml:space="preserve">
+        <value>Gerenciador de fatura removido</value>
+    </data>
+    <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
+        <value>Propriedade compartilhada removida da entidade.</value>
+    </data>
+    <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+        <value>Propriedade compartilhada removida da entidade com tipo de entidade: </value>
+    </data>
+    <data name="TEXT_REMOVED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+        <value>Entradas removidas no mapa de valores de propriedade para propriedade e valores compartilhados.</value>
+    </data>
+    <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
+        <value>Característica de especificação removida da entidade.</value>
+    </data>
+    <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
+        <value>Entradas removidas no mapa de val de espec para características e valores de especificação.</value>
+    </data>
+    <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+        <value>Falha ao remover entradas no mapa de val de espec para características e valores de especificação.</value>
+    </data>
+    <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
+        <value>Removendo propriedade compartilhada da entidade.</value>
+    </data>
+    <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+        <value>Removendo propriedades compartilhadas da entidade com tipo de entidade: </value>
+    </data>
+    <data name="TEXT_REMOVING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
+        <value>Removendo entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
+    </data>
+    <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
+        <value>Removendo característica de especificação da entidade.</value>
+    </data>
+    <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
+        <value>Removendo entradas no mapa de val de espec para características e valores de especificação.</value>
+    </data>
+    <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
+        <value>O ID da solicitação {0} não corresponde ao ID do modelo {1}.</value>
+    </data>
+    <data name="TEXT_RETRIEVED" xml:space="preserve">
+        <value>características de especificação recuperadas do sistema.</value>
+    </data>
+    <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
+        <value>Detalhes recuperados para o arquivo </value>
+    </data>
+    <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
+        <value>Lista de nomes de arquivos com falha recuperada </value>
+    </data>
+    <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
+        <value>Dados de localização recuperados.</value>
+    </data>
+    <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
+        <value>Propriedades compartilhadas para entidade recuperadas.</value>
+    </data>
+    <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+        <value>Propriedades compartilhadas recuperadas para entidade com tipo de entidade: </value>
+    </data>
+    <data name="TEXT_RETRIEVED_SHARED_PROPERTY_VALUES" xml:space="preserve">
+        <value>Valores de propriedade compartilhada recuperados do sistema.</value>
+    </data>
+    <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
+        <value>Características de especificação do sistema recuperadas.</value>
+    </data>
+    <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
+        <value>Valores de característica de especificação do sistema recuperados.</value>
+    </data>
+    <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
+        <value>Características de especificação recuperadas para entidade.</value>
+    </data>
+    <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
+        <value>Recuperando detalhes do nome de arquivo </value>
+    </data>
+    <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
+        <value>Recuperando uma lista de nomes de arquivos com falha </value>
+    </data>
+    <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
+        <value>Localização recuperada do sistema.</value>
+    </data>
+    <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
+        <value>Recuperando propriedades compartilhadas para entidade.</value>
+    </data>
+    <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
+        <value>Recuperando propriedades compartilhadas para entidade com tipo de entidade: </value>
+    </data>
+    <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
+        <value>Recuperando propriedade compartilhada do sistema.</value>
+    </data>
+    <data name="TEXT_RETRIEVING_SHARED_PROPERTY_VALUES" xml:space="preserve">
+        <value>Recuperando valores de propriedade compartilhada do sistema.</value>
+    </data>
+    <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
+        <value>Recuperando características de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
+        <value>Recuperando valores de característica de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
+        <value>Recuperando características de especificação para entidade.</value>
+    </data>
+    <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
+        <value>Ocorreu um erro desconhecido. Peça ao administrador de sistemas revisar seus logs.</value>
+    </data>
+    <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
+        <value>Valor de característica de especificação salvo.</value>
+    </data>
+    <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
+        <value>Ocorreu um erro ao salvar o valor de característica de especificação.</value>
+    </data>
+    <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
+        <value>Salvando valor de característica de especificação para o sistema.</value>
+    </data>
+    <data name="TEXT_SECOND" xml:space="preserve">
+        <value>Segundo</value>
+    </data>
+    <data name="TEXT_SHARED_PROPERTY_VALUE_MAPPING_IN_USE" xml:space="preserve">
+        <value>Não é possível excluir o mapeamento, pois ele está em uso.</value>
+    </data>
+    <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
+        <value>Não é possível atualizar o valor de característica de especificação, pois ele está em uso.</value>
+    </data>
+    <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
+        <value>Não é possível excluir o mapeamento, pois ele está em uso.</value>
+    </data>
+    <data name="TEXT_THIRD" xml:space="preserve">
+        <value>Terceiro</value>
+    </data>
+    <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
+        <value>Não foi possível aprovar as cobranças extraordinárias.</value>
+    </data>
+    <data name="TEXT_UNABLE_TO_DENY_PENDING_NS" xml:space="preserve">
+        <value>Não foi possível negar as cobranças pendentes extraordinárias.</value>
+    </data>
+    <data name="TEXT_UNABLE_TO_PROCESS" xml:space="preserve">
+        <value>Sua solicitação não pode ser processada devido aos seguintes erros:</value>
+    </data>
+    <data name="TEXT_UNABLE_TO_REMOVE_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
+        <value>Ocorreu um erro ao remover propriedade compartilhada da entidade.</value>
+    </data>
+    <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
+        <value>Ocorreu um erro ao remover a característica de especificação da entidade</value>
+    </data>
+    <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
+        <value>Não é possível recuperar propriedade compartilhada do sistema.</value>
+    </data>
+    <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
+        <value>Não é possível recuperar característica de especificação do sistema.</value>
+    </data>
+    <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
+        <value>Ocorreu uma exceção </value>
+    </data>
+    <data name="TEXT_UPDATED_SHARED_PROPERTY" xml:space="preserve">
+        <value>Propriedade compartilhada atualizada.</value>
+    </data>
+    <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
+        <value>Característica de especificação atualizada.</value>
+    </data>
+    <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
+        <value>Valor de característica de especificação atualizado.</value>
+    </data>
+    <data name="TEXT_UPDATED_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
+        <value>Valores atualizados para propriedade compartilhada.</value>
+    </data>
+    <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
+        <value>Valores da característica de especificação atualizados.</value>
+    </data>
+    <data name="TEXT_UPDATING_SHARED_PROPERTY" xml:space="preserve">
+        <value>Atualizando propriedade compartilhada.</value>
+    </data>
+    <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
+        <value>Atualizando característica de especificação.</value>
+    </data>
+    <data name="TEXT_UPDATING_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
+        <value>Atualizando valores para propriedade compartilhada.</value>
+    </data>
+    <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
+        <value>Atualizando valores de característica de especificação.</value>
+    </data>
+    <data name="TIMEOUT_EXCEPTION" xml:space="preserve">
+        <value>O método expirou</value>
+    </data>
+    <data name="TRANSACTION_NOT_FOUND" xml:space="preserve">
+        <value>Transação {0} não encontrada.</value>
+    </data>
+    <data name="TX_ALREADY_REJECTED" xml:space="preserve">
+        <value>A transação {0} já foi enviada e foi rejeitada pelo processador do pagamento.</value>
+    </data>
+    <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
+        <value>A transação {0} já foi enviada.</value>
+    </data>
+    <data name="UNKNOWN_CYCLE_TYPE" xml:space="preserve">
+        <value>O tipo de ciclo `{0}` não é suportado.</value>
+    </data>
+    <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
+        <value>Erro ao atualizar Modelo OnBoard</value>
+    </data>
+    <data name="UPDATE_ACCOUNTCONFIGSET_PARAMETERS_EXCEPTION" xml:space="preserve">
+        <value>Erro ao atualizar os parâmetros do Modelo OnBoard</value>
+    </data>
+    <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+        <value>Modelo de contrato atualizado com id {0}.</value>
+    </data>
+    <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
+        <value>Sucesso na atualização de instrumento de pagamento {0} para conta {1}. {2} </value>
+    </data>
+    <data name="USAGE_CYCLE_WAS" xml:space="preserve">
+        <value>O ciclo de utilização era {0}, foi alterado para {1}. </value>
+    </data>
+    <data name="VALUE_CHANGED" xml:space="preserve">
+        <value>{0} era {1}, foi alterado(a) para {2}.</value>
+    </data>
+    <data name="VOIDING_TIMEOUT" xml:space="preserve">
+        <value>Exceção de tempo limite ao anular pagamento da fatura {0}.</value>
+    </data>
+    <data name="ZIP_CHANGED" xml:space="preserve">
+        <value>O CEP era {0}, foi alterado para {1}. </value>
+    </data>
 </root>

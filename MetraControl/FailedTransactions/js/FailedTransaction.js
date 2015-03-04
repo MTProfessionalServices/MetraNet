@@ -184,7 +184,7 @@ function onEditFailedTransaction(idFailedTransaction, title, idFailureCompoundSe
     ? "/MetraNet/TicketToMOM.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditCompoundFrame.asp?IdFailure=" + idFailedTransaction + "**FailureCompoundSessionId=" + idFailureCompoundSession
     : "/MetraNet/TicketToMOM.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditAtomic.asp?IdFailure=" + idFailedTransaction + "**MDMReload=TRUE**FailureCompoundSessionId=" + idFailureCompoundSession;
   var grid = window.Ext.getCmp(gridId);
-  CreateWindow(grid, title, page);
+  _showPopupUpdateTransaction(grid, title, page);
 }
 
 function onViewFailedTransactionAuditLog(idFailedTransaction) {
@@ -192,26 +192,6 @@ function onViewFailedTransactionAuditLog(idFailedTransaction) {
   window.open("/MetraNet/TicketToMOM.aspx?Title=Audit Log&URL=/mom/default/dialog/AuditLog.List.asp?EntityType=5**EntityId=" + idFailedTransaction + "**Title=" + encodeURIComponent(window.TEXT_AUDIT_HISTORY_FAILED + idFailedTransaction));
 }
 
-function CreateWindow(grid, title, page) {
-  var params = "resizable=yes";
-  var myWin = ShowWindow(page, "updateTransaction", params, 900, 600);
-  myWin.focus();
-  setTimeout(function () {
-    if (myWin.closed) {
-      grid.getSelectionModel().deselectAll(true);
-      grid.store.reload();
-    }
-    else {
-      setTimeout(arguments.callee, 10);
-    }
-  }, 10);
-  winGridToRefresh = grid;
-}
-
-function ShowWindow(url, title, params, w, h) {
-  params += ', width=' + w + ', height=' + h;
-  return window.open(url, title, params);
-}
 //---------------------------------------------------------------------------------PRIVATE---------------------------------------------------------------------
 
 //--- Change Status functionality
@@ -297,4 +277,32 @@ function _showInfoDialog(captionStr, message, onClickfn) {
     },
     icon: Ext.MessageBox.INFO
   });
+}
+
+function _showCenterWindow(url, title, params, w, h) {
+  var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left,
+      dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top,
+      width = $(document).width(),
+      height = $(document).height(),
+      left = ((width / 2) - (w / 2)) + dualScreenLeft,
+      top = ((height / 2) - (h / 2)) + dualScreenTop;
+
+  params += ',scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left;
+  return window.open(url, title, params);
+}
+
+function _showPopupUpdateTransaction(grid, title, page) {
+  var params = "resizable=yes";
+  var myWin = _showCenterWindow(page, "updateTransaction", params, 900, 800);
+  myWin.focus();
+  setTimeout(function () {
+    if (myWin.closed) {
+      grid.getSelectionModel().deselectAll(true);
+      grid.store.reload();
+    }
+    else {
+      setTimeout(arguments.callee, 10);
+    }
+  }, 10);
+  winGridToRefresh = grid;
 }

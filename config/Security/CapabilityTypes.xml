@@ -3740,6 +3740,51 @@
   </compositetype>
   
   <compositetype>
+    <name>Apply OnBoard Templates</name>
+    <description>Apply OnBoard Templates: Permits to apply of OnBoard Templates</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ApplyOnBoardTemplatesCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+    <LocalizedItems>
+      <item lang="FR">
+      <DisplayName>Appliquer modèles embarqués</DisplayName>
+      <Description>Appliquer modèles embarqués : autorise la appliquer modèles embarqués</Description>
+      </item>
+      <item lang="IT">
+      <DisplayName>[IT] Apply OnBoard Templates</DisplayName>
+      <Description>[IT] Apply OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="ES">
+      <DisplayName>[ES] Apply OnBoard Templates</DisplayName>
+      <Description>[ES] Apply OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="DE">
+      <DisplayName>[DE] Apply OnBoard Templates</DisplayName>
+      <Description>[DE] Apply OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="es-MX">
+      <DisplayName>[es-MX] Apply OnBoard Templates</DisplayName>
+      <Description>[es-MX] Apply OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="pt-BR">
+      <DisplayName>Aplicar modelos OnBoard</DisplayName>
+      <Description>Aplicar modelos OnBoard: permite aplicar modelos OnBoard</Description>
+      </item>
+      <item lang="en-GB">
+      <DisplayName>[en-GB] Apply OnBoard Templates</DisplayName>
+      <Description>[en-GB] Apply OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>
+      <item lang="JA">
+      <DisplayName>[JA] Apply OnBoard Templates</DisplayName>
+      <Description>[JA] Apply OnBoard Templates: Permits to create, update and view of OnBoard Templates</Description>
+      </item>	
+    </LocalizedItems>
+  </compositetype>
+  
+  <compositetype>
     <name>Update Runtime Configuration</name>
     <description>Update Runtime Configuration: Permits to update system configuration at runtime</description>
     <editor></editor>

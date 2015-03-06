@@ -26,6 +26,9 @@
       // Sometimes when we come back from old MAM or MetraView we may have an extra frame.
       // This code busts out of it.
       Ext.onReady(function () { 
+        if(MetraControl.common){
+          this.MetraControljs = new MetraControl.common();
+        }
         if (getFrameMetraNet().MainContentIframe) {
           if (getFrameMetraNet().MainContentIframe.location != document.location) {
             getFrameMetraNet().MainContentIframe.location.replace(document.location);

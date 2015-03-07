@@ -328,7 +328,7 @@
         <value>Namespaces</value>
     </data>
     <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
-        <value>Edit Template</value>
+    <value>Edit Account Template</value>
     </data>
     <data name="TEXT_EVENT_LIST" xml:space="preserve">
         <value>Event List</value>

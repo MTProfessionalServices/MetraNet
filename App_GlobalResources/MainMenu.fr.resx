@@ -328,7 +328,7 @@
     <value>Espace de noms</value>
   </data>
   <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
-    <value>Modifier le modèle</value>
+    <value>Modifier le compte modèle</value>
   </data>
   <data name="TEXT_EVENT_LIST" xml:space="preserve">
     <value>Liste des événements</value>

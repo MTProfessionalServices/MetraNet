@@ -324,6 +324,15 @@
   <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
     <value>Fail to modify views of Account ID {0}.</value>
   </data>
+    <data name="ACS_OPERATION_COMPLETED_IN" xml:space="preserve">
+        <value>[JA]Operation of apply has completed in {0}.</value>
+    </data>
+    <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH_NO_ITEMS" xml:space="preserve">
+        <value>[JA]No OnBoard Templates eligible for the account was found.</value>
+    </data>
+    <data name="ACS_LOAD_APPLIED_ACS_FINISH_NO_ITEMS" xml:space="preserve">
+        <value>[JA]No Applied OnBoard Templates were found for the account.</value>
+    </data>
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
     <value>Error on saving OnBoard Template with Id {0}</value>
   </data>

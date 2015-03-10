@@ -20,20 +20,13 @@
 
     <script type="text/javascript" language="javascript" src="/mcm/default/lib/browsercheck.js"></script>
     <script type="text/javascript" language="javascript" src="/mcm/default/lib/PopupEdit.js"></script>
-  <script type="text/javascript" src="../javascript/metraOffer.js"></script>
+    <script type="text/javascript" src="../javascript/metraOffer.js"></script>
 
     <script language="javascript" type="text/javascript">
-      // Sometimes when we come back from old MAM or MetraView we may have an extra frame.
-      // This code busts out of it.
       Ext.onReady(function () { 
         if(MetraControl.common){
           this.MetraControljs = new MetraControl.common();
         }
-        if (getFrameMetraNet().MainContentIframe) {
-          if (getFrameMetraNet().MainContentIframe.location != document.location) {
-            getFrameMetraNet().MainContentIframe.location.replace(document.location);
-          }
-      }
       });
 
     function CreateProductOffering_<%=MTFilterGrid1.ClientID%> () {

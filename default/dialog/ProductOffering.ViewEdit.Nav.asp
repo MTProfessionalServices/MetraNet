@@ -145,11 +145,13 @@ function NavigateToRates(id,pi_id)
 
   function NavigateToPreviousSearchResults()
   {
-    var targetURL="/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx";
-    window.parent.location.href = targetURL;
-    window.parent.close();
-    var e = window.parent.parent.document.getElementById('MainContent');
-    e.style.display = 'none';        
+   var master = false;
+   if(location.search.split('Master=')[1]){
+       master = location.search.split('Master=')[1];
+   }
+   var targetURL="/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx?PreviousResultView=True+&Master="+master;
+   window.parent.location.href = targetURL;
+   window.parent.close();     
   }
 
   var last;

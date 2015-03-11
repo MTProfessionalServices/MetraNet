@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.AccountConfigSets.AcsAppliedHistoryBme, Core.AccountConfigSets.Entity" table="t_be_cor_acs_appliedhistory">
+  <class name="Core.AccountConfigSets.AcsAppliedHistoryBme, Core.AccountConfigSets.Entity" table="t_be_cor_acs_AppliedHistory">
     <meta attribute="description" />
     <meta attribute="label">AcsAppliedHistoryBme</meta>
     <meta attribute="plural-name">AcsAppliedHistoryBmes</meta>
@@ -114,20 +114,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
-    <property name="ApplyLog" column="c_ApplyLog" length="2000">
-      <meta attribute="label">ApplyLog</meta>
-      <meta attribute="description">Contains log execution for the account</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
     <property name="UserId" column="c_UserId">
       <meta attribute="label">UserId</meta>
       <meta attribute="description">Who applied the account</meta>
@@ -141,6 +127,20 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="ApplyLog" column="c_ApplyLog" length="4000">
+      <meta attribute="label">ApplyLog</meta>
+      <meta attribute="description">Contains log execution for the account</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
     </property>
   </class>
 </hibernate-mapping>

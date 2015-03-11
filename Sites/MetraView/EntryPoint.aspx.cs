@@ -17,6 +17,7 @@ public partial class EntryPointPage : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    HttpContext.Current.Response.AddHeader("p3p", "CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\"");
     // Create a UIManager
     UI = new UIManager();
 

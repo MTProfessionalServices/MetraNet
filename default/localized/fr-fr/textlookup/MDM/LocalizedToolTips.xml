@@ -126,5 +126,9 @@
   <text id="TEXT_YOU_MAY_ONLY">
     <value>Vous pourriez uniquement réaffecter des transactions en masse lorsque le statut est Clôture (matérielle).</value>
     <description></description>
-  </text>   
+  </text>
+  <text id="TEXT_Reassign_Selected_Transactions">
+    <value>Réaffecter Transactions sélectionnés</value>
+    <description></description>
+  </text>  
 </texts>

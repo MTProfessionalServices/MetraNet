@@ -128,7 +128,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="ApplyLog" column="c_ApplyLog" length="4000">
+    <property name="ApplyLog" column="c_ApplyLog" length="2000">
       <meta attribute="label">ApplyLog</meta>
       <meta attribute="description">Contains log execution for the account</meta>
       <meta attribute="defaultvalue" />

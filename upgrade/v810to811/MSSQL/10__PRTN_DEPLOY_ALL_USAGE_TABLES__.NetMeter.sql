@@ -7,6 +7,9 @@ IF OBJECT_ID('prtn_deploy_all_usage_tables', 'P') is not null
    drop procedure prtn_deploy_all_usage_tables
 GO
 
+PRINT N'CREATING PROCEDURE prtn_deploy_all_usage_tables'
+GO
+
 CREATE PROCEDURE prtn_deploy_all_usage_tables
 AS
 	SET NOCOUNT ON 

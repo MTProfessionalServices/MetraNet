@@ -1,9 +1,17 @@
 DECLARE @alter_table bit, @rename_index bit
+DECLARE @backupname varchar(40), @myrename_command nvarchar(200), @my_rename_command2 nvarchar(200)
 select @alter_table = 0, @rename_index = 0
 BEGIN TRY
   if not exists(select 1 from sys.tables where name = 'MVM_SERVER_CREDENTIALS')
   BEGIN
     PRINT N'CREATING TABLE MVM_SERVER_CREDENTIALS'
+	IF EXISTS(select 1 from sys.indexes where name = 'mvm_server_cred_pk')
+    BEGIN
+      select @backupname = 'MVM_SERVER_CREDENTIALS_'+left(cast(newid() as varchar(50)),10)+'_pk'
+      select @my_rename_command2 = N'EXEC sp_rename ''mvm_server_cred_pk'','''+@backupname+''''
+      PRINT N'Renaming primary key index mvm_server_cred_pk to ' + @backupname
+      exec sp_executesql @my_rename_command2
+	END  
     create table [dbo].mvm_server_credentials(
         server_id int not null,
         server_type varchar(400) not null,
@@ -33,14 +41,10 @@ BEGIN TRY
           PRINT N'MVM_SERVER_CREDENTIALS primary key on server id column not found'
           set @alter_table=1
         END
-		ELSE
-		BEGIN
-		  IF EXISTS(select 1 from sys.indexes where name = 'mvm_server_cred_pk')
+	    IF EXISTS(select 1 from sys.indexes where name = 'mvm_server_cred_pk')
 		    set @rename_index = 1
-        END
         IF (@alter_table = 1)
         BEGIN
-           declare @backupname varchar(40), @myrename_command nvarchar(200), @my_rename_command2 nvarchar(200)
            select @backupname = 'MVM_SERVER_CREDENTIALS_'+left(cast(newid() as varchar(50)),10)
            select @myrename_command = N'EXEC sp_rename ''MVM_SERVER_CREDENTIALS'', '''+@backupname+'''' 
            PRINT N'Renaming table MVM_SERVER_CREDENTIALS to ' + @backupname

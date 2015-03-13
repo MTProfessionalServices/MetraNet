@@ -104,7 +104,7 @@
 
     function getUpdateApprove()
     {  
-        var confirmResult = true;
+//      var confirmResult = true;
 //      top.Ext.MessageBox.show({
 //          title: '<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_QUESTION")%>',
 //          msg: String.format('<%=GetGlobalResourceObject("JSConsts", "TEXT_UPDATE_ACS_MESSAGE")%>', entityId),
@@ -125,9 +125,7 @@
 //       }
 
 //        if(confirmResult)
-           getDataGrids();
-
-        return confirmResult;
+      return getDataGrids();
     }
 
       var GRID_HEIGHT = 280;
@@ -179,8 +177,7 @@
       };    
 
       function getDataGrids() {
-        var result = getSelectionCriteria() && getPropertiesToSet();
-      
+        var result = ValidateForm() && getSelectionCriteria() && getPropertiesToSet(); 
         return result;
       }
     </script>

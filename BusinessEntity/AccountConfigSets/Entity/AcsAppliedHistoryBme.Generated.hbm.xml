@@ -2,7 +2,7 @@
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
   <class name="Core.AccountConfigSets.AcsAppliedHistoryBme, Core.AccountConfigSets.Entity" table="t_be_cor_acs_AppliedHistory">
-    <meta attribute="description" />
+    <meta attribute="description">History of Account Configuration Set apply</meta>
     <meta attribute="label">AcsAppliedHistoryBme</meta>
     <meta attribute="plural-name">AcsAppliedHistoryBmes</meta>
     <meta attribute="database">NetMeter</meta>

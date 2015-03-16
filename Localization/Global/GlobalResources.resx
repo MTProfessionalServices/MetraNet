@@ -142,7 +142,7 @@
         <value>OnBoard Templates with IDs: {0} will be skipped. They are currently eligible for the account and were already applied.</value>
     </data>
     <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
-        <value>New subscriptions will be created for Eligible OnBoard Templates with IDs: {0}.</value>
+        <value>Eligible OnBoard Templates with IDs: {0} were found.</value>
     </data>
     <data name="ACS_EXCHANGE_RANKS_EXCEPTION" xml:space="preserve">
         <value>Error on exchanging ranks of OnBoard Templates with Id {0} and {1}</value>
@@ -331,7 +331,7 @@
         <value>No OnBoard Templates eligible for the account was found.</value>
     </data>
     <data name="ACS_LOAD_APPLIED_ACS_FINISH_NO_ITEMS" xml:space="preserve">
-        <value>No Applied OnBoard Templates were found for the account.</value>
+        <value>No active subscription created by Apply of OnBoard Templates were found for the account.</value>
     </data>
     <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
         <value>Error on saving OnBoard Template with Id {0}</value>

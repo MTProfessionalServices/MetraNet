@@ -178,7 +178,7 @@
         <value>GroupSubscription {0}` com ID de conta corporativa `{1}` foi encerrado para todos os membros.</value>
     </data>
     <data name="ACS_IS_ALREADY_RUNNING_FOR_ACC" xml:space="preserve">
-        <value>[pt-br]Apply OnBoard templates is already running for the account</value>
+        <value>Aplicar modelos OnBoard já está em execução para a conta</value>
     </data>
     <data name="ACS_LOAD_ACCOUNT_FAIL" xml:space="preserve">
         <value>A conta com a ID {0} não foi encontrada ou não está disponível</value>
@@ -325,13 +325,13 @@
         <value>Falha ao modificar exibições de ID da conta {0}.</value>
     </data>
     <data name="ACS_OPERATION_COMPLETED_IN" xml:space="preserve">
-        <value>[PT-BR]Operation of apply has completed in {0}.</value>
+        <value>Operação de aplicar completou em {0}.</value>
     </data>
     <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH_NO_ITEMS" xml:space="preserve">
-        <value>[PT-BR]No OnBoard Templates eligible for the account was found.</value>
+        <value>Foi encontrado nenhum modelo OnBoard elegíveis para a conta.</value>
     </data>
     <data name="ACS_LOAD_APPLIED_ACS_FINISH_NO_ITEMS" xml:space="preserve">
-        <value>[PT-BR]No Applied OnBoard Templates were found for the account.</value>
+        <value>Sem assinatura ativo criado por Aplicar OnBoard modelos foram encontradas para a conta.</value>
     </data>
     <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
         <value>Erro ao salvar Modelo OnBoard com Id {0}</value>

@@ -178,7 +178,7 @@
         <value>L`abonnement groupé {0}` avec ID de compte d`entreprise `{1}` a été résilié pour tous les membres.</value>
     </data>
     <data name="ACS_IS_ALREADY_RUNNING_FOR_ACC" xml:space="preserve">
-        <value>[FR]Apply OnBoard templates is already running for the account</value>
+        <value>Appliquer des modèles de bord est déjà en cours d'exécution pour le compte</value>
     </data>
     <data name="ACS_LOAD_ACCOUNT_FAIL" xml:space="preserve">
         <value>Compte avec ID {0} introuvable ou indisponible</value>
@@ -325,13 +325,13 @@
         <value>Impossible de modifier les vues du compte avec ID {0}.</value>
     </data>
     <data name="ACS_OPERATION_COMPLETED_IN" xml:space="preserve">
-        <value>[FR]Operation of apply has completed in {0}.</value>
+        <value>Opération d'Apply a terminé en {0}.</value>
     </data>
     <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH_NO_ITEMS" xml:space="preserve">
-        <value>[FR]No OnBoard Templates eligible for the account was found.</value>
+        <value>Aucun Templates intégrés admissibles pour le compte a été trouvé.</value>
     </data>
     <data name="ACS_LOAD_APPLIED_ACS_FINISH_NO_ITEMS" xml:space="preserve">
-        <value>[FR]No Applied OnBoard Templates were found for the account.</value>
+        <value>Aucun abonnement actif créé par Appliquer des modèles à bord ont été trouvé pour le compte.</value>
     </data>
     <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
         <value>Erreur d`enregistrement du modèle embarqué avec l`ID {0}</value>

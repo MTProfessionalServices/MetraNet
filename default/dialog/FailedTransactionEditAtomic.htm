@@ -181,7 +181,7 @@ setInitialStatusSelection();
 
 <!-- Property Table -->
 <BR>
-<TABLE Width="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TABLE Width="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" id="propertyTable">
 <TR>
   <TD Class='TableHeader' NoWrap>Property</TD>
   <TD Class='TableHeader' NoWrap>Type</TD>
@@ -200,5 +200,33 @@ setInitialStatusSelection();
 
 
 </FORM>
+<script type="text/javascript">
+  var initialize = function () {
+    var doubleElementCssClass = 'class_ft_edit_double',
+        decimalElementCssClass = 'class_ft_edit_decimal';
+    if (window.DECIMAL_SEPARATOR) {
+      var propertyTable = document.getElementById('propertyTable');
+      if (propertyTable) {
+        var allInputTextElements = propertyTable.querySelectorAll('input[type=text]');
+        if (allInputTextElements.length > 0) {
+          for (var i = 0, maxLength = allInputTextElements.length; i < maxLength; i++) {
+            var element = allInputTextElements[i];
+            if (element) {
+              var elementCssClasesStr = element.attributes['class'].value;
+              var classes = elementCssClasesStr.split(',');
+              if (classes) {
+                for (var item = 0, allClases = classes.length; item < allClases; item++) {
+                  if (classes[item] === doubleElementCssClass || classes[item] === decimalElementCssClass) {
+                    element.value = element.value.replace('.', window.DECIMAL_SEPARATOR);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  } ();
+</script>
 </BODY>
 </HTML>

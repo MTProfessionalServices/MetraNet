@@ -448,7 +448,7 @@ PRIVATE FUNCTION Form_Paint (EventArg) ' As Boolean
     lngRowCount = 0
 
     CONST strTemplateLabel  = "<TD NoWrap>[PROPERTY_NAME]</TD><TD NoWrap>[PROPERTY_TYPE]</TD><TD NoWrap>[PROPERTY_LENGTH]</TD><TD NoWrap>[PROPERTY_REQUIRED]</TD><TD NoWrap>[METER_STATUS]</TD><TD NoWrap><INPUT Type='CheckBox' Name='[METER_FLAG_PREFIX][PROPERTY_NAME]' [METER_STATUS_CHECKED] [METER_STATUS_DISABLED]> <INPUT Type='Hidden' Value='1' Name='mdm_CheckBox_[METER_FLAG_PREFIX][PROPERTY_NAME]' >  [PROPERTY_NEW_STATUS]</TD>"
-    CONST strTemplateInput  = "<TD Align='left'><INPUT type='[TEXTBOXTYPE]' class='clsInputBox' size='50' Name='[PROPERTY_NAME]' Value=""[PROPERTY_VALUE]"" MaxLength='[PROPERTY_LENGTH]'></TD>"
+    CONST strTemplateInput  = "<TD Align='left'><INPUT type='[TEXTBOXTYPE]' class='class_ft_edit_[PROPERTY_TYPE], clsInputBox' size='50' Name='[PROPERTY_NAME]' Value=""[PROPERTY_VALUE]"" MaxLength='[PROPERTY_LENGTH]'></TD>"
     CONST strTemplateSelect = "<TD Align='letf'><SELECT class='clsInputBox' Name='[PROPERTY_NAME]'>[PROPERTY_ENUM_TYPE_VALUE]</SELECT></TD>"
 
     Set objPreProcessor = mdm_CreateObject(CPreProcessor)
@@ -477,10 +477,7 @@ PRIVATE FUNCTION Form_Paint (EventArg) ' As Boolean
             objPreProcessor.Add "PROPERTY_NAME"      , objServiceProperty.Name
             objPreProcessor.Add "PROPERTY_TYPE"      , LCase(objServiceProperty.PropertyType)
 		       	objPreProcessor.Add "TEXTBOXTYPE", IIF(MSIXPropertyCrypted(objServiceProperty.Name),"password","text")
-
-				    strValue = objServiceProperty.Value
-				    strValue = Replace(strValue,"""","&quot;")
-
+				    strValue = objServiceProperty.Value	
             objPreProcessor.Add "PROPERTY_VALUE"     , strValue
             objPreProcessor.Add "PROPERTY_LENGTH"    , IIF(objServiceProperty.PropertyType=MSIXDEF_TYPE_STRING, objServiceProperty.Length,"255") ' Just print the length for string
             objPreProcessor.Add "PROPERTY_REQUIRED"  , objServiceProperty.Required
@@ -525,4 +522,3 @@ PRIVATE FUNCTION LogPropInfo(strName,strValue,strType)
 END FUNCTION
 
 %>
-

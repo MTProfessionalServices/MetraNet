@@ -132,6 +132,9 @@
   <data name="TEXT_AccountConfigSets" xml:space="preserve">
     <value>Gerenciar modelos OnBoard</value>
   </data>
+  <data name="TEXT_APPLY_AccountConfigSets" xml:space="preserve">
+    <value>Aplicáveis a bordo de Templates</value>
+  </data>
   <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
     <value>Modelos OnBoard</value>
   </data>
@@ -692,5 +695,8 @@
   </data>
   <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
     <value>Exibir fatura online</value>
+  </data>
+  <data name="TEXT_ADD_ROLE" xml:space="preserve">
+    <value>Adicionar Novo Papel</value>
   </data>
 </root>

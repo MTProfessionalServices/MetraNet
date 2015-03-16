@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApplyAccountConfigSetsTitle.Text" xml:space="preserve">
-    <value>Appliquer des modèle embarqué</value>
+    <value>Aplicáveis a bordo de templates</value>
   </data>
   <data name="TEXT_QUESTION" xml:space="preserve">
-    <value>Vous êtes sur le point d`appliquer tous les modèle embarqué admissibles au compte courant. Cette action est permanente et pourrait modifier les propriétés du compte et ajouter / supprimer / modifier abonnements avec le compte. Voulez-vous continuer?</value>
+    <value>Você está prestes a aplicar todos os modelos OnBoard elegíveis para a conta corrente. Esta ação é permanente e pode modificar as propriedades da conta e adicionar / remover / modificar assinaturas com a conta. Gostaria de continuar?</value>
   </data>
   <data name="TEXT_QUESTION_HEADER" xml:space="preserve">
     <value />
   </data>
   <data name="TEXT_RESULTS_HEADER" xml:space="preserve">
-    <value>Résultats de l`opération se appliquent des modèles</value>
+    <value>Os resultados dos modelos de operação aplicáveis</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Modèle embarqué</value>
+    <value>MetraNet - Bordo de Templates</value>
   </data>
   <data name="btnContinueResource.Text" xml:space="preserve">
-    <value>Continuer</value>
+    <value>Continuar</value>
   </data>
   <data name="btnCancelResource.Text" xml:space="preserve">
-    <value>Annuler</value>
+    <value>Cancelar</value>
   </data>
   <data name="btnCloseResource.Text" xml:space="preserve">
-    <value>Près</value>
+    <value>Perto</value>
   </data>
 </root>

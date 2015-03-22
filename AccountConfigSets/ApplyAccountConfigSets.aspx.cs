@@ -26,24 +26,35 @@ namespace MetraNet.AccountConfigSets
       switch (mode)
       {
         case "ASK":
-          var message = GetLocalResourceObject("TEXT_QUESTION");
-          if (message != null)
-            MTtaText.Text = message.ToString();
+          var questionMessage = GetLocalResourceObject("TEXT_QUESTION");
+          if (questionMessage != null)
+            MTquestionText.Text = questionMessage.ToString();
 
-          message = GetLocalResourceObject("TEXT_QUESTION_HEADER");
-          if (message != null)
-            PanelWithMessage.Text = message.ToString();          
+          var analyzeStream = RunAnalyzeAccountConfigSetsImpact();
 
-          MTbtnContinue.Visible = true;
+          MTapiOutputText.Text = String.Join("<br>", analyzeStream);
+
+          MTbtnContinue.Visible = (analyzeStream.Count > 1);
+          if (analyzeStream.Count > 1)
+          {
+            var analyzeHeader = GetLocalResourceObject("TEXT_ANALYSE_HEADER");
+            if (analyzeHeader != null)
+              PanelWithMessage.Text = analyzeHeader.ToString();
+          }
+          PanelWithQuestion.Visible = MTbtnContinue.Visible;
           MTbtnCancel.Visible = true;
-          MTbtnClose.Visible = false;                    
+          MTbtnClose.Visible = false;
           break;
         case "RUN":
-          var header = GetLocalResourceObject("TEXT_RESULTS_HEADER");
-          if (header != null)
-            PanelWithMessage.Text = header.ToString();
+          var applyHeader = GetLocalResourceObject("TEXT_RESULTS_HEADER");
+          if (applyHeader != null)
+            PanelWithMessage.Text = applyHeader.ToString();
 
-          RunApplyAccountConfigSets();
+          PanelWithQuestion.Visible = false;
+
+          var applyStream = RunApplyAccountConfigSets();
+
+          MTapiOutputText.Text = String.Join("<br>", applyStream);  
 
           MTbtnContinue.Visible = false;
           MTbtnCancel.Visible = false;
@@ -68,12 +79,11 @@ namespace MetraNet.AccountConfigSets
       Response.Redirect(redirectPath, false);
     }
 
-    protected void RunApplyAccountConfigSets()
+    protected List<string> RunApplyAccountConfigSets()
     {
       try
       {        
-        var res = InvokeAddAccountConfigSet();
-        MTtaText.Text = String.Join("<br>", res);        
+        return InvokeAddAccountConfigSet();      
       }
       catch (MASBasicException exp)
       {
@@ -83,6 +93,7 @@ namespace MetraNet.AccountConfigSets
       {
         SetError(exp.Message);
       }
+      return new List<string>();
     }
 
     private List<string> InvokeAddAccountConfigSet()
@@ -97,6 +108,39 @@ namespace MetraNet.AccountConfigSets
         var accountId = Convert.ToInt32(UI.Subscriber.SelectedAccount._AccountID);
         List<string> logMessage;
         client.ApplyAccountConfigSets(accountId, out logMessage);
+        return logMessage;
+      }
+    }
+
+    protected List<string> RunAnalyzeAccountConfigSetsImpact()
+    {
+      try
+      {
+        return InvokeAnalyzeAccountConfigSetsImpact();
+      }
+      catch (MASBasicException exp)
+      {
+        SetError(exp.Message);
+      }
+      catch (Exception exp)
+      {
+        SetError(exp.Message);
+      }
+      return new List<string>();
+    }
+
+    private List<string> InvokeAnalyzeAccountConfigSetsImpact()
+    {
+      using (var client = new AccountConfigurationSetServiceClient())
+      {
+        if (client.ClientCredentials != null)
+        {
+          client.ClientCredentials.UserName.UserName = UI.User.UserName;
+          client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
+        var accountId = Convert.ToInt32(UI.Subscriber.SelectedAccount._AccountID);
+        List<string> logMessage;
+        client.AnalyzeApplyAccountConfigSetsImpact(accountId, out logMessage);
         return logMessage;
       }
     }

@@ -141,4 +141,7 @@
   <data name="btnCloseResource.Text" xml:space="preserve">
     <value>Près</value>
   </data>
+  <data name="TEXT_ANALYSE_HEADER" xml:space="preserve">
+    <value>[FR]OnBoard Template Application Analysis'-</value>
+  </data>
 </root>

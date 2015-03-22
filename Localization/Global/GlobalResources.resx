@@ -333,6 +333,35 @@
     <data name="ACS_LOAD_APPLIED_ACS_FINISH_NO_ITEMS" xml:space="preserve">
         <value>No active subscription created by Apply of OnBoard Templates were found for the account.</value>
     </data>
+    <data name="ACS_ANALYZE_ELIGIBLE_TEMPLATES_NUMBER" xml:space="preserve">
+        <value>Account '{0}' is eligible for {1} OnBoard Template(s). </value>
+    </data>
+    <data name="ACS_ANALYZE_ELIGIBLE_TEMPLATE_SUMMARY" xml:space="preserve">
+        <value>{2}: Applying Template '{0}' (ID '{1}') will result in</value>
+    </data>
+    <data name="ACS_ANALYZE_PROPERTY_MODIFIED" xml:space="preserve">
+        <value>Account property ‘{0}’ will be updated from ‘{1}’ to ‘{2}’</value>
+    </data>
+    <data name="ACS_ANALYZE_GROUP_SUB_CREATED" xml:space="preserve">
+        <value>Group Subscription '{3}' to the ‘{0}’ Product Offering will be created with Start Date {1} and End Date {2} </value>
+    </data>
+    <data name="ACS_ANALYZE_GROUP_SUB_MEMBER_CREATED" xml:space="preserve">
+        <value>Account will be added as member to the Group Subscription '{3}' to the ‘{0}’ Product Offering with Start Date {1} and End Date {2} </value>
+    </data>
+    <data name="ACS_ANALYZE_SUB_CREATED" xml:space="preserve">
+        <value>Subscription to the ‘{0}’ Product Offering will be created with Start Date {1} and End Date {2}</value>
+    </data>
+    <data name="ACS_ANALYZE_GROUP_SUB_TERMINATED" xml:space="preserve">
+        <value>Group Subscription '{3}' to the ‘{0}’ Product Offering with Start Date {1} 
+        will be terminated because account no more eligible for OnBoard Template with ID '{2}' </value>
+    </data>
+    <data name="ACS_ANALYZE_GROUP_SUB_MEMBER_TERMINATED" xml:space="preserve">
+        <value>Account will be removed as member from the Group Subscription '{3}' to the ‘{0}’ Product Offering with Start Date {1} 
+        because account no more eligible for OnBoard Template with ID '{2}' </value>
+    </data>
+    <data name="ACS_ANALYZE_SUB_TERMINATED" xml:space="preserve">
+        <value>Subscription to the ‘{0}’ Product Offering with Start Date {1} will be terminated because account no more eligible for OnBoard Template with ID '{2}' </value>
+    </data>
     <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
         <value>Error on saving OnBoard Template with Id {0}</value>
     </data>

@@ -1103,6 +1103,20 @@
                         </entry>
                     </entries>
                 </enum>
+                <enum name="APIParameterDirection">
+                    <description>This is used to set the flow direction of API parameters.</description>
+                    <entries>
+                        <entry name="IN">
+                            <value>0</value>
+                        </entry>
+                        <entry name="OUT">
+                            <value>1</value>
+                        </entry>
+                        <entry name="INOUT">
+                            <value>2</value>
+                        </entry>
+                    </entries>
+                </enum>
                 <enum name="LocalizedItemsType ">
                     <description>Enum to set item types for MetraTech.Localization module</description>
                     <entries>

@@ -1,29 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <priceable_item>
     <name>Flat Rate Non Recurring Charge</name>
     <DisplayNames>
         <language name="US">Flat Rate Non Recurring Charge</language>
         <language name="DE">Flat Rate Non Recurring Charge</language>
-        <language name="FR">Flat Rate Non Recurring Charge</language>
+        <language name="FR"><![CDATA[Frais non récurrents forfaitaires]]></language>
         <language name="IT">Flat Rate Non Recurring Charge</language>
         <language name="JP">Flat Rate Non Recurring Charge</language>
         <language name="ES">Flat Rate Non Recurring Charge</language>
         <language name="GB">Flat Rate Non Recurring Charge</language>
         <language name="es-MX">Flat Rate Non Recurring Charge</language>
-        <language name="pt-BR">Flat Rate Non Recurring Charge</language>
+        <language name="pt-BR"><![CDATA[Cobrança de taxa fixa não recorrente]]></language>
         <language name="DA">Flat Rate Non Recurring Charge</language>
     </DisplayNames>
     <description>One time service charge with a flat rate.</description>
     <DisplayDescriptions>
         <language name="US">One time service charge with a flat rate.</language>
         <language name="DE">One time service charge with a flat rate.</language>
-        <language name="FR">One time service charge with a flat rate.</language>
+        <language name="FR"><![CDATA[Frais de service exceptionnel avec un forfait.]]></language>
         <language name="IT">One time service charge with a flat rate.</language>
         <language name="JP">One time service charge with a flat rate.</language>
         <language name="ES">One time service charge with a flat rate.</language>
         <language name="GB">One time service charge with a flat rate.</language>
         <language name="es-MX">One time service charge with a flat rate.</language>
-        <language name="pt-BR">One time service charge with a flat rate.</language>
+        <language name="pt-BR"><![CDATA[Cobrança por serviço de uma vez com uma tarifa fixa.]]></language>
         <language name="DA">One time service charge with a flat rate.</language>
     </DisplayDescriptions>
     <item_type>non-recurring</item_type>
@@ -42,26 +42,26 @@
         <DisplayDescriptions>
             <language name="US">Non Recurring Charge Flat Adjustment</language>
             <language name="DE">Non Recurring Charge Flat Adjustment</language>
-            <language name="FR">Non Recurring Charge Flat Adjustment</language>
+            <language name="FR"><![CDATA[Ajustement forfaitaire de frais non récurrents]]></language>
             <language name="IT">Non Recurring Charge Flat Adjustment</language>
             <language name="JP">Non Recurring Charge Flat Adjustment</language>
             <language name="ES">Non Recurring Charge Flat Adjustment</language>
             <language name="GB">Non Recurring Charge Flat Adjustment</language>
             <language name="es-MX">Non Recurring Charge Flat Adjustment</language>
-            <language name="pt-BR">Non Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR"><![CDATA[Ajuste fixo de cobrança não recorrente]]></language>
             <language name="DA">Non Recurring Charge Flat Adjustment</language>
         </DisplayDescriptions>
         <displayname>Non Recurring Charge Flat Adjustment</displayname>
         <DisplayNames>
             <language name="US">Non Recurring Charge Flat Adjustment</language>
             <language name="DE">Non Recurring Charge Flat Adjustment</language>
-            <language name="FR">Non Recurring Charge Flat Adjustment</language>
+            <language name="FR"><![CDATA[Ajustement forfaitaire de frais non récurrents]]></language>
             <language name="IT">Non Recurring Charge Flat Adjustment</language>
             <language name="JP">Non Recurring Charge Flat Adjustment</language>
             <language name="ES">Non Recurring Charge Flat Adjustment</language>
             <language name="GB">Non Recurring Charge Flat Adjustment</language>
             <language name="es-MX">Non Recurring Charge Flat Adjustment</language>
-            <language name="pt-BR">Non Recurring Charge Flat Adjustment</language>
+            <language name="pt-BR"><![CDATA[Ajuste fixo de cobrança não recorrente]]></language>
             <language name="DA">Non Recurring Charge Flat Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>
@@ -90,26 +90,26 @@
         <DisplayDescriptions>
             <language name="US">Non Recurring Charge Percent Adjustment</language>
             <language name="DE">Non Recurring Charge Percent Adjustment</language>
-            <language name="FR">Non Recurring Charge Percent Adjustment</language>
+            <language name="FR"><![CDATA[Ajustement en pourcentage de frais non récurrents]]></language>
             <language name="IT">Non Recurring Charge Percent Adjustment</language>
             <language name="JP">Non Recurring Charge Percent Adjustment</language>
             <language name="ES">Non Recurring Charge Percent Adjustment</language>
             <language name="GB">Non Recurring Charge Percent Adjustment</language>
             <language name="es-MX">Non Recurring Charge Percent Adjustment</language>
-            <language name="pt-BR">Non Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR"><![CDATA[Ajuste percentual de cobrança não recorrente]]></language>
             <language name="DA">Non Recurring Charge Percent Adjustment</language>
         </DisplayDescriptions>
         <displayname>Non Recurring Charge Percent Adjustment</displayname>
         <DisplayNames>
             <language name="US">Non Recurring Charge Percent Adjustment</language>
             <language name="DE">Non Recurring Charge Percent Adjustment</language>
-            <language name="FR">Non Recurring Charge Percent Adjustment</language>
+            <language name="FR"><![CDATA[Ajustement en pourcentage de frais non récurrents]]></language>
             <language name="IT">Non Recurring Charge Percent Adjustment</language>
             <language name="JP">Non Recurring Charge Percent Adjustment</language>
             <language name="ES">Non Recurring Charge Percent Adjustment</language>
             <language name="GB">Non Recurring Charge Percent Adjustment</language>
             <language name="es-MX">Non Recurring Charge Percent Adjustment</language>
-            <language name="pt-BR">Non Recurring Charge Percent Adjustment</language>
+            <language name="pt-BR"><![CDATA[Ajuste percentual de cobrança não recorrente]]></language>
             <language name="DA">Non Recurring Charge Percent Adjustment</language>
         </DisplayNames>
         <CalculationEngine>1</CalculationEngine>

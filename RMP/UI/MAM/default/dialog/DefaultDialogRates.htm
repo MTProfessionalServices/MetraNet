@@ -8,6 +8,10 @@
    {
     window.open(url, 'info', 'height=500,width=600, resizable=yes, scrollbars=yes, status=yes')
    }
+   function removeExtraFrame() {
+     var e = window.frameElement.ownerDocument.getElementById("MainContent");
+     e.style.display = 'none';
+   }
 
   </script>
 </HEAD>

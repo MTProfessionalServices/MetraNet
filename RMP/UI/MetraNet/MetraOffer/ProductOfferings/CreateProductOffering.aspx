@@ -44,11 +44,15 @@
       tbName.on("blur", function () {
         window.Ext.getCmp('ctl00_ContentPlaceHolder1_tbDisplayName').setValue(tbName.getValue());
       });
-      var tbPartId = window.Ext.get('ctl00_ContentPlaceHolder1_tbPOPartitionId').dom;
-      var selectAccount = window.Ext.get('selectAccountsctl00_ContentPlaceHolder1_tbPOPartitionId').dom;
       var isPartition = <%=IsPartition.ToString().ToLower()%>;
-      tbPartId.disabled = isPartition;
-      selectAccount.hidden = isPartition;      
+      var tbPartIdRef =  window.Ext.get('ctl00_ContentPlaceHolder1_tbPOPartitionId'),
+        selectAccountRef = window.Ext.get('selectAccountsctl00_ContentPlaceHolder1_tbPOPartitionId');
+      if(tbPartIdRef){
+        tbPartIdRef.dom.disabled =isPartition;   
+      }
+      if(selectAccountRef){
+        selectAccountRef.dom.hidden = isPartition;
+      }
     });
   </script>
 </asp:Content>

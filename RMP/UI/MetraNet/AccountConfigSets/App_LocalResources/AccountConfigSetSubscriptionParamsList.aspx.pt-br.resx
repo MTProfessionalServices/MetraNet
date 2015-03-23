@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,128 +59,128 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="AccountConfigSetTitle.Text" xml:space="preserve">
-        <value>Subscription Models</value>
-    </data>
-    <data name="ACS_CORPORATE_ACCOUNT" xml:space="preserve">
-        <value>ID da conta corporativa</value>
-    </data>
-    <data name="ACS_DESCRIPTION" xml:space="preserve">
-        <value>Descrição</value>
-    </data>
-    <data name="ACS_EFFECTIVE_DATE" xml:space="preserve">
-        <value>Data de início da execução</value>
-    </data>
-    <data name="ACS_EFFECTIVE_END_DATE" xml:space="preserve">
-        <value>Data de término da execução</value>
-    </data>
-    <data name="ACS_ENABLED" xml:space="preserve">
-        <value>Ativado</value>
-    </data>
-    <data name="ACS_GSUBNAME" xml:space="preserve">
-        <value>Nome do Sub. do Grupo</value>
-    </data>
-    <data name="ACS_ID" xml:space="preserve">
-        <value>ID</value>
-    </data>
-    <data name="ACS_PO_ID" xml:space="preserve">
-        <value>Id de PO</value>
-    </data>
-    <data name="ACS_PROPERTIESTOSET" xml:space="preserve">
-        <value>Propriedades ao Conjunto</value>
-    </data>
-    <data name="ACS_RANK" xml:space="preserve">
-        <value>Classificar</value>
-    </data>
-    <data name="ACS_SELECTIONSCRITERIA" xml:space="preserve">
-        <value>Edit Property To Set</value>
-    </data>
-    <data name="CREATE_ACS" xml:space="preserve">
-        <value>Adicionar</value>
-    </data>
-    <data name="CREATION_DATE" xml:space="preserve">
-        <value>Data de criação</value>
-    </data>
-    <data name="DELETE_ACS" xml:space="preserve">
-        <value>Excluir</value>
-    </data>
-    <data name="EDIT_ACS" xml:space="preserve">
-        <value>Editar</value>
-    </data>
-    <data name="MOVE_RANK_DOWN" xml:space="preserve">
-        <value>Mover para baixo</value>
-    </data>
-    <data name="MOVE_RANK_UP" xml:space="preserve">
-        <value>Mover para cima</value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>Gerenciar modelos OnBoard</value>
-    </data>
-    <data name="TERMINATE_ACS" xml:space="preserve">
-        <value>Terminar</value>
-    </data>
-    <data name="TEXT_ACTIONS" xml:space="preserve">
-        <value>Ações</value>
-    </data>
-    <data name="VIEW_ACS" xml:space="preserve">
-        <value>Exibir</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountConfigSetTitle.Text" xml:space="preserve">
+    <value>Modelos de assinatura</value>
+  </data>
+  <data name="ACS_CORPORATE_ACCOUNT" xml:space="preserve">
+    <value>ID da conta corporativa</value>
+  </data>
+  <data name="ACS_DESCRIPTION" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="ACS_EFFECTIVE_DATE" xml:space="preserve">
+    <value>Data de início da execução</value>
+  </data>
+  <data name="ACS_EFFECTIVE_END_DATE" xml:space="preserve">
+    <value>Data de término da execução</value>
+  </data>
+  <data name="ACS_ENABLED" xml:space="preserve">
+    <value>Ativado</value>
+  </data>
+  <data name="ACS_GSUBNAME" xml:space="preserve">
+    <value>Nome do Sub. do Grupo</value>
+  </data>
+  <data name="ACS_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ACS_PO_ID" xml:space="preserve">
+    <value>Id de PO</value>
+  </data>
+  <data name="ACS_PROPERTIESTOSET" xml:space="preserve">
+    <value>Propriedades ao Conjunto</value>
+  </data>
+  <data name="ACS_RANK" xml:space="preserve">
+    <value>Classificar</value>
+  </data>
+  <data name="ACS_SELECTIONSCRITERIA" xml:space="preserve">
+    <value>Critério de seleção</value>
+  </data>
+  <data name="CREATE_ACS" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="CREATION_DATE" xml:space="preserve">
+    <value>Data de criação</value>
+  </data>
+  <data name="DELETE_ACS" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="EDIT_ACS" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="MOVE_RANK_DOWN" xml:space="preserve">
+    <value>Mover para baixo</value>
+  </data>
+  <data name="MOVE_RANK_UP" xml:space="preserve">
+    <value>Mover para cima</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Gerenciar modelos OnBoard</value>
+  </data>
+  <data name="TERMINATE_ACS" xml:space="preserve">
+    <value>Terminar</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="VIEW_ACS" xml:space="preserve">
+    <value>Exibir</value>
+  </data>
 </root>

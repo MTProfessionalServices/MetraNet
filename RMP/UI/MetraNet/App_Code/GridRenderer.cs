@@ -182,12 +182,62 @@ public static class GridRenderer
     }
   }
 
+  public static void PopulateProductCatalogBooleanFilter(MTFilterGrid MyGrid1, string idElement)
+  {
+    Dictionary<string, string> pcBooleanList = new Dictionary<string, string>(2);
+    pcBooleanList.Add("Yes", "Y");
+    pcBooleanList.Add("No", "N");
+    AddFilterListToElement(MyGrid1, idElement, pcBooleanList);
+  }
 
-    public static void PopulateProductCatalogBooleanFilter(MTFilterGrid MyGrid1, string idElement)
+   public static MTFilterOperation GetFilterOperationByString(this FilterModel model)
+  {
+    MTFilterOperation returnValue;
+
+    switch (model.OperationType)
     {
-        Dictionary<string, string> pcBooleanList = new Dictionary<string, string>(2);
-        pcBooleanList.Add("Yes", "Y");
-        pcBooleanList.Add("No", "N");
-        AddFilterListToElement(MyGrid1, idElement, pcBooleanList);
+      case "eq":
+        returnValue = MTFilterOperation.Equal;
+        break;
+
+      case "gt":
+        returnValue = MTFilterOperation.Greater;
+        break;
+
+      case "gte":
+        returnValue = MTFilterOperation.GreaterOrEqual;
+        break;
+
+      case "lt":
+        returnValue = MTFilterOperation.Less;
+        break;
+
+      case "lte":
+        returnValue = MTFilterOperation.LessOrEqual;
+        break;
+
+      case "lk":
+        returnValue = MTFilterOperation.Like;
+        break;
+
+      case "ne":
+        returnValue = MTFilterOperation.NotEqual;
+        break;
+
+      default:
+        returnValue = MTFilterOperation.Equal;
+        break;
     }
+    return returnValue;
+  }
+}
+
+public class FilterModel                //todo: do not know yet where to move, necessarily will move
+{
+  public string FieldName { get; set; }
+  public string OperationType { get; set; }
+  public string Value { get; set; }
+  public bool FilterHideable { get; set; }
+  public bool FilterReadOnly { get; set; }
+  public string Type { get; set; }
 }

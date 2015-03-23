@@ -151,13 +151,13 @@
   <data name="NAME" xml:space="preserve">
     <value>Attribute Name</value>
   </data>
-  <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Actions</value>
-  </data>
   <data name="TEXT_ADD" xml:space="preserve">
     <value>Add</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
     <value>Define another attribute for this Decision Type</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>Actions</value>
   </data>
 </root>

@@ -157,10 +157,10 @@
     <value>Interactions des décisions</value>
   </data>
   <data name="ListItemResource1.Value" xml:space="preserve">
-    <value>ExclusiveAccessToConsumedUsage</value>
+    <value>Un accès exclusif à Usage consommée</value>
   </data>
   <data name="ListItemResource2.Value" xml:space="preserve">
-    <value>AllDecisionsAccessToUsageRecord</value>
+    <value>Toutes les décisions accès à la fiche d'utilisation</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>

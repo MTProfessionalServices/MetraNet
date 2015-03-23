@@ -80,7 +80,7 @@ namespace MetraNet.MetraOffer.PriceLists
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-      Response.Redirect("PriceListsList.aspx");
+      Response.Redirect("PriceListsList.aspx?PreviousResultView=True");
     }
 
   }

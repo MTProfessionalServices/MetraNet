@@ -105,7 +105,13 @@ namespace MetraTech.Core.UI
     {
       var sb = new MTStringBuilder();
       sb.Append("<script language='javascript'>");
+      sb.Append(Environment.NewLine);
+      sb.Append("if(typeof window.getFrameMetraNet === 'function'){");
+      sb.Append(Environment.NewLine);
       sb.Append("window.getFrameMetraNet().helpPage = '" + helpPage + "';");
+      sb.Append(Environment.NewLine);
+      sb.Append("}");
+      sb.Append(Environment.NewLine);
       sb.Append("window.location.href = '" + url + "';");
       sb.Append("</script>");
       return sb.ToString();

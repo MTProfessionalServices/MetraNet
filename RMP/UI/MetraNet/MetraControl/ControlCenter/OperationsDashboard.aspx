@@ -820,12 +820,34 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
       var activeBillRunInterval = d3.select("#<%=ddActiveBillRun.ClientID %>").node().value;
       var ajaxReqStr = "/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=activebillrun&intervalid=" + activeBillRunInterval + "&curTime=" + new Date().getTime();
 
+      var variance = 0;
       d3.json(ajaxReqStr, function (error, json) {
           if (error)
               console.log(error);
           else {
               objActiveBillRunLineChartConfig.data = json["Items"];
               fnVisualizeLineChart2(objActiveBillRunLineChartConfig);
+              
+              var totalDuration = 0;
+              var totalAverageDuration = 0;
+              var arrayLength = objActiveBillRunLineChartConfig.data.length;
+              for (var i = 0; i < arrayLength; i++) {
+                totalDuration += parseInt(objActiveBillRunLineChartConfig.data[i].duration);
+                totalAverageDuration += parseInt(objActiveBillRunLineChartConfig.data[i].average);
+              }
+              if (totalAverageDuration > 0) {
+                variance = (totalDuration - totalAverageDuration) * 100 / totalAverageDuration;
+                var textVariance = "";
+                if (Math.abs(variance) <= .5) {
+                  textVariance = '<%=GetLocalResourceObject("TEXT_VARIANCE_SAME_MESSAGE")%>'; }
+                else if (variance > 0) {
+                  textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_SLOWER_MESSAGE")%>', Math.abs(variance).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+                }
+                else if (variance < 0) {
+                  textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', Math.abs(variance).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
+                }
+                d3.select("#<%=txtVariance.ClientID%>").text(textVariance);
+              }
           }
       });
       d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=activebillrunsummary&intervalid=" + activeBillRunInterval + "&curTime=" + new Date().getTime(), function (error, json) {
@@ -833,14 +855,13 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
         console.log(error);
       } else {
         var activebillrunsummary = json["Items"];
-        var total, successful, failed, waiting, ready, variance, earliesteta, etaoffset, remaining;
+        var total, successful, failed, waiting, ready, earliesteta, etaoffset, remaining;
         if (activebillrunsummary[0] != null) {
           total = activebillrunsummary[0]["eop_adapter_count"];
           successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
           failed = activebillrunsummary[0]["eop_failed_adapter_count"];
           waiting = activebillrunsummary[0]["eop_nyr_adapter_count"];
           ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
-          variance = activebillrunsummary[0]["varianceAsString"];
           earliesteta = activebillrunsummary[0]["earliest_eta"];
           etaoffset = activebillrunsummary[0]["eta_offset"];
         }
@@ -855,15 +876,6 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
         d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
         d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
         d3.select("#<%=txtReady.ClientID%>").text(ready);
-
-        var varianceAsFloat = parseFloat(variance);
-        var textVariance = "";
-        if (!isNaN(varianceAsFloat)) {
-          if (Math.abs(varianceAsFloat) <= .5) textVariance = '<%=GetLocalResourceObject("TEXT_VARIANCE_SAME_MESSAGE")%>';
-          else if (varianceAsFloat > 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_SLOWER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
-          else if (varianceAsFloat < 0) textVariance = String.format('<%=GetLocalResourceObject("TEXT_VARIANCE_FASTER_MESSAGE")%>', Math.abs(varianceAsFloat).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: 2, minimumFractionDigits: 0 }));
-        }
-        d3.select("#<%=txtVariance.ClientID%>").text(textVariance);
 
         var textETA = "";
         remaining = total - successful;

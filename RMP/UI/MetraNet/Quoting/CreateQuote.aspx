@@ -172,6 +172,7 @@
     //    }
 
     window.onload = function () {
+      Ext.form.NumberField.prototype.decimalSeparator = DECIMAL_SEPARATOR;
       var hiddenAccounts = window.Ext.get("<%=HiddenAccounts.ClientID %>").dom;
       if (hiddenAccounts.value.length > 0)
         accountData.accounts = window.Ext.decode(hiddenAccounts.value);

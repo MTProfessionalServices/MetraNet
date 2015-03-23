@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using System.Linq;
 using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -111,7 +112,9 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     Page.Validate();
     if (!Page.IsValid) return;
 
+    var oldSubStartDate = SubscriptionInstance.SubscriptionSpan.StartDate.Value;
     MTDataBinder1.Unbind();
+    var newSubStartDate = SubscriptionInstance.SubscriptionSpan.StartDate.Value;
 
     var sub = SubscriptionInstance;
 
@@ -131,7 +134,26 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     sub.CharacteristicValues = charVals;
 
     var isApprovalsEnabled = IsApprovalsEnabled(ChangeType);
-    
+
+    // CORE-9296: If Subscription Start Date was changed to earlier - update UDRC Start Date accordingly.    
+    if (newSubStartDate < oldSubStartDate)
+      foreach (var valueListOfUdrc in sub.UDRCValues.Values)
+      {
+        var udrcVal = valueListOfUdrc.Find(v => v.StartDate == oldSubStartDate);
+        if (udrcVal != null && !valueListOfUdrc.Exists(v => v.StartDate < udrcVal.StartDate)) // Ensure this is the 1-st UDRC value.
+          udrcVal.StartDate = newSubStartDate;
+      }
+    //// DELETE Unsusable Values if Sub Start Date moved forward:
+    //else if (newSubStartDate > oldSubStartDate)
+    //  foreach (var valueListOfUdrc in sub.UDRCValues.Values)
+    //  {
+    //    valueListOfUdrc.RemoveAll(v => v.EndDate < newSubStartDate);
+
+    //    var udrcVal = valueListOfUdrc.Find(v => v.StartDate <= newSubStartDate);
+    //    if (udrcVal != null)
+    //      udrcVal.StartDate = newSubStartDate;
+    //  }
+
     var update = new SubscriptionsEvents_OKSetSubscriptionDate_Client
       {
         In_SubscriptionInstance = sub,

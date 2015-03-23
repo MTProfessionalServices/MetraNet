@@ -21,6 +21,8 @@ public partial class Account_GenericAccountSummary : MTPage
   {
     if (!IsPostBack)
     {
+      var id = ActiveAccount._AccountID.GetValueOrDefault();
+      UI.Subscriber.SelectedAccount = AccountLib.LoadAccount(id, UI.User, ApplicationTime);
       MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
       MTGenericForm1.RenderObjectType = ActiveAccount.GetType();
       MTGenericForm1.RenderObjectInstanceName = "ActiveAccount";

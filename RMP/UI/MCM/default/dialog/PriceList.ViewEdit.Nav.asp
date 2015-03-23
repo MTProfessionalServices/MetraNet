@@ -89,7 +89,7 @@ function NavigateToRates(id,pi_id,id_pricelist)
 
 function NavigateToPreviousSearchResults()
 {
-    var targetURL="/MetraNet/MetraOffer/PriceLists/PriceListsList.aspx";
+    var targetURL="/MetraNet/MetraOffer/PriceLists/PriceListsList.aspx?PreviousResultView=True";
     window.parent.location.href = targetURL;
     window.parent.close();
 }

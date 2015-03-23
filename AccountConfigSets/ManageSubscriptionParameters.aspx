@@ -302,7 +302,7 @@ Title="MetraNet - Manage Subscription Parameters" %>
 
     function piWithAllowUDRCActionsRenderer(value, meta, record) {
       var str = String.format(
-            "<a style='cursor:hand;' id='addUDRC_{0}_{1}' title='{2}' href='JavaScript:addUDRC({0});'><img src='/Res/Images/icons/coins_add.png' alt='{1}' /></a>",
+            "<a style='cursor:hand;' id='addUDRC_{0}_{1}' title='{1}' href='JavaScript:addUDRC({0});'><img src='/Res/Images/icons/coins_add.png' alt='{1}' /></a>",
             record.data.PriceableItemId, textUDRCAdd);
       return str;
     }

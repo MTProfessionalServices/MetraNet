@@ -1416,6 +1416,9 @@
     <data name="ACS_ANALYZE_SUB_TERMINATED" xml:space="preserve">
         <value>[DE]Subscription to the ‘{0}’ Product Offering with Start Date {1} will be terminated because account no more eligible for OnBoard Template with ID '{2}' </value>
     </data>
+    <data name="ACS_ANALYZE_SUB_MODIFICATION_SKIPPED" xml:space="preserve">
+        <value>[DE]Subscription adding skipped because it was already added by apply this OnBoard Template and account still eligible to the template</value>
+    </data>
     <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
         <value>[DE]Error on saving OnBoard Template with Id {0}</value>
     </data>

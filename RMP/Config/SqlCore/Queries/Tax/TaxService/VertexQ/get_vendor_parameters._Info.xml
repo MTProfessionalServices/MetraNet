@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Get</Action>
+    <Implementations>
+        <Implementation>Common</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>VENDOR_ID</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>0</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+      <Parameter>
+        <Name>ORDER_BY</Name>
+        <DataType>sqlsubstitution</DataType>
+        <ReplacementType>DoublePercent</ReplacementType>
+        <SubstitutionSyntaxCheck>order by tx_direction</SubstitutionSyntaxCheck>
+        <Description></Description>
+      </Parameter>
+    </Parameters>
+    <Description>This query will allow an tax engine implementation to pull all in/out/inout parameters from the t_tax_vendor_params table.</Description>
+</Query>

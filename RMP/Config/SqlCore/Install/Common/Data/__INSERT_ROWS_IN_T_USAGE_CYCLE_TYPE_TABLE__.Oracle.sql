@@ -24,5 +24,5 @@ insert into t_usage_cycle_type (id_cycle_type, tx_desc, tx_cycle_type_method, n_
 values (8,'Annually', 'MTStdUsageCycle.MTStdAnnually.1',365,1);
 
 insert into t_usage_cycle_type (id_cycle_type, tx_desc, tx_cycle_type_method, n_proration_length, n_grace_period)
-values (9,'SemiAnnually', 'MTStdUsageCycle.MTStdSemiAnnually.1',180,1); 
+values (9,'Semi-Annually', 'MTStdUsageCycle.MTStdSemiAnnually.1',180,1); 
 

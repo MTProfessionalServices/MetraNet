@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -33,7 +33,7 @@
     Each data row contains a name, and value. The row also contains a 
     type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+    Classes that don`t support this are serialized and stored with the 
     mimetype set.
     
     The mimetype is used for serialized objects, and tells the 
@@ -121,208 +121,208 @@
     <value>L’état du compte était {0}, remplacé par {1}. </value>
   </data>
   <data name="ACS_APPLIED_LIST_UPDATED" xml:space="preserve">
-    <value>Applied OnBoard Templates with IDs: {0} are not eligible for the account any more. Related subscriptions will be terminated.</value>
+    <value>Les modèles embarqués appliqués avec les ID : {0}, ne sont plus éligibles pour le compte. Les abonnements associés seront résiliés.</value>
   </data>
   <data name="ACS_APPLIED_WAS_REMOVED" xml:space="preserve">
-    <value>OnBoard Templates with IDs {0} were removed from Applied list.</value>
+    <value>Les modèles embarqués avec les ID {0} ont été supprimés de la liste Appliqué.</value>
   </data>
   <data name="ACS_CREATE_SUB_FINISH" xml:space="preserve">
-    <value>Creation of new subscriptions is finished.</value>
+    <value>La création des nouveaux abonnements est terminée.</value>
   </data>
   <data name="ACS_CREATE_SUB_START" xml:space="preserve">
-    <value>Starting creation of new subscriptions...</value>
+    <value>Début de création des nouveaux abonnements...</value>
   </data>
   <data name="ACS_ELIGIBLE_APPLIED_INTERSECTION" xml:space="preserve">
-    <value>OnBoard Templates with IDs: {0} will be skipped. They are currently eligible for the account and were already applied.</value>
+    <value>Les modèles embarqués avec les ID : {0} seront ignorés. Ils sont actuellement éligibles pour le compte et ont déjà été appliqués.</value>
   </data>
   <data name="ACS_ELIGIBLE_LIST_UPDATED" xml:space="preserve">
-    <value>New subscriptions will be created for Eligible OnBoard Templates with IDs: {0}.</value>
+    <value>De nouveaux abonnements seront créés pour les modèles embarqués avec les ID : {0}.</value>
   </data>
   <data name="ACS_EXCHANGE_RANKS_EXCEPTION" xml:space="preserve">
-    <value>Error on exchanging ranks of OnBoard Template with Id {0} and {1}</value>
+    <value>Erreur lors de l`échange de rangs des modèles embarqués avec l`ID{0} et {1}</value>
   </data>
   <data name="ACS_GROUP_SUB_DESCRIPTION" xml:space="preserve">
-    <value>Group subscription was created by AccountConfigSetParams idAcsParams='{0}', ProductOffering id='{1}'</value>
+    <value>Un abonnement groupé a été créé par AccountConfigSetParams idAcsParams=`{0}`, ProductOffering id=`{1}`</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_ADDED" xml:space="preserve">
-    <value>Member with ID '{0}' was adeed to '{1}' GroupSubscription with ID '{2}'</value>
+    <value>Le membre avec ID `{0}` a été ajouté à l`abonnement groupé `{1}` avec ID `{2}`</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_DUETO_GROUP_SUN_NOT_EXISTED" xml:space="preserve">
-    <value>Unable to add member with ID '{0}', because GroupSubscription is not existed for Corporate Account with ID '{1}'</value>
+    <value>Impossible d`ajouter le membre avec ID `{0}` car l`abonnement groupé n`existe pas pour le compte d`entreprise avec ID `{1}`</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_ADDED_EXCEPTION" xml:space="preserve">
-    <value>Unable to add member with ID '{0}' to '{1}' GroupSubscription with ID '{2}'. Exception: {3}</value>
+    <value>Impossible d`ajouter le membre avec ID `{0}` à l`abonnement groupé `{1}` avec ID `{2}`. Exception : {3}</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>Unable to terminate member with ID '{0}' for Group Subscription with ID '{1}'. Exception: {2}</value>
+    <value>Impossible de résilier le membre avec ID `{0}` pour l`abonnement groupé avec ID `{1}`. Exception : {2}</value>
   </data>
   <data name="ACS_GROUP_SUB_MEMBER_WAS_TERMINATED" xml:space="preserve">
-    <value>Member with ID '{0}' was terminated for Group Subscription with ID '{1}'</value>
+    <value>Le membre avec ID `{0}` a été résilié pour l`abonnement groupé avec ID `{1}`</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_CREATED" xml:space="preserve">
-    <value>{0}' GroupSubscription was created for Corporate Account with ID '{1}' and subscribed to '{2}' Product Offering</value>
+    <value>L`abonnement groupé {0}` a été créé pour le compte d`entreprise avec ID `{1}` et abonné à l`offre produit `{2}`</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>Unable to create GroupSubscription for Corporate Account with ID '{0}' and subscribed to '{1}' Product Offering. Exception: {2} </value>
+    <value>Impossible de créer l`abonnement groupé pour le compte d`entreprise avec ID `{0}` et abonné à l`offre produit `{1}`. Exception : {2} </value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>Unable to terminated '{0}' Group Subscription with Corporate Account ID '{1}'. Exception: {2}</value>
+    <value>Impossible de résilier l`abonnement groupé `{0}` pour le compte d`entreprise avec ID `{1}`. Exception : {2}</value>
   </data>
   <data name="ACS_GROUP_SUB_WAS_TERMINATED" xml:space="preserve">
-    <value>{0}' GroupSubscription with Corporate Account ID '{1}' was terminated for All members.</value>
+    <value>L`abonnement groupé {0}` avec ID de compte d`entreprise `{1}` a été résilié pour tous les membres.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FAIL" xml:space="preserve">
-    <value>Account with ID {0} not found or not available</value>
+    <value>Compte avec ID {0} introuvable ou indisponible</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_FINISH" xml:space="preserve">
-    <value>Account '{0}' was loaded.</value>
+    <value>Compte `{0}` chargé.</value>
   </data>
   <data name="ACS_LOAD_ACCOUNT_START" xml:space="preserve">
-    <value>Loading Account with ID {0}...</value>
+    <value>Chargement du compte avec ID {0}...</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_FINISH" xml:space="preserve">
-    <value>Applied OnBoard Templates with IDs: {0} were found for the account.</value>
+    <value>Les modèles embarqués appliqués avec les ID : {0}, ont été trouvés pour le compte.</value>
   </data>
   <data name="ACS_LOAD_APPLIED_ACS_START" xml:space="preserve">
-    <value>Loading OnBoard Templates that were applied for the account...</value>
+    <value>Chargement des modèles embarqués qui étaient appliqués au compte...</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_FINISH" xml:space="preserve">
-    <value>OnBoard Templates with IDs: {0} were found as eligible for the account.</value>
+    <value>Des modèles embarqués avec les ID : {0} ont été trouvés comme étant éligibles pour le compte.</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_NONUNIQUE_RANK_EXCEPTION" xml:space="preserve">
-    <value>Some Eligible OnBoard Templates have non-unique rank. Wrong OnBoard Templates configuration.</value>
+    <value>Certains modèles embarqués éligibles ont un rang non unique. Mauvaise configuration des modèles embarqués .</value>
   </data>
   <data name="ACS_LOAD_ELIGIBLE_ACS_START" xml:space="preserve">
-    <value>Loading OnBoard Templates that are eligible for the account...</value>
+    <value>Chargement des modèles embarqués qui sont éligibles pour le compte...</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_FINISH" xml:space="preserve">
-    <value>Modification of account properties is finished.</value>
+    <value>Modification des propriétés de compte terminée.</value>
   </data>
   <data name="ACS_MODIFY_ACC_PROP_START" xml:space="preserve">
-    <value>Starting account properties modification...</value>
+    <value>Début de modification des propriétés de compte...</value>
   </data>
   <data name="ACS_PROP_MODIFICATION_FAILED" xml:space="preserve">
-    <value>Fail to modify property '{0}' by OnBoard Template {1}. Old value:'{2}'. New value:'{3}'.</value>
+    <value>Échec de modification de la propriété `{0}` par le modèle embarqué {1}. Ancienne valeur :`{2}`. Nouvelle valeur :`{3}`.</value>
   </data>
   <data name="ACS_PROP_MODIFIED_SUCCESSFULLY" xml:space="preserve">
-    <value>Property '{0}' was modified by OnBoard Template {1}. Old value:'{2}'. New value:'{3}'.</value>
+    <value>La propriété `{0}` a été modifiée par le modèle embarqué {1}. Ancienne valeur :`{2}`. Nouvelle valeur :`{3}`.</value>
   </data>
   <data name="ACS_PROP_WAS_NOT_FOUND" xml:space="preserve">
-    <value>Property '{0}' was not found.</value>
+    <value>Propriété `{0}` introuvable.</value>
   </data>
   <data name="ACS_SUB_WAS_CREATED" xml:space="preserve">
-    <value>Account with ID '{0}' was subscribed to '{1}' Product Offering.</value>
+    <value>Le compte avec ID `{0}` a été abonné à l`offre produit `{1}`.</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_CREATED" xml:space="preserve">
-    <value>Unable to subscribe account with ID '{0}' to Product Offering with ID '{1}'. Exception: {2}</value>
+    <value>Impossible d`abonner le compte avec ID `{0}` à l`offre produit avec ID `{1}`. Exception : {2}</value>
   </data>
   <data name="ACS_SUB_WAS_NOT_TERMINATED" xml:space="preserve">
-    <value>Unable to terminated subscription with ID {0}. Exception: {1}</value>
+    <value>Impossible de résilier l`abonnement avec ID {0}. Exception : {1}</value>
   </data>
   <data name="ACS_SUB_WAS_TERMINATED" xml:space="preserve">
-    <value>Subscription to {0} was terminated.</value>
+    <value>L`abonnement à {0} a été résilié.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_FINISH" xml:space="preserve">
-    <value>Termination of existing subscriptions is finished.</value>
+    <value>La résiliation des abonnements existants est terminée.</value>
   </data>
   <data name="ACS_TERMINATE_SUB_START" xml:space="preserve">
-    <value>Starting termination of existing subscriptions...</value>
+    <value>Début de résiliation des abonnements existants...</value>
   </data>
   <data name="ACS_VALIDATION_AvailableEndDateGreateThanEndDateInPo" xml:space="preserve">
-    <value>Unable to add '{0}' product offering to OnBoard Template due to subscription parameter EndDate '{1}' greater than available EndDate '{2}' of product offering.</value>
+    <value>Impossible d`ajouter l`offre produit `{0}` au modèle embarqué car le paramètre d`abonnement EndDate `{1}` est supérieur au paramètre EndDate possible `{2}` de l`offre produit.</value>
   </data>
   <data name="ACS_VALIDATION_AvailableStartDateLessThanStartDateInPo" xml:space="preserve">
-    <value>Unable to add '{0}' product offering to OnBoard Template due to subscription parameter  StartDate '{1}' less than available StartDate '{2}' of product offering. </value>
+    <value>Impossible d`ajouter l`offre produit `{0}` au modèle embarqué car le paramètre d`abonnement StartDate `{1}` est inférieur au paramètre StartDate possible `{2}` de l`offre produit. </value>
   </data>
   <data name="ACS_VALIDATION_ConfigSetDateDoesNotMatchAvailableDatePo" xml:space="preserve">
-    <value>The OnBoard Template date does not match available '{0}' Product Offering date. Effective date for OnBoard Template from '{1} to '{2}', but for Product offering from '{3}' to '{4}'  </value>
+    <value>Les dates du modèle embarqué ne correspondent pas aux dates possibles de l`offre produit `{0}`. Les dates d`effet de la configuration sont définies du `{1} au `{2}`, mais du `{3}` au `{4}` pour l`offre produit  </value>
   </data>
   <data name="ACS_VALIDATION_ConfigSetEndDateLessThanCurrentSystemTime" xml:space="preserve">
-    <value>Incorrect available End date for the current OnBoard Template. Available EffectiveEndDate={0} less than system date={1}, so the OnBoard Template will never use.</value>
+    <value>Date de fin possible incorrecte pour le modèle embarqué actuel. EffectiveEndDate possible ={0} inférieure à la date système ={1}. La configuration du compte ne sera donc jamais utilisée.</value>
   </data>
   <data name="ACS_VALIDATION_ConfiSetStartDateGreaterThanEndDate" xml:space="preserve">
-    <value>Incorrect available date for the current OnBoard Template. Available EffectiveDate={0} greater then EffectiveEndDate={1}.</value>
+    <value>Date de fin possible incorrecte pour le modèle embarqué actuel. EffectiveDate possible ={0} supérieure à EffectiveEndDate ={1}.</value>
   </data>
   <data name="ACS_VALIDATION_CurrentAccIsPartitionUnableToSubscribePoFromOtherPartition" xml:space="preserve">
-    <value>'{0}' Product Offering is not available for the '{1}' Partition account with id='{2}'. The IdPartition='{3}' of Product Offering is different to IdPartition='{4}' of Partition account.</value>
+    <value>L`offre produit `{0}` est indisponible pour le compte Partition `{1}` avec ID=`{2}`. La valeur IdPartition=`{3}` de l`offre produit est différente de la valeur IdPartition=`{4}` du compte Partition.</value>
   </data>
   <data name="ACS_VALIDATION_ExceptionWhileRetrievingPoWithId" xml:space="preserve">
-    <value>Exception occured while retrieving Product with Id='{0}'. Exception : {1}</value>
+    <value>Exception à la récupération du produit avec ID=`{0}`. Exception : {1}</value>
   </data>
   <data name="ACS_VALIDATION_GroupSab_GroupName_NOT_SET" xml:space="preserve">
-    <value>The Corporate Account with ID '{0}' is set, but Group Subscription Name - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    <value>Le compte d`entreprise avec ID `{0}` est défini, mais le nom de l`abonnement groupé ne l`est pas. Les 2 paramètres sont obligatoires pour l`abonnement groupé. Afin de créer un abonnement simple, vous ne devez définir AUCUNE de ces zones.</value>
   </data>
   <data name="ACS_VALIDATION_GroupSub_CorporateAccountId_NOT_SET" xml:space="preserve">
-    <value>The '{0}' Group Subscription Name is set, but CorporateAccountId - doesn't. Both parameters are mandatory for Group Subscription. In order to create  Simple Subscription you should NOT set that any of these fields.</value>
+    <value>Le nom de l`abonnement groupé `{0}` est défini, mais CorporateAccountId ne l`est pas. Les deux paramètres sont obligatoires pour l`abonnement groupé. Afin de créer un abonnement simple, vous ne devez définir AUCUNE de ces zones.</value>
   </data>
   <data name="ACS_VALIDATION_IdPartitionCorporateAccIsNotTheSameAsPo" xml:space="preserve">
-    <value>ID Partition for Corporate Account with ID = '{0}' Is no the same as for '{1}' product offering. The ID Partition for Account = '{2}', but for product offering = '{3}'</value>
+    <value>La partition d`ID pour le compte d`entreprise avec ID = `{0}` diffère de celle de l`offre produit `{1}`. La partition d`ID du compte = `{2}`, mais celle de l`offre produit = `{3}`</value>
   </data>
   <data name="ACS_VALIDATION_INVALID_RANK_VALUE" xml:space="preserve">
-    <value>Rank should be &gt; 0. Rank value: {0}.</value>
+    <value>Le rang doit être &gt; 0. Valeur de rang : {0}.</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryProperty_CantBeEmptyOrNull" xml:space="preserve">
-    <value>The mandatory '{0}' property can't be empty or null. </value>
+    <value>La propriété obligatoire `{0}` ne peut pas être vide ou nulle. </value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyIsNull" xml:space="preserve">
-    <value>The '{0}' mandatory property is null. The property should be initialized.</value>
+    <value>La propriété `{0}` est obligatoire et nulle. Initialisez-la.</value>
   </data>
   <data name="ACS_VALIDATION_MandatoryPropertyShouldContainAtLeastOne" xml:space="preserve">
-    <value>The '{0}' mandatory property should contain at least one item.</value>
+    <value>La propriété `{0}` est obligatoire et doit contenir au moins un élément.</value>
   </data>
   <data name="ACS_VALIDATION_PropertiesToSetHasDuplicates" xml:space="preserve">
-    <value>The Properties to Set with Account View '{0}' and  name '{1}' is found more than one time (count = {2}). The Properties to Set should be unique.</value>
+    <value>Les propriétés à définir avec l`ID de compte `{0}` et le nom `{1}` existent plusieurs fois (nombre = {2}). Les propriétés à définir doivent être uniques.</value>
   </data>
   <data name="ACS_VALIDATION_Property1OrProperty2ShouldBeSet" xml:space="preserve">
-    <value>At least one of the  '{0}' or '{1}' properties should be set.</value>
+    <value>Définissez au moins une des propriétés `{0}` ou `{1}`.</value>
   </data>
   <data name="ACS_VALIDATION_SelectionCriteriaHasDuplicates" xml:space="preserve">
-    <value>The Selection Criteria with Account View '{0}' and name '{1}'  is found more the one time (count = {2}). The Selection Criteria should be unique.</value>
+    <value>Les critères de sélection avec l`ID de compte `{0}` et le nom `{1}`  existent plusieurs fois (nombre = {2}). Les critères de sélection doivent être uniques.</value>
   </data>
   <data name="ACS_VALIDATION_UDRCMetricsNotSet" xml:space="preserve">
-    <value>UDRC for PI ID={0} not set!</value>
+    <value>La mesure UDRC pour l`ID PI={0} n`est pas définie !</value>
   </data>
   <data name="ACS_VALIDATION_UDRCStartDateGreaterThanEndDateForPiWithId" xml:space="preserve">
-    <value>StartDate={0} of UDRC metric can't be greater than EndDate={1} for PI with id={2}</value>
+    <value>La valeur StartDate={0} de la mesure UDRC ne peut pas être supérieure à la valeur EndDate={1} pour le PI avec ID={2}</value>
   </data>
   <data name="ACS_VALIDATION_UDRCWithIdIsNotFoundInThePo" xml:space="preserve">
-    <value>UDRC with ID={0} (StartDate = {1} and EndDate={2}) is not is not existed for the PO</value>
+    <value>L`UDRC avec ID={0} (StartDate = {1} et EndDate={2}) n`existe pas pour le PO</value>
   </data>
   <data name="ACS_VALIDATION_UnableToAddCofigurationSetSubParam" xml:space="preserve">
-    <value>Unable to add OnBoard Template Subscription Params due to validation errors.</value>
+    <value>Impossible d`ajouter des paramètres d`abonnement de modèle embarqué en raison d`erreurs de validation.</value>
   </data>
   <data name="ACS_VALIDATION_UnableToAddCofiguratioSet" xml:space="preserve">
-    <value>Unable to add OnBoard Template due to validation errors.</value>
+    <value>Impossible d`ajouter un modèle embarqué en raison d`erreurs de validation.</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindOpById" xml:space="preserve">
-    <value>Unable to find Product Offering with Id='{0}'</value>
+    <value>Impossible de trouver l`offre produit avec ID=`{0}`</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindProductOfferingId" xml:space="preserve">
-    <value>Unable to find Product Offering with id={0}</value>
+    <value>Impossible de trouver l`offre produit avec ID={0}</value>
   </data>
   <data name="ACS_VALIDATION_UnableToFindSubscriptionPropertySeeDetails" xml:space="preserve">
-    <value>Unable to find subscription property. Details: '{0}'</value>
+    <value>Impossible de trouver la propriété de l`abonnement. Détails : `{0}`</value>
   </data>
   <data name="ACS_VALIDATION_UnableToGetIdPartitionForAccount" xml:space="preserve">
-    <value>Unable to get ID partition for Corporate account with id='{0}'. Error: '{1}'</value>
+    <value>Impossible d`obtenir la partition d`ID pour le compte d`entreprise avec ID=`{0}`. Erreur : `{1}`</value>
   </data>
   <data name="ACS_VALIDATION_UnapleToFindProductOfferingId" xml:space="preserve">
-    <value>Unable to find Product Offering with id={0}</value>
+    <value>Impossible de trouver l`offre produit avec ID={0}</value>
   </data>
   <data name="ACS_VALIDATION_ValidationFormat_Messgae_Component" xml:space="preserve">
-    <value>#{0}) Message: '{1}', Component: '{2}'</value>
+    <value>#{0}) Message : `{1}`, Composant : `{2}`</value>
   </data>
   <data name="ACS_VIEW_MODIFICATION_FAILED" xml:space="preserve">
-    <value>Fail to modify views of Account ID {0}.</value>
+    <value>Impossible de modifier les vues du compte avec ID {0}.</value>
   </data>
   <data name="ADD_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error on saving OnBoard Template with Id {0}</value>
+    <value>Erreur d`enregistrement du modèle embarqué avec l`ID {0}</value>
   </data>
   <data name="ADD_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
-    <value>Error on saving SubscriptionParams with Id {0}</value>
+    <value>Erreur d`enregistrement de SubscriptionParams avec ID {0}</value>
   </data>
   <data name="ADDED_ENTITY" xml:space="preserve">
-    <value>L'entité portant l'ID {0} a été ajoutée à la liste d'entités</value>
+    <value>L`entité portant l`ID {0} a été ajoutée à la liste d`entités</value>
   </data>
   <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
     <value>Les valeurs de propriété partagée ont été ajoutées.</value>
@@ -346,7 +346,7 @@
     <value>Le compte ascendant était {0}, remplacé par {1}. </value>
   </data>
   <data name="APPLY_ACCOUNTCONFIGSETS_EXCEPTION" xml:space="preserve">
-    <value>Error on applying OnBoard Template for account {0}.</value>
+    <value>Erreur d`application de modèles embarqués pour le compte {0}.</value>
   </data>
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
     <value>La transaction {0} est de type {1}, mais a généré une exception AlreadySettledException</value>
@@ -370,7 +370,7 @@
     <value>Le pays était {0}, remplacé par {1}. </value>
   </data>
   <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>La création du nouveau modèle d'accord a abouti et porte l'ID {0}.</value>
+    <value>La création du nouveau modèle d`accord a abouti et porte l`ID {0}.</value>
   </data>
   <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
     <value>Le jour du mois était {0}, remplacé par {1}. </value>
@@ -379,34 +379,34 @@
     <value>Le jour de la semaine était {0}, remplacé par {1}. </value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error delete OnBoard Template</value>
+    <value>Erreur de suppression du modèle embarqué</value>
   </data>
   <data name="DELETE_ACCOUNTCONFIGSET_INVALID_ID_EXCEPTION" xml:space="preserve">
-    <value>Array of OnBoard Template IDs contains invalid ID: {0}</value>
+    <value>L`ensemble d`ID de modèles embarqués contient un ID non valide : {0}</value>
   </data>
   <data name="DELETE_APPLIED_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Applied OnBoard Template cannot be deleted. ID: {0}</value>
+    <value>Le modèle embarqué appliqué ne peut pas être supprimé. ID : {0}</value>
   </data>
   <data name="DELETE_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>OnBoard Template of other Partition cannot be deleted. ID: {0}</value>
+    <value>Le modèle embarqué d`une autre partition ne peut pas être supprimé. ID : {0}</value>
   </data>
   <data name="DELETED_ENTITY" xml:space="preserve">
-    <value>L'entité portant l'ID {0} a été supprimée de la liste d'entités</value>
+    <value>L`entité portant l`ID {0} a été supprimée de la liste d`entités</value>
   </data>
   <data name="END_DATE_WAS" xml:space="preserve">
     <value>La date de fin était {0}, remplacée par {1}. </value>
   </data>
   <data name="END_DAY_OF_MONTH" xml:space="preserve">
-    <value>Dernier jour du mois</value>
+    <value>1er dernier jour du mois</value>
   </data>
   <data name="END_DAY_OF_WEEK" xml:space="preserve">
-    <value>Dernier jour de la semaine</value>
+    <value>Jour de la semaine</value>
   </data>
   <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
-    <value>La liste d'entités contient déjà l'entité dont l'ID est {0}.</value>
+    <value>La liste d`entités contient déjà l`entité dont l`ID est {0}.</value>
   </data>
   <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
-    <value>La liste d'entités ne contient pas l'entité dont l'ID est {0}.</value>
+    <value>La liste d`entités ne contient pas l`entité dont l`ID est {0}.</value>
   </data>
   <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
     <value>La date de fin de validité ne peut pas être antérieure à la date de début de validité.</value>
@@ -415,7 +415,7 @@
     <value>La date d’expiration était {0}, remplacée par {1}.</value>
   </data>
   <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>L'enregistrement du modèle d'accord {0} a échoué.</value>
+    <value>L`enregistrement du modèle d`accord {0} a échoué.</value>
   </data>
   <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
     <value>Le premier jour du mois était {0}, remplacé par {1}. </value>
@@ -427,19 +427,19 @@
     <value>Le prénom était {0}, remplacé par {1}. </value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error get OnBoard Template with Id {0}</value>
+    <value>Erreur d`obtention du modèle embarqué avec l`ID {0}</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_LIST_EXCEPTION" xml:space="preserve">
-    <value>Error get OnBoard Template list</value>
+    <value>Erreur d`obtention de la liste de modèles embarqués</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSET_SUBSCRIPTIONPARAMS_EXCEPTION" xml:space="preserve">
-    <value>Error get subscription parameters with Id {0}</value>
+    <value>Erreur d`obtention des paramètres d`abonnement avec ID {0}</value>
   </data>
   <data name="GET_ACCOUNTCONFIGSETAPPLIED_LIST_EXCEPTION" xml:space="preserve">
-    <value>Error get OnBoard Template applied list</value>
+    <value>Erreur d`obtention de la liste de modèles embarqués appliqués</value>
   </data>
   <data name="GET_OTHER_PARTITION_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Can't get OnBoard Template with PO from another partition!</value>
+    <value>Impossible d`obtenir le modèle embarqué avec le PO d`une autre partition !</value>
   </data>
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>Aucune réponse reçue de {0}.</value>
@@ -481,7 +481,7 @@
     <value>Le deuxième jour du mois était {0}, remplacé par {1}. </value>
   </data>
   <data name="SECOND_END_DAY_OF_MONTH" xml:space="preserve">
-    <value>2ème dernier jour du mois</value>
+    <value>2e dernier jour du mois</value>
   </data>
   <data name="SELECT_INTERVAL" xml:space="preserve">
     <value>Sélectionner l’intervalle</value>
@@ -523,10 +523,10 @@
     <value>Compte mis à jour avec succès pour le nom d’utilisateur {0} possédant l’ID {1}. </value>
   </data>
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
-    <value>L'ID de modèle d'accord ne peut pas être inférieur à 0.</value>
+    <value>L`ID de modèle d`accord ne peut pas être inférieur à 0.</value>
   </data>
   <data name="TERMINATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error on termination OnBoard Template</value>
+    <value>Erreur de résiliation du modèle embarqué</value>
   </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>Le compte ne peut pas être son propre responsable des factures</value>
@@ -565,7 +565,7 @@
     <value>Ne peut pas ajouter un responsable des factures dans le système</value>
   </data>
   <data name="TEXT_CANNOT_DELETE_SHARED_PROPERTY_IN_USE" xml:space="preserve">
-    <value>Impossible de supprimer la propriété partagée, car elle est en cours d'utilisation.</value>
+    <value>Impossible de supprimer la propriété partagée, car elle est en cours d`utilisation.</value>
   </data>
   <data name="TEXT_CANNOT_GET_SHARED_PROPERTIES" xml:space="preserve">
     <value>Impossible de récupérer les propriétés partagées dans le système.</value>
@@ -589,7 +589,7 @@
     <value>Ne peut pas récupérer les données de gestion des factures</value>
   </data>
   <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
-    <value>Impossible de supprimer les caractéristiques de spécifications, car elles sont en cours d'utilisation.</value>
+    <value>Impossible de supprimer les caractéristiques de spécifications, car elles sont en cours d`utilisation.</value>
   </data>
   <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
     <value>Impossible de créer le modèle.</value>
@@ -598,7 +598,7 @@
     <value>Impossible de créer une requête Web pour {0}.</value>
   </data>
   <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
-    <value>Impossible d'afficher la liste de modèles.</value>
+    <value>Impossible d`afficher la liste de modèles.</value>
   </data>
   <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
     <value>Le modèle {0} est introuvable.</value>
@@ -610,13 +610,13 @@
     <value>Impossible de charger la liste de modèles.</value>
   </data>
   <data name="TEXT_CANT_SAVE_TEMPLATE" xml:space="preserve">
-    <value>Impossible d'enregistrer le modèle {0}.</value>
+    <value>Impossible d`enregistrer le modèle {0}.</value>
   </data>
   <data name="TEXT_COULD_NOT_DELETE_SHARED_PROPERTY" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la suppression de la propriété partagée dans le système.</value>
+    <value>Une erreur s`est produite lors de la suppression de la propriété partagée dans le système.</value>
   </data>
   <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la suppression de la caractéristique de spécifications du système.</value>
+    <value>Une erreur s`est produite lors de la suppression de la caractéristique de spécifications du système.</value>
   </data>
   <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
     <value>Impossible de récupérer les données de localisation.</value>
@@ -655,16 +655,16 @@
     <value>Création en cours des entrées de la carte de valeurs de propriétés partagées, pour la propriété partagée et les valeurs correspondantes.</value>
   </data>
   <data name="TEXT_CREATING_SPEC" xml:space="preserve">
-    <value>Création d'une caractéristique de spécifications en cours.</value>
+    <value>Création d`une caractéristique de spécifications en cours.</value>
   </data>
   <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>Création en cours d'entrées de carte des valeurs de spéc. pour la caractéristique de spécifications et les valeurs correspondantes.</value>
+    <value>Création en cours d`entrées de carte des valeurs de spéc. pour la caractéristique de spécifications et les valeurs correspondantes.</value>
   </data>
   <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
-    <value>Une erreur d'accès aux fichiers s'est produite </value>
+    <value>Une erreur d`accès aux fichiers s`est produite </value>
   </data>
   <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>Erreur DataException lors de la tentative d'enregistrement des propriétés partagées dans l'entité.</value>
+    <value>Erreur DataException lors de la tentative d`enregistrement des propriétés partagées dans l`entité.</value>
   </data>
   <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
     <value>La propriété partagée a été supprimée du système.</value>
@@ -685,10 +685,10 @@
     <value>Refus des frais non standard pertinents</value>
   </data>
   <data name="TEXT_EXCEPTION_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>Erreur non gérée lors de la tentative d'enregistrement des propriétés partagées dans l'entité.</value>
+    <value>Erreur non gérée lors de la tentative d`enregistrement des propriétés partagées dans l`entité.</value>
   </data>
   <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>Erreur non gérée pendant la tentative d'enregistrement des caractéristiques de spécifications dans l'entité.</value>
+    <value>Erreur non gérée pendant la tentative d`enregistrement des caractéristiques de spécifications dans l`entité.</value>
   </data>
   <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
     <value>Le traitement du fichier est terminé.</value>
@@ -706,10 +706,10 @@
     <value>La chaîne de valeurs de filtrage contient une opération incorrecte : {0}</value>
   </data>
   <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
-    <value>Une erreur de chargement de fichier s'est produite </value>
+    <value>Une erreur de chargement de fichier s`est produite </value>
   </data>
   <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>Erreur MASBasicException pendant la tentative d'enregistrement des caractéristiques de spécifications dans l'entité.</value>
+    <value>Erreur MASBasicException pendant la tentative d`enregistrement des caractéristiques de spécifications dans l`entité.</value>
   </data>
   <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
     <value>Aucun frais à approuver.</value>
@@ -736,16 +736,16 @@
     <value>Responsable des factures supprimé</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>La propriété partagée a été supprimée de l'entité.</value>
+    <value>La propriété partagée a été supprimée de l`entité.</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>La propriété partagée a été supprimée de l'entité portant le type d'entité : </value>
+    <value>La propriété partagée a été supprimée de l`entité portant le type d`entité : </value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
     <value>Les entrées ont été supprimées de la carte de valeurs de propriétés partagées, pour les propriétés et valeurs correspondantes.</value>
   </data>
   <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>Les caractéristiques de spécifications ont été supprimées dans l'entité.</value>
+    <value>Les caractéristiques de spécifications ont été supprimées dans l`entité.</value>
   </data>
   <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
     <value>Les entrées de carte des valeurs de spéc. ont été supprimées pour la caractéristique de spécifications et les valeurs correspondantes.</value>
@@ -754,22 +754,22 @@
     <value>Échec de la suppression des entrées de carte des valeurs de spéc. pour la caractéristique de spécifications et les valeurs correspondantes.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>Suppression en cours de la propriété partagée de l'entité.</value>
+    <value>Suppression en cours de la propriété partagée de l`entité.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>Suppression en cours de la propriété partagée de l'entité portant le type d'entité : </value>
+    <value>Suppression en cours de la propriété partagée de l`entité portant le type d`entité : </value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
     <value>Suppression en cours des entrées de la carte de valeurs de propriétés partagées, pour la propriété partagée et les valeurs correspondantes.</value>
   </data>
   <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>Suppression en cours des caractéristiques de spécifications dans l'entité.</value>
+    <value>Suppression en cours des caractéristiques de spécifications dans l`entité.</value>
   </data>
   <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>Suppression en cours d'entrées de carte des valeurs de spéc. pour la caractéristique de spécifications et les valeurs correspondantes.</value>
+    <value>Suppression en cours d`entrées de carte des valeurs de spéc. pour la caractéristique de spécifications et les valeurs correspondantes.</value>
   </data>
   <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
-    <value>L'ID de la requête {0} ne correspond pas à l'ID du modèle {1}.</value>
+    <value>L`ID de la requête {0} ne correspond pas à l`ID du modèle {1}.</value>
   </data>
   <data name="TEXT_RETRIEVED" xml:space="preserve">
     <value>Les caractéristiques de spécification ont été récupérées dans le système.</value>
@@ -778,16 +778,16 @@
     <value>Récupération des informations pour le fichier </value>
   </data>
   <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
-    <value>Une liste d'échecs de noms de fichiers a été récupérée </value>
+    <value>Une liste d`échecs de noms de fichiers a été récupérée </value>
   </data>
   <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
     <value>Les données de localisation ont été récupérées.</value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>Les propriétés partagées de l'entité ont été récupérées.</value>
+    <value>Les propriétés partagées de l`entité ont été récupérées.</value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>Les propriétés partagées ont été récupérées pour l'entité portant le type d'entité : </value>
+    <value>Les propriétés partagées ont été récupérées pour l`entité portant le type d`entité : </value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTY_VALUES" xml:space="preserve">
     <value>Récupération en cous des valeurs de la propriété partagée dans le système.</value>
@@ -799,22 +799,22 @@
     <value>Les valeurs de caractéristiques de spécifications ont été récupérées dans le système.</value>
   </data>
   <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>Les caractéristiques de spécifications ont été récupérées pour l'entité.</value>
+    <value>Les caractéristiques de spécifications ont été récupérées pour l`entité.</value>
   </data>
   <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
     <value>Récupération des informations pour le nom de fichier </value>
   </data>
   <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
-    <value>Récupération d'une liste d'échecs de noms de fichiers </value>
+    <value>Récupération d`une liste d`échecs de noms de fichiers </value>
   </data>
   <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
     <value>Les données de localisation ont été récupérées dans le système.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>Récupération en cours des propriétés partagées de l'entité.</value>
+    <value>Récupération en cours des propriétés partagées de l`entité.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>Récupération en cours des propriétés partagées de l'entité portant le type d'entité : </value>
+    <value>Récupération en cours des propriétés partagées de l`entité portant le type d`entité : </value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
     <value>Récupération en cous de la propriété partagée dans le système.</value>
@@ -829,28 +829,28 @@
     <value>Récupération en cours des valeurs de caractéristiques de spécifications dans le système.</value>
   </data>
   <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>Récupération en cours des caractéristiques de spécifications pour l'entité.</value>
+    <value>Récupération en cours des caractéristiques de spécifications pour l`entité.</value>
   </data>
   <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
-    <value>Une erreur inconnue s'est produite. Demandez à l'administrateur système de consulter vos fichiers journaux.</value>
+    <value>Une erreur inconnue s`est produite. Demandez à l`administrateur système de consulter vos fichiers journaux.</value>
   </data>
   <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
     <value>La valeur de caractéristique de spécifications a été enregistrée.</value>
   </data>
   <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
-    <value>Une erreur s'est produite lors de l'enregistrement de la valeur de caractéristique de spécifications.</value>
+    <value>Une erreur s`est produite lors de l`enregistrement de la valeur de caractéristique de spécifications.</value>
   </data>
   <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
     <value>Enregistrement en cours de la valeur de caractéristique de spécifications dans le système.</value>
   </data>
   <data name="TEXT_SHARED_PROPERTY_VALUE_MAPPING_IN_USE" xml:space="preserve">
-    <value>Le mappage ne peut pas être supprimé, car il est en cours d'utilisation.</value>
+    <value>Le mappage ne peut pas être supprimé, car il est en cours d`utilisation.</value>
   </data>
   <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
-    <value>Impossible de mettre à jour la valeur de caractéristique de spécifications, car elle est en cours d'utilisation.</value>
+    <value>Impossible de mettre à jour la valeur de caractéristique de spécifications, car elle est en cours d`utilisation.</value>
   </data>
   <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
-    <value>Le mappage ne peut pas être supprimé, car il est en cours d'utilisation.</value>
+    <value>Le mappage ne peut pas être supprimé, car il est en cours d`utilisation.</value>
   </data>
   <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
     <value>Impossible d’approuver les frais non standard en attente.</value>
@@ -862,10 +862,10 @@
     <value>Votre demande n’a pas pu être traitée en raison des erreurs suivantes :</value>
   </data>
   <data name="TEXT_UNABLE_TO_REMOVE_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la suppression de la propriété partagée de l'entité.</value>
+    <value>Une erreur s`est produite lors de la suppression de la propriété partagée de l`entité.</value>
   </data>
   <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>Une erreur s'est produite lors de la suppression de la caractéristique de spécifications de l'entité.</value>
+    <value>Une erreur s`est produite lors de la suppression de la caractéristique de spécifications de l`entité.</value>
   </data>
   <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
     <value>Impossible de récupérer la propriété partagée dans le système.</value>
@@ -874,7 +874,7 @@
     <value>Impossible de récupérer la caractéristique de spécifications dans le système.</value>
   </data>
   <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
-    <value>Une erreur s'est produite </value>
+    <value>Une erreur s`est produite </value>
   </data>
   <data name="TEXT_UPDATED_SHARED_PROPERTY" xml:space="preserve">
     <value>La propriété partagée a été mise à jour.</value>
@@ -916,13 +916,13 @@
     <value>La transaction {0} a déjà été envoyée.</value>
   </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_EXCEPTION" xml:space="preserve">
-    <value>Error update OnBoard Template</value>
+    <value>Erreur de mise à jour du modèle embarqué</value>
   </data>
   <data name="UPDATE_ACCOUNTCONFIGSET_PARAMETERS_EXCEPTION" xml:space="preserve">
-    <value>Error on update OnBoard Template Parameters</value>
+    <value>Erreur de mise à jour des paramètres de modèle embarqué</value>
   </data>
   <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>Le modèle d'accord a été mis à jour et porte l'ID {0}.</value>
+    <value>Le modèle d`accord a été mis à jour et porte l`ID {0}.</value>
   </data>
   <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
     <value>Instrument de paiement {0} mis à jour avec succès sur le compte {1}.{2} </value>
@@ -934,7 +934,7 @@
     <value>{0} était {1}, remplacé par {2}.</value>
   </data>
   <data name="VOIDING_TIMEOUT" xml:space="preserve">
-    <value>Erreur de délai lors de l'annulation du paiement de la facture {0}.</value>
+    <value>Erreur de délai lors de l`annulation du paiement de la facture {0}.</value>
   </data>
   <data name="ZIP_CHANGED" xml:space="preserve">
     <value>Le code postal était {0}, remplacé par {1}. </value>
@@ -958,201 +958,201 @@
     <value>Troisième</value>
   </data>
   <data name="ACCOUNTMAPPER_ERR_ALREADY_EXISTS_MSG" xml:space="preserve">
-    <value>Account mapping already exists</value>
+    <value>Le mappage du compte existe déjà</value>
   </data>
   <data name="MT_ACCOUNT_TYPE_AND_NAMESPACE_MISMATCH_MSG" xml:space="preserve">
-    <value>Account Type and Namespace mismatch during account creation.</value>
+    <value>Type et espace de noms du compte différents lors de la création du compte.</value>
   </data>
   <data name="MT_NONBILLABLE_ACCOUNTS_REQUIRE_PAYER_MSG" xml:space="preserve">
-    <value>An account marked as non-billable must have a paying account.</value>
+    <value>Un compte marqué comme non facturable doit contenir un compte payant.</value>
   </data>
   <data name="MT_CANNOT_RESOLVE_PAYING_ACCOUNT_MSG" xml:space="preserve">
-    <value>Account Creation can not resolve the payer account from the login and namespace.</value>
+    <value>La création d`un compte ne peut pas résoudre le compte du payeur à partir de la connexion et de l`espace de noms.</value>
   </data>
   <data name="MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT_MSG" xml:space="preserve">
-    <value>Account Creation can not resolve the hierarchy parent from the login and namespace.</value>
+    <value>La création d`un compte ne peut pas résoudre le parent hiérarchique à partir de la connexion et de l`espace de noms.</value>
   </data>
   <data name="MT_PARENT_NOT_IN_HIERARCHY_MSG" xml:space="preserve">
-    <value>The specified parent does not exist in the hierarchy.</value>
+    <value>Le parent spécifié n`existe pas dans la hiérarchie.</value>
   </data>
   <data name="MT_ANCESTOR_OF_INCORRECT_TYPE_MSG" xml:space="preserve">
-    <value>The parent account is of incorrect type.</value>
+    <value>Le type du compte parent est incorrect.</value>
   </data>
   <data name="MT_CANNOT_CREATE_ACCOUNT_BEFORE_ANCESTOR_START_MSG" xml:space="preserve">
-    <value>The system cannot create the account in the hierarchy before the start date of the ancestor.</value>
+    <value>Le système ne peut pas créer le compte dans la hiérarchie avant la date de début de l`ascendant.</value>
   </data>
   <data name="MT_ACCOUNT_ALREADY_IN_HIERARCHY_MSG" xml:space="preserve">
-    <value>The account is already in the hierarchy in the specified time range.</value>
+    <value>Le compte est déjà dans la hiérarchie dans la période spécifiée.</value>
   </data>
   <data name="MT_PAYMENT_DATE_BEFORE_ACCOUNT_STARDATE_MSG" xml:space="preserve">
-    <value>The system cannot create a payment record before the creation date of the account.</value>
+    <value>Le système ne peut pas créer un enregistrement de paiement avant la date de création du compte.</value>
   </data>
   <data name="MT_PAYMENT_START_AND_END_ARE_THE_SAME_MSG" xml:space="preserve">
-    <value>The system cannot create a payment record where the start and end day are the same day.</value>
+    <value>Le système ne peut pas créer un enregistrement de paiement si les jours de début et de fin sont identiques.</value>
   </data>
   <data name="MT_PAYMENT_START_AFTER_END_MSG" xml:space="preserve">
-    <value>The payment start date must be before the payment end date.</value>
+    <value>La date de début de paiement doit être antérieure à la date de fin de paiement.</value>
   </data>
   <data name="MT_ACCOUNT_IS_NOT_BILLABLE_MSG" xml:space="preserve">
-    <value>The paying account is not billable.</value>
+    <value>Le compte payant n`est pas facturable.</value>
   </data>
   <data name="MT_PAYER_IN_INVALID_STATE_MSG" xml:space="preserve">
-    <value>The paying account is not active during the payment time interval.</value>
+    <value>Le compte payant n`est pas actif pendant l`intervalle de paiement.</value>
   </data>
   <data name="MT_CURRENCY_MISMATCH_MSG" xml:space="preserve">
-    <value>The currency of the account must match the currency of the ancestor account.</value>
+    <value>La devise du compte doit correspondre à la devise du compte ascendant.</value>
   </data>
   <data name="MT_PAYER_PAYEE_CURRENCY_MISMATCH_MSG" xml:space="preserve">
-    <value>The currency of the payer account must match the currency of the payee account.</value>
+    <value>La devise du compte du payeur doit correspondre à la devise du compte du payé.</value>
   </data>
   <data name="MT_CANNOT_PAY_FOR_ACCOUNT_IN_OTHER_CORPORATE_ACCOUNT_MSG" xml:space="preserve">
-    <value>Both the payer account and payee account must share the same corporate account.</value>
+    <value>Le compte du payeur et le compte du payé doivent partager le même compte d`entreprise.</value>
   </data>
   <data name="MTPCUSER_CYCLE_CONFLICTS_WITH_ACCOUNT_CYCLE_MSG" xml:space="preserve">
     <value></value>
   </data>
   <data name="MT_ACCOUNT_PRICELIST_INVALID" xml:space="preserve">
-    <value>The price list is invalid.</value>
+    <value>Le tarif n`est pas valide.</value>
   </data>
   <data name="MT_CANNOT_MOVE_ACCOUNT_TO_ANOTHER_NAMESPACE" xml:space="preserve">
-    <value>Account cannot be moved to another namespace.</value>
+    <value>Le compte ne peut pas être déplacé vers un autre espace de nom.</value>
   </data>
   <data name="INVALID_BRANDED_SITE" xml:space="preserve">
-    <value>Invalid Branded site. Should be branded site in '{0}' namespace.</value>
+    <value>Site de marque non valide. Il doit s`agir d`un site de marque dans l`espace de noms `{0}`.</value>
   </data>
   <data name="NOT_ACCOUNT" xml:space="preserve">
-    <value>The given object is not an Account</value>
+    <value>L`objet indiqué n`est pas un compte</value>
   </data>
   <data name="MISSING_INTERNAL_VIEW" xml:space="preserve">
-    <value>Account must have an InternalView</value>
+    <value>Le compte doit avoir une InternalView</value>
   </data>
   <data name="MISSING_USERNAME" xml:space="preserve">
-    <value>Account must have a user name</value>
+    <value>Le compte doit avoir un nom d`utilisateur</value>
   </data>
   <data name="MISSING_PASSWORD" xml:space="preserve">
-    <value>Account must have a password</value>
+    <value>Le compte doit avoir un mot de passe</value>
   </data>
   <data name="MISSING_NAMESPACE" xml:space="preserve">
-    <value>Account must have a namespace</value>
+    <value>Le compte doit avoir un espace de noms</value>
   </data>
   <data name="MISSING_DAY_OF_MONTH" xml:space="preserve">
-    <value>Day of month must be specified for monthly cycle type</value>
+    <value>Jour du mois doit être spécifié pour le type de cycle mensuel</value>
   </data>
   <data name="MISSING_DAY_OF_WEEK" xml:space="preserve">
-    <value>Day of week must be specified for weekly cycle type</value>
+    <value>Jour de la semaine doit être spécifié pour le type de cycle hebdomadaire</value>
   </data>
   <data name="MISSING_START_DAY" xml:space="preserve">
-    <value>Start day must be specified for {0} cycle type</value>
+    <value>Jour de début doit être spécifié pour le type de cycle {0}</value>
   </data>
   <data name="MISSING_START_MONTH" xml:space="preserve">
-    <value>Start month must be specified for {0} cycle type</value>
+    <value>Mois de début doit être spécifié pour le type de cycle {0}</value>
   </data>
   <data name="MISSING_START_YEAR" xml:space="preserve">
-    <value>Start year must be specified for bi-weekly cycle type</value>
+    <value>Année de début doit être spécifiée pour le type de cycle bihebdomadaire</value>
   </data>
   <data name="MISSING_FIRST_DAY_OF_MONTH" xml:space="preserve">
-    <value>First day of month must be specified for semi-monthly cycle type</value>
+    <value>Premier jour du mois doit être spécifié pour le type de cycle semi-mensuel</value>
   </data>
   <data name="MISSING_SECOND_DAY_OF_MONTH" xml:space="preserve">
-    <value>Second day of month must be specified for semi-monthly cycle type</value>
+    <value>Deuxième jour du mois doit être spécifié pour le type de cycle semi-mensuel</value>
   </data>
   <data name="MISSING_REQUIRED_PROP_ACCOUNT" xml:space="preserve">
-    <value>The required account property '{0}' has not been specified</value>
+    <value>La propriété de compte obligatoire `{0}` n`a pas été spécifiée</value>
   </data>
   <data name="MISSING_REQUIRED_PROP_VIEW" xml:space="preserve">
-    <value>The required view property '{0}' has not been specified for view '{1}'</value>
+    <value>La propriété d`affichage obligatoire `{0}` n`a pas été spécifiée pour la vue `{1}`</value>
   </data>
   <data name="MISSING_CURRENCY_FOR_PAYER" xml:space="preserve">
-    <value>The payer account '{0}' must have a valid currency</value>
+    <value>Le compte du payeur `{0}` doit avoir une devise valide</value>
   </data>
   <data name="MISSING_ACCOUNT_TYPE" xml:space="preserve">
-    <value>The account '{0}' must have a valid account type</value>
+    <value>Le compte `{0}` doit avoir un type de compte valide</value>
   </data>
   <data name="MISSING_ACCOUNT_STATUS" xml:space="preserve">
-    <value>The account '{0}' must have a valid account status</value>
+    <value>Le compte `{0}` doit avoir un état de compte valide</value>
   </data>
   <data name="INVALID_ACCOUNT_TYPE" xml:space="preserve">
-    <value>The account '{0}' has an invalid account type '{1}'</value>
+    <value>Le compte `{0}` a un type de compte `{1}` non valide</value>
   </data>
   <data name="MISSING_LANGUAGE" xml:space="preserve">
-    <value>The account '{0}' must have a valid language</value>
+    <value>Le compte `{0}` doit avoir une langue valide</value>
   </data>
   <data name="INVALID_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>The account '{0}' has an invalid usage cycle type '{1}'</value>
+    <value>Le compte `{0}` a un type de cycle d`utilisation `{1}` non valide</value>
   </data>
   <data name="MISSING_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>The account '{0}' must have a usage cycle type</value>
+    <value>Le compte `{0}` doit avoir un type de cycle d`utilisation</value>
   </data>
   <data name="ANCESTOR_ID_MISMATCH" xml:space="preserve">
-    <value>The account '{0}' has a ancestor login '{1}' and namespace '{2}' that doesn't match the specifeid ancestor ID '{3}'.</value>
+    <value>Le compte `{0}` a une connexion `{1}` et un espace de noms `{2}` ascendants qui ne correspondent pas à l`ID ascendant spécifié `{3}`.</value>
   </data>
   <data name="MISSING_ANCESTOR_LOGIN" xml:space="preserve">
-    <value>The account '{0}' has an ancestor namespace '{1}' but no login information.</value>
+    <value>Le compte `{0}` a un espace de nom ascendant `{1}` mais aucune information de connexion.</value>
   </data>
   <data name="MISSING_ANCESTOR_NAMESPACE" xml:space="preserve">
-    <value>The account '{0}' has an ancestor login '{1}' but no namespace information.</value>
+    <value>Le compte `{0}` a une connexion ascendante `{1}` mais aucune information d`espace de noms.</value>
   </data>
   <data name="PAYER_ID_MISMATCH" xml:space="preserve">
-    <value>The account '{0}' has a payer login '{1}' and namespace '{2}' that doesn't match the specifeid payer ID '{3}'.</value>
+    <value>Le compte `{0}` a une connexion `{1}` et un espace de noms `{2}` de payeur qui ne correspondent pas à l`ID de payeur spécifié `{3}`.</value>
   </data>
   <data name="MISSING_PAYER_LOGIN" xml:space="preserve">
-    <value>The account '{0}' has a payer namespace '{1}' but no login information.</value>
+    <value>Le compte `{0}` a un espace de noms de payeur `{1}` mais aucune information de connexion.</value>
   </data>
   <data name="MISSING_PAYER_NAMESPACE" xml:space="preserve">
-    <value>The account '{0}' has a payer login '{1}' but no namespace information.</value>
+    <value>Le compte `{0}` a une connexion de payeur `{1}` mais aucune information d`espace de noms.</value>
   </data>
   <data name="MISSING_LOGIN_APP" xml:space="preserve">
-    <value>The system account '{0}' must have a login application</value>
+    <value>Le compte système `{0}` doit avoir une application de connexion</value>
   </data>
   <data name="INVALID_ACCOUNT_ANCESTOR" xml:space="preserve">
-    <value>The account '{0}' has an invalid ancestor id of -1</value>
+    <value>Le compte `{0}` à un ID ascendant non valide de -1</value>
   </data>
   <data name="INVALID_ACCOUNT_USERNAME" xml:space="preserve">
-    <value>The account '{0}' cannot have a username greater than 255 characters.</value>
+    <value>Le compte `{0}` ne peut pas avoir un nom d`utilisateur de plus de 255 caractères.</value>
   </data>
   <data name="INVALID_ACCOUNT_PASSWORD" xml:space="preserve">
-    <value>The account '{0}' cannot have a password greater than 1024 characters.</value>
+    <value>Le compte `{0}` ne peut pas avoir un mot de passe de plus de 1024 caractères.</value>
   </data>
   <data name="INVALID_START_YEAR" xml:space="preserve">
-    <value>The account '{0}' must have a start year that is between 1970 and 2037.</value>
+    <value>Le compte `{0}` doit avoir une année de début comprise entre 1970 et 2037.</value>
   </data>
   <data name="INVALID_START_DAY" xml:space="preserve">
-    <value>The account '{0}' has a start day that is greater than the number of days for the month '{1}' in year '{2}'.</value>
+    <value>Le compte `{0}` a un jour de début supérieur au nombre de jours du mois de `{1}` de l`année `{2}`.</value>
   </data>
   <data name="INVALID_START_DAY_WITHOUT_YEAR" xml:space="preserve">
-    <value>The account '{0}' has a start day that is greater than the number of days for the month '{1}'.</value>
+    <value>Le compte `{0}` a un jour de début supérieur au nombre de jours du mois de `{1}`.</value>
   </data>
   <data name="INVALID_START_DAY_RANGE" xml:space="preserve">
-    <value>The account start day must be in the range [1 - 31].</value>
+    <value>Le jour de début du compte doit être dans la plage [1 - 31].</value>
   </data>
   <data name="INVALID_START_MONTH_RANGE" xml:space="preserve">
-    <value>The account start month must be in the range [1 - 12].</value>
+    <value>Le mois de début du compte doit être dans la plage [1 - 12].</value>
   </data>
   <data name="INVALID_FIRST_DAY" xml:space="preserve">
-    <value>Invalid End of Month day selected. Day MUST be after start day.</value>
+    <value>Le dernier jour du mois sélectionné est incorrect. Ce jour DOIT être postérieur au jour de début.</value>
   </data>
   <data name="INVALID_DATA" xml:space="preserve">
-    <value>Invalid Data.</value>
+    <value>Données non valides.</value>
   </data>
   <data name="INVALID_START_YEAR_FOR_CYCLE" xml:space="preserve">
-    <value>The '{0}' cycle type must have a start year that is between 1970 and 2037.</value>
+    <value>Le type de cycle `{0}` doit avoir une année de début comprise entre 1970 et 2037.</value>
   </data>
   <data name="INVALID_START_DAY_FOR_CYCLE" xml:space="preserve">
-    <value>The '{0}' cycle type has a start day that is greater than the number of days for the month '{1}' in year '{2}'.</value>
+    <value>Le type de cycle `{0}` a un jour de début supérieur au nombre de jours pour le mois de `{1}` de l`année `{2}`.</value>
   </data>
   <data name="INVALID_START_MONTH_RANGE_FOR_CYCLE" xml:space="preserve">
-    <value>The start month must be in the range [1 - 12] for '{0}' cycle type.</value>
+    <value>Le mois de début doit être dans la plage [1 - 12] pour le type de cycle `{0}`.</value>
   </data>
   <data name="INVALID_START_DAY_RANGE_FOR_CYCLE" xml:space="preserve">
-    <value>The start day must be in the range [1 - 31] for '{0}' cycle type.</value>
+    <value>Le jour de début doit être dans la plage [1 - 31] pour le type de cycle `{0}`.</value>
   </data>
   <data name="INVALID_START_DAY_WITHOUT_YEAR_FOR_CYCLE" xml:space="preserve">
-    <value>The '{0}' cycle type has a start day that is greater than the number of days for the month '{1}'.</value>
+    <value>Le type de cycle `{0}` a un jour de début supérieur au nombre de jours pour le mois de `{1}`.</value>
   </data>
   <data name="UNKNOWN_CYCLE_TYPE" xml:space="preserve">
-    <value>The '{0}' cycle type is unsupported cycle type.</value>
+    <value>Le type de cycle `{0}` est un type de cycle non pris en charge.</value>
   </data>
   <data name="Account_failed_validation" xml:space="preserve">
-    <value>Account failed validation</value>
+    <value>Échec de validation du compte</value>
   </data>
 </root>

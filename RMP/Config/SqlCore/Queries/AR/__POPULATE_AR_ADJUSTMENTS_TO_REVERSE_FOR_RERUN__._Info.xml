@@ -19,12 +19,6 @@
             <SubstitutionSyntaxCheck>t_rerun_session_00</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
-        <Parameter>
-            <Name>ID_RERUN</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

@@ -217,7 +217,7 @@ case when state.status != 'AC' then state.vt_start else state.vt_end end as EndD
 into #tmp_all_customers
 from #tmp_accs r with(nolock)
 inner join t_account c with(nolock) on c.id_acc = r.id_descendent
-inner join t_account_state state with(nolock) on state.id_acc = c.id_acc
+inner join t_account_state state with(nolock) on state.id_acc = c.id_acc and state.vt_end = dbo.MTMaxDate()
 inner join t_account_type ct with(nolock) on ct.id_type = c.id_type
 inner join t_account_mapper cam with(nolock) on cam.id_acc = c.id_acc and cam.nm_space not in ('ar')
 left outer join t_av_internal cavi with(nolock) on cavi.id_acc = c.id_acc

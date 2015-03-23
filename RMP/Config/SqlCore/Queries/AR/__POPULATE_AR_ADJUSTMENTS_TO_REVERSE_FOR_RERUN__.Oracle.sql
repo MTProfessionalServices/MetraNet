@@ -14,10 +14,8 @@
 			  FROM t_pv_ARAdjustment pv
 				JOIN t_acc_usage au ON pv.id_sess = au.id_sess
 				LEFT OUTER JOIN t_batch b ON b.tx_batch = au.tx_batch AND tx_namespace = '%%BATCH_NAME_SPACE%%'
-				JOIN t_rerun_sessions rr ON pv.id_sess = rr.id_sess
+				JOIN %%RERUN_TABLE_NAME%% rr ON pv.id_sess = rr.id_sess
 				INNER JOIN vw_ar_acc_mapper am ON am.id_acc = au.id_acc
-			  WHERE rr.id_rerun = %%ID_RERUN%%
-				  AND rr.tx_state = 'A'
+			  WHERE rr.tx_state = 'A'
 				  AND pv.c_ARBatchID IS NOT NULL]');
 		END;
-      

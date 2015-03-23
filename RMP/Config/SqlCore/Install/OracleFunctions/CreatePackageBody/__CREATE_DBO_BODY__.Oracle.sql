@@ -258,6 +258,20 @@ IS
       END IF;
    END;
 
+  FUNCTION MTMinOfThreeDates (p_date1 DATE, p_date2 DATE, p_date3 DATE)
+      RETURN DATE
+  AS
+  BEGIN
+    RETURN dbo.MTMinOfTwoDates(p_date1, dbo.MTMinOfTwoDates(p_date2, p_date3));
+  END;
+
+  FUNCTION MTMaxOfThreeDates (p_date1 DATE, p_date2 DATE, p_date3 DATE)
+      RETURN DATE
+  AS
+  BEGIN
+    RETURN dbo.MTMaxOfTwoDates(p_date1, dbo.MTMaxOfTwoDates(p_date2, p_date3));
+  END;
+
    FUNCTION nextdateafterbillingcycle (temp_id_acc INT, temp_datecheck DATE)
       RETURN DATE
    AS

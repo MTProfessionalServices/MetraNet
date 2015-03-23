@@ -2,7 +2,7 @@
 select 
   tmp.id_template, 
   COALESCE(vbp.nm_name, bp.nm_name) nm_name,
-  COALESCE(vbp.nm_display_name, bp.nm_display_name) nm_display_name,
+  COALESCE(COALESCE(vbp.nm_display_name, bp.nm_display_name), bp.nm_name) nm_display_name,
   (case when rba.id_pi_template IS NOT NULL then 'TRUE' else 'FALSE' end) supportsRebill
 from 
   (

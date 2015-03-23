@@ -108,7 +108,6 @@ public partial class AjaxServices_BEListSvc : MTListServicePage
       Response.BufferOutput = false;
       Response.ContentType = "application/csv";
       Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
-      Response.Write("sep=,"+ Environment.NewLine);
       Response.BinaryWrite(BOM);
     }
 

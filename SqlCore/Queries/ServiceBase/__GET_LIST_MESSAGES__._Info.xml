@@ -2,7 +2,8 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+         <Implementation>SqlServer</Implementation>
+         <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
@@ -16,7 +17,7 @@
             <Name>ID_MESSAGES</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>= 1</SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>10, 11</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

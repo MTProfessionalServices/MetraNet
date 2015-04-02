@@ -217,7 +217,7 @@ setInitialStatusSelection();
               if (classes) {
                 for (var item = 0, allClases = classes.length; item < allClases; item++) {
                   if (classes[item] === doubleElementCssClass || classes[item] === decimalElementCssClass) {
-                    element.value = element.value.replace('.', window.DECIMAL_SEPARATOR);
+                    element.value = element.value.replace(',', window.DECIMAL_SEPARATOR);
                   }
                 }
               }

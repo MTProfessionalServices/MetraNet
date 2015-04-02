@@ -477,7 +477,9 @@ PRIVATE FUNCTION Form_Paint (EventArg) ' As Boolean
             objPreProcessor.Add "PROPERTY_NAME"      , objServiceProperty.Name
             objPreProcessor.Add "PROPERTY_TYPE"      , LCase(objServiceProperty.PropertyType)
 		       	objPreProcessor.Add "TEXTBOXTYPE", IIF(MSIXPropertyCrypted(objServiceProperty.Name),"password","text")
-				    strValue = objServiceProperty.Value	
+            strValue = objServiceProperty.Value
+				    strValue = Replace(strValue,"""","&quot;")
+
             objPreProcessor.Add "PROPERTY_VALUE"     , strValue
             objPreProcessor.Add "PROPERTY_LENGTH"    , IIF(objServiceProperty.PropertyType=MSIXDEF_TYPE_STRING, objServiceProperty.Length,"255") ' Just print the length for string
             objPreProcessor.Add "PROPERTY_REQUIRED"  , objServiceProperty.Required

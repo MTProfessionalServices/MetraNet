@@ -1032,17 +1032,11 @@
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Tem certeza que deseja remover esse relacionamento?</value>
   </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Solicitação reenviada</value>
-  </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Reenvio de transações com falha em progresso...</value>
   </data>
   <data name="TEXT_RESUBMITTED" xml:space="preserve">
     <value>Reenviado</value>
-  </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Tentar novamente</value>
   </data>
   <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
     <value>Salvar sua busca</value>

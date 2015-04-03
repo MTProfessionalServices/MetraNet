@@ -1032,9 +1032,6 @@
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir supprimer cette relation ?</value>
   </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Demande renvoyée</value>
-  </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Renvoi des transactions qui ont échoué en cours...</value>
   </data>

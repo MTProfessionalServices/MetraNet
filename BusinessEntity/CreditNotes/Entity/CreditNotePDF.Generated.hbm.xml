@@ -100,20 +100,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="Status" column="c_Status" length="10" not-null="true">
-      <meta attribute="label">Status</meta>
-      <meta attribute="description">Status of pdf.</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">true</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
     <property name="StatusInformation" column="c_StatusInformation" length="1024">
       <meta attribute="label">StatusInformation</meta>
       <meta attribute="description">Detailed information about pdf status. It will include error message when pdf status shows failed.</meta>
@@ -141,6 +127,20 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="Status" column="c_Status" length="20" not-null="true">
+      <meta attribute="label">Status</meta>
+      <meta attribute="description">Status of pdf.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
     </property>
     <many-to-one name="CreditNote" class="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" column="c_CreditNote_Id">
       <meta attribute="relationship-type">OneToOne</meta>

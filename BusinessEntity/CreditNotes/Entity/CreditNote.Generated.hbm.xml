@@ -128,6 +128,20 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
+    <property name="CreditNoteString" column="c_CreditNoteString" length="255">
+      <meta attribute="label">CreditNoteString</meta>
+      <meta attribute="description">String identifier for the credit note</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
     <bag name="CreditNoteItems" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">CreditNote_CreditNoteItems</meta>

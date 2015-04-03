@@ -153,6 +153,9 @@
   <data name="TEXT_AMOUNT" xml:space="preserve">
     <value>Amount</value>
   </data>
+  <data name="TEXT_CREDIT_NOTE_ID" xml:space="preserve">
+    <value>[IT]Credit Note Id</value>
+  </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
     <value>Credit Note Identifier</value>
   </data>
@@ -167,5 +170,11 @@
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
     <value>Amount</value>
-  </data>  
+  </data>
+  <data name="TEXT_ERROR_CREATING_CREDIT_NOTE" xml:space="preserve">
+    <value>[IT]Failed to create credit note for the selected adjustments. An unknown exception occurred.. Please ask a system administrator to check the logs.</value>
+  </data>
+  <data name="TEXT_ERROR_CREATING_CREDIT_NOTE_UNIQUE_CREDIT_NOTE_STRING" xml:space="preserve">
+    <value>[IT]Failed to create credit note for the selected adjustments because there was a failure generating a unique sequential credit note id for this credit note. Please ask a system administrator to check the logs.</value>
+  </data>
 </root>

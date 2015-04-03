@@ -219,52 +219,52 @@
   <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
     <value>County Tax</value>
   </data>
-  <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxCounty.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="adjAmountFldResourceTaxCounty.MinLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxCounty.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
     <value>Federal Tax</value>
   </data>
-  <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxFederal.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="adjAmountFldResourceTaxFederal.MinLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxFederal.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
     <value>Local Tax</value>
   </data>
-  <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxLocal.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="adjAmountFldResourceTaxLocal.MinLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxLocal.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
     <value>Other Tax</value>
   </data>
-  <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxOther.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="adjAmountFldResourceTaxOther.MinLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxOther.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
     <value>State Tax</value>
   </data>
-  <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxState.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="adjAmountFldResourceTaxState.MinLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxState.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="adjAmountFldResourceTaxTota.MaxLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxTota.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
-  <data name="adjAmountFldResourceTaxTota.MinLenght" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxTota.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
@@ -274,6 +274,9 @@
     <value>A credit note for this Miscellaneous Adjustment was created.</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
-    <value>A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
+    <value>A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjustment is approved.</value>
+  </data>
+  <data name="TEXT_ERROR_CREATING_CREDIT_NOTE" xml:space="preserve">
+    <value>A credit note for this Miscellaneous Adjustment could not be created. Please ask a system administrator to check the logs.</value>
   </data>
 </root>

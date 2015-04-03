@@ -49,6 +49,7 @@
         <Operation>__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
+    <FilterLabelWrap>None</FilterLabelWrap>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -73,6 +74,42 @@
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
+            <ID>CreditNoteString</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>CreditNoteString</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_CREDIT_NOTE_ID</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -141,12 +178,12 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
+            <DefaultFilter>false</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
             <ElementValue>
@@ -454,13 +491,13 @@
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>CreditNotePDFStatus</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_STATUS</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>130</Width>
+            <Width>150</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
@@ -468,7 +505,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -483,26 +520,43 @@
                 <Value><![CDATA[]]></Value>
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems>
-                <DropdownItem>
-                    <Key>Pending</Key>
-                    <Value>
-                        <Value><![CDATA[Pending]]></Value>
-                    </Value>
-                </DropdownItem>
-                <DropdownItem>
-                    <Key>Failed</Key>
-                    <Value>
-                        <Value><![CDATA[Failed]]></Value>
-                    </Value>
-                </DropdownItem>
-                <DropdownItem>
-                    <Key>Successful</Key>
-                    <Value>
-                        <Value><![CDATA[Successful]]></Value>
-                    </Value>
-                </DropdownItem>
-            </DropdownItems>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
+            <ID>CreditNotePDFStatusLocalized</ID>
+            <DataType>List</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>CreditNotePDFStatusLocalized</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_STATUS</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>150</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>true</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>

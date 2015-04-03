@@ -138,6 +138,9 @@
     <data name="TEXT_CREATED_BY" xml:space="preserve">
         <value>Criado por</value>
     </data>
+    <data name="TEXT_CREDIT_NOTE_ID" xml:space="preserve">
+        <value>[pt-BR]Credit Note Id</value>
+    </data>
     <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
         <value>Identificador de nota de crédito</value>
     </data>
@@ -168,4 +171,17 @@
     <data name="TEXT_TOTAL" xml:space="preserve">
         <value>Total</value>
     </data>
+    <data name="TEXT_REQUEST_RESUBMITTED" xml:space="preserve">
+      <value>Solicitação reenviada</value>
+    </data>    
+  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
+    <value>Tentar novamente</value>
+  </data>    
+  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
+    <value>[pt-BR]Submitting Request</value>
+  </data>      
+  <data name="TEXT_GENERATE_COLUMN" xml:space="preserve">
+    <value>[pt-BR]Generate</value>
+  </data>      
+  
 </root>

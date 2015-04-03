@@ -138,6 +138,9 @@
     <data name="TEXT_CREATED_BY" xml:space="preserve">
         <value>Created By</value>
     </data>
+    <data name="TEXT_CREDIT_NOTE_ID" xml:space="preserve">
+    <value>Credit Note Id</value>
+  </data>
     <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
         <value>Credit Note Identifier</value>
     </data>
@@ -168,4 +171,16 @@
     <data name="TEXT_TOTAL" xml:space="preserve">
         <value>Total</value>
     </data>
+  <data name="TEXT_REQUEST_RESUBMITTED" xml:space="preserve">
+    <value>Resubmitted Request</value>
+  </data>    
+  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
+    <value>Retry</value>
+  </data>  
+  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
+    <value>Submitting Request</value>
+  </data>      
+  <data name="TEXT_GENERATE_COLUMN" xml:space="preserve">
+    <value>Generate</value>
+  </data>      
 </root>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -1032,17 +1032,11 @@
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Tem certeza que deseja remover esse relacionamento?</value>
   </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Solicitação reenviada</value>
-  </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Reenvio de transações com falha em progresso...</value>
   </data>
   <data name="TEXT_RESUBMITTED" xml:space="preserve">
     <value>Reenviado</value>
-  </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Tentar novamente</value>
   </data>
   <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
     <value>Salvar sua busca</value>
@@ -1324,8 +1318,8 @@
     <value>Notificações recentes</value>
   </data>
   <data name="TEXT_NO_RECENT_NOTIFICATIONS" xml:space="preserve">
-    <value>No recent notifications.</value>
-  </data> 
+    <value>Sem notificações recentes.</value>
+  </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
     <value>Alterar senha</value>
   </data>
@@ -1339,49 +1333,49 @@
     <value>Mais ...</value>
   </data>
   <data name="TEXT_Edit_Report_Definition" xml:space="preserve">
-    <value>Edit Report Definition</value>
+    <value>Editar definição do relatório</value>
   </data>
   <data name="TEXT_Manage_Report_Instances" xml:space="preserve">
-    <value>Manage Report Instances</value>
+    <value>Gerenciar instâncias de relatório</value>
   </data>
   <data name="TEXT_Manage_Report_Parameters" xml:space="preserve">
-    <value>Manage Report Parameters</value>
+    <value>Gerenciar parâmetros de relatório</value>
   </data>
   <data name="TEXT_Delete_Report" xml:space="preserve">
-    <value>Delete Report</value>
+    <value>Excluir relatório</value>
   </data>
   <data name="TEXT_Edit_Report_Instance" xml:space="preserve">
-    <value>Edit Report Instance</value>
+    <value>Editar instância de relatório</value>
   </data>
   <data name="TEXT_Manage_Report_Instance_Schedule" xml:space="preserve">
-    <value>Manage Report Instance Schedule</value>
+    <value>Gerenciar agenda de instância de relatório</value>
   </data>
   <data name="TEXT_Manage_Report__InstanceParameters" xml:space="preserve">
-    <value>Edit Instance Parameter Values</value>
+    <value>Editar valores de parâmetro da instância</value>
   </data>
   <data name="TEXT_Delete_Report_Instance" xml:space="preserve">
-    <value>Delete Report Instance</value>
+    <value>Excluir instância de relatório</value>
   </data>
   <data name="TEXT_Delete_Queue_AdHoc_Reports" xml:space="preserve">
-    <value>Queue AdHoc Reports</value>
+    <value>Enfileirar relatórios AdHoc</value>
   </data>
   <data name="TEXT_Update_Report_Instance_Schedule" xml:space="preserve">
-    <value>Update Report Instance Schedule</value>
+    <value>Atualizar agenda de instância de relatório</value>
   </data>
   <data name="TEXT_Delete_Report_Instance_Schedule" xml:space="preserve">
-    <value>Delete Report Instance Schedule</value>
+    <value>Excluir agenda de instância de relatório</value>
   </data>
   <data name="TEXT_Delete_Report_Parameter" xml:space="preserve">
-    <value>Delete Report Parameter</value>
+    <value>Excluir parâmetros de relatório</value>
   </data>
   <data name="TEXT_No_parameter_was_selected_MESSAGE" xml:space="preserve">
-    <value>No parameter was selected. Please select at least one parameter for assignment</value>
+    <value>Nenhum parâmetro foi selecionado. Selecione ao menos um parâmetro para atribuir</value>
   </data>
   <data name="TEXT_VIEW_LOG" xml:space="preserve">
-    <value>View Log</value>
+    <value>Exibir log</value>
   </data>
   <data name="TEXT_VIEW_ALL" xml:space="preserve">
-    <value>View All...</value>
+    <value>Exibir tudo...</value>
   </data>
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Dia</value>
@@ -1402,6 +1396,12 @@
     <value>Terceiro</value>
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
-    <value>Pending Changes Waiting For Approval</value>
+    <value>Alterações pendentes aguardando aprovação</value>
+  </data>
+  <data name="TEXT_LOADING_MENU" xml:space="preserve">
+    <value>Carregando cardápio ...</value>
+  </data>
+  <data name="TEXT_AUDIT_LOG" xml:space="preserve">
+    <value>Log de auditoria</value>
   </data>
 </root>

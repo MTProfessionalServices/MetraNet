@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -1227,12 +1227,6 @@
   <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
     <value>Account Activity</value>
   </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Retry</value>
-  </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Resubmitted Request</value>
-  </data>
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
     <value>Please select product offerings to be added</value>
   </data>
@@ -1390,16 +1384,16 @@
     <value>Primer</value>
   </data>
   <data name="TEXT_FOURTH" xml:space="preserve">
-    <value>Cuarto(a)</value>
+    <value>Cuarto</value>
   </data>
   <data name="TEXT_LAST" xml:space="preserve">
-    <value>Último(a)</value>
+    <value>Último</value>
   </data>
   <data name="TEXT_SECOND" xml:space="preserve">
-    <value>Segundo(a)</value>
+    <value>Segundo</value>
   </data>
   <data name="TEXT_THIRD" xml:space="preserve">
-    <value>Tercero(a)</value>
+    <value>Tercero</value>
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
     <value>Pending Changes Waiting For Approval</value>

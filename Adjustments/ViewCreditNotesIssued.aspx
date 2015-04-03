@@ -23,8 +23,8 @@
       if (cm.getIndexById('CreditNotePDFStatusInformation')  != -1) {
         cm.setRenderer(cm.getIndexById('CreditNotePDFStatusInformation'), statusInformationColRenderer);
       }
-      if (cm.getIndexById('CreditNotePDFStatus')  != -1) {
-        cm.setRenderer(cm.getIndexById('CreditNotePDFStatus'), statusColRenderer);
+      if (cm.getIndexById('CreditNotePDFStatusLocalized')  != -1) {
+        cm.setRenderer(cm.getIndexById('CreditNotePDFStatusLocalized'), statusColRenderer);
       }
     }
 
@@ -36,10 +36,19 @@
 
     function statusColRenderer(value, meta, record, rowIndex, colIndex, store)
     {
-      var str = "";
-      str = (value.toLowerCase() == "failed")
-        ? String.format("<span id='Status' >{0}</span>&nbsp;&nbsp;<a title='{1}' style='cursor:pointer; text-decoration:underline !important' id='Retry' href='JavaScript:onRetryClick(\"{2}\");' >{1}</a>", value, TEXT_RETRY_COLUMN, rowIndex)
-        : String.format("{0}&nbsp;", value);      
+      var str, columnText = "";
+      var selectedRecord = grid_<%=CreditNotesGrid.ClientID %>.getStore().getAt(rowIndex);
+      var status = selectedRecord.data.CreditNotePDFStatus.toLowerCase();
+      
+      if ( status == "failed" || status == "notgenerated")
+      {
+        columnText = (status == "failed") ? "<%= Convert.ToString(GetLocalResourceObject("TEXT_RETRY_COLUMN")) %>" : "<%= Convert.ToString(GetLocalResourceObject("TEXT_GENERATE_COLUMN")) %>";
+        str = String.format("<span id='Status' >{0}</span>&nbsp;&nbsp;<a title='{1}' style='cursor:pointer; text-decoration:underline !important' id='Retry' href='JavaScript:onRetryClick(\"{2}\");' >{1}</a>", value, columnText, rowIndex);
+      }
+      else
+      {
+        str = String.format("{0}&nbsp;", value); 
+      }   
       return str;
     }
     
@@ -52,6 +61,7 @@
           CreditNoteID:  selectedRecord.data.CreditNoteID,
           AccountID: selectedRecord.data.AccountID,
           CreditNotePrefix: selectedRecord.data.CreditNotePrefix,
+          CreditNoteString: selectedRecord.data.CreditNoteString,
           TemplateName: selectedRecord.data.TemplateName,
           LanguageCode: selectedRecord.data.TemplateLanguageCode,
         },
@@ -103,9 +113,11 @@
     
     function updateRetryTextOnSelectedRow(rowIndex) {
       var selectedRow = grid_<%=CreditNotesGrid.ClientID %>.getView().getRow(rowIndex);
-
+      var selectedRecord = this.grid_<%=CreditNotesGrid.ClientID %>.getStore().getAt(rowIndex);
+      var currentStatus = selectedRecord.data.CreditNotePDFStatus.toLowerCase(); 
+      
       selectedRow.getElementsByTagName("a").Retry.style.display = "none";
-      selectedRow.getElementsByTagName("span").Status.textContent = TEXT_REQUEST_SUBMITTED;
+      selectedRow.getElementsByTagName("span").Status.textContent = (currentStatus.toLowerCase() == "notgenerated") ? "<%= Convert.ToString(GetLocalResourceObject("TEXT_REQUEST_SUBMITTED")) %>" : "<%= Convert.ToString(GetLocalResourceObject("TEXT_REQUEST_RESUBMITTED")) %>";
     }
    
   </script>

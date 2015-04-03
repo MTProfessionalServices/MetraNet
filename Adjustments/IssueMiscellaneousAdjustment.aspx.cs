@@ -53,13 +53,11 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
 
-      string reportingDir = Path.Combine(_rcd.ExtensionDir, "Reporting");
-      if (Directory.Exists(reportingDir)) // check if Reporting extension exists
-      {
+
         CreditNotePDFConfiguration config = null;
         client.GetCreditNoteConfigurationObject(ref config);
         _creditNotesEnabled = config.creditNotesEnabled;
-      }
+
 
       if (!Page.IsPostBack)
         {
@@ -228,6 +226,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
         decimal? adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther, totalAmount;
         totalAmount = null;
+        var errorOccurredForCreditNote = false;
 
         var errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
 
@@ -349,7 +348,14 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                     // Creating a credit note only if sessionid is non null
                     if (sessionID != -1)
                     {
-                      CreateCreditNote(sessionID, Int32.Parse(ddTemplateTypes.SelectedValue), CommentTextBox.Text);
+                      try
+                      {
+                        CreateCreditNote(sessionID, Int32.Parse(ddTemplateTypes.SelectedValue), CommentTextBox.Text);
+                      }
+                      catch (Exception)
+                      {
+                        errorOccurredForCreditNote = true;
+                      }
                     }
                     else
                     {
@@ -378,8 +384,16 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             {
                 if (_creditNotesEnabled && cbIssueCreditNote.Checked)
                 {
+                  if (!errorOccurredForCreditNote)
+                  {
                     ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
                                    String.Format("{0} {1}", GetLocalResourceObject("TEXT_CREATED"), GetLocalResourceObject("TEXT_CREDIT_NOTE_CREATED")));
+                  }
+                  else
+                  {
+                    WarningMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
+                                   String.Format("{0}<br/><br/>{1}", GetLocalResourceObject("TEXT_CREATED"), GetLocalResourceObject("TEXT_ERROR_CREATING_CREDIT_NOTE")));
+                  }
                 }
                 else
                 {

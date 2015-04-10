@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
     <Action>Delete</Action>
     <Implementations>
@@ -7,8 +7,9 @@
     <Parameters>
         <Parameter>
             <Name>BATCHES_IDS</Name>
-            <DataType>integer</DataType>
+            <DataType>guid</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>'0xAbcd'</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

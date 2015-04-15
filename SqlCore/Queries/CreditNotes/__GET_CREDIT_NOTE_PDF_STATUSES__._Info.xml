@@ -7,13 +7,6 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>AccountID</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
             <Name>LangID</Name>
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
@@ -21,7 +14,7 @@
             <Description></Description>
         </Parameter>
     </Parameters>
-    <Description></Description>
+    <Description>Gets localized PDF statuses</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

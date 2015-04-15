@@ -2,24 +2,21 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+        <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>AccountID</Name>
+            <Name>ID</Name>
             <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>LangID</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Name>DESC</Name>
+            <DataType>string</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
-        </Parameter>
+        </Parameter>       
     </Parameters>
     <Description></Description>
     <ConversionAudit>

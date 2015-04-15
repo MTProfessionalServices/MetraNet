@@ -1,0 +1,3 @@
+select Acm.nm_login as UserName, Acm.id_acc as AccountID, CN.c_CreationDate as CreationDate, avc.c_FirstName as FirstName, avc.c_LastName as LastName, avc.c_Company as CompanyName 
+from t_be_cor_cre_creditnote CN left outer join t_account ACs on CN.c_AccountID=ACs.id_acc left outer join t_account_mapper Acm on Acs.id_acc=Acm.id_acc  left outer join t_av_Contact avc on acs.id_acc = avc.id_acc
+where  CN.c_CreditNoteID = %%CreditNoteID%%

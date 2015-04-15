@@ -7,21 +7,13 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>AccountID</Name>
+            <Name>CreditNoteID</Name>
             <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>LangID</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
-            <Description></Description>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description>Unique Credit Note ID</Description>
         </Parameter>
     </Parameters>
-    <Description></Description>
+    <Description>Returns the optional parameters needed for credit note pdf file names</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

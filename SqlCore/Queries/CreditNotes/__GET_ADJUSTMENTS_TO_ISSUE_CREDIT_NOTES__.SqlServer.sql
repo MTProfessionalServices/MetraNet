@@ -6,7 +6,8 @@ SELECT
 	ALLADJUSTMENTS.Currency,
 	ALLADJUSTMENTS.CreatedDate,
 	ALLADJUSTMENTS.AdjustmentDescription,
-	CONCAT(TEMPLATE.c_CreditNotePrefix, CAST(CN.c_CreditNoteID AS VARCHAR)) AS 'CreditNoteIdentifier'
+	CONCAT(TEMPLATE.c_CreditNotePrefix, CAST(CN.c_CreditNoteID AS VARCHAR)) AS 'CreditNoteIdentifier',
+  CN.c_CreditNoteString AS 'CreditNoteString'
 FROM
 (
 	SELECT 

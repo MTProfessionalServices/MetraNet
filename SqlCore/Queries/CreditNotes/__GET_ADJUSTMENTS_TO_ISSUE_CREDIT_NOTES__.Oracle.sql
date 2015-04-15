@@ -6,7 +6,8 @@ SELECT
 	ALLADJUSTMENTS.Currency,
 	ALLADJUSTMENTS.CreatedDate,
 	ALLADJUSTMENTS.AdjustmentDescription,
-  (TEMPLATE.c_CreditNotePrefix || CN.c_CreditNoteID) AS CreditNoteIdentifier
+  (TEMPLATE.c_CreditNotePrefix || CN.c_CreditNoteID) AS CreditNoteIdentifier,
+  CN.c_CreditNoteString AS CreditNoteString
 FROM
 (
 	SELECT 

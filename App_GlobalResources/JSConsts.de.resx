@@ -1227,12 +1227,6 @@
   <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
     <value>Account Activity</value>
   </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Retry</value>
-  </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Resubmitted Request</value>
-  </data>
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
     <value>Please select product offerings to be added</value>
   </data>

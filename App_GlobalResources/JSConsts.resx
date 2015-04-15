@@ -1032,17 +1032,11 @@
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Are you sure you want to remove this relationship?</value>
   </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Resubmitted Request</value>
-  </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Resubmit failed transactions in progress...</value>
   </data>
   <data name="TEXT_RESUBMITTED" xml:space="preserve">
     <value>Resubmitted</value>
-  </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Retry</value>
   </data>
   <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
     <value>Save Your Search</value>
@@ -1403,5 +1397,11 @@
   </data>  
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
     <value>Pending Changes Waiting For Approval</value>
+  </data>
+  <data name="TEXT_LOADING_MENU" xml:space="preserve">
+    <value>Loading menu ...</value>
+  </data>
+  <data name="TEXT_AUDIT_LOG" xml:space="preserve">
+    <value>Audit log</value>
   </data>
 </root>

@@ -21,7 +21,7 @@ public partial class MessagePage : MTPage
   {
     if (Request.QueryString["msg"] != null)
     {
-      lblMessage.Text = Request.QueryString["msg"].ToString().EncodeForHtml();
+      lblMessage.Text = Request.QueryString["msg"].ToString().EncodeForHtml().Replace("&lt;br/&gt;","<br/>");
     }
 
     if (Request.QueryString["title"] != null)
@@ -32,6 +32,12 @@ public partial class MessagePage : MTPage
     else
     {
       lblTitle.Text = Resources.Resource.TEXT_CONFIRMATION;
+    }
+
+    if (Request.QueryString["iswarning"] != null)
+    {
+      if (Request.QueryString["iswarning"].ToString().ToLower() == "true")
+        MessageDiv.Attributes["class"] = "WarningMessage";
     }
   }
 

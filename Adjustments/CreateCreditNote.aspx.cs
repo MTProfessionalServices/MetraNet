@@ -21,6 +21,7 @@ public partial class Adjustments_CreateCreditNote : MTPage
  
     protected void btnIssueCreditNote_Click(object sender, EventArgs e)
     {
+      var errorOccurredForCreditNote = false;
       CreditNoteServiceClient client = null;
       try
       {
@@ -37,10 +38,26 @@ public partial class Adjustments_CreateCreditNote : MTPage
                                 UI.Subscriber.SelectedAccount._AccountID.Value, UI.SessionContext.ToXML(), 
                                 Convert.ToInt32(ddTemplateTypes.SelectedValue), CommentTextBox.Text);
       }
-      catch (Exception ex)
+      catch (System.ServiceModel.FaultException<MASBasicFaultDetail> ex)
       {
         Logger.LogException("Failed to create credit note for the selected adjustments. An unknown exception occurred. Please check system logs.", ex);
-        throw;
+        switch (ex.Detail.ErrorCode)
+        {
+          case ErrorCodes.CREDIT_NOTE_FAILURE_TO_GENERATE_UNIQUE_CREDIT_NOTE_STRING:
+            SetError(GetLocalResourceObject("TEXT_ERROR_CREATING_CREDIT_NOTE_UNIQUE_CREDIT_NOTE_STRING").ToString());
+            break;
+          case ErrorCodes.CREDIT_NOTE_FAILURE_TO_CREATE_CREDIT_NOTE:
+          default:
+            SetError(GetLocalResourceObject("TEXT_ERROR_CREATING_CREDIT_NOTE").ToString());
+            break;
+        }
+        errorOccurredForCreditNote = true;
+      }
+	    catch (Exception ex)
+      {
+        Logger.LogException("Failed to create credit note for the selected adjustments. An unknown exception occurred. Please check system logs.", ex);
+        SetError(GetLocalResourceObject("TEXT_ERROR_CREATING_CREDIT_NOTE").ToString());
+        errorOccurredForCreditNote = true;
       }
       finally
       {
@@ -49,7 +66,14 @@ public partial class Adjustments_CreateCreditNote : MTPage
           client.Abort();
         }
       }
-      Response.Redirect("ViewCreditNotesIssued.aspx");
+      if (!errorOccurredForCreditNote)
+      {
+        Response.Redirect("ViewCreditNotesIssued.aspx");
+      }
+      else
+      {
+        Response.Redirect("CreateCreditNote.aspx");
+      }
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)

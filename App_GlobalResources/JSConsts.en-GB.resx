@@ -1227,12 +1227,6 @@
   <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
     <value>Account Activity</value>
   </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Retry</value>
-  </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Resubmitted Request</value>
-  </data>
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
     <value>Please select product offerings to be added</value>
   </data>
@@ -1403,5 +1397,11 @@
   </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
     <value>Pending Changes Waiting For Approval</value>
+  </data>
+  <data name="TEXT_LOADING_MENU" xml:space="preserve">
+    <value>Loading menu ...</value>
+  </data>
+  <data name="TEXT_AUDIT_LOG" xml:space="preserve">
+    <value>Audit log</value>
   </data>
 </root>

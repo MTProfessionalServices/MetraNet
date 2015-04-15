@@ -9,7 +9,7 @@
   <!-- Main Form -->
   <div style="width:400px">
     <br />
-    <div class="InfoMessage" style="margin-left:120px;width:400px;">
+    <div id="MessageDiv" class="InfoMessage" style="margin-left:120px;width:400px;" runat="server">
       <asp:Label ID="lblMessage" runat="server"></asp:Label>
     </div>
     <br />

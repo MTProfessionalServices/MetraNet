@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>CreateTable</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <InstallTime>PreSync</InstallTime>
+    <Parameters></Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\Pipeline\SQLServer.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\Config\Queries\DBInstall\Pipeline\Queries_Oracle.xml</OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

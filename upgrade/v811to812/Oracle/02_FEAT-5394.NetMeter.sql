@@ -1,9 +1,23 @@
+-- upgrade script for esr-5394
+
 WHENEVER SQLERROR EXIT SQL.SQLCODE
+DECLARE
+nCount NUMBER;
+v_sql LONG;
+BEGIN
+SELECT count(*) into nCount FROM USER_TAB_COLUMNS WHERE table_name=UPPER('t_be_cor_cre_creditnote') and column_name=UPPER('c_CreditNoteString');
+IF(nCount <= 0) THEN
+  v_sql := 'ALTER TABLE t_be_cor_cre_creditnote
+               ADD c_CreditNoteString nvarchar2(255)';
+  EXECUTE IMMEDIATE v_sql;  
+END IF;
+END;
+/
 DECLARE
 table_exists NUMBER;
 v_sql LONG;
 BEGIN
-SELECT count(*) into table_exists FROM dba_tables where table_name=Upper('t_credit_note_current_id');
+SELECT count(*) into table_exists FROM user_tables where table_name=Upper('t_credit_note_current_id');
 IF(table_exists <= 0) THEN
  v_sql := 'CREATE TABLE t_credit_note_current_id
           (

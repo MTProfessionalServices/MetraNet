@@ -72,7 +72,7 @@ public partial class Adjustments_CreateCreditNote : MTPage
       }
       else
       {
-        Response.Redirect("CreateCreditNote.aspx");
+        Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
       }
     }
 
@@ -99,6 +99,7 @@ public partial class Adjustments_CreateCreditNote : MTPage
 
     private void PopulateCreditNotesTemplateTypes()
     {
+      var errorOccurred = false;
       CreditNoteServiceClient client = null;
 
       try
@@ -126,16 +127,34 @@ public partial class Adjustments_CreateCreditNote : MTPage
           ddTemplateTypes.Items.Add(new ListItem(item.TemplateName, item.CreditNoteTemplateID.ToString()));
         }
       }
+      catch (System.ServiceModel.FaultException<MASBasicFaultDetail> ex)
+      {
+        Logger.LogException("Failed to create credit note for the selected adjustments. An unknown exception occurred. Please check system logs.", ex);
+        switch (ex.Detail.ErrorCode)
+        {
+          case ErrorCodes.CREDIT_NOTE_FAILURE_TO_GENERATE_UNIQUE_CREDIT_NOTE_STRING:
+            SetError(GetLocalResourceObject("TEXT_ERROR_CREATING_CREDIT_NOTE_UNIQUE_CREDIT_NOTE_STRING").ToString());
+            break;
+          case ErrorCodes.CREDIT_NOTE_FAILURE_TO_CREATE_CREDIT_NOTE:
+          default:
+            SetError(GetLocalResourceObject("TEXT_ERROR_CREATING_CREDIT_NOTE").ToString());
+            break;
+        }
+        errorOccurred = true;
+      }
       catch (Exception ex)
       {
         Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
         throw;
-      }
+      }      
       finally
       {
         if (client != null)
         {
           client.Abort();
+        }
+        if (errorOccurred) {
+          Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
         }
       }
    }

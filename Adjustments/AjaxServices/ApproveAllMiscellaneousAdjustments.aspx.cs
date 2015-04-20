@@ -13,6 +13,7 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.DomainModel.ProductView;
 using MetraTech.UI.Common;
+using System.Text;
 
 public partial class Adjustments_AjaxServices_ApproveAllMiscellaneousAdjustments : MTListServicePage
 {
@@ -39,13 +40,24 @@ public partial class Adjustments_AjaxServices_ApproveAllMiscellaneousAdjustments
         SetSorting(miscAdjustments);
         SetFilters(miscAdjustments);
 
-        client.Open();        
-        client.ApproveAllAccountCredits(ref miscAdjustments, UI.User.AccountId);
+        client.Open();
+        List<string> creditNoteRequestFailedAccIds = new List<string>();
+        string message;
+
+        client.ApproveAllAccountCreditsAndReturnCNFailures(ref miscAdjustments, UI.User.AccountId, ref creditNoteRequestFailedAccIds);
         response.Success = true;
-        //response.Message = "Successfully approved all miscellaneous adjustments.";
-        var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_all_miscellaneous_adjustments");
-        if (message != null)
-          response.Message = message.ToString();
+        if (creditNoteRequestFailedAccIds.Count > 0)
+        {
+          response.Success = false;
+          message = string.Format("{0} <br/> {1}", Convert.ToString(GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_all_miscellaneous_adjustments")), CreateErrorMessage(creditNoteRequestFailedAccIds));
+        }
+        else
+        {
+          response.Success = true;
+          message = string.Format("{0} {1}", Convert.ToString(GetGlobalResourceObject("Adjustments", "TEXT_Successfully_approved_all_miscellaneous_adjustments")), Convert.ToString(GetGlobalResourceObject("Adjustments", "TEXT_All_Credit_Notes_Created")));
+
+        }
+        response.Message = message.ToString();
         client.Close();
         client = null;
       }
@@ -73,4 +85,19 @@ public partial class Adjustments_AjaxServices_ApproveAllMiscellaneousAdjustments
       }
     }
   }
+
+  private string CreateErrorMessage(List<string> creditNoteRequestFailedAccIds)
+  {
+    StringBuilder errorMsg = new StringBuilder();
+
+    for (int i = 0; i < creditNoteRequestFailedAccIds.Count; i++)
+    {
+      string[] accountAndIssuerId = creditNoteRequestFailedAccIds[i].Split(',');
+      errorMsg.Append(string.Format(Convert.ToString(GetGlobalResourceObject("Adjustments", "TEXT_Create_Credit_Note_Error")), accountAndIssuerId[0], accountAndIssuerId[1]));
+      errorMsg.Append("<br/>");
+    }
+    Logger.LogDebug(errorMsg.ToString());
+    return errorMsg.ToString();
+  }
+
 }

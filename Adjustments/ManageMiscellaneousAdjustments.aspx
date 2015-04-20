@@ -63,7 +63,7 @@
                   buttons: [{
                       text: TEXT_CLOSE,
                       handler: function(){
-                          grid_<%=MTFilterGrid1.ClientID %>.store.reload();
+                          ReloadGrid();
                           win.hide();
                       }
                   }]
@@ -92,7 +92,7 @@
               // Go get ALL the ids and put them in Session["SelectedIDs"] via ajax call
               // then go to the status page via popup
               var params = new Object(); 
-    
+
               var totalRecords = dataStore_<%= MTFilterGrid1.ClientID %>.reader.jsonData.TotalRows;
 
               // copy base parameters
@@ -106,7 +106,7 @@
               {
                 params[prop] = dataStore_<%= MTFilterGrid1.ClientID %>.lastOptions.params[prop];
               }
-   
+
               // apply filters
               Ext.apply(params, grid_<%= MTFilterGrid1.ClientID %>.filters.buildQuery(grid_<%= MTFilterGrid1.ClientID %>.filters.getFilterData()));
 
@@ -119,12 +119,13 @@
               }
               else{ dataSourceURL += '&'};
               dataSourceURL += 'mode=SelectAll&idNode=sessionid';
-    
+
                 Ext.Ajax.request({
                   url: dataSourceURL,
                   params: params,
                   scope: this,
                   disableCaching: true,
+                  timeout: 90000,
                   callback: function (options, success, response) {
                     var responseJSON = Ext.decode(response.responseText);
                     if(responseJSON)
@@ -152,7 +153,7 @@
                     buttons: [{
                         text: TEXT_CLOSE,
                         handler: function(){
-                            grid_<%=MTFilterGrid1.ClientID %>.store.reload();
+                            ReloadGrid();
                             win.hide();
                         }
                     }]
@@ -247,7 +248,7 @@
                   buttons: [{
                       text: TEXT_CLOSE,
                       handler: function(){
-                          grid_<%=MTFilterGrid1.ClientID %>.store.reload();
+                          ReloadGrid();
                           win.hide();
                       }
                   }]
@@ -316,7 +317,7 @@
                   buttons: [{
                       text: TEXT_CLOSE,
                       handler: function(){
-                          grid_<%=MTFilterGrid1.ClientID %>.store.reload();
+                          ReloadGrid();
                           win.hide();
                       }
                   }]
@@ -346,6 +347,12 @@
           sessionIds += adjRecords[i].data.SessionID;
         }
         return sessionIds;
+      }
+
+      function ReloadGrid()
+      {
+        grid_<%=MTFilterGrid1.ClientID %>.store.reload();
+        grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().clearSelections();
       }
     </script>
 

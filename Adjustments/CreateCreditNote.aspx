@@ -4,7 +4,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
    <MT:MTPanel ID="MTPanel1" runat="server" Text="Create Credit Note" 
-    Collapsible="True" Collapsed="False"  meta:resourcekey="MTPanel1Resource1">
+    Collapsible="True" Collapsed="False"  meta:resourcekey="MTPanel1Resource1" Width="820">
      
      &nbsp;&nbsp;&nbsp;
      <MT:MTLabel ID="lblAccount" runat="server" LabelWidth="200"/>
@@ -30,7 +30,9 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
     <MT:MTFilterGrid ID="MTFilterGrid1" runat="server" ExtensionName="Core" 
      TemplateFileName="CreateCreditNoteDocument.xml">
     </MT:MTFilterGrid>
-    
+    <div>
+      <MT:MTLabel ID="lblWarning" runat="server" meta:resourcekey="lblWarning" />
+    </div>
      <div  class="x-panel-btns-ct">
      <div style="width:630px" class="x-panel-btns x-panel-btns-center"> 
       <center>  
@@ -95,7 +97,16 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
 
       OverrideRenderer_<%= MTFilterGrid1.ClientID %> = function(cm) {
         cm.setRenderer(0, checkBoxColRenderer);
+        if (cm.getIndexById('CreditNoteComment') != -1) {
+          cm.setRenderer(cm.getIndexById('CreditNoteComment'), creditNoteCommentColRenderer);
+        }
       };
+
+      function creditNoteCommentColRenderer(value, meta, record, rowIndex, colIndex, store) {
+        meta.attr = 'style="white-space:normal"';
+        var str = String.format("<span id='CreditNoteComment' >{0}</span>", value);
+        return str;
+      }
 
       function GetAdjustmentIdsAndType()
       {

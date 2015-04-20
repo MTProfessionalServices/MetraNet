@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Update</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Parameters>        
+    </Parameters>
+    <Description>Updates sequential credit note id.</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

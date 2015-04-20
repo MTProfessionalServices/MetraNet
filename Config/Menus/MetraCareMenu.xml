@@ -555,6 +555,20 @@
                                 <Capability>Move account</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
+                        <MenuItem>
+                            <ID>ApplyOnBoardTemplate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_APPLY_AccountConfigSets</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/AccountConfigSets/ApplyAccountConfigSets.aspx?mode=ASK</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/accept.png</Icon>
+                            <Description>Apply OnBoard templates for the account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply OnBoard Templates</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
                     </MenuItems>
                 </MenuSection>
                 <MenuSection>
@@ -1078,6 +1092,20 @@
                             <Description>Manage Bill Messages</Description>
                             <RequiredCapabilities>
                             	<Capability>Manage Bill Message</Capability>                           
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ApplyOnBoardTemplate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_APPLY_AccountConfigSets</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/AccountConfigSets/ApplyAccountConfigSets.aspx?mode=ASK</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/accept.png</Icon>
+                            <Description>Apply OnBoard templates for the account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply OnBoard Templates</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

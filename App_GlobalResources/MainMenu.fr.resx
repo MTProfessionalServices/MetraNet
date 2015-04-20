@@ -132,6 +132,9 @@
   <data name="TEXT_AccountConfigSets" xml:space="preserve">
     <value>Gérer les modèles embarqués</value>
   </data>
+  <data name="TEXT_APPLY_AccountConfigSets" xml:space="preserve">
+    <value>[FR]Apply OnBoard Templates</value>
+  </data>
   <data name="TEXT_AccountConfigSets_LIST" xml:space="preserve">
     <value>Modèles embarqués</value>
   </data>

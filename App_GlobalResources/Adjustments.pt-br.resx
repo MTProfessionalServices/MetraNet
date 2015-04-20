@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_Details_for_ajustment_not_found" xml:space="preserve">
-    <value>Details for ajustment not found!</value>
+    <value>Detalhes de ajuste não encontrados!</value>
   </data>
   <data name="TEXT_Successfully_approved_adjustments" xml:space="preserve">
-    <value>Successfully approved adjustments.</value>
+    <value>Os ajustes foram aprovados com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_miscellaneous_adjustments" xml:space="preserve">
-    <value>Successfully approved all miscellaneous adjustments.</value>
+    <value>Todos os ajustes variados foram aprovados com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_selected_adjustments" xml:space="preserve">
-    <value>Successfully approved all selected adjustments.</value>
+    <value>Todos os ajustes selecionados foram aprovados com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_approved_miscellaneous_adjustment" xml:space="preserve">
-    <value>Successfully approved miscellaneous adjustment.</value>
+    <value>O ajuste variado foi aprovado com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_deleted_all_selected_adjustments" xml:space="preserve">
-    <value>Successfully deleted all selected adjustments.</value>
+    <value>Todos os ajustes selecionados foram excluídos com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_denied_all_miscellaneous_adjustments" xml:space="preserve">
-    <value>Successfully denied all miscellaneous adjustments.</value>
+    <value>Todos os ajustes variados foram negados com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_denied_miscellaneous_adjustment" xml:space="preserve">
-    <value>Successfully denied miscellaneous adjustment.</value>
+    <value>O ajuste variado foi negado com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_denyed_adjustments" xml:space="preserve">
-    <value>Successfully denied adjustments.</value>
+    <value>Os ajustes foram negados com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_submitted_request_to_generate_Credit_Note_pdf" xml:space="preserve">
-    <value>Successfully submitted request to generate Credit Note pdf.</value>
+    <value>A solicitação para gerar o pdf das Notas de crédito foi enviada com sucesso.</value>
   </data>
   <data name="TEXT_Successfully_approved_all_selected_charges" xml:space="preserve">
     <value>Negou com sucesso todas as acusações selecionados.</value>
@@ -155,5 +155,14 @@
   </data>
   <data name="TEXT_Successfully_denied_nonstandard_charges" xml:space="preserve">
     <value>Negou com sucesso encargos fora do padrão.</value>
+  </data>
+  <data name="TEXT_Create_Credit_Note_Error" xml:space="preserve">
+    <value>[pt-BR]The credit note requested for Account ID: {0} by {1} could not be created.</value>
+  </data>
+  <data name="TEXT_Credit_Notes_Created" xml:space="preserve">
+    <value>[pt-BR]Credit Note (if requested) were created successfully.</value>
+  </data>
+  <data name="TEXT_All_Credit_Notes_Created" xml:space="preserve">
+    <value>[pt-BR]Credit Notes (if requested) were created successfully.</value>
   </data>
 </root>

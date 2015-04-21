@@ -97,14 +97,14 @@
             <DataIndex>CreditNoteString</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_CREDIT_NOTE_ID</LocalizationTag>
+                <LocalizationTag>TEXT_CREDIT_NOTE_IDENTIFIER</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -169,7 +169,7 @@
             <DataIndex>CreditNoteIdentifier</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_CREDIT_NOTE_IDENTIFIER</LocalizationTag>
+                <LocalizationTag>TEXT_CREDIT_NOTE_ID</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>

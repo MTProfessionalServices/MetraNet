@@ -578,7 +578,55 @@
           <Times>5:00 AM</Times>
         </Daily>
       </RecurrencePattern>
-    </Adapter>
+    </Adapter>        
+    <Adapter>
+      <Name>CreditNotesEmailAdapter</Name>
+      <DisplayName>Credit Notes Email Adapter</DisplayName>
+      <ClassID>MetraTech.UsageServer.Adapters.ScheduledEmailAdapter,MetraTech.UsageServer.Adapters</ClassID>
+      <ConfigFile>CreditNotesEmailAdapter.xml</ConfigFile>
+      <Description>Generate and send emails with credit note information.</Description>
+      <LocalizedItems>
+        <item lang="FR">
+          <DisplayName>[FR] Credit Notes Email Adapter</DisplayName>
+          <Description>[FR] Generate and send emails with credit note information.</Description>
+        </item>
+        <item lang="IT">
+          <DisplayName>[IT] Credit Notes Email Adapter</DisplayName>
+          <Description>[IT] Generate and send emails with credit note information.</Description>
+        </item>
+        <item lang="ES">
+          <DisplayName>[ES] Credit Notes Email Adapter</DisplayName>
+          <Description>[ES] Generate and send emails with credit note information.</Description>
+        </item>
+        <item lang="DE">
+          <DisplayName>[DE] Credit Notes Email Adapter</DisplayName>
+          <Description>[DE] Generate and send emails with credit note information.</Description>
+        </item>
+        <item lang="es-MX">
+          <DisplayName>[es-MX] Credit Notes Email Adapter</DisplayName>
+          <Description>[es-MX] Generate and send emails with credit note information.</Description>
+        </item>
+        <item lang="pt-BR">
+          <DisplayName>[pt -BR] Credit Notes Email Adapter</DisplayName>
+          <Description>[pt-BR] Generate and send emails with credit note information.</Description>
+        </item>
+        <item lang="en-GB">
+          <DisplayName>[en-GB] Credit Notes Email Adapter</DisplayName>
+          <Description>[en-GB] Generate and send emails with credit note information.</Description>
+        </item>
+        <item lang="JA">
+          <DisplayName>[JA] Credit Notes Email Adapter</DisplayName>
+          <Description>[JA] Generate and send emails with credit note information.</Description>
+        </item>	
+      </LocalizedItems>
+      <RecurrencePattern>
+        <Daily>
+          <Start>1/1/2010 12:00:00 AM</Start>
+          <Interval>1</Interval>
+          <Times>5:00 AM</Times>
+        </Daily>
+      </RecurrencePattern>
+    </Adapter>    
     </ScheduledAdapters>
     <EndOfPeriodAdapters>
         <Adapter>

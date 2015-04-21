@@ -159,6 +159,9 @@
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
     <value>County Tax</value>
   </data>
+  <data name="TEXT_CREDITNOTECOMMENT" xml:space="preserve">
+    <value>Credit Note Comment</value>
+  </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>通貨</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
     <value>間隔 ID</value>
+  </data>
+  <data name="TEXT_ISSUECREDITNOTE" xml:space="preserve">
+    <value>Issue Credit Note</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
     <value>Local Tax</value>

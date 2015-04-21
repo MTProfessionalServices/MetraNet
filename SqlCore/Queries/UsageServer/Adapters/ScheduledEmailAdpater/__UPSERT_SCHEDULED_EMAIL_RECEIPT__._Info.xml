@@ -15,7 +15,7 @@
         </Parameter>
         <Parameter>
             <Name>ID_ENTITY_GUID</Name>
-            <DataType>guid</DataType>
+            <DataType>string</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>

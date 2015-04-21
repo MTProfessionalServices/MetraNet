@@ -17,7 +17,7 @@ SELECT
 	SUBSCRIBER.c_Email AS 'ADDRESSEDTO',
 	CN.c_AccountID AS 'ACCOUNTID',
 	'http://localhost/MetraView/login.aspx' AS 'METRAVIEW_PDF_LINK',
-  CN.c_CreditNote_Id AS '%%ENTITY_ID_COLUMNNAME%%'
+  	CAST(CN.c_CreditNote_Id AS VARCHAR(36)) AS '%%ENTITY_ID_COLUMNNAME%%'
 FROM t_be_cor_cre_creditnote CN
 INNER JOIN (
 			/* Credit Notes for which email has not been sent yet (first run of the adapter or created after the adapter last ran) */

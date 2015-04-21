@@ -1,7 +1,7 @@
 SELECT
   CN.c_CreditNoteID AS 'CreditNoteID',
 	CN.c_CreditNoteString AS 'CreditNoteString',
-	CONCAT(TEMPLATE.c_CreditNotePrefix, CAST(CN.c_CreditNoteID AS VARCHAR)) AS 'CreditNoteIdentifier',
+	CAST(CN.c_CreditNoteID AS VARCHAR) AS 'CreditNoteIdentifier',
 	CONCAT(SUBSCRIBER.c_FirstName, ' ', SUBSCRIBER.c_LastName) AS 'AccountName',
 	CONCAT(CREATOR.c_FirstName, ' ', CREATOR.c_LastName) AS 'CreatedBy',
 	CN.c_CreationDate AS 'CreatedDate',

@@ -1,7 +1,7 @@
 SELECT
 	CN.c_CreditNoteID AS CreditNoteID,
   CN.c_CreditNoteString AS CreditNoteString,
-	(TEMPLATE.c_CreditNotePrefix || CN.c_CreditNoteID) AS CreditNoteIdentifier,
+	TO_CHAR(CN.c_CreditNoteID) AS CreditNoteIdentifier,
 	(SUBSCRIBER.c_FirstName || ' '|| SUBSCRIBER.c_LastName) AS AccountName,
 	(CREATOR.c_FirstName || ' ' || CREATOR.c_LastName) AS CreatedBy,
 	CN.c_CreationDate AS CreatedDate,

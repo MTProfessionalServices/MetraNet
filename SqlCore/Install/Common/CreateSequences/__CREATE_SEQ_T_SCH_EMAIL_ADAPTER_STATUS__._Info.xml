@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>CreateSequence</Action>
+    <Implementations>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <InstallTime>PreSync</InstallTime>
+    <Parameters></Parameters>
+    <Description>Install the t_sch_email_adapter_status sequence in NetMeter</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

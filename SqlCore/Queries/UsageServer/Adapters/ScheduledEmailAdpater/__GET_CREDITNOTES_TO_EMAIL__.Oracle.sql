@@ -9,7 +9,7 @@ SELECT
   SUBSCRIBER.c_Email AS ADDRESSEDTO,
   CN.c_AccountID AS ACCOUNTID,
   'http://localhost/MetraView/login.aspx' AS METRAVIEW_PDF_LINK,
-  CN.c_CreditNote_Id %%ENTITY_ID_COLUMNNAME%%
+  RAWTOHEX(CN.c_CreditNote_Id) %%ENTITY_ID_COLUMNNAME%%
 FROM t_be_cor_cre_creditnote CN
 INNER JOIN 
 (

@@ -30,7 +30,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
     <MT:MTFilterGrid ID="MTFilterGrid1" runat="server" ExtensionName="Core" 
      TemplateFileName="CreateCreditNoteDocument.xml">
     </MT:MTFilterGrid>
-    <div>
+    <div style="padding-left: 10px">
       <MT:MTLabel ID="lblWarning" runat="server" meta:resourcekey="lblWarning" />
     </div>
      <div  class="x-panel-btns-ct">

@@ -10,23 +10,23 @@
             <Name>ID_RUN</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>1000</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
             <Name>NUM_RETRIES</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>3</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
             <Name>ENTITY_ID_COLUMNNAME</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>test</SubstitutionSyntaxCheck>
             <Description></Description>
-        </Parameter>        
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

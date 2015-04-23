@@ -25,5 +25,5 @@
 	where state not in ('P','R') and (
                                     (dt_start_resubmit IS NULL) 
                                     OR 
-                                    (dt_start_resubmit < TO_TIMESTAMP ('%%DiffTime%%','MM/dd/yyyy hh24:mi:ss.ff'))
+                                    (dt_start_resubmit < TO_TIMESTAMP (%%DiffTime%%,'MM/dd/yyyy hh24:mi:ss.ff'))
                                    )   

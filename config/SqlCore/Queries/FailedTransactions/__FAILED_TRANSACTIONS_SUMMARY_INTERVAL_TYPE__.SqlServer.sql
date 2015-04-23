@@ -23,7 +23,7 @@
 		  State in ('N','I', 'C') and (
                                (dt_start_resubmit IS NULL)
                                 OR 
-                               (dt_start_resubmit < CAST ('%%DiffTime%%' as datetime2))
+                               (dt_start_resubmit < CAST (%%DiffTime%% as datetime2))
                                 ) 
 		group by uc.id_cycle_type, uc.day_of_month, uc.start_day, uc.start_month, uc.first_day_of_month, second_day_of_month
 		order by Count desc

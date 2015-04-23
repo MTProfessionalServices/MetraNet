@@ -7,7 +7,7 @@
     </Implementations>
     <Parameters>
         <Parameter>
-                <Name>DateDiff</Name>
+                <Name>DiffTime</Name>
                 <DataType>DateTime</DataType>
                 <ReplacementType>DoublePercent</ReplacementType>
                 <Description></Description>

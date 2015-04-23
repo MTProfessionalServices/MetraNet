@@ -10,7 +10,7 @@
 		  State in ('N','I', 'C')  and (
                                     (dt_start_resubmit IS NULL)
                                     OR 
-                                    (dt_start_resubmit < CAST ('%%DiffTime%%' as datetime2))
+                                    (dt_start_resubmit < CAST (%%DiffTime%% as datetime2))
                                    ) 
 		group by tx_StageName, tx_Plugin
 		order by Count desc

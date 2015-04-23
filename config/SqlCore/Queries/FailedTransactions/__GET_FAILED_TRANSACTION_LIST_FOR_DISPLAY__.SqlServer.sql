@@ -23,14 +23,14 @@ SELECT id_failed_transaction CaseNumber,
  WHERE (   (    %%IsPendingToResubmit%% = 0
             AND (   (dt_start_resubmit IS NULL)
                  OR (dt_start_resubmit <
-                     Cast ('%%DiffTime%%' as datetime2)
+                     Cast (%%DiffTime%% as datetime2)
                     )
                 )
            )
         OR (    %%IsPendingToResubmit%% = 1
             AND (    (dt_start_resubmit IS NOT NULL)
                  AND (dt_start_resubmit >=
-                      Cast ('%%DiffTime%%' as datetime2)
+                      Cast (%%DiffTime%% as datetime2)
                      )
                 )
            )

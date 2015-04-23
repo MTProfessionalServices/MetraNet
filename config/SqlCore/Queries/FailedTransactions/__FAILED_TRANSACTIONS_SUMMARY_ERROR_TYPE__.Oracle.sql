@@ -13,7 +13,7 @@
           State in ('N','I', 'C') and  (
                                          (dt_start_resubmit IS NULL) 
                                          OR 
-                                         (dt_start_resubmit < TO_TIMESTAMP ('%%DiffTime%%','MM/dd/yyyy hh24:mi:ss.ff'))
+                                         (dt_start_resubmit < TO_TIMESTAMP (%%DiffTime%%,'MM/dd/yyyy hh24:mi:ss.ff'))
                                         )
         group by SUBSTR(tx_ErrorMessage, 1, 8)
         order by Count desc            

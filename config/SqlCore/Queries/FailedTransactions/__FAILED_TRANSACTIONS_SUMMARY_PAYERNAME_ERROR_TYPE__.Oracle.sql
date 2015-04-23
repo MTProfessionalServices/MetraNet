@@ -14,7 +14,7 @@
  	             State in ('N','I', 'C') and (
                                               (dt_start_resubmit IS NULL) 
                                               OR 
-                                              (dt_start_resubmit < TO_TIMESTAMP ('%%DiffTime%%','MM/dd/yyyy hh24:mi:ss.ff'))
+                                              (dt_start_resubmit < TO_TIMESTAMP (%%DiffTime%%,'MM/dd/yyyy hh24:mi:ss.ff'))
                                              ) 
        Group By Id_Possiblepayerid, Substr(Tx_Errormessage, 1, 8) 
        
@@ -32,7 +32,7 @@
  	            State In ('N','I', 'C') and (
                                            	  (dt_start_resubmit IS NULL) 
                                                OR 
-                                              (dt_start_resubmit < TO_TIMESTAMP ('%%DiffTime%%','MM/dd/yyyy hh24:mi:ss.ff'))
+                                              (dt_start_resubmit < TO_TIMESTAMP (%%DiffTime%%,'MM/dd/yyyy hh24:mi:ss.ff'))
                                             ) 
  	         And Id_Possiblepayerid = -1 
  	    Group By Id_Possiblepayerid, Substr(Tx_Errormessage, 1, 8) 

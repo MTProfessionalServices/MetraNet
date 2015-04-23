@@ -17,7 +17,7 @@
             <Name>ID_ENTITY_GUID</Name>
             <DataType>string</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>D7DBAB91-8024-4A91-9272-A48100BF1027</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>

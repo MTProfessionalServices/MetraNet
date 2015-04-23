@@ -8,7 +8,7 @@ SELECT
 	ALLADJUSTMENTS.AdjustmentDescription,
 	CAST(CN.c_CreditNoteID AS VARCHAR) AS 'CreditNoteIdentifier',
   CN.c_CreditNoteString AS 'CreditNoteString',
-  ALLADJUSTMENTS.CreditNoteComment
+  COALESCE(CN.c_Description, ALLADJUSTMENTS.CreditNoteComment) AS 'CreditNoteComment'
 FROM
 (
 	SELECT 
@@ -32,7 +32,7 @@ FROM
 		ADJUSTMENTS.dt_crt AS 'CreatedDate',
 		ADJUSTMENTS.tx_desc AS 'AdjustmentDescription',
 		ADJUSTMENTS.id_adj_trx AS 'AdjustmentID',
-    '' AS 'CreditNoteComment'
+    NULL AS 'CreditNoteComment'
 	FROM 
 		t_adjustment_transaction ADJUSTMENTS
 	WHERE 

@@ -8,7 +8,7 @@ SELECT
 	ALLADJUSTMENTS.AdjustmentDescription,
   TO_CHAR(CN.c_CreditNoteID) AS CreditNoteIdentifier,
   CN.c_CreditNoteString AS CreditNoteString,
-  ALLADJUSTMENTS.CreditNoteComment
+  COALESCE(CN.c_Description, ALLADJUSTMENTS.CreditNoteComment) AS CreditNoteComment
 FROM
 (
 	SELECT 

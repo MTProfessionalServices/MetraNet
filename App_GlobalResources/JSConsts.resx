@@ -1394,7 +1394,7 @@
   </data>
   <data name="TEXT_DAY" xml:space="preserve">
     <value>Day</value>
-  </data>  
+  </data>
   <data name="TEXT_APPROVAL_PENDING_CHANGES_WAITING_FOR_APPROVAL" xml:space="preserve">
     <value>Pending Changes Waiting For Approval</value>
   </data>
@@ -1403,5 +1403,17 @@
   </data>
   <data name="TEXT_AUDIT_LOG" xml:space="preserve">
     <value>Audit log</value>
+  </data>
+  <data name="TEXT_SELECTED_ITEMS_FT" xml:space="preserve">
+    <value>Selected {0} items.</value>
+  </data>
+  <data name="TEXT_VALIDATION_FT_NO_SELECTED_ITEMS" xml:space="preserve">
+    <value>There are no records in the grid.</value>
+  </data>
+  <data name="TITLE_POPUP_VALIDATION_FT" xml:space="preserve">
+    <value>Validation info</value>
+  </data>
+  <data name="TITLE_OPERATION_FAILED" xml:space="preserve">
+    <value>Operation failed</value>
   </data>
 </root>

@@ -72,6 +72,7 @@
         if (prop == "direction")
           params["dir"] = dataStore_<%=FailedTransactionList.ClientID %>.sortInfo[prop];
       }
+      params['queryParam'] = "GetFailedTransactionFromBatch";
       return params;
     };
 

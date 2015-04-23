@@ -205,7 +205,8 @@ function _openChangeStatusWindow(grid, isChangeSelectedIds) {
       }
     }
     var actionPage = "/MetraNet/MetraControl/FailedTransactions/ChangeFailedTransactionStatus.aspx?Action=prompt&gridId=" + encodeURIComponent(grid.id),
-        message = String.format(window.TEXT_SELECTED_ITEMS_FT, isChangeSelectedIds ? grid.getSelectionModel().getSelections().length : grid.store.reader.jsonData.TotalRows);
+       windowTitle = window.TEXT_SELECTED_ITEMS_FT ? window.TEXT_SELECTED_ITEMS_FT: "Selected {0} items.",
+        message = String.format(windowTitle, isChangeSelectedIds ? grid.getSelectionModel().getSelections().length : grid.store.reader.jsonData.TotalRows);
     window.ChangeStatusIsSelectIds = isChangeSelectedIds;
     _showPopup(grid, message, actionPage, 600, 450);
   }

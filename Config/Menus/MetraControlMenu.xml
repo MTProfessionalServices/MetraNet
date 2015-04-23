@@ -724,7 +724,9 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/information.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities>Update Failed Transactions</RequiredCapabilities>
+                            <RequiredCapabilities>
+                                 <Capability>Update Failed Transactions</Capability>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ResubmittedFailedTransactions</ID>

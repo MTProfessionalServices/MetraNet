@@ -20,13 +20,13 @@
        </Parameter>
        <Parameter>
           <Name>Ids</Name>
-          <DataType>string</DataType>
+          <DataType>int32</DataType>
           <ReplacementType>DoublePercent</ReplacementType>
           <Description></Description>
        </Parameter>
        <Parameter>
           <Name>ResubmitGuid</Name>
-          <DataType>string</DataType>
+          <DataType>uniqueidentifier</DataType>
           <ReplacementType>DoublePercent</ReplacementType>
           <Description></Description>		
        </Parameter>

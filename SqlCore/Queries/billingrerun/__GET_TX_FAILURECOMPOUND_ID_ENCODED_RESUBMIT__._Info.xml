@@ -7,7 +7,7 @@
     <Parameters>
         <Parameter>
             <Name>ResubmitGuid</Name>
-            <DataType>string</DataType>
+            <DataType>uniqueidentifier</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>

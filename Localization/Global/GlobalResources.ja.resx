@@ -905,9 +905,6 @@
   <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
     <value>DataException while trying to save shared properties to entity.</value>
   </data>
-    <data name="TEXT_DAY" xml:space="preserve">
-        <value>日</value>
-    </data>
   <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
     <value>Deleted shared property from system.</value>
   </data>

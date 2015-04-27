@@ -3,3 +3,4 @@ del %MTRMP%\extensions\SystemConfig\config\SqlCore\Queries\FailedTransactions\__
 del %MTRMP%\UI\MetraNet\App_Code\FailedTransactions.cs    
 del %MTRMP%\UI\MetraNet\MetraControl\FailedTransactions\AjaxServices\CheckRerunComplete.aspx  
 del %MTRMP%\UI\MetraNet\MetraControl\FailedTransactions\AjaxServices\CheckRerunComplete.aspx.cs  
+del %MTRMP%\Extensions\Reporting\Config\MetraNetCreditNote.xml

@@ -478,7 +478,7 @@
     <value>Historique des audits pour le numéro de dossier de transaction échoué</value>
   </data>
   <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
-    <value>Actualisation automatique toutes les 10 secondes lorsque cette option est cochée.</value>
+    <value>Actualisation automatique toutes les 25 secondes lorsque cette option est cochée.</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Précédent</value>

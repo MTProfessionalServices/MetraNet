@@ -478,7 +478,7 @@
     <value>Histórico de auditoria para número de casos de transações com falha</value>
   </data>
   <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
-    <value>Atualizar automaticamente a cada 10 segundos quando marcado.</value>
+    <value>Atualizar automaticamente a cada 25 segundos quando marcado.</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Anterior</value>

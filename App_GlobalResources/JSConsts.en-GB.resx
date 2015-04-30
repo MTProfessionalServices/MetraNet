@@ -325,7 +325,7 @@
     <value>Audit History For Failed Transaction Case Number</value>
   </data>
   <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
-    <value>Auto refreshing every 10 seconds when checked.</value>
+    <value>Auto refreshing every 25 seconds when checked.</value>
   </data>
   <data name="TEXT_BILL_TO" xml:space="preserve">
     <value>Bill-To</value>

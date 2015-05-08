@@ -5,6 +5,7 @@
 <html>
 <head id="Head1" runat="server">
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <title>MetraNet</title>
   
   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
@@ -27,7 +28,7 @@
   <script type="text/javascript" src="/Res/ux/form/MiscField.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
-
+   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
   <uc4:LocalizedIncludes ID="LocalizedIncludes1" runat="server" />
   		
   <%=Constants.CJ_PROTECTION_CODE %>  		

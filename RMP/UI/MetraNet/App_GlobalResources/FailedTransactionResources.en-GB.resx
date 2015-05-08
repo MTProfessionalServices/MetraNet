@@ -264,4 +264,10 @@
   <data name="TEXT_YES" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="TEXT_GRID_TITLE_PENDING_RESUBMIT" xml:space="preserve">
+    <value>[en-GB] Failed Transactions (Pending Resubmit)</value>
+  </data>
+  <data name="TEXT_PENDING_RESUBMITS" xml:space="preserve">
+    <value>[en-GB] Pending Resubmit</value>
+  </data>
 </root>

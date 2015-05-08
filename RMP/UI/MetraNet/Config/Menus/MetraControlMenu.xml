@@ -715,6 +715,20 @@
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
+                            <ID>PendingResubmitsFailedTransaction</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PENDING_RESUBMITS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/FailedTransactionResources</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/FailedTransactions/FailedTransactionPendingResubmits.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/information.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                 <Capability>Update Failed Transactions</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
                             <ID>ResubmittedFailedTransactions</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_RESUBMITTED_FAILED_TRANSACTIONS</LocalizationTag>

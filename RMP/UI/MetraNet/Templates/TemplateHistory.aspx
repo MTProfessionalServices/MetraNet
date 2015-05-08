@@ -158,13 +158,13 @@
       {
         onRefresh();
       }
-      setTimeout("events.refreshGrid()", 30000); 
+      setTimeout("events.refreshGrid()", 25000); 
       }
     };
 
     // start event polling
     var events = new gridEvents();
-    setTimeout("events.refreshGrid()", 30000);
+    setTimeout("events.refreshGrid()", 25000);
 
   </script>
   

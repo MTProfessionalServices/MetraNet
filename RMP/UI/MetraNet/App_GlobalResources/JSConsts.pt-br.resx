@@ -478,7 +478,7 @@
     <value>Histórico de auditoria para número de casos de transações com falha</value>
   </data>
   <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
-    <value>Atualizar automaticamente a cada 10 segundos quando marcado.</value>
+    <value>Atualizar automaticamente a cada 25 segundos quando marcado.</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Anterior</value>
@@ -1032,17 +1032,11 @@
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Tem certeza que deseja remover esse relacionamento?</value>
   </data>
-  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>Solicitação reenviada</value>
-  </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Reenvio de transações com falha em progresso...</value>
   </data>
   <data name="TEXT_RESUBMITTED" xml:space="preserve">
     <value>Reenviado</value>
-  </data>
-  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>Tentar novamente</value>
   </data>
   <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
     <value>Salvar sua busca</value>
@@ -1409,5 +1403,17 @@
   </data>
   <data name="TEXT_AUDIT_LOG" xml:space="preserve">
     <value>Log de auditoria</value>
+  </data>
+  <data name="TEXT_SELECTED_ITEMS_FT" xml:space="preserve">
+    <value>[pt-br] Selected {0} items.</value>
+  </data>
+  <data name="TEXT_VALIDATION_FT_NO_SELECTED_ITEMS" xml:space="preserve">
+    <value>[pt-br] There are no records in the grid.</value>
+  </data>
+  <data name="TITLE_POPUP_VALIDATION_FT" xml:space="preserve">
+    <value>[pt-br] Validation info</value>
+  </data>
+  <data name="TITLE_OPERATION_FAILED" xml:space="preserve">
+    <value>[pt-br] Operation failed</value>
   </data>
 </root>

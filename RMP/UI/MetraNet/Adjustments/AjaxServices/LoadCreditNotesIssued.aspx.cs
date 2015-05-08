@@ -26,11 +26,11 @@ public partial class Adjustments_AjaxServices_LoadCreditNotesIssued : MTListServ
 
       if (accountsFilterValue == "ALL")
       {
-        client.GetIssuedCreditNotes(ref items, null);
+        client.GetIssuedCreditNotes(ref items, null, UI.SessionContext.LanguageID);
       }
       else
       {
-        client.GetIssuedCreditNotes(ref items, UI.Subscriber.SelectedAccount._AccountID);
+        client.GetIssuedCreditNotes(ref items, UI.Subscriber.SelectedAccount._AccountID, UI.SessionContext.LanguageID);
       }
     }
     catch (FaultException<MASBasicFaultDetail> ex)

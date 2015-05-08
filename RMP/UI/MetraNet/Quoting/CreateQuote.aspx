@@ -207,7 +207,7 @@
     };
 
     function getDataGrids() {
-      var result = getAccountIds() && getPoIds() && getUDRCs() && getICBs();
+      var result = ValidateForm() && getAccountIds() && getPoIds() && getUDRCs() && getICBs();
       if (result) {
         var btnOk = window.Ext.getCmp('ctl00_ContentPlaceHolder1_MTbtnGenerateQuote');
         btnOk.setDisabled(true);

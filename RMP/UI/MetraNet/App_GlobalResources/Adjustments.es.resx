@@ -156,4 +156,13 @@
   <data name="TEXT_Successfully_denied_nonstandard_charges" xml:space="preserve">
     <value>Successfully denied nonstandard charges.</value>
   </data>
+  <data name="TEXT_Create_Credit_Note_Error" xml:space="preserve">
+    <value>[ES]The credit note requested for Account ID: {0} by {1} could not be created.</value>
+  </data>
+  <data name="TEXT_Credit_Notes_Created" xml:space="preserve">
+    <value>[ES]Credit Note (if requested) were created successfully.</value>
+  </data>
+  <data name="TEXT_All_Credit_Notes_Created" xml:space="preserve">
+    <value>[ES]Credit Notes (if requested) were created successfully.</value>
+  </data>
 </root>

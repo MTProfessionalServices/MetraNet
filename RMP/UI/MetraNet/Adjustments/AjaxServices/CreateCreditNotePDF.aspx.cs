@@ -20,7 +20,8 @@ public partial class Adjustments_AjaxServices_CreateCreditNotePDF : MTListServic
       int languageCode = Convert.ToInt32(Request.Params["LanguageCode"]);
       string creditNotePrefix = Convert.ToString(Request.Params["CreditNotePrefix"]);
       string templateName = Convert.ToString(Request.Params["TemplateName"]);
-      
+      string creditNoteString = Convert.ToString(Request.Params["CreditNoteString"]);
+
       using (new HighResolutionTimer("CreateCreditNotePDF", 5000))
       {
         CreditNoteServiceClient client = null;
@@ -33,7 +34,7 @@ public partial class Adjustments_AjaxServices_CreateCreditNotePDF : MTListServic
             client.ClientCredentials.UserName.UserName = UI.User.UserName;
             client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
           }
-          client.CreateCreditNotePDF(creditNoteId, accountId, creditNotePrefix, templateName, languageCode);
+          client.CreateCreditNoteWithCreditNoteStringPDF(creditNoteId, accountId, creditNotePrefix, creditNoteString, templateName, languageCode);
           response.Success = true;
           //response.Message = string.Format("Successfully submitted request to generate Credit Note pdf");
           var message = GetGlobalResourceObject("Adjustments", "TEXT_Successfully_submitted_request_to_generate_Credit_Note_pdf");

@@ -24,13 +24,14 @@
 
         if (isNaN(totalSum))
           $("input[id$='adjAmountFldTaxToatl']").val("");
+        else if (totalSum.length >= 20)
+          $("input[id$='adjAmountFldTaxToatl']").val(TEXT_ERROR_INVALID_VALUE);
         else
           $("input[id$='adjAmountFldTaxToatl']").val(parseFloat(totalSum).toLocaleString(CURRENT_LOCALE, { maximumFractionDigits: FRACTION_DIGITS, minimumFractionDigits: FRACTION_DIGITS }));
       }
     });
   });
 })(jQuery);
-
 
 var buttonClickCount;
 

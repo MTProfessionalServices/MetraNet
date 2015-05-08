@@ -16,6 +16,7 @@
 <html>
 <head id="Head1" runat="server">
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <title>MetraNet</title>
   
   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />

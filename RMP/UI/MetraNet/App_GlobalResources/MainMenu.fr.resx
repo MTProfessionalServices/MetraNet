@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -168,6 +168,9 @@
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
     <value>Ajouter une partition</value>
   </data>
+    <data name="TEXT_ADD_ROLE" xml:space="preserve">
+        <value>Ajouter un nouveau rôle</value>
+    </data>
   <data name="TEXT_ADD_TENANT" xml:space="preserve">
     <value>Ajouter une partition</value>
   </data>
@@ -201,6 +204,9 @@
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
         <value>Journal d’audit de l’application</value>
   </data>
+    <data name="TEXT_APPLY_AccountConfigSets" xml:space="preserve">
+        <value>Appliquer des modèle embarqué</value>
+    </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
     <value>Approbations</value>
   </data>
@@ -328,7 +334,7 @@
     <value>Espace de noms</value>
   </data>
   <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
-    <value>Modifier le modèle</value>
+    <value>Modifier le compte modèle</value>
   </data>
   <data name="TEXT_EVENT_LIST" xml:space="preserve">
     <value>Liste des événements</value>

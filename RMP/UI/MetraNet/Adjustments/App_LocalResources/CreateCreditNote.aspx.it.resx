@@ -126,7 +126,7 @@
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
     <value>Comment</value>
   </data>
-   <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
+  <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
     <value>Credit Note Template To Use</value>
   </data>
   <data name="ddTimeIntervalsResource1.Text" xml:space="preserve">
@@ -146,12 +146,15 @@
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet - Create Credit Note Document for Adjustments Issued</value>
-  </data>   
+  </data>
   <data name="TEXT_ADJUSTMENT_TYPE" xml:space="preserve">
     <value>Adjustment</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
     <value>Amount</value>
+  </data>
+  <data name="TEXT_CREDIT_NOTE_ID" xml:space="preserve">
+    <value>[IT]Credit Note Id</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
     <value>Credit Note Identifier</value>
@@ -167,5 +170,17 @@
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
     <value>Amount</value>
-  </data>  
+  </data>
+  <data name="TEXT_ERROR_CREATING_CREDIT_NOTE" xml:space="preserve">
+    <value>[IT]Failed to create credit note for the selected adjustments. An unknown exception occurred.. Please ask a system administrator to check the logs.</value>
+  </data>
+  <data name="TEXT_ERROR_CREATING_CREDIT_NOTE_UNIQUE_CREDIT_NOTE_STRING" xml:space="preserve">
+    <value>[IT]Failed to create credit note for the selected adjustments because there was a failure generating a unique sequential credit note id for this credit note. Please ask a system administrator to check the logs.</value>
+  </data>
+  <data name="lblWarning.Text" xml:space="preserve">
+    <value>[IT]Warning:  Any comments shown in the existing credit note request will be lost.  You must re-enter the comment in the new credit note request if you want it to appear on the credit note.</value>
+  </data>
+  <data name="TEXT_CREDITNOTE_COMMENT" xml:space="preserve">
+    <value>Credit Note Comment</value>
+  </data>
 </root>

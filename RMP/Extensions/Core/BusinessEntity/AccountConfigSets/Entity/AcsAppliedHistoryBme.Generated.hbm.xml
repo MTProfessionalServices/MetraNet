@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" table="t_be_cor_cre_creditnote">
-    <meta attribute="description">Stores general credit note information</meta>
-    <meta attribute="label">CreditNote</meta>
-    <meta attribute="plural-name">CreditNotes</meta>
+  <class name="Core.AccountConfigSets.AcsAppliedHistoryBme, Core.AccountConfigSets.Entity" table="t_be_cor_acs_AppliedHistory">
+    <meta attribute="description">History of Account Configuration Set apply</meta>
+    <meta attribute="label">AcsAppliedHistoryBme</meta>
+    <meta attribute="plural-name">AcsAppliedHistoryBmes</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
     <meta attribute="record-history">false</meta>
     <meta attribute="entity-type">Entity</meta>
-    <meta attribute="interface">MetraTech.Core.CreditNotes.Interface.ICreditNote, MetraTech.Core.Interface</meta>
+    <meta attribute="interface">Core.AccountConfigSets.Interface.IAcsAppliedHistoryBme, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <id name="Id" column="c_CreditNote_Id">
+    <id name="Id" column="c_AccConfigSetApplyHistory_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>
     <version name="_Version" column="c__version" />
-    <component class="MetraTech.Core.CreditNotes.CreditNoteBusinessKey, MetraTech.Core.CreditNotes.Entity" name="CreditNoteBusinessKey">
+    <component class="Core.AccountConfigSets.AcsAppliedHistoryBmeBusinessKey, Core.AccountConfigSets.Entity" name="AcsAppliedHistoryBmeBusinessKey">
       <meta attribute="business-key">true</meta>
       <meta attribute="internal-business-key">true</meta>
       <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">
@@ -72,51 +72,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="Description" column="c_Description" length="1024">
-      <meta attribute="label">Description</meta>
-      <meta attribute="description">Credit note description text</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
-    <property name="CreatorID" column="c_CreatorID">
-      <meta attribute="label">CreatorID</meta>
-      <meta attribute="description">Id of creator of credit note</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">true</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int64, mscorlib" />
-    </property>
-    <property name="CreditNoteID" column="c_CreditNoteID" not-null="true" unique="true">
-      <meta attribute="label">CreditNoteID</meta>
-      <meta attribute="description">Credit NoteID</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">true</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int32, mscorlib" />
-    </property>
-    <property name="AccountID" column="c_AccountID">
-      <meta attribute="label">AccountID</meta>
-      <meta attribute="description">Id of an account</meta>
+    <property name="AppliedAccountId" column="c_AppliedAccountId">
+      <meta attribute="label">AppliedAccountId</meta>
+      <meta attribute="description">Contains Account ID which was applied by Account Config Sets (OnBorad template it's new name)</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -128,11 +86,53 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="CreditNoteString" column="c_CreditNoteString" length="255">
-      <meta attribute="label">CreditNoteString</meta>
-      <meta attribute="description">String identifier for the credit note</meta>
+    <property name="StartDate" column="c_StartDate">
+      <meta attribute="label">StartDate</meta>
+      <meta attribute="description">Date when the account was started to apply</meta>
       <meta attribute="defaultvalue" />
-      <meta attribute="sortable">true</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="EndDate" column="c_EndDate">
+      <meta attribute="label">EndDate</meta>
+      <meta attribute="description">Date when the account was finished to apply</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UserId" column="c_UserId">
+      <meta attribute="label">UserId</meta>
+      <meta attribute="description">Who applied the account</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="ApplyLog" column="c_ApplyLog" length="2000">
+      <meta attribute="label">ApplyLog</meta>
+      <meta attribute="description">Contains log execution for the account</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>
@@ -142,58 +142,5 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <bag name="CreditNoteItems" access="field.camelcase-underscore" inverse="true" cascade="delete">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">CreditNote_CreditNoteItems</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
-      <meta attribute="source-key-column">c_CreditNote_Id</meta>
-      <meta attribute="source-property-name-for-target">CreditNoteItems</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNoteItem</meta>
-      <meta attribute="target-key-column">c_CreditNoteItem_Id</meta>
-      <meta attribute="target-property-name-for-source">CreditNote</meta>
-      <meta attribute="cascade">true</meta>
-      <key column="c_CreditNote_Id" />
-      <one-to-many class="MetraTech.Core.CreditNotes.CreditNoteItem, MetraTech.Core.CreditNotes.Entity" />
-    </bag>
-    <many-to-one name="CreditNoteTmpl" class="MetraTech.Core.CreditNotes.CreditNoteTmpl, MetraTech.Core.CreditNotes.Entity" column="c_CreditNoteTmpl_Id">
-      <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">CreditNoteTmpl_CreditNote</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNoteTmpl</meta>
-      <meta attribute="source-key-column">c_CreditNoteTmpl_Id</meta>
-      <meta attribute="source-property-name-for-target">CreditNote</meta>
-      <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
-      <meta attribute="target-key-column">c_CreditNote_Id</meta>
-      <meta attribute="target-property-name-for-source">CreditNoteTmpl</meta>
-      <meta attribute="cascade">true</meta>
-    </many-to-one>
-    <one-to-one name="CreditNotePDF" class="MetraTech.Core.CreditNotes.CreditNotePDF, MetraTech.Core.CreditNotes.Entity" cascade="delete">
-      <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">CreditNote_CreditNotePDF</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
-      <meta attribute="source-key-column">c_CreditNote_Id</meta>
-      <meta attribute="source-property-name-for-target">CreditNotePDF</meta>
-      <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNotePDF</meta>
-      <meta attribute="target-key-column">c_CreditNotePDF_Id</meta>
-      <meta attribute="target-property-name-for-source">CreditNote</meta>
-      <meta attribute="cascade">true</meta>
-    </one-to-one>
   </class>
 </hibernate-mapping>

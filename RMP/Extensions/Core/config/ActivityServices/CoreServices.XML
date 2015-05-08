@@ -91,11 +91,14 @@
         <MASCodeService ElementName="FLSManagementService" Type="MetraTech.Core.Services.FLSManagementService, MetraTech.Core.Services.dll" Description="FLS Management Service">
             <Interface Name="FLSManagementService" ContractType="MetraTech.Core.Services.IFLSManagementService, MetraTech.Core.Services.dll" Description="FLS Management Service." />
         </MASCodeService>
-    <MASCodeService ElementName="QuotingService" Type="MetraTech.Core.Services.QuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." >
-      <Interface Name="QuotingService" ContractType="MetraTech.Core.Services.IQuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." />
-    </MASCodeService>
-    <MASCodeService ElementName="AccountConfigurationSetService" Type="MetraTech.Core.Services.AccountConfigurationSetService, MetraTech.Core.Services.dll" Description="The Account Configuration Set Service." >
-      <Interface Name="AccountConfigurationSetService" ContractType="MetraTech.Core.Services.IAccountConfigurationSetService, MetraTech.Core.Services.dll" Description="The Account Configuration Set  Service." />
-    </MASCodeService>
-    </MASServices>
+        <MASCodeService ElementName="QuotingService" Type="MetraTech.Core.Services.QuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." >
+          <Interface Name="QuotingService" ContractType="MetraTech.Core.Services.IQuotingService, MetraTech.Core.Services.dll" Description="The Quoting Service." />
+        </MASCodeService>
+        <MASCodeService ElementName="AccountConfigurationSetService" Type="MetraTech.Core.Services.AccountConfigurationSetService, MetraTech.Core.Services.dll" Description="The Account Configuration Set Service." >
+          <Interface Name="AccountConfigurationSetService" ContractType="MetraTech.Core.Services.IAccountConfigurationSetService, MetraTech.Core.Services.dll" Description="The Account Configuration Set  Service." />
+        </MASCodeService>
+        <MASCodeService ElementName="FailedTransactionService" Type="MetraTech.Core.Services.FailedTransactionService, MetraTech.Core.Services.dll" Description="Failed Transaction service." >
+          <Interface Name="FailedTransactionService" ContractType="MetraTech.Core.Services.IFailedTransactionService, MetraTech.Core.Services.dll" Description="Failed Transaction service." />
+        </MASCodeService>
+  </MASServices>
 </MASConfig>

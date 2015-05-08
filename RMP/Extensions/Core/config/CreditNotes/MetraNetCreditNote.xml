@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlconfig>
+<CreditNotesEnabled>true</CreditNotesEnabled>
+<StoredProcedure>CreateCreditNoteSequenceString</StoredProcedure>
+<GeneratePDFAfterCreditNoteIsCreated>true</GeneratePDFAfterCreditNoteIsCreated>
+<EndOfPeriodReports>
+	<Report>
+		<UniqueName>Credit Note Report</UniqueName>
+		<LanguageCode>US</LanguageCode>
+		<ReportDatabase>SQL Server</ReportDatabase>
+		<CreditNotePrefix>CN</CreditNotePrefix>
+		<!-- directory relative to extension directory -->
+		<SourceFile>Reporting\Config\Templates\CreditNote.rpt</SourceFile>
+		<DisplayName>Basic Credit Note Report DisplayName (CreditNote.rpt)</DisplayName>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report destination, which was specified on the report template, and set the destination
+			to be Disk. This flag should be set to false if an SI decides to send reports to other
+			then Disk destination (like email)
+		-->
+		<OverwriteReportTemplateDestination>true</OverwriteReportTemplateDestination>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report file format, which was specified on the report template, and set the format
+			to be PDF. This flag should be set to false if an SI decides to generate reports in any other
+			format
+		-->
+		<OverwriteReportTemplateFormat>true</OverwriteReportTemplateFormat>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report data source, which was specified on the report template, and set the destination
+			data source, otherwise it will leave original data source intact and only specify user name and
+			password
+		-->
+		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
+		<InputQuery>
+		   <![CDATA[
+			SELECT 1
+	  	  ]]>
+		</InputQuery>
+		<SampleModeInputQuery>
+		   <![CDATA[
+			SELECT 1
+	  	  ]]>
+		</SampleModeInputQuery>
+	</Report>	
+	<Report>
+		<UniqueName>Credit Note Report-2</UniqueName>
+		<LanguageCode>jp</LanguageCode>
+		<ReportDatabase>SQL Server</ReportDatabase>
+		<CreditNotePrefix>CN</CreditNotePrefix>
+		<!-- directory relative to extension directory -->
+		<SourceFile>Reporting\Config\Templates\CreditNote.rpt</SourceFile>
+		<DisplayName>Basic Credit Note Report DisplayName (CreditNote.rpt)</DisplayName>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report destination, which was specified on the report template, and set the destination
+			to be Disk. This flag should be set to false if an SI decides to send reports to other
+			then Disk destination (like email)
+		-->
+		<OverwriteReportTemplateDestination>true</OverwriteReportTemplateDestination>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report file format, which was specified on the report template, and set the format
+			to be PDF. This flag should be set to false if an SI decides to generate reports in any other
+			format
+		-->
+		<OverwriteReportTemplateFormat>true</OverwriteReportTemplateFormat>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report data source, which was specified on the report template, and set the destination
+			data source, otherwise it will leave original data source intact and only specify user name and
+			password
+		-->
+		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
+		<InputQuery>
+		   <![CDATA[
+			SELECT 1
+	  	  ]]>
+		</InputQuery>
+		<SampleModeInputQuery>
+		   <![CDATA[
+			SELECT 1
+	  	  ]]>
+		</SampleModeInputQuery>
+	</Report>
+	<Report>
+		<UniqueName>Credit Note Report Oracle</UniqueName>
+		<LanguageCode>US</LanguageCode>
+		<ReportDatabase>Oracle</ReportDatabase>
+		<CreditNotePrefix>CN</CreditNotePrefix>
+		<!-- directory relative to extension directory -->
+		<SourceFile>Reporting\Config\Templates\CreditNoteOracle.rpt</SourceFile>
+		<DisplayName>Basic Credit Note Report Oracle DisplayName (CreditNoteOracle.rpt)</DisplayName>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report destination, which was specified on the report template, and set the destination
+			to be Disk. This flag should be set to false if an SI decides to send reports to other
+			then Disk destination (like email)
+		-->
+		<OverwriteReportTemplateDestination>true</OverwriteReportTemplateDestination>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report file format, which was specified on the report template, and set the format
+			to be PDF. This flag should be set to false if an SI decides to generate reports in any other
+			format
+		-->
+		<OverwriteReportTemplateFormat>true</OverwriteReportTemplateFormat>
+		<!--
+			If this flag is set to true, then BeginGenerateReports adapter will ignore
+			report data source, which was specified on the report template, and set the destination
+			data source, otherwise it will leave original data source intact and only specify user name and
+			password
+		-->
+		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
+		<InputQuery>
+		   <![CDATA[
+			SELECT 1
+	  	  ]]>
+		</InputQuery>
+		<SampleModeInputQuery>
+		   <![CDATA[
+			SELECT 1
+	  	  ]]>
+		</SampleModeInputQuery>
+	</Report>	
+	</EndOfPeriodReports>
+<!-- ScheduledReports section is empty out of the box -->
+<ScheduledReports>
+</ScheduledReports>
+</xmlconfig>

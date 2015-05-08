@@ -10,6 +10,14 @@
             <Name>AccountID</Name>
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>LangID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

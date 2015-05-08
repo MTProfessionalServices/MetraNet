@@ -1,6 +1,7 @@
 SELECT
 	CN.c_CreditNoteID AS CreditNoteID,
-	(TEMPLATE.c_CreditNotePrefix || CN.c_CreditNoteID) AS CreditNoteIdentifier,
+  CN.c_CreditNoteString AS CreditNoteString,
+	TO_CHAR(CN.c_CreditNoteID) AS CreditNoteIdentifier,
 	(SUBSCRIBER.c_FirstName || ' '|| SUBSCRIBER.c_LastName) AS AccountName,
 	(CREATOR.c_FirstName || ' ' || CREATOR.c_LastName) AS CreatedBy,
 	CN.c_CreationDate AS CreatedDate,
@@ -13,7 +14,8 @@ SELECT
 	TEMPLATE.c_LanguageCode AS TemplateLanguageCode,
 	TEMPLATE.c_TemplateName AS TemplateName,
 	TEMPLATE.c_CreditNotePrefix AS CreditNotePrefix,
-	CN.c_AccountID AS AccountID
+	CN.c_AccountID AS AccountID,
+  NVL(eventnamedesc.tx_desc, CNPDF.c_Status) AS CreditNotePDFStatusLocalized
 FROM t_be_cor_cre_creditnote CN
 INNER JOIN (SELECT
 							CN.c_CreditNote_Id,
@@ -26,9 +28,11 @@ INNER JOIN (SELECT
 						LEFT JOIN t_adjustment_transaction ADJUSTMENTS ON ADJUSTMENTS.id_adj_trx = CNI.c_AdjustmentTransactionID
 						GROUP BY CN.c_CreditNote_Id) AMOUNTS ON cn.c_CreditNote_Id = AMOUNTS.c_CreditNote_Id
 INNER JOIN t_be_cor_cre_creditnotetmpl TEMPLATE ON TEMPLATE.c_CreditNoteTmpl_Id = CN.c_CreditNoteTmpl_Id
+INNER JOIN t_be_cor_cre_creditnotepdf CNPDF on CNPDF.c_CreditNote_Id = CN.c_CreditNote_Id
 LEFT JOIN t_av_Contact SUBSCRIBER ON SUBSCRIBER.id_acc = CN.c_AccountID 
 LEFT JOIN t_av_Contact CREATOR ON CREATOR.id_acc = CN.c_CreatorID
 LEFT JOIN t_av_Internal INTERNAL ON INTERNAL.id_acc = CN.c_AccountID
-INNER JOIN t_be_cor_cre_creditnotepdf CNPDF on CNPDF.c_CreditNote_Id = CN.c_CreditNote_Id
+LEFT JOIN t_enum_data edata ON LOWER(edata.nm_enum_data) LIKE CONCAT('metratech.metranet.creditnotes/creditnotepdfstatus/', LOWER(CNPDF.c_Status))
+LEFT JOIN t_description eventnamedesc ON eventnamedesc.id_desc = edata.id_enum_data AND eventnamedesc.id_lang_code = :LangID
 WHERE CN.c_AccountID = :AccountID OR :AccountID = -1
 

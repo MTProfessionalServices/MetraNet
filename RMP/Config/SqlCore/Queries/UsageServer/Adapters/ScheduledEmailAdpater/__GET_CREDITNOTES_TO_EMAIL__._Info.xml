@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Unknown</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>ID_RUN</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>1000</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>NUM_RETRIES</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>3</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>ENTITY_ID_COLUMNNAME</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>test</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

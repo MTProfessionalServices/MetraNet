@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>StoredProcedure</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <InstallTime>PostSync</InstallTime>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <Parameters>
+        <Parameter>
+            <Name>AccountID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>id_acc of the account the credit note is issued for</Description>
+        </Parameter>
+        <Parameter>
+            <Name>CurrentTime</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Date and time the credit note is created</Description>
+        </Parameter>
+        <Parameter>
+            <Name>CreditNoteID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>The ID of the Credit Note we are generating a credit note string for.</Description>
+        </Parameter>
+        <Parameter>
+            <Name>CreditNoteString</Name>
+            <DataType>string</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Credit note string returned by the procedure.</Description>
+        </Parameter>
+        <Parameter>
+            <Name>Status</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <Description>Status returned by the procedure. Return -1 for error, return 1 for success.</Description>
+        </Parameter>
+    </Parameters>
+    <Description>Procedure that creates a new credit note string based on input parameters to the procedure and logic within the procedure. If the credit note string generated is a duplicate of an existing  t_be_cor_cre_creditnote.c_CreditNoteString value, then the procedure will return empty string as the credit note string.</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

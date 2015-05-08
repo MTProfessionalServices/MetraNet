@@ -9,24 +9,28 @@
             <Name>NAME</Name>
             <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
             <Name>ID_PI</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
             <Name>ID_AMT_PROP</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
             <Name>ID_CHARGE</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>1</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

@@ -6,7 +6,9 @@ SELECT
 	ALLADJUSTMENTS.Currency,
 	ALLADJUSTMENTS.CreatedDate,
 	ALLADJUSTMENTS.AdjustmentDescription,
-	CONCAT(TEMPLATE.c_CreditNotePrefix, CAST(CN.c_CreditNoteID AS VARCHAR)) AS 'CreditNoteIdentifier'
+	CAST(CN.c_CreditNoteID AS VARCHAR) AS 'CreditNoteIdentifier',
+  CN.c_CreditNoteString AS 'CreditNoteString',
+  (CASE WHEN CN.c_CreditNoteID IS NOT NULL THEN CN.c_Description ELSE ALLADJUSTMENTS.CreditNoteComment END) AS 'CreditNoteComment'
 FROM
 (
 	SELECT 
@@ -15,7 +17,8 @@ FROM
 		USAGE.am_currency AS 'Currency',
 		AC.c_CreditTime AS 'CreatedDate',
 		AC.c_InvoiceComment AS 'AdjustmentDescription',
-		AC.id_sess AS 'AdjustmentID'
+		AC.id_sess AS 'AdjustmentID',
+    AC.c_CreditNoteComment AS 'CreditNoteComment'
 	FROM 
 		t_pv_AccountCredit AC
 		INNER JOIN t_acc_usage USAGE ON USAGE.id_sess = AC.id_sess
@@ -28,7 +31,8 @@ FROM
 		ADJUSTMENTS.am_currency AS 'Currency',
 		ADJUSTMENTS.dt_crt AS 'CreatedDate',
 		ADJUSTMENTS.tx_desc AS 'AdjustmentDescription',
-		ADJUSTMENTS.id_adj_trx AS 'AdjustmentID'
+		ADJUSTMENTS.id_adj_trx AS 'AdjustmentID',
+    NULL AS 'CreditNoteComment'
 	FROM 
 		t_adjustment_transaction ADJUSTMENTS
 	WHERE 

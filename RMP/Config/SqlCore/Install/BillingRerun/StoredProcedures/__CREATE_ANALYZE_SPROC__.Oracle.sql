@@ -13,7 +13,7 @@ begin
  /* mark the successful rows as analyzed.*/
  v_query := 'update ' || p_table_name ||         ' rr set tx_state = ''A''
         where exists (select 1 from t_acc_usage acc
-                      where rr.id_sess = acc.id_sess)
+                      where rr.id_sess = acc.id_sess and rr.id_interval = acc.id_usage_interval)
         and tx_state = ''I''';
   execute immediate v_query;
   /* set the id_parent_source_sess correctly for the children already */  /* identified by now (successful only)*/

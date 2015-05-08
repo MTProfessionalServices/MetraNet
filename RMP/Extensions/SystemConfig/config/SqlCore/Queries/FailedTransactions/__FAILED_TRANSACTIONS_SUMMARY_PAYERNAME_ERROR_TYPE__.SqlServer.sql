@@ -12,6 +12,10 @@
 		left join VW_HIERARCHYNAME hn on ft.id_PossiblePayerID = hn.id_acc
 		  
 		where 
-		  State in ('N','I', 'C')
+		  State in ('N','I', 'C') and (
+                                   (dt_start_resubmit IS NULL) 
+                                   OR 
+                                   (dt_start_resubmit < CAST (%%DiffTime%% as datetime2))
+                                  ) 
 		group by id_PossiblePayerID, LEFT(tx_ErrorMessage, 8)
 		order by Count desc

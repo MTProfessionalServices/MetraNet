@@ -2,9 +2,16 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>Oracle</Implementation>
+        <Implementation>SqlServer</Implementation>
     </Implementations>
     <Parameters>
+      <Parameter>
+        <Name>DiffTime</Name>
+        <DataType>DateTime</DataType>
+        <ReplacementType>DoublePercent</ReplacementType>
+        <Description></Description>
+      </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

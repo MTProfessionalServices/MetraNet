@@ -21,6 +21,10 @@
 		left join t_account_type at on at.id_type = a.id_type*/
 		where
 		  /*at.b_IsCorporate = 1 and*/
-		  State in ('N','I', 'C')
+		  State in ('N','I', 'C') and  (
+                                    (dt_start_resubmit IS NULL) 
+                                     OR 
+                                    (dt_start_resubmit < CAST (%%DiffTime%% as datetime2))
+                                   ) 
 		group by id_PossiblePayerID
 		order by Count desc

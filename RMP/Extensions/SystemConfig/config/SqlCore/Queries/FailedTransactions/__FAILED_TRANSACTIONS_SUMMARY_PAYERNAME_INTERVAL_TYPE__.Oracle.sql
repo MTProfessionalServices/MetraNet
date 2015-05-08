@@ -16,7 +16,11 @@
          inner join t_usage_cycle_type uct on uc.id_cycle_type = uct.id_cycle_type  
         where
           /*at.b_IsCorporate = 1 and*/
-          State in ('N','I', 'C')
+          State in ('N','I', 'C') and  (
+                                        (dt_start_resubmit IS NULL) 
+                                        OR 
+                                        (dt_start_resubmit < TO_TIMESTAMP (%%DiffTime%%,'MM/dd/yyyy hh24:mi:ss.ff'))
+                                        ) 
         group by id_PossiblePayerID
    union all 
  	      select /*TOP 1000*/ 
@@ -30,7 +34,11 @@
  	          t_failed_transaction ft 
  	        where 
  	          /*at.b_IsCorporate = 1 and*/ 
- 	          State in ('N','I', 'C') 
+ 	          State in ('N','I', 'C') and (
+                                          	(dt_start_resubmit IS NULL) 
+                                          	OR 
+                                          	(dt_start_resubmit < TO_TIMESTAMP (%%DiffTime%%,'MM/dd/yyyy hh24:mi:ss.ff'))
+                                          )
  	           And Id_Possiblepayerid = -1 
  	        group by id_PossiblePayerID 
  	        order by Count DESC     

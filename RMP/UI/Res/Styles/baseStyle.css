@@ -232,6 +232,18 @@ padding:2px;
 padding-left:20px;
 }
 
+.WarningMessage
+{
+font-size: 11px;
+color: Black;
+border: 1px silver solid;
+background-color: #F6F6F6;
+background: #F6F6F6 url(/Res/Images/icons/exclamation_yellow.png) no-repeat 0px;
+background-position: top left;
+padding:2px;
+padding-left:20px;
+}
+
 .ToolTip
 {
 font-size: 10px;

@@ -2,76 +2,66 @@
 <xmlconfig>
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
-    <Adapter>
-      <Name>GenerateAnalyticsDatamart</Name>
-      <DisplayName>Generate and/or Populate Analytics Data Mart</DisplayName>
-      <ClassID>MetraTech.UsageServer.Adapters.AnalyticsDatamartAdapter,MetraTech.UsageServer.Adapters</ClassID>
-      <ConfigFile>GenerateAnalyticsDatamart.xml</ConfigFile>
-      <Description>
-      <![CDATA[
+        <Adapter>
+            <Name>GenerateAnalyticsDatamart</Name>
+            <DisplayName>Generate and/or Populate Analytics Data Mart</DisplayName>
+            <ClassID>MetraTech.UsageServer.Adapters.AnalyticsDatamartAdapter,MetraTech.UsageServer.Adapters</ClassID>
+            <ConfigFile>GenerateAnalyticsDatamart.xml</ConfigFile>
+            <Description><![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-      <LocalizedItems>
-        <item lang="FR">
-          <DisplayName>[FR] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[FR] <![CDATA[
+      ]]></Description>
+            <LocalizedItems>
+                <item lang="FR">
+                    <DisplayName>[FR] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[FR] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-        </item>
-        <item lang="IT">
-          <DisplayName>[IT] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[IT] <![CDATA[
+      ]]></Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[IT] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-        </item>
-        <item lang="ES">
-          <DisplayName>[ES] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[ES] <![CDATA[
+      ]]></Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[ES] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-        </item>
-        <item lang="DE">
-          <DisplayName>[DE] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[DE] <![CDATA[
+      ]]></Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[DE] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-        </item>
-        <item lang="es-MX">
-          <DisplayName>[es-MX] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[es-MX] <![CDATA[
+      ]]></Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[es-MX] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-        </item>
-        <item lang="pt-BR">
-          <DisplayName>[pt-BR] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[pt-BR] <![CDATA[
+      ]]></Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[pt-BR] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-        </item>
-        <item lang="en-GB">
-          <DisplayName>[en-GB] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[en-GB] <![CDATA[
+      ]]></Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[en-GB] <![CDATA[
         Generates and/or populates the Analytics Data Mart
-      ]]>
-      </Description>
-        </item>
-        <item lang="JA">
-          <DisplayName>[JA] Generate and/or Populate Analytics Data Mart</DisplayName>
-          <Description>[JA] </Description>
-        </item>	
-      </LocalizedItems>
-	  <RecurrencePattern>
-		<SystemCycle>Daily</SystemCycle>
-	  </RecurrencePattern>
-    </Adapter>
-
+      ]]></Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Generate and/or Populate Analytics Data Mart</DisplayName>
+                    <Description>[JA] </Description>
+                </item>
+            </LocalizedItems>
+            <RecurrencePattern>
+                <SystemCycle>Daily</SystemCycle>
+            </RecurrencePattern>
+        </Adapter>
         <!--
     <Adapter>
       <Name>MaterializedViewAdapter</Name>
@@ -166,9 +156,9 @@
         that changes the account state to Archived.
         ]]></Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[FR] <![CDATA[
+                <item lang="FR">
+                    <DisplayName>[FR] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[FR] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -181,10 +171,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[IT] <![CDATA[
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[IT] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -197,10 +187,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[ES] <![CDATA[
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[ES] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -213,10 +203,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[DE] <![CDATA[
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[DE] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -229,10 +219,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[es-MX] <![CDATA[
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[es-MX] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -245,10 +235,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[pt-BR] <![CDATA[
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[pt-BR] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -261,10 +251,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[en-GB] <![CDATA[
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[en-GB] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -277,10 +267,10 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Generic Change Account State Adapter (Scheduled)</DisplayName>
-                <Description>[JA] <![CDATA[
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Generic Change Account State Adapter (Scheduled)</DisplayName>
+                    <Description>[JA] <![CDATA[
        	This adapter is responsible for changing states of accounts from 
        	closed to pending final bill and Closed to Archived. The rules are:
         <BR>Closed To Pending Final Bill: 
@@ -293,7 +283,7 @@
         (configurable) after being Closed.  End of period processing detects 
         that changes the account state to Archived.
         ]]></Description>
-              </item>	
+                </item>
             </LocalizedItems>
             <RecurrencePattern>
                 <SystemCycle>Daily</SystemCycle>
@@ -313,62 +303,62 @@
         in which the adapter is run.
       </Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] NonRecurring Charge Adapter</DisplayName>
-                <Description>[FR] MetraTech standard adapter to generate non-recurring charges from
+                <item lang="FR">
+                    <DisplayName>[FR] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[FR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] NonRecurring Charge Adapter</DisplayName>
-                <Description>[IT] MetraTech standard adapter to generate non-recurring charges from
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[IT] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] NonRecurring Charge Adapter</DisplayName>
-                <Description>[ES] MetraTech standard adapter to generate non-recurring charges from
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[ES] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] NonRecurring Charge Adapter</DisplayName>
-                <Description>[DE] MetraTech standard adapter to generate non-recurring charges from
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[DE] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] NonRecurring Charge Adapter</DisplayName>
-                <Description>[es-MX] MetraTech standard adapter to generate non-recurring charges from
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[es-MX] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] NonRecurring Charge Adapter</DisplayName>
-                <Description>[pt-BR] MetraTech standard adapter to generate non-recurring charges from
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[pt-BR] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] NonRecurring Charge Adapter</DisplayName>
-                <Description>[en-GB] MetraTech standard adapter to generate non-recurring charges from
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[en-GB] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] NonRecurring Charge Adapter</DisplayName>
-                <Description>[JA] MetraTech standard adapter to generate non-recurring charges from
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] NonRecurring Charge Adapter</DisplayName>
+                    <Description>[JA] MetraTech standard adapter to generate non-recurring charges from
         the product catalog. This adapter will generate the appropriate subscription
         and unsubscription charges for subscription events that occurred for the period
         in which the adapter is run.</Description>
-              </item>	
+                </item>
             </LocalizedItems>
             <RecurrencePattern>
                 <SystemCycle>Daily</SystemCycle>
@@ -386,77 +376,75 @@
         certain number of days after they have been resubmitted.
       ]]></Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[FR] <![CDATA[
+                <item lang="FR">
+                    <DisplayName>[FR] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[FR] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[IT] <![CDATA[
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[IT] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[ES] <![CDATA[
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[ES] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[DE] <![CDATA[
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[DE] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[es-MX] <![CDATA[
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[es-MX] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[pt-BR] <![CDATA[
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[pt-BR] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[en-GB] <![CDATA[
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[en-GB] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Delete Dismissed Failed Transactions</DisplayName>
-                <Description>[JA] <![CDATA[
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Delete Dismissed Failed Transactions</DisplayName>
+                    <Description>[JA] <![CDATA[
         MetraTech standard adapter to delete failed transactions a certain number of days after they have
         been marked as dismissed. This adapter will also delete successfully resubmitted transactions a
         certain number of days after they have been resubmitted.
       ]]></Description>
-              </item>	
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <SystemCycle>Daily</SystemCycle>
             </RecurrencePattern>
         </Adapter>
-        
         <Adapter>
             <Name>PipelineFailoverAdapter</Name>
             <DisplayName>Pipeline Failover Adapter</DisplayName>
@@ -465,138 +453,137 @@
             <ActivationDate>10/1/2002 00:00:00</ActivationDate>
             <Description>Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Pipeline Failover Adapter</DisplayName>
-                <Description>[FR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Pipeline Failover Adapter</DisplayName>
-                <Description>[IT] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Pipeline Failover Adapter</DisplayName>
-                <Description>[ES] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Pipeline Failover Adapter</DisplayName>
-                <Description>[DE] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Pipeline Failover Adapter</DisplayName>
-                <Description>[es-MX] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Pipeline Failover Adapter</DisplayName>
-                <Description>[pt-BR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Pipeline Failover Adapter</DisplayName>
-                <Description>[en-GB] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Pipeline Failover Adapter</DisplayName>
-                <Description>[JA] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Pipeline Failover Adapter</DisplayName>
+                    <Description>[FR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Pipeline Failover Adapter</DisplayName>
+                    <Description>[IT] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Pipeline Failover Adapter</DisplayName>
+                    <Description>[ES] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Pipeline Failover Adapter</DisplayName>
+                    <Description>[DE] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Pipeline Failover Adapter</DisplayName>
+                    <Description>[es-MX] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Pipeline Failover Adapter</DisplayName>
+                    <Description>[pt-BR] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Pipeline Failover Adapter</DisplayName>
+                    <Description>[en-GB] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Pipeline Failover Adapter</DisplayName>
+                    <Description>[JA] Resubmits failed transactions that failed due to db cluster failover, network error or other rerunable database error.</Description>
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <IntervalInMinutes>60</IntervalInMinutes>
             </RecurrencePattern>
         </Adapter>
-		<Adapter>
-			<Name>CleanupAdapter</Name>
-			<DisplayName>Failed Payment Cleanup Adapter </DisplayName>
-			<ClassID>MetraTech.UsageServer.Adapters.CleanupFailedTransactionsAdapter,MetraTech.UsageServer.Adapters</ClassID>
-			<ConfigFile>CleanupAdapter.xml</ConfigFile>
-			<ActivationDate>10/1/2002 00:00:00</ActivationDate>
-			<Description>Cleanup and void failed transactions.</Description>
-      <LocalizedItems>
-        <item lang="FR">
-          <DisplayName>[FR] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[FR] Cleanup and void failed transactions.</Description>
-        </item>
-        <item lang="IT">
-          <DisplayName>[IT] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[IT] Cleanup and void failed transactions.</Description>
-        </item>
-        <item lang="ES">
-          <DisplayName>[ES] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[ES] Cleanup and void failed transactions.</Description>
-        </item>
-        <item lang="DE">
-          <DisplayName>[DE] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[DE] Cleanup and void failed transactions.</Description>
-        </item>
-        <item lang="es-MX">
-          <DisplayName>[es-MX] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[es-MX] Cleanup and void failed transactions.</Description>
-        </item>
-        <item lang="pt-BR">
-          <DisplayName>[pt-BR] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[pt-BR] Cleanup and void failed transactions.</Description>
-        </item>
-        <item lang="en-GB">
-          <DisplayName>[en-GB] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[en-GB] Cleanup and void failed transactions.</Description>
-        </item>
-        <item lang="JA">
-          <DisplayName>[JA] Failed Payment Cleanup Adapter </DisplayName>
-          <Description>[JA] Cleanup and void failed transactions.</Description>
-        </item>	
-      </LocalizedItems>
-			<RecurrencePattern>
-				<IntervalInMinutes>60</IntervalInMinutes>
-			</RecurrencePattern>
-		</Adapter>
-		<Adapter>
-      <Name>GenerateNotificationEventsAdapter</Name>
-      <DisplayName>Generate Notification Events Adapter</DisplayName>
-      <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
-      <ConfigFile>GenerateNotificationEventsAdapter.xml</ConfigFile>
-      <Description>Generate notification events.</Description>
-      <LocalizedItems>
-        <item lang="FR">
-          <DisplayName>[FR] Generate Notification Events Adapter</DisplayName>
-          <Description>[FR] Generate notification events.</Description>
-        </item>
-        <item lang="IT">
-          <DisplayName>[IT] Generate Notification Events Adapter</DisplayName>
-          <Description>[IT] Generate notification events.</Description>
-        </item>
-        <item lang="ES">
-          <DisplayName>[ES] Generate Notification Events Adapter</DisplayName>
-          <Description>[ES] Generate notification events.</Description>
-        </item>
-        <item lang="DE">
-          <DisplayName>[DE] Generate Notification Events Adapter</DisplayName>
-          <Description>[DE] Generate notification events.</Description>
-        </item>
-        <item lang="es-MX">
-          <DisplayName>[es-MX] Generate Notification Events Adapter</DisplayName>
-          <Description>[es-MX] Generate notification events.</Description>
-        </item>
-        <item lang="pt-BR">
-          <DisplayName>[pt-BR] Generate Notification Events Adapter</DisplayName>
-          <Description>[pt-BR] Generate notification events.</Description>
-        </item>
-        <item lang="en-GB">
-          <DisplayName>[en-GB] Generate Notification Events Adapter</DisplayName>
-          <Description>[en-GB] Generate notification events.</Description>
-        </item>
-        <item lang="JA">
-          <DisplayName>[JA] Generate Notification Events Adapter</DisplayName>
-          <Description>[JA] Generate notification events.</Description>
-        </item>	
-      </LocalizedItems>
-      <RecurrencePattern>
-        <Daily>
-          <Start>1/1/2010 12:00:00 AM</Start>
-          <Interval>1</Interval>
-          <Times>5:00 AM</Times>
-        </Daily>
-      </RecurrencePattern>
-    </Adapter>
-    <!-- <Adapter>
+        <Adapter>
+            <Name>CleanupAdapter</Name>
+            <DisplayName>Failed Payment Cleanup Adapter </DisplayName>
+            <ClassID>MetraTech.UsageServer.Adapters.CleanupFailedTransactionsAdapter,MetraTech.UsageServer.Adapters</ClassID>
+            <ConfigFile>CleanupAdapter.xml</ConfigFile>
+            <ActivationDate>10/1/2002 00:00:00</ActivationDate>
+            <Description>Cleanup and void failed transactions.</Description>
+            <LocalizedItems>
+                <item lang="FR">
+                    <DisplayName>[FR] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[FR] Cleanup and void failed transactions.</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[IT] Cleanup and void failed transactions.</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[ES] Cleanup and void failed transactions.</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[DE] Cleanup and void failed transactions.</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[es-MX] Cleanup and void failed transactions.</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[pt-BR] Cleanup and void failed transactions.</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[en-GB] Cleanup and void failed transactions.</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Failed Payment Cleanup Adapter </DisplayName>
+                    <Description>[JA] Cleanup and void failed transactions.</Description>
+                </item>
+            </LocalizedItems>
+            <RecurrencePattern>
+                <IntervalInMinutes>60</IntervalInMinutes>
+            </RecurrencePattern>
+        </Adapter>
+        <Adapter>
+            <Name>GenerateNotificationEventsAdapter</Name>
+            <DisplayName>Generate Notification Events Adapter</DisplayName>
+            <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
+            <ConfigFile>GenerateNotificationEventsAdapter.xml</ConfigFile>
+            <Description>Generate notification events.</Description>
+            <LocalizedItems>
+                <item lang="FR">
+                    <DisplayName>[FR] Generate Notification Events Adapter</DisplayName>
+                    <Description>[FR] Generate notification events.</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Generate Notification Events Adapter</DisplayName>
+                    <Description>[IT] Generate notification events.</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Generate Notification Events Adapter</DisplayName>
+                    <Description>[ES] Generate notification events.</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Generate Notification Events Adapter</DisplayName>
+                    <Description>[DE] Generate notification events.</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Generate Notification Events Adapter</DisplayName>
+                    <Description>[es-MX] Generate notification events.</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Generate Notification Events Adapter</DisplayName>
+                    <Description>[pt-BR] Generate notification events.</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Generate Notification Events Adapter</DisplayName>
+                    <Description>[en-GB] Generate notification events.</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Generate Notification Events Adapter</DisplayName>
+                    <Description>[JA] Generate notification events.</Description>
+                </item>
+            </LocalizedItems>
+            <RecurrencePattern>
+                <Daily>
+                    <Start>1/1/2010 12:00:00 AM</Start>
+                    <Interval>1</Interval>
+                    <Times>5:00 AM</Times>
+                </Daily>
+            </RecurrencePattern>
+        </Adapter>
+        <!-- <Adapter>
       <Name>CleanupNotificationEventsAdapter</Name>
       <DisplayName>Cleanup Notification Events Adapter</DisplayName>
       <ClassID>MetraTech.UsageServer.Adapters.GenerateNotificationEventsAdapter</ClassID>
@@ -613,53 +600,55 @@
     </Adapter> -->
     </ScheduledAdapters>
     <EndOfPeriodAdapters>
-       <Adapter>
+        <Adapter>
             <Name>DeletePendingNonStandardChargesAdapter</Name>
             <DisplayName>Delete Pending NonStandard Charges Adapter</DisplayName>
             <ClassID>MetraTech.UsageServer.Adapters.DeletePendingNonStandardChargesAdapter,MetraTech.UsageServer.Adapters</ClassID>
             <ConfigFile>DeletePendingNonStandardChargesAdapter.xml</ConfigFile>
             <Description>MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[FR] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[IT] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[ES] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[DE] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[es-MX] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[pt-BR] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[en-GB] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Delete Pending NonStandard Charges Adapter</DisplayName>
-                <Description>[JA] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[FR] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[IT] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[ES] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[DE] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[es-MX] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[pt-BR] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[en-GB] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Delete Pending NonStandard Charges Adapter</DisplayName>
+                    <Description>[JA] MetraTech standard adapter deleting unmanaged pending non standard charges</Description>
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
+            <Dependencies>
+                <DependsOnMe>Invoices</DependsOnMe>
+            </Dependencies>
         </Adapter>
         <!-- Product Catalog Recurring Charges -->
-      <Adapter>
+        <Adapter>
             <Name>RecurringCharges</Name>
             <DisplayName>Recurring Charge Adapter</DisplayName>
             <ClassID>MetraTech.UsageServer.Adapters.StatefulRecurringChargeAdapter</ClassID>
@@ -669,54 +658,54 @@
               product catalog for this interval.
             </Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Recurring Charge Adapter</DisplayName>
-                <Description>[FR] MetraTech standard adapter to generate recurring charges from the
+                <item lang="FR">
+                    <DisplayName>[FR] Recurring Charge Adapter</DisplayName>
+                    <Description>[FR] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Recurring Charge Adapter</DisplayName>
-                <Description>[IT] MetraTech standard adapter to generate recurring charges from the
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Recurring Charge Adapter</DisplayName>
+                    <Description>[IT] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Recurring Charge Adapter</DisplayName>
-                <Description>[ES] MetraTech standard adapter to generate recurring charges from the
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Recurring Charge Adapter</DisplayName>
+                    <Description>[ES] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Recurring Charge Adapter</DisplayName>
-                <Description>[DE] MetraTech standard adapter to generate recurring charges from the
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Recurring Charge Adapter</DisplayName>
+                    <Description>[DE] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Recurring Charge Adapter</DisplayName>
-                <Description>[es-MX] MetraTech standard adapter to generate recurring charges from the
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Recurring Charge Adapter</DisplayName>
+                    <Description>[es-MX] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Recurring Charge Adapter</DisplayName>
-                <Description>[pt-BR] MetraTech standard adapter to generate recurring charges from the
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Recurring Charge Adapter</DisplayName>
+                    <Description>[pt-BR] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Recurring Charge Adapter</DisplayName>
-                <Description>[en-GB] MetraTech standard adapter to generate recurring charges from the
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Recurring Charge Adapter</DisplayName>
+                    <Description>[en-GB] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Recurring Charge Adapter</DisplayName>
-                <Description>[JA] MetraTech standard adapter to generate recurring charges from the
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Recurring Charge Adapter</DisplayName>
+                    <Description>[JA] MetraTech standard adapter to generate recurring charges from the
               product catalog for this interval.</Description>
-              </item>	
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
+            <Dependencies>
+                <DependsOnMe>Invoices</DependsOnMe>
+            </Dependencies>
         </Adapter>
-
-
         <!-- Product Catalog Aggregate Charges -->
         <!-- <Adapter>
             <Name>AggregateCharges</Name>
@@ -802,7 +791,7 @@
             <Dependencies>
                 <DependsOn>RecurringCharges</DependsOn>
             </Dependencies>
-        </Adapter> -->       
+        </Adapter> -->
         <!-- PayerChange -->
         <Adapter>
             <Name>PayerChange</Name>
@@ -811,40 +800,39 @@
             <ConfigFile>PayerChangeAdapter.xml</ConfigFile>
             <Description>Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Payer Change Adapter</DisplayName>
-                <Description>[FR] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Payer Change Adapter</DisplayName>
-                <Description>[IT] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Payer Change Adapter</DisplayName>
-                <Description>[ES] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Payer Change Adapter</DisplayName>
-                <Description>[DE] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Payer Change Adapter</DisplayName>
-                <Description>[es-MX] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Payer Change Adapter</DisplayName>
-                <Description>[pt-BR] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Payer Change Adapter</DisplayName>
-                <Description>[en-GB] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Payer Change Adapter</DisplayName>
-                <Description>[JA] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Payer Change Adapter</DisplayName>
+                    <Description>[FR] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Payer Change Adapter</DisplayName>
+                    <Description>[IT] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Payer Change Adapter</DisplayName>
+                    <Description>[ES] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Payer Change Adapter</DisplayName>
+                    <Description>[DE] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Payer Change Adapter</DisplayName>
+                    <Description>[es-MX] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Payer Change Adapter</DisplayName>
+                    <Description>[pt-BR] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Payer Change Adapter</DisplayName>
+                    <Description>[en-GB] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Payer Change Adapter</DisplayName>
+                    <Description>[JA] Move balances and unbilled charges for non-billable accounts to their payer. If AR is enabled the balances will be moved in AR as well.</Description>
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -864,40 +852,39 @@
             </Dependencies>
             <Description>This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Phase 1 Checkpoint</DisplayName>
-                <Description>[FR] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Phase 1 Checkpoint</DisplayName>
-                <Description>[IT] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Phase 1 Checkpoint</DisplayName>
-                <Description>[ES] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Phase 1 Checkpoint</DisplayName>
-                <Description>[DE] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Phase 1 Checkpoint</DisplayName>
-                <Description>[es-MX] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Phase 1 Checkpoint</DisplayName>
-                <Description>[pt-BR] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Phase 1 Checkpoint</DisplayName>
-                <Description>[en-GB] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Phase 1 Checkpoint</DisplayName>
-                <Description>[JA] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Phase 1 Checkpoint</DisplayName>
+                    <Description>[FR] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Phase 1 Checkpoint</DisplayName>
+                    <Description>[IT] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Phase 1 Checkpoint</DisplayName>
+                    <Description>[ES] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Phase 1 Checkpoint</DisplayName>
+                    <Description>[DE] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Phase 1 Checkpoint</DisplayName>
+                    <Description>[es-MX] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Phase 1 Checkpoint</DisplayName>
+                    <Description>[pt-BR] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Phase 1 Checkpoint</DisplayName>
+                    <Description>[en-GB] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Phase 1 Checkpoint</DisplayName>
+                    <Description>[JA] This is a example checkpoint in the End Of Period processing. Processing will stop at this point until the checkpoint is manually completed. Currently this allows verfication of the processing of usage that has happened before invoices are generated.</Description>
+                </item>
             </LocalizedItems>
-
         </Checkpoint>
         <!-- Materialized Views EOP adapter
 	<Adapter>
@@ -983,40 +970,39 @@
             <ConfigFile>CreateInvoices.xml</ConfigFile>
             <Description>MetraTech standard adapter for generating invoices.</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Invoice Adapter</DisplayName>
-                <Description>[FR] MetraTech standard adapter for generating invoices.</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Invoice Adapter</DisplayName>
-                <Description>[IT] MetraTech standard adapter for generating invoices.</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Invoice Adapter</DisplayName>
-                <Description>[ES] MetraTech standard adapter for generating invoices.</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Invoice Adapter</DisplayName>
-                <Description>[DE] MetraTech standard adapter for generating invoices.</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Invoice Adapter</DisplayName>
-                <Description>[es-MX] MetraTech standard adapter for generating invoices.</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Invoice Adapter</DisplayName>
-                <Description>[pt-BR] MetraTech standard adapter for generating invoices.</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Invoice Adapter</DisplayName>
-                <Description>[en-GB] MetraTech standard adapter for generating invoices.</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Invoice Adapter</DisplayName>
-                <Description>[JA] MetraTech standard adapter for generating invoices.</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Invoice Adapter</DisplayName>
+                    <Description>[FR] MetraTech standard adapter for generating invoices.</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Invoice Adapter</DisplayName>
+                    <Description>[IT] MetraTech standard adapter for generating invoices.</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Invoice Adapter</DisplayName>
+                    <Description>[ES] MetraTech standard adapter for generating invoices.</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Invoice Adapter</DisplayName>
+                    <Description>[DE] MetraTech standard adapter for generating invoices.</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Invoice Adapter</DisplayName>
+                    <Description>[es-MX] MetraTech standard adapter for generating invoices.</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Invoice Adapter</DisplayName>
+                    <Description>[pt-BR] MetraTech standard adapter for generating invoices.</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Invoice Adapter</DisplayName>
+                    <Description>[en-GB] MetraTech standard adapter for generating invoices.</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Invoice Adapter</DisplayName>
+                    <Description>[JA] MetraTech standard adapter for generating invoices.</Description>
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -1034,40 +1020,39 @@
             <ConfigFile>EmailAdapterConfig.xml</ConfigFile>
             <Description>Adapter to send emails</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Email Adapter</DisplayName>
-                <Description>[FR] Adapter to send emails</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Email Adapter</DisplayName>
-                <Description>[IT] Adapter to send emails</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Email Adapter</DisplayName>
-                <Description>[ES] Adapter to send emails</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Email Adapter</DisplayName>
-                <Description>[DE] Adapter to send emails</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Email Adapter</DisplayName>
-                <Description>[es-MX] Adapter to send emails</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Email Adapter</DisplayName>
-                <Description>[pt-BR] Adapter to send emails</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Email Adapter</DisplayName>
-                <Description>[en-GB] Adapter to send emails</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Email Adapter</DisplayName>
-                <Description>[JA] Adapter to send emails</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Email Adapter</DisplayName>
+                    <Description>[FR] Adapter to send emails</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Email Adapter</DisplayName>
+                    <Description>[IT] Adapter to send emails</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Email Adapter</DisplayName>
+                    <Description>[ES] Adapter to send emails</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Email Adapter</DisplayName>
+                    <Description>[DE] Adapter to send emails</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Email Adapter</DisplayName>
+                    <Description>[es-MX] Adapter to send emails</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Email Adapter</DisplayName>
+                    <Description>[pt-BR] Adapter to send emails</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Email Adapter</DisplayName>
+                    <Description>[en-GB] Adapter to send emails</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Email Adapter</DisplayName>
+                    <Description>[JA] Adapter to send emails</Description>
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -1090,9 +1075,9 @@
         that specific interval.
         ]]></Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[FR] <![CDATA[
+                <item lang="FR">
+                    <DisplayName>[FR] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[FR] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1100,10 +1085,10 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[IT] <![CDATA[
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[IT] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1111,10 +1096,10 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[ES] <![CDATA[
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[ES] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1122,10 +1107,10 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[DE] <![CDATA[
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[DE] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1133,10 +1118,10 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[es-MX] <![CDATA[
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[es-MX] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1144,10 +1129,10 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[pt-BR] <![CDATA[
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[pt-BR] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1155,10 +1140,10 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[en-GB] <![CDATA[
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[en-GB] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1166,10 +1151,10 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Generic Change Account State Adapter (End-of-period)</DisplayName>
-                <Description>[JA] <![CDATA[
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Generic Change Account State Adapter (End-of-period)</DisplayName>
+                    <Description>[JA] <![CDATA[
        	This adapter is also responsible for changing states of accounts from 
        	pending final bill to closed. The rules are:
         <BR>Pending Final Bill To Closed: 
@@ -1177,9 +1162,8 @@
         adapter. The transition happens when the hard closed has reached on
         that specific interval.
         ]]></Description>
-              </item>	
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
@@ -1194,43 +1178,45 @@
             <ConfigFile>DeleteAdjustments.xml</ConfigFile>
             <Description>MetraTech standard adapter deleting pending adjustments</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[FR] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[IT] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[ES] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[DE] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[es-MX] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[pt-BR] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[en-GB] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Delete Pending Adjustments Adapter</DisplayName>
-                <Description>[JA] MetraTech standard adapter deleting pending adjustments</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[FR] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[IT] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[ES] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[DE] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[es-MX] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[pt-BR] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[en-GB] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Delete Pending Adjustments Adapter</DisplayName>
+                    <Description>[JA] MetraTech standard adapter deleting pending adjustments</Description>
+                </item>
             </LocalizedItems>
-
             <RecurrencePattern>
                 <UsageCycleType>All</UsageCycleType>
             </RecurrencePattern>
+            <Dependencies>
+                <DependsOnMe>Invoices</DependsOnMe>
+            </Dependencies>
         </Adapter>
         <Checkpoint>
             <Name>HardCloseCheckpoint</Name>
@@ -1243,38 +1229,38 @@
             </Dependencies>
             <Description>This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
             <LocalizedItems>
-              <item lang="FR">
-                <DisplayName>[FR] Hard Close Checkpoint</DisplayName>
-                <Description>[FR] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>
-              <item lang="IT">
-                <DisplayName>[IT] Hard Close Checkpoint</DisplayName>
-                <Description>[IT] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>
-              <item lang="ES">
-                <DisplayName>[ES] Hard Close Checkpoint</DisplayName>
-                <Description>[ES] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>
-              <item lang="DE">
-                <DisplayName>[DE] Hard Close Checkpoint</DisplayName>
-                <Description>[DE] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>
-              <item lang="es-MX">
-                <DisplayName>[es-MX] Hard Close Checkpoint</DisplayName>
-                <Description>[es-MX] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>
-              <item lang="pt-BR">
-                <DisplayName>[pt-BR] Hard Close Checkpoint</DisplayName>
-                <Description>[pt-BR] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>
-              <item lang="en-GB">
-                <DisplayName>[en-GB] Hard Close Checkpoint</DisplayName>
-                <Description>[en-GB] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>
-              <item lang="JA">
-                <DisplayName>[JA] Hard Close Checkpoint</DisplayName>
-                <Description>[JA] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
-              </item>	
+                <item lang="FR">
+                    <DisplayName>[FR] Hard Close Checkpoint</DisplayName>
+                    <Description>[FR] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
+                <item lang="IT">
+                    <DisplayName>[IT] Hard Close Checkpoint</DisplayName>
+                    <Description>[IT] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
+                <item lang="ES">
+                    <DisplayName>[ES] Hard Close Checkpoint</DisplayName>
+                    <Description>[ES] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
+                <item lang="DE">
+                    <DisplayName>[DE] Hard Close Checkpoint</DisplayName>
+                    <Description>[DE] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
+                <item lang="es-MX">
+                    <DisplayName>[es-MX] Hard Close Checkpoint</DisplayName>
+                    <Description>[es-MX] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
+                <item lang="pt-BR">
+                    <DisplayName>[pt-BR] Hard Close Checkpoint</DisplayName>
+                    <Description>[pt-BR] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
+                <item lang="en-GB">
+                    <DisplayName>[en-GB] Hard Close Checkpoint</DisplayName>
+                    <Description>[en-GB] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
+                <item lang="JA">
+                    <DisplayName>[JA] Hard Close Checkpoint</DisplayName>
+                    <Description>[JA] This is a final manual checkpoint before the interval is hard closed. Processing of the interval can be verified before it is closed. If this checkpoint is removed, the interval will automatically be 'hard closed' after successful processing of the interval.</Description>
+                </item>
             </LocalizedItems>
         </Checkpoint>
     </EndOfPeriodAdapters>

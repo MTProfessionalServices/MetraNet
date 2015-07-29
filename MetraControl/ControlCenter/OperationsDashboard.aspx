@@ -465,7 +465,6 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
         makePendingBillClosePart();
         makeBillCloseSynopsisPart();
         makePricingEnginePart();
-        //assignToolTips();
 
     });
       function assignToolTips(){
@@ -477,6 +476,14 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
 
         d3.select("#divPricingBacklog").selectAll("circle").on("mouseover",function(d){onMouseOver(d, this);});
         d3.select("#divPricingBacklog").selectAll("circle").on("mouseout", function(d){onMouseOut(d, this);});
+
+
+        d3.select("#divBillCloseSynopsis").selectAll("rect").on("mouseover",function(d){onMouseOver(d, this);});
+        d3.select("#divBillCloseSynopsis").selectAll("rect").on("mouseout", function(d){onMouseOut(d, this);});
+
+        d3.select("#div30DayAging").selectAll("rect").on("mouseover",function(d){onMouseOver(d, this);});
+        d3.select("#div30DayAging").selectAll("rect").on("mouseout", function(d){onMouseOut(d, this);});
+        
       }
     function makePendingBillClosePart() {
     }
@@ -513,8 +520,18 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                     .dimension(dateDimension)
 					          .group(openGroup, "<%=OpenWord%>")
                     .stack(uiGroup, "<%=UnderInvestigationWord%>")
-                    .title("<%=OpenWord%>", function(d){ return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=OpenWord%>";})
-                    .title("<%=UnderInvestigationWord%>", function(d){ return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=UnderInvestigationWord%>";})
+                    .title("<%=OpenWord%>", function(d){ 
+                      var layer = removeSpaceAndStuff("<%=OpenWord%>");
+                      d.layer = layer;
+                      setTooltips(d, FailedTransactionHTML,{word1: " <%=DaysBackText%>", word2 :  " <%=OpenWord%>" });
+                      // return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=OpenWord%>";
+                    })
+                    .title("<%=UnderInvestigationWord%>", function(d){ 
+                      var layer =  removeSpaceAndStuff("<%=UnderInvestigationWord%>");
+                      d.layer = layer;
+                      setTooltips(d, FailedTransactionHTML,{word1: " <%=DaysBackText%>", word2 :   " <%=UnderInvestigationWord%>"});
+                      //return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=UnderInvestigationWord%>";
+                    })
 					          .renderlet(function (_chart) {
 						          function setStyle(selection, keyName) {
 						            if (keyName == "layer") {
@@ -546,7 +563,8 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
             chart.yAxis().tickSize(0,0).tickFormat("");
             chart.render();
 						
-			      dc.renderAll("30DayAging");
+            dc.renderAll("30DayAging");
+            assignToolTips();
 			  }
 			});
 
@@ -656,7 +674,7 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
   
                                 .title(function(d){
-                                  setTooltips(d, getBillingsChartTooltipHtml,{word :" <%=UDRsWord%>"});
+                                  setTooltips(d, getBillingsChartTooltipHTML,{word :" <%=UDRsWord%>"});
                                   return "";
                                   //  return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=UDRsWord%>";
                                 })
@@ -667,7 +685,7 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
                                 .colors('#148622')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
                                 .title(function(d){
-                                  setTooltips(d, getBillingsChartTooltipHtml,{word: " <%=BatchesWord%>"});
+                                  setTooltips(d, getBillingsChartTooltipHTML,{word: " <%=BatchesWord%>"});
                                   return "";
                                  // return d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + FormatNumber(d.value) + " <%=BatchesWord%>";
                                 })
@@ -715,10 +733,12 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
     }
         function setTooltips(d, htmlFormatFunction, args) {
           // tooltips
+          if(d.layer == undefined)
+            d.layer = "";
           var body = d3.select("body");
           var tmp = body.append("div")
           .attr("class", "d3-tip e")
-          .attr("id", "_" + removeSpaceAndStuff(d.key) + "_" + d.value)
+          .attr("id", d.layer + "_" +  removeSpaceAndStuff(d.key) + "_" + d.value)
           //.style("top","\""+x(d.x_axis)+"\"")
           //.style("left","\""+y(d.y_axis)+"\"")
           .style("position", "absolute")
@@ -729,8 +749,8 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
           tmp.append("div").html(htmlFormatFunction(d, args));
 //          tmp.append("div")
   //        .html(htmlFormatFunction(d));
-          }
-        function getBillingsChartTooltipHtml(d, args) {
+        }
+        function getBillingsChartTooltipHTML(d, args) {
           var options = { weekday: 'long', month: 'long', day: 'numeric', localeMatcher: 'lookup'};
           //if (d.data == null) return null;
           //var currentItem = getDataItem(JSONData, d.data.key, currentCurrency);
@@ -738,11 +758,21 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
           var html = d.key.toLocaleString(CURRENT_LOCALE, options) + ": " + d.value +  args.word;
           return html;
         }
+
+        function BillCloseSynopsisHTML(d, args) {
+          var html = d.key + " : " + d.value;
+          return html;
+        }
       function PricingEngineHTML(d, args){
         var html = FormatNumber(d.value) + ": " + args.word;
         return html;
-
       }
+
+      function FailedTransactionHTML(d, args){
+        var html = d.key + " "+ args.word1 + ": " + numberFormat(d.value) +  args.word2;
+        return html;
+      }
+
       function removeSpaceAndStuff(str){
         str = str.toString().replace(/\s/g, "_");
         str = str.toString().replace(/\//g, "_");
@@ -752,23 +782,21 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
         str = str.toString().replace(/:/g, "_");
         return str;
       }
-
       function onMouseOver(d, element){
         var scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
         scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
-        d3.select("#_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style("opacity", "1").style("pointer-events", "all");
-        d3.select("#_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style(
+        d3.select("#"+d.data.layer+ "_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style("opacity", "1").style("pointer-events", "all");
+        d3.select("#"+d.data.layer+ "_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style(
         {top: (d3.event.pageY) + scrollTop - 40+ 'px',
           left: (d3.event.pageX) +  scrollLeft + 10+'px'});
-        d3.select(element.parentElement).selectAll("path").style("opacity", "1");
+          d3.select(element.parentElement).selectAll("path").style("opacity", "1");
       }
       function onMouseOut(d, element){
-        
+        if(element.nodeName == "circle")  
         d3.select(element).attr("r", "3").style("fill-opacity", "0.3")
-          .style("stroke-opacity", "0.6");
-        d3.select(element.parentElement).selectAll("path").style("opacity", "0");
-        d3.select("#_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style("opacity", "0").style("pointer-events", "none");
-
+            .style("stroke-opacity", "0.6");
+          d3.select(element.parentElement).selectAll("path").style("opacity", "0");
+          d3.select("#"+d.data.layer+ "_"+ removeSpaceAndStuff(d.x) + "_" + d.y).style("opacity", "0").style("pointer-events", "none");
       }
 
     function makeActiveBillRunsPart() {
@@ -1062,7 +1090,10 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
               .centerBar(false)
               .brushOn(false)
 			        .renderHorizontalGridLines(true)
-              .title(function(d){ return LocalizeTickText(d.key) + ": " + FormatNumber(d.value);} )
+              .title(function(d){ 
+                setTooltips(d, BillCloseSynopsisHTML, {})
+                //return LocalizeTickText(d.key) + ": " + FormatNumber(d.value);
+              } )
               .renderlet(function(chartRen) {
                           var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
                                             .range(['deepskyblue','#0070C0','#148622','#FFC000']);
@@ -1175,7 +1206,7 @@ AdapterStatusRenderer = function(value, meta, record, rowIndex, colIndex, store)
      var localizedTypeText = '';
      if (text == 'M5')
        localizedTypeText = '<%=TypeM5Text%>';
-     else if (text == 'M12')
+f     else if (text == 'M12')
        localizedTypeText = '<%=TypeM12Text%>';
      else if (text == 'M19')
        localizedTypeText = '<%=TypeM19Text%>';
